@@ -1,8 +1,10 @@
 Install:
 
 sudo apt-get install pip
+sudo apt-get install sqlite3
 
 pip install https://github.com/mitsuhiko/flask/tarball/master
+
 then see below, the flask cmd should be run inside the git project
 
                          / Flaskr /
@@ -12,7 +14,7 @@ then see below, the flask cmd should be run inside the git project
 
     ~ What is Flaskr?
 
-      A sqlite powered thumble blog application
+      A sqlite powered flask application
 
     ~ How do I use it?
 
