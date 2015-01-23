@@ -1,6 +1,13 @@
+Install:
+
+sudo apt-get install pip
+
+pip install https://github.com/mitsuhiko/flask/tarball/master
+then see below, the flask cmd should be run inside the git project
+
                          / Flaskr /
 
-                 a minimal blog application
+                 a minimal application
 
 
     ~ What is Flaskr?
@@ -28,4 +35,4 @@
 
       You betcha.  Run the `test_flaskr.py` file to see
       the tests pass.
-
+    ~ default username: admin pass: default
