@@ -5,9 +5,10 @@ Foobar
 
 import os
 from sqlite3 import dbapi2 as sqlite3
-from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
+import markdown
 
+from flask import Flask, request, session, g, redirect, url_for, abort, \
+     render_template, flash, Markup
 
 # create our little application :)
 app = Flask(__name__)
@@ -53,6 +54,24 @@ def get_db():
         g.sqlite_db = connect_db()
     return g.sqlite_db
 
+def get_filepaths(directory):
+    """
+    This function will generate the file names in a directory 
+    tree by walking the tree either top-down or bottom-up. For each 
+    directory in the tree rooted at directory top (including top itself), 
+    it yields a 3-tuple (dirpath, dirnames, filenames).
+    """
+    file_paths = []  # List which will store all of the full filepaths.
+
+    # Walk the tree.
+    for root, directories, files in os.walk(directory):
+        for filename in files:
+            # Join the two strings in order to form the full filepath.
+            filepath = os.path.join(root, filename)
+            file_paths.append(filepath)  # Add it to the list.
+
+    return file_paths  # Self-explanatory.
+
 
 @app.teardown_appcontext
 def close_db(error):
@@ -72,9 +91,25 @@ def dashboard():
 
 @app.route('/knowledge-base', methods=['GET'])
 def knowledge_base():
+    """Shows the knowledge base markdown files."""
     if not session.get('logged_in'):
         abort(401)
-    return render_template('knowledge-base.html')
+    full_file_paths = []
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
+    print full_file_paths
+
+    for path in full_file_paths:
+        print path
+        content_items = {}
+        markdown_content = {}
+        i = 0
+        with open(path, 'r') as content_file:
+            content_items[i] = content_file.read()
+            print content_items[i]
+            print markdown_content
+            i += 1
+        final_content = Markup(markdown.markdown(markdown_content)) 
+    return render_template('knowledge-base.html', **locals())
 
 @app.route('/projects', methods=['GET'])
 def projects():
