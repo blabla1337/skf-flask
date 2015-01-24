@@ -1,11 +1,8 @@
-Chapter
-=======
-
-Section
+XSRF Title
 -------
 
-* Item XSS
-* Item XSS
+* Item 1
+* Item 2
 
 ```python
 s = "Python syntax highlighting"

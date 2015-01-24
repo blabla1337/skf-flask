@@ -72,6 +72,8 @@ def get_filepaths(directory):
 
     return file_paths  # Self-explanatory.
 
+def get_num(x):
+    return int(''.join(ele for ele in x if ele.isdigit()))
 
 @app.teardown_appcontext
 def close_db(error):
@@ -89,27 +91,43 @@ def dashboard():
         abort(401)
     return render_template('dashboard.html')
 
+@app.route('/kb-item', methods=['POST'])
+def show_kb_item():
+    if not session.get('logged_in'):
+        abort(401)
+    
+    id = int(request.form['id'])
+    items = []
+    full_file_paths = []
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
+
+    for path in full_file_paths:
+        if id == get_num(path):
+	    filemd = open(path, 'r').read()
+            content = Markup(markdown.markdown(filemd)) 
+
+    return render_template('knowledge-base-item.html', **locals())
+
 @app.route('/knowledge-base', methods=['GET'])
 def knowledge_base():
     """Shows the knowledge base markdown files."""
     if not session.get('logged_in'):
         abort(401)
+    items = []
+    id_items = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
-    print full_file_paths
 
     for path in full_file_paths:
-        print path
-        content_items = {}
-        markdown_content = {}
-        i = 0
-        with open(path, 'r') as content_file:
-            content_items[i] = content_file.read()
-            print content_items[i]
-            print markdown_content
-            i += 1
-        final_content = Markup(markdown.markdown(markdown_content)) 
-    return render_template('knowledge-base.html', **locals())
+        id_item = get_num(path)
+        path = path.split("-")
+	y = len(path)-3 
+	kb_name_uri = path[(y)]
+        kb_name = kb_name_uri.replace("_", " ")
+        items.append(kb_name)
+	id_items.append(id_item)
+        
+    return render_template('knowledge-base.html', items=items, id_items=id_items)
 
 @app.route('/projects', methods=['GET'])
 def projects():
