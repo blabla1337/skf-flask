@@ -3,15 +3,14 @@
 -- 
 drop table if exists `parameters`;
 CREATE TABLE `parameters` (
-`paramID` int(11) NOT NULL AUTO_INCREMENT,
+`paramID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `functionName` varchar(250) NOT NULL,
 `tech` int(11) NOT NULL,
 `projectID` int(11) NOT NULL,
 `userID` int(11) NOT NULL,
-`functionDesc` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+`functionDesc` text CHARACTER NOT NULL,
 `techVuln` int(11) NOT NULL,
-`entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-PRIMARY KEY (`paramID`)
+`entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 
@@ -19,13 +18,12 @@ PRIMARY KEY (`paramID`)
 --
 drop table if exists `projects`;
 CREATE TABLE `projects` (
-`projectID` int(11) NOT NULL AUTO_INCREMENT,
+`projectID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `projectName` varchar(250) NOT NULL,
 `projectVersion` varchar(250) NOT NULL,
 `projectDesc` text NOT NULL,
 `userID` int(11) NOT NULL,
-`timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-PRIMARY KEY (`projectID`)
+`timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 
@@ -44,8 +42,7 @@ PRIMARY KEY (`techID`)
 -- 
 drop table if exists `techvuln`;
 CREATE TABLE `techvuln` (
-`techVulnID` int(11) NOT NULL AUTO_INCREMENT,
+`techVulnID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `techID` int(11) NOT NULL,
-`vulnID` int(11) NOT NULL,
-PRIMARY KEY (`techVulnID`)
+`vulnID` int(11) NOT NULL
 );

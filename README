@@ -1,9 +1,10 @@
 Install:
 
-sudo apt-get install pip
+sudo apt-get install python-pip
 sudo apt-get install sqlite3
 
-pip install https://github.com/mitsuhiko/flask/tarball/master
+sudo pip install https://github.com/mitsuhiko/flask/tarball/master
+sudo pip install markdown
 
 then see below, the flask cmd should be run inside the git project
 
