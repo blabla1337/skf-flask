@@ -3,7 +3,7 @@
 Foobar
 """
 
-import os
+import os, re 
 from sqlite3 import dbapi2 as sqlite3
 import markdown
 
@@ -90,6 +90,26 @@ def dashboard():
     if not session.get('logged_in'):
         abort(401)
     return render_template('dashboard.html')
+
+@app.route('/kb-search', methods=['POST'])
+def show_kb_search():
+    if not session.get('logged_in'):
+        abort(401)
+
+    search = request.form['search']
+    full_file_paths = []
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
+    for path in full_file_paths:
+	found = re.match('^[A-Za-z]', search)
+        if found != None:
+            filemd = open(path, 'r').read()
+            content = Markup(markdown.markdown(filemd))
+            path = path.split("-")
+            y = len(path)-3
+            kb_name_uri = path[(y)]
+            kb_name = kb_name_uri.replace("_", " ")
+    return render_template('knowledge-base-search.html', **locals())
+
 
 @app.route('/kb-item', methods=['POST'])
 def show_kb_item():
