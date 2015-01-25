@@ -3,15 +3,31 @@
 Foobar
 """
 
-import os, re 
+import os, re, markdown 
+from functools import wraps
 from sqlite3 import dbapi2 as sqlite3
-import markdown
-
 from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash, Markup
+     render_template, flash, Markup, make_response
 
 # create our little application :)
 app = Flask(__name__)
+
+def add_response_headers(headers={}):
+    """This decorator adds the headers passed in to the response"""
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            resp = make_response(f(*args, **kwargs))
+            h = resp.headers
+            for header, value in headers.items():
+                h[header] = value
+            return resp
+        return decorated_function
+    return decorator
+
+def security(f):
+    """This decorator passes X-Robots-Tag: noindex"""
+    return add_response_headers({'X-Frame-Options': 'deny', 'X-XSS-Protection': '1', 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store, no-cache', 'Server': 'Security Knowledge Framework'})(f)
 
 # Load default config and override config from an environment variable
 app.config.update(dict(
@@ -81,17 +97,35 @@ def close_db(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
+def projects_functions_techlist():
+    if not session.get('logged_in'):
+        abort(401)
+
+    db = get_db()
+    cur = db.execute('select techID, techName, vulnID from techhacks order by techID desc')
+    entries = cur.fetchall()
+    return entries 
+
+
+
+
+
+
+
 @app.route('/')
+@security
 def show_entries():
     return render_template('login.html')
 
 @app.route('/dashboard', methods=['GET'])
+@security
 def dashboard():
     if not session.get('logged_in'):
         abort(401)
     return render_template('dashboard.html')
 
 @app.route('/kb-search', methods=['POST'])
+@security
 def show_kb_search():
     if not session.get('logged_in'):
         abort(401)
@@ -112,6 +146,7 @@ def show_kb_search():
 
 
 @app.route('/kb-item', methods=['POST'])
+@security
 def show_kb_item():
     if not session.get('logged_in'):
         abort(401)
@@ -129,6 +164,7 @@ def show_kb_item():
     return render_template('knowledge-base-item.html', **locals())
 
 @app.route('/knowledge-base', methods=['GET'])
+@security
 def knowledge_base():
     """Shows the knowledge base markdown files."""
     if not session.get('logged_in'):
@@ -150,12 +186,30 @@ def knowledge_base():
     return render_template('knowledge-base.html', items=items, id_items=id_items)
 
 @app.route('/project-new', methods=['GET'])
+@security
 def projects():
     if not session.get('logged_in'):
         abort(401)
     return render_template('project-new.html')
 
+@app.route('/project-options/<project_id>', methods=['GET'])
+@security
+def projects_options(project_id):
+    if not session.get('logged_in'):
+        abort(401)
+    return render_template('project-options.html', project_id=project_id)
+
+@app.route('/project-functions/<project_id>', methods=['GET'])
+@security
+def projects_functions(project_id):
+    if not session.get('logged_in'):
+        abort(401)
+    techlist = projects_functions_techlist()
+    return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist())
+
+
 @app.route('/project-add', methods=['POST'])
+@security
 def add_entry():
     if not session.get('logged_in'):
         abort(401)
@@ -167,6 +221,7 @@ def add_entry():
 
 
 @app.route('/project-list', methods=['GET'])
+@security
 def project_list():
     if not session.get('logged_in'):
         abort(401)
@@ -177,6 +232,7 @@ def project_list():
     return render_template('project-list.html', entries=entries)
 
 @app.route('/project-del', methods=['POST'])
+@security
 def project_del():
     if not session.get('logged_in'):
         abort(401)
@@ -188,6 +244,7 @@ def project_del():
     return render_template('project-del.html')
 
 @app.route('/code-examples', methods=['GET'])
+@security
 def code_examples():
     if not session.get('logged_in'):
         abort(401)
@@ -195,6 +252,7 @@ def code_examples():
 
 
 @app.route('/login', methods=['GET', 'POST'])
+@security
 def login():
     error = None
     if request.method == 'POST':
@@ -208,6 +266,7 @@ def login():
     return render_template('login.html', error=error)
 
 @app.route('/logout', methods=['GET', 'POST'])
+@security
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('login'))

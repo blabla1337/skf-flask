@@ -35,6 +35,21 @@ CREATE TABLE `techhacks` (
 PRIMARY KEY (`techID`)
 );
 
+
+-- 
+-- Table structure for table `questionlist`
+-- 
+CREATE TABLE `questionlist` (
+`listID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`answer` varchar(4) NOT NULL,
+`projectID` int(11) NOT NULL,
+`questionID` int(11) NOT NULL,
+`vulnID` int(11) NOT NULL,
+`listName` varchar(255) NOT NULL,
+`entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
 -- 
 -- Table structure for table `techvuln`
 -- 
@@ -44,3 +59,24 @@ CREATE TABLE `techvuln` (
 `techID` int(11) NOT NULL,
 `vulnID` int(11) NOT NULL
 );
+
+INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
+(1, 'SQL commands', 46),
+(2, 'Path/Filenames', 1),
+(3, 'File inclusion', 1),
+(4, 'X-Path commands', 7),
+(5, 'HTML output', 3),
+(6, 'LDAP commands', 11),
+(7, 'HTTP headers', 1),
+(8, 'XSL(T) input/output', 9),
+(9, 'SSI commands', 12),
+(10, 'System commands', 4),
+(11, 'Resource identifiers', 34),
+(12, '"Eval" type functions', 4),
+(13, 'Regular expressions', 36),
+(14, 'File upload ', 13),
+(20, 'XML files', 8),
+(21, 'External XML files', 6),
+(22, 'JSON ', 3),
+(23, 'GET variables/parameters', 72),
+(24, 'Forward or/ redirect', 67);

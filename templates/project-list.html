@@ -27,7 +27,7 @@
                                         {% for entry in entries -%}
 			      <div id="projectRow{{entry.projectID|safe}}">
                               <tr>
-                                  <td><a href="/results/">{{entry.projectName|safe}}</a></td>
+                                  <td><a href="/project-options/{{entry.projectID|safe}}">{{entry.projectName|safe}}</a></td>
                                   <td style='max-width:250px;' class="hidden-phone">{{entry.projectDesc|safe}}</td>
                                   <td>{{entry.projectName|safe}}</td>
                                   <td><span class="label label-info label-mini">{{entry.timestamp|safe}}</span></td>
