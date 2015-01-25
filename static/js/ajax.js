@@ -1,5 +1,5 @@
 
-function MakeRequest(id)
+function getItem(id)
 {
     $.ajax({
         url : 'kb-item',
@@ -11,3 +11,17 @@ function MakeRequest(id)
         }
     });
 }
+
+function delProject(id)
+{
+    $.ajax({
+        url : 'project-del',
+        data:{"projectID":id},
+        type: 'POST',
+
+        success: function(data){
+            $('#projectRow'+id).html(data);
+        }
+    });
+}
+

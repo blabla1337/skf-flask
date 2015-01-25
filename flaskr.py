@@ -149,17 +149,43 @@ def knowledge_base():
         
     return render_template('knowledge-base.html', items=items, id_items=id_items)
 
-@app.route('/projects', methods=['GET'])
+@app.route('/project-new', methods=['GET'])
 def projects():
     if not session.get('logged_in'):
         abort(401)
-    return render_template('projects.html')
+    return render_template('project-new.html')
 
-@app.route('/results', methods=['GET'])
-def results():
+@app.route('/project-add', methods=['POST'])
+def add_entry():
     if not session.get('logged_in'):
         abort(401)
-    return render_template('results.html')
+    db = get_db()
+    db.execute('insert into projects (projectName, projectVersion, projectDesc) values (?, ?, ?)',
+               [request.form['inputName'], request.form['inputVersion'], request.form['inputDesc']])
+    db.commit()
+    return redirect(url_for('project_list'))
+
+
+@app.route('/project-list', methods=['GET'])
+def project_list():
+    if not session.get('logged_in'):
+        abort(401)
+
+    db = get_db()
+    cur = db.execute('select projectName, projectVersion, projectDesc, projectID, timestamp from projects order by projectID desc')
+    entries = cur.fetchall()
+    return render_template('project-list.html', entries=entries)
+
+@app.route('/project-del', methods=['POST'])
+def project_del():
+    if not session.get('logged_in'):
+        abort(401)
+
+    db = get_db()
+    db.execute("delete from projects where projectID=?",
+               [request.form['projectID']])
+    db.commit()
+    return render_template('project-del.html')
 
 @app.route('/code-examples', methods=['GET'])
 def code_examples():
@@ -191,15 +217,4 @@ def logout():
 
 
 
-
-@app.route('/add-project', methods=['POST'])
-def add_entry():
-    if not session.get('logged_in'):
-        abort(401)
-    db = get_db()
-    db.execute('insert into entries (title, text) values (?, ?)',
-               [request.form['title'], request.form['text']])
-    db.commit()
-    flash('New entry was successfully posted')
-    return redirect(url_for('show_entries'))
 

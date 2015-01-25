@@ -7,7 +7,6 @@ CREATE TABLE `parameters` (
 `functionName` varchar(250) NOT NULL,
 `tech` int(11) NOT NULL,
 `projectID` int(11) NOT NULL,
-`userID` int(11) NOT NULL,
 `functionDesc` text CHARACTER NOT NULL,
 `techVuln` int(11) NOT NULL,
 `entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -22,7 +21,6 @@ CREATE TABLE `projects` (
 `projectName` varchar(250) NOT NULL,
 `projectVersion` varchar(250) NOT NULL,
 `projectDesc` text NOT NULL,
-`userID` int(11) NOT NULL,
 `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
