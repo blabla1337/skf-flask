@@ -25,11 +25,24 @@ function getCode(id)
     });
 }
 
-function delProject(id)
+function delProject(projectID)
 {
     $.ajax({
         url : 'project-del',
-        data:{"projectID":id},
+        data:{"projectID":projectID},
+        type: 'POST',
+
+        success: function(data){
+            $('#projectRow'+projectID).html(data);
+        }
+    });
+}
+
+function delFunction(id,paramID)
+{
+    $.ajax({
+        url : '/project-function-del',
+        data:{"projectID":id,"paramID":paramID},
         type: 'POST',
 
         success: function(data){

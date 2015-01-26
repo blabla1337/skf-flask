@@ -150,7 +150,8 @@ def logout():
 def set_code_lang(code_lang):
     if not session.get('logged_in'):
         abort(401)
-    found = path.find(code_lang)
+    allowed = "php java python perl"
+    found = allowed.find(code_lang)
     if found != -1:
         session['code_lang'] = code_lang
     return redirect(url_for('code_examples'))
@@ -284,22 +285,6 @@ def projects():
         abort(401)
     return render_template('project-new.html')
 
-@app.route('/project-options/<project_id>', methods=['GET'])
-@security
-def projects_options(project_id):
-    if not session.get('logged_in'):
-        abort(401)
-    return render_template('project-options.html', project_id=project_id)
-
-@app.route('/project-functions/<project_id>', methods=['GET'])
-@security
-def projects_functions(project_id):
-    if not session.get('logged_in'):
-        abort(401)
-    techlist = projects_functions_techlist()
-    return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist())
-
-
 @app.route('/project-add', methods=['POST'])
 @security
 def add_entry():
@@ -311,6 +296,17 @@ def add_entry():
     db.commit()
     return redirect(url_for('project_list'))
 
+@app.route('/project-del', methods=['POST'])
+@security
+def project_del():
+    if not session.get('logged_in'):
+        abort(401)
+
+    db = get_db()
+    db.execute("delete from projects where projectID=?",
+               [request.form['projectID']])
+    db.commit()
+    return render_template('reload.html')
 
 @app.route('/project-list', methods=['GET'])
 @security
@@ -323,19 +319,57 @@ def project_list():
     entries = cur.fetchall()
     return render_template('project-list.html', entries=entries)
 
-@app.route('/project-del', methods=['POST'])
+@app.route('/project-options/<project_id>', methods=['GET'])
 @security
-def project_del():
+def projects_options(project_id):
     if not session.get('logged_in'):
         abort(401)
+    return render_template('project-options.html', project_id=project_id)
 
+@app.route('/project-functions/<project_id>', methods=['GET'])
+@security
+def project_functions(project_id):
+    if not session.get('logged_in'):
+        abort(401)
+    techlist = projects_functions_techlist()
     db = get_db()
-    db.execute("delete from projects where projectID=?",
-               [request.form['projectID']])
+    cur = db.execute('select paramID, functionName, functionDesc, projectID, tech, entryDate from parameters order by projectID desc')
+    entries = cur.fetchall()
+    return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries)
+
+@app.route('/project-function-del', methods=['POST'])
+@security
+def function_del():
+    if not session.get('logged_in'):
+        abort(401)
+    id = int(request.form['projectID'])
+    db = get_db()
+    db.execute("delete from parameters where projectID=? and paramID=?",
+               [request.form['projectID'],request.form['paramID']])
     db.commit()
-    return render_template('project-del.html')
+    redirect_url = "/project-functions/"+str(id)
+    return redirect(redirect_url)
 
 
+@app.route('/project-function-add', methods=['POST'])
+@security
+def add_function():
+    if not session.get('logged_in'):
+        abort(401)
+    id = int(request.form['project_id'])
+    f = request.form
+    for key in f.keys():
+        for value in f.getlist(key):
+            found = ""
+    	    found = key.find("test")
+            if found != -1:
+                db = get_db()
+                db.execute('insert into parameters (functionName, functionDesc, tech, projectID) values (?, ?, ?, ?)',
+                           [request.form['functionName'], request.form['functionDesc'], value, request.form['project_id']])
+                db.commit()
+
+    redirect_url = "/project-functions/"+str(id)
+    return redirect(redirect_url)
 
 
 

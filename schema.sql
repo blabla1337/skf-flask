@@ -5,10 +5,9 @@ drop table if exists `parameters`;
 CREATE TABLE `parameters` (
 `paramID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `functionName` varchar(250) NOT NULL,
-`tech` int(11) NOT NULL,
-`projectID` int(11) NOT NULL,
+`tech` varchar(250) NOT NULL,
+`projectID` varchar(11) NOT NULL,
 `functionDesc` text CHARACTER NOT NULL,
-`techVuln` int(11) NOT NULL,
 `entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
