@@ -1,23 +1,38 @@
  {% include 'header.html' %} 
 
  <style>
- .tbl_container{ overflow:auto; width: 500px;height: 200px; }
+ .tbl_container{ overflow:auto; width: 500px;height: 330px; }
  </style>
  
 <script>
+
+var arrTech = new Array();
+
+{% for entry in techlist -%}
+
+arrTech.push({'{{entry.techID|safe}}':'{{entry.techName|safe}}'});
+
+{% endfor %}
+
+
+var j = 0;
+
 function addList()
 {
 
 // TO DO lijst maken opslaan in js arry en dan gebruiken bij aanmaaken select elem html
 var option_val = $('input[name=option_val]').val();
-
-$("#checkboxes").append("<select id=test{{counter}}>");
-{% for entry in techlist -%}
-
-var o = new Option({{ entry.techID|safe }}, "{{ entry.techName}}");
-$("#test{{counter}}").append(o);
-{% endfor %}
-
+var select = "<select id=test"+j+">";
+$("#checkboxes").append(select);
+i = 0;
+$.each(arrTech, function(key, value) {
+    $.each(value, function(k, v) {
+        var o = new Option(v, key);
+	var name = "#test"+j 
+        $(name).append(o);
+    });
+});
+j++;
 };
 </script>
  
@@ -66,7 +81,7 @@ $("#test{{counter}}").append(o);
 <form action="project-function-new" method="POST">
 <input type='text' name='functionName' placeholder='List name'/><br/><br/>
 <textarea name='functionDesc' placeholder='List description'></textarea><br/><br/>
-<a href="#" onClick="addList(document.getElementById(id).value);">Add Functions </a><input type="text" id="option_val" name="option_val">
+<a href="#" onClick="addList();">Add Function </a>
 <br><br>
 <div id="checkboxes">
 <!-- used for Ajax -->
