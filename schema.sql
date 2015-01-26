@@ -39,6 +39,7 @@ PRIMARY KEY (`techID`)
 -- 
 -- Table structure for table `questionlist`
 -- 
+drop table if exists `questionlist`;
 CREATE TABLE `questionlist` (
 `listID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `answer` varchar(4) NOT NULL,

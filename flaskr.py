@@ -115,6 +115,7 @@ def projects_functions_techlist():
 @app.route('/')
 @security
 def show_entries():
+    session['code_lang'] = "php"
     return render_template('login.html')
 
 @app.route('/dashboard', methods=['GET'])
@@ -124,6 +125,97 @@ def dashboard():
         abort(401)
     return render_template('dashboard.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+@security
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != app.config['USERNAME']:
+            error = 'Invalid username/password'
+        elif request.form['password'] != app.config['PASSWORD']:
+            error = 'Invalid username/password'
+        else:
+            session['logged_in'] = True
+            return render_template('dashboard.html')
+    return render_template('login.html', error=error)
+
+@app.route('/logout', methods=['GET', 'POST'])
+@security
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login'))
+
+@app.route('/code/<code_lang>', methods=['GET'])
+@security
+def set_code_lang(code_lang):
+    if not session.get('logged_in'):
+        abort(401)
+    found = path.find(code_lang)
+    if found != -1:
+        session['code_lang'] = code_lang
+    return redirect(url_for('code_examples'))
+
+@app.route('/code-examples', methods=['GET'])
+@security
+def code_examples():
+    """Shows the knowledge base markdown files."""
+    if not session.get('logged_in'):
+        abort(401)
+    items = []
+    id_items = []
+    full_file_paths = []
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
+
+
+    for path in full_file_paths:
+        id_item = get_num(path)
+        path = path.split("-")
+        y = len(path)-3 
+        kb_name_uri = path[(y)]
+        kb_name = kb_name_uri.replace("_", " ")
+        items.append(kb_name)
+        id_items.append(id_item)
+        
+    return render_template('code-examples.html', items=items, id_items=id_items)
+
+@app.route('/code-search', methods=['POST'])
+@security
+def show_code_search():
+    if not session.get('logged_in'):
+        abort(401)
+
+    search = request.form['search']
+    full_file_paths = []
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
+    for path in full_file_paths:
+        found = path.find(search)
+        if found != -1:
+            filemd = open(path, 'r').read()
+            content = Markup(markdown.markdown(filemd))
+            path = path.split("-")
+            y = len(path)-3
+            kb_name_uri = path[(y)]
+            kb_name = kb_name_uri.replace("_", " ")
+    return render_template('code-examples-search.html', **locals())
+
+@app.route('/code-item', methods=['POST'])
+@security
+def show_code_item():
+    if not session.get('logged_in'):
+        abort(401)
+    
+    id = int(request.form['id'])
+    items = []
+    full_file_paths = []
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
+
+    for path in full_file_paths:
+        if id == get_num(path):
+            filemd = open(path, 'r').read()
+            content = Markup(markdown.markdown(filemd)) 
+
+    return render_template('code-examples-item.html', **locals())
+
 @app.route('/kb-search', methods=['POST'])
 @security
 def show_kb_search():
@@ -132,10 +224,10 @@ def show_kb_search():
 
     search = request.form['search']
     full_file_paths = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
     for path in full_file_paths:
-	found = re.match('^[A-Za-z]', search)
-        if found != None:
+        found = path.find(search)
+        if found != -1:
             filemd = open(path, 'r').read()
             content = Markup(markdown.markdown(filemd))
             path = path.split("-")
@@ -158,7 +250,7 @@ def show_kb_item():
 
     for path in full_file_paths:
         if id == get_num(path):
-	    filemd = open(path, 'r').read()
+            filemd = open(path, 'r').read()
             content = Markup(markdown.markdown(filemd)) 
 
     return render_template('knowledge-base-item.html', **locals())
@@ -172,16 +264,16 @@ def knowledge_base():
     items = []
     id_items = []
     full_file_paths = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
 
     for path in full_file_paths:
         id_item = get_num(path)
         path = path.split("-")
-	y = len(path)-3 
-	kb_name_uri = path[(y)]
+        y = len(path)-3 
+        kb_name_uri = path[(y)]
         kb_name = kb_name_uri.replace("_", " ")
         items.append(kb_name)
-	id_items.append(id_item)
+        id_items.append(id_item)
         
     return render_template('knowledge-base.html', items=items, id_items=id_items)
 
@@ -243,33 +335,8 @@ def project_del():
     db.commit()
     return render_template('project-del.html')
 
-@app.route('/code-examples', methods=['GET'])
-@security
-def code_examples():
-    if not session.get('logged_in'):
-        abort(401)
-    return render_template('code-examples.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
-@security
-def login():
-    error = None
-    if request.method == 'POST':
-        if request.form['username'] != app.config['USERNAME']:
-            error = 'Invalid username/password'
-        elif request.form['password'] != app.config['PASSWORD']:
-            error = 'Invalid username/password'
-        else:
-            session['logged_in'] = True
-            return render_template('dashboard.html')
-    return render_template('login.html', error=error)
-
-@app.route('/logout', methods=['GET', 'POST'])
-@security
-def logout():
-    session.pop('logged_in', None)
-    return redirect(url_for('login'))
 
 
 

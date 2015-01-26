@@ -12,6 +12,19 @@ function getItem(id)
     });
 }
 
+function getCode(id)
+{
+    $.ajax({
+        url : 'code-item',
+        data:{"id":id},
+        type: 'POST',
+
+        success: function(data){
+            $('#'+id).html(data);
+        }
+    });
+}
+
 function delProject(id)
 {
     $.ajax({

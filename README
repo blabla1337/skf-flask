@@ -6,28 +6,11 @@ sudo apt-get install sqlite3
 sudo pip install https://github.com/mitsuhiko/flask/tarball/master
 sudo pip install markdown
 
-then see below, the flask cmd should be run inside the git project
-
-                         / Flaskr /
-
-                 a minimal application
-
-
-    ~ What is Flaskr?
-
-      A sqlite powered flask application
-
-    ~ How do I use it?
-
-      1. edit the configuration in the flaskr.py file or
-         export an FLASKR_SETTINGS environment variable
-         pointing to a configuration file.
-
-      2. initialize the database with this command:
+      1. initialize the database with this command:
 
          flask --app=flaskr initdb
 
-      3. now you can run flaskr:
+      2. now you can run flaskr:
 
          flask --app=flaskr run
 
@@ -38,4 +21,5 @@ then see below, the flask cmd should be run inside the git project
 
       You betcha.  Run the `test_flaskr.py` file to see
       the tests pass.
+
     ~ default username: admin pass: default
