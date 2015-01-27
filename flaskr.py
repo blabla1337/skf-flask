@@ -378,3 +378,75 @@ def add_function():
 
 
 
+
+@app.route('/project-checklists/<project_id>', methods=['GET'])
+@security
+def project_checklists(project_id):
+    if not session.get('logged_in'):
+        abort(401)
+    techlist = projects_functions_techlist()
+    id = int(project_id)
+    owasp_items = []
+    owasp_ids = []
+    owasp_content = []
+    basic_items = []
+    basic_ids = []
+    basic_content = []
+    advanced_items = []
+    advanced_ids = []
+    advanced_content = []
+
+    full_file_paths = []
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
+
+    for path in full_file_paths:
+
+       found = path.find("owasp10")
+       if found != -1:
+
+	    owasp_org_path = path
+            owasp_path = path.split("-")
+            owasp_checklist_name = owasp_path[3]
+	    owasp_id = get_num(owasp_path[1])
+            owasp_items.append(owasp_checklist_name)
+            owasp_ids.append(owasp_id)
+            filemd = open(owasp_org_path, 'r').read()
+	    owasp_content.append(Markup(markdown.markdown(filemd)))
+            print owasp_id
+            print owasp_checklist_name
+
+    for path in full_file_paths:
+    
+       found = path.find("cs_basic_audit")
+       if found != -1:
+
+            basic_org_path = path
+            basic_path = path.split("-")
+            basic_checklist_name = basic_path[3]
+            basic_id = get_num(basic_path[1])
+            basic_items.append(basic_checklist_name)
+            basic_ids.append(basic_id)
+            filemd = open(basic_org_path, 'r').read()
+	    basic_content.append(Markup(markdown.markdown(filemd)))
+            print basic_id
+            print basic_checklist_name
+
+    for path in full_file_paths:
+
+       found = path.find("cs_advanced_audit")
+       if found != -1:
+
+            advanced_org_path = path
+            advanced_path = path.split("-")
+            advanced_name = advanced_path[3]
+            advanced_id = get_num(advanced_path[1])
+            advanced_items.append(advanced_name)
+            advanced_ids.append(advanced_id)
+            filemd = open(advanced_org_path, 'r').read()
+	    advanced_content.append(Markup(markdown.markdown(filemd)))
+            print advanced_id
+            print advanced_name
+
+
+    return render_template('project-checklists.html', **locals())
+
