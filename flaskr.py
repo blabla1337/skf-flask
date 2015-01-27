@@ -384,7 +384,6 @@ def add_function():
 def project_checklists(project_id):
     if not session.get('logged_in'):
         abort(401)
-    techlist = projects_functions_techlist()
     id = int(project_id)
     owasp_items = []
     owasp_ids = []

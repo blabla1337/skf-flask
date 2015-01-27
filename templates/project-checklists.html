@@ -4,7 +4,7 @@
 foreach($projectID as $proj):  $identifier = $proj['projectID']; endforeach;
 ?>
 
-<!-- **********************************************************************************************************************************************************
+ !-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
@@ -182,7 +182,8 @@ $i=0;
                              
                              
                                                             <tr>
-                                  <td><a href="basic_table.html#"></a>Owasp top 10 </td>
+                                  <td><a href="basic_table.html#"></a>Owasp top 10</td>
+
                                   <td class="hidden-phone">Top 10 vulnerabilities composed by owasp.</td>
                                   <td class="hidden-phone">Recommended</td>
                                   <td></td>
@@ -207,16 +208,14 @@ $i=0;
 						          <div   class="modal-body">
 						          <table id='checklist' style="width:525px">
 						          <form method='post' action='/checklistInserts/checklistInsert/<?php echo htmlspecialchars($identifier); ?>' />
-						          
-<?php
-$i=0;
- foreach($owasp as $c):
- 
- ?>
- 
+
+{% set counter = 0 -%}
+{% for entry in owasp_content -%}
+
+
 <tr>
-<?php if($c['question'] != 'null'): $i++; ?>
-  <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> <?php echo $c['question']; ?></td>
+  <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}} {{owasp_ids[counter]|safe}}
+</td>
   <td></td>
     <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
     <select name='answer<?php echo htmlspecialchars($i); ?>' >
@@ -231,15 +230,8 @@ $i=0;
     <input type="hidden" name="token" value="<?php echo htmlspecialchars($_SESSION['csrf']); ?>" id="token">
     </td>
 </tr>
-<?php endif; ?>
-
-<?php if($c['question'] == 'null'): ?>
-  <td style='padding-top:20px;' > <?php echo '<b>'.htmlspecialchars($c['head']).'</b>'?></td>
-  <td></td>
-    <td></td>
-</tr>
-<?php endif; ?>
-<?php endforeach; ?>
+{% set counter = counter + 1 %}
+{% endfor %}
 
 
 								  </table>
@@ -252,7 +244,7 @@ $i=0;
 						          </div>
 						  		  </div>
 								  </div>      				
-      							  </div><!-
+      							  </div>
 
                               
                               </tbody>
