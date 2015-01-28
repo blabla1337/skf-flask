@@ -266,15 +266,15 @@ def knowledge_base():
     id_items = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-
     for path in full_file_paths:
-        id_item = get_num(path)
+        #id_item = get_num(path)
+        print path
         path = path.split("-")
         y = len(path)-3 
         kb_name_uri = path[(y)]
         kb_name = kb_name_uri.replace("_", " ")
         items.append(kb_name)
-        id_items.append(id_item)
+        #id_items.append(id_item)
         
     return render_template('knowledge-base.html', items=items, id_items=id_items)
 
@@ -402,15 +402,14 @@ def project_checklists(project_id):
 
        found = path.find("owasp10")
        if found != -1:
-
-	    owasp_org_path = path
+            owasp_org_path = path
             owasp_path = path.split("-")
             owasp_checklist_name = owasp_path[3]
-	    owasp_id = get_num(owasp_path[1])
+            owasp_id = get_num(owasp_path[1])
             owasp_items.append(owasp_checklist_name)
             owasp_ids.append(owasp_id)
             filemd = open(owasp_org_path, 'r').read()
-	    owasp_content.append(Markup(markdown.markdown(filemd)))
+            owasp_content.append(Markup(markdown.markdown(filemd)))
             print owasp_id
             print owasp_checklist_name
 
@@ -426,7 +425,7 @@ def project_checklists(project_id):
             basic_items.append(basic_checklist_name)
             basic_ids.append(basic_id)
             filemd = open(basic_org_path, 'r').read()
-	    basic_content.append(Markup(markdown.markdown(filemd)))
+            basic_content.append(Markup(markdown.markdown(filemd)))
             print basic_id
             print basic_checklist_name
 
@@ -442,7 +441,7 @@ def project_checklists(project_id):
             advanced_items.append(advanced_name)
             advanced_ids.append(advanced_id)
             filemd = open(advanced_org_path, 'r').read()
-	    advanced_content.append(Markup(markdown.markdown(filemd)))
+            advanced_content.append(Markup(markdown.markdown(filemd)))
             print advanced_id
             print advanced_name
 
