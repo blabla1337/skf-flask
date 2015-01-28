@@ -267,14 +267,13 @@ def knowledge_base():
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
     for path in full_file_paths:
-        #id_item = get_num(path)
-        print path
+        id_item = get_num(path)
         path = path.split("-")
         y = len(path)-3 
         kb_name_uri = path[(y)]
         kb_name = kb_name_uri.replace("_", " ")
         items.append(kb_name)
-        #id_items.append(id_item)
+        id_items.append(id_item)
         
     return render_template('knowledge-base.html', items=items, id_items=id_items)
 
