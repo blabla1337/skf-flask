@@ -67,11 +67,12 @@
                         <input type='hidden' name='vulnID{{counter_basic|safe}}' value='{{basic_ids[counter_basic]|safe}}'/>
                         <input type='hidden' name='questionID{{counter_basic|safe}}' value='{{basic_kb_ids[counter_basic]|safe}}'/>
                         <input type='hidden' name='listID{{counter_basic|safe}}' value='{{basic_list|safe}}'/>         
-                        <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                        </td>
+                        </td> 
                     </tr>
                     {% set counter_basic = counter_basic + 1 %}
                     {% endfor %}
+                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName.projectName|safe}}'/>
     								  </table>
     						          </div>
     						          <div class="modal-footer">
@@ -129,7 +130,8 @@
 
                       {% set counter_advanced = counter_advanced + 1 %}
                       {% endfor %}
-
+                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName.projectName|safe}}'/>
       								  </table>
       						          </div>
       						          <div class="modal-footer">
@@ -191,8 +193,8 @@
                       </tr>
                       {% set counter_owasp = counter_owasp + 1 %}
                       {% endfor %}
-
-
+                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName.projectName|safe}}'/>
 								  </table>
 						          </div>
 						          <div class="modal-footer">
@@ -254,8 +256,8 @@
 
                   {% set counter_custom = counter_custom + 1 %}
                   {% endfor %}
-
-
+                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName.projectName|safe}}'/>
                   </table>
                       </div>
                       <div class="modal-footer">

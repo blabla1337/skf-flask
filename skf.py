@@ -376,6 +376,9 @@ def project_checklists(project_id):
     if not session.get('logged_in'):
         abort(401)
     id = int(project_id)
+    db = get_db()
+    cur = db.execute('select projectName from projects where projectID='+`id`)
+    projectName = cur.fetchall()
     owasp_items = []
     owasp_ids = []
     owasp_kb_ids = []
@@ -466,11 +469,6 @@ def project_checklists(project_id):
     return render_template('project-checklists.html', **locals())
 
 
-
-
-
-
-
 @app.route('/project-checklist-add', methods=['POST'])
 @security
 def add_checklist():
@@ -493,11 +491,26 @@ def add_checklist():
                 vulnID +=`i`               
 
                 db = get_db()
-                db.execute('insert into questionlist (answer, projectID, questionID, vulnID, listName) values (?, ?, ?, ?, ?)',
-                           [request.form[answerID], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
+                db.execute('insert into questionlist (answer, projectName, projectID, questionID, vulnID, listName) values (?, ?, ?, ?, ?, ?)',
+                           [request.form[answerID], request.form['projectName'], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
                 db.commit()
                 i += 1
-    redirect_url = "/results-project/"+str(id)
+    redirect_url = "/results-checklists/"+str(id)
     return redirect(redirect_url)
+
+@app.route('/results-checklists/<project_id>', methods=['GET'])
+@security
+def results_checklists(project_id):
+    if not session.get('logged_in'):
+        abort(401)
+
+    id = int(project_id)
+    db = get_db()
+    cur = db.execute('select projectID, listID, listName, vulnID, entryDate from questionlist where projectID='+`id`)
+    entries = cur.fetchall()
+    return render_template('results-checklists.html', entries=entries)
+
+
+
 
 

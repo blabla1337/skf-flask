@@ -43,6 +43,7 @@ CREATE TABLE `questionlist` (
 `listID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `answer` varchar(255) NOT NULL,
 `projectID` varchar(255) NOT NULL,
+`projectName` varchar(255) NOT NULL,
 `questionID` varchar(255) NOT NULL,
 `vulnID` varchar(255) NOT NULL,
 `listName` varchar(255) NOT NULL,
