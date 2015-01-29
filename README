@@ -6,20 +6,19 @@ sudo apt-get install sqlite3
 sudo pip install https://github.com/mitsuhiko/flask/tarball/master
 sudo pip install markdown
 
-      1. initialize the database with this command:
+1. initialize the database with this command:
 
-         flask --app=flaskr initdb
+     flask --app=skf initdb
 
-      2. now you can run flaskr:
+2. now you can run skf:
 
-         flask --app=flaskr run
+     flask --app=skf run
 
-         the application will greet you on
-         http://localhost:5000/
+     the application will greet you on
+     http://localhost:5000/
 
-    ~ Is it tested?
+Is it tested?
 
-      You betcha.  Run the `test_flaskr.py` file to see
-      the tests pass.
+Yes.  Run the `test_skf.py` file to see the tests.
 
-    ~ default username: admin pass: default
+default username: admin pass: default
