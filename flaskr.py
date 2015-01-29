@@ -359,7 +359,6 @@ def add_function():
     f = request.form
     for key in f.keys():
         for value in f.getlist(key):
-            found = ""
     	    found = key.find("test")
             if found != -1:
                 db = get_db()
@@ -371,13 +370,6 @@ def add_function():
     return redirect(redirect_url)
 
 
-
-
-
-
-
-
-
 @app.route('/project-checklists/<project_id>', methods=['GET'])
 @security
 def project_checklists(project_id):
@@ -386,12 +378,19 @@ def project_checklists(project_id):
     id = int(project_id)
     owasp_items = []
     owasp_ids = []
+    owasp_kb_ids = []
     owasp_content = []
+    custom_items = []
+    custom_ids = []
+    custom_kb_ids = []
+    custom_content = []
     basic_items = []
     basic_ids = []
+    basic_kb_ids = []
     basic_content = []
     advanced_items = []
     advanced_ids = []
+    advanced_kb_ids = []
     advanced_content = []
 
     full_file_paths = []
@@ -402,15 +401,16 @@ def project_checklists(project_id):
        found = path.find("owasp10")
        if found != -1:
             owasp_org_path = path
+            owasp_list = "owasp10"
             owasp_path = path.split("-")
+            owasp_kb = owasp_path[5]
             owasp_checklist_name = owasp_path[3]
             owasp_id = get_num(owasp_path[1])
             owasp_items.append(owasp_checklist_name)
             owasp_ids.append(owasp_id)
+            owasp_kb_ids.append(owasp_kb)
             filemd = open(owasp_org_path, 'r').read()
             owasp_content.append(Markup(markdown.markdown(filemd)))
-            print owasp_id
-            print owasp_checklist_name
 
     for path in full_file_paths:
     
@@ -418,15 +418,16 @@ def project_checklists(project_id):
        if found != -1:
 
             basic_org_path = path
+            basic_list = "cs_basic_audit"
             basic_path = path.split("-")
+            basic_kb = basic_path[5]
             basic_checklist_name = basic_path[3]
             basic_id = get_num(basic_path[1])
             basic_items.append(basic_checklist_name)
             basic_ids.append(basic_id)
+            basic_kb_ids.append(basic_kb)
             filemd = open(basic_org_path, 'r').read()
             basic_content.append(Markup(markdown.markdown(filemd)))
-            print basic_id
-            print basic_checklist_name
 
     for path in full_file_paths:
 
@@ -434,16 +435,69 @@ def project_checklists(project_id):
        if found != -1:
 
             advanced_org_path = path
+            advanced_list = "cs_advanced_audit"
             advanced_path = path.split("-")
+            advanced_kb = advanced_path[5]
             advanced_name = advanced_path[3]
             advanced_id = get_num(advanced_path[1])
             advanced_items.append(advanced_name)
             advanced_ids.append(advanced_id)
+            advanced_kb_ids.append(advanced_kb)
             filemd = open(advanced_org_path, 'r').read()
             advanced_content.append(Markup(markdown.markdown(filemd)))
-            print advanced_id
-            print advanced_name
 
+    for path in full_file_paths:
+
+       found = path.find("custom")
+       if found != -1:
+
+            custom_org_path = path
+            custom_list = "custom"
+            custom_path = path.split("-")
+            custom_kb = custom_path[5]
+            custom_name = custom_path[3]
+            custom_id = get_num(custom_path[1])
+            custom_items.append(custom_name)
+            custom_ids.append(custom_id)
+            custom_kb_ids.append(custom_kb)
+            filemd = open(custom_org_path, 'r').read()
+            custom_content.append(Markup(markdown.markdown(filemd)))
 
     return render_template('project-checklists.html', **locals())
+
+
+
+
+
+
+
+@app.route('/project-checklist-add', methods=['POST'])
+@security
+def add_checklist():
+    if not session.get('logged_in'):
+        abort(401)
+    id = int(request.form['projectID'])
+    f = request.form
+    i = 0
+    for key in f.keys():
+        for value in f.getlist(key):
+            found = key.find("vuln")
+            if found != -1:
+                listID = "listID" 
+                listID +=`i`
+                answerID = "answer" 
+                answerID +=`i`
+                questionID = "questionID" 
+                questionID +=`i`
+                vulnID = "vulnID" 
+                vulnID +=`i`               
+
+                db = get_db()
+                db.execute('insert into questionlist (answer, projectID, questionID, vulnID, listName) values (?, ?, ?, ?, ?)',
+                           [request.form[answerID], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
+                db.commit()
+                i += 1
+    redirect_url = "/results-project/"+str(id)
+    return redirect(redirect_url)
+
 

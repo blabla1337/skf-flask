@@ -41,10 +41,10 @@ PRIMARY KEY (`techID`)
 drop table if exists `questionlist`;
 CREATE TABLE `questionlist` (
 `listID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`answer` varchar(4) NOT NULL,
-`projectID` int(11) NOT NULL,
-`questionID` int(11) NOT NULL,
-`vulnID` int(11) NOT NULL,
+`answer` varchar(255) NOT NULL,
+`projectID` varchar(255) NOT NULL,
+`questionID` varchar(255) NOT NULL,
+`vulnID` varchar(255) NOT NULL,
 `listName` varchar(255) NOT NULL,
 `entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

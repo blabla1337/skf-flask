@@ -1,47 +1,39 @@
  {% include 'header.html' %}
 
-
-foreach($projectID as $proj):  $identifier = $proj['projectID']; endforeach;
-?>
-
- !-- **********************************************************************************************************************************************************
+ <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3>-<i class="fa fa-angle-right"></i><a href='/project'>Projects</a> -> <a href='/show/results/<?php echo htmlspecialchars($identifier); ?>'> Getting started</a> -> Security checklists</h3>
+          	<h3>-<i class="fa fa-angle-right"></i><a href='/project'>Projects</a> -> <a href='/show/results/htmlspecialchars($identifier)'> Getting started</a> -> Security checklists</h3>
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
-                        <div class="alert alert-info">
-<b>Note:</b>
-Whenever you upload a new checklist and this one already exists for this project, the old version will be overwritten.
-</div>
+            <div class="alert alert-info">
+            <b>Note:</b>
+            Whenever you upload a new checklist and this one already exists for this project, the old version will be overwritten.
+            </div>
           
 						<div class="content-panel">
                <table class="table table-striped table-advance table-hover"> 
-                              <thead>
-                              <tr>
-                                  <th><i class="fa fa-bullhorn"></i> Checklist</th>
-                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
-                                  <th><i class="fa fa-bookmark"></i> Level</th>
-                                  <th></th>
-                                  <th><i class=" fa fa-edit"></i> Take list</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-						       
-                             
-                                                          <tr>
-                                  <td><a href="basic_table.html#"></a>Certified secure basic audit.</td>
-                                  <td class="hidden-phone">The basic web application audit checklist, latest version available at : www.certifiedsecure.com/checklists.</td>
-                                  <td class="hidden-phone">Recommended</td>
-                                  <td></td>
-                                  <td>
-                                      
-                                      
-                                            				<! -- MODALS -->
-      				              <div class="showbak">
+                  <thead>
+                  <tr>
+                      <th><i class="fa fa-bullhorn"></i> Checklist</th>
+                      <th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
+                      <th><i class="fa fa-bookmark"></i> Level</th>
+                      <th></th>
+                      <th><i class=" fa fa-edit"></i> Take list</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="#"></a>Certified secure basic audit.</td>
+                      <td class="hidden-phone">The basic web application audit checklist, latest version available at : www.certifiedsecure.com/checklists.</td>
+                      <td class="hidden-phone">Recommended</td>
+                      <td></td>
+                      <td>                
+                      <!-- MODALS -->
+      				          <div class="showbak">
       						      <!-- Button trigger modal -->
 					         	  <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal1">
 						           Start                     
@@ -57,65 +49,47 @@ Whenever you upload a new checklist and this one already exists for this project
 						          </div>
 						          <div   class="modal-body">
 						          <table id='checklist' style="width:525px">
-						          <form method='post' action='/checklistInserts/checklistInsert/<?php echo htmlspecialchars($identifier); ?>' />
+						          <form method='post' action='/project-checklist-add'/>
 						          
-<?php
-$i=0;
- foreach($certified as $c):
- 
- ?>
- 
-<tr>
-<?php if($c['question'] != 'null'): $i++; ?>
-  <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> <?php echo htmlspecialchars($c['question']); ?></td>
-  <td></td>
-    <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-    <select name='answer<?php echo htmlspecialchars($i); ?>' >
-    <option value='yes' >Done</option>
-    <option value='no' >Not done</option>
-    <option value='yes' >N.A.</option>
-    </select>
-    </td>
-    <input type='hidden' name='vulnID<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['vulnID']); ?>'/>
-    <input type='hidden' name='questionID<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['questionID']); ?>'/>
-    <input type='hidden' name='listName<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['listName']); ?>'/>
-    <input type="hidden" name="token" value="<?php echo htmlspecialchars($_SESSION['csrf']); ?>" id="token">
-    </td>
-</tr>
-<?php endif; ?>
-
-<?php if($c['question'] == 'null'): ?>
-  <td style='padding-top:20px;' > <?php echo '<b>'.htmlspecialchars($c['head']).'</b>'?></td>
-  <td></td>
-    <td></td>
-</tr>
-<?php endif; ?>
-<?php endforeach; ?>
-
-
-
-								  </table>
-						          </div>
-						          <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						          <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
-						          </form>
-						          </div>
-						          </div>
-						  		  </div>
-								  </div>      				
-      							  </div><!-- /showback -->
-                              
-                             
-                                                          <tr>
-                                  <td><a href="basic_table.html#"></a>Certified secure advanced audit</td>
-                                  <td class="hidden-phone">The advanced web application audit checklist, latest version available at : www.certifiedsecure.com/checklists.</td>
-                                  <td class="hidden-phone">Recommended</td>
-                                  <td></td>
-                                  <td>
-                                      
-                                      
-                                            				<! -- MODALS -->
+                    {% set counter_basic = 0 -%}
+                    {% for entry in basic_content -%}
+           
+                    <tr>
+                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>     {{entry|safe}} </td>
+                      <td></td>
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                        <select name='answer{{counter_basic|safe}}' >
+                        <option value='yes' >Done</option>
+                        <option value='no' >Not done</option>
+                        <option value='yes' >N.A.</option>
+                        </select>
+                        </td>
+                        <input type='hidden' name='vulnID{{counter_basic|safe}}' value='{{basic_ids[counter_basic]|safe}}'/>
+                        <input type='hidden' name='questionID{{counter_basic|safe}}' value='{{basic_kb_ids[counter_basic]|safe}}'/>
+                        <input type='hidden' name='listID{{counter_basic|safe}}' value='{{basic_list|safe}}'/>         
+                        <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
+                        </td>
+                    </tr>
+                    {% set counter_basic = counter_basic + 1 %}
+                    {% endfor %}
+    								  </table>
+    						          </div>
+    						          <div class="modal-footer">
+    						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    						          <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
+    						          </form>
+    						          </div>
+    						          </div>
+    						  		  </div>
+    								  </div>      				
+          							  </div><!-- /showback -->
+                        <tr>
+                          <td><a href="basic_table.html#"></a>Certified secure advanced audit</td>
+                          <td class="hidden-phone">The advanced web application audit checklist, latest version available at : www.certifiedsecure.com/checklists.</td>
+                          <td class="hidden-phone">Recommended</td>
+                          <td></td>
+                          <td>      
+                            <!-- MODALS -->
       				              <div class="showbak">
       						      <!-- Button trigger modal -->
 					         	  <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal2">
@@ -132,65 +106,51 @@ $i=0;
 						          </div>
 						          <div   class="modal-body">
 						          <table id='checklist' style="width:525px">
-						          <form method='post' action='/checklistInserts/checklistInsert/<?php echo htmlspecialchars($identifier); ?>' />
+						          <form method='post' action='/project-checklist-add'/>
 						          
-<?php
-$i=0;
- foreach($certifiedAdvanced as $c):
- 
- ?>
- 
-<tr>
-<?php if($c['question'] != 'null'): $i++; ?>
-  <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> <?php echo $c['question']; ?></td>
-  <td></td>
-    <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-    <select name='answer<?php echo htmlspecialchars($i); ?>' >
-    <option value='yes' >Done</option>
-    <option value='no' >Not done</option>
-    <option value='yes' >N.A.</option>
-    </select>
-    </td>
-    <input type='hidden' name='vulnID<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['vulnID']); ?>'/>
-    <input type='hidden' name='questionID<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['questionID']); ?>'/>
-    <input type='hidden' name='listName<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['listName']); ?>'/>
-    <input type="hidden" name="token" value="<?php echo htmlspecialchars($_SESSION['csrf']); ?>" id="token">
-    </td>
-</tr>
-<?php endif; ?>
+                      {% set counter_advanced = 0 -%}
+                      {% for entry in advanced_content -%}
+                       
+                      <tr>
+                       <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>{{entry|safe}}</td>
+                        <td></td>
+                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          <select name='answer{{counter_advanced|safe}}' >
+                          <option value='yes' >Done</option>
+                          <option value='no' >Not done</option>
+                          <option value='yes' >N.A.</option>
+                          </select>
+                          </td>
+                          <input type='hidden' name='vulnID{{counter_advanced|safe}}' value='{{advanced_kb_ids[counter_advanced]|safe}}'/>
+                          <input type='hidden' name='questionID{{counter_advanced|safe}}' value='{{advanced_ids[counter_advanced]}}'/>
+                          <input type='hidden' name='listID{{counter_advanced|safe}}' value='{{advanced_list|safe}}'>
+                          </td>
+                      </tr>
 
-<?php if($c['question'] == 'null'): ?>
-  <td style='padding-top:20px;' > <?php echo '<b>'.htmlspecialchars($c['head']).'</b>'?></td>
-  <td></td>
-    <td></td>
-</tr>
-<?php endif; ?>
-<?php endforeach; ?>
+                      {% set counter_advanced = counter_advanced + 1 %}
+                      {% endfor %}
 
+      								  </table>
+      						          </div>
+      						          <div class="modal-footer">
+      						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      						          <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
+      						          </form>
+      						          </div>
+      						          </div>
+      						  		  </div>
+      								  </div>      				
+            							  </div><!-- /showback -->
+                                   
+                                   
+                             <tr>
+                              <td><a href="#"></a>OWASP top 10</td>
 
-								  </table>
-						          </div>
-						          <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						          <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
-						          </form>
-						          </div>
-						          </div>
-						  		  </div>
-								  </div>      				
-      							  </div><!-- /showback -->
-                             
-                             
-                                                            <tr>
-                                  <td><a href="basic_table.html#"></a>Owasp top 10</td>
-
-                                  <td class="hidden-phone">Top 10 vulnerabilities composed by owasp.</td>
-                                  <td class="hidden-phone">Recommended</td>
-                                  <td></td>
-                                  <td>
-                                      
-                                      
-                                            				<! -- MODALS -->
+                              <td class="hidden-phone">Top 10 vulnerabilities composed by OWASP.</td>
+                              <td class="hidden-phone">Recommended</td>
+                              <td></td>
+                              <td>          
+                            <!-- MODALS -->
       				              <div class="showbak">
       						      <!-- Button trigger modal -->
 					         	  <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal3">
@@ -207,31 +167,30 @@ $i=0;
 						          </div>
 						          <div   class="modal-body">
 						          <table id='checklist' style="width:525px">
-						          <form method='post' action='/checklistInserts/checklistInsert/<?php echo htmlspecialchars($identifier); ?>' />
+						          <form method='post' action='/project-checklist-add'/>
 
-{% set counter = 0 -%}
-{% for entry in owasp_content -%}
+                      {% set counter_owasp = 0 -%}
+                      {% for entry in owasp_content -%}
 
 
-<tr>
-  <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}} {{owasp_ids[counter]|safe}}
-</td>
-  <td></td>
-    <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-    <select name='answer<?php echo htmlspecialchars($i); ?>' >
-    <option value='yes' >Yes</option>
-    <option value='no' >No</option>
-    <option value='yes' >N.A.</option>
-    </select>
-    </td>
-    <input type='hidden' name='vulnID<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['vulnID']); ?>'/>
-    <input type='hidden' name='questionID<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['questionID']); ?>'/>
-    <input type='hidden' name='listName<?php echo htmlspecialchars($i); ?>' value='<?php echo htmlspecialchars($c['listName']); ?>'/>
-    <input type="hidden" name="token" value="<?php echo htmlspecialchars($_SESSION['csrf']); ?>" id="token">
-    </td>
-</tr>
-{% set counter = counter + 1 %}
-{% endfor %}
+                      <tr>
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}}
+                      </td>
+                        <td></td>
+                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          <select name='answer{{counter_owasp|safe}}'>
+                          <option value='yes' >Yes</option>
+                          <option value='no' >No</option>
+                          <option value='yes' >N.A.</option>
+                          </select>
+                          </td>
+                          <input type='hidden' name='vulnID{{counter_owasp|safe}}' value='{{owasp_kb_ids[counter]|safe}}'/>
+                          <input type='hidden' name='questionID{{counter_owasp|safe}}' value='{{owasp_ids[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='listID{{counter_owasp|safe}}' value='{{custom_list|safe}}'>
+                          </td>
+                      </tr>
+                      {% set counter_owasp = counter_owasp + 1 %}
+                      {% endfor %}
 
 
 								  </table>
@@ -246,6 +205,69 @@ $i=0;
 								  </div>      				
       							  </div>
 
+                    <tr>
+                    <td><a href="#"></a>Custom Checklist</td>
+                    <td class="hidden-phone">This checklist is a template for your own custom checklist. If you have created one please create a Pull request on GIT.</td>
+                    <td class="hidden-phone">Custom</td>
+                    <td></td>
+                    <td>
+                        
+                        
+                                      <!-- MODALS -->
+                            <div class="showbak">
+                        <!-- Button trigger modal -->
+                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal4">
+                       Start                     
+                        </button>
+            
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Certified secure advanced audit</h4>
+                      </div>
+                      <div   class="modal-body">
+                      <table id='checklist' style="width:525px">
+                      <form method='post' action='/project-checklist-add'/>
+                      
+                  {% set counter_custom = 0 -%}
+                  {% for entry in custom_content -%}
+
+                  <tr>
+                    <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>{{entry|safe}}</td>
+                    <td></td>
+                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                      <select name='answer{{counter_custom|safe}}' >
+                      <option value='yes' >Done</option>
+                      <option value='no' >Not done</option>
+                      <option value='yes' >N.A.</option>
+                      </select>
+                      </td>
+                      <input type='hidden' name='vulnID{{counter_custom|safe}}' value='{{custom_kb_ids[counter_custom]|safe}}'>
+                      <input type='hidden' name='questionID{{counter_custom|safe}}' value='{{custom_ids[counter_custom]|safe}}'>
+                      <input type='hidden' name='listID{{counter_custom|safe}}' value='{{custom_list|safe}}'>
+                       
+                      </td>
+                  </tr>
+
+                  {% set counter_custom = counter_custom + 1 %}
+                  {% endfor %}
+
+
+                  </table>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
+                      </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>              
+                      </div><!-- /showback -->
+                  
                               
                               </tbody>
                           </table>
@@ -254,7 +276,7 @@ $i=0;
 	
                </div><!-- /col-lg-4 -->			
 		  	</div><!-- /row -->
-		</section><! --/wrapper -->
+		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
          
 
