@@ -1,0 +1,1 @@
+ All information stored for/by the application must be documented  

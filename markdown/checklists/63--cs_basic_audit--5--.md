@@ -1,1 +1,1 @@
-User input must be encoded before it is used in HTML output.
+ A session bound token must be validated for each POST request. 
