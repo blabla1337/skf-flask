@@ -66,8 +66,8 @@ j++;
 
 <div style='float:left;  margin-left:-12px;' class="">
 <h4>
-<button style='margin-top:-60px;' class="btn btn-warning btn-lg" data-target="#myModal1" style='visibility:none' data-toggle="modal">Add Functions</button>
-<div id="myModal1" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="display: none;">
+<button style='margin-top:-60px;' class="btn btn-warning btn-lg" data-target="#myModal" style='visibility:none' data-toggle="modal">Add Functions</button>
+<div id="myModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="display: none;">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
@@ -151,7 +151,7 @@ j++;
 						          </div>
 							  <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						         <a href="/project-functions/{{project_id}}"><button class="btn btn-danger" onClick="delFunction('{{project_id|safe}}','{{entry.paramID|safe}}')">Remove Function</button></a>
+						         <a href="#"><button class="btn btn-danger" onClick="delFunction('{{project_id|safe}}','{{entry.paramID|safe}}')">Remove Function</button></a>
 						          </div>
 						          </div>
 						  		  </div>
@@ -169,7 +169,7 @@ j++;
               </div><!-- /row -->
               
               
-		</section><! --/wrapper -->
+		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
          
          

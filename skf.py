@@ -506,7 +506,8 @@ def results_checklists(project_id):
 
     id = int(project_id)
     db = get_db()
-    cur = db.execute('select projectID, listID, listName, vulnID, entryDate from questionlist where projectID='+`id`)
+    # SELECT p.projectName, p.projectID, p.projectDesc, p.projectVersion, p.userID, par.paramID, par.functionName, par.tech, par.projectID, par.userID from projects as p join parameters as par on p.projectID = par.projectID  GROUP BY p.projectVersion
+    cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist as q JOIN projects as p ON q.projectID = p.projectID  GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC')
     entries = cur.fetchall()
     return render_template('results-checklists.html', entries=entries)
 
