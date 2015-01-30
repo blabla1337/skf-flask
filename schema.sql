@@ -33,34 +33,6 @@ CREATE TABLE `techhacks` (
 `vulnID` int(11) NOT NULL,
 PRIMARY KEY (`techID`)
 );
-
-
--- 
--- Table structure for table `questionlist`
--- 
-drop table if exists `questionlist`;
-CREATE TABLE `questionlist` (
-`listID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`answer` varchar(255) NOT NULL,
-`projectID` varchar(255) NOT NULL,
-`projectName` varchar(255) NOT NULL,
-`questionID` varchar(255) NOT NULL,
-`vulnID` varchar(255) NOT NULL,
-`listName` varchar(255) NOT NULL,
-`entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
-
--- 
--- Table structure for table `techvuln`
--- 
-drop table if exists `techvuln`;
-CREATE TABLE `techvuln` (
-`techVulnID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`techID` int(11) NOT NULL,
-`vulnID` int(11) NOT NULL
-);
-
 INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
 (1, 'SQL commands', 46),
 (2, 'Path/Filenames', 1),
@@ -81,3 +53,21 @@ INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
 (22, 'JSON ', 3),
 (23, 'GET variables/parameters', 72),
 (24, 'Forward or/ redirect', 67);
+
+-- 
+-- Table structure for table `questionlist`
+-- 
+drop table if exists `questionlist`;
+CREATE TABLE `questionlist` (
+`listID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`answer` varchar(255) NOT NULL,
+`projectID` varchar(255) NOT NULL,
+`projectName` varchar(255) NOT NULL,
+`questionID` varchar(255) NOT NULL,
+`vulnID` varchar(255) NOT NULL,
+`listName` varchar(255) NOT NULL,
+`entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+

@@ -49,12 +49,12 @@
                                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/functionpdf/functions/<?php echo htmlspecialchars($o['projectID']); ?>" target='' ><button class="btn btn-success btn-xs"><i class="fa fa-download "></i></button></a>
                                              				           
       						      <!-- Button trigger modal -->
-					         	  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $i; ?>">
+					         	  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{counter|safe}}">
 						          <i class="fa fa-times "></i>                  
 					              </button>
 						
 						          <!-- Modal -->
-						          <div class="modal fade" id="myModal<?php echo $i; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						          <div class="modal fade" id="myModal{{counter|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						          <div class="modal-dialog">
 						          <div class="modal-content">
 						          <div class="modal-header">
@@ -73,7 +73,7 @@
 						          </div>
 						          <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						         <a href='/function/deleteFunction/<?php echo htmlspecialchars($o['functionName']); ?>' <input type="submit" name="submitCertifiedsecure" class="btn btn-danger" value='Remove functions'/>Remove functions</a>
+							   	<a href='/results-checklists-del/{{entry.functionName|safe}}' <input type="submit" name="submitCertifiedsecure" class="btn btn-danger" value='Remove functions'/>Remove Functions</a>
 						          </form>
 						          </div>
 						          </div>
@@ -84,56 +84,15 @@
       							  </td>
                               </tr>
 		         			  {% endfor %}				
-
+		         			  {% endif %}
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
-<br/>
-
-
-
-
-{% endif %}
-						<!-- Modal -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						  <div class="modal-dialog">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						        <h4 class="modal-title" id="myModalLabel">Generate results</h4>
-						      </div>
-						      <div class="modal-body">
-						      Select a project from which results should be generated<br/><br/>
-						    <form method='post' action='/functionResults/search'>
-						      <select name='projectSearch'>
-
-						      <?php
-						    if ($details):
-						    foreach ($details as $d): ?>
-                              
-						      <option value='<?php echo htmlspecialchars($d['projectName']); ?>' ><?php echo htmlspecialchars($d['projectName']); ?></option>
-						     
-						     	<?php
-						    endforeach; ?>
-						<?php endif; ?>
-                              
-						      </select>
-						      
-						      </div>
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        <input type="submit" value='Generate results' class="btn btn-primary"/>
-						        </form>
-						      </div>
-						    </div>
-						  </div>
-						</div>      				
-      				</div><!-- /showback -->
-      				
-      				
-							</div>	
+				<br/>
+         		</div><!-- /showback -->      				
+				</div>	
                </div><!-- /col-lg-4 -->			
 		  	</div><!-- /row -->
 		</section><!--/wrapper -->

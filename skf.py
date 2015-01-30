@@ -332,7 +332,9 @@ def project_functions(project_id):
         abort(401)
     techlist = projects_functions_techlist()
     db = get_db()
-    cur = db.execute('select paramID, functionName, functionDesc, projectID, tech, entryDate from parameters order by projectID desc')
+    db.commit()
+    cur = db.execute('select paramID, functionName, functionDesc, projectID, tech, entryDate from parameters where projectID=? order by projectID desc',
+                      [project_id])
     entries = cur.fetchall()
     return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries)
 
@@ -515,6 +517,29 @@ def results_functions():
     entries = cur.fetchall()
     return render_template('results-functions.html', entries=entries)
 
+@app.route('/results-functions-del/<entryDate>', methods=['GET'])
+@security
+def functions_del(entryDate):
+    if not session.get('logged_in'):
+        abort(401)
+    db = get_db()
+    db.execute("DELETE FROM parameters where entryDate=?",
+               [entryDate])
+    db.commit()
+    redirect_url = "/results-functions"
+    return redirect(redirect_url)
 
+@app.route('/results-checklists-del/<entryDate>', methods=['GET'])
+@security
+def checklists_del(entryDate):
+    if not session.get('logged_in'):
+        abort(401)
+    db = get_db()
+    db.execute("DELETE FROM questionlist where entryDate=?",
+               [entryDate])
+    db.commit()
+    print entryDate
+    redirect_url = "/results-checklists"
+    return redirect(redirect_url)
 
 
