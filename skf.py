@@ -290,7 +290,7 @@ def add_entry():
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    db.execute('insert into projects (projectName, projectVersion, projectDesc) values (?, ?, ?)',
+    db.execute('INSERT into projects (projectName, projectVersion, projectDesc) values (?, ?, ?)',
                [request.form['inputName'], request.form['inputVersion'], request.form['inputDesc']])
     db.commit()
     return redirect(url_for('project_list'))
@@ -362,11 +362,11 @@ def add_function():
     	    found = key.find("test")
             if found != -1:
                 db = get_db()
-                db.execute('insert into parameters (functionName, functionDesc, tech, projectID) values (?, ?, ?, ?)',
+                db.execute('INSERT into parameters (functionName, functionDesc, tech, projectID) values (?, ?, ?, ?)',
                            [request.form['functionName'], request.form['functionDesc'], value, request.form['project_id']])
                 db.commit()
 
-    redirect_url = "/project-functions/"+str(id)
+    redirect_url = '/project-functions/'+`id`
     return redirect(redirect_url)
 
 
@@ -474,43 +474,46 @@ def project_checklists(project_id):
 def add_checklist():
     if not session.get('logged_in'):
         abort(401)
-    id = int(request.form['projectID'])
     f = request.form
     i = 0
     for key in f.keys():
         for value in f.getlist(key):
             found = key.find("vuln")
             if found != -1:
-                listID = "listID" 
-                listID +=`i`
-                answerID = "answer" 
-                answerID +=`i`
-                questionID = "questionID" 
-                questionID +=`i`
-                vulnID = "vulnID" 
-                vulnID +=`i`               
+                listID = "listID"+`i`
+                answerID = "answer"+`i`
+                questionID = "questionID"+`i` 
+                vulnID = "vulnID"+`i` 
 
                 db = get_db()
-                db.execute('insert into questionlist (answer, projectName, projectID, questionID, vulnID, listName) values (?, ?, ?, ?, ?, ?)',
+                db.execute('INSERT into questionlist (answer, projectName, projectID, questionID, vulnID, listName) values (?, ?, ?, ?, ?, ?)',
                            [request.form[answerID], request.form['projectName'], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
                 db.commit()
                 i += 1
-    redirect_url = "/results-checklists/"+str(id)
+    redirect_url = "/results-checklists"
     return redirect(redirect_url)
 
-@app.route('/results-checklists/<project_id>', methods=['GET'])
+@app.route('/results-checklists', methods=['GET'])
 @security
-def results_checklists(project_id):
+def results_checklists():
     if not session.get('logged_in'):
         abort(401)
 
-    id = int(project_id)
     db = get_db()
-    # SELECT p.projectName, p.projectID, p.projectDesc, p.projectVersion, p.userID, par.paramID, par.functionName, par.tech, par.projectID, par.userID from projects as p join parameters as par on p.projectID = par.projectID  GROUP BY p.projectVersion
     cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist as q JOIN projects as p ON q.projectID = p.projectID  GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC')
     entries = cur.fetchall()
     return render_template('results-checklists.html', entries=entries)
 
+@app.route('/results-functions', methods=['GET'])
+@security
+def results_functions():
+    if not session.get('logged_in'):
+        abort(401)
+
+    db = get_db()
+    cur = db.execute('SELECT p.projectName, p.projectID, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID from projects as p join parameters as par on p.projectID = par.projectID GROUP BY p.projectVersion ')
+    entries = cur.fetchall()
+    return render_template('results-functions.html', entries=entries)
 
 
 
