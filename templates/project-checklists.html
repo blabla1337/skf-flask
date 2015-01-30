@@ -55,7 +55,14 @@
                     {% for entry in basic_content -%}
            
                     <tr>
-                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>     {{entry|safe}} </td>
+                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
+                           {% if entries.projectName != Null -%}
+                               {{entry|safe}} 
+                           {% else %}
+                               {{entry|safe}} 
+                           {% endif %}
+
+                      </td>
                       <td></td>
                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                         <select name='answer{{counter_basic|safe}}' >
