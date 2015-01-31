@@ -1,0 +1,107 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: Sep 15, 2014 at 08:28 AM
+-- Server version: 5.5.34
+-- PHP Version: 5.5.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `skf`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CS_basic_audit`
+--
+
+CREATE TABLE `CS_basic_audit` (
+  `questionID` int(11) NOT NULL AUTO_INCREMENT,
+  `head` text NOT NULL,
+  `question` text NOT NULL,
+  `vulnID` int(11) NOT NULL,
+  `listName` varchar(255) NOT NULL,
+  PRIMARY KEY (`questionID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=75 ;
+
+--
+-- Dumping data for table `CS_basic_audit`
+--
+
+INSERT INTO `CS_basic_audit` (`questionID`, `head`, `question`, `vulnID`, `listName`) VALUES
+(1, 'Multi-system services', 'null', 0, 'CS_basic_audit'),
+(2, 'null', 'If proxy functionality is used, each request must be rewritten or validated', 1, 'CS_basic_audit'),
+(3, 'Design', 'null', 0, 'CS_basic_audit'),
+(4, 'null', 'Only the user interface must be directly accessible by users', 27, 'CS_basic_audit'),
+(5, 'null', 'All pages must explicitly define a character-set', 68, 'CS_basic_audit'),
+(6, 'null', 'The crossdomain.xml file must only contain trusted domains', 54, 'CS_basic_audit'),
+(7, 'Information disclosure', 'null', 0, 'CS_basic_audit'),
+(8, 'null', 'Error messages must be generalised before presented towards the user.', 15, 'CS_basic_audit'),
+(9, 'null', 'Debug functionality must not be available to normal users.', 16, 'CS_basic_audit'),
+(10, 'null', 'The robots.txt must not provide any sensitive information about the system.', 17, 'CS_basic_audit'),
+(11, 'null', 'The document root must not contain extraneous files.', 69, 'CS_basic_audit'),
+(12, 'Privacy and confidentiality', 'null', 0, 'CS_basic_audit'),
+(13, 'null', 'Sensitive information must be transmitted encrypted', 52, 'CS_basic_audit'),
+(14, 'null', 'Sensitive information must not be stored in cookies', 41, 'CS_basic_audit'),
+(15, 'null', 'Sensitive information must be protected using anti-caching headers', 19, 'CS_basic_audit'),
+(16, 'Integrety', 'null', 0, 'CS_basic_audit'),
+(17, 'null', 'Session related information must be stored at the server-side', 53, 'CS_basic_audit'),
+(18, 'Authentication and authorization', 'null', 0, 'CS_basic_audit'),
+(19, 'null', 'Authentication must be performed at the server-side.', 43, 'CS_basic_audit'),
+(20, 'null', 'Authentication must be performed for each privileged request.', 0, 'CS_basic_audit'),
+(21, 'null', 'Authentication and authorization must not be based on obscurity', 66, 'CS_basic_audit'),
+(22, 'null', 'Authentication must not be based on the knowledge of a secret URL.', 66, 'CS_basic_audit'),
+(23, 'null', 'Authorization must not be based on\nthe knowledge of an identifier.', 44, 'CS_basic_audit'),
+(24, 'null', 'The current password must be provided when changing credentials', 32, 'CS_basic_audit'),
+(25, 'null', 'Authentication failures must always result in the same log message.', 28, 'CS_basic_audit'),
+(26, 'null', 'No default, test or temporary user accounts must exist.', 63, 'CS_basic_audit'),
+(27, 'null', 'Password brute forcing must be prevented', 29, 'CS_basic_audit'),
+(28, 'null', 'Username enumeration must be prevented.', 70, 'CS_basic_audit'),
+(29, 'null', 'A denial of service using automatically locked accounts must be prevented.', 30, 'CS_basic_audit'),
+(30, 'null', 'All passwords must be sufficiently hashed, salted and stretched ', 51, 'CS_basic_audit'),
+(31, 'null', 'Generated passwords and tokens must not be predictable.', 31, 'CS_basic_audit'),
+(32, 'User input', 'null', 0, 'CS_basic_audit'),
+(33, 'null', 'User input must be encoded in the context where it is used.', 0, 'CS_basic_audit'),
+(34, 'null', 'User input must never be decoded more than once.', 33, 'CS_basic_audit'),
+(35, 'null', 'User input must be encoded before it is used in path/filenames.\n', 1, 'CS_basic_audit'),
+(36, 'null', 'User input must be encoded before it is used in SQL commands.', 46, 'CS_basic_audit'),
+(37, 'null', 'User input must be encoded before it is used in XML documents.', 8, 'CS_basic_audit'),
+(38, 'null', 'User input must be encoded before it is used in XPath queries.', 7, 'CS_basic_audit'),
+(39, 'null', 'User input must be encoded before it is used in HTML output.', 3, 'CS_basic_audit'),
+(40, 'null', 'User input must be encoded before it is used in LDAP commands.', 11, 'CS_basic_audit'),
+(41, 'null', 'User input must be encoded before it is used in HTTP headers.', 71, 'CS_basic_audit'),
+(42, 'null', 'User input must be encoded before it is used in XSL(T) input/output.', 9, 'CS_basic_audit'),
+(43, 'null', 'User input must be encoded before it is used in SSI\ncommands', 12, 'CS_basic_audit'),
+(44, 'null', 'User input must be encoded before it is used in system commands.', 4, 'CS_basic_audit'),
+(45, 'null', 'User input must be encoded before it is used in resource identifiers.', 34, 'CS_basic_audit'),
+(46, 'null', 'User input must be encoded before it is used in eval like functions.', 4, 'CS_basic_audit'),
+(47, 'null', 'User input must be encoded before it is\nused in regular expression.', 36, 'CS_basic_audit'),
+(48, 'XML', 'null', 0, 'CS_basic_audit'),
+(49, 'null', 'Untrusted XML External Entities must not be parsed or evaluated.', 6, 'CS_basic_audit'),
+(50, 'null', 'Untrusted XML External DTDs must not be parsed or evaluated.', 10, 'CS_basic_audit'),
+(51, 'File upload', 'null', 0, 'CS_basic_audit'),
+(52, 'null', 'Uploaded files must never be executed or evaluated.', 13, 'CS_basic_audit'),
+(53, 'null', 'A conservative size limit must be enforced on uploaded files.', 13, 'CS_basic_audit'),
+(54, 'null', 'Uploaded files must be stored outside the document root.', 13, 'CS_basic_audit'),
+(56, 'Secure sessions', 'null', 0, 'CS_basic_audit'),
+(57, 'null', 'Session ids must be generated with sufficient entropy.\n', 55, 'CS_basic_audit'),
+(58, 'null', 'User generated session ids must always\r\nbe rejected.', 56, 'CS_basic_audit'),
+(59, 'null', 'Session cookies must be transmitted\r\nvia HTTPS.', 41, 'CS_basic_audit'),
+(60, 'null', 'The Secure flag must be set on the session cookies.', 38, 'CS_basic_audit'),
+(61, 'null', 'The HttpOnly flag must be set on the session cookies.', 39, 'CS_basic_audit'),
+(62, 'null', 'Data mutation must be performed using POST requests.', 72, 'CS_basic_audit'),
+(63, 'null', 'A session bound token must be validated for each POST request.', 5, 'CS_basic_audit'),
+(64, 'null', 'Anti-click jacking measures must be\r\nimplemented.', 20, 'CS_basic_audit'),
+(65, 'null', 'Logout functionality must\nalways revoke the complete session.', 57, 'CS_basic_audit'),
+(66, 'null', 'Login functionality must always generate (and use) a new session\r\nid. ', 58, 'CS_basic_audit'),
+(67, 'Cryptography', 'null', 0, 'CS_basic_audit'),
+(68, 'null', 'Only widely accepted cryptographic methods must be used.', 42, 'CS_basic_audit'),
+(69, 'Version management', 'null', 0, 'CS_basic_audit'),
+(70, 'null', 'All security updates for deployed\r\nthird-party software must be installed.', 14, 'CS_basic_audit'),
+(73, 'Email', 'null', 0, 'CS_basic_audit'),
+(74, 'null', 'E-mail functionality must be protected against automated spamming.', 37, 'CS_basic_audit');

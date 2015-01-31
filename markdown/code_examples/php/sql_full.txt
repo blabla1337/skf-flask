@@ -1,0 +1,715 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: Jan 29, 2015 at 05:35 PM
+-- Server version: 5.5.34
+-- PHP Version: 5.5.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `skf`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checklists`
+--
+
+CREATE TABLE `checklists` (
+  `questionID` int(11) NOT NULL AUTO_INCREMENT,
+  `head` text NOT NULL,
+  `question` text NOT NULL,
+  `vulnID` int(11) NOT NULL,
+  `listName` varchar(255) NOT NULL,
+  PRIMARY KEY (`questionID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=154 ;
+
+--
+-- Dumping data for table `checklists`
+--
+
+INSERT INTO `checklists` (`questionID`, `head`, `question`, `vulnID`, `listName`) VALUES
+(1, 'Multi-system services', 'null', 0, 'CS_basic_audit'),
+(2, 'null', 'If proxy functionality is used, each request must be rewritten or validated', 1, 'CS_basic_audit'),
+(3, 'Design', 'null', 0, 'CS_basic_audit'),
+(4, 'null', 'Only the user interface must be directly accessible by users', 27, 'CS_basic_audit'),
+(5, 'null', 'All pages must explicitly define a character-set', 68, 'CS_basic_audit'),
+(6, 'null', 'The crossdomain.xml file must only contain trusted domains', 54, 'CS_basic_audit'),
+(7, 'Information disclosure', 'null', 0, 'CS_basic_audit'),
+(8, 'null', 'Error messages must be generalised before presented towards the user.', 15, 'CS_basic_audit'),
+(9, 'null', 'Debug functionality must not be available to normal users.', 16, 'CS_basic_audit'),
+(10, 'null', 'The robots.txt must not provide any sensitive information about the system.', 17, 'CS_basic_audit'),
+(11, 'null', 'The document root must not contain extraneous files.', 69, 'CS_basic_audit'),
+(12, 'Privacy and confidentiality', 'null', 0, 'CS_basic_audit'),
+(13, 'null', 'Sensitive information must be transmitted encrypted', 52, 'CS_basic_audit'),
+(14, 'null', 'Sensitive information must not be stored in cookies', 41, 'CS_basic_audit'),
+(15, 'null', 'Sensitive information must be protected using anti-caching headers', 19, 'CS_basic_audit'),
+(16, 'Integrety', 'null', 0, 'CS_basic_audit'),
+(17, 'null', 'Session related information must be stored at the server-side', 53, 'CS_basic_audit'),
+(18, 'Authentication and authorization', 'null', 0, 'CS_basic_audit'),
+(19, 'null', 'Authentication must be performed at the server-side.', 43, 'CS_basic_audit'),
+(20, 'null', 'Authentication must be performed for each privileged request.', 0, 'CS_basic_audit'),
+(21, 'null', 'Authentication and authorization must not be based on obscurity', 66, 'CS_basic_audit'),
+(22, 'null', 'Authentication must not be based on the knowledge of a secret URL.', 66, 'CS_basic_audit'),
+(23, 'null', 'Authorization must not be based on\nthe knowledge of an identifier.', 44, 'CS_basic_audit'),
+(24, 'null', 'The current password must be provided when changing credentials', 32, 'CS_basic_audit'),
+(25, 'null', 'Authentication failures must always result in the same log message.', 28, 'CS_basic_audit'),
+(26, 'null', 'No default, test or temporary user accounts must exist.', 63, 'CS_basic_audit'),
+(27, 'null', 'Password brute forcing must be prevented', 29, 'CS_basic_audit'),
+(28, 'null', 'Username enumeration must be prevented.', 70, 'CS_basic_audit'),
+(29, 'null', 'A denial of service using automatically locked accounts must be prevented.', 30, 'CS_basic_audit'),
+(30, 'null', 'All passwords must be sufficiently hashed, salted and stretched ', 51, 'CS_basic_audit'),
+(31, 'null', 'Generated passwords and tokens must not be predictable.', 31, 'CS_basic_audit'),
+(32, 'User input', 'null', 0, 'CS_basic_audit'),
+(34, 'null', 'User input must never be decoded more than once.', 33, 'CS_basic_audit'),
+(35, 'null', 'User input must be encoded before it is used in path/filenames.\n', 1, 'CS_basic_audit'),
+(36, 'null', 'User input must be encoded before it is used in SQL commands.', 46, 'CS_basic_audit'),
+(37, 'null', 'User input must be encoded before it is used in XML documents.', 8, 'CS_basic_audit'),
+(38, 'null', 'User input must be encoded before it is used in XPath queries.', 7, 'CS_basic_audit'),
+(39, 'null', 'User input must be encoded before it is used in HTML output.', 3, 'CS_basic_audit'),
+(40, 'null', 'User input must be encoded before it is used in LDAP commands.', 11, 'CS_basic_audit'),
+(41, 'null', 'User input must be encoded before it is used in HTTP headers.', 71, 'CS_basic_audit'),
+(42, 'null', 'User input must be encoded before it is used in XSL(T) input/output.', 9, 'CS_basic_audit'),
+(43, 'null', 'User input must be encoded before it is used in SSI\ncommands', 12, 'CS_basic_audit'),
+(44, 'null', 'User input must be encoded before it is used in system commands.', 4, 'CS_basic_audit'),
+(45, 'null', 'User input must be encoded before it is used in resource identifiers.', 34, 'CS_basic_audit'),
+(46, 'null', 'User input must be encoded before it is used in eval like functions.', 4, 'CS_basic_audit'),
+(47, 'null', 'User input must be encoded before it is\nused in regular expression.', 36, 'CS_basic_audit'),
+(48, 'XML', 'null', 0, 'CS_basic_audit'),
+(49, 'null', 'Untrusted XML External Entities must not be parsed or evaluated.', 6, 'CS_basic_audit'),
+(50, 'null', 'Untrusted XML External DTDs must not be parsed or evaluated.', 10, 'CS_basic_audit'),
+(51, 'File upload', 'null', 0, 'CS_basic_audit'),
+(52, 'null', 'Uploaded files must never be executed or evaluated.', 13, 'CS_basic_audit'),
+(53, 'null', 'A conservative size limit must be enforced on uploaded files.', 13, 'CS_basic_audit'),
+(54, 'null', 'Uploaded files must be stored outside the document root.', 13, 'CS_basic_audit'),
+(56, 'Secure sessions', 'null', 0, 'CS_basic_audit'),
+(57, 'null', 'Session ids must be generated with sufficient entropy.\n', 55, 'CS_basic_audit'),
+(58, 'null', 'User generated session ids must always\r\nbe rejected.', 56, 'CS_basic_audit'),
+(59, 'null', 'Session cookies must be transmitted\r\nvia HTTPS.', 41, 'CS_basic_audit'),
+(60, 'null', 'The Secure flag must be set on the session cookies.', 38, 'CS_basic_audit'),
+(61, 'null', 'The HttpOnly flag must be set on the session cookies.', 39, 'CS_basic_audit'),
+(62, 'null', 'Data mutation must be performed using POST requests.', 72, 'CS_basic_audit'),
+(63, 'null', 'A session bound token must be validated for each POST request.', 5, 'CS_basic_audit'),
+(64, 'null', 'Anti-click jacking measures must be\r\nimplemented.', 20, 'CS_basic_audit'),
+(65, 'null', 'Logout functionality must\nalways revoke the complete session.', 57, 'CS_basic_audit'),
+(66, 'null', 'Login functionality must always generate (and use) a new session\r\nid. ', 58, 'CS_basic_audit'),
+(67, 'Cryptography', 'null', 0, 'CS_basic_audit'),
+(68, 'null', 'Only widely accepted cryptographic methods must be used.', 42, 'CS_basic_audit'),
+(69, 'Version management', 'null', 0, 'CS_basic_audit'),
+(70, 'null', 'All security updates for deployed\r\nthird-party software must be installed.', 14, 'CS_basic_audit'),
+(73, 'Email', 'null', 0, 'CS_basic_audit'),
+(74, 'null', 'E-mail functionality must be protected against automated spamming.', 37, 'CS_basic_audit'),
+(75, 'A1 - injection flaws', 'null', 0, 'owasp'),
+(76, 'null', 'All user input is properly escaped and sanitized before using it into SQL SELECT statements.', 47, 'owasp'),
+(77, 'null', 'All user input is properly escaped and sanitized before using it into SQL DELETE statements.', 49, 'owasp'),
+(78, 'null', 'All user input is properly escaped and sanitized before using it into SQL UPDATE statements.', 50, 'owasp'),
+(79, 'null', 'All user input is properly escaped and sanitized before using it into SQL INSERT statements.', 46, 'owasp'),
+(80, 'null', 'All user input is properly escaped and sanitized before using it into path/filenames?', 1, 'owasp'),
+(81, 'null', 'All user input is properly escaped and sanitized when used in XML files.', 8, 'owasp'),
+(82, 'null', 'All user input is properly escaped and sanitized before putting into system command functionalities?\n\n', 4, 'owasp'),
+(83, 'null', 'All user input is properly escaped and sanitized before using in x-path commands', 7, 'owasp'),
+(84, 'null', 'Does a user has to supply his password in order to change his user credentials?', 32, 'owasp'),
+(85, 'null', 'Do sessions contain the httpOnly flag', 39, 'owasp'),
+(86, 'null', 'Do sessions contain the secure flag?', 38, 'owasp'),
+(87, 'null', 'Are your sessions protected for session hijacking?', 40, 'owasp'),
+(88, 'null', 'Are external entities disabled when using XML from external sources', 6, 'owasp'),
+(89, 'null', 'Are session IDs exposed in the URL (e.g., URL rewriting)', 34, 'owasp'),
+(90, 'null', 'Does the application cointain strict constrictions upon file uploading? such as extensions, file size, uploading outside of document root', 13, 'owasp'),
+(91, 'A3-Cross-Site Scripting (XSS)', 'null', 0, 'owasp'),
+(92, 'null', 'all user supplied input is properly escaped before including that input in the output page?\n', 3, 'owasp'),
+(93, 'null', 'Is all user input escaped when Ajax is being used to dynamically update the page?', 3, 'owasp'),
+(94, 'null', 'Are JSON response referencing resources in other domains?', 3, 'owasp'),
+(95, 'null', 'Are thirdparty JavaScript APIs, being encoding or validated for maliclious code? ', 3, 'owasp'),
+(96, 'null', 'Are javascript(); tags being stripped from URL''s and links', 3, 'owasp'),
+(97, 'A4 - Direct Object References', 'null', 0, 'owasp'),
+(99, 'null', 'Are your acces levels restricted by means of identifier based authentication.\n\ni.e \n\n?user=admin\n?user=user', 44, 'owasp'),
+(100, 'A5 - Security misconfiguration', 'null', 0, 'owasp'),
+(101, 'null', 'Is al your software up to date? This includes the OS, Web/App Server, DBMS, applications, and all code libraries (s', 14, 'owasp'),
+(102, 'null', 'Are  unnecessary features being disabled or deleted (e.g., ports, services, pages, accounts, privileges)? ', 62, 'owasp'),
+(103, 'null', 'Are default accounts and their passwords disabled and changed?', 63, 'owasp'),
+(104, 'null', 'Does your error handling hide stack traces or other overly informative error messages to users?', 16, 'owasp'),
+(105, 'null\r\n', 'Directory listing is enabled on your server?', 61, 'owasp'),
+(106, 'null', 'Are the security settings in your development frameworks (e.g., Struts, Spring, ASP.NET) and libraries not set to secure values? ', 64, 'owasp'),
+(107, 'A6 - Sensitive Data Exposure\r\n', 'null', 0, 'owasp'),
+(108, 'null', 'Is data stored encrypted, including backups?', 65, 'owasp'),
+(109, 'null', 'Is data transmitted encrypted, internally or externally? Internet traffic is especially dangerous. ', 52, 'owasp'),
+(110, 'null', 'Are all algorihms and hashes new / strong / proven cryptographic algorithms? \n\nunproven: own crafted algorithms', 42, 'owasp'),
+(111, 'null', 'Are browser security directives or headers added when sensitive data is provided by / sent to the browser? ', 19, 'owasp'),
+(112, 'null', 'Are string crypto keys generated, and is proper key management or rotation implemented? ', 31, 'owasp'),
+(113, 'A7 - Missing Function Level Access Control', 'null', 0, 'owasp'),
+(114, 'null', 'Does the UI hide navigation to unauthorized functions? ', 66, 'owasp'),
+(115, 'null', 'Are server side authentication or authorization checks added', 66, 'owasp'),
+(116, 'null', 'Are server side checks done that solely rely on information provided by the attacker?', 44, 'owasp'),
+(117, 'A8 - Cross-Site Request Forgery (CSRF)', 'null', 0, 'owasp'),
+(118, 'null', 'Does the application uses CSRF tokens in order to prevent attackers to forge malicious requests.', 5, 'owasp'),
+(119, 'A9 - Using Components with Known Vulnerabilities.', 'null', 0, 'owasp'),
+(120, 'null', 'Is all third party software up to date?', 14, 'owasp'),
+(121, 'A10 - Unvalidated Redirects and Forwards', 'null', 0, 'owasp'),
+(122, 'null', 'Are Redirects and Forwards URLs not being included in any parameter values.', 67, 'owasp'),
+(123, 'Documentation', 'null', 0, 'CS_advanced_audit'),
+(124, 'null', 'The possible attackers of the application must be documented.', 76, 'CS_advanced_audit'),
+(125, 'null', 'All information stored for/by the application must be documented ', 0, 'CS_advanced_audit'),
+(126, 'null', 'The possible risks to\nthe application must be documented.', 75, 'CS_advanced_audit'),
+(127, 'Audit log and intrusion detection.', 'null', 0, 'CS_advanced_audit'),
+(128, 'null', 'An audit log must be implemented.', 77, 'CS_advanced_audit'),
+(129, 'null', 'The audit log must include a priority system.', 83, 'CS_advanced_audit'),
+(130, 'null', 'The audit log must not log user\r\ncredentials.', 78, 'CS_advanced_audit'),
+(131, 'null', 'Possible intrusions must be detected and reported.', 79, 'CS_advanced_audit'),
+(132, 'Multi-system services.', 'null', 0, 'CS_advanced_audit'),
+(133, 'null', 'Servers must not be trusted without explicit authentication.', 84, 'CS_advanced_audit'),
+(134, 'null', 'All inter-system communications must use SSL/TLS or IP-Sec', 73, 'CS_advanced_audit'),
+(135, 'Design', 'null', 0, 'CS_advanced_audit'),
+(136, 'null', 'The user interface layer must be separated from the logic and data layer.', 27, 'CS_advanced_audit'),
+(137, 'Version management.', 'null', 0, 'CS_advanced_audit'),
+(138, 'null', 'A procedure for updates of third-party\ncomponents must be in place.', 14, 'CS_advanced_audit'),
+(139, 'Information disclosure.', 'null', 0, 'CS_advanced_audit'),
+(140, 'null', 'Debug functionality must not exist on live systems.', 16, 'CS_advanced_audit'),
+(141, 'null', 'HTTP headers must not contain internal IP addresses.ip ranges / mapping netwerk sigment, locaal verder kunnen verkenen.', 81, 'CS_advanced_audit'),
+(142, 'Authentication and authorization.', 'null', 0, 'CS_advanced_audit'),
+(143, 'null', 'Authentication must be performed at a central location.', 80, 'CS_advanced_audit'),
+(144, 'null', 'Authentication must be enforced by the web-server configuration.', 82, 'CS_advanced_audit'),
+(145, 'null', 'The use of secure passwords must be enforced.', 51, 'CS_advanced_audit'),
+(146, 'null', 'Production passwords must not be stored alongside the source code.', 74, 'CS_advanced_audit'),
+(147, 'Secure sessions.', 'null', 0, 'CS_advanced_audit'),
+(148, 'null', 'Session ids must be bound to a single IP address.', 40, 'CS_advanced_audit'),
+(149, 'Server configuration.', 'null', 0, 'CS_advanced_audit'),
+(150, 'null', 'The application must assert the assumed security setting.', 64, 'CS_advanced_audit'),
+(151, 'Cryptography.', 'null', 0, 'CS_advanced_audit'),
+(152, 'null', 'Sensitive information must be stored encrypted or hashed.', 65, 'CS_advanced_audit');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `code_example`
+--
+
+CREATE TABLE `code_example` (
+  `codeID` int(11) NOT NULL AUTO_INCREMENT,
+  `codeName` varchar(255) NOT NULL,
+  `codeExample` text NOT NULL,
+  `lang` varchar(255) NOT NULL,
+  PRIMARY KEY (`codeID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+
+--
+-- Dumping data for table `code_example`
+--
+
+INSERT INTO `code_example` (`codeID`, `codeName`, `codeExample`, `lang`) VALUES
+(1, 'File upload', '<?php\n\nfunction Image()\n	\n	{\n		//File location ouside of the root\n		$uploaddir = ''assets/uploads/'';\n\n		//if smaller than zero it''s no file	\n		if(getimagesize($this->_image[''tmp_name'']) < 0)\n		{\n			header(''location:/login'');\n			die;\n		}\n		\n		//Check for mime type of the file\n		if($this->_image[''type''] != ''image/png'' && $this->_image[''type''] != ''image/jpeg'') \n		{	\n			header(''location:/login'');\n			die;\n		}\n				\n		//check extensions\n		$filetype 	   = explode(".", $this->_image[''name'']);\n		$takeLastValue = count($filetype) - 1;			\n		\n			while( ($filetype[$takeLastValue] != "png") && ($filetype[$takeLastValue] != "jpg"))\n			{	\n				header(''location:/login'');\n				die;\n			}\n		\n		//Check for uploading out of intended directory\n		$array = array("/%2e%2e%2f/" ,"/..//" ,"/%2e/" ,"/%5c/" ,"/%252e/" ,"/%c0%af/" ,"%/c1%9c/");\n		\n		foreach($array as $injectPattern)\n		{\n			while(preg_match($injectPattern , $this->_image[''name'']))\n			{\n				header(''location:/login'');\n				die;\n			}		\n		}\n			\n		//if all goes wel upload your file	\n		\n		$uploadfile = $uploaddir . basename($this->_image[''name'']);\n		move_uploaded_file($this->_image[''tmp_name''], $uploadfile);	\n		\n		//Last mime type check after upload if not correct than delete!\n		$finfo = finfo_open(FILEINFO_MIME_TYPE);\n		echo $theType = finfo_file($finfo, $uploaddir.$this->_image[''name'']);\n		\n			if($theType != "image/jpeg" && $theType != "image/png")\n			{	\n				unlink($uploaddir.$this->_image[''name'']);\n				header(''location:/login'');\n				die;\n			}\n\n	}\n?>', 'php'),
+(2, 'CSRF tokens', '<?php\n\n//First after a succsesfull validation of a user login, the application must also start a session\n//which contains the "cross site request forgery" token.\n\n$_SESSION[''csrf''] = base64_encode(openssl_random_pseudo_bytes(128));\n\n\n//The next step is implementing this random token in each form field as a hidden input parameter\n//and send it to a function which checks if the submitted token is equal to the one set after succesfull validation.\n?>\n\n\n<form method=''post''>\n<input type=''text'' name=''value1'' />\n<input type=''text'' name=''value2'' />    \n<input type="hidden" name="token" value="<?php echo $_SESSION[''csrf'']; ?>" id="token">\n</form>    \n\n<?php\n//here we are sending the token towards the function which does the token validation\n\n    protected function _checkCsrf($token){\n        session_start();\n            \n        if($_SESSION[''csrf''] != $token){\n            session_destroy();\n            header("Location: /login");\n            die();\n        }\n    } \n    \n?>', 'php'),
+(4, 'Directory/path traversal', '\n<?php\n\n		//start a new domdocument\n\n        $xmldoc = new DOMDocument();\n        $xmldoc->load(''test.xml'');\n\n        $xpathvar = new Domxpath($xmldoc);\n\n		//define break out patterns\n		\n		$pattern1 = "/''/";\n		$pattern0 = ''/"/'';\n\n		/* possible sanitizer patterns. In this case we want to use people''s names so we also have\n		want to allow input like: o''reily.\n		*/\n\n		$pattern2  =''/^[a-zA-Z0-9]+&apos;?[a-zA-Z0-9]+$/D'';\n		$pattern3  =''/^[a-zA-Z0-9]/'';\n				\n		/*\n		disarm the brake-out userinput by replacing '' with &apos;\n		*/		\n		$replacements = "&apos;";\n		$string = $_POST[''search''];\n		\n	\n		//Check for uploading out of intended directory\n		$array = array($pattern0 , $pattern1);\n		\n		foreach($array as $pattern)\n		{\n			while(preg_match($pattern , $string))\n			{\n				$result = preg_replace($pattern0, $replacements, $string);\n			}\n			\n			while(preg_match($pattern , $string))\n			{\n				$result = preg_replace($pattern1, $replacements, $string);\n			}		\n		}\n		\n		\n		/*\n		After succesfully sanitizing the userinput we want to execute the x-path query \n		*/\n		\n		if(preg_match($pattern2, $result) || preg_match($pattern3, $result)) :\n		\n        $queryResult = $xpathvar->query(''//lemonade[@supplier="''.$result.''"]/price'');\n        foreach($queryResult as $result){\n                echo $result->textContent;\n        }		\n		\n		endif;\n		\n?>', 'php'),
+(5, 'System commands', '<?php\n\n/*\nwhenever a system command is done you should properly sanitise and escape this userinput.\nsystem command functions could be:\nsystem()\neval()\nexec()\netc:\n*/\n\n\n$whiteList = "/allowed argument/";\n\n$sanitised = preg_match($whiteList, $_POST[''configure_options''], $matched);\n\n	if($matched)\n	{\n		$command = ''./configure ''.$sanitised;\n		$escaped_command = escapeshellcmd($command); \n		system($escaped_command); \n	}else{\n		die;\n	 }\n\n?>', 'php'),
+(6, 'XML External entities', '<?php\n\n/*\nThe overall prevention method for loading external entities is adding the following line of code:\nThis line of code function tells the underlying libxml parsing to not try to interpret the values \nof the entities in the incoming XML and leave the entity references intact.\n*/\n\nlibxml_disable_entity_loader(true);\n\n?>\n\n\n', 'php'),
+(7, 'X-path query', '<?php\n\n		//start a new domdocument\n\n        $xmldoc = new DOMDocument();\n        $xmldoc->load(''test.xml'');\n\n        $xpathvar = new Domxpath($xmldoc);\n\n		//define break out patterns\n		\n		$pattern1 = "/''/";\n		$pattern0 = ''/"/'';\n\n		/* possible sanitizer patterns. In this case we want to use people''s names so we also have\n		want to allow input like: o''reily.\n		*/\n\n		$pattern2  =''/^[a-zA-Z0-9]+&apos;?[a-zA-Z0-9]+$/D'';\n		$pattern3  =''/^[a-zA-Z0-9]/'';\n				\n		/*\n		disarm the brake-out userinput by replacing '' with &apos;\n		*/		\n		$replacements = "&apos;";\n		$string = $_POST[''search''];\n		\n	\n		//Check for uploading out of intended directory\n		$array = array($pattern0 , $pattern1);\n		\n		foreach($array as $pattern)\n		{\n			while(preg_match($pattern , $string))\n			{\n				$result = preg_replace($pattern0, $replacements, $string);\n			}\n			\n			while(preg_match($pattern , $string))\n			{\n				$result = preg_replace($pattern1, $replacements, $string);\n			}		\n		}\n		\n		\n		/*\n		After succesfully sanitizing the userinput we want to execute the x-path query \n		*/\n		\n		if(preg_match($pattern2, $result) || preg_match($pattern3, $result)) :\n		\n        $queryResult = $xpathvar->query(''//lemonade[@supplier="''.$result.''"]/price'');\n        foreach($queryResult as $result){\n                echo $result->textContent;\n        }		\n		\n		endif;\n		\n?>', 'php'),
+(8, 'Debug enabling', '<?php\n//In order to disable debug enabling add the following code in the head of your application\n\nerror_reporting(0);\n\n//or set this value direcly in the php.ini making it a default setting.\n?>', 'php'),
+(9, 'Anti-caching headers', '<?php\r\n/*\r\nAdd the following headers to your application head in order to prevent the browser from caching\r\n*/\r\n\r\nheader("Cache-Control: no-store, no-cache, must-revalidate"); // HTTP/1.1\r\nheader("Cache-Control: post-check=0, pre-check=0", false);\r\nheader("Pragma: no-cache"); // HTTP/1.0 \r\n\r\n?>', 'php'),
+(10, 'Anti clickjacking headers', '<?php\n/*\nThere are two options for setting the anti-clickjacking headers in your application\n*/\n\n//will prevent your page completely from being displayed in an iframe.\nheader(''X-Frame-Options: DENY'');\n\n\n//will prevent you page from being displayed in other sites in an iframe.\nheader(''X-Frame-Options: SAMEORIGIN'');\n?>\n\n', 'php'),
+(11, 'X-XSS-Protection header', '<?php\r\n\r\n//In order to set the X-XSS-Protection header you have to add the following code to the head of your application:\r\nheader("X-XSS-Protection:1; mode=block");\r\n\r\n?>', 'php'),
+(12, 'X-Content-Type-Options header', '<?php\r\n\r\n//In order to set the X-Content-Type-Options header you have to add the following code to the head of your application:\r\nheader(''X-Content-Type-Options: nosniff''); \r\n\r\n?>', 'php'),
+(13, 'Secure session cookies', '<?php\n\n/*\nWhenever  a cookie is send over a secured connection, the cookie should be set\nwith the secure flag in order to guarantee the integrety of the data it contains.\nthe secure flag is set by giving it the true or 1 value\n*/\n\npublic function sessionStart(){\n\n\n$lifetime = 3600;\n$path     = "/";\n$domain   = "";\n$secure   = true; // <-- the secure flag\n$httponly = true; \n\n\nsession_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);\n\n?>', 'php'),
+(14, 'Session cookies HttpOnly', '<?php\r\n\r\n//Whenever a session is started the httpOnly option should always be set to true or 1.\r\n\r\npublic function sessionStart(){\r\n\r\n$lifetime = 3600;\r\n$path     = "/";\r\n$domain   = "";\r\n$secure   = 0;\r\n$httponly = true; // <--  the httponly flag\r\n\r\n\r\nsession_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);\r\n\r\n?>', 'php'),
+(15, 'Identifier-based authorization', '	<?php\n\n	/* \n	Whenever you are checking whether a user is restricted to review certain data,\n	the acces restrictions should be proccessed serverside.\n	The userID could be stored inside of a session variable on login and should be used to retrieve userdata from the database.\n	*/\n	\n\n	$stmt = $db->prepare("SELECT * FROM table WHERE id=:userID AND page=:page");\n	$stmt->execute(array('':page'' => $page, '':id'' => $_SESSION[''userID'']));\n	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);\n	\n	?>', 'php'),
+(16, 'SQL query', '<?php\n\n	/*\n	This example uses a prepared statement in order to insert data into the database.\n	Because this method enforces the user to prepare al the user input which is passed into the query\n	it always escapes SQL injections so none could be accidentally forgotten as with the normal mysqli_real_escape_string() methods.\n	*/\n\n\n	$username = $_POST[''username''];\n	$email    = $_POST[''email''];\n\n	$stmt = $db->prepare("INSERT INTO users(username, email,)");\n	$stmt->execute(array('':username'' => $username, '':email'' => $email));\n	$affected_rows = $stmt->rowCount();\n\n\n	$username = $_POST[''username''];\n	$email    = $_POST[''email''];\n\n	$stmt = $db->prepare("INSERT INTO testtable(username, email) VALUES(?, ?)");\n	$stmt->execute(array($username, $email));\n	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);\n\n	/*\n	Both methods are preventing SQL injections.\n	The less recommended option for preventing sql injections is to use the mysqli_real_escape_string() function.\n	*/\n\n\n\n	$username = mysqli_real_escape_string($connectionString, $_POST[''username'']);\n	$email    = mysqli_real_escape_string($connectionString, $_POST[''email'']);\n\n	mysqli_query($connectionString, "INSERT INTO users (username, email) VALUES ("''.$username.''", "''.$email.''")");\n\n	/*\n	NOTE: mysqli_real_escape_string() will not work when escaping integers since the function only\n	escapes strings. In order to prevent al SQL injection vulnerability we strongly recommend \n	using the prepared statements\n	*/\n	\n?>\n\n', 'php'),
+(17, 'Crossdomain.xml ', '<!-- A bad example of a crossdomain.xml would be: -->\n\n<?xml version="1.0" ?>\n<cross-domain-policy>\n  <site-control permitted-cross-domain-policies="master-only"/>\n  <allow-access-from domain="*"/>\n  <allow-http-request-headers-from domain="*" headers="*"/>\n</cross-domain-policy>\n\n<!--This is since it allows acces from all other domains.\nInstead of this approach you might want to use the following restrictions. \n\nExample by twitters crossdomain.xml:-->\n\n<?xml version="1.0" encoding="UTF-8"?>\n<cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">\n  <allow-access-from domain="twitter.com" />\n    <allow-access-from domain="api.twitter.com" />\n    <allow-access-from domain="search.twitter.com" />\n    <allow-access-from domain="static.twitter.com" />\n    <site-control permitted-cross-domain-policies="master-only"/>\n  <allow-http-request-headers-from domain="*.twitter.com" headers="*" secure="true"/>\n</cross-domain-policy>', 'php'),
+(18, 'Logout function', ' <?php\r\n/*\r\nBy this manner the logout functionality revokes the complete session.\r\n*/ \r\n\r\n function deleteLogin(){\r\n\r\n	session_start();\r\n	session_destroy();\r\n}\r\n\r\n?>', 'php'),
+(19, 'Enforce secure passwords', '<?php\n\n$pwd = $_POST[''pwd''];\n\n//Recommended to use a small phrase instead of a password\nif( strlen($pwd) < 20 ) {\n	$error .= "Password too short!";\n	die;\n}\n\nif( !preg_match("#[0-9]+#", $pwd) ) {\n	$error .= "Password must include at least one number!";\n	die;\n}\n\n\nif( !preg_match("#[a-z]+#", $pwd) ) {\n	$error .= "Password must include at least one letter!";\n	die;\n}\n\n\nif( !preg_match("#[A-Z]+#", $pwd) ) {\n	$error .= "Password must include at least one CAPS!";\n	die;\n}\n\n\n\nif( !preg_match("#\\W+#", $pwd) ) {\n	$error .= "Password must include at least one symbol!";\n	die;\n}\n\n\nif($error){\n	echo "Password validation failure(your choise is weak): $error";\n	die;\n} else {\n	echo "Your password is strong.";\n}', 'php'),
+(20, 'Timeout a session', '<?php\r\n\r\npublic function sessionStart(){\r\n\r\n$lifetime = 3600; // <-- lifetime of a session\r\n$path     = "/";\r\n$domain   = "";\r\n$secure   = 0;\r\n$httponly = true; \r\n\r\n\r\nsession_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);\r\n\r\n}\r\n\r\n?>', 'php'),
+(21, 'Directory listing', '<?php\n\n/*\nTo disable or prevent the directory access add following line in your .htaccess file. If \nuser points the browsers to a directory which does not have index file then in this case 403 error will be Forbidden:\n\nAdd this line of code to your .htacces\n*/\n\nOptions -Indexes \n\n\n?>\n\n', 'php'),
+(22, 'Charsets', '<?php\r\n\r\n//Add the following line of code inside the application header:\r\n//<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\r\n\r\n//or:\r\nheader(''Content-Type: text/html; charset=utf-8'');\r\n\r\n?>', 'php'),
+(23, 'HTML output', '<?php\n\n/*\nWhenever user input is displayed in the application, whether this is as content or as a parameter\nvalue submitted towards the url, all user input should be properly escaped to prevent XSS injections.\n\nImagine this POST value being shown as content somewhere\non the application. In it''s current state it is vulnerable for XSS injection. \n\nIn its escaped state we used the php function "htmlspecialchars()" in order to disarm\nmalicious user input triggering the XSS injection.\n\n<form method=''POST''>\n<input type=''text'' name=''value''/><br/>\n<input type=''submit'' name=''submit'' value=''submit''/>\n</form>\n*/\n \n//POST value current state:\n$vulnerable = $_POST[''value''];\necho $vulnarable\n\n//POST value escaped state:\n$escaped = htmlspecialchars($_POST[''value'']);\necho $escaped;\n\n//This also apply''s for instance, when retrieving content from a database.\n\nwhile($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n\necho htmlspecialchars($row[''value'']);\n\n}//end while loop\n\n/*\nsecurity consists out of different layers of protection in order to warrant the \nintegrity of your application. which means the value subtracted from the database should\nalready be sanitised before submitted towards the database in order to prevent XSS.\nfor instance, you only expected a numerical value:\n*/\n\nif(!preg_match(''/^[0-9]/'', $escaped))\n{\ndie;\n}\n\n/*\nAfter this sanitation malicious code can no longer exist in the $_POST[''value''] variable.\n\nAnother possibility for hackers to execute an XSS injection is to pass malicious code directly into the url by means of a href like:\njavascript:alert(document.cookie);\nor\ndata:text/html;base64,base64xssinjection\nIn this scenario the escaping with htmlspecialchars() is not sufficient enough in order to block the injection.\nBy checking the URL to see if it starts with either http:// or https:// you can prevent this attack by exiting the application \nwhen this anomaly is triggered. */ \n\nif(substr_compare($_SERVER[''REQUEST_URI''], "http://", 0, 7, true ) != 0\n&&\nsubstr_compare($_SERVER[''REQUEST_URI''], "https://", 0, 8, true)    !=0 )  \n{\ndie;\n}\n\n?>', 'php'),
+(24, 'Password storage(salting/stretching/hashing)', '<?php\n\n	//Takes a password and returns the salted hash\n	//returns - the hash of the password\n	function HashPassword($password){\n		\n	    $salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM)); //get 256 random bits in hex\n	    $hash = hash("sha256", $salt . $password); //prepend the salt, then hash\n	    //store the salt and hash in the same string, so only 1 DB column is needed\n	    $final = $salt . $hash;\n	    return $final;\n	}\n	\n	//Validates a password\n	//returns true if match correct\n	function ValidatePassword($correctHash, $password){\n		\n	    $salt = substr($correctHash, 0, 64); //get the salt from the front of the hash\n	    $validHash = substr($correctHash, 64, 64); //the SHA256\n	    $testHash = hash("sha256", $salt . $password); //hash the password being tested\n	\n	    //if the hashes are exactly the same, the password is valid\n	    return $testHash === $validHash;\n	}\n\n?>\n', 'php'),
+(25, 'Login functionality', '<?php\n\nfunction loginUser($username,$password){\n		\n		$sql = "SELECT * FROM members WHERE username = :username";\n		\n		$this->_setSql($sql);\n		\n		$this->_setParam(array(":username" => $username));\n		$loginUser = $this->getRow($sql);\n				\n		if($this->ValidatePassword($loginUser[''password''], $password) === true){\n\n			session_start();\n			\n			$_SESSION[''ip''] = $_SERVER[''REMOTE_ADDR''];\n			$_SESSION[''access''] = "active";\n			$_SESSION[''userID''] = $loginUser[''username_id''];\n			$_SESSION[''csrf''] = base64_encode(openssl_random_pseudo_bytes(128));\n			return $loginUser;\n   		}\n		\n		return $loginUser;\n	}\n	\n	//Do not forget to hash,salt and stretch the passwords!\n\n?>\n', 'php');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `members`
+--
+
+CREATE TABLE `members` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(500) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `firstname` varchar(20) NOT NULL,
+  `lastname` varchar(20) NOT NULL,
+  `yubikey` varchar(100) NOT NULL,
+  `date_registered` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`id`, `username_id`, `username`, `password`, `email`, `firstname`, `lastname`, `yubikey`, `date_registered`) VALUES
+(2, 2, 'admin', '8cfd5aa4570e5d311be9def6199520f6e0e6e8ae2850645f0868b5f50e4ab820072a72ba65adaa23d8fdc7384c6bd31975374feb8fd7a574b70682ada7911a7b', 'admin@adminbla.com', 'Admin', 'The one', '501414', '2013-02-22'),
+(3, 3, 'ricco', '8cfd5aa4570e5d311be9def6199520f6e0e6e8ae2850645f0868b5f50e4ab820072a72ba65adaa23d8fdc7384c6bd31975374feb8fd7a574b70682ada7911a7b', 'r.tencate77@gmail.com', 'ricco', 'ricco', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `parameters`
+--
+
+CREATE TABLE `parameters` (
+  `paramID` int(11) NOT NULL AUTO_INCREMENT,
+  `functionName` varchar(250) NOT NULL,
+  `tech` int(11) NOT NULL,
+  `projectID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `functionDesc` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `techVuln` int(11) NOT NULL,
+  `entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`paramID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=121 ;
+
+--
+-- Dumping data for table `parameters`
+--
+
+INSERT INTO `parameters` (`paramID`, `functionName`, `tech`, `projectID`, `userID`, `functionDesc`, `techVuln`, `entryDate`) VALUES
+(113, 'sadsa', 1, 30, 2, 0x7361646173, 0, '2015-02-08 22:30:15'),
+(119, 'dsfds', 5, 38, 2, 0x6473666473, 0, '2015-01-29 13:47:04'),
+(120, 'dsfds', 12, 38, 2, 0x6473666473, 0, '2015-01-29 13:47:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `projectID` int(11) NOT NULL AUTO_INCREMENT,
+  `projectName` varchar(250) NOT NULL,
+  `projectVersion` varchar(250) NOT NULL,
+  `projectDesc` text NOT NULL,
+  `userID` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`projectID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`projectID`, `projectName`, `projectVersion`, `projectDesc`, `userID`, `timestamp`) VALUES
+(30, 'Hackalong', '1.0', 'Dit is een voorbeeld voor de hackalong', 2, '2015-02-04 18:18:16'),
+(33, 'asd', 'sad', 'asd', 2, '2015-02-04 18:18:18'),
+(34, 'test', 'test', 'test', 2, '2015-02-04 18:18:22'),
+(35, 'asdsa', 'sadas', 'asdsa', 2, '2015-02-04 18:18:41'),
+(40, 'asd', 'asd', 'asd', 3, '2015-02-15 17:46:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `questionlist`
+--
+
+CREATE TABLE `questionlist` (
+  `listID` int(11) NOT NULL AUTO_INCREMENT,
+  `answer` varchar(4) NOT NULL,
+  `projectID` int(11) NOT NULL,
+  `questionID` int(11) NOT NULL,
+  `userID` int(11) DEFAULT NULL,
+  `vulnID` int(11) NOT NULL,
+  `listName` varchar(255) NOT NULL,
+  `entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`listID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3371 ;
+
+--
+-- Dumping data for table `questionlist`
+--
+
+INSERT INTO `questionlist` (`listID`, `answer`, `projectID`, `questionID`, `userID`, `vulnID`, `listName`, `entryDate`) VALUES
+(3161, 'yes', 30, 2, 2, 1, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3162, 'no', 30, 4, 2, 27, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3163, 'yes', 30, 5, 2, 68, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3164, 'yes', 30, 6, 2, 54, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3165, 'no', 30, 8, 2, 15, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3166, 'yes', 30, 9, 2, 16, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3167, 'no', 30, 10, 2, 17, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3168, 'yes', 30, 11, 2, 69, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3169, 'yes', 30, 13, 2, 52, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3170, 'yes', 30, 14, 2, 41, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3171, 'yes', 30, 15, 2, 19, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3172, 'yes', 30, 17, 2, 53, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3173, 'yes', 30, 19, 2, 43, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3174, 'yes', 30, 20, 2, 0, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3175, 'yes', 30, 21, 2, 66, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3176, 'yes', 30, 22, 2, 66, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3177, 'yes', 30, 23, 2, 44, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3178, 'yes', 30, 24, 2, 32, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3179, 'yes', 30, 25, 2, 28, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3180, 'yes', 30, 26, 2, 63, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3181, 'yes', 30, 27, 2, 29, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3182, 'yes', 30, 28, 2, 70, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3183, 'yes', 30, 29, 2, 30, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3184, 'yes', 30, 30, 2, 51, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3185, 'yes', 30, 31, 2, 31, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3186, 'yes', 30, 34, 2, 33, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3187, 'yes', 30, 35, 2, 1, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3188, 'yes', 30, 36, 2, 46, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3189, 'yes', 30, 37, 2, 8, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3190, 'yes', 30, 38, 2, 7, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3191, 'yes', 30, 39, 2, 3, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3192, 'yes', 30, 40, 2, 11, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3193, 'yes', 30, 41, 2, 71, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3194, 'yes', 30, 42, 2, 9, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3195, 'yes', 30, 43, 2, 12, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3196, 'yes', 30, 44, 2, 4, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3197, 'yes', 30, 45, 2, 34, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3198, 'yes', 30, 46, 2, 4, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3199, 'yes', 30, 47, 2, 36, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3200, 'yes', 30, 49, 2, 6, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3201, 'yes', 30, 50, 2, 10, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3202, 'yes', 30, 52, 2, 13, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3203, 'yes', 30, 53, 2, 13, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3204, 'yes', 30, 54, 2, 13, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3205, 'yes', 30, 57, 2, 55, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3206, 'yes', 30, 58, 2, 56, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3207, 'yes', 30, 59, 2, 41, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3208, 'yes', 30, 60, 2, 38, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3209, 'yes', 30, 61, 2, 39, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3210, 'yes', 30, 62, 2, 72, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3211, 'yes', 30, 63, 2, 5, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3212, 'yes', 30, 64, 2, 20, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3213, 'yes', 30, 65, 2, 57, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3214, 'yes', 30, 66, 2, 58, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3215, 'yes', 30, 68, 2, 42, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3216, 'yes', 30, 70, 2, 14, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3217, 'yes', 30, 74, 2, 37, 'CS_basic_audit', '2015-01-29 14:35:07'),
+(3218, 'yes', 30, 2, 2, 1, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3219, 'yes', 30, 4, 2, 27, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3220, 'yes', 30, 5, 2, 68, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3221, 'yes', 30, 6, 2, 54, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3222, 'yes', 30, 8, 2, 15, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3223, 'yes', 30, 9, 2, 16, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3224, 'yes', 30, 10, 2, 17, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3225, 'yes', 30, 11, 2, 69, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3226, 'yes', 30, 13, 2, 52, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3227, 'yes', 30, 14, 2, 41, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3228, 'yes', 30, 15, 2, 19, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3229, 'yes', 30, 17, 2, 53, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3230, 'yes', 30, 19, 2, 43, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3231, 'yes', 30, 20, 2, 0, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3232, 'yes', 30, 21, 2, 66, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3233, 'yes', 30, 22, 2, 66, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3234, 'yes', 30, 23, 2, 44, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3235, 'yes', 30, 24, 2, 32, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3236, 'yes', 30, 25, 2, 28, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3237, 'yes', 30, 26, 2, 63, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3238, 'yes', 30, 27, 2, 29, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3239, 'yes', 30, 28, 2, 70, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3240, 'yes', 30, 29, 2, 30, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3241, 'yes', 30, 30, 2, 51, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3242, 'yes', 30, 31, 2, 31, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3243, 'yes', 30, 34, 2, 33, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3244, 'yes', 30, 35, 2, 1, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3245, 'yes', 30, 36, 2, 46, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3246, 'yes', 30, 37, 2, 8, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3247, 'yes', 30, 38, 2, 7, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3248, 'yes', 30, 39, 2, 3, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3249, 'yes', 30, 40, 2, 11, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3250, 'yes', 30, 41, 2, 71, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3251, 'yes', 30, 42, 2, 9, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3252, 'yes', 30, 43, 2, 12, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3253, 'yes', 30, 44, 2, 4, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3254, 'yes', 30, 45, 2, 34, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3255, 'yes', 30, 46, 2, 4, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3256, 'yes', 30, 47, 2, 36, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3257, 'yes', 30, 49, 2, 6, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3258, 'yes', 30, 50, 2, 10, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3259, 'yes', 30, 52, 2, 13, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3260, 'yes', 30, 53, 2, 13, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3261, 'yes', 30, 54, 2, 13, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3262, 'yes', 30, 57, 2, 55, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3263, 'yes', 30, 58, 2, 56, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3264, 'yes', 30, 59, 2, 41, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3265, 'yes', 30, 60, 2, 38, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3266, 'yes', 30, 61, 2, 39, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3267, 'yes', 30, 62, 2, 72, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3268, 'yes', 30, 63, 2, 5, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3269, 'yes', 30, 64, 2, 20, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3270, 'yes', 30, 65, 2, 57, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3271, 'yes', 30, 66, 2, 58, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3272, 'yes', 30, 68, 2, 42, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3273, 'yes', 30, 70, 2, 14, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3274, 'yes', 30, 74, 2, 37, 'CS_basic_audit', '2015-01-29 14:35:28'),
+(3275, 'no', 33, 76, 2, 47, 'owasp', '2015-01-29 15:14:21'),
+(3276, 'yes', 33, 77, 2, 49, 'owasp', '2015-01-29 15:14:21'),
+(3277, 'yes', 33, 78, 2, 50, 'owasp', '2015-01-29 15:14:21'),
+(3278, 'yes', 33, 79, 2, 46, 'owasp', '2015-01-29 15:14:21'),
+(3279, 'yes', 33, 80, 2, 1, 'owasp', '2015-01-29 15:14:21'),
+(3280, 'no', 33, 81, 2, 8, 'owasp', '2015-01-29 15:14:21'),
+(3281, 'yes', 33, 82, 2, 4, 'owasp', '2015-01-29 15:14:21'),
+(3282, 'yes', 33, 83, 2, 7, 'owasp', '2015-01-29 15:14:21'),
+(3283, 'no', 33, 84, 2, 32, 'owasp', '2015-01-29 15:14:21'),
+(3284, 'yes', 33, 85, 2, 39, 'owasp', '2015-01-29 15:14:21'),
+(3285, 'no', 33, 86, 2, 38, 'owasp', '2015-01-29 15:14:21'),
+(3286, 'yes', 33, 87, 2, 40, 'owasp', '2015-01-29 15:14:21'),
+(3287, 'yes', 33, 88, 2, 6, 'owasp', '2015-01-29 15:14:21'),
+(3288, 'yes', 33, 89, 2, 34, 'owasp', '2015-01-29 15:14:21'),
+(3289, 'yes', 33, 90, 2, 13, 'owasp', '2015-01-29 15:14:21'),
+(3290, 'yes', 33, 92, 2, 3, 'owasp', '2015-01-29 15:14:21'),
+(3291, 'yes', 33, 93, 2, 3, 'owasp', '2015-01-29 15:14:21'),
+(3292, 'yes', 33, 94, 2, 3, 'owasp', '2015-01-29 15:14:21'),
+(3293, 'yes', 33, 95, 2, 3, 'owasp', '2015-01-29 15:14:21'),
+(3294, 'yes', 33, 96, 2, 3, 'owasp', '2015-01-29 15:14:21'),
+(3295, 'yes', 33, 99, 2, 44, 'owasp', '2015-01-29 15:14:21'),
+(3296, 'yes', 33, 101, 2, 14, 'owasp', '2015-01-29 15:14:21'),
+(3297, 'yes', 33, 102, 2, 62, 'owasp', '2015-01-29 15:14:21'),
+(3298, 'yes', 33, 103, 2, 63, 'owasp', '2015-01-29 15:14:21'),
+(3299, 'yes', 33, 104, 2, 16, 'owasp', '2015-01-29 15:14:21'),
+(3300, 'yes', 33, 105, 2, 61, 'owasp', '2015-01-29 15:14:21'),
+(3301, 'yes', 33, 106, 2, 64, 'owasp', '2015-01-29 15:14:21'),
+(3302, 'yes', 33, 108, 2, 65, 'owasp', '2015-01-29 15:14:21'),
+(3303, 'yes', 33, 109, 2, 52, 'owasp', '2015-01-29 15:14:21'),
+(3304, 'yes', 33, 110, 2, 42, 'owasp', '2015-01-29 15:14:21'),
+(3305, 'yes', 33, 111, 2, 19, 'owasp', '2015-01-29 15:14:21'),
+(3306, 'yes', 33, 112, 2, 31, 'owasp', '2015-01-29 15:14:21'),
+(3307, 'yes', 33, 114, 2, 66, 'owasp', '2015-01-29 15:14:21'),
+(3308, 'yes', 33, 115, 2, 66, 'owasp', '2015-01-29 15:14:21'),
+(3309, 'yes', 33, 116, 2, 44, 'owasp', '2015-01-29 15:14:21'),
+(3310, 'yes', 33, 118, 2, 5, 'owasp', '2015-01-29 15:14:21'),
+(3311, 'no', 33, 120, 2, 14, 'owasp', '2015-01-29 15:14:21'),
+(3312, 'yes', 33, 122, 2, 67, 'owasp', '2015-01-29 15:14:21'),
+(3313, 'no', 30, 76, 2, 47, 'owasp', '2015-01-29 15:53:24'),
+(3314, 'yes', 30, 77, 2, 49, 'owasp', '2015-01-29 15:53:24'),
+(3315, 'no', 30, 78, 2, 50, 'owasp', '2015-01-29 15:53:24'),
+(3316, 'no', 30, 79, 2, 46, 'owasp', '2015-01-29 15:53:24'),
+(3317, 'yes', 30, 80, 2, 1, 'owasp', '2015-01-29 15:53:24'),
+(3318, 'yes', 30, 81, 2, 8, 'owasp', '2015-01-29 15:53:24'),
+(3319, 'yes', 30, 82, 2, 4, 'owasp', '2015-01-29 15:53:24'),
+(3320, 'yes', 30, 83, 2, 7, 'owasp', '2015-01-29 15:53:24'),
+(3321, 'yes', 30, 84, 2, 32, 'owasp', '2015-01-29 15:53:24'),
+(3322, 'yes', 30, 85, 2, 39, 'owasp', '2015-01-29 15:53:24'),
+(3323, 'yes', 30, 86, 2, 38, 'owasp', '2015-01-29 15:53:24'),
+(3324, 'yes', 30, 87, 2, 40, 'owasp', '2015-01-29 15:53:24'),
+(3325, 'yes', 30, 88, 2, 6, 'owasp', '2015-01-29 15:53:24'),
+(3326, 'yes', 30, 89, 2, 34, 'owasp', '2015-01-29 15:53:24'),
+(3327, 'yes', 30, 90, 2, 13, 'owasp', '2015-01-29 15:53:24'),
+(3328, 'yes', 30, 92, 2, 3, 'owasp', '2015-01-29 15:53:24'),
+(3329, 'yes', 30, 93, 2, 3, 'owasp', '2015-01-29 15:53:24'),
+(3330, 'yes', 30, 94, 2, 3, 'owasp', '2015-01-29 15:53:24'),
+(3331, 'yes', 30, 95, 2, 3, 'owasp', '2015-01-29 15:53:24'),
+(3332, 'yes', 30, 96, 2, 3, 'owasp', '2015-01-29 15:53:24'),
+(3333, 'yes', 30, 99, 2, 44, 'owasp', '2015-01-29 15:53:24'),
+(3334, 'yes', 30, 101, 2, 14, 'owasp', '2015-01-29 15:53:24'),
+(3335, 'yes', 30, 102, 2, 62, 'owasp', '2015-01-29 15:53:24'),
+(3336, 'yes', 30, 103, 2, 63, 'owasp', '2015-01-29 15:53:24'),
+(3337, 'yes', 30, 104, 2, 16, 'owasp', '2015-01-29 15:53:24'),
+(3338, 'yes', 30, 105, 2, 61, 'owasp', '2015-01-29 15:53:24'),
+(3339, 'yes', 30, 106, 2, 64, 'owasp', '2015-01-29 15:53:24'),
+(3340, 'yes', 30, 108, 2, 65, 'owasp', '2015-01-29 15:53:24'),
+(3341, 'yes', 30, 109, 2, 52, 'owasp', '2015-01-29 15:53:24'),
+(3342, 'yes', 30, 110, 2, 42, 'owasp', '2015-01-29 15:53:24'),
+(3343, 'yes', 30, 111, 2, 19, 'owasp', '2015-01-29 15:53:24'),
+(3344, 'yes', 30, 112, 2, 31, 'owasp', '2015-01-29 15:53:24'),
+(3345, 'yes', 30, 114, 2, 66, 'owasp', '2015-01-29 15:53:24'),
+(3346, 'yes', 30, 115, 2, 66, 'owasp', '2015-01-29 15:53:24'),
+(3347, 'yes', 30, 116, 2, 44, 'owasp', '2015-01-29 15:53:24'),
+(3348, 'yes', 30, 118, 2, 5, 'owasp', '2015-01-29 15:53:24'),
+(3349, 'yes', 30, 120, 2, 14, 'owasp', '2015-01-29 15:53:24'),
+(3350, 'no', 30, 122, 2, 67, 'owasp', '2015-01-29 15:53:24'),
+(3351, 'yes', 30, 124, 2, 76, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3352, 'yes', 30, 125, 2, 0, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3353, 'no', 30, 126, 2, 75, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3354, 'yes', 30, 128, 2, 77, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3355, 'yes', 30, 129, 2, 83, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3356, 'no', 30, 130, 2, 78, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3357, 'yes', 30, 131, 2, 79, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3358, 'yes', 30, 133, 2, 84, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3359, 'yes', 30, 134, 2, 73, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3360, 'yes', 30, 136, 2, 27, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3361, 'yes', 30, 138, 2, 14, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3362, 'yes', 30, 140, 2, 16, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3363, 'yes', 30, 141, 2, 81, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3364, 'yes', 30, 143, 2, 80, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3365, 'yes', 30, 144, 2, 82, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3366, 'yes', 30, 145, 2, 51, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3367, 'yes', 30, 146, 2, 74, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3368, 'yes', 30, 148, 2, 40, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3369, 'yes', 30, 150, 2, 64, 'CS_advanced_audit', '2015-01-29 16:11:15'),
+(3370, 'no', 30, 152, 2, 65, 'CS_advanced_audit', '2015-01-29 16:11:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `techhacks`
+--
+
+CREATE TABLE `techhacks` (
+  `techID` int(11) NOT NULL,
+  `techName` varchar(255) NOT NULL,
+  `vulnID` int(11) NOT NULL,
+  PRIMARY KEY (`techID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `techhacks`
+--
+
+INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
+(1, 'SQL commands', 46),
+(2, 'Path/Filenames', 1),
+(3, 'File inclusion', 1),
+(4, 'X-Path commands', 7),
+(5, 'HTML output', 3),
+(6, 'LDAP commands', 11),
+(7, 'HTTP headers', 1),
+(8, 'XSL(T) input/output', 9),
+(9, 'SSI commands', 12),
+(10, 'System commands', 4),
+(11, 'Resource identifiers', 34),
+(12, '"Eval" type functions', 4),
+(13, 'Regular expressions', 36),
+(14, 'File upload ', 13),
+(20, 'XML files', 8),
+(21, 'External XML files', 6),
+(22, 'JSON ', 3),
+(23, 'GET variables/parameters', 72),
+(24, 'Forward or/ redirect', 67);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `techvuln`
+--
+
+CREATE TABLE `techvuln` (
+  `techVulnID` int(11) NOT NULL AUTO_INCREMENT,
+  `techID` int(11) NOT NULL,
+  `vulnID` int(11) NOT NULL,
+  PRIMARY KEY (`techVulnID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `techvuln`
+--
+
+INSERT INTO `techvuln` (`techVulnID`, `techID`, `vulnID`) VALUES
+(1, 1, 2),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 7),
+(5, 5, 3),
+(6, 6, 11),
+(7, 7, 0),
+(8, 8, 9),
+(9, 9, 12),
+(10, 10, 4),
+(11, 11, 34),
+(12, 12, 34),
+(13, 13, 36),
+(14, 14, 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vulnerabilities`
+--
+
+CREATE TABLE `vulnerabilities` (
+  `vulnID` int(11) NOT NULL AUTO_INCREMENT,
+  `vulnName` varchar(250) CHARACTER SET utf8 NOT NULL,
+  `vulnDesc` text CHARACTER SET utf8 NOT NULL,
+  `vulnSol` text CHARACTER SET utf8 NOT NULL,
+  `php` varchar(255) NOT NULL,
+  `java` varchar(255) NOT NULL,
+  PRIMARY KEY (`vulnID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=85 ;
+
+--
+-- Dumping data for table `vulnerabilities`
+--
+
+INSERT INTO `vulnerabilities` (`vulnID`, `vulnName`, `vulnDesc`, `vulnSol`, `php`, `java`) VALUES
+(1, 'filename injection ', '', 'The most effective solution to eliminate file inclusion vulnerabilities is to avoid passing user-submitted input to any filesystem/framework API. If this is not possible the application can maintain a white list of files, that may be included by the page, and then use an identifier (for example the index number) to access to the selected file. Any request containing an invalid identifier has to be rejected, in this way there is no attack surface for malicious users to manipulate the path. ', 'File inclusion', ''),
+(3, 'XSS injection', 'Everytime the application gets userinput, whether this showing it on screen or processing this data in the application\nbackground, these paramaters should be escaped for malicious code in order to prevent cross site scripting injections.\nWhen a attacker gains the possibility to perform a XSS injection, he is given the opportunity to inject HTML and javascript\ncode directly into the application. This could lead to accounts being compromised by stealing session cookies, or directly affect\nthe operation of the target application.\n', 'In order to prevent XSS injections all userinput should be escaped. You could start by stripping userinput as soon as it is\ninserted into the application, by preference using a so called "white-listing method". This means u should not checking for\nmalicious content like the tags or anything, but only allowing the expected input. for instacne: when a user is\nexpected to enter a username, you couldset a regular expression checking only for alphanumerical characters.\n\nAlso whenever a user is allowed to add href''s, make sure the application checks whether the href contains http:// or https://. This is done in order to prevent javscript: or data: type xss injections. ', 'HTML output', ''),
+(4, 'Command injection', 'Command injection is an attack in which the goal is execution of arbitrary commands on the host operating system via a vulnerable application. Command injection attacks are possible when an application passes unsafe user supplied data (forms, cookies, HTTP headers etc.) to a system shell. In this attack, the attacker-supplied operating system commands are usually executed with the privileges of the vulnerable application. Command injection attacks are possible largely due to insufficient input validation.\n\nThis attack differs from Code Injection, in that code injection allows the attacker to adds his own code that is then executed by the application. In Code Injection, the attacker extends the default functionality of the application without the necessity of executing system commands. ', 'Userinput that is used in a shell command should not contain dangerous characters. A blacklist of characters is not a good option because it may be difficult to think of all of the characters to validate against. A white list containing only allowable characters should be created to validate the userinput. \n', '"Eval" type functions', ''),
+(5, 'CSRF injection', 'Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious Web site, email, blog, instant message,\nor program causes a users Web browser to perform an unwanted action \non a trusted site for which the user is currently authenticated. The impact of a successful cross-site request forgery attack\nis limited to the capabilities exposed by the vulnerable application. For example, this attack could result in a transfer of funds,\nchanging a password, or purchasing an item in the users context.\nIn effect, CSRF attacks are used by an attacker to make a target system perform a function (funds Transfer, form submission etc.) via the targets browser without knowledge of the target user,\nat least until the unauthorized function has been committed.\n', 'To arm an application against automated attacks and tooling you need to use unique tokens who are included into the forms of an application, API calls or AJAX requests.  Any state changing operation requires a secure random token (e.g CSRF token) to prevent against CSRF attacks. Characteristics of a CSRF Token are Unique and is a large random value generated by a cryptographically secure random number generator. The CSRF token is then added as a hidden field for forms or within the URL if the state changing operation if this occurs via a GET. The server need to reject the requested action if the CSRF token fails validation, for example missing or incorrect token.', 'CSRF tokens', ''),
+(6, 'XXE injections', 'Processing of an external entity containing tainted data may lead to disclosure of confidential information and other system impacts.\nThe XML 1.0 standard defines the structure of an XML document. The standard defines a concept called an entity,\nwhich is a storage unit of some type.\nThere exists a specific type of entity, an external general parsed entity often shortened to an external entity, \nthat can access local or remote content via a declared system identifier. The system identifier is assumed to be a URI\nthat can be dereferenced (accessed) by the XML processor when processing the entity. The XML processor then replaces\noccurrences of the named external entity with the contents dereferenced by the system identifier.\nIf the system identifier contains tainted data and the XML processor dereferences this tainted data,\nthe XML processor may disclose confidential information normally not accessible by the application.\nAttacks can include disclosing local files, which may contain sensitive data such as passwords or private user data,\nusing file: schemes or relative paths in the system identifier. Since the attack occurs relative to the application\nprocessing the XML document, an attacker may use this trusted application to pivot to other internal systems,\npossibly disclosing other internal content via http(s) requests. In some situations, an XML processor library\nthat is vulnerable to client-side memory corruption issues may be exploited by dereferencing a malicious URI,\npossibly allowing arbitrary code execution under the application account. Other attacks can access local resources\nthat may not stop returning data, possibly impacting application availability if too many threads or processes are not released.\n', 'Disable the possibility to fetch resources from an external source.', 'External xml files', ''),
+(7, 'X-Path injections', 'Web applications heavily use databases to store and access the data they need for their operations.\nHistorically, relational databases have been by far the most common technology for data storage, but, in the last years,\nwe are witnessing an increasing popularity for databases that organize data using the XML language.\nJust like relational databases are accessed via SQL language, XML databases use XPath as their standard query language.;\n', 'Just like the techniques to avoid SQL injection, you need to use a parameterized XPath interface if one is available,\nor escape the user input to make it safe to include in a dynamically constructed query.\nIf you are using quotes to terminate untrusted input in a dynamically constructed XPath query,\nthen you need to escape that quote in the untrusted input to ensure the untrusted data can not try to break\nout of that quoted context.\n', 'X-path query', ''),
+(8, 'XML injection', 'XML Injection is an attack technique used to manipulate or compromise the logic of an XML application or service.\nThe injection of unintended XML content and/or structures into an XML message can alter the intend logic of the application.\nFurther,XML injection can cause the insertion of malicious content into the resulting message/document.', 'In addition to the existing input validation, define a positive approach which escapes/encodes characters that can\nbe interpreted as xml. At a minimum this includes the following: < > " \\'' &', 'XML', ''),
+(9, 'XSLT injections', 'The vulnerability occurs when a XSL file is loaded from a source controlled by an attacker.\nWhen the attacker is given the opportunity to specify the source of the included XSL file he could include a file\nwhich contains malicous code to be parsed on the target application. This could lead to, code execution, reading arbitrary files\nand many more vulnerabilities such as XSS.', 'To protect against such vulnerability one needs to make sure that he does not use user-supplied input in the XSL filename. \nThe best solution would be to define a list of permitted filenames and only accept XSL filenames from that list.', 'XSLT', ''),
+(10, 'External DTD parsing', 'Description:\n\nProcessing of an external entity containing tainted data may lead to disclosure of confidential information and other system impacts. The XML 1.0 standard defines the structure of an XML document. The standard defines a concept called an entity, which is a storage unit of some type. There exists a specific type of entity, an external general parsed entity often shortened to an external entity, that can access local or remote content via a declared system identifier. The system identifier is assumed to be a URI that can be dereferenced (accessed) by the XML processor when processing the entity. The XML processor then replaces occurrences of the named external entity with the contents dereferenced by the system identifier. If the system identifier contains tainted data and the XML processor dereferences this tainted data, the XML processor may disclose confidential information normally not accessible by the application. Attacks can include disclosing local files, which may contain sensitive data such as passwords or private user data, using file: schemes or relative paths in the system identifier. Since the attack occurs relative to the application processing the XML document, an attacker may use this trusted application to pivot to other internal systems, possibly disclosing other internal content via http(s) requests. In some situations, an XML processor library that is vulnerable to client-side memory corruption issues may be exploited by dereferencing a malicious URI, possibly allowing arbitrary code execution under the application account. Other attacks can access local resources that may not stop returning data, possibly impacting application availability if too many threads or processes are not released. ', 'Disable the XML DTD parsing.', 'DTD', ''),
+(11, 'LDAP injection', 'LDAP Injection is an attack used to exploit web based applications that construct LDAP statements based on user input.\nWhen an application fails to properly sanitize user input, it is possible to modify LDAP statements using a local proxy.\nThis could result in the execution of arbitrary commands such as granting permissions to unauthorized queries, \nand content modification inside the LDAP tree.The same advanced exploitation techniques available in SQL Injection\ncan be similarly applied in LDAP Injection.\n', 'The best way to prevent LDAP injection is to use a positive validation scheme for ensuring that the data going into your queries does not contain any attacks. However, in some cases, it is necessary to include special characters in input that is passed into an LDAP query. In this case, using escaping can prevent the LDAP interpreter from thinking those special characters are actually LDAP query. Rather, the encoding lets the interpreter treat those special characters as data.\n', 'LDAP', ''),
+(12, 'SSI injections', 'Web servers usually give developers the ability to add small pieces of dynamic code inside static HTML pages,\nwithout having to deal with full-fledged server-side or client-side languages. \nThis feature is incarnated by the Server-Side Includes (SSI). In SSI injection testing, \nwe test if it is possible to inject into the application data that will be interpreted by SSI mechanisms. \nA successful exploitation of this vulnerability allows an attacker to inject code into HTML pages or \neven perform remote code execution.', 'The SSI handler on the webserver should not be activated when it is not used.', 'SSI', ''),
+(13, 'File upload injections', 'Uploaded files represent a significant risk to applications. The first step in many attacks is to get some code to the system to be attacked. Then the attack only needs to find a way to get the code executed. Using a file upload helps the attacker accomplish the first step.\n\nThe consequences of unrestricted file upload can vary, including complete system takeover, an overloaded file system or database, forwarding attacks to back-end systems, and simple defacement. It depends on what the application does with the uploaded file and especially where it is stored.\n\nThere are really two classes of problems here. The first is with the file metadata, like the path and file name. These are generally provided by the transport, such as HTTP multi-part encoding. This data may trick the application into overwriting a critical file or storing the file in a bad location. You must validate the metadata extremely carefully before using it.\n\nThe other class of problem is with the file size or content. The range of problems here depends entirely on what the file is used for. See the examples below for some ideas about how files might be misused. To protect against this type of attack, you should analyze everything your application does with files and think carefully about what processing and interpreters are involved. ', 'Uploaded files always needs to be placed outside the document root of the webserver. Also for serving the files back there needs to be a file handler function that can select the file based on a identifier and the file will be served to the user.', 'File upload', ''),
+(14, 'Version management', 'Whenever a programmer decides to use third party software, he should keep an eye implementing a proper version management \nmethodology for this software. When hackers discover vulnerabilities they often publish these exploits online in order to push\nthe developers of this software to fix their issues. As a result, when your sofware is not upgraded to the latest \navailable version, script kiddies could easily compromise your application by following the exploit tutorials online, thus\ncompromising your application.', 'One option is not to use components that you did not write. But that is not very realistic.\n\nMost component projects do not create vulnerability patches for old versions. Instead, most simply fix the problem in the next version. So upgrading to these new versions is critical. Software projects should have a process in place to:\n\n    Identify all components and the versions you are using, including all dependencies. (e.g., the versions plugin).\n    Monitor the security of these components in public databases, project mailing lists, and security mailing lists, and keep them up to date.\n    Establish security policies governing component use, such as requiring certain software development practices, passing security tests, and acceptable licenses.\n    Where appropriate, consider adding security wrappers around components to disable unused functionality and/ or secure weak or vulnerable aspects of the component.\n', '', ''),
+(15, 'Verbose error messaging', 'In the development stage of an application programmers add debugging information on order to debug certain functionalities. \nHowever,  this stage often displays sensitive technical information. \nIf an attacker gains this technical information, he can learn more about the operation of the application. \nThe application should always display ​​user-friendly messages only when put on a live enviroment.', 'The level of debug information needs to be determined according to the environment where the code is runned.', 'Verbose error messaging', ''),
+(16, 'Debug enabeling', 'Sometimes it is possible through a enabling debug parameters to display technical information within the application.  \nAs a result the attacker learns more about the operation of the application, increasing his attack vector.', 'Disable the possibility to enable debug information on a live environment.', '', ''),
+(17, 'Robots.txt', 'Each site uses a robots.txt file which allows search engines to provide information. tThe robots.txt determins what pages\r\nmay or may not be indexed by google or yahoo etc. However, a common mistake made by programmers\r\nis applying a blacklisting method causing the application displaying sensitive information to attackers.', 'instead of the blacklisting method:\n\nUser-agent: *\nDisallow: /squirrelmail/\nDisallow: /admin/\nDisallow: /modules/\nyou should use a whitelisting mehod:\n\nUser-agent: *\nDisallow: *\nAllow: /index.html\nAllow: /home.html', '', ''),
+(18, 'accessible non-parsed dynamic scripts', 'Applications often include files in other pages. \nWhen these files can be directly aproached by normal users, the operation \nof the application can be traced because the source code becomes available. \nThis improves the possibility that the attacker discovers vulnerabilities.', 'Always add the different types of extentions to the webserver handler to parse. This way the file source cannot be viewed.', '', ''),
+(19, 'Include anti-caching headers', 'Anti-caching headers have the ability to tell the browser, computer and proxies what information they may or may not store on\nthe intermediate media', 'These headers are also known as the: Cache-control: no-store,no-cache and provide protection of sensitive information when implemented in the application or webserver.', 'Anti-caching headers', ''),
+(20, 'Include anti clickjacking headers', 'This attack technique is commonly used by hackers to influence and manipulate users and their actions by means of iframes.', 'These headers are also known as the: X-frame-Options and the Frame-Options header and provide Clickjacking protection when implemented in the application or webserver.', 'Anti-clickjacking headers', ''),
+(21, 'Include X-XSS-Protection header', 'This header enables the Cross-site scripting (XSS) filter built into most recent web browsers. \nIt is usually enabled by default anyway, so the role of this header is to re-enable the filter for this particular website\nif it was disabled by the user. \nThis header is supported in IE 8 , and in Chrome. \nThe anti-XSS filter was added in Chrome 4.', 'These headers are also known as the: X-XSS-Protection: 1; mode=block and provide protection against XSS attacks when implemented in the application or webserver.', 'X-XSS-Protection header', ''),
+(22, 'Include X-Content-Type-Options header', 'The only defined value, nosniff, prevents Internet Explorer and Google Chrome from MIME-sniffing a response away from \nthe declared content-type. \nThis also applies to Google Chrome, when downloading extensions. \nThis reduces exposure to drive-by download attacks and sites serving user uploaded content that, by clever naming, \ncould be treated by MSIE as executable or dynamic HTML files.', 'These headers are also known as the: X-Content-Type-Options: nosniff; and provide protection against Mime content type attacks when implemented in the application or webserver. ', 'X-Content-Type-Options header', ''),
+(25, 'Include Strict-Transport-Security header', 'HTTP Strict-Transport-Security (HSTS) enforces secure (HTTP over SSL/TLS) connections to the server. \nThis reduces impact of bugs in web applications leaking session data through cookies and external links and \ndefends against Man-in-the-middle attacks. HSTS also disables the ability for user''s to ignore SSL negotiation warnings', 'These headers are also known as the: Strict-Transport-Security: max-age=16070400: includeSubDomains and provide protection against SSL Strip attacks when implemented in the application or webserver. ', 'Strict-Transport-Security header', ''),
+(26, 'sensitive information stored in cookies\r\n', 'Sensitive data should not be stored in a cookie. \nBecause the cookie is also used client-side and is adaptable and thus making it is contents readable. \nA hacker could gain access to a cookie through cross site scripting attacks and gain the sensitive information stored\nin the targets cookie.', 'Do not store sensitive information in cookies. \r\n', '', ''),
+(27, 'Client-side state management', 'An application can implement all kinds of logic rules through javascript and html. \nHowever, these are client-side constraints that a hacker can easily disable or modify.', 'User restrictions should always be imposed by server side techniques instead of client side constraints.', 'Login functionality', ''),
+(28, 'Too verbose authentication-failure logging', 'The error messages that are displayed when a user fails to login into an application should selected with caution. \nWhen this error message gives away too much information, this information can be exploited by a hacker.', 'The application should never publish available usernames. \nWhen an attacker gains this information he increases his attack vector and reduces the time required to identify accounts.\n\ni.e:\n\nImagine an "forgot password" function where the user enters his username in order for the application to send a new password to\nhis email adress, the user enters a correct username and the application reply\\''s with,\n\nEmail succesfully send to your email adress.\n\nwhen the user enters a incorrect username it says.\n\nError: user does not exsist.\n\nThis function would be vulnerable to username enumeration', 'Login functionality', ''),
+(29, 'Brute-force password guessing', 'Login functions should not abused in an automated way An attacker could create a script that contains a list of usernames and passwords, which\nhe could use against your login function in order to gain unauthorized access to user accounts.', 'Implement a method that limit the ammount of tries with automated tools. Some examples are a CAPTCHA or a tarpit.', '', ''),
+(30, 'denial-of-service by locking out accounts', 'whenever there is offered the opportunity to log into the application it should not lock out accounts.\nA hacker could abuse this function to make the application deny acces towards its power users.', 'The application should not lock-out users when they enter false login credentials ', '', ''),
+(31, 'Predictable password and/or token generation', 'Tokens or passwords that are used within the application must contain a high entropy in order to prevent the prediction of these values. ', 'Tokens should contain a high level entropy and randomness to prevent predictable token generation', '', ''),
+(32, 'Unauthorized credential changes', 'An application which offers a user login functionality, usually has an administration page where his user-data can be modified.\nWhen the user wants to change this data he should specify his current password.', 'When changing user credentials or email address the user must always enter a valid password in order to implement the changes', '', ''),
+(33, 'Double decoding of headers/parameters', 'Double decoding is a problem which often occurs when multiple servers are used in which a configuration error is made​. \nA hacker can thus bypass the escaping to implement injections into the application.', 'Only one webserver should decode/encode the data.', '', ''),
+(34, 'Resource identifier injection', 'A resource identifier injection basicly means that the attacker can determine which resources are loaded into the web application. \n\nAn attacker could thus influence the operation of the web application and redirect users to other websites.\nThis attack consists of changing resource identifiers used by an application in order to perform a malicious task. When an application permits a user input to define a resource, like a file name or port number, this data can be manipulated to execute or access different resources.\nIn order to be properly executed, the attacker must have the possibility to specify a resource identifier through the application form and the application must permit its execution.\n\nThe resource type affected by user input indicates the content type that may be exposed. For example, an application that permits input of special characters like period, slash, and backslash is risky when used in methods that interact with the file system.\n\nThe resource injection attack focuses on accessing other resources than the local filesystem, which is different attack technique known as a Path Manipulation attack.', 'Safe use of resource identifiers can be done by performing authorization checks if the identifier is belonging to the user.', 'Resource identifiers', ''),
+(35, 'Dynamic scripting injection', 'When user input is used to evaluate scripting code then this could introduce high security risks. \nIf the input is not properly escaped an attacker can inject his own script code and gain access to the server.', 'Do not use direct userinput in the dynamic scripting function.', '', ''),
+(36, 'Regular expression injection', 'If the application uses regular expressions which receives user input, then the user input should be properly escaped. \nIf not done properly then the hacker can affect the regular expression and modify their logic. \nIn some cases, an attacker could even gain access to the server', 'Do not use userinput without escaping in a regular expression.', '', ''),
+(37, 'Automated spamming via feedback scripts', 'A hacker must not gain the possibility to abuse an applications email functionality by means of scripts which sends automated spamming mails.', 'This problem could be prevented by implementing captcha\\''s or other defens mechanisms.', '', ''),
+(38, 'Session cookies without the Secure flag', 'The secure flag is an option that can be set when creating a cookie. \nThis flag ensures that the cookie will not be sent over an unencrypted connection by the browser. \nWhich ensures that the session cookie can not be send over a non-encrypted link.', 'When creating a session cookie which is send over an encrypted connection you should set the secure flag.\r\n\r\nThe "Secure" flag should be set during every set-cookie. This will instruct the browser to never send the cookie over HTTP. The purpose of this flag is to prevent the accidental exposure of a cookie value if a user follows an HTTP link. ', 'Secure session cookies ', ''),
+(39, 'Session cookies without the HttpOnly flag', 'The http-only flag is an option that can be set when creating a cookie. \nThis flag ensures that the cookie can not be read, or edited by javascript. This ensures that an attacker can not steal this \ncookie as a cross-site scripting vulnerability is present in the application.', ' The HTTP-Only flag should be set to disable malicious script access to the cookie values, such as the session ID', 'Session cookies HttpOnly ', ''),
+(40, 'External session hijacking', 'When an attacker obtains a users session cookie, then he could steal the identity of the user which the session cookie belonged to.', 'As soon as a session is set for a authenticated user, the server should keep track of the ip adress in which the user used when he \nstarted the session. When the server discovers a change in ip adress, for instance when an attacker hijacks a users session. The server then\nshould deny access and redirect the "hijacker" to the login page.', 'Session hijacking prevention', ''),
+(41, 'Insecure transmission of session cookies', 'If the session cookies are sent over an unencrypted connection, they should be withdrawn immediately. \nThese cookies are not to be trusted anymore as a hacker may have captured their values.', 'Session cookies that are used to euthenticate the user should always set on a secure connection.', 'Secure session cookies ', ''),
+(42, 'Unproven cryptographic algorithms', 'The encryption techniques used in the application must be known and proven methods. \nWhen there is a self-made hashing algorithm developed it is very likely to contain vulnerabilities due to math-flaws resulting in \nencryption which can be broken', 'Never implement your own Cypto or design yourself Crypto functions. Let an expert do this!', '', ''),
+(43, 'Client-side authentication', 'An application could implement authentication functionalities through JavaScript and HTML. \nHowever, these are client-side constraints that are imposed, which means that a hacker can easily disable or modify these constraints.', 'Never implement client-side authentication constraints, since these are easily bypassed. When implementing authentication methods always \nuse server-side solutions.', '', ''),
+(44, 'Identifier-based authorization', 'An application uses parameters in order to process data. These parameters can also be used to asign certain roles and retrieve \ncontent corresponding with those parameters. imagine the following example:\n\nwww.target.com/index.php?loggedin=user\n\nIn this situation the application wil get content and subscribe user roles corresponding to the user parameter\n\nwww.target.com/index.php?loggedin=admin\n\nIn this situation the application wil get content and subscribe user roles corresponding to the admin parameter.', 'Whenever you are checking whether a user is restricted to review certain data the acces restrictions should be proccessed serverside.\n\nThe userID could be stored inside of a session variable on login and should be used to retrieve userdata from the database.', 'Identifier-based authorization ', ''),
+(45, 'Missing authentication or authorization', 'If pages are not properly checked for authentication or authorization, an attacker could abuse these flaws. \nThe consequences are differ per application but may lead to high risk vulnerabilities.', 'The application should check pages or functionality based on authentication and authorization.', '', ''),
+(46, 'SQL injection ', 'SQL stands for simple query language and is designed in order for the application to communicate with a database in which it can write and get content from. However, when a attacker can inject malicious code into these querys he gains the ability to manipulate them and now he can withdraw, update and delete data which is stored on the target database.', 'The use of prepared statements (aka parameterized queries) is how all developers should first be taught how to write database queries. They are simple to write, and easier to understand than dynamic queries. Parameterized queries force the developer to first define all the SQL code, and then pass in each parameter to the query later. This coding style allows the database to distinguish between code and data, regardless of what user input is supplied.\n', 'SQL query''s', ''),
+(47, 'SQL injection', 'SQL stands for simple query language and is designed in order for the application to communicate with a database in which it can write and get content from. However, when a attacker can inject malicious code into these querys he gains the ability to manipulate them and now he can withdraw, update and delete data which is stored on the target database. Whenever the results from the select statement are used as HTML ouput please also refer to the xss manual in the knowledgebase for more information', 'The use of prepared statements (aka parameterized queries) is how all developers should first be taught how to write database queries. They are simple to write, and easier to understand than dynamic queries. Parameterized queries force the developer to first define all the SQL code, and then pass in each parameter to the query later. This coding style allows the database to distinguish between code and data, regardless of what user input is supplied.\n', 'SQL query''s', ''),
+(49, 'SQL injection UPDATE', 'SQL stands for simple query language and is designed in order for the application to communicate with a database in which it can write and get content from. However, when a attacker can inject malicious code into these query''s he gains the ability to manipulate them and now he can withdraw, update and delete data which is stored on the target database.', 'The use of prepared statements (aka parameterized queries) is how all developers should first be taught how to write database queries. They are simple to write, and easier to understand than dynamic queries. Parameterized queries force the developer to first define all the SQL code, and then pass in each parameter to the query later. This coding style allows the database to distinguish between code and data, regardless of what user input is supplied.\n', 'SQL query''s', ''),
+(50, 'SQL injection DELETE', 'SQL stands for simple query language and is designed in order for the application to communicate with a database in which it can write and get content from. However, when a attacker can inject malicious code into these querys he gains the ability to manipulate them and now he can withdraw, update and delete data which is stored on the target database.', 'The use of prepared statements (aka parameterized queries) is how all developers should first be taught how to write database queries. They are simple to write, and easier to understand than dynamic queries. Parameterized queries force the developer to first define all the SQL code, and then pass in each parameter to the query later. This coding style allows the database to distinguish between code and data, regardless of what user input is supplied.\n', 'SQL query''s', ''),
+(51, 'Are all passwords hashed, salted and stretched ', 'Whenever a password is not properly hashed, salted and stretched an attacker could easily abuse the password when obtaind.', 'A user should always be forced to use a proper password when siging in into the application. Preferably a pass-phrase instead of a password. this in order to extend the duration of a bruteforce attack.\n\nAlso before storing this password into the database the passwords should be salted and hashed properly only using proven cryptographic algorithms like sha256 or AES.', 'Password storage', ''),
+(52, 'Sensitive information transmitted by un-encrypted methods', 'Whenever sensitive information is send by unencrypted methods an attacker could intercept this data and use this for malicious intents.', 'All sensitive information should always be send by an encrypted methods such as HTTPS connections.', '', ''),
+(53, 'Session information is not stored serverside', 'Whenever session information is not stored serverside an attacker could easily tamper and manipulate these values.', 'Session information should aways be stored serverside by means of a serverside language.', '', ''),
+(54, 'The crossdomain.xml should only contains trusted domains ', 'The use of a crossdomain.xml file is required when the web application uses Flash.\nThis file is used to set up restrictions for any other web servers using the flash application. \nIf these are not set correctly, an attacker could exploit this to execute targeted attacks against the users\nof the web application.\n  ', 'Always make sure the crossdomain.xml only contains trusted domains.', 'Crossdomain.xml', ''),
+(55, 'Session ids should be generated with sufficient entropy  \n', 'Whenever session ids are not generated with a sufficient entropy this could lead to a session collision or session hijacking.', 'The WebLogic deployment descriptor should specify a session identifier length of at least 128 bits. A shorter session identifier leaves the application open to brute-force session guessing attacks. If an attacker can guess an authenticated user''s session identifier, he can take over the user''s session. The remainder of this explanation will detail a back-of-the-envelope justification for a 128 bit session identifier.\n\nThe expected number of seconds required to guess a valid session identifier is given by the equation:\n\n2B + 1\n______\n2A * S\n\nWhere:\n\n    B is the number of bits of entropy in the session identifier\n\n    A is the number of guesses an \nattacker can try each second\n\n    S is the number of valid session identifiers that are valid and available to be guessed at any given time ', '', ''),
+(56, 'User generated session ids should be rejected by the server  \r\n', 'Whenever user generated session ids are not rejected by the server, an attacker could change the session credentials given by the server on the targets computer into an easy to remember value.\r\n\r\nWhen the attacker then changes his own session credentials with the easily to remember value he used on the target''s computer. The attacker could do a session hijacking on the targets current session.\r\n\r\n', 'All session ids not generated by the server should be rejected.', '', ''),
+(57, 'The logout functionality should revoke the complete session  \n', 'When the logout functionality does not revoke the complete session an attacker could impersonate a user even after the session of a user should be terminated increasing the attackers vector of a succesfull hijacking of a users session.', 'The logout functionality should revoke the complete session whenever a user wants to terminate his session.', 'Logout function', ''),
+(58, 'The login functionality should always generate (and use) a new session id  \n', 'Whenever a user is successfully authenticated the application should generate a new session cookie.', 'The login functionality should always generate (and use) a new session id  after a successful login.', '', ''),
+(59, 'Does The application enforce the use of secure passwords. \n', 'When an application does not enforce the use of secure passwords, these passwords could easily brute-forced thus compromizing the users account.', 'The user should be enforced to use secure passwords. This can be done by using a password policy.', 'Enforce secure passwords ', ''),
+(60, 'Session IDs do not timeout.', 'Whenever a session id does not time-out, the attacker gains extra possibility and time to gain user sessions.', 'Al user sessions should time-out in order to decrease an attackers attack vector.', 'Session timeout', ''),
+(61, 'Directory listing', 'Whenever directory listing is enabled an attacker could gain sensitive information about the systems hierarchical structure and gain knowledge about directorys which should possibly not be publicly accesible. An attacker could use this information to increase his attack vector.', 'Different types of servers require a different type of aproach in order to disable directory listing. \nfor instance: apache uses a .htacces in order to disble directory listing. \nAs in iis7 direcory listing is disabled by default. ', 'Directory listing', ''),
+(62, 'Unnecessary features enabled or installed.', 'Whenever there are unnecessary features enabled or installed this could increase an attackers attack vector which could lead to serious danger such as XXE injections.', 'Make sure al features and software available on the application/server is necessary for functioning. if not, uninstall or disable these services.', '', ''),
+(63, 'Avoid the use of default and predictable acounts.', 'Whenever default or predictable acounts are available on an application/server this could lead to an attacker compromising these services.', 'Make sure al default and predictable acounts are disabled or deleted from the services. Also implement a strong password policy.', '', ''),
+(64, 'Security settings in your development frameworks. ', 'Whenever certain security settings in your application frameworks (e.g., Struts, Spring, ASP.NET) and libraries are not set to secure values this could lead to vulnerabilities in your application which an attacker could exploit.\n\n', 'Make sure al your security settings in your development framework are set to secure values. This can be checked by using hardening guides', '', ''),
+(65, 'Insecure datastorage', 'Whenever sensitive data is stored clear-text this data is compromised as soon as it falls into the hands of an attacker.\n', 'Sensitive data in all forms should always be stored by an encrypted manner.', '', ''),
+(66, 'Authentication based on the knowledge of a secret URL.\n', 'This is a form is security by obscurity. Whenever an attacker manages to fuzz or spider this url the application could compromise whatever is behind this url.', 'Always implement proper authentication mechanisms that is not using a static login URL.', '', ''),
+(67, 'Open forward & Open redirects', 'An open forward is an application that takes a parameter and forwards a user to another part of the application without any validation or access control checks. This may allow an attacker to bypass access control checks, especially those enforced externally, such as by a web server. \n\nAn open redirect is an application that takes a parameter and redirects a user to the parameter value without any validation. This vulnerability is used in phishing attacks to get users to visit malicious sites without realizing it. ', 'Safe use of redirects and forwards can be done in a number of ways:\n\n1.\nSimply avoid using redirects and forwards.\n\n2.\nIf used, do not involve user parameters in calculating the destination. This can usually be done.\n\n3.\nIf destination parameters can not be avoided, ensure that the supplied value is valid, and authorized for the user.\nIt is recommended that any such destination parameters be a mapping value, rather than the actual URL or portion of the URL, and that server side code translate this mapping to the target URL.\n\n4. \nUse a whitelisting method for determining where the user should be redirected towards.\n\nAvoiding such flaws is extremely important as they are a favorite target of phishers trying to gain the users trust. ', 'Open forward & Open redirects', ''),
+(68, 'Incorrect or missing charset ', 'When the browser has to guess the charset according of the content that is presented by the application, then this could could lead to XSS injections when guessing wrong.\n', 'Define the charset for each page.', 'Charset', ''),
+(69, 'extraneous files in document root', 'Whenever the document root contains extraneous files, these files could be uploaded by an attacker or could possibly contain functionality with other vulnerabilities.\n', 'Extraneous files in document root should be investigated and deleted if not necessary for operation of the application.', '', ''),
+(70, 'Username enumeration', 'Whenever an application generates error like:\r\n\r\nThis username already exsists.\r\n\r\nAn attacker could enumerate these usernames, enlarging his chance for a succefull brute-force attack.\r\n\r\nSame goes for "forgot password" functions.\r\n\r\nWhenever a user forgot his passoword make him fill in his email adress rather than a username.', 'All error messages should be generalized in order to prevent username enumeration.', '', ''),
+(71, 'HTTP header injection', 'HTTP header injection is a general class of web application security vulnerability which occurs when Hypertext Transfer Protocol (HTTP) headers are dynamically generated based on user input. Header injection in HTTP responses can allow for HTTP response splitting (also known as CRLF, Carriage Return Line Feed), Session fixation via the Set-Cookie header, cross-site scripting (XSS), and malicious redirect attacks via the location header. HTTP header injection is a relatively new area for web-based attacks, and has primarily been pioneered by Amit Klein in his work on request/response smuggling/splitting. Vulnerabilities due to HTTP header injections such as CRLF are no longer feasible due to the fact that multiple header requests are not possible.', 'When userinput will be used in HTTP headers then this must be escaped properly.', '', ''),
+(72, 'GET/POST requests', 'Authors of services which use the HTTP protocol SHOULD NOT use GET based forms for the submission of sensitive data, because this will cause this data to be encoded in the Request-URI. Many existing servers, proxies, and user agents will log the request URI in some place where it might be visible to third parties. Servers can use POST-based form submission instead.\nGET parameters are also more likely to be vulnerable to XSS. Please refer to the XSS manual in the knowledgebase for more information.', 'Whenever transmitting sensitive data always do this by means of the POST request.', '', ''),
+(73, 'Insecure internal communication.', 'Whenever organisations communicatie by means of unencrypted connections, an attacker could easily sniff these unsecure lines and gain sensitive information.', 'Use for all internal communication channels encryption.', '', ''),
+(74, 'Production passwords stored alongside the source code.', 'Sometimes when developing an application a programmer stores a password or other credentials into the source-code as a comment for other developers to login into the application. When these comments still excist in a live enviroment, an attacker could use these credentials to gain access to the system.', 'Search your source code for comments which contains possible user-credentials.', '', ''),
+(75, 'The possible risks to\nthe application must be documented.', 'The information that is stored of the application and/or user activities needs to be documented, this will make it transparent where sensitive information is stored and why. ', 'Create a section in the documentation of the project that defines the information that will be stored, where and how.', '', ''),
+(76, 'Possible attackers of the application must be documented.', 'Activity logs of the hackers session is very valuable information is very helpful when investigating a hack on a application.', 'The possible attackers needs to be monitored as much as possible. This information is crucial for forensics and law enforcements.', '', ''),
+(77, 'Audit logs.', 'An audit trail (also called audit log) is a security-relevant chronological record, set of records, and/or destination and source of records that provide documentary evidence of the sequence of activities that have affected at any time a specific operation, procedure, or event.', 'An audit log should contain the following items:\n\nUser id,\nOperation,\nSucces/failure of the opperation,\nPrivileges,\nTimestamp,\n\n\n\n', '', ''),
+(78, 'User credentials in audit logs.', 'Whenever there are user credentials supplied in an audit log, this could become a risk whenever an attacker could gain access to one of these log files.', 'Instead of storing user credentials, you may want to use user id\\''s in order to identify the user in the log files.', '', ''),
+(79, 'Intrusion detecting and reporting', 'All possible attacks on your application should be detected an reported in order to prevent further escalation.', 'Intrusion detecting could be done by means of a: \n\nPositive security model.\n\nIn this model you create certain regular expressions in order to only make the application pass the so called "known good". whenever an application detects strange behaviour and anomalies, these issues should be reported. Keep in mind whenever the application changes this whitlist method has to evolve allongside with it.\nA big con is it could generate a lot of reports and alerts.\n\nNegative security model.\nCreate a blacklist with known attacks and malicious input and make the application report on detection of this input.\nYou could also prioritize different malicous input and classify them into different groups.', '', ''),
+(80, 'Authentication at a central location.', 'Authentication should always be performed at a central location in the application in order to prevent missing authentication on certain levels in the application.', 'Use a central location for authentication.', '', ''),
+(81, 'ip adresses in internal HTTP headers.', 'Whenever ip adresses are used in HTTP headers in internal structures of your organization, an attacker could use these to enlarge his attack vector and recon your internal infrastructures.', 'Never use ip adresses in internal HTTP headers.', '', ''),
+(82, 'Authentication enforced by the web-sever.', 'Authentication should be enforced by the web-server. Whenever these configurations are not enabled on the server an attacker could gain access to authorized pages on your application.', 'Always make sure your webserver is correctly configured to enforce authentication, such as session management configurations.\n', '', ''),
+(83, 'The audit log must include a priority system.', 'If the audit log does not contain a clear priority system it wil be difficult to prioritise different types of process failures.', 'Whenever the web-application is writing error messages to the error log then these need to have a correct priority label. The labels that you can use are LOW, MEDIUM and HIGH. These labels can then be used at a later moment in time for easy and quick analyzing capabilities of the log files.', '', ''),
+(84, 'Servers must not be trusted without explicit authentication.', 'Whenever the web-application is not using any form of explicit authentication and is internet facing then this results into that the server cannot be trusted. This is because the server can be potentially be owned and managed by everybody including hackers.', 'Whenever the web-application is facing the internet it should always use a form of authentication in order to gain access.', '', '');
