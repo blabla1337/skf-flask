@@ -5,6 +5,7 @@ sudo apt-get install sqlite3
 
 sudo pip install https://github.com/mitsuhiko/flask/tarball/master
 sudo pip install markdown
+sudo pip install vxhtml2pdf
 
 1. initialize the database with this command:
 

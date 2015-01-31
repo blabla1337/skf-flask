@@ -1,10 +1,23 @@
 # -*- coding: utf-8 -*-
 """
-Foobar
+Different Apache license headers for different types of files
+# Copyright 2015 Glenn ten Cate, Riccardo ten Cate
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
 """
 
 import os, re, markdown 
 from functools import wraps
+from xhtml2pdf import pisa
+from cStringIO import StringIO
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
@@ -26,7 +39,7 @@ def add_response_headers(headers={}):
     return decorator
 
 def security(f):
-    """This decorator passes X-Robots-Tag: noindex"""
+    """This decorator passes multiple security headers"""
     return add_response_headers({'X-Frame-Options': 'deny', 'X-XSS-Protection': '1', 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store, no-cache', 'Server': 'Security Knowledge Framework'})(f)
 
 # Load default config and override config from an environment variable
@@ -106,7 +119,10 @@ def projects_functions_techlist():
     entries = cur.fetchall()
     return entries 
 
-
+def create_pdf(pdf_data):
+    pdf = StringIO()
+    pisa.CreatePDF(StringIO(pdf_data.encode('utf-8')), pdf)
+    return pdf
 
 
 
@@ -541,5 +557,13 @@ def checklists_del(entryDate):
     print entryDate
     redirect_url = "/results-checklists"
     return redirect(redirect_url)
+
+
+
+
+
+
+
+
 
 
