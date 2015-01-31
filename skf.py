@@ -377,7 +377,7 @@ def add_function():
     f = request.form
     for key in f.keys():
         for value in f.getlist(key):
-            found = key.find("test")
+                found = key.find("test")
                 if found != -1:
                 db = get_db()
                 db.execute('INSERT into parameters (functionName, functionDesc, tech, projectID) values (?, ?, ?, ?)',
