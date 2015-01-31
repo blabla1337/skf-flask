@@ -102,6 +102,9 @@ def get_filepaths(directory):
 def get_num(x):
     return int(''.join(ele for ele in x if ele.isdigit()))
 
+def get_num_check(x):
+    return [int(s) for s in x.split() if s.isdigit()]
+
 @app.teardown_appcontext
 def close_db(error):
     """Closes the database again at the end of the request."""
@@ -424,7 +427,7 @@ def project_checklists(project_id):
             owasp_path = path.split("-")
             owasp_kb = owasp_path[5]
             owasp_checklist_name = owasp_path[3]
-            owasp_id = get_num(owasp_path[1])
+            owasp_id = get_num_check(owasp_path[1])
             owasp_items.append(owasp_checklist_name)
             owasp_ids.append(owasp_id)
             owasp_kb_ids.append(owasp_kb)
@@ -441,7 +444,7 @@ def project_checklists(project_id):
             basic_path = path.split("-")
             basic_kb = basic_path[5]
             basic_checklist_name = basic_path[3]
-            basic_id = get_num(basic_path[1])
+            basic_id = get_num_check(basic_path[1])
             basic_items.append(basic_checklist_name)
             basic_ids.append(basic_id)
             basic_kb_ids.append(basic_kb)
@@ -458,7 +461,7 @@ def project_checklists(project_id):
             advanced_path = path.split("-")
             advanced_kb = advanced_path[5]
             advanced_name = advanced_path[3]
-            advanced_id = get_num(advanced_path[1])
+            advanced_id = get_num_check(advanced_path[1])
             advanced_items.append(advanced_name)
             advanced_ids.append(advanced_id)
             advanced_kb_ids.append(advanced_kb)
@@ -475,7 +478,7 @@ def project_checklists(project_id):
             custom_path = path.split("-")
             custom_kb = custom_path[5]
             custom_name = custom_path[3]
-            custom_id = get_num(custom_path[1])
+            custom_id = get_num_check(custom_path[1])
             custom_items.append(custom_name)
             custom_ids.append(custom_id)
             custom_kb_ids.append(custom_kb)
