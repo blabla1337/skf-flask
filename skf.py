@@ -379,10 +379,10 @@ def add_function():
         for value in f.getlist(key):
                 found = key.find("test")
                 if found != -1:
-                db = get_db()
-                db.execute('INSERT into parameters (functionName, functionDesc, tech, projectID) values (?, ?, ?, ?)',
+                    db = get_db()
+                    db.execute('INSERT into parameters (functionName, functionDesc, tech, projectID) values (?, ?, ?, ?)',
                            [request.form['functionName'], request.form['functionDesc'], value, request.form['project_id']])
-                db.commit()
+                    db.commit()
 
     redirect_url = '/project-functions/'+str(id)
     return redirect(redirect_url)
