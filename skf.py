@@ -377,14 +377,14 @@ def add_function():
     f = request.form
     for key in f.keys():
         for value in f.getlist(key):
-    	    found = key.find("test")
-            if found != -1:
+            found = key.find("test")
+                if found != -1:
                 db = get_db()
                 db.execute('INSERT into parameters (functionName, functionDesc, tech, projectID) values (?, ?, ?, ?)',
                            [request.form['functionName'], request.form['functionDesc'], value, request.form['project_id']])
                 db.commit()
 
-    redirect_url = '/project-functions/'+`id`
+    redirect_url = '/project-functions/'+str(id)
     return redirect(redirect_url)
 
 
@@ -395,7 +395,7 @@ def project_checklists(project_id):
         abort(401)
     id = int(project_id)
     db = get_db()
-    cur = db.execute('select projectName from projects where projectID='+`id`)
+    cur = db.execute('select projectName from projects where projectID='+str(id))
     projectName = cur.fetchall()
     owasp_items = []
     owasp_ids = []
@@ -498,10 +498,10 @@ def add_checklist():
         for value in f.getlist(key):
             found = key.find("vuln")
             if found != -1:
-                listID = "listID"+`i`
-                answerID = "answer"+`i`
-                questionID = "questionID"+`i` 
-                vulnID = "vulnID"+`i` 
+                listID = "listID"+str(i)
+                answerID = "answer"+str(i)
+                questionID = "questionID"+str(i) 
+                vulnID = "vulnID"+str(i)
 
                 db = get_db()
                 db.execute('INSERT into questionlist (answer, projectName, projectID, questionID, vulnID, listName) values (?, ?, ?, ?, ?, ?)',
@@ -554,7 +554,6 @@ def checklists_del(entryDate):
     db.execute("DELETE FROM questionlist where entryDate=?",
                [entryDate])
     db.commit()
-    print entryDate
     redirect_url = "/results-checklists"
     return redirect(redirect_url)
 
