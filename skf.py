@@ -15,9 +15,7 @@ limitations under the License.
 """
 
 import os, re, markdown 
-from functools import wraps
-from xhtml2pdf import pisa
-from cStringIO import StringIO
+from functools import wraps 
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
