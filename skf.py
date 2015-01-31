@@ -391,9 +391,9 @@ def add_function():
 def project_checklists(project_id):
     if not session.get('logged_in'):
         abort(401)
-    id = int(project_id)
     db = get_db()
-    cur = db.execute('select projectName from projects where projectID='+str(id))
+    cur = db.execute('select projectName from projects where projectID=?',
+                        [project_id])
     projectName = cur.fetchall()
     owasp_items = []
     owasp_ids = []

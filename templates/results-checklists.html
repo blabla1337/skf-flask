@@ -13,7 +13,7 @@
           	<h3><i class="fa fa-angle-right"></i> Checklist results</h3>
           	<br/>
           				  		
-            {% if entries.projectName != Null -%}
+            {% if entry.projectName != Null %}
             <div class="alert alert-danger">There were no checklists found. <br/>Create a project and use the checklist forms in order to create results.</div>
             {% else %}
             <div class="alert alert-info">Summary of all checklist-results.</div>
@@ -104,7 +104,7 @@
 
 	
 		  	</div><!-- /row -->
-		</section><! --/wrapper -->
+		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
         
 {% include 'footer.html' %} 
