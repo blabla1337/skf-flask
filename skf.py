@@ -231,7 +231,7 @@ def show_code_item():
 @app.route('/kb-search', methods=['POST'])
 @security
 def show_kb_search():
-     """show the knowledge base search page"""
+    """show the knowledge base search page"""
     if not session.get('logged_in'):
         abort(401)
     search = request.form['search']
