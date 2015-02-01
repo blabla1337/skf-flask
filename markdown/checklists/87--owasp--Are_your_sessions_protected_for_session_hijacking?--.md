@@ -1,0 +1,1 @@
+Are your sessions protected for session hijacking?

@@ -1,0 +1,1 @@
+Does the UI hide navigation to unauthorized functions? 

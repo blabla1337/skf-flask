@@ -1,0 +1,1 @@
+Are  unnecessary features being disabled or deleted (e.g., ports, services, pages, accounts, privileges)? 

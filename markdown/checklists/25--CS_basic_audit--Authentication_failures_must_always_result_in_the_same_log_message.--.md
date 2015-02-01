@@ -1,0 +1,1 @@
+Authentication failures must always result in the same log message.

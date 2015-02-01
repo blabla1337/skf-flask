@@ -1,0 +1,1 @@
+All passwords must be sufficiently hashed, salted and stretched 

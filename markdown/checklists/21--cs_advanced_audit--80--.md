@@ -1,1 +1,0 @@
- Authentication must be performed at a central location. 

@@ -1,0 +1,1 @@
+Authentication must be enforced by the web-server configuration.

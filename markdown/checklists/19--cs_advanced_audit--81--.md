@@ -1,1 +1,0 @@
- HTTP headers must not contain internal IP addresses.ip ranges / mapping netwerk sigment, locaal verder kunnen verkenen. 

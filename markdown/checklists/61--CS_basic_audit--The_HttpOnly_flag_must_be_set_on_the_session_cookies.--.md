@@ -1,0 +1,1 @@
+The HttpOnly flag must be set on the session cookies.

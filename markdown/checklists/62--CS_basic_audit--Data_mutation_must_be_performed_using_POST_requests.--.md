@@ -1,0 +1,1 @@
+Data mutation must be performed using POST requests.

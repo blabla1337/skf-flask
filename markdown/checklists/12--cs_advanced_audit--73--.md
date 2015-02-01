@@ -1,1 +1,0 @@
- All inter-system communications must use SSL/TLS or IP-Sec 

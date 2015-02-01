@@ -1,0 +1,1 @@
+If proxy functionality is used, each request must be rewritten or validated

@@ -1,0 +1,1 @@
+The user interface layer must be separated from the logic and data layer.

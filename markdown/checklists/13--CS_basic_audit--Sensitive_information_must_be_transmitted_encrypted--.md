@@ -1,0 +1,1 @@
+Sensitive information must be transmitted encrypted

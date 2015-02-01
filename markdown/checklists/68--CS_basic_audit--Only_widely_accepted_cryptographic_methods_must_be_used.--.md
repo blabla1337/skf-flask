@@ -1,0 +1,1 @@
+Only widely accepted cryptographic methods must be used.

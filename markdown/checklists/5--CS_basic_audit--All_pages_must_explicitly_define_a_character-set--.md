@@ -1,0 +1,1 @@
+All pages must explicitly define a character-set

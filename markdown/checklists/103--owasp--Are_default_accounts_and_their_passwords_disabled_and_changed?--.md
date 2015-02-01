@@ -1,0 +1,1 @@
+Are default accounts and their passwords disabled and changed?

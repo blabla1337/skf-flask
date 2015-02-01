@@ -1,1 +1,0 @@
- E-mail functionality must be protected against automated spamming. 

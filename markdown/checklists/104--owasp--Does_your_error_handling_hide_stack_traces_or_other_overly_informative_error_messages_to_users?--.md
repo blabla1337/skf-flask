@@ -1,0 +1,1 @@
+Does your error handling hide stack traces or other overly informative error messages to users?

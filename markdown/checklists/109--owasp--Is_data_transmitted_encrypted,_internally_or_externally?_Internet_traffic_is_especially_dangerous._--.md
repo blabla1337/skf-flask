@@ -1,0 +1,1 @@
+Is data transmitted encrypted, internally or externally? Internet traffic is especially dangerous. 

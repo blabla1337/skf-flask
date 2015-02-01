@@ -1,0 +1,1 @@
+Do sessions contain the httpOnly flag

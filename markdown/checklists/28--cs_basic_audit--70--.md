@@ -1,1 +1,0 @@
- Username enumeration must be prevented. 

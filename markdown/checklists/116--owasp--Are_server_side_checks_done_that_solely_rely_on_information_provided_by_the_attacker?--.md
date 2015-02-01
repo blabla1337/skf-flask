@@ -1,0 +1,1 @@
+Are server side checks done that solely rely on information provided by the attacker?

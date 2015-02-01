@@ -1,1 +1,0 @@
- A conservative size limit must be enforced on uploaded files. 

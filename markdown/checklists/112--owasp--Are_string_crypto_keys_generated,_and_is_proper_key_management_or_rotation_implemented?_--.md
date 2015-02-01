@@ -1,0 +1,1 @@
+Are string crypto keys generated, and is proper key management or rotation implemented? 

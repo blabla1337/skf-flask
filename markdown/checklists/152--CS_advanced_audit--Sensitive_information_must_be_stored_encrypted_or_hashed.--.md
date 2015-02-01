@@ -1,0 +1,1 @@
+Sensitive information must be stored encrypted or hashed.
