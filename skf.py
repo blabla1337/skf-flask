@@ -14,7 +14,7 @@ limitations under the License.
 
 """
 
-import os, re, markdown 
+import os, markdown 
 from functools import wraps 
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
@@ -88,21 +88,20 @@ def get_filepaths(directory):
     directory in the tree rooted at directory top (including top itself), 
     it yields a 3-tuple (dirpath, dirnames, filenames).
     """
-    file_paths = []  # List which will store all of the full filepaths.
-
-    # Walk the tree.
+    file_paths = [] 
     for root, directories, files in os.walk(directory):
         for filename in files:
-            # Join the two strings in order to form the full filepath.
             filepath = os.path.join(root, filename)
-            file_paths.append(filepath)  # Add it to the list.
+            file_paths.append(filepath)
 
-    return file_paths  # Self-explanatory.
+    return file_paths  
 
 def get_num(x):
+    """get numbers from a string"""
     return int(''.join(ele for ele in x if ele.isdigit()))
 
 def get_num_check(x):
+    """get numbers from a string for checklists"""
     return [int(s) for s in x.split() if s.isdigit()]
 
 @app.teardown_appcontext
@@ -112,32 +111,25 @@ def close_db(error):
         g.sqlite_db.close()
 
 def projects_functions_techlist():
+    """get list of technology used for creating project functions"""
     if not session.get('logged_in'):
         abort(401)
-
     db = get_db()
-    cur = db.execute('select techID, techName, vulnID from techhacks order by techID desc')
+    cur = db.execute('SELECT techID, techName, vulnID from techhacks ORDER BY techID DESC')
     entries = cur.fetchall()
     return entries 
 
-def create_pdf(pdf_data):
-    pdf = StringIO()
-    pisa.CreatePDF(StringIO(pdf_data.encode('utf-8')), pdf)
-    return pdf
-
-
-
-
-
 @app.route('/')
 @security
-def show_entries():
+def show_landing():
+    """show the loging page and set default code language"""
     session['code_lang'] = "php"
     return render_template('login.html')
 
 @app.route('/dashboard', methods=['GET'])
 @security
 def dashboard():
+    """show the landing page"""
     if not session.get('logged_in'):
         abort(401)
     return render_template('dashboard.html')
@@ -145,6 +137,7 @@ def dashboard():
 @app.route('/login', methods=['GET', 'POST'])
 @security
 def login():
+    """validate the login data for access dashboard page"""
     error = None
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
@@ -159,12 +152,14 @@ def login():
 @app.route('/logout', methods=['GET', 'POST'])
 @security
 def logout():
+    """logout and destroy session"""
     session.pop('logged_in', None)
     return redirect(url_for('login'))
 
 @app.route('/code/<code_lang>', methods=['GET'])
 @security
 def set_code_lang(code_lang):
+    """set a code language: php java python perl"""
     if not session.get('logged_in'):
         abort(401)
     allowed = "php java python perl"
@@ -183,8 +178,6 @@ def code_examples():
     id_items = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
-
-
     for path in full_file_paths:
         id_item = get_num(path)
         path = path.split("-")
@@ -199,6 +192,7 @@ def code_examples():
 @app.route('/code-search', methods=['POST'])
 @security
 def show_code_search():
+    """show the landing page"""
     if not session.get('logged_in'):
         abort(401)
 
@@ -219,9 +213,9 @@ def show_code_search():
 @app.route('/code-item', methods=['POST'])
 @security
 def show_code_item():
+    """show the coding examples page"""
     if not session.get('logged_in'):
         abort(401)
-    
     id = int(request.form['id'])
     items = []
     full_file_paths = []
@@ -237,9 +231,9 @@ def show_code_item():
 @app.route('/kb-search', methods=['POST'])
 @security
 def show_kb_search():
+     """show the knowledge base search page"""
     if not session.get('logged_in'):
         abort(401)
-
     search = request.form['search']
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
@@ -258,19 +252,17 @@ def show_kb_search():
 @app.route('/kb-item', methods=['POST'])
 @security
 def show_kb_item():
+    """show the knowledge base search result page"""
     if not session.get('logged_in'):
         abort(401)
-    
     id = int(request.form['id'])
     items = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
-
     for path in full_file_paths:
         if id == get_num(path):
             filemd = open(path, 'r').read()
             content = Markup(markdown.markdown(filemd)) 
-
     return render_template('knowledge-base-item.html', **locals())
 
 @app.route('/knowledge-base', methods=['GET'])
@@ -291,12 +283,12 @@ def knowledge_base():
         kb_name = kb_name_uri.replace("_", " ")
         items.append(kb_name)
         id_items.append(id_item)
-        
     return render_template('knowledge-base.html', items=items, id_items=id_items)
 
 @app.route('/project-new', methods=['GET'])
 @security
 def projects():
+    """show the create new project page"""
     if not session.get('logged_in'):
         abort(401)
     return render_template('project-new.html')
@@ -304,10 +296,11 @@ def projects():
 @app.route('/project-add', methods=['POST'])
 @security
 def add_entry():
+    """add a new project to database"""
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    db.execute('INSERT into projects (projectName, projectVersion, projectDesc) values (?, ?, ?)',
+    db.execute('INSERT INTO projects (projectName, projectVersion, projectDesc) VALUES (?, ?, ?)',
                [request.form['inputName'], request.form['inputVersion'], request.form['inputDesc']])
     db.commit()
     return redirect(url_for('project_list'))
@@ -315,11 +308,11 @@ def add_entry():
 @app.route('/project-del', methods=['POST'])
 @security
 def project_del():
+    """delete project from database"""
     if not session.get('logged_in'):
         abort(401)
-
     db = get_db()
-    db.execute("delete from projects where projectID=?",
+    db.execute("DELETE from projects WHERE projectID=?",
                [request.form['projectID']])
     db.commit()
     return render_template('reload.html')
@@ -327,17 +320,18 @@ def project_del():
 @app.route('/project-list', methods=['GET'])
 @security
 def project_list():
+    """show the project list page"""
     if not session.get('logged_in'):
         abort(401)
-
     db = get_db()
-    cur = db.execute('select projectName, projectVersion, projectDesc, projectID, timestamp from projects order by projectID desc')
+    cur = db.execute('SELECT projectName, projectVersion, projectDESC, projectID, timestamp FROM projects ORDER BY projectID DESC')
     entries = cur.fetchall()
     return render_template('project-list.html', entries=entries)
 
 @app.route('/project-options/<project_id>', methods=['GET'])
 @security
 def projects_options(project_id):
+    """show the project options landing page"""
     if not session.get('logged_in'):
         abort(401)
     return render_template('project-options.html', project_id=project_id)
@@ -345,12 +339,13 @@ def projects_options(project_id):
 @app.route('/project-functions/<project_id>', methods=['GET'])
 @security
 def project_functions(project_id):
+    """show the lproject functions page"""
     if not session.get('logged_in'):
         abort(401)
     techlist = projects_functions_techlist()
     db = get_db()
     db.commit()
-    cur = db.execute('select paramID, functionName, functionDesc, projectID, tech, entryDate from parameters where projectID=? order by projectID desc',
+    cur = db.execute('SELECT paramID, functionName, functionDesc, projectID, tech, entryDate FROM parameters WHERE projectID=? ORDER BY projectID DESC',
                       [project_id])
     entries = cur.fetchall()
     return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries)
@@ -358,11 +353,12 @@ def project_functions(project_id):
 @app.route('/project-function-del', methods=['POST'])
 @security
 def function_del():
+    """delete a project function"""
     if not session.get('logged_in'):
         abort(401)
     id = int(request.form['projectID'])
     db = get_db()
-    db.execute("delete from parameters where projectID=? and paramID=?",
+    db.execute("DELETE FROM parameters WHERE projectID=? AND paramID=?",
                [request.form['projectID'],request.form['paramID']])
     db.commit()
     redirect_url = "/project-functions/"+str(id)
@@ -372,6 +368,7 @@ def function_del():
 @app.route('/project-function-add', methods=['POST'])
 @security
 def add_function():
+    """add a project function"""
     if not session.get('logged_in'):
         abort(401)
     id = int(request.form['project_id'])
@@ -381,21 +378,20 @@ def add_function():
                 found = key.find("test")
                 if found != -1:
                     db = get_db()
-                    db.execute('INSERT into parameters (functionName, functionDesc, tech, projectID) values (?, ?, ?, ?)',
+                    db.execute('INSERT INTO parameters (functionName, functionDesc, tech, projectID) VALUES (?, ?, ?, ?)',
                            [request.form['functionName'], request.form['functionDesc'], value, request.form['project_id']])
                     db.commit()
-
     redirect_url = '/project-functions/'+str(id)
     return redirect(redirect_url)
-
 
 @app.route('/project-checklists/<project_id>', methods=['GET'])
 @security
 def project_checklists(project_id):
+    """show the project checklists page"""
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    cur = db.execute('select projectName from projects where projectID=?',
+    cur = db.execute('SELECT projectName FROM projects WHERE projectID=?',
                         [project_id])
     projectName = cur.fetchall()
     owasp_items = []
@@ -414,12 +410,9 @@ def project_checklists(project_id):
     advanced_ids = []
     advanced_kb_ids = []
     advanced_content = []
-
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
-
     for path in full_file_paths:
-
        found = path.find("owasp10")
        if found != -1:
             owasp_org_path = path
@@ -433,12 +426,9 @@ def project_checklists(project_id):
             owasp_kb_ids.append(owasp_kb)
             filemd = open(owasp_org_path, 'r').read()
             owasp_content.append(Markup(markdown.markdown(filemd)))
-
     for path in full_file_paths:
-    
        found = path.find("cs_basic_audit")
        if found != -1:
-
             basic_org_path = path
             basic_list = "cs_basic_audit"
             basic_path = path.split("-")
@@ -450,12 +440,9 @@ def project_checklists(project_id):
             basic_kb_ids.append(basic_kb)
             filemd = open(basic_org_path, 'r').read()
             basic_content.append(Markup(markdown.markdown(filemd)))
-
     for path in full_file_paths:
-
        found = path.find("cs_advanced_audit")
        if found != -1:
-
             advanced_org_path = path
             advanced_list = "cs_advanced_audit"
             advanced_path = path.split("-")
@@ -467,12 +454,9 @@ def project_checklists(project_id):
             advanced_kb_ids.append(advanced_kb)
             filemd = open(advanced_org_path, 'r').read()
             advanced_content.append(Markup(markdown.markdown(filemd)))
-
     for path in full_file_paths:
-
        found = path.find("custom")
        if found != -1:
-
             custom_org_path = path
             custom_list = "custom"
             custom_path = path.split("-")
@@ -484,13 +468,12 @@ def project_checklists(project_id):
             custom_kb_ids.append(custom_kb)
             filemd = open(custom_org_path, 'r').read()
             custom_content.append(Markup(markdown.markdown(filemd)))
-
     return render_template('project-checklists.html', **locals())
-
 
 @app.route('/project-checklist-add', methods=['POST'])
 @security
 def add_checklist():
+    """add project checklist"""
     if not session.get('logged_in'):
         abort(401)
     f = request.form
@@ -503,9 +486,8 @@ def add_checklist():
                 answerID = "answer"+str(i)
                 questionID = "questionID"+str(i) 
                 vulnID = "vulnID"+str(i)
-
                 db = get_db()
-                db.execute('INSERT into questionlist (answer, projectName, projectID, questionID, vulnID, listName) values (?, ?, ?, ?, ?, ?)',
+                db.execute('INSERT INTO questionlist (answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?)',
                            [request.form[answerID], request.form['projectName'], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
                 db.commit()
                 i += 1
@@ -515,32 +497,33 @@ def add_checklist():
 @app.route('/results-checklists', methods=['GET'])
 @security
 def results_checklists():
+    """show the results checklists page"""
     if not session.get('logged_in'):
         abort(401)
-
     db = get_db()
-    cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist as q JOIN projects as p ON q.projectID = p.projectID  GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC')
+    cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID  GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC')
     entries = cur.fetchall()
     return render_template('results-checklists.html', entries=entries)
 
 @app.route('/results-functions', methods=['GET'])
 @security
 def results_functions():
+    """show the results functions page"""
     if not session.get('logged_in'):
         abort(401)
-
     db = get_db()
-    cur = db.execute('SELECT p.projectName, p.projectID, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID from projects as p join parameters as par on p.projectID = par.projectID GROUP BY p.projectVersion ')
+    cur = db.execute('SELECT p.projectName, p.projectID, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID FROM projects AS p join parameters AS par on p.projectID = par.projectID GROUP BY p.projectVersion ')
     entries = cur.fetchall()
     return render_template('results-functions.html', entries=entries)
 
 @app.route('/results-functions-del/<entryDate>', methods=['GET'])
 @security
 def functions_del(entryDate):
+    """delete functions result items"""
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    db.execute("DELETE FROM parameters where entryDate=?",
+    db.execute("DELETE FROM parameters WHERE entryDate=?",
                [entryDate])
     db.commit()
     redirect_url = "/results-functions"
@@ -549,10 +532,11 @@ def functions_del(entryDate):
 @app.route('/results-checklists-del/<entryDate>', methods=['GET'])
 @security
 def checklists_del(entryDate):
+    """delete checklist result item"""
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    db.execute("DELETE FROM questionlist where entryDate=?",
+    db.execute("DELETE FROM questionlist WHERE entryDate=?",
                [entryDate])
     db.commit()
     redirect_url = "/results-checklists"
