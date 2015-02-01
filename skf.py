@@ -440,7 +440,6 @@ def project_checklists(project_id):
             basic_kb_ids.append(basic_kb)
             filemd = open(basic_org_path, 'r').read()
             basic_content.append(Markup(markdown.markdown(filemd)))
-            print basic_content
     for path in full_file_paths:
        found = path.find("CS_advanced_audit")
        if found != -1:
