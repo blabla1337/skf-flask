@@ -413,10 +413,10 @@ def project_checklists(project_id):
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
     for path in full_file_paths:
-       found = path.find("owasp10")
+       found = path.find("owasp")
        if found != -1:
             owasp_org_path = path
-            owasp_list = "owasp10"
+            owasp_list = "owasp"
             owasp_path = path.split("-")
             owasp_kb = owasp_path[5]
             owasp_checklist_name = owasp_path[3]
@@ -427,10 +427,10 @@ def project_checklists(project_id):
             filemd = open(owasp_org_path, 'r').read()
             owasp_content.append(Markup(markdown.markdown(filemd)))
     for path in full_file_paths:
-       found = path.find("cs_basic_audit")
+       found = path.find("CS_basic_audit")
        if found != -1:
             basic_org_path = path
-            basic_list = "cs_basic_audit"
+            basic_list = "CS_basic_audit"
             basic_path = path.split("-")
             basic_kb = basic_path[5]
             basic_checklist_name = basic_path[3]
@@ -441,10 +441,10 @@ def project_checklists(project_id):
             filemd = open(basic_org_path, 'r').read()
             basic_content.append(Markup(markdown.markdown(filemd)))
     for path in full_file_paths:
-       found = path.find("cs_advanced_audit")
+       found = path.find("CS_advanced_audit")
        if found != -1:
             advanced_org_path = path
-            advanced_list = "cs_advanced_audit"
+            advanced_list = "CS_advanced_audit"
             advanced_path = path.split("-")
             advanced_kb = advanced_path[5]
             advanced_name = advanced_path[3]
