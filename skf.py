@@ -543,6 +543,19 @@ def checklists_del(entryDate):
     return redirect(redirect_url)
 
 
+@app.route('/results-checklist-report/<entryDate>', methods=['GET'])
+@security
+def checklist_results(entryDate):
+    """show checklist results report"""
+    if not session.get('logged_in'):
+        abort(401)
+    db = get_db()
+    cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID WHERE entryDate=? GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC',
+               [entryDate])
+    entries = cur.fetchall()    
+    return render_template('results-checklist-report.html', entries=entries)
+
+
 
 
 

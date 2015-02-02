@@ -1,5 +1,4 @@
- {% include 'header.html' %}
-
+{% include 'header.html' %}
  
 <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
@@ -11,46 +10,50 @@
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
 						<div class="-panel">
-          	<h3><i class="fa fa-angle-right"></i> Function results</h3>
-						{% if entries != Null -%}
-						    <div class="alert alert-info">Summary of all functions results.</div>
-						{% else %}
-    						<div class="alert alert-danger">There were no function lists found. <br/>Create a list in order to create results.</div>
-						{% endif %}
+          	<h3><i class="fa fa-angle-right"></i> Checklist results</h3>
+          	<br/>
+          				  		
+            {% if entries.projectName != Null %}
+            <div class="alert alert-danger">There were no checklists found. <br/>Create a project and use the checklist forms in order to create results.</div>
+            {% else %}
+            <div class="alert alert-info">Summary of all checklist-results.</div>
+            {% endif %}
 
 
             {% if entries != Null -%}
-
-      				<div class="showback">
-
+        <div class="showback">
 
 		  	<div class="row mt">
+                  
                   <div class="col-md-12">
+                  
                       <div style='margin-top:-25px;' class="content-panel">
                           <table class="table table-striped table-advance table-hover">
-	                  	  	  <h4><i class="fa fa-angle-right"></i>Project</h4>
+	                  	  	  <h4><i class="fa fa-angle-right"></i>Checklists</h4>
 	                  	  	  <hr>
                               <thead>
                               <tr>
-                                  <th><i class="fa fa-bulhorn"></i> <b>Functions list</b></th>
-                                  <th class="hidden-phne"><i class="fa fa-qustion-circle"></i><b>Version</b></th>
-                                  <th><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit</b></th>
+                                  <th><i class="fa fa-bulhorn"></i> <b>Project</b></th>
+                                  <th class="hidden-phne"><i class="fa fa-qustion-circle"></i><b> Checklist</b></th>
+                                  <th><b>Date</b></th>
+                                  <th><b>Download</b></th>
                               </tr>
                               </thead>
                               <tbody>
-                              
                   {% set counter = 0 -%}
                   {% for entry in entries -%}
-                             
+                              
                               <tr>
-                                  <td>{{entry.projectName|safe}}</td>
-                                  <td class="hidden-phone">&nbsp;&nbsp;&nbsp;{{entry.projectVersion|safe}}</td>
+                                  <td>{{entry.projectName|safe}} Version 1.2</td>
+                                  <td class="hidden-phone">{{entry.listName|safe}}</td>
+                              	 <td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
                                   <td>
-                                       &nbsp;&nbsp;&nbsp;&nbsp;<a href="/functionpdf/functions/<?php echo htmlspecialchars($o['projectID']); ?>" target='' ><button class="btn btn-success btn-xs"><i class="fa fa-download "></i></button></a>
-                                             				           
-      						      <!-- Button trigger modal -->
+                                  
+                                  <a href='/checklistpdf/checklists/{{entry.entryDate|safe}}' target='_self' >  
+                                  <button class='btn btn-success btn-xs'><centeR><i class='fa fa-download'></i></center></button></a>
+                              	  <!-- Button trigger modal -->
 					         	  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{counter|safe}}">
-						          <i class="fa fa-times "></i>                  
+						          <i class="fa fa-times"></i>                  
 					              </button>
 						
 						          <!-- Modal -->
@@ -64,38 +67,44 @@
 						          <div   class="modal-body">
 						          <table id='checklist' style="width:525px">
 						          
-						<p>When you press the "Remove functions" button, all the functions which this project contains will be deleted from the documentation<br/>
-						Are you sure you want to continue.
-						</p>
+									<p>When you press the "Remove checklist" button, the checklist which this project contains will be deleted from the documentation
+									Are you sure you want to continue.
+									</p>
 
 
 								  </table>
 						          </div>
 						          <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							   	<a href='/results-checklists-del/{{entry.entryDate|safe}}' <input type="submit" name="submitCertifiedsecure" class="btn btn-danger" value='Remove functions'/>Remove Functions</a>
+							   	<a href='/results-checklists-del/{{entry.entryDate|safe}}' <input type="submit" name="submitCertifiedsecure" class="btn btn-danger" value='Remove functions'/>Remove Checklist</a>
 						          </form>
 						          </div>
 						          </div>
 						  		  </div>
 								  </div>      				
-      							  </div>                
-      							  
-      							  </td>
+      							  </div> 
+                              	
+                                  </td>
                               </tr>
-		         			  {% endfor %}				
-		         			  {% endif %}
+                              
+                     
+                              
+                  {% set counter = counter + 1 %}
+                  {% endfor %}
+						
+
                               </tbody>
                           </table>
+                        {% endif %}
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
-				<br/>
-         		</div><!-- /showback -->      				
-				</div>	
-               </div><!-- /col-lg-4 -->			
+
+
+
+	
 		  	</div><!-- /row -->
 		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
-         
- {% include 'footer.html' %}
+        
+{% include 'footer.html' %} 
