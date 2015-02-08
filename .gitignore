@@ -1,5 +1,6 @@
 .DS_Store
 *.swp
-*.docx
+checklist-security-report.docx
+function-security-report.docx
 skf.db
 *.pyc
