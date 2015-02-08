@@ -8,7 +8,7 @@ CREATE TABLE `parameters` (
 `tech` varchar(250) NOT NULL,
 `projectID` varchar(11) NOT NULL,
 `functionDesc` text CHARACTER NOT NULL,
-`entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+`entryDate` timestamp NOT NULL
 );
 
 -- 
@@ -20,7 +20,7 @@ CREATE TABLE `projects` (
 `projectName` varchar(250) NOT NULL,
 `projectVersion` varchar(250) NOT NULL,
 `projectDesc` text NOT NULL,
-`timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+`timestamp` timestamp NOT NULL
 );
 
 -- 
@@ -66,7 +66,7 @@ CREATE TABLE `questionlist` (
 `questionID` varchar(255) NOT NULL,
 `vulnID` varchar(255) NOT NULL,
 `listName` varchar(255) NOT NULL,
-`entryDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+`entryDate` timestamp NOT NULL
 );
 
 

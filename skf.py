@@ -11,10 +11,13 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
 """
 
-import os, markdown 
+import os, markdown, datetime
+from docx import Document
+from BeautifulSoup import BeautifulSoup
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Inches
 from functools import wraps 
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
@@ -186,7 +189,6 @@ def code_examples():
         kb_name = kb_name_uri.replace("_", " ")
         items.append(kb_name)
         id_items.append(id_item)
-        
     return render_template('code-examples.html', items=items, id_items=id_items)
 
 @app.route('/code-search', methods=['POST'])
@@ -195,7 +197,6 @@ def show_code_search():
     """show the landing page"""
     if not session.get('logged_in'):
         abort(401)
-
     search = request.form['search']
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
@@ -220,12 +221,10 @@ def show_code_item():
     items = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
-
     for path in full_file_paths:
         if id == get_num(path):
             filemd = open(path, 'r').read()
             content = Markup(markdown.markdown(filemd)) 
-
     return render_template('code-examples-item.html', **locals())
 
 @app.route('/kb-search', methods=['POST'])
@@ -300,8 +299,9 @@ def add_entry():
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    db.execute('INSERT INTO projects (projectName, projectVersion, projectDesc) VALUES (?, ?, ?)',
-               [request.form['inputName'], request.form['inputVersion'], request.form['inputDesc']])
+    date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    db.execute('INSERT INTO projects (timestamp, projectName, projectVersion, projectDesc) VALUES (?, ?, ?, ?)',
+               [date, request.form['inputName'], request.form['inputVersion'], request.form['inputDesc']])
     db.commit()
     return redirect(url_for('project_list'))
 
@@ -378,8 +378,9 @@ def add_function():
                 found = key.find("test")
                 if found != -1:
                     db = get_db()
-                    db.execute('INSERT INTO parameters (functionName, functionDesc, tech, projectID) VALUES (?, ?, ?, ?)',
-                           [request.form['functionName'], request.form['functionDesc'], value, request.form['project_id']])
+                    date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+                    db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, tech, projectID) VALUES (?, ?, ?, ?, ?)',
+                           [date, request.form['functionName'], request.form['functionDesc'], value, request.form['project_id']])
                     db.commit()
     redirect_url = '/project-functions/'+str(id)
     return redirect(redirect_url)
@@ -393,7 +394,9 @@ def project_checklists(project_id):
     db = get_db()
     cur = db.execute('SELECT projectName FROM projects WHERE projectID=?',
                         [project_id])
-    projectName = cur.fetchall()
+    row = cur.fetchall()
+    prep = row[0]
+    projectName = prep[0]
     owasp_items = []
     owasp_ids = []
     owasp_kb_ids = []
@@ -420,7 +423,7 @@ def project_checklists(project_id):
             owasp_path = path.split("-")
             owasp_kb = owasp_path[5]
             owasp_checklist_name = owasp_path[3]
-            owasp_id = get_num_check(owasp_path[1])
+            owasp_id = get_num(owasp_path[1])
             owasp_items.append(owasp_checklist_name)
             owasp_ids.append(owasp_id)
             owasp_kb_ids.append(owasp_kb)
@@ -434,7 +437,7 @@ def project_checklists(project_id):
             basic_path = path.split("-")
             basic_kb = basic_path[5]
             basic_checklist_name = basic_path[3]
-            basic_id = get_num_check(basic_path[1])
+            basic_id = get_num(basic_path[1])
             basic_items.append(basic_checklist_name)
             basic_ids.append(basic_id)
             basic_kb_ids.append(basic_kb)
@@ -448,7 +451,7 @@ def project_checklists(project_id):
             advanced_path = path.split("-")
             advanced_kb = advanced_path[5]
             advanced_name = advanced_path[3]
-            advanced_id = get_num_check(advanced_path[1])
+            advanced_id = get_num(advanced_path[1])
             advanced_items.append(advanced_name)
             advanced_ids.append(advanced_id)
             advanced_kb_ids.append(advanced_kb)
@@ -462,7 +465,7 @@ def project_checklists(project_id):
             custom_path = path.split("-")
             custom_kb = custom_path[5]
             custom_name = custom_path[3]
-            custom_id = get_num_check(custom_path[1])
+            custom_id = get_num(custom_path[1])
             custom_items.append(custom_name)
             custom_ids.append(custom_id)
             custom_kb_ids.append(custom_kb)
@@ -486,9 +489,10 @@ def add_checklist():
                 answerID = "answer"+str(i)
                 questionID = "questionID"+str(i) 
                 vulnID = "vulnID"+str(i)
+                date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
                 db = get_db()
-                db.execute('INSERT INTO questionlist (answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?)',
-                           [request.form[answerID], request.form['projectName'], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
+                db.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                           [date, request.form[answerID], request.form['projectName'], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
                 db.commit()
                 i += 1
     redirect_url = "/results-checklists"
@@ -549,12 +553,111 @@ def checklist_results(entryDate):
     """show checklist results report"""
     if not session.get('logged_in'):
         abort(401)
+    id_items = []
+    content = []
+    full_file_paths = []
     db = get_db()
-    cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID WHERE entryDate=? GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC',
+    cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=?",
                [entryDate])
-    entries = cur.fetchall()    
-    return render_template('results-checklist-report.html', entries=entries)
+    entries = cur.fetchall()
+    for entry in entries:
+        projectName = entry[3]
+        vulnID = entry[5]
+        listName = entry[6]
+        entryDate = entry[7]
+        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+        for path in full_file_paths:
+            org_path = path
+            path = path.split("-")
+            path_vuln = path[1]
+            found = path_vuln.find(vulnID)
+            if found != -1:
+                filemd = open(org_path, 'r').read()
+                content.append(Markup(markdown.markdown(filemd)))
+    return render_template('results-checklist-report.html', **locals())
 
+
+
+
+
+
+
+@app.route('/results-checklist-docx/<entryDate>')
+def download_file(entryDate):
+    """Download checklist results report in docx"""
+    if not session.get('logged_in'):
+        abort(401)
+    content_raw = []
+    db = get_db()
+    cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=?",
+               [entryDate])
+    entries = cur.fetchall()
+    document = Document()
+    document.add_picture('static/img/logo.png', width=Inches(1.25))
+    last_paragraph = document.paragraphs[-1] 
+    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    document.add_heading('Security Knowledge Framework', 0)
+    last_paragraph = document.paragraphs[-1] 
+    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    p = document.add_paragraph()
+    p.add_run('Used Checklist: ')
+    p.add_run('\r\n')
+    p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
+    p.add_run('\r\n')
+    p.add_run('Project: ')
+    document.add_page_break()
+
+    p = document.add_heading('Table of contents', level=1)
+    p.add_run('\r\n')
+
+    document.add_paragraph('Table of contents', style='IntenseQuote')
+    document.add_paragraph('Introduction', style='IntenseQuote')
+    for entry in entries:
+        projectName = entry[3]
+        vulnID = entry[5]
+        listName = entry[6]
+        entryDate = entry[7]
+        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+
+
+        for path in full_file_paths:
+            org_path = path
+            path = path.split("-")
+            name = org_path[3]
+            path_vuln = path[1]
+            found = path_vuln.find(vulnID)
+            if found != -1:
+                filemd = open(org_path, 'r').read()
+                content = Markup(markdown.markdown(filemd))
+                text = ''.join(BeautifulSoup(content).findAll(text=True))
+                text_encode = text.encode('utf-8')
+                print text_encode.splitlines()[0]
+                content_raw.append(text_encode.splitlines()[0])
+                p = document.add_paragraph(text_encode.splitlines()[0], style='IntenseQuote')
+                p.add_run()
+
+                #list items found
+
+                #document.add_heading('Introduction', level=1)
+                #p = document.add_paragraph(
+                #    'The security knowledge framework is composed by means of the highest security standards currently available and is designed to maintain the integrety of your application, so you and your costumers sensitive data is protected against hackers. This document is provided with a checklist in which the programmers of your application had to run through in order to provide a secure product.'
+                #)
+                #p.add_run('\n')
+                #p = document.add_paragraph(
+                #    'In the post-development stage of the security knowledge framework the developer double-checks his application against a checklist which consists out of several questions asking the developer about different stages of development and the methodology of implementing different types of functionality the application contains. After filling in this checklist the developer gains feedback on the failed checklist items providing him with solutions about how to solve the additional vulnerability\'s found in the application.'
+                #)
+                #document.add_page_break()
+                #document.add_heading(item.splitlines()[0], level=1)
+                #document.add_paragraph(item.partition("\n")[2])
+                #document.add_page_break()
+
+    document.save('checklist-security-report.docx')
+    headers = {"Content-Disposition": "attachment; filename=%s" % "checklist-security-report.docx"}
+    with open("checklist-security-report.docx", 'r') as f:
+        body = f.read()
+    return make_response((body, headers))
+    
 
 
 

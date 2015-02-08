@@ -6,12 +6,12 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3>-<i class="fa fa-angle-right"></i><a href='/project'>Projects</a> -> <a href='/show/results/htmlspecialchars($identifier)'> Getting started</a> -> Security checklists</h3>
+          	<h3>-<i class="fa fa-angle-right"></i><a href='/project'>Projects</a> -> <a href='/project-list'> Getting started</a> -> Security checklists</h3>
 		  		<div class="row mt">
 			  		<div class="col-lg-12">
             <div class="alert alert-info">
             <b>Note:</b>
-            Whenever you upload a new checklist and this one already exists for this project, the old version will be overwritten.
+            Whenever you upload a new checklist and this one already exists for this project, the old version will be overwritten. 
             </div>
           
 						<div class="content-panel">
@@ -65,15 +65,15 @@
                         <option value='yes' >N.A.</option>
                         </select>
                         </td>
-                        <input type='hidden' name='vulnID{{counter_basic|safe}}' value='{{basic_ids[counter_basic]|safe}}'/>
-                        <input type='hidden' name='questionID{{counter_basic|safe}}' value='{{basic_kb_ids[counter_basic]|safe}}'/>
+                        <input type='hidden' name='vulnID{{counter_basic|safe}}' value='{{basic_kb_ids[counter_basic]|safe}}'/>
+                        <input type='hidden' name='questionID{{counter_basic|safe}}' value='{{basic_ids[counter_basic]|safe}}'/>
                         <input type='hidden' name='listID{{counter_basic|safe}}' value='{{basic_list|safe}}'/>         
                         </td> 
                     </tr>
                     {% set counter_basic = counter_basic + 1 %}
                     {% endfor %}
                       <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName.projectName|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
     								  </table>
     						          </div>
     						          <div class="modal-footer">
@@ -132,7 +132,7 @@
                       {% set counter_advanced = counter_advanced + 1 %}
                       {% endfor %}
                       <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName.projectName|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
       								  </table>
       						          </div>
       						          <div class="modal-footer">
@@ -195,7 +195,7 @@
                       {% set counter_owasp = counter_owasp + 1 %}
                       {% endfor %}
                       <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName.projectName|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
 								  </table>
 						          </div>
 						          <div class="modal-footer">
@@ -258,7 +258,7 @@
                   {% set counter_custom = counter_custom + 1 %}
                   {% endfor %}
                       <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName.projectName|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
                   </table>
                       </div>
                       <div class="modal-footer">

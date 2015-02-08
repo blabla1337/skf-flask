@@ -11,4 +11,4 @@ However, these are client-side constraints that a hacker can easily disable or m
 
 **Solution:**
 
-User restrictions should always be imposed by server side techniques instead of client side constraints.	
+User restrictions should always be imposed by server side techniques instead of client side constraints.

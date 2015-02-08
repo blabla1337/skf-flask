@@ -5,7 +5,8 @@ sudo apt-get install sqlite3
 
 sudo pip install https://github.com/mitsuhiko/flask/tarball/master
 sudo pip install markdown
-sudo pip install Flask-WeasyPrint
+sudo pip install BeautifulSoup
+sudo pip install python-docx
 
 1. initialize the database with this command:
 
