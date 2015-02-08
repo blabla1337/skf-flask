@@ -578,16 +578,13 @@ def checklist_results(entryDate):
 
 
 
-
-
-
-
 @app.route('/results-checklist-docx/<entryDate>')
 def download_file(entryDate):
     """Download checklist results report in docx"""
     if not session.get('logged_in'):
         abort(401)
     content_raw = []
+    content_title = []
     db = get_db()
     cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=?",
                [entryDate])
@@ -601,25 +598,25 @@ def download_file(entryDate):
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     p = document.add_paragraph()
-    p.add_run('Used Checklist: ')
+    projectName = entries[0][3]
+    listName = entries[0][6]
+    p.add_run('Used Checklist: '+listName)
     p.add_run('\r\n')
     p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
     p.add_run('\r\n')
-    p.add_run('Project: ')
+    p.add_run('Project: '+projectName)
     document.add_page_break()
 
     p = document.add_heading('Table of contents', level=1)
     p.add_run('\r\n')
 
-    document.add_paragraph('Table of contents', style='IntenseQuote')
-    document.add_paragraph('Introduction', style='IntenseQuote')
+    document.add_paragraph('Introduction')
     for entry in entries:
         projectName = entry[3]
         vulnID = entry[5]
         listName = entry[6]
         entryDate = entry[7]
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-
 
         for path in full_file_paths:
             org_path = path
@@ -632,31 +629,40 @@ def download_file(entryDate):
                 content = Markup(markdown.markdown(filemd))
                 text = ''.join(BeautifulSoup(content).findAll(text=True))
                 text_encode = text.encode('utf-8')
-                print text_encode.splitlines()[0]
-                content_raw.append(text_encode.splitlines()[0])
-                p = document.add_paragraph(text_encode.splitlines()[0], style='IntenseQuote')
-                p.add_run()
+                content_title.append(text_encode.splitlines()[0])
+                text_encode = text_encode.replace("Solution", "\nSolution");
+                content_raw.append(text_encode)
 
-                #list items found
 
-                #document.add_heading('Introduction', level=1)
-                #p = document.add_paragraph(
-                #    'The security knowledge framework is composed by means of the highest security standards currently available and is designed to maintain the integrety of your application, so you and your costumers sensitive data is protected against hackers. This document is provided with a checklist in which the programmers of your application had to run through in order to provide a secure product.'
-                #)
-                #p.add_run('\n')
-                #p = document.add_paragraph(
-                #    'In the post-development stage of the security knowledge framework the developer double-checks his application against a checklist which consists out of several questions asking the developer about different stages of development and the methodology of implementing different types of functionality the application contains. After filling in this checklist the developer gains feedback on the failed checklist items providing him with solutions about how to solve the additional vulnerability\'s found in the application.'
-                #)
-                #document.add_page_break()
-                #document.add_heading(item.splitlines()[0], level=1)
-                #document.add_paragraph(item.partition("\n")[2])
-                #document.add_page_break()
+    for item in content_title:
+        p = document.add_paragraph(item)
+        p.add_run()
+
+    document.add_page_break()
+    document.add_heading('Introduction', level=1)
+    p = document.add_paragraph(
+        'The security knowledge framework is composed by means of the highest security standards currently available and is designed to maintain the integrety of your application, so you and your costumers sensitive data is protected against hackers. This document is provided with a checklist in which the programmers of your application had to run through in order to provide a secure product.'
+    )
+    p.add_run('\n')
+    p = document.add_paragraph(
+        'In the post-development stage of the security knowledge framework the developer double-checks his application against a checklist which consists out of several questions asking the developer about different stages of development and the methodology of implementing different types of functionality the application contains. After filling in this checklist the developer gains feedback on the failed checklist items providing him with solutions about how to solve the additional vulnerability\'s found in the application.'
+    )
+    document.add_page_break()
+
+    i = 0
+    for item in content_raw:
+        document.add_heading(content_title[i], level=1)
+        p = document.add_paragraph(item.partition("\n")[2])
+        p.add_run("\n")
+        document.add_page_break()
+        i += 1
 
     document.save('checklist-security-report.docx')
     headers = {"Content-Disposition": "attachment; filename=%s" % "checklist-security-report.docx"}
     with open("checklist-security-report.docx", 'r') as f:
         body = f.read()
     return make_response((body, headers))
+    
     
 
 
