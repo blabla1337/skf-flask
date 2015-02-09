@@ -1,5 +1,5 @@
 
-denial-of-service by locking out accounts
+Denial-of-service by locking out accounts
 -------
 
 

@@ -32,9 +32,9 @@
 	                  	  	  <hr>
                               <thead>
                               <tr>
-                                  <th><i class="fa fa-bulhorn"></i> <b>Functions list</b></th>
+                                  <th><i class="fa fa-bulhorn"></i> <b>Functions list project</b></th>
                                   <th class="hidden-phne"><i class="fa fa-qustion-circle"></i><b>Version</b></th>
-                                  <th><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit</b></th>
+                                  <th><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download</b></th>
                               </tr>
                               </thead>
                               <tbody>
@@ -46,7 +46,8 @@
                                   <td>{{entry.projectName|safe}}</td>
                                   <td class="hidden-phone">&nbsp;&nbsp;&nbsp;{{entry.projectVersion|safe}}</td>
                                   <td>
-                                       &nbsp;&nbsp;&nbsp;&nbsp;<a href="/functionpdf/functions/<?php echo htmlspecialchars($o['projectID']); ?>" target='' ><button class="btn btn-success btn-xs"><i class="fa fa-download "></i></button></a>
+                                       &nbsp;&nbsp;&nbsp;&nbsp;<a href='/results-function-report/{{entry.entryDate|safe}}' target='_self' >  
+                                  <button class='btn btn-success btn-xs'><center>View Results</center></button></a>
                                              				           
       						      <!-- Button trigger modal -->
 					         	  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{counter|safe}}">
@@ -73,7 +74,7 @@
 						          </div>
 						          <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							   	<a href='/results-checklists-del/{{entry.entryDate|safe}}' <input type="submit" name="submitCertifiedsecure" class="btn btn-danger" value='Remove functions'/>Remove Functions</a>
+							   	<a href='/results-functions-del/{{entry.entryDate|safe}}' <input type="submit" name="submitCertifiedsecure" class="btn btn-danger" value='Remove functions'/>Remove Functions</a>
 						          </form>
 						          </div>
 						          </div>

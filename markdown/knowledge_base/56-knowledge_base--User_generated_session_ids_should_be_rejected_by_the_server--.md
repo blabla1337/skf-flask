@@ -1,6 +1,5 @@
 
 User generated session ids should be rejected by the server  
-
 -------
 
 

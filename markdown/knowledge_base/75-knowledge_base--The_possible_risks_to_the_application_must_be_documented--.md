@@ -1,6 +1,5 @@
 
-The possible risks to
-the application must be documented.
+The possible risks to the application must be documented.
 -------
 
 

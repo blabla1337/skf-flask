@@ -6,7 +6,7 @@ Anti-caching headers
 
 
 
-		/*
+	/*
 	Add the following headers to your application head in order to prevent the browser from caching
 	*/
 

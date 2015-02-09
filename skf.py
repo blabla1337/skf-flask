@@ -516,7 +516,7 @@ def results_functions():
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    cur = db.execute('SELECT p.projectName, p.projectID, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID FROM projects AS p join parameters AS par on p.projectID = par.projectID GROUP BY p.projectVersion ')
+    cur = db.execute('SELECT p.projectName, p.projectID, par.entryDate, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID FROM projects AS p join parameters AS par on p.projectID = par.projectID GROUP BY p.projectVersion ')
     entries = cur.fetchall()
     return render_template('results-functions.html', entries=entries)
 
@@ -568,10 +568,8 @@ def checklist_results(entryDate):
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
-            path = path.split("-")
-            path_vuln = path[1]
-            found = path_vuln.find(vulnID)
-            if found != -1:
+            path_vuln = get_num(path)
+            if int(vulnID) == int(path_vuln):
                 filemd = open(org_path, 'r').read()
                 content.append(Markup(markdown.markdown(filemd)))
     return render_template('results-checklist-report.html', **locals())
@@ -579,7 +577,7 @@ def checklist_results(entryDate):
 
 
 @app.route('/results-checklist-docx/<entryDate>')
-def download_file(entryDate):
+def download_file_checklist(entryDate):
     """Download checklist results report in docx"""
     if not session.get('logged_in'):
         abort(401)
@@ -596,7 +594,6 @@ def download_file(entryDate):
     document.add_heading('Security Knowledge Framework', 0)
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-
     p = document.add_paragraph()
     projectName = entries[0][3]
     listName = entries[0][6]
@@ -606,10 +603,8 @@ def download_file(entryDate):
     p.add_run('\r\n')
     p.add_run('Project: '+projectName)
     document.add_page_break()
-
     p = document.add_heading('Table of contents', level=1)
     p.add_run('\r\n')
-
     document.add_paragraph('Introduction')
     for entry in entries:
         projectName = entry[3]
@@ -617,7 +612,6 @@ def download_file(entryDate):
         listName = entry[6]
         entryDate = entry[7]
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-
         for path in full_file_paths:
             org_path = path
             path = path.split("-")
@@ -632,12 +626,9 @@ def download_file(entryDate):
                 content_title.append(text_encode.splitlines()[0])
                 text_encode = text_encode.replace("Solution", "\nSolution");
                 content_raw.append(text_encode)
-
-
     for item in content_title:
         p = document.add_paragraph(item)
         p.add_run()
-
     document.add_page_break()
     document.add_heading('Introduction', level=1)
     p = document.add_paragraph(
@@ -648,7 +639,6 @@ def download_file(entryDate):
         'In the post-development stage of the security knowledge framework the developer double-checks his application against a checklist which consists out of several questions asking the developer about different stages of development and the methodology of implementing different types of functionality the application contains. After filling in this checklist the developer gains feedback on the failed checklist items providing him with solutions about how to solve the additional vulnerability\'s found in the application.'
     )
     document.add_page_break()
-
     i = 0
     for item in content_raw:
         document.add_heading(content_title[i], level=1)
@@ -656,7 +646,6 @@ def download_file(entryDate):
         p.add_run("\n")
         document.add_page_break()
         i += 1
-
     document.save('checklist-security-report.docx')
     headers = {"Content-Disposition": "attachment; filename=%s" % "checklist-security-report.docx"}
     with open("checklist-security-report.docx", 'r') as f:
@@ -664,9 +653,104 @@ def download_file(entryDate):
     return make_response((body, headers))
     
     
+@app.route('/results-function-report/<entryDate>', methods=['GET'])
+@security
+def function_results(entryDate):
+    """show checklist results report"""
+    if not session.get('logged_in'):
+        abort(401)
+    id_items = []
+    content = []
+    full_file_paths = []
+    db = get_db()
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.entryDate=?",
+               [entryDate])
+    entries = cur.fetchall()
+    for entry in entries:
+        projectName = entry[0]
+        vulnID = entry[4]
+        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+        for path in full_file_paths:
+            org_path = path
+            path_vuln = get_num(path)
+            if int(vulnID) == int(path_vuln):
+                filemd = open(org_path, 'r').read()
+                content.append(Markup(markdown.markdown(filemd)))
+    return render_template('results-function-report.html', **locals())
 
-
-
+@app.route('/results-function-docx/<entryDate>')
+def download_file_function(entryDate):
+    """Download checklist results report in docx"""
+    if not session.get('logged_in'):
+        abort(401)
+    content_raw = []
+    content_title = []
+    db = get_db()
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.entryDate=?",
+               [entryDate])
+    entries = cur.fetchall()
+    document = Document()
+    document.add_picture('static/img/logo.png', width=Inches(2.25), height=Inches(2.25))
+    last_paragraph = document.paragraphs[-1] 
+    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    document.add_heading('Security Knowledge Framework', 0)
+    last_paragraph = document.paragraphs[-1] 
+    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p = document.add_paragraph()
+    projectName = entries[0][0]
+    functionName = entries[0][3]
+    functionDesc= entries[0][5]
+    p.add_run('Function Name: '+functionName)
+    p.add_run('Function Description: '+functionDesc)
+    p.add_run('\r\n')
+    p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
+    p.add_run('\r\n')
+    p.add_run('Project: '+projectName)
+    document.add_page_break()
+    p = document.add_heading('Table of contents', level=1)
+    p.add_run('\r\n')
+    document.add_paragraph('Introduction')
+    for entry in entries:
+        print entry
+        entryDate = entry[6]
+        vulnID = entry[4]
+        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+        for path in full_file_paths:
+            org_path = path
+            path_vuln = get_num(path)
+            if int(vulnID) == int(path_vuln):
+                filemd = open(org_path, 'r').read()
+                content = Markup(markdown.markdown(filemd))
+                text = ''.join(BeautifulSoup(content).findAll(text=True))
+                text_encode = text.encode('utf-8')
+                content_title.append(text_encode.splitlines()[0])
+                text_encode = text_encode.replace("Solution", "\nSolution");
+                content_raw.append(text_encode)
+    for item in content_title:
+        p = document.add_paragraph(item)
+        p.add_run()
+    document.add_page_break()
+    document.add_heading('Introduction', level=1)
+    p = document.add_paragraph(
+        'The security knowledge framework is composed by means of the highest security standards currently available and is designed to maintain the integrety of your application, so you and your costumers sensitive data is protected against hackers. This document is provided with a checklist in which the programmers of your application had to run through in order to provide a secure product.'
+    )
+    p.add_run('\n')
+    p = document.add_paragraph(
+        'In the post-development stage of the security knowledge framework the developer double-checks his application against a checklist which consists out of several questions asking the developer about different stages of development and the methodology of implementing different types of functionality the application contains. After filling in this checklist the developer gains feedback on the failed checklist items providing him with solutions about how to solve the additional vulnerability\'s found in the application.'
+    )
+    document.add_page_break()
+    i = 0
+    for item in content_raw:
+        document.add_heading(content_title[i], level=1)
+        p = document.add_paragraph(item.partition("\n")[2])
+        p.add_run("\n")
+        document.add_page_break()
+        i += 1
+    document.save('function-security-report.docx')
+    headers = {"Content-Disposition": "attachment; filename=%s" % "function-security-report.docx"}
+    with open("function-security-report.docx", 'r') as f:
+        body = f.read()
+    return make_response((body, headers))
 
 
 

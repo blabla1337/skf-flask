@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+ 
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+
+		  		<div class="row mt">
+			  		<div class="col-lg-12">
+						<div class="-panel">
+          	<h3><i class="fa fa-angle-right"></i> Function results</h3>
+          	<br/>
+          				  		
+            {% if entries.projectName != Null %}
+            <div class="alert alert-danger">There were no Function results found. <br/>Create a project and use the Add functions form in order to create results.</div>
+            {% else %}
+            <div class="alert alert-info">Summary of all function-results.<br>
+              You can download a DOCX file with the current security findings: 
+              <a href="/results-function-docx/{{entryDate}}">
+            <button class='btn btn-success btn-xs'><center>Download Report</center></button>
+            </a>
+            </div>
+            {% endif %}
+          </div>
+            {% set counter = 0 -%}
+            {% for entry in content %}                      
+            <div class="well"> {{entry}} </div>
+            {% set counter = counter + 1 %}
+            {% endfor %}
+            </div><!-- /col-md-12 -->
+		  	</div><!-- /row -->
+		</section><!--/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+        
+{% include 'footer.html' %} 

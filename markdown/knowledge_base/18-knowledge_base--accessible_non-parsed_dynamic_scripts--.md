@@ -1,5 +1,5 @@
 
-accessible non-parsed dynamic scripts
+Accessible non-parsed dynamic scripts
 -------
 
 

@@ -10,7 +10,7 @@ var arrTech = new Array();
 
 {% for entry in techlist -%}
 
-arrTech.push({'{{entry.techID|safe}}':'{{entry.techName|safe}}'});
+arrTech.push({'{{entry.vulnID|safe}}':'{{entry.techName|safe}}'});
 
 {% endfor %}
 
@@ -25,7 +25,7 @@ $("#checkboxes").append(select);
 i = 0;
 $.each(arrTech, function(key, value) {
     $.each(value, function(k, v) {
-        var o = new Option(v, v);
+        var o = new Option(v, k);
   var name = "#test"+j 
         $(name).append(o);
     });
@@ -109,8 +109,8 @@ j++;
                             <hr>
                               <thead>
                               <tr>
-                                  <th><i class="fa fa-bulhorn"></i> <b>Function</b></th>
-                                  <th class="hidden-phne"><i class="fa fa-qustion-circle"></i><b> List name</b></th>
+                                  <th><i class="fa fa-bulhorn"></i> <b>Function Name</b></th>
+                                  <th class="hidden-phne"><i class="fa fa-qustion-circle"></i><b> Function Description</b></th>
                                   <th><i class=" fa fa-edit"></i> Date/Time</th>
                                   <th><b>Remove</b></th>
                               </tr>
@@ -120,8 +120,8 @@ j++;
                               {% set counter = 0 -%}
                               {% for entry in entries -%}
                               <tr>
-                                  <td>{{entry.tech|safe}}</td>
-                                  <td class="hidden-phone">&nbsp;&nbsp;&nbsp;{{entry.functionName|safe}} </td>
+                                  <td>{{entry.functionName|safe}}</td>
+                                  <td class="hidden-phone">&nbsp;&nbsp;&nbsp;{{entry.functionDesc|safe}} </td>
                                            <td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
                          
                                   <td>

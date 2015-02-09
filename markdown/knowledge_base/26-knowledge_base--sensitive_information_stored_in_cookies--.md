@@ -1,6 +1,5 @@
 
-sensitive information stored in cookies
-
+Sensitive information stored in cookies
 -------
 
 

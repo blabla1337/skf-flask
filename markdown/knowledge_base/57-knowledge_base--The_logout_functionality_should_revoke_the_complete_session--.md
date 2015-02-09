@@ -1,6 +1,5 @@
 
 The logout functionality should revoke the complete session  
-
 -------
 
 
