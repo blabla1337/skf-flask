@@ -12,15 +12,19 @@ sudo pip install python-docx
 
      flask --app=skf initdb
 
-2. now you can run skf:
+2. now you can run skf from the skf dir:
 
-     flask --app=skf run
+     python skf.py
 
      the application will greet you on
-     http://localhost:5000/
+     https://127.0.0.1:5443/
+
+     Default the application will generate a certificate on the fly what your really want to do is placing your own server.key and server.crt in the skf dir. Then the skf-flask application will use these instead.
+
+	 default username: admin
+	 password is auto generated for each time the skf-application is launched. Check the cmd output for the password.
+	 
 
 Is it tested?
-
 Yes.  Run the `test_skf.py` file to see the tests.
 
-default username: admin pass: default

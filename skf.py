@@ -13,7 +13,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-import os, markdown, datetime
+import os, markdown, datetime, string
+from OpenSSL import SSL, rand
 from docx import Document
 from BeautifulSoup import BeautifulSoup
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -22,6 +23,11 @@ from functools import wraps
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
+
+context = SSL.Context(SSL.TLSv1_METHOD)
+context.use_privatekey_file('server.key')  #Location of Key
+context.use_certificate_file('server.crt') #Location of Cert
+context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
 
 # create the application
 app = Flask(__name__)
@@ -43,15 +49,29 @@ def security(f):
     """This decorator passes multiple security headers"""
     return add_response_headers({'X-Frame-Options': 'deny', 'X-XSS-Protection': '1', 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store, no-cache', 'Server': 'Security Knowledge Framework'})(f)
 
+def generate_pass():
+    chars = string.letters + string.digits + '+/'
+    assert 256 % len(chars) == 0  # non-biased later modulo
+    PWD_LEN = 12
+    password = ''.join(chars[ord(c) % len(chars)] for c in os.urandom(PWD_LEN))
+    #print the dynamic password for use
+    print "The generated PASSWORD to access SKF: "+password
+    return password
+
+#secret key for flask internal session use
+secret_key = rand.bytes(512)
+
+#generate new pass
+passw = generate_pass()
+
 # Load default config and override config from an environment variable
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'skf.db'),
     DEBUG=True,
-    SECRET_KEY='development key',
+    SECRET_KEY=secret_key,
     USERNAME='admin',
-    PASSWORD='default'
+    PASSWORD=passw
 ))
-app.config.from_envvar('skf_SETTINGS', silent=True)
 
 
 def connect_db():
@@ -180,15 +200,17 @@ def code_examples():
     items = []
     id_items = []
     full_file_paths = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
-    for path in full_file_paths:
-        id_item = get_num(path)
-        path = path.split("-")
-        y = len(path)-3 
-        kb_name_uri = path[(y)]
-        kb_name = kb_name_uri.replace("_", " ")
-        items.append(kb_name)
-        id_items.append(id_item)
+    allowed = set(string.ascii_lowercase + string.ascii_uppercase + '.')
+    if set(session['code_lang']) <= allowed:
+        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
+        for path in full_file_paths:
+            id_item = get_num(path)
+            path = path.split("-")
+            y = len(path)-3 
+            kb_name_uri = path[(y)]
+            kb_name = kb_name_uri.replace("_", " ")
+            items.append(kb_name)
+            id_items.append(id_item)
     return render_template('code-examples.html', items=items, id_items=id_items)
 
 @app.route('/code-search', methods=['POST'])
@@ -199,16 +221,18 @@ def show_code_search():
         abort(401)
     search = request.form['search']
     full_file_paths = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
-    for path in full_file_paths:
-        found = path.find(search)
-        if found != -1:
-            filemd = open(path, 'r').read()
-            content = Markup(markdown.markdown(filemd))
-            path = path.split("-")
-            y = len(path)-3
-            kb_name_uri = path[(y)]
-            kb_name = kb_name_uri.replace("_", " ")
+    allowed = set(string.ascii_lowercase + string.ascii_uppercase + '.')
+    if set(session['code_lang']) <= allowed:
+        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
+        for path in full_file_paths:
+            found = path.find(search)
+            if found != -1:
+                filemd = open(path, 'r').read()
+                content = Markup(markdown.markdown(filemd))
+                path = path.split("-")
+                y = len(path)-3
+                kb_name_uri = path[(y)]
+                kb_name = kb_name_uri.replace("_", " ")
     return render_template('code-examples-search.html', **locals())
 
 @app.route('/code-item', methods=['POST'])
@@ -220,11 +244,13 @@ def show_code_item():
     id = int(request.form['id'])
     items = []
     full_file_paths = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
-    for path in full_file_paths:
-        if id == get_num(path):
-            filemd = open(path, 'r').read()
-            content = Markup(markdown.markdown(filemd)) 
+    allowed = set(string.ascii_lowercase + string.ascii_uppercase + '.')
+    if set(session['code_lang']) <= allowed:
+        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
+        for path in full_file_paths:
+            if id == get_num(path):
+                filemd = open(path, 'r').read()
+                content = Markup(markdown.markdown(filemd)) 
     return render_template('code-examples-item.html', **locals())
 
 @app.route('/kb-search', methods=['POST'])
@@ -752,8 +778,11 @@ def download_file_function(entryDate):
         body = f.read()
     return make_response((body, headers))
 
-
-
+if __name__ == "__main__":
+     if os.path.join(app.root_path,'server.crt') == False: 
+        app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
+     else:
+        app.run(host='127.0.0.1', port=5443, ssl_context=context)
 
 
 
