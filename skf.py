@@ -24,10 +24,7 @@ from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
 
-context = SSL.Context(SSL.TLSv1_METHOD)
-context.use_privatekey_file('server.key')  #Location of Key
-context.use_certificate_file('server.crt') #Location of Cert
-context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
+
 
 # create the application
 app = Flask(__name__)
@@ -786,10 +783,14 @@ def download_file_function(entryDate):
     return make_response((body, headers))
 
 if __name__ == "__main__":
-     if os.path.join(app.root_path,'server.crt') == False: 
+     if os.path.isfile('server.crt') == False: 
         #print "Generated Password for access SKF: "+password
         app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
      else:
+        context = SSL.Context(SSL.TLSv1_METHOD)
+        context.use_privatekey_file('server.key')  #Location of Key
+        context.use_certificate_file('server.crt') #Location of Cert
+        context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
         #print "Generated Password for access SKF: "+password
         app.run(host='127.0.0.1', port=5443, ssl_context=context)
 
