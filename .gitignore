@@ -4,3 +4,5 @@ checklist-security-report.docx
 function-security-report.docx
 skf.db
 skf.pyc
+server.crt
+server.key
