@@ -76,7 +76,7 @@
 						          </div>
 						          <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							   	<a href='/results-checklists-del/{{entry.entryDate|safe}}' <input type="submit" name="submitCertifiedsecure" class="btn btn-danger" value='Remove functions'/>Remove Checklist</a>
+                      <a href="/results-checklists"><button class="btn btn-danger" onClick="delChecklist('{{entry.entryDate|safe}}', '{{csrf_token|safe}}')">Remove Checklist</button></a>
 						          </form>
 						          </div>
 						          </div>

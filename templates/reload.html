@@ -1,0 +1,3 @@
+<script>
+location.reload();
+</script>

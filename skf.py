@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-import os, markdown, datetime, string
+import os, markdown, datetime, string, base64
 from OpenSSL import SSL, rand
 from docx import Document
 from BeautifulSoup import BeautifulSoup
@@ -47,30 +47,34 @@ def add_response_headers(headers={}):
 
 def security(f):
     """This decorator passes multiple security headers"""
-    return add_response_headers({'X-Frame-Options': 'deny', 'X-XSS-Protection': '1', 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store, no-cache', 'Server': 'Security Knowledge Framework'})(f)
+    return add_response_headers({'X-Frame-Options': 'deny', 'X-XSS-Protection': '1', 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store, no-cache','Strict-Transport-Security': 'max-age=16070400; includeSubDomains', 'Server': 'Security Knowledge Framework'})(f)
+
+def check_token():
+    """Checks the submitted CSRF token"""
+    if not session.get('csrf_token') == request.form['csrf_token']:
+        session.destroy()
+        return abort(500)(f)
 
 def generate_pass():
     chars = string.letters + string.digits + '+/'
     assert 256 % len(chars) == 0  # non-biased later modulo
     PWD_LEN = 12
     password = ''.join(chars[ord(c) % len(chars)] for c in os.urandom(PWD_LEN))
-    #print the dynamic password for use
-    print "The generated PASSWORD to access SKF: "+password
     return password
 
 #secret key for flask internal session use
 secret_key = rand.bytes(512)
-
-#generate new pass
-passw = generate_pass()
+#password = generate_pass()
 
 # Load default config and override config from an environment variable
+# You can also replace password with static password:  PASSWORD='pass!@#example'
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'skf.db'),
     DEBUG=True,
     SECRET_KEY=secret_key,
     USERNAME='admin',
-    PASSWORD=passw
+    SESSION_COOKIE_SECURE=True,
+    PASSWORD='default'
 ))
 
 
@@ -116,16 +120,11 @@ def get_filepaths(directory):
         for filename in files:
             filepath = os.path.join(root, filename)
             file_paths.append(filepath)
-
     return file_paths  
 
 def get_num(x):
     """get numbers from a string"""
     return int(''.join(ele for ele in x if ele.isdigit()))
-
-def get_num_check(x):
-    """get numbers from a string for checklists"""
-    return [int(s) for s in x.split() if s.isdigit()]
 
 @app.teardown_appcontext
 def close_db(error):
@@ -146,7 +145,6 @@ def projects_functions_techlist():
 @security
 def show_landing():
     """show the loging page and set default code language"""
-    session['code_lang'] = "php"
     return render_template('login.html')
 
 @app.route('/dashboard', methods=['GET'])
@@ -162,6 +160,8 @@ def dashboard():
 def login():
     """validate the login data for access dashboard page"""
     error = None
+    csrf_token_raw = rand.bytes(128)
+    csrf_token = base64.b64encode(csrf_token_raw)
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
             error = 'Invalid username/password'
@@ -169,6 +169,8 @@ def login():
             error = 'Invalid username/password'
         else:
             session['logged_in'] = True
+            session['csrf_token'] = csrf_token
+            session['code_lang'] = "php"
             return render_template('dashboard.html')
     return render_template('login.html', error=error)
 
@@ -316,7 +318,7 @@ def projects():
     """show the create new project page"""
     if not session.get('logged_in'):
         abort(401)
-    return render_template('project-new.html')
+    return render_template('project-new.html', csrf_token=session['csrf_token'])
 
 @app.route('/project-add', methods=['POST'])
 @security
@@ -324,6 +326,7 @@ def add_entry():
     """add a new project to database"""
     if not session.get('logged_in'):
         abort(401)
+    check_token()
     db = get_db()
     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     db.execute('INSERT INTO projects (timestamp, projectName, projectVersion, projectDesc) VALUES (?, ?, ?, ?)',
@@ -337,8 +340,9 @@ def project_del():
     """delete project from database"""
     if not session.get('logged_in'):
         abort(401)
+    check_token()
     db = get_db()
-    db.execute("DELETE from projects WHERE projectID=?",
+    db.execute("DELETE FROM projects WHERE projectID=?",
                [request.form['projectID']])
     db.commit()
     return render_template('reload.html')
@@ -352,7 +356,7 @@ def project_list():
     db = get_db()
     cur = db.execute('SELECT projectName, projectVersion, projectDESC, projectID, timestamp FROM projects ORDER BY projectID DESC')
     entries = cur.fetchall()
-    return render_template('project-list.html', entries=entries)
+    return render_template('project-list.html', entries=entries, csrf_token=session['csrf_token'])
 
 @app.route('/project-options/<project_id>', methods=['GET'])
 @security
@@ -360,7 +364,7 @@ def projects_options(project_id):
     """show the project options landing page"""
     if not session.get('logged_in'):
         abort(401)
-    return render_template('project-options.html', project_id=project_id)
+    return render_template('project-options.html', project_id=project_id, csrf_token=session['csrf_token'])
 
 @app.route('/project-functions/<project_id>', methods=['GET'])
 @security
@@ -374,7 +378,7 @@ def project_functions(project_id):
     cur = db.execute('SELECT paramID, functionName, functionDesc, projectID, tech, entryDate FROM parameters WHERE projectID=? ORDER BY projectID DESC',
                       [project_id])
     entries = cur.fetchall()
-    return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries)
+    return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries, csrf_token=session['csrf_token'])
 
 @app.route('/project-function-del', methods=['POST'])
 @security
@@ -382,6 +386,7 @@ def function_del():
     """delete a project function"""
     if not session.get('logged_in'):
         abort(401)
+    check_token()
     id = int(request.form['projectID'])
     db = get_db()
     db.execute("DELETE FROM parameters WHERE projectID=? AND paramID=?",
@@ -397,6 +402,7 @@ def add_function():
     """add a project function"""
     if not session.get('logged_in'):
         abort(401)
+    check_token()
     id = int(request.form['project_id'])
     f = request.form
     for key in f.keys():
@@ -417,6 +423,7 @@ def project_checklists(project_id):
     """show the project checklists page"""
     if not session.get('logged_in'):
         abort(401)
+    csrf_token=session['csrf_token']
     db = get_db()
     cur = db.execute('SELECT projectName FROM projects WHERE projectID=?',
                         [project_id])
@@ -505,6 +512,7 @@ def add_checklist():
     """add project checklist"""
     if not session.get('logged_in'):
         abort(401)
+    check_token()
     f = request.form
     i = 0
     for key in f.keys():
@@ -533,7 +541,7 @@ def results_checklists():
     db = get_db()
     cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID  GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC')
     entries = cur.fetchall()
-    return render_template('results-checklists.html', entries=entries)
+    return render_template('results-checklists.html', entries=entries, csrf_token=session['csrf_token'])
 
 @app.route('/results-functions', methods=['GET'])
 @security
@@ -544,33 +552,33 @@ def results_functions():
     db = get_db()
     cur = db.execute('SELECT p.projectName, p.projectID, par.entryDate, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID FROM projects AS p join parameters AS par on p.projectID = par.projectID GROUP BY p.projectVersion ')
     entries = cur.fetchall()
-    return render_template('results-functions.html', entries=entries)
+    return render_template('results-functions.html', entries=entries, csrf_token=session['csrf_token'])
 
-@app.route('/results-functions-del/<entryDate>', methods=['GET'])
+@app.route('/results-functions-del', methods=['POST'])
 @security
-def functions_del(entryDate):
+def functions_del():
     """delete functions result items"""
     if not session.get('logged_in'):
         abort(401)
+    check_token()
     db = get_db()
     db.execute("DELETE FROM parameters WHERE entryDate=?",
-               [entryDate])
+               [request.form['entryDate']])
     db.commit()
-    redirect_url = "/results-functions"
-    return redirect(redirect_url)
+    return render_template('reload.html')
 
-@app.route('/results-checklists-del/<entryDate>', methods=['GET'])
+@app.route('/results-checklists-del', methods=['POST'])
 @security
-def checklists_del(entryDate):
+def checklists_del():
     """delete checklist result item"""
     if not session.get('logged_in'):
         abort(401)
+    check_token()
     db = get_db()
     db.execute("DELETE FROM questionlist WHERE entryDate=?",
-               [entryDate])
+               [request.form['entryDate']])
     db.commit()
-    redirect_url = "/results-checklists"
-    return redirect(redirect_url)
+    return render_template('reload.html')
 
 
 @app.route('/results-checklist-report/<entryDate>', methods=['GET'])
@@ -599,7 +607,6 @@ def checklist_results(entryDate):
                 filemd = open(org_path, 'r').read()
                 content.append(Markup(markdown.markdown(filemd)))
     return render_template('results-checklist-report.html', **locals())
-
 
 
 @app.route('/results-checklist-docx/<entryDate>')
@@ -780,9 +787,9 @@ def download_file_function(entryDate):
 
 if __name__ == "__main__":
      if os.path.join(app.root_path,'server.crt') == False: 
+        #print "Generated Password for access SKF: "+password
         app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
      else:
+        #print "Generated Password for access SKF: "+password
         app.run(host='127.0.0.1', port=5443, ssl_context=context)
-
-
 

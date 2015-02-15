@@ -25,11 +25,11 @@ function getCode(id)
     });
 }
 
-function delProject(projectID)
+function delProject(projectID, csrf_token)
 {
     $.ajax({
         url : 'project-del',
-        data:{"projectID":projectID},
+        data:{"projectID":projectID, "csrf_token":csrf_token},
         type: 'POST',
 
         success: function(data){
@@ -38,11 +38,11 @@ function delProject(projectID)
     });
 }
 
-function delFunction(id,paramID)
+function delFunction(id,paramID,csrf_token)
 {
     $.ajax({
         url : '/project-function-del',
-        data:{"projectID":id,"paramID":paramID},
+        data:{"projectID":id,"paramID":paramID,"csrf_token":csrf_token},
         type: 'POST',
 
         success: function(data){
@@ -51,3 +51,29 @@ function delFunction(id,paramID)
     });
 }
 
+function delChecklist(time,csrf_token)
+{
+    $.ajax({
+        url : '/results-checklists-del',
+        data:{"entryDate":time,"csrf_token":csrf_token},
+        type: 'POST',
+
+        success: function(data){
+            $('#projectRow'+id).html(data);
+        }
+    });
+}
+
+
+function delFunctionList(time,csrf_token)
+{
+    $.ajax({
+        url : '/results-functions-del',
+        data:{"entryDate":time,"csrf_token":csrf_token},
+        type: 'POST',
+
+        success: function(data){
+            $('#projectRow'+id).html(data);
+        }
+    });
+}
