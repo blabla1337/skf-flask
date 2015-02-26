@@ -8,7 +8,7 @@ sudo pip install markdown
 sudo pip install BeautifulSoup
 sudo pip install python-docx
 
-1. initialize the database with this command:
+1. 'cd' into the project directory (e.g. /op/skf-flask/) and initialize the database with this command:
 
      flask --app=skf initdb
 
