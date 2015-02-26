@@ -24,8 +24,6 @@ from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
 
-
-
 # create the application
 app = Flask(__name__)
 
@@ -70,7 +68,7 @@ app.config.update(dict(
     DEBUG=True,
     SECRET_KEY=secret_key,
     USERNAME='admin',
-    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SECURE=False,
     PASSWORD='default'
 ))
 
