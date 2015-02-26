@@ -1,0 +1,1 @@
+V3.11 Verify that authenticated session tokens are sufficiently long and random to withstand session guessing attacks.

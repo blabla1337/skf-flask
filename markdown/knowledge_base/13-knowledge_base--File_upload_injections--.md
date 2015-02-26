@@ -2,9 +2,7 @@
 File upload injections
 -------
 
-
 **Description:**
-
 Uploaded files represent a significant risk to applications. The first step in many attacks is to get some code to the system to be attacked. Then the attack only needs to find a way to get the code executed. Using a file upload helps the attacker accomplish the first step.
 
 The consequences of unrestricted file upload can vary, including complete system takeover, an overloaded file system or database, forwarding attacks to back-end systems, and simple defacement. It depends on what the application does with the uploaded file and especially where it is stored.
@@ -15,5 +13,6 @@ The other class of problem is with the file size or content. The range of proble
 
 
 **Solution:**
+Uploaded files always needs to be placed outside the document root of the webserver. Also for serving the files back there needs to be a file handler function that can select the file based on a identifier and the file will be served to the user.
 
-Uploaded files always needs to be placed outside the document root of the webserver. Also for serving the files back there needs to be a file handler function that can select the file based on a identifier and the file will be served to the user.	
+	

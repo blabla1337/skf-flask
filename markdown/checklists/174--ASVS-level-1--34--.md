@@ -1,0 +1,1 @@
+V4.4 Verify that direct object references are protected, such that only authorized objects or data are accessible to each user (for example, protect against direct object reference tampering).

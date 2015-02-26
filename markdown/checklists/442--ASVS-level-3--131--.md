@@ -1,0 +1,1 @@
+V11.9 Verify that HTTP headers added by a frontend (such as X-Real-IP), and used by the application, cannot be spoofed by the end user. 

@@ -1,0 +1,1 @@
+V2.24 Verify that there are no shared knowledge questions/answers (so called "secret" questions and answers).

@@ -2,9 +2,7 @@
 Resource identifier injection
 -------
 
-
 **Description:**
-
 A resource identifier injection basicly means that the attacker can determine which resources are loaded into the web application. 
 
 An attacker could thus influence the operation of the web application and redirect users to other websites.
@@ -17,5 +15,6 @@ The resource injection attack focuses on accessing other resources than the loca
 
 
 **Solution:**
+Safe use of resource identifiers can be done by performing authorization checks if the identifier is belonging to the user.
 
-Safe use of resource identifiers can be done by performing authorization checks if the identifier is belonging to the user.	
+	

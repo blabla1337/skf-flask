@@ -1,0 +1,1 @@
+V5.8 Verify that all input data is canonicalized for all downstream decoders or interpreters prior to validation.

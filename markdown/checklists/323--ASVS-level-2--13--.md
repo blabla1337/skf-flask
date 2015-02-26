@@ -1,0 +1,1 @@
+V16.7 Verify that files obtained from untrusted sources are stored outside the webroot.

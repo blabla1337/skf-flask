@@ -1,0 +1,1 @@
+V3.7 Verify that the session id is changed on login to prevent session fixation.

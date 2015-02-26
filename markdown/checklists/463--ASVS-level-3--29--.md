@@ -1,0 +1,1 @@
+V15.6 Verify the application has sufficient detection and governor controls to protect against brute force (such as continuously using a particular function) or denial of service attacks.

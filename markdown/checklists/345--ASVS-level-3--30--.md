@@ -1,0 +1,1 @@
+V2.23 Verify that forgot password functionality does not lock or otherwise disable the account until after the user has successfully changed their password. This is to prevent valid users from being locked out. 

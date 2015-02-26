@@ -1,0 +1,1 @@
+V10.5 Verify that certificate paths are built and verified for all client certificates using configured trust anchors and revocation information.

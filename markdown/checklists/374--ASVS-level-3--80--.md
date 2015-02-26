@@ -1,0 +1,1 @@
+V4.12 Verify that there is a centralized mechanism (including libraries that call external authorization services) for protecting access to each type of protected resource.

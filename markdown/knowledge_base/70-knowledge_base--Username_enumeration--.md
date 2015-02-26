@@ -2,9 +2,7 @@
 Username enumeration
 -------
 
-
 **Description:**
-
 Whenever an application generates error like:
 
 This username already exsists.
@@ -17,5 +15,6 @@ Whenever a user forgot his passoword make him fill in his email adress rather th
 
 
 **Solution:**
+All error messages should be generalized in order to prevent username enumeration.
 
-All error messages should be generalized in order to prevent username enumeration.	
+	

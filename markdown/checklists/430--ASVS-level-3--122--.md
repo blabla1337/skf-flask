@@ -1,0 +1,1 @@
+V10.3 Verify that TLS is used for all connections (including both external and backend connections) that are authenticated or that involve sensitive data or functions.

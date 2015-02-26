@@ -2,14 +2,11 @@
 Intrusion detecting and reporting
 -------
 
-
 **Description:**
-
 All possible attacks on your application should be detected an reported in order to prevent further escalation.
 
 
 **Solution:**
-
 Intrusion detecting could be done by means of a: 
 
 Positive security model.
@@ -19,4 +16,6 @@ A big con is it could generate a lot of reports and alerts.
 
 Negative security model.
 Create a blacklist with known attacks and malicious input and make the application report on detection of this input.
-You could also prioritize different malicous input and classify them into different groups.	
+You could also prioritize different malicous input and classify them into different groups.
+
+	

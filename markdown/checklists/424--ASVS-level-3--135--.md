@@ -1,0 +1,1 @@
+V9.6 Verify that there is a method to remove each type of sensitive data from the application at the end of its required retention period.

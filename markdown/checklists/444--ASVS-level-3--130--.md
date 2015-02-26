@@ -1,0 +1,1 @@
+V11.12 Verify that the HTTP headers do not expose detailed version information of system components.

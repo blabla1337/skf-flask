@@ -2,9 +2,7 @@
 SSI injections
 -------
 
-
 **Description:**
-
 Web servers usually give developers the ability to add small pieces of dynamic code inside static HTML pages,
 without having to deal with full-fledged server-side or client-side languages. 
 This feature is incarnated by the Server-Side Includes (SSI). In SSI injection testing, 
@@ -14,5 +12,6 @@ even perform remote code execution.
 
 
 **Solution:**
+The SSI handler on the webserver should not be activated when it is not used.
 
-The SSI handler on the webserver should not be activated when it is not used.	
+	

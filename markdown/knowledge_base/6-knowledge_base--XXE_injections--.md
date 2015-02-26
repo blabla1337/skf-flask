@@ -2,9 +2,7 @@
 XXE injections
 -------
 
-
 **Description:**
-
 Processing of an external entity containing tainted data may lead to disclosure of confidential information and other system impacts.
 The XML 1.0 standard defines the structure of an XML document. The standard defines a concept called an entity,
 which is a storage unit of some type.
@@ -25,5 +23,6 @@ that may not stop returning data, possibly impacting application availability if
 
 
 **Solution:**
+Disable the possibility to fetch resources from an external source.
 
-Disable the possibility to fetch resources from an external source.	
+	

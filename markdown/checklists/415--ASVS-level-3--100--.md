@@ -1,0 +1,1 @@
+V8.13 Verify that all non-printable symbols and field separators are properly encoded in log entries, to prevent log injection.
