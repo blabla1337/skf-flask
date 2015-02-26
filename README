@@ -7,6 +7,7 @@ sudo pip install https://github.com/mitsuhiko/flask/tarball/master
 sudo pip install markdown
 sudo pip install BeautifulSoup
 sudo pip install python-docx
+sudo pip install pyOpenSSL
 
 1. initialize the database with this command:
 
