@@ -13,8 +13,8 @@ One option is not to use components that you did not write. But that is not very
 
 Most component projects do not create vulnerability patches for old versions. Instead, most simply fix the problem in the next version. So upgrading to these new versions is critical. Software projects should have a process in place to:
 
-- Identify all components and the versions you are using, including all dependencies. (e.g., the versions plugin).<br>
-- Monitor the security of these components in public databases, project mailing lists, and security mailing lists, and keep them up to date.<br>
-- Establish security policies governing component use, such as requiring certain software development practices, passing security tests, and acceptable licenses.<br>
-- Where appropriate, consider adding security wrappers around components to disable unused functionality and/ or secure weak or vulnerable aspects of the component.<br>
+-Identify all components and the versions you are using, including all dependencies. (e.g., the versions plugin).<br>
+-Monitor the security of these components in public databases, project mailing lists, and security mailing lists, and keep them up to date.<br>
+-Establish security policies governing component use, such as requiring certain software development practices, passing security tests, and acceptable licenses.<br>
+-Where appropriate, consider adding security wrappers around components to disable unused functionality and/ or secure weak or vulnerable aspects of the component.<br>
 	
