@@ -1,1 +1,1 @@
-User input must be encoded before it is used in XSL(T) input/output.
+User input must be encoded before it is used in XSL(T) input&#47;output.

@@ -29,7 +29,7 @@
                     <tr>
                       <td><a href="#"></a>Certified secure basic audit.</td>
                       <td class="hidden-phone">The basic web application audit checklist, latest version available at : www.certifiedsecure.com/checklists.</td>
-                      <td class="hidden-phone">Recommended</td>
+                      <td class="hidden-phone">Custom</td>
                       <td></td>
                       <td>                
                       <!-- MODALS -->
@@ -79,7 +79,7 @@
     						          </div>
     						          <div class="modal-footer">
     						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    						          <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
+    						          <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
     						          </form>
     						          </div>
     						          </div>
@@ -89,7 +89,7 @@
                         <tr>
                           <td><a href="basic_table.html#"></a>Certified secure advanced audit</td>
                           <td class="hidden-phone">The advanced web application audit checklist, latest version available at : www.certifiedsecure.com/checklists.</td>
-                          <td class="hidden-phone">Recommended</td>
+                          <td class="hidden-phone">Custom</td>
                           <td></td>
                           <td>      
                             <!-- MODALS -->
@@ -139,7 +139,7 @@
       						          </div>
       						          <div class="modal-footer">
       						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      						          <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
+      						          <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
       						          </form>
       						          </div>
       						          </div>
@@ -152,7 +152,7 @@
                               <td><a href="#"></a>OWASP top 10</td>
 
                               <td class="hidden-phone">Top 10 vulnerabilities composed by OWASP.</td>
-                              <td class="hidden-phone">Recommended</td>
+                              <td class="hidden-phone">Technical debt</td>
                               <td></td>
                               <td>          
                             <!-- MODALS -->
@@ -203,13 +203,202 @@
 						          </div>
 						          <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						          <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
+						          <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
 						          </form>
 						          </div>
 						          </div>
 						  		  </div>
 								  </div>      				
       							  </div>
+
+                                   
+                             <tr>
+                              <td><a href="#"></a>OWASP ASVS Level 1</td>
+
+                              <td class="hidden-phone">OWASP Application Security Verification Standard Level 1.</td>
+                              <td class="hidden-phone">Recommended</td>
+                              <td></td>
+                              <td>          
+                            <!-- MODALS -->
+                            <div class="showbak">
+                        <!-- Button trigger modal -->
+                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal7">
+                       Start                     
+                        </button>
+            
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 1</h4>
+                      </div>
+                      <div   class="modal-body">
+                      <table id='checklist' style="width:525px">
+                      <form method='post' action='/project-checklist-add'/>
+
+                      {% set counter_owasp_lvl1 = 0 -%}
+                      {% for entry in owasp_content_lvl1 -%}
+
+                      <tr>
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}}
+                      </td>
+                        <td></td>
+                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          <select name='answer{{counter_owasp_lvl1|safe}}'>
+                          <option value='yes' >Yes</option>
+                          <option value='no' >No</option>
+                          <option value='yes' >N.A.</option>
+                          </select>
+                          </td>
+                          <input type='hidden' name='vulnID{{counter_owasp_lvl1|safe}}' value='{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
+                          <input type='hidden' name='questionID{{counter_owasp_lvl1|safe}}' value='{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
+                          <input type='hidden' name='listID{{counter_owasp_lvl1|safe}}' value='{{owasp_list|safe}}'>
+                          </td>
+                      </tr>
+                      {% set counter_owasp_lvl1 = counter_owasp_lvl1 + 1 %}
+                      {% endfor %}
+                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
+                      <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
+                  </table>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
+                      </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>              
+                      </div>
+
+                             <tr>
+                              <td><a href="#"></a>OWASP ASVS Level 2</td>
+
+                              <td class="hidden-phone">OWASP Application Security Verification Standard Level 2.</td>
+                              <td class="hidden-phone">Recommended</td>
+                              <td></td>
+                              <td>          
+                            <!-- MODALS -->
+                            <div class="showbak">
+                        <!-- Button trigger modal -->
+                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal8">
+                       Start                     
+                        </button>
+            
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 2</h4>
+                      </div>
+                      <div   class="modal-body">
+                      <table id='checklist' style="width:525px">
+                      <form method='post' action='/project-checklist-add'/>
+
+                      {% set counter_owasp_lvl2 = 0 -%}
+                      {% for entry in owasp_content_lvl2 -%}
+
+
+                      <tr>
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}}
+                      </td>
+                        <td></td>
+                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          <select name='answer{{counter_owasp_lvl2|safe}}'>
+                          <option value='yes' >Yes</option>
+                          <option value='no' >No</option>
+                          <option value='yes' >N.A.</option>
+                          </select>
+                          </td>
+                          <input type='hidden' name='vulnID{{counter_owasp_lvl2|safe}}' value='{{owasp_kb_ids[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='questionID{{counter_owasp_lvl2|safe}}' value='{{owasp_ids[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='listID{{counter_owasp_lvl2|safe}}' value='{{owasp_list_lvl2|safe}}'>
+                          </td>
+                      </tr>
+                      {% set counter_owasp_lvl2 = counter_owasp_lvl2 + 1 %}
+                      {% endfor %}
+                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
+                      <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
+                  </table>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
+                      </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>              
+                      </div>
+
+                             <tr>
+                              <td><a href="#"></a>OWASP ASVS Level 3</td>
+
+                              <td class="hidden-phone">OWASP Application Security Verification Standard Level 3.</td>
+                              <td class="hidden-phone">Advanced</td>
+                              <td></td>
+                              <td>          
+                            <!-- MODALS -->
+                            <div class="showbak">
+                        <!-- Button trigger modal -->
+                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal9">
+                       Start                     
+                        </button>
+            
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 3</h4>
+                      </div>
+                      <div   class="modal-body">
+                      <table id='checklist' style="width:525px">
+                      <form method='post' action='/project-checklist-add'/>
+
+                      {% set counter_owasp_lvl3 = 0 -%}
+                      {% for entry in owasp_content_lvl3 -%}
+
+
+                      <tr>
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}}
+                      </td>
+                        <td></td>
+                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          <select name='answer{{counter_owasp_lvl3|safe}}'>
+                          <option value='yes' >Yes</option>
+                          <option value='no' >No</option>
+                          <option value='yes' >N.A.</option>
+                          </select>
+                          </td>
+                          <input type='hidden' name='vulnID{{counter_owasp_lvl3|safe}}' value='{{owasp_kb_ids[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='questionID{{counter_owasp_lvl3|safe}}' value='{{owasp_ids[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='listID{{counter_owasp_lvl3|safe}}' value='{{owasp_list_lvl3|safe}}'>
+                          </td>
+                      </tr>
+                      {% set counter_owasp_lvl3 = counter_owasp_lvl3 + 1 %}
+                      {% endfor %}
+                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
+                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
+                      <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
+                  </table>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
+                      </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>              
+                      </div>
 
                     <tr>
                     <td><a href="#"></a>Custom Checklist</td>
@@ -267,7 +456,7 @@
                       </div>
                       <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <input type="submit" name="submitCertifiedsecure" class="btn btn-primary" value='Save checklist'/>
+                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
                       </form>
                       </div>
                       </div>

@@ -4,7 +4,7 @@ cryptographic modules must fail securely
 
 **Description:**
 
-Whenever a cryptographic module does not fail securely this the device needs to be put in error state so it’s not useable anymore.
+Whenever a cryptographic module does not fail securely this the device needs to be put in error state so it&#39;s not useable anymore.
 
 
 **Solution:**

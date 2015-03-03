@@ -9,6 +9,6 @@ The ability to restrict and maintain user actions within unique sessions is crit
 
 **Solution:**
 
-Always use the framework’s default session management control implementation in your application.
+Always use the framework&#39;s default session management control implementation in your application.
 
 	

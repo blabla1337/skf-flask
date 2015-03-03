@@ -1,1 +1,1 @@
-HTTP headers must not contain internal IP addresses.ip ranges / mapping netwerk sigment, locaal verder kunnen verkenen.
+HTTP headers must not contain internal IP addresses.ip ranges &#47; mapping netwerk sigment, locaal verder kunnen verkenen.

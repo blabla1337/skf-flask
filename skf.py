@@ -429,6 +429,18 @@ def project_checklists(project_id):
     owasp_ids = []
     owasp_kb_ids = []
     owasp_content = []
+    owasp_items_lvl1 = []
+    owasp_ids_lvl1 = []
+    owasp_kb_ids_lvl1 = []
+    owasp_content_lvl1 = []
+    owasp_items_lvl2 = []
+    owasp_ids_lvl2 = []
+    owasp_kb_ids_lvl2 = []
+    owasp_content_lvl2 = []
+    owasp_items_lvl3 = []
+    owasp_ids_lvl3 = []
+    owasp_kb_ids_lvl3 = []
+    owasp_content_lvl3 = []
     custom_items = []
     custom_ids = []
     custom_kb_ids = []
@@ -457,6 +469,48 @@ def project_checklists(project_id):
             owasp_kb_ids.append(owasp_kb)
             filemd = open(owasp_org_path, 'r').read()
             owasp_content.append(Markup(markdown.markdown(filemd)))
+    for path in full_file_paths:
+       found = path.find("ASVS-level-1")
+       if found != -1:
+            owasp_org_path = path
+            owasp_list = "ASVS-level-1"
+            owasp_path_lvl1 = path.split("-")
+            owasp_kb = owasp_path_lvl1[7]
+            owasp_checklist_name = owasp_path_lvl1[3] +" "+owasp_path_lvl1[4]+" "+owasp_path_lvl1[5]
+            owasp_id = get_num(owasp_path[1])
+            owasp_items_lvl1.append(owasp_checklist_name)
+            owasp_ids_lvl1.append(owasp_id)
+            owasp_kb_ids_lvl1.append(owasp_kb)
+            filemd = open(owasp_org_path, 'r').read()
+            owasp_content_lvl1.append(Markup(markdown.markdown(filemd)))
+    for path in full_file_paths:
+       found = path.find("ASVS-level-2")
+       if found != -1:
+            owasp_org_path = path
+            owasp_list = "ASVS-level-2"
+            owasp_path_lvl2 = path.split("-")
+            owasp_kb = owasp_path_lvl2[7]
+            owasp_checklist_name = owasp_path_lvl2[3] +" "+owasp_path_lvl2[4]+" "+owasp_path_lvl2[5]
+            owasp_id = get_num(owasp_path[1])
+            owasp_items_lvl2.append(owasp_checklist_name)
+            owasp_ids_lvl2.append(owasp_id)
+            owasp_kb_ids_lvl2.append(owasp_kb)
+            filemd = open(owasp_org_path, 'r').read()
+            owasp_content_lvl2.append(Markup(markdown.markdown(filemd)))
+    for path in full_file_paths:
+       found = path.find("ASVS-level-3")
+       if found != -1:
+            owasp_org_path = path
+            owasp_list = "ASVS-level-3"
+            owasp_path_lvl3 = path.split("-")
+            owasp_kb = owasp_path_lvl3[7]
+            owasp_checklist_name = owasp_path_lvl3[3] +" "+owasp_path_lvl3[4]+" "+owasp_path_lvl3[5]
+            owasp_id = get_num(owasp_path[1])
+            owasp_items_lvl3.append(owasp_checklist_name)
+            owasp_ids_lvl3.append(owasp_id)
+            owasp_kb_ids_lvl3.append(owasp_kb)
+            filemd = open(owasp_org_path, 'r').read()
+            owasp_content_lvl3.append(Markup(markdown.markdown(filemd)))
     for path in full_file_paths:
        found = path.find("CS_basic_audit")
        if found != -1:
