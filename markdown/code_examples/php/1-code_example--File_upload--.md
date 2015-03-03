@@ -5,8 +5,7 @@ File upload
 **Example:**
 
 
-
-    	<?php
+    <?php
 
 	function Image()
 	

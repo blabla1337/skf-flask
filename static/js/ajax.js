@@ -8,6 +8,14 @@ function getItem(id)
 
         success: function(data){
             $('#'+id).html(data);
+            $(document).ready(function() {
+                $('pre code').each(function(i, block) {
+                    hljs.configure({
+                      languages: 'javascript'
+                    })
+                    hljs.highlightBlock(block);
+                });
+            });
         }
     });
 }
@@ -21,6 +29,11 @@ function getCode(id)
 
         success: function(data){
             $('#'+id).html(data);
+            $(document).ready(function() {
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            });
         }
     });
 }
