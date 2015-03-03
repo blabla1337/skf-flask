@@ -6,20 +6,22 @@ Session cookies HttpOnly
 
 
 
-		//Whenever a session is started the httpOnly option should always be set to true or 1.
+    	<?php
 
-		public function sessionStart(){
+	//Whenever a session is started the httpOnly option should always be set to true or 1.
 
-		$lifetime = 3600;
-		$path     = "/";
-		$domain   = "";
-		$secure   = 0;
-		$httponly = true; // <--  the httponly flag
+	public function sessionStart(){
+
+	$lifetime = 3600;
+	$path     = "/";
+	$domain   = "";
+	$secure   = 0;
+	$httponly = true; // <--  the httponly flag
 
 
-		session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+	session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
 
-
+	?>
 
 
 	

@@ -6,10 +6,12 @@ X-Content-Type-Options header
 
 
 
-		//In order to set the X-Content-Type-Options header you have to add the following code to the head of your application:
-		header('X-Content-Type-Options: nosniff'); 
+    <?php
 
+//In order to set the X-Content-Type-Options header you have to add the following code to the head of your application:
+header('X-Content-Type-Options: nosniff'); 
 
+?>
 
 
 	

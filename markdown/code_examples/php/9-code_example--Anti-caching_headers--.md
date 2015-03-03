@@ -6,6 +6,7 @@ Anti-caching headers
 
 
 
+    	<?php
 	/*
 	Add the following headers to your application head in order to prevent the browser from caching
 	*/
@@ -14,7 +15,7 @@ Anti-caching headers
 	header("Cache-Control: post-check=0, pre-check=0", false);
 	header("Pragma: no-cache"); // HTTP/1.0 
 
-
+	?>
 
 
 	

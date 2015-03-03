@@ -6,25 +6,27 @@ Secure session cookies
 
 
 
-		/*
-		Whenever  a cookie is send over a secured connection, the cookie should be set
-		with the secure flag in order to guarantee the integrety of the data it contains.
-		the secure flag is set by giving it the true or 1 value
-		*/
+    	<?php
 
-		public function sessionStart(){
+	/*
+	Whenever  a cookie is send over a secured connection, the cookie should be set
+	with the secure flag in order to guarantee the integrety of the data it contains.
+	the secure flag is set by giving it the true or 1 value
+	*/
 
-
-		$lifetime = 3600;
-		$path     = "/";
-		$domain   = "";
-		$secure   = true; // <-- the secure flag
-		$httponly = true; 
+	public function sessionStart(){
 
 
-		session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+	$lifetime = 3600;
+	$path     = "/";
+	$domain   = "";
+	$secure   = true; // <-- the secure flag
+	$httponly = true; 
 
 
+	session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+
+	?>
 
 
 	

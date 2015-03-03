@@ -6,25 +6,46 @@ File upload
 
 
 
-		   
+    	<?php
 
-		function Image()
+	function Image()
 	
-			{
-				//File location ouside of the root
+		{
+			//File location ouside of the root
 			$uploaddir = 'assets/uploads/';
 
 			//if smaller than zero it's no file	
 			if(getimagesize($this->_image['tmp_name']) < 0)
 			{
-				header('location:/login');
+		
+				//Set counter if counter hits 3 the users session must terminated
+				//After 3 session terminations the user acount should be blocked
+				setCounter(1);
+			
+				//Set a log for whenever there is unexpected userinput with a threat level
+				setLog($_SESSION['userID'],"No valid image", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
+			
+				header('location:/page');
+			
 				die;
 			}
 		
 			//Check for mime type of the file
 			if($this->_image['type'] != 'image/png' && $this->_image['type'] != 'image/jpeg') 
 			{	
-				header('location:/login');
+
+				/*
+				Set counter if counter hits 3 the users session must terminated
+				After 3 session terminations the user acount must be blocked
+				Since the high threat level there will be imediate session termination
+				*/
+				setCounter(3);
+			
+				//Set a log for whenever there is unexpected userinput with a threat level
+				setLog($_SESSION['userID'],"invalid image mime type", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+			
+				header('location:/page');
+			
 				die;
 			}
 				
@@ -34,7 +55,17 @@ File upload
 		
 				while( ($filetype[$takeLastValue] != "png") && ($filetype[$takeLastValue] != "jpg"))
 				{	
-					header('location:/login');
+			
+				/*
+				Set counter if counter hits 3 the users session must terminated
+				After 3 session terminations the user acount should be blocked
+				Since the high threat level there will be imediate session termination
+				*/
+				setCounter(3);
+			
+				//Set a log for whenever there is unexpected userinput with a threat level
+				setLog($_SESSION['userID'],"Unrestrected image extension upload", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+				
 					die;
 				}
 		
@@ -45,7 +76,17 @@ File upload
 			{
 				while(preg_match($injectPattern , $this->_image['name']))
 				{
-					header('location:/login');
+			
+					/*
+					Set counter if counter hits 3 the users session must terminated
+					After 3 session terminations the user acount should be blocked
+					Since the high threat level there will be imediate session termination
+					*/
+					setCounter(3);
+			
+					//Set a log for whenever there is unexpected userinput with a threat level
+					setLog($_SESSION['userID'],"Unrestricted image filename", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+				
 					die;
 				}		
 			}
@@ -62,12 +103,22 @@ File upload
 				if($theType != "image/jpeg" && $theType != "image/png")
 				{	
 					unlink($uploaddir.$this->_image['name']);
-					header('location:/login');
+								/*
+					Set counter if counter hits 3 the users session must terminated
+					After 3 session terminations the user acount should be blocked
+					Since the high threat level there will be imediate session termination
+					*/
+					setCounter(3);
+			
+					//Set a log for whenever there is unexpected userinput with a threat level
+					setLog($_SESSION['userID'],"invalid image mime type", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+				
 					die;
+				
 				}
 
 		}
-    
+	?>
 
 
 	

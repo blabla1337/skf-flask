@@ -6,17 +6,18 @@ Logout function
 
 
 
-		/*
-		By this manner the logout functionality revokes the complete session.
-		*/ 
+    	 <?php
+	/*
+	By this manner the logout functionality revokes the complete session.
+	*/ 
 
-		 function deleteLogin(){
+	 function deleteLogin(){
 
-			session_start();
-			session_destroy();
-		}
+		session_start();
+		session_destroy();
+	}
 
-
+	?>
 
 
 	

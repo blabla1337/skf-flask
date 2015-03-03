@@ -6,7 +6,9 @@ X-path query
 
 
 
-				//start a new domdocument
+    	<?php
+
+		//start a new domdocument
 
         $xmldoc = new DOMDocument();
         $xmldoc->load('test.xml');
@@ -16,7 +18,6 @@ X-path query
 		//define break out patterns
 		
 		$pattern1 = "/'/";
-		$pattern0 = '/"/';
 
 		/* possible sanitizer patterns. In this case we want to use people's names so we also have
 		want to allow input like: o'reily.
@@ -32,16 +33,29 @@ X-path query
 		$string = $_POST['search'];
 		
 	
-		//Check for uploading out of intended directory
-		$array = array($pattern0 , $pattern1);
+		//First we check if only the intended values where posted by the user		
+		while(!preg_match($pattern2 , $string) || preg_match($pattern3, $string))
+		{
+            /*
+			Set counter if counter hits 3 the users session must terminated
+			After 3 session terminations the user acount must be blocked
+			*/
+			setCounter(1);
+			
+			//Set a log for whenever there is unexpected userinput with a threat level
+			setLog($_SESSION['userID'],"Unintended post value", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
+            die;       
+		}
+
+			
+		/*
+		Verify the sanitizer pattern. In this case we want to use people's names so we also have
+		want to allow input like: o'reily.
+		*/
+		$array = array($pattern1);
 		
 		foreach($array as $pattern)
-		{
-			while(preg_match($pattern , $string))
-			{
-				$result = preg_replace($pattern0, $replacements, $string);
-			}
-			
+		{	
 			while(preg_match($pattern , $string))
 			{
 				$result = preg_replace($pattern1, $replacements, $string);
