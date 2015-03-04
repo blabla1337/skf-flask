@@ -9,6 +9,13 @@ sudo pip install BeautifulSoup
 sudo pip install python-docx
 sudo pip install pyOpenSSL
 
+If you want to use test_skf.py as well, you will need to
+
+sudo pip install pytest
+
+as well.
+
+
 1. 'cd' into the project directory (e.g. /op/skf-flask/) and initialize the database with this command:
 
      flask --app=skf initdb
@@ -25,8 +32,10 @@ sudo pip install pyOpenSSL
      Then the skf-flask application will use these instead.
 
 	 default username: admin
-	 password is auto generated for each time the skf-application is launched. 
-	 Check the cmd output for the password.
+	 default password: default
+
+	 In the future, the password will be auto-generated every time the skf-application is launched. 
+	 The commandline output will display the generated password.
 	 
 
 

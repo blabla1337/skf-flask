@@ -8,7 +8,7 @@ Session cookies HttpOnly
 
     	<?php
 
-	//Whenever a session is started the httpOnly option should always be set to true or 1.
+	//Whenever a session is started, the "httpOnly" option should always be set to "true" or "1":
 
 	public function sessionStart(){
 

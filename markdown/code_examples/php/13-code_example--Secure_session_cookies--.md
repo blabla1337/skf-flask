@@ -9,9 +9,9 @@ Secure session cookies
     	<?php
 
 	/*
-	Whenever  a cookie is send over a secured connection, the cookie should be set
-	with the secure flag in order to guarantee the integrety of the data it contains.
-	the secure flag is set by giving it the true or 1 value
+	Whenever  a cookie is sent over a secured connection, the cookie should be set
+	with the secure flag, in order to guarantee the integrity of the data it contains.
+	The secure flag is set by giving it the "true" or "1" value:
 	*/
 
 	public function sessionStart(){

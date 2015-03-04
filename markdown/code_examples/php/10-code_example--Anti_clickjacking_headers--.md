@@ -28,15 +28,15 @@ Anti clickjacking headers
 
 	<?php
 	/*
-	The seccond option is using security headers
-	There are two options for setting the anti-clickjacking headers in your application
+	The second option is to use "security headers".
+	There are two options for setting the "anti-clickjacking" headers in your application:
 	*/
 
-	//will prevent your page completely from being displayed in an iframe.
+	//this will completely prevent your page from being displayed in an iframe.
 	header('X-Frame-Options: DENY');
 
 
-	//will prevent you page from being displayed in other sites in an iframe.
+	//this will completely prevent your page from being displayed in an iframe on other sites.
 	header('X-Frame-Options: SAMEORIGIN');
 	?>
 

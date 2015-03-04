@@ -17,7 +17,7 @@ File upload
 			if(getimagesize($this->_image['tmp_name']) < 0)
 			{
 		
-				//Set counter if counter hits 3 the users session must terminated
+				//Set counter; if counter hits 3, the user's session must be terminated.
 				//After 3 session terminations the user acount should be blocked
 				setCounter(1);
 			
@@ -34,7 +34,7 @@ File upload
 			{	
 
 				/*
-				Set counter if counter hits 3 the users session must terminated
+				Set counter; if counter hits 3, the user's session must be terminated.
 				After 3 session terminations the user acount must be blocked
 				Since the high threat level there will be imediate session termination
 				*/
@@ -56,7 +56,7 @@ File upload
 				{	
 			
 				/*
-				Set counter if counter hits 3 the users session must terminated
+				Set counter; if counter hits 3, the user's session must be terminated.
 				After 3 session terminations the user acount should be blocked
 				Since the high threat level there will be imediate session termination
 				*/
@@ -77,7 +77,7 @@ File upload
 				{
 			
 					/*
-					Set counter if counter hits 3 the users session must terminated
+					Set counter; if counter hits 3, the user's session must be terminated.
 					After 3 session terminations the user acount should be blocked
 					Since the high threat level there will be imediate session termination
 					*/
@@ -102,8 +102,8 @@ File upload
 				if($theType != "image/jpeg" && $theType != "image/png")
 				{	
 					unlink($uploaddir.$this->_image['name']);
-								/*
-					Set counter if counter hits 3 the users session must terminated
+					/*
+					Set counter; if counter hits 3, the user's session must be terminated.
 					After 3 session terminations the user acount should be blocked
 					Since the high threat level there will be imediate session termination
 					*/
