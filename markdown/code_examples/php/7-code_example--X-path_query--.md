@@ -34,8 +34,8 @@ X-path query
 		
 	
 		//First we check if only the intended values where posted by the user		
-		while(!preg_match($pattern2 , $string) || preg_match($pattern3, $string))
-		{
+		while(!preg_match($pattern2 , $string) || preg_match($pattern3, $string)){
+
             /*
 			Set counter if counter hits 3 the users session must terminated
 			After 3 session terminations the user acount must be blocked
@@ -54,10 +54,8 @@ X-path query
 		*/
 		$array = array($pattern1);
 		
-		foreach($array as $pattern)
-		{	
-			while(preg_match($pattern , $string))
-			{
+		foreach($array as $pattern){	
+			while(preg_match($pattern , $string)){
 				$result = preg_replace($pattern1, $replacements, $string);
 			}		
 		}
@@ -70,6 +68,7 @@ X-path query
 		if(preg_match($pattern2, $result) || preg_match($pattern3, $result)) :
 		
         $queryResult = $xpathvar->query('//lemonade[@supplier="'.$result.'"]/price');
+        
         foreach($queryResult as $result){
                 echo $result->textContent;
         }		
