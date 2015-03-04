@@ -9,7 +9,7 @@ Password storage(salting/stretching/hashing)
     	<?php
 
 	//Takes a password and returns the salted hash
-	//returns - the hash of the password
+	//Returns - the hash of the password
 	function HashPassword($password){
 		
 	    $salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM)); //get 256 random bits in hex
@@ -20,7 +20,7 @@ Password storage(salting/stretching/hashing)
 	}
 	
 	//Validates a password
-	//returns true if match correct
+	//Returns true if match correct
 	function ValidatePassword($correctHash, $password){
 		
 	    $salt = substr($correctHash, 0, 64); //get the salt from the front of the hash
