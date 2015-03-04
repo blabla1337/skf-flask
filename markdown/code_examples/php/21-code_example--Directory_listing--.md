@@ -9,10 +9,11 @@ Directory listing
     	<?php
 
 	/*
-	To disable or prevent the directory access add following line in your .htaccess file. If 
-	user points the browsers to a directory which does not have index file then in this case 403 error will be Forbidden:
+	To disable or prevent directory access, add following line in your .htaccess file. If 
+	user points the browsers to a directory that does not have an index file, then a
+	"403 Forbidden" error will be displayed:
 
-	Add this line of code to your .htacces
+	Add this line of code to your .htaccess file:
 	*/
 
 	Options -Indexes 

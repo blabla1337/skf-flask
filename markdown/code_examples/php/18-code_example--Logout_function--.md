@@ -8,7 +8,7 @@ Logout function
 
     	 <?php
 	/*
-	By this manner the logout functionality revokes the complete session.
+	This way, the logout functionality will revoke the complete session:
 	*/ 
 
 	 function deleteLogin(){

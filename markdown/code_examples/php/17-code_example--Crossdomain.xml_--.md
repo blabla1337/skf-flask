@@ -18,7 +18,7 @@ Crossdomain.xml
 	<!--This is since it allows acces from all other domains.
 	Instead of this approach you might want to use the following restrictions. 
 
-	Example by twitters crossdomain.xml:-->
+	Example by twitter's crossdomain.xml:-->
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
