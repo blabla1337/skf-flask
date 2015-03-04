@@ -8,7 +8,7 @@ Session cookies (domain)
 
     	<?php
 
-	//Whenever a session is started and you want to share it over different domains the domain value should be set
+	//Whenever a session is started, and you want to share it over different domains, the domain value should be set:
 
 	public function sessionStart(){
 
