@@ -24,7 +24,7 @@ File upload
 				setLog($_SESSION['userID'],"No valid image", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
 			
 				header('location: /page');
-				//The die function is to make shure the rest of the php code is not excecuted beyond this point
+				//The die function is to make sure the rest of the php code is not excecuted beyond this point
 				die();
 			}
 		
@@ -44,7 +44,7 @@ File upload
 			
 				header('location:/page');
 			
-				//The die function is to make shure the rest of the php code is not excecuted beyond this point
+				//The die function is to make sure the rest of the php code is not excecuted beyond this point
 				die();
 			}
 				
@@ -64,7 +64,7 @@ File upload
 					//Set a log for whenever there is unexpected userinput with a threat level
 					setLog($_SESSION['userID'],"Unrestrected image extension upload", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
 					
-					//The die function is to make shure the rest of the php code is not excecuted beyond this point
+					//The die function is to make sure the rest of the php code is not excecuted beyond this point
 					die();
 				}
 		
@@ -84,7 +84,7 @@ File upload
 					//Set a log for whenever there is unexpected userinput with a threat level
 					setLog($_SESSION['userID'],"Unrestricted image filename", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
 				
-					//The die function is to make shure the rest of the php code is not excecuted beyond this point
+					//The die function is to make sure the rest of the php code is not excecuted beyond this point
 					die();
 				}		
 			}
@@ -109,7 +109,7 @@ File upload
 					//Set a log for whenever there is unexpected userinput with a threat level
 					setLog($_SESSION['userID'],"invalid image mime type", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
 					
-					//The die function is to make shure the rest of the php code is not excecuted beyond this point
+					//The die function is to make sure the rest of the php code is not excecuted beyond this point
 					die();				
 				}
 

@@ -38,7 +38,7 @@ Directory/path traversal
 			
 			//Set a log for whenever there is unexpected user input with a threat level:
 			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-            //The die function is to make shure the rest of the php code is not excecuted beyond this point
+            //The die function is to make sure the rest of the php code is not excecuted beyond this point
             die();            }        
         }
      
@@ -56,7 +56,7 @@ Directory/path traversal
 			//Set a log for whenever there is unexpected user input with a threat level
 			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
             
-            //The die function is to make shure the rest of the php code is not excecuted beyond this point
+            //The die function is to make sure the rest of the php code is not excecuted beyond this point
             die();             }        
         }
         
