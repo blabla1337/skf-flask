@@ -1,3 +1,6 @@
+For editors:
+Some info for the markdown files, when you edit the files and you want to use special chars like & then you need to escape it with html entity &amp;
+
 Install:
 
 sudo apt-get install python-pip
