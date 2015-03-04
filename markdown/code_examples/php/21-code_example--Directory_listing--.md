@@ -6,7 +6,7 @@ Directory listing
 
 
 
-    	<?php
+    <?php
 
 	/*
 	To disable or prevent directory access, add following line in your .htaccess file. If 

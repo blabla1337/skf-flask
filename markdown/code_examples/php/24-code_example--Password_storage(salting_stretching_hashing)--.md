@@ -6,7 +6,7 @@ Password storage(salting/stretching/hashing)
 
 
 
-    	<?php
+    <?php
 
 	//Takes a password and returns the salted hash
 	//Returns - the hash of the password

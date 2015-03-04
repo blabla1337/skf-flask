@@ -6,7 +6,7 @@ CSRF tokens
 
 
 
-    	<?php
+    <?php
 
 	//First after a succsesfull validation of a user login, the application must also start a session
 	//which contains the "cross site request forgery" token.
@@ -25,12 +25,10 @@ CSRF tokens
 	<?php
 
 	//here we are sending the token towards the function which does the token validation    
-	protected function _checkCsrf($token)
-	{        
+	protected function _checkCsrf($token){        
 		session_start();                    
 		
-			if($_SESSION['csrf'] != $token)
-			{            
+			if($_SESSION['csrf'] != $token){            
 				session_destroy();           
 				setLog($_SESSION['userID'],"invalid CSRF token received from: ".$_SERVER['HTTP_REFERER']."", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");        
 				die();        

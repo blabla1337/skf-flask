@@ -6,12 +6,13 @@ Logout function
 
 
 
-    	 <?php
+    <?php
+	
 	/*
 	This way, the logout functionality will revoke the complete session:
 	*/ 
 
-	 function deleteLogin(){
+	function deleteLogin(){
 
 		session_start();
 		session_destroy();

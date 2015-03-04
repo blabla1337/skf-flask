@@ -5,8 +5,7 @@ Identifier-based authorization
 **Example:**
 
 
-
-    	<?php
+    <?php
 
 	/* 
 	Whenever you are checking whether a user is restricted to review certain data,

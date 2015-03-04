@@ -6,7 +6,7 @@ HTML output
 
 
 
-    	<?php
+    <?php
 
 	/*
 	Whenever user input is displayed in the application, whether, as content or a parameter value 

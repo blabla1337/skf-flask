@@ -5,8 +5,7 @@ Secure session cookies
 **Example:**
 
 
-
-    	<?php
+    <?php
 
 	/*
 	Whenever  a cookie is sent over a secured connection, the cookie should be set

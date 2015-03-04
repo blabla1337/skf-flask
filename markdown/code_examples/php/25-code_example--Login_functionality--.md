@@ -6,7 +6,7 @@ Login functionality
 
 
 
-    	<?php
+    <?php
 
 	function loginUser($username,$password){
 		

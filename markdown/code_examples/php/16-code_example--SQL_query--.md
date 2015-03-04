@@ -6,7 +6,7 @@ SQL query
 
 
 
-    	<?php
+    <?php
 
 	/*
 	This example uses a prepared statement in order to insert data into the database.
@@ -19,8 +19,8 @@ SQL query
 		Therefore, you'll want to verify the input as submitted by the user does not contain malicous code.
 		In this example the expexted input is a-z/0-9:
 		*/
-     	if(!preg_match("/^[a-zA-Z0-9]+$/", $name)
-     	{
+     	if(!preg_match("/^[a-zA-Z0-9]+$/", $name){
+     		
      		/*
 			Set counter; if counter hits 3 the user's session must terminated.
 			After 3 session terminations, the user's acount must be blocked
