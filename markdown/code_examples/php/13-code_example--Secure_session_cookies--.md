@@ -16,14 +16,15 @@ Secure session cookies
 	public function sessionStart(){
 
 
-	$lifetime = 3600;
-	$path     = "/";
-	$domain   = "";
-	$secure   = true; // <-- the secure flag
-	$httponly = true; 
+		$lifetime = 3600;
+		$path     = "/";
+		$domain   = "";
+		$secure   = true; // <-- the secure flag
+		$httponly = true; 
 
 
-	session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+		session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+	}
 
 	?>
 
