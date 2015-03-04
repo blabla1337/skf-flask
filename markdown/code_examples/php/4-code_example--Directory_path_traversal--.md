@@ -8,14 +8,14 @@ Directory/path traversal
 
          	<?php
      
-     	//First we want to filter the filenames for expected values, for this example we use only a-z/0-9
-     	//Whenever the values are tampered with we can assume a hacker is trying to inject malicious input
+     	//First, we want to filter the filenames for expected values. For this example we use only a-z/0-9
+     	//Whenever the values are tampered with, we can assume an attacker is trying to inject malicious input.
      	if(!preg_match("/^[a-zA-Z0-9]+$/", $_GET['fileName'])
      	{
      		/*
-			Set counter if counter hits 3 the users session must terminated
-			After 3 session terminations the user acount must be blocked
-			Since the high threat level there will be imediate session termination.
+			Set counter; if counter hits 3, the user's session must be terminated.
+			After 3 session terminations the user's acount must be blocked.
+			Given the high threat level, there will be immediate session termination.
 			*/
 			setCounter(3);
 			
@@ -33,11 +33,12 @@ Directory/path traversal
             {
             
             /*
-			If the user tries to read other files than specified, imediate logout wil follow!
+			If the user tries to read files other than specified, immediate logout wil follow!
+
 			*/
 			setCounter(3);
 			
-			//Set a log for whenever there is unexpected userinput with a threat level
+			//Set a log for whenever there is unexpected user input with a threat level:
 			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
             die;
             
@@ -53,11 +54,11 @@ Directory/path traversal
             {
             
             /*
-			The same goes for path traversal patterns, imediate logout!
+			The same goes for path traversal patterns, immediate logout!
 			*/
 			setCounter(3);
 			
-			//Set a log for whenever there is unexpected userinput with a threat level
+			//Set a log for whenever there is unexpected user input with a threat level
 			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
             die;
             
