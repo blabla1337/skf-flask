@@ -9,6 +9,6 @@ XML Injection is an attack technique used to manipulate or compromise the logic 
 
 **Solution:**
 
-In addition to the existing input validation, define a positive approach which escapes/encodes characters that can be interpreted as xml. At a minimum this includes the following: < > " \' &
+In addition to the existing input validation, define a positive approach which escapes/encodes characters that can be interpreted as xml. At a minimum this includes the following: &lt; &gt; &#34; &#39; &amp;
 
 	

@@ -10,6 +10,6 @@ Whenever the document root contains extraneous files, these files could be uploa
 
 **Solution:**
 
-Extraneous files in document root should be investigated and deleted if it's not necessary for operation of the application.
+Extraneous files in document root should be investigated and deleted if it&#39;s not necessary for operation of the application.
 
 	

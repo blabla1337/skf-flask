@@ -8,7 +8,7 @@ Whenever an application generates error like:
 
     This username already exsists.
 
-An attacker could enumerate these usernames, enlarging his chance for a succefull brute-force attack. Same goes for "forgot password" functions.
+An attacker could enumerate these usernames, enlarging his chance for a succefull brute-force attack. Same goes for &#34;forgot password&#34; functions.
 
 Whenever an user forgot his password then make him fill in his email adress rather than an username.
 

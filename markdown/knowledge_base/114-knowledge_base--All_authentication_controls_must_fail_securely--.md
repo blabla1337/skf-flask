@@ -9,4 +9,4 @@ Whenever there are multiple authentication controls in place in a web applicatio
 
 **Solution:**
 
-Make sure all the access control systems are thoroughly tested for failing securely before using it in your application. It's commen that Unit-test are created especially for this purpose.
+Make sure all the access control systems are thoroughly tested for failing securely before using it in your application. It&#39;s commen that Unit-test are created especially for this purpose.

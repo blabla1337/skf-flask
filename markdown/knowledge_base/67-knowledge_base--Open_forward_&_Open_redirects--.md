@@ -1,5 +1,5 @@
 
-Open forward & Open redirects
+Open forward &amp; Open redirects
 -------
 
 **Description:**

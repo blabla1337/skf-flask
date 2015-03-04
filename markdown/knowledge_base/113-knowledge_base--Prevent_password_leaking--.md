@@ -9,4 +9,4 @@ Whenever an users password is displayed on screen or send by email, a attacker g
 
 **Solution:**
 
-Never display passwords on screen in an unprotected matter since this could easily lead to the password being compromised. Some practises are for you to set input field type to password. Set autocomplete="off" for the password input field. This turns off the auto complete and remember password features of the browser.
+Never display passwords on screen in an unprotected matter since this could easily lead to the password being compromised. Some practises are for you to set input field type to password. Set autocomplete=&#34;off&#34; for the password input field. This turns off the auto complete and remember password features of the browser.

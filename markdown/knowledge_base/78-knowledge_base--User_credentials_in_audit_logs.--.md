@@ -9,6 +9,6 @@ Whenever there are user credentials supplied in an audit log, this could become 
 
 **Solution:**
 
-Instead of storing user credentials, you may want to use user id's in order to identify the user in the log files.
+Instead of storing user credentials, you may want to use user id&#39;s in order to identify the user in the log files.
 
 	

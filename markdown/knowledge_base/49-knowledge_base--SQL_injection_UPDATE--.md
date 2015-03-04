@@ -4,7 +4,7 @@ SQL injection UPDATE
 
 **Description:**
 
-SQL stands for simple query language and is designed in order for the application to communicate with a database in which it can write and get content from. However, when a attacker can inject malicious code into these query's he gains the ability to manipulate them and now he can withdraw, update and delete data which is stored on the target database.
+SQL stands for simple query language and is designed in order for the application to communicate with a database in which it can write and get content from. However, when a attacker can inject malicious code into these query&#39;s he gains the ability to manipulate them and now he can withdraw, update and delete data which is stored on the target database.
 
 
 **Solution:**

@@ -13,7 +13,7 @@ The application should never publish available usernames. When an attacker gains
 
 i.e:
 
-Imagine an "forgot password" function where the user enters his username in order for the application to send a new password to his email adress, the user enters a correct username and the application reply's with:
+Imagine an &#34;forgot password&#34; function where the user enters his username in order for the application to send a new password to his email adress, the user enters a correct username and the application reply&#39;s with:
 
 <b>Email succesfully send to your email adress.</b><br>
 when the user enters a incorrect username it says.<br>
