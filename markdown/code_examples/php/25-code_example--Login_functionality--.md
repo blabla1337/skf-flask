@@ -94,20 +94,26 @@ Debug Enabling
             }
     }
 
-    //Now we can verify if the user is privileged to perform certain actions
-    if($loginUser['privilege'] == "edit:read:delete")
-    {
-        //We now show the user full possible options
+    /*
+    This is how you enforce the permissions in your application
+    We define the roles we want the user to suffice
+    /*
+    
+    if(isAuthorized("edit:read:delete") === true){
+        //Do your operation
     }
 
-    if($loginUser['privilege'] == "edit:read")
-    {
-        //We now show the user limited options
-    }
 
-    if($loginUser['privilege'] == "edit")
-    {
-        //We now show the user text only
+    //Here is the isAuthorized function in which we check whether the iser is permitted to do the action
+    function isAutorized($ispermitted){
+
+        //We check the database value in order to verify if we are permitted to do the action
+        if($loginUser['permissions'] == $ispermitted)
+        {	
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /*
