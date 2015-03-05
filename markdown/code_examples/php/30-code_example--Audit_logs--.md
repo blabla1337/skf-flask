@@ -42,27 +42,27 @@ Audit logs
     $stmt->execute(array($_SESSION['userID']));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    //If the users counter was bigger than three his session should be terminated
-    if($rows['count'] >= 3)
-    {
-    session_start();
-    session_destroy();
-    $count = 0;
-    die;
-    }	
+        //If the users counter was bigger than three his session should be terminated
+        if($rows['count'] >= 3)
+        {
+            session_start();
+            session_destroy();
+            $count = 0;
+            die;
+        }	
 
-    //If the users counter was bigger than three his session should be terminated
-    if($rows['blocker'] >= 12)
-    {
-    //If the blocker was bigger than 12 it means the user has made three strikes and his acount should be locked
-    $status = "blocked"
-    $stmt = $db->prepare("UPDATE users SET status=? WHERE id=?");
-    $stmt->execute(array($status, $_SESSION['userID']));
-    $affected_rows = $stmt->rowCount();
+        //If the users counter was bigger than three his session should be terminated
+        if($rows['blocker'] >= 12)
+        {
+            //If the blocker was bigger than 12 it means the user has made three strikes and his acount should blocked
+            $status = "blocked"
+            $stmt = $db->prepare("UPDATE users SET status=? WHERE id=?");
+            $stmt->execute(array($status, $_SESSION['userID']));
+            $affected_rows = $stmt->rowCount();
 
-    $sth = $this->_db->prepare($sql);
-    return $sth->execute($data);	
-    }	
+            $sth = $this->_db->prepare($sql);
+            return $sth->execute($data);	
+        }	
 
     //After the counter has terminated a session he should be set to zero again
     $stmt = $db->prepare("UPDATE counter SET count=? WHERE id=?");
