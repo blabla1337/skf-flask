@@ -52,7 +52,8 @@ INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
 (21, 'External XML files', 6),
 (22, 'JSON ', 3),
 (23, 'GET variables/parameters', 72),
-(24, 'Forward or/ redirect', 67);
+(24, 'Forward or/ redirect', 67),
+(24, 'Access controls/Login systems', 152),
 
 -- 
 -- Table structure for table `questionlist`
