@@ -56,6 +56,9 @@ Debug Enabling
         for attempting to hack the application
         */
 
+	    //After successful validation we want to log that username was validated successfully:
+		setLog($_SESSION['userID'],"Username return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+
         //PDO prepared statement in order to prevent SQL injections
         $sql = "
             SELECT a.username, a.password, a.privilegeID, b.privilegeID, b.privilege   
@@ -73,7 +76,10 @@ Debug Enabling
             //Than we validate the password, if the validation is true than we set the sessions
             if($this->ValidatePassword($loginUser['password'], $password) === true)
             {
-
+				
+				//After successful validation we want to log that Password was validated successfully:
+				setLog($_SESSION['userID'],"Password return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+                
                 session_start();
 
                 //Here we set a session to see if the user is authenticated throughought the system
@@ -110,8 +116,24 @@ Debug Enabling
         //We check the database value in order to verify if we are permitted to do the action
         if($loginUser['permissions'] == $ispermitted)
         {	
+       	 	//Log that the user had sufficient privileges:
+			setLog($_SESSION['userID'],"User was privileged!", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
             return true;
         }else{
+            
+            //Log that the user had insufficient privileges:
+			setLog($_SESSION['userID'],"User was not privileged!", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+			
+			/*
+			Set counter; if counter hits 3, the user's session must be terminated.
+			After 3 session terminations the user's acount must be blocked.
+			Given the high threat level, there will be immediate session termination.
+			in this case the user tried to manipulate the application operation in order to do things he is not
+			privileged to, imidiate session termination will follow!
+			*/
+			
+			setCounter(3);
+			
             return false;
         }
     }

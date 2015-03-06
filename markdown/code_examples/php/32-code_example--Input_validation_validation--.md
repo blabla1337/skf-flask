@@ -8,14 +8,14 @@
      	
      	if(!preg_match("/^[a-zA-Z0-9]+$/", $_POST['userinput'])
      	{
+     		//Set a log for whenever there is unexpected userinput with a threat level
+			setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
+     	
      		/*
 			Set counter if counter hits 3 the users session must terminated
 			After 3 session terminations the user acount must be blocked
 			*/
 			setCounter(1);
-			
-			//Set a log for whenever there is unexpected userinput with a threat level
-			setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
      	}
      
      
@@ -30,14 +30,17 @@
         {
             while(!preg_match($expectedValue , $_POST['userinput']]))
             {
+
+			//Set a log for whenever there is unexpected userinput with a threat level
+			setLog($_SESSION['userID'],"Detection of malicous input in checkbox.", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+
             
             /*
 			If the user tries to enter value's other than the fixed checkbox value's, imediate logout wil follow!
 			*/
 			setCounter(3);
 			
-			//Set a log for whenever there is unexpected userinput with a threat level
-			setLog($_SESSION['userID'],"Detection of malicous input in checkbox.", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+			//The die function is to make sure the rest of the php code is not excecuted beyond this point
             die;
             
             }        

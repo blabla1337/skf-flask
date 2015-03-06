@@ -36,15 +36,15 @@ X-path query
 		//First we check if only the intended values where posted by the user		
 		while(!preg_match($pattern2 , $string) || preg_match($pattern3, $string)){
 
+        	//Set a log for whenever there is unexpected userinput with a threat level
+			setLog($_SESSION['userID'],"Unintended post value", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
+        
             /*
 			Set counter if counter hits 3 the users session must terminated
 			After 3 session terminations the user acount must be blocked
 			*/
 			setCounter(1);
-			
-			//Set a log for whenever there is unexpected userinput with a threat level
-			setLog($_SESSION['userID'],"Unintended post value", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
-            die;       
+		       
 		}
 
 			
@@ -63,8 +63,10 @@ X-path query
 		
 		/*
 		After succesfully sanitizing the userinput we want to execute the x-path query 
+		First we log the succesfull validation
 		*/
 		
+		setLog($_SESSION['userID'],"Succesfull userinput validation for X-Path", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
 		if(preg_match($pattern2, $result) || preg_match($pattern3, $result)) :
 		
         $queryResult = $xpathvar->query('//lemonade[@supplier="'.$result.'"]/price');

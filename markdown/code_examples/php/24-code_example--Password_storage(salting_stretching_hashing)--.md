@@ -29,8 +29,14 @@ Password storage(salting/stretching/hashing)
 
         if (password_verify($password, $correctHash))
         {
+        	//After successful validation we want to log that password was validated successfully:
+			setLog($_SESSION['userID'],"Password return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
             return true;
-        }
+        }else{	
+        	
+        	//We log invalid password use
+			setLog($_SESSION['userID'],"Password return false", "FAIL", date(dd-mm-yyyy), $privelige, "LOW");
+         }
 
     }
 

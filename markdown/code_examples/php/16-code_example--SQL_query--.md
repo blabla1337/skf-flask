@@ -21,22 +21,30 @@ SQL query
 		*/
      	if(!preg_match("/^[a-zA-Z0-9]+$/", $name){
      		
+			//Set a log for whenever there is unexpected userinput with a threat level:
+			setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+
+
      		/*
 			Set counter; if counter hits 3 the user's session must terminated.
 			After 3 session terminations, the user's acount must be blocked
 			*/
 			setCounter(1);
 			
-			//Set a log for whenever there is unexpected userinput with a threat level:
-			setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
      	}
 
+	//After successful validation we want to log that name was validated successfully:
+	setLog($_SESSION['userID'],"succesfull input validation", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+	
 	$stmt = $db->prepare("SELECT * FROM table WHERE id=? AND name=?");
 	$stmt->execute(array($id, $name));
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	
 	//or		
 
+	//After successful validation we want to log that name was validated successfully:
+	setLog($_SESSION['userID'],"succesfull input validation", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+	
 	$stmt = $db->prepare("SELECT * FROM table WHERE id=:id AND name=:name");
 	$stmt->execute(array(':name' => $name, ':id' => $id));
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

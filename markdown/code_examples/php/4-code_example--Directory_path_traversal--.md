@@ -12,6 +12,9 @@ Directory/path traversal
      	//Whenever the values are tampered with, we can assume an attacker is trying to inject malicious input.
      	if(!preg_match("/^[a-zA-Z0-9]+$/", $_GET['fileName']){
 
+			//Set a log for whenever there is unexpected userinput with a threat level
+			setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+
      		/*
 			Set counter; if counter hits 3, the user's session must be terminated.
 			After 3 session terminations the user's acount must be blocked.
@@ -19,8 +22,6 @@ Directory/path traversal
 			*/
 			setCounter(3);
 			
-			//Set a log for whenever there is unexpected userinput with a threat level
-			setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
      	}
      
      
@@ -30,14 +31,16 @@ Directory/path traversal
         foreach($array as $injectPattern){
             while(!preg_match($injectPattern , $_GET['fileName']])){
             
+            //Set a log for whenever there is unexpected user input with a threat level:
+			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+
+            
             /*
 			If the user tries to read files other than specified, immediate logout wil follow!
 
 			*/
 			setCounter(3);
-			
-			//Set a log for whenever there is unexpected user input with a threat level:
-			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+			            
             //The die function is to make sure the rest of the php code is not excecuted beyond this point
             die();            }        
         }
@@ -48,20 +51,22 @@ Directory/path traversal
         foreach($array as $injectPattern){
             while(preg_match($injectPattern , $_GET['fileName'])){
             
+            //Set a log for whenever there is unexpected user input with a threat level
+			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+
+            
             /*
 			The same goes for path traversal patterns, immediate logout!
 			*/
 			setCounter(3);
-			
-			//Set a log for whenever there is unexpected user input with a threat level
-			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-            
+			            
             //The die function is to make sure the rest of the php code is not excecuted beyond this point
             die();             }        
         }
         
         
-		//ready for include
+		//ready for include, first we log that the filename succesfully went through all validation checks
+		setLog($_SESSION['userID'],"Valid file requested from server", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
         include($_GET['fileName']);
         
         ?>

@@ -28,9 +28,16 @@ CSRF tokens
 	protected function _checkCsrf($token){        
 		session_start();                    
 		
-			if($_SESSION['csrf'] != $token){            
-				session_destroy();           
-				setLog($_SESSION['userID'],"invalid CSRF token received from: ".$_SERVER['HTTP_REFERER']."", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");        
+			if($_SESSION['csrf'] != $token){        
+			    
+				//Log the invalid token verification
+				setLog($_SESSION['userID'],"invalid token: ".$_SERVER['HTTP_REFERER']."", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+				
+				//if the token was not valid we terminate the users session
+				session_start();
+				session_destroy();                   
+				
+				//The die function is to make sure the rest of the php code is not excecuted beyond this point
 				die();        
 			}    
 	}     

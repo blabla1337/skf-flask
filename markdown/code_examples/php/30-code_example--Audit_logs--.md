@@ -45,6 +45,8 @@ Audit logs
             //If the users counter was bigger than three his session should be terminated
             if($rows['count'] >= 3)
             {
+            	//Log that the users sessions have been terminated:
+				setLog($_SESSION['userID'],"The users session was terminated", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
                 session_start();
                 session_destroy();
                 $count = 0;
@@ -53,7 +55,10 @@ Audit logs
 
             //If the users counter was bigger than three his session should be terminated
             if($rows['blocker'] >= 12)
-            {
+            {	
+                //Log that the users has been denied access to system:
+				setLog($_SESSION['userID'],"The users is denied access to system", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+            	
                 //If the blocker was bigger than 12 it means the user has made three strikes and his acount should blocked
                 $status = "blocked"
                 $stmt = $db->prepare("UPDATE users SET status=? WHERE id=?");
