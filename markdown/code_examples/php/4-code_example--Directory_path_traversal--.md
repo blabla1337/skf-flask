@@ -25,26 +25,41 @@ Directory/path traversal
      	}
      
      
-        //The seccond layer is to define the allowed pages to be read by the user
+        /*
+        The seccond layer is to define the allowed pages to be read by the user
+        first we check the incomming value against the array values
+        */
         $array = array("/page1/" ,"/page2/" ,"/etc/" ,"/etc/");
         
         foreach($array as $injectPattern){
-            while(!preg_match($injectPattern , $_GET['fileName']])){
-            
-            //Set a log for whenever there is unexpected user input with a threat level:
+            while(preg_match($injectPattern , $_GET['fileName']])){
+                
+                //If the value is valid we send a log to the logging file.        
+                setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");       
+                 
+                //Then we return true value       
+            	$bool = true;	
+				return $bool;        
+            }        
+        }
+        
+        //If the value was not validated as true we must log and count the users actions
+        if($bool !== true){
+          
+			//Set a log for whenever there is unexpected user input with a threat level:
 			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-
-            
-            /*
+			
+			 /*
 			If the user tries to read files other than specified, immediate logout wil follow!
-
 			*/
 			setCounter(3);
-			            
-            //The die function is to make sure the rest of the php code is not excecuted beyond this point
-            die();            }        
-        }
-     
+						
+			//The die function is to make sure the rest of the php code is not excecuted beyond this point
+			die(); 
+          
+    	}
+    	
+    	  
         //Check for path traversal patterns
         $array = array("/%2e%2e%2f/" ,"/..//" ,"/%2e/" ,"/%5c/" ,"/%252e/" ,"/%c0%af/" ,"%/c1%9c/");
         
@@ -61,7 +76,8 @@ Directory/path traversal
 			setCounter(3);
 			            
             //The die function is to make sure the rest of the php code is not excecuted beyond this point
-            die();             }        
+            die();             
+            }        
         }
         
         
