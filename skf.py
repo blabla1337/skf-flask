@@ -653,6 +653,8 @@ def checklist_results(entryDate):
             org_path = path
             path_vuln = get_num(path)
             if int(vulnID) == int(path_vuln):
+                print path_vuln
+
                 filemd = open(org_path, 'r').read()
                 content.append(Markup(markdown.markdown(filemd)))
     return render_template('results-checklist-report.html', **locals())
@@ -698,9 +700,10 @@ def download_file_checklist(entryDate):
             org_path = path
             path = path.split("-")
             name = org_path[3]
-            path_vuln = path[1]
-            found = path_vuln.find(vulnID)
-            if found != -1:
+            path_vuln = get_num(path[1])
+            if int(vulnID) == int(path_vuln):
+                print "\n"
+                print org_path
                 filemd = open(org_path, 'r').read()
                 content = Markup(markdown.markdown(filemd))
                 text = ''.join(BeautifulSoup(content).findAll(text=True))
