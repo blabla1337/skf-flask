@@ -707,7 +707,7 @@ def download_file_checklist(entryDate):
             org_path = path
             path = path.split("-")
             name = org_path[3]
-            path_vuln = get_num(path)
+            path_vuln = get_num(path[1])
             if int(vulnID) == int(path_vuln):
                 filemd = open(org_path, 'r').read()
                 content = Markup(markdown.markdown(filemd))
@@ -753,12 +753,12 @@ def function_results(entryDate):
     content = []
     full_file_paths = []
     db = get_db()
-    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.entryDate=?",
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.entryDate=?",
                [entryDate])
     entries = cur.fetchall()
     for entry in entries:
         projectName = entry[0]
-        vulnID = entry[4]
+        vulnID = entry[7]
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
@@ -776,7 +776,7 @@ def download_file_function(entryDate):
     content_raw = []
     content_title = []
     db = get_db()
-    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.entryDate=?",
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.entryDate=?",
                [entryDate])
     entries = cur.fetchall()
     document = Document()
@@ -802,7 +802,7 @@ def download_file_function(entryDate):
     document.add_paragraph('Introduction')
     for entry in entries:
         entryDate = entry[6]
-        vulnID = entry[4]
+        vulnID = entry[7]
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
