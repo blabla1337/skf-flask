@@ -64,7 +64,7 @@
                   {% for entry in entries -%}
                               
                               <tr>
-                                  <td>{{entry.projectName|safe}} Version 1.2</td>
+                                  <td>{{entry.projectName|safe}} {{entry.projectVersion|safe}}</td>
                                   <td class="hidden-phone">{{entry.listName|safe}}</td>
                               	 <td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
                                   <td>

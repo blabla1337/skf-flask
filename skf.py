@@ -508,10 +508,9 @@ def project_checklists(project_id):
        found = path.find("ASVS-level-1")
        if found != -1:
             owasp_org_path = path
-            owasp_list = "ASVS-level-1"
+            owasp_list_lvl1 = "ASVS-level-1"
             owasp_path_lvl1 = path.split("-")
             owasp_kb = owasp_path_lvl1[7]
-            owasp_checklist_name = owasp_path_lvl1[3] +" "+owasp_path_lvl1[4]+" "+owasp_path_lvl1[5]
             owasp_id = get_num(owasp_path[1])
             owasp_items_lvl1.append(owasp_checklist_name)
             owasp_ids_lvl1.append(owasp_id)
@@ -522,7 +521,7 @@ def project_checklists(project_id):
        found = path.find("ASVS-level-2")
        if found != -1:
             owasp_org_path = path
-            owasp_list = "ASVS-level-2"
+            owasp_list_lvl2 = "ASVS-level-2"
             owasp_path_lvl2 = path.split("-")
             owasp_kb = owasp_path_lvl2[7]
             owasp_checklist_name = owasp_path_lvl2[3] +" "+owasp_path_lvl2[4]+" "+owasp_path_lvl2[5]
@@ -536,7 +535,7 @@ def project_checklists(project_id):
        found = path.find("ASVS-level-3")
        if found != -1:
             owasp_org_path = path
-            owasp_list = "ASVS-level-3"
+            owasp_list_lvl3 = "ASVS-level-3"
             owasp_path_lvl3 = path.split("-")
             owasp_kb = owasp_path_lvl3[7]
             owasp_checklist_name = owasp_path_lvl3[3] +" "+owasp_path_lvl3[4]+" "+owasp_path_lvl3[5]
