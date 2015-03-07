@@ -370,7 +370,7 @@ def project_functions(project_id):
     techlist = projects_functions_techlist()
     db = get_db()
     db.commit()
-    cur = db.execute('SELECT paramID, functionName, functionDesc, projectID, tech, entryDate FROM parameters WHERE projectID=? ORDER BY projectID DESC',
+    cur = db.execute('SELECT p.paramID, p.functionName, p.functionDesc, p.projectID, p.tech, p.techVuln, p.entryDate, t.techName FROM parameters AS p JOIN techhacks AS t ON p.tech = t.techID WHERE p.projectID=? ORDER BY p.projectID DESC',
                       [project_id])
     entries = cur.fetchall()
     return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries, csrf_token=session['csrf_token'])
@@ -406,10 +406,39 @@ def add_function():
                 if found != -1:
                     db = get_db()
                     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-                    db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, tech, projectID) VALUES (?, ?, ?, ?, ?)',
-                           [date, request.form['functionName'], request.form['functionDesc'], value, request.form['project_id']])
+                    items = value.split("-")
+                    techID = items[2]
+                    vulnID = items[0]
+                    db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, techVuln, tech, projectID) VALUES (?, ?, ?, ?, ?, ?)',
+                           [date, request.form['functionName'], request.form['functionDesc'], vulnID, techID, request.form['project_id']])
                     db.commit()
     redirect_url = '/project-functions/'+str(id)
+    return redirect(redirect_url)
+
+@app.route('/project-checklist-add', methods=['POST'])
+@security
+def add_checklist():
+    """add project checklist"""
+    if not session.get('logged_in'):
+        abort(401)
+    check_token()
+    f = request.form
+    i = 0
+    for key in f.keys():
+        for value in f.getlist(key):
+            found = key.find("vuln")
+            if found != -1:
+                listID = "listID"+str(i)
+                answerID = "answer"+str(i)
+                questionID = "questionID"+str(i) 
+                vulnID = "vulnID"+str(i)
+                date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+                db = get_db()
+                db.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                           [date, request.form[answerID], request.form['projectName'], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
+                db.commit()
+                i += 1
+    redirect_url = "/results-checklists"
     return redirect(redirect_url)
 
 @app.route('/project-checklists/<project_id>', methods=['GET'])
@@ -555,32 +584,6 @@ def project_checklists(project_id):
             custom_content.append(Markup(markdown.markdown(filemd)))
     return render_template('project-checklists.html', **locals())
 
-@app.route('/project-checklist-add', methods=['POST'])
-@security
-def add_checklist():
-    """add project checklist"""
-    if not session.get('logged_in'):
-        abort(401)
-    check_token()
-    f = request.form
-    i = 0
-    for key in f.keys():
-        for value in f.getlist(key):
-            found = key.find("vuln")
-            if found != -1:
-                listID = "listID"+str(i)
-                answerID = "answer"+str(i)
-                questionID = "questionID"+str(i) 
-                vulnID = "vulnID"+str(i)
-                date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-                db = get_db()
-                db.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?, ?)',
-                           [date, request.form[answerID], request.form['projectName'], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
-                db.commit()
-                i += 1
-    redirect_url = "/results-checklists"
-    return redirect(redirect_url)
-
 @app.route('/results-checklists', methods=['GET'])
 @security
 def results_checklists():
@@ -653,8 +656,6 @@ def checklist_results(entryDate):
             org_path = path
             path_vuln = get_num(path)
             if int(vulnID) == int(path_vuln):
-                print path_vuln
-
                 filemd = open(org_path, 'r').read()
                 content.append(Markup(markdown.markdown(filemd)))
     return render_template('results-checklist-report.html', **locals())
@@ -700,10 +701,8 @@ def download_file_checklist(entryDate):
             org_path = path
             path = path.split("-")
             name = org_path[3]
-            path_vuln = get_num(path[1])
+            path_vuln = get_num(path)
             if int(vulnID) == int(path_vuln):
-                print "\n"
-                print org_path
                 filemd = open(org_path, 'r').read()
                 content = Markup(markdown.markdown(filemd))
                 text = ''.join(BeautifulSoup(content).findAll(text=True))
@@ -796,7 +795,6 @@ def download_file_function(entryDate):
     p.add_run('\r\n')
     document.add_paragraph('Introduction')
     for entry in entries:
-        print entry
         entryDate = entry[6]
         vulnID = entry[4]
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))

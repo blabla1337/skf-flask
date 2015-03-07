@@ -6,6 +6,7 @@ CREATE TABLE `parameters` (
 `paramID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `functionName` varchar(250) NOT NULL,
 `tech` varchar(250) NOT NULL,
+`techVuln` varchar(11) NOT NULL,
 `projectID` varchar(11) NOT NULL,
 `functionDesc` text CHARACTER NOT NULL,
 `entryDate` timestamp NOT NULL

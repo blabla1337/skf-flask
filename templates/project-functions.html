@@ -10,7 +10,7 @@ var arrTech = new Array();
 
 {% for entry in techlist -%}
 
-arrTech.push({'{{entry.vulnID|safe}}':'{{entry.techName|safe}}'});
+arrTech.push({'{{entry.vulnID|safe}}--{{entry.techID|safe}}':'{{entry.techName|safe}}'});
 
 {% endfor %}
 
@@ -110,8 +110,8 @@ j++;
                             <hr>
                               <thead>
                               <tr>
-                                  <th><i class="fa fa-bulhorn"></i> <b>Function Name</b></th>
-                                  <th class="hidden-phne"><i class="fa fa-qustion-circle"></i><b> Function Description</b></th>
+                                  <th><i class="fa fa-bulhorn"></i> <b>Function Technology</b></th>
+                                  <th class="hidden-phne"><i class="fa fa-qustion-circle"></i><b> Function List Name</b></th>
                                   <th><i class=" fa fa-edit"></i> Date/Time</th>
                                   <th><b>Remove</b></th>
                               </tr>
@@ -121,8 +121,8 @@ j++;
                               {% set counter = 0 -%}
                               {% for entry in entries -%}
                               <tr>
-                                  <td>{{entry.functionName|safe}}</td>
-                                  <td class="hidden-phone">&nbsp;&nbsp;&nbsp;{{entry.functionDesc|safe}} </td>
+                                  <td>{{entry.techName|safe}}</td>
+                                  <td class="hidden-phone">&nbsp;&nbsp;&nbsp;{{entry.functionName|safe}} </td>
                                            <td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
                          
                                   <td>
