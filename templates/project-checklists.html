@@ -58,7 +58,7 @@
 					         	  <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal1">
 						           Start                     
 					              </button>
-						
+						 
 						          <!-- Modal -->
 						          <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						          <div class="modal-dialog">
@@ -75,10 +75,18 @@
                     {% for entry in basic_content -%}
            
                     <tr>
-                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>{{entry|safe}}
+                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
+
+                      {% if basic_kb_ids[counter_basic] == '0' -%}
+                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
+                      {% else %}
+                        {{entry|safe}}
+                      {% endif %}
                       </td>
                       <td></td>
                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                        {% if basic_kb_ids[counter_basic] != '0' -%}
+
                         <select name='answer{{counter_basic|safe}}' >
                         <option value='yes' >Done</option>
                         <option value='no' >Not done</option>
@@ -87,7 +95,8 @@
                         </td>
                         <input type='hidden' name='vulnID{{counter_basic|safe}}' value='{{basic_kb_ids[counter_basic]|safe}}'/>
                         <input type='hidden' name='questionID{{counter_basic|safe}}' value='{{basic_ids[counter_basic]|safe}}'/>
-                        <input type='hidden' name='listID{{counter_basic|safe}}' value='{{basic_list|safe}}'/>         
+                        <input type='hidden' name='listID{{counter_basic|safe}}' value='{{basic_list|safe}}'/>  
+                        {% endif %}
                         </td> 
                     </tr>
                     {% set counter_basic = counter_basic + 1 %}
@@ -135,9 +144,18 @@
                       {% for entry in advanced_content -%}
                        
                       <tr>
-                       <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>{{entry|safe}}</td>
+                       <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
+                      {% if advanced_kb_ids[counter_advanced] == '0' -%}
+                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
+                      {% else %}
+                        {{entry|safe}}
+                      {% endif %}
+
+                      </td>
                         <td></td>
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          {% if advanced_kb_ids[counter_advanced] != '0' -%}
+
                           <select name='answer{{counter_advanced|safe}}' >
                           <option value='yes' >Done</option>
                           <option value='no' >Not done</option>
@@ -147,6 +165,7 @@
                           <input type='hidden' name='vulnID{{counter_advanced|safe}}' value='{{advanced_kb_ids[counter_advanced]|safe}}'/>
                           <input type='hidden' name='questionID{{counter_advanced|safe}}' value='{{advanced_ids[counter_advanced]}}'/>
                           <input type='hidden' name='listID{{counter_advanced|safe}}' value='{{advanced_list|safe}}'>
+                          {% endif %}
                           </td>
                       </tr>
 
@@ -199,10 +218,16 @@
 
 
                       <tr>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}}
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
+                        {% if owasp_kb_ids[counter_owasp] == '0' -%}
+                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
+                      {% else %}
+                        {{entry|safe}}
+                      {% endif %}
                       </td>
                         <td></td>
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                            {% if owasp_kb_ids[counter_owasp] != '0' -%}
                           <select name='answer{{counter_owasp|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
@@ -212,6 +237,7 @@
                           <input type='hidden' name='vulnID{{counter_owasp|safe}}' value='{{owasp_kb_ids[counter_owasp]|safe}}'/>
                           <input type='hidden' name='questionID{{counter_owasp|safe}}' value='{{owasp_ids[counter_owasp]|safe}}'/>
                           <input type='hidden' name='listID{{counter_owasp|safe}}' value='{{owasp_list|safe}}'>
+                          {% endif %}
                           </td>
                       </tr>
                       {% set counter_owasp = counter_owasp + 1 %}
@@ -262,10 +288,16 @@
                       {% for entry in owasp_content_lvl1 -%}
 
                       <tr>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}}
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
+                      {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] == '0' -%}
+                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
+                      {% else %}
+                        {{entry|safe}}
+                      {% endif %}
                       </td>
                         <td></td>
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] != '0' -%}
                           <select name='answer{{counter_owasp_lvl1|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
@@ -275,6 +307,7 @@
                           <input type='hidden' name='vulnID{{counter_owasp_lvl1|safe}}' value='{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
                           <input type='hidden' name='questionID{{counter_owasp_lvl1|safe}}' value='{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
                           <input type='hidden' name='listID{{counter_owasp_lvl1|safe}}' value='{{owasp_list_lvl1|safe}}'>
+                          {% endif %}
                           </td>
                       </tr>
                       {% set counter_owasp_lvl1 = counter_owasp_lvl1 + 1 %}
@@ -325,10 +358,16 @@
 
 
                       <tr>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}}
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>  
+                      {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] == '0' -%}
+                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
+                      {% else %}
+                        {{entry|safe}}
+                      {% endif %}
                       </td>
                         <td></td>
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] != '0' -%}
                           <select name='answer{{counter_owasp_lvl2|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
@@ -338,6 +377,7 @@
                           <input type='hidden' name='vulnID{{counter_owasp_lvl2|safe}}' value='{{owasp_kb_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
                           <input type='hidden' name='questionID{{counter_owasp_lvl2|safe}}' value='{{owasp_ids_lvl2[counter_owasp]|safe}}'/>
                           <input type='hidden' name='listID{{counter_owasp_lvl2|safe}}' value='{{owasp_list_lvl2|safe}}'>
+                          {% endif %}
                           </td>
                       </tr>
                       {% set counter_owasp_lvl2 = counter_owasp_lvl2 + 1 %}
@@ -388,10 +428,16 @@
 
 
                       <tr>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> {{entry|safe}}
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
+                      {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] == '0' -%}
+                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
+                      {% else %}
+                        {{entry|safe}}
+                      {% endif %}
                       </td>
                         <td></td>
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                          {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
                           <select name='answer{{counter_owasp_lvl3|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
@@ -401,6 +447,7 @@
                           <input type='hidden' name='vulnID{{counter_owasp_lvl3|safe}}' value='{{owasp_kb_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
                           <input type='hidden' name='questionID{{counter_owasp_lvl3|safe}}' value='{{owasp_ids_lvl3[counter_owasp]|safe}}'/>
                           <input type='hidden' name='listID{{counter_owasp_lvl3|safe}}' value='{{owasp_list_lvl3|safe}}'>
+                          {% endif %}
                           </td>
                       </tr>
                       {% set counter_owasp_lvl3 = counter_owasp_lvl3 + 1 %}
@@ -451,9 +498,16 @@
                   {% for entry in custom_content -%}
 
                   <tr>
-                    <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>{{entry|safe}}</td>
+                    <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
+                      {% if custom_kb_ids[counter_custom] == '0' -%}
+                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
+                      {% else %}
+                        {{entry|safe}}
+                      {% endif %}
+                    </td>
                     <td></td>
                       <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+                      {% if custom_kb_ids[counter_custom] != '0' -%}
                       <select name='answer{{counter_custom|safe}}' >
                       <option value='yes' >Done</option>
                       <option value='no' >Not done</option>
@@ -463,7 +517,7 @@
                       <input type='hidden' name='vulnID{{counter_custom|safe}}' value='{{custom_kb_ids[counter_custom]|safe}}'>
                       <input type='hidden' name='questionID{{counter_custom|safe}}' value='{{custom_ids[counter_custom]|safe}}'>
                       <input type='hidden' name='listID{{counter_custom|safe}}' value='{{custom_list|safe}}'>
-                       
+                       {% endif %}
                       </td>
                   </tr>
 
