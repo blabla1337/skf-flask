@@ -524,7 +524,6 @@ def project_checklists(project_id):
             owasp_list_lvl2 = "ASVS-level-2"
             owasp_path_lvl2 = path.split("-")
             owasp_kb = owasp_path_lvl2[7]
-            owasp_checklist_name = owasp_path_lvl2[3] +" "+owasp_path_lvl2[4]+" "+owasp_path_lvl2[5]
             owasp_id = get_num(owasp_path[1])
             owasp_items_lvl2.append(owasp_checklist_name)
             owasp_ids_lvl2.append(owasp_id)
@@ -742,9 +741,9 @@ def download_file_checklist(entryDate):
     return make_response((body, headers))
     
     
-@app.route('/results-function-report/<entryDate>', methods=['GET'])
+@app.route('/results-function-report/<projectID>', methods=['GET'])
 @security
-def function_results(entryDate):
+def function_results(projectID):
     """show checklist results report"""
     if not session.get('logged_in'):
         abort(401)
@@ -752,8 +751,8 @@ def function_results(entryDate):
     content = []
     full_file_paths = []
     db = get_db()
-    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.entryDate=?",
-               [entryDate])
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.projectID=? GROUP BY parameters.functionName",
+               [projectID])
     entries = cur.fetchall()
     for entry in entries:
         projectName = entry[0]
