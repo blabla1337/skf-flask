@@ -18,6 +18,7 @@ Logout function
 		setLog($_SESSION['userID'],"User logout", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
 		
 		session_start();
+        session_regenerate_id(true);
 		session_destroy();
 	}
 

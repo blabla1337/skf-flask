@@ -82,6 +82,9 @@ Debug Enabling
                 
                 session_start();
 
+                //Change the session id on login
+			    session_regenerate_id(true);
+
                 //Here we set a session to see if the user is authenticated throughought the system
                 $_SESSION['access']   = "active";
 
