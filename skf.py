@@ -751,7 +751,7 @@ def function_results(projectID):
     content = []
     full_file_paths = []
     db = get_db()
-    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.projectID=? GROUP BY parameters.functionName",
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
                [projectID])
     entries = cur.fetchall()
     for entry in entries:
@@ -766,16 +766,17 @@ def function_results(projectID):
                 content.append(Markup(markdown.markdown(filemd)))
     return render_template('results-function-report.html', **locals())
 
-@app.route('/results-function-docx/<entryDate>')
-def download_file_function(entryDate):
+@app.route('/results-function-docx/<projectID>')
+def download_file_function(projectID):
     """Download checklist results report in docx"""
     if not session.get('logged_in'):
         abort(401)
     content_raw = []
     content_title = []
+    content_tech = []
     db = get_db()
-    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln FROM projects JOIN parameters ON parameters.projectID=projects.projectID WHERE parameters.entryDate=?",
-               [entryDate])
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
+               [projectID])
     entries = cur.fetchall()
     document = Document()
     document.add_picture('static/img/logo.png', width=Inches(2.25), height=Inches(2.25))
@@ -828,7 +829,8 @@ def download_file_function(entryDate):
     document.add_page_break()
     i = 0
     for item in content_raw:
-        document.add_heading(content_title[i], level=1)
+        document.add_heading("Knowledge-Base: "+content_title[i], level=1)
+        document.add_heading("Technology: "+entries[i][8], level=2)
         p = document.add_paragraph(item.partition("\n")[2])
         p.add_run("\n")
         document.add_page_break()

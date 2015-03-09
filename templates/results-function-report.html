@@ -38,14 +38,15 @@
             {% else %}
             <div class="alert alert-info">Summary of all function-results.<br>
               You can download a DOCX file with the current security findings: 
-              <a href="/results-function-docx/{{entryDate}}">
+              <a href="/results-function-docx/{{projectID|safe}}">
             <button class='btn btn-success btn-xs'><center>Download Report</center></button>
             </a>
             </div>
             {% endif %}
           </div>
             {% set counter = 0 -%}
-            {% for entry in content %}                      
+            {% for entry in content %}
+            <h2>Technology: {{entries[counter][8]}}</h2>                   
             <div class="well"> {{entry}} </div>
             {% set counter = counter + 1 %}
             {% endfor %}
