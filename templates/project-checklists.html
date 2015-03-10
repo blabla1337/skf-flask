@@ -47,7 +47,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><a href="#"></a>Certified secure basic audit.</td>
+                      <td><a href="#"></a>Certified secure basic</td>
                       <td class="hidden-phone">The basic web application audit checklist, latest version available at : www.certifiedsecure.com/checklists.</td>
                       <td class="hidden-phone">Custom</td>
                       <td></td>
@@ -75,18 +75,19 @@
                     {% for entry in basic_content -%}
            
                     <tr>
-                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
+
 
                       {% if basic_kb_ids[counter_basic] == '0' -%}
+                        <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
                         <b style="p { font-weight:bold; }">{{entry|safe}}</b>
                       {% else %}
+                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                         {{entry|safe}}
                       {% endif %}
                       </td>
                       <td></td>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                         {% if basic_kb_ids[counter_basic] != '0' -%}
-
+						 <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                         <select name='answer{{counter_basic|safe}}' >
                         <option value='yes' >Done</option>
                         <option value='no' >Not done</option>
@@ -116,7 +117,7 @@
     								  </div>      				
           							  </div><!-- /showback -->
                         <tr>
-                          <td><a href="basic_table.html#"></a>Certified secure advanced audit</td>
+                          <td><a href="basic_table.html#"></a>Certified secure advanced</td>
                           <td class="hidden-phone">The advanced web application audit checklist, latest version available at : www.certifiedsecure.com/checklists.</td>
                           <td class="hidden-phone">Custom</td>
                           <td></td>
@@ -144,18 +145,18 @@
                       {% for entry in advanced_content -%}
                        
                       <tr>
-                       <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
                       {% if advanced_kb_ids[counter_advanced] == '0' -%}
+                     <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
                         <b style="p { font-weight:bold; }">{{entry|safe}}</b>
                       {% else %}
+                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                         {{entry|safe}}
                       {% endif %}
 
                       </td>
                         <td></td>
-                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           {% if advanced_kb_ids[counter_advanced] != '0' -%}
-
+  						  <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{counter_advanced|safe}}' >
                           <option value='yes' >Done</option>
                           <option value='no' >Not done</option>
@@ -218,16 +219,19 @@
 
 
                       <tr>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
+
                         {% if owasp_kb_ids[counter_owasp] == '0' -%}
+                         <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
                         <b style="p { font-weight:bold; }">{{entry|safe}}</b>
                       {% else %}
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                         {{entry|safe}}
                       {% endif %}
                       </td>
                         <td></td>
-                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
+
                             {% if owasp_kb_ids[counter_owasp] != '0' -%}
+                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{counter_owasp|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
@@ -288,16 +292,17 @@
                       {% for entry in owasp_content_lvl1 -%}
 
                       <tr>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                       {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] == '0' -%}
+                        <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
                         <b style="p { font-weight:bold; }">{{entry|safe}}</b>
                       {% else %}
+                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
                         {{entry|safe}}
                       {% endif %}
                       </td>
                         <td></td>
-                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] != '0' -%}
+                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{counter_owasp_lvl1|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
@@ -358,16 +363,17 @@
 
 
                       <tr>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>  
                       {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] == '0' -%}
+                        <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
                         <b style="p { font-weight:bold; }">{{entry|safe}}</b>
                       {% else %}
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                         {{entry|safe}}
                       {% endif %}
                       </td>
                         <td></td>
-                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] != '0' -%}
+                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{counter_owasp_lvl2|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
@@ -428,16 +434,17 @@
 
 
                       <tr>
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
-                      {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] == '0' -%}
+                       {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] == '0' -%}
+                       <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
                         <b style="p { font-weight:bold; }">{{entry|safe}}</b>
                       {% else %}
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                         {{entry|safe}}
                       {% endif %}
                       </td>
                         <td></td>
-                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
+                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{counter_owasp_lvl3|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
@@ -498,16 +505,17 @@
                   {% for entry in custom_content -%}
 
                   <tr>
-                    <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
-                      {% if custom_kb_ids[counter_custom] == '0' -%}
+                     {% if custom_kb_ids[counter_custom] == '0' -%}
+                       <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
                         <b style="p { font-weight:bold; }">{{entry|safe}}</b>
                       {% else %}
+                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                         {{entry|safe}}
                       {% endif %}
                     </td>
                     <td></td>
-                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                       {% if custom_kb_ids[counter_custom] != '0' -%}
+                     <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                       <select name='answer{{counter_custom|safe}}' >
                       <option value='yes' >Done</option>
                       <option value='no' >Not done</option>
