@@ -17,6 +17,7 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
+    
 """
 
 import os, markdown, datetime, string, base64
@@ -418,7 +419,7 @@ def add_function():
                     db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, techVuln, tech, projectID) VALUES (?, ?, ?, ?, ?, ?)',
                            [date, request.form['functionName'], request.form['functionDesc'], vulnID, techID, request.form['project_id']])
                     db.commit()
-    redirect_url = '/project-functions/'+str(id)
+    redirect_url = '/project-functions/'+str(id) 
     return redirect(redirect_url)
 
 @app.route('/project-checklist-add', methods=['POST'])
