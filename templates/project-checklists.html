@@ -72,6 +72,7 @@
 						          <form method='post' action='/project-checklist-add'/>
 						          
                     {% set counter_basic = 0 -%}
+                    {% set count_cs_basic = 0 -%}
                     {% for entry in basic_content -%}
            
                     <tr>
@@ -87,16 +88,17 @@
                       </td>
                       <td></td>
                         {% if basic_kb_ids[counter_basic] != '0' -%}
+                        {% set count_cs_basic = count_cs_basic + 1 %}
 						 <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                        <select name='answer{{counter_basic|safe}}' >
+                        <select name='answer{{count_cs_basic|safe}}' >
                         <option value='yes' >Done</option>
                         <option value='no' >Not done</option>
                         <option value='yes' >N.A.</option>
                         </select>
                         </td>
-                        <input type='hidden' name='vulnID{{counter_basic|safe}}' value='{{basic_kb_ids[counter_basic]|safe}}'/>
-                        <input type='hidden' name='questionID{{counter_basic|safe}}' value='{{basic_ids[counter_basic]|safe}}'/>
-                        <input type='hidden' name='listID{{counter_basic|safe}}' value='{{basic_list|safe}}'/>  
+                        <input type='hidden' name='vulnID{{count_cs_basic|safe}}' value='{{basic_kb_ids[counter_basic]|safe}}'/>
+                        <input type='hidden' name='questionID{{count_cs_basic|safe}}' value='{{basic_ids[counter_basic]|safe}}'/>
+                        <input type='hidden' name='listID{{count_cs_basic|safe}}' value='{{basic_list|safe}}'/>  
                         {% endif %}
                         </td> 
                     </tr>
@@ -142,6 +144,7 @@
 						          <form method='post' action='/project-checklist-add'/>
 						          
                       {% set counter_advanced = 0 -%}
+                      {% set count_cs_adv = 0 -%}
                       {% for entry in advanced_content -%}
                        
                       <tr>
@@ -156,16 +159,17 @@
                       </td>
                         <td></td>
                           {% if advanced_kb_ids[counter_advanced] != '0' -%}
+                          {% set count_cs_adv = count_cs_adv + 1 %}
   						  <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{counter_advanced|safe}}' >
+                          <select name='answer{{count_cs_adv|safe}}' >
                           <option value='yes' >Done</option>
                           <option value='no' >Not done</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
-                          <input type='hidden' name='vulnID{{counter_advanced|safe}}' value='{{advanced_kb_ids[counter_advanced]|safe}}'/>
-                          <input type='hidden' name='questionID{{counter_advanced|safe}}' value='{{advanced_ids[counter_advanced]}}'/>
-                          <input type='hidden' name='listID{{counter_advanced|safe}}' value='{{advanced_list|safe}}'>
+                          <input type='hidden' name='vulnID{{count_cs_adv|safe}}' value='{{advanced_kb_ids[counter_advanced]|safe}}'/>
+                          <input type='hidden' name='questionID{{count_cs_adv|safe}}' value='{{advanced_ids[counter_advanced]}}'/>
+                          <input type='hidden' name='listID{{count_cs_adv|safe}}' value='{{advanced_list|safe}}'>
                           {% endif %}
                           </td>
                       </tr>
@@ -215,6 +219,7 @@
 						          <form method='post' action='/project-checklist-add'/>
 
                       {% set counter_owasp = 0 -%}
+                      {% set count_owasp_top = 0 -%}
                       {% for entry in owasp_content -%}
 
 
@@ -231,16 +236,17 @@
                         <td></td>
 
                             {% if owasp_kb_ids[counter_owasp] != '0' -%}
+                            {% set count_owasp_top = count_owasp_top + 1 %}
                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{counter_owasp|safe}}'>
+                          <select name='answer{{count_owasp_top|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
-                          <input type='hidden' name='vulnID{{counter_owasp|safe}}' value='{{owasp_kb_ids[counter_owasp]|safe}}'/>
-                          <input type='hidden' name='questionID{{counter_owasp|safe}}' value='{{owasp_ids[counter_owasp]|safe}}'/>
-                          <input type='hidden' name='listID{{counter_owasp|safe}}' value='{{owasp_list|safe}}'>
+                          <input type='hidden' name='vulnID{{count_owasp_top|safe}}' value='{{owasp_kb_ids[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='questionID{{count_owasp_top|safe}}' value='{{owasp_ids[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='listID{{count_owasp_top|safe}}' value='{{owasp_list|safe}}'>
                           {% endif %}
                           </td>
                       </tr>
@@ -289,6 +295,7 @@
                       <form method='post' action='/project-checklist-add'/>
 
                       {% set counter_owasp_lvl1 = 0 -%}
+                      {% set count_asvs_1 = 0 -%}
                       {% for entry in owasp_content_lvl1 -%}
 
                       <tr>
@@ -302,16 +309,17 @@
                       </td>
                         <td></td>
                           {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] != '0' -%}
+                          {% set count_asvs_1 = count_asvs_1 + 1 %}
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{counter_owasp_lvl1|safe}}'>
+                          <select name='answer{{count_asvs_1|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
-                          <input type='hidden' name='vulnID{{counter_owasp_lvl1|safe}}' value='{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
-                          <input type='hidden' name='questionID{{counter_owasp_lvl1|safe}}' value='{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
-                          <input type='hidden' name='listID{{counter_owasp_lvl1|safe}}' value='{{owasp_list_lvl1|safe}}'>
+                          <input type='hidden' name='vulnID{{count_asvs_1|safe}}' value='{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
+                          <input type='hidden' name='questionID{{count_asvs_1|safe}}' value='{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
+                          <input type='hidden' name='listID{{count_asvs_1|safe}}' value='{{owasp_list_lvl1|safe}}'>
                           {% endif %}
                           </td>
                       </tr>
@@ -359,6 +367,7 @@
                       <form method='post' action='/project-checklist-add'/>
 
                       {% set counter_owasp_lvl2 = 0 -%}
+                      {% set count_asvs_2 = 0 -%}
                       {% for entry in owasp_content_lvl2 -%}
 
 
@@ -373,16 +382,17 @@
                       </td>
                         <td></td>
                           {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] != '0' -%}
+                          {% set count_asvs_2 = count_asvs_2 + 1 %}
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{counter_owasp_lvl2|safe}}'>
+                          <select name='answer{{count_asvs_2|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
-                          <input type='hidden' name='vulnID{{counter_owasp_lvl2|safe}}' value='{{owasp_kb_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
-                          <input type='hidden' name='questionID{{counter_owasp_lvl2|safe}}' value='{{owasp_ids_lvl2[counter_owasp]|safe}}'/>
-                          <input type='hidden' name='listID{{counter_owasp_lvl2|safe}}' value='{{owasp_list_lvl2|safe}}'>
+                          <input type='hidden' name='vulnID{{count_asvs_2|safe}}' value='{{owasp_kb_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
+                          <input type='hidden' name='questionID{{count_asvs_2|safe}}' value='{{owasp_ids_lvl2[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='listID{{count_asvs_2|safe}}' value='{{owasp_list_lvl2|safe}}'>
                           {% endif %}
                           </td>
                       </tr>
@@ -430,6 +440,7 @@
                       <form method='post' action='/project-checklist-add'/>
 
                       {% set counter_owasp_lvl3 = 0 -%}
+                      {% set count_asvs_3 = 0 -%}
                       {% for entry in owasp_content_lvl3 -%}
 
 
@@ -444,16 +455,17 @@
                       </td>
                         <td></td>
                           {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
+                           {% set count_asvs_3 = count_asvs_3 + 1 %}
                            <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{counter_owasp_lvl3|safe}}'>
+                          <select name='answer{{count_asvs_3|safe}}'>
                           <option value='yes' >Yes</option>
                           <option value='no' >No</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
-                          <input type='hidden' name='vulnID{{counter_owasp_lvl3|safe}}' value='{{owasp_kb_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
-                          <input type='hidden' name='questionID{{counter_owasp_lvl3|safe}}' value='{{owasp_ids_lvl3[counter_owasp]|safe}}'/>
-                          <input type='hidden' name='listID{{counter_owasp_lvl3|safe}}' value='{{owasp_list_lvl3|safe}}'>
+                          <input type='hidden' name='vulnID{{count_asvs_3|safe}}' value='{{owasp_kb_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
+                          <input type='hidden' name='questionID{{count_asvs_3|safe}}' value='{{owasp_ids_lvl3[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='listID{{count_asvs_3|safe}}' value='{{owasp_list_lvl3|safe}}'>
                           {% endif %}
                           </td>
                       </tr>
@@ -502,6 +514,7 @@
                       <form method='post' action='/project-checklist-add'/>
                       
                   {% set counter_custom = 0 -%}
+                  {% set count_costum = 0 -%}
                   {% for entry in custom_content -%}
 
                   <tr>
@@ -515,16 +528,17 @@
                     </td>
                     <td></td>
                       {% if custom_kb_ids[counter_custom] != '0' -%}
+                      {% set count_costum = count_costum + 1 %}
                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                      <select name='answer{{counter_custom|safe}}' >
+                      <select name='answer{{count_costum|safe}}' >
                       <option value='yes' >Done</option>
                       <option value='no' >Not done</option>
                       <option value='yes' >N.A.</option>
                       </select>
                       </td>
-                      <input type='hidden' name='vulnID{{counter_custom|safe}}' value='{{custom_kb_ids[counter_custom]|safe}}'>
-                      <input type='hidden' name='questionID{{counter_custom|safe}}' value='{{custom_ids[counter_custom]|safe}}'>
-                      <input type='hidden' name='listID{{counter_custom|safe}}' value='{{custom_list|safe}}'>
+                      <input type='hidden' name='vulnID{{count_costum|safe}}' value='{{custom_kb_ids[counter_custom]|safe}}'>
+                      <input type='hidden' name='questionID{{count_costum|safe}}' value='{{custom_ids[counter_custom]|safe}}'>
+                      <input type='hidden' name='listID{{count_costum|safe}}' value='{{custom_list|safe}}'>
                        {% endif %}
                       </td>
                   </tr>

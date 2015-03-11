@@ -430,7 +430,7 @@ def add_checklist():
         abort(401)
     check_token()
     f = request.form
-    i = 0
+    i = 1
     for key in f.keys():
         for value in f.getlist(key):
             found = key.find("vuln")
