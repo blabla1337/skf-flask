@@ -22,7 +22,7 @@ This means u should not checking for malicious content like the tags or anything
 but only allowing the expected input. for instacne: when a user is expected to enter a username, 
 you couldset a regular expression checking only for alphanumerical characters.
 
-Also whenever a user is allowed to add href&#39;s, 
+Also whenever a user is allowed to add href's, 
 make sure the application checks whether the href contains 
 http:// or https://. This is done in order to prevent javscript: or data: type XSS injections. 
 

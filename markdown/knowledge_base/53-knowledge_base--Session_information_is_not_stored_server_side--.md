@@ -4,7 +4,8 @@ Session information is not stored serverside
 
 **Description:**
 
-Whenever session information is not stored serverside an attacker could easily tamper and manipulate these values.
+Whenever session information is not stored serverside an attacker could easily tamper 
+and manipulate these values.
 
 
 **Solution:**

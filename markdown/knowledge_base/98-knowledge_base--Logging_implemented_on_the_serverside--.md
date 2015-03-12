@@ -4,7 +4,8 @@ Logging implemented on the serverside
 
 **Description:**
 
-Logging should always be implemented on the serverside since an attacker otherwise manipulate the functionality and erase his traces.
+Logging should always be implemented on the serverside since an attacker otherwise 
+manipulate the functionality and erase his traces.
 
 
 **Solution:**
