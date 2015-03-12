@@ -17,7 +17,6 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
-    
 """
 
 import os, markdown, datetime, string, base64
@@ -512,7 +511,7 @@ def project_checklists(project_id):
             owasp_list_lvl1 = "ASVS-level-1"
             owasp_path_lvl1 = path.split("-")
             owasp_kb = owasp_path_lvl1[7]
-            owasp_id = get_num(owasp_path[1])
+            owasp_id = get_num(owasp_path_lvl1[1])
             owasp_items_lvl1.append(owasp_checklist_name)
             owasp_ids_lvl1.append(owasp_id)
             owasp_kb_ids_lvl1.append(owasp_kb)
@@ -525,7 +524,7 @@ def project_checklists(project_id):
             owasp_list_lvl2 = "ASVS-level-2"
             owasp_path_lvl2 = path.split("-")
             owasp_kb = owasp_path_lvl2[7]
-            owasp_id = get_num(owasp_path[1])
+            owasp_id = get_num(owasp_path_lvl2[1])
             owasp_items_lvl2.append(owasp_checklist_name)
             owasp_ids_lvl2.append(owasp_id)
             owasp_kb_ids_lvl2.append(owasp_kb)
@@ -539,7 +538,7 @@ def project_checklists(project_id):
             owasp_path_lvl3 = path.split("-")
             owasp_kb = owasp_path_lvl3[7]
             owasp_checklist_name = owasp_path_lvl3[3] +" "+owasp_path_lvl3[4]+" "+owasp_path_lvl3[5]
-            owasp_id = get_num(owasp_path[1])
+            owasp_id = get_num(owasp_path_lvl3[1])
             owasp_items_lvl3.append(owasp_checklist_name)
             owasp_ids_lvl3.append(owasp_id)
             owasp_kb_ids_lvl3.append(owasp_kb)
@@ -645,6 +644,7 @@ def checklist_results(entryDate):
     if not session.get('logged_in'):
         abort(401)
     id_items = []
+    questions = []
     content = []
     full_file_paths = []
     db = get_db()
@@ -653,9 +653,12 @@ def checklist_results(entryDate):
     entries = cur.fetchall()
     for entry in entries:
         projectName = entry[3]
+        questionID = entry[4]
         vulnID = entry[5]
         listName = entry[6]
         entryDate = entry[7]
+        print questionID
+
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
@@ -663,6 +666,16 @@ def checklist_results(entryDate):
             if int(vulnID) == int(path_vuln):
                 filemd = open(org_path, 'r').read()
                 content.append(Markup(markdown.markdown(filemd)))
+                full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
+                for path in full_file_paths:
+                    org_path = path
+                    custom_path = org_path.split("-")
+                    path_questionID = get_num(custom_path[1])
+                    if int(questionID) == int(path_questionID):
+                        print org_path
+                        filemd = open(org_path, 'r').read()
+                        questions.append(Markup(markdown.markdown(filemd)))
+
     return render_template('results-checklist-report.html', **locals())
 
 
