@@ -29,11 +29,11 @@ a, a:hover, a:focus {
 }
 ::selection {
 
-    background: #68dff0;
+    background: #4D6AA9;
     color: #fff;
 }
 ::-moz-selection {
-    background: #68dff0;
+    background: #4D6AA9;
     color: #fff;
 }
 
@@ -44,7 +44,7 @@ a, a:hover, a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-	background: #68dff0;
+	background: #4D6AA9;
 }
 
 .modal-title {
@@ -74,7 +74,7 @@ a, a:hover, a:focus {
 /*Theme Backgrounds*/
 
 .bg-theme {
-	background-color: #68dff0;
+	background-color: #4D6AA9;
 }
 
 .bg-theme02 {
@@ -92,7 +92,7 @@ a, a:hover, a:focus {
 
 .btn-theme {
   color: #fff;
-  background-color: #68dff0;
+  background-color: #4D6AA9;
   border-color: #48bcb4;
 }
 .btn-theme:hover,
@@ -206,11 +206,11 @@ hr {
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
-	background-color: #68dff0;
+	background-color: #4D6AA9;
 }
 
 .bg-theme {
-	background-color: #68dff0;
+	background-color: #4D6AA9;
 }
 
 ul.top-menu > li > .logout {
@@ -325,7 +325,7 @@ ul.sidebar-menu li ul.sub li a:hover {
 }
 
 ul.sidebar-menu li ul.sub li.active a {
-    color: #68dff0;
+    color: #4D6AA9;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -364,7 +364,7 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #68dff0;
+    background: #4D6AA9;
     color: #fff;
     display: block;
 
@@ -413,8 +413,8 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #f7c032;
-    border-bottom: 1px solid #c9aa5f;
+    background: #213A78;
+    border-bottom: 1px solid #213A78;
 }
 
 .wrapper {
@@ -445,7 +445,7 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
-    color: #68dff0;
+    color: #4D6AA9;
 }
 
 
@@ -523,7 +523,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended li p.green {
-    background-color: #68dff0;
+    background-color: #4D6AA9;
     color: #fff;
 }
 
@@ -727,9 +727,9 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     border-top-color: #FCB322 !important;
 }
 .notify-arrow-green {
-    border-color: transparent transparent #68dff0;
-    border-bottom-color: #68dff0 !important;
-    border-top-color: #68dff0 !important;
+    border-color: transparent transparent #4D6AA9;
+    border-bottom-color: #4D6AA9 !important;
+    border-top-color: #4D6AA9 !important;
 }
 
 
@@ -825,7 +825,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .ds a {
-	color: #68dff0;
+	color: #4D6AA9;
 }
 
 /* LINE ICONS CONFIGURATION */
@@ -921,7 +921,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     position: absolute;
     bottom: 0;
     background: #ff865c;
-    color: #68dff0;
+    color: #4D6AA9;
     width: 100%;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -1055,7 +1055,7 @@ PANELS CONFIGURATIONS
 /*Green Panel*/
 .green-panel {
 	text-align: center;
-	background: #68dff0;
+	background: #4D6AA9;
 }
 .green-panel .green-header {
 	background: #43b1a9;
@@ -1099,7 +1099,7 @@ PANELS CONFIGURATIONS
 }
 
 .white-panel i {
-	color: #68dff0;
+	color: #4D6AA9;
 	padding-right: 4px;
 	font-size: 14px;
 }
@@ -1514,7 +1514,7 @@ PANELS CONFIGURATIONS
 	font-weight: 900;
 }
 .profile-01 {
-	background: #68dff0;
+	background: #4D6AA9;
 	height: 50px;
 }
 .profile-01:hover {
@@ -1562,7 +1562,7 @@ PANELS CONFIGURATIONS
 	color: #cdcdcd;
 }
 .pr2-social a:hover {
-	color: #68dff0;
+	color: #4D6AA9;
 }
 .pr2-social i {
 	margin-top: 15px;
@@ -1618,7 +1618,7 @@ PANELS CONFIGURATIONS
     font-size: 12px;
 }
 .panel.terques-chart .chart-tittle .value a:hover, .panel.terques-chart .chart-tittle .value a.active {
-    color: #68dff0;
+    color: #4D6AA9;
     font-size: 12px;
 }
 .panel.terques-chart .chart-tittle {
@@ -1673,7 +1673,7 @@ PANELS CONFIGURATIONS
   display: block;
   position: relative;
   overflow: hidden;
-  background-color: #68dff0;
+  background-color: #4D6AA9;
   -webkit-transition: background-color 0.4s;
   -moz-transition: background-color 0.4s;
   -o-transition: background-color 0.4s;
@@ -1693,7 +1693,7 @@ PANELS CONFIGURATIONS
 }
 
 .project:hover .photo-wrapper {
-  background-color: #68dff0;
+  background-color: #4D6AA9;
 	background-image:url(../img/zoom.png);
 	background-repeat:no-repeat;
 	background-position:center;
@@ -1936,7 +1936,7 @@ label {
 	margin: 0;
 	padding: 25px 20px;
 	text-align: center;
-	background: #68dff0;
+	background: #4D6AA9;
 	border-radius: 5px 5px 0 0;
 	-webkit-border-radius: 5px 5px 0 0;
 	color: #fff;
@@ -2216,7 +2216,7 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #68dff0;
+    background: #7F8DC2;
     color: #fff;
     padding: 10px 0;
 }
