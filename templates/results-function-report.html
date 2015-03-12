@@ -36,20 +36,24 @@
             {% if entries.projectName != Null %}
             <div class="alert alert-danger">There were no Function results found. <br/>Create a project and use the Add functions form in order to create results.</div>
             {% else %}
-            <div class="alert alert-info">Summary of all function-results.<br>
-              You can download a DOCX file with the current security findings: 
-              <a href="/results-function-docx/{{projectID|safe}}">
-            <button class='btn btn-success btn-xs'><center>Download Report</center></button>
-            </a>
-            </div>
+            <div class="alert alert-info">Summary of all function-results, you can download a DOCX file with the current security findings: </div>
+          
             {% endif %}
+          
           </div>
+             <a href="/results-function-docx/{{projectID|safe}}">
+            <button class='btn' style="margin-bottom:15px; background-color:#4d6aa9; color:white;"><center>Download Report</center></button>
+            </a>
             {% set counter = 0 -%}
             {% for entry in content %}
-            <h2>Technology: {{entries[counter][8]}}</h2>                   
+            <div style="border-style:solid; border-color:#213a78; border-width:1px;"> 
+            <center><h2>{{entries[counter][8]}}</h2>  </center>                 
             <div class="well"> {{entry}} </div>
+            </div>
+            <br/>
             {% set counter = counter + 1 %}
             {% endfor %}
+            </div>
             </div><!-- /col-md-12 -->
 		  	</div><!-- /row -->
 		</section><!--/wrapper -->
