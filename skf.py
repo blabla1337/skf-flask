@@ -657,8 +657,6 @@ def checklist_results(entryDate):
         vulnID = entry[5]
         listName = entry[6]
         entryDate = entry[7]
-        print questionID
-
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
@@ -672,10 +670,8 @@ def checklist_results(entryDate):
                     custom_path = org_path.split("-")
                     path_questionID = get_num(custom_path[1])
                     if int(questionID) == int(path_questionID):
-                        print org_path
                         filemd = open(org_path, 'r').read()
                         questions.append(Markup(markdown.markdown(filemd)))
-
     return render_template('results-checklist-report.html', **locals())
 
 
@@ -685,6 +681,7 @@ def download_file_checklist(entryDate):
     if not session.get('logged_in'):
         abort(401)
     content_raw = []
+    content_checklist = []
     content_title = []
     db = get_db()
     cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=?",
@@ -711,6 +708,7 @@ def download_file_checklist(entryDate):
     document.add_paragraph('Introduction')
     for entry in entries:
         projectName = entry[3]
+        questionID = entry[4]
         vulnID = entry[5]
         listName = entry[6]
         entryDate = entry[7]
@@ -728,6 +726,14 @@ def download_file_checklist(entryDate):
                 content_title.append(text_encode.splitlines()[0])
                 text_encode = text_encode.replace("Solution", "\nSolution");
                 content_raw.append(text_encode)
+                full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
+                for path in full_file_paths:
+                    org_path = path
+                    custom_path = org_path.split("-")
+                    path_questionID = get_num(custom_path[1])
+                    if int(questionID) == int(path_questionID):
+                        filemd = open(org_path, 'r').read()
+                        content_checklist.append(Markup(markdown.markdown(filemd)))
     for item in content_title:
         p = document.add_paragraph(item)
         p.add_run()
@@ -744,6 +750,7 @@ def download_file_checklist(entryDate):
     i = 0
     for item in content_raw:
         document.add_heading(content_title[i], level=1)
+        document.add_heading(content_checklist[i], level=2)
         p = document.add_paragraph(item.partition("\n")[2])
         p.add_run("\n")
         document.add_page_break()
