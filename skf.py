@@ -19,7 +19,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os, markdown, datetime, string, base64
+import os, markdown, datetime, string, base64, re
 from OpenSSL import SSL, rand
 from docx import Document
 from BeautifulSoup import BeautifulSoup
@@ -62,6 +62,25 @@ def generate_pass():
     PWD_LEN = 12
     password = ''.join(chars[ord(c) % len(chars)] for c in os.urandom(PWD_LEN))
     return password
+    
+def log(id, message, value, threat, ip):
+    """Write a log to file"""
+    file = open('log.txt', 'a')
+    file.write(id+' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
+    file.close
+    count = 0
+    read = open('log.txt', 'r+')
+    for line in read:
+        match = re.search(r'FAIL', line)
+        # If-statement after search() tests if it succeeded
+        if match:                      
+            count += 1   
+            str(count) 
+            if count > 12:
+                session['logged_in'] = False
+                
+    
+            
 
 #secret key for flask internal session use
 secret_key = rand.bytes(512)
