@@ -688,9 +688,9 @@ def download_file_checklist(entryDate):
                [entryDate])
     entries = cur.fetchall()
     document = Document()
-    document.add_picture('static/img/logo.png', width=Inches(1.25))
+    document.add_picture('static/img/owaspdocx.png', width=Inches(4.75), height=Inches(1.15))
     last_paragraph = document.paragraphs[-1] 
-    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     document.add_heading('Security Knowledge Framework', 0)
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -800,9 +800,9 @@ def download_file_function(projectID):
                [projectID])
     entries = cur.fetchall()
     document = Document()
-    document.add_picture('static/img/logo.png', width=Inches(2.25), height=Inches(2.25))
+    document.add_picture('static/img/owaspdocx.png', width=Inches(4.75), height=Inches(1.15))
     last_paragraph = document.paragraphs[-1] 
-    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     document.add_heading('Security Knowledge Framework', 0)
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -811,7 +811,6 @@ def download_file_function(projectID):
     functionName = entries[0][3]
     functionDesc= entries[0][5]
     p.add_run('Function Name: '+functionName)
-    p.add_run('Function Description: '+functionDesc)
     p.add_run('\r\n')
     p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
     p.add_run('\r\n')
@@ -845,7 +844,7 @@ def download_file_function(projectID):
     )
     p.add_run('\n')
     p = document.add_paragraph(
-        'In the post-development stage of the security knowledge framework the developer double-checks his application against a checklist which consists out of several questions asking the developer about different stages of development and the methodology of implementing different types of functionality the application contains. After filling in this checklist the developer gains feedback on the failed checklist items providing him with solutions about how to solve the additional vulnerability\'s found in the application.'
+        'In this part of security knowledge framework, al the parameters and variables are audited by means of the information given by the programmer such as the processing techniques. Ech of these techniques contain different types of vulnerabilities when implemented in a inproper fashion. This document will rais awareness about these vulnerabilities, as well as presenting solutions for the right implementation.'
     )
     document.add_page_break()
     i = 0
