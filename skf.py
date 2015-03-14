@@ -978,7 +978,6 @@ def download_file_function(projectID):
 if __name__ == "__main__":
      if os.path.isfile('server.crt') == False: 
         #print "Generated Password for access SKF: "+password
-        log("Application started with generated ADHOC keys", "SUCCESS", "HIGH")
         app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
      else:
         context = SSL.Context(SSL.TLSv1_METHOD)
@@ -986,6 +985,5 @@ if __name__ == "__main__":
         context.use_certificate_file('server.crt') #Location of Cert
         context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
         #print "Generated Password for access SKF: "+password
-        log("Application started with users keys", "SUCCESS", "HIGH")
         app.run(host='127.0.0.1', port=5443, ssl_context=context)
 
