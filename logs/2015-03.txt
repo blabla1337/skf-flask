@@ -16,3 +16,4 @@
 2015-03-03/14/15 User supplied not an a-zA-Z0-9 value  FAIL MEDIUM 127.0.0.1
 2015-03-03/14/15 User supplied not an a-zA-Z0-9 value  FAIL MEDIUM 127.0.0.1
 2015-03-03/14/15 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-03/14/15 Valid username/password submit  SUCCESS HIGH 127.0.0.1

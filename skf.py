@@ -558,7 +558,7 @@ def project_checklists(project_id):
     check_token()
     valNum(project_id)
     db = get_db()
-    cur = db.execute('SELECT projectName FROM projects WHERE projectID=?',
+    cur = db.execute('SELECT * FROM projects WHERE projectID=?',
                         [project_id])
     row = cur.fetchall()
     prep = row[0]
@@ -882,7 +882,7 @@ def function_results(projectID):
     id_items = []
     content = []
     full_file_paths = []
-    valNum(project_id)
+    valNum(projectID)
     db = get_db()
     cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
                [projectID])
