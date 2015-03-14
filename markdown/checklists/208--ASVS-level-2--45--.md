@@ -1,1 +1,1 @@
-Verify all pages and resources require authentication except those specifically intended to be public (Principle of complete mediation).
+V2.1 Verify all pages and resources require authentication except those specifically intended to be public (Principle of complete mediation).

@@ -391,7 +391,7 @@
                           </select>
                           </td>
                           <input type='hidden' name='vulnID{{count_asvs_2|safe}}' value='{{owasp_kb_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
-                          <input type='hidden' name='questionID{{count_asvs_2|safe}}' value='{{owasp_ids_lvl2[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='questionID{{count_asvs_2|safe}}' value='{{owasp_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
                           <input type='hidden' name='listID{{count_asvs_2|safe}}' value='{{owasp_list_lvl2|safe}}'>
                           {% endif %}
                           </td>
@@ -464,7 +464,7 @@
                           </select>
                           </td>
                           <input type='hidden' name='vulnID{{count_asvs_3|safe}}' value='{{owasp_kb_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
-                          <input type='hidden' name='questionID{{count_asvs_3|safe}}' value='{{owasp_ids_lvl3[counter_owasp]|safe}}'/>
+                          <input type='hidden' name='questionID{{count_asvs_3|safe}}' value='{{owasp_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
                           <input type='hidden' name='listID{{count_asvs_3|safe}}' value='{{owasp_list_lvl3|safe}}'>
                           {% endif %}
                           </td>
@@ -514,7 +514,7 @@
                       <form method='post' action='/project-checklist-add'/>
                       
                   {% set counter_custom = 0 -%}
-                  {% set count_costum = 0 -%}
+                  {% set count_custom = 0 -%}
                   {% for entry in custom_content -%}
 
                   <tr>
@@ -528,17 +528,17 @@
                     </td>
                     <td></td>
                       {% if custom_kb_ids[counter_custom] != '0' -%}
-                      {% set count_costum = count_costum + 1 %}
+                      {% set count_custom = count_custom + 1 %}
                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                      <select name='answer{{count_costum|safe}}' >
+                      <select name='answer{{count_custom|safe}}' >
                       <option value='yes' >Done</option>
                       <option value='no' >Not done</option>
                       <option value='yes' >N.A.</option>
                       </select>
                       </td>
-                      <input type='hidden' name='vulnID{{count_costum|safe}}' value='{{custom_kb_ids[counter_custom]|safe}}'>
-                      <input type='hidden' name='questionID{{count_costum|safe}}' value='{{custom_ids[counter_custom]|safe}}'>
-                      <input type='hidden' name='listID{{count_costum|safe}}' value='{{custom_list|safe}}'>
+                      <input type='hidden' name='vulnID{{count_custom|safe}}' value='{{custom_kb_ids[counter_custom]|safe}}'>
+                      <input type='hidden' name='questionID{{count_custom|safe}}' value='{{custom_ids[counter_custom]|safe}}'>
+                      <input type='hidden' name='listID{{count_custom|safe}}' value='{{custom_list|safe}}'>
                        {% endif %}
                       </td>
                   </tr>

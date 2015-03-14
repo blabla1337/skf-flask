@@ -46,6 +46,7 @@
           <h1>Checklist: {{listName|safe}}</h1>
             {% set counter = 0 -%}
             {% for entry in content %}
+            {{questions}}
             <div style="border-style:solid; border-color:#213a78; border-width:1px;"> 
             <center><h4 style="color:black;">{{questions[counter]|safe}}</h4></center>                 
             <div class="well"> {{entry}} </div>

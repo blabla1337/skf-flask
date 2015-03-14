@@ -22,7 +22,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fooo</title>
+    <title>Security Knowledge Framework: Login</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
@@ -83,7 +83,7 @@
 				          <!-- modal -->
 		  				
 		  				
-	  				</div><! --/lock-screen -->
+	  				</div><!--/lock-screen -->
 	  			</div><!-- /col-lg-4 -->
 	  	
 	  	</div><!-- /container -->
@@ -98,30 +98,5 @@
     <script>
         $.backstretch("static/img/owasp.png", {speed: 500});
     </script>
-
-    <script>
-        function getTime()
-        {
-            var today=new Date();
-            var h=today.getHours();
-            var m=today.getMinutes();
-            var s=today.getSeconds();
-            // add a zero in front of numbers<10
-            m=checkTime(m);
-            s=checkTime(s);
-            document.getElementById('showtime').innerHTML=h+":"+m+":"+s;
-            t=setTimeout(function(){getTime()},500);
-        }
-
-        function checkTime(i)
-        {
-            if (i<10)
-            {
-                i="0" + i;
-            }
-            return i;
-        }
-    </script>
-
   </body>
 </html>

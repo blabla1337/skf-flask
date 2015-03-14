@@ -32,7 +32,6 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style-responsive.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/table-responsive.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/monokai_sublime.css') }}">
-
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
 
@@ -49,12 +48,7 @@
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
-      
-      
       <header class="header black-bg">
-      
-      
-      
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
@@ -66,8 +60,7 @@
                     <li><a class="logout" href="/logout">Logout</a></li>
             	</ul>
             </div>
-            
-                        <div style='margin-top:14px; margin-right:55px;' class="btn-group pull-right theme-container animated tada">
+            <div style='margin-top:14px; margin-right:55px;' class="btn-group pull-right theme-container animated tada">
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-code"></i><span
                         class="hidden-sm hidden-xs"> Code Language </span>
@@ -90,19 +83,14 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-              
-                
-              	  <p class="centered"><a href="profile.html"><img src="/static/img/owasp_logo.png" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">&nbsp;Security knowledge framework&nbsp;</h5>
-                 
-                 
+              	  <p class="centered"><a href="https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework"><img src="/static/img/owasp_logo.png" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered">&nbsp;Security Knowledge Framework&nbsp;</h5>
                   <li class="mt">
                       <a href="/knowledge-base">
                           <i class="fa fa-book"></i>
                           <span>Knowledge Base</span>
                       </a>
                   </li>
-
                   <li class="sub-menu">
                       <a href="/projects">
                           <i class="fa fa-th"></i>
@@ -110,11 +98,9 @@
                       </a>
                       <ul class="sub">
                           <li><a href="/project-new">New Project</a></li>
-
                           <li><a href="/project-list">List Projects</a></li>
-	                                            </ul>
+	                     </ul>
                   </li>
-
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-bar-chart-o"></i>
@@ -123,10 +109,8 @@
                       <ul class="sub">
                           <li><a  href="/results-checklists">Checklists</a></li>
                           <li><a  href="/results-functions">Functions</a></li>
-                                               </ul>
+                      </ul>
                   </li>
-                  
-
                   <li class="">
                       <a href="/code-examples">
                           <i class="fa fa-code"></i>

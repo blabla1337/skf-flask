@@ -47,12 +47,14 @@ def add_response_headers(headers={}):
     return decorator
 
 def security(f):
-    """This decorator passes multiple security headers"""
+    """This decorator passes multiple security headers and checks log file to block users"""
+    blockUsers()
     return add_response_headers({'X-Frame-Options': 'deny', 'X-XSS-Protection': '1', 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store, no-cache','Strict-Transport-Security': 'max-age=16070400; includeSubDomains', 'Server': 'Security Knowledge Framework'})(f)
 
 def check_token():
     """Checks the submitted CSRF token"""
     if not session.get('csrf_token') == request.form['csrf_token']:
+        log("User supplied not valid CSRF token", "FAIL", "HIGH")
         session.destroy()
         return abort(500)(f)
 
@@ -64,49 +66,52 @@ def generate_pass():
     return password
 
 
-def log(id, message, value, threat, ip):
-    """Write a log to file"""
+def log(message, value, threat):
+    """Create log file and write events triggerd by the user
+    The variables: message can be everything, value contains FAIL or SUCCESS and threat LOW MEDIUM HIGH"""
     dateLog  = datetime.datetime.now().strftime("%Y-%m")
     dateTime = datetime.datetime.now().strftime("%Y-%m-%D")
+    headers_list = request.headers.getlist("X-Forwarded-For")
+    ip = headers_list[0] if headers_list else request.remote_addr
     file = open('logs/'+dateLog+'.txt', 'a')
-    file.write(id+' '+ dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
+    file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
     file.close        
+
+def blockUsers():
+    """Check the log file and based on the FAIL items block a user"""
+    dateLog  = datetime.datetime.now().strftime("%Y-%m")
     count = 0
     read = open('logs/'+dateLog+'.txt', 'r+')
     for line in read:
-        match = re.search(r'FAIL', line)
+        match = re.search('FAIL', line)
         # If-statement after search() tests if it succeeded
         if match:                      
             count += 1   
             str(count) 
             if count > 12:
-                session['logged_in'] = False
+                abort(503)
+
     			                
 def valAlphaNum(value):
-    match = re.search(r'[^\.a-zA-z0-9]', value)
+    match = re.search(r'[^\.a-zA-Z0-9]', str(value))
     if match:
-        """doe shit"""
+        return True
     else:
-        """doe shit"""  
-        
-def valAlpha(value):
-    match = re.search(r'[^\.a-zA-z]', value)
-    if match:
-        """doe shit"""
-    else:
-        """doe shit"""    
+        log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
+        return False   
 
 def valNum(value):
-    match = re.search(r'[^\.0-9]', value)
+    match = re.search(r'[^\.0-9]', str(value))
     if match:
-        """doe shit"""
+        return True
     else:
-        """doe shit""" 
+        log("User supplied not an 0-9 value", "FAIL", "MEDIUM")
+        return False 
         
-def encoder(value):
+def encodeInput(value):
     match = re.search(r'"', value)
     if match:
-        """doe shit"""
+        """Encode evil chars..."""
         result = re.sub('"', "#enquot;", value)                
         return result
 
@@ -195,12 +200,12 @@ def show_landing():
     """show the loging page and set default code language"""
     return render_template('login.html')
     
-    
 @app.route('/dashboard', methods=['GET'])
 @security
 def dashboard():
     """show the landing page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /dashboard", "FAIL", "HIGH")
         abort(401)
     return render_template('dashboard.html')
 
@@ -213,10 +218,13 @@ def login():
     csrf_token = base64.b64encode(csrf_token_raw)
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
+            log("Invalid username submit", "FAIL", "LOW")
             error = 'Invalid username/password'
         elif request.form['password'] != app.config['PASSWORD']:
+            log("Invalid password submit", "FAIL", "LOW")
             error = 'Invalid username/password'
         else:
+            log("Valid username/password submit", "SUCCESS", "HIGH")
             session['logged_in'] = True
             session['csrf_token'] = csrf_token
             session['code_lang'] = "php"
@@ -227,6 +235,7 @@ def login():
 @security
 def logout():
     """logout and destroy session"""
+    log("Authenticated session destroyed", "SUCCESS", "LOW")
     session.pop('logged_in', None)
     return redirect(url_for('login'))
 
@@ -235,10 +244,13 @@ def logout():
 def set_code_lang(code_lang):
     """set a code language: php java python perl"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /code", "FAIL", "HIGH")
         abort(401)
     allowed = "php java python perl"
+    valAlphaNum(code_lang)
     found = allowed.find(code_lang)
     if found != -1:
+        #to do below security issue... Create white-list of the languages
         session['code_lang'] = code_lang
     return redirect(url_for('code_examples'))
 
@@ -247,6 +259,7 @@ def set_code_lang(code_lang):
 def code_examples():
     """Shows the knowledge base markdown files."""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /code-examples", "FAIL", "HIGH")
         abort(401)
     items = []
     id_items = []
@@ -269,21 +282,26 @@ def code_examples():
 def show_code_search():
     """show the landing page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /code-search", "FAIL", "HIGH")
         abort(401)
-    search = request.form['search']
+    search = request.form['search'].lower()
+    valAlphaNum(search)
+    content = []
+    kb_name = []
     full_file_paths = []
     allowed = set(string.ascii_lowercase + string.ascii_uppercase + '.')
     if set(session['code_lang']) <= allowed:
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
         for path in full_file_paths:
-            found = path.find(search)
+            path_lwr = path.lower()
+            found = path_lwr.find(search)
             if found != -1:
                 filemd = open(path, 'r').read()
-                content = Markup(markdown.markdown(filemd))
+                content.append(Markup(markdown.markdown(filemd)))
                 path = path.split("-")
                 y = len(path)-3
                 kb_name_uri = path[(y)]
-                kb_name = kb_name_uri.replace("_", " ")
+                kb_name.append(kb_name_uri.replace("_", " "))
     return render_template('code-examples-search.html', **locals())
 
 @app.route('/code-item', methods=['POST'])
@@ -291,8 +309,10 @@ def show_code_search():
 def show_code_item():
     """show the coding examples page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /code-item", "FAIL", "HIGH")
         abort(401)
     id = int(request.form['id'])
+    valNum(id)
     items = []
     full_file_paths = []
     allowed = set(string.ascii_lowercase + string.ascii_uppercase + '.')
@@ -309,19 +329,24 @@ def show_code_item():
 def show_kb_search():
     """show the knowledge base search page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /kb-search", "FAIL", "HIGH")
         abort(401)
-    search = request.form['search']
+    search = request.form['search'].lower()
+    valAlphaNum(search)
     full_file_paths = []
+    content = []
+    kb_name = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
     for path in full_file_paths:
-        found = path.find(search)
+        path_lwr = path.lower()
+        found = path_lwr.find(search)
         if found != -1:
             filemd = open(path, 'r').read()
-            content = Markup(markdown.markdown(filemd))
+            content.append(Markup(markdown.markdown(filemd)))
             path = path.split("-")
             y = len(path)-3
             kb_name_uri = path[(y)]
-            kb_name = kb_name_uri.replace("_", " ")
+            kb_name.append(kb_name_uri.replace("_", " "))
     return render_template('knowledge-base-search.html', **locals())
 
 
@@ -330,8 +355,10 @@ def show_kb_search():
 def show_kb_item():
     """show the knowledge base search result page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /kb-item", "FAIL", "HIGH")
         abort(401)
     id = int(request.form['id'])
+    valNum(id)
     items = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
@@ -346,6 +373,7 @@ def show_kb_item():
 def knowledge_base():
     """Shows the knowledge base markdown files."""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /knowledge-base", "FAIL", "HIGH")
         abort(401)
     items = []
     id_items = []
@@ -366,6 +394,7 @@ def knowledge_base():
 def projects():
     """show the create new project page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-new", "FAIL", "HIGH")
         abort(401)     
     return render_template('project-new.html', csrf_token=session['csrf_token'])
 
@@ -374,9 +403,13 @@ def projects():
 def add_entry():
     """add a new project to database"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-add", "FAIL", "HIGH")
         abort(401)
     check_token()
     db = get_db()
+    valAlphaNum(request.form['inputName'])
+    valAlphaNum(request.form['inputVersion'])
+    valAlphaNum(request.form['inputDesc'])
     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     db.execute('INSERT INTO projects (timestamp, projectName, projectVersion, projectDesc) VALUES (?, ?, ?, ?)',
                [date, request.form['inputName'], request.form['inputVersion'], request.form['inputDesc']])
@@ -388,8 +421,10 @@ def add_entry():
 def project_del():
     """delete project from database"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-del", "FAIL", "HIGH")
         abort(401)
     check_token()
+    valNum(request.form['projectID'])
     db = get_db()
     db.execute("DELETE FROM projects WHERE projectID=?",
                [request.form['projectID']])
@@ -401,6 +436,7 @@ def project_del():
 def project_list():
     """show the project list page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-list", "FAIL", "HIGH")
         abort(401)
     db = get_db()
     cur = db.execute('SELECT projectName, projectVersion, projectDESC, projectID, timestamp FROM projects ORDER BY projectID DESC')
@@ -412,7 +448,9 @@ def project_list():
 def projects_options(project_id):
     """show the project options landing page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-options", "FAIL", "HIGH")
         abort(401)
+    valNum(project_id)
     return render_template('project-options.html', project_id=project_id, csrf_token=session['csrf_token'])
 
 @app.route('/project-functions/<project_id>', methods=['GET'])
@@ -420,8 +458,10 @@ def projects_options(project_id):
 def project_functions(project_id):
     """show the lproject functions page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-functions", "FAIL", "HIGH")
         abort(401)
     techlist = projects_functions_techlist()
+    valNum(project_id)
     db = get_db()
     db.commit()
     cur = db.execute('SELECT p.paramID, p.functionName, p.functionDesc, p.projectID, p.tech, p.techVuln, p.entryDate, t.techName FROM parameters AS p JOIN techhacks AS t ON p.tech = t.techID WHERE p.projectID=? ORDER BY p.projectID DESC',
@@ -434,9 +474,11 @@ def project_functions(project_id):
 def function_del():
     """delete a project function"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-function-del", "FAIL", "HIGH")
         abort(401)
     check_token()
     id = int(request.form['projectID'])
+    valNum(id)
     db = get_db()
     db.execute("DELETE FROM parameters WHERE projectID=? AND paramID=?",
                [request.form['projectID'],request.form['paramID']])
@@ -450,9 +492,13 @@ def function_del():
 def add_function():
     """add a project function"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-function-add", "FAIL", "HIGH")
         abort(401)
     check_token()
     id = int(request.form['project_id'])
+    valNum(id)
+    valAlphaNum(request.form['functionName'])
+    valAlphaNum(request.form['functionDesc'])
     f = request.form
     for key in f.keys():
         for value in f.getlist(key):
@@ -463,6 +509,8 @@ def add_function():
                     items = value.split("-")
                     techID = items[2]
                     vulnID = items[0]
+                    valAlphaNum(techID)
+                    valAlphaNum(vulnID)
                     db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, techVuln, tech, projectID) VALUES (?, ?, ?, ?, ?, ?)',
                            [date, request.form['functionName'], request.form['functionDesc'], vulnID, techID, request.form['project_id']])
                     db.commit()
@@ -474,6 +522,7 @@ def add_function():
 def add_checklist():
     """add project checklist"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-checklist-add", "FAIL", "HIGH")
         abort(401)
     check_token()
     f = request.form
@@ -486,6 +535,12 @@ def add_checklist():
                 answerID = "answer"+str(i)
                 questionID = "questionID"+str(i) 
                 vulnID = "vulnID"+str(i)
+                valNum(request.form[answerID])
+                valNum(request.form[questionID])
+                valNum(request.form[request.form[vulnID]])
+                valNum(request.form[listID])
+                valAlphaNum(request.form['projectName'])
+                valAlphaNum(request.form['projectID'])
                 date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
                 db = get_db()
                 db.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?, ?)',
@@ -500,8 +555,10 @@ def add_checklist():
 def project_checklists(project_id):
     """show the project checklists page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /project-checklists", "FAIL", "HIGH")
         abort(401)
-    csrf_token=session['csrf_token']
+    check_token()
+    valNum(project_id)
     db = get_db()
     cur = db.execute('SELECT projectName FROM projects WHERE projectID=?',
                         [project_id])
@@ -641,6 +698,7 @@ def project_checklists(project_id):
 def results_checklists():
     """show the results checklists page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /results-checklists", "FAIL", "HIGH")
         abort(401)
     db = get_db()
     cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID  GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC')
@@ -652,6 +710,7 @@ def results_checklists():
 def results_functions():
     """show the results functions page"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /results-functions", "FAIL", "HIGH")
         abort(401)
     db = get_db()
     cur = db.execute('SELECT p.projectName, p.projectID, par.entryDate, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID FROM projects AS p join parameters AS par on p.projectID = par.projectID GROUP BY p.projectVersion ')
@@ -663,6 +722,7 @@ def results_functions():
 def functions_del():
     """delete functions result items"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /results-functions-del", "FAIL", "HIGH")
         abort(401)
     check_token()
     db = get_db()
@@ -676,6 +736,7 @@ def functions_del():
 def checklists_del():
     """delete checklist result item"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /results-checklists-del", "FAIL", "HIGH")
         abort(401)
     check_token()
     db = get_db()
@@ -690,6 +751,7 @@ def checklists_del():
 def checklist_results(entryDate):
     """show checklist results report"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /results-checklist-report", "FAIL", "HIGH")
         abort(401)
     id_items = []
     questions = []
@@ -702,6 +764,7 @@ def checklist_results(entryDate):
     for entry in entries:
         projectName = entry[3]
         questionID = entry[4]
+        print questionID
         vulnID = entry[5]
         listName = entry[6]
         entryDate = entry[7]
@@ -727,6 +790,7 @@ def checklist_results(entryDate):
 def download_file_checklist(entryDate):
     """Download checklist results report in docx"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /results-checklist-docx", "FAIL", "HIGH")
         abort(401)
     content_raw = []
     content_checklist = []
@@ -815,10 +879,12 @@ def download_file_checklist(entryDate):
 def function_results(projectID):
     """show checklist results report"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /results-function-report", "FAIL", "HIGH")
         abort(401)
     id_items = []
     content = []
     full_file_paths = []
+    valNum(project_id)
     db = get_db()
     cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
                [projectID])
@@ -839,10 +905,12 @@ def function_results(projectID):
 def download_file_function(projectID):
     """Download checklist results report in docx"""
     if not session.get('logged_in'):
+        log("User with no valid session tries access to page /results-function-docx", "FAIL", "HIGH")
         abort(401)
     content_raw = []
     content_title = []
     content_tech = []
+    valNum(project_id)
     db = get_db()
     cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
                [projectID])
@@ -912,6 +980,7 @@ def download_file_function(projectID):
 if __name__ == "__main__":
      if os.path.isfile('server.crt') == False: 
         #print "Generated Password for access SKF: "+password
+        log("Application started with generated ADHOC keys", "SUCCESS", "HIGH")
         app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
      else:
         context = SSL.Context(SSL.TLSv1_METHOD)
@@ -919,5 +988,6 @@ if __name__ == "__main__":
         context.use_certificate_file('server.crt') #Location of Cert
         context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
         #print "Generated Password for access SKF: "+password
+        log("Application started with users keys", "SUCCESS", "HIGH")
         app.run(host='127.0.0.1', port=5443, ssl_context=context)
 
