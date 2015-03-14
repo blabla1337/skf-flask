@@ -93,20 +93,18 @@ def blockUsers():
 
     			                
 def valAlphaNum(value):
-    match = re.search(r'[^\.a-zA-Z0-9]', str(value))
+    match = re.match(r"[a-zA-Z0-9]", value)
     if match:
         return True
     else:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
-        return False   
 
 def valNum(value):
-    match = re.search(r'[^\.0-9]', str(value))
+    match = re.match(r'[0-9]', str(value))
     if match:
         return True
     else:
         log("User supplied not an 0-9 value", "FAIL", "MEDIUM")
-        return False 
         
 def encodeInput(value):
     match = re.search(r'"', value)
