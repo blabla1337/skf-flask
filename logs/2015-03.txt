@@ -1,4 +1,9 @@
-1 this is an error message  FAIL test ip
-1 this is an error message  FAIL test ip
-1 this is an error message  FAIL test ip
-1 this is an error message  FAIL test ip
+1 2015-03-03/14/15 There was a valid input match  SUCCESS NULL 0
+1 2015-03-03/14/15 There was a valid input match  FAIL MED 0
+1 2015-03-03/14/15 There was a valid input match  FAIL MED 0
+1 2015-03-03/14/15 There was a valid input match  SUCCESS NULL 0
+1 2015-03-03/14/15 1  1 None 1
+1 2015-03-03/14/15 1  1 #enquot; 1
+1 2015-03-03/14/15 1  1 #enquot; 1
+1 2015-03-03/14/15 1  1 #enquot;#enquot; 1
+1 2015-03-03/14/15 1  1 #enquot; foo #enquot; bar #enquot; test #enquot; it #enquot; #enquot; 1

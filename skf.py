@@ -63,7 +63,7 @@ def generate_pass():
     password = ''.join(chars[ord(c) % len(chars)] for c in os.urandom(PWD_LEN))
     return password
 
-@app.route('/warning', methods=['GET', 'POST'])
+
 def log(id, message, value, threat, ip):
     """Write a log to file"""
     dateLog  = datetime.datetime.now().strftime("%Y-%m")
@@ -82,8 +82,33 @@ def log(id, message, value, threat, ip):
             if count > 12:
                 session['logged_in'] = False
     			                
-			    
-                
+def valAlphaNum(value):
+    match = re.search(r'[^\.a-zA-z0-9]', value)
+    if match:
+        """doe shit"""
+    else:
+        """doe shit"""  
+        
+def valAlpha(value):
+    match = re.search(r'[^\.a-zA-z]', value)
+    if match:
+        """doe shit"""
+    else:
+        """doe shit"""    
+
+def valNum(value):
+    match = re.search(r'[^\.0-9]', value)
+    if match:
+        """doe shit"""
+    else:
+        """doe shit""" 
+        
+def encoder(value):
+    match = re.search(r'"', value)
+    if match:
+        """doe shit"""
+        result = re.sub('"', "#enquot;", value)                
+        return result
 
 #secret key for flask internal session use
 secret_key = rand.bytes(512)
@@ -341,8 +366,7 @@ def knowledge_base():
 def projects():
     """show the create new project page"""
     if not session.get('logged_in'):
-        abort(401)
-    log("1","this is an error message","FAIL","test","ip")      
+        abort(401)     
     return render_template('project-new.html', csrf_token=session['csrf_token'])
 
 @app.route('/project-add', methods=['POST'])
