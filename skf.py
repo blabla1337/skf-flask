@@ -98,6 +98,7 @@ def valAlphaNum(value):
         return True
     else:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
+        
 
 def valNum(value):
     match = re.match(r'[0-9]', str(value))
@@ -105,6 +106,7 @@ def valNum(value):
         return True
     else:
         log("User supplied not an 0-9 value", "FAIL", "MEDIUM")
+        
         
 def encodeInput(value):
     match = re.search(r'"', value)
@@ -125,7 +127,8 @@ app.config.update(dict(
     SECRET_KEY=secret_key,
     USERNAME='admin',
     SESSION_COOKIE_SECURE=False,
-    PASSWORD='default'
+    PASSWORD='default',
+    SESSION_COOKIE_HTTPONLY = True
 ))
 
 
@@ -533,10 +536,10 @@ def add_checklist():
                 answerID = "answer"+str(i)
                 questionID = "questionID"+str(i) 
                 vulnID = "vulnID"+str(i)
-                valNum(request.form[answerID])
+                valAlphaNum(request.form[answerID])
                 valNum(request.form[questionID])
-                valNum(request.form[request.form[vulnID]])
-                valNum(request.form[listID])
+                valNum(request.form[vulnID])
+                valAlphaNum(request.form[listID])
                 valAlphaNum(request.form['projectName'])
                 valAlphaNum(request.form['projectID'])
                 date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -555,7 +558,7 @@ def project_checklists(project_id):
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-checklists", "FAIL", "HIGH")
         abort(401)
-    check_token()
+    
     valNum(project_id)
     db = get_db()
     cur = db.execute('SELECT * FROM projects WHERE projectID=?',
@@ -689,7 +692,7 @@ def project_checklists(project_id):
             custom_kb_ids.append(custom_kb)
             filemd = open(custom_org_path, 'r').read()
             custom_content.append(Markup(markdown.markdown(filemd)))
-    return render_template('project-checklists.html', **locals())
+    return render_template('project-checklists.html', csrf_token=session['csrf_token'],  **locals())
 
 @app.route('/results-checklists', methods=['GET'])
 @security
