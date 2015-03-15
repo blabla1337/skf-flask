@@ -55,7 +55,7 @@ def check_token():
     """Checks the submitted CSRF token"""
     if not session.get('csrf_token') == request.form['csrf_token']:
         log("User supplied not valid CSRF token", "FAIL", "HIGH")
-        session.destroy()
+        session.clear()
         return abort(500)(f)
 
 def generate_pass():
@@ -98,6 +98,8 @@ def valAlphaNum(value):
         return True
     else:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
+        #session.clear()
+        return False
         
 
 def valNum(value):
@@ -106,14 +108,18 @@ def valNum(value):
         return True
     else:
         log("User supplied not an 0-9 value", "FAIL", "MEDIUM")
-        
-        
-def encodeInput(value):
-    match = re.search(r'"', value)
-    if match:
-        """Encode evil chars..."""
-        result = re.sub('"', "#enquot;", value)                
-        return result
+        session.clear()
+        return False
+
+def encodeInput(html):
+    """Encode evil chars..."""
+    result = re.sub('"', "&#34;", html)
+    result = re.sub("'", "&#39;", result)
+    result = re.sub("&", "&amp;", result)
+    result = re.sub("<", "&lt;", result)
+    result = re.sub(">", "&gt;", result)
+    log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
+    return result
 
 #secret key for flask internal session use
 secret_key = rand.bytes(512)
@@ -220,6 +226,7 @@ def login():
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
             log("Invalid username submit", "FAIL", "LOW")
+            valAlphaNum(request.form['username'])
             error = 'Invalid username/password'
         elif request.form['password'] != app.config['PASSWORD']:
             log("Invalid password submit", "FAIL", "LOW")
@@ -238,6 +245,7 @@ def logout():
     """logout and destroy session"""
     log("Authenticated session destroyed", "SUCCESS", "LOW")
     session.pop('logged_in', None)
+    session.clear()
     return redirect(url_for('login'))
 
 @app.route('/code/<code_lang>', methods=['GET'])
@@ -249,10 +257,11 @@ def set_code_lang(code_lang):
         abort(401)
     allowed = "php java python perl"
     valAlphaNum(code_lang)
-    found = allowed.find(code_lang)
+    safe_code_lang = encodeInput(code_lang)
+    found = allowed.find(safe_code_lang)
     if found != -1:
         #to do below security issue... Create white-list of the languages
-        session['code_lang'] = code_lang
+        session['code_lang'] = safe_code_lang
     return redirect(url_for('code_examples'))
 
 @app.route('/code-examples', methods=['GET'])
@@ -287,6 +296,7 @@ def show_code_search():
         abort(401)
     search = request.form['search'].lower()
     valAlphaNum(search)
+    safe_search = encodeInput(search)
     content = []
     kb_name = []
     full_file_paths = []
@@ -295,7 +305,7 @@ def show_code_search():
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
         for path in full_file_paths:
             path_lwr = path.lower()
-            found = path_lwr.find(search)
+            found = path_lwr.find(safe_search)
             if found != -1:
                 filemd = open(path, 'r').read()
                 content.append(Markup(markdown.markdown(filemd)))
@@ -314,13 +324,14 @@ def show_code_item():
         abort(401)
     id = int(request.form['id'])
     valNum(id)
+    safe_id = encodeInput()
     items = []
     full_file_paths = []
     allowed = set(string.ascii_lowercase + string.ascii_uppercase + '.')
     if set(session['code_lang']) <= allowed:
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
         for path in full_file_paths:
-            if id == get_num(path):
+            if safe_id == get_num(path):
                 filemd = open(path, 'r').read()
                 content = Markup(markdown.markdown(filemd)) 
     return render_template('code-examples-item.html', **locals())
@@ -334,13 +345,14 @@ def show_kb_search():
         abort(401)
     search = request.form['search'].lower()
     valAlphaNum(search)
+    safe_encodeInput(search)
     full_file_paths = []
     content = []
     kb_name = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
     for path in full_file_paths:
         path_lwr = path.lower()
-        found = path_lwr.find(search)
+        found = path_lwr.find(safe_search)
         if found != -1:
             filemd = open(path, 'r').read()
             content.append(Markup(markdown.markdown(filemd)))
@@ -360,11 +372,12 @@ def show_kb_item():
         abort(401)
     id = int(request.form['id'])
     valNum(id)
+    safe_id = encodeInput(id)
     items = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
     for path in full_file_paths:
-        if id == get_num(path):
+        if safe_id == get_num(path):
             filemd = open(path, 'r').read()
             content = Markup(markdown.markdown(filemd)) 
     return render_template('knowledge-base-item.html', **locals())
@@ -411,9 +424,12 @@ def add_entry():
     valAlphaNum(request.form['inputName'])
     valAlphaNum(request.form['inputVersion'])
     valAlphaNum(request.form['inputDesc'])
+    safe_inputName = encodeInput(request.form['inputName'])
+    safe_inputVersion = encodeInput(request.form['inputVersion'])
+    safe_inputDesc = encodeInput(request.form['inputDesc'])
     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     db.execute('INSERT INTO projects (timestamp, projectName, projectVersion, projectDesc) VALUES (?, ?, ?, ?)',
-               [date, request.form['inputName'], request.form['inputVersion'], request.form['inputDesc']])
+               [date, safe_inputName, safe_inputVersion, safe_inputDesc])
     db.commit()
     return redirect(url_for('project_list'))
 
@@ -424,11 +440,12 @@ def project_del():
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-del", "FAIL", "HIGH")
         abort(401)
+    id = int(request.form['projectID'])
     check_token()
-    valNum(request.form['projectID'])
+    valNum(id)
     db = get_db()
     db.execute("DELETE FROM projects WHERE projectID=?",
-               [request.form['projectID']])
+               [id])
     db.commit()
     return render_template('reload.html')
 
@@ -452,7 +469,8 @@ def projects_options(project_id):
         log("User with no valid session tries access to page /project-options", "FAIL", "HIGH")
         abort(401)
     valNum(project_id)
-    return render_template('project-options.html', project_id=project_id, csrf_token=session['csrf_token'])
+    safe_project_id = encodeInput(project_id)
+    return render_template('project-options.html', project_id=safe_project_id, csrf_token=session['csrf_token'])
 
 @app.route('/project-functions/<project_id>', methods=['GET'])
 @security
@@ -463,10 +481,11 @@ def project_functions(project_id):
         abort(401)
     techlist = projects_functions_techlist()
     valNum(project_id)
+    safe_project_id = encodeInput(project_id)
     db = get_db()
     db.commit()
     cur = db.execute('SELECT p.paramID, p.functionName, p.functionDesc, p.projectID, p.tech, p.techVuln, p.entryDate, t.techName FROM parameters AS p JOIN techhacks AS t ON p.tech = t.techID WHERE p.projectID=? ORDER BY p.projectID DESC',
-                      [project_id])
+                      [safe_project_id])
     entries = cur.fetchall()
     return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries, csrf_token=session['csrf_token'])
 
@@ -479,10 +498,12 @@ def function_del():
         abort(401)
     check_token()
     id = int(request.form['projectID'])
+    id_param = int(request.form['paramID'])
     valNum(id)
+    valNum(id_param)
     db = get_db()
     db.execute("DELETE FROM parameters WHERE projectID=? AND paramID=?",
-               [request.form['projectID'],request.form['paramID']])
+               [id,id_param])
     db.commit()
     redirect_url = "/project-functions/"+str(id)
     return redirect(redirect_url)
@@ -500,6 +521,8 @@ def add_function():
     valNum(id)
     valAlphaNum(request.form['functionName'])
     valAlphaNum(request.form['functionDesc'])
+    safe_fName = encodeInput(request.form['functionName'])
+    safe_fDesc = encodeInput(request.form['functionDesc'])
     f = request.form
     for key in f.keys():
         for value in f.getlist(key):
@@ -512,8 +535,10 @@ def add_function():
                     vulnID = items[0]
                     valAlphaNum(techID)
                     valAlphaNum(vulnID)
+                    safe_techID = encodeInput(techID)
+                    safe_vulnID = encodeInput(vulnID)
                     db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, techVuln, tech, projectID) VALUES (?, ?, ?, ?, ?, ?)',
-                           [date, request.form['functionName'], request.form['functionDesc'], vulnID, techID, request.form['project_id']])
+                           [date, safe_fName, safe_fDesc, safe_vulnID, safe_techID, id])
                     db.commit()
     redirect_url = '/project-functions/'+str(id) 
     return redirect(redirect_url)
@@ -542,10 +567,16 @@ def add_checklist():
                 valAlphaNum(request.form[listID])
                 valAlphaNum(request.form['projectName'])
                 valAlphaNum(request.form['projectID'])
+                safe_answerID = encodeInput(request.form[answerID])
+                safe_questionID = encodeInput(request.form[questionID])
+                safe_vulnID = encodeInput(request.form[vulnID])
+                safe_listID = encodeInput(request.form[listID])
+                safe_pName = encodeInput(request.form['projectName'])
+                safe_id = encodeInput(request.form['projectID'])
                 date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
                 db = get_db()
                 db.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?, ?)',
-                           [date, request.form[answerID], request.form['projectName'], request.form['projectID'], request.form[questionID], request.form[vulnID], request.form[listID]])
+                           [date, safe_answerID, safe_pName, safe_id, safe_questionID, safe_vulnID, safe_listID])
                 db.commit()
                 i += 1
     redirect_url = "/results-checklists"
@@ -558,11 +589,11 @@ def project_checklists(project_id):
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-checklists", "FAIL", "HIGH")
         abort(401)
-    
     valNum(project_id)
+    safe_id = int(project_id)
     db = get_db()
     cur = db.execute('SELECT * FROM projects WHERE projectID=?',
-                        [project_id])
+                        [safe_id])
     row = cur.fetchall()
     prep = row[0]
     projectName = prep[0]
@@ -726,9 +757,10 @@ def functions_del():
         log("User with no valid session tries access to page /results-functions-del", "FAIL", "HIGH")
         abort(401)
     check_token()
+    safe_entryDate = encodeInput(request.form['entryDate'])
     db = get_db()
     db.execute("DELETE FROM parameters WHERE entryDate=?",
-               [request.form['entryDate']])
+               [safe_entryDate])
     db.commit()
     return render_template('reload.html')
 
@@ -740,9 +772,10 @@ def checklists_del():
         log("User with no valid session tries access to page /results-checklists-del", "FAIL", "HIGH")
         abort(401)
     check_token()
+    safe_entryDate = encodeInput(request.form['entryDate'])
     db = get_db()
     db.execute("DELETE FROM questionlist WHERE entryDate=?",
-               [request.form['entryDate']])
+               [safe_entryDate])
     db.commit()
     return render_template('reload.html')
 
@@ -758,14 +791,14 @@ def checklist_results(entryDate):
     questions = []
     content = []
     full_file_paths = []
+    safe_entryDate = encodeInput(entryDate)
     db = get_db()
     cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=?",
-               [entryDate])
+               [safe_entryDate])
     entries = cur.fetchall()
     for entry in entries:
         projectName = entry[3]
         questionID = entry[4]
-        print questionID
         vulnID = entry[5]
         listName = entry[6]
         entryDate = entry[7]
@@ -796,9 +829,10 @@ def download_file_checklist(entryDate):
     content_raw = []
     content_checklist = []
     content_title = []
+    safe_entryDate = encodeInput(entryDate)
     db = get_db()
     cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=?",
-               [entryDate])
+               [safe_entryDate])
     entries = cur.fetchall()
     document = Document()
     document.add_picture('static/img/owaspdocx.png', width=Inches(4.75), height=Inches(1.15))
@@ -886,9 +920,10 @@ def function_results(projectID):
     content = []
     full_file_paths = []
     valNum(projectID)
+    safe_id = encodeInput(projectID)
     db = get_db()
     cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
-               [projectID])
+               [safe_id])
     entries = cur.fetchall()
     for entry in entries:
         projectName = entry[0]
@@ -912,9 +947,10 @@ def download_file_function(projectID):
     content_title = []
     content_tech = []
     valNum(project_id)
+    safe_id = encodeInput(projectID)
     db = get_db()
     cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
-               [projectID])
+               [safe_id])
     entries = cur.fetchall()
     document = Document()
     document.add_picture('static/img/owaspdocx.png', width=Inches(4.75), height=Inches(1.15))
