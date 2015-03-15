@@ -324,14 +324,13 @@ def show_code_item():
         abort(401)
     id = int(request.form['id'])
     valNum(id)
-    safe_id = encodeInput()
     items = []
     full_file_paths = []
     allowed = set(string.ascii_lowercase + string.ascii_uppercase + '.')
     if set(session['code_lang']) <= allowed:
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
         for path in full_file_paths:
-            if safe_id == get_num(path):
+            if id == get_num(path):
                 filemd = open(path, 'r').read()
                 content = Markup(markdown.markdown(filemd)) 
     return render_template('code-examples-item.html', **locals())
@@ -345,7 +344,7 @@ def show_kb_search():
         abort(401)
     search = request.form['search'].lower()
     valAlphaNum(search)
-    safe_encodeInput(search)
+    safe_search = encodeInput(search)
     full_file_paths = []
     content = []
     kb_name = []
@@ -372,12 +371,11 @@ def show_kb_item():
         abort(401)
     id = int(request.form['id'])
     valNum(id)
-    safe_id = encodeInput(id)
     items = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
     for path in full_file_paths:
-        if safe_id == get_num(path):
+        if id == get_num(path):
             filemd = open(path, 'r').read()
             content = Markup(markdown.markdown(filemd)) 
     return render_template('knowledge-base-item.html', **locals())
