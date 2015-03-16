@@ -62,9 +62,8 @@ def generate_pass():
     chars = string.letters + string.digits + '+/'
     assert 256 % len(chars) == 0  # non-biased later modulo
     PWD_LEN = 12
-    password = ''.join(chars[ord(c) % len(chars)] for c in os.urandom(PWD_LEN))
-    return password
-
+    generated_pass = ''.join(chars[ord(c) % len(chars)] for c in os.urandom(PWD_LEN))
+    return generated_pass
 
 def log(message, value, threat):
     """Create log file and write events triggerd by the user
@@ -75,8 +74,7 @@ def log(message, value, threat):
     ip = headers_list[0] if headers_list else request.remote_addr
     file = open('logs/'+dateLog+'.txt', 'a')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
-    file.close 
-         
+    file.close  
 
 def blockUsers():
     """Check the log file and based on the FAIL items block a user"""
@@ -90,12 +88,10 @@ def blockUsers():
             count += 1   
             str(count) 
             if count > 11:
-                sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')
-                
-
+                sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')            
     			                
 def valAlphaNum(value):
-    match = re.findall(r"[^a-zA-Z0-9_]", value)
+    match = re.findall(r"[^a-zA-Z0-9_-]", value)
     if match:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
         blockUsers()
@@ -103,7 +99,6 @@ def valAlphaNum(value):
         return False
     else:
 	    return True
-        
 
 def valNum(value):
     match = re.findall(r'[a-zA-Z_]', str(value))
@@ -114,7 +109,6 @@ def valNum(value):
     else:
         return True
         
-
 def encodeInput(html):
     """Encode evil chars..."""
     result = re.sub('"', "&quot;", html)
@@ -128,17 +122,19 @@ def encodeInput(html):
 
 #secret key for flask internal session use
 secret_key = rand.bytes(512)
-#password = generate_pass()
-
+password   = generate_pass()
+csrf_token_raw = rand.bytes(128)
+csrf_token = base64.b64encode(csrf_token_raw)
+    
 # Load default config and override config from an environment variable
 # You can also replace password with static password:  PASSWORD='pass!@#example'
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'skf.db'),
-    DEBUG=True,
+    DEBUG=False,
     SECRET_KEY=secret_key,
     USERNAME='admin',
-    SESSION_COOKIE_SECURE=False,
-    PASSWORD='default',
+    SESSION_COOKIE_SECURE=True,
+    PASSWORD=password,
     SESSION_COOKIE_HTTPONLY = True
 ))
 
@@ -210,7 +206,9 @@ def projects_functions_techlist():
 @security
 def show_landing():
     """show the loging page and set default code language"""
-    return render_template('login.html')
+    session['csrf_token'] = csrf_token
+    session['code_lang'] = "php"
+    return render_template('login.html', csrf_token=session['csrf_token'])
     
 @app.route('/dashboard', methods=['GET'])
 @security
@@ -226,10 +224,9 @@ def dashboard():
 @security
 def login():
     blockUsers()
+    check_token()
     """validate the login data for access dashboard page"""
     error = None
-    csrf_token_raw = rand.bytes(128)
-    csrf_token = base64.b64encode(csrf_token_raw)
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
             log("Invalid username submit", "FAIL", "LOW")
@@ -244,7 +241,7 @@ def login():
             session['csrf_token'] = csrf_token
             session['code_lang'] = "php"
             return render_template('dashboard.html')
-    return render_template('login.html', error=error)
+    return render_template('login.html', error=error, )
 
 @app.route('/logout', methods=['GET', 'POST'])
 @security
@@ -977,7 +974,7 @@ def download_file_function(projectID):
     content_raw = []
     content_title = []
     content_tech = []
-    valNum(project_id)
+    valNum(projectID)
     safe_id = encodeInput(projectID)
     db = get_db()
     cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
@@ -1046,14 +1043,13 @@ def download_file_function(projectID):
     return make_response((body, headers))
 
 if __name__ == "__main__":
-     if os.path.isfile('server.crt') == False: 
-        #print "Generated Password for access SKF: "+password
-        app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
-     else:
-        context = SSL.Context(SSL.TLSv1_METHOD)
-        context.use_privatekey_file('server.key')  #Location of Key
-        context.use_certificate_file('server.crt') #Location of Cert
-        context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
-        #print "Generated Password for access SKF: "+password
-        app.run(host='127.0.0.1', port=5443, ssl_context=context)
+    print "Generated Password for access SKF: "+password    
+    if os.path.isfile('server.crt') == False: 
+       app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
+    else:
+       context = SSL.Context(SSL.TLSv1_METHOD)
+       context.use_privatekey_file('server.key')  #Location of Key
+       context.use_certificate_file('server.crt') #Location of Cert
+       context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
+       app.run(host='127.0.0.1', port=5443, ssl_context=context)
 
