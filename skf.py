@@ -75,7 +75,8 @@ def log(message, value, threat):
     ip = headers_list[0] if headers_list else request.remote_addr
     file = open('logs/'+dateLog+'.txt', 'a')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
-    file.close        
+    file.close 
+         
 
 def blockUsers():
     """Check the log file and based on the FAIL items block a user"""
@@ -88,8 +89,9 @@ def blockUsers():
         if match:                      
             count += 1   
             str(count) 
-            if count > 12:
-                abort(503)
+            if count > 11:
+                session.clear()
+                
 
     			                
 def valAlphaNum(value):
@@ -98,17 +100,17 @@ def valAlphaNum(value):
         return True
     else:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
-        #session.clear()
+        abort(406)
         return False
         
 
 def valNum(value):
     match = re.match(r'[0-9]', str(value))
-    if match:
+    while match:
         return True
     else:
         log("User supplied not an 0-9 value", "FAIL", "MEDIUM")
-        session.clear()
+        abort(406)
         return False
 
 def encodeInput(html):
@@ -118,7 +120,7 @@ def encodeInput(html):
     result = re.sub("&", "&amp;", result)
     result = re.sub("<", "&lt;", result)
     result = re.sub(">", "&gt;", result)
-    log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
+    log("User supplied input was encoded", "SUCCESS", "NULL")
     return result
 
 #secret key for flask internal session use
@@ -594,7 +596,7 @@ def project_checklists(project_id):
                         [safe_id])
     row = cur.fetchall()
     prep = row[0]
-    projectName = prep[0]
+    projectName = prep[1]
     owasp_items = []
     owasp_ids = []
     owasp_kb_ids = []
@@ -895,7 +897,9 @@ def download_file_checklist(entryDate):
     i = 0
     for item in content_raw:
         document.add_heading(content_title[i], level=1)
-        document.add_heading(content_checklist[i], level=2)
+        result = re.sub("<p>", " ", content_checklist[i])
+        result1 = re.sub("</p>", " ", result)
+        document.add_heading(result1, level=4)
         p = document.add_paragraph(item.partition("\n")[2])
         p.add_run("\n")
         document.add_page_break()
