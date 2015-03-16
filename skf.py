@@ -19,7 +19,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os, markdown, datetime, string, base64, re
+import os, markdown, datetime, string, base64, re, sys
 from OpenSSL import SSL, rand
 from docx import Document
 from BeautifulSoup import BeautifulSoup
@@ -90,7 +90,7 @@ def blockUsers():
             count += 1   
             str(count) 
             if count > 11:
-                session.clear()
+                sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')
                 
 
     			                
@@ -98,6 +98,7 @@ def valAlphaNum(value):
     match = re.findall(r"[^a-zA-Z0-9_]", value)
     if match:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
+        blockUsers()
         abort(406)
         return False
     else:
@@ -105,22 +106,24 @@ def valAlphaNum(value):
         
 
 def valNum(value):
-    match = re.match(r'[0-9]', str(value))
-    while match:
-        return True
-    else:
-        log("User supplied not an 0-9 value", "FAIL", "MEDIUM")
+    match = re.findall(r'[a-zA-Z_]', str(value))
+    if match:
+        log("malicious input found", "FAIL", "MEDIUM")
         abort(406)
         return False
+    else:
+        return True
+        
 
 def encodeInput(html):
     """Encode evil chars..."""
-    result = re.sub('"', "&#34;", html)
+    result = re.sub('"', "&quot;", html)
     result = re.sub("'", "&#39;", result)
     result = re.sub("&", "&amp;", result)
     result = re.sub("<", "&lt;", result)
     result = re.sub(">", "&gt;", result)
     log("User supplied input was encoded", "SUCCESS", "NULL")
+    blockUsers()
     return result
 
 #secret key for flask internal session use
@@ -212,6 +215,7 @@ def show_landing():
 @app.route('/dashboard', methods=['GET'])
 @security
 def dashboard():
+    blockUsers()
     """show the landing page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /dashboard", "FAIL", "HIGH")
@@ -221,6 +225,7 @@ def dashboard():
 @app.route('/login', methods=['GET', 'POST'])
 @security
 def login():
+    blockUsers()
     """validate the login data for access dashboard page"""
     error = None
     csrf_token_raw = rand.bytes(128)
@@ -253,6 +258,7 @@ def logout():
 @app.route('/code/<code_lang>', methods=['GET'])
 @security
 def set_code_lang(code_lang):
+    blockUsers()
     """set a code language: php java python perl"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /code", "FAIL", "HIGH")
@@ -269,6 +275,7 @@ def set_code_lang(code_lang):
 @app.route('/code-examples', methods=['GET'])
 @security
 def code_examples():
+    blockUsers()
     """Shows the knowledge base markdown files."""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /code-examples", "FAIL", "HIGH")
@@ -292,6 +299,7 @@ def code_examples():
 @app.route('/code-search', methods=['POST'])
 @security
 def show_code_search():
+    blockUsers()
     """show the landing page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /code-search", "FAIL", "HIGH")
@@ -320,6 +328,7 @@ def show_code_search():
 @app.route('/code-item', methods=['POST'])
 @security
 def show_code_item():
+    blockUsers()
     """show the coding examples page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /code-item", "FAIL", "HIGH")
@@ -340,6 +349,7 @@ def show_code_item():
 @app.route('/kb-search', methods=['POST'])
 @security
 def show_kb_search():
+    blockUsers()
     """show the knowledge base search page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /kb-search", "FAIL", "HIGH")
@@ -367,6 +377,7 @@ def show_kb_search():
 @app.route('/kb-item', methods=['POST'])
 @security
 def show_kb_item():
+    blockUsers()
     """show the knowledge base search result page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /kb-item", "FAIL", "HIGH")
@@ -385,6 +396,7 @@ def show_kb_item():
 @app.route('/knowledge-base', methods=['GET'])
 @security
 def knowledge_base():
+    blockUsers()
     """Shows the knowledge base markdown files."""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /knowledge-base", "FAIL", "HIGH")
@@ -406,6 +418,7 @@ def knowledge_base():
 @app.route('/project-new', methods=['GET'])
 @security
 def projects():
+    blockUsers()
     """show the create new project page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-new", "FAIL", "HIGH")
@@ -415,6 +428,7 @@ def projects():
 @app.route('/project-add', methods=['POST'])
 @security
 def add_entry():
+    blockUsers()
     """add a new project to database"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-add", "FAIL", "HIGH")
@@ -422,8 +436,7 @@ def add_entry():
     check_token()
     db = get_db()
     valAlphaNum(request.form['inputName'])
-    valAlphaNum(request.form['inputVersion'])
-    valAlphaNum(request.form['inputDesc'])
+    valNum(request.form['inputVersion'])
     safe_inputName = encodeInput(request.form['inputName'])
     safe_inputVersion = encodeInput(request.form['inputVersion'])
     safe_inputDesc = encodeInput(request.form['inputDesc'])
@@ -436,6 +449,7 @@ def add_entry():
 @app.route('/project-del', methods=['POST'])
 @security
 def project_del():
+    blockUsers()
     """delete project from database"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-del", "FAIL", "HIGH")
@@ -452,6 +466,7 @@ def project_del():
 @app.route('/project-list', methods=['GET'])
 @security
 def project_list():
+    blockUsers()
     """show the project list page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-list", "FAIL", "HIGH")
@@ -464,6 +479,7 @@ def project_list():
 @app.route('/project-options/<project_id>', methods=['GET'])
 @security
 def projects_options(project_id):
+    blockUsers()
     """show the project options landing page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-options", "FAIL", "HIGH")
@@ -475,6 +491,7 @@ def projects_options(project_id):
 @app.route('/project-functions/<project_id>', methods=['GET'])
 @security
 def project_functions(project_id):
+    blockUsers()
     """show the lproject functions page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-functions", "FAIL", "HIGH")
@@ -492,6 +509,7 @@ def project_functions(project_id):
 @app.route('/project-function-del', methods=['POST'])
 @security
 def function_del():
+    blockUsers()
     """delete a project function"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-function-del", "FAIL", "HIGH")
@@ -512,6 +530,7 @@ def function_del():
 @app.route('/project-function-add', methods=['POST'])
 @security
 def add_function():
+    blockUsers()
     """add a project function"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-function-add", "FAIL", "HIGH")
@@ -546,6 +565,7 @@ def add_function():
 @app.route('/project-checklist-add', methods=['POST'])
 @security
 def add_checklist():
+    blockUsers()
     """add project checklist"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-checklist-add", "FAIL", "HIGH")
@@ -585,6 +605,7 @@ def add_checklist():
 @app.route('/project-checklists/<project_id>', methods=['GET'])
 @security
 def project_checklists(project_id):
+    blockUsers()
     """show the project checklists page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-checklists", "FAIL", "HIGH")
@@ -728,6 +749,7 @@ def project_checklists(project_id):
 @app.route('/results-checklists', methods=['GET'])
 @security
 def results_checklists():
+    blockUsers()
     """show the results checklists page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-checklists", "FAIL", "HIGH")
@@ -740,6 +762,7 @@ def results_checklists():
 @app.route('/results-functions', methods=['GET'])
 @security
 def results_functions():
+    blockUsers()
     """show the results functions page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-functions", "FAIL", "HIGH")
@@ -752,6 +775,7 @@ def results_functions():
 @app.route('/results-functions-del', methods=['POST'])
 @security
 def functions_del():
+    blockUsers()
     """delete functions result items"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-functions-del", "FAIL", "HIGH")
@@ -767,6 +791,7 @@ def functions_del():
 @app.route('/results-checklists-del', methods=['POST'])
 @security
 def checklists_del():
+    blockUsers()
     """delete checklist result item"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-checklists-del", "FAIL", "HIGH")
@@ -783,6 +808,7 @@ def checklists_del():
 @app.route('/results-checklist-report/<entryDate>', methods=['GET'])
 @security
 def checklist_results(entryDate):
+    blockUsers()
     """show checklist results report"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-checklist-report", "FAIL", "HIGH")
@@ -822,6 +848,7 @@ def checklist_results(entryDate):
 
 @app.route('/results-checklist-docx/<entryDate>')
 def download_file_checklist(entryDate):
+    blockUsers()
     """Download checklist results report in docx"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-checklist-docx", "FAIL", "HIGH")
@@ -914,6 +941,7 @@ def download_file_checklist(entryDate):
 @app.route('/results-function-report/<projectID>', methods=['GET'])
 @security
 def function_results(projectID):
+    blockUsers()
     """show checklist results report"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-function-report", "FAIL", "HIGH")
@@ -941,6 +969,7 @@ def function_results(projectID):
 
 @app.route('/results-function-docx/<projectID>')
 def download_file_function(projectID):
+    blockUsers()
     """Download checklist results report in docx"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-function-docx", "FAIL", "HIGH")
