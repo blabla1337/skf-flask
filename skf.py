@@ -95,13 +95,13 @@ def blockUsers():
 
     			                
 def valAlphaNum(value):
-    match = re.match(r"[a-zA-Z0-9]", value)
+    match = re.findall(r"[^a-zA-Z0-9_]", value)
     if match:
-        return True
-    else:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
         abort(406)
         return False
+    else:
+	    return True
         
 
 def valNum(value):
