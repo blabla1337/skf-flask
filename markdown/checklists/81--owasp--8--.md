@@ -1,1 +1,0 @@
-All user input is properly escaped and sanitized when used in XML files.

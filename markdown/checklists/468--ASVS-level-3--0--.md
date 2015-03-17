@@ -1,1 +1,0 @@
-V16: Files and Resources Verification Requirements

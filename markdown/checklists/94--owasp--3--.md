@@ -1,1 +1,0 @@
-Are JSON response referencing resources in other domains?

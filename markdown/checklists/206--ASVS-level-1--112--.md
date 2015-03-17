@@ -1,1 +1,0 @@
-V16.6 Verify remote IFRAMEs and HTML5 cross-domain resource sharing does not allow inclusion of arbitrary remote content.

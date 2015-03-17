@@ -1,1 +1,0 @@
-V3.5 Verify that all pages that require authentication to access them have logout links.

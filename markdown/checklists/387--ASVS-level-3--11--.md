@@ -1,1 +1,0 @@
-V5.11 Verify that the runtime environment is not susceptible to LDAP Injection, or that security controls prevent LDAP Injection.

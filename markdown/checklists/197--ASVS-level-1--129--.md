@@ -1,1 +1,0 @@
-V11.2 Verify that the application accepts only a defined set of HTTP request methods, such as GET and POST and unused methods are explicitly blocked.

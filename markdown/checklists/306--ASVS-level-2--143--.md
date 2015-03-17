@@ -1,1 +1,0 @@
-V15.1 Verify the application processes or verifies all high value business logic flows in a trusted environment, such as on a protected and monitored server.

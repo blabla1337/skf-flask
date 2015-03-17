@@ -1,1 +1,0 @@
-V11.3 Verify that every HTTP response contains a content type header specifying a safe character set (e.g., UTF-8).

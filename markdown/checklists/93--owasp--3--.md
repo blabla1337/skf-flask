@@ -1,1 +1,0 @@
-Is all user input escaped when Ajax is being used to dynamically update the page?

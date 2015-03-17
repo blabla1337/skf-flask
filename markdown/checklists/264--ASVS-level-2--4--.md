@@ -1,1 +1,0 @@
-V5.12 Verify that the runtime environment is not susceptible to OS Command Injection, or that security controls prevent OS Command Injection.

@@ -1,1 +1,0 @@
-V13.8 Verify that all code supporting or using a cryptographic module is not affected by any malicious code.

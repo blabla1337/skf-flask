@@ -1,1 +1,0 @@
-V13.9 Verify that all code implementing or using error handling and logging controls is not affected by any malicious code.

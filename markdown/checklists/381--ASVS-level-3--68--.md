@@ -1,1 +1,0 @@
-V5.4 Verify that a character set, such as UTF-8, is specified for all sources of input.
