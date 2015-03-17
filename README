@@ -50,9 +50,9 @@ pip install --pre owasp-skf
      really want to do is placing your own server.key and server.crt in the skf dir. 
      Then the skf-flask application will use these instead.
 
-	default username: admin
-	The password will be auto-generated every time the skf-application is launched. 
-	Check commandline output for the the generated password.
+     default username: admin
+     The password will be auto-generated every time the skf-application is launched. 
+     Check commandline output for the the generated password.
 	 
 3. If you want to use test_skf.py as well, you will need to
 
