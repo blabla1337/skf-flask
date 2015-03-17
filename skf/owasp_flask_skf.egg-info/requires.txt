@@ -1,5 +1,0 @@
-Flask>=0.10
-markdown
-BeautifulSoup
-python-docx
-pyOpenSSL
