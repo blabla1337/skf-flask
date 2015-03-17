@@ -1,44 +1,27 @@
-For editors:
-Some info for the markdown files, when you edit the files and you want to use special chars like & then you need to escape it with html entity &amp;
+Installer
+=======
 
-Install:
+About security knowledge framework
+=======
+Our experience taught us that the current level of security the current 
+web-applications contain is not sufficient enough to ensure security. 
+This is mainly because web-developers simpy aren't aware of the risks and dangers 
+which are lurking, waiting to be exploited by hackers. 
 
-sudo apt-get install python-pip
-sudo apt-get install sqlite3
+Because of this we decided to develop a proof of concept framework in order 
+to create a guide system available for all developers so they can develop applications secure by design.
 
-sudo pip install https://github.com/mitsuhiko/flask/tarball/master
-sudo pip install markdown
-sudo pip install BeautifulSoup
-sudo pip install python-docx
-sudo pip install pyOpenSSL
+The security knowledge framework is here to support developers create secure applications. 
+By analysing proccessing techniques in which the developers use to edit their 
+data the application can link these techniques to different known vulnerabilities and 
+give the developer feedback regarding descriptions and solutions on how to properly 
+implement these techniques in a safe manner. 
 
-If you want to use test_skf.py as well, you will need to
+The seccond stage of the application is validating if the developer 
+properly implemented different types of defense mechanisms by means of checklists 
+with among others the OWASP Application security verification standards.
 
-sudo pip install pytest
-
-as well.
-
-
-1. 'cd' into the project directory (e.g. /op/skf-flask/) and initialize the database with this command:
-
-     flask --app=skf initdb
-
-2. now you can run skf from the skf dir:
-
-     python skf.py
-
-     the application will greet you on
-     https://127.0.0.1:5443/
-
-     Default the application will generate a certificate on the fly but what you 
-     really want to do is placing your own server.key and server.crt in the skf dir. 
-     Then the skf-flask application will use these instead.
-
-	 default username: admin
-	 default password: default
-
-	 In the future, the password will be auto-generated every time the skf-application is launched. 
-	 The commandline output will display the generated password.
-	 
-
-
+By means of the answers supplied by the developer the application again generates
+documentation in which it gives feedback on what defense mechanisms the developer forgot to 
+implement and give him feedback regarding descriptions and solutions 
+on how to properly implement these techniques in a safe manner.
