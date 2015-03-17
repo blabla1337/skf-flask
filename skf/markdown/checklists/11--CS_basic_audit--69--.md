@@ -1,0 +1,1 @@
+The document root must not contain extraneous files.

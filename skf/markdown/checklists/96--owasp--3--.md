@@ -1,0 +1,1 @@
+Are javascript(); tags being stripped from URLs and links

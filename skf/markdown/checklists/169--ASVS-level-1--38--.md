@@ -1,0 +1,1 @@
+V3.15 Verify that authenticated session tokens using cookies are protected with the secure attribute and a strict transport security header (such as Strict-Transport-Security: max-age=60000; includeSubDomains) are present.

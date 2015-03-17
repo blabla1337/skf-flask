@@ -1,0 +1,1 @@
+Authentication must be performed for each privileged request.

@@ -1,0 +1,1 @@
+V5.19 Verify that for each type of output encoding&#47;escaping performed by the application, there is a single security control for that type of output for the intended destination.

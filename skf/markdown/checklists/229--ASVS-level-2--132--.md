@@ -1,0 +1,1 @@
+V3.1 Verify that the frameworks default session management control implementation is used by the application.

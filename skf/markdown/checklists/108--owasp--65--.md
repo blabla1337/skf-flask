@@ -1,0 +1,1 @@
+Is data stored encrypted, including backups?

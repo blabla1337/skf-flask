@@ -1,0 +1,1 @@
+V3.16 Verify that the application does not permit duplicate concurrent user sessions, originating from different machines. 

@@ -1,0 +1,1 @@
+V5.6 Verify that a single input validation control is used by the application for each type of data that is accepted.

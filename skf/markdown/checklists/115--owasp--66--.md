@@ -1,0 +1,1 @@
+Are server side authentication or authorization checks added

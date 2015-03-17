@@ -1,0 +1,1 @@
+Does a user has to supply his password in order to change his user credentials?

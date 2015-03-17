@@ -1,0 +1,1 @@
+V16.2 Verify that file names and path data obtained from untrusted sources is canonicalized to eliminate path traversal attacks.

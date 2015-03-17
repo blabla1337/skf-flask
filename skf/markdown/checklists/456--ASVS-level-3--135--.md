@@ -1,0 +1,1 @@
+V13.11 Verify that sensitive data is rapidly sanitized from memory as soon as it is no longer needed and handled in accordance to functions and techniques supported by the framework&#47;library&#47;operating system. 

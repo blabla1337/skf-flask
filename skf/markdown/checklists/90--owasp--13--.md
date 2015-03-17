@@ -1,0 +1,1 @@
+Does the application cointain strict constrictions upon file uploading? such as extensions, file size, uploading outside of document root

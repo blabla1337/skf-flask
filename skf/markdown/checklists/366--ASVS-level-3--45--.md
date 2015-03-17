@@ -1,0 +1,1 @@
+V4.2 Verify that users can only access secured URLs for which they possess specific authorization.

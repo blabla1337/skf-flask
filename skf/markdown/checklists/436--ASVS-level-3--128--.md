@@ -1,0 +1,1 @@
+V10.9 Verify that specific character encodings are defined for all connections (e.g., UTF-8).

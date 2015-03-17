@@ -1,0 +1,1 @@
+V13.2 Verify that the integrity of interpreted code, libraries, executables, and configuration files is verified using checksums or hashes.

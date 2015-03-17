@@ -1,0 +1,67 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+{% include 'header.html' %}
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i> Knowledge Base Code Examples</h3>
+          	
+          	<form  method="post" action="/code-search"><br/>
+          	<input type="text" name="search" placeholder="Search vulnerability"/>
+          	</form>
+		       <div class="row mt">
+		 		<div class="col-lg-12">
+                 		        <div class="panel-group" id="accordion">
+
+					{% set counter = 0 -%}
+					{% for name in items -%}
+
+
+						  <div class="panel panel-default">
+						    <div class="panel-heading" style='background-color:white;'>
+						      <h4 class="panel-title">
+						        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{id_items[counter]|safe }}" onclick='getCode({{id_items[counter]|safe}});'>
+						    {{ name|safe }}
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapse{{id_items[counter]|safe }}" class="panel-collapse collapse">
+						      <div class="panel-body" id="{{id_items[counter]|safe }}" style='background-color:#f5f5f5;'>
+							<b>Item is fetched</b>
+						      </div>
+						    </div>
+						  </div>
+					{% set counter = counter + 1 %}
+                       			{% endfor %}
+
+					</div>
+               		         </div><!-- /col-lg-4 -->			
+		  	</div><!-- /row -->
+		</section><!--/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+         
+{% include 'footer.html' %}
+

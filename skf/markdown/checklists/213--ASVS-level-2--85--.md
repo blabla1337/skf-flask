@@ -1,0 +1,1 @@
+V2.8 Verify all account identity authentication functions (such as registration, update profile, forgot username, forgot password, disabled &#47; lost token, help desk or IVR) that might regain access to the account are at least as resistant to attack as the primary authentication mechanism.

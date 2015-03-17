@@ -1,0 +1,1 @@
+Are thirdparty JavaScript APIs, being encoding or validated for maliclious code? 

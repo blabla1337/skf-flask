@@ -1,0 +1,1 @@
+V2.12 Verify that all authentication decisions are logged. This should include requests with missing required information, needed for security investigations.

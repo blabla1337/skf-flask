@@ -1,0 +1,1 @@
+V9.5 Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged&#47;invalidated after the authorized user accesses the sensitive data.

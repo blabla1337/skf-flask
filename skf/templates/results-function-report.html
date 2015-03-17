@@ -1,0 +1,62 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+{% include 'header.html' %}
+ 
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+
+		  		<div class="row mt">
+			  		<div class="col-lg-12">
+						<div class="-panel">
+          	<h3><i class="fa fa-angle-right"></i> Function results</h3>
+          	<br/>
+          				  		
+            {% if entries.projectName != Null %}
+            <div class="alert alert-danger">There were no Function results found. <br/>Create a project and use the Add functions form in order to create results.</div>
+            {% else %}
+            <div class="alert alert-info">Summary of all function-results, you can download a DOCX file with the current security findings: </div>
+          
+            {% endif %}
+          
+          </div>
+             <a href="/results-function-docx/{{projectID|safe}}">
+            <button class='btn' style="margin-bottom:15px; background-color:#4d6aa9; color:white;"><center>Download Report</center></button>
+            </a>
+            {% set counter = 0 -%}
+            {% for entry in content %}
+            <div style="border-style:solid; border-color:#213a78; border-width:1px;"> 
+            <center><h4 style="color:black;">{{entries[counter][8]}}</h4></center>                 
+            <div class="well"> {{entry}} </div>
+            </div>
+            <br/>
+            {% set counter = counter + 1 %}
+            {% endfor %}
+            </div>
+            </div><!-- /col-md-12 -->
+		  	</div><!-- /row -->
+		</section><!--/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+        
+{% include 'footer.html' %} 

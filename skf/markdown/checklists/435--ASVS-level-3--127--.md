@@ -1,0 +1,1 @@
+V10.8 Verify that there is a single standard TLS implementation that is used by the application that is configured to operate in an approved mode of operation (See http:&#47;&#47;csrc.nist.gov&#47;groups&#47;STM&#47;cmvp&#47;documents&#47;fips140-2&#47;FIPS1402IG.pdf ).

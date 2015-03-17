@@ -1,0 +1,1 @@
+Are the security settings in your development frameworks (e.g., Struts, Spring, ASP.NET) and libraries not set to secure values? 

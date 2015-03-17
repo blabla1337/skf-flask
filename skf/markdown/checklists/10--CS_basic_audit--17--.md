@@ -1,0 +1,1 @@
+The robots.txt must not provide any sensitive information about the system.

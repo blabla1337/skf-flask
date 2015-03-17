@@ -1,0 +1,1 @@
+V15.7 Verify the application has sufficient access controls to prevent elevation of privilege attacks, such as allowing anonymous users from accessing secured data or secured functions, or allowing users to access each other&#39;s details or using privileged functions.

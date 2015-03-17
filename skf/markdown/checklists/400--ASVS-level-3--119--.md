@@ -1,0 +1,1 @@
+V7.7 Verify that cryptographic modules used by the application have been validated against FIPS 140-2 or an equivalent standard.

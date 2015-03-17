@@ -1,0 +1,1 @@
+A session bound token must be validated for each POST request.

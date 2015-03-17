@@ -1,0 +1,1 @@
+V5.17 If the application framework allows automatic mass parameter assignment (also called automatic variable binding) from the inbound request to a model, verify that security sensitive fields such as &#34;accountBalance&#34;, &#34;role&#34; or &#34;password&#34; are protected from malicious automatic binding.

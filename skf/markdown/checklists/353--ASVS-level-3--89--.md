@@ -1,0 +1,1 @@
+V3.4 Verify that sessions timeout after an administratively-configurable maximum time period regardless of activity (an absolute timeout).

@@ -1,0 +1,126 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Knowledge Framework</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.css') }}">
+    <!-- Custom static for this template -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style-responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/table-responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/monokai_sublime.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/respond.min.js') }}"></script>
+
+    <![endif]-->
+  </head>
+  <body onload="hljs.initHighlighting();">
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="/dashboard" class="logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home</a>
+            <!--logo end-->
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/logout">Logout</a></li>
+            	</ul>
+            </div>
+            <div style='margin-top:14px; margin-right:55px;' class="btn-group pull-right theme-container animated tada">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-code"></i><span
+                        class="hidden-sm hidden-xs"> Code Language </span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="themes">
+                    <li><a href="/code/php">PHP</a></li>
+                  <li><a href="/code/java">Java</a></li>
+                </ul>
+            </div>
+        </header>
+      <!--header end--> 
+
+  
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+              	  <p class="centered"><a href="https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework"><img src="/static/img/owasp_logo.png" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered">&nbsp;Security Knowledge Framework&nbsp;</h5>
+                  <li class="mt">
+                      <a href="/knowledge-base">
+                          <i class="fa fa-book"></i>
+                          <span>Knowledge Base</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="/projects">
+                          <i class="fa fa-th"></i>
+                          <span>Projects</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="/project-new">New Project</a></li>
+                          <li><a href="/project-list">List Projects</a></li>
+	                     </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-bar-chart-o"></i>
+                          <span>Results</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/results-checklists">Checklists</a></li>
+                          <li><a  href="/results-functions">Functions</a></li>
+                      </ul>
+                  </li>
+                  <li class="">
+                      <a href="/code-examples">
+                          <i class="fa fa-code"></i>
+                          <span>Code examples</span>
+                      </a>
+                  </li>
+           
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+ 

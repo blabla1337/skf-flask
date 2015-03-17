@@ -1,0 +1,85 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+{% include 'header.html' %}
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3>-<i class="fa fa-angle-right"></i><a href='/project'>Projects</a> -> Getting started</h3>
+		  		<div class="row mt">
+			  		<div class="col-lg-12">
+						<div class="content-panel">
+                 
+                 <div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 mb">
+<div style='margin-left:10px; margin-right:10px; background-color:#D7E0EB;' class="product-panel-2 pn">
+
+
+
+<br/>
+<h4 class="mt">Add processing functions</h4>
+<br/>
+<a class='fa fa-file-code-o fa-4x' href='/project-functions/{{project_id|safe}}'></a>
+<br/><br/><br/>
+<a href='/project-functions/{{project_id|safe}}'><button class="btn btn-small btn-theme04">Start project</button></a>
+</div>
+</div>
+
+
+<div class="col-lg-4 col-md-4 col-sm-4 mb">
+<div style='margin-left:10px; margin-right:10px; background-color:#D7E0EB;' class="product-panel-2 pn">
+
+<br/>
+<h4 class="mt">Add new checklists</h4>
+<br/>
+<a class='fa fa-file-text-o fa-4x' href='/project-checklists/{{project_id|safe}}'></a>
+<br/><br/><br/>
+<a href='/project-checklists/{{project_id|safe}}'><button class="btn btn-small btn-theme04">Start project</button></a>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 mb">
+<div style='margin-left:10px; margin-right:10px; background-color:#D7E0EB;' class="product-panel-2 pn">
+
+<br/>
+<h4 class="mt">Security knowledge base</h4>
+<br/>
+<a class='fa fa-university fa-4x' href='/knowledge-base'></a>
+<br/><br/><br/>
+<a href='/knowledge-base'><button class="btn btn-small btn-theme04">View item</button></a>
+</div>
+</div>
+
+
+
+  
+                      </div>
+	
+               </div><!-- /col-lg-4 -->			
+		  	</div><!-- /row -->
+		</section><!--/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+         
+
+{% include 'footer.html' %}

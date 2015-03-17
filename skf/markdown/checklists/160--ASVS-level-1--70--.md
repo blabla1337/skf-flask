@@ -1,0 +1,1 @@
+V2.18 Verify that username enumeration is not possible via login, password reset, or forgot account functionality.

@@ -1,0 +1,1 @@
+V8.10 Verify that the application does not log application-specific sensitive data that could assist an attacker, including user&#39;s session identifiers and personal or sensitive information. The length and existence of sensitive data can be logged.

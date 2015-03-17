@@ -1,0 +1,73 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+{% include 'header.html' %}
+ 
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">          
+          	<h3><i class="fa fa-angle-right"></i> Create new project</h3>
+   
+
+		  		<div class="row mt">
+			  		<div class="col-lg-12">
+						<div class="content-panel">
+							<h4 class="mb"><i class="fa fa-angle-right"></i> Project</h4>
+
+							<form class="form-horizontal" role="form" style="padding-left:20px;padding-right:20px;" method="post" action="/project-add">
+							<div class="form-group">
+							    <label for="inputName" class="col-sm-2 control-label">Project Name</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" name="inputName" id="inputName" value="SKF" placeholder="Project Name">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="inputVersion" class="col-sm-2 control-label">Project Version</label>
+							    <div class="col-sm-10">
+							      <input type="text" class="form-control" id="inputVersion" name="inputVersion" value="1.2" placeholder="Project version">
+							    </div>
+							  </div>
+							  
+
+							  <div class="form-group">
+							    <label for="inputDesc" class="col-sm-2 control-label">Project Description</label>
+							    <div class="col-sm-10">
+									<textarea class="form-control" name="inputDesc" value="Example: In this version we have new functions like searching in SQL." id="inputDesc" rows="3" placeholder="Project Description"></textarea>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <div class="col-sm-offset-2 col-sm-10">
+							     <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
+							      <input type="submit" id="projectFormSubmit" name="projectFormSubmit" value="Create Project" class="btn btn-default">
+							    </div>
+							  </div>
+							</form>
+							
+							</div>	
+               </div><!-- /col-lg-4 -->			
+		  	</div><!-- /row -->
+		</section><!--/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+         
+{% include 'footer.html' %}
+

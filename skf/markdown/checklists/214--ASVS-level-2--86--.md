@@ -1,0 +1,1 @@
+V2.9 Verify users can safely change their credentials using a mechanism that is at least as resistant to attack as the primary authentication mechanism.

@@ -1,0 +1,1 @@
+V9.7 Verify the application minimizes the number of parameters sent to untrusted systems, such as hidden fields, Ajax variables, cookies and header values.

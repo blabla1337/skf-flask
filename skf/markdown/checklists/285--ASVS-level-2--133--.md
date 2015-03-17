@@ -1,0 +1,1 @@
+V8.11 Verify that a log analysis tool is available which allows the analyst to search for log events based on combinations of search criteria across all fields in the log record format supported by this system.

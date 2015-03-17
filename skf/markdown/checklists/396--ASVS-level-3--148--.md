@@ -1,0 +1,1 @@
+V7.1 Verify that all cryptographic functions used to protect secrets from the application user are implemented server side.

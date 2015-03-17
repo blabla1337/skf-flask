@@ -1,0 +1,1 @@
+V5.13 Verify that the runtime environment is not susceptible to XML External Entity attacks or that security controls prevents XML External Entity attacks.

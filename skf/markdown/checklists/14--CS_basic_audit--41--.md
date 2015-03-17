@@ -1,0 +1,1 @@
+Sensitive information must not be stored in cookies

@@ -1,0 +1,199 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+ {% include 'header.html' %} 
+
+ <style>
+ .tbl_container{ overflow:auto; width: 500px;height: 330px; }
+ </style>
+ 
+<script>
+
+var arrTech = new Array();
+
+{% for entry in techlist -%}
+
+arrTech.push({'{{entry.vulnID|safe}}--{{entry.techID|safe}}':'{{entry.techName|safe}}'});
+
+{% endfor %}
+
+
+var j = 0;
+
+function addList()
+{
+
+var select = "<select name=test"+j+" id=test"+j+">";
+$("#checkboxes").append(select);
+i = 0;
+$.each(arrTech, function(key, value) {
+    $.each(value, function(k, v) {
+        var o = new Option(v, k);
+  var name = "#test"+j 
+        $(name).append(o);
+    });
+});
+j++;
+};
+</script>
+ 
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+            <h3>-<i class="fa fa-angle-right"></i><a href='/project-list'>Projects</a> -> Getting started -> Add functions</h3>
+          <div class="row mt">
+            
+            <div class="col-lg-12">
+               <div class="alert alert-info"><b>Note:</b> Here we enter the processing techniques the application contains. For example:
+
+                {% set counter = 0 -%}
+                    {% for entry in techlist -%}
+                        {{ entry.techName|safe }},
+              {% set counter = counter + 1 %}
+                {% endfor %}
+
+                etc.<br/><br>All lists will be collected into a single document per project.
+               </div>
+          </div><!-- /col-lg-4 -->      
+        </div><!-- /row -->
+
+          <div class="row mt">
+            <div class="col-lg-12">
+            <div class="">
+              
+                 <div class="">
+<div class="col-lg-4 col-md-4 col-sm-4 mb">
+
+<div style='float:left;  margin-left:-12px;'>
+<h4>
+<button style='margin-top:-60px;' class="btn btn-warning btn-lg" data-target="#myModal" style='visibility:none' data-toggle="modal">Add Functions</button>
+<div id="myModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="display: none;">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+<h4 id="myModalLabel" class="modal-title">Add a new function</h4>
+</div>
+<div class="modal-body">Please select the processing techniques which your application contains. The Add Functions button can spawn the ammount you need.<br/><br/>
+<div class="tbl_container">
+<form action="/project-function-add" method="POST">
+<input type='text' name='functionName' placeholder='List name'/><br/><br/>
+<textarea name='functionDesc' placeholder='List description'></textarea><br/><br/>
+<input type="hidden" id="project_id" name="project_id" value="{{project_id|safe}}"> 
+<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
+<a href="#" onClick="addList();">Add Function </a>
+<br><br>
+<div id="checkboxes">
+<!-- used for Ajax -->
+</div>
+<br/>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+<input type='submit' class="btn btn-primary" value='Add values' name='submit' type="button">
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><!-- /col-lg-4 -->      
+</div><!-- /row -->
+
+  
+        <div class="row mt">
+                  <div class="col-md-12">
+                      <div style='margin-top:-25px;' class="content-panel">
+                          <table class="table table-striped table-advance table-hover">
+                            <h4><i class="fa fa-angle-right"></i>Function summary</h4>
+                            <hr>
+                              <thead>
+                              <tr>
+                                  <th><i class="fa fa-bulhorn"></i> <b>Function Technology</b></th>
+                                  <th class="hidden-phne"><i class="fa fa-qustion-circle"></i><b> Function List Name</b></th>
+                                  <th><i class=" fa fa-edit"></i> Date/Time</th>
+                                  <th><b>Remove</b></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                               
+                              {% set counter = 0 -%}
+                              {% for entry in entries -%}
+                              <tr>
+                                  <td>{{entry.techName|safe}}</td>
+                                  <td class="hidden-phone">&nbsp;&nbsp;&nbsp;{{entry.functionName|safe}} </td>
+                                           <td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
+                         
+                                  <td>
+                                    
+                                         <!-- Button trigger modal -->
+                     &nbsp;&nbsp; <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.paramID|safe}}">
+                      <i class="fa fa-times "></i>                  
+                        </button>
+            
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal{{entry.paramID|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                      </div>
+                      <div   class="modal-body">
+                      <table id='checklist' style="width:525px">
+                      
+            <p>When you press the "Remove function" button, the function which this project contains will be deleted from the documentation<br/>
+            Are you sure you want to continue.
+            </p>
+
+
+                  </table>
+                      </div>
+                <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     <a href="/project-functions/{{project_id}}"><button class="btn btn-danger" onClick="delFunction('{{project_id|safe}}','{{entry.paramID|safe}}', '{{csrf_token|safe}}')">Remove Function</button></a>
+                      </div>
+                      </div>
+                    </div>
+                  </div>              
+                      </div>                
+                              </td>
+                              </tr>
+                                              {% set counter = counter + 1 %}
+                                              {% endfor %}
+
+                              </tbody>
+                          </table>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row -->
+              
+              
+    </section><!--/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+         
+         
+
+{% include 'footer.html' %} 
+ 

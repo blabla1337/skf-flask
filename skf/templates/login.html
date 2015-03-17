@@ -1,0 +1,103 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Knowledge Framework: Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.css') }}">
+    <!-- Custom static for this template -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style-responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/table-responsive.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/respond.min.js') }}"></script>
+
+    <![endif]-->
+  </head>
+
+
+  <body>
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+
+	  	<div class="container">
+	  	
+	  		<div id="showtime"></div>
+	  			<div class="col-lg-4 col-lg-offset-4">
+	  				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	  				<div class="lock-screen">
+	  				
+		  				<h2><a data-toggle="modal" href="#myModal"><i class="fa fa-lock"></i></a></h2>
+		  				<p>UNLOCK</p>
+		  				
+				          <!-- Modal -->
+				          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+				              <div class="modal-dialog">
+				                  <div class="modal-content">
+				                      <div class="modal-header">
+				                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				                          <h4 class="modal-title">Login</h4>
+				                      </div>
+				                      <div class="modal-body">
+				                      <form action="/login" method="post">
+				                          <input type="text" name="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix">
+											<br>
+				                          <input type="password" name="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix">
+				                      </div>
+				                      <div class="modal-footer centered">
+				                          <button data-dismiss="modal" class="btn btn-theme04" type="button">Cancel</button>
+				                          <button class="btn btn-theme03" type="submit">Login</button>
+                                  <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
+				                          </form>
+				                      </div>
+				                  </div>
+				              </div>
+				          </div>
+				          <!-- modal -->
+		  				
+		  				
+	  				</div><!--/lock-screen -->
+	  			</div><!-- /col-lg-4 -->
+	  	
+	  	</div><!-- /container -->
+  <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script class="include" src="{{ url_for('static', filename='js/jquery.backstretch.min.js') }}"></script>
+    <script>
+        $.backstretch("static/img/owasp.png", {speed: 500});
+    </script>
+  </body>
+</html>

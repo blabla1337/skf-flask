@@ -1,0 +1,1 @@
+V7.6 Verify that all random numbers, random file names, random GUIDs, and random strings are generated using the cryptographic module&#39;s approved random number generator when these random values are intended to be unguessable by an attacker.

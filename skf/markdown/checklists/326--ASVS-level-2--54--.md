@@ -1,0 +1,1 @@
+V16.10 Verify if Flash, Silverlight or other rich internet application (RIA) cross domain resource sharing configuration is configured to prevent unauthenticated or unauthorized remote access.
