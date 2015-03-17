@@ -1,6 +1,3 @@
-Installer
-----------
-
 About security knowledge framework
 ------------------------------------
 Our experience taught us that the current level of security the current 
@@ -28,3 +25,36 @@ documentation in which it gives feedback on what defense
 mechanisms the developer forgot to implement and give him feedback 
 regarding descriptions and solutions on how to properly implement
 these techniques in a safe manner.
+
+Installer
+----------
+sudo apt-get install python-pip
+sudo apt-get install sqlite3
+
+pip install https://github.com/mitsuhiko/flask/tarball/master
+pip install --pre owasp-skf
+
+
+1. 'cd' into the project directory (e.g. /opt/skf-flask/) and initialize the database with this command:
+
+     flask --app=skf initdb
+
+2. now you can run skf from the skf dir:
+
+     python skf.py
+
+     the application will greet you on
+     https://127.0.0.1:5443/
+
+     Default the application will generate a certificate on the fly but what you 
+     really want to do is placing your own server.key and server.crt in the skf dir. 
+     Then the skf-flask application will use these instead.
+
+	default username: admin
+	The password will be auto-generated every time the skf-application is launched. 
+	Check commandline output for the the generated password.
+	 
+3. If you want to use test_skf.py as well, you will need to
+
+     sudo pip install pytest
+
