@@ -73,7 +73,11 @@ def log(message, value, threat):
     dateTime = now.strftime("%Y-%m-%d %H:%M")
     headers_list = request.headers.getlist("X-Forwarded-For")
     ip = headers_list[0] if headers_list else request.remote_addr
-    file = open('logs/'+dateLog+'.txt', 'rw')
+    try:
+        file = open('logs/'+dateLog+'.txt', 'a+')
+    except IOError:
+        # If not exists, create the file
+        file = open('logs/'+dateLog+'.txt', 'w+')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
     file.close  
 
@@ -81,7 +85,11 @@ def blockUsers():
     """Check the log file and based on the FAIL items block a user"""
     dateLog  = datetime.datetime.now().strftime("%Y-%m")
     count = 0
-    read = open('logs/'+dateLog+'.txt', 'r+')
+    try:
+        read = open('logs/'+dateLog+'.txt', 'a+')
+    except IOError:
+        # If not exists, create the file
+        read = open('logs/'+dateLog+'.txt', 'w+')
     for line in read:
         match = re.search('FAIL', line)
         # If-statement after search() tests if it succeeded
