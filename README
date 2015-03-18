@@ -26,24 +26,29 @@ mechanisms the developer forgot to implement and give him feedback
 regarding descriptions and solutions on how to properly implement
 these techniques in a safe manner.
 
-Installer
+Installing Ubuntu
 ----------
 sudo apt-get install python-pip
 sudo apt-get install sqlite3
 
-pip install https://github.com/mitsuhiko/flask/tarball/master
 pip install --pre owasp-skf
+pip install https://github.com/mitsuhiko/flask/tarball/master
 
+Installing Windows
+----------
+Download and install Python2.7.9
+https://www.python.org/downloads/release/python-279/
 
-1. 'cd' into the project directory (e.g. /opt/skf-flask/) and initialize the database with this command:
+Run below commands in cmd:
+C:\Python27\Scripts\pip.exe --pre owasp-skf
+C:\Python27\Scripts\pip.exe install https://github.com/mitsuhiko/flask/tarball/master
 
-     flask --app=skf initdb
+Now you can start the program by opening the folder:
+C:\Python27\Lib\site-packages\skf
 
-2. now you can run skf from the skf dir:
-
-     python skf.py
-
-     the application will greet you on
+1. The SKF web-application:
+     
+     The application will greet you on
      https://127.0.0.1:5443/
 
      Default the application will generate a certificate on the fly but what you 
@@ -55,6 +60,8 @@ pip install --pre owasp-skf
      Check commandline output for the the generated password.
 	 
 3. If you want to use test_skf.py as well, you will need to
-
-     sudo pip install pytest
-
+     Ubuntu:
+     pip install pytest
+     Windows:
+     C:\Python27\Scripts\pip.exe --install pytest
+     
