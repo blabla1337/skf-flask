@@ -68,8 +68,9 @@ def generate_pass():
 def log(message, value, threat):
     """Create log file and write events triggerd by the user
     The variables: message can be everything, value contains FAIL or SUCCESS and threat LOW MEDIUM HIGH"""
-    dateLog  = datetime.datetime.now().strftime("%Y-%m")
-    dateTime = datetime.datetime.now().strftime("%Y-%m-%D")
+    now = datetime.datetime.now()
+    dateLog = now.strftime("%Y-%m")
+    dateTime = now.strftime("%Y-%m-%d %H:%M")
     headers_list = request.headers.getlist("X-Forwarded-For")
     ip = headers_list[0] if headers_list else request.remote_addr
     file = open('logs/'+dateLog+'.txt', 'a')
@@ -1043,7 +1044,7 @@ def download_file_function(projectID):
     return make_response((body, headers))
 
 if __name__ == "__main__":
-    print "Generated Password for access SKF: "+password    
+    print("Generated Password for access SKF: "+password)
     if os.path.isfile('server.crt') == False: 
        app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
     else:
