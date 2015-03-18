@@ -73,7 +73,7 @@ def log(message, value, threat):
     dateTime = now.strftime("%Y-%m-%d %H:%M")
     headers_list = request.headers.getlist("X-Forwarded-For")
     ip = headers_list[0] if headers_list else request.remote_addr
-    file = open('logs/'+dateLog+'.txt', 'a')
+    file = open('logs/'+dateLog+'.txt', 'rw')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
     file.close  
 
