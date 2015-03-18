@@ -4,7 +4,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(name='owasp-skf',
-    version='0.2.5a3',
+    version='0.2.6a3',
     description='The OWASP Security Knowledge Framework',
     url='https://github.com/blabla1337/skf-flask',
     author='Glenn ten Cate, Riccardo ten Cate',
