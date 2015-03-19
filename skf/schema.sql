@@ -49,12 +49,19 @@ INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
 (12, '"Eval" type functions', 4),
 (13, 'Regular expressions', 36),
 (14, 'File upload ', 13),
-(20, 'XML files', 8),
-(21, 'External XML files', 6),
-(22, 'JSON ', 3),
-(23, 'GET variables/parameters', 72),
-(24, 'Forward or/ redirect', 67),
-(25, 'Access controls/Login systems', 152);
+(15, 'XML files', 8),
+(16, 'External XML files', 6),
+(17, 'JSON ', 3),
+(18, 'GET variables/parameters', 72),
+(19, 'Forward or/ redirect', 67),
+(20, 'Password forget functions', 153),
+(21, 'Sessions', 154),
+(22, 'Submit forms', 155),
+(23, 'User registration', 157),
+(24, 'Password forget functions', 153),
+(25, 'Sessions', 154),
+(26, 'Submit forms', 155),
+(27, 'Access controls/Login systems', 152);
 
 -- 
 -- Table structure for table `questionlist`

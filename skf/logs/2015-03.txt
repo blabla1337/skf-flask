@@ -1,1 +1,32 @@
 2015-03-19 14:39 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-19 14:41 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-19 14:41 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:41 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:41 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:41 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:41 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:42 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:43 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:43 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:43 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:47 Authenticated session destroyed  SUCCESS LOW 127.0.0.1
+2015-03-19 14:47 Invalid password submit  FAIL LOW 127.0.0.1
+2015-03-19 14:47 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-03-19 14:47 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-19 14:47 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:47 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:47 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:47 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:47 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-19 14:48 User supplied input was encoded  SUCCESS NULL 127.0.0.1
