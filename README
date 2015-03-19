@@ -34,6 +34,9 @@ sudo apt-get install sqlite3
 pip install --pre owasp-skf
 pip install https://github.com/mitsuhiko/flask/tarball/master
 
+Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
+python skf.py
+
 Installing Windows
 ----------
 Download and install Python2.7.9
@@ -43,7 +46,7 @@ Run below commands in cmd:
 C:\Python27\Scripts\pip.exe --pre owasp-skf
 C:\Python27\Scripts\pip.exe install https://github.com/mitsuhiko/flask/tarball/master
 
-Now you can start the program by opening the folder:
+Now you can start the program by opening the folder and dubbel click on the skf.py file:
 C:\Python27\Lib\site-packages\skf
 
 1. The SKF web-application:
