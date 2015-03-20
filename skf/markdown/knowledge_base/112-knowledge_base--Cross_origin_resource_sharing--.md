@@ -16,7 +16,7 @@ Cross-Origin requests have an Origin header, that identifies the domain initiati
 request and is always sent to the server. CORS defines the protocol to use between a web 
 browser and a server to determine whether a cross-origin request is allowed. In order to 
 accomplish this goal, there are a few HTTP headers involved in this process, 
-that are supported by all major browsers and we will cover below including: 
+that are supported by all major browsers:
 
 - Origin 
 - Access-Control-Request-Method
