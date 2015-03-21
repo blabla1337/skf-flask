@@ -837,7 +837,8 @@ def checklist_results(entryDate):
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
-            path_vuln = get_num(path)
+            path = path.split("markdown")
+            path_vuln = get_num(path[1])
             if int(vulnID) == int(path_vuln):
                 filemd = open(org_path, 'r').read()
                 content.append(Markup(markdown.markdown(filemd)))
@@ -895,8 +896,7 @@ def download_file_checklist(entryDate):
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
-            path = path.split("-")
-            name = org_path[3]
+            path = path.split("markdown")
             path_vuln = get_num(path[1])
             if int(vulnID) == int(path_vuln):
                 filemd = open(org_path, 'r').read()
@@ -909,8 +909,10 @@ def download_file_checklist(entryDate):
                 full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
                 for path in full_file_paths:
                     org_path = path
-                    custom_path = org_path.split("-")
-                    path_questionID = get_num(custom_path[1])
+                    path = path.split("markdown")
+                    tmp_path = path[1].split("-")
+                    custom_path = get_num(tmp_path[0])
+                    path_questionID = custom_path
                     if int(questionID) == int(path_questionID):
                         filemd = open(org_path, 'r').read()
                         content_checklist.append(Markup(markdown.markdown(filemd)))
@@ -937,9 +939,10 @@ def download_file_checklist(entryDate):
         p.add_run("\n")
         document.add_page_break()
         i += 1
-    document.save('checklist-security-report.docx')
+    document.save("checklist-security-report.docx")
     headers = {"Content-Disposition": "attachment; filename=%s" % "checklist-security-report.docx"}
-    with open("checklist-security-report.docx", 'r') as f:
+    file_path = os.path.join(app.root_path, "checklist-security-report.docx")
+    with open("checklist-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
     
@@ -967,7 +970,8 @@ def function_results(projectID):
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
-            path_vuln = get_num(path)
+            path = path.split("markdown")
+            path_vuln = get_num(path[1])
             if int(vulnID) == int(path_vuln):
                 filemd = open(org_path, 'r').read()
                 content.append(Markup(markdown.markdown(filemd)))
@@ -1015,7 +1019,8 @@ def download_file_function(projectID):
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for path in full_file_paths:
             org_path = path
-            path_vuln = get_num(path)
+            path = path.split("markdown")
+            path_vuln = get_num(path[1])
             if int(vulnID) == int(path_vuln):
                 filemd = open(org_path, 'r').read()
                 content = Markup(markdown.markdown(filemd))
@@ -1047,7 +1052,7 @@ def download_file_function(projectID):
         i += 1
     document.save('function-security-report.docx')
     headers = {"Content-Disposition": "attachment; filename=%s" % "function-security-report.docx"}
-    with open("function-security-report.docx", 'r') as f:
+    with open("function-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
 
@@ -1061,4 +1066,3 @@ if __name__ == "__main__":
        context.use_certificate_file('server.crt') #Location of Cert
        context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
        app.run(host='127.0.0.1', port=5443, ssl_context=context)
-
