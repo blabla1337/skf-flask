@@ -4,7 +4,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(name='owasp-skf',
-    version='0.2.7a4',
+    version='0.2.8a4',
     description='The OWASP Security Knowledge Framework',
     url='https://github.com/blabla1337/skf-flask',
     author='Glenn ten Cate, Riccardo ten Cate',
@@ -17,7 +17,10 @@ setup(name='owasp-skf',
     The Security Knowledge Framework is an fully open-source Python-Flask web-application.
     It is an expert system application that uses OWASP Application Security Verification Standard 
     """,
-    install_requires=open('requirements.txt').read().splitlines(),
+    install_requires=['markdown','BeautifulSoup','python-docx','pyOpenSSL','Flask-owasp'],
+    dependency_links= [
+        'git+https://github.com/mitsuhiko/flask.git#egg=Flask-owasp'
+    ],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Framework :: Flask",
