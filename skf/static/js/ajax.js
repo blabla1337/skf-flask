@@ -87,3 +87,12 @@ function delFunctionList(time,csrf_token)
         }
     });
 }
+
+
+$(document).ready(function(){
+
+    $('[data-toggle="tooltip"]').tooltip();   
+
+});
+
+

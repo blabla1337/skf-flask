@@ -632,14 +632,17 @@ def project_checklists(project_id):
     owasp_ids_lvl1 = []
     owasp_kb_ids_lvl1 = []
     owasp_content_lvl1 = []
+    owasp_content_desc_lvl1 = []
     owasp_items_lvl2 = []
     owasp_ids_lvl2 = []
     owasp_kb_ids_lvl2 = []
     owasp_content_lvl2 = []
+    owasp_content_desc_lvl2 = []
     owasp_items_lvl3 = []
     owasp_ids_lvl3 = []
     owasp_kb_ids_lvl3 = []
     owasp_content_lvl3 = []
+    owasp_content_desc_lvl3 = []
     custom_items = []
     custom_ids = []
     custom_kb_ids = []
@@ -681,6 +684,15 @@ def project_checklists(project_id):
             owasp_kb_ids_lvl1.append(owasp_kb)
             filemd = open(owasp_org_path, 'r').read()
             owasp_content_lvl1.append(Markup(markdown.markdown(filemd)))
+            full_file_paths_kb = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+            for path in full_file_paths_kb:
+                org_path = path
+                path_kb = path.split("markdown")
+                path_vuln = get_num(path_kb[1])
+                if int(owasp_kb) == int(path_vuln):
+                    filemd = open(org_path, 'r').read()
+                    description = filemd.split("**") 
+                    owasp_content_desc_lvl1.append(description[2])
     for path in full_file_paths:
        found = path.find("ASVS-level-2")
        if found != -1:
@@ -694,6 +706,15 @@ def project_checklists(project_id):
             owasp_kb_ids_lvl2.append(owasp_kb)
             filemd = open(owasp_org_path, 'r').read()
             owasp_content_lvl2.append(Markup(markdown.markdown(filemd)))
+            full_file_paths_kb = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+            for path in full_file_paths_kb:
+                org_path = path
+                path_kb = path.split("markdown")
+                path_vuln = get_num(path_kb[1])
+                if int(owasp_kb) == int(path_vuln):
+                    filemd = open(org_path, 'r').read()
+                    description = filemd.split("**") 
+                    owasp_content_desc_lvl2.append(description[2])
     for path in full_file_paths:
        found = path.find("ASVS-level-3")
        if found != -1:
@@ -708,6 +729,15 @@ def project_checklists(project_id):
             owasp_kb_ids_lvl3.append(owasp_kb)
             filemd = open(owasp_org_path, 'r').read()
             owasp_content_lvl3.append(Markup(markdown.markdown(filemd)))
+            full_file_paths_kb = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+            for path in full_file_paths_kb:
+                org_path = path
+                path_kb = path.split("markdown")
+                path_vuln = get_num(path_kb[1])
+                if int(owasp_kb) == int(path_vuln):
+                    filemd = open(org_path, 'r').read()
+                    description = filemd.split("**") 
+                    owasp_content_desc_lvl3.append(description[2])
     for path in full_file_paths:
        found = path.find("CS_basic_audit")
        if found != -1:

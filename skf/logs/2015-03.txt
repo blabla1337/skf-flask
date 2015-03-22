@@ -937,3 +937,44 @@
 2015-03-21 18:15 User supplied input was encoded  SUCCESS NULL 127.0.0.1
 2015-03-21 18:15 User supplied input was encoded  SUCCESS NULL 127.0.0.1
 2015-03-21 18:15 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:11 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 19:12 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:12 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:12 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:12 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:37 User with no valid session tries access to page /project-checklists  FAIL HIGH 127.0.0.1
+2015-03-22 19:37 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 19:37 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:38 User with no valid session tries access to page /project-checklists  FAIL HIGH 127.0.0.1
+2015-03-22 19:39 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 19:39 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:43 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 19:43 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:45 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 19:45 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 19:46 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:50 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 19:50 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 19:56 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 19:56 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:03 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:03 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:09 User with no valid session tries access to page /project-checklists  FAIL HIGH 127.0.0.1
+2015-03-22 20:10 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:10 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:14 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:14 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:40 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:40 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:42 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:42 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:44 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-03-22 20:45 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:45 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:49 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:49 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:53 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:53 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-22 20:57 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-22 20:57 User supplied input was encoded  SUCCESS NULL 127.0.0.1
