@@ -921,6 +921,7 @@ def download_file_checklist(entryDate):
     p = document.add_paragraph()
     projectName = entries[0][3]
     listName = entries[0][6]
+    ygb = False
     p.add_run('Used Checklist: '+listName)
     p.add_run('\r\n')
     p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
@@ -962,6 +963,7 @@ def download_file_checklist(entryDate):
                         custom_paths = org_path.split("-")
                         found = custom_paths[3].find("ASVS")
                         if found != -1:
+                            ygb = True
                             ygb_docx.append(custom_paths[9])
     for item in content_title:
         p = document.add_paragraph(item)
@@ -979,15 +981,16 @@ def download_file_checklist(entryDate):
     i = 0
     for item in content_raw:
         document.add_heading(content_title[i], level=1)
-        if ygb_docx[i] == "b":
-            image = document.add_picture('static/img/blue.png')
-        elif ygb_docx[i] == "gb":
-            image = document.add_picture('static/img/green.png')
-            image = document.add_picture('static/img/blue.png')
-        elif ygb_docx[i] == "ygb":
-            image = document.add_picture('static/img/yellow.png')
-            image = document.add_picture('static/img/green.png')            
-            image = document.add_picture('static/img/blue.png')
+        if ygb == True:
+            if ygb_docx[i] == "b":
+                image = document.add_picture('static/img/blue.png')
+            elif ygb_docx[i] == "gb":
+                image = document.add_picture('static/img/green.png')
+                image = document.add_picture('static/img/blue.png')
+            elif ygb_docx[i] == "ygb":
+                image = document.add_picture('static/img/yellow.png')
+                image = document.add_picture('static/img/green.png')            
+                image = document.add_picture('static/img/blue.png')
         result = re.sub("<p>", " ", content_checklist[i])
         result1 = re.sub("</p>", " ", result)
         document.add_heading(result1, level=4)
