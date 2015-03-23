@@ -46,7 +46,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                                              <tr>
+                    <tr>
                               <td><a href="#"></a>OWASP top 10</td>
 
                               <td class="hidden-phone">Top 10 vulnerabilities composed by OWASP.</td>
@@ -75,8 +75,6 @@
                       {% set counter_owasp = 0 -%}
                       {% set count_owasp_top = 0 -%}
                       {% for entry in owasp_content -%}
-
-
                       <tr>
 
                         {% if owasp_kb_ids[counter_owasp] == '0' -%}
@@ -178,6 +176,7 @@
                       {% endif %}
                       </td>
                         <td></td>
+                          {% set count_asvs_tool_lvl1 = 0 -%}
                           {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] != '0' -%}
                           {% set count_asvs_1 = count_asvs_1 + 1 %}
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
@@ -190,7 +189,8 @@
                           <input type='hidden' name='vulnID{{count_asvs_1|safe}}' value='{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
                           <input type='hidden' name='questionID{{count_asvs_1|safe}}' value='{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
                           <input type='hidden' name='listID{{count_asvs_1|safe}}' value='{{owasp_list_lvl1|safe}}'>
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl1[count_asvs_1]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl1[count_asvs_tool_lvl1]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                          {% set count_asvs_tool_lvl1 = count_asvs_tool_lvl1 + 1 %}
                           {% endif %}
                           </td>
                       </tr>
@@ -269,6 +269,7 @@
                       {% endif %}
                       </td>
                         <td></td>
+                          {% set count_asvs_tool_lvl2 = 0 -%}
                           {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] != '0' -%}
                           {% set count_asvs_2 = count_asvs_2 + 1 %}
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
@@ -281,7 +282,8 @@
                           <input type='hidden' name='vulnID{{count_asvs_2|safe}}' value='{{owasp_kb_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
                           <input type='hidden' name='questionID{{count_asvs_2|safe}}' value='{{owasp_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
                           <input type='hidden' name='listID{{count_asvs_2|safe}}' value='{{owasp_list_lvl2|safe}}'>
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl2[count_asvs_2]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl2[count_asvs_tool_lvl2]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                          {% set count_asvs_tool_lvl2 = count_asvs_tool_lvl2 + 1 %}
                           {% endif %}
                           </td>
                       </tr>
@@ -361,6 +363,7 @@
                       {% endif %}
                       </td>
                         <td></td>
+                          {% set count_asvs_tool_lvl3 = 0 -%}
                           {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
                            {% set count_asvs_3 = count_asvs_3 + 1 %}
                            
@@ -374,10 +377,9 @@
                           <input type='hidden' name='vulnID{{count_asvs_3|safe}}' value='{{owasp_kb_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
                           <input type='hidden' name='questionID{{count_asvs_3|safe}}' value='{{owasp_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
                           <input type='hidden' name='listID{{count_asvs_3|safe}}' value='{{owasp_list_lvl3|safe}}'>
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title='{{owasp_content_desc_lvl3[counter_owasp_lvl3]|safe}}'><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title='{{owasp_content_desc_lvl3[count_asvs_tool_lvl3]|safe}}'><span class="glyphicon glyphicon-question-sign"></span></a></td>
                        
-
-                        
+                          {% set count_asvs_tool_lvl3 = count_asvs_tool_lvl3 + 1 %}
                           {% endif %}
                           </td>
                       </tr>
