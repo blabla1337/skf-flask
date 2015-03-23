@@ -887,8 +887,11 @@ def checklist_results(entryDate):
                     path_questionID = get_num(custom_path[1])
                     if int(questionID) == int(path_questionID):
                         filemd = open(org_path, 'r').read()
-                        ygb.append(custom_path[9])
                         questions.append(Markup(markdown.markdown(filemd)))
+                        custom_paths = org_path.split("-")
+                        found = custom_paths[3].find("ASVS")
+                        if found != -1:
+                            ygb.append(custom_paths[9])
     return render_template('results-checklist-report.html', **locals())
 
 
