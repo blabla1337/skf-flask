@@ -151,14 +151,30 @@
                       {% set counter_owasp_lvl1 = 0 -%}
                       {% set count_asvs_1 = 0 -%}
                       {% for entry in owasp_content_lvl1 -%}
-
                       <tr>
                       {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] == '0' -%}
+                      
                         <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
                         <b style="p { font-weight:bold; }">{{entry|safe}}</b>
                       {% else %}
                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
                         {{entry|safe}}
+                        
+                            {% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'ygb' -%}
+                           <img src="/static/img/yellow.png" width="10px" />
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+
+                           {% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'gb' -%}        
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+                           
+                           {% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'b' -%}
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+                        
                       {% endif %}
                       </td>
                         <td></td>
@@ -174,7 +190,7 @@
                           <input type='hidden' name='vulnID{{count_asvs_1|safe}}' value='{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
                           <input type='hidden' name='questionID{{count_asvs_1|safe}}' value='{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
                           <input type='hidden' name='listID{{count_asvs_1|safe}}' value='{{owasp_list_lvl1|safe}}'>
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl1[counter_owasp_lvl1]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl1[count_asvs_1]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
                           {% endif %}
                           </td>
                       </tr>
@@ -233,6 +249,23 @@
                       {% else %}
                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                         {{entry|safe}}
+                        
+                            {% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'ygb' -%}
+                           <img src="/static/img/yellow.png" width="10px" />
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+
+                           {% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'gb' -%}        
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+                           
+                           {% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'b' -%}
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+                        
+                        
                       {% endif %}
                       </td>
                         <td></td>
@@ -248,7 +281,7 @@
                           <input type='hidden' name='vulnID{{count_asvs_2|safe}}' value='{{owasp_kb_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
                           <input type='hidden' name='questionID{{count_asvs_2|safe}}' value='{{owasp_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
                           <input type='hidden' name='listID{{count_asvs_2|safe}}' value='{{owasp_list_lvl2|safe}}'>
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl2[counter_owasp_lvl2]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl2[count_asvs_2]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
                           {% endif %}
                           </td>
                       </tr>
@@ -297,6 +330,7 @@
 
                       {% set counter_owasp_lvl3 = 0 -%}
                       {% set count_asvs_3 = 0 -%}
+                      {% set count_desc = 1 -%}
                       {% for entry in owasp_content_lvl3 -%}
 
 
@@ -307,11 +341,29 @@
                       {% else %}
                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
                         {{entry|safe}}
+                        
+                           {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'ygb' -%}
+                           <img src="/static/img/yellow.png" width="10px" />
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+
+                           {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'gb' -%}        
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+                           
+                           {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'b' -%}
+                           <img src="/static/img/blue.png"   width="10px" />
+                           {% endif %}
+                      
+                      
                       {% endif %}
                       </td>
                         <td></td>
                           {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
                            {% set count_asvs_3 = count_asvs_3 + 1 %}
+                           
                            <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{count_asvs_3|safe}}'>
                           <option value='yes' >Yes</option>
@@ -322,7 +374,10 @@
                           <input type='hidden' name='vulnID{{count_asvs_3|safe}}' value='{{owasp_kb_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
                           <input type='hidden' name='questionID{{count_asvs_3|safe}}' value='{{owasp_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
                           <input type='hidden' name='listID{{count_asvs_3|safe}}' value='{{owasp_list_lvl3|safe}}'>
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl3[counter_owasp_lvl3]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title='{{owasp_content_desc_lvl3[counter_owasp_lvl3]|safe}}'><span class="glyphicon glyphicon-question-sign"></span></a></td>
+                       
+
+                        
                           {% endif %}
                           </td>
                       </tr>
@@ -422,7 +477,23 @@
                           </table>
 
                       </div>
-	
+<h5><b>Legenda for ASVS</b> </h5>
+                           <img src="/static/img/yellow.png" width="10px" />
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />&nbsp;&nbsp;  ASVS Level 1
+                           
+                           <br/>
+                           
+                            
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ASVS Level 2
+                           
+                             <br/>
+                           
+                            
+                           
+                           <img src="/static/img/blue.png"   width="10px" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASVS Level 3
+
                </div><!-- /col-lg-4 -->			
 		  	</div><!-- /row -->
 		</section><!--/wrapper -->

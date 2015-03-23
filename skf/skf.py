@@ -629,16 +629,19 @@ def project_checklists(project_id):
     owasp_kb_ids = []
     owasp_content = []
     owasp_items_lvl1 = []
+    owasp_items_lvl1_ygb = []
     owasp_ids_lvl1 = []
     owasp_kb_ids_lvl1 = []
     owasp_content_lvl1 = []
     owasp_content_desc_lvl1 = []
     owasp_items_lvl2 = []
+    owasp_items_lvl2_ygb = []
     owasp_ids_lvl2 = []
     owasp_kb_ids_lvl2 = []
     owasp_content_lvl2 = []
     owasp_content_desc_lvl2 = []
     owasp_items_lvl3 = []
+    owasp_items_lvl3_ygb = []
     owasp_ids_lvl3 = []
     owasp_kb_ids_lvl3 = []
     owasp_content_lvl3 = []
@@ -681,6 +684,7 @@ def project_checklists(project_id):
             owasp_id = get_num(owasp_path_lvl1[1])
             owasp_items_lvl1.append(owasp_checklist_name)
             owasp_ids_lvl1.append(owasp_id)
+            owasp_items_lvl1_ygb.append(owasp_path_lvl1[9])
             owasp_kb_ids_lvl1.append(owasp_kb)
             filemd = open(owasp_org_path, 'r').read()
             owasp_content_lvl1.append(Markup(markdown.markdown(filemd)))
@@ -704,6 +708,7 @@ def project_checklists(project_id):
             owasp_items_lvl2.append(owasp_checklist_name)
             owasp_ids_lvl2.append(owasp_id)
             owasp_kb_ids_lvl2.append(owasp_kb)
+            owasp_items_lvl2_ygb.append(owasp_path_lvl2[9])
             filemd = open(owasp_org_path, 'r').read()
             owasp_content_lvl2.append(Markup(markdown.markdown(filemd)))
             full_file_paths_kb = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
@@ -727,6 +732,7 @@ def project_checklists(project_id):
             owasp_items_lvl3.append(owasp_checklist_name)
             owasp_ids_lvl3.append(owasp_id)
             owasp_kb_ids_lvl3.append(owasp_kb)
+            owasp_items_lvl3_ygb.append(owasp_path_lvl3[9])
             filemd = open(owasp_org_path, 'r').read()
             owasp_content_lvl3.append(Markup(markdown.markdown(filemd)))
             full_file_paths_kb = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
@@ -738,6 +744,7 @@ def project_checklists(project_id):
                     filemd = open(org_path, 'r').read()
                     description = filemd.split("**") 
                     owasp_content_desc_lvl3.append(description[2])
+                    
     for path in full_file_paths:
        found = path.find("CS_basic_audit")
        if found != -1:
@@ -849,6 +856,7 @@ def checklist_results(entryDate):
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-checklist-report", "FAIL", "HIGH")
         abort(401)
+    ygb = []
     id_items = []
     questions = []
     content = []
@@ -879,6 +887,7 @@ def checklist_results(entryDate):
                     path_questionID = get_num(custom_path[1])
                     if int(questionID) == int(path_questionID):
                         filemd = open(org_path, 'r').read()
+                        ygb.append(custom_path[9])
                         questions.append(Markup(markdown.markdown(filemd)))
     return render_template('results-checklist-report.html', **locals())
 
