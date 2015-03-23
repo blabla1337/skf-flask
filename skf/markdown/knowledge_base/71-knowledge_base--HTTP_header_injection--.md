@@ -18,7 +18,7 @@ feasible due to the fact that multiple header requests are not possible.
 
 **Solution:**
 
-When userinput will be used in HTTP headers then the newlines should be escaped in a 
+When user-input will be used in HTTP headers then the newlines should be escaped in a 
 correct manner.
 
 	

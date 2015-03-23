@@ -3,7 +3,7 @@ SSI injections
 -------
 
 **Description:**
-Webservers usually give developers the ability to add small pieces of dynamic code inside 
+Web servers usually give developers the ability to add small pieces of dynamic code inside 
 static HTML pages, without having to deal with full-fledged server-side
 or client-side languages. 
 
@@ -15,4 +15,4 @@ allows an attacker to inject code into HTML pages or even perform remote code ex
 
 **Solution:**
 
-The SSI handler on the webserver should not be activated when it is not used.
+The SSI handler on the web-server should not be activated when it is not used.

@@ -1,12 +1,12 @@
 
-Proces high value business logic flows in a trusted environment
+Process high value business logic flows in a trusted environment
 -------
 
 **Description:**
 
 Whenever high value business logic flows are processed in a trusted monitored environment 
 it reduces the movability of an attacker and chances of succeeding to 
-perform succesfull attacks. If an attacker should breach your application his actions 
+perform successful attacks. If an attacker should breach your application his actions 
 could be rapidly followed and counter measures could be taken.
 
 

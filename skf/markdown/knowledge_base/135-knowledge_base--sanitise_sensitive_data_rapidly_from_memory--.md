@@ -11,7 +11,7 @@ longer needed.
 
 **Solution:**
 
-Verify that sensitive data is rapidly sanitized from memory as soon as it is no longer 
+Verify that sensitive data is rapidly sanitised from memory as soon as it is no longer 
 needed and handled in accordance to functions and techniques supported by the 
 framework/library/operating system.
 

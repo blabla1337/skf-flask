@@ -899,6 +899,7 @@ def download_file_checklist(entryDate):
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /results-checklist-docx", "FAIL", "HIGH")
         abort(401)
+    ygb_docx = []    
     content_raw = []
     content_checklist = []
     content_title = []
@@ -952,6 +953,9 @@ def download_file_checklist(entryDate):
                     tmp_path = path[1].split("-")
                     custom_path = get_num(tmp_path[0])
                     path_questionID = custom_path
+                    
+                    custom_paths = org_path.split("-")
+                    ygb_docx.append(custom_paths[2])
                     if int(questionID) == int(path_questionID):
                         filemd = open(org_path, 'r').read()
                         content_checklist.append(Markup(markdown.markdown(filemd)))
@@ -971,6 +975,7 @@ def download_file_checklist(entryDate):
     i = 0
     for item in content_raw:
         document.add_heading(content_title[i], level=1)
+        document.add_heading(ygb_docx[i], level=1)
         result = re.sub("<p>", " ", content_checklist[i])
         result1 = re.sub("</p>", " ", result)
         document.add_heading(result1, level=4)

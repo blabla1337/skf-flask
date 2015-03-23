@@ -10,5 +10,5 @@ means of scripts which sends automated spamming mails.
 
 **Solution:**
 
-This problem could be prevented by implementing CAPTCHA or other defens mechanisms.
+This problem could be prevented by implementing CAPTCHA or other defence mechanisms.
 	

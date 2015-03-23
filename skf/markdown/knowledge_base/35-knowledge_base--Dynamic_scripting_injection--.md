@@ -11,5 +11,5 @@ script code and gain access to the server.
 
 **Solution:**
 
-Do not use direct userinput in the dynamic scripting function.
+Do not use direct user-input in the dynamic scripting function.
 	

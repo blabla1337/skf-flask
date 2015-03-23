@@ -11,8 +11,8 @@ attacker to change credentials if ever an attacker could hijack another users se
 
 **Solution:**
 
-User should always be challenged by the application to re-authenticate themselfs after 
-changing their credentials, e-mail or doing other important data exchanges such as t
-ransferring money.
+User should always be challenged by the application to re-authenticate themselves  after 
+changing their credentials, e-mail or doing other important data exchanges such as 
+transferring money.
 
 	

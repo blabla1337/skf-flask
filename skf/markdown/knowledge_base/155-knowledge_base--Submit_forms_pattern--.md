@@ -5,7 +5,7 @@ Submit forms - pattern
 **Description:**
 
 Whenever a user can submit a form in your system you should consider implementing
-the following defence mechanismes in order to ensure high level security.
+the following defence mechanism in order to ensure high level security.
 
 1.  Single user input validation controls and Audit logs
 2.  CSRF tokens
@@ -20,7 +20,7 @@ the following defence mechanismes in order to ensure high level security.
 Here are the steps described briefly.
 For more detailed information you should look into these items in the knowledge base.
  
-First, you should create a single user input validation controll class which should 
+First, you should create a single user input validation control class which should 
 validate the expected input values in order to verify if the user is not tampering data 
 or is injecting malicious code into your application. All infringements should be logged
 and repercussions should be taken whenever these infringements are frequent. 

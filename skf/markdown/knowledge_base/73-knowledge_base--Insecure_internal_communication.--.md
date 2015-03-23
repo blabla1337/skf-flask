@@ -4,8 +4,8 @@ Insecure internal communication.
 
 **Description:**
 
-Whenever organisations communicatie by means of unencrypted connections, an attacker 
-could easily sniff these unsecure lines and gain sensitive information.
+Whenever organisations communicate by means of unencrypted connections, an attacker 
+could easily sniff these insecure lines and gain sensitive information.
 
 
 **Solution:**

@@ -4,9 +4,9 @@ User registration - pattern
 
 **Description:**
 
-Whenenver you allow users to register on your system there are a couple of things you need 
+Whenever you allow users to register on your system there are a couple of things you need 
 to take into consideration in order to enforce a high level of security
-For more detailed information about these items you should check te knowledge-base about:
+For more detailed information about these items you should check the knowledge-base about:
 
 1. Column truncation sql injection(for mysql databases)
 2. Single input validation controls  
@@ -32,7 +32,7 @@ First, You enforce limits on the length of the users submits on the server side 
 to prevent him from truncating his submits. these limits have to correlate with the limits
 you set in your column in the database.
 
-Second, you should create a single user input validation controll class which should 
+Second, you should create a single user input validation control class which should 
 validate the expected input values in order to verify if the user is not tampering data 
 or is injecting malicious code into your application. All infringements should be logged
 and repercussions should be taken whenever these infringements are frequent. 
@@ -44,6 +44,6 @@ be randomised sufficiently.
 
 Fifth, encrypt your passwords by proven cryptographic standards when storing them.
 
-Sixth, Enforce secure passwords by implementing good password policys. 
+Sixth, Enforce secure passwords by implementing good password policies. 
 
 

@@ -5,7 +5,7 @@ Does the application enforce the use of secure passwords.
 **Description:**
 
 When an application does not enforce the use of secure passwords, 
-these passwords could easily brute-forced thus compromizing the users account.
+these passwords could easily brute-forced thus compromising the users account.
 
 
 **Solution:**

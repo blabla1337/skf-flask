@@ -6,7 +6,7 @@ Verify integrity using checksums
 
 Always use checksums when working with interpreted code, libraries, executables, 
 and configuration files, when these checksums do not match you can determine that 
-these files are corrupted or backdoored.
+these files are corrupted or backdoor-ed.
 
 
 **Solution:**

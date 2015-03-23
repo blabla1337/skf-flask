@@ -18,12 +18,12 @@ required to identify accounts.
 i.e:
 
 Imagine an "forgot password" function where the user enters his username in order for the 
-application to send a new password to his email adress, the user enters a correct username
+application to send a new password to his email address, the user enters a correct username
 and the application responds with:
 
-Email succesfully send to your email adress.
+Email successfully send to your email address.
 when the user enters a incorrect username it says.
-Error: user does not exsist.
+Error: user does not exists.
 
 This function would be vulnerable to username enumeration
 

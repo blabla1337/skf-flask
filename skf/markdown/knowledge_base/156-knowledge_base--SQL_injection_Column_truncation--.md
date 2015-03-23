@@ -8,10 +8,10 @@ Whenever an applications structural logic mismatches with the database structura
 an attacker gains the opportunity to truncate his submit towards your database column by
 submitting a value longer then the limit allowed in the database. 
 
-Imagine you have a system where users can register themselfs.
+Imagine you have a system where users can register themselves.
 
 The attacker can abuse this behaviour of the database to overflow the length limit 
-and truncate his submit and register himself als the admin, thus gaining its 
+and truncate his submit and register himself as the admin, thus gaining its 
 privileges.
 
 

@@ -10,7 +10,7 @@ error state so it's not useable anymore.
 
 **Solution:**
 
-We recommend using the nist standard on testing the cryptographic module making it perform 
+We recommend using the NIST standard on testing the cryptographic module making it perform 
 the self-tests to see if it fails securely.
 
 	

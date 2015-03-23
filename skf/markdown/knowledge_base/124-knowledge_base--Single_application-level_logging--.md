@@ -5,7 +5,7 @@ Single application-level logging
 **Description:**
 
 Whenever the application contains a single application-level logging implementation it 
-becomes clear and transparant and easy to maintain, also it reduces the possibility you 
+becomes clear and transparent and easy to maintain, also it reduces the possibility you 
 overlook high priority logging.
 
 

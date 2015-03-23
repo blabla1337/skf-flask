@@ -4,7 +4,7 @@ Enforce policys for sensitive data processing
 
 **Description:**
 
-When you proces data you should always enforce policys for the transfer of sensitive data 
+When you proces data you should always enforce policies for the transfer of sensitive data 
 in order to enforce higher level of security imposing structured thresholds to 
 fend of attackers.
 

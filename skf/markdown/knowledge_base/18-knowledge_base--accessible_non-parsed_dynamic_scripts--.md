@@ -12,7 +12,7 @@ vulnerabilities.
 
 **Solution:**
 
-Always add the different types of extentions to the webserver handler to parse. 
+Always add the different types of extensions to the web-server handler to parse. 
 This way the file source cannot be viewed.
 
 	

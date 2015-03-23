@@ -12,5 +12,5 @@ unauthorised access due to one of these controls not failing securely.
 **Solution:**
 
 Make sure all the access control systems are thoroughly tested for failing securely before 
-using it in your application. It&#39;s commen that Unit-test are created especially 
+using it in your application. It’s common that Unit-test are created especially 
 for this purpose.

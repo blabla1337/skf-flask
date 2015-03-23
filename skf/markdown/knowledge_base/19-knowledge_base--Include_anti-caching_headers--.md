@@ -11,6 +11,6 @@ computer and proxies what information they may or may not store on the intermedi
 **Solution:**
 
 These headers are also known as the: Cache-control: no-store,no-cache and provide 
-protection of sensitive information when implemented in the application or webserver.
+protection of sensitive information when implemented in the application or web-server.
 
 	

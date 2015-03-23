@@ -12,5 +12,5 @@ and also bypass the escaping of the application.
 
 **Solution:**
 
-Only one webserver should decode/encode the data.
+Only one web-server should decode/encode the data.
 	

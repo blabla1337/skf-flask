@@ -12,5 +12,5 @@ stability and security threat.
 
 All random numbers, random file names, random GUIDs, and random must be generated using 
 the cryptographic module's approved random number generator when these random values are 
-intended to be unguessable/unpredictible by an attacker.
+intended to be unguessable/unpredictable by an attacker.
 	

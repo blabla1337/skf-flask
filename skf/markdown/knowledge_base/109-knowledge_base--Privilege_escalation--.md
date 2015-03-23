@@ -15,7 +15,7 @@ possible to access a function that should not be permitted by the users role/pri
 
 **Solution:**
 
-Checking if a user has enough authorization to execute certain request should always be 
+Checking if a user has enough authorisation to execute certain request should always be 
 enforced on the server-side. Also you may to apply the Principle of Least privilege, 
 the principle of least privilege recommends that accounts have the least amount of 
 privilege required to perform their business processes. This encompasses user rights, 

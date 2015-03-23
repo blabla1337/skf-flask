@@ -16,7 +16,7 @@ An audit log should contain the following items:
 
 -User id
 -Operation
--Succes/failure of the opperation
+-Success/failure of the operation
 -Privileges
 -Timestamp
 

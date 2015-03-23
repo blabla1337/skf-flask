@@ -14,6 +14,6 @@ from succeeding.
 Whenever sensitive data is stored on the server you should consider storing this data in 
 a separate folder with permission rules in order to prevent unauthorised users to 
 read these files. As an in depth solution you could also check if the session of the user 
-has sufficient privileges to read the files according to the level of authorization.
+has sufficient privileges to read the files according to the level of authorisation.
 
 	

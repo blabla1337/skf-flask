@@ -4,7 +4,7 @@ Resource identifier injection
 
 **Description:**
 
-A resource identifier injection basicly means that the attacker can determine which 
+A resource identifier injection basically means that the attacker can determine which 
 resources are loaded into the web application. 
 An attacker could thus influence the operation of the web application and redirect users 
 to other websites. This attack consists of changing resource identifiers used by an 
@@ -22,6 +22,6 @@ filesystem, which is different attack technique known as a Path Manipulation att
 
 **Solution:**
 
-Safe use of resource identifiers can be done by performing authorization checks if the 
+Safe use of resource identifiers can be done by performing authorisation checks if the 
 identifier is belonging to the user.
 	

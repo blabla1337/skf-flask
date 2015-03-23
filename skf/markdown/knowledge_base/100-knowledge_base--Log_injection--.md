@@ -13,7 +13,7 @@ misinterpret.
 
 **Solution:**
 
-You should consider these three controls when implementing loggin systems. 
+You should consider these three controls when implementing logging systems. 
 
 - Design: If at all possible, avoid logging data that came from external inputs.
 

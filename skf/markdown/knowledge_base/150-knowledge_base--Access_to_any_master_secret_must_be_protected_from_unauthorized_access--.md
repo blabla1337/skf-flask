@@ -1,10 +1,10 @@
 
-Access to any master secret must be protected from unauthorized access
+Access to any master secret must be protected from unauthorised access
 -------
 
 **Description:**
 
-Access to any master secret must be protected from unauthorized access in order to protect 
+Access to any master secret must be protected from unauthorised access in order to protect 
 the integrity and the confidentiality of the data.
 
 

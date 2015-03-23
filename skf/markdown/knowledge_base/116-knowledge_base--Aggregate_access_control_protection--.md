@@ -13,7 +13,7 @@ Aggregate access control protection
 **Solution:**
 
 The system should contain a counter which can keep up with the number of times a certain 
-users adressess database tables and should be rejected when he passes a reasonable number. 
+users addresses database tables and should be rejected when he passes a reasonable number. 
 This violation should also be reported since it could indicate an attacker scraping your 
 table contents and stealing company information.
 	

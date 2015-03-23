@@ -22,12 +22,12 @@ This data may trick the application into overwriting a critical file or storing 
 in a bad location. You must validate the metadata extremely carefully before using it.
 
 The other class of problem is with the file size or content. 
-An attacker can easly craft a valid image file with php code inside. 
+An attacker can easily craft a valid image file with php code inside. 
 
 
 **Solution:**
 
-Uploaded files always needs to be placed outside the document root of the webserver. 
+Uploaded files always needs to be placed outside the document root of the web-server. 
 Also for serving the files back there needs to be a file handler function that can select 
 the file based on an identifier and the file will be served to the user.
 

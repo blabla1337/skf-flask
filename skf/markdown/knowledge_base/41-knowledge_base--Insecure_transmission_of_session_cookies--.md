@@ -11,6 +11,6 @@ These cookies are not to be trusted anymore as a hacker may have captured their 
 
 **Solution:**
 
-Session cookies that are used to euthenticate the user should always set on a 
+Session cookies that are used to authenticate the user should always set on a 
 secure connection.
 	

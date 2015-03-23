@@ -18,10 +18,10 @@ without the necessity of executing system commands.
 
 **Solution:**
 
-Userinput that is used in a shell command should not contain dangerous characters. 
+User-input that is used in a shell command should not contain dangerous characters. 
 A blacklist of characters is not a good option because it may be difficult to think of 
 all of the characters to validate against. A white list containing only allowable 
-characters should be created to validate the userinput.
+characters should be created to validate the user-input.
 
 
 	

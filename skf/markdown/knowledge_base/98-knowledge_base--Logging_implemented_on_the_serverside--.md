@@ -1,10 +1,10 @@
 
-Logging implemented on the serverside
+Logging implemented on the server-side
 -------
 
 **Description:**
 
-Logging should always be implemented on the serverside since an attacker otherwise 
+Logging should always be implemented on the server-side since an attacker otherwise 
 manipulate the functionality and erase his traces.
 
 

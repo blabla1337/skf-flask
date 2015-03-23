@@ -13,7 +13,7 @@ capabilities exposed by the vulnerable application. For example, this attack cou
 in a transfer of funds, changing a password, or purchasing an item in the users context. 
 In effect, CSRF attacks are used by an attacker to make a target system perform a 
 function (funds Transfer, form submission etc.) via the targets browser without 
-knowledge of the target user at least until the unauthorized function has been committed.
+knowledge of the target user at least until the unauthorised function has been committed.
 
 
 

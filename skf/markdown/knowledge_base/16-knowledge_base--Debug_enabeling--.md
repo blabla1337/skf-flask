@@ -1,5 +1,5 @@
 
-Debug enabeling
+Debug enabling
 -------
 
 **Description:**

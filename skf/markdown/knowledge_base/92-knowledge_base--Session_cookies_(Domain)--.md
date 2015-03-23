@@ -9,8 +9,8 @@ The Domain option allows you to specify whether or not to send the cookie to sub
 
 **Solution:**
 
-Setting &quot;www.example.com&quot; will mean only the exact domain "www.example.com" will 
-be matched, while &quot;.example.com&quot; will also match again any 
-subdomaim (forums.example.com, blog.example.com).
+Setting “www.example.com” will mean only the exact domain "www.example.com" will 
+be matched, while “.example.com” will also match again any 
+subdomain (forums.example.com, blog.example.com).
 
 	
