@@ -622,8 +622,6 @@ def project_checklists(project_id):
     cur = db.execute('SELECT * FROM projects WHERE projectID=?',
                         [safe_id])
     row = cur.fetchall()
-    prep = row[0]
-    projectName = prep[1]
     owasp_items = []
     owasp_ids = []
     owasp_kb_ids = []
@@ -744,7 +742,6 @@ def project_checklists(project_id):
                     filemd = open(org_path, 'r').read()
                     description = filemd.split("**") 
                     owasp_content_desc_lvl3.append(description[2])
-                    
     for path in full_file_paths:
        found = path.find("CS_basic_audit")
        if found != -1:
