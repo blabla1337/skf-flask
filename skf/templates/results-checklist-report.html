@@ -48,18 +48,18 @@
             {% for entry in content %}
             <div style="border-style:solid; border-color:#213a78; border-width:1px;"> 
 		   {% if ygb[counter] == 'ygb' -%}
-		   <img src="/static/img/yellow.png" style="position: absolute; margin-left:65px" width="35px" />
-		   <img src="/static/img/green.png" style="position: absolute; margin-left:35px" width="35px" />
-		   <img src="/static/img/blue.png" style="position: absolute;" width="35px" />
+		   <img src="/static/img/yellow.png" style="position: absolute; margin-left:35px" width="10px" />
+		   <img src="/static/img/green.png" style="position: absolute; margin-left:15px" width="10px" />
+		   <img src="/static/img/blue.png" style="position: absolute;" width="10px" />
 		   {% endif %}
 
 		   {% if ygb[counter] == 'gb' -%}        
-       <img src="/static/img/green.png" style="position: absolute; margin-left:35px" width="35px" />
-       <img src="/static/img/blue.png" style="position: absolute;" width="35px" />
+       <img src="/static/img/green.png" style="position: absolute; margin-left:15px" width="10px" />
+       <img src="/static/img/blue.png" style="position: absolute;" width="10px" />
 		   {% endif %}
 		   
 		   {% if ygb[counter] == 'b' -%}
-		   <img src="/static/img/blue.png" style="position: absolute;" width="35px" />
+		   <img src="/static/img/blue.png" style="position: absolute;" width="10px" />
 		   {% endif %}    
             <center><h4 style="color:black;">{{questions[counter]|safe}}</h4></center>            
             <div class="well"> {{entry}} </div>
