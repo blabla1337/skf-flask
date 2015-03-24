@@ -622,6 +622,8 @@ def project_checklists(project_id):
     cur = db.execute('SELECT * FROM projects WHERE projectID=?',
                         [safe_id])
     row = cur.fetchall()
+    prep = row[0]
+    projectName = prep[3]
     owasp_items = []
     owasp_ids = []
     owasp_kb_ids = []
