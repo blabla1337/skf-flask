@@ -17,7 +17,7 @@ required to identify accounts.
 
 i.e:
 
-Imagine an "forgot password" function where the user enters his username in order for the 
+Imagine an forgot password function where the user enters his username in order for the 
 application to send a new password to his email address, the user enters a correct username
 and the application responds with:
 

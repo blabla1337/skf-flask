@@ -4,7 +4,8 @@ Forget password functions
 
 **Description:**
 
-Whenever a new password is sent by email to the user after using a password forget functionality ....
+Whenever a new password is sent by email to the user after using a password forget functionality
+this password should never be send to the user directly.
 
 
 **Solution:**

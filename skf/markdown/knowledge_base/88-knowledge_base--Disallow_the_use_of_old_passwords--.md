@@ -11,5 +11,5 @@ By changing the password to a new one minimises the damage.
 **Solution:**
 
 Keep the old entries of the password record of the user. If the user changes his password 
-you can match against the old entries to validate it’s not an old one.
+you can match against the old entries to validate it is not an old one.
 	

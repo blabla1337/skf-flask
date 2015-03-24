@@ -17,14 +17,14 @@ or directly affect the operation of the target application.
 
 In order to prevent XSS injections all user-input should be escaped.
 You could start by encoding user-input as soon as it is inserted into the application, 
-by preference using a so called “white-listing method”
+by preference using a so called white-listing method
 This means u should not checking for malicious content like the tags or anything, 
 but only allowing the expected input.
 
 The second step would be encoding al the parameters or user-input before putting this in 
 your html with encoding libraries specially designed for this purpose. 
 
-Also whenever a user is allowed to add href's,  make sure the application checks whether 
+Also whenever a user is allowed to add hrefs,  make sure the application checks whether 
 the href contains http:// or https://. This is done in order to prevent 
 javascript: or data: type XSS injections. 
 
