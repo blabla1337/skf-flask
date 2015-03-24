@@ -58,10 +58,7 @@ INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
 (21, 'Sessions', 154),
 (22, 'Submit forms', 155),
 (23, 'User registration', 157),
-(24, 'Password forget functions', 153),
-(25, 'Sessions', 154),
-(26, 'Submit forms', 155),
-(27, 'Access controls/Login systems', 152);
+(24, 'Access controls/Login systems', 152);
 
 -- 
 -- Table structure for table `questionlist`
