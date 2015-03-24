@@ -971,7 +971,7 @@ def download_file_checklist(entryDate):
     document.add_page_break()
     document.add_heading('Introduction', level=1)
     p = document.add_paragraph(
-        'The security knowledge framework is composed by means of the highest security standards currently available and is designed to maintain the integrety of your application, so you and your costumers sensitive data is protected against hackers. This document is provided with a checklist in which the programmers of your application had to run through in order to provide a secure product.'
+        'The security knowledge framework is composed by means of the highest security standards currently available and is designed to maintain the integrity of your application, so you and your costumers sensitive data is protected against hackers. This document is provided with a checklist in which the programmers of your application had to run through in order to provide a secure product.'
     )
     p.add_run('\n')
     p = document.add_paragraph(
@@ -981,20 +981,20 @@ def download_file_checklist(entryDate):
     i = 0
     for item in content_raw:
         document.add_heading(content_title[i], level=1)
-        if ygb == True:
-            if ygb_docx[i] == "b":
-                image = document.add_picture('static/img/blue.png')
-            elif ygb_docx[i] == "gb":
-                image = document.add_picture('static/img/green.png')
-                image = document.add_picture('static/img/blue.png')
-            elif ygb_docx[i] == "ygb":
-                image = document.add_picture('static/img/yellow.png')
-                image = document.add_picture('static/img/green.png')            
-                image = document.add_picture('static/img/blue.png')
         result = re.sub("<p>", " ", content_checklist[i])
         result1 = re.sub("</p>", " ", result)
         document.add_heading(result1, level=4)
         p = document.add_paragraph(item.partition("\n")[2])
+        if ygb == True:
+            if ygb_docx[i] == "b":
+                image = document.add_picture('static/img/blue.png', width=Inches(0.20))
+            elif ygb_docx[i] == "gb":
+                image = document.add_picture('static/img/green.png', width=Inches(0.20))
+                image = document.add_picture('static/img/blue.png', width=Inches(0.20))
+            elif ygb_docx[i] == "ygb":
+                image = document.add_picture('static/img/yellow.png', width=Inches(0.20))
+                image = document.add_picture('static/img/green.png', width=Inches(0.20))            
+                image = document.add_picture('static/img/blue.png', width=Inches(0.20))
         p.add_run("\n")
         document.add_page_break()
         i += 1
@@ -1094,7 +1094,7 @@ def download_file_function(projectID):
     document.add_page_break()
     document.add_heading('Introduction', level=1)
     p = document.add_paragraph(
-        'The security knowledge framework is composed by means of the highest security standards currently available and is designed to maintain the integrety of your application, so you and your costumers sensitive data is protected against hackers. This document is provided with a checklist in which the programmers of your application had to run through in order to provide a secure product.'
+        'The security knowledge framework is composed by means of the highest security standards currently available and is designed to maintain the integrity of your application, so you and your costumers sensitive data is protected against hackers. This document is provided with a checklist in which the programmers of your application had to run through in order to provide a secure product.'
     )
     p.add_run('\n')
     p = document.add_paragraph(

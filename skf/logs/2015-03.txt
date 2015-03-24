@@ -4348,3 +4348,15 @@
 2015-03-24 13:35 User supplied input was encoded  SUCCESS NULL 127.0.0.1
 2015-03-24 13:52 User supplied input was encoded  SUCCESS NULL 127.0.0.1
 2015-03-24 13:53 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:18 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:18 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:19 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:21 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:21 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:24 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 17:24 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:25 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 17:25 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:25 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:26 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 17:26 User supplied input was encoded  SUCCESS NULL 127.0.0.1
