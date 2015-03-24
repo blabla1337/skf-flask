@@ -4306,3 +4306,41 @@
 2015-03-24 01:15 User supplied input was encoded  SUCCESS NULL 127.0.0.1
 2015-03-24 09:32 Valid username/password submit  SUCCESS HIGH 127.0.0.1
 2015-03-24 09:32 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 09:53 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 09:53 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:34 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:35 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:37 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 10:37 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 10:43 User with no valid session tries access to page /project-checklists  FAIL HIGH 127.0.0.1
+2015-03-24 10:43 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 10:43 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 12:44 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 12:45 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 12:45 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 12:45 Authenticated session destroyed  SUCCESS LOW 127.0.0.1
+2015-03-24 12:45 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 12:45 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 12:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 12:46 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 12:52 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 12:54 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 12:54 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-03-24 13:19 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-03-24 13:19 User supplied input was encoded  SUCCESS NULL 127.0.0.1
