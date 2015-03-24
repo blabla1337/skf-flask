@@ -26,15 +26,15 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3>-<i class="fa fa-angle-right"></i><a href='/project'>Projects</a> -> <a href='/project-list'> Getting started</a> -> Security checklists</h3>
-		  		<div class="row mt">
-			  		<div class="col-lg-12">
+            <h3>-<i class="fa fa-angle-right"></i><a href='/project'>Projects</a> -> <a href='/project-list'> Getting started</a> -> Security checklists</h3>
+          <div class="row mt">
+            <div class="col-lg-12">
             <div class="alert alert-info">
             <b>Note:</b>
             Whenever you upload a new checklist and this one already exists for this project, the old version will be overwritten. 
             </div>
           
-						<div class="content-panel">
+            <div class="content-panel">
                <table class="table table-striped table-advance table-hover"> 
                   <thead>
                   <tr>
@@ -54,23 +54,23 @@
                               <td></td>
                               <td>          
                             <!-- MODALS -->
-      				              <div class="showbak">
-      						      <!-- Button trigger modal -->
-					         	  <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal3">
-						           Start                     
-					              </button>
-						
-						          <!-- Modal -->
-						          <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						          <div class="modal-dialog">
-						          <div class="modal-content">
-						          <div class="modal-header">
-						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						          <h4 class="modal-title" id="myModalLabel">Owasp top 10</h4>
-						          </div>
-						          <div   class="modal-body">
-						          <table id='checklist' style="width:525px">
-						          <form method='post' action='/project-checklist-add'/>
+                            <div class="showbak">
+                        <!-- Button trigger modal -->
+                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal3">
+                       Start                     
+                        </button>
+            
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Owasp top 10</h4>
+                      </div>
+                      <div   class="modal-body">
+                      <table id='checklist' style="width:525px">
+                      <form method='post' action='/project-checklist-add'/>
 
                       {% set counter_owasp = 0 -%}
                       {% set count_owasp_top = 0 -%}
@@ -107,17 +107,17 @@
                       <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
                       <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
                       <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
-								  </table>
-						          </div>
-						          <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						          <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
-						          </form>
-						          </div>
-						          </div>
-						  		  </div>
-								  </div>      				
-      							  </div>
+                  </table>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
+                      </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>              
+                      </div>
 
       
                              <tr>
@@ -145,7 +145,7 @@
                       <div   class="modal-body">
                       <table id='checklist' style="width:525px">
                       <form method='post' action='/project-checklist-add'/>
-
+                      {% set count_asvs_tool_lvl1 = 0 -%}
                       {% set counter_owasp_lvl1 = 0 -%}
                       {% set count_asvs_1 = 0 -%}
                       {% for entry in owasp_content_lvl1 -%}
@@ -174,10 +174,12 @@
                            {% endif %}
                         
                       {% endif %}
+
+
                       </td>
                         <td></td>
-                          {% set count_asvs_tool_lvl1 = 0 -%}
                           {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] != '0' -%}
+
                           {% set count_asvs_1 = count_asvs_1 + 1 %}
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{count_asvs_1|safe}}'>
@@ -236,7 +238,7 @@
                       <div   class="modal-body">
                       <table id='checklist' style="width:525px">
                       <form method='post' action='/project-checklist-add'/>
-
+                      {% set count_asvs_tool_lvl2 = 0 -%}
                       {% set counter_owasp_lvl2 = 0 -%}
                       {% set count_asvs_2 = 0 -%}
                       {% for entry in owasp_content_lvl2 -%}
@@ -269,7 +271,6 @@
                       {% endif %}
                       </td>
                         <td></td>
-                          {% set count_asvs_tool_lvl2 = 0 -%}
                           {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] != '0' -%}
                           {% set count_asvs_2 = count_asvs_2 + 1 %}
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
@@ -330,6 +331,7 @@
                       <table id='checklist' style="width:525px">
                       <form method='post' action='/project-checklist-add'/>
 
+                      {% set count_asvs_tool_lvl3 = 0 -%}
                       {% set counter_owasp_lvl3 = 0 -%}
                       {% set count_asvs_3 = 0 -%}
                       {% set count_desc = 1 -%}
@@ -345,25 +347,24 @@
                         {{entry|safe}}
                         
                            {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'ygb' -%}
-                           <img src="/static/img/yellow.png" width="35px" />
-                           <img src="/static/img/green.png"  width="35px" />
-                           <img src="/static/img/blue.png"   width="35px" />
+                           <img src="/static/img/yellow.png" width="10px" />
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />
                            {% endif %}
 
                            {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'gb' -%}        
-                           <img src="/static/img/green.png"  width="35px" />
-                           <img src="/static/img/blue.png"   width="35px" />
+                           <img src="/static/img/green.png"  width="10px" />
+                           <img src="/static/img/blue.png"   width="10px" />
                            {% endif %}
                            
                            {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'b' -%}
-                           <img src="/static/img/blue.png"   width="35px" />
+                           <img src="/static/img/blue.png"   width="10px" />
                            {% endif %}
                       
                       
                       {% endif %}
                       </td>
                         <td></td>
-                          {% set count_asvs_tool_lvl3 = 0 -%}
                           {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
                            {% set count_asvs_3 = count_asvs_3 + 1 %}
                            
@@ -496,9 +497,9 @@
                            
                            <img src="/static/img/blue.png"   width="10px" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASVS Level 3
 
-               </div><!-- /col-lg-4 -->			
-		  	</div><!-- /row -->
-		</section><!--/wrapper -->
+               </div><!-- /col-lg-4 -->     
+        </div><!-- /row -->
+    </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
          
 
