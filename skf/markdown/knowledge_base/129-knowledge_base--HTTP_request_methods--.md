@@ -5,7 +5,7 @@ HTTP request methods
 **Description:**
 
 HTTP offers a number of methods that can be used to perform actions on the web server. 
-Many of theses methods are designed to aid developers in deploying and testing 
+Many of these methods are designed to aid developers in deploying and testing 
 HTTP applications. These HTTP methods can be used for nefarious purposes if the web 
 server is misconfigured.
 
