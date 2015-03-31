@@ -4,8 +4,8 @@ Prevent password leaking
 
 **Description:**
 
-Whenever an users password is displayed on screen or send by email, a attacker gains the 
-opportunity compromising the password since it is displayed or sent in plain text. 
+Whenever an users password is displayed on screen or send by email, an attacker gains the 
+opportunity of compromising the password since it is displayed or sent in plain text. 
 Since the password is displayed on screen it could even be copied simply by looking at it.
 
 
