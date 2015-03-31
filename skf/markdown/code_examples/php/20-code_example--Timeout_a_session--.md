@@ -19,6 +19,13 @@ Timeout a session
 		session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
 
 	}
+	
+	/*
+	You could also set the session cookie its secure function with a ini_set
+	This ini_set has to be included in the header of al your pages in order to work
+	*/
+	
+    ini_set('session.cookie_lifetime', 3600);
 
 	?>
 

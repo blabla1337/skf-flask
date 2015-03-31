@@ -37,7 +37,7 @@ System commands
 	 
 
 		//Secondly, we define the allowed arguments
-		$whiteList = "/allowed argument/";
+		$whiteList = "/^allowed argument$/";
 
 		//Next we validate the incoming user input in a preg_match function
 		$sanitised = preg_match($whiteList, $_POST['configure_options'], $matched);

@@ -13,7 +13,7 @@ input validation
         we can assume a hacker is trying to inject malicious input
      	*/
      	
-     	if(!preg_match("/^[a-zA-Z0-9]+$/", $_POST['userinput'])
+     	if(!preg_match("/^[a-zA-Z0-9]+$/", $_POST['userinput']))
      	{
      		//Set a log for whenever there is unexpected userinput with a threat level
 			setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
@@ -31,35 +31,38 @@ input validation
         fixed expected value. whenever these value's differ from your fixed value's you can determin the user is tampering
         the value's and should be blocked since he is probably intercepting your parameters with an intercepting proxy. 
         */
-        $array = array("/page1/" ,"/page2/" ,"/etc/" ,"/etc/");
-        
-        foreach($array as $injectPattern){
-            while(preg_match($injectPattern , $_GET['fileName']])){
-                
-                //If the value is valid we send a log to the logging file.        
-                setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");       
-                 
-                //Then we return true value       
-            	$bool = true;	
-				return $bool;        
-            }        
-        }
-        
-        //If the value was not validated as true we must log and count the users actions
-        if($bool !== true){
-          
-			//Set a log for whenever there is unexpected user input with a threat level:
-			setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-		  
+	
+	//First we create a function which checks te allowed patterns
+	function checkpattern(){
+		$array = array("/^page1$/" ,"/^page2$/" ,"/^etc$/" ,"/^etc$/");
+	
+		foreach($array as $Pattern){
+			while(preg_match($Pattern , $_GET['fileName'])){		
+				//If the value is valid we send a log to the logging file.        
+				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
 			
-			 /*
-			If the user tries to read files other than specified, immediate logout wil follow!
-			*/
-			setCounter(3);
-						
-			//The die function is to make sure the rest of the php code is not excecuted beyond this point
-			die();          
-    	}
+				//then we return true      			
+				return true;
+			}
+
+		}
+	}
+	
+	//Here we handle the consequences if the checkpattern function fails
+	if(checkpattern() !== true){
+		
+		//Set a log for whenever there is unexpected user input with a threat level:
+		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+		
+		/*
+		If the user tries to read files other than specified, immediate logout wil follow!
+		*/
+		setCounter(3);
+					
+		//The die function is to make sure the rest of the php code is not excecuted beyond this point
+		die(); 
+	}
+	
         
         /*
         Third example is an encoding routine where we take possible malicious input and transform it into harmless input.

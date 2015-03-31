@@ -11,15 +11,15 @@ Debug Enabling
     For privilege based authentication we need an extra tabel in your database in order to write the users privileges to.
 
     TABLE users
-    -------------------------------------------------------------    
-    | userID | userName | password | privilegeID |    access	|
-    -------------------------------------------------------------  
-    |   1	 | Admin	| Csdar323 |	  1		 | 	   TRUE		|
-    -------------------------------------------------------------  	
-    |	2	 | User		| Adf4fsv  |	  2		 |	   FALSE	|
-    -------------------------------------------------------------  
-    |	3	 | Guest	| dff4fKr  |	  3		 |	   TRUE		|
-    -------------------------------------------------------------  
+    ---------------------------------------------------------------------------------    
+    | userID | userName | password | privilegeID |    access	| AggregrateControl	|
+    ---------------------------------------------------------------------------------   
+    |   1	 | Admin	| Csdar323 |	  1		 | 	   TRUE		|		2336		|
+    ---------------------------------------------------------------------------------   	
+    |	2	 | User		| Adf4fsv  |	  2		 |	   FALSE	|		 0			|
+    ---------------------------------------------------------------------------------   
+    |	3	 | Guest	| dff4fKr  |	  3		 |	   TRUE		|		135			|
+    ---------------------------------------------------------------------------------   
 
     TABLE privileges
     ----------------------------------   
@@ -45,7 +45,7 @@ Debug Enabling
         In this example the expexted input is "a-Z/0-9 - _"
         */ 
 
-        if(!preg_match("/^[^a-zA-Z0-9_\-]/", $username))
+        if(preg_match("/[^a-zA-Z0-9]/", $username))
         {       
             //Set a log for whenever there is unexpected userinput with a threat level 
             setLog("null","invalid expected input", "FAIL", date(dd-mm-yyyy), "null", "HIGH"); 
@@ -106,7 +106,7 @@ Debug Enabling
     /*
     This is how you enforce the permissions in your application
     We define the roles we want the user to suffice
-    /*
+    */
     
     if(isAuthorized("edit:read:delete") === true){
         //Do your operation

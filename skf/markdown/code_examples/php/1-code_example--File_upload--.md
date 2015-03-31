@@ -69,26 +69,40 @@ File upload
 					die();
 				}
 		
-			//Check for uploading out of intended directory
-			$array = array("/%2e%2e%2f/" ,"/..//" ,"/%2e/" ,"/%5c/" ,"/%252e/" ,"/%c0%af/" ,"%/c1%9c/");
-		
-			foreach($array as $injectPattern){
-				while(preg_match($injectPattern , $this->_image['name'])){
 			
-					//Set a log for whenever there is unexpected userinput with a threat level
-					setLog($_SESSION['userID'],"Unrestricted image filename", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-
-					/*
-					Set counter; if counter hits 3, the user's session must be terminated.
-					After 3 session terminations the user acount should be blocked
-					Since the high threat level there will be imediate session termination
-					*/
-					setCounter(3);
-							
-					//The die function is to make sure the rest of the php code is not excecuted beyond this point
-					die();
-				}		
+			//here we create a function which checks te allowed patterns
+			function checkpattern(){
+		    
+		    //Check for uploading out of intended directory
+			$array = array("/%2e%2e%2f/" ,"/..//" ,"/%2e/" ,"/%5c/" ,"/%252e/" ,"/%c0%af/" ,"%/c1%9c/");
+	
+		foreach($array as $Pattern){
+			while(preg_match($Pattern , $this->_image['name'])){		
+				//If the value is valid we send a log to the logging file.        
+				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
+			
+				//then we return true      			
+				return true;
 			}
+
+		}
+	}
+	
+	//Here we handle the consequences if the checkpattern function fails
+	if(checkpattern() !== true){
+		
+		//Set a log for whenever there is unexpected user input with a threat level:
+		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+		
+		/*
+		If the user tries to read files other than specified, immediate logout wil follow!
+		*/
+		setCounter(3);
+					
+		//The die function is to make sure the rest of the php code is not excecuted beyond this point
+		die(); 
+	}
+	
 			
 			//if all goes wel upload your file, first we want to log the event.	
 			setLog($_SESSION['userID'],"File upload", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
