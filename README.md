@@ -28,27 +28,27 @@ these techniques in a safe manner.
 
 Installing Ubuntu
 ----------
-sudo apt-get install python-pip
-sudo apt-get install sqlite3
+sudo apt-get install python-pip <br>
+sudo apt-get install sqlite3 <br>
 
-pip install owasp-skf
-pip install https://github.com/mitsuhiko/flask/tarball/master
+pip install owasp-skf <br>
+pip install https://github.com/mitsuhiko/flask/tarball/master <br>
 
 Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
 python skf.py
 
 Installing Windows
 ----------
-Download and install Python2.7.9
+Download and install Python2.7.9<br>
 https://www.python.org/downloads/release/python-279/
 
-Run below commands in cmd:
-C:\Python27\Scripts\pip.exe install owasp-skf
+Run below commands in cmd:<br>
+C:\Python27\Scripts\pip.exe install owasp-skf<br>
 C:\Python27\Scripts\pip.exe install https://github.com/mitsuhiko/flask/tarball/master
 
-Now you can start the program by opening the folder and run the skf.py file:
-cd C:\Python27\Lib\site-packages\skf
-C:\Python27\python.exe skf.py
+Now you can start the program by opening the folder and run the skf.py file:<br>
+cd C:\Python27\Lib\site-packages\skf<br>
+C:\Python27\python.exe skf.py<br>
 
 1. The SKF web-application:
      
@@ -63,9 +63,9 @@ C:\Python27\python.exe skf.py
      The password will be auto-generated every time the skf-application is launched. 
      Check commandline output for the the generated password.
 	 
-3. If you want to use test_skf.py as well, you will need to
-     Ubuntu:
-     pip install pytest
-     Windows:
+3. If you want to use test_skf.py as well, you will need to<br>
+     Ubuntu:<br>
+     pip install pytest<br>
+     Windows:<br>
      C:\Python27\Scripts\pip.exe --install pytest
      
