@@ -1,7 +1,14 @@
 ![Alt text](http://www.securityknowledgeframework.com/img/profile.png)
 
-Security Knowledge Framework
-----------------------------
+#Security Knowledge Framework
+
+##Table of Contents
+* [Introduction](#introduction)
+* [Installing](#installing)
+* [Usage](#usage)
+* [Testing](#testing)
+
+##<a name="introduction"></a>Introduction
 Our experience taught us that the current level of security the current web-applications contain is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers which are lurking, waiting to be exploited by hackers.
 
 Because of this we decided to develop a proof of concept framework in order to create a guide system available for all developers so they can develop applications secure by design.
@@ -12,8 +19,7 @@ The second stage of the application is validating if the developer properly impl
 
 By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
 
-Installing
-----------
+##<a name="installing"></a>Installing
 
 ####Ubuntu
 ----------
@@ -49,8 +55,8 @@ Now you can start the program by opening the folder and run the skf.py file:
   C:\Python27\python.exe skf.py
 ```
 
-Usage
------
+##<a name="usage"></a>Usage
+
 The application will greet you on `https://127.0.0.1:5443/`
 
 Default the application will generate a certificate on the fly but what you really want to do is placing your own server.key and server.crt in the skf dir. Then the skf-flask application will use these instead.
@@ -58,8 +64,7 @@ Default the application will generate a certificate on the fly but what you real
 Default username: `admin`
 The password will be auto-generated every time the skf-application is launched. Check commandline output for the generated password.
 
-Testing
--------
+##<a name="testing"></a>Testing
 ####Ubuntu:
 -----------
 ```
