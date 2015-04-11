@@ -62,14 +62,17 @@ def generate_pass():
     PWD_LEN = 12
     password = ''.join(chars[ord(c) % len(chars)] for c in os.urandom(PWD_LEN))
     return password
-    
+
+@app.route('/warning', methods=['GET', 'POST'])
 def log(id, message, value, threat, ip):
     """Write a log to file"""
-    file = open('log.txt', 'a')
-    file.write(id+' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
-    file.close
+    dateLog  = datetime.datetime.now().strftime("%Y-%m")
+    dateTime = datetime.datetime.now().strftime("%Y-%m-%D")
+    file = open('logs/'+dateLog+'.txt', 'a')
+    file.write(id+' '+ dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
+    file.close        
     count = 0
-    read = open('log.txt', 'r+')
+    read = open('logs/'+dateLog+'.txt', 'r+')
     for line in read:
         match = re.search(r'FAIL', line)
         # If-statement after search() tests if it succeeded
@@ -78,9 +81,9 @@ def log(id, message, value, threat, ip):
             str(count) 
             if count > 12:
                 session['logged_in'] = False
+    			                
+			    
                 
-    
-            
 
 #secret key for flask internal session use
 secret_key = rand.bytes(512)
@@ -166,7 +169,8 @@ def projects_functions_techlist():
 def show_landing():
     """show the loging page and set default code language"""
     return render_template('login.html')
-
+    
+    
 @app.route('/dashboard', methods=['GET'])
 @security
 def dashboard():
@@ -338,6 +342,7 @@ def projects():
     """show the create new project page"""
     if not session.get('logged_in'):
         abort(401)
+    log("1","this is an error message","FAIL","test","ip")      
     return render_template('project-new.html', csrf_token=session['csrf_token'])
 
 @app.route('/project-add', methods=['POST'])
