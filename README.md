@@ -46,7 +46,7 @@ Run below commands in cmd:
 Now you can start the program by opening the folder and run the skf.py file:
 ```
   cd C:\Python27\Lib\site-packages\skf
-  C:\Python27\python.exe skf.py<br>
+  C:\Python27\python.exe skf.py
 ```
 
 Usage
@@ -55,8 +55,8 @@ The application will greet you on `https://127.0.0.1:5443/`
 
 Default the application will generate a certificate on the fly but what you really want to do is placing your own server.key and server.crt in the skf dir. Then the skf-flask application will use these instead.
 
-default username: `admin`
-The password will be auto-generated every time the skf-application is launched. Check commandline output for the the generated password.
+Default username: `admin`
+The password will be auto-generated every time the skf-application is launched. Check commandline output for the generated password.
 
 Testing
 -------
