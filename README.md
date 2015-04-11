@@ -1,3 +1,5 @@
+![Alt text](http://www.securityknowledgeframework.com/img/profile.png)
+
 About Security Knowledge Framework
 ------------------------------------
 Our experience taught us that the current level of security the current 
