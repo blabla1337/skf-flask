@@ -1,6 +1,7 @@
 ![Alt text](http://www.securityknowledgeframework.com/img/profile.png)
 
 #Security Knowledge Framework
+Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.
 
 ##Table of Contents
 * [Introduction](#introduction)
@@ -79,6 +80,7 @@ The password will be auto-generated every time the skf-application is launched. 
 ```
 
 ##<a name="license"></a>License
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
