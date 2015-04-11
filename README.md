@@ -95,6 +95,22 @@ The password will be auto-generated every time the skf-application is launched. 
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+####SKF includes the following software:
+----------------------------------------
+* [Certified secure](https://www.certifiedsecure.com/frontpage)  
+Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
+
+* [Owasp](http://owasp.com/index.php/Main_Page)  
+Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
+
+* [TCPDF](http://www.tcpdf.org/)  
+Licensed under [GNU Lesser General Public](http://www.tecnick.com/pagefiles/tcpdf/LICENSE.TXT) License
+
+* [jQuery](http://jquery.org)  
+Licensed under the [MIT license](http://jquery.org/license)
+
+* Boostrap theme thanks to http://www.blacktie.com
+
 ##<a name="contributors"></a>Contributors
 - Clenn ten Cate
 - Riccardo ten Cate
