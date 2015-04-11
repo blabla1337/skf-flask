@@ -7,6 +7,8 @@
 * [Installing](#installing)
 * [Usage](#usage)
 * [Testing](#testing)
+* [License](#license)
+* [Contributors](#contributors)
 
 ##<a name="introduction"></a>Introduction
 Our experience taught us that the current level of security the current web-applications contain is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers which are lurking, waiting to be exploited by hackers.
@@ -75,3 +77,23 @@ The password will be auto-generated every time the skf-application is launched. 
 ```
   C:\Python27\Scripts\pip.exe --install pytest
 ```
+
+##<a name="license"></a>License
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+##<a name="contributors"></a>Contributors
+- Clenn ten Cate
+- Riccardo ten Cate
+- Daniel Paulus <d.paulus@gmail.com>
