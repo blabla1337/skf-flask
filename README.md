@@ -2,31 +2,15 @@
 
 About Security Knowledge Framework
 ------------------------------------
-Our experience taught us that the current level of security the current 
-web-applications contain is not sufficient enough to ensure security. 
-This is mainly because web-developers simpy aren't aware of the risks and dangers 
-which are lurking, waiting to be exploited by hackers. 
+Our experience taught us that the current level of security the current web-applications contain is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers which are lurking, waiting to be exploited by hackers.
 
-Because of this we decided to develop a proof of concept framework in order 
-to create a guide system available for all developers so they can develop 
-applications secure by design.
+Because of this we decided to develop a proof of concept framework in order to create a guide system available for all developers so they can develop applications secure by design.
 
-The security knowledge framework is here to support developers create secure applications. 
-By analysing proccessing techniques in which the developers use to edit their 
-data the application can link these techniques to different known vulnerabilities and 
-give the developer feedback regarding descriptions and solutions on how to properly 
-implement these techniques in a safe manner. 
+The security knowledge framework is here to support developers create secure applications. By analysing processing techniques in which the developers use to edit their data the application can link these techniques to different known vulnerabilities and give the developer feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
 
-The seccond stage of the application is validating if the developer 
-properly implemented different types of defense mechanisms 
-by means of checklistswith among others the 
-OWASP Application security verification standards.
+The second stage of the application is validating if the developer properly implemented different types of defence mechanisms by means of checklists with among others the OWASP Application security verification standards.
 
-By means of the answers supplied by the developer the application again generates
-documentation in which it gives feedback on what defense 
-mechanisms the developer forgot to implement and give him feedback 
-regarding descriptions and solutions on how to properly implement
-these techniques in a safe manner.
+By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
 
 Installing Ubuntu
 ----------
