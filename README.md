@@ -1,4 +1,4 @@
-![Alt text](http://www.securityknowledgeframework.com/img/profile.png)
+![Alt text](https://github.com/dpnl87/skf-flask/blob/feature/readme/skf/static/img/logo-skf.png)
 
 About Security Knowledge Framework
 ------------------------------------
