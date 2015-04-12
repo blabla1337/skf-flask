@@ -1,6 +1,6 @@
 ![Alt text](http://www.securityknowledgeframework.com/img/profile.png)
 
-#Security Knowledge Framework
+#OWASP Security Knowledge Framework
 Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.
 
 ##Table of Contents
@@ -97,11 +97,12 @@ The password will be auto-generated every time the skf-application is launched. 
 
 ####SKF includes the following software:
 ----------------------------------------
-* [Certified secure](https://www.certifiedsecure.com/frontpage)  
-Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
 
 * [Owasp](http://owasp.com/index.php/Main_Page)  
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
+
+* [Python-Flask](http://flask.pocoo.org/)  
+Licensed under the [BSD license](http://flask.pocoo.org/docs/0.10/license/) license
 
 * [TCPDF](http://www.tcpdf.org/)  
 Licensed under [GNU Lesser General Public](http://www.tecnick.com/pagefiles/tcpdf/LICENSE.TXT) License
@@ -109,9 +110,14 @@ Licensed under [GNU Lesser General Public](http://www.tecnick.com/pagefiles/tcpd
 * [jQuery](http://jquery.org)  
 Licensed under the [MIT license](http://jquery.org/license)
 
+* [Certified secure](https://www.certifiedsecure.com/frontpage)  
+Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
+
 * Boostrap theme thanks to http://www.blacktie.com
 
 ##<a name="contributors"></a>Contributors
-- Clenn ten Cate
+- Glenn ten Cate
 - Riccardo ten Cate
+- Alexander Kaasjager
+- John Haley
 - Daniel Paulus <d.paulus@gmail.com>
