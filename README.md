@@ -104,14 +104,26 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 * [Python-Flask](http://flask.pocoo.org/)  
 Licensed under the [BSD license](http://flask.pocoo.org/docs/0.10/license/) license
 
-* [TCPDF](http://www.tcpdf.org/)  
-Licensed under [GNU Lesser General Public](http://www.tecnick.com/pagefiles/tcpdf/LICENSE.TXT) License
-
 * [jQuery](http://jquery.org)  
 Licensed under the [MIT license](http://jquery.org/license)
 
 * [Certified secure](https://www.certifiedsecure.com/frontpage)  
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
+
+* [Flask](https://github.com/mitsuhiko/flask/)  
+Copyright (c) 2015 by Armin Ronacher and contributors, Some rights reserved.
+
+* [Markdown](https://pypi.python.org/pypi/Markdown)  
+Licensed under the [BSD](http://www.linfo.org/bsdlicense.html) license
+
+* [BeautifulSoup](https://pypi.python.org/pypi/beautifulsoup4/4.3.2)  
+Licensed under the [MIT](http://en.wikipedia.org/wiki/MIT_License) license
+
+* [Python-docx](https://pypi.python.org/pypi/pyOpenSSL)  
+Licensed under the [MIT](http://en.wikipedia.org/wiki/MIT_License) license
+
+* [pyOpenSSL](https://pypi.python.org/pypi/python-docx)  
+Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
 
 * Boostrap theme thanks to http://www.blacktie.com
 
