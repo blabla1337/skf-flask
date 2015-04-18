@@ -100,7 +100,7 @@ def blockUsers():
                 sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')            
     			                
 def valAlphaNum(value):
-    match = re.findall(r"[^ a-zA-Z0-9_-]", value)
+    match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
     if match:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
         blockUsers()
@@ -599,6 +599,10 @@ def add_checklist():
                 safe_listID = encodeInput(request.form[listID])
                 safe_pName = encodeInput(request.form['projectName'])
                 safe_id = encodeInput(request.form['projectID'])
+                #print '        '+answerID+'="'+str(safe_answerID)+'",'
+                #print '        '+questionID+'="'+str(safe_questionID)+'",'
+                #print '        '+vulnID+'="'+str(safe_vulnID)+'",'
+                #print '        '+listID+'="'+str(safe_listID)+'",'
                 date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
                 db = get_db()
                 db.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?, ?)',
