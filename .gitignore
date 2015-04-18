@@ -3,9 +3,10 @@
 **/build
 **/dist
 **/owasp_skf.egg-info/
+skf/__pycache__/*
 skf/checklist-security-report.docx
 skf/function-security-report.docx
-skf/log/*.txt
+skf/log/*
 skf/skf.pyc
 skf/server.crt
 skf/server.key
