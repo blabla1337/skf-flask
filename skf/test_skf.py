@@ -22,7 +22,6 @@ def client(request):
         skf.check_token = _check_token
 
     def teardown():
-        os.close(db_fd)
         os.unlink(skf.app.config['DATABASE'])
     request.addfinalizer(teardown)
 
