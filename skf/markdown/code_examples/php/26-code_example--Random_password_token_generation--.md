@@ -12,7 +12,7 @@ Random password/token generation
 	$_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
 
 	//A good random password would be: 
-	$bytes = openssl_random_pseudo_bytes(10);
+	$bytes = openssl_random_pseudo_bytes(15);
 	$pwd = bin2hex($bytes);
 
 	?>

@@ -73,7 +73,11 @@ Debug Enabling
         $this->_setParam(array(":username" => $username));
         $loginUser = $this->getRow($sql);
     
-            //Than we validate the password, if the validation is true than we set the sessions
+    		/*
+            Than we validate the password, if the validation is true than we set the sessions
+            For more detailed information on password validation check please look into the
+            Password storage(salting/stretching/hashing) in the knowledgebase for more information.
+            */
             if($this->ValidatePassword($loginUser['password'], $password) === true)
             {
 				

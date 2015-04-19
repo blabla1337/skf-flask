@@ -40,6 +40,9 @@ SQL query
 	$stmt->execute(array($id, $name));
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	
+	}
+	
+	
 	//or		
 
 	//After successful validation we want to log that name was validated successfully:

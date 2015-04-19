@@ -88,7 +88,13 @@ input validation
 		
 		/*
 		Verify the sanitizer pattern. In this case we want to use people's names so we also have
-		want to allow input like: o'reily.
+		want to allow input like: o'reily. 
+		Don't forget to sanitise all other evil input first before allowing the user-input 
+		to process any further. you can achieve this by using the same type of check as used
+		in the first example, exept we use another regex like:
+		
+		/^['a-zA-Z0-9]+$/
+		
 		*/
 		$array = array($pattern1);
 		
@@ -97,7 +103,8 @@ input validation
 				while(preg_match($pattern , $string))
 				{
 					setLog($_SESSION['userID'],"character encoding for username", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-					$result = preg_replace($pattern1, $replacements, $string);					
+					$result = preg_replace($pattern1, $replacements, $string);	
+					return true;				
 				}		
 			}
 		
