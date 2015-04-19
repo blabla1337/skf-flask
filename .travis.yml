@@ -11,8 +11,8 @@ install:
 script:
   - python setup.py test
   - python setup.py install
-  - flask --app=skf initdb
   - py.test --cov test_skf.py
-  
+
 after_script:
+  - coverage report -m skf.py
   - coveralls --verbose
