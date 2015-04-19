@@ -10,6 +10,8 @@ install:
 script:
   - python setup.py test
   - python setup.py install
+  - cd skf
+  - py.test --cov skf.py
   
 after_script:
-  - cd skf/; python -m pytest test_skf.py
+  - coveralls --verbose
