@@ -12,7 +12,7 @@ script:
   - python setup.py test
   - python setup.py install
   - cd skf
-  - py.test --cov skf.py
+  - py.test --cov test_skf.py
   
 after_script:
   - coveralls --verbose
