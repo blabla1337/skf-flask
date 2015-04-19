@@ -86,10 +86,10 @@ def blockUsers():
     dateLog  = datetime.datetime.now().strftime("%Y-%m")
     count = 0
     try:
-        read = open('logs/'+dateLog+'.txt', 'a+')
+        read = open(os.path.join(app.root_path, 'logs/'+dateLog+'.txt', 'a+'))
     except IOError:
         # If not exists, create the file
-        read = open('logs/'+dateLog+'.txt', 'w+')
+        read = open(os.path.join(app.root_path, 'logs/'+dateLog+'.txt', 'w+'))
     for line in read:
         match = re.search('FAIL', line)
         # If-statement after search() tests if it succeeded
