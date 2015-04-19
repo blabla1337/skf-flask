@@ -19,7 +19,6 @@ def client(request):
     skf.app.config['TESTING'] = True
     client = skf.app.test_client()
     with skf.app.app_context():
-        skf.init_db()
         skf.log = _log
         skf.check_token = _check_token
 
