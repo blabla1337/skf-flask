@@ -15,7 +15,6 @@ import skf
 
 @pytest.fixture
 def client(request):
-    db_fd, skf.app.config['DATABASE'] = tempfile.mkstemp()
     skf.app.config['TESTING'] = True
     client = skf.app.test_client()
     with skf.app.app_context():
