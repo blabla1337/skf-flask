@@ -11,8 +11,8 @@ install:
 script:
   - python setup.py test
   - python setup.py install
-  - py.test --cov test_skf.py
+  - python -m pytest --cov test_skf.py
+  - coverage report -m skf.py
 
 after_script:
-  - coverage report -m skf.py
   - coveralls --verbose
