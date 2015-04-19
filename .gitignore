@@ -3,6 +3,7 @@
 **/build
 **/dist
 **/owasp_skf.egg-info/
+.coverage
 skf/__pycache__/*
 skf/checklist-security-report.docx
 skf/function-security-report.docx
