@@ -31,9 +31,9 @@ drop table if exists `techhacks`;
 CREATE TABLE `techhacks` (
 `techID` int(11) NOT NULL,
 `techName` varchar(255) NOT NULL,
-`vulnID` int(11) NOT NULL,
-PRIMARY KEY (`techID`)
+`vulnID` int(11) NOT NULL
 );
+
 INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
 (1, 'SQL commands', 46),
 (2, 'Path/Filenames', 1),
