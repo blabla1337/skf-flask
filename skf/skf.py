@@ -915,7 +915,7 @@ def download_file_checklist(entryDate):
                [safe_entryDate])
     entries = cur.fetchall()
     document = Document()
-    document.add_picture('static/img/owaspdocx.png', width=Inches(4.75), height=Inches(1.15))
+    document.add_picture(os.path.join(app.root_path,'static/img/owaspdocx.png'), width=Inches(4.75), height=Inches(1.15))
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     document.add_heading('Security Knowledge Framework', 0)
@@ -990,14 +990,14 @@ def download_file_checklist(entryDate):
         p = document.add_paragraph(item.partition("\n")[2])
         if ygb == True:
             if ygb_docx[i] == "b":
-                image = document.add_picture('static/img/blue.png', width=Inches(0.20))
+                image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
             elif ygb_docx[i] == "gb":
-                image = document.add_picture('static/img/green.png', width=Inches(0.20))
-                image = document.add_picture('static/img/blue.png', width=Inches(0.20))
+                image = document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))
+                image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png') width=Inches(0.20))
             elif ygb_docx[i] == "ygb":
-                image = document.add_picture('static/img/yellow.png', width=Inches(0.20))
-                image = document.add_picture('static/img/green.png', width=Inches(0.20))            
-                image = document.add_picture('static/img/blue.png', width=Inches(0.20))
+                image = document.add_picture(os.path.join(app.root_path,'static/img/yellow.png'), width=Inches(0.20))
+                image = document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))            
+                image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
         p.add_run("\n")
         document.add_page_break()
         i += 1
@@ -1056,7 +1056,7 @@ def download_file_function(projectID):
                [safe_id])
     entries = cur.fetchall()
     document = Document()
-    document.add_picture('static/img/owaspdocx.png', width=Inches(4.75), height=Inches(1.15))
+    document.add_picture(os.path.join(app.root_path,'static/img/owaspdocx.png'), width=Inches(4.75), height=Inches(1.15))
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     document.add_heading('Security Knowledge Framework', 0)
