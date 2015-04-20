@@ -5,7 +5,6 @@ SQL query
 **Example:**
 
 
-
     <?php
 
 	/*
@@ -14,32 +13,32 @@ SQL query
 	injections so none could be accidentally forgotten as with the normal mysqli_real_escape_string() methods.
 	*/
 	
+	/*
+	For detecting a possible attack on your application simply escaping the userinput is obviously not enough.
+	Therefore, you'll want to verify the input as submitted by the user does not contain malicous code.
+	In this example the expexted input is a-z/0-9:
+	*/
+	if(!preg_match("/^[a-zA-Z0-9]+$/", $name){
+
+		//Set a log for whenever there is unexpected userinput with a threat level:
+		setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+
+
 		/*
-		For detecting a possible attack on your application simply escaping the userinput is obviously not enough.
-		Therefore, you'll want to verify the input as submitted by the user does not contain malicous code.
-		In this example the expexted input is a-z/0-9:
+		Set counter; if counter hits 3 the user's session must terminated.
+		After 3 session terminations, the user's acount must be blocked
 		*/
-     	if(!preg_match("/^[a-zA-Z0-9]+$/", $name){
-     		
-			//Set a log for whenever there is unexpected userinput with a threat level:
-			setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+		setCounter(1);
 
-
-     		/*
-			Set counter; if counter hits 3 the user's session must terminated.
-			After 3 session terminations, the user's acount must be blocked
-			*/
-			setCounter(1);
-			
-     	}
+	}
 
 	//After successful validation we want to log that name was validated successfully:
 	setLog($_SESSION['userID'],"succesfull input validation", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-	
+
 	$stmt = $db->prepare("SELECT * FROM table WHERE id=? AND name=?");
 	$stmt->execute(array($id, $name));
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	
+
 	}
 	
 	

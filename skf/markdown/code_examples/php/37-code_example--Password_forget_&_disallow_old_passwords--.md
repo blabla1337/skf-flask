@@ -215,6 +215,7 @@ Password forget & Disallow old passwords
 			
 					if($newpassword === $row['oldPasswords']){
 						echo "This was an old password please do not use this password";
+						die();
 					}else{
 						
 						//First we update the new password for the user

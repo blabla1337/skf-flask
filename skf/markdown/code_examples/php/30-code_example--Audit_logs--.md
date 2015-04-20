@@ -47,7 +47,11 @@ Audit logs
             {
             	//Log that the users sessions have been terminated:
 				setLog($_SESSION['userID'],"The users session was terminated", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-                session_start();
+                
+                //We also empty the current session before destroying it
+                $_SESSION['isAuthenticated'] = "";
+                
+                ssession_start();
                 session_destroy();
                 $count = 0;
                 die;

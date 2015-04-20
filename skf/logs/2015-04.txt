@@ -1,2 +1,7 @@
 
 2015-04-19 22:53 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-04-20 14:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-04-20 14:49 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-04-20 14:49 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-04-20 14:49 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-04-20 14:50 User supplied input was encoded  SUCCESS NULL 127.0.0.1

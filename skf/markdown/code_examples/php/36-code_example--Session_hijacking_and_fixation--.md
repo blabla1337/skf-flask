@@ -1,5 +1,5 @@
 
-Aggregate user controlls
+Session hijacking and session fixation
 -------
 
 **Example:**
