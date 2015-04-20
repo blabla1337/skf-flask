@@ -34,32 +34,6 @@ CREATE TABLE `techhacks` (
 `vulnID` int(11) NOT NULL
 );
 
-INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
-(1, 'SQL commands', 46),
-(2, 'Path/Filenames', 1),
-(3, 'File inclusion', 1),
-(4, 'X-Path commands', 7),
-(5, 'HTML output', 3),
-(6, 'LDAP commands', 11),
-(7, 'HTTP headers', 1),
-(8, 'XSL(T) input/output', 9),
-(9, 'SSI commands', 12),
-(10, 'System commands', 4),
-(11, 'Resource identifiers', 34),
-(12, 'Eval type functions', 4),
-(13, 'Regular expressions', 36),
-(14, 'File upload ', 13),
-(15, 'XML files', 8),
-(16, 'External XML files', 6),
-(17, 'JSON ', 3),
-(18, 'GET variables/parameters', 72),
-(19, 'Forward or/ redirect', 67),
-(20, 'Password forget functions', 153),
-(21, 'Sessions', 154),
-(22, 'Submit forms', 155),
-(23, 'User registration', 157),
-(24, 'Access controls/Login systems', 152);
-
 -- 
 -- Table structure for table `questionlist`
 -- 
