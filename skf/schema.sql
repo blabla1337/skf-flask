@@ -34,7 +34,31 @@ CREATE TABLE `techhacks` (
 `vulnID` int(11) NOT NULL
 );
 
-INSERT OR REPLACE INTO `techhacks` (techID, techName, vulnID) VALUES (1, 'SQL commands', 46);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (1, 'SQL commands', 46);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (2, 'Path or Filenames', 1);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (3, 'File inclusion', 1);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (4, 'X-Path commands', 7);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (5, 'HTML output', 3);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (6, 'LDAP commands', 11);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (7, 'HTTP headers', 1);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (8, 'XSLT input and output', 9);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (9, 'SSI commands', 12);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (10, 'System commands', 4);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (11, 'Resource identifiers', 34);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (12, 'Eval type functions', 4);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (13, 'Regular expressions', 36);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (14, 'File upload ', 13);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (15, 'XML files', 8);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (16, 'External XML files', 6);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (17, 'JSON ', 3);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (18, 'GET variables or parameters', 72);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (19, 'Forward or redirect', 67);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (20, 'Password forget functions', 153);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (21, 'Sessions', 154);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (22, 'Submit forms', 155);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (23, 'User registration', 157);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (24, 'Access controls or Login systems', 152);
+
 -- 
 -- Table structure for table `questionlist`
 -- 
