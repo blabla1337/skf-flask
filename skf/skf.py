@@ -993,7 +993,7 @@ def download_file_checklist(entryDate):
                 image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
             elif ygb_docx[i] == "gb":
                 image = document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))
-                image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png') width=Inches(0.20))
+                image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
             elif ygb_docx[i] == "ygb":
                 image = document.add_picture(os.path.join(app.root_path,'static/img/yellow.png'), width=Inches(0.20))
                 image = document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))            
