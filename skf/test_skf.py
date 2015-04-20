@@ -6,7 +6,6 @@
 """
 
 import pytest
-import mock
 import tempfile
 import os 
 import datetime
@@ -15,7 +14,6 @@ import skf
 
 @pytest.fixture
 def client(request):
-    db_fd, skf.app.config['DATABASE'] = tempfile.mkstemp()
     skf.app.config['TESTING'] = True
     client = skf.app.test_client()
     with skf.app.app_context():
@@ -24,7 +22,6 @@ def client(request):
         skf.check_token = _check_token
 
     def teardown():
-        #os.close(db_fd)
         request.addfinalizer(teardown)
 
     return client
