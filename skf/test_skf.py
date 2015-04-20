@@ -69,11 +69,6 @@ def test_knowledge_base_item(client):
     """Make sure knowledge-base item content works"""
     login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
     rv = client.post('/kb-item', data=dict(
-        id=76
-    ), follow_redirects=True)
-    assert b'Description' in rv.data
-
-    rv = client.post('/kb-item', data=dict(
         id=144
     ), follow_redirects=True)
     assert b'Description' in rv.data
@@ -119,27 +114,27 @@ def test_code_base_item(client):
     login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
     rv = client.post('/code-item', data=dict(
         id=1
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Example' in rv.data
 
     rv = client.post('/code-item', data=dict(
         id=4
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Example' in rv.data
 
     rv = client.post('/code-item', data=dict(
         id=6
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Example' in rv.data
 
     rv = client.post('/code-item', data=dict(
         id=7
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Example' in rv.data
 
     rv = client.post('/code-item', data=dict(
         id=9
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Example' in rv.data
 
 def test_code_base_item_search(client):
