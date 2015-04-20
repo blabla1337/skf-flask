@@ -34,7 +34,7 @@ CREATE TABLE `techhacks` (
 `vulnID` int(11) NOT NULL
 );
 
-INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
+INSERT INTO `techhacks` ('techID', 'techName', 'vulnID') VALUES
 (1, 'SQL commands', 46),
 (2, 'Path or Filenames', 1),
 (3, 'File inclusion', 1),
