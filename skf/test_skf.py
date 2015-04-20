@@ -24,8 +24,7 @@ def client(request):
         skf.check_token = _check_token
 
     def teardown():
-        os.close(db_fd)
-        
+        #os.close(db_fd)
     request.addfinalizer(teardown)
 
     return client
