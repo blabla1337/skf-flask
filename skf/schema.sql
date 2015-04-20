@@ -46,7 +46,7 @@ INSERT INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES
 (9, 'SSI commands', 12),
 (10, 'System commands', 4),
 (11, 'Resource identifiers', 34),
-(12, '"Eval" type functions', 4),
+(12, 'Eval type functions', 4),
 (13, 'Regular expressions', 36),
 (14, 'File upload ', 13),
 (15, 'XML files', 8),
