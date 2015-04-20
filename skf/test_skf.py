@@ -25,7 +25,7 @@ def client(request):
 
     def teardown():
         #os.close(db_fd)
-    request.addfinalizer(teardown)
+        request.addfinalizer(teardown)
 
     return client
 
