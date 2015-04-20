@@ -71,27 +71,27 @@ def test_knowledge_base_item(client):
     rv = client.post('/kb-item', data=dict(
         id=76
     ), follow_redirects=True)
-    assert b'<strong>Description' in rv.data
+    assert b'Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
         id=144
     ), follow_redirects=True)
-    assert b'<strong>Description' in rv.data
+    assert b'Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
         id=61
     ), follow_redirects=True)
-    assert b'<strong>Description' in rv.data
+    assert b'Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
         id=122
     ), follow_redirects=True)
-    assert b'<strong>Description' in rv.data
+    assert b'Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
         id=97
     ), follow_redirects=True)
-    assert b'<strong>Description' in rv.data
+    assert b'Description' in rv.data
 
 
 def test_knowledge_base_item_search(client):
@@ -187,13 +187,13 @@ def test_create_project_function(client):
     ), follow_redirects=True)
     rv = client.get('/project-functions/1')
     assert b'SQL commands' in rv.data
-    assert b'Access controls/Login systems' in rv.data
+    assert b'Access controls or Login systems' in rv.data
     assert b'JSON' in rv.data
     rv = client.get('/results-functions')
     assert b'SKF Phase' in rv.data
     rv = client.get('/results-function-report/1')
     assert b'SQL commands' in rv.data
-    assert b'Access controls/Login systems' in rv.data
+    assert b'Access controls or Login systems' in rv.data
     assert b'JSON' in rv.data
     rv = client.get('/results-function-docx/1')
     assert b'attachment' in rv.headers['Content-Disposition']
