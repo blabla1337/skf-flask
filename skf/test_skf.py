@@ -72,29 +72,30 @@ def test_knowledge_base_item(client):
     """Make sure knowledge-base item content works"""
     login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
     rv = client.post('/kb-item', data=dict(
-        id=1
+        id=76
     ), follow_redirects=True)
-    assert b'Description' in rv.data
+    assert b'<strong>Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
-        id=25
+        id=144
     ), follow_redirects=True)
-    assert b'Description' in rv.data
+    assert b'<strong>Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
-        id=50
+        id=61
     ), follow_redirects=True)
-    assert b'Description' in rv.data
+    assert b'<strong>Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
-        id=75
+        id=122
     ), follow_redirects=True)
-    assert b'Description' in rv.data
+    assert b'<strong>Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
-        id=99
+        id=97
     ), follow_redirects=True)
-    assert b'Description' in rv.data
+    assert b'<strong>Description' in rv.data
+
 
 def test_knowledge_base_item_search(client):
     """Make sure knowledge-base item search works"""
