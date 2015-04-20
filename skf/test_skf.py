@@ -15,14 +15,17 @@ import skf
 
 @pytest.fixture
 def client(request):
+    db_fd, skf.app.config['DATABASE'] = tempfile.mkstemp()
     skf.app.config['TESTING'] = True
     client = skf.app.test_client()
     with skf.app.app_context():
+        skf.init_db()
         skf.log = _log
         skf.check_token = _check_token
 
     def teardown():
-        os.unlink(skf.app.config['DATABASE'])
+        os.close(db_fd)
+        
     request.addfinalizer(teardown)
 
     return client

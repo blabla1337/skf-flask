@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `skf`;
-USE `skf`;
-
 -- 
 -- Table structure for table `parameters`
 -- 
