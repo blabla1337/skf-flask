@@ -6,6 +6,7 @@ install:
   - pip install owasp-skf
   - pip install https://github.com/mitsuhiko/flask/tarball/master
   - pip install pytest-cov
+  - pip install coverage
   - pip install importlib
 
 script:
