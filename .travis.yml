@@ -10,7 +10,6 @@ install:
 
 script:
   - python setup.py test
-  - python setup.py install
   - python -m pytest --cov test_skf.py
   - coverage report -m skf.py
 
