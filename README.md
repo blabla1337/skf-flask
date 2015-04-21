@@ -38,8 +38,8 @@ To run SKF you need Python pip and sqlite3 database support.
 
 After the prerequisites you can install the Python packages.
 ```bash
-  pip install https://github.com/mitsuhiko/flask/tarball/master
-  pip install owasp-skf
+  sudo pip install https://github.com/mitsuhiko/flask/tarball/master
+  sudo pip install owasp-skf
 ```
 
 Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
@@ -51,7 +51,7 @@ Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and r
 -----------
 Download and install [Python 2.7.9](https://www.python.org/downloads/release/python-279/)
 
-Run below commands in cmd:
+Run below commands in cmd (As Administrator):
 ```
   C:\Python27\Scripts\pip.exe install https://github.com/mitsuhiko/flask/tarball/master
   C:\Python27\Scripts\pip.exe install owasp-skf
