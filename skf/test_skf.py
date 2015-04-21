@@ -70,22 +70,22 @@ def test_knowledge_base_item(client):
     login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
     rv = client.post('/kb-item', data=dict(
         id=144
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
         id=61
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
         id=122
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Description' in rv.data
 
     rv = client.post('/kb-item', data=dict(
         id=97
-    ), follow_redirects=True)
+    ), follow_redirects=False)
     assert b'Description' in rv.data
 
 
