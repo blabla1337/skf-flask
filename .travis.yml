@@ -12,7 +12,7 @@ install:
 script:
   - python setup.py test
   - python -m pytest --cov skf/test_skf.py
-  - coverage report -m skf/test_skf.py
+  - coverage report -m skf/skf.py
 
-after_script:
+after_success:
   - coveralls --verbose
