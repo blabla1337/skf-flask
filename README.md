@@ -73,15 +73,20 @@ Default username: `admin`
 The password will be auto-generated every time the skf-application is launched. Check commandline output for the generated password.
 
 ##<a name="testing"></a>Testing
-####Ubuntu:
+####Travis-ci.org:
 -----------
 ```
-  pip install pytest
+Test and Deploy with Confidence. Easily sync your GitHub projects with Travis CI and you'll be testing your code in minutes!
+SKF Build details:
+https://travis-ci.org/blabla1337/skf-flask
+
 ```
-####Windows:
+####Coveralls.io:
 ------------
 ```
-  C:\Python27\Scripts\pip.exe --install pytest
+DELIVER BETTER CODE. We help developers deliver code confidently by showing which parts of your code aren't covered by your test suite.
+SKF Coveralls details:
+https://coveralls.io/r/blabla1337/skf-flask
 ```
 
 ##<a name="license"></a>License
