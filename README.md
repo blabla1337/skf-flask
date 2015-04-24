@@ -1,4 +1,5 @@
 [![SKF Logo](http://www.securityknowledgeframework.com/img/profile.png)](http://www.securityknowledgeframework.com)
+Project status details:<br>
 [![Build Travis CI](https://travis-ci.org/blabla1337/skf-flask.svg)](https://travis-ci.org/blabla1337/skf-flask)
 [![Coverage Status](https://img.shields.io/coveralls/blabla1337/skf-flask/master.svg)](https://coveralls.io/r/blabla1337/skf-flask)
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
