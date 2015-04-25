@@ -1,5 +1,5 @@
 [![SKF Logo](http://www.securityknowledgeframework.com/img/logos/logo-purple.png)](http://www.securityknowledgeframework.com)
-Project status details:<br>
+<br>Project status details:<br>
 [![Build Travis CI](https://travis-ci.org/blabla1337/skf-flask.svg)](https://travis-ci.org/blabla1337/skf-flask)
 [![Coverage Status](https://img.shields.io/coveralls/blabla1337/skf-flask/master.svg)](https://coveralls.io/r/blabla1337/skf-flask)
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
@@ -151,3 +151,4 @@ Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
 - Alexander Kaasjager
 - John Haley
 - Daniel Paulus <d.paulus@gmail.com>
+- Erik de Kuijper
