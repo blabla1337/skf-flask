@@ -14,6 +14,7 @@ Security Knowledge Framework is an expert system application that uses OWASP App
 * [Introduction](#introduction)
 * [Installing](#installing)
 * [Usage](#usage)
+* [Scrum Board](#scrum)
 * [Testing](#testing)
 * [License](#license)
 * [Contributors](#contributors)
@@ -74,28 +75,34 @@ Default the application will generate a certificate on the fly but what you real
 Default username: `admin`
 The password will be auto-generated every time the skf-application is launched. Check commandline output for the generated password.
 
+##<a name="scrum"></a>Scrum Board
+####Waffle.io:
+https://waffle.io/blabla1337/skf-flask
+
 ##<a name="testing"></a>Testing
 ####Travis-ci.org:
 -----------
 ```
 Test and Deploy with Confidence. Easily sync your GitHub projects with Travis CI and you'll be testing your code in minutes!
 SKF Build details:
-https://travis-ci.org/blabla1337/skf-flask
 ```
+https://travis-ci.org/blabla1337/skf-flask
+
 ####Coveralls.io:
 ------------
 ```
 DELIVER BETTER CODE. We help developers deliver code confidently by showing which parts of your code aren't covered by your test suite.
 SKF Coveralls details:
-https://coveralls.io/r/blabla1337/skf-flask
 ```
+https://coveralls.io/r/blabla1337/skf-flask
+
 ####Scrutinizer-ci.com:
 ------------
 ```
 Why to use Scrutinizer. Improve code quality and find bugs before they hit production with our continuous inspection platform. Improve Code Quality.
 SKF Scrutinizer details:
-https://scrutinizer-ci.com/g/blabla1337/skf-flask/
 ```
+https://scrutinizer-ci.com/g/blabla1337/skf-flask/
 
 ##<a name="license"></a>License
     Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
