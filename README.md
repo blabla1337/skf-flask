@@ -1,3 +1,4 @@
+#OWASP Security Knowledge Framework
 [![SKF Logo](http://www.securityknowledgeframework.com/img/logos/logo-purple.png)](http://www.securityknowledgeframework.com)
 <br>Project status details:<br>
 [![Build Travis CI](https://travis-ci.org/blabla1337/skf-flask.svg)](https://travis-ci.org/blabla1337/skf-flask)
@@ -5,9 +6,7 @@
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 [![Pypip DL Status](https://pypip.in/d/owasp-skf/badge.png)](https://pypi.python.org/pypi/owasp-skf)
 [![Pypip Version](https://pypip.in/v/owasp-skf/badge.png)](https://pypi.python.org/pypi/owasp-skf)
-
-
-#OWASP Security Knowledge Framework
+<br />
 Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.
 
 ##Table of Contents
