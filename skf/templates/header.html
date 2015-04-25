@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/monokai_sublime.css') }}">
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
-
+	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
@@ -49,15 +49,12 @@
       *********************************************************************************************************************************************************** -->
       <!--header start-->
       <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
             <!--logo start-->
-            <a href="/dashboard" class="logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home</a>
+            <a href="/dashboard" class="logo"><img width="35" height="35" src="static/img/logos/logo.svg" alt="Logo" /> Security Knowledge Framework </a>
             <!--logo end-->
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="/logout">Logout</a></li>
+                    <li><a class="logout" href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
             	</ul>
             </div>
             <div style='margin-top:14px; margin-right:55px;' class="btn-group pull-right theme-container animated tada">
@@ -83,8 +80,6 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-              	  <p class="centered"><a href="https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework"><img src="/static/img/owasp_logo.png" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">&nbsp;Security Knowledge Framework&nbsp;</h5>
                   <li class="mt">
                       <a href="/knowledge-base">
                           <i class="fa fa-book"></i>
@@ -119,6 +114,11 @@
                   </li>
            
               </ul>
+			  
+			  <div class="copy">
+					<img width="40" height="40" src="static/img/logos/owasp-icon-grey.svg"> Supported by <a href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
+			  </div>
+			  
               <!-- sidebar menu end-->
           </div>
       </aside>

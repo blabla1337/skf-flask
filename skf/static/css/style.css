@@ -3,11 +3,11 @@ Template Name: DASHGUM FREE - Bootstrap 3.2 Admin Theme
 Template Version: 1.0
 Author: Carlos Alvarez
 Website: http://blacktie.co
-Premium: http://www.gridgum.com
+Custom design based upon this template: Erik de Kuijper
 */
 
 /* Import fonts */
-@import url(https://fonts.googleapis.com/css?family=Ruda:400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700|Ruda:400,700,900);
 
 /* BASIC THEME CONFIGURATION */
 body {
@@ -22,11 +22,15 @@ body {
 ul li {
     list-style: none;
 }
-
+a { color: #515594; }
+a:hover { color: #b8bddd; }
 a, a:hover, a:focus {
     text-decoration: none;
     outline: none;
 }
+
+h1 { font-size: 2.2em; color: #515594; }
+
 ::selection {
 
     background: #4D6AA9;
@@ -216,13 +220,18 @@ hr {
 
 ul.top-menu > li > .logout {
 	font-size: 12px;
-	border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border: 1px solid #64c3c2 !important;
-	padding: 5px 15px;
-	margin-right: 15px;
-	background: #68dff0;
-	margin-top: 15px;
+	padding: 22px 25px;
+	background: #494949;
+	color: #fff;
+	-webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;	
+}
+ul.top-menu > li > .logout i { 
+	margin-right: 10px; 
+	color: #b2b8f3; 
 }
 
 
@@ -232,7 +241,8 @@ ul.top-menu > li > .logout {
     width: 210px;
     height: 100%;
     position: fixed;
-    background: #424a5d;
+    background: #494949;
+	border-right: 1px solid #fff;
 }
 
 #sidebar h5 {
@@ -251,6 +261,18 @@ ul.top-menu > li > .logout {
 #sidebar .sub-menu > .sub li:last-child {
     padding-bottom: 10px;
 }
+#sidebar .copy { float: left; width: 100%; padding: 15px 2.5%; margin-top: 15px; border-top: 1px solid #797979; }
+#sidebar .copy a { 
+	color: #797979; 
+	text-decoration: none; 
+	border-bottom: 1px dotted #797979; 
+	-webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#sidebar .copy a:hover { color: #fff; border-color: #fff; }
 
 /*LEFT NAVIGATION ICON*/
 .dcjq-icon {
@@ -295,7 +317,7 @@ ul.sidebar-menu {
 }
 
 ul.sidebar-menu li ul.sub li{
-    background: #424a5d;
+    background: #5c5c5c;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
@@ -354,7 +376,7 @@ ul.sidebar-menu li a{
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
-    font-size: 12px;
+    font-size: 15px;
     outline: none;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -364,7 +386,7 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #4D6AA9;
+    background: #515594;
     color: #fff;
     display: block;
 
@@ -410,11 +432,18 @@ ul.sidebar-menu li a.active i {
     left: 0;
     right: 0;
     z-index: 1002;
+	padding-right: 0;
+}
+.header .logo {
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px;
+}
+.header .logo img {
+	margin-right: 6px;
 }
 
 .black-bg {
-    background: #213A78;
-    border-bottom: 1px solid #213A78;
+    background: #515594;
 }
 
 .wrapper {
@@ -432,7 +461,10 @@ a.logo {
     color: #ffffff;
     float: left;
     margin-top: 15px;
-    text-transform: uppercase;
+	-webkit-transition: all 0.2s ease-in-out; 
+	-moz-transition: all 0.2s ease-in-out; 
+	-o-transition: all 0.2s ease-in-out; 
+	transition: all 0.2s ease-in-out; 
 }
 
 a.logo b {
@@ -442,6 +474,7 @@ a.logo b {
 a.logo:hover, a.logo:focus {
     text-decoration: none;
     outline: none;
+	color: #b8bdf1;
 }
 
 a.logo span {
@@ -470,20 +503,11 @@ a.logo span {
 ul.top-menu > li > a {
     color: #666666;
     font-size: 16px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border:1px solid #666666 !important;
     padding: 2px 6px;
-    margin-right: 15px;
 }
 
 ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
-    border:1px solid #b6b6b6 !important;
-    background-color: transparent !important;
-    border-color: #b6b6b6 !important;
     text-decoration: none;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
     color: #b6b6b6 !important;
 }
 
@@ -986,11 +1010,15 @@ PANELS CONFIGURATIONS
 
 .pn {
 	height: 250px;
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .pn:hover {
-	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.3);
 	
 }
 
@@ -1154,7 +1182,7 @@ PANELS CONFIGURATIONS
 /*Content Panel*/
 .content-panel {
 	background: #ffffff;
-	box-shadow: 0px 3px 2px #aab2bd;
+	box-shadow: 0px 1px 2px #aab2bd;
 	padding-top: 15px;
 	padding-bottom: 5px;
 }
@@ -2216,9 +2244,10 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #1A65A9;
-    color: #fff;
+	border-top: 1px solid #ccc;
+    color: #494949;
     padding: 10px 0;
+	margin-left: 210px;
 }
 
 
