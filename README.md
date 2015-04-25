@@ -1,17 +1,19 @@
+#OWASP Security Knowledge Framework
 [![SKF Logo](http://www.securityknowledgeframework.com/img/logos/logo-purple.png)](http://www.securityknowledgeframework.com)
+<br>Project status details:<br>
 [![Build Travis CI](https://travis-ci.org/blabla1337/skf-flask.svg)](https://travis-ci.org/blabla1337/skf-flask)
-[![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg)](https://coveralls.io/r/blabla1337/skf-flask)
+[![Coverage Status](https://img.shields.io/coveralls/blabla1337/skf-flask/master.svg)](https://coveralls.io/r/blabla1337/skf-flask)
+[![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 [![Pypip DL Status](https://pypip.in/d/owasp-skf/badge.png)](https://pypi.python.org/pypi/owasp-skf)
 [![Pypip Version](https://pypip.in/v/owasp-skf/badge.png)](https://pypi.python.org/pypi/owasp-skf)
-
-
-#OWASP Security Knowledge Framework
+<br />
 Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.
 
 ##Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
 * [Usage](#usage)
+* [Scrum Board](#scrum)
 * [Testing](#testing)
 * [License](#license)
 * [Contributors](#contributors)
@@ -72,17 +74,34 @@ Default the application will generate a certificate on the fly but what you real
 Default username: `admin`
 The password will be auto-generated every time the skf-application is launched. Check commandline output for the generated password.
 
+##<a name="scrum"></a>Scrum Board
+####Waffle.io:
+https://waffle.io/blabla1337/skf-flask
+
 ##<a name="testing"></a>Testing
-####Ubuntu:
+####Travis-ci.org:
 -----------
 ```
-  pip install pytest
+Test and Deploy with Confidence. Easily sync your GitHub projects with Travis CI and you'll be testing your code in minutes!
+SKF Build details:
 ```
-####Windows:
+https://travis-ci.org/blabla1337/skf-flask
+
+####Coveralls.io:
 ------------
 ```
-  C:\Python27\Scripts\pip.exe --install pytest
+DELIVER BETTER CODE. We help developers deliver code confidently by showing which parts of your code aren't covered by your test suite.
+SKF Coveralls details:
 ```
+https://coveralls.io/r/blabla1337/skf-flask
+
+####Scrutinizer-ci.com:
+------------
+```
+Why to use Scrutinizer. Improve code quality and find bugs before they hit production with our continuous inspection platform. Improve Code Quality.
+SKF Scrutinizer details:
+```
+https://scrutinizer-ci.com/g/blabla1337/skf-flask/
 
 ##<a name="license"></a>License
     Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
