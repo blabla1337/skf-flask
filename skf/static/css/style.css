@@ -44,7 +44,7 @@ a, a:hover, a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-	background: #4D6AA9;
+	background: #515594;
 }
 
 .modal-title {
@@ -122,8 +122,9 @@ a, a:hover, a:focus {
 
 .btn-theme03 {
   color: #fff;
-  background-color: #48cfad;
-  border-color: #37bc9b;
+  background-color: #515594;
+  border-color: #44477c;
+  -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out;
 }
 .btn-theme03:hover,
 .btn-theme03:focus,
@@ -131,8 +132,8 @@ a, a:hover, a:focus {
 .btn-theme03.active,
 .open .dropdown-toggle.btn-theme03 {
   color: #fff;
-  background-color: #37bc9b;
-  border-color: #37bc9b;
+  background-color: #62669e;
+  border-color: #565989;
 }
 
 .btn-theme04 {
@@ -2239,4 +2240,8 @@ label {
     min-height: 900px;
 }
 
+/* Custom */
 
+#login { background: #494949; }
+#login .col-wrapper { width: 450px; margin: 0 auto; padding: 10% 0 0; }
+#login .modal-dialog { width: 450px; }
