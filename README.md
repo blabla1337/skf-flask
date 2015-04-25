@@ -1,4 +1,4 @@
-[![SKF Logo](http://www.securityknowledgeframework.com/img/profile.png)](http://www.securityknowledgeframework.com)
+[![SKF Logo](http://www.securityknowledgeframework.com/img/logos/logo-purple.png)](http://www.securityknowledgeframework.com)
 [![Build Travis CI](https://travis-ci.org/blabla1337/skf-flask.svg)](https://travis-ci.org/blabla1337/skf-flask)
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg)](https://coveralls.io/r/blabla1337/skf-flask)
 [![Pypip DL Status](https://pypip.in/d/owasp-skf/badge.png)](https://pypi.python.org/pypi/owasp-skf)
@@ -138,3 +138,4 @@ Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
 - Alexander Kaasjager
 - John Haley
 - Daniel Paulus <d.paulus@gmail.com>
+- Erik de Kuijper
