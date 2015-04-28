@@ -1,5 +1,8 @@
 language: python
-sudo: false
+os:
+  - linux
+  - docker
+  - osx
 python:
   - "2.7"
 install:
