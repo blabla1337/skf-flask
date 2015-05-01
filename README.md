@@ -11,6 +11,7 @@ Security Knowledge Framework is an expert system application that uses OWASP App
 * [Introduction](#introduction)
 * [Installing](#installing)
 * [Usage](#usage)
+* [Development](#development)
 * [Scrum Board](#scrum)
 * [Testing](#testing)
 * [License](#license)
@@ -71,6 +72,13 @@ Default the application will generate a certificate on the fly but what you real
 
 Default username: `admin`
 The password will be auto-generated every time the skf-application is launched. Check commandline output for the generated password.
+
+##<a name="development"></a>Development
+
+1. Fork and clone https://github.com/blabla1337/skf-flask
+2. pip install -r etc/requirements.txt
+3. cd skf && python ./skf.py
+4. Create your changes commit and open a PR from your fork to the master repo
 
 ##<a name="scrum"></a>Scrum Board
 ####Waffle.io:
