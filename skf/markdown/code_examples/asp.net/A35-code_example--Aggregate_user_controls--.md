@@ -76,7 +76,7 @@ Aggregate user controlls
 				int controll = 0;
 
 				//the connection has to be repported into the log files
-				Log.SetLog(Session['userID'], "Connection to the database was made succesfully", date, SUCCESS, NULL");
+				Log.SetLog(Session['userID'], "Connection to the database was made succesfully", date, "SUCCESS", "NULL" ");
 
 				//Here we select the number of counts from aggregate column in order to verify the number of connections:
 				string query = string.Format("SELECT aggregate from users WHERE userID = @userID ");
@@ -120,7 +120,7 @@ Aggregate user controlls
 					{
 
 						//this breach has to be repported into the log files
-						//Log.SetLog(Session['userID'], "User account was locked out due to aggregate user controll system", date, FAIL, HIGH");
+						Log.SetLog(Session['userID'], "User account was locked out due to aggregate user controll system", date, FAIL, HIGH");
 
 						//Whenever te reasonable number of connections the user made was surpassed we destroy all the sessions to deny the user any further access to the system
 						HttpContext.Current.Session["authenticateUser"] = "";

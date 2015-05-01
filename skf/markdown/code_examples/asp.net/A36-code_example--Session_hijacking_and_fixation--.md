@@ -4,7 +4,6 @@ Session hijacking / Session fixation
 
 **Example:**
 
-   	<?php
 
 	/*
 	As soon as a user logs into your application you must store his session id as wel as his

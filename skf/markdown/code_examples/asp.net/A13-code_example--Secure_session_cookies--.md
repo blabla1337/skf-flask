@@ -18,7 +18,7 @@ Secure session cookies
 
 	<system.web>
 		<authentication mode="Forms">
-			<forms requireSSL="true">
+			<forms requireSSL="true"> <-- secure flag
 				/* forms content */
 			</forms>
 		</authentication>
