@@ -25,7 +25,7 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
 
-      <section id="main-content">
+      <section id="main-content" class="knowledge-base">
 	  
           <section class="intro">
 			<div class="inner">
@@ -33,7 +33,7 @@
 				<div class="text">
 				
 				<h1>Knowledge Base Security Vulnerabilities</h1>
-				<p>Found a vulnerability in your report, and unsure what it means? Search the knowledge base for it's meaning and more importantly how to proceed in fixing the issue.</p>
+				<p>Found a vulnerability in your checklist, and unsure what it means? Search the knowledge base for it's meaning and more importantly how to proceed in fixing the issue.</p>
 				
 				</div>
 				
@@ -58,15 +58,15 @@
 
 
 						  <div class="panel panel-default">
-						    <div class="panel-heading" style='background-color:white;'>
+						    <div class="panel-heading">
 						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{id_items[counter]|safe }}" onclick='getItem({{id_items[counter]|safe}});'>
+						        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{id_items[counter]|safe }}" onclick='getItem({{id_items[counter]|safe}});'>
 						    {{ name|safe }}
 						        </a>
 						      </h4>
 						    </div>
 						    <div id="collapse{{id_items[counter]|safe }}" class="panel-collapse collapse">
-						      <div class="panel-body" id="{{id_items[counter]|safe }}" style='background-color:#f5f5f5;'>
+						      <div class="panel-body" id="{{id_items[counter]|safe }}">
 							<b>Description:</b><br>					        
 							<b>Solution:</b><br>					        
 						      </div>

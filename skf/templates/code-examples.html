@@ -25,13 +25,30 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
 
-      <section id="main-content">
-          <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Knowledge Base Code Examples</h3>
-          	
-          	<form  method="post" action="/code-search"><br/>
-          	<input type="text" name="search" placeholder="Search vulnerability"/>
-          	</form>
+      <section id="main-content" class="code-examples">
+          
+          <section class="intro">
+			<div class="inner">
+			
+				<div class="text">
+				
+				<h1>Knowledge Base Code Examples</h1>
+				<p>Look for the optimal way write secure code, by example.</p>
+				
+				</div>
+				
+			</div>
+		  </section>			  
+		  
+		  <section class="wrapper">         
+
+			<div class="search">
+				<form  method="post" action="/code-search">
+					<input type="search" name="search" placeholder="Search vulnerability"/>
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>		  
+		  
 		       <div class="row mt">
 		 		<div class="col-lg-12">
                  		        <div class="panel-group" id="accordion">
@@ -43,14 +60,14 @@
 						  <div class="panel panel-default">
 						    <div class="panel-heading" style='background-color:white;'>
 						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{id_items[counter]|safe }}" onclick='getCode({{id_items[counter]|safe}});'>
+						        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{id_items[counter]|safe }}" onclick='getCode({{id_items[counter]|safe}});'>
 						    {{ name|safe }}
 						        </a>
 						      </h4>
 						    </div>
 						    <div id="collapse{{id_items[counter]|safe }}" class="panel-collapse collapse">
-						      <div class="panel-body" id="{{id_items[counter]|safe }}" style='background-color:#f5f5f5;'>
-							<b>Item is fetched</b>
+						      <div class="panel-body" id="{{id_items[counter]|safe }}">
+								<b>Item is fetched</b>
 						      </div>
 						    </div>
 						  </div>

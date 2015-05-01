@@ -26,12 +26,28 @@
       <!--main content start-->
 
       <section id="main-content">
-          <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Knowledge Base Code Examples</h3>
+
+		<section class="intro">
+			<div class="inner">
+
+				<div class="text">
+
+					<h1>Search: <span class="term">Keyword</span></h1>
+
+				</div>
+
+			</div>
+		</section>		  
+	  
+        <section class="wrapper">
           	
-          	<form  method="post" action="/code-search"><br/>
-          	<input type="text" name="search" placeholder="Search vulnerability"/>
-          	</form>
+			<div class="search">
+				<form  method="post" action="/code-search">
+					<input type="search" name="search" placeholder="Search vulnerability"/>
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>	
+			
 		       <div class="row mt">
             <div class="col-lg-12">
                     <div class="panel-group" id="accordion">
@@ -58,6 +74,7 @@
         {% if not content %}
           <div class="col-lg-12">
        		   <h2>Sorry we did not find anything</h2>
+			   <a class="back" href="/code-examples">Back to code examples</a>
       	  </div>
         {% endif %}
 		  	</div><!-- /row -->

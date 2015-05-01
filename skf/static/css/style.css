@@ -420,6 +420,7 @@ ul.sidebar-menu li a.active i {
 /* MAIN CONTENT CONFIGURATION */
 #main-content {
     margin-left: 210px;
+	padding-bottom: 30px;
 }
 
 .header, .footer {
@@ -493,15 +494,12 @@ ul.sidebar-menu li a.active i {
 }
 .intro .data-panel .version { display: inline-block; padding: 5px;  } 
 .intro .data-panel .update { display: inline-block; padding: 5px; } 
-.intro .data-panel .update a { color: #519451;  } 
+.intro .data-panel .update a { color: #519451; } 
 
 .wrapper {
     display: inline-block;
     margin-top: 60px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    padding-top: 0px;
+    padding: 0 30px;
     width: 100%;
 }
 
@@ -1234,7 +1232,7 @@ PANELS CONFIGURATIONS
 
 .dashboard .content-panel { width: 100%; max-width: 1000px; margin: 0 auto; }
 .dashboard .content-panel ul { margin: 0; padding: 0; list-style: none; }
-.dashboard .content-panel li { margin: 0; padding: 0; width: 33%; float: left; }
+.dashboard .content-panel li { margin: 0; padding: 0; width: 25%; float: left; }
 .dashboard .content-panel .row { float: left; width: 100%; margin: 0; }
 .dashboard .content-panel a { text-align: center; width: 50%; margin: 0 25%; float: left; }
 .dashboard .content-panel .icon { display: block; margin: 0 auto; width: 100px; height: 100px; position: relative; border-radius: 100px; background: #494949; transition: all 0.2s ease; box-shadow: 0px 1px 1px #fff; bottom: 0; }
@@ -2332,3 +2330,18 @@ label {
 #login { background: #494949; }
 #login .col-wrapper { width: 450px; margin: 0 auto; padding: 10% 0 0; }
 #login .modal-dialog { width: 450px; }
+
+/* Panels */
+
+.panel { box-shadow: none; }
+.panel-default > .panel-heading { background: transparent; border: none; border-top-left-radius: 0px; border-top-right-radius: 0px; padding: 0; }
+.panel-heading a { display: block; width: 100%; background: #e7e7e7; border: none; color: #333; border-top-left-radius: 3px; border-top-right-radius: 3px; padding: 10px 15px; transition: all 0.2s ease-out; position: relative; }
+.panel-heading a.collapsed:hover { background: #e7e7e7; }
+.panel-heading a.collapsed { background: #fff; }
+.panel-heading a.collapsed:after { content:"\f054"; color: #dddddd; }
+.panel-heading a.collapsed:hover:after { color: #494949; }
+.panel-heading a:after { display: block; width: 16px; height: 16px; font-family: "fontawesome"; position: absolute; right: 10px; top: 10px; color: #494949; content:"\f078"; transition: all 0.2s ease-out; }
+.panel-body { background: #fff; }
+.panel-body h2 { font-size: 2em; color: #515594; margin-top: 0; }
+.panel-body-inner { float: left; width: 100%; padding: 10px 0; }
+.panel-body pre { background-color: #515594; }
