@@ -7,7 +7,7 @@ Custom design based upon this template: Erik de Kuijper
 */
 
 /* Import fonts */
-@import url(http://fonts.googleapis.com/css?family=Montserrat:700|Ruda:400,700,900);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700|Ruda:400,700,900);
 
 /* BASIC THEME CONFIGURATION */
 body {
@@ -445,6 +445,55 @@ ul.sidebar-menu li a.active i {
 .black-bg {
     background: #515594;
 }
+.intro {
+    display: inline-block;
+    margin-top: 60px;
+    padding: 0 30px;
+    width: 100%;
+	background: #e8e8e8 url("../img/background.png");
+	border-bottom: 1px solid #fff;
+}
+.intro .text {
+	font-size: 20px;
+	color: #7c81b5;
+	text-shadow: 0 1px 1px #fff;
+	float: left;
+	width: 50%;
+}
+.intro .inner {
+	float: left; padding: 30px 0; width: 100%;
+}
+.intro h1 {
+	font-size: 1.3em;
+}
+.intro h1 span { display: inline-block; color: #b2b8f3; }
+
+/* Data Panel */
+
+.intro .data-panel { 
+	float: left; width: 50%;
+}
+.intro .data-panel ul  {
+	float: right;
+	background: #f2f2f2;
+	margin: 0; 
+	padding: 10px;
+	list-style: none;
+	border: 1px solid #cccccc;
+}
+.intro .data-panel li {
+	float: left; 
+	width: 100%;
+	padding: 5px 0;
+	color: #494949;
+}
+.intro .data-panel .name {
+	display: inline-block; 
+	font-weight: bold;
+}
+.intro .data-panel .version { display: inline-block; padding: 5px;  } 
+.intro .data-panel .update { display: inline-block; padding: 5px; } 
+.intro .data-panel .update a { color: #519451;  } 
 
 .wrapper {
     display: inline-block;
@@ -455,6 +504,8 @@ ul.sidebar-menu li a.active i {
     padding-top: 0px;
     width: 100%;
 }
+
+.dashboard .wrapper { margin-top: 30px; }
 
 a.logo {
     font-size: 20px;
@@ -1179,22 +1230,29 @@ PANELS CONFIGURATIONS
 	font-size: 14px;
 }
 
-/*Content Panel*/
-.content-panel {
-	background: #ffffff;
-	box-shadow: 0px 1px 2px #aab2bd;
-	padding-top: 15px;
-	padding-bottom: 5px;
-}
-.content-panel h4 {
-	margin-left: 10px;
-}
+/* Dashboard Panel */
+
+.dashboard .content-panel { width: 100%; max-width: 1000px; margin: 0 auto; }
+.dashboard .content-panel ul { margin: 0; padding: 0; list-style: none; }
+.dashboard .content-panel li { margin: 0; padding: 0; width: 33%; float: left; }
+.dashboard .content-panel .row { float: left; width: 100%; margin: 0; }
+.dashboard .content-panel a { text-align: center; width: 50%; margin: 0 25%; float: left; }
+.dashboard .content-panel .icon { display: block; margin: 0 auto; width: 100px; height: 100px; position: relative; border-radius: 100px; background: #494949; transition: all 0.2s ease; box-shadow: 0px 1px 1px #fff; bottom: 0; }
+.dashboard .content-panel .icon i { margin-top: 25px; color: #fff; }
+.dashboard .content-panel a:hover .icon { background: #515594; bottom: 5px; }
+.dashboard .content-panel .name { display: block; color: #494949; margin-top: 15px; }
+
+/* Search */
+
+.search { float: left; margin-bottom: 30px; background: #494949; border-bottom: 1px solid #fff; }
+.search input[type="search"] { border: none; color: #fff; padding: 15px 20px; background: transparent; }
+.search button { border: none; background: transparent; color: #fff; padding: 0 20px; }
 
 /*WEATHER PANELS*/
 
 /* Weather 1 */
 .weather {
-	background: url(../img/weather.jpg) no-repeat center top;
+	background: url("../img/weather.jpg") no-repeat center top;
 	text-align: center;
 	background-position: center center;
 }

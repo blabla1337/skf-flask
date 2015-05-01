@@ -1,0 +1,118 @@
+2015-05-01 09:55 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:44 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1
+2015-05-01 10:44 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:44 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:45 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:45 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:47 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:48 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:48 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:50 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:51 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:52 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:53 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 10:55 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:07 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 11:08 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 11:11 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 11:11 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 11:11 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 11:13 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 11:20 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1
+2015-05-01 11:20 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:21 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:22 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:22 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:23 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:23 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:24 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:24 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:25 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:27 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:27 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:27 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:28 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:29 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:30 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:31 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:31 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:32 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:32 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:33 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:33 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:37 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:37 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:37 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:38 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:38 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:39 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:39 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:40 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:40 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:41 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 11:41 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 13:41 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 13:43 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:12 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:13 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:20 Invalid username submit  FAIL LOW 127.0.0.1
+2015-05-01 15:20 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-01 15:20 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:22 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:24 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:24 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:25 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-01 15:25 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:26 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-01 15:26 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:27 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:28 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:28 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:28 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:29 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:30 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:30 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:31 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:31 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:33 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:33 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:34 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:35 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:45 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:47 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:48 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:48 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:50 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:51 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:51 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:52 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:52 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:52 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:53 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:54 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:55 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:56 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 15:56 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 16:01 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 16:04 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 16:05 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 16:07 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 16:09 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 16:26 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 17:31 User with no valid session tries access to page /knowledge-base  FAIL HIGH 127.0.0.1
+2015-05-01 17:32 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 17:33 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 17:33 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 17:33 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 17:38 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-01 17:38 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 17:39 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 17:39 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 17:40 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 17:41 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-01 17:41 User supplied input was encoded  SUCCESS NULL 127.0.0.1
