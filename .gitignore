@@ -7,7 +7,7 @@
 skf/__pycache__/*
 skf/checklist-security-report.docx
 skf/function-security-report.docx
-skf/log/*
+skf/logs/*
 skf/skf.pyc
 skf/test_skf.pyc
 skf/server.crt
