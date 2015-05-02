@@ -19,7 +19,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os, markdown, datetime, string, base64, re, sys
+import os, markdown, datetime, string, base64, re, sys, re, requests
 from OpenSSL import SSL, rand
 from docx import Document
 from BeautifulSoup import BeautifulSoup
@@ -147,6 +147,9 @@ app.config.update(dict(
     SESSION_COOKIE_HTTPONLY = True
 ))
 
+@app.context_processor
+def inject_year():
+    return dict(year=datetime.datetime.now().strftime("%Y"))
 
 def connect_db():
     """Connects to the specific database."""
@@ -202,6 +205,25 @@ def close_db(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
+def check_version():
+    r = requests.get("https://raw.githubusercontent.com/blabla1337/skf-flask/master/setup.py")
+    items_remote = r.content.split(",") 
+    version_remote = re.findall('\\b\\d+\\b', items_remote[1])
+    with open ("../setup.py", "r") as myfile:
+        l = myfile.read().replace('\n', '')
+        items_local = l.split(",") 
+        version_local = re.findall('\\b\\d+\\b', items_local[1])
+    if version_local == version_remote:
+        return True
+
+def get_version():
+    with open ("../setup.py", "r") as myfile:
+        l = myfile.read().replace('\n', '')
+        items_local = l.split(",") 
+        version_local = re.findall('\\b\\d+\\b', items_local[1])
+        version_final = str(version_local[0])+"."+str(version_local[1])+"."+str(version_local[2])
+    return version_final
+
 def projects_functions_techlist():
     """get list of technology used for creating project functions"""
     if not session.get('logged_in'):
@@ -227,7 +249,9 @@ def dashboard():
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /dashboard", "FAIL", "HIGH")
         abort(401)
-    return render_template('dashboard.html')
+    version_check = check_version()
+    version = get_version()
+    return render_template('dashboard.html', version=version, version_check=version_check)
 
 @app.route('/login', methods=['GET', 'POST'])
 @security
@@ -249,8 +273,10 @@ def login():
             session['logged_in'] = True
             session['csrf_token'] = csrf_token
             session['code_lang'] = "php"
-            return render_template('dashboard.html')
-    return render_template('login.html', error=error, )
+            version_check = check_version()
+            version = get_version()
+            return render_template('dashboard.html', version=version, version_check=version_check)
+    return render_template('login.html', error=error)
 
 @app.route('/logout', methods=['GET', 'POST'])
 @security
@@ -259,7 +285,7 @@ def logout():
     log("Authenticated session destroyed", "SUCCESS", "LOW")
     session.pop('logged_in', None)
     session.clear()
-    return redirect(url_for('login'))
+    return redirect("/")
 
 @app.route('/code/<code_lang>', methods=['GET'])
 @security

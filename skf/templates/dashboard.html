@@ -39,10 +39,16 @@
 					<ul>
 						<li>
 							<span class="name">SKF Version:</span> 
-							<span class="version">1.0</span>
+							<span class="version">{{version|safe}}</span>
+						 {% if version_check == True -%}
+							<span class="update">
+								<a href="https://github.com/blabla1337/skf-flask">No update available</a>
+							</span>
+						 {% else %}
 							<span class="update">
 								<a href="https://github.com/blabla1337/skf-flask">Update available</a>
 							</span>
+						 {% endif %}
 						</li>
 					</ul>
 				</div>

@@ -6,3 +6,53 @@
 2015-05-02 00:40 User supplied input was encoded  SUCCESS NULL 127.0.0.1
 2015-05-02 00:41 Valid username/password submit  SUCCESS HIGH 127.0.0.1
 2015-05-02 00:41 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-02 00:49 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1
+2015-05-02 00:49 Invalid password submit  FAIL LOW 127.0.0.1
+2015-05-02 00:49 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-02 00:49 Invalid password submit  FAIL LOW 127.0.0.1
+2015-05-02 00:50 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-02 00:50 Invalid password submit  FAIL LOW 127.0.0.1
+2015-05-02 00:52 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-02 00:52 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 00:59 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-02 01:05 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 01:05 User supplied input was encoded  SUCCESS NULL 127.0.0.1
+2015-05-02 01:23 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 01:23 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 01:24 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 01:33 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-02 01:33 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 01:33 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 01:40 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-02 01:40 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 01:49 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1
+2015-05-02 01:49 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-02 01:49 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 01:50 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1
+2015-05-02 01:50 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:03 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:04 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1
+2015-05-02 02:04 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:09 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:10 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1
+2015-05-02 02:10 User supplied not valid CSRF token  FAIL HIGH 127.0.0.1
+2015-05-02 02:10 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:11 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:13 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:15 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:15 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:28 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:29 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:36 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:37 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:39 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:44 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:46 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:47 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:49 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:50 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1
+2015-05-02 02:50 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:51 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:53 Valid username/password submit  SUCCESS HIGH 127.0.0.1
+2015-05-02 02:53 Authenticated session destroyed  SUCCESS LOW 127.0.0.1
+2015-05-02 02:53 User with no valid session tries access to page /dashboard  FAIL HIGH 127.0.0.1

@@ -91,8 +91,8 @@
                             {% set count_owasp_top = count_owasp_top + 1 %}
                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{count_owasp_top|safe}}'>
-                          <option value='yes' >Yes</option>
                           <option value='no' >No</option>
+                          <option value='yes' >Yes</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
@@ -183,8 +183,8 @@
                           {% set count_asvs_1 = count_asvs_1 + 1 %}
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{count_asvs_1|safe}}'>
-                          <option value='yes' >Yes</option>
                           <option value='no' >No</option>
+                          <option value='yes' >Yes</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
@@ -276,8 +276,8 @@
                           {% set count_asvs_2 = count_asvs_2 + 1 %}
                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{count_asvs_2|safe}}'>
-                          <option value='yes' >Yes</option>
                           <option value='no' >No</option>
+                          <option value='yes' >Yes</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
@@ -375,8 +375,8 @@
                            
                            <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                           <select name='answer{{count_asvs_3|safe}}'>
-                          <option value='yes' >Yes</option>
                           <option value='no' >No</option>
+                          <option value='yes' >Yes</option>
                           <option value='yes' >N.A.</option>
                           </select>
                           </td>
@@ -453,9 +453,9 @@
                       {% set count_custom = count_custom + 1 %}
                      <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
                       <select name='answer{{count_custom|safe}}' >
-                      <option value='yes' >Done</option>
-                      <option value='no' >Not done</option>
-                      <option value='yes' >N.A.</option>
+                        <option value='no' >No</option>
+                        <option value='yes' >Yes</option>
+                        <option value='yes' >N.A.</option>
                       </select>
                       </td>
                       <input type='hidden' name='vulnID{{count_custom|safe}}' value='{{custom_kb_ids[counter_custom]|safe}}'>
