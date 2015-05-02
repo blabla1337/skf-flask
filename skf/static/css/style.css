@@ -311,6 +311,7 @@ ul.sidebar-menu {
 #sidebar > ul > li > ul.sub {
     display: none;
 }
+#sidebar ul.sub .act { color: #fff; }
 
 #sidebar > ul > li.active > ul.sub, #sidebar > ul > li > ul.sub > li > a {
     display: block;
@@ -410,7 +411,8 @@ ul.sidebar-menu li a:hover i, ul.sidebar-menu li a:focus i {
 ul.sidebar-menu li a.active i {
     color: #fff;
 }
-
+ul.sidebar-menu li a.act i { color: #b2b8f3; transition: all 0.2s ease-out; }
+ul.sidebar-menu li a.act:hover i { color: #fff; }
 
 .mail-info, .mail-info:hover {
     margin: -3px 6px 0 0;
@@ -2301,9 +2303,10 @@ label {
 /*footer*/
 .site-footer {
 	border-top: 1px solid #ccc;
-    color: #494949;
+    color: #bfbfbf;
     padding: 10px 0;
 	margin-left: 210px;
+	text-shadow: 0px 1px 1px #fff;
 }
 
 
@@ -2345,3 +2348,11 @@ label {
 .panel-body h2 { font-size: 2em; color: #515594; margin-top: 0; }
 .panel-body-inner { float: left; width: 100%; padding: 10px 0; }
 .panel-body pre { background-color: #515594; }
+
+/* Forms */
+
+.btn-default { background: #515594; color: #fff; border: 1px solid #515594; transition: all 0.2s ease-out; border-radius: 0px;  }
+.btn-default:hover { background: #7c81b5; color: #fff; border: 1px solid #7c81b5; }
+.new-project .wrap { float: left; width: 100%; }
+.new-project .wrap.desc { color: #bfbfbf; text-shadow: 0px 1px 1px #fff; }
+.new-project span.desc { color: #bfbfbf; text-shadow: 0px 1px 1px #fff; display: inline-block; margin-left: 15px; }

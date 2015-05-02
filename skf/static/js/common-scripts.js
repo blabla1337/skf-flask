@@ -113,7 +113,22 @@ var Script = function () {
                 height: i
             }, 2000)
         })
-    }
+    };
 
+	// Menu active items
 
+	$('#main-content.page02').each(function () { // Create new project
+		$(this).parent().find('#sidebar .page01').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .page02').addClass('act'); // Active
+	});
+	$('#main-content.page03').each(function () { // Create new project
+		$(this).parent().find('#sidebar .page01').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .page03').addClass('act'); // Active
+	});
+	$('#main-content.page07').each(function () { // Knowledge Base
+		$(this).parent().find('#sidebar .page07').addClass('act'); // Active
+	});
+	$('#main-content.page08').each(function () { // Code Examples
+		$(this).parent().find('#sidebar .page08').addClass('act'); // Active
+	});
 }();
