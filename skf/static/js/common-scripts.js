@@ -114,9 +114,17 @@ var Script = function () {
             }, 2000)
         })
     };
-
+	
+	// Logo animation
+	
+	$("a.logo").mouseover(function() { 
+		$(this).find('.img').addClass('fa-spin');
+	}).mouseout(function() { 
+		$(this).find('.img').removeClass('fa-spin');
+	});
+	
 	// Menu active items
-
+	
 	$('#main-content.page02').each(function () { // Create new project
 		$(this).parent().find('#sidebar .page01').addClass('active'); // Keep sub open
 		$(this).parent().find('#sidebar .page02').addClass('act'); // Active

@@ -1232,15 +1232,23 @@ PANELS CONFIGURATIONS
 
 /* Dashboard Panel */
 
-.dashboard .content-panel { width: 100%; max-width: 1000px; margin: 0 auto; }
-.dashboard .content-panel ul { margin: 0; padding: 0; list-style: none; }
-.dashboard .content-panel li { margin: 0; padding: 0; width: 25%; float: left; }
-.dashboard .content-panel .row { float: left; width: 100%; margin: 0; }
-.dashboard .content-panel a { text-align: center; width: 50%; margin: 0 25%; float: left; }
-.dashboard .content-panel .icon { display: block; margin: 0 auto; width: 100px; height: 100px; position: relative; border-radius: 100px; background: #494949; transition: all 0.2s ease; box-shadow: 0px 1px 1px #fff; bottom: 0; }
-.dashboard .content-panel .icon i { margin-top: 25px; color: #fff; }
-.dashboard .content-panel a:hover .icon { background: #515594; bottom: 5px; }
-.dashboard .content-panel .name { display: block; color: #494949; margin-top: 15px; }
+.content-panel.selection { width: 100%; margin: 0 auto; max-width: 1000px; }
+.content-panel.selection ul { margin: 0; padding: 0; list-style: none; }
+.content-panel.selection li { margin: 0; padding: 0; float: left; position: relative; }
+.content-panel.selection.four li { width: 25%; }
+.content-panel.selection.three li { width: 33%; }
+.content-panel.selection .row { float: left; width: 100%; margin: 0; }
+.content-panel.selection a { text-align: center; width: 50%; margin: 0 25%; float: left; }
+.content-panel.selection .icon { display: block; margin: 0 auto; width: 100px; height: 100px; position: relative; border-radius: 100px; background: #494949; transition: all 0.2s ease; box-shadow: 0px 1px 1px #fff; bottom: 0; }
+.content-panel.selection .icon i { margin-top: 25px; color: #fff; }
+.content-panel.selection a:hover .icon { background: #515594; bottom: 5px; }
+.content-panel.selection .name { display: block; color: #494949; margin-top: 15px; }
+
+.content-panel.selection .back { width: 50px; height: 50px; font-size: 2em; position: absolute; left: -10px; top: 25%; color: #bfbfbf; text-shadow: 0px 1px 1px #fff; margin: 0; transition: all 0.2s ease; }
+.content-panel.selection .back:before { content: "\f053"; font-family: "fontawesome"; }
+.content-panel.selection .back:hover { color: #494949; }
+.content-panel.selection .middle:before { width: 50px; height: 50px; content: "\f054"; font-family: "fontawesome"; font-size: 2em; position: absolute; left: -10px; top: 25%; color: #bfbfbf; text-shadow: 0px 1px 1px #fff; }
+.content-panel.selection .middle:after { width: 50px; height: 50px; content: "\f054"; font-family: "fontawesome"; font-size: 2em; position: absolute; right: -10px; top: 25%; color: #bfbfbf; text-shadow: 0px 1px 1px #fff; text-align: right; }
 
 /* Search */
 
@@ -1843,12 +1851,6 @@ label {
 	-webkit-border-radius: 500px;
 }
 
-@media (min-width: 768px) {
-		.form-horizontal .control-label {
-		text-align: left;
-	}
-}
-
 #focusedInput {
 	border: 1px solid #ed5565;
 	box-shadow: none;
@@ -2356,3 +2358,23 @@ label {
 .new-project .wrap { float: left; width: 100%; }
 .new-project .wrap.desc { color: #bfbfbf; text-shadow: 0px 1px 1px #fff; }
 .new-project span.desc { color: #bfbfbf; text-shadow: 0px 1px 1px #fff; display: inline-block; margin-left: 15px; }
+
+/* New Project */
+
+.project-list .table-striped > tbody > tr:nth-child(2n+2) > td, 
+.project-list .table-striped > tbody > tr:nth-child(2n+2) > th { background: #eaeaea; }
+.project-list .table-striped > tbody > tr:hover:nth-child(2n+2) > td, 
+.project-list .table-striped > tbody > tr:hover:nth-child(2n+2) > th { background: #eeeeee; }
+
+.project-list .table-striped > tbody > tr > td:first-child a { padding: 4px 9px; transition: all 0.2s ease-out; border: 1px solid #f9f9f9; } 
+.project-list .table-striped > tbody > tr:nth-child(2n+2) > td:first-child a { border: 1px solid #eaeaea; } 
+
+.project-list .table-striped > tbody > tr:hover > td:first-child a { background: #eaeaea; padding: 4px 9px; border: 1px solid #dddddd; } 
+.project-list .table-striped > tbody > tr:hover:nth-child(2n+2) > td:first-child a { background: #f5f5f5; padding: 4px 9px; border: 1px solid #dddddd; } 
+
+.project-list .table-striped > tbody > tr:hover > td:first-child a:hover { background: #515594; color: #fff; } 
+
+.project-list .table > thead > tr > th { text-shadow: 0px 1px 1px #fff; color: #494949; border-bottom: 1px solid #fff; }
+.project-list .table { border-bottom: 1px solid #fff; }
+.project-list th i { color: #515594; margin-right: 10px; }
+.project-list .label-info { background: #494949; padding: 0.3em 0.6em; }
