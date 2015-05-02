@@ -3,3 +3,4 @@ markdown
 pyOpenSSL
 python-docx
 BeautifulSoup
+requests
