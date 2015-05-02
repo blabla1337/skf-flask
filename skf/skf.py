@@ -143,7 +143,7 @@ app.config.update(dict(
     SECRET_KEY=secret_key,
     USERNAME='admin',
     SESSION_COOKIE_SECURE=True,
-    PASSWORD='123',
+    PASSWORD=password,
     SESSION_COOKIE_HTTPONLY = True
 ))
 

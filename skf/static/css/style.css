@@ -1234,7 +1234,7 @@ PANELS CONFIGURATIONS
 
 .content-panel.selection { width: 100%; margin: 0 auto; max-width: 1000px; }
 .content-panel.selection ul { margin: 0; padding: 0; list-style: none; }
-.content-panel.selection li { margin: 0; padding: 0; float: left; position: relative; }
+.content-panel.selection li { margin: 0; padding: 0; float: left; position: relative; text-align: center; }
 .content-panel.selection.four li { width: 25%; }
 .content-panel.selection.three li { width: 33%; }
 .content-panel.selection .row { float: left; width: 100%; margin: 0; }
@@ -1249,6 +1249,18 @@ PANELS CONFIGURATIONS
 .content-panel.selection .back:hover { color: #494949; }
 .content-panel.selection .middle:before { width: 50px; height: 50px; content: "\f054"; font-family: "fontawesome"; font-size: 2em; position: absolute; left: -10px; top: 25%; color: #bfbfbf; text-shadow: 0px 1px 1px #fff; }
 .content-panel.selection .middle:after { width: 50px; height: 50px; content: "\f054"; font-family: "fontawesome"; font-size: 2em; position: absolute; right: -10px; top: 25%; color: #bfbfbf; text-shadow: 0px 1px 1px #fff; text-align: right; }
+
+.content-panel.selection .dev { 
+    background: #515594;
+    border-radius: 10px;
+    bottom: -26px;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 3px 10px;
+    text-align: center;
+    display: inline-block;
+	margin-top: 10px;
+ }
 
 /* Search */
 
