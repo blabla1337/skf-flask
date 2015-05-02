@@ -157,7 +157,8 @@ def test_create_project(client):
         inputVersion="4.1.1",
         csrf_token="AAAA"
     ), follow_redirects=True)
-    assert b'history of your projects' in rv.data
+    assert b'is a test Description' in rv.data
+    assert b'4.1.1' in rv.data
     assert b'SKF Project' in rv.data
 
 def test_create_project_function(client):
