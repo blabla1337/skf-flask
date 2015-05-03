@@ -139,4 +139,18 @@ var Script = function () {
 	$('#main-content.page08').each(function () { // Code Examples
 		$(this).parent().find('#sidebar .page08').addClass('act'); // Active
 	});
+		
 }();
+
+$(document).ready(function() {
+
+	// Page Transition
+	
+	$(".animsition").animsition({
+		inClass               :   'fade-in',
+		outClass              :   'fade-out',
+		inDuration            :    1500,
+		outDuration           :    800
+	});	
+	
+});

@@ -91,9 +91,11 @@ j++;
             <div class="col-lg-12">
 
 			<div class="col-lg-4 col-md-4 col-sm-4 mb">
-				<div style='float:left; margin-left:-12px;'>
-
-					<button style='margin-top:-60px;' class="btn btn-default" data-target="#myModal" style="visibility: none;" data-toggle="modal">Add Functions</button>
+									
+					<nav class="nav">
+						<button class="btn btn-default" data-target="#myModal" style="visibility: none;" data-toggle="modal">Add Functions</button>
+						<a class="back" href="/project-options/{{project_id|safe}}">Done <i class="fa fa-check"></i></a>
+					</nav>
 					
 					<!-- Modal -->
 					
@@ -146,7 +148,6 @@ j++;
 						</div>
 					</div>
 
-				</div>
 			</div>  
 
 			<div class="row mt">
@@ -191,13 +192,12 @@ j++;
 												<h4 class="modal-title" id="myModalLabel">Warning</h4>
 											</div>
 											<div class="modal-body">
-												<table id="checklist" style="width:525px">
-													<p>When you press the "Remove function" button, the function which this project contains will be deleted from the documentation<br/>
-													Are you sure you want to continue?</p>
-												</table>
+												<div class="alert alert-info">
+													<p>When you press the "Remove function" button, the function which this project contains will be deleted from the documentation. <b>Are you sure you want to continue?</b></p>
+												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<button type="button" class="btn btn-default" data-dismiss="modal">Ehh, no</button>
 												<a href="/project-functions/{{project_id}}">
 													<button class="btn btn-danger" onClick="delFunction('{{project_id|safe}}','{{entry.paramID|safe}}', '{{csrf_token|safe}}')">Remove Function</button>
 												</a>
