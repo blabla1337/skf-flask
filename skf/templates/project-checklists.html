@@ -23,491 +23,656 @@
  <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
-      <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
-            <h3>-<i class="fa fa-angle-right"></i><a href='/project'>Projects</a> -> <a href='/project-list'> Getting started</a> -> Security checklists</h3>
-          <div class="row mt">
-            <div class="col-lg-12">
-            <div class="alert alert-info">
-            <b>Note:</b>
-            Whenever you upload a new checklist and this one already exists for this project, the old version will be overwritten. 
-            </div>
-          
-            <div class="content-panel">
-               <table class="table table-striped table-advance table-hover"> 
-                  <thead>
-                  <tr>
-                      <th><i class="fa fa-bullhorn"></i> Checklist</th>
-                      <th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
-                      <th><i class="fa fa-bookmark"></i> Level</th>
-                      <th></th>
-                      <th><i class=" fa fa-edit"></i> Take list</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                              <td><a href="#"></a>OWASP top 10</td>
+    <!--main content start-->
+    
+	<section id="main-content" class="page03 project-checklist">
+			
+		<section class="intro">
+			<div class="inner">
 
-                              <td class="hidden-phone">Top 10 vulnerabilities composed by OWASP.</td>
-                              <td class="hidden-phone">Technical debt</td>
-                              <td></td>
-                              <td>          
-                            <!-- MODALS -->
-                            <div class="showbak">
-                        <!-- Button trigger modal -->
-                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal3">
-                       Start                     
-                        </button>
-            
-                      <!-- Modal -->
-                      <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                      <div class="modal-content">
-                      <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">Owasp top 10</h4>
-                      </div>
-                      <div   class="modal-body">
-                      <table id='checklist' style="width:525px">
-                      <form method='post' action='/project-checklist-add'/>
+				<div class="text">
 
-                      {% set counter_owasp = 0 -%}
-                      {% set count_owasp_top = 0 -%}
-                      {% for entry in owasp_content -%}
-                      <tr>
+				<h1>Security checklists</h1>
+				<p>Hardening the application infrastructure and functions by providing feedback and solutions.</p>
 
-                        {% if owasp_kb_ids[counter_owasp] == '0' -%}
-                         <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
-                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
-                      {% else %}
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
-                        {{entry|safe}}
-                      {% endif %}
-                      </td>
-                        <td></td>
+				</div>
 
-                            {% if owasp_kb_ids[counter_owasp] != '0' -%}
-                            {% set count_owasp_top = count_owasp_top + 1 %}
-                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{count_owasp_top|safe}}'>
-                          <option value='no' >No</option>
-                          <option value='yes' >Yes</option>
-                          <option value='yes' >N.A.</option>
-                          </select>
-                          </td>
-                          <input type='hidden' name='vulnID{{count_owasp_top|safe}}' value='{{owasp_kb_ids[counter_owasp]|safe}}'/>
-                          <input type='hidden' name='questionID{{count_owasp_top|safe}}' value='{{owasp_ids[counter_owasp]|safe}}'/>
-                          <input type='hidden' name='listID{{count_owasp_top|safe}}' value='{{owasp_list|safe}}'>
-                          {% endif %}
-                          </td>
-                      </tr>
-                      {% set counter_owasp = counter_owasp + 1 %}
-                      {% endfor %}
-                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
-                      <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
-                  </table>
-                      </div>
-                      <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
-                      </form>
-                      </div>
-                      </div>
-                    </div>
-                  </div>              
-                      </div>
+			</div>
+		</section>	
+		
+		<section class="wrapper">
+		
+		<nav class="nav">
+			<a class="back" href="/project-options/{{project_id|safe}}">Done <i class="fa fa-check"></i></a>
+		</nav>		
+		
+			  <div class="row mt">
+				<div class="col-lg-12">
+				
+				<!-- Alert -->
+				
+				<div class="alert alert-info">
+					<b>Note:</b>
+					Whenever you upload a new checklist and this one already exists for this project, the old version will be overwritten. 
+				</div>
+				
+				<!-- Content -->
+				
+				<div class="content-panel">
+				   
+					<table class="table table-striped table-advance table-hover"> 
+						<thead>
+							<tr>
+								<th><i class="fa fa-bullhorn"></i> Checklist</th>
+								<th><i class="fa fa-question-circle"></i> Description</th>
+								<th><i class="fa fa-bookmark"></i> Level</th>
+								<th><i class=" fa fa-edit"></i> Take list</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						<!-- OWASP top 10 -->
+						
+						<tr>
+							<td>OWASP top 10</td>
+							<td>Top 10 vulnerabilities composed by OWASP.</td>
+							<td>Technical debt</td>
+							<td>          
+								<!-- MODALS -->
+								<div class="showbak">
+								<!-- Button trigger modal -->
+								<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal3">Start</button>
+			
+								<!-- Modal -->
+								<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+										
+											<!-- Modal Header -->
+										
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">OWASP top 10</h4>
+											</div>
+											
+											<!-- Modal Body -->
+											
+											<form method="post" action="/project-checklist-add"/>
+											
+											<div class="modal-body">
+												<table class="table table-striped table-advance table-hover checklist">
+													<tbody>
+													{% set counter_owasp = 0 -%}
+													{% set count_owasp_top = 0 -%}
+													{% for entry in owasp_content -%}
+													
 
-      
-                             <tr>
-                              <td><a href="#"></a>OWASP ASVS Level 1</td>
+													{% if owasp_kb_ids[counter_owasp] == '0' -%}
+														
+														<th colspan="2">
+															{{entry|safe}}
+														</th>
+														{% else %}
+														<tr>
+															<td> 
+																{{entry|safe}}
+															</td>
+															{% endif %}
 
-                              <td class="hidden-phone">OWASP Application Security Verification Standard Level 1.</td>
-                              <td class="hidden-phone">Recommended</td>
-                              <td></td>
-                              <td>          
-                            <!-- MODALS -->
-                            <div class="showbak">
-                        <!-- Button trigger modal -->
-                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal7">
-                       Start                     
-                        </button>
-            
-                      <!-- Modal -->
-                      <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                      <div class="modal-content">
-                      <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 1</h4>
-                      </div>
-                      <div   class="modal-body">
-                      <table id='checklist' style="width:525px">
-                      <form method='post' action='/project-checklist-add'/>
-                      {% set count_asvs_tool_lvl1 = 0 -%}
-                      {% set counter_owasp_lvl1 = 0 -%}
-                      {% set count_asvs_1 = 0 -%}
-                      {% for entry in owasp_content_lvl1 -%}
-                      <tr>
-                      {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] == '0' -%}
-                      
-                        <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
-                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
-                      {% else %}
-                         <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'>
-                        {{entry|safe}}
-                        {% if owasp_items_lvl1_ygb is defined %}
-                            {% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'ygb' -%}
-                           <img src="/static/img/yellow.png" width="10px" />
-                           <img src="/static/img/green.png"  width="10px" />
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
+															{% if owasp_kb_ids[counter_owasp] != '0' -%}
+															{% set count_owasp_top = count_owasp_top + 1 %}
+															<td class="select">
+																<select name="answer{{count_owasp_top|safe}}" class="form-control">
+																	<option value="no">No</option>
+																	<option value="yes">Yes</option>
+																	<option value="na">N.A.</option>
+																</select>
+																<input type="hidden" name="vulnID{{count_owasp_top|safe}}" value="{{owasp_kb_ids[counter_owasp]|safe}}" />
+																<input type="hidden" name="questionID{{count_owasp_top|safe}}" value="{{owasp_ids[counter_owasp]|safe}}" />
+																<input type="hidden" name="listID{{count_owasp_top|safe}}" value="{{owasp_list|safe}}" />
+															</td>
+														</tr>
+														{% endif %}
+														
+													
+													{% set counter_owasp = counter_owasp + 1 %}
+													{% endfor %}
+													<tr style="display: none;">
+														<td>
+															<input type="hidden" name="projectID" value="{{project_id|safe}}" />
+															<input type="hidden" name="projectName" value="{{projectName|safe}}" />
+															<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+											
+											<!-- Modal Footer -->
+											
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<button type="submit" name="submit" class="back">Save checklist <i class="fa fa-check"></i></button>
+											</div>
+										
+										</form>
+										
+										</div>
+									</div>
+								</div> 
+				  
+								</div>
 
-                           {% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'gb' -%}        
-                           <img src="/static/img/green.png"  width="10px" />
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
-                           
-                           {% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'b' -%}
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
-                        {% endif %}
-                      {% endif %}
+							</td>
+						</tr>	
+						
+						<!-- OWASP ASVS Level 1 -->
+						
+						<tr>
+							<td>OWASP ASVS Level 1</td>
+							<td>OWASP Application Security Verification Standard Level 1.</td>
+							<td>Recommended</td>
+							<td>  
 
+							<!-- MODALS -->
+							<div class="showbak">
+								<!-- Button trigger modal -->
+								<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal7">Start</button>
 
-                      </td>
-                        <td></td>
-                          {% if owasp_kb_ids_lvl1[counter_owasp_lvl1] != '0' -%}
+								<!-- Modal -->
+								<div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+										
+										<!-- Modal Header -->
+										
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 1</h4>
+										</div>
+										
+										<form method="post" action="/project-checklist-add" />
+										
+										<!-- Modal Body -->
+										
+										<div class="modal-body">
+											<table class="table table-striped table-advance table-hover checklist">
+												<tbody>
+	
+											{% set count_asvs_tool_lvl1 = 0 -%}
+											{% set counter_owasp_lvl1 = 0 -%}
+											{% set count_asvs_1 = 0 -%}
+											{% for entry in owasp_content_lvl1 -%}
+											
+											{% if owasp_kb_ids_lvl1[counter_owasp_lvl1] == '0' -%}
+											
+											
+											<th colspan="3">{{entry|safe}}</th>
+											
 
-                          {% set count_asvs_1 = count_asvs_1 + 1 %}
-                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{count_asvs_1|safe}}'>
-                          <option value='no' >No</option>
-                          <option value='yes' >Yes</option>
-                          <option value='yes' >N.A.</option>
-                          </select>
-                          </td>
-                          <input type='hidden' name='vulnID{{count_asvs_1|safe}}' value='{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
-                          <input type='hidden' name='questionID{{count_asvs_1|safe}}' value='{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}'/>
-                          <input type='hidden' name='listID{{count_asvs_1|safe}}' value='{{owasp_list_lvl1|safe}}'>
-                        {% if owasp_items_lvl1_ygb is defined %}
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl1[count_asvs_tool_lvl1]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
-                          {% endif %}
-						  {% set count_asvs_tool_lvl1 = count_asvs_tool_lvl1 + 1 %}
-                          {% endif %}
-                          </td>
-                      </tr>
-                      {% set counter_owasp_lvl1 = counter_owasp_lvl1 + 1 %}
-                      {% endfor %}
-                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
-                      <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
-                  </table>
-                      </div>
-                      <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
-                      </form>
-                      </div>
-                      </div>
-                    </div>
-                  </div>              
-                      </div>
+											{% else %}
+											<tr>
+												<td>
+													{{entry|safe}}
+													{% if owasp_items_lvl1_ygb is defined %}
+													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'ygb' -%}
+														<ul class="level">
+															<li class="yellow"></li>
+															<li class="green"></li>
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
 
-                             <tr>
-                              <td><a href="#"></a>OWASP ASVS Level 2</td>
+													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'gb' -%}        
+														<ul class="level">
+															<li class="green"></li>
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
 
-                              <td class="hidden-phone">OWASP Application Security Verification Standard Level 2.</td>
-                              <td class="hidden-phone">Recommended</td>
-                              <td></td>
-                              <td>          
-                            <!-- MODALS -->
-                            <div class="showbak">
-                        <!-- Button trigger modal -->
-                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal8">
-                       Start                     
-                        </button>
-            
-                      <!-- Modal -->
-                      <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                      <div class="modal-content">
-                      <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 2</h4>
-                      </div>
-                      <div   class="modal-body">
-                      <table id='checklist' style="width:525px">
-                      <form method='post' action='/project-checklist-add'/>
-                      {% set count_asvs_tool_lvl2 = 0 -%}
-                      {% set counter_owasp_lvl2 = 0 -%}
-                      {% set count_asvs_2 = 0 -%}
-                      {% for entry in owasp_content_lvl2 -%}
+													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'b' -%}
+														<ul class="level">
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
+													{% endif %}
+													{% endif %}
+												</td>
+											{% if owasp_kb_ids_lvl1[counter_owasp_lvl1] != '0' -%}
 
+											{% set count_asvs_1 = count_asvs_1 + 1 %}
+											<td class="select">
+												<select name="answer{{count_asvs_1|safe}}" class="form-control">
+													<option value="no">No</option>
+													<option value="yes">Yes</option>
+													<option value="na">N.A.</option>
+												</select>
+												<input type="hidden" name="vulnID{{count_asvs_1|safe}}" value="{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}"/>
+												<input type="hidden" name="questionID{{count_asvs_1|safe}}" value="{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}"/>
+												<input type="hidden" name="listID{{count_asvs_1|safe}}" value="{{owasp_list_lvl1|safe}}" />
+											</td>
+											{% if owasp_items_lvl1_ygb is defined %}
+											<td class="more">
+												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl1[count_asvs_tool_lvl1]|safe}}">
+													<i class="fa fa-info-circle"></i>
+												</a>
+											</td>
+											{% endif %}
+											{% set count_asvs_tool_lvl1 = count_asvs_tool_lvl1 + 1 %}
+											
+											{% endif %}
+											</tr>
+											{% set counter_owasp_lvl1 = counter_owasp_lvl1 + 1 %}
+											{% endfor %}
+											<tr style="display: none;">
+												<td>
+													<input type="hidden" name="projectID" value="{{project_id|safe}}" />
+													<input type="hidden" name="projectName" value="{{projectName|safe}}" />
+													<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+												</td>
+											</tr>
+											</tbody>
+											</table>
+										</div>
+										
+										<!-- Modal Footer -->
+										
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											<button type="submit" name="submit" class="back">Save checklist <i class="fa fa-check"></i></button>
+										</div>
+										
+										</form>
+										
+										</div>
+									</div>
+								</div>              
+							</div>
+						  
+							</td>
+						</tr>
 
-                      <tr>
-                      {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] == '0' -%}
-                        <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
-                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
-                      {% else %}
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
-                        {{entry|safe}}
-                        {% if owasp_items_lvl2_ygb is defined %}
-                            {% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'ygb' -%}
-                           <img src="/static/img/yellow.png" width="10px" />
-                           <img src="/static/img/green.png"  width="10px" />
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
+						<!-- OWASP ASVS Level 2 -->
+						
+						<tr>
+							<td>OWASP ASVS Level 2</td>
+							<td>OWASP Application Security Verification Standard Level 2.</td>
+							<td>Recommended</td>
+							<td>  
 
-                           {% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'gb' -%}        
-                           <img src="/static/img/green.png"  width="10px" />
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
-                           
-                           {% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'b' -%}
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
-                        {% endif %}
-                      {% endif %}
-                      </td>
-                        <td></td>
-                          {% if owasp_kb_ids_lvl2[counter_owasp_lvl2] != '0' -%}
-                          {% set count_asvs_2 = count_asvs_2 + 1 %}
-                          <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{count_asvs_2|safe}}'>
-                          <option value='no' >No</option>
-                          <option value='yes' >Yes</option>
-                          <option value='yes' >N.A.</option>
-                          </select>
-                          </td>
-                          <input type='hidden' name='vulnID{{count_asvs_2|safe}}' value='{{owasp_kb_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
-                          <input type='hidden' name='questionID{{count_asvs_2|safe}}' value='{{owasp_ids_lvl2[counter_owasp_lvl2]|safe}}'/>
-                          <input type='hidden' name='listID{{count_asvs_2|safe}}' value='{{owasp_list_lvl2|safe}}'>
-                         {% if owasp_items_lvl2_ygb is defined %}
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title="{{owasp_content_desc_lvl2[count_asvs_tool_lvl2]|safe}}"><span class="glyphicon glyphicon-question-sign"></span></a></td>
-                          {% endif %}
-						  {% set count_asvs_tool_lvl2 = count_asvs_tool_lvl2 + 1 %}
-                          {% endif %}
-                          </td>
-                      </tr>
-                      {% set counter_owasp_lvl2 = counter_owasp_lvl2 + 1 %}
-                      {% endfor %}
-                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
-                      <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
-                  </table>
-                      </div>
-                      <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
-                      </form>
-                      </div>
-                      </div>
-                    </div>
-                  </div>              
-                      </div>
+							<!-- MODALS -->
+							<div class="showbak">
+								<!-- Button trigger modal -->
+								<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal8">Start</button>
 
-                             <tr>
-                              <td><a href="#"></a>OWASP ASVS Level 3</td>
+								<!-- Modal -->
+								<div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+										
+										<!-- Modal Header -->
+										
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 2</h4>
+										</div>
+										
+										<form method="post" action="/project-checklist-add" />
+										
+										<!-- Modal Body -->
+										
+										<div class="modal-body">
+											<table class="table table-striped table-advance table-hover checklist">
+												<tbody>
+	
+											{% set count_asvs_tool_lvl2 = 0 -%}
+											{% set counter_owasp_lvl2 = 0 -%}
+											{% set count_asvs_2 = 0 -%}
+											{% for entry in owasp_content_lvl2 -%}
+											
+											{% if owasp_kb_ids_lvl2[counter_owasp_lvl2] == '0' -%}
+											
+											
+											<th colspan="3">{{entry|safe}}</th>
+											
 
-                              <td class="hidden-phone">OWASP Application Security Verification Standard Level 3.</td>
-                              <td class="hidden-phone">Advanced</td>
-                              <td></td>
-                              <td>          
-                            <!-- MODALS -->
-                            <div class="showbak">
-                        <!-- Button trigger modal -->
-                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal9">
-                       Start                     
-                        </button>
-            
-                      <!-- Modal -->
-                      <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                      <div class="modal-content">
-                      <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 3</h4>
-                      </div>
-                      <div   class="modal-body">
-                      <table id='checklist' style="width:525px">
-                      <form method='post' action='/project-checklist-add'/>
+											{% else %}
+											<tr>
+												<td>
+													{{entry|safe}}
+													{% if owasp_items_lvl2_ygb is defined %}
+													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'ygb' -%}
+														<ul class="level">
+															<li class="yellow"></li>
+															<li class="green"></li>
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
 
-                      {% set count_asvs_tool_lvl3 = 0 -%}
-                      {% set counter_owasp_lvl3 = 0 -%}
-                      {% set count_asvs_3 = 0 -%}
-                      {% set count_desc = 1 -%}
-                      {% for entry in owasp_content_lvl3 -%}
+													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'gb' -%}        
+														<ul class="level">
+															<li class="green"></li>
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
 
+													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'b' -%}
+														<ul class="level">
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
+													{% endif %}
+													{% endif %}
+												</td>
+											{% if owasp_kb_ids_lvl2[counter_owasp_lvl2] != '0' -%}
 
-                      <tr>
-                       {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] == '0' -%}
-                       <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
-                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
-                      {% else %}
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
-                        {{entry|safe}}
-                        {% if owasp_items_lvl3_ygb is defined %}
+											{% set count_asvs_2 = count_asvs_2 + 1 %}
+											<td class="select">
+												<select name="answer{{count_asvs_2|safe}}" class="form-control">
+													<option value="no">No</option>
+													<option value="yes">Yes</option>
+													<option value="na">N.A.</option>
+												</select>
+												<input type="hidden" name="vulnID{{count_asvs_2|safe}}" value="{{owasp_list_lvl2[counter_owasp_lvl2]|safe}}"/>
+												<input type="hidden" name="questionID{{count_asvs_2|safe}}" value="{{owasp_list_lvl2[counter_owasp_lvl2]|safe}}"/>
+												<input type="hidden" name="listID{{count_asvs_2|safe}}" value="{{owasp_list_lvl2|safe}}" />
+											</td>
+											{% if owasp_items_lvl2_ygb is defined %}
+											<td class="more">
+												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl2[count_asvs_tool_lvl2]|safe}}">
+													<i class="fa fa-info-circle"></i>
+												</a>
+											</td>
+											{% endif %}
+											{% set count_asvs_tool_lvl2 = count_asvs_tool_lvl2 + 1 %}
+											
+											{% endif %}
+											</tr>
+											{% set counter_owasp_lvl2 = counter_owasp_lvl2 + 1 %}
+											{% endfor %}
+											<tr style="display: none;">
+												<td>
+													<input type="hidden" name="projectID" value="{{project_id|safe}}" />
+													<input type="hidden" name="projectName" value="{{projectName|safe}}" />
+													<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+												</td>
+											</tr>
+											</tbody>
+											</table>
+										</div>
+										
+										<!-- Modal Footer -->
+										
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											<button type="submit" name="submit" class="back">Save checklist <i class="fa fa-check"></i></button>
+										</div>
+										
+										</form>
+										
+										</div>
+									</div>
+								</div>              
+							</div>
+						  
+							</td>
+						</tr>
 
-                           {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'ygb' -%}
-                           <img src="/static/img/yellow.png" width="10px" />
-                           <img src="/static/img/green.png"  width="10px" />
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
+						<!-- OWASP ASVS Level 3 -->
+						
+						<tr>
+							<td>OWASP ASVS Level 3</td>
+							<td>OWASP Application Security Verification Standard Level 3.</td>
+							<td>Advanced</td>
+							<td>  
 
-                           {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'gb' -%}        
-                           <img src="/static/img/green.png"  width="10px" />
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
-                           
-                           {% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'b' -%}
-                           <img src="/static/img/blue.png"   width="10px" />
-                           {% endif %}
-                         {% endif %}
-                      {% endif %}
-                      </td>
-                        <td></td>
-                          {% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
-                           {% set count_asvs_3 = count_asvs_3 + 1 %}
-                           
-                           
-                           
-                           <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                          <select name='answer{{count_asvs_3|safe}}'>
-                          <option value='no' >No</option>
-                          <option value='yes' >Yes</option>
-                          <option value='yes' >N.A.</option>
-                          </select>
-                          </td>
-                          <input type='hidden' name='vulnID{{count_asvs_3|safe}}' value='{{owasp_kb_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
-                          <input type='hidden' name='questionID{{count_asvs_3|safe}}' value='{{owasp_ids_lvl3[counter_owasp_lvl3]|safe}}'/>
-                          <input type='hidden' name='listID{{count_asvs_3|safe}}' value='{{owasp_list_lvl3|safe}}'>
-                        {% if owasp_items_lvl3_ygb is defined %}
+							<!-- MODALS -->
+							<div class="showbak">
+								<!-- Button trigger modal -->
+								<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal9">Start</button>
 
-                          <td>&nbsp;&nbsp;<a style="font-size: 19px; position: fixed;" href="#" data-toggle="tooltip" data-placement="top" data-original-title='{{owasp_content_desc_lvl3[count_asvs_tool_lvl3]|safe}}'><span class="glyphicon glyphicon-question-sign"></span></a></td>
-                       {% endif %}
-                          {% set count_asvs_tool_lvl3 = count_asvs_tool_lvl3 + 1 %}
-                          {% endif %}
-                          </td>
-                      </tr>
-                      {% set counter_owasp_lvl3 = counter_owasp_lvl3 + 1 %}
-                      {% endfor %}
-                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
-                      <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
-                  </table>
-                      </div>
-                      <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
-                      </form>
-                      </div>
-                      </div>
-                    </div>
-                  </div>              
-                      </div>
+								<!-- Modal -->
+								<div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+										
+										<!-- Modal Header -->
+										
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">OWASP ASVS Level 3</h4>
+										</div>
+										
+										<form method="post" action="/project-checklist-add" />
+										
+										<!-- Modal Body -->
+										
+										<div class="modal-body">
+											<table class="table table-striped table-advance table-hover checklist">
+												<tbody>
+	
+											{% set count_asvs_tool_lvl3 = 0 -%}
+											{% set counter_owasp_lvl3 = 0 -%}
+											{% set count_asvs_3 = 0 -%}
+											{% for entry in owasp_content_lvl3 -%}
+											
+											{% if owasp_kb_ids_lvl3[counter_owasp_lvl3] == '0' -%}
+											
+											
+											<th colspan="3">{{entry|safe}}</th>
+											
 
-                    <tr>
-                    <td><a href="#"></a>Custom Checklist</td>
-                    <td class="hidden-phone">This checklist is a template for your own custom checklist. If you have created one please create a Pull request on GIT.</td>
-                    <td class="hidden-phone">Custom</td>
-                    <td></td>
-                    <td>
-                        
-                        
-                                      <!-- MODALS -->
-                            <div class="showbak">
-                        <!-- Button trigger modal -->
-                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal4">
-                       Start                     
-                        </button>
-            
-                      <!-- Modal -->
-                      <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                      <div class="modal-content">
-                      <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">Certified secure advanced audit</h4>
-                      </div>
-                      <div   class="modal-body">
-                      <table id='checklist' style="width:525px">
-                      <form method='post' action='/project-checklist-add'/>
-                      
-                  {% set counter_custom = 0 -%}
-                  {% set count_custom = 0 -%}
-                  {% for entry in custom_content -%}
+											{% else %}
+											<tr>
+												<td>
+													{{entry|safe}}
+													{% if owasp_items_lvl3_ygb is defined %}
+													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'ygb' -%}
+														<ul class="level">
+															<li class="yellow"></li>
+															<li class="green"></li>
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
 
-                  <tr>
-                     {% if custom_kb_ids[counter_custom] == '0' -%}
-                       <td style='font-size:0.87em; padding-top:9px; border-style:solid; border-color:black; border-width:0px;'> 
-                        <b style="p { font-weight:bold; }">{{entry|safe}}</b>
-                      {% else %}
-                        <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px;'> 
-                        {{entry|safe}}
-                      {% endif %}
-                    </td>
-                    <td></td>
-                      {% if custom_kb_ids[counter_custom] != '0' -%}
-                      {% set count_custom = count_custom + 1 %}
-                     <td style='font-size:0.8em; border-style:solid; border-color:black; border-width:1px; text-align:center;'>
-                      <select name='answer{{count_custom|safe}}' >
-                        <option value='no' >No</option>
-                        <option value='yes' >Yes</option>
-                        <option value='yes' >N.A.</option>
-                      </select>
-                      </td>
-                      <input type='hidden' name='vulnID{{count_custom|safe}}' value='{{custom_kb_ids[counter_custom]|safe}}'>
-                      <input type='hidden' name='questionID{{count_custom|safe}}' value='{{custom_ids[counter_custom]|safe}}'>
-                      <input type='hidden' name='listID{{count_custom|safe}}' value='{{custom_list|safe}}'>
-                       {% endif %}
-                      </td>
-                  </tr>
+													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'gb' -%}        
+														<ul class="level">
+															<li class="green"></li>
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
 
-                  {% set counter_custom = counter_custom + 1 %}
-                  {% endfor %}
-                      <input type='hidden' name='projectID' value='{{project_id|safe}}'/>
-                      <input type='hidden' name='projectName' value='{{projectName|safe}}'/>
-                      <input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
-                  </table>
-                      </div>
-                      <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <input type="submit" name="submit" class="btn btn-primary" value='Save checklist'/>
-                      </form>
-                      </div>
-                      </div>
-                    </div>
-                  </div>              
-                      </div><!-- /showback -->
-                  
-                              
-                              </tbody>
-                          </table>
+													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'b' -%}
+														<ul class="level">
+															<li class="blue"></li>
+														</ul>
+													{% endif %}
+													{% endif %}
+													{% endif %}
+												</td>
+											{% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
 
-                      </div>
-							<h5><b>Legenda for ASVS</b> </h5>
-                           <img src="/static/img/yellow.png" width="10px" />
-                           <img src="/static/img/green.png"  width="10px" />
-                           <img src="/static/img/blue.png"   width="10px" />&nbsp;&nbsp;  ASVS Level 1
-                           
-                           <br/>
-                           
-                            
-                           <img src="/static/img/green.png"  width="10px" />
-                           <img src="/static/img/blue.png"   width="10px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ASVS Level 2
-                           
-                             <br/>
-                           
-                            
-                           
-                           <img src="/static/img/blue.png"   width="10px" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ASVS Level 3
+											{% set count_asvs_3 = count_asvs_3 + 1 %}
+											<td class="select">
+												<select name="answer{{count_asvs_3|safe}}" class="form-control">
+													<option value="no">No</option>
+													<option value="yes">Yes</option>
+													<option value="na">N.A.</option>
+												</select>
+												<input type="hidden" name="vulnID{{count_asvs_3|safe}}" value="{{owasp_list_lvl3[counter_owasp_lvl3]|safe}}"/>
+												<input type="hidden" name="questionID{{count_asvs_3|safe}}" value="{{owasp_list_lvl3[counter_owasp_lvl3]|safe}}"/>
+												<input type="hidden" name="listID{{count_asvs_3|safe}}" value="{{owasp_list_lvl3|safe}}" />
+											</td>
+											{% if owasp_items_lvl3_ygb is defined %}
+											<td class="more">
+												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl3[count_asvs_tool_lvl3]|safe}}">
+													<i class="fa fa-info-circle"></i>
+												</a>
+											</td>
+											{% endif %}
+											{% set count_asvs_tool_lvl3 = count_asvs_tool_lvl3 + 1 %}
+											
+											{% endif %}
+											</tr>
+											{% set counter_owasp_lvl3 = counter_owasp_lvl3 + 1 %}
+											{% endfor %}
+											<tr style="display: none;">
+												<td>
+													<input type="hidden" name="projectID" value="{{project_id|safe}}" />
+													<input type="hidden" name="projectName" value="{{projectName|safe}}" />
+													<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+												</td>
+											</tr>
+											</tbody>
+											</table>
+										</div>
+										
+										<!-- Modal Footer -->
+										
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											<button type="submit" name="submit" class="back">Save checklist <i class="fa fa-check"></i></button>
+										</div>
+										
+										</form>
+										
+										</div>
+									</div>
+								</div>              
+							</div>
+						  
+							</td>
+						</tr>
+				
+						<!-- Custom Checklist -->
+						
+						<tr>
+							<td>Custom Checklist</td>
+							<td>This checklist is a template for your own custom checklist. If you have created one please create a Pull request on GIT.</td>
+							<td>Custom</td>
+							<td>          
+								<!-- MODALS -->
+								<div class="showbak">
+								<!-- Button trigger modal -->
+								<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal4">Start</button>
+			
+								<!-- Modal -->
+								<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+										
+											<!-- Modal Header -->
+										
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">Certified secure advanced audit</h4>
+											</div>
+											
+											<!-- Modal Body -->
+											
+											<form method="post" action="/project-checklist-add"/>
+											
+											<div class="modal-body">
+												<table class="table table-striped table-advance table-hover checklist">
+													<tbody>
+													{% set counter_custom = 0 -%}
+													{% set count_custom = 0 -%}
+													{% for entry in custom_content -%}
+													
+													{% if custom_kb_ids[counter_custom] == '0' -%}
+														
+														<th colspan="2">
+															{{entry|safe}}
+														</th>
+														{% else %}
+														<tr>
+															<td> 
+																{{entry|safe}}
+															</td>
+															{% endif %}
 
-               </div><!-- /col-lg-4 -->     
-        </div><!-- /row -->
-    </section><!--/wrapper -->
-      </section><!-- /MAIN CONTENT -->
+															{% if custom_kb_ids[counter_custom] != '0' -%}
+															{% set count_custom = count_custom + 1 %}
+															<td class="select">
+																<select name="answer{{count_custom|safe}}" class="form-control">
+																	<option value="no">No</option>
+																	<option value="yes">Yes</option>
+																	<option value="na">N.A.</option>
+																</select>
+																<input type="hidden" name="vulnID{{count_custom|safe}}" value="{{custom_kb_ids[counter_custom]|safe}}" />
+																<input type="hidden" name="questionID{{count_custom|safe}}" value="{{owasp_ids[counter_custom]|safe}}" />
+																<input type="hidden" name="listID{{count_custom|safe}}" value="{{owasp_list|safe}}" />
+															</td>
+														</tr>
+														{% endif %}
+														
+													
+													{% set counter_custom = counter_custom + 1 %}
+													{% endfor %}
+													<tr style="display: none;">
+														<td>
+															<input type="hidden" name="projectID" value="{{project_id|safe}}" />
+															<input type="hidden" name="projectName" value="{{projectName|safe}}" />
+															<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+											
+											<!-- Modal Footer -->
+											
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<button type="submit" name="submit" class="back">Save checklist <i class="fa fa-check"></i></button>
+											</div>
+										
+										</form>
+										
+										</div>
+									</div>
+								</div> 
+				  
+								</div>
+
+							</td>
+						</tr>	
+						
+						
+						</tbody>
+					</table>
+
+				</div>
+								
+				<div class="legend">
+				
+				<h5>Legenda for ASVS</h5>
+				<i>OWASP Application Security Verification Standard</i>
+				<ul class="level-legend">
+					<li class="pip yellow"></li>
+					<li class="pip"></li>
+					<li class="pip"></li>
+					<li class="name">ASVS Level 1</li>
+				</ul>
+				<ul class="level-legend">
+					<li class="pip yellow"></li>
+					<li class="pip green"></li>
+					<li class="pip"></li>
+					<li class="name">ASVS Level 2</li>
+				</ul>
+				<ul class="level-legend">
+					<li class="pip yellow"></li>
+					<li class="pip green"></li>
+					<li class="pip blue"></li>
+					<li class="name">ASVS Level 3</li>
+				</ul>
+					
+				</div>
+				
+				</div><!-- /col-lg-4 -->     
+			</div><!-- /row -->
+		</section><!--/wrapper -->
+    </section><!-- /MAIN CONTENT -->
          
 
  {% include 'footer.html' %}

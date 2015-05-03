@@ -144,6 +144,10 @@ var Script = function () {
 
 $(document).ready(function() {
 
+	$('.form-control').change(function(){
+		$(this).parent().parent().toggleClass('checked', $(this).val() == 'yes');
+	});
+
 	// Page Transition
 	
 	$(".animsition").animsition({
