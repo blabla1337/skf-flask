@@ -2381,6 +2381,12 @@ label {
 .table-striped > tbody > tr.checked > td { background: #f6fff7; color: #62a06a; border-top: 1px solid #d5e5d7; }
 .table-striped > tbody > tr.checked:nth-child(2n+2) > td { background: #e5efe6; color: #62a06a; }
 
+/*.table-striped > tbody > tr.false > td { background: #efe5e5; color: #a66c6c; border-top: 1px solid #e5d5d5; }
+.table-striped > tbody > tr.false:nth-child(2n+2) > td { background: #fbf9f9; color: #a66c6c; }*/
+
+.table-striped > tbody > tr.exclude > td { background: #f9f9f9; color: #e3dbdb; border-top: 1px solid #f5f5f5; }
+.table-striped > tbody > tr.exclude:nth-child(2n+2) > td { background: #fdfdfd; color: #d9dada; }
+
 .table-striped > tbody > tr > td:first-child a { padding: 4px 9px; transition: all 0.2s ease-out; border: 1px solid #f9f9f9; } 
 .table-striped > tbody > tr:nth-child(2n+2) > td:first-child a { border: 1px solid #eaeaea; } 
 
@@ -2418,6 +2424,7 @@ label {
 .project-functions .modal-dialog #checkboxes { float: left; width: 100%; padding: 15px 0; }
 .project-functions .modal-dialog #checkboxes .item { float: left; width: 48%; padding: 15px; background: #e8e8e8; margin: 5px 1%; border-top: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; }
 .project-functions .nav .btn { float: left; }
+.modal-info { padding: 15px; float: left; width: 100%; }
 .project-checklist .modal-dialog .back,
 .nav .back { display: block; float: left; background: #494949; color: #fff; padding: 6px 12px; border: 1px solid #494949; margin-left: 10px; font-size: 14px; transition: all 0.2s ease-out;  }
 .project-checklist .modal-dialog .back i,
@@ -2453,3 +2460,12 @@ label {
 .project-checklist ul.level-legend li.green:after { background: #66cc00; }
 .project-checklist ul.level-legend li.blue:after { background: #6699cc; }
 .project-checklist ul.level-legend li.name { margin-left: 10px; }
+
+/* Checklist Result */
+
+.results .modal-body { padding-left: 0; padding-right: 0; }
+.results .modal-header { background: #494949; padding: 0 15px; }
+.results .modal-header { font-size: 20px; color: #fff; padding: 8px 15px; margin: 0; }
+.results .modal-header p { padding: 0; margin: 0; }
+.results .well { background: #fff; border-radius: 0; border-top: none; margin: 0; }
+.results .well h2 { font-size: 18px; color: #515594; padding: 8px 0; margin: 0; }

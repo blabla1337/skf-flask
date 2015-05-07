@@ -51,8 +51,8 @@
                                   <th><i class="fa fa-bullhorn"></i> Project Name</th>
                                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
                                   <th><i class="fa fa-bookmark"></i> Project version</th>
-                                  <th><i class=" fa fa-edit"></i> Date/Time</th>
-                                  <th><i class=" fa fa-times"></i> Delete</th>
+                                  <th><i class="fa fa-clock-o"></i> Date/Time</th>
+                                  <th><i class="fa fa-times"></i> Delete</th>
                                   <th></th>
                               </tr>
                               </thead>
@@ -90,9 +90,9 @@
                                   </table>
                                   </div>
                                   <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                 <a href='#' onclick='delProject({{entry.projectID|safe}},"{{csrf_token|safe}}");'><input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
-                                  </form>
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<a href='#' onclick='delProject({{entry.projectID|safe}},"{{csrf_token|safe}}");'><input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
+ 
                                   </div>
                                   </div>
                                     </div>

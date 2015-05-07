@@ -133,6 +133,14 @@ var Script = function () {
 		$(this).parent().find('#sidebar .page01').addClass('active'); // Keep sub open
 		$(this).parent().find('#sidebar .page03').addClass('act'); // Active
 	});
+	$('#main-content.page05').each(function () { // Results
+		$(this).parent().find('#sidebar .page04').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .page05').addClass('act'); // Active
+	});
+	$('#main-content.page06').each(function () { // Results
+		$(this).parent().find('#sidebar .page04').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .page06').addClass('act'); // Active
+	});
 	$('#main-content.page07').each(function () { // Knowledge Base
 		$(this).parent().find('#sidebar .page07').addClass('act'); // Active
 	});
@@ -146,6 +154,8 @@ $(document).ready(function() {
 
 	$('.form-control').change(function(){
 		$(this).parent().parent().toggleClass('checked', $(this).val() == 'yes');
+		$(this).parent().parent().toggleClass('false', $(this).val() == 'no');
+		$(this).parent().parent().toggleClass('exclude', $(this).val() == 'na');
 	});
 
 	// Page Transition

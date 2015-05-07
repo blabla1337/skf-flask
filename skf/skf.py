@@ -143,7 +143,7 @@ app.config.update(dict(
     SECRET_KEY=secret_key,
     USERNAME='admin',
     SESSION_COOKIE_SECURE=True,
-    PASSWORD=password,
+    PASSWORD='123',
     SESSION_COOKIE_HTTPONLY = True
 ))
 
@@ -941,10 +941,10 @@ def download_file_checklist(entryDate):
                [safe_entryDate])
     entries = cur.fetchall()
     document = Document()
-    document.add_picture(os.path.join(app.root_path,'static/img/owaspdocx.png'), width=Inches(4.75), height=Inches(1.15))
+    document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    document.add_heading('Security Knowledge Framework', 0)
+    #document.add_heading('Security Knowledge Framework', 0)
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = document.add_paragraph()
@@ -1082,10 +1082,10 @@ def download_file_function(projectID):
                [safe_id])
     entries = cur.fetchall()
     document = Document()
-    document.add_picture(os.path.join(app.root_path,'static/img/owaspdocx.png'), width=Inches(4.75), height=Inches(1.15))
+    document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    document.add_heading('Security Knowledge Framework', 0)
+    #document.add_heading('Security Knowledge Framework', 0)
     last_paragraph = document.paragraphs[-1] 
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = document.add_paragraph()
