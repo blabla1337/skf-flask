@@ -45,47 +45,54 @@
 	  
           <section class="wrapper">
 
-		  		<div class="row mt">
-			  		<div class="col-lg-12">
-						<div class="control-panel">
-							{% if entries.projectName != Null %}
-							{% else %}
-								<a href="/results-checklist-docx/{{entryDate}}">
-									<button class="btn btn-default"><i style="margin-right: 10px;" class="fa fa-file-word-o"></i> Download Report</button>
-								</a>
+				{% if entries.projectName != Null %}
+				{% else %}
+					<a class="report" href="/results-checklist-docx/{{entryDate}}">
+						<button class="btn btn-default"><i style="margin-right: 10px;" class="fa fa-file-word-o"></i> Download Report</button>
+					</a>
+					
+					<div class="read">
+						<a class="toggle" href="javascript:;">
+							<i class="fa fa-arrows-h"></i>
+						</a>
+					</div>
+					
+				{% endif %}	  
+		  
+		  	<div class="row mt">
+			  	<div class="col-lg-12">
+			  		<div id="report">
+						{% set counter = 0 -%}
+						{% for entry in content %}
+							<div class="modal-body"> 
+							{% if ygb[counter] == 'ygb' -%}
+								<ul class="level">
+									<li class="yellow"></li>
+									<li class="green"></li>
+									<li class="blue"></li>
+								</ul>
 							{% endif %}
-						</div>
 
-            {% set counter = 0 -%}
-            {% for entry in content %}
-				<div class="modal-body"> 
-				{% if ygb[counter] == 'ygb' -%}
-					<ul class="level">
-						<li class="yellow"></li>
-						<li class="green"></li>
-						<li class="blue"></li>
-					</ul>
-				{% endif %}
+							{% if ygb[counter] == 'gb' -%}        
+								<ul class="level">
+									<li class="green"></li>
+									<li class="blue"></li>
+								</ul>
+							{% endif %}
 
-				{% if ygb[counter] == 'gb' -%}        
-					<ul class="level">
-						<li class="green"></li>
-						<li class="blue"></li>
-					</ul>
-				{% endif %}
-
-				{% if ygb[counter] == 'b' -%}
-					<ul class="level">
-						<li class="blue"></li>
-					</ul>
-				{% endif %}    
-					<div class="modal-header">{{questions[counter]|safe}}</div>            
-					<div class="well"> {{entry}} </div>
+							{% if ygb[counter] == 'b' -%}
+								<ul class="level">
+									<li class="blue"></li>
+								</ul>
+							{% endif %}    
+								<div class="modal-header">{{questions[counter]|safe}}</div>            
+								<div class="well"> {{entry}} </div>
+							</div>
+						<br/>
+						{% set counter = counter + 1 %}
+						{% endfor %}
+					</div>
 				</div>
-            <br/>
-            {% set counter = counter + 1 %}
-            {% endfor %}
-            </div>
             </div><!-- /col-md-12 -->
         </div><!-- /row -->
     </section><!--/wrapper -->
