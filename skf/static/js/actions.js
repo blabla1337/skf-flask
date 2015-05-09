@@ -177,6 +177,6 @@ $(document).ready(function() {
     var orderedDivs = $divs.sort(function (a, b) {
         return $(a).find("h4").text() > $(b).find("h4").text();
     });
-    $("#accordion").html(orderedDivs);	
+    $("#accordion").html(orderedDivs);
 	
 });
