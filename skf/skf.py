@@ -139,11 +139,11 @@ csrf_token = base64.b64encode(csrf_token_raw)
 # You can also replace password with static password:  PASSWORD='pass!@#example'
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'skf.db'),
-    DEBUG=True,
+    DEBUG=False,
     SECRET_KEY=secret_key,
     USERNAME='admin',
     SESSION_COOKIE_SECURE=True,
-    PASSWORD='123',
+    PASSWORD=password,
     SESSION_COOKIE_HTTPONLY = True
 ))
 
@@ -328,35 +328,6 @@ def code_examples():
             id_items.append(id_item)
     return render_template('code-examples.html', items=items, id_items=id_items)
 
-@app.route('/code-search', methods=['POST'])
-@security
-def show_code_search():
-    blockUsers()
-    """show the landing page"""
-    if not session.get('logged_in'):
-        log("User with no valid session tries access to page /code-search", "FAIL", "HIGH")
-        abort(401)
-    search = request.form['search'].lower()
-    valAlphaNum(search)
-    safe_search = encodeInput(search)
-    content = []
-    kb_name = []
-    full_file_paths = []
-    allowed = set(string.ascii_lowercase + string.ascii_uppercase + '.')
-    if set(session['code_lang']) <= allowed:
-        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
-        for path in full_file_paths:
-            path_lwr = path.lower()
-            found = path_lwr.find(safe_search)
-            if found != -1:
-                filemd = open(path, 'r').read()
-                content.append(Markup(markdown.markdown(filemd)))
-                path = path.split("-")
-                y = len(path)-3
-                kb_name_uri = path[(y)]
-                kb_name.append(kb_name_uri.replace("_", " "))
-    return render_template('code-examples-search.html', **locals())
-
 @app.route('/code-item', methods=['POST'])
 @security
 def show_code_item():
@@ -377,34 +348,6 @@ def show_code_item():
                 filemd = open(path, 'r').read()
                 content = Markup(markdown.markdown(filemd)) 
     return render_template('code-examples-item.html', **locals())
-
-@app.route('/kb-search', methods=['POST'])
-@security
-def show_kb_search():
-    blockUsers()
-    """show the knowledge base search page"""
-    if not session.get('logged_in'):
-        log("User with no valid session tries access to page /kb-search", "FAIL", "HIGH")
-        abort(401)
-    search = request.form['search'].lower()
-    valAlphaNum(search)
-    safe_search = encodeInput(search)
-    full_file_paths = []
-    content = []
-    kb_name = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-    for path in full_file_paths:
-        path_lwr = path.lower()
-        found = path_lwr.find(safe_search)
-        if found != -1:
-            filemd = open(path, 'r').read()
-            content.append(Markup(markdown.markdown(filemd)))
-            path = path.split("-")
-            y = len(path)-3
-            kb_name_uri = path[(y)]
-            kb_name.append(kb_name_uri.replace("_", " "))
-    return render_template('knowledge-base-search.html', **locals())
-
 
 @app.route('/kb-item', methods=['POST'])
 @security

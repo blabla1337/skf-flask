@@ -32,7 +32,11 @@
 				<div class="text">
 
 				<h1>Checklist results</h1>
+				{% if entries -%}
+					<p>Summary of all checklist results.</p>
+				{% else %}
 				<p>Create a project and use the checklist forms in order to create results.</p>
+				{% endif %}
 
 				</div>
 
@@ -45,11 +49,12 @@
 			  		<div class="col-lg-12">
 						<div class="content-panel">
           				  		
-            {% if entries -%}
-                <!--<div class="alert alert-info">Summary of all checklist-results.</div>-->
-            {% else %}
-                <div class="alert alert-danger">There were no checklists found. <br/>Create a project and use the checklist forms in order to create results.</div>
-            {% endif %}
+			{% if entries -%}
+				
+			{% else %}
+				<p>No checklists you say?</p>
+				<p><a class="btn btn-default" href="/project-list" />Back to projects!</a></p>
+			{% endif %}		
 
 
             {% if entries -%}
