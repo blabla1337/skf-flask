@@ -36,6 +36,8 @@ Aggregate user controlls
 	
 
 	*/
+	session_start();
+	$_SESSION['userID'] = 2 ;
 	
 	function countAccess($count){
 		
@@ -47,37 +49,49 @@ Aggregate user controlls
 		*/
 		
 		//First we log the access
-		setLog($_SESSION['userID'],"User access the database ", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-		
-		//Then we update the users table and count +1 tot the AggregateControl column
-		$stmt = $db->prepare("UPDATE users SET AggregateControl=? WHERE userID=?");
-		$stmt->execute(array($count, $_SESSION['userID']));
-		$affected_rows = $stmt->rowCount();
+		//setLog($_SESSION['userID'],"User access the database ", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
 		
 		//After that we select 
-		$stmt = $db->prepare("SELECT AggregateControl FROM users WHERE userID=:id ");
-		$stmt->execute(array(':id' => $id));
-		$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$stmt = $db->prepare("SELECT AggregateControl FROM members WHERE userID=:id ");
+		$stmt->execute(array(':id' => $_SESSION['userID']));
+		$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		$aggragate = 0;
+		
+		foreach($row as $rows){
+		
+			$control = $rows['AggregateControl'];
+		}
+		
+		//We add the count to controll variable for the update
+		$control += $count;
+		
+		if($control >= 5000){
 	
-			if($rows['aggregateControl'] >= 5000){
-			
-				//First we log the surpassing of the user control count
-				setLog($_SESSION['userID'],"Aggregate access control breach ", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-			
-				/*
-				Then we lock out the users account assuming it has been compromised by
-				an attacker.
-				*/
-				$access = "FAIL";
-				$stmt = $db->prepare("UPDATE users SET access=? WHERE userID=?");
-				$stmt->execute(array($access, $_SESSION['userID']));
-				$affected_rows = $stmt->rowCount();
-								
-			}	
+			//First we log the surpassing of the user control count
+			//setLog($_SESSION['userID'],"Aggregate access control breach ", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+	
+			/*
+			Then we lock out the users account assuming it has been compromised by
+			an attacker.
+			*/
+			$access = "FAIL";
+			$stmt = $db->prepare("UPDATE members SET access=? WHERE userID=?");
+			$stmt->execute(array($access, $_SESSION['userID']));
+			$affected_rows = $stmt->rowCount();
+						
+		}			
+		
+		//Then we update the users table and count +1 tot the AggregateControl column
+		$stmt = $db->prepare("UPDATE members SET AggregateControl=? WHERE userID=?");
+		$stmt->execute(array($control, $_SESSION['userID']));
+		$affected_rows = $stmt->rowCount();
+		
 		
 	}
 	
-	
+	//We use the function as follows:
+	countAccess(1);
 
 	?>
 

@@ -24,6 +24,38 @@ Identifier-based authorization
 	}
  
  
+	//First we create a function which checks te allowed patterns
+	function checkpattern(){
+		$array = array("/^page1$/" ,"/^page2$/" ,"/^etc$/" ,"/^etc$/");
+	
+		foreach($array as $Pattern){
+			while(preg_match($Pattern , $_GET['page'])){		
+				//If the value is valid we send a log to the logging file.        
+				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
+			
+				//then we return true      			
+				return true;
+			}
+
+		}
+	}
+	
+	//Here we handle the consequences if the checkpattern function fails
+	if(checkpattern() !== true){
+		
+		//Set a log for whenever there is unexpected user input with a threat level:
+		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+		
+		/*
+		If the user tries to read files other than specified, immediate logout wil follow!
+		*/
+		setCounter(3);
+					
+		//The die function is to make sure the rest of the php code is not excecuted beyond this point
+		die(); 
+	}
+	
+
 
 	/* 
 	Whenever you are checking whether a user is restricted to review certain data,
@@ -34,11 +66,6 @@ Identifier-based authorization
 	//We also want to validate the $page variable went through validations succesfully.
 	setLog($_SESSION['userID'],"successful input validation for page", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
 	
-	/*
-	Now we only select the data form the database which the user is allowed to watch by adding the ID to the query.
-	If the results do not mach, the user will not be allowed to view the data.
-	This prevents the users seeing data which they are not restricted to see simply by changing parameters.
-	*/
 	$stmt = $db->prepare("SELECT * FROM table WHERE id=:userID AND page=:page");
 	$stmt->execute(array(':page' => $page, ':id' => $_SESSION['userID']));
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

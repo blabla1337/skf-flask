@@ -46,7 +46,7 @@ Path traversal
 					Here we define a whitelist of files we want the user allow to access to, in this case all 
 					path traversal patterns are terminated with since it does not comply with the pre-defined withelist
 					*/ 
-						string[] allowed = new string[] { "test", "file2", "file3" };
+					string[] allowed = new string[] { "test", "file2", "file3" };
 			
 					//To catch the user submitting evil requests we count the number of times the foreach hits false
 					int count = 1;

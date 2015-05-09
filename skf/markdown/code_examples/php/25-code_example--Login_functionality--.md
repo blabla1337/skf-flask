@@ -1,5 +1,5 @@
 
-Login functionality
+Debug Enabling
 -------
 
 **Example:**

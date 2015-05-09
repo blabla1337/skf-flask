@@ -4,21 +4,21 @@ Password forget & Disallow old passwords
 
 **Example:**
 
-    /*
+   /*
 	Whenever you are developing a password forget function, these are the steps to follow
 	in order to create hardened defenses.
 	
 	
 	 TABLE users
-    -----------------------------------------------------------------     
-    | userID | userName | password |   EmailAdress	 |    access	|
-    -----------------------------------------------------------------    
-    |   1	 | Admin	| Csdar323 | info@admin.com	 | 	   TRUE		|
-    -----------------------------------------------------------------    	
-    |	2	 | User		| Adf4fsv  | info@user.com   |	   FALSE	|
-    -----------------------------------------------------------------    
-    |	3	 | Guest	| dff4fKr  | info@guest.com	 |	   TRUE		|
-    -----------------------------------------------------------------    
+    -----------------------------------------------------------------------------------     
+    | userID | userName | password |   EmailAdress	 |    access	|forgotPasswordID |
+    -----------------------------------------------------------------------------------    
+    |   1	 | Admin	| Csdar323 | info@admin.com	 | 	   TRUE		|	     2		  |
+    -----------------------------------------------------------------------------------    	
+    |	2	 | User		| Adf4fsv  | info@user.com   |	   FALSE	|		 5		  |
+    -----------------------------------------------------------------------------------    
+    |	3	 | Guest	| dff4fKr  | info@guest.com	 |	   TRUE		|		 4		  |
+    -----------------------------------------------------------------------------------    
 
 
     TABLE passwordForget
@@ -134,7 +134,7 @@ Password forget & Disallow old passwords
 	}
 	
 	/*
-	Imagine the user clicked on his link with the token included and is redirected towards
+	Imageine the user clicked on his link with the token included and is redirected towards
 	the page where he can enter his new password.
 	*/
 	
@@ -215,7 +215,6 @@ Password forget & Disallow old passwords
 			
 					if($newpassword === $row['oldPasswords']){
 						echo "This was an old password please do not use this password";
-						die();
 					}else{
 						
 						//First we update the new password for the user

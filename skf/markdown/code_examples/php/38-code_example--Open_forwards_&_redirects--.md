@@ -4,7 +4,7 @@ Open forwards & redirects
 
 **Example:**
 
-   	<?php
+   		<?php
 	
 	/*
 	When using forwards & redirects you should make sure the URL is being explicitly 
@@ -31,7 +31,7 @@ Open forwards & redirects
 				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
 				
 				//if valid than we redirect the user towards the new page
-				header("location:index.php?succes=$_GET['filename']");
+				header("location:index.php?succes");
 				
 				//then we return true      			
 				return true;

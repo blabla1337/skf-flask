@@ -4,7 +4,7 @@ User registration / Sql truncation prevention
 
 **Example:**
 
-   	<?php
+   		<?php
 
 	/*
 	In order to prevent Column truncation sql injection Solution we have to make sure the
@@ -31,17 +31,17 @@ User registration / Sql truncation prevention
 	//First we create a function in order to select all usernames in order to see of they already exsists
 	function userCheck($username){
 			
-		$stmt = $db->prepare("SELECT * FROM members WHERE username = :input");
-		$stmt->bindParam(':input', $username, PDO::PARAM_STR);
-		$stmt->execute();
+			$stmt = $db->prepare("SELECT * FROM members WHERE username = :input");
+			$stmt->bindParam(':input', $username, PDO::PARAM_STR);
+			$stmt->execute();
 			
-		if($stmt->fetch(PDO::FETCH_OBJ) == False){ 
-			//Return true in order to complete registration
-			return true;
+			if($stmt->fetch(PDO::FETCH_OBJ) == False){ 
+				//Return true in order to complete registration
+				return true;
 			
-		}else{
-			//The username already exists so the application dies.
-			die("Username already exists");
+			}else{
+				//The username already exists so the application dies.
+				die("Username already exists");
 			}
 		}
 		

@@ -31,7 +31,7 @@ CSRF tokens
 			if($_SESSION['csrf'] != $token){        
 			    
 				//Log the invalid token verification
-				setLog($_SESSION['userID'],"invalid token: ".$_SERVER['HTTP_REFERER']."", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+				setLog($_SESSION['userID'],"invalid CSRF token send!", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
 				
 				//if the token was not valid we terminate the users session
 				session_start();

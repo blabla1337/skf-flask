@@ -13,8 +13,6 @@ XML injection prevention
 	using System.IO;
 	using System.Xml;
 
-
-
 	namespace MvcApplication1.Controllers
 	{
 		public class storeXML
@@ -22,9 +20,9 @@ XML injection prevention
 			public void storeFuncion(string name, string lastName, string gender)
 			{
 				/*
-				   First we import our inputvalidation controll class. for more detailed information about 
-				   input validation check the code examples for "Input validation" & "Single input validation".
-				   */
+				First we import our inputvalidation controll class. for more detailed information about 
+				input validation check the code examples for "Input validation" & "Single input validation".
+				*/
 				inputValidationControll validate = new inputValidationControll();
 
 				bool doFunction = true;

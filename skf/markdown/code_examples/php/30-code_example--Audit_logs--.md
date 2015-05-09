@@ -4,7 +4,7 @@ Audit logs
 
 **Example:**
 
-    <?php
+	<?php
 
     /*
     The log function does not have to be complicated as long as you log at least these 6 values
@@ -23,70 +23,78 @@ Audit logs
 
         fwrite($fh, $stringData);
         fclose($fh);
-
     }
-
+	
+	/*
+	Whenever a user is registered or added to your system, the application must also 
+	automatically generate a table for this user which contans his userID, counter and blocker
+	variable in order to keep track of his behavior.
+	*/
+	
     function setCounter($count){
-
-        //Here we want to set a counter for whenever a user attacks the application so we can lock-out his account 
-        //when there are to many violations registered.
-        $stmt = $db->prepare("UPDATE counter SET count=? blocker=? WHERE id=?");
-        $stmt->execute(array($count, $_SESSION['userID']));
-        $affected_rows = $stmt->rowCount();
-
-        $sth = $this->_db->prepare($sql);
-        return $sth->execute($data);
 
         //Here we select all data to verify if the users session should be terminated or his acount should be locked-out
         $stmt = $db->prepare("SELECT count, blocker FROM counter WHERE userID=:id");
         $stmt->execute(array($_SESSION['userID']));
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			
+		foreach($row as $rows){
+		
+			//First we update the count/blocker variable with the old values for the update
+			$dbCount   = $rows['count'];
+			$dbBlocker = $rows['blocker'];
+			
+		}
+		
+		$countUpdate   = $count + $dbCount;
+		$blockerUpdate = $count + $dbBlocker; 
+		
+		var_dump($dbCount);
 
-            //If the users counter was bigger than three his session should be terminated
-            if($rows['count'] >= 3)
-            {
-            	//Log that the users sessions have been terminated:
-				setLog($_SESSION['userID'],"The users session was terminated", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-                
-                //We also empty the current session before destroying it
-                $_SESSION['isAuthenticated'] = "";
-                
-                ssession_start();
-                session_destroy();
-                $count = 0;
-                die;
-            }	
-
-            //If the users counter was bigger than three his session should be terminated
-            if($rows['blocker'] >= 12)
-            {	
-                //Log that the users has been denied access to system:
-				setLog($_SESSION['userID'],"The users is denied access to system", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-            	
-                //If the blocker was bigger than 12 it means the user has made three strikes and his acount should blocked
-                $status = "blocked"
-                $stmt = $db->prepare("UPDATE users SET status=? WHERE id=?");
-                $stmt->execute(array($status, $_SESSION['userID']));
-                $affected_rows = $stmt->rowCount();
-
-                $sth = $this->_db->prepare($sql);
-                return $sth->execute($data);	
-            }	
-
-        //After the counter has terminated a session he should be set to zero again
-        $stmt = $db->prepare("UPDATE counter SET count=? WHERE id=?");
-        $stmt->execute(array($count, $_SESSION['userID']));
+        //Here we want to set a counter for whenever a user attacks the application so we can lock-out his account 
+        //when there are to many violations registered.
+        $stmt = $db->prepare("UPDATE counter SET count=?, blocker=? WHERE userID=?");
+        $stmt->execute(array($countUpdate, $blockerUpdate, $_SESSION['userID']));
         $affected_rows = $stmt->rowCount();
 
-        $sth = $this->_db->prepare($sql);
-        return $sth->execute($data);
+		//If the users counter was bigger than three his session should be terminated
+		if($countUpdate >= 3){
+		
+			//Log that the users sessions have been terminated:
+			setLog($_SESSION['userID'],"The users session was terminated", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+			
+			//Clear the session variable to deny access
+			$_SESSION['accessor'] = "";
+			
+			session_start();
+			session_destroy();
+			$countUpdate = 0;	
+		}	
+		
+			
+		//If the users counter was bigger than three his session should be terminated
+		if($blockerUpdate >= 12){
+			
+			//Log that the users has been denied access to system:
+			setLog($_SESSION['userID'],"The users is denied access to system", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+			
+			//If the blocker was bigger than 12 it means the user has made three strikes and his acount should blocked
+			$status = "blocked";
+			$stmt = $db->prepare("UPDATE users SET status=? WHERE userID=?");
+			$stmt->execute(array($status, $_SESSION['userID']));
+			$affected_rows = $stmt->rowCount();	
+		}	
+
+        //After the counter has terminated a session he should be set to zero again
+        $stmt = $db->prepare("UPDATE counter SET count=? WHERE userID=?");
+        $stmt->execute(array($countUpdate, $_SESSION['userID']));
+        $affected_rows = $stmt->rowCount();
 
     }
 
-
-
-
     ?>
+
+
 
 
 
