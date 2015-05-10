@@ -1724,3 +1724,7 @@ ul.level li.blue { background: #6699cc; }
 .results .well h2 { font-size: 18px; color: #515594; padding: 8px 0; margin: 0; }
 .results .report { float: left; display: block; }
 .results .report .btn { line-height: 15px; padding: 16px; }
+
+/* Dropdown */
+
+.dropdown-menu .label { background: #515594; border-radius: 10px; color: #fff; font-size: 0.8em; padding: 3px 10px; text-align: center; display: inline-block; margin-left: 10px; }

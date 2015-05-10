@@ -44,21 +44,34 @@
 		</section>		  
 
 	  <section class="wrapper">
+
+			{% if entries.projectName != Null %}
+			{% else %}
+			
+			<a class="report" href="/results-function-docx/{{projectID|safe}}">
+				<button class="btn btn-default"><i style="margin-right: 10px;" class="fa fa-file-word-o"></i> Download Report</button>
+			</a>
+
+			<div class="read">
+				<a class="toggle" href="javascript:;">
+					<i class="fa fa-arrows-h"></i>
+				</a>
+			</div>	  
+				
+			{% endif %}	  
+	  
 			<div class="row mt">
 				<div class="col-lg-12">
-					<div class="control-panel">
-						<a href="/results-function-docx/{{projectID|safe}}">
-							<button class="btn btn-default"><i style="margin-right: 10px;" class="fa fa-file-word-o"></i> Download Report</button>
-						</a>
-					</div>
-					{% set counter = 0 -%}
-					{% for entry in content %}
-						<div class="modal-body"> 
-							<div class="modal-header">{{entries[counter][8]}}</div>                 
-							<div class="well"> {{entry}} </div>
+						<div id="report">
+						{% set counter = 0 -%}
+						{% for entry in content %}
+							<div class="modal-body"> 
+								<div class="modal-header">{{entries[counter][8]}}</div>                 
+								<div class="well"> {{entry}} </div>
+							</div>
+						{% set counter = counter + 1 %}
+						{% endfor %}
 						</div>
-					{% set counter = counter + 1 %}
-					{% endfor %}
 					</div>
 				</div><!-- /col-md-12 -->
 			</div><!-- /row -->
