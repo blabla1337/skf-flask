@@ -1,5 +1,5 @@
 
-Debug Enabling
+Login functionality
 -------
 
 **Example:**
@@ -73,38 +73,38 @@ Debug Enabling
         $this->_setParam(array(":username" => $username));
         $loginUser = $this->getRow($sql);
     
-    		/*
-            Than we validate the password, if the validation is true than we set the sessions
-            For more detailed information on password validation check please look into the
-            Password storage(salting/stretching/hashing) in the knowledgebase for more information.
-            */
-            if($this->ValidatePassword($loginUser['password'], $password) === true)
-            {
-				
-				//After successful validation we want to log that Password was validated successfully:
-				setLog($_SESSION['userID'],"Password return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-                
-                session_start();
+		/*
+		Than we validate the password, if the validation is true than we set the sessions
+		For more detailed information on password validation check please look into the
+		Password storage(salting/stretching/hashing) in the knowledgebase for more information.
+		*/
+		if($this->ValidatePassword($loginUser['password'], $password) === true)
+		{
+			
+			//After successful validation we want to log that Password was validated successfully:
+			setLog($_SESSION['userID'],"Password return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+			
+			session_start();
 
-                //Change the session id on login
-			    session_regenerate_id(true);
+			//Change the session id on login
+			session_regenerate_id(true);
 
-                //Here we set a session to see if the user is authenticated throughought the system
-                $_SESSION['access']   = "active";
+			//Here we set a session to see if the user is authenticated throughought the system
+			$_SESSION['access']   = "active";
 
-                /*
-                The userID in a session variable to use as an identifier to prevent a user reading
-                into unauthorised data, See Identifier-based authorization for more information and
-                code examples.
-                */
-                $_SESSION['userID']   = $loginUser['id'];
+			/*
+			The userID in a session variable to use as an identifier to prevent a user reading
+			into unauthorised data, See Identifier-based authorization for more information and
+			code examples.
+			*/
+			$_SESSION['userID']   = $loginUser['id'];
 
-                //The CSRF token is set here by an aproved random number generator
-                $_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
+			//The CSRF token is set here by an aproved random number generator
+			$_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
 
-                //if all is ok we return loginUser values
-                return $loginUser;
-            }
+			//if all is ok we return loginUser values
+			return $loginUser;
+		}
     }
 
     /*

@@ -3,8 +3,8 @@ Password forget & Disallow old passwords
 -------
 
 **Example:**
-
-   /*
+    <?hp
+    /*
 	Whenever you are developing a password forget function, these are the steps to follow
 	in order to create hardened defenses.
 	
@@ -39,9 +39,7 @@ Password forget & Disallow old passwords
 	Also use a cron job to make sure the generated tokens for the password reset are
 	expire after a certain amount of time like 20 minutes.
 	
-	Now image the following forget password form:
-	
-	
+	Now image the following forget password form:	
 	*/
 	
 	

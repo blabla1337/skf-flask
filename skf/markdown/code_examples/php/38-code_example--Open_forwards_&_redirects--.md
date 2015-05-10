@@ -22,16 +22,16 @@ Open forwards & redirects
 	     
      
 	//First we create a function which checks te allowed patterns
-	function checkpattern(){
-		$array = array("/^page1$/" ,"/^page2$/" ,"/^etc$/" ,"/^etc$/");
+	function checkpattern($redirect){
+		$array = array("/^page1.php$/" ,"/^page2.php$/" ,"/^etc.php$/" ,"/^etc.php$/");
 	
 		foreach($array as $Pattern){
-			while(preg_match($Pattern , $_GET['fileName'])){		
+			while(preg_match($Pattern , $redirect)){		
 				//If the value is valid we send a log to the logging file.        
 				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
 				
 				//if valid than we redirect the user towards the new page
-				header("location:index.php?succes");
+				header("location:".$redirect."");
 				
 				//then we return true      			
 				return true;
@@ -41,7 +41,7 @@ Open forwards & redirects
 	}
 	
 	//Here we handle the consequences if the checkpattern function fails
-	if(checkpattern() !== true){
+	if(checkpattern($_GET['location']) !== true){
 		
 		//Set a log for whenever there is unexpected user input with a threat level:
 		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");

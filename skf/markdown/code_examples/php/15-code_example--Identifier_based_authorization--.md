@@ -25,11 +25,11 @@ Identifier-based authorization
  
  
 	//First we create a function which checks te allowed patterns
-	function checkpattern(){
+	function checkpattern($page){
 		$array = array("/^page1$/" ,"/^page2$/" ,"/^etc$/" ,"/^etc$/");
 	
 		foreach($array as $Pattern){
-			while(preg_match($Pattern , $_GET['page'])){		
+			while(preg_match($Pattern , $page)){		
 				//If the value is valid we send a log to the logging file.        
 				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
 			
@@ -41,7 +41,7 @@ Identifier-based authorization
 	}
 	
 	//Here we handle the consequences if the checkpattern function fails
-	if(checkpattern() !== true){
+	if(checkpattern($_GET['page']) !== true){
 		
 		//Set a log for whenever there is unexpected user input with a threat level:
 		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");

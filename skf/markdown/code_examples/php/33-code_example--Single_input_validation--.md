@@ -39,12 +39,12 @@ Single input validation
 		
 			//The die function is to make sure the rest of the php code is not excecuted beyond this point
 			//die;
-			echo "was bad";
+			
 			return false;
 		}else{
 				//Set a log for whenever there is unexpected userinput with a threat level
 				setLog($_SESSION['userID'],"Valid input validation for regex from", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-				echo "was true";
+			
 				return true;
 			}
 		 }

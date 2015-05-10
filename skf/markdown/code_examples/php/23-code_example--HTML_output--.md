@@ -4,8 +4,6 @@ HTML output
 
 **Example:**
 
-
-
     <?php
 
 	/*
@@ -36,7 +34,7 @@ HTML output
 
 	while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-	echo htmlspecialchars($row['value']);
+		echo htmlspecialchars($row['value']);
 
 	}//end while loop
 
@@ -49,7 +47,7 @@ HTML output
 
 	if(!preg_match('/^[0-9]/', $escaped))
 	{
-	die;
+		die;
 	}
 
 	/*
@@ -68,7 +66,7 @@ HTML output
 	&&
 	substr_compare($_SERVER['REQUEST_URI'], "https://", 0, 8, true)    !=0 )  
 	{
-	die;
+		die;
 	}
 
 	?>

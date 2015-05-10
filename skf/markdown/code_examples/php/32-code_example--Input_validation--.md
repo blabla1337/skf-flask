@@ -16,36 +16,36 @@ input validation
 	
 		public function validate($input, $type, $logMessage, $threatLevel){
 	
-		switch ($type) {
-			case "nummeric":
-				$pattern = "/^[0-9]+$/";
-				break;
-			case "alphanummeric":
-				$pattern = "/^[a-zA-Z0-9]+$/";
-				break;
-		}
-
-		if(!preg_match($pattern, $input)){
-
-			//Set a log for whenever there is unexpected userinput with a threat level
-			setLog($_SESSION['userID'], $logMessage, "FAIL", date(dd-mm-yyyy), $privelige, $threatLevel);
-
-			/*
-			Set counter if counter hits 3 the users session must terminated
-			After 3 session terminations the user acount must be blocked
-			*/			
-			setCounter(1);
-	
-			//The die function is to make sure the rest of the php code is not excecuted beyond this point
-			return false;
-		}else{
-		
-			//Set a log for whenever there is unexpected userinput with a threat level
-			setLog($_SESSION['userID'],"Valid input validation for regex from", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-			echo "was true";
-			return true;
+			switch ($type) {
+				case "nummeric":
+					$pattern = "/^[0-9]+$/";
+					break;
+				case "alphanummeric":
+					$pattern = "/^[a-zA-Z0-9]+$/";
+					break;
 			}
-		 }
+
+			if(!preg_match($pattern, $input)){
+
+				//Set a log for whenever there is unexpected userinput with a threat level
+				setLog($_SESSION['userID'], $logMessage, "FAIL", date(dd-mm-yyyy), $privelige, $threatLevel);
+
+				/*
+				Set counter if counter hits 3 the users session must terminated
+				After 3 session terminations the user acount must be blocked
+				*/			
+				setCounter(1);
+	
+				//The die function is to make sure the rest of the php code is not excecuted beyond this point
+				return false;
+			}else{
+		
+				//Set a log for whenever there is unexpected userinput with a threat level
+				setLog($_SESSION['userID'],"Valid input validation for regex from", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+				echo "was true";
+				return true;
+				}
+		}
 		 
 		 
 		/*
@@ -80,28 +80,29 @@ input validation
 		//As you can see you can specify allowed characters in your function
 		public function encoder($input, $allowed){
 		
-		if(!preg_match("/^[a-zA-Z0-9 ".$allowed."]+$/", $input)){		
+			if(!preg_match("/^[a-zA-Z0-9 ".$allowed."]+$/", $input)){		
 		
-			//Set a log for whenever there is unexpected userinput with a threat level
-			setLog($_SESSION['userID'], $logMessage, "FAIL", date(dd-mm-yyyy), $privelige, $threatLevel);
+				//Set a log for whenever there is unexpected userinput with a threat level
+				setLog($_SESSION['userID'], $logMessage, "FAIL", date(dd-mm-yyyy), $privelige, $threatLevel);
 
-			/*
-			Set counter if counter hits 3 the users session must terminated
-			After 3 session terminations the user acount must be blocked
-			*/			
-			setCounter(1);
-			$input = "Error";			
-		}
+				/*
+				Set counter if counter hits 3 the users session must terminated
+				After 3 session terminations the user acount must be blocked
+				*/			
+				setCounter(1);
+				$input = "Error";			
+			}
 		
-		//We also check for the single qoute since htmlspecialchar does not encode it
-		if(preg_match("/'/", $input)){
-			$input = preg_replace("/'/", "&#39;", $input); 
+			//We also check for the single qoute since htmlspecialchar does not encode it
+			if(preg_match("/'/", $input)){
+				$input = preg_replace("/'/", "&#39;", $input); 
+			}
+	
+	
+			//We return the input by means of htmlspecialcharacters so it becomes encoded
+			return htmlspecialchars($input);
 		}
-	
-	
-		//We return the input by means of htmlspecialcharacters so it becomes encoded
-		return htmlspecialchars($input);
-	}
+	}//endclass
 
 	/*
 	Now let's talk about the usages of al three examples above:
@@ -143,6 +144,6 @@ input validation
 		
 		//For the sake of example we want to allow the user to use an '&' as input: 
 		$encoded =  $inputvalidation->encoder($userinput, "&");
-	
-	}       
+
+	       
     ?>

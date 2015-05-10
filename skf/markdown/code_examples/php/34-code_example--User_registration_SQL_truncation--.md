@@ -31,22 +31,21 @@ User registration / Sql truncation prevention
 	//First we create a function in order to select all usernames in order to see of they already exsists
 	function userCheck($username){
 			
-			$stmt = $db->prepare("SELECT * FROM members WHERE username = :input");
-			$stmt->bindParam(':input', $username, PDO::PARAM_STR);
-			$stmt->execute();
-			
-			if($stmt->fetch(PDO::FETCH_OBJ) == False){ 
-				//Return true in order to complete registration
-				return true;
-			
-			}else{
-				//The username already exists so the application dies.
-				die("Username already exists");
-			}
-		}
+		$stmt = $db->prepare("SELECT * FROM members WHERE username = :input");
+		$stmt->bindParam(':input', $username, PDO::PARAM_STR);
+		$stmt->execute();
 		
-	//Takes a password and returns the salted hash
-	//returns - the hash of the password
+		if($stmt->fetch(PDO::FETCH_OBJ) == False){ 
+			//Return true in order to complete registration
+			return true;
+		
+		}else{
+			//The username already exists so the application dies.
+			die("Username already exists");
+		}
+	}
+		
+	//Hash the password with this function
 	function HashPassword($password){
 		$options = [
     		'cost' => 11,
@@ -71,15 +70,15 @@ User registration / Sql truncation prevention
 		
 		$length = strlen($username);
 			
-			/*
-			We now compare the length of the username against the allowed string length in
-			The database structure
-			*/
-			
-			if($length >= 21){
-				//If length is to large the application must die.
-				die("Username was to long!");	
-			}
+		/*
+		We now compare the length of the username against the allowed string length in
+		The database structure
+		*/
+		
+		if($length >= 21){
+			//If length is to large the application must die.
+			die("Username was to long!");	
+		}
 			
 		//If true than register the user!		
 		if(Usercheck($username) === true){
@@ -99,8 +98,8 @@ User registration / Sql truncation prevention
 			$affected_rows = $stmt->rowCount();
 		
 								
-				}
-		}	
+		}
+	}	
 	
 	?>
 

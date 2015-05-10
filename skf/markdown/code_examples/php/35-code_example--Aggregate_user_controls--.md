@@ -33,12 +33,8 @@ Aggregate user controlls
 	----------------------------------
 	|     3       | read             |
 	----------------------------------
-	
-
 	*/
-	session_start();
-	$_SESSION['userID'] = 2 ;
-	
+
 	function countAccess($count){
 		
 		/*

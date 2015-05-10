@@ -20,11 +20,11 @@ XSL injection prevention
 	*/
 
 		//First we create a function which checks te allowed patterns
-	function checkpattern(){
+	function checkpattern($xsl){
 		$array = array("/^ABC.xsl$/" ,"/^CBA.xsl$/");
 
 		foreach($array as $Pattern){
-			while(preg_match($Pattern , $_GET['xsl'])){        
+			while(preg_match($Pattern , $xsl)){        
 				
 				//If the value is valid we send a log to the logging file.        
 				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
@@ -37,7 +37,7 @@ XSL injection prevention
 	}
 
 	//Here we handle the consequences if the checkpattern function fails
-	if(checkpattern() !== true){
+	if(checkpattern($_GET['xsl']) !== true){
 
 		//Set a log for whenever there is unexpected user input with a threat level:
 		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
@@ -49,7 +49,7 @@ XSL injection prevention
 		
 		//The die function is to make sure the rest of the php code is not excecuted beyond this point
 		die(); 
-	}
+	}else{
 
 	# LOAD XML FILE
 	// Load the XML source
@@ -64,6 +64,6 @@ XSL injection prevention
 	$proc->importStyleSheet($xsl); // attach the xsl rules
 
 	echo $proc->transformToXML($xml);
-	
+	}
 	?>
 	
