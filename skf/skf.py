@@ -596,7 +596,7 @@ def project_checklists(project_id):
                         [safe_id])
     row = cur.fetchall()
     prep = row[0]
-    projectName = prep[3]
+    projectName = prep[1]
     owasp_items = []
     owasp_ids = []
     owasp_kb_ids = []
