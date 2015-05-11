@@ -206,7 +206,7 @@ def close_db(error):
         g.sqlite_db.close()
 
 def check_version():
-    r = requests.get("https://raw.githubusercontent.com/blabla1337/skf-flask/master/setup.py")
+    r = requests.get("http://raw.githubusercontent.com/blabla1337/skf-flask/master/setup.py")
     items_remote = r.content.split(",") 
     version_remote = re.findall('\\b\\d+\\b', items_remote[1])
     with open ("../setup.py", "r") as myfile:
@@ -436,7 +436,7 @@ def project_del():
     db.execute("DELETE FROM projects WHERE projectID=?",
                [id])
     db.commit()
-    return render_template('reload.html')
+    return redirect("/project-list")
 
 @app.route('/project-list', methods=['GET'])
 @security
@@ -596,7 +596,7 @@ def project_checklists(project_id):
                         [safe_id])
     row = cur.fetchall()
     prep = row[0]
-    projectName = prep[1]
+    projectName = prep[3]
     owasp_items = []
     owasp_ids = []
     owasp_kb_ids = []
@@ -801,7 +801,7 @@ def functions_del():
     db.execute("DELETE FROM parameters WHERE entryDate=?",
                [safe_entryDate])
     db.commit()
-    return render_template('reload.html')
+    return redirect("/results-functions")
 
 @app.route('/results-checklists-del', methods=['POST'])
 @security
@@ -817,7 +817,7 @@ def checklists_del():
     db.execute("DELETE FROM questionlist WHERE entryDate=?",
                [safe_entryDate])
     db.commit()
-    return render_template('reload.html')
+    return redirect("/results-checklists")
 
 
 @app.route('/results-checklist-report/<entryDate>', methods=['GET'])
@@ -970,10 +970,10 @@ def download_file_checklist(entryDate):
         p.add_run("\n")
         document.add_page_break()
         i += 1
-    document.save("reports/checklist-security-report.docx")
-    headers = {"Content-Disposition": "attachment; filename=%s" % "reports/checklist-security-report.docx"}
-    file_path = os.path.join(app.root_path, "reports/checklist-security-report.docx")
-    with open("reports/checklist-security-report.docx", 'rb') as f:
+    document.save("checklist-security-report.docx")
+    headers = {"Content-Disposition": "attachment; filename=%s" % "checklist-security-report.docx"}
+    file_path = os.path.join(app.root_path, "checklist-security-report.docx")
+    with open("checklist-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
     
@@ -1081,9 +1081,9 @@ def download_file_function(projectID):
         p.add_run("\n")
         document.add_page_break()
         i += 1
-    document.save('reports/function-security-report.docx')
-    headers = {"Content-Disposition": "attachment; filename=%s" % "reports/function-security-report.docx"}
-    with open("reports/function-security-report.docx", 'rb') as f:
+    document.save('function-security-report.docx')
+    headers = {"Content-Disposition": "attachment; filename=%s" % "function-security-report.docx"}
+    with open("function-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
 

@@ -105,9 +105,12 @@
 											  </table>
 											  </div>
 											  <div class="modal-footer">
-											  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											<a href="/results-functions"><button class="btn btn-danger" onClick="delFunctionList('{{entry.entryDate|safe}}', '{{csrf_token|safe}}')">Remove Function List</button></a>
-											  </form>
+											  <form method="POST" action="/results-functions-del">
+			                                  <input type="hidden" value="{{entry.entryDate|safe}}" name="entryDate"/>
+			                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+			                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			                                  <input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
+			                                  </form>
 											  </div>
 											  </div>
 											  </div>

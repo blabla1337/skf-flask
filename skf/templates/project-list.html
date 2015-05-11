@@ -90,9 +90,12 @@
                                   </table>
                                   </div>
                                   <div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									<a href='#' onclick='delProject({{entry.projectID|safe}},"{{csrf_token|safe}}");'><input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
- 
+                                  <form method="POST" action="/project-del">
+                                  <input type="hidden" value="{{entry.projectID|safe}}" name="projectID"/>
+                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
+                                  </form>
                                   </div>
                                   </div>
                                     </div>
