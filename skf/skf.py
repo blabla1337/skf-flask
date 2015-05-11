@@ -596,7 +596,7 @@ def project_checklists(project_id):
                         [safe_id])
     row = cur.fetchall()
     prep = row[0]
-    projectName = prep[3]
+    projectName = prep[1]
     owasp_items = []
     owasp_ids = []
     owasp_kb_ids = []
@@ -970,10 +970,10 @@ def download_file_checklist(entryDate):
         p.add_run("\n")
         document.add_page_break()
         i += 1
-    document.save("checklist-security-report.docx")
-    headers = {"Content-Disposition": "attachment; filename=%s" % "checklist-security-report.docx"}
-    file_path = os.path.join(app.root_path, "checklist-security-report.docx")
-    with open("checklist-security-report.docx", 'rb') as f:
+    document.save("reports/checklist-security-report.docx")
+    headers = {"Content-Disposition": "attachment; filename=%s" % "reports/checklist-security-report.docx"}
+    file_path = os.path.join(app.root_path, "reports/checklist-security-report.docx")
+    with open("reports/checklist-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
     
@@ -1035,8 +1035,6 @@ def download_file_function(projectID):
     projectName = entries[0][0]
     functionName = entries[0][3]
     functionDesc= entries[0][5]
-    p.add_run('Function Name: '+functionName)
-    p.add_run('\r\n')
     p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
     p.add_run('\r\n')
     p.add_run('Project: '+projectName)
@@ -1081,9 +1079,9 @@ def download_file_function(projectID):
         p.add_run("\n")
         document.add_page_break()
         i += 1
-    document.save('function-security-report.docx')
-    headers = {"Content-Disposition": "attachment; filename=%s" % "function-security-report.docx"}
-    with open("function-security-report.docx", 'rb') as f:
+    document.save('reports/function-security-report.docx')
+    headers = {"Content-Disposition": "attachment; filename=%s" % "reports/function-security-report.docx"}
+    with open("reports/function-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
 
