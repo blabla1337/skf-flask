@@ -970,10 +970,10 @@ def download_file_checklist(entryDate):
         p.add_run("\n")
         document.add_page_break()
         i += 1
-    document.save("reports/checklist-security-report.docx")
-    headers = {"Content-Disposition": "attachment; filename=%s" % "reports/checklist-security-report.docx"}
-    file_path = os.path.join(app.root_path, "reports/checklist-security-report.docx")
-    with open("reports/checklist-security-report.docx", 'rb') as f:
+    document.save("checklist-security-report.docx")
+    headers = {"Content-Disposition": "attachment; filename=%s" % "checklist-security-report.docx"}
+    file_path = os.path.join(app.root_path, "checklist-security-report.docx")
+    with open("checklist-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
     
@@ -1079,9 +1079,9 @@ def download_file_function(projectID):
         p.add_run("\n")
         document.add_page_break()
         i += 1
-    document.save('reports/function-security-report.docx')
-    headers = {"Content-Disposition": "attachment; filename=%s" % "reports/function-security-report.docx"}
-    with open("reports/function-security-report.docx", 'rb') as f:
+    document.save('function-security-report.docx')
+    headers = {"Content-Disposition": "attachment; filename=%s" % "function-security-report.docx"}
+    with open("function-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
 
