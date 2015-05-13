@@ -42,7 +42,7 @@ After the prerequisites you can install the Python packages.
   sudo pip install https://github.com/mitsuhiko/flask/tarball/master
   sudo pip install owasp-skf
 ```
-After this step download the ZIP from the repo and unpack it.
+After this step download the source as a ZIP from the github repo and unpack it.
 Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
 ```bash
   python skf.py
@@ -57,7 +57,7 @@ Run below commands in cmd (As Administrator):
   C:\Python27\Scripts\pip.exe install https://github.com/mitsuhiko/flask/tarball/master
   C:\Python27\Scripts\pip.exe install owasp-skf
 ```
-After these steps download the ZIP file from the rep and unpack it.
+After these steps download the source as ZIP file from the github repo and unpack it.
 Now you can start the program by opening the folder and run the skf.py file where you stored it, for example:
 ```
   cd C:\Python27\Lib\site-packages\skf
