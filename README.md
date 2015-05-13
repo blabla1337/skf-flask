@@ -34,7 +34,7 @@ By means of the answers supplied by the developer the application again generate
 ----------
 To run SKF you need Python pip and sqlite3 database support.
 ```bash
-  sudo apt-get install python-pip sqlite3
+  sudo apt-get install python-pip sqlite3 git
 ```
 
 After the prerequisites you can install the Python packages.
@@ -45,12 +45,15 @@ After the prerequisites you can install the Python packages.
 
 Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
 ```bash
+  git clone https://github.com/blabla1337/skf-flask.git
+  cd skf-flask/skf
   python skf.py
 ```
 
 ####Windows
 -----------
 Download and install [Python 2.7.9](https://www.python.org/downloads/release/python-279/)
+Download and install [GIT Bash](https://msysgit.github.io/)
 
 Run below commands in cmd (As Administrator):
 ```
@@ -58,9 +61,10 @@ Run below commands in cmd (As Administrator):
   C:\Python27\Scripts\pip.exe install owasp-skf
 ```
 
-Now you can start the program by opening the folder and run the skf.py file:
+Now you can start the program by opening Git Bash in the folder and clone the master:
 ```
-  cd C:\Python27\Lib\site-packages\skf
+  git clone https://github.com/blabla1337/skf-flask.git
+  cd skf-flask\skf
   C:\Python27\python.exe skf.py
 ```
 
@@ -76,7 +80,7 @@ The password will be auto-generated every time the skf-application is launched. 
 ##<a name="development"></a>Development
 
 1. Fork and clone https://github.com/blabla1337/skf-flask
-2. pip install -r etc/requirements.txt
+2. pip install -r requirements.txt
 3. cd skf && python ./skf.py
 4. Create your changes commit and open a PR from your fork to the master repo
 
@@ -162,5 +166,6 @@ Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
 - Riccardo ten Cate
 - Alexander Kaasjager
 - John Haley
-- Daniel Paulus <d.paulus@gmail.com>
+- Daniel Paulus
 - Erik de Kuijper
+- Roderick Schaefer
