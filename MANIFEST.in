@@ -2,5 +2,6 @@ include skf/schema.sql
 include skf/logs/*.txt
 include skf/templates/*.html
 include skf/skf.db
+include skf/version.txt
 recursive-include skf/static *
 recursive-include skf/markdown *
