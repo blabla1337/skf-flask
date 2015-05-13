@@ -53,7 +53,6 @@ Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and r
 ####Windows
 -----------
 Download and install [Python 2.7.9](https://www.python.org/downloads/release/python-279/)
-Download and install [GIT Bash](https://msysgit.github.io/)
 
 Run below commands in cmd (As Administrator):
 ```
