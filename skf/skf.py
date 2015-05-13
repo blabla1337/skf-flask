@@ -209,19 +209,14 @@ def check_version():
     r = requests.get("http://raw.githubusercontent.com/blabla1337/skf-flask/master/setup.py")
     items_remote = r.content.split(",") 
     version_remote = re.findall('\\b\\d+\\b', items_remote[1])
-    with open ("../setup.py", "r") as myfile:
-        l = myfile.read().replace('\n', '')
-        items_local = l.split(",") 
-        version_local = re.findall('\\b\\d+\\b', items_local[1])
+    with open ("version.txt", "r") as myfile:
+        version_local = myfile.read().replace('\n', '')
     if version_local == version_remote:
         return True
 
 def get_version():
-    with open ("../setup.py", "r") as myfile:
-        l = myfile.read().replace('\n', '')
-        items_local = l.split(",") 
-        version_local = re.findall('\\b\\d+\\b', items_local[1])
-        version_final = str(version_local[0])+"."+str(version_local[1])+"."+str(version_local[2])
+    with open ("version.txt", "r") as myfile:
+        version_final = myfile.read().replace('\n', '')
     return version_final
 
 def projects_functions_techlist():
