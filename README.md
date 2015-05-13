@@ -34,7 +34,7 @@ By means of the answers supplied by the developer the application again generate
 ----------
 To run SKF you need Python pip and sqlite3 database support.
 ```bash
-  sudo apt-get install python-pip sqlite3 git
+  sudo apt-get install python-pip sqlite3
 ```
 
 After the prerequisites you can install the Python packages.
@@ -45,8 +45,6 @@ After the prerequisites you can install the Python packages.
 
 Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
 ```bash
-  git clone https://github.com/blabla1337/skf-flask.git
-  cd skf-flask/skf
   python skf.py
 ```
 
@@ -60,10 +58,9 @@ Run below commands in cmd (As Administrator):
   C:\Python27\Scripts\pip.exe install owasp-skf
 ```
 
-Now you can start the program by opening Git Bash in the folder and clone the master:
+Now you can start the program by opening the folder and run the skf.py file:
 ```
-  git clone https://github.com/blabla1337/skf-flask.git
-  cd skf-flask\skf
+  cd C:\Python27\Lib\site-packages\skf
   C:\Python27\python.exe skf.py
 ```
 
