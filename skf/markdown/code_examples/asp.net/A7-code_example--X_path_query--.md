@@ -56,6 +56,7 @@ X-path query
 						if (e.Source != null)
 						{
 							System.Web.HttpContext.Current.Response.Write("Oops something went wrong");
+							throw;
 						}
 					}
 				}

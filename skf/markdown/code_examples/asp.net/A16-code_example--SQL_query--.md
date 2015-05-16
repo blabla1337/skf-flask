@@ -74,6 +74,7 @@ SQL query
 					if (e.Source != null)
 					{
 						System.Web.HttpContext.Current.Response.Write("Invalid select query");
+						throw;
 					}
 				}
 			}
@@ -102,6 +103,7 @@ SQL query
 					if(e.Source != null)
 					{
 						System.Web.HttpContext.Current.Response.Write("SQL insert query error");
+						throw;
 					}
 				}
 

@@ -64,6 +64,7 @@ Open forwards & redirects
 						{
 							HttpContext.Current.Response.Write("redirect failed");
 							count = -1;
+							throw;
 						}
 					}
 

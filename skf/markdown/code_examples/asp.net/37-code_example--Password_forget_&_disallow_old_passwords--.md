@@ -3,7 +3,7 @@ Password forget & Disallow old passwords
 -------
 
 **Example:**
-
+    <?php
    /*
 	Whenever you are developing a password forget function, these are the steps to follow
 	in order to create hardened defenses.
@@ -134,7 +134,7 @@ Password forget & Disallow old passwords
 	}
 	
 	/*
-	Imageine the user clicked on his link with the token included and is redirected towards
+	Imagine the user clicked on his link with the token included and is redirected towards
 	the page where he can enter his new password.
 	*/
 	

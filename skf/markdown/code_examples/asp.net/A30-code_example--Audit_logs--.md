@@ -94,6 +94,7 @@ Audit logs
 					if (e.Source != null)
 					{
 						System.Web.HttpContext.Current.Response.Write("SQL insert query error in update counter");
+						throw;
 
 					}
 				}

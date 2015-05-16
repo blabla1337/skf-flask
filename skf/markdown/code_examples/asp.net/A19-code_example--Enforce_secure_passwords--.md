@@ -72,6 +72,7 @@ Enforce secure passwords
 				catch
 				{
 					HttpContext.Current.Response.Write("catching file failed");
+					throw;
 				}
 
 				//The last stap is checking the password length to see if it is 8 characters or bigger

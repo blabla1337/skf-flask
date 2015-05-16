@@ -81,6 +81,7 @@ Path traversal
 							{   
 								HttpContext.Current.Response.Write("catching file failed");
 								count = -1;
+								throw;
 							}
 						}
 
