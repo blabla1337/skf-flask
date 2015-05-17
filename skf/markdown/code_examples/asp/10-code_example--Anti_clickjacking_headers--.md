@@ -1,4 +1,3 @@
-
 Anti clickjacking headers
 -------
 

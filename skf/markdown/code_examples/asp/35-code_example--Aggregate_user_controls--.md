@@ -1,4 +1,3 @@
-
 Aggregate user controlls
 -------
 
@@ -7,10 +6,10 @@ Aggregate user controlls
    	
 	/*
 	In order to enforce Aggregate access control protection the best method would be to 
-	define your rules by means of a database structure rather than sessions or log's.
+	define your rules by means of a database structure rather than sessions or logs.
 	This is due to the fact that if the user drops his session the rating would start
 	al over again. 
-	
+
 	TABLE users
 	---------------------------------------------------------------------------------   
 	| userID | userName | password | privilegeID |    access    | AggregateControl	|
@@ -32,8 +31,6 @@ Aggregate user controlls
 	----------------------------------
 	|     3       | read             |
 	----------------------------------
-	
-
 	*/
 		
 	using System;
@@ -96,7 +93,8 @@ Aggregate user controlls
 
 				using (SqlCommand command = conn.CreateCommand())
 				{
-					//We update the aggregate table in the database in order to keep track of the number of connections the user made
+					//We update the aggregate table in the database in order to 
+					//keep track of the number of connections the user made
 					count += controll;
 				
 					command.CommandText = "UPDATE users SET aggregate = @count WHERE userID = @userID";
@@ -111,7 +109,8 @@ Aggregate user controlls
 				Everytime the user accesses the database we keep track of the number of times he
 				connected. Whenever the user passes a reasonable number he should be rejected 
 				since he could be an attacker scraping your table contents and stealing company information
-				You could a CRON job or stored procedure in your system in order to clean the Aggregate column within certain timeframes
+				You could a CRON job or stored procedure in your system in order to 
+				clean the Aggregate column within certain timeframes
 				*/
 				HttpContext.Current.Response.Write(controll);
 				if (controll > 5000)
@@ -120,14 +119,20 @@ Aggregate user controlls
 					{
 
 						//this breach has to be repported into the log files
-						Log.SetLog(Session['userID'], "User account was locked out due to aggregate user controll system", date, FAIL, HIGH");
+						Log.SetLog(Session['userID'], "User account was locked out due to aggregate user control system", date, FAIL, HIGH");
 
-						//Whenever te reasonable number of connections the user made was surpassed we destroy all the sessions to deny the user any further access to the system
+						/*
+						Whenever te reasonable number of connections the user made was surpassed we destroy all the 
+						sessions to deny the user any further access to the system
+						*
 						HttpContext.Current.Session["authenticateUser"] = "";
 						HttpContext.Current.Session.Abandon();
 						HttpContext.Current.Response.Redirect("/login", true);
 
-						//Than we set his access level on his account to FALSE in order to prevent him from logging in again til you did your forensics on the log files
+						/*
+						Than we set his access level on his account to FALSE in order to prevent 
+						him from logging in again til you did your forensics on the log files
+						*/
 						string access = "FALSE";
 						command.CommandText = "UPDATE users SET access = @access WHERE userID = @userID";
 						command.Parameters.AddWithValue("@access", access);

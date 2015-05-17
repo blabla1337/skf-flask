@@ -1,4 +1,3 @@
-	
 X-path query
 -------
 

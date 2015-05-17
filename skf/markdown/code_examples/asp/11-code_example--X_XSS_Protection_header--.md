@@ -1,4 +1,3 @@
-
 X-XSS-Protection header
 -------
 

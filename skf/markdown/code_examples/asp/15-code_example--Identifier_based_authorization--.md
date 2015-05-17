@@ -1,4 +1,3 @@
-
 Identifier-based authorization
 -------
 
@@ -39,7 +38,8 @@ Identifier-based authorization
 			Aggregate aggregate =  new Aggregate();
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
-			SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
+			SqlConnection conn = new 
+			SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
 			//The count integer is set every time the user connects to the databse to process data
 			public void IdentifierBasedAuthentication(int pageID)
@@ -80,7 +80,8 @@ Identifier-based authorization
 					/* 
 					Whenever you are checking whether a user is restricted to review certain data,
 					the acces restrictions should be proccessed serverside.
-					The userID could be stored inside a session variable on login, and should be used to retrieve userdata from the database when requested
+					The userID could be stored inside a session variable on login, and should
+					be used to retrieve userdata from the database when requested
 					in order to verify if the user is allowed to look into that data:
 					*/
 					string query = string.Format("SELECT * from profile WHERE userID = @userID ");

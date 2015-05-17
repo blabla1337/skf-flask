@@ -1,4 +1,3 @@
-
 XML External entities
 -------
 
@@ -64,7 +63,7 @@ XML External entities
 	For extra detailed information please visit:
 	
 	https://msdn.microsoft.com/en-us/magazine/ee335713.aspx 
-	
+
 	*/
 	
 

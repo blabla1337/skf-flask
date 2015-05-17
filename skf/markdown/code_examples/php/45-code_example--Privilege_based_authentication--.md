@@ -1,5 +1,4 @@
- 
-Privilege based authentication
+ Privilege based authentication
 -------
 
 **Example:**
@@ -33,6 +32,7 @@ Privilege based authentication
     Now instead of using roles in sessions we rather want to assign privileges to users 
     by means of a Database-Based Authentication system. 
     Now we can easily assign a user certain privileges for him to access.
+    */
     
    	class privilege{
 		//Here is the isAuthorized function in which we check whether the iser is permitted to do the action

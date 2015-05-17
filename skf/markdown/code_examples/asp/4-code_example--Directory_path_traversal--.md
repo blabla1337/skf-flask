@@ -1,4 +1,3 @@
- 	
 Path traversal
 -------
 
@@ -11,12 +10,10 @@ Path traversal
 	using System.Text.RegularExpressions;
 	using System.IO;
 
-
 	namespace MvcApplication1.Controllers
 	{
 		public class rewrite
 		{
-			//include classes
 			auditLogs Log = new auditLogs();
 			inputvalidation validate = new inputvalidation();
 			whitelist listme = new whitelist();

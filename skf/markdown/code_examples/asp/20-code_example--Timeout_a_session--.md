@@ -1,4 +1,3 @@
-
 Timeout a session
 -------
 

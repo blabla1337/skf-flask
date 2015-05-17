@@ -1,4 +1,3 @@
-
 Session hijacking / Session fixation
 -------
 
@@ -125,12 +124,14 @@ Session hijacking / Session fixation
 			AuditLog Log = new AuditLog();
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
-			SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
+			SqlConnection conn = new 
+			SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
 			//The count integer is set every time the user connects to the databse to process data
 			public void checkSession()
 			{
-				if ((System.Web.HttpContext.Current.Session["authenticateUser"] != "isLoggedin") || (System.Web.HttpContext.Current.Session["authenticateUser"] == ""))
+				if ((System.Web.HttpContext.Current.Session["authenticateUser"] != "isLoggedin") || 
+				(System.Web.HttpContext.Current.Session["authenticateUser"] == ""))
 				{
 					HttpContext.Current.Response.Redirect("/login", true);
 				}
@@ -151,12 +152,16 @@ Session hijacking / Session fixation
 						session  = oReader["sessiom"].ToString();
 						ipadress = oReader["ipadress"].ToString();
 
-						if ((System.Web.HttpContext.Current.Session["ASPsessionID"].ToString() != session) && (ipadress != HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"]))
+						if ((System.Web.HttpContext.Current.Session["ASPsessionID"].ToString() != session) && 
+						(ipadress != HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"]))
 						{   
 							//We log the muliple users on the system 
 							Log.SetLog(Session['userID'], "Mulitple users with same session id detected", date, FAIL, MOD");
 
-							//We redirect the user to a page which alerts him as well as gives him the option to destroy the mulitple sessions if he does not trust them
+							/*
+							We redirect the user to a page which alerts him as well as gives him the option to destroy the 
+							mulitple sessions if he does not trust them
+							*/
 							HttpContext.Current.Response.Redirect("/Home/multipleUsers", true);
 						}
 					}

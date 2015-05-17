@@ -1,4 +1,3 @@
-
 Password storage(salting/stretching/hashing)
 -------
 

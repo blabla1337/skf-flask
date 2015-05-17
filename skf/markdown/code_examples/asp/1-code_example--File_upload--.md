@@ -1,8 +1,8 @@
-	 	
 File upload
 -------
 
 **Example:**
+	
 	
 	using System;
 	using System.Collections.Generic;
@@ -23,7 +23,8 @@ File upload
 				string test = file.FileName;
 
 				/*
-				Here we define a blacklist of different path traversal patterns in order to prevent an attacker to upload files outside of the unintended
+				Here we define a blacklist of different path traversal patterns in order to prevent an 
+				attacker to upload files outside of the unintended
 				directory.
 				*/
 				string[] evil = new string[] { @"%2e%2e%2f", "../", "%2e", "%5c", "%252e", "%c0%af", "%c1%9c" };
@@ -37,8 +38,10 @@ File upload
 
 					if (match.Success)
 					{
-						//this breach has to be repported into the log files
-						//Log.SetLog(Session['userID'], "Untrusted userinput was detected in the file get contents function in HOME, date, FAIL, HIGH");
+						/*
+						this breach has to be repported into the log files
+						Log.SetLog(Session['userID'], "Untrusted userinput in HOME, date, FAIL, HIGH");
+						*/
 
 						/*
 						Set counter; if counter hits 3, the user's session must be terminated.
@@ -55,8 +58,9 @@ File upload
 
 				/*
 				The next step would be checking if the file contains the right extension in order to prevent
-				a user from uploading files which could be used to harm your system. in this example we check if the last extension
-				found in the file name is a jpg or a png. whenever an application just regexes for the extension an attacker could
+				a user from uploading files which could be used to harm your system. in this example 
+				we check if the last extension found in the file name is a jpg or a png. whenever
+				an application just regexes for the extension an attacker could
 				bypass the check by uploading an file like: "filename.jpg.php".
 				*/
 				string[] StrSpli = test.Split('.');
@@ -119,7 +123,6 @@ File upload
 					//If the mimetype is not valid we delete the file from the system.
 					System.IO.File.Delete(@"C:\Users\Public\xml\"+test+"");
 				}
-		   
 			}
 		}
 	}

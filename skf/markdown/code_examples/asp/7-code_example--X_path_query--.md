@@ -40,7 +40,8 @@ X-path query
 
 				//Here we put the variable in our inputvalidation method in order to prevent untrusted userinput from parsing
 				//NOTE: logging and countering is also done in your validation method
-				if (validate.validateInput(Convert.ToString(employeeID), "nummeric", "x-path input validation", "HIGH") == false) { continueFunction = false; }
+				if (validate.validateInput(Convert.ToString(employeeID), "nummeric", "x-path input validation", "HIGH") == false) 
+				{ continueFunction = false; }
 
 				//Only if our validation function returned true we put the userinput in the function
 				if (continueFunction == true)

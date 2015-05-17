@@ -1,4 +1,3 @@
-
 SQL query
 -------
 
@@ -41,7 +40,8 @@ SQL query
 			//AuditLog Log = new AuditLog();
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
-			SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
+			SqlConnection conn = new 
+			SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
 			public void selectStatement()
 			{   

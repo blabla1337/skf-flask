@@ -1,4 +1,3 @@
-
 Single input validation controll
 -------
 

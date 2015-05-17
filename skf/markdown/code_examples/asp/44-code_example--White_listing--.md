@@ -1,5 +1,4 @@
- 
-White-listing
+ White-listing
 -------
 
 **Example:**

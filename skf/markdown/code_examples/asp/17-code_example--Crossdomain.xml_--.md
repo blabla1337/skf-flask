@@ -1,4 +1,3 @@
-
 Crossdomain.xml 
 -------
 
@@ -20,7 +19,8 @@ Crossdomain.xml
 	Example by twitter's crossdomain.xml:
 
 	<?xml version="1.0" encoding="UTF-8"?>
-	<cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
+	<cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
 	  <allow-access-from domain="twitter.com" />
 		<allow-access-from domain="api.twitter.com" />
 		<allow-access-from domain="search.twitter.com" />

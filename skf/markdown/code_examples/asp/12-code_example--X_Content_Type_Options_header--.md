@@ -1,4 +1,3 @@
-
 X-Content-Type-Options header
 -------
 

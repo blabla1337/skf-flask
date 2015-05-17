@@ -1,4 +1,3 @@
-	
 Enforce secure passwords
 -------
 
@@ -48,9 +47,9 @@ Enforce secure passwords
 					/*
 					Also very important is the fact that you have to take into consideration that
 					Password1! is a valid password according to password standards. This however is not the case since
-					this password is included in almost every dictionairy attack system. So we have to prevent the user from using these
-					weak passwords, this we do by defining these bad passwords in a text file and compare the user's password with the
-					bad passwords defined in the text file.
+					this password is included in almost every dictionairy attack system. So we have to prevent 
+					the user from using these weak passwords, this we do by defining these bad passwords in a text 
+					file and compare the user's password with the bad passwords defined in the text file.
 					*/
 
 					StreamReader sr = new StreamReader(@"C:\Users\Public\xml\test.txt", true);

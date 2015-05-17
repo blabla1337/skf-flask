@@ -53,14 +53,16 @@ HTML output
 	/*
 	After this sanitation malicious code can no longer exist in the $_POST['value'] variable.
 
-	Another possibility for attackers to execute an XSS injection, is to pass malicious code directly into the URL by means of a "href", e.g.:
+	Another possibility for attackers to execute an XSS injection, is to pass malicious code directly 
+	into the URL by means of a "href", e.g.:
 	javascript:alert(document.cookie);
 	or
 	data:text/html;base64,base64xssinjection
 
 	In the following scenario escaping with htmlspecialchars() is not sufficient to block the injection.
 	By checking the URL to see if it starts with either http:// or https://, you can prevent this attack 
-	by exiting the application when this anomaly is triggered: */ 
+	by exiting the application when this anomaly is triggered: 
+	*/ 
 
 	if(substr_compare($_SERVER['REQUEST_URI'], "http://", 0, 7, true ) != 0
 	&&
@@ -69,6 +71,11 @@ HTML output
 		die;
 	}
 
+	/*
+	You could also do a simple serverside regex whenever a link is added to see whether it starts
+	with http: or https: 
+	If not, than the link must not be allowed to be posted
+	*/
 	?>
 
 

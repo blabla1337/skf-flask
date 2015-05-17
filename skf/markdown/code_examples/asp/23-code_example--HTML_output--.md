@@ -1,4 +1,3 @@
-
 HTML output
 -------
 
@@ -60,7 +59,8 @@ HTML output
 
 	inputvalidation validate = new inputvalidation();
 	string userinput = "when this string is evil the application will block operation!";
-	if(validate.validateInput(userinput, "nummeric", "Unecpected userinput", "HIGH", 3)== false){ /* Cancel operation of your application */ }
+	if(validate.validateInput(userinput, "nummeric", "Unecpected userinput", "HIGH", 3)== false)
+	{ /* Cancel operation of your application */ }
 	
 
 	/*

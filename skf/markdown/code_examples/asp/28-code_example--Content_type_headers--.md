@@ -1,4 +1,3 @@
-
 Content type headers
 -------
 

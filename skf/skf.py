@@ -290,7 +290,7 @@ def set_code_lang(code_lang):
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /code", "FAIL", "HIGH")
         abort(401)
-    allowed = "php java python perl"
+    allowed = "php java python asp"
     valAlphaNum(code_lang)
     safe_code_lang = encodeInput(code_lang)
     found = allowed.find(safe_code_lang)

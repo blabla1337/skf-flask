@@ -1,5 +1,4 @@
-
-Aggregate user controlls
+Session hijacking and fixation
 -------
 
 **Example:**
@@ -134,7 +133,7 @@ Aggregate user controlls
 					if(($ipadress != $row['ipadres']) && $row['SESSION'] != $session){
 		
 						echo "
-						<div style='border-style:solid; border-color:black; color:white; background-color:red; text-align:center; float:left;'>
+						<div style='border-style:solid; border-color:black; color:white; background-color:red; float:left;'>
 						<p>There are other active sessions on other ip-adresses.<br/>
 						Your session could be hijacked press logout in order to authenticate again
 						for security reasons!
