@@ -90,52 +90,64 @@ Aggregate user controlls
 	If so, we can let the user decide to terminate the session and terminate the
 	other assigned sessions.
 	*/
-	 
-	 //We implement this logic into our checksession functionality
-	 function _checkSession(){
-
+	class sessionCheck{
+		 //We implement this logic into our checksession functionality
+		 public function _checkSession(){
+			
+			//init a DB connection
+			include("classes.php");
+			$con = new database();
+			$db = $con ->connection()
+			
 			//Here we check for a valid session to see if the user is authenticated
 			session_start();
 			if(($_SESSION['access'] != "active") || $_SESSION['access'] == ""){
 				header("Location: /login");
+				
+				/*
+				this statement ABSOLUTLY MUST DIE or else an attacker could gain knowledge and abuse
+				all your pages and functionality simply by intercepting the response 
+				from the server whencconnection to you pages.
+				*/
+				
 				die();
 			}
 
-		/*
-		Then we start the rest of the function where we will check if there are multiple
-		users/ip adresses using the same session id
-		*/
+			/*
+			Then we start the rest of the function where we will check if there are multiple
+			users/ip adresses using the same session id
+			*/
 
-		//store current session id
-		$session  = session_id();
+			//store current session id
+			$session  = session_id();
 
-		//get users ip adres
-		$ipadress = $_SERVER['REMOTE_ADDR'];
+			//get users ip adres
+			$ipadress = $_SERVER['REMOTE_ADDR'];
 
-		$stmt = $db->prepare("SELECT * FROM track_sessions WHERE userID=:id");
-		$stmt->execute(array(':id' => $_SESSION['userID']));
-		$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$stmt = $db->prepare("SELECT * FROM track_sessions WHERE userID=:id");
+			$stmt->execute(array(':id' => $_SESSION['userID']));
+			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-			foreach($rows as $row){
+				foreach($rows as $row){
 		
-				//check to see if the current ip adress matches the one stored in login if not warn user!
-				if(($ipadress != $row['ipadres']) && $row['SESSION'] != $session){
+					//check to see if the current ip adress matches the one stored in login if not warn user!
+					if(($ipadress != $row['ipadres']) && $row['SESSION'] != $session){
 		
-					echo "
-					<div style='border-style:solid; border-color:black; color:white; background-color:red; text-align:center; float:left;'>
-					<p>There are other active sessions on other ip-adresses.<br/>
-					Your session could be hijacked press logout in order to authenticate again
-					for security reasons!
-					<br/><br/>
-					<a href='/logout'>Terminate sessions</a>
-					<br/>
-					<a href='/Proceed'>Proceed anyway</a>
-					</p>
-					</div>
-					";				
+						echo "
+						<div style='border-style:solid; border-color:black; color:white; background-color:red; text-align:center; float:left;'>
+						<p>There are other active sessions on other ip-adresses.<br/>
+						Your session could be hijacked press logout in order to authenticate again
+						for security reasons!
+						<br/><br/>
+						<a href='/logout'>Terminate sessions</a>
+						<br/>
+						<a href='/Proceed'>Proceed anyway</a>
+						</p>
+						</div>
+						";				
 				}	
-
 			}			
+		}
 	}
 
 	/*

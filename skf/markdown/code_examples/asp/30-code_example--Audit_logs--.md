@@ -4,11 +4,7 @@ Audit logs
 
 **Example:**
 
-    /*
-    The log function does not have to be complicated as long as you log at least these 6 values
-    */
-
-	using System;
+   	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Web;
@@ -33,18 +29,18 @@ Audit logs
 			//Here we connect to the database by means of a connection string as configured in the web.config
 			SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
-			public void SetLog(string session, string message, string ipadress, string state, string threat)
+			public void SetLog(string session, string message, string state, string threat)
 			{
 
 				using (StreamWriter writer = new StreamWriter(@"C:\Users\Public\xml\logs.txt", true))
 				{
-					writer.WriteLine(session + " - " + message + " - " + ipadress + " - " + state + " - " + threat);
+                    writer.WriteLine(session + " - " + message + " - " + HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"] +
+                    " - " + state + " - " + DateTime.Now + " - " + threat);
 				}
 			}
 
 			public void counter(int counting)
 			{
-
 				/*
 				First we select the counts from the count table in order to verify if the user session should be terminated
 				or that the user should be locked out.
@@ -135,6 +131,7 @@ Audit logs
 						}
 					}
 				}
+				
 				/*
 				If the count hit three, the user get's a warning by means of a session termination.
 				Whenever this termination occurs three times he will lock out his account.

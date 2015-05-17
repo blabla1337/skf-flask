@@ -4,7 +4,7 @@ Open forwards & redirects
 
 **Example:**
 
-   		<?php
+   	<?php
 	
 	/*
 	When using forwards & redirects you should make sure the URL is being explicitly 
@@ -17,42 +17,32 @@ Open forwards & redirects
 	Generally you should avoid getting input into the redirect which could contain
 	user-input by any means. if for any reason this may not be feasible than you 
 	should make a whitelist input validation for the redirect like so:
+	send("value1,value2,etc", $_GET['redirectParam'], "3")
 	*/
 	
-	     
-     
-	//First we create a function which checks te allowed patterns
-	function checkpattern($redirect){
-		$array = array("/^page1.php$/" ,"/^page2.php$/" ,"/^etc.php$/" ,"/^etc.php$/");
-	
-		foreach($array as $Pattern){
-			while(preg_match($Pattern , $redirect)){		
-				//If the value is valid we send a log to the logging file.        
-				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
-				
-				//if valid than we redirect the user towards the new page
-				header("location:".$redirect."");
-				
-				//then we return true      			
-				return true;
+	class redirecting{
+		public function send($whiteListing, $inputParam, $countLevel){
+			
+			//Include the classes of which you want to use objects from
+			include_once("classes.php");
+			
+			$whitelist = new whitelisting();
+			
+			$continue = true;
+			
+			/*
+			We want to whitelist the paged for expected values, in this example they are,
+			page1,page2 etc.. for more information about whitelisting see "white-listing" in the code examples:
+			*/
+			if($whitelist->checkpattern($whiteListing, $inputParameter, $countLevel) == false)
+			{$continue = false;}
+			
+			//If all went good we include the filename
+			if($continue == true){
+				header("location:".$inputParam."");
 			}
-
 		}
-	}
+    }
 	
-	//Here we handle the consequences if the checkpattern function fails
-	if(checkpattern($_GET['location']) !== true){
-		
-		//Set a log for whenever there is unexpected user input with a threat level:
-		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-		
-		/*
-		If the user tries to redirect to other pages than specified, immediate logout wil follow!
-		*/
-		setCounter(3);
-					
-		//The die function is to make sure the rest of the php code is not excecuted beyond this point
-		die(); 
-	}
 	
 	?>

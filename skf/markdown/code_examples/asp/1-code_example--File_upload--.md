@@ -90,7 +90,6 @@ File upload
 						catch
 						{
 							HttpContext.Current.Response.Write("File did not upload!");
-							throw;
 						}
 					}
 				}

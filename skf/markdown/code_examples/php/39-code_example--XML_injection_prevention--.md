@@ -3,8 +3,7 @@ XML injection prevention
 -------
 
 **Example:**
-
-   		
+	
 	<?php
 
 	/*
@@ -84,56 +83,13 @@ XML injection prevention
 		echo $esc;
 
 	}
-
 		
 	/*
 	We recommend to not rely soly on the encoding of the input by the Domcocument.
-	So before you insert user-input into the XML file you want to have it sanitised
-	like so:
+	So before you insert user-input into the XML file you want to have it sanitised.
+	See the "Encoding" and "input validation" code examples for more detailed information
 	*/
 
-	//First we check if the value matches alpanumeric or names like o'reily
-	if(!preg_match("/^['a-zA-Z0-9]+$/", $string)){
-
-		//Set a log for whenever there is unexpected userinput with a threat level
-		setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "MOD");
-
-		/*
-		Set counter if counter hits 3 the users session must terminated
-		After 3 session terminations the user acount must be blocked
-		*/
-		setCounter(1);
-
-		die;
-
-	}
-
-	//here we define break out pattern for encoding
-	$pattern1 = "/'/";
-
-
-	//disarm the brake-out userinput by replacing ' with &apos;	
-	$replacements = "&apos;";
-	
-	/*
-	Verify the sanitizer pattern. In this case we want to use people's names so we also have
-	want to allow input like: o'reily. because the ' can still be harmfull we want to encode it
-	before allowing it into the XML file
-	*/
-
-	$array = array($pattern1);
-
-		foreach($array as $pattern){	
-
-			while(preg_match($pattern, $string)){
-			
-				//setLog($_SESSION['userID'],"character encoding for username", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-				$result = preg_replace($pattern1, $replacements, $string);
-				echo $result;
-				return true;	
-						
-			}		
-		}
 
 	
 	

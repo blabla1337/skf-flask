@@ -28,9 +28,11 @@ XML injection prevention
 				bool doFunction = true;
 
 				//If the function returns false, we do not execute the function
-				if (validate.validateInput(name) == false) { doFunction = false; }
-				if (validate.validateInput(lastName) == false) { doFunction = false; }
-				if (validate.validateInput(gender) == false) { doFunction = false; }
+				
+				//see the "input validation" code example for more detailed information about this function
+				if (validate.validateInput(name, "alphanummeric", "Invalid userinput name", "HIGH") == false)     { doFunction = false; }
+				if (validate.validateInput(lastName, "alphanummeric", "Invalid userinput name", "HIGH") == false) { doFunction = false; }
+				if (validate.validateInput(gender, "alphanummeric", "Invalid userinput name", "HIGH") == false)    { doFunction = false; }
 
 				if (doFunction == true)
 				{

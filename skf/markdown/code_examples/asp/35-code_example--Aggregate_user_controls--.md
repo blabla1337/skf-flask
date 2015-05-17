@@ -76,7 +76,7 @@ Aggregate user controlls
 				int controll = 0;
 
 				//the connection has to be repported into the log files
-				Log.SetLog(Session['userID'], "Connection to the database was made succesfully", date, "SUCCESS", "NULL" ");
+				Log.SetLog(Session['userID'], "Connection to the database was made succesfully", "SUCCESS", "NULL" ");
 
 				//Here we select the number of counts from aggregate column in order to verify the number of connections:
 				string query = string.Format("SELECT aggregate from users WHERE userID = @userID ");

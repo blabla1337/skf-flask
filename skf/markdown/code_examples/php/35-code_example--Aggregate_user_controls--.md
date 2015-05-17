@@ -34,56 +34,61 @@ Aggregate user controlls
 	|     3       | read             |
 	----------------------------------
 	*/
-
-	function countAccess($count){
-		
-		/*
-		Everytime the user accesses the database we keep track of the number of times he
-		connected. Whenever the user passes a reasonable number he should be rejected 
-		since he could be an attacker scraping your table contents and stealing company information
-		You could a CRON job in your mysql system in order to clean the Aggregate column within certain timeframes
-		*/
-		
-		//First we log the access
-		//setLog($_SESSION['userID'],"User access the database ", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-		
-		//After that we select 
-		$stmt = $db->prepare("SELECT AggregateControl FROM members WHERE userID=:id ");
-		$stmt->execute(array(':id' => $_SESSION['userID']));
-		$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		
-		$aggragate = 0;
-		
-		foreach($row as $rows){
-		
-			$control = $rows['AggregateControl'];
-		}
-		
-		//We add the count to controll variable for the update
-		$control += $count;
-		
-		if($control >= 5000){
 	
-			//First we log the surpassing of the user control count
-			//setLog($_SESSION['userID'],"Aggregate access control breach ", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-	
+	class aggregateUserControl{
+		public function countAccess($count){
+			//init DB
+			include("classes.php");
+			$con     = new database();
+			$logging = new logging();
+			$db  = $con->connection();
+		
 			/*
-			Then we lock out the users account assuming it has been compromised by
-			an attacker.
+			Everytime the user accesses the database we keep track of the number of times he
+			connected. Whenever the user passes a reasonable number he should be rejected 
+			since he could be an attacker scraping your table contents and stealing company information
+			You could a CRON job in your mysql system in order to clean the Aggregate column within certain timeframes
 			*/
-			$access = "FAIL";
-			$stmt = $db->prepare("UPDATE members SET access=? WHERE userID=?");
-			$stmt->execute(array($access, $_SESSION['userID']));
-			$affected_rows = $stmt->rowCount();
+		
+			//First we log the access
+			$logging->setLog($_SESSION['userID'],"User access the database ", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+		
+			//After that we select 
+			$stmt = $db->prepare("SELECT AggregateControl FROM members WHERE userID=:id ");
+			$stmt->execute(array(':id' => $_SESSION['userID']));
+			$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+			$aggragate = 0;
+		
+			foreach($row as $rows){
+		
+				$control = $rows['AggregateControl'];
+			}
+		
+			//We add the count to controll variable for the update
+			$control += $count;
+		
+			if($control >= 5000){
+	
+				//First we log the surpassing of the user control count
+				//setLog($_SESSION['userID'],"Aggregate access control breach ", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+	
+				/*
+				Then we lock out the users account assuming it has been compromised by
+				an attacker.
+				*/
+				$access = "FAIL";
+				$stmt = $db->prepare("UPDATE members SET access=? WHERE userID=?");
+				$stmt->execute(array($access, $_SESSION['userID']));
+				$affected_rows = $stmt->rowCount();
 						
-		}			
+			}			
 		
-		//Then we update the users table and count +1 tot the AggregateControl column
-		$stmt = $db->prepare("UPDATE members SET AggregateControl=? WHERE userID=?");
-		$stmt->execute(array($control, $_SESSION['userID']));
-		$affected_rows = $stmt->rowCount();
-		
-		
+			//Then we update the users table and count +1 tot the AggregateControl column
+			$stmt = $db->prepare("UPDATE members SET AggregateControl=? WHERE userID=?");
+			$stmt->execute(array($control, $_SESSION['userID']));
+			$affected_rows = $stmt->rowCount();	
+		}
 	}
 	
 	//We use the function as follows:

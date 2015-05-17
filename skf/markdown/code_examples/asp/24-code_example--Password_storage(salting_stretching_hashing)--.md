@@ -30,14 +30,16 @@ Password storage(salting/stretching/hashing)
 
 				return Convert.ToBase64String(hasher.GetBytes(25));
 			}
-
+			
+			//The salt in this function is the return value of the createSalt function
 			public string hashPassword(string Salt, string Password)
 			{
 				Rfc2898DeriveBytes Hasher = new Rfc2898DeriveBytes(Password + "ALongPepperValue",
 					System.Text.Encoding.Default.GetBytes(Salt), 10000);
 				return Convert.ToBase64String(Hasher.GetBytes(25));
 			}
-
+			
+			//With this function we validate the password hash
 			public bool Validate(string passwordHash, string saltHash, string enteredPassword)
 			{
 				Rfc2898DeriveBytes Hasher = new Rfc2898DeriveBytes(enteredPassword + "ALongPepperValue",

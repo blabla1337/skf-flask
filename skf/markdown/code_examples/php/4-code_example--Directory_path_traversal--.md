@@ -4,64 +4,45 @@ Directory/path traversal
 
 **Example:**
 
-
-
     <?php
-     
-	//First, we want to filter the filenames for expected values. For this example we use only a-z/0-9
-	//Whenever the values are tampered with, we can assume an attacker is trying to inject malicious input.
-	if(!preg_match("/^[a-zA-Z0-9]+$/", $_GET['fileName']){
-
-		//Set a log for whenever there is unexpected userinput with a threat level
-		setLog($_SESSION['userID'],"invalid expected input", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-
+    
+	class fileGetContents{ 	
 		/*
-		Set counter; if counter hits 3, the user's session must be terminated.
-		After 3 session terminations the user's acount must be blocked.
-		Given the high threat level, there will be immediate session termination.
+		Define the whitelist pattern and validation type and input parameter, countLevel like:
+		getFiles("page1,page2,etc", "alphanummeric", $_GET['filename'], "3")
 		*/
-		setCounter(3);
+		public getFiles($whiteListPattern, $validationType, $inputParameter, $countLevel){
 		
-	}
- 
-     
-	//First we create a function which checks te allowed patterns
-	function checkpattern($fileName){
-		$array = array("/^page1$/" ,"/^page2$/" ,"/^etc$/" ,"/^etc$/");
+			//Include the classes of which you want to use objects from
+			include_once("classes.php");
+				
+			$validate  = new validation();
+			$whitelist = new whitelisting();
 	
-		foreach($array as $Pattern){
-			while(preg_match($Pattern , $fileName)){		
-				//If the value is valid we send a log to the logging file.        
-				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
-			
-				//then we return true      			
-				return true;
+			$continue = true;
+		
+			/*
+			First, we want to filter the filenames for expected values. For this example we use only a-z/0-9
+			Whenever the values are tampered with, we can assume an attacker is trying to inject malicious input.
+			for more information about validation see "input validations" in the code examples:
+			*/
+			if($validate->inputValidation($inputParameter, $validationType, 
+			"Invalid userinput", "HIGH", $countLevel) == false) {$continue = false;}
+	 
+			/*
+			Seccond, we want to whitelist the filenames for expected values, in this example they are,
+			page1,page2 etc.. for more information about whitelisting see "white-listing" in the code examples:
+			*/
+			if($whitelist->checkpattern($whiteListPattern, $inputParameter, $countLevel) == false)
+			{$continue = false;}
+	
+			//If all went good we include the filename
+			if($continue == true){
+				include($inputParameter);
 			}
-
-		}
+		} 
 	}
-	
-	//Here we handle the consequences if the checkpattern function fails
-	if(checkpattern($_GET['filname']) !== true){
-		
-		//Set a log for whenever there is unexpected user input with a threat level:
-		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-		
-		/*
-		If the user tries to read files other than specified, immediate logout wil follow!
-		*/
-		setCounter(3);
-					
-		//The die function is to make sure the rest of the php code is not excecuted beyond this point
-		die(); 
-	}
-	
-	
-	//ready for include if checkpattern succeeded, first we log that the filename succesfully went through all validation checks
-	setLog($_SESSION['userID'],"Valid file requested from server", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-	include($_GET['fileName']);
-        
-        ?>
+    ?>
 
 
 	

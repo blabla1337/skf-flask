@@ -12,10 +12,10 @@ Logout function
 	This way, the logout functionality will revoke the complete session:
 	*/ 
 
-	function deleteLogin(){
+	public function deleteLogin(){
 
 		//We first want to log the user logging out.
-		setLog($_SESSION['userID'],"User logout", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+		setLog($_SESSION['userID'],"User logout", "SUCCESS", date("d-m-y"), $_SESSION['privilege'], "NULL");
 		
 		//We empty his authentication session
 		$_SESSION['Authenticated'] = "";

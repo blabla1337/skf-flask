@@ -296,7 +296,8 @@ def set_code_lang(code_lang):
     found = allowed.find(safe_code_lang)
     if found != -1:
         #to do below security issue... Create white-list of the languages
-        session['code_lang'] = safe_code_lang
+        if safe_code_lang == "asp" or safe_code_lang == "php": 
+            session['code_lang'] = safe_code_lang
     return redirect(url_for('code_examples'))
 
 @app.route('/code-examples', methods=['GET'])

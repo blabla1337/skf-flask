@@ -4,8 +4,6 @@ XML External entities
 
 **Example:**
 
-
-
 	    <?php
 
 		/*

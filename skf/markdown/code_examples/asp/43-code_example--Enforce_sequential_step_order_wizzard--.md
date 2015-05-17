@@ -3,10 +3,8 @@ Enforce sequential step order (Wizzard)
 -------
 
 **Example:**
-
-	/*
 	
-	*/
+	//Example as used in your controller:
 	
 	bool next = true;
 

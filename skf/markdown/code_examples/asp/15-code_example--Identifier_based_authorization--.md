@@ -52,7 +52,9 @@ Identifier-based authorization
 				First we validate if the incomming value is in fact an integer since we expect a page id number.
 				If the incomming value is not a number we lockout the users since he tries to manipulate application operation.
 				*/
-				if (validate.validateInputNumeric(pageID) == false) { doFunction = false; }
+				
+				//see the "input validation" code example for more detailed information about this function
+				if (validate.validateInput(pageID, "nummeric", "Failed to get file", "HIGH") == false) { doFunction = false; }
 
 				if (doFunction == false)
 				{

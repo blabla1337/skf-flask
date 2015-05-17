@@ -16,54 +16,45 @@ XSL injection prevention
 	
 	Before we want to attach the XSL files to the style sheet we first want to 
 	do validation on the request to make sure the included file was one of our own pre
-	defined files, like so:	
+	defined files, example:
+	including("file1.xsl,file2.xsl,etc", $_GET['xslfile'], "3")
 	*/
+	
+	class includeXSL{
+		public function including($whiteListing, $inputParam, $countLevel){
+			
+			//Include the classes of which you want to use objects from
+			include_once("classes.php");
+			
+			$whitelist = new whitelisting();
+			
+			$continue = true;
+			
+			/*
+			We want to whitelist the paged for expected values, in this example they are,
+			page1,page2 etc.. for more information about whitelisting see "white-listing" in the code examples:
+			*/
+			if($whitelist->checkpattern($whiteListing, $inputParam, $countLevel) == false)
+			{$continue = false;}
+			
+			//If all went good we do the function
+			if($continue == true){
+				# LOAD XML FILE
+				// Load the XML source
+				$xml = new DOMDocument;
+				$xml->load('test.xml');
 
-		//First we create a function which checks te allowed patterns
-	function checkpattern($xsl){
-		$array = array("/^ABC.xsl$/" ,"/^CBA.xsl$/");
+				$xsl = new DOMDocument('1.0','UTF-8');
+				$xsl->load($inputParam); 
 
-		foreach($array as $Pattern){
-			while(preg_match($Pattern , $xsl)){        
-				
-				//If the value is valid we send a log to the logging file.        
-				setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+				// Configure the transformer
+				$proc = new XSLTProcessor;
+				$proc->importStyleSheet($xsl); // attach the xsl rules
 
-				//then we return true               
-				return true;
+				echo $proc->transformToXML($xml);
 			}
-
 		}
-	}
+    }
 
-	//Here we handle the consequences if the checkpattern function fails
-	if(checkpattern($_GET['xsl']) !== true){
-
-		//Set a log for whenever there is unexpected user input with a threat level:
-		setLog($_SESSION['userID'],"Detection of malicous input in file include", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
-
-		/*
-		If the user tries to read files other than specified, immediate logout wil follow!
-		*/
-		setCounter(3);
-		
-		//The die function is to make sure the rest of the php code is not excecuted beyond this point
-		die(); 
-	}else{
-
-	# LOAD XML FILE
-	// Load the XML source
-	$xml = new DOMDocument;
-	$xml->load('test.xml');
-
-	$xsl = new DOMDocument('1.0','UTF-8');
-	$xsl->load($_GET['xsl']);
-
-	// Configure the transformer
-	$proc = new XSLTProcessor;
-	$proc->importStyleSheet($xsl); // attach the xsl rules
-
-	echo $proc->transformToXML($xml);
-	}
 	?>
 	
