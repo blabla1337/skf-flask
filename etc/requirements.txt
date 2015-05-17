@@ -1,6 +1,0 @@
-https://github.com/mitsuhiko/flask/tarball/master#egg=flask
-markdown
-pyOpenSSL
-python-docx
-BeautifulSoup
-requests

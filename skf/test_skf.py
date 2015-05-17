@@ -95,7 +95,6 @@ def test_code_base_items(client):
     assert b'Knowledge Base Code Examples' in rv.data
     assert b'File upload' in rv.data
     assert b'Input validation' in rv.data
-    assert b'Single input validation' in rv.data
     assert b'Debug enabling' in rv.data
     assert b'Anti caching headers' in rv.data
 

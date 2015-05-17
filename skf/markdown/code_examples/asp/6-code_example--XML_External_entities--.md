@@ -38,7 +38,7 @@ XML External entities
 	to cause the runtime to throw an exception if a <!DOCTYPE> element is present in the XML:
 	
 	At this point, we have hardened this code so that it is much less vulnerable to XML bombs, 
-	but we haven’t yet addressed the dangers posed by malicious external entities. 
+	but we haven't yet addressed the dangers posed by malicious external entities. 
 	You can improve your resilience against these attacks if you customize the behavior 
 	of XmlReader by changing its XmlResolver. XmlResolver objects are used to resolve external 
 	references, including external entities. XmlTextReader instances, as well as XmlReader 
@@ -46,7 +46,7 @@ XML External entities
 	XmlResolvers (actually XmlUrlResolvers). You can prevent XmlReader from resolving 
 	external entities while still allowing it to resolve inline entities by setting the 
 	XmlResolver property of XmlReaderSettings to null. This is attack surface reduction 
-	at work again; if you don’t need the capability, turn it off:
+	at work again; if you don't need the capability, turn it off:
 	*/
 	
 	XmlReaderSettings settings = new XmlReaderSettings();
