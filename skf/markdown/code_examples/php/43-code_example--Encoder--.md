@@ -1,10 +1,3 @@
-
-Character encoding
--------
-
-**Example:**
-   
-	
 Character encoding
 -------
 
