@@ -4,3 +4,4 @@ pyOpenSSL
 python-docx
 BeautifulSoup
 requests
+importlib
