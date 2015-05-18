@@ -34,7 +34,7 @@ By means of the answers supplied by the developer the application again generate
 ----------
 To run SKF you need Python pip and sqlite3 database support.
 ```bash
-  sudo apt-get install python-pip sqlite3
+  sudo apt-get install python-pip sqlite3 lib32z1-dev python-dev libxml2-dev libxslt-dev
 ```
 
 After the prerequisites you can install the Python packages.
