@@ -19,7 +19,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os, markdown, datetime, string, base64, re, sys, re, requests
+import os, markdown, datetime, string, base64, re, sys, re, requests, mimetypes
 from OpenSSL import SSL, rand
 from docx import Document
 from BeautifulSoup import BeautifulSoup
@@ -134,7 +134,7 @@ secret_key = rand.bytes(512)
 password   = generate_pass()
 csrf_token_raw = rand.bytes(128)
 csrf_token = base64.b64encode(csrf_token_raw)
-#mimetypes.add_type('image/svg+xml', '.svg')
+mimetypes.add_type('image/svg+xml', '.svg')
     
 # Load default config and override config from an environment variable
 # You can also replace password with static password:  PASSWORD='pass!@#example'
