@@ -630,6 +630,7 @@ def project_checklists(project_id):
     advanced_content = []
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
+    full_file_paths.sort()
     for path in full_file_paths:
        found = path.find("owasp")
        if found != -1:
