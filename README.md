@@ -69,6 +69,9 @@ Now you can start the program by opening the folder and run the skf.py file:
 For more detailed information such as user guides and other documentation see:
 * [Readme: extended documentation](http://skf.readme.io/)  
 
+
+<br/><br/>
+
 ##<a name="development"></a>Development
 
 1. Fork and clone https://github.com/blabla1337/skf-flask
