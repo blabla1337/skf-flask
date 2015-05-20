@@ -67,7 +67,7 @@ Now you can start the program by opening the folder and run the skf.py file:
 ##<a name="usage"></a>Usage
 
 For more detailed information such as user guides and other documentation see:
-* [Readme, extended documentation](http://skf.readme.io/)  
+* [Readme: extended documentation](http://skf.readme.io/)  
 
 ##<a name="development"></a>Development
 
