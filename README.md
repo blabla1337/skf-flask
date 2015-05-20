@@ -66,12 +66,8 @@ Now you can start the program by opening the folder and run the skf.py file:
 
 ##<a name="usage"></a>Usage
 
-The application will greet you on `https://127.0.0.1:5443/`
-
-Default the application will generate a certificate on the fly but what you really want to do is placing your own server.key and server.crt in the skf dir. Then the skf-flask application will use these instead.
-
-Default username: `admin`
-The password will be auto-generated every time the skf-application is launched. Check commandline output for the generated password.
+For more detailed information such as user guides and other documentation see:
+* [Readme, extended documentation](http://skf.readme.io/)  
 
 ##<a name="development"></a>Development
 
