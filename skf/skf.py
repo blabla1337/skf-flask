@@ -140,11 +140,11 @@ mimetypes.add_type('image/svg+xml', '.svg')
 # You can also replace password with static password:  PASSWORD='pass!@#example'
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'skf.db'),
-    DEBUG=False,
+    DEBUG=True,
     SECRET_KEY=secret_key,
     USERNAME='admin',
     SESSION_COOKIE_SECURE=True,
-    PASSWORD=password,
+    PASSWORD="123",
     SESSION_COOKIE_HTTPONLY = True
 ))
 
