@@ -366,7 +366,7 @@ def show_kb_item():
     return render_template('knowledge-base-item.html', **locals())
 
 
-@app.route('/knowledge-base-api', methods=['POST'])
+@app.route('/knowledge-base-api', methods=['GET'])
 @security
 def show_kb_api():
     """show the knowledge base items page"""
@@ -383,7 +383,7 @@ def show_kb_api():
         kb_name_uri = path[(y)]
         kb_name.append(kb_name_uri.replace("_", " "))
     return render_template('knowledge-base-api.html', **locals())
-    
+
 @app.route('/knowledge-base', methods=['GET'])
 @security
 def knowledge_base():
