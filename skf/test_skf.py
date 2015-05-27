@@ -88,14 +88,6 @@ def test_knowledge_base_item(client):
     ), follow_redirects=True)
     assert rv.status_code == 200
 
-def test_knowledge_base_item_search(client):
-    """Make sure knowledge-base item search works"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
-    rv = client.post('/kb-search', data=dict(
-        search="input"
-    ), follow_redirects=True)
-    assert b'Input validation ' in rv.data
-
 def test_code_base_items(client):
     """Make sure code-example items are visible"""
     login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
