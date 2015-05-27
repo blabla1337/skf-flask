@@ -365,6 +365,25 @@ def show_kb_item():
             content = Markup(markdown.markdown(filemd)) 
     return render_template('knowledge-base-item.html', **locals())
 
+
+@app.route('/knowledge-base-api', methods=['POST'])
+@security
+def show_kb_api():
+    """show the knowledge base items page"""
+    log("User access page /knowledge-base-api", "SUCCESS", "HIGH")
+    full_file_paths = []
+    content = []
+    kb_name = []
+    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+    for path in full_file_paths:
+        filemd = open(path, 'r').read()
+        content.append(Markup(markdown.markdown(filemd)))
+        path = path.split("-")
+        y = len(path)-3
+        kb_name_uri = path[(y)]
+        kb_name.append(kb_name_uri.replace("_", " "))
+    return render_template('knowledge-base-api.html', **locals())
+    
 @app.route('/knowledge-base', methods=['GET'])
 @security
 def knowledge_base():
