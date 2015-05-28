@@ -1108,7 +1108,5 @@ if __name__ == "__main__":
        app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
     else:
        context = SSL.Context(SSL.TLSv1_METHOD)
-       context.use_privatekey_file('server.key')  #Location of Key
-       context.use_certificate_file('server.crt') #Location of Cert
-       context.set_cipher_list('TLSv1+HIGH:!aNULL:!eNULL:!3DES:@STRENGTH')
+       context = ('server.crt', 'server.key')
        app.run(host='127.0.0.1', port=5443, ssl_context=context)
