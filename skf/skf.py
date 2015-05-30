@@ -140,11 +140,11 @@ mimetypes.add_type('image/svg+xml', '.svg')
 # You can also replace password with static password:  PASSWORD='pass!@#example'
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'skf.db'),
-    DEBUG=True,
+    DEBUG=False,
     SECRET_KEY=secret_key,
     USERNAME='admin',
     SESSION_COOKIE_SECURE=True,
-    PASSWORD="123",
+    PASSWORD=password,
     SESSION_COOKIE_HTTPONLY = True
 ))
 
@@ -376,8 +376,12 @@ def show_kb_api():
     kb_name = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
     for path in full_file_paths:
-        filemd = open(path, 'r').read()
-        content.append(Markup(markdown.markdown(filemd)))
+        filetmp = open(path, 'r').read()
+        filetmp2 = filetmp.replace("-------", "")
+        filetmp3 = filetmp2.replace("**", "")
+        filetmp4 = filetmp3.replace("\"", "")
+        filetmp5 = filetmp4.replace("\t", "")
+        content.append(filetmp5.replace("\n", " "))
         path = path.split("-")
         y = len(path)-3
         kb_name_uri = path[(y)]
