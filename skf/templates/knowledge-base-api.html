@@ -1,7 +1,8 @@
 				{% set counter = 0 -%}
 					{"items":[
 					{% for name in kb_name -%}
-					    {"{{counter|safe}}":"{{name|safe}}",
+					    {"title":"{{name|safe}}",
+					    {"description":"{{content|safe}}",
 					{% set counter = counter + 1 %}
 					]}
          			{% endfor %}
