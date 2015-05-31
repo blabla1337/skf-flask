@@ -190,3 +190,4 @@ Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
 - Daniel Paulus
 - Erik de Kuijper
 - Roderick Schaefer
+- Jim Manico
