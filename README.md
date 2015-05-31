@@ -63,6 +63,33 @@ Now you can start the program by opening the folder and run the skf.py file:
   cd C:\Python27\Lib\site-packages\skf
   C:\Python27\python.exe skf.py
 ```
+####Mac osx
+----------
+The first step is to install brew
+```bash
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+After installing brew you can now install sqllite3
+```bash
+  brew install python-pip sqlite3
+```
+
+Now we install python pip
+```bash
+  sudo easy_install pip
+```
+
+After the prerequisites you can install the Python packages.
+```bash
+  sudo pip install https://github.com/mitsuhiko/flask/tarball/master
+  sudo pip install owasp-skf
+```
+
+Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
+```bash
+  sudo python skf.py
+```
 
 ##<a name="usage"></a>Usage
 
