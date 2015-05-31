@@ -98,7 +98,7 @@ def blockUsers():
             str(count) 
             if count > 11:
                 sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')            
-    			                
+                                
 def valAlphaNum(value):
     match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
     if match:
@@ -107,7 +107,7 @@ def valAlphaNum(value):
         abort(406)
         return False
     else:
-	    return True
+        return True
 
 def valNum(value):
     match = re.findall(r'[a-zA-Z_]', str(value))
@@ -207,13 +207,23 @@ def close_db(error):
         g.sqlite_db.close()
 
 def check_version():
-    r = requests.get("http://raw.githubusercontent.com/blabla1337/skf-flask/master/setup.py")
-    items_remote = r.content.split(",") 
-    version_remote = re.findall('\\b\\d+\\b', items_remote[1])
-    with open ("version.txt", "r") as myfile:
-        version_local = myfile.read().replace('\n', '')
-    if version_local == version_remote:
-        return True
+    try:
+        r = requests.get("http://raw.githubusercontent.com/blabla1337/skf-flask/master/setup.py")
+        items_remote = r.content.split(",") 
+        version_remote = items_remote[1]
+        version_remote = version_remote.replace(version_remote[:14], '')
+        version_remote = version_remote[:-1]
+        with open ("version.txt", "r") as myfile:
+            version_local = myfile.read().replace('\n', '')
+        print version_local
+        print version_remote
+
+        if version_local == version_remote:
+            return True
+        else:
+            return False
+    except:
+        return False
 
 def get_version():
     with open ("version.txt", "r") as myfile:
