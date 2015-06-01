@@ -15,6 +15,7 @@ Security Knowledge Framework is an expert system application that uses OWASP App
 * [Scrum Board](#scrum)
 * [Testing](#testing)
 * [License](#license)
+* [Pebble OWASP-SKF](#pebble)
 * [Contributors](#contributors)
 
 ##<a name="introduction"></a>Introduction
@@ -181,6 +182,12 @@ Licensed under the [MIT](http://en.wikipedia.org/wiki/MIT_License) license
 Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
 
 * Boostrap theme thanks to http://www.blacktie.com
+
+##<a name="pebble"></a>Pebble OWASP-SKF
+We have also created a Pebble application called: OWASP-SKF Pebble
+You can download this and use it as a watchface with the OWASP Logo and time.
+Also the Pebble app holds all the knowledge base items from SKF.
+Search it in the Pebble AppStore and have all the Security knowledge available ^^
 
 ##<a name="contributors"></a>Contributors
 - Glenn ten Cate
