@@ -184,10 +184,8 @@ Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
 * Boostrap theme thanks to http://www.blacktie.com
 
 ##<a name="pebble"></a>Pebble OWASP-SKF
-We have also created a Pebble application called: OWASP-SKF Pebble
-You can download this and use it as a watchface with the OWASP Logo and time.
-Also the Pebble app holds all the knowledge base items from SKF.
-Search it in the Pebble AppStore and have all the Security knowledge available ^^
+We have also created a Pebble application called: OWASP-SKF Pebble, check it out:
+http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 
 ##<a name="contributors"></a>Contributors
 - Glenn ten Cate
