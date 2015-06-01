@@ -3,6 +3,7 @@ Enforce secure passwords
 
 **Example:**
 
+	
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -13,12 +14,12 @@ Enforce secure passwords
 
 	namespace MvcApplication1.Controllers
 	{
-		public class auditLogs
+		public class passwordcheck
 		{
-			public void getFiles(string password)
+			public bool checkPassword(string password)
 			{
 				string error = "";
-			
+
 
 				bool complete = true;
 
@@ -86,10 +87,12 @@ Enforce secure passwords
 				{
 					//Do further operation
 					HttpContext.Current.Response.Write("Good job password was ok!");
+					return true;
 				}
 				else
 				{
 					HttpContext.Current.Response.Write(error);
+					return false;
 				}
 			}
 		}

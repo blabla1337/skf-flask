@@ -3,6 +3,9 @@ Audit logs
 -------
 
 **Example:**
+    
+    
+    
     <?php
 
 	/*
@@ -53,8 +56,6 @@ Audit logs
 	
 			$countUpdate   = $count + $dbCount;
 			$blockerUpdate = $count + $dbBlocker; 
-	
-			var_dump($dbCount);
 
 			//Here we want to set a counter for whenever a user attacks the application so we can lock-out his account 
 			//when there are to many violations registered.

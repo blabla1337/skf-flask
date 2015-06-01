@@ -1,4 +1,4 @@
-Session hijacking / Session fixation
+Session hijacking
 -------
 
 **Example:**
@@ -66,22 +66,11 @@ Session hijacking / Session fixation
 	*/
 	
 	/*
-	This is the part for the session fixation,
-	On login we change the session id in order to prevent session fixation by assigning the user
-	a new session id on login by using this method:
+	On login we also add another cookie with a random value to the application in order to
+	prevent an attacker to fixate an ASPSESSION id on your users and hijack their sessions
+	(This code example can be found in the "Login functionality" for more detailed information)
 	*/
 	
-	//delete session cookie
-	HttpContext.Current.Session.Abandon();
-	HttpContext.Current.Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
-
-	//create new sessionID
-	SessionIDManager manager = new SessionIDManager();
-	manager.RemoveSessionID(System.Web.HttpContext.Current);
-	var newId = manager.CreateSessionID(System.Web.HttpContext.Current);
-	var isRedirected = true;
-	var isAdded = true;
-	manager.SaveSessionID(System.Web.HttpContext.Current, newId, out isRedirected, out isAdded);
 	
 	/*
 	NOTE: On applications that require high level security, there should never be an

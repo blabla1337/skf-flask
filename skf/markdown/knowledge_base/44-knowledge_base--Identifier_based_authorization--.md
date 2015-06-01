@@ -20,10 +20,15 @@ In this situation the application wil get content and subscribe user roles corre
 
 **Solution:**
 
-Whenever you are checking whether a user is restricted to review certain data the access 
+Whenever you are checking whether a user is restricted to review certain data, the access 
 restrictions should be processed server-side.
 
-The userID could be stored inside of a session variable on login and should be used to 
-retrieve user data from the database.
+The userID should be stored inside of a session variable on login and should be used to 
+retrieve user data from the database like : SELECT data from personaldata where userID=:id <- session var
+
+Now an possible attacker can not tamper and change the application operation since the
+identifier for retrieving the data is handeld server-side.
+
+
 
 	

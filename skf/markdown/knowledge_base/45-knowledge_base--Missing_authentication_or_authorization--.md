@@ -9,6 +9,11 @@ high risk vulnerabilities.
 
 
 **Solution:**
-The application should check pages or functionality based on authentication and authorisation.
+You should verify all access controls are implemented properly in order to
+prevent a user access data/functions which he was not intended to use.
+
+
+
+
 
 	

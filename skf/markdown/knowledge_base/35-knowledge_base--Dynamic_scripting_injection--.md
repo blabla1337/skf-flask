@@ -11,5 +11,7 @@ script code and gain access to the server.
 
 **Solution:**
 
-Do not use direct user-input in the dynamic scripting function.
+Do not use direct user-input in the dynamic scripting function. You should first 
+use an input validation or encoding function on the user submitted data to clean and
+sanitise the input against malicious intent.
 	

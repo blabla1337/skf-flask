@@ -51,7 +51,7 @@ Aggregate user controlls
 			*/
 		
 			//First we log the access
-			$logging->setLog($_SESSION['userID'],"User access the database ", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+			$logging->setLog($_SESSION['userID'],"User access database ", "SUCCESS", date("d-m-y"), $privelige, "NULL");
 		
 			//After that we select 
 			$stmt = $db->prepare("SELECT AggregateControl FROM members WHERE userID=:id ");
@@ -71,7 +71,7 @@ Aggregate user controlls
 			if($control >= 5000){
 	
 				//First we log the surpassing of the user control count
-				//setLog($_SESSION['userID'],"Aggregate access control breach ", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+				//setLog($_SESSION['userID'],"Aggregate control breach", "FAIL", date("d-m-y"), $privelige, "HIGH");
 	
 				/*
 				Then we lock out the users account assuming it has been compromised by

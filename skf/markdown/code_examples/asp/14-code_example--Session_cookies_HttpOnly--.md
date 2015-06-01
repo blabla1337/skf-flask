@@ -22,9 +22,11 @@ Session cookies HttpOnly
 
 	C# Code:
 
-	HttpCookie myCookie = new HttpCookie("myCookie");
+	HttpCookie myCookie = new HttpCookie("AuthToken", guid);
+	HttpContext.Current.Response.Cookies.Add(myCookie);
+
 	myCookie.HttpOnly = true;
-	Response.AppendCookie(myCookie);
+
 	
 
 	

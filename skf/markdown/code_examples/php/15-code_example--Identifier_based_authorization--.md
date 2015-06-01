@@ -12,7 +12,7 @@ Identifier-based authorization
 		Define the whitelist pattern and validation type and input parameter like:
 		identity("page1,page2,etc", "alphanummeric", $_GET['page'], "3")
 		*/
-		public identity($whiteListPattern, $validationType, $inputParameter, $countLevel){
+		public function identity($whiteListPattern, $validationType, $inputParameter, $countLevel){
 		
 			//Include the classes of which you want to use objects from
 			include_once("classes.php");

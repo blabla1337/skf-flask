@@ -12,6 +12,10 @@ specify his current password.
 **Solution:**
 
 When changing user credentials or email address the user must always enter a valid 
-password in order to implement the changes.
+password in order to implement the changes. This is also called re-authentication or
+step-up / adaptive authentication. Whenever a user "re-authenticates" himself the current
+sessionid value should also be refreshed in order to fend of so called "session hijackers"
+
+
 
 	

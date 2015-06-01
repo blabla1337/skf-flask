@@ -2,6 +2,7 @@ Character encoding
 -------
 
 **Example:**
+
    
 	<?php
 	
@@ -33,7 +34,7 @@ Character encoding
 				After 3 session terminations the user acount must be blocked
 				See "audit logs" code example for more information:
 				*/			
-				//$logging->setCounter($countLevel);
+				$logging->setCounter($countLevel);
 				$input = false;
 			}
 		

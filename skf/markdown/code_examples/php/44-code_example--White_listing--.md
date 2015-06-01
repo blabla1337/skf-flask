@@ -1,13 +1,13 @@
- 
-White-listing
+ White-listing
 -------
 
 **Example:**
    
+   
+   
        <?php
 
-    
-	class whitelisting extends logging {
+	class whitelisting{
 		/*
 		First we create a function which checks te allowed patterns:
 		checkpattern("value1,value2,value3" , $input, "3")
@@ -34,7 +34,7 @@ White-listing
 			if($results == false){
 				//If the value is invalid we send a log to the logging file.        
 				$logging->setLog($_SESSION['userID'],"Bad whitelist validation", "FAIL", date("d-m-y"), $_SESSION["privilege"], "HIGH"); 
-				//$logging->setCounter($countLevel);			
+				$logging->setCounter($countLevel);			
 			}
 		}
 	}//end class

@@ -47,13 +47,15 @@ input validation
 				//$logging->setCounter($countLevel);
 			
 				return false;
-			}else{
-					//Set a log for whenever there is unexpected userinput with a threat level
-					$logging->setLog($_SESSION['userID'],"Valid input validation for regex from ".$type." ",
-					"SUCCESS", date("d-m-y"), $_SESSION["privilege"], "NONE");
+			}
+			else{
 			
-					return true;
-			}  
+				//Set a log for whenever there is unexpected userinput with a threat level
+				$logging->setLog($_SESSION['userID'],"Valid input validation for regex from ".$type." ",
+				"SUCCESS", date("d-m-y"), $_SESSION["privilege"], "NONE");
+		
+				return true;
+			}
 		}
 	}
     	     

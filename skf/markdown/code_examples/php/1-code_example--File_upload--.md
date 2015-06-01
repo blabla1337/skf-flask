@@ -6,8 +6,7 @@ File upload
 
 
     <?php
-    
-    
+     
     //here we create a function which checks te allowed patterns
 	function checkpattern(){
 		    
@@ -16,16 +15,15 @@ File upload
 	
 				foreach($array as $Pattern){
 					while(preg_match($Pattern , $this->_image['name'])){		
-						//If the value is valid we send a log to the logging file.        
-						setLog($_SESSION['userID'],"Validation was succesfull for filename", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL"); 
 			
-						//then we return true      			
+						//If the value is valid we send a log to the logging file.        
+						setLog($_SESSION['userID'],"Validation succesfull", "SUCCESS", date("d-m-y"), $privelige, "NULL"); 
+			  			
 						return true;
 					}
 
 				}
 			}
-    
 
 	function Image(){
 
@@ -128,7 +126,6 @@ File upload
 			//The die function is to make sure the rest of the php code is not excecuted beyond this point
 			die();				
 		}
-
 	}
 	?>
 

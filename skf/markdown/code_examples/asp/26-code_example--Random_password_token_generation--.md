@@ -12,10 +12,9 @@ Random password/token generation
 
 	namespace MvcApplication1.Controllers
 	{
-		public class randompassword
+		public class randomizer
 		{
-
-			public string generatePassword()
+			public string generate(int numberOfBytes)
 			{
 				/*
 				For generating the password we want to use a secure cryptographic function
@@ -23,7 +22,7 @@ Random password/token generation
 				RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
 
 				//Then set the size of the password
-				byte[] buffer = new byte[8];
+				byte[] buffer = new byte[numberOfBytes];
 
 				rng.GetBytes(buffer);
 
@@ -31,7 +30,6 @@ Random password/token generation
 				string password = System.Convert.ToBase64String(buffer);
 
 				return password;
-
 			}
 		}
 	}

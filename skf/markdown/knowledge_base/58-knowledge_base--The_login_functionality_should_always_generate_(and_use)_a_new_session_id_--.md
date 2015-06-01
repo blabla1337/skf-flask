@@ -10,7 +10,9 @@ new session cookie.
 
 **Solution:**
 
-The login functionality should always generate (and use) a new session id  after a 
-successful login.
+The login functionality should always generate (and use) a new session id after a 
+successful login. This is done to prevent an attacker doing a session fixation attack
+on your users. 
+
 
 	

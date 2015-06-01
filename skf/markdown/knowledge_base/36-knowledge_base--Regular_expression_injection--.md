@@ -12,5 +12,9 @@ logic. In some cases, an attacker could even gain access to the server
 
 **Solution:**
 
-Do not use user-input without escaping in a regular expression.
+Do not use user-input without escaping in a regular expressions "regex pattern".
+Since this could lead to serious security vulnerabilities.
+
+
+
 	

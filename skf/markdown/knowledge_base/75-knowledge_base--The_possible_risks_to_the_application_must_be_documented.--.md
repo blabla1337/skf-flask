@@ -12,6 +12,5 @@ information is stored and why.
 **Solution:**
 
 Create a section in the documentation of the project that defines the information 
-that will be stored, where and how.
-
-	
+that will be stored. This makes it easier to make estimations about critical parts
+of your application which deserve extra attention. 

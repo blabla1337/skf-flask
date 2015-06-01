@@ -22,6 +22,15 @@ Secure session cookies
 			</forms>
 		</authentication>
 	</system.web>
+	
+	Or programmatically
+
+	C# Code:
+	
+	HttpCookie myCookie = new HttpCookie("AuthToken", guid);
+	HttpContext.Current.Response.Cookies.Add(myCookie);
+
+	myCookie.Secure = true;
 
 
 

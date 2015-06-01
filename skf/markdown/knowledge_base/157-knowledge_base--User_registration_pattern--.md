@@ -34,7 +34,7 @@ you set in your column in the database.
 
 Second, you should create a single user input validation control class which should 
 validate the expected input values in order to verify if the user is not tampering data 
-or is injecting malicious code into your application. All infringements should be logged
+or injecting malicious code into your application. All infringements should be logged
 and repercussions should be taken whenever these infringements are frequent. 
 
 Third, never display the users password on screen anywhere.
