@@ -2,7 +2,7 @@
 [![SKF Logo](http://www.securityknowledgeframework.com/img/logos/logo-purple.png)](http://www.securityknowledgeframework.com)
 <br>Project status details:<br>
 [![Build Travis CI](https://travis-ci.org/blabla1337/skf-flask.svg)](https://travis-ci.org/blabla1337/skf-flask)
-[![Coverage Status](https://img.shields.io/coveralls/blabla1337/skf-flask/master.svg)](https://coveralls.io/r/blabla1337/skf-flask)
+[![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 <br />
 Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.
