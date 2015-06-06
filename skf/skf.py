@@ -135,7 +135,8 @@ password   = generate_pass()
 csrf_token_raw = rand.bytes(128)
 csrf_token = base64.b64encode(csrf_token_raw)
 mimetypes.add_type('image/svg+xml', '.svg')
-    
+bindaddr = '127.0.0.1';
+
 # Load default config and override config from an environment variable
 # You can also replace password with static password:  PASSWORD='pass!@#example'
 app.config.update(dict(
@@ -1118,9 +1119,20 @@ def download_file_function(projectID):
 
 if __name__ == "__main__":
     print("Generated Password for access SKF: "+password)
+    #Command line options to enable debug and/or saas (bind to 0.0.0.0)
+    cmdargs = str(sys.argv)
+    total = len(sys.argv)
+    for i in xrange(total):
+        if (str(sys.argv[i][2:]) == "debug"):
+            # Load default config and override config from an environment variable
+            app.config.update(dict(
+            DEBUG=True
+            ))
+        if (str(sys.argv[i][2:]) == "saas"):
+            bindaddr = '0.0.0.0'
     if os.path.isfile('server.crt') == False: 
-       app.run(host='127.0.0.1', port=5443, ssl_context='adhoc')
+       app.run(host=bindaddr, port=5443, ssl_context='adhoc')
     else:
        context = SSL.Context(SSL.TLSv1_METHOD)
        context = ('server.crt', 'server.key')
-       app.run(host='127.0.0.1', port=5443, ssl_context=context)
+       app.run(host=bindaddr, port=5443, ssl_context=context)
