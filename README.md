@@ -96,6 +96,102 @@ Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and r
   sudo python skf.py
 ```
 
+####Ubuntu Apache WSGI Setup
+----------
+To run the OWASP-SKF as a service (SaaS) you can hook it up to your existing webservers using the WSGI module.
+
+First do the normal owasp-skf installation.
+User that is installing this software is foobar, change foobar for your own user
+```bash
+  apt-get install git apache2 libapache2-mod-wsgi
+  sudo a2enmod wsgi
+  cd /home/foobar
+  git clone https://github.com/blabla1337/skf-flask.git
+```
+
+Now disable SSL settings, we want Apache to do this
+
+Edit the file file:
+/home/foobar/skf-flask/skf/skf.py
+```bash
+  Change line:
+       app.run(host=bindaddr, port=5443, ssl_context='adhoc')
+  to:
+       app.run(host=bindaddr, port=5443)
+```
+
+Create static Password
+
+Edit the following file:
+/home/foobar/skf-flask/skf/skf.py
+```bash
+  Change line:
+    PASSWORD=password,
+
+    PASSWORD='1@#yoursuPar3trong0149PaSs$!',
+```
+
+Now we can edit the configuration file of Apache
+
+Edit the following file and add this below the virtualHost config for port 80
+/etc/apache2/sites-enabled/000-default.conf
+```bash
+  WSGIRestrictStdout Off
+  Listen 5443
+  <VirtualHost *:5443>
+
+    WSGIDaemonProcess skf user=www-data group=www-data threads=5
+    WSGIScriptAlias / /home/foobar/skf-flask/skf/skf.wsgi
+
+    <Directory /home/foobar/skf-flask/skf>
+        WSGIProcessGroup skf
+        WSGIApplicationGroup %{GLOBAL}
+        Order deny,allow
+        Allow from all
+        Require all granted
+    </Directory>
+
+  </VirtualHost>
+```
+
+Now edit the configuration file of WSGI
+
+Edit the following file:
+/etc/apache2/mods-enabled/wsgi.conf
+Add below inside the if_module of mod_wsgi:
+```bash
+  <FilesMatch ".+\.py$">
+    SetHandler wsgi-script
+  </FilesMatch>
+
+  # Deny access to compiled binaries
+  # You should not serve these to anyone
+  <FilesMatch ".+\.py(c|o)$">
+    Order Deny,Allow
+    Deny from all
+  </FilesMatch>
+```
+Create the WSGI file so it can be loaded by Apache
+
+Create new skf.py file:
+/home/foobar/skf-flask/skf/skf.wsgi
+```bash
+  import sys, os
+  sys.path.insert (0,'/home/foobar/skf-flask/skf')
+  os.chdir("/home/foobar/skf-flask/skf")
+  from skf import app as application
+```
+
+The final step:
+```bash
+  chmod +x /home/foobar/skf-flask/skf/skf.py
+  chown -R www-data:www-data /home/foobar/skf-flask
+  sudo service apache2 restart
+```
+
+The application can be visited at port http://the_ip_/:5443
+Also now you can apply your favourite Apache SSL/TLS settings.
+
 ##<a name="usage"></a>Usage
 
 For more detailed information such as user guides and other documentation see:
