@@ -210,6 +210,8 @@ For more detailed information such as user guides and other documentation see:
 ####Waffle.io:
 https://waffle.io/blabla1337/skf-flask
 
+[![Throughput Graph](https://graphs.waffle.io/blabla1337/skf-flask/throughput.svg)](https://waffle.io/blabla1337/skf-flask/metrics) 
+
 ##<a name="testing"></a>Testing
 ####Travis-ci.org:
 -----------
