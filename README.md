@@ -235,6 +235,12 @@ SKF Scrutinizer details:
 ```
 https://scrutinizer-ci.com/g/blabla1337/skf-flask/
 
+####uptimerobot.com:
+------------
+```
+Monitor HTTP(s), Ping, Port and check Keywords. Get alerted via e-mail, SMS, Twitter, web-hooks or push. View uptime, downtime and response times.
+```
+
 ##<a name="license"></a>License
     Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
 
