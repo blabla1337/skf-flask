@@ -43,8 +43,8 @@ Logout functionality
 					SqlCommand cmd = new SqlCommand(query, conn);
 
 					//We bind the parameter in order to prevent sql injections
-					cmd.Parameters.AddWithValue("@userID", 1);
-					cmd.Parameters.AddWithValue("@fileID", 1);
+					cmd.Parameters.AddWithValue("@userID", Session["userID"]);
+					cmd.Parameters.AddWithValue("@fileID", fileID);
 
 					//Next we read the value from the database and put it into a variable
 					using (SqlDataReader oReader = cmd.ExecuteReader())
