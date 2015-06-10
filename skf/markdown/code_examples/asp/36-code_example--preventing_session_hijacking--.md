@@ -1,4 +1,4 @@
-Preventing Session hijacking
+Session hijacking
 -------
 
 **Example:**
