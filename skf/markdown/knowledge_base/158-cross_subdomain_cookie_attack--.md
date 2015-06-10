@@ -6,16 +6,16 @@ Cross subdomain cookie attacks
 
 A quick overview of how it works:
 
-1.A web site www.example.com hands out subdomains to untrusted third parties
+1. A web site www.example.com hands out subdomains to untrusted third parties
 
-2.One such party, Mallory, who now controls evil.example.com, lures Alice to her site
+2. One such party, Mallory, who now controls evil.example.com, lures Alice to her site
 
-3.A visit to evil.example.com sets a session cookie with the domain .example.com on Alice's browser
+3. A visit to evil.example.com sets a session cookie with the domain .example.com on Alice's browser
 
-4.When Alice visits www.example.com, this cookie will be sent with the request, as the specs for cookies states, 
+4. When Alice visits www.example.com, this cookie will be sent with the request, as the specs for cookies states, 
 and Alice will have the session specified by Mallory's cookie.
 
-5.Mallory can now use Alice her account.
+5. Mallory can now use Alice her account.
 
 
 **Solution:**
