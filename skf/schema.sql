@@ -38,7 +38,7 @@ INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (1, '
 INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (2, 'Path or Filenames', 1);
 INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (3, 'File inclusion', 1);
 INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (4, 'X-Path', 7);
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (5, 'HTML output', 3);
+INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (5, 'User-input in HTML output', 3);
 INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (6, 'LDAP commands', 11);
 INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (7, 'HTTP headers', 1);
 INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (8, 'XSLT input and output', 9);
