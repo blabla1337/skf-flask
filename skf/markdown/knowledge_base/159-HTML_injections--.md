@@ -6,12 +6,12 @@ HTML injections
 Whenever an attacker can inject HTML in your application there is a variety of different
 attacks he could perform such as:
 
-	1.Content Spoofing 
-	2.Image Tag Injection 	
-	3.Form Rerouting 
-	4.Base Jumping 
-    5.Element Override 
-    6.Hanging Textarea
+1. Content Spoofing 
+2. Image Tag Injection 	
+3. Form Rerouting 
+4. Base Jumping 
+5. Element Override 
+6. Hanging Textarea
 
 Even when your application intercepts XSS injections by means of a content security policy
 header it still remains vulnerable to the attacks summarised above.
@@ -39,10 +39,10 @@ properly encoding and sanitising your user-inputs.
 the <base> tag specifies the base URL/target to where to process his data to.
 
 The solution to base jumping would be to us absolut paths in your application such as:
-<form action='/update_profile.php'>
+    <form action='/update_profile.php'>
 
 instead of:
-<form action='update_profile.php'>
+    <form action='update_profile.php'>
 
 5/6. can both also easily be prevented simply be encoding or sanitising your userinput
 submitted towards your application.
