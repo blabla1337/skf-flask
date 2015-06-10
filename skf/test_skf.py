@@ -156,8 +156,8 @@ def test_create_project_function(client):
         functionDesc="This is a test Description for the selected release.",
         functionName="SKF Phase 1",
         project_id="1",
-        test0="152--24",
-        test1="3--17",
+        test0="152--25",
+        test1="3--18",
         test2="46--1",
         csrf_token="AAAA"
     ), follow_redirects=True)
