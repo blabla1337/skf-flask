@@ -32,7 +32,7 @@
 
 			if($proceed == true){
 				$stmt = $db->prepare("SELECT * FROM download WHERE fileID=? AND userID=?");
-				$stmt->execute(array($fileID, 1));
+				$stmt->execute(array($fileID, $_SESSION['userID']));
 				$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	
 				foreach($rows as $row){
