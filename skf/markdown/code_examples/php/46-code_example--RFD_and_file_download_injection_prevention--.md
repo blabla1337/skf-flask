@@ -59,6 +59,11 @@
 				header("Pragma: no-cache");    
 				header('Content-Length: ' . filesize($filename));
     				readfile($filename);
+    				/*
+    				Exit is very important, if other mechanims fail this makes sure the rest 
+    				of the page plus attack string does not get downloaded anyways.
+    				*/
+    				exit;
 				}
 			}
 		}
@@ -83,6 +88,11 @@
 				header("Pragma: no-cache");    
 				header('Content-Length: ' . filesize($filename));
     				readfile($filename);
+    				/*
+    				Exit is very important, if other mechanims fail this makes sure the rest 
+    				of the page plus attack string does not get downloaded anyways.
+    				*/
+    				exit;
 			}
 		}
 	}
