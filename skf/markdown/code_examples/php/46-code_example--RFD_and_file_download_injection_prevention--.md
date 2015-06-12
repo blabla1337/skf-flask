@@ -50,8 +50,15 @@
 				manipulated with an intercepting proxy. You should get the mimetype from the file
 				itself after it was stored on the server.
 				*/
-				header("content-type:".$mimeType."");
-				header('Content-Disposition: attachment; filename="'.$filename.'"');
+				header('Content-Description: File Transfer');
+    				header("content-type:".$mimeType."");
+    				header('Content-Disposition: attachment; filename='.$filename);
+    				header('Expires: 0');
+				header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+				header("Cache-Control: post-check=0, pre-check=0", false);
+				header("Pragma: no-cache");    
+				header('Content-Length: ' . filesize($filename));
+    				readfile($filename);
 				}
 			}
 		}
@@ -67,8 +74,15 @@
 			$white = new whitelisting();
 		
 			if($white -> checkpattern("file1.pdf,file2.pdf", $filename, 3) != false){
-				header("content-type:application/pdf");
-				header('Content-Disposition: attachment; filename="'.$filename.'"');
+				header('Content-Description: File Transfer');
+    				header('Content-Type: application/octet-stream');
+    				header('Content-Disposition: attachment; filename='.$filename);
+    				header('Expires: 0');
+				header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+				header("Cache-Control: post-check=0, pre-check=0", false);
+				header("Pragma: no-cache");    
+				header('Content-Length: ' . filesize($filename));
+    				readfile($filename);
 			}
 		}
 	}
