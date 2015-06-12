@@ -72,6 +72,7 @@ Logout functionality
 							response.ClearContent();
 							response.Clear();
 							response.ContentType = mimeType;
+							response.AppendHeader("Cache-Control", "no-cache");
 							response.AddHeader("Content-Disposition", "attachment; filename=" + fileName + ";");
 							response.WriteFile(@"\\servername\folder1\folder2\folder3\" + fileName + "");
 							response.Flush();
@@ -102,6 +103,7 @@ Logout functionality
 					response.ClearContent();
 					response.Clear();
 					response.ContentType = "text/plain";
+					response.AppendHeader("Cache-Control", "no-cache");
 					response.AddHeader("Content-Disposition", "attachment; filename=" + download + ";");
 					response.WriteFile(@"\\servername\folder1\folder2\folder3\" + download + "");
 					response.Flush();
