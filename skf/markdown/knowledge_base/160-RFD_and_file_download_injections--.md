@@ -1,4 +1,4 @@
-Reflective file download & File download injections
+Reflective file download and File download injections
 -------
 
 **Description:**
