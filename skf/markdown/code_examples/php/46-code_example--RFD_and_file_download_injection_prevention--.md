@@ -1,4 +1,4 @@
- Reflective file download & file download injection prevention
+ Reflective file download and file download injection prevention
 -------
 
 **Example:**
