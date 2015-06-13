@@ -61,7 +61,7 @@ def test_knowledge_base_items(client):
     assert b'Knowledge Base Security Vulnerabilities' in rv.data
     assert b'Filename injection Path traversel' in rv.data
     assert b'Repudiation attack' in rv.data
-    assert b'Open forward & Open redirects' in rv.data
+    assert b'Open forward' in rv.data
     assert b'Verify that the session id is never disclosed' in rv.data
     assert b'Logging guidelines' in rv.data
 
