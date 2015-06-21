@@ -28,19 +28,13 @@ Open forwards & redirects
 			
 			$whitelist = new whitelisting();
 			
-			$continue = true;
-			
 			/*
 			We want to whitelist the paged for expected values, in this example they are,
 			page1,page2 etc.. for more information about whitelisting see "white-listing" in the code examples:
 			*/
-			if($whitelist->checkpattern($whiteListing, $inputParameter, $countLevel) == false)
-			{$continue = false;}
-			
-			//If all went good we include the filename
-			if($continue == true){
+			if($whitelist->checkpattern($whiteListing, $inputParameter, $countLevel) == true){
 				header("location:".$inputParam."");
-			}
+			}			
 		}
     }
 	

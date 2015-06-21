@@ -57,7 +57,7 @@ Identifier-based authorization
 				$aggregate -> countConnections(1);
 				
 				$stmt = $db->prepare("SELECT * FROM table WHERE id=:userID AND page=:page");
-				$stmt->execute(array(':page' => $page, ':id' => $_SESSION['userID']));
+				$stmt->execute(array(':page' => $_GET['page'], ':id' => $_SESSION['userID']));
 				$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			}
 		} 

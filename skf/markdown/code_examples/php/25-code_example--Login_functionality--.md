@@ -40,6 +40,12 @@ Login functionality
 	class login{
 		public function loginUser($username,$password)
 		{
+		
+			//init DB connection
+			include("classes.php");
+			$conn = new database();
+			$db = $con->connection();
+			
 			/* 
 			You must log invalud userinput in order to detect a possible attack on your login form
 			In this example the expexted input is "a-Z/0-9 - _"
@@ -48,7 +54,9 @@ Login functionality
 			if(preg_match("/[^a-zA-Z0-9]/", $username))
 			{       
 				//Set a log for whenever there is unexpected userinput with a threat level 
-				setLog("null","invalid expected input", "FAIL", date("d-m-y"), "null", "HIGH"); 
+				setLog("null","invalid expected input", "FAIL", date("d-m-y"), "null", "HIGH");
+				header("location:login.php");
+				die(); 
 			} 
 
 			/*
@@ -60,50 +68,51 @@ Login functionality
 			setLog($_SESSION['userID'],"Username return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
 
 			//PDO prepared statement in order to prevent SQL injections
-			$sql = "
+			$stmt = $db->prepare("
 				SELECT a.username, a.password, a.privilegeID, b.privilegeID, b.privilege   
 					FROM users as a
 						JOIN privileges as b
 							ON a.projectID = b.projectID
-								WHERE a.username = :username and b.access='TRUE' ";
+								WHERE a.username = :username and b.access='TRUE'");
 
 			$this->_setSql($sql);
 
-			//We than bind the parameters in order to prevent SQL injection		
-			$this->_setParam(array(":username" => $username));
-			$loginUser = $this->getRow($sql);
-	
-			/*
-			Than we validate the password, if the validation is true than we set the sessions
-			For more detailed information on password validation check please look into the
-			Password storage(salting/stretching/hashing) in the knowledgebase for more information.
-			*/
-			if($this->ValidatePassword($loginUser['password'], $password) === true)
-			{
+			$stmt->execute(array(':page' => $_GET['page'], ':username' => $username));
+			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			
-				//After successful validation we want to log that Password was validated successfully:
-				setLog($_SESSION['userID'],"Password return true", "SUCCESS", date("d-m-y"), $privelige, "NULL");
+			foreach($rows as $loginUser){
 			
-				session_start();
-
-				//Change the session id on login
-				session_regenerate_id(true);
-
-				//Here we set a session to see if the user is authenticated throughought the system
-				$_SESSION['access']   = "active";
-
 				/*
-				The userID in a session variable to use as an identifier to prevent a user reading
-				into unauthorised data, See Identifier-based authorization for more information and
-				code examples.
+				Than we validate the password, if the validation is true than we set the sessions
+				For more detailed information on password validation check please look into the
+				Password storage(salting/stretching/hashing) in the knowledgebase for more information.
 				*/
-				$_SESSION['userID']   = $loginUser['id'];
+				if($this->ValidatePassword($loginUser['password'], $password) === true)
+				{	
+					//After successful validation we want to log that Password was validated successfully:
+					setLog($_SESSION['userID'],"Password return true", "SUCCESS", date("d-m-y"), $privelige, "NULL");
+			
+					session_start();
 
-				//The CSRF token is set here by an aproved random number generator
-				$_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
+					//Change the session id on login
+					session_regenerate_id(true);
 
-				//if all is ok we return loginUser values
-				return $loginUser;
+					//Here we set a session to see if the user is authenticated throughought the system
+					$_SESSION['access']   = "active";
+
+					/*
+					The userID in a session variable to use as an identifier to prevent a user reading
+					into unauthorised data, See Identifier-based authorization for more information and
+					code examples.
+					*/
+					$_SESSION['userID']   = $loginUser['id'];
+
+					//The CSRF token is set here by an aproved random number generator
+					$_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
+
+					//if all is ok we return loginUser values
+					return $loginUser;
+				}
 			}
 		}
 	}

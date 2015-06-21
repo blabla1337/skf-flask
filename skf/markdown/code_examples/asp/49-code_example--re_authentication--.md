@@ -39,7 +39,8 @@ Re-authentication
 			public bool reAuthentication()
 			{
 				//Here we connect to the database by means of a connection string as configured in the web.config
-				SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
+				SqlConnection conn = new SqlConnection
+				(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
 				bool loggedin = false;
 				string passwordHash = "";

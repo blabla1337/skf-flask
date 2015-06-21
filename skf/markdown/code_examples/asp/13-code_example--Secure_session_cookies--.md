@@ -3,6 +3,7 @@ Secure session cookies
 
 **Example:**
 
+	/*
 	Whenever  a cookie is sent over a secured connection, the cookie should be set
 	with the secure flag, in order to guarantee the integrity of the data it contains.
 
@@ -14,7 +15,8 @@ Secure session cookies
 	override the setting in httpCookies, changing it's value back to false.
 
 	In that case, you need to add the requireSSL="true" attribute to the forms element as well.
-
+	*/
+	
 	<system.web>
 		<authentication mode="Forms">
 			<forms requireSSL="true"> <-- secure flag
@@ -23,9 +25,10 @@ Secure session cookies
 		</authentication>
 	</system.web>
 	
-	Or programmatically
+	
+	//Or programmatically
 
-	C# Code:
+	//C# Code:
 	
 	HttpCookie myCookie = new HttpCookie("AuthToken", guid);
 	HttpContext.Current.Response.Cookies.Add(myCookie);

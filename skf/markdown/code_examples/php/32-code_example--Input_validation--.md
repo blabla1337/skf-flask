@@ -37,19 +37,19 @@ input validation
 				Set a log for whenever there is unexpected userinput with a threat level
 				See "audit logs" code example for more information:
 				*/
-				$logging -> setLog($_SESSION['userID'], $logMessage, "FAIL", date("d-m-y"), $_SESSION["privilege"], $threatLevel);
+				$logging -> setLog($_SESSION['userID'], $logMessage, "FAIL", date("d-m-y"), 
+				$_SESSION["privilege"], $threatLevel);
 
 				/*
 				Set counter if counter hits 3 the users session must terminated
 				After 3 session terminations the user acount must be blocked
 				See "audit logs" code example for more information:
 				*/			
-				//$logging->setCounter($countLevel);
+				$logging->setCounter($countLevel);
 			
 				return false;
-			}
-			else{
-			
+			 }else{ 
+			 
 				//Set a log for whenever there is unexpected userinput with a threat level
 				$logging->setLog($_SESSION['userID'],"Valid input validation for regex from ".$type." ",
 				"SUCCESS", date("d-m-y"), $_SESSION["privilege"], "NONE");

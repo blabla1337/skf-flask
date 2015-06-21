@@ -9,47 +9,44 @@ HTML output
 	/*
 	Whenever user input is displayed in the application, whether, as content or a parameter value 
 	submitted towards the url, all user input should be properly escaped to prevent XSS injections.
-
-	Imagine this POST value being shown as content somewhere on the application. In it's current 
-	state it is vulnerable for XSS injection. 
-
-	In its escaped state we use the php function "htmlspecialchars()" in order to disarm malicious user 
-	input triggering the XSS injection.
-
-	<form method='POST'>
-	<input type='text' name='value'/><br/>
-	<input type='submit' name='submit' value='submit'/>
-	</form>
 	*/
  
-	//POST value current state:
-	$vulnerable = $_POST['value'];
-	echo $vulnarable
-
-	//POST value escaped state:
-	$escaped = htmlspecialchars($_POST['value']);
+	//For normal output this escaping wil do the trick
+	$escaped = htmlspecialchars($_POST['value'], ENT_QUOTES, 'UTF-8');
 	echo $escaped;
 
 	//This also applies, for instance, when retrieving content from a database:
-
 	while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-		echo htmlspecialchars($row['value']);
-
-	}//end while loop
-
+		echo htmlspecialchars($row['value'], ENT_QUOTES, 'UTF-8');
+	}
+	
 	/*
 	Security consists of different layers of protection, in order to guarantuee the integrity
-	of your application. This means that the value subtracted from the database should
-	already be sanitised before being submitted towards the database, in order to prevent XSS.
-	As an example, you are expecting only a numerical value here:
+	of your application. This means that the value submitted from the user should
+	already be sanitised before being submitted towards the database in order to prevent XSS.
+	As an example, you are expecting only alphanumerical value here:
 	*/
 
-	if(!preg_match('/^[0-9]/', $escaped))
+	if(!preg_match("/^[a-zA-Z0-9]+$/", $escaped))
 	{
-		die;
+		die();
 	}
-
+	
+	/*
+	This type of aproach should be used whenever you are allowing userinput in 
+	your DOM like for example, let's say a user was allowed to upload an image and
+	set an alt text. when you do not sanitize his input a possible attack string could be:
+	*/
+	
+	this is an image" onload="alert('XSS');"
+	
+	/*
+	whenever this string now is added to the users image this will be the outcome, leading
+	to xss:
+	*/
+	
+	<img src="http://image.com/image.jpg" alt="this is an image" onload="alert('XSS')"" />
+	
 	/*
 	After this sanitation malicious code can no longer exist in the $_POST['value'] variable.
 
@@ -60,22 +57,11 @@ HTML output
 	data:text/html;base64,base64xssinjection
 
 	In the following scenario escaping with htmlspecialchars() is not sufficient to block the injection.
-	By checking the URL to see if it starts with either http:// or https://, you can prevent this attack 
-	by exiting the application when this anomaly is triggered: 
-	*/ 
-
-	if(substr_compare($_SERVER['REQUEST_URI'], "http://", 0, 7, true ) != 0
-	&&
-	substr_compare($_SERVER['REQUEST_URI'], "https://", 0, 8, true)    !=0 )  
-	{
-		die;
-	}
-
-	/*
-	You could also do a simple serverside regex whenever a link is added to see whether it starts
-	with http: or https: 
-	If not, than the link must not be allowed to be posted
-	*/
+	By checking the URL to see if it starts with either http:// or https:// whenever a link has
+	been submitted to the web application by a user.
+	
+	
+	
 	?>
 
 

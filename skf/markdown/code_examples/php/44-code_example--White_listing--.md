@@ -22,7 +22,8 @@
 			foreach($result as $pattern){
 				while(preg_match("/^".$pattern."$/", $input)){		
 					//If the value is valid we send a log to the logging file.        
-					$logging->setLog($_SESSION['userID'],"Good whitelist validation", "SUCCESS", date("d-m-y"),"null", "HIGH"); 
+					$logging->setLog($_SESSION['userID'],"Good whitelist validation", 
+					"SUCCESS", date("d-m-y"),"null", "HIGH"); 
 			
 					$results = true;
 					
@@ -30,13 +31,17 @@
 					return true;
 				}
 			}
+			
 			//Check for a false in order to send error to log and counter the user.
 			if($results == false){
 				//If the value is invalid we send a log to the logging file.        
-				$logging->setLog($_SESSION['userID'],"Bad whitelist validation", "FAIL", date("d-m-y"), $_SESSION["privilege"], "HIGH"); 
-				$logging->setCounter($countLevel);			
+				$logging->setLog($_SESSION['userID'],"Bad whitelist validation", 
+				"FAIL", date("d-m-y"), $_SESSION["privilege"], "HIGH"); 
+				
+				$logging->setCounter($countLevel);	
+				return false;		
 			}
 		}
-	}//end class
+	}
 	
     ?>

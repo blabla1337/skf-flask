@@ -17,7 +17,6 @@ Session cookies HttpOnly
 		$secure   = 0;
 		$httponly = true; // <--  the httponly flag
 
-
 		session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
 	}
 	

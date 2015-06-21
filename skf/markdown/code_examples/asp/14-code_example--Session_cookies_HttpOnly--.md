@@ -3,7 +3,7 @@ Session cookies HttpOnly
 
 **Example:**
 
-
+	/*
 	Whenever a session is started, the "httpOnly" option should always be set
 	in order to prevent session data to be stolen by attackers.
 
@@ -15,12 +15,13 @@ Session cookies HttpOnly
 
     In .NET 2.0, HttpOnly can also be set via the HttpCookie object for all custom application 
     cookies via web.config in the system.web/httpCookies element
-
+	*/
+	
 	<httpCookies httpOnlyCookies="true"> 
 
-    Or programmatically
+    //Or programmatically
 
-	C# Code:
+	//C# Code:
 
 	HttpCookie myCookie = new HttpCookie("AuthToken", guid);
 	HttpContext.Current.Response.Cookies.Add(myCookie);

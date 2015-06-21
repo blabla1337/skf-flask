@@ -59,7 +59,8 @@ Aggregate user controlls
 			
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
-			SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
+			SqlConnection conn = new SqlConnection
+			(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
 			//The count integer is set every time the user connects to the databse to process data
 			public void aggregateControll(int count)
@@ -119,7 +120,8 @@ Aggregate user controlls
 					{
 
 						//this breach has to be repported into the log files
-						Log.SetLog(Session['userID'], "User account was locked out due to aggregate user control system", date, FAIL, HIGH");
+						Log.SetLog(Session['userID'], 
+						"User account was locked out due to aggregate user control system", date, FAIL, HIGH");
 
 						/*
 						Whenever te reasonable number of connections the user made was surpassed we destroy all the 

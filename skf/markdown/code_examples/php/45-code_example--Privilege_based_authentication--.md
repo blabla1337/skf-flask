@@ -2,6 +2,8 @@
 -------
 
 **Example:**
+   	
+   	
    	<?php
    	
    	/*
@@ -75,7 +77,7 @@
 			*/
 			foreach($permission as $value){
 				if(preg_match('/'.$value.'/', $ispermitted)){
-					echo $counthits++;
+					$counthits++;
 				}
 			}
 		
@@ -86,12 +88,15 @@
 			if($counthits >= $count){
 		
 				//Log that the user had sufficient privileges:
-				$logging->setLog($_SESSION['userID'],"User was privileged!", "SUCCESS", date("d-m-y"), $privelige, "NULL");
+				$logging->setLog($_SESSION['userID'],"User was privileged!", "SUCCESS", 
+				date("d-m-y"), $privelige, "NULL");
+				
 				return true;
 			}else{
 			
 				//Log that the user had insufficient privileges:
-				$logging->setLog($_SESSION['userID'],"User was not privileged!", "FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+				$logging->setLog($_SESSION['userID'],"User was not privileged!", "FAIL", 
+				date(dd-mm-yyyy), $privelige, "HIGH");
 			
 				/*
 				Set counter; if counter hits 3, the user's session must be terminated.
@@ -108,6 +113,7 @@
 		}	
 	} 
 	
+	?>
 	   
 	/*
     This is how you enforce the permissions in your application

@@ -51,19 +51,22 @@
 				itself after it was stored on the server.
 				*/
 				header('Content-Description: File Transfer');
-    				header("content-type:".$mimeType."");
-    				header('Content-Disposition: attachment; filename='.$filename);
-    				header('Expires: 0');
+    			header("content-type:".$mimeType."");
+    			header('Content-Disposition: attachment; filename='.$filename);
+    			header('Expires: 0');
 				header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 				header("Cache-Control: post-check=0, pre-check=0", false);
 				header("Pragma: no-cache");    
 				header('Content-Length: ' . filesize($filename));
-    				readfile($filename);
-    				/*
-    				Exit is very important, if other mechanims fail this makes sure the rest 
-    				of the page plus attack string does not get downloaded anyways.
-    				*/
-    				exit;
+				//Last check to see if it really does exist.
+				if(file_exists($filename)){
+					readfile($filename);
+				}
+				/*
+				Exit is very important, if other mechanims fail this makes sure the rest 
+				of the page plus attack string does not get downloaded anyways.
+				*/
+				exit;
 				}
 			}
 		}
@@ -78,21 +81,23 @@
 	
 			$white = new whitelisting();
 		
-			if($white -> checkpattern("file1.pdf,file2.pdf", $filename, 3) != false){
+			if($white -> checkpattern("file1.txt,file2.txt", $filename, 3) != false){
 				header('Content-Description: File Transfer');
-    				header('Content-Type: application/octet-stream');
-    				header('Content-Disposition: attachment; filename='.$filename);
-    				header('Expires: 0');
+    			header('Content-Type: text/plain');
+    			header('Content-Disposition: attachment; filename='.$filename);
+    			header('Expires: 0');
 				header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 				header("Cache-Control: post-check=0, pre-check=0", false);
 				header("Pragma: no-cache");    
 				header('Content-Length: ' . filesize($filename));
-    				readfile($filename);
-    				/*
-    				Exit is very important, if other mechanims fail this makes sure the rest 
-    				of the page plus attack string does not get downloaded anyways.
-    				*/
-    				exit;
+				if(file_exists($filename)){
+					readfile($filename);
+				}
+				/*
+				Exit is very important, if other mechanims fail this makes sure the rest 
+				of the page plus attack string does not get downloaded anyways.
+				*/
+				exit;
 			}
 		}
 	}

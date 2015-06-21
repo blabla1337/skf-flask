@@ -27,9 +27,9 @@ Random password/token generation
 				rng.GetBytes(buffer);
 
 				//Then we base64 encode the string in order to prevent null bytes
-				string password = System.Convert.ToBase64String(buffer);
+				string randomString = System.Convert.ToBase64String(buffer);
 
-				return password;
+				return randomString;
 			}
 		}
 	}

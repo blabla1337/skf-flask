@@ -9,7 +9,6 @@ Password forget & Disallow old passwords
 	Whenever you are developing a password forget function, these are the steps to follow
 	in order to create hardened defenses.
 	
-	
 	 TABLE users
     -----------------------------------------------------------------
     | userID | userName | password |   EmailAdress	 |    access	|
@@ -39,7 +38,6 @@ Password forget & Disallow old passwords
 	
 	Also use a cron job to make sure the generated tokens for the password reset are
 	expire after a certain amount of time like 20 minutes.
-	
 	*/
 	
 	class passwordForget{	
@@ -55,18 +53,16 @@ Password forget & Disallow old passwords
 			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		
 			foreach($rows as $row){
-		
 				//Here we select the old password as wel as the userid from the members table
 				$password = $row['password'];
 				$userID   = $row['id'];
 				$email 	  = $row['email'];
-		
 			}
 		
 			//If the select was not empty we will be sending an email to the user as wel as
 			//preparing the password forget function
 			if(!empty($rows)){
-		
+			
 				echo "An email was sent to your email for password reset";
 			
 				/*
@@ -89,14 +85,13 @@ Password forget & Disallow old passwords
 					(token, userID, active, oldPasswords)
 						VALUES 
 							(?, ?, ?, ?)");
-			
+							
 				$stmt->execute(array(
 				$token,
 				$userID,
 				'YES',
 				$password
 				));
-		
 			
 				//Here we send an email to the user with the needed reset function
 				$msg = "follow this link to reset your password http://example.com/index.php?resetLink=$token";
@@ -111,7 +106,6 @@ Password forget & Disallow old passwords
 				echo "An email was sent to your email for password reset";			
 			}
 		}
-	
 	
 		public function resetPassword(){
 			
