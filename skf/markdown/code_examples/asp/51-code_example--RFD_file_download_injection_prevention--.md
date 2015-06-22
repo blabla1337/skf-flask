@@ -1,4 +1,4 @@
-Logout functionality
+RFD and file download injections
 -------
 
 **Example:**
