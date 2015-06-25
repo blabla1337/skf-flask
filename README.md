@@ -308,12 +308,12 @@ We have also created a Pebble application called: OWASP-SKF Pebble, check it out
 http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 
 ##<a name="contributors"></a>Contributors
-- Glenn ten Cate
-- Riccardo ten Cate
+- [Glenn ten Cate](https://twitter.com/FooBar_testing_)
+- [Riccardo ten Cate](https://twitter.com/RiieCco)
 - Alexander Kaasjager
 - John Haley
 - Daniel Paulus
-- Erik de Kuijper
+- [Erik de Kuijper](https://twitter.com/edkpr)
 - Roderick Schaefer
 - Jim Manico
 - Martijn Gijsberti Hodenpijl
