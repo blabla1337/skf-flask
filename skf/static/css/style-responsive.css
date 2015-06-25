@@ -19,22 +19,19 @@
 }
 
 @media (max-width: 768px) {
-
-    .header {
-        position: absolute;
-    }
-
-    /*sidebar*/
-
-    #sidebar {
-        height: auto;
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-        z-index: 1001;
-    }
-
-
+	
+	/* Fix for smaller screens */
+	aside,
+    .header { position: relative; float: left; width: 100%; }
+	ul.sidebar-menu { margin-top: 0; }
+	#sidebar { float: left; width: 100%; position: relative; border: none; }
+	.intro { margin-top: 0; }
+	#nav-accordion { padding-top: 20px; }
+	.intro .text { width: 100%; }
+	.site-footer { margin-left: 0; }
+	.row.mt { clear: both; }
+	a.toggle { display: none; }
+	
     /* body container */
     #main-content {
         margin: 0px!important;
