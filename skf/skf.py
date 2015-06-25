@@ -264,7 +264,6 @@ def dashboard():
 @security
 def login():
     blockUsers()
-    check_token()
     """validate the login data for access dashboard page"""
     error = None
     if request.method == 'POST':
