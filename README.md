@@ -310,10 +310,10 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 ##<a name="contributors"></a>Contributors
 - [Glenn ten Cate](https://twitter.com/FooBar_testing_)
 - [Riccardo ten Cate](https://twitter.com/RiieCco)
-- Alexander Kaasjager
+- [Alexander Kaasjager](https://twitter.com/akaasjager)
 - John Haley
 - Daniel Paulus
 - [Erik de Kuijper](https://twitter.com/edkpr)
 - Roderick Schaefer
-- Jim Manico
+- [Jim Manico](https://twitter.com/manicode)
 - Martijn Gijsberti Hodenpijl
