@@ -20,8 +20,7 @@ File upload
 			$filetype = explode(".", $image['name']);
 	
 			/*
-			For uploading out of intended directory we check the filename and verify that it only contains 
-			alpahnumeric values.
+			For uploading out of intended directory we check the filename and verify that it only contains alpahnumeric values.
 			*/
 			if($validated -> inputValidation($filetype[0], "alpanumeric", "invalid filename", "MOD", 2){
 				header('location:/page');

@@ -8,12 +8,10 @@ CSRF tokens
 	class CSRF{
 	
 		public function generateToken(){
-			/*
-
+            /*
             After successful user authentication, the application must start a session
 			which contains the "Cross Site Request Forgery(CSRF)" token.
-
-			*/
+            */
 
             $_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
 		}
