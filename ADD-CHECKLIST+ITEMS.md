@@ -1,3 +1,4 @@
+[![SKF Logo](https://www.securityknowledgeframework.org/img/logos/logo-purple.png)](http://www.securityknowledgeframework.com)
 ####Add checklist items:
 ----------
 
@@ -7,8 +8,7 @@ you have to know the build structure of the checklist items.
 Let's break them up into peaces:
 
 ```html
-    <span style="color:red">479</span--custom--0--.md
-    ![alt tag](https://raw.github.com/username/projectname/branch/path/to/img.png)
+  479--custom--0--.md
 ```
 
 Red:    Identifier, this number must increment
