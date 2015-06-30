@@ -34,15 +34,15 @@ you have to know the build structure of the knowledge base items.
 
 Let's break them up into peaces:
 
-```
-    5-knowledge_base--csrf_injection--.md
-```
+5-knowledge_base--csrf_injection--.md
 
+
+```
 Red:   Identifier, this number must increment.
 Blue:  Separators, must be used exactly as seen in example, otherwise the checklist engine fails
 Yellow: Checklist type
 Green: Knowledge base item name, cannot contain special chars like (&><'") 
-
+```
 Now whenever we open this file we can find a small layout for styling.
 This styling is also used for dividing the 'description' and 'solution' parts:
 
@@ -76,14 +76,14 @@ you have to know the build structure of the code examples.
 
 Let's break them up into peaces:
 
-```
-    1-code_example--File_upload--.md
+1-code_example--File_upload--.md
+
 ```
 Red:    Identifier, this number must increment.
 Blue:   Separators, must be used exactly as seen in example, otherwise the checklist engine fails
 Yellow: Checklist type
 Green:  code example item name, cannot contain special chars like (&><'") 
-
+```
 What we want to achieve when presenting the code examples is teaching the developer the
 defensive programming mindset, so we would like to see the examples do the following things
 at a minimum:
