@@ -1,4 +1,3 @@
-[![SKF Logo](https://www.securityknowledgeframework.org/img/logos/logo-purple.png)](http://www.securityknowledgeframework.com)
 ####Add checklist items:
 ----------
 
@@ -7,8 +6,7 @@ you have to know the build structure of the checklist items.
 
 Let's break them up into peaces:
 
-479--custom--0--.md
-
+[![examp1](http://www.emeraldweb.nl/example1.png)
 ```
 Red:    Identifier, this number must increment
 Blue:   Separators, must be used exactly as seen in example, otherwise the checklist engine fails
