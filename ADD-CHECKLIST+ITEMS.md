@@ -7,6 +7,7 @@ you have to know the build structure of the checklist items.
 Let's break them up into peaces:
 
 ![examp1](http://www.emeraldweb.nl/examp1.png)
+
 ```
 Red:    Identifier, this number must increment
 Blue:   Separators, must be used exactly as seen in example, otherwise the checklist engine fails
@@ -32,14 +33,13 @@ you have to know the build structure of the knowledge base items.
 
 Let's break them up into peaces:
 
-5-knowledge_base--csrf_injection--.md
-
+![examp1](http://www.emeraldweb.nl/examp2.png)
 
 ```
-Red:   Identifier, this number must increment.
-Blue:  Separators, must be used exactly as seen in example, otherwise the checklist engine fails
+Red:    Identifier, this number must increment.
+Blue:   Separators, must be used exactly as seen in example, otherwise the checklist engine fails
 Yellow: Checklist type
-Green: Knowledge base item name, cannot contain special chars like (&><'") 
+Green:  Knowledge base item name, cannot contain special chars like (&><'") 
 ```
 Now whenever we open this file we can find a small layout for styling.
 This styling is also used for dividing the 'description' and 'solution' parts:
