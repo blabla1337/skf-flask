@@ -6,7 +6,7 @@ you have to know the build structure of the checklist items.
 
 Let's break them up into peaces:
 
-```bash
+```
     479--custom--0--.md
 ```
 
@@ -21,7 +21,7 @@ item as a checklist head, instead of an item.
 Now whenever we open the file, we find a string of text containing the checklist item
 or head as so:
 
-```bash
+```
     "V3.3 Verify that sessions timeout after a specified period of inactivity."
 ```
 The checklist engine will read this when building the checklist to create the checklists.
@@ -34,7 +34,7 @@ you have to know the build structure of the knowledge base items.
 
 Let's break them up into peaces:
 
-```bash
+```
     5-knowledge_base--csrf_injection--.md
 ```
 
@@ -46,7 +46,7 @@ Green: Knowledge base item name, cannot contain special chars like (&><'")
 Now whenever we open this file we can find a small layout for styling.
 This styling is also used for dividing the 'description' and 'solution' parts:
 
-```bash
+```
     CSRF injection		<-- Title as seen in your checklist head
     -------
 
@@ -76,7 +76,7 @@ you have to know the build structure of the code examples.
 
 Let's break them up into peaces:
 
-```bash
+```
     1-code_example--File_upload--.md
 ```
 Red:    Identifier, this number must increment.
