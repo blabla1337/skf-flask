@@ -7,15 +7,14 @@ you have to know the build structure of the checklist items.
 
 Let's break them up into peaces:
 
-```html
-  479--custom--0--.md
-```
+479--custom--0--.md
 
+```
 Red:    Identifier, this number must increment
 Blue:   Separators, must be used exactly as seen in example, otherwise the checklist engine fails
 Yellow: Name of your checklist
 Green:  Vulnerability, This number links to a vulnerability number from the knowledge base.
-
+```
 Whenever the vulnerability is set to zero, the checklist engine will interpreted this
 item as a checklist head, instead of an item.
 
