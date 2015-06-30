@@ -8,6 +8,7 @@ Let's break them up into peaces:
 
 ```html
     <span style="color:red">479</span--custom--0--.md
+    ![alt tag](https://raw.github.com/username/projectname/branch/path/to/img.png)
 ```
 
 Red:    Identifier, this number must increment
