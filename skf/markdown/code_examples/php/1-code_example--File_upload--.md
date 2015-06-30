@@ -13,15 +13,15 @@ File upload
 	
 	
 			$image = $_FILES['fileToUpload'];
-			//File location ouside of the root
+			//File location outside of the root
 			$uploaddir = 'assets/uploads/';
 		
 			//check extensions
 			$filetype = explode(".", $image['name']);
 	
 			/*
-			For uploading out of intended directory we check the filename if it only contains 
-			alpahnumeric value's
+			For uploading out of intended directory we check the filename and verify that it only contains 
+			alpahnumeric values.
 			*/
 			if($validated -> inputValidation($filetype[0], "alpanumeric", "invalid filename", "MOD", 2){
 				header('location:/page');
@@ -36,14 +36,14 @@ File upload
 
 			while(($filetype[$takeLastValue] != "png") && ($filetype[$takeLastValue] != "jpg")){
 
-				//Set a log for whenever there is unexpected userinput with a threat level
+				//Set a log for whenever there is an unexpected userinput with a threat level
 				$log -> setLog($_SESSION['userID'],"Unrestrected image extension upload", 
 				"FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
 
 				/*
 				Set counter; if counter hits 3, the user's session must be terminated.
 				After 3 session terminations the user acount should be blocked
-				Since the high threat level there will be imediate session termination
+				Since the high threat level will lead to immediate session termination
 				*/
 				$log -> setCounter(3);
 
@@ -63,7 +63,7 @@ File upload
 				die();
 			}  
 	
-			//if all goes wel upload your file, first we want to log the event. 
+			//if all goes well upload your file, first we want to log the event. 
 			$log -> setLog($_SESSION['userID'],"File upload", "SUCCESS", date(dd-mm-yyyy), 
 			$privelige, "NULL");
 	
@@ -83,8 +83,8 @@ File upload
 
 				/*
 				Set counter; if counter hits 3, the user's session must be terminated.
-				After 3 session terminations the user acount should be blocked
-				Since the high threat level there will be imediate session termination
+				After 3 session terminations the user account should be blocked
+				since the high threat level can lead to immediate session termination.
 				*/
 				$log -> setCounter(3);
 

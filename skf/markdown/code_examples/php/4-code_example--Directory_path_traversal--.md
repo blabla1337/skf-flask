@@ -29,7 +29,7 @@ Directory/path traversal
 			"Invalid userinput", "HIGH", $countLevel) == false) {$continue = false;}
 	 
 			/*
-			Seccond, we want to whitelist the filenames for expected values, in this example they are,
+			Second, we want to whitelist the filenames for expected values, in this example they are,
 			page1,page2 etc.. for more information about whitelisting see "white-listing" in the code examples:
 			*/
 			if($whitelist->checkpattern($whiteListPattern, $inputParameter, $countLevel) == false)
