@@ -6,7 +6,7 @@ you have to know the build structure of the checklist items.
 
 Let's break them up into peaces:
 
-[![examp1](http://www.emeraldweb.nl/example1.png)
+![examp1](http://www.emeraldweb.nl/example1.png)
 ```
 Red:    Identifier, this number must increment
 Blue:   Separators, must be used exactly as seen in example, otherwise the checklist engine fails
