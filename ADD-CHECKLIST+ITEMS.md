@@ -6,7 +6,7 @@ you have to know the build structure of the checklist items.
 
 Let's break them up into peaces:
 
-```
+```html
     <span style="color:red">479</span--custom--0--.md
 ```
 
