@@ -74,7 +74,7 @@ you have to know the build structure of the code examples.
 
 Let's break them up into peaces:
 
-1-code_example--File_upload--.md
+![examp1](http://www.emeraldweb.nl/examp3.png)
 
 ```
 Red:    Identifier, this number must increment.
