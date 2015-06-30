@@ -7,7 +7,7 @@ you have to know the build structure of the checklist items.
 Let's break them up into peaces:
 
 ```
-    479--custom--0--.md
+    <span style="color:red">479</span--custom--0--.md
 ```
 
 Red:    Identifier, this number must increment
