@@ -8,17 +8,25 @@ CSRF tokens
 	class CSRF{
 	
 		public function generateToken(){
-			//First after a succsesfull validation of a user login, the application must also start a session
-			//which contains the "cross site request forgery" token.
-			$_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
+            /*
+            After successful user authentication, the application must start a session
+			which contains the "Cross Site Request Forgery(CSRF)" token.
+            */
+
+            $_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
 		}
 		
 		/*
-		The next step is implementing this random token in each form field as a hidden input parameter
-		and send it to a function which checks if the submitted token is equal to the one set after succesfull validation.
-		
-		here we are sending the token towards the function which does the token validation:
+
+        The random CSRF token generated need to be send to the server with every form submission.
+        This token is included in a form as a HTML hidden form field parameter. When the form is 
+        submitted the token value is also submitted along with it. 
+        
+        The token is then validated against the csrf token which was generated during user authentication. 
+        Below code demonstrate the validation of csrf token at the server side:
+
 		*/
+
 		protected function _checkCsrf($token){        
 			session_start();                    
 		
@@ -27,7 +35,7 @@ CSRF tokens
 				//Log the invalid token verification
 				setLog($_SESSION['userID'],"invalid CSRF token send!", "FAIL", date("d-m-y"), $_SESSION['privilege'], "HIGH");
 			
-				//if the token was not valid we terminate the users session
+				//If the token was not valid we terminate the users session
 				session_start();
 				session_destroy();                   
 			
