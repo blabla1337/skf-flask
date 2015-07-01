@@ -317,3 +317,4 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Roderick Schaefer
 - [Jim Manico](https://twitter.com/manicode)
 - Martijn Gijsberti Hodenpijl
+- Bithin Alangot
