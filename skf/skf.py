@@ -1098,7 +1098,7 @@ def download_file_function(projectID):
     valNum(projectID)
     safe_id = encodeInput(projectID)
     db = get_db()
-    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, projects.userID, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? AND projects.userID=? GROUP BY parameters.tech;",
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName, projects.userID FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? AND projects.userID=? GROUP BY parameters.tech;",
                [safe_id, session['userID']])
     entries = cur.fetchall()
     document = Document()
