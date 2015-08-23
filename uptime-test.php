@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 $api_key_demo = "m776861145-d60d8f272b3b299802ea4af8"; 
 $api_key_www = "m776861146-97cc8bd376321f69e6286cfc";
 

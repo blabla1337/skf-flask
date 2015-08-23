@@ -27,11 +27,15 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Inches
 from functools import wraps 
 from sqlite3 import dbapi2 as sqlite3
+from flask.ext.bcrypt import Bcrypt
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
 
 # create the application
 app = Flask(__name__)
+
+"""Set up bcrypt for passwords encrypting"""
+bcrypt = Bcrypt(app)
 
 def add_response_headers(headers={}):
     """This decorator adds the headers passed in to the response"""
@@ -141,11 +145,9 @@ bindaddr = '127.0.0.1';
 # You can also replace password with static password:  PASSWORD='pass!@#example'
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'skf.db'),
-    DEBUG=False,
+    DEBUG=True,
     SECRET_KEY=secret_key,
-    USERNAME='admin',
     SESSION_COOKIE_SECURE=True,
-    PASSWORD=password,
     SESSION_COOKIE_HTTPONLY = True
 ))
 
@@ -260,30 +262,71 @@ def dashboard():
     version = get_version()
     return render_template('dashboard.html', version=version, version_check=version_check)
 
+"""First comes the method for login"""
 @app.route('/login', methods=['GET', 'POST'])
 @security
 def login():
     blockUsers()
     """validate the login data for access dashboard page"""
     error = None
+    db = get_db()
+    db.commit()
     if request.method == 'POST':
-        if request.form['username'] != app.config['USERNAME']:
-            log("Invalid username submit", "FAIL", "LOW")
-            valAlphaNum(request.form['username'])
-            error = 'Invalid username/password'
-        elif request.form['password'] != app.config['PASSWORD']:
-            log("Invalid password submit", "FAIL", "LOW")
-            error = 'Invalid username/password'
-        else:
-            log("Valid username/password submit", "SUCCESS", "HIGH")
-            session['logged_in'] = True
-            session['csrf_token'] = csrf_token
-            session['code_lang'] = "php"
-            version_check = check_version()
-            version = get_version()
-            return render_template('dashboard.html', version=version, version_check=version_check)
+        """Username and password from form"""
+        username = request.form['username']
+        password = request.form['password']
+              
+        """Do DB query also check for access"""
+        cur = db.execute('SELECT * from users where username=? AND access="true"',
+                            [username])
+        entries = cur.fetchall()
+        for entry in entries:
+            passwordHash = entry[3]  
+            userID 		 = entry[0]         
+            """Do encryption"""
+            if bcrypt.check_password_hash(passwordHash, password):
+                log("Valid username/password submit", "SUCCESS", "HIGH")    
+                session['logged_in'] = True
+                session['userID'] = userID
+                session['csrf_token'] = csrf_token
+                session['code_lang'] = "php"
+                version_check = check_version()
+                version = get_version()
+                return render_template('dashboard.html', version=version, version_check=version_check)
+            else:    
+                log("invalid login submit", "FAIL", "HIGH")                   
     return render_template('login.html', error=error)
 
+
+"""Here is the method for the database enforced privilege based authentication"""
+#def permissions(fromFunction):
+#    db = get_db()
+#    db.commit()
+
+"""Do DB query to see if username exists"""
+#    cur = db.execute('SELECT a.username, a.userID, a.password, a.privilegeID, b.privilegeID, b.privilege FROM users as a JOIN privileges as b ON a.privilegeID = b.privilegeID WHERE a.userID =? and a.access="true" ',
+#    				       [session['userID']])
+#    entries = cur.fetchall()
+#    for entry in entries:
+#    	permissions = entry[5]
+    	
+#    permissionsGranted = string.split(permissions, ':')	
+#    permissionsNeeded  = string.split(fromFunction, ':')
+    
+#    count = len(permissionsNeeded)
+#    counthits = 0
+    
+#    for value in permissionsGranted:
+#        INSER ANNOYING REGEX FOR FUNCTION AND PRIV IS READY
+#        if fromFunction.find(value) >= 0: 
+#            counthits + 1 
+#    if counthits >= count:
+#        return True
+#    else:
+#        return False
+
+        
+    
 @app.route('/logout', methods=['GET', 'POST'])
 @security
 def logout():
@@ -446,8 +489,8 @@ def add_entry():
     safe_inputVersion = encodeInput(request.form['inputVersion'])
     safe_inputDesc = encodeInput(request.form['inputDesc'])
     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-    db.execute('INSERT INTO projects (timestamp, projectName, projectVersion, projectDesc) VALUES (?, ?, ?, ?)',
-               [date, safe_inputName, safe_inputVersion, safe_inputDesc])
+    db.execute('INSERT INTO projects (timestamp, projectName, projectVersion, projectDesc, userID) VALUES (?, ?, ?, ?, ?)',
+               [date, safe_inputName, safe_inputVersion, safe_inputDesc, session['userID']])
     db.commit()
     return redirect(url_for('project_list'))
 
@@ -463,8 +506,8 @@ def project_del():
     check_token()
     valNum(id)
     db = get_db()
-    db.execute("DELETE FROM projects WHERE projectID=?",
-               [id])
+    db.execute("DELETE FROM projects WHERE projectID=? AND userID=?",
+               [id, session['userID']])
     db.commit()
     return redirect("/project-list")
 
@@ -477,7 +520,8 @@ def project_list():
         log("User with no valid session tries access to page /project-list", "FAIL", "HIGH")
         abort(401)
     db = get_db()
-    cur = db.execute('SELECT projectName, projectVersion, projectDESC, projectID, timestamp FROM projects ORDER BY projectID DESC')
+    cur = db.execute('SELECT projectName, projectVersion, projectDESC, projectID, timestamp FROM projects where userID=? ORDER BY projectID DESC',
+                          [session['userID']])
     entries = cur.fetchall()
     return render_template('project-list.html', entries=entries, csrf_token=session['csrf_token'])
 
@@ -497,7 +541,7 @@ def projects_options(project_id):
 @security
 def project_functions(project_id):
     blockUsers()
-    """show the lproject functions page"""
+    """show the pproject functions page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-functions", "FAIL", "HIGH")
         abort(401)
@@ -506,8 +550,8 @@ def project_functions(project_id):
     safe_project_id = encodeInput(project_id)
     db = get_db()
     db.commit()
-    cur = db.execute('SELECT p.paramID, p.functionName, p.functionDesc, p.projectID, p.tech, p.techVuln, p.entryDate, t.techName FROM parameters AS p JOIN techhacks AS t ON p.tech = t.techID WHERE p.projectID=? ORDER BY p.projectID DESC',
-                      [safe_project_id])
+    cur = db.execute('SELECT p.paramID, p.functionName, p.functionDesc, p.projectID, p.tech, p.techVuln, p.entryDate, t.techName FROM parameters AS p JOIN techhacks AS t ON p.tech = t.techID WHERE p.projectID=? AND userID=? ORDER BY p.projectID DESC',
+                      [safe_project_id, session['userID']])
     entries = cur.fetchall()
     return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries, csrf_token=session['csrf_token'])
 
@@ -525,8 +569,8 @@ def function_del():
     valNum(id)
     valNum(id_param)
     db = get_db()
-    db.execute("DELETE FROM parameters WHERE projectID=? AND paramID=?",
-               [id,id_param])
+    db.execute("DELETE FROM parameters WHERE projectID=? AND paramID=? AND sessionID=?",
+               [id,id_param, session['userID']])
     db.commit()
     redirect_url = "/project-functions/"+str(id)
     return redirect(redirect_url)
@@ -561,8 +605,8 @@ def add_function():
                     valAlphaNum(vulnID)
                     safe_techID = encodeInput(techID)
                     safe_vulnID = encodeInput(vulnID)
-                    db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, techVuln, tech, projectID) VALUES (?, ?, ?, ?, ?, ?)',
-                           [date, safe_fName, safe_fDesc, safe_vulnID, safe_techID, id])
+                    db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, techVuln, tech, projectID, userID) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                           [date, safe_fName, safe_fDesc, safe_vulnID, safe_techID, id, session['userID']])
                     db.commit()
     redirect_url = '/project-functions/'+str(id) 
     return redirect(redirect_url)
@@ -604,8 +648,8 @@ def add_checklist():
                 #print '        '+listID+'="'+str(safe_listID)+'",'
                 date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
                 db = get_db()
-                db.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName) VALUES (?, ?, ?, ?, ?, ?, ?)',
-                           [date, safe_answerID, safe_pName, safe_id, safe_questionID, safe_vulnID, safe_listID])
+                db.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName, userID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                           [date, safe_answerID, safe_pName, safe_id, safe_questionID, safe_vulnID, safe_listID, session['userID']])
                 db.commit()
                 i += 1
     redirect_url = "/results-checklists"
@@ -622,8 +666,8 @@ def project_checklists(project_id):
     valNum(project_id)
     safe_id = int(project_id)
     db = get_db()
-    cur = db.execute('SELECT * FROM projects WHERE projectID=?',
-                        [safe_id])
+    cur = db.execute('SELECT * FROM projects WHERE projectID=? AND userID=?',
+                        [safe_id, session['userID']])
     row = cur.fetchall()
     prep = row[0]
     projectName = prep[1]
@@ -801,7 +845,8 @@ def results_checklists():
         log("User with no valid session tries access to page /results-checklists", "FAIL", "HIGH")
         abort(401)
     db = get_db()
-    cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID  GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC')
+    cur = db.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID WHERE p.userID=?  GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC',
+                          [session['userID']])
     entries = cur.fetchall()
     return render_template('results-checklists.html', entries=entries, csrf_token=session['csrf_token'])
 
@@ -814,7 +859,8 @@ def results_functions():
         log("User with no valid session tries access to page /results-functions", "FAIL", "HIGH")
         abort(401)
     db = get_db()
-    cur = db.execute('SELECT p.projectName, p.projectID, par.entryDate, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID FROM projects AS p join parameters AS par on p.projectID = par.projectID GROUP BY p.projectVersion ')
+    cur = db.execute('SELECT p.projectName, p.projectID, par.entryDate, p.projectDesc, p.projectVersion, par.paramID, par.functionName, par.projectID FROM projects AS p join parameters AS par on p.projectID = par.projectID WHERE p.userID=? GROUP BY p.projectVersion ',
+                         [session['userID']])
     entries = cur.fetchall()
     return render_template('results-functions.html', entries=entries, csrf_token=session['csrf_token'])
 
@@ -829,8 +875,8 @@ def functions_del():
     check_token()
     safe_entryDate = encodeInput(request.form['entryDate'])
     db = get_db()
-    db.execute("DELETE FROM parameters WHERE entryDate=?",
-               [safe_entryDate])
+    db.execute("DELETE FROM parameters WHERE entryDate=? AND userID=?",
+               [safe_entryDate, sessionp['userID']])
     db.commit()
     return redirect("/results-functions")
 
@@ -845,8 +891,8 @@ def checklists_del():
     check_token()
     safe_entryDate = encodeInput(request.form['entryDate'])
     db = get_db()
-    db.execute("DELETE FROM questionlist WHERE entryDate=?",
-               [safe_entryDate])
+    db.execute("DELETE FROM questionlist WHERE entryDate=? AND userID=? ",
+               [safe_entryDate, session['userID']])
     db.commit()
     return redirect("/results-checklists")
 
@@ -866,8 +912,8 @@ def checklist_results(entryDate):
     full_file_paths = []
     safe_entryDate = encodeInput(entryDate)
     db = get_db()
-    cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=?",
-               [safe_entryDate])
+    cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=? AND userID=?",
+               [safe_entryDate, session['userID']])
     entries = cur.fetchall()
     for entry in entries:
         projectName = entry[3]
@@ -911,8 +957,8 @@ def download_file_checklist(entryDate):
     content_title = []
     safe_entryDate = encodeInput(entryDate)
     db = get_db()
-    cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=?",
-               [safe_entryDate])
+    cur = db.execute("SELECT * FROM questionlist WHERE answer='no' AND entryDate=? AND userID=?",
+               [safe_entryDate, session['userID']])
     entries = cur.fetchall()
     document = Document()
     document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
@@ -1023,8 +1069,8 @@ def function_results(projectID):
     valNum(projectID)
     safe_id = encodeInput(projectID)
     db = get_db()
-    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
-               [safe_id])
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? AND userID=? GROUP BY parameters.tech;",
+               [safe_id, session['userID']])
     entries = cur.fetchall()
     for entry in entries:
         projectName = entry[0]
@@ -1052,8 +1098,8 @@ def download_file_function(projectID):
     valNum(projectID)
     safe_id = encodeInput(projectID)
     db = get_db()
-    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? GROUP BY parameters.tech;",
-               [safe_id])
+    cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? AND userID=? GROUP BY parameters.tech;",
+               [safe_id, session['sessionID']])
     entries = cur.fetchall()
     document = Document()
     document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
@@ -1135,3 +1181,6 @@ if __name__ == "__main__":
        context = SSL.Context(SSL.TLSv1_METHOD)
        context = ('server.crt', 'server.key')
        app.run(host=bindaddr, port=5443, ssl_context=context)
+       
+       
+

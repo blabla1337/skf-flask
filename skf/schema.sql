@@ -9,7 +9,8 @@ CREATE TABLE `parameters` (
 `techVuln` varchar(11) NOT NULL,
 `projectID` varchar(11) NOT NULL,
 `functionDesc` text CHARACTER NOT NULL,
-`entryDate` timestamp NOT NULL
+`entryDate` timestamp NOT NULL,
+`userID` int(11) NOT NULL
 );
 
 -- 
@@ -21,7 +22,8 @@ CREATE TABLE `projects` (
 `projectName` varchar(250) NOT NULL,
 `projectVersion` varchar(250) NOT NULL,
 `projectDesc` text NOT NULL,
-`timestamp` timestamp NOT NULL
+`timestamp` timestamp NOT NULL,
+`userID` int(11) NOT NULL
 );
 
 -- 
@@ -64,8 +66,6 @@ INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (27, 
 INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`, `vulnID`) VALUES (28, 'third party software', 14);
 
 
-
-
 -- 
 -- Table structure for table `questionlist`
 -- 
@@ -78,8 +78,38 @@ CREATE TABLE `questionlist` (
 `questionID` varchar(255) NOT NULL,
 `vulnID` varchar(255) NOT NULL,
 `listName` varchar(255) NOT NULL,
-`entryDate` timestamp NOT NULL
+`entryDate` timestamp NOT NULL,
+`userID` int(11) NOT NULL
 );
+
+-- 
+-- Table structure for table `users`
+-- 
+drop table if exists `users`;
+CREATE TABLE `users` (
+`userID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`privilegeID` int(11) NOT NULL,
+`userName` varchar(255) NOT NULL,
+`password` varchar(255) NOT NULL,
+`access` varchar(255) NOT NULL
+);
+
+INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `username`, `password`, `access`) VALUES (1, 1, "admin", "$2a$12$Da5N2VrqE/rFHjSP2QJt.uo6QmgA0OoBDx3AwDAlJkQhNY7IT/teu", "true");
+INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `username`, `password`, `access`) VALUES (2, 2, "guest", "$2a$12$Da5N2VrqE/rFHjSP2QJt.uo6QmgA0OoBDx3AwDAlJkQhNY7IT/teu", "true");
+
+
+-- 
+-- Table structure for table `privileges`
+-- 
+drop table if exists `privileges`;
+CREATE TABLE `privileges` (
+`privilegeID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`privilege` varchar(255) NOT NULL
+);
+
+INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:delete");
+INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read");
+INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "read");
 
 
 
