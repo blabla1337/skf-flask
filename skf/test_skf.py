@@ -49,14 +49,14 @@ def test_empty_db(client):
 
 def test_login(client):
     """Make sure login works"""
-    rv = login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    rv = login(client, "admin", "test-skf")
     assert b'New Project' in rv.data
-    rv = login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'] + 'x')
+    rv = login(client, "admin", "test-skf" + 'x')
     assert b'UNLOCK' in rv.data
 
 def test_knowledge_base_items(client):
     """Make sure knowledge-base items are visible"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    login(client, "admin", "test-skf")
     rv = client.get('/knowledge-base')
     assert b'Knowledge Base Security Vulnerabilities' in rv.data
     assert b'Filename injection Path traversel' in rv.data
@@ -67,7 +67,7 @@ def test_knowledge_base_items(client):
 
 def test_knowledge_base_item(client):
     """Make sure knowledge-base item content works"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    login(client, "admin", "test-skf")
     rv = client.post('/kb-item', data=dict(
         id=144
     ), follow_redirects=True)
@@ -90,7 +90,7 @@ def test_knowledge_base_item(client):
 
 def test_code_base_items(client):
     """Make sure code-example items are visible"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    login(client, "admin", "test-skf")
     rv = client.get('/code-examples')
     assert b'Knowledge Base Code Examples' in rv.data
     assert b'File upload' in rv.data
@@ -100,7 +100,7 @@ def test_code_base_items(client):
 
 def test_code_base_item(client):
     """Make sure code-example item content works"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    login(client, "admin", "test-skf")
     rv = client.post('/code-item', data=dict(
         id=1
     ), follow_redirects=True)
@@ -128,7 +128,7 @@ def test_code_base_item(client):
 
 def test_create_project(client):
     """Make sure skf is able to create new project and shows in listhttps://localhost:5443/project-checklists/1"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    login(client, "admin", "test-skf")
     rv = client.get('/project-new')
     assert b'Create new project' in rv.data
     rv = client.post('/project-add', data=dict(
@@ -143,7 +143,7 @@ def test_create_project(client):
 
 def test_create_project_function(client):
     """Make sure skf is able to create new project functions"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    login(client, "admin", "test-skf")
     rv = client.get('/project-new')
     rv = client.post('/project-add', data=dict(
         inputDesc="This is a test Description.",
@@ -176,7 +176,7 @@ def test_create_project_function(client):
 
 def test_create_project_checklist1(client):
     """Make sure skf is able to create, read, download new project checklist"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    login(client, "admin", "test-skf")
     rv = client.get('/project-new')
     rv = client.post('/project-add', data=dict(
         inputDesc="This is a test Description.",
@@ -353,7 +353,7 @@ def test_create_project_checklist1(client):
 
 def test_create_project_checklist2(client):
     """Make sure skf is able to create, read, download new project checklist"""
-    login(client, skf.app.config['USERNAME'], skf.app.config['PASSWORD'])
+    login(client, "admin", "test-skf")
     rv = client.get('/project-new')
     rv = client.post('/project-add', data=dict(
         inputDesc="This is a test Description.",
@@ -555,5 +555,3 @@ def test_create_project_checklist2(client):
     assert b'Checklist: ASVS-level-1' in rv.data
     rv = client.get('/results-checklist-docx/'+date)
     assert b'attachment' in rv.headers['Content-Disposition']
-
-
