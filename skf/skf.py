@@ -550,7 +550,7 @@ def project_functions(project_id):
     safe_project_id = encodeInput(project_id)
     db = get_db()
     db.commit()
-    cur = db.execute('SELECT p.paramID, p.functionName, p.functionDesc, p.projectID, p.tech, p.techVuln, p.entryDate, t.techName FROM parameters AS p JOIN techhacks AS t ON p.tech = t.techID WHERE p.projectID=? AND userID=? ORDER BY p.projectID DESC',
+    cur = db.execute('SELECT p.paramID, p.functionName, p.functionDesc, p.projectID, p.userID, p.tech, p.techVuln, p.entryDate, t.techName FROM parameters AS p JOIN techhacks AS t ON p.tech = t.techID WHERE p.projectID=? AND p.userID=? ORDER BY p.projectID DESC',
                       [safe_project_id, session['userID']])
     entries = cur.fetchall()
     return render_template('project-functions.html', project_id=project_id, techlist=projects_functions_techlist(), entries=entries, csrf_token=session['csrf_token'])
