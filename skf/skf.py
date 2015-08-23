@@ -569,7 +569,7 @@ def function_del():
     valNum(id)
     valNum(id_param)
     db = get_db()
-    db.execute("DELETE FROM parameters WHERE projectID=? AND paramID=? AND sessionID=?",
+    db.execute("DELETE FROM parameters WHERE projectID=? AND paramID=? AND userID=?",
                [id,id_param, session['userID']])
     db.commit()
     redirect_url = "/project-functions/"+str(id)
@@ -1099,7 +1099,7 @@ def download_file_function(projectID):
     safe_id = encodeInput(projectID)
     db = get_db()
     cur = db.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, projects.userID, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech WHERE parameters.projectID=? AND projects.userID=? GROUP BY parameters.tech;",
-               [safe_id, session['sessionID']])
+               [safe_id, session['userID']])
     entries = cur.fetchall()
     document = Document()
     document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
