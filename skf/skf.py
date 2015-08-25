@@ -45,7 +45,7 @@ def add_response_headers(headers={}):
             resp = make_response(f(*args, **kwargs))
             h = resp.headers
             for header, value in headers.items():
-            h[header] = value
+                h[header] = value
             return resp
         return decorated_function
     return decorator
