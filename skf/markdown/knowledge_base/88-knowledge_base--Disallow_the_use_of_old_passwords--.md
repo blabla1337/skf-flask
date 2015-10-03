@@ -4,8 +4,8 @@ Disallow the use of old passwords
 
 **Description:**
 
-This is a mitigation of the risk that a password can leak by any means. 
-By changing the password to a new one minimises the damage.
+This is a mitigation of the risk that a password can leak by any means towards a possible,
+attacker. By changing the password to a new one minimises the damage.
 
 
 **Solution:**

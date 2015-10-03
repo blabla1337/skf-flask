@@ -15,5 +15,12 @@ You want to make sure the user can not skip the payment step in order to receive
 In order to verify that this stage was run through by a sincere user you want to enforce 
 the application to only process business logic flows in sequential step order, with all 
 steps being processed in realistic human time, and not process out of order, skipped steps, 
-process steps from another user, or too quickly submitted transactions.
+processed steps from another user, or too quickly submitted transactions.
+
+Recommended knowledge base items:
+- Aggregate user requests
+- CSRF injection
+
+
+
 	

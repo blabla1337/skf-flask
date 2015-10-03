@@ -10,7 +10,7 @@ activity in the session, closing and invalidating the session upon the defined i
 since the last HTTP request received by the web application for a given session ID. 
 The idle timeout limits the chances an attacker has to guess and use a valid session ID 
 from another user. However, if the attacker is able to hijack a given session, 
-the idle timeout does not limit the attacker&#39;s actions, as he can generate activity on 
+the idle timeout does not limit the attacker's actions, as he can generate activity on 
 the session periodically to keep the session active for longer periods of time. 
 
 Session timeout management and expiration must be enforced server-side. If the client is 

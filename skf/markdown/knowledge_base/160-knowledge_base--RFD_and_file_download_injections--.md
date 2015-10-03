@@ -1,3 +1,4 @@
+
 Reflective file download and File download injections
 -------
 
@@ -5,11 +6,13 @@ Reflective file download and File download injections
 
 Reflective file download occurs whenever an attacker can "forge" a download through
 misconfigurations in your "disposition" and "content type" headers. Instead of having
-the attacker to upload a evil file to the webserver he can now force the browser to download
-a malicious file by abusing these headers and setting the file extension to any type he wants.
+the attacker to upload a evil file to the webserver he can now force the browser to 
+download a malicious file by abusing these headers and setting the file extension to any 
+type he wants.
 
-Now the attacker can present an evil file to ignorant vicim's who are trusting the 
-domain of which the download was presented from.
+Now, whenever there is also userinput being reflected back into that download it can be 
+used to forge evil attacks. the attacker can present an evil file to ignorant vicim's who 
+are trusting the domain of which the download was presented from. 
 
 File download injection is a similar type of attack except this attack is made possible
 whenever there is userinput that is reflected into the "filename=" paramater in the 
@@ -34,7 +37,8 @@ vector and these parameters also cause a lot of other vulnerabilities.
 
 And last you should sanitise and encode al your userinput as much as possible.
 reflective file downloads depends on user-input being reflected in the response header.
-Whenever this input has been sanitised and encoded it should not do any harm to your system.
+Whenever this input has been sanitised and encoded it should not do any harm to any 
+system it is being executed on.
 
  
 

@@ -12,6 +12,9 @@ information leaves the program through an output stream or logging function.
 **Solution:**
 
 Verify that the HTTP headers do not expose detailed version information of system 
-components
+components. For each different type of server there are hardening guides dedicated
+especially for this type of data leaking. 
+
+
 
 	

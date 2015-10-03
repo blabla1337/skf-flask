@@ -15,9 +15,9 @@ or directly affect the operation of the target application.
 
 **Solution:**
 
-In order to prevent XSS injections all user-input should be escaped.
-You could start by encoding user-input as soon as it is inserted into the application, 
-by preference using a so called white-listing method
+In order to prevent XSS injections all user-input should be escaped or encoded.
+You could start by sanitising user-input as soon as it is inserted into the application, 
+by preference using a so called white-listing method.
 This means u should not checking for malicious content like the tags or anything, 
 but only allowing the expected input.
 

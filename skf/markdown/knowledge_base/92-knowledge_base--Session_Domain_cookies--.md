@@ -15,4 +15,6 @@ subdomain (forums.example.com, blog.example.com).
 
 The use of a wildcard is not recommended at all and should be avoided.
 
+Recommended knowledge base items:
+-Cross subdomain cookie attacks
 	

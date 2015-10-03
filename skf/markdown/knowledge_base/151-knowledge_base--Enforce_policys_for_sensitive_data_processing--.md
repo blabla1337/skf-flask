@@ -18,4 +18,14 @@ should always be encrypted (TLS) and also be stored encrypted. Thereafter you sh
 establish monitoring and testing methods to verify that everything stays encrypted and 
 your policy's are properly enforced.
 
+Also, determine whenever data storage is necessary or becomes a redundancy.
+Whenever sensitive data does not have to be stored don't store it. This reduces the
+quantity of data may your application ever be compromised.
+
+Ultimatly, verify accessing sensitive data is logged, if the data is collected under 
+relevant data protection directives or where logging of accesses is required.  
+
+sensitive data or primary keys, such as personally identifiable information or credit 
+cards should also be anonymized, masked or truncated on the server before transmission 
+to the client. 
 	

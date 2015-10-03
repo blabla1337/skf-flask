@@ -81,12 +81,13 @@
 											  <td>
 												   <a href='/results-function-report/{{entry.projectID|safe}}' target='_self' >  
 											  <button class='btn btn-success btn-xs'><center>View Results</center></button></a>
-																				   
+											  
+											  {% if "delete" in session['permissions'] -%}					   
 											  <!-- Button trigger modal -->
 											  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{counter|safe}}">
 											  <i class="fa fa-times "></i>                  
 											  </button>
-									
+											  {% endif -%}
 											  <!-- Modal -->
 											  <div class="modal fade" id="myModal{{counter|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											  <div class="modal-dialog">
@@ -107,6 +108,7 @@
 											  <div class="modal-footer">
 											  <form method="POST" action="/results-functions-del">
 			                                  <input type="hidden" value="{{entry.entryDate|safe}}" name="entryDate"/>
+			                                  <input type="hidden" value="{{entry.projectID|safe}}" name="projectID"/>
 			                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
 			                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			                                  <input type="submit" value="Remove Project" id="" class="btn btn-danger"/>

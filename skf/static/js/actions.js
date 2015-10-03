@@ -59,6 +59,10 @@ var Script = function () {
 		$(this).parent().find('#sidebar .page01').addClass('active'); // Keep sub open
 		$(this).parent().find('#sidebar .page03').addClass('act'); // Active
 	});
+	$('#main-content.page03a').each(function () { // Create new project
+		$(this).parent().find('#sidebar .page01').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .page03a').addClass('act'); // Active
+	});
 	$('#main-content.page05').each(function () { // Results
 		$(this).parent().find('#sidebar .page04').addClass('active'); // Keep sub open
 		$(this).parent().find('#sidebar .page05').addClass('act'); // Active
@@ -73,6 +77,27 @@ var Script = function () {
 	$('#main-content.page08').each(function () { // Code Examples
 		$(this).parent().find('#sidebar .page08').addClass('act'); // Active
 	});
+	$('#main-content.pageB').each(function () { // Results
+		$(this).parent().find('#sidebar .pageA').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .pageB').addClass('act'); // Active
+	});
+	$('#main-content.pageA').each(function () { // Results
+		$(this).parent().find('#sidebar .pageA').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .pageC').addClass('act'); // Active
+	});
+	$('#main-content.pageC').each(function () { // Results
+		$(this).parent().find('#sidebar .pageA').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .pageD').addClass('act'); // Active
+	});	
+	$('#main-content.usersAdd').each(function () { // Results
+		$(this).parent().find('#sidebar .users').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .userAdd').addClass('act'); // Active
+	});	
+	$('#main-content.usersManage').each(function () { // Results
+		$(this).parent().find('#sidebar .users').addClass('active'); // Keep sub open
+		$(this).parent().find('#sidebar .userManage').addClass('act'); // Active
+	});	
+
 	
 }();
 

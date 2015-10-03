@@ -30,6 +30,7 @@ content if supported. Apart from this attribute, to prevent Clickjacking attacks
 unsolicited framing it is encouraged to use the header X-Frame-Options which supports 
 the deny and same-origin values. Other solutions like framebusting: 
  
-    if(window!== window.top) { window.top.location = location; } #Only for legacy browser support
+    if(window!== window.top) { window.top.location = location; } 
+    #Only for legacy browser support
 
 	

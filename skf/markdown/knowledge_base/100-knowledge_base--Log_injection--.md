@@ -20,7 +20,7 @@ You should consider these three controls when implementing logging systems.
 - Implementation: Ensure that all log entries are statically created, or if they must 
   record external data that the input is vigorously white-list checked. 
 
-- Run time: Avoid viewing logs with tools that may interpret control characters in the file, 
-  such as command-line shells.
+- Run time: Avoid viewing logs with tools that may interpret control characters in the 
+  file, such as command-line shells.
 
 	

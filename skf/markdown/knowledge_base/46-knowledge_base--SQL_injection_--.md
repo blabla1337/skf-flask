@@ -13,7 +13,7 @@ target database.
 
 **Solution:**
 
-The use of prepared statements (aka parameterised queries) is how all developers should 
+The use of prepared statements and parameterised queries is how all developers should 
 first be taught how to write database queries. They are simple to write, and easier to 
 understand than dynamic queries. parameterised queries force the developer to first define 
 all the SQL code, and then pass in each parameter to the query later. This coding style 

@@ -13,7 +13,6 @@ The same advanced exploitation techniques available in SQL Injection can be simi
 applied in LDAP Injection.
 
 
-
 **Solution:**
 
 The best way to prevent LDAP injection is to use a positive validation scheme for ensuring 

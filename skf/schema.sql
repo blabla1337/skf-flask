@@ -19,12 +19,42 @@ CREATE TABLE `parameters` (
 drop table if exists `projects`;
 CREATE TABLE `projects` (
 `projectID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`userID` int(11) NOT NULL,
+`groupID` int(11) NOT NULL,
 `projectName` varchar(250) NOT NULL,
 `projectVersion` varchar(250) NOT NULL,
 `projectDesc` text NOT NULL,
-`timestamp` timestamp NOT NULL,
-`userID` int(11) NOT NULL
+`ownerID` int(11) NOT NULL,
+`timestamp` timestamp NOT NULL
 );
+
+-- 
+-- Table structure for table `groups`
+--
+drop table if exists `groups`;
+CREATE TABLE `groups` (
+`groupID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`ownerID` int(11) NOT NULL,
+`groupName` varchar(250) NOT NULL,
+`timestamp` timestamp
+);
+
+INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup");
+
+
+-- 
+-- Table structure for table `groupMembers`
+--
+drop table if exists `groupMembers`;
+CREATE TABLE `groupMembers` (
+`memberID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`userID` int(11) NOT NULL,
+`groupID` int(11) NOT NULL,
+`ownerID` int(11) NOT NULL,
+`timestamp` timestamp
+);
+
+INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1);
 
 -- 
 -- Table structure for table `techhacks`
@@ -90,12 +120,28 @@ CREATE TABLE `users` (
 `userID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `privilegeID` int(11) NOT NULL,
 `userName` varchar(255) NOT NULL,
+`email` varchar(255) ,
 `password` varchar(255) NOT NULL,
+`accessToken` varchar(255),
 `access` varchar(255) NOT NULL
 );
 
-INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `username`, `password`, `access`) VALUES (1, 1, "admin", "$2a$12$Da5N2VrqE/rFHjSP2QJt.uo6QmgA0OoBDx3AwDAlJkQhNY7IT/teu", "true");
-INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `username`, `password`, `access`) VALUES (2, 2, "guest", "$2a$12$Da5N2VrqE/rFHjSP2QJt.uo6QmgA0OoBDx3AwDAlJkQhNY7IT/teu", "true");
+-- 
+-- Table structure for table `counter`
+-- 
+drop table if exists `counter`;
+CREATE TABLE `counter` (
+`counterID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`userID` int(11) NOT NULL,
+`countEvil` int(11) NOT NULL,
+`block` int(11) NOT NULL
+);
+
+INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `username`, `password`, `access`) VALUES (1, 1, "superadmin", "$2a$12$Da5N2VrqE/rFHjSP2QJt.uo6QmgA0OoBDx3AwDAlJkQhNY7IT/teu", "true");
+
+
+INSERT OR REPLACE INTO `counter` (`counterID`, `userID`, `countEvil`, `block`) VALUES (1, 1, 0, 0);
+
 
 
 -- 
@@ -107,9 +153,10 @@ CREATE TABLE `privileges` (
 `privilege` varchar(255) NOT NULL
 );
 
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:delete");
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read");
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "read");
+INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete");
+INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete");
+INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read");
+INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read");
 
 
 
