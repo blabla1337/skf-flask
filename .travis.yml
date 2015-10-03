@@ -13,9 +13,4 @@ install:
 
 script:
   - python setup.py test
-  - cd skf
-  - python -m pytest --cov test_skf.py
-after_script:
-  - coverage run  test_skf.py test
-after_success:
-  - coveralls
+
