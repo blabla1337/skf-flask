@@ -78,8 +78,9 @@ def login_token(emailTo):
     sender = 'Security knowledge framework Login'
     receivers = [emailTo]
     message = "Use this token to login on the new users page found on the login page! " +login_token
-    smtpObj = smtplib.SMTP('localhost', 1025)
-    smtpObj.sendmail(sender, receivers, message)
+    print message
+    #smtpObj = smtplib.SMTP('localhost', 1025)
+    #smtpObj.sendmail(sender, receivers, message)
     #return token for further usage
     return login_token
 
@@ -229,8 +230,6 @@ def check_version():
         version_remote = version_remote[:-1]
         with open ("version.txt", "r") as myfile:
             version_local = myfile.read().replace('\n', '')
-        print version_local
-        print version_remote
 
         if version_local == version_remote:
             return True
@@ -763,21 +762,19 @@ def group_add_users():
 def user_del():
     """delete project from database"""
     if not session.get('logged_in'):
-        log("User with no valid session tries access to page /groups-del", "FAIL", "HIGH")
+        log("User with no valid session tries access to page /user-del", "FAIL", "HIGH")
         abort(401)
     permissions("delete")
     check_token()
-    valNum(request.form['groupID'], 12)
     valNum(request.form['userID'], 12)
     
-    safe_groupID = encodeInput(request.form['groupID'])
     safe_userID  = encodeInput(request.form['userID'])
     
     db = get_db()
-    db.execute("DELETE FROM groupMembers WHERE userID=? AND groupID=? AND ownerID=?",
-               [safe_userID, safe_groupID, session['userID']])
+    db.execute("DELETE FROM users WHERE userID=?",
+               [safe_userID])
     db.commit()
-    return redirect("/group-users")
+    return redirect("/users-manage")
 
 @app.route('/group-manage', methods=['GET'])
 @security
@@ -1600,7 +1597,6 @@ def download_file_function(projectID):
     return make_response((body, headers))
 
 if __name__ == "__main__":
-    print("Generated Password for access SKF: "+password)
     #Command line options to enable debug and/or saas (bind to 0.0.0.0)
     cmdargs = str(sys.argv)
     total = len(sys.argv)

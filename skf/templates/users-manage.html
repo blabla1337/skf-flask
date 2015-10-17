@@ -86,11 +86,11 @@
                                   <td>  
                             
                                   <!-- Button trigger modal -->
-                                   <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.groupID|safe}}">
+                                   <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.userID|safe}}">
                                   <i class="fa fa-times "></i>                 
                                   </button>
                                   <!-- Modal -->
-                                  <div class="modal fade" id="myModal{{entry.groupID|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal fade" id="myModal{{entry.userID|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                   <div class="modal-content">
                                   <div class="modal-header">
@@ -108,8 +108,9 @@
                                   </table>
                                   </div>
                                   <div class="modal-footer">
-                                  <form method="POST" action="/group-del">
-                                  <input type="hidden" value="{{entry.userID|safe}}" name="groupID"/>
+                                  <form method="POST" action="/user-del">
+                              <input type="hidden" value="{{entry.userID|safe}}" name="userID"/>
+
                                   <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                   <input type="submit" value="Remove user" id="" class="btn btn-danger"/>

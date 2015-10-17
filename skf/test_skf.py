@@ -33,6 +33,10 @@ def _check_token():
     """Checks the submitted CSRF token"""
     _log("User supplied not valid CSRF token", "FAIL", "HIGH")
 
+def _login_token():
+    """Checks the emailed login token for creation of account"""
+    return "AAAA"
+
 def login(client, username, password):
     return client.post('/login', data=dict(
         username=username,
@@ -49,14 +53,14 @@ def test_empty_db(client):
 
 def test_login(client):
     """Make sure login works"""
-    rv = login(client, "admin", "test-skf")
+    rv = login(client, "superadmin", "test-skf")
     assert b'New Project' in rv.data
-    rv = login(client, "admin", "test-skf" + 'x')
+    rv = login(client, "superadmin", "test-skf" + 'x')
     assert b'UNLOCK' in rv.data
 
 def test_knowledge_base_items(client):
     """Make sure knowledge-base items are visible"""
-    login(client, "admin", "test-skf")
+    login(client, "superadmin", "test-skf")
     rv = client.get('/knowledge-base')
     assert b'Knowledge Base Security Vulnerabilities' in rv.data
     assert b'Filename injection Path traversel' in rv.data
@@ -65,9 +69,80 @@ def test_knowledge_base_items(client):
     assert b'Verify that the session id is never disclosed' in rv.data
     assert b'Logging guidelines' in rv.data
 
+def test_manage_users(client):
+    """Make sure manage users is working"""
+    login(client, "superadmin", "test-skf")
+    rv = client.get('/users-manage')
+    assert b'superadmin' in rv.data
+    assert b'edit:read:manage:delete' in rv.data
+
+def test_add_user(client):
+    """"Make sure we can add users """
+    login(client, "superadmin", "test-skf")
+    return client.post('/users-add', data=dict(
+        addUser="Create user",
+        email="test@localhost",
+        privID="3",
+        username="Test",
+        csrf_token="AAAA"
+    ), follow_redirects=True)
+    assert b'test@localhost' in rv.data
+
+def test_new_user_group(client):
+    """Make sure we can create new user group"""
+    login(client, "superadmin", "test-skf")
+    rv = client.get('/group-manage')
+    return client.post('/users-add', data=dict(
+        groupName="Testing group",
+        projectFormSubmit="Create group",
+        csrf_token="AAAA"
+    ), follow_redirects=True)
+    assert b'Add users to groups' in rv.data
+
+def test_add_new_user_group(client):
+    """Make sure we can create new user group"""
+    login(client, "superadmin", "test-skf")
+    rv = client.get('/group-users')
+    return client.post('/group-add-users', data=dict(
+        groupName="2",
+        test0="2--",
+        submit='Add values',
+        csrf_token="AAAA"
+    ), follow_redirects=True)
+    assert b'Test' in rv.data
+
+def test_new_user_login(client):
+    """Make sure we cant login with the new user"""
+    login(client, "Test", "x")
+    rv = client.get('/group-users')
+    assert b'bad password' in rv.data
+
+def test_access_new_user_group(client):
+    """Make sure we can create new user group"""
+    login(client, "superadmin", "test-skf")
+    rv = client.get('/users-manage')
+    return client.post('/user-access', data=dict(
+        access="true",
+        userID="2",
+        csrf_token="AAAA"
+    ), follow_redirects=True)
+    login(client, "Test", "test-skf")
+    assert b'Start new project' in rv.data
+
+def test_first_login_post(client):
+    """Make sure we setup new user """
+    rv = client.get('/first-login')
+    return client.post('/create-account', data=dict(
+        email="test@localhost",
+        password="test-skf",
+        password2='test-skf',
+        token="AAAA"
+    ), follow_redirects=True)
+    assert b'bad password' in rv.data
+
 def test_knowledge_base_item(client):
     """Make sure knowledge-base item content works"""
-    login(client, "admin", "test-skf")
+    login(client, "superadmin", "test-skf")
     rv = client.post('/kb-item', data=dict(
         id=144
     ), follow_redirects=True)
@@ -90,7 +165,7 @@ def test_knowledge_base_item(client):
 
 def test_code_base_items(client):
     """Make sure code-example items are visible"""
-    login(client, "admin", "test-skf")
+    login(client, "superadmin", "test-skf")
     rv = client.get('/code-examples')
     assert b'Knowledge Base Code Examples' in rv.data
     assert b'File upload' in rv.data
@@ -100,7 +175,7 @@ def test_code_base_items(client):
 
 def test_code_base_item(client):
     """Make sure code-example item content works"""
-    login(client, "admin", "test-skf")
+    login(client, "superadmin", "test-skf")
     rv = client.post('/code-item', data=dict(
         id=1
     ), follow_redirects=True)
@@ -128,7 +203,7 @@ def test_code_base_item(client):
 
 def test_create_project(client):
     """Make sure skf is able to create new project and shows in listhttps://localhost:5443/project-checklists/1"""
-    login(client, "admin", "test-skf")
+    login(client, "superadmin", "test-skf")
     rv = client.get('/project-new')
     assert b'Create new project' in rv.data
     rv = client.post('/project-add', data=dict(
@@ -143,7 +218,7 @@ def test_create_project(client):
 
 def test_create_project_function(client):
     """Make sure skf is able to create new project functions"""
-    login(client, "admin", "test-skf")
+    login(client, "superadmin", "test-skf")
     rv = client.get('/project-new')
     rv = client.post('/project-add', data=dict(
         inputDesc="This is a test Description.",
@@ -176,7 +251,7 @@ def test_create_project_function(client):
 
 def test_create_project_checklist1(client):
     """Make sure skf is able to create, read, download new project checklist"""
-    login(client, "admin", "test-skf")
+    login(client, "superadmin", "test-skf")
     rv = client.get('/project-new')
     rv = client.post('/project-add', data=dict(
         inputDesc="This is a test Description.",
@@ -353,7 +428,7 @@ def test_create_project_checklist1(client):
 
 def test_create_project_checklist2(client):
     """Make sure skf is able to create, read, download new project checklist"""
-    login(client, "admin", "test-skf")
+    login(client, "superadmin", "test-skf")
     rv = client.get('/project-new')
     rv = client.post('/project-add', data=dict(
         inputDesc="This is a test Description.",
