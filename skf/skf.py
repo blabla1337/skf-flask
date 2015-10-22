@@ -83,7 +83,7 @@ def log(message, value, threat):
         # If not exists, create the file
         file = open('logs/'+dateLog+'.txt', 'w+')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
-    file.close  
+    file.close()
 
 def blockUsers():
     """Check the log file and based on the FAIL items block a user"""
