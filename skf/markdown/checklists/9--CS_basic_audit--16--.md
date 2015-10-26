@@ -1,1 +1,0 @@
-Debug functionality must not be available to normal users.

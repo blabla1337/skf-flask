@@ -1,1 +1,0 @@
-Session related information must be stored at the server-side

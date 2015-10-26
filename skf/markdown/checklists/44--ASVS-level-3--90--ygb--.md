@@ -1,0 +1,1 @@
+3.5 Verify that all pages that require authentication have easy and visible access to logout functionality.

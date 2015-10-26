@@ -1,0 +1,1 @@
+10.12 Verify that production website URL has been submitted to preloaded list of Strict Transport Security domains maintained by web browser vendors. 

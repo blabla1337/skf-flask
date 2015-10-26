@@ -1,0 +1,1 @@
+1.7 Verify all security controls (including libraries that call external security services) have a centralized implementation.

@@ -1,0 +1,1 @@
+18.3 Verify that XML or JSON schema is in place and verified before accepting input.

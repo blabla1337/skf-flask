@@ -1,0 +1,1 @@
+1.1 Verify that all application components are identified and are known to be needed.

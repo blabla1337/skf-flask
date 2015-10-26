@@ -1,0 +1,1 @@
+2.32 Verify that administrative interfaces are not accessible to untrusted parties

@@ -1,0 +1,1 @@
+13.1 Verify all malicious activity is adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications.

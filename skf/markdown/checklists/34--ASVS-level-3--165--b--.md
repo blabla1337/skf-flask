@@ -1,0 +1,1 @@
+2.28 Verify that all authentication challenges, whether successful or failed, should respond in the same average response time.

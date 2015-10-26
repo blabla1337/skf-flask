@@ -1,0 +1,1 @@
+18.7 Verify that the REST service is protected from Cross-Site Request Forgery.
