@@ -4,7 +4,7 @@ Log TLS connection failures
 
 **Description:**
 
-Whenever a TLS connection fails, then these failures should be logged
+Failing TLS connections should always be logged. This is a great indicator that 'something' is wrong.
 
 
 **Solution:**
