@@ -10,8 +10,6 @@ encryption will be lost.
 
 **Solution:**
 
-Verify that TLS is used for all connections 
-(including both external and backend connections) that are using authentication tokens or 
-that involve sensitive data or functions. Whenever 
-
+Verify that TLS is used for all connections (including both external and backend connections).
+This should also be enforced in the application itself.
 	
