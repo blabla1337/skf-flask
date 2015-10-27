@@ -5,7 +5,7 @@ Logging guidelines
 **Description:**
 
 The logging should contain some guidelines in order to organise your logging file in such 
-a way it becomes clear and easy to find information
+a way it becomes clear and easy to find information.
 
 
 **Solution:**
