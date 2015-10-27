@@ -26,11 +26,6 @@ It is possible to have a fine-grained control over iframe capabilities using the
 the sandbox attribute. In old versions of user agents where this feature is not supported, 
 this attribute will be ignored. Use this feature as an additional layer of protection or 
 check if the browser supports sandboxed frames and only show the untrusted 
-content if supported. Apart from this attribute, to prevent Clickjacking attacks and 
-unsolicited framing it is encouraged to use the header X-Frame-Options which supports 
-the deny and same-origin values. Other solutions like framebusting: 
- 
-    if(window!== window.top) { window.top.location = location; } 
-    #Only for legacy browser support
+content if supported. 
 
 	
