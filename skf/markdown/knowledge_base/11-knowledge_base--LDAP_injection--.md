@@ -19,6 +19,4 @@ The best way to prevent LDAP injection is to use a positive validation scheme fo
 that the data going into your queries does not contain any attacks. However, in some cases, 
 it is necessary to include special characters in input that is passed into an LDAP query. 
 In this case, using escaping can prevent the LDAP interpreter from thinking those special 
-characters are actually LDAP query. Rather, the encoding lets the interpreter treat those 
-special characters as data.
-	
+characters are actually LDAP query.
