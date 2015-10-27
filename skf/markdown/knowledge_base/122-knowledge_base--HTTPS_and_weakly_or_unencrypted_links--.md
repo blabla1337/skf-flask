@@ -14,7 +14,7 @@ vulnerable data towards other unencrypted/weak encrypted links in your applicati
 **Solution:**
 
 Do not traverse unencrypted or weakly encrypted links.
-As soon as you allow a single connection to be send over unencrypted lines, the
+As soon as you allow a single connection of the active session to be send over unencrypted lines, the
 integrity and confidentiality of your data can no longer be guaranteed.
 
 
