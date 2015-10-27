@@ -13,8 +13,6 @@ The consequences of unrestricted file upload can vary, including complete system
 an overloaded file system or database, forwarding attacks to back-end systems, and simple 
 defacement. 
 
-It depends on what the application does with the uploaded file and especially where it is stored.
-
 There are really two classes of problems here. 
 The first is with the file metadata, like the path and file name. 
 These are generally provided by the transport, such as HTTP multi-part encoding. 
