@@ -9,8 +9,8 @@ static HTML pages, without having to deal with full-fledged server-side
 or client-side languages. 
 
 This feature is incarnated by the Server-Side Includes (SSI). 
-In SSI injection testing, we test if it is possible to inject into the application data 
-that will be interpreted by SSI mechanisms. A successful exploitation of this vulnerability 
+The attacker will try to inject code into the application that will 
+be interpreted by SSI mechanisms. A successful exploitation of this vulnerability 
 allows an attacker to inject code into HTML pages or even perform remote code execution.
 
 
