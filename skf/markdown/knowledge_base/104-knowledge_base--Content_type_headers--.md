@@ -3,6 +3,7 @@ Content type headers
 -------
 
 **Description:**
+
 Setting the right content headers is importent for hardening your applications security,
 this reduces exposure to drive-by download attacks or sites serving user uploaded 
 content that, by clever naming could be treated by MS Internet Explorer as executable or 
