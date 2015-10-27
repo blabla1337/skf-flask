@@ -98,7 +98,7 @@ def log(message, value, threat):
         # If not exists, create the file
         file = open('logs/'+dateLog+'.txt', 'w+')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
-    file.close 
+    file.close() 
               
 def valAlphaNum(value, countLevel):
     match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
