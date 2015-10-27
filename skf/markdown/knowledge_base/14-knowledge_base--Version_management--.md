@@ -21,6 +21,7 @@ But that is not very realistic.
 Most component projects do not create vulnerability patches for old versions. 
 Instead, most simply fix the problem in the next version. So upgrading to these new 
 versions is critical. 
+
 Software projects should have a process in place to:
 
 -Identify all components and the versions you are using, including all dependencies. 
