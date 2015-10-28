@@ -1,5 +1,5 @@
 
-Audit logs.
+Audit logs
 -------
 
 **Description:**
