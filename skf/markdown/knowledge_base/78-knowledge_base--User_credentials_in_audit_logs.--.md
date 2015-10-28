@@ -1,5 +1,5 @@
 
-User credentials in audit logs.
+User credentials in audit logs
 -------
 
 **Description:**
