@@ -4,9 +4,7 @@ Username enumeration
 
 **Description:**
 
-Whenever an application generates an error like:
-
-"This username already exists"
+Whenever an application generates an error like: "This username already exists"
 
 An attacker could enumerate these usernames, enlarging his chance for a successful 
 brute-force attack. Same goes for "Password forget" functions.
