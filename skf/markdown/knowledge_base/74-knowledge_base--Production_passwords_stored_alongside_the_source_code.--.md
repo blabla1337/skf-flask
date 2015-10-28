@@ -1,5 +1,5 @@
 
-Production passwords stored alongside the source code.
+Production passwords stored alongside the source code
 -------
 
 **Description:**
