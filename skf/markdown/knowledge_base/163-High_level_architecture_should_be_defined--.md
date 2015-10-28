@@ -1,9 +1,9 @@
-High level architecture should be defined.
+High level architecture should be defined
 -------
 
 **Description:**
 
-Whenever you are developing an application you want to map all the architecture
+Whenever you are developing an application you want to map all the architecture components
 it contains. Whenever there are breaches, updates, or other escalations it makes it
 easy and transparant for forensics, operators and developers to do their job as fast as 
 possible. 
