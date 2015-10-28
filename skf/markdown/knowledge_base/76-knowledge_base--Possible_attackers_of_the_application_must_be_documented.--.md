@@ -1,5 +1,5 @@
 
-Possible attackers of the application must be documented.
+Possible attackers of the application must be documented
 -------
 
 **Description:**
