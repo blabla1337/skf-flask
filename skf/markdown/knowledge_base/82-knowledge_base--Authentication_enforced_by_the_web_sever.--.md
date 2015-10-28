@@ -1,5 +1,5 @@
 
-Authentication enforced by the web-sever.
+Authentication enforced by the web-sever
 -------
 
 **Description:**
@@ -12,7 +12,7 @@ pages on your application.
 **Solution:**
 
 Always make sure your web-server is correctly configured to enforce authentication, 
-such as session management configurations.
+such as a session management implementation.
 
 
 	
