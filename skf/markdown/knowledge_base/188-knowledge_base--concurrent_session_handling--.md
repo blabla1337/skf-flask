@@ -1,4 +1,4 @@
-Protection of user identity
+Concurrent session handling
 -------
 
 **Description:**
