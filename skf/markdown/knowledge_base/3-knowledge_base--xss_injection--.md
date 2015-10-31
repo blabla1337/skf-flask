@@ -24,7 +24,8 @@ but only allowing the expected input.
 The second step would be encoding al the parameters or user-input before putting this in 
 your html with encoding libraries specially designed for this purpose. 
 
-Also whenever a user is allowed to add hrefs,  make sure the application checks whether 
+Escaping user input has always a different approach depending on the context where it will be used.
+Example: whenever a user is allowed to add hrefs,  make sure the application checks whether 
 the href contains http:// or https://. This is done in order to prevent 
 javascript: or data: type XSS injections. 
 
