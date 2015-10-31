@@ -70,30 +70,72 @@ j++;
 		  </section>	  
 	  
           <section class="wrapper">
-
+			
+			
+			
 			<div class="row mt">
 				<div class="col-lg-12">
-				   <div class="alert alert-info"><b>Example functions:</b>
-					<ul>
+				
+					<h4>Please select the functions applicable to the project you are going to build:</h4>
+					
+				   <div class="functions alert alert-info">
+					<ul id="selectable">
 					{% set counter = 0 -%}
 						{% for entry in techlist -%}
-							<li>{{ entry.techName|safe }}</li>
+							<li class="ui-widget-content">{{ entry.techName|safe }}</li>
 						{% set counter = counter + 1 %}
 					{% endfor %}
 					</ul>
 
 					<p>All lists will be collected into a single document per project.</p>
+					
+					<form action="/project-function-add" method="POST">
+					
+						<div class="tbl_container">
+						
+							<div class="row">
+								<div class="left"><input class="form-control" type="text" name="functionName" placeholder="List name" /></div>
+								<div class="right"><b>For example:</b> Scrum sprint Nr.1</div>
+							</div>
+							
+							<div class="row">
+								<div class="left"><textarea class="form-control" rows="3" name="functionDesc" placeholder="List description"></textarea></div>
+								<div class="right"><b>For example:</b> In this sprint release we will add user functionality. </div>
+							</div>
+							
+							<div class="row">
+								<div class="wide">
+									
+									<textarea id="drop"></textarea>
+									<input type="hidden" id="project_id" name="project_id" value="{{project_id|safe}}" /> 
+									<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+									
+									<input type="submit" class="btn btn-default" value="Create new list with provided functions" name="submit" />
+									
+								</div>
+							</div>
+						</div>
+					
+					</form>					
+					
 				   </div>
+				   
+					<!--<nav class="nav">
+						<button class="btn btn-default" style="visibility: none;" data-toggle="modal">Create a new list based on these items</button>
+					</nav>-->
+				   
 				</div><!-- /col-lg-4 -->      
 			</div><!-- /row -->
-
+			
+			
+			
           <div class="row mt">
             <div class="col-lg-12">
 
 			<div class="col-lg-4 col-md-4 col-sm-4 mb">
 									
 					<nav class="nav">
-						<button class="btn btn-default" data-target="#myModal" style="visibility: none;" data-toggle="modal">Add Functions</button>
+						<button class="btn btn-default" data-target="#myModal" style="visibility: none;" data-toggle="modal">Add custom functions not listed above</button>
 						<a class="back" href="/results-functions">Done <i class="fa fa-check"></i></a>
 					</nav>
 					

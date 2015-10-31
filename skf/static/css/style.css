@@ -113,7 +113,7 @@ h1 { font-size: 2.2em; color: #515594; }
   color: #fff;
   background-color: #515594;
   border-color: #44477c;
-  -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out 0s;
 }
 .btn-theme03:hover,
 .btn-theme03:focus,
@@ -1729,3 +1729,15 @@ ul.level li.blue { background: #6699cc; }
 /* Dropdown */
 
 .dropdown-menu .label { background: #515594; border-radius: 10px; color: #fff; font-size: 0.8em; padding: 3px 10px; text-align: center; display: inline-block; margin-left: 10px; }
+
+/* Select */
+
+.project-functions #selectable li { cursor: pointer; transition: all 0.2s ease-in-out 0s; }
+.project-functions #selectable li:hover { border-color: #515594; }
+.project-functions .ui-selected { background: #515594; border-color: #515594; color: #fff; text-shadow: none; }
+.project-functions .functions { float: left; width: 100%; }
+.project-functions .functions .tbl_container { float: left; width: 100%; max-width: 600px; margin-top: 30px; }
+.project-functions .functions .row { float: left; margin: 0; padding: 2px 0; width: 100%; }
+.project-functions .functions .row .left { float: left; width: 47.5%; }
+.project-functions .functions .row .right { color: #a1a1a1; float: right; padding: 7px 0; text-shadow: 0 1px 1px #fff; width: 47.5%; }
+.project-functions .functions form { float: left; width: 100%; }

@@ -126,4 +126,16 @@ $(document).ready(function() {
 	
 	$("#accordion .panel a:contains('not available item')").parent().parent().parent().remove();
 	
+	$( "#selectable" ).bind( "mousedown", function ( e ) {
+		e.metaKey = true;
+	} ).selectable({
+		stop: function(){
+			var result = $("#drop").empty();
+			$(".ui-selected", this).each(function(){
+				var index = $("#selectable li").index(this);
+				result.append($(this).text() + '&nbsp;');
+			});
+		}
+	});
+	
 });
