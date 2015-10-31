@@ -1,4 +1,4 @@
-API callbacks
+Do not support untrusted client side technology
 -------
 
 **Description:**
