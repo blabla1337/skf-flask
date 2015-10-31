@@ -1,4 +1,4 @@
-Client side storage
+Log rotation and seperation
 -------
 
 **Description:**
