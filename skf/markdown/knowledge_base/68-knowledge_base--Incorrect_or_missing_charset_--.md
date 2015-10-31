@@ -16,11 +16,13 @@ the content types.
 This could be done by adding a meta header in the head of your HTML like:
 
 For HTML4:
+```html
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
-
+```
 For HTML5:
+```html
 <meta charset="UTF-8"> 
-
+```
 Or simply by setting content-type headers by your server-side language,
 C# example of a content type header:
 Response.AppendHeader("Content-Type:text/html", "charset=UTF-8");
