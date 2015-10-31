@@ -1,5 +1,5 @@
 
-Does the application enforce the use of secure passwords. 
+Does the application enforce the use of secure passwords
 -------
 
 **Description:**
@@ -10,7 +10,7 @@ these passwords could easily be brute-forced thus compromising the users account
 **Solution:**
 
 The user should be enforced to use secure passwords. This can be done by using a 
-password policy. Also known top 1000 passwords should also be forbidden.
+passphrase policy. Also known top 1000 passwords should also be forbidden.
 
 **NOTE:** Never put restrictions on the password the user submits. Some applications for 
 instance do not allow passwords longer than twenty chars. This is an example of bad 
