@@ -18,20 +18,25 @@ A best practice for implementing CSP in your application would be to externalize
 javascript within the web pages.
 
 So this:
+```javascript
     <script>
       function doSomething() {
         alert('Something!');
       }
 	</script>
-
 	<button onclick='doSomething();'>foobar!</button>
+```
 
 Must become this:
+```javascript
 	<script src='doSomething.js'></script>
-	<button id='somethingToDo'>Let's foobar!</button>
-	
+	<button id='somethingToDo'>Lets foobar!</button>
+```
+
 the header for this code could look something like:
+```javascript
     Content-Security-Policy: default-src'self'; object-src'none'; script-src'https://mycdn.com'
+```
 
 Since it is not entirely realistic to implement all javascript on external pages we can
 apply sort of a cross site request forgery token to your inline javascript. This way
@@ -46,13 +51,17 @@ predict. Similar to the operation of the CSRF tokens, the nonce becomes impossib
 the attacker to predict making it difficult to execute a succesfull XSS attack.
 
 Inline javscript example containing nonce: 
+```javascript
 	<script nonce=sfsdf03nceI23wlsgle9h3sdd21>
     <!-- Your javscript code -->
     </script>
-    
+```
+
 Matching header example:
+```javascript
     Content-Security-Policy: script-src 'nonce-sfsdf03nceI23wlsgle9h3sdd21'
-    
+```
+
 There is a whole lot more to learn about the CSP header for in depth implementation in 
 your application. this knowledge base item just scratches the surface and it would be
 highly recommended to gain more in depth knowledge about this powerfull header.
