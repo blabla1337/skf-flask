@@ -12,7 +12,7 @@ accounts are disabled or deleted from the services.
 **Solution:**
 
 Verify that all keys and passwords are replaceable, and are generated or 
-replaced at installation time. 
+replaced after installation time. 
 
 
 	
