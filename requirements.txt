@@ -7,4 +7,5 @@ python-docx
 BeautifulSoup
 requests
 importlib
+bcrypt
 flask-bcrypt
