@@ -12,6 +12,6 @@ login function in order to gain unauthorised access to user accounts.
 **Solution:**
 
 Implement a method that limit the amount of tries with automated tools. 
-Some examples are a CAPTCHA or a tarpit(rate-limiting).
+Some examples are using a CAPTCHA or a tarpit(rate-limiting) method.
 
 	
