@@ -1,4 +1,4 @@
-API callbacks
+API resonses security headers
 -------
 
 **Description:**
