@@ -21,7 +21,7 @@ could manipulate these to extend the session duration.
 
 **Solution:**
 
-Al user sessions should time-out based on logic server-side in order to decrease an 
-attackers attack vector.
+All user sessions should time-out based on logic server-side in order to decrease an 
+attackers attack vector on the user session.
 
 	
