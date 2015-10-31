@@ -20,6 +20,9 @@ Security Knowledge Framework is an expert system application that uses OWASP App
 * [Contributors](#contributors)
 
 ##<a name="introduction"></a>Introduction
+
+Remark: We are busy with a Major new release, the owasp-skf pip project is the stable version, github is not working/missing documentation. 
+
 Our experience taught us that the current level of security the current web-applications contain is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers which are lurking, waiting to be exploited by hackers.
 
 Because of this we decided to develop a proof of concept framework in order to create a guide system available for all developers so they can develop applications secure by design.
