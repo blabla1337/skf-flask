@@ -1,5 +1,5 @@
 
-Security settings in your development frameworks. 
+Security settings in your development frameworks
 -------
 
 **Description:**
