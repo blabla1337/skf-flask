@@ -24,9 +24,11 @@ You should start of with a whitelisting of different type of attributes and tags
 you want your WYSIWYG editor to allow. i.e:
 
 for tags:
+```html
 <h1></h1>
 <ul></ul>
 etc
+```
 
 or for attributes:
 class
@@ -46,9 +48,11 @@ Unless your ops are doing explicit decoding on the server side you should not wo
 encoding. Encoded attacks will not help the attacker to break the context and execute 
 malicious code.
  
+ ```html
     <div class="AttackersInjection">Double quotes</div>
-	<div class='AttackersInjection'>Single quotes</div>
-	
+    <div class='AttackersInjection'>Single quotes</div>
+```
+
 For protection against JavaScript execution via 'style' attribute there are basically 
 six entry points for code/javscript injection which you should controll in order to 
 prevent injection. These entry points take form as: Single quotes, Double quotes, small
@@ -56,10 +60,7 @@ parenthesis, backslash, smaller than sign, and ampersand. Whenever you monitor y
 application for these inputs and you properly encode them on injection than you have 
 developed a good filter for your style.
 
-The angular bracket(smaller than sign) is used for whenever the editor puts the 
-styling in a <style>  tag attacker break a style tag with the bracket
 
-cool about this method is leaves al other style options in tact
 
 
 
