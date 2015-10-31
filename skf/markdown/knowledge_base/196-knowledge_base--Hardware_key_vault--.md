@@ -1,4 +1,4 @@
-Signed message payloads
+Hardware key vault
 -------
 
 **Description:**
