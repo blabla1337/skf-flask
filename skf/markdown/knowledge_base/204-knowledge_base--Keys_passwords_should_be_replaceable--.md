@@ -1,4 +1,4 @@
-All keys and passwords should be replacable
+All keys and passwords should be replaceable
 -------
 
 **Description:**
