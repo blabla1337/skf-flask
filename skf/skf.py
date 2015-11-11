@@ -1163,7 +1163,7 @@ def download_file_function(projectID):
     return make_response((body, headers))
 
 if __name__ == "__main__":
-    print("Generated Password for access SKF: "+password)
+    print("Generated Password for access SKF: test-skf")
     #Command line options to enable debug and/or saas (bind to 0.0.0.0)
     cmdargs = str(sys.argv)
     total = len(sys.argv)
