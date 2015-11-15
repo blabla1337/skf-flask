@@ -1,4 +1,3 @@
-
 Content security policy headers
 -------
 
@@ -6,8 +5,8 @@ Content security policy headers
 
 The main use of the content security policy header is to, detect, report, and reject
 XSS attacks. The core issue in relation to XSS attacks is the browser's inability to 
-distinguish between script that’s intended to be part of your application, and script 
-that’s been maliciously injected by a third-party.
+distinguish between script that's intended to be part of your application, and script 
+that's been maliciously injected by a third-party.
 
 With the use of CSP(Content security policy) we can tell the browser which script is safe
 to execute and which scripts are most likely been injected by an attacker.

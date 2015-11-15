@@ -9,7 +9,7 @@ configuration error is made.
 A hacker can encode his payload differently so it will not be recognised by an WAF or IDS 
 and also bypass the escaping of the application.
 
-By using double encoding it’s possible to bypass security filters that only decode user 
+By using double encoding it's possible to bypass security filters that only decode user 
 input once. The second decoding process is executed by the backend platform or modules 
 that properly handle encoded data, but don't have the corresponding security checks in 
 place.

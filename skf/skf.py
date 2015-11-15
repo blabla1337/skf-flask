@@ -1153,7 +1153,7 @@ def project_checklists(project_id):
             owasp_path_lvl1 = path.split("-")
             owasp_kb = owasp_path_lvl1[7]
             owasp_id = get_num(owasp_path_lvl1[1])
-            owasp_items_lvl1.append(owasp_checklist_name)
+            #owasp_items_lvl1.append(owasp_checklist_name)
             owasp_ids_lvl1.append(owasp_id)
             owasp_items_lvl1_ygb.append(owasp_path_lvl1[9])
             owasp_kb_ids_lvl1.append(owasp_kb)
@@ -1176,7 +1176,7 @@ def project_checklists(project_id):
             owasp_path_lvl2 = path.split("-")
             owasp_kb = owasp_path_lvl2[7]
             owasp_id = get_num(owasp_path_lvl2[1])
-            owasp_items_lvl2.append(owasp_checklist_name)
+            #owasp_items_lvl2.append(owasp_checklist_name)
             owasp_ids_lvl2.append(owasp_id)
             owasp_kb_ids_lvl2.append(owasp_kb)
             owasp_items_lvl2_ygb.append(owasp_path_lvl2[9])
@@ -1200,7 +1200,7 @@ def project_checklists(project_id):
             owasp_kb = owasp_path_lvl3[7]
             owasp_checklist_name = owasp_path_lvl3[3] +" "+owasp_path_lvl3[4]+" "+owasp_path_lvl3[5]
             owasp_id = get_num(owasp_path_lvl3[1])
-            owasp_items_lvl3.append(owasp_checklist_name)
+            #owasp_items_lvl3.append(owasp_checklist_name)
             owasp_ids_lvl3.append(owasp_id)
             owasp_kb_ids_lvl3.append(owasp_kb)
             owasp_items_lvl3_ygb.append(owasp_path_lvl3[9])
