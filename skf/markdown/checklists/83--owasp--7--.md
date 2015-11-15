@@ -1,1 +1,0 @@
-All user input is properly escaped and sanitized before using in x-path commands

@@ -18,4 +18,5 @@ the TRACE option. Misconfiguration of the HTTP request headers can lead to steal
 session cookie even though http-only protection is in place.
 
 Recommended knowledge base items:
--HTTP request methods
+- HTTP request methods
+- Session management

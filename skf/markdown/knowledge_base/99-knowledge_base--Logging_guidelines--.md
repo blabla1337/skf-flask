@@ -5,7 +5,7 @@ Logging guidelines
 **Description:**
 
 The logging should contain some guidelines in order to organise your logging file in such 
-a way it becomes clear and easy to find information.
+a way it becomes clear and easy to find information
 
 
 **Solution:**
@@ -19,4 +19,7 @@ description of the event. Also verify that log fields from trusted and untrusted
 are distinguishable in log entries, preferably stored in different files so they cannot
 taint each other whenever log injection occurs.
 
- 
+Verify accessing sensitive data is logged, if the data is collected under relevant data protection 
+directives or where logging of accesses is required.
+
+

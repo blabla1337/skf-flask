@@ -1,0 +1,1 @@
+10.14 Verify that proper certification revocation, such as Online Certificate Status Protocol (OSCP) Stapling, is enabled and configured.

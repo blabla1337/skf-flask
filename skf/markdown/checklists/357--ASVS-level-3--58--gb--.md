@@ -1,1 +1,0 @@
-V3.8 Verify that the session id is changed upon re-authentication.

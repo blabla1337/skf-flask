@@ -1,1 +1,0 @@
-V13.1 Verify that no malicious code is in any code that was either developed or modified in order to create the application.

@@ -17,6 +17,6 @@ compromised by attackers. The same principle does also apply to autocomplete fun
 
 Recommended knowledge base item:
 - Caching headers
+- Client side storage
 
 
-	

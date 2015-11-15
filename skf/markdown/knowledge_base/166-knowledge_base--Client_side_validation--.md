@@ -14,7 +14,6 @@ secure server-side code, the client-side code might still unsafely include user 
 DOM update after the page has loaded. If this happens, the client-side code has enabled 
 an XSS attack through no fault of the server-side code.
 
-description source: "excess-xss.com"
 
 **Solution:**
 

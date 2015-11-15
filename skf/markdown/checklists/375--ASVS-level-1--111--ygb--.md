@@ -1,0 +1,1 @@
+4.16 Verify that the application correctly enforces context-sensitive authorisation so as to not allow unauthorised manipulation by means of parameter tampering.

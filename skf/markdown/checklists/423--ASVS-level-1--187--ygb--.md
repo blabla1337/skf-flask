@@ -1,0 +1,1 @@
+18.2 Verify that access to administration and management functions within the Web Service Application is limited to web service administrators.

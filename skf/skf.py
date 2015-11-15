@@ -72,7 +72,8 @@ def generate_pass():
     
 def login_token(emailTo):    
     #Create random token for login
-    login_token_raw = rand.bytes(64)
+    rand.cleanup()
+    login_token_raw = rand.bytes(128)
     login_token = base64.b64encode(login_token_raw)
     
     sender = 'Security knowledge framework Login'
@@ -90,8 +91,7 @@ def log(message, value, threat):
     now = datetime.datetime.now()
     dateLog = now.strftime("%Y-%m")
     dateTime = now.strftime("%Y-%m-%d %H:%M") 
-    headers_list = request.headers.getlist("X-Forwarded-For")
-    ip = headers_list[0] if headers_list else request.remote_addr
+    ip = request.remote_addr
     try:
         file = open('logs/'+dateLog+'.txt', 'a+')
     except IOError:
@@ -146,10 +146,9 @@ def whiteList(allowed, input, countlevel):
 
 
 #secret key for flask internal session use
+rand.cleanup()
 secret_key = rand.bytes(512)
-password   = generate_pass()
-csrf_token_raw = rand.bytes(128)
-csrf_token = base64.b64encode(csrf_token_raw)
+
 mimetypes.add_type('image/svg+xml', '.svg')
 bindaddr = '127.0.0.1';
 
@@ -256,8 +255,12 @@ def projects_functions_techlist():
 @security
 def show_landing():
     """show the loging page and set default code language"""
+    rand.cleanup()
+    csrf_token_raw = rand.bytes(128)
+    csrf_token = base64.b64encode(csrf_token_raw)
     session['csrf_token'] = csrf_token
     session['code_lang'] = "php"
+
     return render_template('login.html', csrf_token=session['csrf_token'])
 
 @app.route('/dashboard', methods=['GET'])
@@ -363,7 +366,10 @@ def login():
             userID 		 = entry[0]         
             #Do encryption
             if bcrypt.check_password_hash(passwordHash, password):
-                log("Valid username/password submit", "SUCCESS", "HIGH")    
+                log("Valid username/password submit", "SUCCESS", "HIGH")  
+                rand.cleanup()
+                csrf_token_raw = rand.bytes(128)
+                csrf_token = base64.b64encode(csrf_token_raw)  
                 session['logged_in'] = True
                 session['userID'] = userID
                 session['csrf_token'] = csrf_token
@@ -1600,6 +1606,9 @@ if __name__ == "__main__":
     #Command line options to enable debug and/or saas (bind to 0.0.0.0)
     cmdargs = str(sys.argv)
     total = len(sys.argv)
+    rand.cleanup()
+    csrf_token_raw = rand.bytes(128)
+    csrf_token = base64.b64encode(csrf_token_raw)
     for i in xrange(total):
         if (str(sys.argv[i][2:]) == "debug"):
             # Load default config and override config from an environment variable

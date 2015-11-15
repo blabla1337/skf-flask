@@ -1,4 +1,4 @@
-XML Summary
+
 -------
 
 **Description:**
@@ -11,7 +11,7 @@ encoding documents in a format which is both human-readable and machine-readable
 defined by the W3C's XML 1.0 Specification and by several other related specifications,
 all of which are free open standards.
 
- 
+
 **Solution:**
 
 Items listed below are recommended to read whenever you are planning to use XML in your

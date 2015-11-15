@@ -14,4 +14,4 @@ Use a central location for authentication. If u want to put extra constraints on
 users for accessing critical parts of your application you have to implement
 step-up or adaptive authentication mechanisms. 
 
-	
+Verify that alternative and less secure access paths do not exist.

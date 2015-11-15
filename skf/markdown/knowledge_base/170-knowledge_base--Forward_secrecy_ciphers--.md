@@ -27,5 +27,3 @@ Diffie-Hellman (DHE) or the elliptic-curve variant (ECDHE) will have perfect for
 secrecy while the other options will not.
 
 
-https://en.wikipedia.org/wiki/
-Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License

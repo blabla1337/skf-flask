@@ -1,1 +1,0 @@
-V15.5 Verify the application protects against information disclosure attacks, such as direct object reference, tampering, session brute force or other attacks.

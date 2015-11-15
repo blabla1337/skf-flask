@@ -71,9 +71,9 @@ Audit logs
 		
 				//Clear the session variable to deny access
 				$_SESSION['accessor'] = "";
-		
 				session_start();
 				session_destroy();
+
 				$countUpdate = 0;	
 			}	
 	
@@ -89,6 +89,11 @@ Audit logs
 				$stmt = $db->prepare("UPDATE users SET status=? WHERE userID=?");
 				$stmt->execute(array($status, $_SESSION['userID']));
 				$affected_rows = $stmt->rowCount();	
+				
+				//Clear the session variable to deny further access
+				$_SESSION['accessor'] = "";
+				session_start();
+				session_destroy();
 			}	
 
 			//After the counter has terminated a session he should be set to zero again

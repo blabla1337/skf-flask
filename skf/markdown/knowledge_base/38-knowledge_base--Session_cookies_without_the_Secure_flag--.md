@@ -17,3 +17,6 @@ you should set the secure flag. The Secure flag should be set during every set-c
 This will instruct the browser to never send the cookie over HTTP. 
 The purpose of this flag is to prevent the accidental exposure of a cookie value if a user
 follows an HTTP link. 
+
+Reccomended knowledge base item:
+- Session management

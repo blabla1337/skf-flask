@@ -14,5 +14,5 @@ Verify that access to administration and management functions within the Web Ser
 Application is limited to web service administrators.
 
 For example, they could only be accessible from within a restricted source IP range.
- -- wat meer items nog beetje kaal
+
 

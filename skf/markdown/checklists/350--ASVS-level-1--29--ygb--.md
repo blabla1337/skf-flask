@@ -1,0 +1,1 @@
+2.20 Verify that request throttling is in place to prevent automated attacks against common authentication attacks such as brute force attacks or denial of service attacks.

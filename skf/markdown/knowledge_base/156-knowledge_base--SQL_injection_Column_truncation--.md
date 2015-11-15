@@ -15,8 +15,6 @@ and truncate his submit and register himself as the admin, thus gaining its
 privileges.
 
 
-
-
 **Solution:**
 
 On critical places where unique values are enforced and expected 

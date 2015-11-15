@@ -19,6 +19,7 @@ feasible due to the fact that multiple header requests are not possible.
 **Solution:**
 
 When user-input will be used in HTTP headers then the newlines should be escaped in a 
-correct manner.
+correct manner. Reccomended would be a whitelist of expected input or use a validation method
+which for example only accepts alphanummeric values. Every detection of input which is out of 
+the intended operation should be rejected. 
 
-	

@@ -1,1 +1,0 @@
-V2.25 Verify that the system can be configured to disallow the use of a configurable number of previous passwords.

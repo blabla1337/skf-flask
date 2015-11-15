@@ -1,5 +1,5 @@
 
-Possible attackers of the application must be documented
+Possible attackers of the application must be documented.
 -------
 
 **Description:**
@@ -17,6 +17,8 @@ Recommended knowlege-base items:
 - Audit logs
 - User credentials in audit logs
 - Log injection
+- Repudiation attacks
+- Logging guidelinges
+- Logging is performed before executing the transaction
 
 
-	

@@ -1,1 +1,0 @@
-V2.5 Verify all authentication controls (including libraries that call external authentication services) have a centralized implementation.

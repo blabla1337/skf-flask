@@ -23,4 +23,3 @@ application is.
 Recommended knowledge base item:
 - Step up or adaptive authentication
 
-	

@@ -15,6 +15,11 @@ subdomain (forums.example.com, blog.example.com).
 
 The use of a wildcard is not recommended at all and should be avoided.
 
+There are a lot of different mitigations in order to harden your session management.
+These mitigations are amongst others the setting of the "HttpOnly and secure" flags on
+your sessions. Follow the "Sessions pattern" list to make sure your session management is
+secure.
+
 Recommended knowledge base items:
--Cross subdomain cookie attacks
-	
+- Cross subdomain cookie attacks
+- Sessions pattern

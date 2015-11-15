@@ -17,7 +17,7 @@ to access.
 **Solution:**
 
 Use a whitelisting method for determining where the user should be redirected towards.
-You could also show a warning when redirecting to potentially untrusted content
+You could also show a warning when redirecting to potentially untrusted content.
 
 
 

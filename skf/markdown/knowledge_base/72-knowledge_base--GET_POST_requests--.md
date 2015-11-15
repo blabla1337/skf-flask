@@ -15,10 +15,10 @@ XSS manual in the knowledge base for more information.
 
 **Solution:**
 
-Whenever transmitting sensitive data always do this by means of the POST request.
+Whenever transmitting sensitive data always do this by means of the POST request or by header.
+note: Avoid userinput in your application header, this could lead to vulnerabilities.
 Also make sure you also disable al other HTTP request methods which are unnecessary for
 your applications operation such as: REST, PUT, TRACE, DELETE, OPTIONS, etc, since
 allowing these other request methods could lead to vulnerabilities and injections.
 
 
-	

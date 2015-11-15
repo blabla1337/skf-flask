@@ -4,7 +4,9 @@ Username enumeration
 
 **Description:**
 
-Whenever an application generates an error like: "This username already exists"
+Whenever an application generates an error like:
+
+"This username already exists"
 
 An attacker could enumerate these usernames, enlarging his chance for a successful 
 brute-force attack. Same goes for "Password forget" functions.
@@ -20,4 +22,5 @@ Also sometimes you cannot avoid information leaking in functionalities such as a
 registration page. Here you need to use tar-pitting methods to prevent an automated 
 attack by an attacker.
 
-	
+Also recommended knowledge-base item:
+- Differential analysis attack 

@@ -14,4 +14,4 @@ compromising the application or other users accounts.
 Always ensure full hardened security on all layers of the web application.
 
 Recommended knowledge-base item:
-"High level architecture should be defined"	
+- High level architecture should be defined
