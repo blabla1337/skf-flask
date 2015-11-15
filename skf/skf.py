@@ -1094,10 +1094,6 @@ def project_checklists(project_id):
     row = cur.fetchall()
     prep = row[0]
     projectName = prep[1]
-    owasp_items = []
-    owasp_ids = []
-    owasp_kb_ids = []
-    owasp_content = []
     owasp_items_lvl1 = []
     owasp_items_lvl1_ygb = []
     owasp_ids_lvl1 = []
@@ -1131,20 +1127,6 @@ def project_checklists(project_id):
     full_file_paths = []
     full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
     full_file_paths.sort()
-    for path in full_file_paths:
-       found = path.find("owasp")
-       if found != -1:
-            owasp_org_path = path
-            owasp_list = "owasp"
-            owasp_path = path.split("-")
-            owasp_kb = owasp_path[5]
-            owasp_checklist_name = owasp_path[3]
-            owasp_id = get_num(owasp_path[1])
-            owasp_items.append(owasp_checklist_name)
-            owasp_ids.append(owasp_id)
-            owasp_kb_ids.append(owasp_kb)
-            filemd = open(owasp_org_path, 'r').read()
-            owasp_content.append(Markup(markdown.markdown(filemd)))
     for path in full_file_paths:
        found = path.find("ASVS-level-1")
        if found != -1:
