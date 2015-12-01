@@ -20,51 +20,12 @@ do not understand half the functionalities the editors are providing.
 
 **Solution:**
 
-You should start of with a whitelisting of different type of attributes and tags
-you want your WYSIWYG editor to allow. i.e:
+Download a HTML sanitizer and configure it to your specific needs. When configuring the sanitizer make sure
+you disable al unused componements. The less options an attacker has to insert into your application the less
+his attack surface becomes. Also before implementing this HTML sanitizer on a production enviroment have
+it first thorougly examined by security testers since it is a very delicate function. 
 
-for tags:
-<h1></h1>
-<ul></ul>
-etc
 
-or for attributes:
-class
-id
-etc
-
-Everything not matching your filter should be rejected and stripped by your sanitizer.
-
-For protection against JavaScript execution via common attributes there are basically 
-three entry points for code/javscript injection which you should controll in order to 
-prevent injection. These entry points take form as: Single quotes, Double quotes, and 
-back-ticks. Whenever you monitor your application for these inputs and you properly encode 
-them on injection than you have developed a good filter for your attributes.
-
-What about encoding? 
-Unless your ops are doing explicit decoding on the server side you should not worry about 
-encoding. Encoded attacks will not help the attacker to break the context and execute 
-malicious code.
-
-<div class="AttackersInjection">Double quotes</div>
-<div class='AttackersInjection'>Single quotes</div>
-
-For protection against JavaScript execution via 'style' attribute there are basically 
-six entry points for code/javscript injection which you should controll in order to 
-prevent injection. These entry points take form as: Single quotes, Double quotes, small
-parenthesis, backslash, smaller than sign, and ampersand. Whenever you monitor your 
-application for these inputs and you properly encode them on injection than you have 
-developed a good filter for your style.
-
-The angular bracket(smaller than sign) is used for whenever the editor puts the 
-styling in a <style>  tag attacker break a style tag with the bracket
-
-Added value about this method is leaves al other style options in tact.
-
-It is also optional to download a HTML sanitizer specialy designed to do this work for you if available.
-
-Note: whenever using an of the shelf HTML sanitizer this sanitizer should be thoroughly tested/audited by
-professionals in order to verify if it does not leave holes for attack.
 
 
 

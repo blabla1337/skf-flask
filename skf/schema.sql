@@ -121,6 +121,7 @@ CREATE TABLE `users` (
 `email` varchar(255) ,
 `password` varchar(255) NOT NULL,
 `accessToken` varchar(255),
+`activated` varchar(255),
 `access` varchar(255) NOT NULL
 );
 
@@ -135,7 +136,7 @@ CREATE TABLE `counter` (
 `block` int(11) NOT NULL
 );
 
-INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `username`, `password`, `access`) VALUES (1, 1, "admin", "$2a$12$Da5N2VrqE/rFHjSP2QJt.uo6QmgA0OoBDx3AwDAlJkQhNY7IT/teu", "true");
+INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `username`, `password`, `access`, `activated`) VALUES (1, 1, "admin", "$2a$12$Da5N2VrqE/rFHjSP2QJt.uo6QmgA0OoBDx3AwDAlJkQhNY7IT/teu", "true", "true");
 
 
 INSERT OR REPLACE INTO `counter` (`counterID`, `userID`, `countEvil`, `block`) VALUES (1, 1, 0, 0);

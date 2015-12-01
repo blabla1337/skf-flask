@@ -69,21 +69,14 @@ def generate_pass():
     PWD_LEN = 12
     generated_pass = ''.join(chars[ord(c) % len(chars)] for c in os.urandom(PWD_LEN))
     return generated_pass
-    
-def login_token(emailTo):    
-    #Create random token for login
+
+def random_token(tokenBytes):
+    #Create random token
     rand.cleanup()
-    login_token_raw = rand.bytes(128)
-    login_token = base64.b64encode(login_token_raw)
-    
-    sender = 'Security knowledge framework Login'
-    receivers = [emailTo]
-    message = "Use this token to login on the new users page found on the login page! " +login_token
-    print message
-    #smtpObj = smtplib.SMTP('localhost', 1025)
-    #smtpObj.sendmail(sender, receivers, message)
-    #return token for further usage
-    return login_token
+    Random_token_raw = rand.bytes(int(tokenBytes))
+    Random_token = base64.b64encode(Random_token_raw)
+    result = re.sub("==", "", Random_token)
+    return result
 
 def log(message, value, threat):
     """Create log file and write events triggerd by the user
@@ -307,8 +300,8 @@ def create_account():
             userID = verify[1]
             if str(verify[0]) == token:
                         #update the counter and blocker table with new values 
-                db.execute('UPDATE users SET access=?, password=? WHERE accessToken=? AND userID=?',
-                           ["true", hashed, token , userID])
+                db.execute('UPDATE users SET access=?, password=?, activated=? WHERE accessToken=? AND userID=?',
+                           ["true", hashed, "true", token , userID])
                 db.commit()
                 #Insert record in counter table for the counting of malicious inputs
                 db.execute('INSERT INTO counter (userID, countEvil, block) VALUES (?, ?, ?)',
@@ -333,7 +326,14 @@ def create_account():
                 db.execute('INSERT INTO groupMembers (userID, groupID, ownerID) VALUES (?, ?, ?)',
                             [userID, groupID, userID])
                 db.commit()
-                            
+               
+        if not check:
+            #if not the right pin, the user account wil be deleted if not exsisting
+            db.execute('DElETE FROM users where email=? AND activated=?',
+                        [email, "false"])
+            db.commit()
+        
+        
         return render_template('login.html', error=error)
 
 """First comes the method for login"""
@@ -615,14 +615,14 @@ def users_add():
     db = get_db()
     valAlphaNum(request.form['username'], 1)
     valNum(request.form['privID'], 12)
+    valNum(request.form['pincode'], 12)
     safe_userName = encodeInput(request.form['username'])
     safe_email    = encodeInput(request.form['email'])
     safe_privID   = encodeInput(request.form['privID'])
-    
-    #send login token to email
-    token = login_token(safe_email)
-    db.execute('INSERT INTO users (privilegeID, userName, email, password, access, accessToken) VALUES (?, ?, ?, ?, ?, ?)',
-               [safe_privID, safe_userName, safe_email, "none", "false", token])
+    pincode       = encodeInput(request.form['pincode'])
+
+    db.execute('INSERT INTO users (privilegeID, userName, email, password, access, accessToken, activated) VALUES (?, ?, ?, ?, ?, ?, ?)',
+               [safe_privID, safe_userName, safe_email, "none", "false", pincode, "false"])
     db.commit()
     
     return redirect(url_for('users_manage'))
@@ -1180,7 +1180,6 @@ def project_checklists(project_id):
             owasp_list_lvl3 = "ASVS-level-3"
             owasp_path_lvl3 = path.split("-")
             owasp_kb = owasp_path_lvl3[7]
-            owasp_checklist_name = owasp_path_lvl3[3] +" "+owasp_path_lvl3[4]+" "+owasp_path_lvl3[5]
             owasp_id = get_num(owasp_path_lvl3[1])
             #owasp_items_lvl3.append(owasp_checklist_name)
             owasp_ids_lvl3.append(owasp_id)
