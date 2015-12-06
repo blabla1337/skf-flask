@@ -15,17 +15,32 @@ or directly affect the operation of the target application.
 
 **Solution:**
 
-In order to prevent XSS injections all user-input should be escaped.
-You could start by encoding user-input as soon as it is inserted into the application, 
-by preference using a so called white-listing method
+In order to prevent XSS injections all user-input should be escaped or encoded.
+You could start by sanitising user-input as soon as it is inserted into the application, 
+by preference using a so called white-listing method.
 This means u should not checking for malicious content like the tags or anything, 
-but only allowing the expected input.
+but only allowing the expected input. Every input which is outside of the intended operation
+of the application should immediately be detected, logged en rejected.
 
 The second step would be encoding al the parameters or user-input before putting this in 
 your html with encoding libraries specially designed for this purpose. 
 
-Also whenever a user is allowed to add hrefs,  make sure the application checks whether 
-the href contains http:// or https://. This is done in order to prevent 
-javascript: or data: type XSS injections. 
+You should take into consideration that there are several contexts for encoding userinput for
+escaping XSS injections. These contexts are amongst others:
 
-	
+HTML encoding
+This is for whenever your userinput is displayed directly into your HTML
+
+HTML attribute encoding
+This type of encoding/escaping should be applied whenever your user input is displayed into the attribute of
+your HTML tags
+
+HTML URL encoding
+This type of encoding/escaping should be applied to whenever you are using userinput into a HREF
+tag.
+
+Javscript encoding
+Whenever parameters are rendered via javascript your application will detect normal injections
+in the first instant. But your application still remains vulnerable to javascript encoding which will not
+be detected by the normal encoding/escaping methods.
+
