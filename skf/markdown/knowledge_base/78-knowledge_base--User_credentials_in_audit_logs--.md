@@ -1,5 +1,5 @@
 
-User credentials in audit logs.
+User credentials in audit logs
 -------
 
 **Description:**
@@ -14,4 +14,5 @@ Instead of storing user credentials, you may want to use user id's in order to
 identify the user in the log files.
 
 Recommended knowledgebase item:
+
 - Logging guidelines

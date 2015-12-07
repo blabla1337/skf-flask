@@ -16,6 +16,7 @@ Use the sandbox attribute of an iframe for untrusted content. The sandbox attrib
 iframe enables restrictions on content within a iframe. The following restrictions are 
 
 active when the sandbox attribute is set: 
+
 - All markup is treated as being from a unique origin
 - All forms and scripts are disabled. 
 - All links are prevented from targeting other browsing contexts 
@@ -30,6 +31,7 @@ content if supported. Apart from this attribute, to prevent Clickjacking attacks
 unsolicited framing it is encouraged to use the header X-Frame-Options which supports 
 the deny and same-origin values. Other solutions like framebusting: 
 
+```javascript
 if(window!== window.top) { window.top.location = location; } 
 #Only for legacy browser support
-
+```

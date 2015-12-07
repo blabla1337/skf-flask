@@ -1,5 +1,5 @@
 
-Avoid the use of default and predictable accounts.
+Avoid the use of default and predictable accounts
 -------
 
 **Description:**

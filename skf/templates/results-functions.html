@@ -63,7 +63,7 @@
 										  <tr>
 											  <th><i class="fa fa-bullhorn"></i><b>Functions Project</b></th>
 											  <th><i class="fa fa-question-circle"></i><b>Functions list name</b></th>
-
+									          <th><i class="fa fa-clock-o"></i> <b>Date/Time</b></th>
 											  <th><i class="fa fa-bookmark"></i><b>Version</b></th>
 											  <th><i class="fa fa-download"></i><b>Download</b></th>
 										  </tr>
@@ -78,6 +78,7 @@
 											  <td>{{entry.functionName|safe}}</td>
 
 											  <td>{{entry.projectVersion|safe}}</td>
+											  <td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
 											  <td>
 												   <a href='/results-function-report/{{entry.projectID|safe}}' target='_self' >  
 											  <button class='btn btn-success btn-xs'><center>View Results</center></button></a>

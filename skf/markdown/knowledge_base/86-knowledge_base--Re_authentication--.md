@@ -21,5 +21,6 @@ two factor authentication, or transaction signing depending on how critical your
 application is.
 
 Recommended knowledge base item:
+
 - Step up or adaptive authentication
 

@@ -23,6 +23,7 @@ This is to prevent users from being attacked by XSS attacks which are undetectab
 the server.
 
 Recommended knowledge base items:
+
 - Positive validation method
 - Single input validation controls
 - Input rejection

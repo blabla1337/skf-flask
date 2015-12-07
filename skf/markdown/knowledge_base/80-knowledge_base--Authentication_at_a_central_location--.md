@@ -1,5 +1,5 @@
 
-Authentication at a central location.
+Authentication at a central location
 -------
 
 **Description:**

@@ -23,6 +23,7 @@ validation class. You should enforce a lockout whenever a unreasonable number of
 violations are detected by your application in order to protect it from attackers.
 
 Reccomended knowledge base items:
+
 - Input validation
 - Client side input validation
 - Single input validation controls

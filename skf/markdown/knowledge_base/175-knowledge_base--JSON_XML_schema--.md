@@ -16,6 +16,7 @@ requests and input.
 Verify that XML or JSON schema are in place and verified before accepting input.
 
 Recommended knowledge base items:
+
 - Input rejection
 - Input validation
 - Audit logs

@@ -1,5 +1,5 @@
 
-Sensitive information stored alongside the source code.
+Sensitive information stored alongside the source code
 -------
 
 **Description:**

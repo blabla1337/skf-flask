@@ -23,4 +23,5 @@ registration page. Here you need to use tar-pitting methods to prevent an automa
 attack by an attacker.
 
 Also recommended knowledge-base item:
+
 - Differential analysis attack 

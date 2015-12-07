@@ -15,4 +15,5 @@ session is terminated. This also goed for other session and local storage inform
 assist an attacker launching an succesfull attack.
 
 Recommended knowledge base items:
+
 - HTML5 caching

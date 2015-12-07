@@ -22,6 +22,7 @@ Also another reason to build an extra layer of escaping, sanitising, encoding ro
 in your application is because of the logging you want to apply on the data.
 
 Recommended knowledge base items:
+
 - Input rejection
 - Input validation
 - Audit logs

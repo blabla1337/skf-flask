@@ -20,6 +20,7 @@ link is sent over. Also make sure whenever such a recovery cycle is started, the
 application does not reveal the users current password in any way.
 
 Recommended knowledge-base items:
+
 - Prevent password leaking
 - Disallow the use of old passwords
 - Predictable password and/or token generation

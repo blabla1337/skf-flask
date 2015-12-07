@@ -18,6 +18,7 @@ account when developing your application to minimize the possibility you send
 unintended sensitive data towards these devices.
 
 Recommended knowledge base items:
+
 - High level architecture should be defined
 - Identify all application components
 	

@@ -36,5 +36,6 @@ Allong with the renewal of the session identifier in these steps you now have fu
 session hijaking attacks.
 
 Recommended knowledgebase items:
+
 - Session hijacking
 - Session fixation

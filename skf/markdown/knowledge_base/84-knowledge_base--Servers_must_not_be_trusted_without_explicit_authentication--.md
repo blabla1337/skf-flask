@@ -1,5 +1,5 @@
 
-Servers must not be trusted without explicit authentication.
+Servers must not be trusted without explicit authentication
 -------
 
 **Description:**

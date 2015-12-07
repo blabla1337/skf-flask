@@ -20,6 +20,7 @@ Also important to always verify that the same access control rules implied by th
 are enforced on the serverside.
 
 Recommended knowledge base items:
+
 - Input validation 
 - Input rejection
 - Single input validation class

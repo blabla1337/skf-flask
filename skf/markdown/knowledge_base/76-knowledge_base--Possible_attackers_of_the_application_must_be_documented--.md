@@ -1,5 +1,5 @@
 
-Possible attackers of the application must be documented.
+Possible attackers of the application must be documented
 -------
 
 **Description:**
@@ -14,6 +14,7 @@ The possible attackers needs to be monitored as much as possible. This informati
 crucial for forensics and law enforcements. 
 
 Recommended knowlege-base items:
+
 - Audit logs
 - User credentials in audit logs
 - Log injection

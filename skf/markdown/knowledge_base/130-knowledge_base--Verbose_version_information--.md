@@ -15,6 +15,4 @@ Verify that the HTTP headers do not expose detailed version information of syste
 components. For each different type of server there are hardening guides dedicated
 especially for this type of data leaking. 
 
-
-
 	

@@ -4,7 +4,7 @@ Account lock-out
 
 **Description:**
 
-All applications should contain the possibility to lock down accounts for whenever it 
+All applications should contain the possibility to lock down accounts for whenever it
 detects attacks by/on users. Also you should include options for both soft and hard
 lock-out mechanismes. 
 
@@ -29,5 +29,6 @@ and infrastructure.
 
 
 Recommended knowledge-base items:
--Audit logs
--Privilege based authentication
+
+- Audit logs
+- Privilege based authentication

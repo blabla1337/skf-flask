@@ -36,6 +36,7 @@ logged and rejected by your application.
 note: All this validation and rejection should always be perfomed on the server side.
 
 Recommended knowledge base items:
+
 - Positive validation method
 - Input rejection
 - Client side validation

@@ -1,5 +1,5 @@
 
-Enforce sequential step order.
+Enforce sequential step order
 -------
 
 **Description:**
@@ -18,6 +18,7 @@ steps being processed in realistic human time, and not process out of order, ski
 processed steps from another user, or too quickly submitted transactions.
 
 Recommended knowledge base items:
+
 - Aggregate user requests
 - CSRF injection
 

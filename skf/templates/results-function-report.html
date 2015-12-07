@@ -31,7 +31,7 @@
 
 				<div class="text">
 				
-				{% if entries.projectName != Null %}
+				{% if entries.projectName == Null %}
 					<h1>Function results</h1>
 					<p>There were no Function results found. Create a project and use the Add functions form in order to create results.</p>
 				{% else %}
@@ -45,7 +45,7 @@
 
 	  <section class="wrapper">
 
-			{% if entries.projectName != Null %}
+			{% if entries.projectName == Null %}
 			{% else %}
 			
 			<a class="report" href="/results-function-docx/{{projectID|safe}}">

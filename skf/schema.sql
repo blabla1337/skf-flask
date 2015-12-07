@@ -117,7 +117,7 @@ drop table if exists `users`;
 CREATE TABLE `users` (
 `userID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `privilegeID` int(11) NOT NULL,
-`userName` varchar(255) NOT NULL,
+`userName` varchar(255) NOT NULL UNIQUE,
 `email` varchar(255) ,
 `password` varchar(255) NOT NULL,
 `accessToken` varchar(255),

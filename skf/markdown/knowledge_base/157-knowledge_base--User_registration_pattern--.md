@@ -15,7 +15,6 @@ For more detailed information about these items you should check the knowledge-b
 4. Predictable password and or token generation
 5. Are all passwords hashed, salted and stretched
 6. Does The application enforce the use of secure passwords.
-7. 
 
 
 **Solution:**

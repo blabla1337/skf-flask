@@ -14,6 +14,7 @@ All sensitive information should always be send by an encrypted methods
 such as HTTPS connections.
 
 Recommended knowledge base items:
+
 - Secure session
 - HTTP strict transport security
 - HSTS preload

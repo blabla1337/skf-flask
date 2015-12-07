@@ -21,5 +21,6 @@ your sessions. Follow the "Sessions pattern" list to make sure your session mana
 secure.
 
 Recommended knowledge base items:
+
 - Cross subdomain cookie attacks
 - Sessions pattern

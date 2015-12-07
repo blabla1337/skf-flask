@@ -18,5 +18,6 @@ As soon as you allow a single connection to be send over unencrypted lines, the
 integrity and confidentiality of your data can no longer be guaranteed.
 
 Recommended knowledgebase items:
+
 - HTTP strict transport security
 - HSTS preload

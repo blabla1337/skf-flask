@@ -19,4 +19,5 @@ to make sure your application in any circumstance does not send this cookie over
 HTTPS connections. 
 	
 Recommended knowledge base item:
+
 - Session management

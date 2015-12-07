@@ -425,8 +425,9 @@ def countAttempts(counter):
     
     if redirect == True:
         log( "Authenticated session destroyed by counter class", "SUCCESS", "LOW")
-        session.pop('logged_in', None)
-        session.clear()
+        # TO-DO turn on again
+        #session.pop('logged_in', None)
+        #session.clear()
     if redirect == False:
         return True
 
@@ -701,7 +702,7 @@ def group_add():
     db.execute('INSERT INTO groupMembers (userID, groupID, ownerID, timestamp) VALUES (?, ?, ?, ?)',
                [session['userID'], groupID, session['userID'], date])
     db.commit()
-    return redirect(url_for('group_users'))
+    return redirect(url_for('group_manage'))
 
 @app.route('/group-users', methods=['GET'])
 @security
@@ -882,7 +883,7 @@ def project_del():
         abort(401)
     permissions("delete")
     valNum(request.form['projectID'], 12)
-    id = int(request.form['projectID'])
+    id = request.form['projectID']
     check_token()
     db = get_db()
     db.execute("DELETE FROM projects WHERE projectID=? AND userID=? AND ownerID=?",
@@ -966,7 +967,7 @@ def function_del():
     check_token()
     valNum(request.form['projectID'], 12)
     valNum(request.form['paramID'], 12)
-    id = int(request.form['projectID'])
+    id = request.form['projectID']
     id_param = int(request.form['paramID'])
     db = get_db()
     #First check if the user is allowed to delete this parameter
@@ -991,7 +992,7 @@ def add_function():
     permissions("edit")
     check_token()
     valNum(request.form['project_id'], 12)
-    id = int(request.form['project_id'])
+    id = request.form['project_id']
     valAlphaNum(request.form['functionName'], 1)
     valAlphaNum(request.form['functionDesc'], 1)
     safe_fName = encodeInput(request.form['functionName'])

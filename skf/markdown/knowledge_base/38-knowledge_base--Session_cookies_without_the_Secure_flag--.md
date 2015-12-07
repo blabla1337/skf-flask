@@ -19,4 +19,5 @@ The purpose of this flag is to prevent the accidental exposure of a cookie value
 follows an HTTP link. 
 
 Reccomended knowledge base item:
+
 - Session management

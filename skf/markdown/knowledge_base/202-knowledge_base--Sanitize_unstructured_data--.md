@@ -9,6 +9,7 @@ setup an attacker can use this unstructured data to harm the application and per
 **Solution:**
 
 Unstructured data needs to be sanitized to enforce generic safety measures for example:
+
 - allowed characters
 - character length, 
 

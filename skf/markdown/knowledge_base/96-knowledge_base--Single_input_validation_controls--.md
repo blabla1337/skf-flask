@@ -15,6 +15,7 @@ type of data that is accepted. This way your validation controls stay clear, tra
 and manageable. This method leaves less room for error.
 
 Recomended knowledge base items:
+
 - Positive validation method
 - Input validation
 - Input rejection

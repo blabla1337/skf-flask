@@ -16,6 +16,7 @@ entirely from each other so the logs with untrusted userinput cannot corrupt the
 system generated logs.
 
 Recommended knowledge base items:
+
 - Logging implemented on the server side
 - Log injection
 - The audit log must include a priority system

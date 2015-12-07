@@ -14,4 +14,5 @@ administrative interface. If that solution would not be possible than it is alwa
 to enforce a step-up or adaptive authentication for logging in into the administrative interface.
 
 Recommended knowledgebase item:
+
 - Step up or adaptive authentication

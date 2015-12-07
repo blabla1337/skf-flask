@@ -22,14 +22,17 @@ illegitimate advantage. There are a lot of different types of spoofing you have 
 into account for example: TCP/IP, Referer, ID, or Email spoofing. 
 
 For Tampering we recommend to read the following knowledge base items:
+
 - Input validation 
 - Input rejection
 - Single input validation controls
   
 For Repudiation we recommend to read the following knowledge base items:
+
 - Repudiation attacks
 
 For information disclosure we recommend to read the following knowledge base items:
+
 - Verbose error messaging
 - Session information is not stored server-side
 - Sensitive information transmitted by un-encrypted methods
@@ -39,6 +42,7 @@ For information disclosure we recommend to read the following knowledge base ite
 - Differential analysis 
 
 For Elevation of privilege we recommend to read the following knowledge base items:
+
 - Authentication at a central location
 - All authentication controls must fail securely
 - Client-side authentication

@@ -1,5 +1,5 @@
 
-IP adresses in internal HTTP headers.
+IP adresses in internal HTTP headers
 -------
 
 **Description:**
