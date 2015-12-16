@@ -4,3 +4,9 @@ checks:
     python:
         code_rating: true
         duplicate_code: true
+        basic_eval_used: true
+        basic_dangerous_default_value: true
+
+filter:
+    excluded_paths:
+        - '*test_skf*'
