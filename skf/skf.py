@@ -308,7 +308,7 @@ def create_account():
         password  = request.form['password']
         
         #hash the password with Bcrypt, does autosalt
-        hashed = bcrypt.generate_password_hash(password)
+        hashed = bcrypt.generate_password_hash(password,14)
       
         #Do DB query also check for access
         cur = db.execute('SELECT accessToken, userID from users where email=? AND accessToken=?',
