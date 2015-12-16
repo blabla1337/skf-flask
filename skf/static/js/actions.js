@@ -151,8 +151,11 @@ $(document).ready(function() {
 	
 	$("#accordion .panel a:contains('not available item')").parent().parent().parent().remove();
 	
+<<<<<<< HEAD
 	// Select Items
 	
+=======
+>>>>>>> origin/master
 	$( "#selectable" ).bind( "mousedown", function ( e ) {
 		e.metaKey = true;
 	} ).selectable({

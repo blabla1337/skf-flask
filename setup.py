@@ -17,7 +17,11 @@ setup(name='owasp-skf',
     The Security Knowledge Framework is an fully open-source Python-Flask web-application.
     It is an expert system application that uses OWASP Application Security Verification Standard
     """,
+<<<<<<< HEAD
     install_requires=['markdown','BeautifulSoup', 'python-docx','lxml==3.4.2', 'cryptography==0.8.2', 'pyOpenSSL', 'requests', 'importlib', 'bcrypt', 'flask-bcrypt'],
+=======
+    install_requires=['markdown==2.6.3','BeautifulSoup', 'python-docx','lxml==3.4.2', 'cryptography==0.8.2', 'pyOpenSSL', 'requests', 'importlib','flask-bcrypt'],
+>>>>>>> origin/master
     dependency_links= [
         'https://github.com/mitsuhiko/flask/tarball/master#egg=Flask-owasp'
     ],
