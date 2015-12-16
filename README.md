@@ -121,17 +121,6 @@ Edit the file file:
        app.run(host=bindaddr, port=5443)
 ```
 
-Create static Password
-
-Edit the following file:
-/home/foobar/skf-flask/skf/skf.py
-```bash
-  Change line:
-    PASSWORD=password,
-
-    PASSWORD='1@#yoursuPar3trong0149PaSs$!',
-```
-
 Now we can edit the configuration file of Apache
 
 Edit the following file and add this below the virtualHost config for port 80
