@@ -167,7 +167,7 @@ bindaddr = '127.0.0.1';
 # You can also replace password with static password:  PASSWORD='pass!@#example'
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'skf.db'),
-    DEBUG=True,
+    DEBUG=False,
     SECRET_KEY=secret_key,
     SESSION_COOKIE_SECURE=True,
     SESSION_COOKIE_HTTPONLY = True
@@ -308,7 +308,7 @@ def create_account():
         password  = request.form['password']
         
         #hash the password with Bcrypt, does autosalt
-        hashed = bcrypt.generate_password_hash(password, 12)
+        hashed = bcrypt.generate_password_hash(password)
       
         #Do DB query also check for access
         cur = db.execute('SELECT accessToken, userID from users where email=? AND accessToken=?',
