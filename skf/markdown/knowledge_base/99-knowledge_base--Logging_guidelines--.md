@@ -16,6 +16,10 @@ level of the event, an indication that this is a security relevant event
 (if there is a user associated with the event), the source IP address of the request 
 associated with the event, whether the event succeeded or failed, and a 
 description of the event. Also verify that log fields from trusted and untrusted sources 
-are distinguishable in log entries. 
+are distinguishable in log entries, preferably stored in different files so they cannot
+taint each other whenever log injection occurs.
 
-	
+Verify accessing sensitive data is logged, if the data is collected under relevant data protection 
+directives or where logging of accesses is required.
+
+

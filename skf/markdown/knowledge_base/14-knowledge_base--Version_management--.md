@@ -24,14 +24,19 @@ versions is critical.
 Software projects should have a process in place to:
 
 -Identify all components and the versions you are using, including all dependencies. 
- (e.g., the versions plugin).
+(e.g., the versions plugin).
 
 -Monitor the security of these components in public databases, 
- project mailing lists, and security mailing lists, and keep them up to date.
- 
+project mailing lists, and security mailing lists, and keep them up to date.
+
 -Establish security policies governing component use, such as requiring certain software 
- development practices, passing security tests, and acceptable licenses.
- 
+development practices, passing security tests, and acceptable licenses.
+
 -Where appropriate, consider adding security wrappers around components to disable unused 
- functionality and/ or secure weak or vulnerable aspects of the component.
-	
+functionality and/ or secure weak or vulnerable aspects of the component.
+
+This also goes for all other components that should be up to date with proper security 
+configuration(s) and version(s) such as server OS etc.
+
+This should include removal of unneeded configurations and folders such as sample 
+applications, platform documentation, and default or example users.

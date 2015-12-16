@@ -11,4 +11,14 @@ untrusted log fields in your log entries your logs become clearer and more trans
 **Solution:**
 
 Verify that log fields from trusted and untrusted sources are distinguishable in 
-log entries.
+log entries. If possible it is highly recommended that you separate these files 
+entirely from each other so the logs with untrusted userinput cannot corrupt the
+system generated logs.
+
+Recommended knowledge base items:
+
+- Logging implemented on the server side
+- Log injection
+- The audit log must include a priority system
+- User credentials in audit logs
+- Logging guidelines

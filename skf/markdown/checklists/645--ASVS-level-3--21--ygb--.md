@@ -1,0 +1,1 @@
+11.8 Verify that the X-XSS-Protection: 1; mode=block header is in place.

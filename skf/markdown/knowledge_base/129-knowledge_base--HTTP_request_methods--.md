@@ -13,5 +13,5 @@ server is misconfigured.
 **Solution:**
 
 Verify that the application accepts only a defined set of HTTP request methods, such as 
-GET and POST and unused methods are explicitly blocked.
+GET and POST and unused methods are explicitly blocked/disabled.
 	

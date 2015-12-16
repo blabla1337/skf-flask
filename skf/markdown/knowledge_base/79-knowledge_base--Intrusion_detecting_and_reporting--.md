@@ -12,7 +12,6 @@ prevent further escalation.
 
 Intrusion detecting could be done by means of a: 
 
-
 "Positive security model:"
 In this model you create certain regular expressions in order to only make the application 
 pass the so called "known good".
@@ -26,5 +25,10 @@ of reports and alerts.
 Create a blacklist with known attacks and malicious input and make the application report
 on detection of this input. You could also prioritise different malicious input and 
 classify them into different groups.
+
+Whatever method you may choose to prefer, you should always ensure error handling logic in 
+security controls denies access by default. With this approach applied you will have a 
+higher probability that whenever an attacker manages to break your applications intended 
+operation, it will not fail in a way which increases his attack vector.
 
 	

@@ -1,1 +1,0 @@
-V3.14 Verify that authenticated session tokens using cookies sent via HTTP, are protected by the use of HttpOnly.

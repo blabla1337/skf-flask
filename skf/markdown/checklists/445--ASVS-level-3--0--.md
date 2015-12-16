@@ -1,1 +1,0 @@
-V13: Malicious Controls Verification Requirements

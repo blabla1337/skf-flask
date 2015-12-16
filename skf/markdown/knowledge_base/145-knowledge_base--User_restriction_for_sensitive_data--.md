@@ -16,4 +16,8 @@ a separate folder with permission rules in order to prevent unauthorised users t
 read these files. As an in depth solution you could also check if the session of the user 
 has sufficient privileges to read the files according to the level of authorisation.
 
+Recommended knowledge base item:
+
+- Missing authentication or authorisation
+- Sanitise sensitive data rapidly from memory
 	

@@ -1,0 +1,1 @@
+3.16 Verify that the application limits the number of active concurrent sessions.

@@ -1,0 +1,1 @@
+2.6 Verify all authentication controls fail securely to ensure attackers cannot log in.

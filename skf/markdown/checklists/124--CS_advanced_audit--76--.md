@@ -1,1 +1,0 @@
-The possible attackers of the application must be documented.

@@ -8,8 +8,8 @@ The only defined value, nosniff, prevents Internet Explorer and Google Chrome fr
 MIME-sniffing a response away from the declared content-type. 
 This also applies to Google Chrome, when downloading extensions. 
 This reduces exposure to drive-by download attacks and sites serving user uploaded 
-content that, by clever naming, 
-could be treated by MSIE as executable or dynamic HTML files.
+content that, by clever naming, could be treated by MSIE as executable or dynamic HTML 
+files.
 
 
 **Solution:**

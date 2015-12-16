@@ -1,1 +1,0 @@
-Generated passwords and tokens must not be predictable.

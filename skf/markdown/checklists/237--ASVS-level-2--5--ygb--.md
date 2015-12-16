@@ -1,0 +1,1 @@
+4.13 Verify that the application or framework uses strong random anti-CSRF tokens or has another transaction protection mechanism.

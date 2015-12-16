@@ -15,4 +15,9 @@ network connection.
 Never store sensitive information in a client side cache since this can be easily 
 compromised by attackers. The same principle does also apply to autocomplete functions.
 
-	
+Recommended knowledge base item:
+
+- Caching headers
+- Client side storage
+
+

@@ -1,1 +1,0 @@
-The crossdomain.xml file must only contain trusted domains

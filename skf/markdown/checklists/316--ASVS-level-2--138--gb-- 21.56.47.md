@@ -1,0 +1,1 @@
+16.7 Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server.

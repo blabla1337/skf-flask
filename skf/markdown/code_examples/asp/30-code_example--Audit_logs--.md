@@ -120,6 +120,7 @@ Audit logs
 
 							HttpContext.Current.Session["authenticateUser"] = "";
 							HttpContext.Current.Session.Abandon();
+							HttpContext.Current.Response.Redirect("/login", true);
 						}
 					}
 					catch (SqlException e)

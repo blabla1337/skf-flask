@@ -1,1 +1,0 @@
-V4.1 Verify that users can only access secured functions or services for which they possess specific authorization.

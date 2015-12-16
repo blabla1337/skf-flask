@@ -4,9 +4,8 @@ Extraneous files in document root
 
 **Description:**
 
-Whenever the document root contains extraneous files, these files could be uploaded by an 
+Whenever the document root contains extraneous files, these files could be accessed by an 
 attacker or could possibly contain functionality witch could contain other vulnerabilities.
-
 
 
 **Solution:**

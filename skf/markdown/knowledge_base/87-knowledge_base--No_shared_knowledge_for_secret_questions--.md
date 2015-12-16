@@ -11,6 +11,7 @@ the web to prevent him compromising the account by this function.
 
 **Solution:**
 
-Secret questions should never include shared knowledge.
+Secret questions should never include shared knowledge, predictable or easy
+guessable values.
 
 	

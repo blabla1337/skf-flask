@@ -5,7 +5,7 @@ Available log analysis tools
 **Description:**
 
 With a log analysis tool in place you can easily and quickly do forensics as soon as you 
-notice your application is under attack by hackers and block them out.
+notice your application is under attack by attackers and block them out.
 
 
 **Solution:**

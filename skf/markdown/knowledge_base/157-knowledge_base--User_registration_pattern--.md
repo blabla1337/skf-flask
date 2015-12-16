@@ -10,13 +10,11 @@ For more detailed information about these items you should check the knowledge-b
 
 1. Column truncation sql injection(for mysql databases)
 2. Single input validation controls  
-2. audit logs
+2. Audit logs
 3. Prevent password leaking
 4. Predictable password and or token generation
 5. Are all passwords hashed, salted and stretched
 6. Does The application enforce the use of secure passwords.
-
-
 
 
 **Solution:**

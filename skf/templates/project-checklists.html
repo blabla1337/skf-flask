@@ -71,106 +71,6 @@
 						</thead>
 						<tbody>
 						
-						<!-- OWASP top 10 -->
-						
-						<tr>
-							<td>OWASP top 10</td>
-							<td>Top 10 vulnerabilities composed by OWASP.</td>
-							<td>Technical debt</td>
-							<td>          
-								<!-- MODALS -->
-								<div class="showbak">
-								<!-- Button trigger modal -->
-								<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal3">Start</button>
-			
-								<!-- Modal -->
-								<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-										
-											<!-- Modal Header -->
-										
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">OWASP top 10</h4>
-											</div>
-											
-											<div class="modal-info">
-												<div class="alert alert-info">
-													<p>For your convenience the report shall <b>only</b> contain all objects that have <b>failed</b> the checklist. Items that marked as not applicable (N.A) will also be hidden in the report.</p>
-												</div>
-											</div>
-											
-											<!-- Modal Body -->
-											
-											<form method="post" action="/project-checklist-add"/>
-											
-											<div class="modal-body">
-												<table class="table table-striped table-advance table-hover checklist">
-													<tbody>
-													{% set counter_owasp = 0 -%}
-													{% set count_owasp_top = 0 -%}
-													{% for entry in owasp_content -%}
-													
-
-													{% if owasp_kb_ids[counter_owasp] == '0' -%}
-														
-														<th colspan="2">
-															{{entry|safe}}
-														</th>
-														{% else %}
-														<tr>
-															<td> 
-																{{entry|safe}}
-															</td>
-															{% endif %}
-
-															{% if owasp_kb_ids[counter_owasp] != '0' -%}
-															{% set count_owasp_top = count_owasp_top + 1 %}
-															<td class="select">
-																<select name="answer{{count_owasp_top|safe}}" class="form-control">
-																	<option value="no">No</option>
-																	<option value="yes">Yes</option>
-																	<option value="na">N.A.</option>
-																</select>
-																<input type="hidden" name="vulnID{{count_owasp_top|safe}}" value="{{owasp_kb_ids[counter_owasp]|safe}}" />
-																<input type="hidden" name="questionID{{count_owasp_top|safe}}" value="{{owasp_ids[counter_owasp]|safe}}" />
-																<input type="hidden" name="listID{{count_owasp_top|safe}}" value="{{owasp_list|safe}}" />
-															</td>
-														</tr>
-														{% endif %}
-														
-													
-													{% set counter_owasp = counter_owasp + 1 %}
-													{% endfor %}
-													<tr style="display: none;">
-														<td>
-															<input type="hidden" name="projectID" value="{{project_id|safe}}" />
-															<input type="hidden" name="projectName" value="{{projectName|safe}}" />
-															<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
-														</td>
-													</tr>
-													</tbody>
-												</table>
-											</div>
-											
-											<!-- Modal Footer -->
-											
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-												<button type="submit" name="submit" class="back">Save checklist <i class="fa fa-check"></i></button>
-											</div>
-										
-										</form>
-										
-										</div>
-									</div>
-								</div> 
-				  
-								</div>
-
-							</td>
-						</tr>	
 						
 						<!-- OWASP ASVS Level 1 -->
 						
@@ -183,10 +83,10 @@
 							<!-- MODALS -->
 							<div class="showbak">
 								<!-- Button trigger modal -->
-								<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal7">Start</button>
+								<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal6">Start</button>
 
 								<!-- Modal -->
-								<div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 										
@@ -630,7 +530,7 @@
 																	<option value="na">N.A.</option>
 																</select>
 																<input type="hidden" name="vulnID{{count_custom|safe}}" value="{{custom_kb_ids[counter_custom]|safe}}" />
-																<input type="hidden" name="questionID{{count_custom|safe}}" value="{{owasp_ids[counter_custom]|safe}}" />
+																<input type="hidden" name="questionID{{count_custom|safe}}" value="{{custom_ids[counter_custom]|safe}}" />
 																<input type="hidden" name="listID{{count_custom|safe}}" value="{{owasp_list|safe}}" />
 															</td>
 														</tr>

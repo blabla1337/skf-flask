@@ -1,1 +1,0 @@
-Uploaded files must never be executed or evaluated.

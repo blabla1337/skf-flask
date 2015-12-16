@@ -1,0 +1,1 @@
+1.3 Verify that a high-level architecture for the application has been defined.

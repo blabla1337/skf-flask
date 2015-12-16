@@ -1,1 +1,0 @@
-V2.16 Verify that credentials, and all other identity information handled by the application(s), do not traverse unencrypted or weakly encrypted links.

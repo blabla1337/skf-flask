@@ -1,0 +1,1 @@
+2.21 Verify that all authentication credentials for accessing services external to the application are encrypted and stored in a protected location.

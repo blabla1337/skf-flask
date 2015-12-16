@@ -1,1 +1,0 @@
-V8.8 Verify that security logs are protected from unauthorized access and modification.

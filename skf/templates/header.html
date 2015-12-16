@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/animsition/animsition.min.css') }}">
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
@@ -81,16 +81,44 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
+                  {% if "edit" in session['permissions'] -%}
                   <li class="mt sub-menu">
 					<a class="page01" href="javascript:;">
 						<i class="fa fa-file-code-o"></i>
 						<span>Projects</span>
 					</a>
 					<ul class="sub">
-						<li><a class="page02" href="/project-new">New Project</a></li>
-						<li><a class="page03" href="/project-list">List Projects</a></li>
+						{% if "edit" in session['permissions'] -%} <li><a class="page02" href="/project-new">New Project</a></li>{% endif -%}
+						{% if "read" in session['permissions'] -%}<li><a class="page03" href="/project-list">List Projects</a></li>{% endif -%}
+						{% if "read" in session['permissions'] -%}<li><a class="page03a" href="/project-shared">Shared Projects</a></li>{% endif -%}
 					</ul>
                   </li>
+                  {% endif -%}
+                  {% if "manage" in session['permissions'] -%}
+                  <li class="sub-menu">
+                      <a class="users" href="javascript:;" >
+                          <i class="fa fa-user"></i>
+                          <span>Users</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="userAdd" href="/users-new">Add users</a></li>
+                          <li><a class="userManage" href="/users-manage">Manage users</a></li>
+                      </ul>
+                  </li>
+                  {% endif -%}
+                  {% if "edit" in session['permissions'] -%}
+                  <li class="sub-menu">
+                      <a class="pageA" href="javascript:;" >
+                          <i class="fa fa-users"></i>
+                          <span>User groups</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="pageB" href="/group-new">Add groups</a></li>
+                          <li><a class="pageC" href="/group-users">Add users to group</a></li>
+                          <li><a class="pageD" href="/group-manage">Manage groups</a></li>
+                      </ul>
+                  </li>
+                  {% endif -%}
                   <li class="sub-menu">
                       <a class="page04" href="javascript:;" >
                           <i class="fa fa-bar-chart-o"></i>
@@ -112,7 +140,7 @@
                           <i class="fa fa-code"></i>
                           <span>Code examples</span>
                       </a>
-                  </li>           
+                  </li>         
               </ul>
 			  
 			  <div class="copy">

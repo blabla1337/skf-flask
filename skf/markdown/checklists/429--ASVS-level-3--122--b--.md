@@ -1,1 +1,0 @@
-V10.2 Verify that failed TLS connections do not fall back to an insecure HTTP connection.

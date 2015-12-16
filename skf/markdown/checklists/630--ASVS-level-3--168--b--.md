@@ -1,0 +1,1 @@
+10.10 Verify that TLS certificate public key pinning is implemented with production and backup public keys.

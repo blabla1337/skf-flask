@@ -1,1 +1,0 @@
-V11.6 Verify that HTTP headers in both requests and responses contain only printable ASCII characters.

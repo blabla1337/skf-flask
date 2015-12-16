@@ -1,0 +1,1 @@
+2.13 Verify that account passwords make use of a sufficient strength encryption routine and that it withstands brute force attack against the encryption routine.

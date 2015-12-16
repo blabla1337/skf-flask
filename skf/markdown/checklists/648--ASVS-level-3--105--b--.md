@@ -1,0 +1,1 @@
+13.2 Verify that a code review looks for malicious code, back doors, Easter eggs, and logic flaws.

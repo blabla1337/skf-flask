@@ -1,0 +1,1 @@
+V8: Error handling and logging verification requirements

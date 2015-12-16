@@ -12,4 +12,4 @@ these files are corrupted or backdoor-ed.
 **Solution:**
 
 Verify that the integrity of interpreted code, libraries, executables, and configuration
-files is verified using checksums or hashes.
+files is verified using checksums or hashes (not MD5).

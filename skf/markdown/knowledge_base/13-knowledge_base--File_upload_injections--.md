@@ -13,8 +13,6 @@ The consequences of unrestricted file upload can vary, including complete system
 an overloaded file system or database, forwarding attacks to back-end systems, and simple 
 defacement. 
 
-It depends on what the application does with the uploaded file and especially where it is stored.
-
 There are really two classes of problems here. 
 The first is with the file metadata, like the path and file name. 
 These are generally provided by the transport, such as HTTP multi-part encoding. 
@@ -33,7 +31,8 @@ You should also check the user-input(filename) for having the right
 allowed extensions such as .jpg, .png etc.
 
 note: when checking these extensions always make sure your application validates the last
-possible extension so an attacker could not simply inject ".jpg.php" and bypass your validation
+possible extension so an attacker could not simply inject ".jpg.php" and bypass your
+validation
 
 After this validation you must also check the user-input(filename) for containing possible 
 path traversal patterns in order to prevent him from uploading outside of 
@@ -47,8 +46,8 @@ The best way to check the mime-type
 is to extract the file from the server after uploading and check it from the file itself.
 Deleting it whenever it does not comply with expected values.
 
-You may also want to check if the filenames do already exist before uploading in order to prevent
-the overwriting of files.
+You may also want to check if the filenames do already exist before uploading in order to 
+prevent the overwriting of files.
 
 Also for serving the files back there needs to be a file handler function that can select 
 the file based on an identifier that wil serve the file back towards the user.

@@ -1,1 +1,0 @@
-Does the application uses CSRF tokens in order to prevent attackers to forge malicious requests.

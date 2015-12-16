@@ -20,4 +20,16 @@ The principle applies also to a personal computer user who usually does work in 
 user account, and opens a privileged, password protected account (that is, a superuser) 
 only when the situation absolutely demands it.
 
-	
+This principle can also be applied to your web-applications. Instead of solely depending
+on role based authentication methods using sessions, we rather want to assign privileges 
+to users by means of a Database-Based Authentication system. 
+
+We still use sessions in order to identify if the user was logged in correctly, only now 
+instead of assigning that user with a specific role we assign him with privileges to 
+verify which actions he is privileged to perform on the system.
+
+Also a big pro of this method is, whenever a user has to be assigned less privileges
+your changes will be applied on the fly since the assigning does not depend on the session
+which otherwise had to expire first.
+
+

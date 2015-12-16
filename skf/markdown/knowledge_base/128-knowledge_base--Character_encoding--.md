@@ -20,9 +20,18 @@ render encoded text.
 
 **Solution:**
 
-These three ways of providing the character encoding of a document are not equivalent. 
+**note:These three ways of providing the character encoding of a document are not 
+equivalent.**
+ 
 When trying to figure out the character encoding of a resource, user agents will try, in 
-this order: The HTTP Content-Type header sent by the server, the XML declaration 
-(only for XHTML documents) or the HTML/XHTML meta element.
+this order: 
+
+* The HTTP Content-Type header sent by the server 
+* the XML declaration (only for XHTML documents)
+* HTML/XHTML meta element.
+
+Make sure this information is provided by your application for the server in order to 
+prevent it from guessing the wrong encoding standard, leaving room for injection.
+
 
 	
