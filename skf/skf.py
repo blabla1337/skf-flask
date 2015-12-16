@@ -111,7 +111,7 @@ def blockUsers():
             if count > 11:
                 sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')            
                                 
-def valAlphaNum(value):
+def valAlphaNum(value, countLevel):
     match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
     if match:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
