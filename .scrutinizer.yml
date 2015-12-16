@@ -3,9 +3,14 @@
 checks:
     python:
         code_rating: true
-        duplicate_code: true
+        duplicate_code: false
+        basic_exec_used: true
         basic_eval_used: true
         basic_dangerous_default_value: true
+        variables_unused_variable: true
+        variables_unused_import: true
+        basic_useless_else_on_loop: true
+        basic_unreachable: true
 
 filter:
     excluded_paths:
