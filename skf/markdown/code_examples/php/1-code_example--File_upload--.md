@@ -80,7 +80,7 @@ File upload
 				$log -> setLog($_SESSION['userID'],"invalid image mime type", 
 				"FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
 
-				/*
+				/* ^^
 				Set counter; if counter hits 3, the user's session must be terminated.
 				After 3 session terminations the user account should be blocked
 				since the high threat level can lead to immediate session termination.

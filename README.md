@@ -1,13 +1,13 @@
 #OWASP Security Knowledge Framework
-[![SKF Logo](https://www.securityknowledgeframework.org/img/logos/logo-purple.png)](http://www.securityknowledgeframework.com)
+[![SKF Logo](https://www.securityknowledgeframework.org/img/logos/logo-purple.png)](https://www.securityknowledgeframework.org/)
 <br>Project status details:<br>
-[![Build Travis CI](https://travis-ci.org/blabla1337/skf-flask.svg)](https://travis-ci.org/blabla1337/skf-flask)
+[![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=master)](https://travis-ci.org/blabla1337/skf-flask)
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
-[![SSL Rating](http://sslbadge.org/?domain=securityknowledgeframework.org)](https://www.ssllabs.com/ssltest/analyze.html?d=securityknowledgeframework.org)
-<br/>
-Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.
 
+<br/>
+Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.  
+ 
 ##Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
@@ -20,6 +20,9 @@ Security Knowledge Framework is an expert system application that uses OWASP App
 * [Contributors](#contributors)
 
 ##<a name="introduction"></a>Introduction
+
+Remark: We are busy with a Major new release, the owasp-skf pip project is the stable version, github is not working/missing documentation. 
+
 Our experience taught us that the current level of security the current web-applications contain is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers which are lurking, waiting to be exploited by hackers.
 
 Because of this we decided to develop a proof of concept framework in order to create a guide system available for all developers so they can develop applications secure by design.

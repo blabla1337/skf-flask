@@ -91,12 +91,7 @@ def log(message, value, threat):
         # If not exists, create the file
         file = open('logs/'+dateLog+'.txt', 'w+')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
-<<<<<<< HEAD
     file.close() 
-              
-def valAlphaNum(value, countLevel):
-=======
-    file.close()
 
 def blockUsers():
     """Check the log file and based on the FAIL items block a user"""
@@ -117,7 +112,6 @@ def blockUsers():
                 sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')            
                                 
 def valAlphaNum(value):
->>>>>>> origin/master
     match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
     if match:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
@@ -1609,10 +1603,6 @@ def download_file_function(projectID):
     return make_response((body, headers))
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-=======
-    print("Generated Password for access SKF: test-skf")
->>>>>>> origin/master
     #Command line options to enable debug and/or saas (bind to 0.0.0.0)
     cmdargs = str(sys.argv)
     total = len(sys.argv)
