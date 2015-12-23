@@ -43,9 +43,6 @@ For using this method you need to have installed:
 * [Chef Development Kit](https://downloads.chef.io/chef-dk/)  
 * [Vagrant](https://www.vagrantup.com/downloads.html)  
 
-Download the SKF cookbook:
-* [owasp-skf-chef Cookbook](https://github.com/blabla1337/owasp-skf-chef/archive/master.zip)  
-
 ````bash
 cd ~/
 wget https://github.com/blabla1337/owasp-skf-chef/archive/master.zip
