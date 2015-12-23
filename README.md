@@ -72,7 +72,7 @@ kitchen destroy
 ```
 
 
-####Ubuntu
+####Ubuntu manual installation
 ----------
 To run SKF you need Python pip and sqlite3 database support.
 ```bash
@@ -94,7 +94,7 @@ Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and r
   python skf.py
 ```
 
-####Windows
+####Windows manual installation
 -----------
 Download and install [Python 2.7.9](https://www.python.org/downloads/release/python-279/)
 
@@ -109,7 +109,7 @@ Now you can start the program by opening the folder and run the skf.py file:
   cd C:\Python27\Lib\site-packages\skf
   C:\Python27\python.exe skf.py
 ```
-####Mac osx
+####Mac OSX manual installation
 ----------
 The first step is to install brew
 ```bash
@@ -137,7 +137,7 @@ Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and r
   sudo python skf.py
 ```
 
-####Ubuntu Apache WSGI Setup
+####Ubuntu Apache WSGI Setup (manual installation)
 ----------
 To run the OWASP-SKF as a service (SaaS) you can hook it up to your existing webservers using the WSGI module.
 
