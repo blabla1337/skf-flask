@@ -44,7 +44,7 @@ For using this method you need to have installed:
 * [Vagrant](https://www.vagrantup.com/downloads.html)  
 
 Download the SKF cookbook:
-* [Vagrant](https://github.com/blabla1337/owasp-skf-chef/archive/master.zip)  
+* [owasp-skf-chef Cookbook](https://github.com/blabla1337/owasp-skf-chef/archive/master.zip)  
 
 ````bash
 cd ~/
