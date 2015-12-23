@@ -33,6 +33,48 @@ By means of the answers supplied by the developer the application again generate
 
 ##<a name="installing"></a>Installing
 
+####Automated installation with Chef
+----------
+
+The easiest way to use the SKF project is using the Chef cookbook that we created.
+For using this method you need to have installed:
+
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)  
+* [Chef Development Kit](https://downloads.chef.io/chef-dk/)  
+* [Vagrant](https://www.vagrantup.com/downloads.html)  
+
+Download the SKF cookbook:
+* [Vagrant](https://github.com/blabla1337/owasp-skf-chef/archive/master.zip)  
+
+````bash
+cd ~/
+wget https://github.com/blabla1337/owasp-skf-chef/archive/master.zip
+unzup master.zip
+cd owasp-skf-chef-master
+kitchen converge default 
+```
+
+Now you have to wait a few minutes and watch the magic happen! ^^
+When the Chef run has completed (-----> Kitchen is finished!) the application is ready to use.
+
+The application will greet you on:
+https://192.168.33.118
+
+Below are some useful Kitchen 101 commands.
+```bash
+# All the below commands should be run in the SKF chef directory
+
+# Command for creating the VM with the SKF project
+kitchen converge default 
+
+# Command for login to the VM with the SKF project
+kitchen login default 
+
+# Command for detroying the VM with the SKF project
+kitchen destroy
+```
+
+
 ####Ubuntu
 ----------
 To run SKF you need Python pip and sqlite3 database support.
