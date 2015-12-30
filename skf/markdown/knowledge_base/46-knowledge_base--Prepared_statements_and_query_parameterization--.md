@@ -5,7 +5,7 @@ SQL injection
 **Description:**
 
 all SQL queries, HQL, OSQL, NOSQL and stored procedures, calling of stored procedures should be 
-protected by the use of prepared statements or query parameterization.
+protected by the use of query parameterization.
 If not an attacker can inject malicious code into these queries he gains the ability to 
 manipulate them and now he can withdraw, update and delete data which is stored on the 
 target database.
