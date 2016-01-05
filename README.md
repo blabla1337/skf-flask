@@ -1,5 +1,5 @@
 #OWASP Security Knowledge Framework
-[![SKF Logo](https://www.securityknowledgeframework.org/img/logos/logo-purple.png)](https://www.securityknowledgeframework.org/)
+[![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/)
 <br>Project status details:<br>
 [![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=master)](https://travis-ci.org/blabla1337/skf-flask)
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
