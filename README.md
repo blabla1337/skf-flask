@@ -37,11 +37,26 @@ By means of the answers supplied by the developer the application again generate
 ----------
 
 The easiest way to use the SKF project is using the Chef cookbook that we created.
-For using this method you need to have installed:
 
-* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)  
-* [Chef Development Kit](https://downloads.chef.io/chef-dk/)  
-* [Vagrant](https://www.vagrantup.com/downloads.html)  
+What is Chef?
+
+*Chef is a configuration management and automation platform from Opscode. Chef helps you describe your infrastructure with code. Because your infrastructure is managed with code, it can be automated, tested and reproduced with ease. Check out [https://www.chef.io](https://www.chef.io) for more information about Chef*  
+
+For using the SKF chef cookbook you will need to install the 3 software products on your machine/laptop. Those are all free to use.
+
+**VirtualBox**
+* VirtualBox is a free to use Virtual Machine that can load images.
+* [https://www.virtualbox.org/wiki/Downloads ](https://www.virtualbox.org/wiki/Downloads )
+
+**Chef Development Kit**
+* Chef Development Kit is a free to use tooling for testing and running cookbooks created with chef.
+* [https://downloads.chef.io/chef-dk/](https://downloads.chef.io/chef-dk/)
+
+**Vagrant**
+* Vagrant is has pre-build images ready to use for stable and fast development
+* [https://www.vagrantup.com/downloads.html](https://www.vagrantup.com/downloads.html) 
+
+When you have installed the above software you are now able to create a VirtualBox image with Vagrant configuration and using Chef to configure the SKF application. The SKF chef cookbook will do this all for you and you only need to follow the steps below on your machine/laptop.
 
 ````bash
 cd ~/
@@ -52,7 +67,7 @@ kitchen converge default
 ```
 
 Now you have to wait a few minutes and watch the magic happen! ^^
-When the Chef run has completed (-----> Kitchen is finished!) the application is ready to use.
+When the Chef run has completed (-----> Kitchen is finished!) the application is ready to use. When you will start the VirtualBox GUI you can see the cookbook created a new VB image that is running and holding the SKF application.
 
 The application will greet you on:
 https://192.168.33.118
