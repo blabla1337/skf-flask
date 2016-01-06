@@ -237,6 +237,12 @@ The final step:
 The application can be visited at port http://the_ip_/:5443
 Also now you can apply your favourite Apache SSL/TLS settings.
 
+#### AWS installation
+
+A CloudFormation template is provided to make it easy to set up the
+Security Knowledge Framework in AWS. For more information consult
+[the README in the `cloudformation` directory](cloudformation/README.md).
+
 ##<a name="usage"></a>Usage
 
 For more detailed information such as user guides and other documentation see:
