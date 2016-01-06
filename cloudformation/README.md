@@ -1,4 +1,4 @@
-Security Knowldge Framework - AWS
+Security Knowledge Framework - AWS
 =================================
 
 This will allow you to run the OWASP Security Knowledge Framework in
@@ -17,7 +17,7 @@ in AWS**.
 If you're experienced with AWS then the steps are as follows:
 
 1. create SSL cert and upload to your AWS account
-2. convert the provided yaml file to JSON
+2. convert the provided YAML file to JSON
 3. create a new CloudFormation stack from the JSON file
 4. CNAME your domain to the `LoadBalancerUrl` in the stack's `Outputs`
 
@@ -26,8 +26,9 @@ Further details on each step are below.
 ### 1. Create an SSL certificate for the Security Knowledge Framework
 
 You will need an SSL certificate before you can set the SKF up in
-AWS. If you already have a wildcard certificate you will be able to
-use that, otherwise you'll need to do the following:
+AWS. If you already have an appropriate certificate in your account
+(perhaps you've already set it up or you have a wildcard) you will be
+able to use that, otherwise you'll need to do the following:
 
 1. create/purchase an SSL certificate
 2. use the AWS CLI tool to upload it to AWS
@@ -36,17 +37,15 @@ How you accomplish the first point will depend on you / your company's
 preferences. To upload the certificate to your AWS account you can
 [follow AWS' instructions for uploading a new certificate](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html#upload-cert).
 The "Uploading the Server Certificate" section is the bit you're
-after.
+after. The output of this command will give you the new certificate's
+ARN (Amazon Resource Name). Make a note of it because you'll need it
+in a moment.
 
-The output of this command will give you the new certificate's ARN
-(Amazon Resource Name). Make a note of it because you'll need it in a
-moment.
+### 2. Convert to JSON
 
-### 2. Convert to Json
-
-The accompanying cloudformation template is in `yaml` format for
+The accompanying CloudFormation template is in `YAML` format for
 clarity but AWS expects CloudFormation templates to be in JSON
-format. You must first convert the file using any `yaml` -> `json`
+format. You must first convert the file using any `YAML` -> `JSON`
 tool (many online tools exist or you can use a library in your
 favourite language).
 
@@ -70,7 +69,7 @@ top right of the console.
 Click the `Create Stack` button to create a new stack using
 CloudFormation.
 
-On the `Select Template` screen, chosoe the JSON file you created in
+On the `Select Template` screen, choose the JSON file you created in
 the previous step and click `Next`.
 
 Next you'll see the `Specify Details` screen. This is where you
@@ -84,11 +83,11 @@ you.
 
 #### Parameters
 
-The parameters control the way the cloudformation works.
+The following parameters are required for the CloudFormation.
 
 ##### DataBucketName
 
-This stack will require an S3 bucket to persist the Security Knowledge
+This stack will create an S3 bucket to persist the Security Knowledge
 Framework's database. This means that if the EC2 instance dies another
 one will appear in its place a few moments later and no-one will even
 notice that it died.
@@ -99,11 +98,12 @@ specific to you, for example
 
 ##### HttpsAccessCidr
 
-This allows you to lock down access to the SKF. If your office has an
-IP rangeyou can put that in here. If you'd like to lock it down to a
-single IP address then you can do that by specifying a single IP as
-the range e.g. `10.11.12.13/32`. If you want to allow access from
-anywhere in the world you can put an open range there `0.0.0.0/0`.
+This allows you to lock down access to the SKF. If you have an IP
+range you can put that in here (e.g. for an office). If you'd like to
+lock it down to a single IP address then you can do that by specifying
+a single IP as the range e.g. `10.11.12.13/32`. If you want to allow
+access from anywhere in the world you can allow any traffic using
+`0.0.0.0/0`.
 
 ##### KeyName
 
@@ -147,8 +147,8 @@ free to ignore both and click `Next`.
 #### Review
 
 This last step is to confirm everything before the stack gets
-created. If everything looks OK then select the confirmation checkbox
-and click `Create`.
+created. If it all looks OK then select the confirmation checkbox and
+click `Create`.
 
 #### Creation
 
@@ -163,9 +163,9 @@ see `LoadBalancerUrl`. Make a note of this for the next step.
 
 ### 4. DNS
 
-The last stepo is to point the domain you'd like to use at the new
+The last step is to point the domain you'd like to use at the new
 stack. You can do this by creating a CNAME record that points to the
 `LoadBalancerUrl` we saw above. To look up the `LoadBalancerUrl` go to
 the CloudFormation section of the AWS console, choose the stack you
-created for the secuerity knowledge framework and look at the
+created for the security knowledge framework and look at the
 `Outputs` tab.
