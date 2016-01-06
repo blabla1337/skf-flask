@@ -86,6 +86,11 @@ kitchen login default
 kitchen destroy
 ```
 
+#### AWS installation
+
+A CloudFormation template is provided to make it easy to set up the
+Security Knowledge Framework in AWS. For more information consult
+[the README in the `cloudformation` directory](cloudformation/README.md).
 
 ####Ubuntu manual installation
 ----------
@@ -237,12 +242,6 @@ The final step:
 The application can be visited at port http://the_ip_/:5443
 Also now you can apply your favourite Apache SSL/TLS settings.
 
-#### AWS installation
-
-A CloudFormation template is provided to make it easy to set up the
-Security Knowledge Framework in AWS. For more information consult
-[the README in the `cloudformation` directory](cloudformation/README.md).
-
 ##<a name="usage"></a>Usage
 
 For more detailed information such as user guides and other documentation see:
@@ -306,7 +305,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 [![SSL Rating](http://sslbadge.org/?domain=securityknowledgeframework.org)](https://www.ssllabs.com/ssltest/analyze.html?d=securityknowledgeframework.org)
 
 ##<a name="license"></a>License
-    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2016  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -368,3 +367,5 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - [Jim Manico](https://twitter.com/manicode)
 - Martijn Gijsberti Hodenpijl
 - Bithin Alangot
+- Martin Knobloch
+- Adam Fisher
