@@ -12,7 +12,8 @@ Let's break them up into peaces:
 Red:    Identifier, this number must increment
 Blue:   Separators, must be used exactly as seen in example, otherwise the checklist engine fails
 Yellow: Name of your checklist
-Green:  Vulnerability, This number links to a vulnerability number from the knowledge base.
+Green:  Vulnerability, This number links to a identifier of a vulnerability as found in the knowledgebase.
+        Now the checklist knows to correlate which checklistitem to what knowledgebase item.
 ```
 Whenever the vulnerability is set to zero, the checklist engine will interpreted this
 item as a checklist head, instead of an item.
