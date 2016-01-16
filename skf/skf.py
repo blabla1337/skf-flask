@@ -1613,7 +1613,7 @@ if __name__ == "__main__":
         if (str(sys.argv[i][2:]) == "debug"):
             # Load default config and override config from an environment variable
             app.config.update(dict(
-            DEBUG=False
+            DEBUG=True
             ))
         if (str(sys.argv[i][2:]) == "saas"):
             bindaddr = '0.0.0.0'
