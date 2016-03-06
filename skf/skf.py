@@ -1107,7 +1107,7 @@ def project_checklists(project_id):
         abort(401)
     permissions("read")
     valNum(project_id, 12)
-    safe_id = int(project_id, 12)
+    safe_id = int(project_id, 10)
     db = get_db()
     cur = db.execute('SELECT p.projectID, p.userID, p.groupID, p.projectName, p.projectVersion, p.projectDesc, p.ownerID, m.userID, m.groupID FROM projects as p JOIN groupMembers AS m ON m.groupID = p.groupID WHERE p.projectID=? AND m.userID=?',
                         [safe_id, session['userID']])
