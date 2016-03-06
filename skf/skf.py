@@ -311,39 +311,40 @@ def create_account():
         hashed = bcrypt.generate_password_hash(password,14)
       
         #Do DB query also check for access
-        cur = db.execute('SELECT accessToken, userID from users where email=? AND accessToken=?',
+        cur = db.execute('SELECT accessToken, userID, activated from users where email=? AND accessToken=?',
                             [email, token])
         check = cur.fetchall()
         for verify in check:
             userID = verify[1]
-            if str(verify[0]) == token:
-                        #update the counter and blocker table with new values 
-                db.execute('UPDATE users SET access=?, password=?, activated=? WHERE accessToken=? AND userID=?',
-                           ["true", hashed, "true", token , userID])
-                db.commit()
-                #Insert record in counter table for the counting of malicious inputs
-                db.execute('INSERT INTO counter (userID, countEvil, block) VALUES (?, ?, ?)',
-                            [userID, 0, 0])
-                db.commit()
-                
-                #Create standard group  for this user to assign himself to
-                date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-                db.execute('INSERT INTO groups (ownerID, groupName, timestamp) VALUES (?, ?, ?)',
-                            [userID, "privateGroup", date])
-                db.commit()
-                
-                #Select this groupID so we can assign the user to this group automatically
-                cur = db.execute('SELECT groupID from groups where ownerID=?',
-                            [userID])
-                group = cur.fetchall()
-                for theID in group:
-                    groupID = theID[0]
-                            
-                #Now we assign the user to the group
-                date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-                db.execute('INSERT INTO groupMembers (userID, groupID, ownerID) VALUES (?, ?, ?)',
-                            [userID, groupID, userID])
-                db.commit()
+            if verify[2] == "false":
+				if str(verify[0]) == token:
+							#update the counter and blocker table with new values 
+					db.execute('UPDATE users SET access=?, password=?, activated=? WHERE accessToken=? AND userID=?',
+							   ["true", hashed, "true", token , userID])
+					db.commit()
+					#Insert record in counter table for the counting of malicious inputs
+					db.execute('INSERT INTO counter (userID, countEvil, block) VALUES (?, ?, ?)',
+								[userID, 0, 0])
+					db.commit()
+				
+					#Create standard group  for this user to assign himself to
+					date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+					db.execute('INSERT INTO groups (ownerID, groupName, timestamp) VALUES (?, ?, ?)',
+								[userID, "privateGroup", date])
+					db.commit()
+				
+					#Select this groupID so we can assign the user to this group automatically
+					cur = db.execute('SELECT groupID from groups where ownerID=?',
+								[userID])
+					group = cur.fetchall()
+					for theID in group:
+						groupID = theID[0]
+							
+					#Now we assign the user to the group
+					date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+					db.execute('INSERT INTO groupMembers (userID, groupID, ownerID) VALUES (?, ?, ?)',
+								[userID, groupID, userID])
+					db.commit()
                
         if not check:
             #if not the right pin, the user account wil be deleted if not exsisting
@@ -731,8 +732,8 @@ def group_users():
         abort(401)
     permissions("edit")
     db = get_db()
-    cur = db.execute('SELECT * from groups where ownerID=?',
-                          [session['userID']])
+    cur = db.execute('SELECT * from groups where ownerID=? and groupName !=? ',
+                          [session['userID'], "privateGroup"])
     groups = cur.fetchall()
     
     """Select all users for adding to group"""
@@ -810,8 +811,8 @@ def group_manage():
         abort(401)
     permissions("edit")
     db = get_db()
-    cur = db.execute('SELECT * from groups where ownerID=?',
-                          [session['userID']])
+    cur = db.execute('SELECT * from groups where ownerID=? and groupName !=? ',
+                          [session['userID'], "privateGroup"])
     groups = cur.fetchall()
     
     return render_template('group-manage.html', groups=groups, csrf_token=session['csrf_token'])
