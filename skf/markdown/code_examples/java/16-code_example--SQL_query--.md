@@ -53,7 +53,3 @@ SQL query
         query.setParameter("salary", salary);
         query.setParameter("employeeId", employeeId);
 
-        //The important thing to remember:
-        //Never construct SQL statements using string concatenation of unchecked input values
-        //See the Knowledge Base item: SQL Injection for more info
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE EMPLOYEES SET SALARY = " + request.getParameter('salary') + " WHERE ID = " + request.getParameter('userId'));
