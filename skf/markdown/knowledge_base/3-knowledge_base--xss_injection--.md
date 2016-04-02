@@ -39,7 +39,7 @@ HTML URL encoding
 This type of encoding/escaping should be applied to whenever you are using userinput into a HREF
 tag.
 
-Javscript encoding
+Javascript encoding
 Whenever parameters are rendered via javascript your application will detect normal injections
 in the first instant. But your application still remains vulnerable to javascript encoding which will not
 be detected by the normal encoding/escaping methods.
