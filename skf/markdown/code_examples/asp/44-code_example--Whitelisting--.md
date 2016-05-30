@@ -2,7 +2,7 @@
 -------
 
 **Example:**
-	
+
 	:::cs
 	using System;
 	using System.Collections.Generic;
@@ -19,7 +19,7 @@
 			public bool whitelisting(string allowed, string input)
 			{
 				/*
-				Here we define a whitelist of pages we want the user allow to be redirected to, all 
+				Here we define a whitelist of pages we want the user allow to be redirected to, all
 				patterns are terminated whenever they not comply with the pre-defined withelist
 				*/
 
@@ -47,12 +47,12 @@
 					count++;
 					countArray++;
 				}
-			
+
 				if (countArray == count)
 				{
-					//this breach has to be repported into the log files
+					//this breach has to be reported into the log files
 					Log.setLog(HttpContext.Current.Session["userID"], "Audit log message!", "FAIL", "HIGH");
-				
+
 					Log.setCounter.count(3);
 				}
 				return validated;

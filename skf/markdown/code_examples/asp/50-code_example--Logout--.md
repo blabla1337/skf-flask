@@ -3,7 +3,7 @@ Logout
 
 **Example:**
 
-	:::cs	
+	:::cs
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -19,8 +19,8 @@ Logout
 				HttpContext.Current.Session.Clear();
 				HttpContext.Current.Session.Abandon();
 				HttpContext.Current.Session.RemoveAll();
-		   
-				//Dubbel check this and empty your session manually
+
+				//Double check this and empty your session manually
 				HttpContext.Current.Session["Authenticated"] = "";
 
 				//Clear the aspsessionID

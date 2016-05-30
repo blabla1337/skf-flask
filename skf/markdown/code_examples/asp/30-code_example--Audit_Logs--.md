@@ -27,7 +27,7 @@ Audit logs
 			public int blocker { get; set; }
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
-			SqlConnection conn = new 
+			SqlConnection conn = new
 			SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
 			public void SetLog(string session, string message, string state, string threat)
@@ -133,9 +133,9 @@ Audit logs
 						}
 					}
 				}
-				
+
 				/*
-				If the count hit three, the user get's a warning by means of a session termination.
+				If the count hit three, the user gets a warning by means of a session termination.
 				Whenever this termination occurs three times he will lock out his account.
 				*/
 				if (finalCount >= 3)

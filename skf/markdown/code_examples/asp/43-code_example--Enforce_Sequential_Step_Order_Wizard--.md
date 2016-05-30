@@ -3,9 +3,9 @@ Enforce Sequential Step Order (Wizard)
 
 **Example:**
 
-	:::cs	
+	:::cs
 	//Example as used in your controller:
-	
+
 	bool next = true;
 
 	//We check for form submit
@@ -28,7 +28,7 @@ Enforce Sequential Step Order (Wizard)
 		}
 	}
 
-	//If the seccond form was submitted and the session was succesfully set to step 2 we proceed
+	//If the second form was submitted and the session was successfully set to step 2 we proceed
 	if ((Request.Form["submit2"] != null) && (Session["stepOrder"] == "step2"))
 	{
 		if (Request.Form["value3"] == "") { next = false; }
@@ -51,4 +51,4 @@ Enforce Sequential Step Order (Wizard)
 
 
 If the user drops his session, he has to start over again, and since we assign different values to the same session
-we force the user to follow the sequential order because else he does not get the ssessions needed to proceed 
+we force the user to follow the sequential order because else he does not get the sessions needed to proceed
