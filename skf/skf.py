@@ -559,7 +559,7 @@ def show_code_item():
             if id == get_num(basepath.split("-")[0]):
                 with open(path, 'r') as codef:
                     codemd = codef.read()
-                content = Markup(markdown.markdown(codemd))
+                content = Markup(markdown.markdown(codemd, extensions=['markdown.extensions.fenced_code', 'markdown.extensions.codehilite']))
     return render_template('code-examples-item.html', **locals())
 
 
