@@ -32,16 +32,16 @@ Identifier-based Authorization
 			AuditLog Log = new AuditLog();
 
 			/*
-			We then do the same for aggregate user controlls.
-			For more detailed information see the Aggregate user controll code example
+			We then do the same for aggregate user controls.
+			For more detailed information see the Aggregate user control code example
 			*/
 			Aggregate aggregate =  new Aggregate();
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
-			SqlConnection conn = new 
+			SqlConnection conn = new
 			SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
-			//The count integer is set every time the user connects to the databse to process data
+			//The count integer is set every time the user connects to the database to process data
 			public void IdentifierBasedAuthentication(int pageID)
 			{
 				conn.Open();
@@ -49,12 +49,12 @@ Identifier-based Authorization
 				bool doFunction = true;
 
 				/*
-				First we validate if the incomming value is in fact an integer since we expect a page id number.
-				If the incomming value is not a number we lockout the users since he tries to manipulate application operation.
+				First we validate if the incoming value is in fact an integer since we expect a page id number.
+				If the incoming value is not a number we lockout the users since he tries to manipulate application operation.
 				*/
-				
+
 				//see the "input validation" code example for more detailed information about this function
-				if (validate.validateInput(pageID, "nummeric", "Failed to get file", "HIGH") == false) { doFunction = false; }
+				if (validate.validateInput(pageID, "numeric", "Failed to get file", "HIGH") == false) { doFunction = false; }
 
 				if (doFunction == false)
 				{
@@ -63,7 +63,7 @@ Identifier-based Authorization
 
 					/*
 					Set counter; if counter hits 3, the user's session must be terminated.
-					After 3 session terminations the user's acount must be blocked. 
+					After 3 session terminations the user's account must be blocked.
 					Given the high threat level, there will be immediate session termination.
 					*/
 					Log.Counter(3);
@@ -71,13 +71,13 @@ Identifier-based Authorization
 
 				if (doFunction == true)
 				{
-					//the page retrieval has to be repported into the log files
-					Log.SetLog(Session['userID'], "Connection to the database was made succesfully", date, SUCCESS, NULL");
+					//the page retrieval has to be reported into the log files
+					Log.SetLog(Session['userID'], "Connection to the database was made successfully", date, SUCCESS, NULL");
 
 					//We also count the connection to the database.
 					aggregate.aggregateControll(1);
 
-					/* 
+					/*
 					Whenever you are checking whether a user is restricted to review certain data,
 					the acces restrictions should be proccessed serverside.
 					The userID could be stored inside a session variable on login, and should
