@@ -4,8 +4,9 @@ Crossdomain.xml
 **Example:**
 
 
-	A bad example of a crossdomain.xml would be:
+A bad example of a crossdomain.xml would be:
 
+	:::xml
 	<?xml version="1.0" ?>
 	<cross-domain-policy>
 	  <site-control permitted-cross-domain-policies="master-only"/>
@@ -13,11 +14,12 @@ Crossdomain.xml
 	  <allow-http-request-headers-from domain="*" headers="*"/>
 	</cross-domain-policy>
 
-	Because it allows acces from all other domains.
+Because it allows acces from all other domains.
 
-	Instead of this approach you might want to use the following restrictions. 
-	Example by twitter's crossdomain.xml:
+Instead of this approach you might want to use the following restrictions. 
+Example by twitter's crossdomain.xml:
 
+	:::xml
 	<?xml version="1.0" encoding="UTF-8"?>
 	<cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
