@@ -1,21 +1,17 @@
-
-SQL query
+SQL Query
 -------
 
 **Example:**
 
-      /*
-      This example uses a prepared statement in order to insert data into the database.
-      Because this method enforces the user to prepare all user input  passed into the query, it always escapes SQL
-      injections so none could be accidentally forgotten.
-      */
-
-      /*
-      For detecting a possible attack on your application simply escaping the userinput is obviously not enough.
-      Therefore, you'll want to verify the input as submitted by the user does not contain malicous code.
-      In this example the expexted input is a-z/0-9:
-      */
+This example uses a prepared statement in order to insert data into the database.
+Because this method enforces the user to prepare all user input  passed into the query, it always escapes SQL
+injections so none could be accidentally forgotten.
       
+For detecting a possible attack on your application simply escaping the userinput is obviously not enough.
+Therefore, you'll want to verify the input as submitted by the user does not contain malicous code.
+In this example the expexted input is a-z/0-9:
+
+	:::java 
         String employeeId = request.getParameter('userId');
         String salary = request.getParameter('salary');
         Pattern numeric = Pattern.compile(".*[^0-9].*");
@@ -42,13 +38,17 @@ SQL query
             preparedStatement.setInt(2, employeeId);
         }
 
-        //Always use parametrized queries with prepared statements.
-        //For example, with Hibernate (HQL) named parameters
-        Query query = session.createQuery("UPDATE EMPLOYEES SET SALARY = :salary WHERE ID = :employeeId");
+Always use parametrized queries with prepared statements.
+For example, with Hibernate (HQL) named parameters
+	
+	:::java
+	Query query = session.createQuery("UPDATE EMPLOYEES SET SALARY = :salary WHERE ID = :employeeId");
         query.setParameter("salary", salary);
         query.setParameter("employeeId", employeeId);
 
-        //or with JPA
+Or with JPA:
+
+	:::java
         Query query = entityManager.createQuery("UPDATE EMPLOYEES SET SALARY = :salary WHERE ID = :employeeId");
         query.setParameter("salary", salary);
         query.setParameter("employeeId", employeeId);
