@@ -6,7 +6,7 @@ Sessions - pattern
 
 When working with sessions there are a couple of things you need to consider in order
 to implement them securely throughout your system. For more detailed information about
-these items you should check te knowledge-base about:
+these items you should check the knowledge-base about:
 
 1.  Session management control
 2.  Session cookies without the Secure flag

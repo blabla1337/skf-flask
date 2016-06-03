@@ -19,7 +19,7 @@ set input field type to password.
 
 Set autocomplete=off for the password input field. 
 This turns off the auto complete and remember password features of the browser.
-**NOTE:** for some browsers this means you have to put al the input fields the form contains
+**NOTE:** for some browsers this means you have to put all the input fields the form contains
 to autocomplete=off, otherwise it will not comply.
 
 Also whenever a user has the opportunity to use password forget functions

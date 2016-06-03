@@ -27,7 +27,7 @@ Here are the steps described briefly.
 For more detailed information you should look into these items in the knowledge base.
 
 First, You enforce limits on the length of the users submits on the server side in order
-to prevent him from truncating his submits. these limits have to correlate with the limits
+to prevent him from truncating his submits. These limits have to correlate with the limits
 you set in your column in the database.
 
 Second, you should create a single user input validation control class which should 

@@ -1,5 +1,5 @@
 
-cryptographic modules must fail securely
+Cryptographic modules must fail securely
 -------
 
 **Description:**

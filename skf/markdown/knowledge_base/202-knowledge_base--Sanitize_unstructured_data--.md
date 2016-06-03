@@ -13,5 +13,5 @@ Unstructured data needs to be sanitized to enforce generic safety measures for e
 - allowed characters
 - character length, 
 
-Aslo some characters are potentially harmful in given context and thus should be escaped. 
+Also some characters are potentially harmful in given context and thus should be escaped. 
 (e.g. natural names with Unicode or apostrophes, such as &#x306D;&#x3053; or O'Hara)

@@ -12,14 +12,14 @@ these checks with an intercepting proxy.
 
 All input validation and encoding-routines should be implemented on the server-side 
 outside the reach of an attacker. Just as with the input rejection you should make sure that
-after validating the userinput, whenever the input is bad it actually rejects, sanitises 
+after validating the user-input, whenever the input is bad it actually rejects, sanitises 
 or formats your user-input into not malicious data. 
 
 The recommended method for validating user input would be the positive validation method.
 White-list input validation means allowing only input that is explicitly defined as valid,
 as opposed to black-list input validation, which filters out known bad input.
 
-you must also keep track of the users movements by adding an audit trail as wel as an
+You must also keep track of the users movements by adding an audit trail as well as an
 counter for tracking the number of his violations(submitting bad input) in your input 
 validation class. You should enforce a lockout whenever a unreasonable number of 
 violations are detected by your application in order to protect it from attackers.
@@ -33,7 +33,7 @@ This also goes for whenever you are expecting just an integer or alphanumeric va
 Every detection of input outside of the intended operation of the application should be 
 logged and rejected by your application. 
 
-note: All this validation and rejection should always be perfomed on the server side.
+Note: All this validation and rejection should always be performed on the server side.
 
 Recommended knowledge base items:
 

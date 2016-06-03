@@ -18,6 +18,6 @@ This will instruct the browser to never send the cookie over HTTP.
 The purpose of this flag is to prevent the accidental exposure of a cookie value if a user
 follows an HTTP link. 
 
-Reccomended knowledge base item:
+Recommended knowledge base item:
 
 - Session management

@@ -6,7 +6,7 @@ Identify all application components
 When you are building an application you first want to map where you are placing 
 source files, libraries and executables.
 
-With these components identified and mapped, it becomes transparant where possible 
+With these components identified and mapped, it becomes transparent where possible 
 pitfalls might be in your application and increases the maintainability of the 
 system. Also you have an indicator where possible reinforcements have to be
 implemented to avoid attacks.(i.e places where your application contains executable's)

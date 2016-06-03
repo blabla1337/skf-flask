@@ -22,7 +22,7 @@ remote host's identity by validating its certificate or public key. While pinnin
 not have to occur in an OnConnect callback, its often most convenient because the 
 underlying connection information is readily available. 
 
-for more extended information on different types of implementation please see:
+For more extended information on different types of implementation please see:
 https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning
 
 

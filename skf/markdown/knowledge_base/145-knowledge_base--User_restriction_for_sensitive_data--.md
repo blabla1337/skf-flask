@@ -4,7 +4,7 @@ User restriction for sensitive data
 
 **Description:**
 
-Aways enforce multiple layers of security whenever you want to protect sensitive data/files 
+Always enforce multiple layers of security whenever you want to protect sensitive data/files 
 on your application. If one layer should fail the other layers should prevent the attackers 
 from succeeding.
 

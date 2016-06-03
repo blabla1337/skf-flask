@@ -4,8 +4,8 @@ Strong Crypto through all the certificate hierarchy
 **Description:**
 
 When you have an offline PKI setup you need to have solid strong crypto layers.
-An attacker will look for weak chains in the hierachy and abuse them when found.
-This can lead to MiTM attacks and impact the 3 security pilars C.I.A.
+An attacker will look for weak chains in the hierarchy and abuse them when found.
+This can lead to MiTM attacks and impact the 3 security pillars C.I.A.
 
 **Solution:**
 

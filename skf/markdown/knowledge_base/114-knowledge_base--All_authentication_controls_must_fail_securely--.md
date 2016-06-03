@@ -15,7 +15,7 @@ from a security mechanism:
 3. exception
 
 In general, you should design your security mechanism so that a failure will follow the same execution path
-as disabeling the operation
+as disabling the operation
 
 **Solution:**
 
