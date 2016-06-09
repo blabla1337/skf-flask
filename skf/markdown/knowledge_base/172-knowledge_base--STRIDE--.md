@@ -19,7 +19,7 @@ Elevation of privilege
 In the context of network security, a spoofing attack is a situation in which one person 
 or program successfully masquerades as another by falsifying data and thereby gaining an 
 illegitimate advantage. There are a lot of different types of spoofing you have to take
-into account for example: TCP/IP, Referer, ID, or Email spoofing. 
+into account for example: TCP/IP, Referrer, ID, or Email spoofing. 
 
 For Tampering we recommend to read the following knowledge base items:
 
@@ -35,8 +35,8 @@ For information disclosure we recommend to read the following knowledge base ite
 
 - Verbose error messaging
 - Session information is not stored server-side
-- Sensitive information transmitted by un-encrypted methods
-- Enforce policys for sensitive data processing
+- Sensitive information transmitted by unencrypted methods
+- Enforce policies for sensitive data processing
 - Verify that the session id is never disclosed
 - Username enumeration
 - Differential analysis 

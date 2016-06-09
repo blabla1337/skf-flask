@@ -29,7 +29,7 @@ Must become this:
 	<script src='doSomething.js'></script>
 	<button id='somethingToDo'>Let's foobar!</button>
 	
-the header for this code could look something like:
+The header for this code could look something like:
     Content-Security-Policy: default-src'self'; object-src'none'; script-src'https://mycdn.com'
 
 Since it is not entirely realistic to implement all javascript on external pages we can
@@ -44,7 +44,7 @@ would become guessable. So it should also contain a high entropy and should be h
 predict. Similar to the operation of the CSRF tokens, the nonce becomes impossible for
 the attacker to predict making it difficult to execute a succesfull XSS attack.
 
-Inline javscript example containing nonce: 
+Inline javascript example containing nonce: 
 	<script nonce=sfsdf03nceI23wlsgle9h3sdd21>
     <!-- Your javscript code -->
     </script>
@@ -53,10 +53,10 @@ Matching header example:
     Content-Security-Policy: script-src 'nonce-sfsdf03nceI23wlsgle9h3sdd21'
     
 There is a whole lot more to learn about the CSP header for in depth implementation in 
-your application. this knowledge base item just scratches the surface and it would be
-highly recommended to gain more in depth knowledge about this powerfull header.
+your application. This knowledge base item just scratches the surface and it would be
+highly recommended to gain more in depth knowledge about this powerful header.
 
-**Very Important!** When applying the CSP header, although it bloks XSS attacks. Your 
+**Very Important!** When applying the CSP header, although it blocks XSS attacks. Your 
 application still remains vulnerable to HTML and other code injections. So this is **not**
 a substitute for, validation, sanitizing and encoding of user-input. 
   

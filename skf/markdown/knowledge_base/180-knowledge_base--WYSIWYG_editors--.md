@@ -21,9 +21,9 @@ do not understand half the functionalities the editors are providing.
 **Solution:**
 
 Download a HTML sanitizer and configure it to your specific needs. When configuring the sanitizer make sure
-you disable al unused componements. The less options an attacker has to insert into your application the less
-his attack surface becomes. Also before implementing this HTML sanitizer on a production enviroment have
-it first thorougly examined by security testers since it is a very delicate function. 
+you disable all unused components. The less options an attacker has to insert into your application the less
+his attack surface becomes. Also before implementing this HTML sanitizer on a production environment have
+it first thoroughly examined by security testers since it is a very delicate function. 
 
 
 

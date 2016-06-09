@@ -6,8 +6,8 @@ Proven authentication mechanisms
 Whenever your application has the option for users to authenticate themselves
 your method should be "proven" and secure in the sense of that: 
 
-1. it should comply to some security stadards/guidelines
-2. Before implementing authentication on a live enviroment it has to be pentested/audited by 
+1. it should comply to some security standards/guidelines
+2. Before implementing authentication on a live environment it has to be pentested/audited by 
    professionals.
 
 **Solution:**

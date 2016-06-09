@@ -34,4 +34,4 @@ order to ensure higher level of security.
 
 Fourth, Whenever the application is sending sensitive data through the form submit
 this data must always be send through an POST variable instead of an GET since
-a GET will leak this data through the url by example the referer header.
+a GET will leak this data through the url by example the referrer header.

@@ -14,9 +14,9 @@ assessing application threats and vulnerabilities.
 
 Threat modeling is best applied continuously throughout a software development project. 
 The process is essentially the same at different levels of abstraction, although the 
-information gets more and more granular throughout the lifecycle. Ideally, a high-level 
+information gets more and more granular throughout the life-cycle. Ideally, a high-level 
 threat model should be defined in the concept or planning phase, and then refined 
-throughout the lifecycle. As more details are added to the system, new attack vectors are 
+throughout the life-cycle. As more details are added to the system, new attack vectors are 
 created and exposed. The ongoing threat modeling process should examine, diagnose, and 
 address these threats.
 

@@ -12,14 +12,14 @@ the application displaying sensitive information to attackers.
 
 **Solution:**
 
-instead of the blacklisting method:
+Instead of the blacklisting method:
 
 User-agent: * 
 Disallow: /squirrelmail/
 Disallow: /admin/
 Disallow: /modules/
 
-you should use a whitelisting method:
+You should use a whitelisting method:
 
 User-agent: * 
 Disallow: * 

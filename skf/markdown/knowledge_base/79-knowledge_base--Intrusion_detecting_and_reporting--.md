@@ -15,7 +15,7 @@ Intrusion detecting could be done by means of a:
 "Positive security model:"
 In this model you create certain regular expressions in order to only make the application 
 pass the so called "known good".
-whenever an application detects strange behaviour and anomalies, 
+Whenever an application detects strange behaviour and anomalies, 
 these issues should be reported. Keep in mind whenever the application changes this 
 whitelist method has to evolve alongside with it. A big con is it could generate a lot 
 of reports and alerts.

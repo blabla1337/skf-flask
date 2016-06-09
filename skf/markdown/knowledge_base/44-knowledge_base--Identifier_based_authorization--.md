@@ -7,7 +7,7 @@ Identifier-based authorization
 An application uses parameters in order to process data. 
 These parameters can also be used to assign certain roles and retrieve 
 
-content corresponding with those parameters. imagine the following example:
+Content corresponding with those parameters. Imagine the following example:
 
     www.target.com/index.php?loggedin=user
 
@@ -15,7 +15,7 @@ In this situation the application will get content and subscribe user roles corr
 
     www.target.com/index.php?loggedin=admin
 
-In this situation the application wil get content and subscribe user roles corresponding to the admin parameter.
+In this situation the application will get content and subscribe user roles corresponding to the admin parameter.
 
 
 **Solution:**
@@ -27,7 +27,7 @@ The userID should be stored inside of a session variable on login and should be 
 retrieve user data from the database like : SELECT data from personaldata where userID=:id <- session var
 
 Now an possible attacker can not tamper and change the application operation since the
-identifier for retrieving the data is handeld server-side.
+identifier for retrieving the data is handled server-side.
 
 
 

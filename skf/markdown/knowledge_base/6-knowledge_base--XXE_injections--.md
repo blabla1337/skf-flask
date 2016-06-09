@@ -19,6 +19,6 @@ contain sensitive data such as passwords or private
 **Solution:**
 
 Disable the possibility to fetch resources from an external source.
-This is normally done in the config of the used XML parser.
+This is normally done in the configuration of the used XML parser.
 
 	

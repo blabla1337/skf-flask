@@ -18,7 +18,7 @@ an XSS attack through no fault of the server-side code.
 **Solution:**
 
 First there must be a client side input validation method as you would apply to the server
-side. This means you should also apply input rejection as wel as typecasting and such.
+side. This means you should also apply input rejection as well as typecasting and such.
 This is to prevent users from being attacked by XSS attacks which are undetectable by
 the server.
 

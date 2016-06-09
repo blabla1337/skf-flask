@@ -10,5 +10,5 @@ misses a malicious input which could execute into a successful attack on your ap
 
 **Solution:**
 
-All userinput should be validated whenever the user-input string is complete and is being 
+All user-input should be validated whenever the user-input string is complete and is being 
 processed by your application.

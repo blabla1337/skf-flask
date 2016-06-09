@@ -10,6 +10,6 @@ and manipulate these values. This is always a bad idea and you should not do thi
 
 **Solution:**
 
-Session information should aways be stored server-side by means of a server-side language.
+Session information should always be stored server-side by means of a server-side language.
 
 	

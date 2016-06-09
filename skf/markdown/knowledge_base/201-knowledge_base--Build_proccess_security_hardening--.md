@@ -1,4 +1,4 @@
-Build proccess security hardening
+Build process security hardening
 -------
 
 **Description:**

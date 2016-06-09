@@ -1,5 +1,5 @@
 
-Safe javscript and jquery methods
+Safe javascript and jquery methods
 -------
 
 **Description:**
@@ -12,7 +12,7 @@ injections.
 **Solution:**
 
 Below we listed some safe functions for whenever it is needed to supply your 
-javscript/jquery functions with user-input.
+javascript/jquery functions with user-input.
 
 JQUERY functions:
 .txt();
@@ -22,7 +22,7 @@ JQUERY functions:
 Example:
 	<script>
 	function myFunction() {
-		$( "p" ).text( "append userinput to paragrapgh safely" );
+		$( "p" ).text( "append user-input to paragrapgh safely" );
 	}
 	</script>
 
@@ -36,7 +36,7 @@ Example:
 
 	<script>
 	function myFunction() {
-   		var t = document.createTextNode("append userinput to body safely");
+   		var t = document.createTextNode("append user-input to body safely");
     	document.body.appendChild(t);
 	}
 	</script>

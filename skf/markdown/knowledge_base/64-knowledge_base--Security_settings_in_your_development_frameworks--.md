@@ -12,6 +12,6 @@ to vulnerabilities in your application which an attacker could exploit.
 
 **Solution:**
 
-Make sure al your security settings in your development framework are set to secure values. 
+Make sure all your security settings in your development framework are set to secure values. 
 This can be checked by using hardening guides.
 	

@@ -5,7 +5,7 @@ High level architecture should be defined.
 
 Whenever you are developing an application you want to map all the architecture
 it contains. Whenever there are breaches, updates, or other escalations it makes it
-easy and transparant for forensics, operators and developers to do their job as fast as 
+easy and transparent for forensics, operators and developers to do their job as fast as 
 possible. 
 
 
