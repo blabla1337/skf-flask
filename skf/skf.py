@@ -546,7 +546,7 @@ def show_code_item():
         for path in full_file_paths:
             if id == get_num(path):
                 filemd = open(path, 'r').read()
-                content = Markup(markdown.markdown(filemd)) 
+                content = Markup(markdown.markdown(filemd, extensions=['markdown.extensions.fenced_code', 'markdown.extensions.codehilite'])) 
     return render_template('code-examples-item.html', **locals())
 
 @app.route('/kb-item', methods=['POST'])
