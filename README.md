@@ -10,6 +10,7 @@ Security Knowledge Framework is an expert system application that uses OWASP App
  
 ##Table of Contents
 * [Introduction](#introduction)
+* [Documentation](#documentation)
 * [Testing](#testing)
 * [License](#license)
 * [Contributors](#contributors)
@@ -25,6 +26,10 @@ The security knowledge framework is here to support developers create secure app
 The second stage of the application is validating if the developer properly implemented different types of defence mechanisms by means of checklists with among others the OWASP Application security verification standards.
 
 By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
+
+##<a name="documentation"></a>Documentation
+
+Detailed documentation can be found on our * [SKF Readme.io](https://skf.readme.io) website.
 
 ##<a name="testing"></a>Testing
 ####Travis-ci.org:
