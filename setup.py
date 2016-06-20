@@ -1,16 +1,21 @@
+# -*- coding: utf-8 -*-
+
 try:
-    from setuptools import setup
+    from setuptools import setup, find_packages
 except ImportError:
-    from distutils.core import setup
+    from distutils.core import setup, find_packages
+
+with open('LICENSE') as f:
+    license = f.read()
 
 setup(name='owasp-skf',
-    version='1.3.20',
+    version='1.3.21',
     description='The OWASP Security Knowledge Framework',
     url='https://github.com/blabla1337/skf-flask',
     author='Glenn ten Cate, Riccardo ten Cate',
-    author_email='gtencate@schubergphilis.com, r.tencate77@gmail.com',
-    license='AGPLV3',
-    packages=['skf'],
+    author_email='glenn.ten.cate@owasp.org, riccardo.ten.cate@owasp.org',
+    license=license,
+    packages=find_packages(exclude=('tests', 'docs'))
     # trying to add files...
     include_package_data = True,
     long_description="""\
@@ -35,3 +40,7 @@ setup(name='owasp-skf',
         "Programming Language :: Python :: 2.7",
         "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
     ])
+
+
+
+
