@@ -7,6 +7,8 @@ install:
   - pip install coverage
   - pip install python-coveralls
   - python setup.py install
+script:
+  - python setup.py test
 after_script:
   - coverage run --source skf setup.py test
 after_success:
