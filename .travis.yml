@@ -10,5 +10,5 @@ install:
 script:
   - python setup.py test
 after_success:
-  - coverage run --source skf setup.py test
+  - coverage run setup.py test
   - coveralls
