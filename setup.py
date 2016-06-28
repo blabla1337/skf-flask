@@ -3,8 +3,12 @@ try:
 except ImportError:
     from distutils.core import setup
 
+filename = "%s/version.py" % 'skf'
+with open(filename) as f:
+        exec(f.read())
+
 setup(name='owasp-skf',
-    version='1.3.17',
+    version=__version__,
     description='The OWASP Security Knowledge Framework',
     url='https://github.com/blabla1337/skf-flask',
     author='Glenn ten Cate, Riccardo ten Cate',
@@ -17,14 +21,17 @@ setup(name='owasp-skf',
     The Security Knowledge Framework is an fully open-source Python-Flask web-application.
     It is an expert system application that uses OWASP Application Security Verification Standard
     """,
-<<<<<<< HEAD
-    install_requires=['markdown','BeautifulSoup', 'python-docx','lxml==3.4.2', 'cryptography==0.8.2', 'pyOpenSSL', 'requests', 'importlib', 'bcrypt', 'flask-bcrypt'],
-=======
-    install_requires=['markdown==2.6.3','BeautifulSoup', 'python-docx','lxml==3.4.2', 'cryptography==0.8.2', 'pyOpenSSL', 'requests', 'importlib','flask-bcrypt'],
->>>>>>> origin/master
-    dependency_links= [
-        'https://github.com/mitsuhiko/flask/tarball/master#egg=Flask-owasp'
-    ],
+    install_requires=['flask>0.11, <0.12',
+                      'markdown==2.6.3',
+                      'BeautifulSoup',
+                      'python-docx',
+                      'lxml==3.4.2',
+                      'pyOpenSSL',
+                      'requests',
+                      'importlib',
+                      'flask-bcrypt'],
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest', 'jsonschema'],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Framework :: Flask",

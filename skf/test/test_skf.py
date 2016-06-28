@@ -7,9 +7,9 @@
 
 import pytest
 import tempfile
-import os 
+import os
 import datetime
-import skf
+from skf import skf
 
 
 @pytest.fixture
