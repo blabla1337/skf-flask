@@ -13,3 +13,4 @@ skf/skf.pyc
 skf/test_skf.pyc
 skf/server.crt
 skf/server.key
+ENV
