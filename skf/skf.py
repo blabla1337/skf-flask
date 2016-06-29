@@ -30,8 +30,8 @@ from sqlite3 import dbapi2 as sqlite3
 from flask.ext.bcrypt import Bcrypt
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
-     
-     
+
+from . import version
 
 # create the application
 app = Flask(__name__)
@@ -91,11 +91,6 @@ def log(message, value, threat):
         # If not exists, create the file
         file = open('logs/'+dateLog+'.txt', 'w+')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
-<<<<<<< HEAD
-    file.close() 
-              
-def valAlphaNum(value, countLevel):
-=======
     file.close()
 
 def blockUsers():
@@ -116,8 +111,7 @@ def blockUsers():
             if count > 11:
                 sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')            
                                 
-def valAlphaNum(value):
->>>>>>> origin/master
+def valAlphaNum(value, countLevel):
     match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
     if match:
         log("User supplied not an a-zA-Z0-9 value", "FAIL", "MEDIUM")
@@ -255,9 +249,7 @@ def check_version():
         return False
 
 def get_version():
-    with open ("version.txt", "r") as myfile:
-        version_final = myfile.read().replace('\n', '')
-    return version_final
+    return version.__version__
         
 def projects_functions_techlist():
     """get list of technology used for creating project functions"""
@@ -1609,10 +1601,6 @@ def download_file_function(projectID):
     return make_response((body, headers))
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-=======
-    print("Generated Password for access SKF: test-skf")
->>>>>>> origin/master
     #Command line options to enable debug and/or saas (bind to 0.0.0.0)
     cmdargs = str(sys.argv)
     total = len(sys.argv)
