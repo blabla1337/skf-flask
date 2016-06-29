@@ -19,7 +19,7 @@ setup(name='owasp-skf',
     author='Glenn ten Cate, Riccardo ten Cate',
     author_email='glenn.ten.cate@owasp.org, riccardo.ten.cate@owasp.org',
     license=license,
-    packages=find_packages(exclude=('tests', 'docs'))
+    packages=find_packages(exclude=('tests', 'docs')),
     # trying to add files...
     include_package_data = True,
     long_description="""\
