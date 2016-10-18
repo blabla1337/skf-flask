@@ -27,7 +27,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Inches
 from functools import wraps
 from sqlite3 import dbapi2 as sqlite3
-from flask.ext.bcrypt import Bcrypt
+from flask_bcrypt.bcrypt import Bcrypt
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
 
