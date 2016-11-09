@@ -382,3 +382,9 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Adam Fisher
 - Tom Wirschell
 - Joerg Stephan
+- Simon Brakhane
+- Gerco Grandia
+- Ross Nanopoulos
+- Bob van den Heuvel
+- Mariano
+
