@@ -1,0 +1,620 @@
+{
+  "Description": "Sets up a running stack of the OWASP Security Knowledge Framework", 
+  "AWSTemplateFormatVersion": "2010-09-09", 
+  "Parameters": {
+    "VpcId": {
+      "Type": "AWS::EC2::VPC::Id", 
+      "Description": "The VPC in which the OWASP SKF will run"
+    }, 
+    "LoadbalancerSubnets": {
+      "Type": "List<AWS::EC2::Subnet::Id>", 
+      "Description": "The subnets where the load balancers will run. In case of a public facing load balancer, this should be a public zone!"
+    }, 
+    "InstanceSubnets": {
+      "Type": "List<AWS::EC2::Subnet::Id>", 
+      "Description": "The subnets where the application servers will run. Typically you should keep that in a private zone!"
+    }, 
+    "SSLCertificateArn": {
+      "Type": "String", 
+      "Description": "ARN of SSL certifcate the ELB load balancer should use"
+    }, 
+    "PublicFacingELB": {
+      "Type": "String", 
+      "Description": "Will the load balancer be public (i.e. internet) facing",
+      "AllowedValues": ["public", "internal"]
+    }, 
+    "KeyName": {
+      "Type": "AWS::EC2::KeyPair::KeyName", 
+      "Description": "An ssh keypair to use with the OWASP SKF instance"
+    }, 
+    "DataBucketName": {
+      "Type": "String", 
+      "Description": "Name to use for the S3 bucket that persists the database"
+    }, 
+    "HttpsAccessCidr": {
+      "AllowedPattern": "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}/[0-9]{1,2}$", 
+      "Type": "String", 
+      "ConstraintDescription": "Parameter should be a CIDR block e.g. \"1.2.3.4/32\"", 
+      "Description": "A CIDR from which https access to the solution is allowed"
+    }, 
+    "SSHAccessCidr": {
+      "AllowedPattern": "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}/[0-9]{1,2}$", 
+      "Type": "String", 
+      "ConstraintDescription": "Parameter should be a CIDR block e.g. \"1.2.3.4/32\"", 
+      "Description": "A CIDR from which SSH access to the OWASP SKF instance is allowed"
+    },
+    "InstanceType" : {
+      "Description" : "EC2 instance type of the OWASP SKF instance",
+      "Type" : "String",
+      "Default" : "t2.micro",
+      "AllowedValues" : [ "t2.nano", "t2.micro", "t2.small", "t2.medium", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "g2.2xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "hi1.4xlarge", "hs1.8xlarge", "cr1.8xlarge", "cc2.8xlarge", "cg1.4xlarge"],
+      "ConstraintDescription" : "Must be a valid EC2 instance type."
+    }
+  }, 
+  
+  "Metadata" : {
+    "AWS::CloudFormation::Interface" : {
+      "ParameterGroups" : [
+        {
+          "Label" : { "default" : "Network configuration" },
+          "Parameters" : [ "VpcId" ]
+        },
+        {
+          "Label" : { "default" : "Load balancer configuration" },
+          "Parameters" : [ "PublicFacingELB", "LoadbalancerSubnets", "HttpsAccessCidr" ]
+        },
+        {
+          "Label" : { "default" : "Server instance configuration" },
+          "Parameters" : [ "InstanceType", "InstanceSubnets", "SSHAccessCidr", "KeyName", "DataBucketName" ]
+        }
+      ],
+      "ParameterLabels" : {
+        "InstanceType" : { "default" : "Instance type:" },
+        "ImageId" : { "default" : "Image id:" },
+        "DevOpsMember" : { "default" : "DevOps team member:" },
+        "DeployIn" : { "default" : "Run desktop in:" }
+      }
+    }
+  },
+
+  "Conditions" : {
+      "ELBisPublicFacing" : {"Fn::Equals" : [{"Ref" : "PublicFacingELB"}, "public"]}
+  },
+
+  "Mappings": {
+    "Image": {
+      "HVM64": {
+        "Owner" : "099720109477", 
+        "ImagePattern" : "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"
+      },
+      "PV64": {
+        "Owner" : "099720109477", 
+        "ImagePattern" : "ubuntu/images/ebs-ssd/ubuntu-trusty-14.04-amd64-server-*"
+      }
+    },
+    "Constants": {
+      "App": {
+        "Value": "SKF"
+      }
+    },
+    "AWSInstanceType2Arch" : {
+      "t2.nano"    : { "Arch" : "HVM64"  },
+      "t2.micro"    : { "Arch" : "HVM64"  },
+      "t2.small"    : { "Arch" : "HVM64"  },
+      "t2.medium"   : { "Arch" : "HVM64"  },
+      "m1.small"    : { "Arch" : "PV64"   },
+      "m1.medium"   : { "Arch" : "PV64"   },
+      "m1.large"    : { "Arch" : "PV64"   },
+      "m1.xlarge"   : { "Arch" : "PV64"   },
+      "m2.xlarge"   : { "Arch" : "PV64"   },
+      "m2.2xlarge"  : { "Arch" : "PV64"   },
+      "m2.4xlarge"  : { "Arch" : "PV64"   },
+      "m3.medium"   : { "Arch" : "HVM64"  },
+      "m3.large"    : { "Arch" : "HVM64"  },
+      "m3.xlarge"   : { "Arch" : "HVM64"  },
+      "m3.2xlarge"  : { "Arch" : "HVM64"  },
+      "c1.medium"   : { "Arch" : "PV64"   },
+      "c1.xlarge"   : { "Arch" : "PV64"   },
+      "c3.large"    : { "Arch" : "HVM64"  },
+      "c3.xlarge"   : { "Arch" : "HVM64"  },
+      "c3.2xlarge"  : { "Arch" : "HVM64"  },
+      "c3.4xlarge"  : { "Arch" : "HVM64"  },
+      "c3.8xlarge"  : { "Arch" : "HVM64"  },
+      "c4.large"    : { "Arch" : "HVM64"  },
+      "c4.xlarge"   : { "Arch" : "HVM64"  },
+      "c4.2xlarge"  : { "Arch" : "HVM64"  },
+      "c4.4xlarge"  : { "Arch" : "HVM64"  },
+      "c4.8xlarge"  : { "Arch" : "HVM64"  },
+      "g2.2xlarge"  : { "Arch" : "HVMG2"  },
+      "r3.large"    : { "Arch" : "HVM64"  },
+      "r3.xlarge"   : { "Arch" : "HVM64"  },
+      "r3.2xlarge"  : { "Arch" : "HVM64"  },
+      "r3.4xlarge"  : { "Arch" : "HVM64"  },
+      "r3.8xlarge"  : { "Arch" : "HVM64"  },
+      "i2.xlarge"   : { "Arch" : "HVM64"  },
+      "i2.2xlarge"  : { "Arch" : "HVM64"  },
+      "i2.4xlarge"  : { "Arch" : "HVM64"  },
+      "i2.8xlarge"  : { "Arch" : "HVM64"  },
+      "d2.xlarge"   : { "Arch" : "HVM64"  },
+      "d2.2xlarge"  : { "Arch" : "HVM64"  },
+      "d2.4xlarge"  : { "Arch" : "HVM64"  },
+      "d2.8xlarge"  : { "Arch" : "HVM64"  },
+      "hi1.4xlarge" : { "Arch" : "HVM64"  },
+      "hs1.8xlarge" : { "Arch" : "HVM64"  },
+      "cr1.8xlarge" : { "Arch" : "HVM64"  },
+      "cc2.8xlarge" : { "Arch" : "HVM64"  }
+	}
+  }, 
+  "Resources": {
+    "LoadBalancerSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup", 
+      "Properties": {
+        "SecurityGroupIngress": [
+          {
+            "ToPort": 443, 
+            "IpProtocol": "tcp", 
+            "FromPort": 443, 
+            "CidrIp": {
+              "Ref": "HttpsAccessCidr"
+            }
+          }
+        ], 
+        "VpcId": {
+          "Ref": "VpcId"
+        }, 
+        "GroupDescription": "HTTPS access to the load balancer from the CIDR block", 
+        "Tags": [
+          {
+            "Key": "App", 
+            "Value": {"Fn::FindInMap": ["Constants", "App", "Value"]}
+          }
+        ]
+      }
+    }, 
+    "LaunchConfig": {
+      "Type": "AWS::AutoScaling::LaunchConfiguration", 
+      "Properties": {
+        "UserData": {
+          "Fn::Base64": {"Fn::Join": ["\n", [
+                "#!/bin/bash -ev", 
+                {"Fn::Join": ["", [ "s3bucket=", {"Ref": "DataBucketName"} ]]},
+                "# set locale",
+                "locale-gen en_GB.UTF-8",
+                "# install dependencies",
+                "apt-get --yes update",
+                "apt-get install --yes git apache2 libapache2-mod-wsgi sqlite3 lib32z1-dev python-dev libxml2-dev libxslt-dev libffi-dev libssl-dev python-pip",
+                "a2enmod wsgi",
+                "pip install --upgrade pip",
+                "pip install awscli https://github.com/mitsuhiko/flask/tarball/master owasp-skf",
+                "# setup skf",
+                "mkdir /owaspskf",
+                "cd /owaspskf",
+                "git clone https://github.com/blabla1337/skf-flask.git",
+                "cd skf-flask/skf",
+                "# remove adhoc SSL",
+                "sed -i \"s/, ssl_context='adhoc'//\" skf.py",
+                "# fetch db from persistent storage",
+                "aws s3 cp s3://$s3bucket/owaspskf/skf.db skf.db || true",
+                "# application wsgi file",
+                "cat <<SKF_APP_WSGI > skf.wsgi",
+                "import sys, os",
+                "sys.path.insert (0,'/owaspskf/skf-flask/skf')",
+                "os.chdir(\"/owaspskf/skf-flask/skf\")",
+                "from skf import app as application",
+                "SKF_APP_WSGI",
+                "# apache config",
+                "cd /etc/apache2/sites-available/",
+                "cat <<SKF_APACHE_CONF > skf.conf",
+                "WSGIRestrictStdout Off",
+                "Listen 8001",
+                "<VirtualHost *:8001>",
+                "    WSGIDaemonProcess skf user=www-data group=www-data threads=5",
+                "    WSGIScriptAlias / /owaspskf/skf-flask/skf/skf.wsgi",
+                "    <Directory /owaspskf/skf-flask/skf>",
+                "        WSGIProcessGroup skf",
+                "        WSGIApplicationGroup %{GLOBAL}",
+                "        Order deny,allow",
+                "        Allow from all",
+                "        Require all granted",
+                "    </Directory>",
+                "</VirtualHost>",
+                "SKF_APACHE_CONF",
+                "a2dissite 000-default.conf",
+                "a2ensite skf.conf",
+                "# fix perms",
+                "chmod +x /owaspskf/skf-flask/skf/skf.py",
+                "chown -R www-data:www-data /owaspskf/skf-flask",
+                "# restart apache",
+                "sudo service apache2 restart",
+                "# schedule regular sync of the sqlite database",
+                "touch /owaspskf/cron-lastrun.log",
+                "chown www-data /owaspskf/cron-lastrun.log",
+                "cat <<SKF_CRON > /etc/cron.d/skf",
+                "*/5 * * * *  www-data  /usr/local/bin/aws s3 cp /owaspskf/skf-flask/skf/skf.db s3://$s3bucket/owaspskf/skf.db > /owaspskf/cron-lastrun.log 2>&1",
+                "SKF_CRON"
+              ]
+            ]
+          }
+        }, 
+        "KeyName": {
+          "Ref": "KeyName"
+        }, 
+        "SecurityGroups": [
+          {
+            "Ref": "InstanceSecurityGroup"
+          }
+        ], 
+        "IamInstanceProfile": {
+          "Ref": "InstanceProfile"
+        }, 
+        "InstanceType": {"Ref": "InstanceType"}, 
+        "ImageId": { "Fn::GetAtt": [ "DetermineAWSLinuxAMI", "Id" ] }
+      }
+    }, 
+    
+    "InstanceRole": {
+      "Type": "AWS::IAM::Role", 
+      "Properties": {
+        "Path": "/", 
+        "Policies": [
+          {
+            "PolicyName": "skf-instance-policy", 
+            "PolicyDocument": {
+              "Statement": [
+                {
+                  "Action": [
+                    "s3:ListBucket"
+                  ], 
+                  "Resource": {
+                    "Fn::Join": [
+                      "", 
+                      [
+                        "arn:aws:s3", 
+                        ":::", 
+                        {
+                          "Ref": "DataBucketName"
+                        }
+                      ]
+                    ]
+                  }, 
+                  "Effect": "Allow"
+                }, 
+                {
+                  "Action": [
+                    "s3:GetObject", 
+                    "s3:PutObject", 
+                    "s3:PutObjectAcl"
+                  ], 
+                  "Resource": {
+                    "Fn::Join": [
+                      "", 
+                      [
+                        "arn:aws:s3", 
+                        ":::", 
+                        {
+                          "Ref": "DataBucketName"
+                        }, 
+                        "/*"
+                      ]
+                    ]
+                  }, 
+                  "Effect": "Allow"
+                }
+              ]
+            }
+          }
+        ], 
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "sts:AssumeRole"
+              ], 
+              "Effect": "Allow", 
+              "Principal": {
+                "Service": [
+                  "ec2.amazonaws.com"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }, 
+    
+    "AutoscalingGroup": {
+      "Type": "AWS::AutoScaling::AutoScalingGroup", 
+      "Properties": {
+        "AvailabilityZones": ["eu-west-1a", "eu-west-1b"], 
+        "DesiredCapacity": 1, 
+        "Tags": [
+          {
+            "Value": {
+              "Fn::FindInMap": [
+                "Constants", 
+                "App", 
+                "Value"
+              ]
+            }, 
+            "PropagateAtLaunch": true, 
+            "Key": "Name"
+          }, 
+          {
+            "Value": {
+              "Fn::FindInMap": [
+                "Constants", 
+                "App", 
+                "Value"
+              ]
+            }, 
+            "PropagateAtLaunch": true, 
+            "Key": "App"
+          }
+        ], 
+        "LaunchConfigurationName": {
+          "Ref": "LaunchConfig"
+        }, 
+        "MinSize": 0, 
+        "MaxSize": 1, 
+        "VPCZoneIdentifier": {
+          "Ref": "InstanceSubnets"
+        }, 
+        "LoadBalancerNames": [
+          {
+            "Ref": "LoadBalancer"
+          }
+        ], 
+        "HealthCheckGracePeriod": 1200, 
+        "HealthCheckType": "ELB"
+      }
+    }, 
+    
+    "InstanceProfile": {
+      "Type": "AWS::IAM::InstanceProfile", 
+      "Properties": {
+        "Path": "/", 
+        "Roles": [
+          {
+            "Ref": "InstanceRole"
+          }
+        ]
+      }
+    }, 
+    
+    "InstanceSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup", 
+      "Properties": {
+        "SecurityGroupIngress": [
+          {
+            "ToPort": 8001, 
+            "IpProtocol": "tcp", 
+            "SourceSecurityGroupId": {
+              "Ref": "LoadBalancerSecurityGroup"
+            }, 
+            "FromPort": 8001
+          }, 
+          {
+            "ToPort": 22, 
+            "IpProtocol": "tcp", 
+            "FromPort": 22, 
+            "CidrIp": {
+              "Ref": "SSHAccessCidr"
+            }
+          }
+        ], 
+        "VpcId": {
+          "Ref": "VpcId"
+        }, 
+        "SecurityGroupEgress": [
+        ], 
+        "GroupDescription": "SKF EC2 instance", 
+        "Tags": [
+          {
+            "Key": "App", 
+            "Value": {
+              "Fn::FindInMap": [
+                "Constants", 
+                "App", 
+                "Value"
+              ]
+            }
+          }
+        ]
+      }
+    }, 
+
+    "LoadBalancer": {
+      "Type": "AWS::ElasticLoadBalancing::LoadBalancer", 
+      "Properties": {
+        "Subnets": {
+          "Ref": "LoadbalancerSubnets"
+        }, 
+        "Listeners": [
+          {
+            "InstancePort": 8001, 
+            "Protocol": "HTTPS", 
+            "LoadBalancerPort": 443, 
+            "SSLCertificateId": {
+              "Ref": "SSLCertificateArn"
+            }, 
+            "InstanceProtocol": "HTTP"
+          }
+        ], 
+        "CrossZone": true,
+        "Scheme": {"Fn::If" : ["ELBisPublicFacing", "internet-facing", "internal" ]},
+        "SecurityGroups": [
+          {
+            "Ref": "LoadBalancerSecurityGroup"
+          }
+        ], 
+        "Tags": [
+          {
+            "Key": "App", 
+            "Value": {
+              "Fn::FindInMap": [
+                "Constants", 
+                "App", 
+                "Value"
+              ]
+            }
+          }
+        ], 
+        "HealthCheck": {
+          "HealthyThreshold": 2, 
+          "Interval": 30, 
+          "Target": "HTTP:8001/", 
+          "Timeout": 10, 
+          "UnhealthyThreshold": 10
+        }
+      }
+    },
+    
+    "DetermineAWSLinuxAMI": {
+      "Type": "Custom::DetermineAWSLinuxAMIFunction",
+      "Properties": {
+        "ServiceToken": { "Fn::GetAtt" : ["DetermineAWSLinuxAMIFunction", "Arn"] },
+        "Region": { "Ref": "AWS::Region" },
+        "Owner": { "Fn::FindInMap" : [ "Image", { "Fn::FindInMap" : [ "AWSInstanceType2Arch", { "Ref" : "InstanceType" }, "Arch" ] }, "Owner" ] },
+        "ImagePattern": { "Fn::FindInMap" : [ "Image", { "Fn::FindInMap" : [ "AWSInstanceType2Arch", { "Ref" : "InstanceType" }, "Arch" ] }, "ImagePattern" ] }
+      }
+    },
+ 
+    "DetermineAWSLinuxAMIFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "index.handler",
+        "Role": { "Fn::GetAtt" : ["LambdaExecutionRole", "Arn"] },
+        "Code": {
+          "ZipFile":  { "Fn::Join": ["\n", [
+			"/**",
+			"* Looks up the latest Ubuntu 16.04 AMI ID for a given region and architecture.",
+			"**/",
+			"var aws = require('aws-sdk');",
+			"exports.handler = function(event, context) {",
+			"    console.log('REQUEST RECEIVED:' + JSON.stringify(event));",
+			"    // For Delete requests, immediately send a SUCCESS response.",
+			"    if (event.RequestType == 'Delete') {",
+			"        sendResponse(event, context, 'SUCCESS');",
+			"        return;",
+			"    }",
+			"    var responseStatus = 'FAILED';",
+			"    var responseData = {};",
+			"    var ec2 = new aws.EC2({region: event.ResourceProperties.Region});",
+			"    var describeImagesParams = {",
+			"        Filters: [{ Name: 'name', Values: [event.ResourceProperties.ImagePattern]}],",
+			"        Owners:  [event.ResourceProperties.Owner]",
+			"    };",
+			"    // Get AMI IDs with the specified name pattern and owner",
+			"    ec2.describeImages(describeImagesParams, function(err, describeImagesResult) {",
+			"        if (err) {",
+			"            responseData = {Error: 'DescribeImages call failed'};",
+			"            console.log(responseData.Error + ':', err);",
+			"        }",
+			"        else {",
+			"            var images = describeImagesResult.Images;",
+			"            // Sort images by name in decscending order.",
+			"            images.sort(function(x, y) { return y.Name.localeCompare(x.Name); });",
+			"            for (var j = 0; j < images.length; j++) {",
+			"                if (isBeta(images[j].Name)) continue;",
+			"                responseStatus = 'SUCCESS';",
+			"                responseData['Id'] = images[j].ImageId;",
+			"                break;",
+			"            }",
+			"        }",
+			"        sendResponse(event, context, responseStatus, responseData);",
+			"    });",
+			"};",
+			"// Check if the image is a beta or rc image. The Lambda function won't return any of those images.",
+			"function isBeta(imageName) {",
+			"    return imageName.toLowerCase().indexOf('beta') > -1 || imageName.toLowerCase().indexOf('.rc') > -1;",
+			"}",
+			"// Send response to the pre-signed S3 URL ",
+			"function sendResponse(event, context, responseStatus, responseData) {",
+			"    var responseBody = JSON.stringify({",
+			"        Status: responseStatus,",
+			"        Reason: 'See the details in CloudWatch Log Stream: ' + context.logStreamName,",
+			"        PhysicalResourceId: context.logStreamName,",
+			"        StackId: event.StackId,",
+			"        RequestId: event.RequestId,",
+			"        LogicalResourceId: event.LogicalResourceId,",
+			"        Data: responseData",
+			"    });",
+			"    console.log('RESPONSE BODY:', responseBody);",
+			"    var https = require('https');",
+			"    var url = require('url');",
+			"    var parsedUrl = url.parse(event.ResponseURL);",
+			"    var options = {",
+			"        hostname: parsedUrl.hostname,",
+			"        port: 443,",
+			"        path: parsedUrl.path,",
+			"        method: 'PUT',",
+			"        headers: {",
+			"            'content-type': '',",
+			"            'content-length': responseBody.length",
+			"        }",
+			"    };",
+			"    console.log('SENDING RESPONSE...');",
+			"    var request = https.request(options, function(response) {",
+			"        console.log('STATUS: ' + response.statusCode);",
+			"        console.log('HEADERS: ' + JSON.stringify(response.headers));",
+			"        // Tell AWS Lambda that the function execution is done  ",
+			"        context.done();",
+			"    });",
+			"    request.on('error', function(error) {",
+			"        console.log('sendResponse Error:' + error);",
+			"        // Tell AWS Lambda that the function execution is done  ",
+			"        context.done();",
+			"    });",
+			"    // write data to request body",
+			"    request.write(responseBody);",
+			"    request.end();",
+			"}"
+          ]]}
+        },        
+        "Runtime": "nodejs4.3",
+        "Timeout": "30"
+      }
+    },
+ 
+    "LambdaExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [{
+              "Effect": "Allow",
+              "Principal": {"Service": ["lambda.amazonaws.com"]},
+              "Action": ["sts:AssumeRole"]
+          }]
+        },
+        "Path": "/",
+        "Policies": [{
+          "PolicyName": "root",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Effect": "Allow",
+                "Action": ["logs:CreateLogGroup","logs:CreateLogStream","logs:PutLogEvents"],
+                "Resource": "arn:aws:logs:*:*:*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": ["ec2:DescribeImages"],
+                "Resource": "*"
+            }]
+          }
+        }]
+      }
+    }
+  }, 
+  "Outputs": {
+    "LoadBalancerUrl": {
+      "Value": {
+        "Fn::GetAtt": [
+          "LoadBalancer", 
+          "DNSName"
+        ]
+      }
+    }
+  }
+}

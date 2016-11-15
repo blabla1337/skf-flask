@@ -2,9 +2,16 @@ Security Knowledge Framework - AWS
 =================================
 
 This will allow you to run the OWASP Security Knowledge Framework in
-AWS by using a
-[CloudFormation template](https://aws.amazon.com/cloudformation/) to
+AWS by using a [CloudFormation template](https://aws.amazon.com/cloudformation/) to
 create all the required resources automatically.
+
+The solution consists of a load balancer, which is the entry point for your requests, 
+and one server that should always run in a private zone.
+
+The solution might either be publicly accessible (i.e. from the internet) or just privately.
+You have to select which one you prefer, and you should select the appropriate load balancer
+subnets for that. So in case of a publicly accessible solution, select public subnets for
+the load balancer.
 
 This guide assumes you have an AWS account and some experience using
 AWS.
@@ -17,9 +24,8 @@ in AWS**.
 If you're experienced with AWS then the steps are as follows:
 
 1. create SSL cert and upload to your AWS account
-2. convert the provided YAML file to JSON
-3. create a new CloudFormation stack from the JSON file
-4. CNAME your domain to the `LoadBalancerUrl` in the stack's `Outputs`
+2. create a new CloudFormation stack from the JSON file
+3. CNAME your domain to the `LoadBalancerUrl` in the stack's `Outputs`
 
 Further details on each step are below.
 
@@ -41,15 +47,10 @@ after. The output of this command will give you the new certificate's
 ARN (Amazon Resource Name). Make a note of it because you'll need it
 in a moment.
 
-### 2. Convert to JSON
+The data for the SKF will be backed up periodically to an S3 bucket of 
+your choice, and used when a new instance is launched.
 
-The accompanying CloudFormation template is in `YAML` format for
-clarity but AWS expects CloudFormation templates to be in JSON
-format. You must first convert the file using any `YAML` -> `JSON`
-tool (many online tools exist or you can use a library in your
-favourite language).
-
-### 3. CloudFormation
+### 2. CloudFormation
 
 Log into the AWS console using your IAM username and password. Make
 sure your user has full admin access because CloudFormation will
@@ -83,61 +84,8 @@ you.
 
 #### Parameters
 
-The following parameters are required for the CloudFormation.
-
-##### DataBucketName
-
-This stack will create an S3 bucket to persist the Security Knowledge
-Framework's database. This means that if the EC2 instance dies another
-one will appear in its place a few moments later and no-one will even
-notice that it died.
-
-S3 bucket names must be globally unique so choose something that's
-specific to you, for example
-`company-name-security-knowledge-framework`
-
-##### HttpsAccessCidr
-
-This allows you to lock down access to the SKF. If you have an IP
-range you can put that in here (e.g. for an office). If you'd like to
-lock it down to a single IP address then you can do that by specifying
-a single IP as the range e.g. `10.11.12.13/32`. If you want to allow
-access from anywhere in the world you can allow any traffic using
-`0.0.0.0/0`.
-
-##### KeyName
-
-The EC2 instance that runs the SKF will need an ssh key, specified by
-name. The field will auto-complete with available key names.
-
-This key can be used to ssh into the box if required. If you need
-access choose (or create) a key that you have access to. If you don't
-want to ssh into the box then just create an ssh key and discard the
-private key.
-
-##### SSHAccessCidr
-
-This is the IP range that you would like to allow ssh connections
-from. You can specify an IP range, a single IP (with `v.x.y.z/32`) or
-leave it completely open (NOT RECOMMENDED) with `0.0.0.0/0`.
-
-##### SSLCertificateArn
-
-This is the ARN of the SSL certificate to use. If you set it up
-earlier you'll have the ARN to hand, if not you can run the
-`list-server-certificates` CLI command to see the available
-certificates.
-
-##### Subnets
-
-Choose the subnet or subnets that the SKF should run in. This will
-autocomplete from the available subnets.
-
-##### VpcId
-
-The VPC that the SKF should run in. Generally you'll only have one
-available. If you have multiple VPCs make sure you choose the right
-one and ensure it matches the choice of subnets.
+The stack requires a number of the parameters, for each parameter a brief
+explanation of what is necessary is provided.
 
 #### Options
 
