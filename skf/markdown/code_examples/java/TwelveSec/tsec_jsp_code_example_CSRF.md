@@ -60,8 +60,9 @@ Welcome to the OWASP CSRFGuard Test Application!
 		</form>
 ```
 
-> following we use the controller in order to take the csrf parameter and compare it with the session attribute 
-```
+> We use the following controller in order to take the csrf parameter and compare it with the session attribute 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 package com.edw;
 
 import java.io.IOException;
@@ -117,4 +118,4 @@ public class CheckCSRF extends HttpServlet {
 
 }
 
-```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
