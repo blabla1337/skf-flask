@@ -1,7 +1,4 @@
-TwelveSec Secure Code Practices 
-================================
-
-JSP
+JSP-Servlets
 -------------------------
 
 ### Cross Site request Forgery 
@@ -32,10 +29,10 @@ JSP
 
 ```session.setAttribute( "CSRF", csrftoken);```
 
-The next step is implementing this random token in each form field as a hidden input parameter
-and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
+> The next step is implementing this random token in each form field as a hidden input parameter
+> and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
 
-<%
+```
     Object token = request.getSession().getAttribute("CSRF");
     String tokenStr = "";
     if (token != null) {
@@ -43,7 +40,7 @@ and send it to a function which checks if the submitted token is equal to the on
     }
 
     System.out.println("+tokenStr " + tokenStr);
-%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -59,4 +56,4 @@ Welcome to the OWASP CSRFGuard Test Application! Where would you like
 			<input type="hidden" value="<%=tokenStr%>" name="token" />
 			<input type="submit" value="login">
 		</form>
-*/
+```
