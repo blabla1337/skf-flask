@@ -1,3 +1,5 @@
+
+
 JSP-Servlets
 -------------------------
 
@@ -29,10 +31,10 @@ JSP-Servlets
 
 ```session.setAttribute( "CSRF", csrftoken);```
 
-> The next step is implementing this random token in each form field as a hidden input parameter
-> and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
+The next step is implementing this random token in each form field as a hidden input parameter
+and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
 
-```
+
     Object token = request.getSession().getAttribute("CSRF");
     String tokenStr = "";
     if (token != null) {
