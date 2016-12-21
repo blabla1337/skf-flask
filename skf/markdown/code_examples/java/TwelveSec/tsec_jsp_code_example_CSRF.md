@@ -26,15 +26,14 @@ JSP-Servlets
 
 ```String csrftoken = Base64.getEncoder().encodeToString(randomBytes);```
 
-
 > HttpSession session 
 
 ```session.setAttribute( "CSRF", csrftoken);```
 
-The next step is implementing this random token in each form field as a hidden input parameter
-and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
+> The next step is implementing this random token in each form field as a hidden input parameter
+> and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
 
-
+```
     Object token = request.getSession().getAttribute("CSRF");
     String tokenStr = "";
     if (token != null) {
@@ -49,8 +48,7 @@ and send it to a function which checks if the submitted token is equal to the on
 <title>Insert title here</title>
 </head>
 <body>
-Welcome to the OWASP CSRFGuard Test Application! Where would you like
-    to go?
+Welcome to the OWASP CSRFGuard Test Application!
     <br />
     <form action="/Home/csrf" method="post">
         <input type="text" name="testValue" /> 
