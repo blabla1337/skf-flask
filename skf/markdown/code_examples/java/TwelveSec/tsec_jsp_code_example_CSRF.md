@@ -28,7 +28,7 @@ csprng.nextBytes(randombytes);
 
 ```String csrftoken = Base64.getEncoder().encodeToString(randomBytes);```
 
-> HttpSession session 
+> Then we add a HttpSession session attribute
 
 ```session.setAttribute( "CSRF", csrftoken);```
 
@@ -58,7 +58,10 @@ Welcome to the OWASP CSRFGuard Test Application!
 			<input type="hidden" value="<%=tokenStr%>" name="token" />
 			<input type="submit" value="login">
 		</form>
-		
+```
+
+> following we use the controller in order to take the csrf parameter and compare it with the session attribute 
+```
 package com.edw;
 
 import java.io.IOException;
