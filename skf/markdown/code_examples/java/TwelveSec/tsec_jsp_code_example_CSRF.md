@@ -58,4 +58,60 @@ Welcome to the OWASP CSRFGuard Test Application!
 			<input type="hidden" value="<%=tokenStr%>" name="token" />
 			<input type="submit" value="login">
 		</form>
+		
+package com.edw;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/CheckCSRF")
+public class CheckCSRF extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+    public CheckCSRF() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+    //here we are sending the token towards the function which does the token validation    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		String token = request.getParameter("token");
+		String Sessiontoken = (String) request.getSession().getAttribute("CSRF");
+
+		
+		if(Sessiontoken != token)
+	    { 
+
+		/*
+        If there was no match the authentication session will be emptied and sessions
+        Will be abandoned, we redirect the user towards the login page.
+        */		
+			if (request.getSession().getAttribute("authenticateUser") == "")
+				{
+				request.getSession().invalidate();
+				request.setAttribute("msg", "Served at: " + request.getContextPath());
+				RequestDispatcher rd =  request.getRequestDispatcher("/login");
+			    rd.forward(request, response);
+			    return;
+				}
+	    }	
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doGet(request, response);
+	}
+
+}
+
 ```
