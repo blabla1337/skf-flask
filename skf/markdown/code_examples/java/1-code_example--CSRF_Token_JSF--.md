@@ -35,10 +35,10 @@ The next step is to implement this random token in each form field as a hidden i
 and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
 
 The following .xhtml snippet shows the code used to plase the antiCSRF token inside the page.
-when the page renders the <cu:antiCSRF/> is an html input tag which carries the antiCSRF
-token and is been constructed dynamically. When the page renders , a new token is generated
-explicitly and then adds the new value into the session. When the User push the commandButton
-then the input tag CSRF token parameter is compared with the CSRF session parameter. 
+when the page renders, the <cu:antiCSRF/> is created as an html input tag which carries the antiCSRF
+token that is constructed dynamically. While in the process of rendering the page, a new token is generated
+and then adds the new value into the session. When the User is pressing the commandButton
+then CSRF token parameter comming from the hidden html input tag is compared with the CSRF session parameter. 
 
 */
 
@@ -57,7 +57,7 @@ then the input tag CSRF token parameter is compared with the CSRF session parame
 
 /* 
 
-the following function is used to generate the new Session which then is added to the already existing session. 
+the following function used to generate the new Session which then is added to the already existing session. 
 
 */
 
@@ -80,7 +80,7 @@ public void generateToken(){
 	}
 
 /* 
-the following function is been used to do the comparison between the CSRF token coming from the
+the following function used to do the comparison between the CSRF token coming from the
 input tag and the CSRF value coming from the session 
 */
 
@@ -109,7 +109,7 @@ input tag and the CSRF value coming from the session
     }
 
 /* 
-This function is used to decode the viewstate of the jsf component into html input tag in order to get the parameter
+This function used to decode the viewstate of the jsf component into html input tag in order to get the parameter
 and do some extra  processing. 
 */ 
 		public void decode(FacesContext context) {
@@ -153,7 +153,7 @@ and do some extra  processing.
 		}
 
 /*
-the following function is used to encode into a viewstate the html tag into a jsf component 
+the following function used to encode into a viewstate the html tag into a jsf component 
 */ 
 
 	    @Override public void encodeEnd(FacesContext context) throws IOException 
