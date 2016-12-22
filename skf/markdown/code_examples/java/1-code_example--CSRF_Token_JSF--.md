@@ -31,7 +31,7 @@ Then we set the session attribute.
 origRequest.getSession(false);
 origRequest.getSession().setAttribute("CSRF", CSRftoken);
 
-The next step is implementing this random token in each form field as a hidden input parameter
+The next step is to implement this random token in each form field as a hidden input parameter
 and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
 
 The following .xhtml snippet shows the code used to plase the antiCSRF token inside the page.
