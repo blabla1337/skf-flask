@@ -8,11 +8,15 @@ CSRF Tokens - JSF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 /*
+The following .xhtml snippet shows the code used to plase the antiCSRF token inside the page. 
+when the page renders the ```<cu:antiCSRF/>``` is an html input tag which carries the antiCSRF token and is been constructed dynamically. When the page renders , a new token is generated explicitly and then adds the new value into the session. When the User push the commandButton then the input tag CSRF token parameter is compared with the CSRF session parameter.   
 
-          <f:view contentType="text/html">
-           
+*/
+
+
+/*
+          <f:view contentType="text/html">    
           <f:event listener="#{userLoginView.isAuthenticated}" type="preRenderView" />
-
 [ .... ]
 
           <p:commandButton action="password?faces-redirect=true" value="Add User" ajax="false">
@@ -21,6 +25,12 @@ CSRF Tokens - JSF
               </h:form>
 
 [ .... ]
+
+/* 
+
+the following function is used to generate the new Session which then is added to the already existing session. 
+
+*/
 
 
 public void generateToken(){
@@ -39,6 +49,10 @@ public void generateToken(){
         origRequest.getSession(false);
         origRequest.getSession().setAttribute("CSRF", CSRftoken);
 	}
+
+/* 
+the following function is been used to do the comparison between the CSRF token coming from the input tag and the CSRF value coming from the session 
+*/
 
     public void antiCSRF() throws IOException
     {		
@@ -63,7 +77,10 @@ public void generateToken(){
    				} 
    		}		     
     }
-	
+
+/* 
+This function is used to decode the viewstate of the jsf component into html input tag in order to get the parameter and do some extra  processing. 
+*/ 
 		public void decode(FacesContext context) {
 			 FacesContext fc = FacesContext.getCurrentInstance();
 
@@ -103,6 +120,10 @@ public void generateToken(){
 			}
 
 		}
+
+/*
+the following function is used to encode into a viewstate the html tag into a jsf component 
+*/ 
 
 	    @Override public void encodeEnd(FacesContext context) throws IOException 
 	    {
