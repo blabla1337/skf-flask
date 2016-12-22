@@ -18,11 +18,10 @@ JSP-Servlets
 
 > Then we generate a long value token containing a high entropy
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-byte[] randomBytes  = new byte[128];
+/*
+    byte[] randomBytes  = new byte[128];
 
-csprng.nextBytes(randombytes);
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     csprng.nextBytes(randombytes);*/
 
 > Then we base64 encode the string
 
