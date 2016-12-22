@@ -8,6 +8,10 @@ CSRF Tokens - JSF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 /*
+
+After a successful validation of a user login, the application must also start a session
+which contains the "cross site request forgery" token.
+
 The following .xhtml snippet shows the code used to plase the antiCSRF token inside the page.
 when the page renders the <cu:antiCSRF/> is an html input tag which carries the antiCSRF
 token and is been constructed dynamically. When the page renders , a new token is generated
