@@ -34,7 +34,7 @@ origRequest.getSession().setAttribute("CSRF", CSRftoken);
 The next step is to implement this random token in each form field as a hidden input parameter
 and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
 
-The following .xhtml snippet shows the code used to plase the antiCSRF token inside the page.
+The following .xhtml snippet shows the code used to place the antiCSRF token inside the page.
 when the page renders, the <cu:antiCSRF/> is created as an html input tag which carries the antiCSRF
 token that is constructed dynamically. While in the process of rendering the page, a new token is generated
 and then adds the new value into the session. When the User is pressing the commandButton
