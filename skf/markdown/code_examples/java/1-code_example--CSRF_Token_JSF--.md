@@ -82,8 +82,7 @@ public void generateToken(){
 	}
 
 /* 
-the following function used to do the comparison between the CSRF token coming from the
-input tag and the CSRF value coming from the session 
+the following function used to destroy the cookie and invalidate the session when the CSRF tokens dont match 
 */
 
     public void antiCSRF() throws IOException
@@ -112,7 +111,7 @@ input tag and the CSRF value coming from the session
 
 /* 
 This function used to decode the viewstate of the jsf component into html input tag in order to get the parameter
-and do some extra  processing. 
+and do some extra  processing. This uncludes the CSRF tokens comparison between the values of the html component and the session
 */ 
 		public void decode(FacesContext context) {
 			 FacesContext fc = FacesContext.getCurrentInstance();
@@ -155,7 +154,7 @@ and do some extra  processing.
 		}
 
 /*
-the following function used to encode into a viewstate the html tag into a jsf component 
+the following function used to encode the viewstate with the html tag into a jsf component 
 */ 
 
 	    @Override public void encodeEnd(FacesContext context) throws IOException 
