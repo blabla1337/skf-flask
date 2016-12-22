@@ -5,6 +5,8 @@ CSRF Token
 
 ***Example:***
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
 /*
 For CSRF tokens we used a separate class outside of the normal controller, since
 it must be re-used on several locations throughout the application
@@ -109,4 +111,4 @@ and send it to a function which checks if the submitted token is equal to the on
 																																																																														}
 
 																																																																														}
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
