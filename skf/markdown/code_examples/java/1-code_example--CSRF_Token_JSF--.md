@@ -110,8 +110,8 @@ the following function used to destroy the cookie and invalidate the session whe
     }
 
 /* 
-This function used to decode the viewstate of the jsf component into html input tag in order to get the parameter
-and do some extra  processing. This uncludes the CSRF tokens comparison between the values of the html component and the session
+This function used to decode the viewstate and get the token value from the html input tag. Also it perfomrms token comparison between the anticsrf token values of the html component and the session attribute. If the comparison fails then the session must be invalid.
+
 */ 
 		public void decode(FacesContext context) {
 			 FacesContext fc = FacesContext.getCurrentInstance();
