@@ -9,8 +9,30 @@ CSRF Tokens - JSF
 
 /*
 
+For CSRF tokens we used a separate class outside of the normal controller, since
+it must be re-used on several locations throughout the application
+
 After a successful validation of a user login, the application must also start a session
 which contains the "cross site request forgery" token.
+
+From the randomizer class we are generating the token we want by using a secure cryptographic function
+SecureRandom csprng = new SecureRandom();
+
+Then we generate a long value token containing a high entropy
+byte[] randomBytes  = new byte[128];
+
+csprng.nextBytes(randombytes);
+
+Then we base64 encode the string
+String csrftoken = Base64.getEncoder().encodeToString(randomBytes);
+
+Then we set the session attribute.
+
+origRequest.getSession(false);
+origRequest.getSession().setAttribute("CSRF", CSRftoken);
+
+The next step is implementing this random token in each form field as a hidden input parameter
+and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
 
 The following .xhtml snippet shows the code used to plase the antiCSRF token inside the page.
 when the page renders the <cu:antiCSRF/> is an html input tag which carries the antiCSRF
