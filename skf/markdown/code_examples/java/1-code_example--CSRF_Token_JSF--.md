@@ -8,8 +8,11 @@ CSRF Tokens - JSF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 /*
-The following .xhtml snippet shows the code used to plase the antiCSRF token inside the page. 
-when the page renders the ```<cu:antiCSRF/>``` is an html input tag which carries the antiCSRF token and is been constructed dynamically. When the page renders , a new token is generated explicitly and then adds the new value into the session. When the User push the commandButton then the input tag CSRF token parameter is compared with the CSRF session parameter.   
+The following .xhtml snippet shows the code used to plase the antiCSRF token inside the page. \
+when the page renders the ```<cu:antiCSRF/>``` is an html input tag which carries the antiCSRF \ 
+token and is been constructed dynamically. When the page renders , a new token is generated \
+explicitly and then adds the new value into the session. When the User push the commandButton \
+then the input tag CSRF token parameter is compared with the CSRF session parameter.  \  
 
 */
 
@@ -51,7 +54,8 @@ public void generateToken(){
 	}
 
 /* 
-the following function is been used to do the comparison between the CSRF token coming from the input tag and the CSRF value coming from the session 
+the following function is been used to do the comparison between the CSRF token coming from the \
+input tag and the CSRF value coming from the session 
 */
 
     public void antiCSRF() throws IOException
@@ -79,7 +83,8 @@ the following function is been used to do the comparison between the CSRF token 
     }
 
 /* 
-This function is used to decode the viewstate of the jsf component into html input tag in order to get the parameter and do some extra  processing. 
+This function is used to decode the viewstate of the jsf component into html input tag in order to get the parameter \
+and do some extra  processing. 
 */ 
 		public void decode(FacesContext context) {
 			 FacesContext fc = FacesContext.getCurrentInstance();
