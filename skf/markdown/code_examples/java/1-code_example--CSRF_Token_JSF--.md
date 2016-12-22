@@ -38,7 +38,8 @@ The following .xhtml snippet shows the code used to place the antiCSRF token ins
 When the page renders, the <cu:antiCSRF/> is created as a viewstate encoded html input tag
 which then carries the antiCSRF token.
 While in process of rendering the page, a new token is generated
-and added into the existing session. When the user press the commandButton
+and added into the existing session.
+When the user press the commandButton
 then CSRF token parameter is compared with the CSRF session parameter. 
 
 */
