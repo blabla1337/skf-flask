@@ -35,8 +35,7 @@ The next step is to implement this random token in each form field as a hidden i
 and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
 
 The following .xhtml snippet shows the code used to place the antiCSRF token inside the page.
-when the page renders, the <cu:antiCSRF/> is created as a viewstate encoded html input tag which carries the antiCSRF
-token which is constructed dynamically. While in process of rendering the page, a new token is generated
+when the page renders, the <cu:antiCSRF/> is created as a viewstate encoded html input tag which carries the antiCSRF token. While in process of rendering the page, a new token is generated
 and added into the existing session. When the user press the commandButton
 then CSRF token parameter is compared with the CSRF session parameter. 
 
