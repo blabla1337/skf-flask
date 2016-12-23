@@ -32,10 +32,7 @@ public class passwordcheck {
         */
         
         String[] pattern = { "[0-9]", "[A-Z]", "[a-z]" };
-       
-        // Create a Pattern object
-        // Now create matcher object.
-        
+             
          for (String vaildation : pattern )
          {
         	 
