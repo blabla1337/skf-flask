@@ -71,21 +71,16 @@ public class PasswordForget {
 	
 	public String checkValidity(String email)
 	{
-		
-		
 		boolean emptyrows = false;
 		String message = ""; 
 		
 		 //Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 
 		Connection conn = null;
 	    try {
-		
-		
 		Context initContext = new InitialContext();
 		Context webContext  = (Context)initContext.lookup("java:/comp/env");
 		DataSource ds = (DataSource)webContext.lookup("jdbc/myJdbc");
 		conn = ds.getConnection();	
-		
 
 		  //Here we select the number of counts from aggregate column in order to verify the number of connections:
 	      String query = "SELECT * FROM members WHERE email = ?";
@@ -94,7 +89,7 @@ public class PasswordForget {
 	      PreparedStatement st = conn.prepareStatement(query);
 	      st.setString(1, email);
 	      
-	      // execute the query, and get a java resultset
+	      // execute the query, and get a java result set
 	      ResultSet rs = st.executeQuery();
 	      
 	      while (rs.next())
@@ -104,7 +99,6 @@ public class PasswordForget {
 	    	  email 	= rs.getString("email");
 	      }
 	      
-	      
 	      //If the select was not empty we will be sending an email to the user as well as
 	      //preparing the password forget function
 	      if (rs.next() == false)
@@ -112,13 +106,8 @@ public class PasswordForget {
 	    	  emptyrows = true; 	    	  
 	      }
 	      
-	      st.close();
-	      conn.close();
-	    
-		} catch (SQLException | NamingException e) {
-			 logger.error("cannot search database. check query" + e.toString() );
-		}
-		
+	      rs.close();
+	      
 	      if (emptyrows == true)
 	      { 	  
 	    	  message = "An email was sent to reset your password";
@@ -127,56 +116,26 @@ public class PasswordForget {
 	            in order to prevent an attacker creating a whole lot of tokens than FUZZING 
 	            the password reset token. 
 	            */
-	    	active  = "NO"; 
-	    	  
-	    	//Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 
-	  		Connection conn2 = null;
-	  	    try {
-	  		Context initContext2 = new InitialContext();
-	  		Context webContext2  = (Context)initContext2.lookup("java:/comp/env");
-	  		DataSource ds2 = (DataSource)webContext2.lookup("jdbc/myJdbc");
-	  		conn2 = ds2.getConnection();	
-	  		
+	    	active  = "NO";   
 	  	    String query2 = "UPDATE forgetPassword SET active= ? WHERE userID= ?";
-	  	    
 	  	    //We bind the parameter in order to prevent SQL injections
-		    PreparedStatement st2 = conn.prepareStatement(query2);
-		    
+		    PreparedStatement st2 = conn.prepareStatement(query2);    
 		    st2.setString(1, active);
 		    st2.setInt(2, userID);
 		      
 		    // execute the query, and get a java result set
 		    st2.executeQuery();
-
 		    st2.close();
-		    conn2.close();
-		      
-	  	    } catch (SQLException | NamingException e) {
-				 logger.error("cannot search database. check query" + e.toString() );
-			}
-
-	  	    
-	     	//Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 
-	  		Connection conn3 = null;
-	  	    try {
-
-	  		Context initContext3 = new InitialContext();
-	  		Context webContext3  = (Context)initContext3.lookup("java:/comp/env");
-	  		DataSource ds3 = (DataSource)webContext3.lookup("jdbc/myJdbc");
-	  		conn2 = ds3.getConnection();	
-	  		
+		    
 	  	    String query3 = "INSERT INTO forgetPassword"
 	  	    		+ " (token, userID, active, oldPasswords)"
 	  	    		+ " VALUES"
 	  	    		+ " (?, ?, ?, ?)";
-	  	    
-	  	    
+
 	  	    //We bind the parameter in order to prevent SQL injections
-		    PreparedStatement st3 = conn.prepareStatement(query3);
-		    
+		    PreparedStatement st3 = conn.prepareStatement(query3);  
 		    //Here we generate the password forget token
 		    String token = rand.generateToken(30);
-
 		    st3.setInt(1, userID);
 		    st3.setString(2, token);
 		    st3.setInt(3, 1);
@@ -184,18 +143,11 @@ public class PasswordForget {
 		      
 		    // execute the query, and get a java result set
 		    st3.executeQuery();
-
 		    st3.close();
-		    conn3.close();
-		      
-	  	    } catch (SQLException | NamingException e) {
-				 logger.error("cannot search database. check query" + e.toString() );
-			}
-	  	    
 	  	    //Here we send an email to the user with the needed reset function
             String msg = "follow this link to reset your password http://example.com/index.jsp?resetLink=$token";
             SendEmail mail = new SendEmail();
-            mail.sendmail(email, "Password reset", msg);
+            mail.sendmail(email, "Password reset", msg);   
 	      }
 	      else
 	      {
@@ -205,30 +157,33 @@ public class PasswordForget {
 	            */
 	    	  message = "An email was sent to reset your password";  
 	      }
-	      return message; //this return value can be used from SERVLETs in order to manipulate HTTP responses to send messages back to JSP pages  
+	      
+	      rs.close();
+	      st.close();
+	      conn.close();
+	      
+	     } catch (SQLException | NamingException e) {
+			 logger.error("cannot search database. check query" + e.toString() );
+		 }
+	      return message; 
+	      //this return value can be used from SERVLETs in order to manipulate HTTP responses to send messages back to JSP pages  
 	}
-	
-	
-	public String resetPassword(String resetlink, String Password) throws InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException{
-		
-		hashing hasher = new hashing();
 
+	public String resetPassword(String resetlink, String Password) throws InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException{
+		hashing hasher = new hashing();
+		String message = ""; 		
 		 /*
         Imagine the user clicked on his link with the token included and is redirected towards
         the page where he can enter his new password.
-
+        
         Now we select the information from the forgot password function where the
         forgot tokens matches the token in the database.
         */
-
 		active = "YES"; 
-		
-		
 		 //Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 
 		Connection conn = null;
 	    try {
-		
-		
+			
 		Context initContext = new InitialContext();
 		Context webContext  = (Context)initContext.lookup("java:/comp/env");
 		DataSource ds = (DataSource)webContext.lookup("jdbc/myJdbc");
@@ -255,134 +210,82 @@ public class PasswordForget {
 	    	  userID 	= rs.getInt("userID");
 	      }
 	      
-	      st.close();
-	      conn.close();
-	    
-		} catch (SQLException | NamingException e) {
-			 logger.error("cannot search database. check query" + e.toString() );
-		}
-	    
 	    if (resetlink.equals(token))
 	    {
-	    	
-	    	String message = ""; 
-	    	
 	    	/*
             First we pull the password through createSalt function which enforces the input of
             secure passwords.
             */
-	    	String oldpassword = ""; 
-	    	
+	    	String oldpassword = ""; 	
 	    	String salt = hasher.createSalt(Password);    	
-	    	
 	    	/*
             Then we encrypt the password 
-            */
-	    	
+            */	    	
 	    	String newpassword = hasher.hashPassword(salt, Password);
-	    	
 	    	
 	    	/*
             Finally we compare the password against other old passwords from the 
             password reset database in order to prevent the user from using old passwords 
             which could already be compromised by any means.
             */
-	    	
-	    	//Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 
-			Connection conn2 = null;
-		    try {
-			Context initContext2 = new InitialContext();
-			Context webContext2  = (Context)initContext2.lookup("java:/comp/env");
-			DataSource ds2 = (DataSource)webContext2.lookup("jdbc/myJdbc");
-			conn2 = ds2.getConnection();	
 
-			 //Here we select the number of counts from aggregate column in order to verify the number of connections:
-			
+			//Here we select the number of counts from aggregate column in order to verify the number of connections:
 		    String query2 = "SELECT oldPasswords FROM forgetPassword where userID = ?";
 		   
 		      //We bind the parameter in order to prevent SQL injections
 		      PreparedStatement st2 = conn.prepareStatement(query2);
 		      st2.setInt(1, userID);
-
-		      
 		      // execute the query, and get a java result set
-		      ResultSet rs2 = st2.executeQuery();
-		      
+		      ResultSet rs2 = st2.executeQuery(); 
 		      while (rs2.next())
 		      {
 		    	  oldpassword = rs2.getString("oldPasswords");
 		      }
-		      
-		      st2.close();
-		      conn.close();
-		    
-			} catch (SQLException | NamingException e) {
-				 logger.error("cannot search database. check query" + e.toString() );
-			}
-		    
-		    
+		       
 		    if (newpassword.equals(oldpassword))
 		    {
-		    	message = "This was an old password please do not use this password";
-		    	
+		    	message = "This was an old password please do not use this password";	
 		    }
 		    else
 		    {
 		    	active = "NO";
 		    	
-		    	//Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 
-		  		Connection conn3 = null;
-		  	    try {
-		  		Context initContext3 = new InitialContext();
-		  		Context webContext3  = (Context)initContext3.lookup("java:/comp/env");
-		  		DataSource ds3 = (DataSource)webContext3.lookup("jdbc/myJdbc");
-		  		conn2 = ds3.getConnection();	
-		  		
 		     	//First we update the new password for the user
 		  	    String query3 ="UPDATE members SET password=? WHERE userID=?";
 		  	    
 		  	    //We bind the parameter in order to prevent SQL injections
 			    PreparedStatement st3 = conn.prepareStatement(query3);	
-			    st3.setInt(1, userID);		      
+			    st3.setInt(1, userID);
+			    
 			    // execute the query, and get a java result set
 			    st3.executeQuery();
-			    st3.close();
-			    conn3.close();
-			      
-		  	    } catch (SQLException | NamingException e) {
-					 logger.error("cannot search database. check query" + e.toString() );
-				}
-		  	    
-		     	//Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 
-		  		Connection conn4 = null;
-		  	    try {
-		  		Context initContext4 = new InitialContext();
-		  		Context webContext4 = (Context)initContext4.lookup("java:/comp/env");
-		  		DataSource ds4 = (DataSource)webContext4.lookup("jdbc/myJdbc");
-		  		conn2 = ds4.getConnection();	
-		  		
+			    
 		     	//First we update the new password for the user
 		  	    String query4 ="UPDATE forgetPassword SET active=? WHERE userID=?";
 		  	    
 		  	    //Then we destroy the reset token by setting it's value to NO
 			    PreparedStatement st4 = conn.prepareStatement(query4);
 			    st4.setString(1, active);
-			    st4.setInt(2, userID);      
+			    st4.setInt(2, userID); 
+			    
 			    // execute the query, and get a java result set
-			    st4.executeQuery();
+			    st4.executeQuery();  
+			    
+			    rs2.close();
+			    st2.close();
+			    st3.close();
 			    st4.close();
-			    conn4.close();
-			      
-		  	    } catch (SQLException | NamingException e) {
-					 logger.error("cannot search database. check query" + e.toString() );
-				}
-		  	    
+			    conn.close();
 		    }
-		    return message; //this return value can be used from SERVLETs in order to manipulate HTTP responses to send messages back to JSP pages 
+		    st2.close();    
 	    }
-	  
-	}
-		
+	    st.close();
+	    conn.close();   
+	    } catch (SQLException | NamingException e) {
+			 logger.error("cannot search database. check query" + e.toString() );
+		}
+	    return message; //this return value can be used from SERVLETs in order to manipulate HTTP responses to send messages back to JSP pages 
+	}	
 }
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
