@@ -64,7 +64,7 @@ public class passwordcheck {
              
              for (String value : strTemp)
              {	 
-            	 if (value == password)
+            	 if (value.equals(password))
                  {
                      error = "Your password was a bad password!";
                      complete = false;
