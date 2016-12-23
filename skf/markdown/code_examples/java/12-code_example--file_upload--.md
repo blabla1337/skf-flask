@@ -6,6 +6,8 @@ File Upload
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+In this example we show the steps that must be taken in order to upload a file securely. The main steps are input validation 
+,file extension checks and mime type checks. 
 
 package com.edw;
 
