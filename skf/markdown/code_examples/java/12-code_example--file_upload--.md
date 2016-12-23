@@ -49,7 +49,7 @@ public class FileUpload extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html;charset=UTF-8");
-        String userID = request.getParameter("userID");
+        String userID = request.getSession().getAttribute("userID");
         boolean continueFunction = true;
         boolean sessiontermination = false;
         boolean blockaccess = false ;
