@@ -1,8 +1,6 @@
 Randomizer 
 ----------------
 
-
-
 ***Example:***
 
 
