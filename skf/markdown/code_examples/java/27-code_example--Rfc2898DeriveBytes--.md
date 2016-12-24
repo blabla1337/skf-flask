@@ -1,3 +1,11 @@
+
+RFC 2898 password derivation compatible with .NET Rfc2898DeriveBytes
+----------------------------------------------------------------------
+
+***Example:***
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 package com.edw;
 
 import java.io.UnsupportedEncodingException;
@@ -178,3 +186,5 @@ public class Rfc2898DeriveBytes
 	}
 
 }
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

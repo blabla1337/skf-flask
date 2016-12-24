@@ -1,3 +1,11 @@
+Session Cookies 
+----------------
+
+***Example:***
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 /*
 Setting the "Domain" attribute to a too permissive value, such as "example.com" 
 allows an attacker to launch attacks on the session IDs between different hosts and 
@@ -11,3 +19,6 @@ to the session IDs from secure.example.com.
 Configuration is done by editing META-INF/context.xml
 
 <Context sessionCookiePath="/something" sessionCookieDomain=".domain.tld" />
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

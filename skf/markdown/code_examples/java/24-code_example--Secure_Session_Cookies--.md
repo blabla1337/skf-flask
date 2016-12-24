@@ -1,3 +1,11 @@
+Secure Session Cookies 
+------------------------
+
+***Example:***
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 //Secure Flag
 
 //Benefit: Instructs the browser to never send the cookie over a HTTP request. The cookie can only be sent over HTTPS. This works //even if the user manually types in a request for HTTP. The HTTP request will be sent, but the browser will not send any cookies //marked as “SECURE”
@@ -25,3 +33,6 @@
 
 String sessionid = request.getSession().getId();
 response.setHeader("SET-COOKIE", "JSESSIONID=" + sessionid + "; secure");
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

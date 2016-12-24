@@ -1,3 +1,12 @@
+
+RFD and file download injections
+---------------------------------
+
+
+***Example:***
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 //REFLECTED – some input is reflected to the response body. --> shell commands
 //FILE – attacker can tamper the filename.
 //DOWNLOAD – the response is downloaded.
@@ -286,3 +295,5 @@ public class DownLoadFiles extends HttpServlet {
 	 }   
 
 }
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
