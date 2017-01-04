@@ -82,10 +82,13 @@ public class inputvalidation {
 
          String validator = "";
          
-         if (type.equals("alphanummeric"))
-        	  validator = "^[a-zA-Z0-9]+$"; 
+         if (type.equals("alphanumeric"))
+        	  validator = "^[a-zA-Z0-9]<>?\"\"+$#!"; 
          else if (type.equals("nummeric"))
         	   validator = "^[0-9]*$";
+         else if (type.equals("xpath"))
+        	   validator = "()='[]:,*/ ";
+        
         
 	      // Create a Pattern object
 	      Pattern r = Pattern.compile(validator);
