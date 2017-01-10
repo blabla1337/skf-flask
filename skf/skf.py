@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-    Security Knowledge Framework is an expert system application 
+    Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples,
-    helps developers in pre-development and post-development.  
+    helps developers in pre-development and post-development.
     Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
@@ -25,13 +25,13 @@ from docx import Document
 from BeautifulSoup import BeautifulSoup
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Inches
-from functools import wraps 
+from functools import wraps
 from sqlite3 import dbapi2 as sqlite3
 from flask.ext.bcrypt import Bcrypt
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
-     
-     
+
+
 
 # create the application
 app = Flask(__name__)
@@ -83,7 +83,7 @@ def log(message, value, threat):
     The variables: message can be everything, value contains FAIL or SUCCESS and threat LOW MEDIUM HIGH"""
     now = datetime.datetime.now()
     dateLog = now.strftime("%Y-%m")
-    dateTime = now.strftime("%Y-%m-%d %H:%M") 
+    dateTime = now.strftime("%Y-%m-%d %H:%M")
     ip = request.remote_addr
     try:
         file = open('logs/'+dateLog+'.txt', 'a+')
@@ -91,7 +91,7 @@ def log(message, value, threat):
         # If not exists, create the file
         file = open('logs/'+dateLog+'.txt', 'w+')
     file.write(dateTime +' '+ message +' ' + ' ' + value + ' ' + threat + ' ' +ip + "\r\n")
-    file.close() 
+    file.close()
 
 def blockUsers():
     """Check the log file and based on the FAIL items block a user"""
@@ -105,12 +105,12 @@ def blockUsers():
     for line in read:
         match = re.search('FAIL', line)
         # If-statement after search() tests if it succeeded
-        if match:                      
-            count += 1   
-            str(count) 
+        if match:
+            count += 1
+            str(count)
             if count > 11:
-                sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')            
-                                
+                sys.exit('Due to to many FAILED logs in your logging file we have the suspicion your application has been under attack by hackers. Please check your log files to validate and take repercussions. After validation clear your log or simply change the FAIL items to another value.')
+
 def valAlphaNum(value, countLevel):
     match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
     if match:
@@ -130,7 +130,7 @@ def valNum(value, countLevel):
         return False
     else:
         return True
-        
+
 def encodeInput(html):
     """Encode evil chars..."""
     result = re.sub('"', "&quot;", html)
@@ -140,7 +140,7 @@ def encodeInput(html):
     result = re.sub(">", "&gt;", result)
     log("User supplied input was encoded", "SUCCESS", "NULL")
     return result
-    
+
 #not tested yet, made draft did not needed it so far
 def whiteList(allowed, input, countlevel):
     splitted = string.split(allowed, ',')
@@ -209,17 +209,17 @@ def get_db():
 
 def get_filepaths(directory):
     """
-    This function will generate the file names in a directory 
-    tree by walking the tree either top-down or bottom-up. For each 
-    directory in the tree rooted at directory top (including top itself), 
+    This function will generate the file names in a directory
+    tree by walking the tree either top-down or bottom-up. For each
+    directory in the tree rooted at directory top (including top itself),
     it yields a 3-tuple (dirpath, dirnames, filenames).
     """
-    file_paths = [] 
+    file_paths = []
     for root, directories, files in os.walk(directory):
         for filename in files:
             filepath = os.path.join(root, filename)
             file_paths.append(filepath)
-    return file_paths  
+    return file_paths
 
 def get_num(x):
     """get numbers from a string"""
@@ -234,7 +234,7 @@ def close_db(error):
 def check_version():
     try:
         r = requests.get("http://raw.githubusercontent.com/blabla1337/skf-flask/master/setup.py")
-        items_remote = r.content.split(",") 
+        items_remote = r.content.split(",")
         version_remote = items_remote[1]
         version_remote = version_remote.replace(version_remote[:14], '')
         version_remote = version_remote[:-1]
@@ -252,7 +252,7 @@ def get_version():
     with open ("version.txt", "r") as myfile:
         version_final = myfile.read().replace('\n', '')
     return version_final
-        
+
 def projects_functions_techlist():
     """get list of technology used for creating project functions"""
     if not session.get('logged_in'):
@@ -260,7 +260,7 @@ def projects_functions_techlist():
     db = get_db()
     cur = db.execute('SELECT techID, techName, vulnID from techhacks ORDER BY techID DESC')
     entries = cur.fetchall()
-    return entries 
+    return entries
 
 @app.route('/')
 @security
@@ -306,10 +306,10 @@ def create_account():
         token  = request.form['token']
         email  = request.form['email']
         password  = request.form['password']
-        
+
         #hash the password with Bcrypt, does autosalt
         hashed = bcrypt.generate_password_hash(password,14)
-      
+
         #Do DB query also check for access
         cur = db.execute('SELECT accessToken, userID, activated from users where email=? AND accessToken=?',
                             [email, token])
@@ -318,7 +318,7 @@ def create_account():
             userID = verify[1]
             if verify[2] == "false":
 				if str(verify[0]) == token:
-							#update the counter and blocker table with new values 
+							#update the counter and blocker table with new values
 					db.execute('UPDATE users SET access=?, password=?, activated=? WHERE accessToken=? AND userID=?',
 							   ["true", hashed, "true", token , userID])
 					db.commit()
@@ -326,33 +326,33 @@ def create_account():
 					db.execute('INSERT INTO counter (userID, countEvil, block) VALUES (?, ?, ?)',
 								[userID, 0, 0])
 					db.commit()
-				
+
 					#Create standard group  for this user to assign himself to
 					date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 					db.execute('INSERT INTO groups (ownerID, groupName, timestamp) VALUES (?, ?, ?)',
 								[userID, "privateGroup", date])
 					db.commit()
-				
+
 					#Select this groupID so we can assign the user to this group automatically
 					cur = db.execute('SELECT groupID from groups where ownerID=?',
 								[userID])
 					group = cur.fetchall()
 					for theID in group:
 						groupID = theID[0]
-							
+
 					#Now we assign the user to the group
 					date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 					db.execute('INSERT INTO groupMembers (userID, groupID, ownerID) VALUES (?, ?, ?)',
 								[userID, groupID, userID])
 					db.commit()
-               
+
         if not check:
             #if not the right pin, the user account wil be deleted if not exsisting
             db.execute('DElETE FROM users where email=? AND activated=?',
                         [email, "false"])
             db.commit()
-        
-        
+
+
         return render_template('login.html', error=error)
 
 """First comes the method for login"""
@@ -367,7 +367,7 @@ def login():
         """Username and password from form"""
         username = request.form['username']
         password = request.form['password']
-        
+
         #Do DB query also check for access
         cur = db.execute('SELECT access from users where userName=?',
                             [username])
@@ -375,20 +375,20 @@ def login():
         for verify in check:
             if verify[0] == "false":
                 return render_template('warning.html', error=error)
-            
+
         #Do DB query also check for access
         cur = db.execute('SELECT u.userID, u.privilegeID, u.userName, u.password, u.access, priv.privilegeID, priv.privilege from users as u JOIN privileges AS priv ON priv.privilegeID = u.privilegeID where username=? AND access="true"',
                             [username])
         entries = cur.fetchall()
         for entry in entries:
-            passwordHash = entry[3]  
-            userID 		 = entry[0]         
+            passwordHash = entry[3]
+            userID 		 = entry[0]
             #Do encryption
             if bcrypt.check_password_hash(passwordHash, password):
-                log("Valid username/password submit", "SUCCESS", "HIGH")  
+                log("Valid username/password submit", "SUCCESS", "HIGH")
                 rand.cleanup()
                 csrf_token_raw = rand.bytes(128)
-                csrf_token = base64.b64encode(csrf_token_raw)  
+                csrf_token = base64.b64encode(csrf_token_raw)
                 session['logged_in'] = True
                 session['userID'] = userID
                 session['csrf_token'] = csrf_token
@@ -398,7 +398,7 @@ def login():
                 session['permissions'] = entry[6]
                 version_check = check_version()
                 version = get_version()
-                
+
                 #Do DB query also check for access
                 cur = db.execute('SELECT groupID from groups WHERE groupName=? AND ownerID=?',
                             ["privateGroup", session['userID']])
@@ -406,8 +406,8 @@ def login():
                 for entry in groupID:
                     session['privateGroup'] = entry[0]
                 return render_template('dashboard.html', version=version, version_check=version_check)
-            else:    
-                log("invalid login submit", "FAIL", "HIGH")                   
+            else:
+                log("invalid login submit", "FAIL", "HIGH")
     return render_template('login.html', error=error)
 
 def countAttempts(counter):
@@ -420,28 +420,28 @@ def countAttempts(counter):
     entries = cur.fetchall()
     for entry in entries:
         counterDB = entry[2]
-        blockDB   = entry[3] 
-    
+        blockDB   = entry[3]
+
     updateCount = counterDB + counter
     updateBlock = blockDB   + counter
     redirect = False
-    
+
     if updateCount >= 3:
         countUpdate = 0
         redirect = True
-        
+
     if updateBlock >=12:
         redirect = True
         db.execute('UPDATE users SET access=? WHERE userID=?',
                ["false", session['userID']])
     	db.commit()
     	renderwhat = "/warning.html"
-    
-    #update the counter and blocker table with new values 
+
+    #update the counter and blocker table with new values
     db.execute('UPDATE counter SET countEvil=?, block=? WHERE userID=?',
         [updateCount, updateBlock, session['userID']])
     db.commit()
-    
+
     if redirect == True:
         log( "Authenticated session destroyed by counter class", "SUCCESS", "LOW")
         # TO-DO turn on again
@@ -454,20 +454,20 @@ def countAttempts(counter):
 def permissions(fromFunction):
     db = get_db()
     db.commit()
-    
+
     """Do DB query to see if username exists"""
     cur = db.execute('SELECT a.username, a.userID, a.password, a.privilegeID, b.privilegeID, b.privilege FROM users as a JOIN privileges as b ON a.privilegeID = b.privilegeID WHERE a.userID =? and a.access="true" ',
     				       [session['userID']])
     entries = cur.fetchall()
     for entry in entries:
     	permissions = entry[5]
-    	
-    permissionsGranted = string.split(permissions, ':')	
+
+    permissionsGranted = string.split(permissions, ':')
     permissionsNeeded  = string.split(fromFunction, ':')
-    
+
     count = len(permissionsNeeded)
     counthits = 0
-	
+
     for val in permissionsGranted:
 	    if val in fromFunction:
 	        counthits +=1
@@ -500,7 +500,7 @@ def set_code_lang(code_lang):
     found = allowed.find(safe_code_lang)
     if found != -1:
         #to do below security issue... Create white-list of the languages
-        if safe_code_lang == "asp" or safe_code_lang == "php": 
+        if safe_code_lang == "asp" or safe_code_lang == "php":
             session['code_lang'] = safe_code_lang
     return redirect(url_for('code_examples'))
 
@@ -521,7 +521,7 @@ def code_examples():
         for path in full_file_paths:
             id_item = get_num(path)
             path = path.split("-")
-            y = len(path)-3 
+            y = len(path)-3
             kb_name_uri = path[(y)]
             kb_name = kb_name_uri.replace("_", " ")
             items.append(kb_name)
@@ -546,7 +546,7 @@ def show_code_item():
         for path in full_file_paths:
             if id == get_num(path):
                 filemd = open(path, 'r').read()
-                content = Markup(markdown.markdown(filemd)) 
+                content = Markup(markdown.markdown(filemd))
     return render_template('code-examples-item.html', **locals())
 
 @app.route('/kb-item', methods=['POST'])
@@ -565,7 +565,7 @@ def show_kb_item():
     for path in full_file_paths:
         if id == get_num(path):
             filemd = open(path, 'r').read()
-            content = Markup(markdown.markdown(filemd)) 
+            content = Markup(markdown.markdown(filemd))
     return render_template('knowledge-base-item.html', **locals())
 
 
@@ -606,7 +606,7 @@ def knowledge_base():
     for path in full_file_paths:
         id_item = get_num(path)
         path = path.split("-")
-        y = len(path)-3 
+        y = len(path)-3
         kb_name_uri = path[(y)]
         kb_name = kb_name_uri.replace("_", " ")
         items.append(kb_name)
@@ -619,10 +619,10 @@ def user_new():
     """show the create new project page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /user-new", "FAIL", "HIGH")
-        abort(401)     
+        abort(401)
     permissions("manage")
     return render_template('users-new.html', csrf_token=session['csrf_token'])
-    
+
 @app.route('/users-add', methods=['POST'])
 @security
 def users_add():
@@ -644,7 +644,7 @@ def users_add():
     db.execute('INSERT INTO users (privilegeID, userName, email, password, access, accessToken, activated) VALUES (?, ?, ?, ?, ?, ?, ?)',
                [safe_privID, safe_userName, safe_email, "none", "false", pincode, "false"])
     db.commit()
-    
+
     return redirect(url_for('users_manage'))
 
 @app.route('/users-manage', methods=['GET'])
@@ -658,7 +658,7 @@ def users_manage():
     db = get_db()
     cur = db.execute('SELECT u.userID, u.userName, u.email, u.privilegeID, u.access, p.privilegeID, p.privilege from users as u JOIN privileges as p ON p.privilegeID = u.privilegeID')
     users = cur.fetchall()
-    
+
     return render_template('users-manage.html', users=users, csrf_token=session['csrf_token'])
 
 @app.route('/user-access', methods=['POST'])
@@ -680,16 +680,16 @@ def user_access():
     db.execute('UPDATE counter SET countEvil=? AND block=? WHERE userID=?',
 		   [0, 0, safe_userID])
     db.commit()
-    
+
     return redirect(url_for('users_manage'))
-    
+
 @app.route('/group-new', methods=['GET'])
 @security
 def group_new():
     """show the create new project page"""
     if not session.get('logged_in'):
         log( "User with no valid session tries access to page /group-new", "FAIL", "HIGH")
-        abort(401)     
+        abort(401)
     permissions("edit")
     return render_template('group-new.html', csrf_token=session['csrf_token'])
 
@@ -716,7 +716,7 @@ def group_add():
     #Do actual loop
     for value in group:
         groupID = value[0]
-        
+
     #Than we insert this back into groupMembers table so the user is added to group
     db.execute('INSERT INTO groupMembers (userID, groupID, ownerID, timestamp) VALUES (?, ?, ?, ?)',
                [session['userID'], groupID, session['userID'], date])
@@ -735,11 +735,11 @@ def group_users():
     cur = db.execute('SELECT * from groups where ownerID=? and groupName !=? ',
                           [session['userID'], "privateGroup"])
     groups = cur.fetchall()
-    
+
     """Select all users for adding to group"""
     cur2 = db.execute('SELECT username, userID from users')
     users = cur2.fetchall()
-    
+
     """select users by assigned groups for display"""
     cur3 = db.execute('SELECT u.username, u.userID, g.groupName, g.groupID, m.groupID, m.userID, m.timestamp, g.ownerID from users as u JOIN groups AS g ON g.groupID = m.groupID JOIN groupMembers as m ON u.userID = m.userID  WHERE g.ownerID=? AND u.userName !=? ORDER BY g.groupName ',
     				   [session['userID'], session['userName']])
@@ -755,8 +755,8 @@ def group_add_users():
         log("User with no valid session tries access to page /project-function-add", "FAIL", "HIGH")
         abort(401)
     permissions("edit")
-    check_token()    
-    valNum(request.form['groupName'], 12)     
+    check_token()
+    valNum(request.form['groupName'], 12)
     safe_groupID = encodeInput(request.form['groupName'])
 
     """Check is submitted groupID is owned by user"""
@@ -793,9 +793,9 @@ def user_del():
     permissions("delete")
     check_token()
     valNum(request.form['userID'], 12)
-    
+
     safe_userID  = encodeInput(request.form['userID'])
-    
+
     db = get_db()
     db.execute("DELETE FROM users WHERE userID=?",
                [safe_userID])
@@ -814,9 +814,9 @@ def group_manage():
     cur = db.execute('SELECT * from groups where ownerID=? and groupName !=? ',
                           [session['userID'], "privateGroup"])
     groups = cur.fetchall()
-    
+
     return render_template('group-manage.html', groups=groups, csrf_token=session['csrf_token'])
-    
+
 @app.route('/group-del', methods=['POST'])
 @security
 def group_del():
@@ -827,9 +827,9 @@ def group_del():
     permissions("manage")
     check_token()
     valNum(request.form['groupID'], 12)
-    
+
     safe_groupID = encodeInput(request.form['groupID'])
-    
+
     db = get_db()
     db.execute("DELETE FROM groups WHERE groupID=? AND ownerID=?",
                [safe_groupID, session['userID']])
@@ -842,7 +842,7 @@ def projects():
     """show the create new project page"""
     if not session.get('logged_in'):
         log("User with no valid session tries access to page /project-new", "FAIL", "HIGH")
-        abort(401)     
+        abort(401)
     permissions("edit")
     return render_template('project-new.html', csrf_token=session['csrf_token'])
 
@@ -918,17 +918,17 @@ def project_list():
         log("User with no valid session tries access to page /project-list", "FAIL", "HIGH")
         abort(401)
     permissions("read")
-    db = get_db()  
+    db = get_db()
     #First query is for the users own owned projects
     cur = db.execute('SELECT p.projectName, p.projectVersion, p.projectDESC, p.projectID, p.timestamp, p.groupID, g.groupName, g.groupID FROM projects as p JOIN groups as g ON g.groupID = p.groupID where p.userID=? ORDER BY projectID DESC',
                           [session['userID']])
     entries = cur.fetchall()
-    #select the groups which can be selected by this user    
+    #select the groups which can be selected by this user
     cur3 = db.execute('SELECT * FROM groups WHERE ownerID=?',
                           [session['userID']])
     groups = cur3.fetchall()
     return render_template('project-list.html', entries=entries, groups=groups, csrf_token=session['csrf_token'])
-    
+
 @app.route('/project-shared', methods=['GET'])
 @security
 def project_shared():
@@ -942,7 +942,7 @@ def project_shared():
     cur = db.execute('SELECT p.projectName, p.projectVersion, p.projectDESC, p.projectID, p.timestamp, p.groupID, p.ownerID, m.userID, m.groupID, u.userID, u.userName FROM projects as p JOIN groupMembers as m ON m.groupID = p.groupID JOIN users as u ON u.userID=p.ownerID where m.userID=? AND u.userName !=? ORDER BY p.projectID DESC',
                           [session['userID'], session['userName']])
     entries = cur.fetchall()
-        
+
     return render_template('project-shared.html', entries=entries, csrf_token=session['csrf_token'])
 
 @app.route('/project-options/<project_id>', methods=['GET'])
@@ -1015,8 +1015,8 @@ def add_function():
     valAlphaNum(request.form['functionName'], 1)
     valAlphaNum(request.form['functionDesc'], 1)
     safe_fName = encodeInput(request.form['functionName'])
-    safe_fDesc = encodeInput(request.form['functionDesc'])	
-    
+    safe_fDesc = encodeInput(request.form['functionDesc'])
+
     #Check is submitted projectID is owned by user
     db = get_db()
     cur3 = db.execute('SELECT p.projectID, p.groupID, m.groupID, m.userID from projects as p JOIN groupMembers as m ON m.groupID = p.groupID where m.userID=?',
@@ -1042,7 +1042,7 @@ def add_function():
 							db.execute('INSERT INTO parameters (entryDate, functionName, functionDesc, techVuln, tech, projectID, userID) VALUES (?, ?, ?, ?, ?, ?, ?)',
 								   [date, safe_fName, safe_fDesc, safe_vulnID, safe_techID, id, session['userID']])
 							db.commit()
-    redirect_url = '/project-functions/'+str(id) 
+    redirect_url = '/project-functions/'+str(id)
     return redirect(redirect_url)
 
 @app.route('/project-checklist-add', methods=['POST'])
@@ -1072,7 +1072,7 @@ def add_checklist():
 					if found != -1:
 						listID = "listID"+str(i)
 						answerID = "answer"+str(i)
-						questionID = "questionID"+str(i) 
+						questionID = "questionID"+str(i)
 						vulnID = "vulnID"+str(i)
 						valAlphaNum(request.form[answerID], 12)
 						valNum(request.form[questionID], 12)
@@ -1168,7 +1168,7 @@ def project_checklists(project_id):
                 path_vuln = get_num(path_kb[1])
                 if int(owasp_kb) == int(path_vuln):
                     filemd = open(org_path, 'r').read()
-                    description = filemd.split("**") 
+                    description = filemd.split("**")
                     owasp_content_desc_lvl1.append(description[2])
     for path in full_file_paths:
        found = path.find("ASVS-level-2")
@@ -1191,7 +1191,7 @@ def project_checklists(project_id):
                 path_vuln = get_num(path_kb[1])
                 if int(owasp_kb) == int(path_vuln):
                     filemd = open(org_path, 'r').read()
-                    description = filemd.split("**") 
+                    description = filemd.split("**")
                     owasp_content_desc_lvl2.append(description[2])
     for path in full_file_paths:
        found = path.find("ASVS-level-3")
@@ -1214,7 +1214,7 @@ def project_checklists(project_id):
                 path_vuln = get_num(path_kb[1])
                 if int(owasp_kb) == int(path_vuln):
                     filemd = open(org_path, 'r').read()
-                    description = filemd.split("**") 
+                    description = filemd.split("**")
                     owasp_content_desc_lvl3.append(description[2])
     for path in full_file_paths:
        found = path.find("CS_basic_audit")
@@ -1301,7 +1301,7 @@ def functions_del():
     safe_entryDate = encodeInput(request.form['entryDate'])
     safe_projectID = encodeInput(request.form['projectID'])
     db = get_db()
-    
+
     #Use select in order to see if this user is linked to project
     cur = db.execute("SELECT p.projectID, p.groupID, m.groupID, m.userID FROM projects AS p JOIN groupMembers AS m ON m.groupID = p.groupID WHERE m.userID=?  ",
                		[session['userID']])
@@ -1392,7 +1392,7 @@ def download_file_checklist(entryDate):
         log( "User with no valid session tries access to page /results-checklist-docx", "FAIL", "HIGH")
         abort(401)
     permissions("read")
-    ygb_docx = []    
+    ygb_docx = []
     content_raw = []
     content_checklist = []
     content_title = []
@@ -1403,10 +1403,10 @@ def download_file_checklist(entryDate):
     entries = cur.fetchall()
     document = Document()
     document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
-    last_paragraph = document.paragraphs[-1] 
+    last_paragraph = document.paragraphs[-1]
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     #document.add_heading('Security Knowledge Framework', 0)
-    last_paragraph = document.paragraphs[-1] 
+    last_paragraph = document.paragraphs[-1]
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = document.add_paragraph()
     projectName = entries[0][3]
@@ -1483,7 +1483,7 @@ def download_file_checklist(entryDate):
                 image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
             elif ygb_docx[i] == "ygb":
                 image = document.add_picture(os.path.join(app.root_path,'static/img/yellow.png'), width=Inches(0.20))
-                image = document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))            
+                image = document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))
                 image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
         p.add_run("\n")
         document.add_page_break()
@@ -1494,8 +1494,8 @@ def download_file_checklist(entryDate):
     with open("checklist-security-report.docx", 'rb') as f:
         body = f.read()
     return make_response((body, headers))
-    
-    
+
+
 @app.route('/results-function-report/<projectID>', methods=['GET'])
 @security
 def function_results(projectID):
@@ -1544,10 +1544,10 @@ def download_file_function(projectID):
     entries = cur.fetchall()
     document = Document()
     document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
-    last_paragraph = document.paragraphs[-1] 
+    last_paragraph = document.paragraphs[-1]
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     #document.add_heading('Security Knowledge Framework', 0)
-    last_paragraph = document.paragraphs[-1] 
+    last_paragraph = document.paragraphs[-1]
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = document.add_paragraph()
     projectName = entries[0][0]
@@ -1618,11 +1618,9 @@ if __name__ == "__main__":
             ))
         if (str(sys.argv[i][2:]) == "saas"):
             bindaddr = '0.0.0.0'
-    if os.path.isfile('server.crt') == False: 
+    if os.path.isfile('server.crt') == False:
        app.run(host=bindaddr, port=5443, ssl_context='adhoc')
     else:
        context = SSL.Context(SSL.TLSv1_METHOD)
        context = ('server.crt', 'server.key')
        app.run(host=bindaddr, port=5443, ssl_context=context)
-
-
