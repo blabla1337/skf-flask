@@ -64,7 +64,6 @@
                               <tbody>
                               {% endif -%}
 
-                                        {% set counter = 0 -%}
                                         {% for entry in groups -%}
                   <div id="projectRow{{entry.projectID|safe}}">
                               <tr>
@@ -113,7 +112,6 @@
 
                                   </td>
                               </tr>   
-                                        {% set counter = counter + 1 %}
                                         {% endfor %}
                              
                     

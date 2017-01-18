@@ -70,7 +70,6 @@
 										  </thead>
 										  <tbody>
 										  
-							  {% set counter = 0 -%}
 							  {% for entry in entries -%}
 										 
 										  <tr>
@@ -85,12 +84,12 @@
 											  
 											  {% if "delete" in session['permissions'] -%}					   
 											  <!-- Button trigger modal -->
-											  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{counter|safe}}">
+											  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{loop.index0|safe}}">
 											  <i class="fa fa-times "></i>                  
 											  </button>
 											  {% endif -%}
 											  <!-- Modal -->
-											  <div class="modal fade" id="myModal{{counter|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											  <div class="modal fade" id="myModal{{loop.index0|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											  <div class="modal-dialog">
 											  <div class="modal-content">
 											  <div class="modal-header">

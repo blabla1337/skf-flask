@@ -77,7 +77,6 @@
                               <tbody>
                               {% endif -%}
 
-                                        {% set counter = 0 -%}
                                         {% for entry in entries -%}
                   <div id="projectRow{{entry.projectID|safe}}">
                               <tr>
@@ -95,7 +94,7 @@
                                   {% endif -%}
 									
 									  <form method="post" action="assign-group" id="assignGroup">
-										  <select onchange="this.form.submit();" id="dropdown{{counter}}" name="groupID" >
+										  <select onchange="this.form.submit();" id="dropdown{{loop.index0}}" name="groupID" >
 										  <option selected="selected">Assign group</option>
 									  	 {% for group in groups -%}
 									  	  <option value="{{group.groupID}}">{{group.groupName}}</option>
@@ -143,7 +142,6 @@
 
                                   </td>
                               </tr>   
-                                        {% set counter = counter + 1 %}
                                         {% endfor %}
                              
                     

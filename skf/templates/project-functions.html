@@ -78,10 +78,8 @@ j++;
 					
 				   <div class="functions alert alert-info">
 					<ul id="selectable">
-					{% set counter = 0 -%}
 						{% for entry in techlist -%}
 							<li class="ui-widget-content">{{ entry.techName|safe }}</li>
-						{% set counter = counter + 1 %}
 					{% endfor %}
 					</ul>
 					<!-- for later release
@@ -211,7 +209,6 @@ j++;
 							<tbody>
 							{% endif -%}
 
-							{% set counter = 0 -%}
 							{% for entry in entries -%}
 							
 							<tr>
@@ -256,7 +253,6 @@ j++;
 							  </td>
 							</tr>
 
-							{% set counter = counter + 1 %}
 							{% endfor %}
 
 							</tbody>

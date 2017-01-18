@@ -64,26 +64,23 @@
 		 		<div class="col-lg-12">
                  		        <div class="panel-group" id="accordion">
 
-					{% set counter = 0 -%}
 					{% for name in items -%}
-
 
 						  <div class="panel panel-default">
 						    <div class="panel-heading" style='background-color:white;'>
 						      <h4 class="panel-title">
-						        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{id_items[counter]|safe }}" onclick='getCode({{id_items[counter]|safe}});'>
+						        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{id_items[loop.index0]|safe }}" onclick='getCode({{id_items[loop.index0]|safe}});'>
 						 	   {{ name|safe }}
 						        </a>
 						      </h4>
 						    </div>
-						    <div id="collapse{{id_items[counter]|safe }}" class="panel-collapse collapse">
-						      <div class="panel-body" id="{{id_items[counter]|safe }}">
+						    <div id="collapse{{id_items[loop.index0]|safe }}" class="panel-collapse collapse">
+						      <div class="panel-body" id="{{id_items[loop.index0]|safe }}">
 								<b>Item is fetched</b>
 						      </div>
 						    </div>
 						  </div>
-					{% set counter = counter + 1 %}
-                       			{% endfor %}
+                    {% endfor %}
 
 					</div>
                		         </div><!-- /col-lg-4 -->			
