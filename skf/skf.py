@@ -519,10 +519,10 @@ def code_examples():
     if set(session['code_lang']) <= allowed:
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
         for path in full_file_paths:
-            id_item = get_num(path)
-            path = path.split("-")
-            y = len(path)-3
-            kb_name_uri = path[(y)]
+            basepath = os.path.basename(path)
+            baseelems = basepath.split("-")
+            id_item = get_num(baseelems[0])
+            kb_name_uri = baseelems[-3]
             kb_name = kb_name_uri.replace("_", " ")
             items.append(kb_name)
             id_items.append(id_item)
@@ -544,9 +544,11 @@ def show_code_item():
     if set(session['code_lang']) <= allowed:
         full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/code_examples/"+session['code_lang']))
         for path in full_file_paths:
-            if id == get_num(path):
-                filemd = open(path, 'r').read()
-                content = Markup(markdown.markdown(filemd))
+            basepath = os.path.basename(path)
+            if id == get_num(basepath.split("-")[0]):
+                with open(path, 'r') as codef:
+                    codemd = codef.read()
+                content = Markup(markdown.markdown(codemd))
     return render_template('code-examples-item.html', **locals())
 
 @app.route('/kb-item', methods=['POST'])
@@ -559,13 +561,13 @@ def show_kb_item():
     permissions("read")
     valNum(request.form['id'], 12)
     id = int(request.form['id'])
-    items = []
-    full_file_paths = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown"))
-    for path in full_file_paths:
-        if id == get_num(path):
-            filemd = open(path, 'r').read()
-            content = Markup(markdown.markdown(filemd))
+    kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+    for kbpath in kb_paths:
+        basepath = os.path.basename(kbpath)
+        if id == get_num(basepath.split("-")[0]):
+            with open(kbpath, 'r') as kbpathf:
+                kbmd = kbpathf.read()
+            content = Markup(markdown.markdown(kbmd))
     return render_template('knowledge-base-item.html', **locals())
 
 
@@ -577,17 +579,16 @@ def show_kb_api():
     full_file_paths = []
     content = []
     kb_name = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-    for path in full_file_paths:
-        filetmp = open(path, 'r').read()
+    kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+    for kbpath in kb_paths:
+        filetmp = open(kbpath, 'r').read()
         filetmp2 = filetmp.replace("-------", "")
         filetmp3 = filetmp2.replace("**", "")
         filetmp4 = filetmp3.replace("\"", "")
         filetmp5 = filetmp4.replace("\t", "")
         content.append(filetmp5.replace("\n", " "))
-        path = path.split("-")
-        y = len(path)-3
-        kb_name_uri = path[(y)]
+        basepath = os.path.basename(kbpath)
+        kb_name_uri = basepath.split("-")[-3]
         kb_name.append(kb_name_uri.replace("_", " "))
     return render_template('knowledge-base-api.html', **locals())
 
@@ -601,13 +602,12 @@ def knowledge_base():
     permissions("read")
     items = []
     id_items = []
-    full_file_paths = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-    for path in full_file_paths:
-        id_item = get_num(path)
-        path = path.split("-")
-        y = len(path)-3
-        kb_name_uri = path[(y)]
+    kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+    for kbpath in kb_paths:
+        basepath = os.path.basename(kbpath)
+        elems = basepath.split("-")
+        id_item = get_num(elems[0])
+        kb_name_uri = elems[-3]
         kb_name = kb_name_uri.replace("_", " ")
         items.append(kb_name)
         id_items.append(id_item)
@@ -1098,6 +1098,65 @@ def add_checklist():
     redirect_url = "/results-checklists"
     return redirect(redirect_url)
 
+
+def add_checklists(checklist_paths, kb_paths, lvl_name, 
+        owasp_ids_lvl, owasp_items_lvl, owasp_items_lvl_ygb, owasp_kb_ids_lvl, owasp_content_lvl, owasp_content_desc_lvl):
+    for path in checklist_paths:
+       basepath = os.path.basename(path)
+       found = basepath.find(lvl_name)
+       if found != -1:
+            owasp_path_elems = basepath.split("-")
+            owasp_id = get_num(owasp_path_elems[0])
+            owasp_checklist_name = "-".join(owasp_path_elems[2:5])
+            if "ASVS" in owasp_checklist_name:
+                owasp_kb = owasp_path_elems[6]
+                owasp_ygb = owasp_path_elems[8]
+            else:
+                owasp_kb = owasp_path_elems[4]
+                owasp_ygb = owasp_path_elems[6]
+
+            owasp_ids_lvl.append(owasp_id)
+            owasp_items_lvl.append(owasp_checklist_name)
+            owasp_kb_ids_lvl.append(owasp_kb)
+            owasp_items_lvl_ygb.append(owasp_ygb)
+            with open(path, 'r') as pathf:
+                checklistmd = pathf.read()
+            owasp_content_lvl.append(Markup(markdown.markdown(checklistmd)))
+
+            descriptions = []
+
+            for kbpath in kb_paths:
+                kbbasepath = os.path.basename(kbpath)
+                path_vuln = get_num(kbbasepath.split("-")[0])
+                if int(owasp_kb) == int(path_vuln):
+                    with open(kbpath, 'r') as kbpathf:
+                        kbmd = kbpathf.read()
+                    description = kbmd.split("**")
+                    descriptions.append(description[2])
+
+            owasp_content_desc_lvl.append("\n".join(descriptions))
+    return lvl_name
+    
+
+def add_audit(checklist_paths, audit_name, audit_items, audit_ids, audit_kb_ids, audit_content):
+    for path in checklist_paths:
+       basepath = os.path.basename(path)
+       found = basepath.find(audit_name)
+       if found != -1:
+            audit_path_elems = basepath.split("-")
+            audit_id = get_num(audit_path_elems[0])
+            audit_checklist_name = audit_path_elems[2]
+            audit_kb = audit_path_elems[4]
+
+            audit_ids.append(audit_id)
+            audit_items.append(audit_checklist_name)
+            audit_kb_ids.append(audit_kb)
+            with open(path, 'r') as pathf:
+                auditmd = pathf.read()
+            audit_content.append(Markup(markdown.markdown(auditmd)))
+    return audit_name
+
+
 @app.route('/project-checklists/<project_id>', methods=['GET'])
 @security
 def project_checklists(project_id):
@@ -1144,121 +1203,34 @@ def project_checklists(project_id):
     advanced_ids = []
     advanced_kb_ids = []
     advanced_content = []
-    full_file_paths = []
-    full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
-    full_file_paths.sort()
-    for path in full_file_paths:
-       found = path.find("ASVS-level-1")
-       if found != -1:
-            owasp_org_path = path
-            owasp_list_lvl1 = "ASVS-level-1"
-            owasp_path_lvl1 = path.split("-")
-            owasp_kb = owasp_path_lvl1[7]
-            owasp_id = get_num(owasp_path_lvl1[1])
-            #owasp_items_lvl1.append(owasp_checklist_name)
-            owasp_ids_lvl1.append(owasp_id)
-            owasp_items_lvl1_ygb.append(owasp_path_lvl1[9])
-            owasp_kb_ids_lvl1.append(owasp_kb)
-            filemd = open(owasp_org_path, 'r').read()
-            owasp_content_lvl1.append(Markup(markdown.markdown(filemd)))
-            full_file_paths_kb = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-            for path in full_file_paths_kb:
-                org_path = path
-                path_kb = path.split("markdown")
-                path_vuln = get_num(path_kb[1])
-                if int(owasp_kb) == int(path_vuln):
-                    filemd = open(org_path, 'r').read()
-                    description = filemd.split("**")
-                    owasp_content_desc_lvl1.append(description[2])
-    for path in full_file_paths:
-       found = path.find("ASVS-level-2")
-       if found != -1:
-            owasp_org_path = path
-            owasp_list_lvl2 = "ASVS-level-2"
-            owasp_path_lvl2 = path.split("-")
-            owasp_kb = owasp_path_lvl2[7]
-            owasp_id = get_num(owasp_path_lvl2[1])
-            #owasp_items_lvl2.append(owasp_checklist_name)
-            owasp_ids_lvl2.append(owasp_id)
-            owasp_kb_ids_lvl2.append(owasp_kb)
-            owasp_items_lvl2_ygb.append(owasp_path_lvl2[9])
-            filemd = open(owasp_org_path, 'r').read()
-            owasp_content_lvl2.append(Markup(markdown.markdown(filemd)))
-            full_file_paths_kb = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-            for path in full_file_paths_kb:
-                org_path = path
-                path_kb = path.split("markdown")
-                path_vuln = get_num(path_kb[1])
-                if int(owasp_kb) == int(path_vuln):
-                    filemd = open(org_path, 'r').read()
-                    description = filemd.split("**")
-                    owasp_content_desc_lvl2.append(description[2])
-    for path in full_file_paths:
-       found = path.find("ASVS-level-3")
-       if found != -1:
-            owasp_org_path = path
-            owasp_list_lvl3 = "ASVS-level-3"
-            owasp_path_lvl3 = path.split("-")
-            owasp_kb = owasp_path_lvl3[7]
-            owasp_id = get_num(owasp_path_lvl3[1])
-            #owasp_items_lvl3.append(owasp_checklist_name)
-            owasp_ids_lvl3.append(owasp_id)
-            owasp_kb_ids_lvl3.append(owasp_kb)
-            owasp_items_lvl3_ygb.append(owasp_path_lvl3[9])
-            filemd = open(owasp_org_path, 'r').read()
-            owasp_content_lvl3.append(Markup(markdown.markdown(filemd)))
-            full_file_paths_kb = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-            for path in full_file_paths_kb:
-                org_path = path
-                path_kb = path.split("markdown")
-                path_vuln = get_num(path_kb[1])
-                if int(owasp_kb) == int(path_vuln):
-                    filemd = open(org_path, 'r').read()
-                    description = filemd.split("**")
-                    owasp_content_desc_lvl3.append(description[2])
-    for path in full_file_paths:
-       found = path.find("CS_basic_audit")
-       if found != -1:
-            basic_org_path = path
-            basic_list = "CS_basic_audit"
-            basic_path = path.split("-")
-            basic_kb = basic_path[5]
-            basic_checklist_name = basic_path[3]
-            basic_id = get_num(basic_path[1])
-            basic_items.append(basic_checklist_name)
-            basic_ids.append(basic_id)
-            basic_kb_ids.append(basic_kb)
-            filemd = open(basic_org_path, 'r').read()
-            basic_content.append(Markup(markdown.markdown(filemd)))
-    for path in full_file_paths:
-       found = path.find("CS_advanced_audit")
-       if found != -1:
-            advanced_org_path = path
-            advanced_list = "CS_advanced_audit"
-            advanced_path = path.split("-")
-            advanced_kb = advanced_path[5]
-            advanced_name = advanced_path[3]
-            advanced_id = get_num(advanced_path[1])
-            advanced_items.append(advanced_name)
-            advanced_ids.append(advanced_id)
-            advanced_kb_ids.append(advanced_kb)
-            filemd = open(advanced_org_path, 'r').read()
-            advanced_content.append(Markup(markdown.markdown(filemd)))
-    for path in full_file_paths:
-       found = path.find("custom")
-       if found != -1:
-            custom_org_path = path
-            custom_list = "custom"
-            custom_path = path.split("-")
-            custom_kb = custom_path[5]
-            custom_name = custom_path[3]
-            custom_id = get_num(custom_path[1])
-            custom_items.append(custom_name)
-            custom_ids.append(custom_id)
-            custom_kb_ids.append(custom_kb)
-            filemd = open(custom_org_path, 'r').read()
-            custom_content.append(Markup(markdown.markdown(filemd)))
-    return render_template('project-checklists.html', csrf_token=session['csrf_token'],  **locals())
+    
+    checklist_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
+    checklist_paths.sort()
+
+    kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+    kb_paths.sort()
+
+    owasp_list_lvl1 = add_checklists(checklist_paths, kb_paths, "ASVS-level-1",
+            owasp_ids_lvl1, owasp_items_lvl1, owasp_items_lvl1_ygb, owasp_kb_ids_lvl1, owasp_content_lvl1, owasp_content_desc_lvl1)
+    
+    owasp_list_lvl2 = add_checklists(checklist_paths, kb_paths, "ASVS-level-2",
+            owasp_ids_lvl2, owasp_items_lvl2, owasp_items_lvl2_ygb, owasp_kb_ids_lvl2, owasp_content_lvl2, owasp_content_desc_lvl2)
+    
+    owasp_list_lvl3 = add_checklists(checklist_paths, kb_paths, "ASVS-level-3",
+            owasp_ids_lvl3, owasp_items_lvl3, owasp_items_lvl3_ygb, owasp_kb_ids_lvl3, owasp_content_lvl3, owasp_content_desc_lvl3)
+    
+    
+    basic_list = add_audit(checklist_paths, "CS_basic_audit",
+            basic_items, basic_ids, basic_kb_ids, basic_content)
+    
+    advanced_list = add_audit(checklist_paths, "CS_advanced_audit",
+            advanced_items, advanced_ids, advanced_kb_ids, advanced_content)
+    
+    custom_list = add_audit(checklist_paths, "custom",
+            custom_items, custom_ids, custom_kb_ids, custom_content)
+
+    return render_template('project-checklists.html', csrf_token=session['csrf_token'], **locals())
+
 
 @app.route('/results-checklists', methods=['GET'])
 @security
@@ -1362,26 +1334,32 @@ def checklist_results(entryDate):
         vulnID = entry[5]
         listName = entry[6]
         entryDate = entry[7]
-        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-        for path in full_file_paths:
-            org_path = path
-            path = path.split("markdown")
-            path_vuln = get_num(path[1])
-            if int(vulnID) == int(path_vuln):
-                filemd = open(org_path, 'r').read()
-                content.append(Markup(markdown.markdown(filemd)))
-                full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
-                for path in full_file_paths:
-                    org_path = path
-                    custom_path = org_path.split("-")
-                    path_questionID = get_num(custom_path[1])
+        kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+        for kbpath in kb_paths:
+            kbbasepath = os.path.basename(kbpath)
+            kbpath_vuln = get_num(kbbasepath.split("-")[0])
+            if int(vulnID) == int(kbpath_vuln):
+                with open(kbpath, 'r') as kbpathf:
+                    kbmd = kbpathf.read()
+                content.append(Markup(markdown.markdown(kbmd)))
+
+                checklist_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
+                for path in checklist_paths:
+                    basepath = os.path.basename(path)
+                    elems = basepath.split("-")
+                    path_questionID = get_num(elems[0])
                     if int(questionID) == int(path_questionID):
-                        filemd = open(org_path, 'r').read()
-                        questions.append(Markup(markdown.markdown(filemd)))
-                        custom_paths = org_path.split("-")
-                        found = custom_paths[3].find("ASVS")
-                        if found != -1:
-                            ygb.append(custom_paths[9])
+                        with open(path, 'r') as pathf:
+                            checklistmd = pathf.read()
+                        questions.append(Markup(markdown.markdown(checklistmd)))
+                        checklist_name = "-".join(elems[2:5])
+                        if "ASVS" in checklist_name:
+                            checklist_kb = elems[6]
+                            checklist_ygb = elems[8]
+                        else:
+                            checklist_kb = elems[4]
+                            checklist_ygb = elems[6]
+                        ygb.append(checklist_ygb)
     return render_template('results-checklist-report.html', **locals())
 
 
@@ -1411,7 +1389,6 @@ def download_file_checklist(entryDate):
     p = document.add_paragraph()
     projectName = entries[0][3]
     listName = entries[0][6]
-    ygb = False
     p.add_run('Used Checklist: '+listName)
     p.add_run('\r\n')
     p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
@@ -1427,34 +1404,42 @@ def download_file_checklist(entryDate):
         vulnID = entry[5]
         listName = entry[6]
         entryDate = entry[7]
-        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-        for path in full_file_paths:
-            org_path = path
-            path = path.split("markdown")
-            path_vuln = get_num(path[1])
-            if int(vulnID) == int(path_vuln):
-                filemd = open(org_path, 'r').read()
-                content = Markup(markdown.markdown(filemd))
+        kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+        for kbpath in kb_paths:
+            kbbasepath = os.path.basename(kbpath)
+            kbpath_vuln = get_num(kbbasepath.split("-")[0])
+            if int(vulnID) == int(kbpath_vuln):
+                with open(kbpath, 'r') as kbpathf:
+                    kbmd = kbpathf.read()
+                content = Markup(markdown.markdown(kbmd))
                 text = ''.join(BeautifulSoup(content).findAll(text=True))
                 text_encode = text.encode('utf-8')
                 content_title.append(text_encode.splitlines()[0])
                 text_encode = text_encode.replace("Solution", "\nSolution");
                 content_raw.append(text_encode)
-                full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
-                for path in full_file_paths:
-                    org_path = path
-                    path = path.split("markdown")
-                    tmp_path = path[1].split("-")
-                    custom_path = get_num(tmp_path[0])
-                    path_questionID = custom_path
+
+                checklist_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
+                kb_checklist_contents = []
+                kb_checklist_ygb = []
+                for path in checklist_paths:
+                    basepath = os.path.basename(path)
+                    elems = basepath.split("-")
+                    path_questionID = get_num(elems[0])
                     if int(questionID) == int(path_questionID):
-                        filemd = open(org_path, 'r').read()
-                        content_checklist.append(Markup(markdown.markdown(filemd)))
-                        custom_paths = org_path.split("-")
-                        found = custom_paths[3].find("ASVS")
-                        if found != -1:
-                            ygb = True
-                            ygb_docx.append(custom_paths[9])
+                        with open(path, 'r') as pathf:
+                            checklistmd = pathf.read()
+                        kb_checklist_contents.append(Markup(markdown.markdown(checklistmd)))
+                        checklist_name = "-".join(elems[2:5])
+                        if "ASVS" in checklist_name:
+                            checklist_kb = elems[6]
+                            checklist_ygb = elems[8]
+                        else:
+                            checklist_kb = elems[4]
+                            checklist_ygb = elems[6]
+                        kb_checklist_ygb.append(checklist_ygb)
+                content_checklist.append("\n".join(kb_checklist_contents))
+                ygb_docx.append("".join(kb_checklist_ygb))
+
     for item in content_title:
         p = document.add_paragraph(item)
         p.add_run()
@@ -1475,16 +1460,13 @@ def download_file_checklist(entryDate):
         result1 = re.sub("</p>", " ", result)
         document.add_heading(result1, level=4)
         p = document.add_paragraph(item.partition("\n")[2])
-        if ygb == True:
-            if ygb_docx[i] == "b":
-                image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
-            elif ygb_docx[i] == "gb":
-                image = document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))
-                image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
-            elif ygb_docx[i] == "ygb":
-                image = document.add_picture(os.path.join(app.root_path,'static/img/yellow.png'), width=Inches(0.20))
-                image = document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))
-                image = document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
+        for c in ygb_docx[i]:
+            if c == "b":
+                document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
+            elif c == "g":
+                document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))
+            elif c == "y":
+                document.add_picture(os.path.join(app.root_path,'static/img/yellow.png'), width=Inches(0.20))
         p.add_run("\n")
         document.add_page_break()
         i += 1
@@ -1516,14 +1498,14 @@ def function_results(projectID):
     for entry in entries:
         projectName = entry[0]
         vulnID = entry[7]
-        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-        for path in full_file_paths:
-            org_path = path
-            path = path.split("markdown")
-            path_vuln = get_num(path[1])
-            if int(vulnID) == int(path_vuln):
-                filemd = open(org_path, 'r').read()
-                content.append(Markup(markdown.markdown(filemd)))
+        kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+        for kbpath in kb_paths:
+            kbbasepath = os.path.basename(kbpath)
+            kbpath_vuln = get_num(kbbasepath.split("-")[0])
+            if int(vulnID) == int(kbpath_vuln):
+                with open(kbpath, 'r') as kbpathf:
+                    kbmd = kbpathf.read()
+                content.append(Markup(markdown.markdown(kbmd)))
     return render_template('results-function-report.html', **locals())
 
 @app.route('/results-function-docx/<projectID>')
@@ -1563,14 +1545,14 @@ def download_file_function(projectID):
     for entry in entries:
         entryDate = entry[6]
         vulnID = entry[7]
-        full_file_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-        for path in full_file_paths:
-            org_path = path
-            path = path.split("markdown")
-            path_vuln = get_num(path[1])
-            if int(vulnID) == int(path_vuln):
-                filemd = open(org_path, 'r').read()
-                content = Markup(markdown.markdown(filemd))
+        kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+        for kbpath in kb_paths:
+            kbbasepath = os.path.basename(kbpath)
+            kbpath_vuln = get_num(kbbasepath.split("-")[0])
+            if int(vulnID) == int(kbpath_vuln):
+                with open(kbpath, 'r') as kbpathf:
+                    kbmd = kbpathf.read()
+                content = Markup(markdown.markdown(kbmd))
                 text = ''.join(BeautifulSoup(content).findAll(text=True))
                 text_encode = text.encode('utf-8')
                 content_title.append(text_encode.splitlines()[0])
