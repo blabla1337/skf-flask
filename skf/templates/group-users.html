@@ -26,7 +26,7 @@ var arrTech = new Array();
 
 {% for entry in users -%}
 
-arrTech.push({'{{entry.userID|safe}}--':'{{entry.username|safe}}'});
+arrTech.push({'{{entry.userID}}--':'{{entry.username}}'});
 
 {% endfor %}
 
@@ -118,7 +118,7 @@ j++;
 											<div class="left">
 											    <select name="groupName" class="form-control">
 											        {% for entry in groups -%}
-											    	<option value="{{entry.groupID|safe}}">{{entry.groupName|safe}}</option>
+											    	<option value="{{entry.groupID}}">{{entry.groupName}}</option>
 											    	{% endfor %}
 											    </select>
 											</div>
@@ -126,7 +126,7 @@ j++;
 										</div>
 										<div class="row">
 											<div class="wide">
-												<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+												<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
 												<a class="btn btn-default" href="#" onClick="addList();">Add User</a>
 												<div id="checkboxes">
 													<!-- used for Ajax -->
@@ -172,20 +172,20 @@ j++;
 							{% for entry in summary -%}
 							
 							<tr>
-								<td>{{entry.username|safe}}</td>
-								<td class="hidden-phone">{{entry.groupName|safe}} </td>
-								<td><span class="label label-info label-mini">{{entry.timestamp|safe}}</span></td>
+								<td>{{entry.username}}</td>
+								<td class="hidden-phone">{{entry.groupName}} </td>
+								<td><span class="label label-info label-mini">{{entry.timestamp}}</span></td>
 								<td>
 									
 								<!-- Button trigger modal -->
 								{% if "delete" in session['permissions'] -%} 
-								<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.groupID|safe}}">
+								<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.groupID}}">
 									<i class="fa fa-times"></i>                  
 								</button>
 								{% endif -%} 
 								<!-- Modal -->
 								
-								<div class="modal fade" id="myModal{{entry.groupID|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="myModal{{entry.groupID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -199,9 +199,9 @@ j++;
 											</div>
 											<div class="modal-footer">
 			                                  <form method="POST" action="/user-del">
-			                                  <input type="hidden" value="{{entry.userID|safe}}" name="userID"/>
-			                                  <input type="hidden" value="{{entry.groupID|safe}}" name="groupID"/>
-			                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+			                                  <input type="hidden" value="{{entry.userID}}" name="userID"/>
+			                                  <input type="hidden" value="{{entry.groupID}}" name="groupID"/>
+			                                  <input type="hidden" value="{{csrf_token}}" name="csrf_token"/>
 			                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			                                  <input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
 			                                  </form>

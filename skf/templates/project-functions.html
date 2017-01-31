@@ -26,7 +26,7 @@ var arrTech = new Array();
 
 {% for entry in techlist -%}
 
-arrTech.push({'{{entry.vulnID|safe}}--{{entry.techID|safe}}':'{{entry.techName|safe}}'});
+arrTech.push({'{{entry.vulnID}}--{{entry.techID}}':'{{entry.techName}}'});
 
 {% endfor %}
 
@@ -79,7 +79,7 @@ j++;
 				   <div class="functions alert alert-info">
 					<ul id="selectable">
 						{% for entry in techlist -%}
-							<li class="ui-widget-content">{{ entry.techName|safe }}</li>
+							<li class="ui-widget-content">{{ entry.techName}}</li>
 					{% endfor %}
 					</ul>
 					<!-- for later release
@@ -103,8 +103,8 @@ j++;
 								<div class="wide">
 									
 									<textarea id="drop"></textarea>
-									<input type="hidden" id="project_id" name="project_id" value="{{project_id|safe}}" /> 
-									<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+									<input type="hidden" id="project_id" name="project_id" value="{{project_id}}" /> 
+									<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
 									
 									<input type="submit" class="btn btn-default" value="Create new list with provided functions" name="submit" />
 									
@@ -163,8 +163,8 @@ j++;
 										
 										<div class="row">
 											<div class="wide">
-												<input type="hidden" id="project_id" name="project_id" value="{{project_id|safe}}" /> 
-												<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+												<input type="hidden" id="project_id" name="project_id" value="{{project_id}}" /> 
+												<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
 												<a class="btn btn-default" href="#" onClick="addList();">Add Function</a>
 												<div id="checkboxes">
 													<!-- used for Ajax -->
@@ -212,20 +212,20 @@ j++;
 							{% for entry in entries -%}
 							
 							<tr>
-								<td>{{entry.techName|safe}}</td>
-								<td class="hidden-phone">{{entry.functionName|safe}} </td>
-								<td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
+								<td>{{entry.techName}}</td>
+								<td class="hidden-phone">{{entry.functionName}} </td>
+								<td><span class="label label-info label-mini">{{entry.entryDate}}</span></td>
 								<td>
 									
 								<!-- Button trigger modal -->
 								{% if "delete" in session['permissions'] -%}
-								<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.paramID|safe}}">
+								<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.paramID}}">
 									<i class="fa fa-times"></i>                  
 								</button>
 								{% endif -%}
 								<!-- Modal -->
 								
-								<div class="modal fade" id="myModal{{entry.paramID|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="myModal{{entry.paramID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -239,9 +239,9 @@ j++;
 											</div>
 											<div class="modal-footer">
 			                                  <form method="POST" action="/project-function-del">
-			                                  <input type="hidden" value="{{project_id|safe}}" name="projectID"/>
-			                                  <input type="hidden" value="{{entry.paramID|safe}}" name="paramID"/>
-			                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+			                                  <input type="hidden" value="{{project_id}}" name="projectID"/>
+			                                  <input type="hidden" value="{{entry.paramID}}" name="paramID"/>
+			                                  <input type="hidden" value="{{csrf_token}}" name="csrf_token"/>
 			                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			                                  <input type="submit" value="Remove Function Technology" id="" class="btn btn-danger"/>
 			                                  </form>

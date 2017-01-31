@@ -73,23 +73,23 @@
 							  {% for entry in entries -%}
 										 
 										  <tr>
-											  <td>{{entry.projectName|safe}}</td>
-											  <td>{{entry.functionName|safe}}</td>
+											  <td>{{entry.projectName}}</td>
+											  <td>{{entry.functionName}}</td>
 
-											  <td>{{entry.projectVersion|safe}}</td>
-											  <td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
+											  <td>{{entry.projectVersion}}</td>
+											  <td><span class="label label-info label-mini">{{entry.entryDate}}</span></td>
 											  <td>
-												   <a href='/results-function-report/{{entry.projectID|safe}}' target='_self' >  
+												   <a href='/results-function-report/{{entry.projectID}}' target='_self' >  
 											  <button class='btn btn-success btn-xs'><center>View Results</center></button></a>
 											  
 											  {% if "delete" in session['permissions'] -%}					   
 											  <!-- Button trigger modal -->
-											  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{loop.index0|safe}}">
+											  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{loop.index0}}">
 											  <i class="fa fa-times "></i>                  
 											  </button>
 											  {% endif -%}
 											  <!-- Modal -->
-											  <div class="modal fade" id="myModal{{loop.index0|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											  <div class="modal fade" id="myModal{{loop.index0}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											  <div class="modal-dialog">
 											  <div class="modal-content">
 											  <div class="modal-header">
@@ -107,9 +107,9 @@
 											  </div>
 											  <div class="modal-footer">
 											  <form method="POST" action="/results-functions-del">
-			                                  <input type="hidden" value="{{entry.entryDate|safe}}" name="entryDate"/>
-			                                  <input type="hidden" value="{{entry.projectID|safe}}" name="projectID"/>
-			                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+			                                  <input type="hidden" value="{{entry.entryDate}}" name="entryDate"/>
+			                                  <input type="hidden" value="{{entry.projectID}}" name="projectID"/>
+			                                  <input type="hidden" value="{{csrf_token}}" name="csrf_token"/>
 			                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			                                  <input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
 			                                  </form>

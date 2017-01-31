@@ -65,13 +65,13 @@
                               {% endif -%}
                             
                                         {% for entry in entries -%}
-                  <div id="projectRow{{entry.projectID|safe}}">
+                  <div id="projectRow{{entry.projectID}}">
                               <tr>
-                                  <td><a href="/project-options/{{entry.projectID|safe}}">{{entry.projectName|safe}}</a></td>
-                                  <td style='max-width:250px;' class="hidden-phone">{{entry.projectDesc|safe}}</td>
-                                  <td>{{entry.projectVersion|safe}}</td>
-                                  <td><span class="label label-info label-mini">{{entry.timestamp|safe}}</span></td>
-                                  <td><span class="label label-info label-mini">{{entry.userName|safe}}</span></td>
+                                  <td><a href="/project-options/{{entry.projectID}}">{{entry.projectName}}</a></td>
+                                  <td style='max-width:250px;' class="hidden-phone">{{entry.projectDesc}}</td>
+                                  <td>{{entry.projectVersion}}</td>
+                                  <td><span class="label label-info label-mini">{{entry.timestamp}}</span></td>
+                                  <td><span class="label label-info label-mini">{{entry.userName}}</span></td>
                                 
                        
                        </div>

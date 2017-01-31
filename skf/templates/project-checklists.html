@@ -43,7 +43,7 @@
 		<section class="wrapper">
 		
 		<nav class="nav">
-			<a class="back" href="/project-options/{{project_id|safe}}">Done <i class="fa fa-check"></i></a>
+			<a class="back" href="/project-options/{{project_id}}">Done <i class="fa fa-check"></i></a>
 		</nav>		
 		
 			  <div class="row mt">
@@ -111,23 +111,23 @@
 											<table class="table table-striped table-advance table-hover checklist">
 												<tbody>
 	
-											{% set count_asvs_tool_lvl1 = 0 -%}
-											{% set counter_owasp_lvl1 = 0 -%}
-											{% set count_asvs_1 = 0 -%}
+											{% set count_asvs_tool_lvl1 = [0] -%}
+											{% set counter_owasp_lvl1 = [0] -%}
+											{% set count_asvs_1 = [0] -%}
 											{% for entry in owasp_content_lvl1 -%}
 											
-											{% if owasp_kb_ids_lvl1[counter_owasp_lvl1] == '0' -%}
+											{% if owasp_kb_ids_lvl1[counter_owasp_lvl1[0]] == '0' -%}
 											
 											
-											<th colspan="3">{{entry|safe}}</th>
+											<th colspan="3">{{entry}}</th>
 											
 
 											{% else %}
 											<tr>
 												<td>
-													{{entry|safe}}
+													{{entry}}
 													{% if owasp_items_lvl1_ygb is defined %}
-													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'ygb' -%}
+													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1[0]] == 'ygb' -%}
 														<ul class="level">
 															<li class="yellow"></li>
 															<li class="green"></li>
@@ -135,14 +135,14 @@
 														</ul>
 													{% endif %}
 
-													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'gb' -%}        
+													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1[0]] == 'gb' -%}        
 														<ul class="level">
 															<li class="green"></li>
 															<li class="blue"></li>
 														</ul>
 													{% endif %}
 
-													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1] == 'b' -%}
+													{% if owasp_items_lvl1_ygb[counter_owasp_lvl1[0]] == 'b' -%}
 														<ul class="level">
 															<li class="blue"></li>
 														</ul>
@@ -150,37 +150,37 @@
 													{% endif %}
 													{% endif %}
 												</td>
-											{% if owasp_kb_ids_lvl1[counter_owasp_lvl1] != '0' -%}
+											{% if owasp_kb_ids_lvl1[counter_owasp_lvl1[0]] != '0' -%}
 
-											{% set count_asvs_1 = count_asvs_1 + 1 %}
+                                            {% if count_asvs_1.append(count_asvs_1.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											<td class="select">
-												<select name="answer{{count_asvs_1|safe}}" class="form-control">
+												<select name="answer{{count_asvs_1[0]}}" class="form-control">
 													<option value="no">No</option>
 													<option value="yes">Yes</option>
 													<option value="na">N.A.</option>
 												</select>
-												<input type="hidden" name="vulnID{{count_asvs_1|safe}}" value="{{owasp_kb_ids_lvl1[counter_owasp_lvl1]|safe}}"/>
-												<input type="hidden" name="questionID{{count_asvs_1|safe}}" value="{{owasp_ids_lvl1[counter_owasp_lvl1]|safe}}"/>
-												<input type="hidden" name="listID{{count_asvs_1|safe}}" value="{{owasp_list_lvl1|safe}}" />
+												<input type="hidden" name="vulnID{{count_asvs_1[0]}}" value="{{owasp_kb_ids_lvl1[counter_owasp_lvl1[0]]}}"/>
+												<input type="hidden" name="questionID{{count_asvs_1[0]}}" value="{{owasp_ids_lvl1[counter_owasp_lvl1[0]]}}"/>
+												<input type="hidden" name="listID{{count_asvs_1[0]}}" value="{{owasp_list_lvl1}}" />
 											</td>
 											{% if owasp_items_lvl1_ygb is defined %}
 											<td class="more">
-												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl1[count_asvs_tool_lvl1]|safe}}">
+												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl1[count_asvs_tool_lvl1[0]]}}">
 													<i class="fa fa-info-circle"></i>
 												</a>
 											</td>
 											{% endif %}
-											{% set count_asvs_tool_lvl1 = count_asvs_tool_lvl1 + 1 %}
+                                            {% if count_asvs_tool_lvl1.append(count_asvs_tool_lvl1.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											
 											{% endif %}
 											</tr>
-											{% set counter_owasp_lvl1 = counter_owasp_lvl1 + 1 %}
+                                            {% if counter_owasp_lvl1.append(counter_owasp_lvl1.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											{% endfor %}
 											<tr style="display: none;">
 												<td>
-													<input type="hidden" name="projectID" value="{{project_id|safe}}" />
-													<input type="hidden" name="projectName" value="{{projectName|safe}}" />
-													<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+													<input type="hidden" name="projectID" value="{{project_id}}" />
+													<input type="hidden" name="projectName" value="{{projectName}}" />
+													<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
 												</td>
 											</tr>
 											</tbody>
@@ -243,23 +243,23 @@
 											<table class="table table-striped table-advance table-hover checklist">
 												<tbody>
 	
-											{% set count_asvs_tool_lvl2 = 0 -%}
-											{% set counter_owasp_lvl2 = 0 -%}
-											{% set count_asvs_2 = 0 -%}
+											{% set count_asvs_tool_lvl2 = [0] -%}
+											{% set counter_owasp_lvl2 = [0] -%}
+											{% set count_asvs_2 = [0] -%}
 											{% for entry in owasp_content_lvl2 -%}
 											
-											{% if owasp_kb_ids_lvl2[counter_owasp_lvl2] == '0' -%}
+											{% if owasp_kb_ids_lvl2[counter_owasp_lvl2[0]] == '0' -%}
 											
 											
-											<th colspan="3">{{entry|safe}}</th>
+											<th colspan="3">{{entry}}</th>
 											
 
 											{% else %}
 											<tr>
 												<td>
-													{{entry|safe}}
+													{{entry}}
 													{% if owasp_items_lvl2_ygb is defined %}
-													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'ygb' -%}
+													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2[0]] == 'ygb' -%}
 														<ul class="level">
 															<li class="yellow"></li>
 															<li class="green"></li>
@@ -267,14 +267,14 @@
 														</ul>
 													{% endif %}
 
-													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'gb' -%}        
+													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2[0]] == 'gb' -%}        
 														<ul class="level">
 															<li class="green"></li>
 															<li class="blue"></li>
 														</ul>
 													{% endif %}
 
-													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2] == 'b' -%}
+													{% if owasp_items_lvl2_ygb[counter_owasp_lvl2[0]] == 'b' -%}
 														<ul class="level">
 															<li class="blue"></li>
 														</ul>
@@ -282,37 +282,37 @@
 													{% endif %}
 													{% endif %}
 												</td>
-											{% if owasp_kb_ids_lvl2[counter_owasp_lvl2] != '0' -%}
+											{% if owasp_kb_ids_lvl2[counter_owasp_lvl2[0]] != '0' -%}
 
-											{% set count_asvs_2 = count_asvs_2 + 1 %}
+                                            {% if count_asvs_2.append(count_asvs_2.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											<td class="select">
-												<select name="answer{{count_asvs_2|safe}}" class="form-control">
+												<select name="answer{{count_asvs_2[0]}}" class="form-control">
 													<option value="no">No</option>
 													<option value="yes">Yes</option>
 													<option value="na">N.A.</option>
 												</select>
-												<input type="hidden" name="vulnID{{count_asvs_2|safe}}" value="{{owasp_kb_ids_lvl2[counter_owasp_lvl2]|safe}}"/>
-												<input type="hidden" name="questionID{{count_asvs_2|safe}}" value="{{owasp_ids_lvl2[counter_owasp_lvl2]|safe}}"/>
-												<input type="hidden" name="listID{{count_asvs_2|safe}}" value="{{owasp_list_lvl2|safe}}" />
+												<input type="hidden" name="vulnID{{count_asvs_2[0]}}" value="{{owasp_kb_ids_lvl2[counter_owasp_lvl2[0]]}}"/>
+												<input type="hidden" name="questionID{{count_asvs_2[0]}}" value="{{owasp_ids_lvl2[counter_owasp_lvl2[0]]}}"/>
+												<input type="hidden" name="listID{{count_asvs_2[0]}}" value="{{owasp_list_lvl2}}" />
 											</td>
 											{% if owasp_items_lvl2_ygb is defined %}
 											<td class="more">
-												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl2[count_asvs_tool_lvl2]|safe}}">
+												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl2[count_asvs_tool_lvl2[0]]}}">
 													<i class="fa fa-info-circle"></i>
 												</a>
 											</td>
 											{% endif %}
-											{% set count_asvs_tool_lvl2 = count_asvs_tool_lvl2 + 1 %}
+                                            {% if count_asvs_tool_lvl2.append(count_asvs_tool_lvl2.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											
 											{% endif %}
 											</tr>
-											{% set counter_owasp_lvl2 = counter_owasp_lvl2 + 1 %}
+                                            {% if counter_owasp_lvl2.append(counter_owasp_lvl2.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											{% endfor %}
 											<tr style="display: none;">
 												<td>
-													<input type="hidden" name="projectID" value="{{project_id|safe}}" />
-													<input type="hidden" name="projectName" value="{{projectName|safe}}" />
-													<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+													<input type="hidden" name="projectID" value="{{project_id}}" />
+													<input type="hidden" name="projectName" value="{{projectName}}" />
+													<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
 												</td>
 											</tr>
 											</tbody>
@@ -375,23 +375,23 @@
 											<table class="table table-striped table-advance table-hover checklist">
 												<tbody>
 	
-											{% set count_asvs_tool_lvl3 = 0 -%}
-											{% set counter_owasp_lvl3 = 0 -%}
-											{% set count_asvs_3 = 0 -%}
+											{% set count_asvs_tool_lvl3 = [0] -%}
+											{% set counter_owasp_lvl3 = [0] -%}
+											{% set count_asvs_3 = [0] -%}
 											{% for entry in owasp_content_lvl3 -%}
 											
-											{% if owasp_kb_ids_lvl3[counter_owasp_lvl3] == '0' -%}
+											{% if owasp_kb_ids_lvl3[counter_owasp_lvl3[0]] == '0' -%}
 											
 											
-											<th colspan="3">{{entry|safe}}</th>
+											<th colspan="3">{{entry}}</th>
 											
 
 											{% else %}
 											<tr>
 												<td>
-													{{entry|safe}}
+													{{entry}}
 													{% if owasp_items_lvl3_ygb is defined %}
-													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'ygb' -%}
+													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3[0]] == 'ygb' -%}
 														<ul class="level">
 															<li class="yellow"></li>
 															<li class="green"></li>
@@ -399,14 +399,14 @@
 														</ul>
 													{% endif %}
 
-													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'gb' -%}        
+													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3[0]] == 'gb' -%}        
 														<ul class="level">
 															<li class="green"></li>
 															<li class="blue"></li>
 														</ul>
 													{% endif %}
 
-													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3] == 'b' -%}
+													{% if owasp_items_lvl3_ygb[counter_owasp_lvl3[0]] == 'b' -%}
 														<ul class="level">
 															<li class="blue"></li>
 														</ul>
@@ -414,37 +414,37 @@
 													{% endif %}
 													{% endif %}
 												</td>
-											{% if owasp_kb_ids_lvl3[counter_owasp_lvl3] != '0' -%}
+											{% if owasp_kb_ids_lvl3[counter_owasp_lvl3[0]] != '0' -%}
 
-											{% set count_asvs_3 = count_asvs_3 + 1 %}
+                                            {% if count_asvs_3.append(count_asvs_3.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											<td class="select">
-												<select name="answer{{count_asvs_3|safe}}" class="form-control">
+												<select name="answer{{count_asvs_3[0]}}" class="form-control">
 													<option value="no">No</option>
 													<option value="yes">Yes</option>
 													<option value="na">N.A.</option>
 												</select>
-												<input type="hidden" name="vulnID{{count_asvs_3|safe}}" value="{{owasp_kb_ids_lvl3[counter_owasp_lvl3]|safe}}"/>
-												<input type="hidden" name="questionID{{count_asvs_3|safe}}" value="{{owasp_ids_lvl3[counter_owasp_lvl3]|safe}}"/>
-												<input type="hidden" name="listID{{count_asvs_3|safe}}" value="{{owasp_list_lvl3|safe}}" />
+												<input type="hidden" name="vulnID{{count_asvs_3[0]}}" value="{{owasp_kb_ids_lvl3[counter_owasp_lvl3[0]]}}"/>
+												<input type="hidden" name="questionID{{count_asvs_3[0]}}" value="{{owasp_ids_lvl3[counter_owasp_lvl3[0]]}}"/>
+												<input type="hidden" name="listID{{count_asvs_3[0]}}" value="{{owasp_list_lvl3}}" />
 											</td>
 											{% if owasp_items_lvl3_ygb is defined %}
 											<td class="more">
-												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl3[count_asvs_tool_lvl3]|safe}}">
+												<a href="javascript:;" data-toggle="tooltip" data-placement="left" data-original-title="{{owasp_content_desc_lvl3[count_asvs_tool_lvl3[0]]}}">
 													<i class="fa fa-info-circle"></i>
 												</a>
 											</td>
 											{% endif %}
-											{% set count_asvs_tool_lvl3 = count_asvs_tool_lvl3 + 1 %}
+                                            {% if count_asvs_tool_lvl3.append(count_asvs_tool_lvl3.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											
 											{% endif %}
 											</tr>
-											{% set counter_owasp_lvl3 = counter_owasp_lvl3 + 1 %}
+                                            {% if counter_owasp_lvl3.append(counter_owasp_lvl3.pop() + 1) %}{% endif %} {# increment count by 1 #}
 											{% endfor %}
 											<tr style="display: none;">
 												<td>
-													<input type="hidden" name="projectID" value="{{project_id|safe}}" />
-													<input type="hidden" name="projectName" value="{{projectName|safe}}" />
-													<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+													<input type="hidden" name="projectID" value="{{project_id}}" />
+													<input type="hidden" name="projectName" value="{{projectName}}" />
+													<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
 												</td>
 											</tr>
 											</tbody>
@@ -505,45 +505,45 @@
 											<div class="modal-body">
 												<table class="table table-striped table-advance table-hover checklist">
 													<tbody>
-													{% set counter_custom = 0 -%}
-													{% set count_custom = 0 -%}
+													{% set counter_custom = [0] -%}
+													{% set count_custom = [0] -%}
 													{% for entry in custom_content -%}
 													
-													{% if custom_kb_ids[counter_custom] == '0' -%}
+													{% if custom_kb_ids[counter_custom[0]] == '0' -%}
 														
 														<th colspan="2">
-															{{entry|safe}}
+															{{entry}}
 														</th>
 														{% else %}
 														<tr>
 															<td> 
-																{{entry|safe}}
+																{{entry}}
 															</td>
 															{% endif %}
 
-															{% if custom_kb_ids[counter_custom] != '0' -%}
-															{% set count_custom = count_custom + 1 %}
+															{% if custom_kb_ids[counter_custom[0]] != '0' -%}
+                                                            {% if counter_custom.append(counter_custom.pop() + 1) %}{% endif %} {# increment count by 1 #}
 															<td class="select">
-																<select name="answer{{count_custom|safe}}" class="form-control">
+																<select name="answer{{count_custom[0]}}" class="form-control">
 																	<option value="no">No</option>
 																	<option value="yes">Yes</option>
 																	<option value="na">N.A.</option>
 																</select>
-																<input type="hidden" name="vulnID{{count_custom|safe}}" value="{{custom_kb_ids[counter_custom]|safe}}" />
-																<input type="hidden" name="questionID{{count_custom|safe}}" value="{{custom_ids[counter_custom]|safe}}" />
-																<input type="hidden" name="listID{{count_custom|safe}}" value="{{owasp_list|safe}}" />
+																<input type="hidden" name="vulnID{{count_custom[0]}}" value="{{custom_kb_ids[counter_custom[0]]}}" />
+																<input type="hidden" name="questionID{{count_custom[0]}}" value="{{custom_ids[counter_custom[0]]}}" />
+																<input type="hidden" name="listID{{count_custom[0]}}" value="{{owasp_list}}" />
 															</td>
 														</tr>
 														{% endif %}
 														
 													
-													{% set counter_custom = counter_custom + 1 %}
+                                                    {% if counter_custom.append(counter_custom.pop() + 1) %}{% endif %} {# increment count by 1 #}
 													{% endfor %}
 													<tr style="display: none;">
 														<td>
-															<input type="hidden" name="projectID" value="{{project_id|safe}}" />
-															<input type="hidden" name="projectName" value="{{projectName|safe}}" />
-															<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+															<input type="hidden" name="projectID" value="{{project_id}}" />
+															<input type="hidden" name="projectName" value="{{projectName}}" />
+															<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
 														</td>
 													</tr>
 													</tbody>
