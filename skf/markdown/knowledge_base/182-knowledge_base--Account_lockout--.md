@@ -1,4 +1,3 @@
-
 Account lock-out
 -------
 
@@ -6,9 +5,9 @@ Account lock-out
 
 All applications should contain the possibility to lock down accounts for whenever it
 detects attacks by/on users. Also you should include options for both soft and hard
-lock-out mechanisms. 
+lock-out mechanisms.
 
- 
+
 **Solution:**
 
 Soft lock-out:
@@ -20,12 +19,12 @@ hard lock-out countermeasures for this example you would achieve a "Dos" by perm
 locking out accounts.
 
 Hard lock-out:
-This type of lockout should be applied whenever you detect a user attacking your 
-application and counter him by means of permanently locking out his account until a 
-response team had time to do their forensics. After this process you can decide to 
+This type of lockout should be applied whenever you detect a user attacking your
+application and counter him by means of permanently locking out his account until a
+response team had time to do their forensics. After this process you can decide to
 give the user back his account or take further legal actions against him.
 This type of approach prevents the attacker from further penetrating your application
-and infrastructure. 
+and infrastructure.
 
 
 Recommended knowledge-base items:

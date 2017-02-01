@@ -1,11 +1,4 @@
-https://github.com/mitsuhiko/flask/tarball/master#egg=flask
-lxml==3.4.2
-markdown==2.6.2
-cryptography
-pyOpenSSL
-python-docx
-BeautifulSoup
-requests
-importlib
-bcrypt==1.1.1
-flask-bcrypt
+flask-restplus==0.9.2
+Flask-SQLAlchemy==2.1
+markdown==2.6.7
+flask-bcrypt===0.7.1

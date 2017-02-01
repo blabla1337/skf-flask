@@ -1,4 +1,3 @@
-
 XML injection
 -------
 
@@ -15,5 +14,3 @@ can cause the insertion of malicious content into the resulting message/document
 In addition to the existing input validation, define a positive approach which
 escapes/encodes characters that can be interpreted as xml. At a minimum this includes
 the following: < > / " '
-
-	

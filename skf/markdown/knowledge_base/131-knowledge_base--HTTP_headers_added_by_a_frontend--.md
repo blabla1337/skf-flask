@@ -1,4 +1,3 @@
-
 HTTP headers added by a front-end
 -------
 
@@ -10,6 +9,5 @@ the header to your application.
 
 **Solution:**
 
-Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are 
+Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are
 authenticated by the application.
-

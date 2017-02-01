@@ -1,11 +1,10 @@
-
-Missing authentication or authorisation
+Missing authentication or authorization
 -------
 
 **Description:**
 
-If pages are not properly checked for authentication or authorisation, an attacker could 
-abuse these flaws. The consequences are differ per application but may lead to 
+If pages are not properly checked for authentication or authorization, an attacker could
+abuse these flaws. The consequences are differ per application but may lead to
 high risk vulnerabilities.
 
 
@@ -13,9 +12,3 @@ high risk vulnerabilities.
 
 You should verify all access controls are implemented properly in order to
 prevent a user access data/functions which he was not intended to use.
-
-
-
-
-
-	

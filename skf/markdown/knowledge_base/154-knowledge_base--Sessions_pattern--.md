@@ -1,4 +1,3 @@
-
 Sessions - pattern
 -------
 
@@ -26,7 +25,5 @@ these items you should check the knowledge-base about:
 **Solution:**
 
 The items as pointed out before should be looked into and taken into consideration
-whenever you are working with sessions on your system in order to enforce a 
+whenever you are working with sessions on your system in order to enforce a
 high level of security.
-
-

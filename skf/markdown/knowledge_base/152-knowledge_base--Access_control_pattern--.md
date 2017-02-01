@@ -1,4 +1,3 @@
-
 Access-control/Login systems - pattern
 -------
 
@@ -11,7 +10,7 @@ consideration before you start developing this type of functionality.
 
 **Solution:**
 
-It is highly recommended to study all the listed items and implement these principles in 
+It is highly recommended to study all the listed items and implement these principles in
 your access control/login system in order to enforce a higher level of security.
 
 1. Audit logs
@@ -21,13 +20,7 @@ your access control/login system in order to enforce a higher level of security.
 5. Session pattern
 6. Session fixation
 7. Session hijacking
-8. Forget password functions 
+8. Forget password functions
 9. Client side authentication
 10. Client side state management
 11. cross sub domain cookie attack
-
-
-
-
-
-

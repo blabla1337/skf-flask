@@ -1,4 +1,3 @@
-
 Log TLS connection failures
 -------
 
@@ -10,5 +9,3 @@ Failing TLS connections should always be logged. This is a great indicator that 
 **Solution:**
 
 Verify that backend TLS connection failures are logged.
-
-	

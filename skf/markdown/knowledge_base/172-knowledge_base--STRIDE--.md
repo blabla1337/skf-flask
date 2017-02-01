@@ -1,4 +1,3 @@
-
 STRIDE
 -------
 
@@ -9,24 +8,24 @@ cover in order to harden your applications security.
 
 STRIDE stands for:
 Spoofing
-Tampering 
-Repudiation 
-Information Disclosure 
+Tampering
+Repudiation
+Information Disclosure
 Elevation of privilege
 
 **Solution:**
 
-In the context of network security, a spoofing attack is a situation in which one person 
-or program successfully masquerades as another by falsifying data and thereby gaining an 
+In the context of network security, a spoofing attack is a situation in which one person
+or program successfully masquerades as another by falsifying data and thereby gaining an
 illegitimate advantage. There are a lot of different types of spoofing you have to take
-into account for example: TCP/IP, Referrer, ID, or Email spoofing. 
+into account for example: TCP/IP, Referrer, ID, or Email spoofing.
 
 For Tampering we recommend to read the following knowledge base items:
 
-- Input validation 
+- Input validation
 - Input rejection
 - Single input validation controls
-  
+
 For Repudiation we recommend to read the following knowledge base items:
 
 - Repudiation attacks
@@ -39,7 +38,7 @@ For information disclosure we recommend to read the following knowledge base ite
 - Enforce policies for sensitive data processing
 - Verify that the session id is never disclosed
 - Username enumeration
-- Differential analysis 
+- Differential analysis
 
 For Elevation of privilege we recommend to read the following knowledge base items:
 

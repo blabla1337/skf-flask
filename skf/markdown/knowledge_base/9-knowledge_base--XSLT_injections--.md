@@ -1,4 +1,3 @@
-
 XSLT injections
 -------
 
@@ -13,9 +12,7 @@ vulnerabilities such as XSS.
 
 **Solution:**
 
-To protect against such vulnerability one needs to make sure that he does not use 
-user-supplied input in the XSL filename. 
-The best solution would be to define a list of permitted filenames and 
+To protect against such vulnerability one needs to make sure that he does not use
+user-supplied input in the XSL filename.
+The best solution would be to define a list of permitted filenames and
 only accept XSL filenames from that list.
-
-	
