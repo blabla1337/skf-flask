@@ -1,3 +1,11 @@
+
+Encoder
+-----------
+
+***Example:***
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 package com.edw;
 
 import java.time.LocalDateTime;
@@ -34,3 +42,5 @@ public class encoding {
 		return ESAPI.encoder().encodeForSQL(new MySQLCodec(MySQLCodec.MYSQL_MODE), input);
 	}
 }
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
