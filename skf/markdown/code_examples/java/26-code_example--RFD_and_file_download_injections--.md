@@ -132,19 +132,19 @@ public class DownLoadFiles extends HttpServlet {
         as well as other injections
         */
         
-        if (validate.validateInput(userID, fileName, "alphanummeric", "validation failed",request.getRemoteAddr(),"HIGH") == "validation failed")
+        if (validate.validateInput(userID, fileName, "alphanummeric", "validation failed",request.getRemoteAddr(),"HIGH").equals("validation failed"))
         {
            proceed = false;
            action = "validation failed";
         }
         
-        else if (validate.validateInput(userID, fileName, "alphanummeric", "Session Termination",request.getRemoteAddr(),"HIGH") == "terminate")
+        else if (validate.validateInput(userID, fileName, "alphanummeric", "Session Termination",request.getRemoteAddr(),"HIGH").equals("terminate"))
         {
         	proceed = false;
         	action = "terminate";
         }   
         
-        else if (validate.validateInput(userID, fileName, "alphanummeric", "Block access",request.getRemoteAddr(),"HIGH") == "block")
+        else if (validate.validateInput(userID, fileName, "alphanummeric", "Block access",request.getRemoteAddr(),"HIGH").equals("block"))
         {
         	proceed = false;
         	action = "block";
