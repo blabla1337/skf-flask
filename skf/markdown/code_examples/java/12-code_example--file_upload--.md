@@ -71,19 +71,19 @@ public class FileUpload extends HttpServlet {
         as wel as other injections
         */
         
-        if (validate.validateInput(userID, fileName, "alphanummeric", "validation failed",request.getRemoteAddr(),"HIGH") == "validation failed")
+        if (validate.validateInput(userID, fileName, "alphanummeric", "validation failed",request.getRemoteAddr(),"HIGH").equals("validation failed"))
         {
            continueFunction = false;
         }
         
-        else if (validate.validateInput(userID, fileName, "alphanummeric", "Session Termination",request.getRemoteAddr(),"HIGH") == "terminate")
+        else if (validate.validateInput(userID, fileName, "alphanummeric", "Session Termination",request.getRemoteAddr(),"HIGH").equals("terminate"))
         {
            request.getSession().invalidate();
            continueFunction = false;
            sessiontermination=true;
         }   
         
-        else if (validate.validateInput(userID, fileName, "alphanummeric", "Block access",request.getRemoteAddr(),"HIGH") == "block")
+        else if (validate.validateInput(userID, fileName, "alphanummeric", "Block access",request.getRemoteAddr(),"HIGH").equals("block"))
         {
            continueFunction = false;
            blockaccess=true;
