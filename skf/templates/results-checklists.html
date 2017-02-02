@@ -69,6 +69,7 @@
                               <thead>
 								  <tr>
 									  <th><i class="fa fa-bullhorn"></i> <b>Project Name</b></th>
+									  <th><i class="fa fa-bullhorn"></i> <b>Version</b></th>
 									  <th class="hidden-phne"><i class="fa fa-question-circle"></i><b> Checklist</b></th>
 									  <th><i class="fa fa-clock-o"></i> <b>Date/Time</b></th>
 									  <th><i class="fa fa-download"></i> <b>Download</b></th>
@@ -78,7 +79,8 @@
                   {% for entry in entries -%}
                               
 							<tr>
-								<td>{{entry.projectName}} {{entry.projectVersion}}</td>
+								<td>{{entry.projectName}}</td>
+								<td>{{entry.projectVersion}}</td>
 								<td>{{entry.listName}}</td>
 								<td><span class="label label-info label-mini">{{entry.entryDate}}</span></td>
 								<td>

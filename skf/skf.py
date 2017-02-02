@@ -28,7 +28,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Inches
 from functools import wraps
 from sqlite3 import dbapi2 as sqlite3
-from flask.ext.bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, Markup, make_response
 
@@ -1095,33 +1095,40 @@ def add_checklist():
         for project in projects:
             if int(project_id) == int(project[0]):
                 f = request.form
+                qnumbers = []
                 for key in f.keys():
-                    for value in f.getlist(key):
-                        if key.startswith(CKELEM_PREFIX):
-                            idstr = key[CKELEM_PREFIX_LEN:]
-                            listidx = "listID" + idstr
-                            # The questionlist table has a listID field which is just an incrementing index.
-                            # This form value carries the list name to be placed into the listName field.
-                            list_name = request.form[listidx]
-                            valAlphaNum(list_name, 12)
-                            
-                            answeridx = "answer" + idstr
-                            answer = request.form[answeridx]
-                            valAlphaNum(answer, 12)
-                            
-                            questionidx = "questionID" + idstr
-                            questionID = request.form[questionidx]
-                            valNum(questionID, 12)
-                            
-                            vulnidx = "vulnID" + idstr
-                            vulnID = request.form[vulnidx]
-                            valNum(vulnID, 12)
-                            
-                            date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-                            with con as cur:
-                                cur.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName, userID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                                        [date, answer, project_name, project_id, questionID, vulnID, 
-                                            list_name, session['userID']])
+                    if key.startswith(CKELEM_PREFIX):
+                        for value in f.getlist(key):
+                            qnostr = key[CKELEM_PREFIX_LEN:]
+                            valNum(qnostr, 12)
+                            qnumbers.append(int(qnostr))
+                qnumbers.sort()
+                for qno in qnumbers:
+                        qnostr = str(qno)
+
+                        listidx = "listID" + qnostr
+                        # The questionlist table has a listID field which is just an incrementing index.
+                        # This form value carries the list name to be placed into the listName field.
+                        list_name = f[listidx]
+                        valAlphaNum(list_name, 12)
+                        
+                        answeridx = "answer" + qnostr
+                        answer = f[answeridx]
+                        valAlphaNum(answer, 12)
+                        
+                        questionidx = "questionID" + qnostr
+                        questionID = f[questionidx]
+                        valNum(questionID, 12)
+                        
+                        vulnidx = "vulnID" + qnostr
+                        vulnID = f[vulnidx]
+                        valNum(vulnID, 12)
+                        
+                        date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+                        with con as cur:
+                            cur.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName, userID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                                    [date, answer, project_name, project_id, questionID, vulnID, 
+                                        list_name, session['userID']])
     redirect_url = "/results-checklists"
     return redirect(redirect_url)
 
@@ -1269,7 +1276,7 @@ def results_checklists():
         abort(401)
     permissions("read")
     with contextlib.closing(get_db()) as con:
-        entries = con.execute('SELECT q.answer, q.projectID, q.questionID,  q.vulnID, q.listName, q.entryDate, p.projectName, p.projectVersion, p.projectDesc, p.groupID, m.groupID, m.userID FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID JOIN groupMembers as m ON m.groupID = p.groupID WHERE m.userID=? GROUP BY q.listName, q.entryDate ORDER BY p.projectName ASC',
+        entries = con.execute('SELECT p.projectID, p.projectName, p.projectVersion, q.listName, q.entryDate FROM questionlist AS q JOIN projects AS p ON q.projectID = p.projectID JOIN groupMembers as m ON m.groupID = p.groupID WHERE m.userID=? GROUP BY p.projectName, p.projectVersion, q.listName, q.entryDate ORDER BY p.projectName ASC, p.projectVersion DESC, q.listName ASC, q.entryDate DESC',
                           [session['userID']]).fetchall()
     return render_template('results-checklists.html', entries=entries, csrf_token=session['csrf_token'])
 
@@ -1283,7 +1290,7 @@ def results_functions():
         abort(401)
     permissions("read")
     with contextlib.closing(get_db()) as con:
-        entries = con.execute('SELECT p.projectName, p.projectID, par.entryDate, p.projectDesc, p.groupID, m.userID, m.groupID, p.projectVersion, par.paramID, par.functionName, par.projectID FROM projects AS p join parameters AS par on p.projectID = par.projectID JOIN groupMembers AS m ON m.groupID = p.groupID WHERE m.userID=? GROUP BY p.projectVersion ',
+        entries = con.execute('SELECT p.projectID, p.projectName, p.projectVersion, par.functionName, par.entryDate FROM projects AS p JOIN parameters AS par on p.projectID = par.projectID JOIN groupMembers AS m ON m.groupID = p.groupID WHERE m.userID=? GROUP BY p.projectName, p.projectVersion, par.functionName, par.entryDate ORDER BY p.projectName ASC, p.projectVersion DESC, par.entryDate DESC, par.functionName ASC',
                          [session['userID']]).fetchall()
     return render_template('results-functions.html', entries=entries, csrf_token=session['csrf_token'])
 
@@ -1345,18 +1352,22 @@ def checklist_results(entryDate):
         abort(401)
     permissions("read")
     ygb = []
-    id_items = []
     questions = []
     content = []
     with contextlib.closing(get_db()) as con:
-        entries = con.execute("SELECT l.listID, l.answer, l.projectID, l.projectName, l.questionID, l.vulnID, l.listName, l.entryDate, l.userID, m.userID, m.groupID, p.projectID, p.groupID FROM questionlist AS l JOIN projects AS p ON p.projectID = l.projectID JOIN groupMembers AS m ON m.groupID = p.groupID WHERE l.answer='no' AND l.entryDate=? AND m.userID=?",
+        entries = con.execute("SELECT l.projectID, p.projectName, p.projectVersion, l.listName, l.questionID, l.vulnID FROM questionlist AS l JOIN projects AS p ON p.projectID = l.projectID JOIN groupMembers AS m ON m.groupID = p.groupID WHERE l.answer='no' AND l.entryDate=? AND m.userID=? ORDER BY p.projectName, p.projectVersion, l.listName, l.questionID",
                [entryDate, session['userID']]).fetchall()
+    projectName = None
+    projectVersion = None
+    listName = None
+    questionID = None
+    vulnID = None
     for entry in entries:
-        projectName = entry[3]
+        projectName = entry[1]
+        projectVersion = entry[2]
+        listName = entry[3]
         questionID = entry[4]
         vulnID = entry[5]
-        listName = entry[6]
-        entryDate = entry[7]
         kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for kbpath in kb_paths:
             kbbasepath = os.path.basename(kbpath)
@@ -1376,17 +1387,18 @@ def checklist_results(entryDate):
                     if int(questionID) == int(path_questionID):
                         with open(path, 'r') as pathf:
                             checklistmd = pathf.read()
-                        questions.append(Markup(markdown.markdown(checklistmd)))
-                        checklist_name = "-".join(elems[2:5])
-                        if "ASVS" in checklist_name:
+                        ckqs.append(Markup(markdown.markdown(checklistmd)))
+                        checklist_name = elems[2]
+                        if checklist_name == "ASVS":
+                            checklist_name = "-".join(elems[2:5])
                             checklist_kb = elems[6]
                             checklist_ygb = elems[8]
                         else:
                             checklist_kb = elems[4]
                             checklist_ygb = elems[6]
-                        ygb.append(checklist_ygb)
+                        ckygbs.append(checklist_ygb)
                 questions.append("\n".join(ckqs))
-                ygb.append("".join(ckygbs))
+                ygb.append(" ".join(ckygbs))
 
     return render_template('results-checklist-report.html', **locals())
 
@@ -1403,7 +1415,7 @@ def download_file_checklist(entryDate):
     content_checklist = []
     content_title = []
     with contextlib.closing(get_db()) as con:
-        entries = con.execute("SELECT l.listID, l.answer, l.projectID, l.projectName, l.questionID, l.vulnID, l.listName, l.entryDate, l.userID, m.userID, m.groupID, p.projectID, p.groupID FROM questionlist AS l JOIN projects AS p ON p.projectID = l.projectID JOIN groupMembers AS m ON m.groupID = p.groupID WHERE l.answer='no' AND l.entryDate=? AND m.userID=?",
+        entries = con.execute("SELECT l.projectID, p.projectName, p.projectVersion, l.listName, l.questionID, l.vulnID FROM questionlist AS l JOIN projects AS p ON p.projectID = l.projectID JOIN groupMembers AS m ON m.groupID = p.groupID WHERE l.answer='no' AND l.entryDate=? AND m.userID=? ORDER BY p.projectName, p.projectVersion, l.listName, l.questionID",
                [entryDate, session['userID']]).fetchall()
     document = Document()
     document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
@@ -1413,23 +1425,28 @@ def download_file_checklist(entryDate):
     last_paragraph = document.paragraphs[-1]
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = document.add_paragraph()
-    projectName = entries[0][3]
-    listName = entries[0][6]
-    p.add_run('Used Checklist: '+listName)
+    projectName = None
+    projectVersion = None
+    listName = None
+    questionID = None
+    vulnID = None
+    for entry in entries:
+        projectName = entry[1]
+        projectVersion = entry[2]
+        listName = entry[3]
+    p.add_run('Project '  + str(projectName) + ' ' + str(projectVersion))
     p.add_run('\r\n')
-    p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
-    p.add_run('\r\n')
-    p.add_run('Project: '+projectName)
+    p.add_run('Checklist ' + str(listName) + ' answers as of ' + entryDate)
     document.add_page_break()
     p = document.add_heading('Table of contents', level=1)
     p.add_run('\r\n')
     document.add_paragraph('Introduction')
+    questionID = None
+    vulnID = None
+
     for entry in entries:
-        projectName = entry[3]
         questionID = entry[4]
         vulnID = entry[5]
-        listName = entry[6]
-        entryDate = entry[7]
         kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for kbpath in kb_paths:
             kbbasepath = os.path.basename(kbpath)
@@ -1445,8 +1462,8 @@ def download_file_checklist(entryDate):
                 content_raw.append(text_encode)
 
                 checklist_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
-                kb_checklist_contents = []
-                kb_checklist_ygb = []
+                ckqs = []
+                ckygbs = []
                 for path in checklist_paths:
                     basepath = os.path.basename(path)
                     elems = basepath.split("-")
@@ -1454,17 +1471,18 @@ def download_file_checklist(entryDate):
                     if int(questionID) == int(path_questionID):
                         with open(path, 'r') as pathf:
                             checklistmd = pathf.read()
-                        kb_checklist_contents.append(Markup(markdown.markdown(checklistmd)))
-                        checklist_name = "-".join(elems[2:5])
-                        if "ASVS" in checklist_name:
+                        ckqs.append(Markup(markdown.markdown(checklistmd)))
+                        checklist_name = elems[2]
+                        if checklist_name == "ASVS":
+                            checklist_name = "-".join(elems[2:5])
                             checklist_kb = elems[6]
                             checklist_ygb = elems[8]
                         else:
                             checklist_kb = elems[4]
                             checklist_ygb = elems[6]
-                        kb_checklist_ygb.append(checklist_ygb)
-                content_checklist.append("\n".join(kb_checklist_contents))
-                ygb_docx.append("".join(kb_checklist_ygb))
+                        ckygbs.append(checklist_ygb)
+                content_checklist.append("\n".join(ckqs))
+                ygb_docx.append(" ".join(ckygbs))
 
     for item in content_title:
         p = document.add_paragraph(item)
@@ -1486,13 +1504,13 @@ def download_file_checklist(entryDate):
         result1 = re.sub("</p>", " ", result)
         document.add_heading(result1, level=4)
         p = document.add_paragraph(item.partition("\n")[2])
-        for c in ygb_docx[i]:
-            if c == "b":
-                document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
-            elif c == "g":
-                document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))
-            elif c == "y":
-                document.add_picture(os.path.join(app.root_path,'static/img/yellow.png'), width=Inches(0.20))
+        ygb = ygb_docx[i]
+        if "y" in ygb:
+            document.add_picture(os.path.join(app.root_path,'static/img/yellow.png'), width=Inches(0.20))
+        if "g" in ygb:
+            document.add_picture(os.path.join(app.root_path,'static/img/green.png'), width=Inches(0.20))
+        if "b" in ygb:
+            document.add_picture(os.path.join(app.root_path,'static/img/blue.png'), width=Inches(0.20))
         p.add_run("\n")
         document.add_page_break()
         i += 1
@@ -1516,10 +1534,18 @@ def function_results(projectID):
     content = []
     valNum(projectID, 12)
     with contextlib.closing(get_db()) as con:
-        entries = con.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName, projects.userID, projects.groupID, m.userID, m.groupID FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech JOIN groupMembers AS m ON m.groupID = projects.groupID WHERE parameters.projectID=? AND m.userID=? GROUP BY parameters.tech;",
+        entries = con.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName, projects.userID, projects.groupID, m.userID, m.groupID FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID = parameters.tech JOIN groupMembers AS m ON m.groupID = projects.groupID WHERE parameters.projectID=? AND m.userID=? GROUP BY parameters.tech ORDER BY parameters.tech ASC",
                [projectID, session['userID']]).fetchall()
+    projectName = None
+    projectVersion = None
+    functionName = None
+    functionDesc = None
+    vulnID = None
     for entry in entries:
         projectName = entry[0]
+        projectVersion = entry[2]
+        functionName = entry[3]
+        functionDesc = entry[5]
         vulnID = entry[7]
         kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for kbpath in kb_paths:
@@ -1544,7 +1570,7 @@ def download_file_function(projectID):
     content_tech = []
     valNum(projectID, 12)
     with contextlib.closing(get_db()) as con:
-        entries = con.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName, projects.userID, projects.groupID, m.userID, m.groupID FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID  = parameters.tech JOIN groupMembers AS m ON m.groupID = projects.groupID WHERE parameters.projectID=? AND m.userID=? GROUP BY parameters.tech;",
+        entries = con.execute("SELECT projects.projectName, projects.projectID, projects.projectVersion, parameters.functionName, parameters.tech, parameters.functionDesc, parameters.entryDate, parameters.techVuln, techhacks.techName, projects.userID, projects.groupID, m.userID, m.groupID FROM projects JOIN parameters ON parameters.projectID=projects.projectID JOIN techhacks ON techhacks.techID = parameters.tech JOIN groupMembers AS m ON m.groupID = projects.groupID WHERE parameters.projectID=? AND m.userID=? GROUP BY parameters.tech ORDER BY parameters.tech ASC",
                [projectID, session['userID']]).fetchall()
     document = Document()
     document.add_picture(os.path.join(app.root_path,'static/img/banner-docx.jpg'), width=Inches(5.125), height=Inches(1.042))
@@ -1554,18 +1580,28 @@ def download_file_function(projectID):
     last_paragraph = document.paragraphs[-1]
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = document.add_paragraph()
-    projectName = entries[0][0]
-    functionName = entries[0][3]
-    functionDesc= entries[0][5]
-    p.add_run('Date: '+datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
+    projectName = None
+    projectVersion = None
+    functionName = None
+    functionDesc = None
+    for entry in entries:
+        projectName = entry[0]
+        projectVersion = entry[2]
+        functionName = entry[3]
+        functionDesc = entry[5]
+    p.add_run('Date: ' + datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
     p.add_run('\r\n')
-    p.add_run('Project: '+projectName)
+    p.add_run('Project: ' + str(projectName) + ' ' + str(projectVersion))
+    p.add_run('\r\n')
+    p.add_run('Function: ' + str(functionName))
+    p.add_run('\r\n')
+    p.add_run(str(functionDesc))
     document.add_page_break()
     p = document.add_heading('Table of contents', level=1)
     p.add_run('\r\n')
     document.add_paragraph('Introduction')
+    vulnID = None
     for entry in entries:
-        # entryDate = entry[6]
         vulnID = entry[7]
         kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         for kbpath in kb_paths:
@@ -1613,6 +1649,7 @@ if __name__ == "__main__":
     #Command line options to enable debug and/or saas (bind to 0.0.0.0)
     cmdargs = str(sys.argv)
     total = len(sys.argv)
+    # print >> sys.stderr, sys.argv
     rand.cleanup()
     csrf_token_raw = rand.bytes(128)
     csrf_token = base64.b64encode(csrf_token_raw)

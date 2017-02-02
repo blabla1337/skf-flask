@@ -31,12 +31,13 @@
 
 				<div class="text">
 				
-				{% if entries.projectName != Null %}
+				{% if projectName %}
 					<h1>Function results</h1>
-					<p>There were no Function results found. Create a project and use the Add functions form in order to create results.</p>
+                    <p>Summary on {{functionName}} in {{projectName}} {{projectVersion}}</p>
+                    <p>{{functionDesc}}</p>
 				{% else %}
 					<h1>Function results</h1>
-					<p>Summary of all function-results, you can download a DOCX file with the current security findings.</p>
+					<p>There were no Function results found. Create a project and use the Add functions form in order to create results.</p>
 				{% endif %}
 				
 				</div>
@@ -45,8 +46,7 @@
 
 	  <section class="wrapper">
 
-			{% if entries.projectName == Null %}
-			{% else %}
+			{% if projectName %}
 			
 			<a class="report" href="/results-function-docx/{{projectID}}">
 				<button class="btn btn-default"><i style="margin-right: 10px;" class="fa fa-file-word-o"></i> Download Report</button>
