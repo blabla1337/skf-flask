@@ -1,5 +1,5 @@
 
-Encoder
+Encoder (SQL - ESAPI)
 -----------
 
 ***Example:***
