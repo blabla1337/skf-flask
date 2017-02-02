@@ -33,82 +33,81 @@ and send it to a function which checks if the submitted token is equal to the on
 
 <%
     Object token = request.getSession().getAttribute("CSRF");
-        String tokenStr = "";
-	    if (token != null) {
-	            tokenStr = (String) token;
-		        }
+    String tokenStr = "";
+	if (token != null)
+	{
+	    tokenStr = (String) token;
+	}		 
+%>
 
-			    System.out.println("+tokenStr " + tokenStr);
-			    %>
-			    <html>
-			    <head>
-			    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-			    <title>Insert title here</title>
-			    </head>
-			    <body>
-			    Welcome to the OWASP CSRFGuard Test Application! Where would you like
-			        to go?
-				    <br />
-				        <form action="/Home/csrf" method="post">
-					        <input type="text" name="testValue" /> 
-									<br/> 
-												<input type="hidden" value="<%=tokenStr%>" name="token" />
-															<input type="submit" value="login">
-																	</form>
-																	*/
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	Welcome to the OWASP CSRFGuard Test Application! Where would you like to go?
+<br/>
 
-																	package com.edw;
+<form action="/Home/csrf" method="post">
+	<input type="text" name="testValue" /> 
+	<br/> 
+	<input type="hidden" value="<%=tokenStr%>" name="token"/>
+	<input type="submit" value="login">
+</form>
 
-																	import java.io.IOException;
+*/
 
-																	import javax.servlet.RequestDispatcher;
-																	import javax.servlet.ServletException;
-																	import javax.servlet.annotation.WebServlet;
-																	import javax.servlet.http.HttpServlet;
-																	import javax.servlet.http.HttpServletRequest;
-																	import javax.servlet.http.HttpServletResponse;
+package com.edw;
+import java.io.IOException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/CheckCSRF")
 
-																	@WebServlet("/CheckCSRF")
-																	public class CheckCSRF extends HttpServlet {
-																		private static final long serialVersionUID = 1L;
-																		       
+public class CheckCSRF extends HttpServlet
+{
 
-																		           public CheckCSRF() {
-																			           super();
-																				           // TODO Auto-generated constructor stub
-																					       }
+private static final long serialVersionUID = 1L;
 
-																					           //here we are sending the token towards the function which does the token validation    
-																						   	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-																									// TODO Auto-generated method stub
-																											
-																													String token = request.getParameter("token");
-																															String Sessiontoken = (String) request.getSession().getAttribute("CSRF");
+public CheckCSRF() {
+super();
+// TODO Auto-generated constructor stub
+}
 
-																																	
-																																			if(Sessiontoken != token)
-																																				    { 
+//here we are sending the token towards the function which does the token validation    
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+// TODO Auto-generated method stub
 
-																																				    		/*
-																																						        If there was no match the authentication session will be emptied and sessions
-																																							        Will be abandoned, we redirect the user towards the login page.
-																																								        */		
-																																												if (request.getSession().getAttribute("authenticateUser") == "")
-																																																{
-																																																				request.getSession().invalidate();
-																																																								request.setAttribute("msg", "Served at: " + request.getContextPath());
-																																																												RequestDispatcher rd =  request.getRequestDispatcher("/login");
-																																																															    rd.forward(request, response);
-																																																															    			    return;
-																																																																		    				}
-																																																																							    }	
-																																																																							    	}
+String token = request.getParameter("token");
+String Sessiontoken = (String) request.getSession().getAttribute("CSRF")
 
-																																																																									protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-																																																																											// TODO Auto-generated method stub
-																																																																													super.doGet(request, response);
-																																																																														}
+if(!Sessiontoken.equals(token))
+{ 
 
-																																																																														}
+	/*
+	If there was no match the authentication session will be emptied and sessions Will be abandoned, we redirect the user towards the login page.
+	*/		
+	if (request.getSession().getAttribute("authenticateUser").equals(""))
+	{
+		request.getSession().invalidate();
+		request.setAttribute("msg", "Served at: " + request.getContextPath());
+		RequestDispatcher rd =  request.getRequestDispatcher("/login");
+		rd.forward(request, response);
+		return;
+	}
+}	
+}
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+// TODO Auto-generated method stub
+super.doGet(request, response);
+}
+
+}
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
