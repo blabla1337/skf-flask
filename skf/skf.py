@@ -36,6 +36,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 
 # create the application
 app = Flask(__name__)
+app.jinja_env.add_extension("jinja2.ext.loopcontrols")
 
 """Set up bcrypt for passwords encrypting"""
 bcrypt = Bcrypt(app)
@@ -716,6 +717,7 @@ def group_new():
     permissions("edit")
     return render_template('group-new.html', csrf_token=session['csrf_token'])
 
+
 @app.route('/group-add', methods=['POST'])
 @security
 def group_add():
@@ -1134,11 +1136,16 @@ def add_checklist():
 
 
 def populate_checklists(checklist_paths, kb_paths, lvl_name, 
-        owasp_ids_lvl, owasp_items_lvl, owasp_items_lvl_ygb, owasp_kb_ids_lvl, owasp_content_lvl, owasp_content_desc_lvl):
+        owasp_ids_lvl, owasp_ygbs_lvl, owasp_kbs_lvl, owasp_contents_lvl, owasp_descs_lvl):
+    owasp_ids = []
+    owasp_ygbs = []
+    owasp_kbs = []
+    owasp_contents = []
+    owasp_descs = []
+
     for path in checklist_paths:
         basepath = os.path.basename(path)
         owasp_path_elems = basepath.split("-")
-        owasp_id = get_num(owasp_path_elems[0])
         owasp_checklist_name = owasp_path_elems[2]
         if owasp_checklist_name == "ASVS":
             owasp_checklist_name = "-".join(owasp_path_elems[2:5])
@@ -1146,19 +1153,18 @@ def populate_checklists(checklist_paths, kb_paths, lvl_name,
         else:
             parse_index = 4
         if owasp_checklist_name == lvl_name:
+            owasp_id = get_num(owasp_path_elems[0])
             owasp_kb = owasp_path_elems[parse_index]
             owasp_ygb = owasp_path_elems[parse_index + 2]
 
-            owasp_ids_lvl.append(owasp_id)
-            owasp_items_lvl.append(owasp_checklist_name)
-            owasp_kb_ids_lvl.append(owasp_kb)
-            owasp_items_lvl_ygb.append(owasp_ygb)
+            owasp_ids.append(owasp_id)
+            owasp_kbs.append(owasp_kb)
+            owasp_ygbs.append(owasp_ygb)
             with open(path, 'r') as pathf:
                 checklistmd = pathf.read()
-            owasp_content_lvl.append(Markup(markdown.markdown(checklistmd)))
+            owasp_contents.append(Markup(markdown.markdown(checklistmd)))
 
             descriptions = []
-
             for kbpath in kb_paths:
                 kbbasepath = os.path.basename(kbpath)
                 path_vuln = get_num(kbbasepath.split("-")[0])
@@ -1167,27 +1173,22 @@ def populate_checklists(checklist_paths, kb_paths, lvl_name,
                         kbmd = kbpathf.read()
                     description = kbmd.split("**")
                     descriptions.append(description[2])
+            owasp_descs.append("\n".join(descriptions))
 
-            owasp_content_desc_lvl.append("\n".join(descriptions))
+    owasp_ids_lvl.append(owasp_ids)
+    owasp_ygbs_lvl.append(owasp_ygbs)
+    owasp_kbs_lvl.append(owasp_kbs)
+    owasp_contents_lvl.append(owasp_contents)
+    owasp_descs_lvl.append(owasp_descs)
+
     return lvl_name
     
 
-def populate_audit(checklist_paths, audit_name, audit_items, audit_ids, audit_kb_ids, audit_content):
-    for path in checklist_paths:
-        basepath = os.path.basename(path)
-        audit_path_elems = basepath.split("-")
-        audit_checklist_name = audit_path_elems[2]
-        if audit_checklist_name == audit_name:
-            audit_id = get_num(audit_path_elems[0])
-            audit_kb = audit_path_elems[4]
-
-            audit_ids.append(audit_id)
-            audit_items.append(audit_checklist_name)
-            audit_kb_ids.append(audit_kb)
-            with open(path, 'r') as pathf:
-                auditmd = pathf.read()
-            audit_content.append(Markup(markdown.markdown(auditmd)))
-    return audit_name
+NUM_ASVS_LEVELS = 6
+ASVS_1, ASVS_2, ASVS_3, ASVS_BASIC, ASVS_ADVANCED, ASVS_CUSTOM = range(NUM_ASVS_LEVELS)
+ASVS_NAMES = ("ASVS-level-1", "ASVS-level-2", "ASVS-level-3", "CS_basic_audit", "CS_advanced_audit", "custom")
+ASVS_TITLES = ("OWASP ASVS Level 1", "OWASP ASVS Level 2", "OWASP ASVS Level 3", 
+        "Basic Audit Checklist", "Advanced Audit Checklist", "Custom Checklist")
 
 
 @app.route('/project-checklists/<project_id>', methods=['GET'])
@@ -1203,36 +1204,15 @@ def project_checklists(project_id):
         projects = con.execute('SELECT p.projectID, p.userID, p.groupID, p.projectName, p.projectVersion, p.projectDesc, p.ownerID, m.userID, m.groupID FROM projects as p JOIN groupMembers AS m ON m.groupID = p.groupID WHERE p.projectID=? AND m.userID=?',
                             [project_id, session['userID']]).fetchall()
     projectName = ""
-    owasp_items_lvl1 = []
-    owasp_items_lvl1_ygb = []
-    owasp_ids_lvl1 = []
-    owasp_kb_ids_lvl1 = []
-    owasp_content_lvl1 = []
-    owasp_content_desc_lvl1 = []
-    owasp_items_lvl2 = []
-    owasp_items_lvl2_ygb = []
-    owasp_ids_lvl2 = []
-    owasp_kb_ids_lvl2 = []
-    owasp_content_lvl2 = []
-    owasp_content_desc_lvl2 = []
-    owasp_items_lvl3 = []
-    owasp_items_lvl3_ygb = []
-    owasp_ids_lvl3 = []
-    owasp_kb_ids_lvl3 = []
-    owasp_content_lvl3 = []
-    owasp_content_desc_lvl3 = []
-    custom_items = []
-    custom_ids = []
-    custom_kb_ids = []
-    custom_content = []
-    basic_items = []
-    basic_ids = []
-    basic_kb_ids = []
-    basic_content = []
-    advanced_items = []
-    advanced_ids = []
-    advanced_kb_ids = []
-    advanced_content = []
+
+    owasp_level_descs = []
+    owasp_level_recommendations = []
+
+    owasp_ids_lvl = []
+    owasp_ygbs_lvl = []
+    owasp_kbs_lvl = []
+    owasp_contents_lvl = []
+    owasp_descs_lvl = []
 
     for prep in projects:
         projectName = prep[3]
@@ -1243,28 +1223,41 @@ def project_checklists(project_id):
         kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         kb_paths.sort()
 
-        owasp_list_lvl1 = populate_checklists(checklist_paths, kb_paths, "ASVS-level-1",
-                owasp_ids_lvl1, owasp_items_lvl1, owasp_items_lvl1_ygb, owasp_kb_ids_lvl1, owasp_content_lvl1, owasp_content_desc_lvl1)
-        
-        owasp_list_lvl2 = populate_checklists(checklist_paths, kb_paths, "ASVS-level-2",
-                owasp_ids_lvl2, owasp_items_lvl2, owasp_items_lvl2_ygb, owasp_kb_ids_lvl2, owasp_content_lvl2, owasp_content_desc_lvl2)
-        
-        owasp_list_lvl3 = populate_checklists(checklist_paths, kb_paths, "ASVS-level-3",
-                owasp_ids_lvl3, owasp_items_lvl3, owasp_items_lvl3_ygb, owasp_kb_ids_lvl3, owasp_content_lvl3, owasp_content_desc_lvl3)
-        
-        
-        basic_list = populate_audit(checklist_paths, "CS_basic_audit",
-                basic_items, basic_ids, basic_kb_ids, basic_content)
-        
-        advanced_list = populate_audit(checklist_paths, "CS_advanced_audit",
-                advanced_items, advanced_ids, advanced_kb_ids, advanced_content)
-        
-        custom_list = populate_audit(checklist_paths, "custom",
-                custom_items, custom_ids, custom_kb_ids, custom_content)
+        for level0 in range(NUM_ASVS_LEVELS):
+            level = level0 + 1
+            level_name = ASVS_NAMES[level0]
+            populate_checklists(checklist_paths, kb_paths, level_name,
+                    owasp_ids_lvl, owasp_ygbs_lvl, 
+                    owasp_kbs_lvl, owasp_contents_lvl, owasp_descs_lvl)
+            if level0 < 3:
+                level_desc = "OWASP Application Security Verification Standard Level %d" % (level0 + 1,)
+                if level0 < 2:
+                    level_recommendation = "Recommended"
+                else:
+                    level_recommendation = "Advanced"
+            else:
+                level_desc = ("This checklist is a template for your own %s checklist. "
+                        "If you have created one please create a Pull request on GIT.") % (level_name,)
+                level_recommendation = "Custom"
+            owasp_level_descs.append(level_desc)
+            owasp_level_recommendations.append(level_recommendation)
 
         break
 
-    return render_template('project-checklists.html', csrf_token=session['csrf_token'], **locals())
+    return render_template('project-checklists.html', csrf_token=session['csrf_token'], 
+                NUM_ASVS_LEVELS=NUM_ASVS_LEVELS,
+                ASVS_NAMES=ASVS_NAMES,
+                ASVS_TITLES=ASVS_TITLES,
+                owasp_level_descs=owasp_level_descs,
+                owasp_level_recommendations=owasp_level_recommendations,
+                owasp_ids_lvl=owasp_ids_lvl,
+                owasp_ygbs_lvl=owasp_ygbs_lvl, 
+                owasp_kbs_lvl=owasp_kbs_lvl, 
+                owasp_contents_lvl=owasp_contents_lvl, 
+                owasp_descs_lvl=owasp_descs_lvl,
+                projectName=projectName,
+                project_id=project_id
+            )
 
 
 @app.route('/results-checklists', methods=['GET'])
@@ -1647,23 +1640,31 @@ def download_file_function(projectID):
 
 if __name__ == "__main__":
     #Command line options to enable debug and/or saas (bind to 0.0.0.0)
-    cmdargs = str(sys.argv)
-    total = len(sys.argv)
     # print >> sys.stderr, sys.argv
     rand.cleanup()
     csrf_token_raw = rand.bytes(128)
     csrf_token = base64.b64encode(csrf_token_raw)
-    for i in xrange(total):
-        if (str(sys.argv[i][2:]) == "debug"):
+    port = 5443
+    it = iter(sys.argv)
+    for arg in it:
+        if arg == "--debug":
             # Load default config and override config from an environment variable
-            app.config.update(dict(
-            DEBUG=True
-            ))
-        if (str(sys.argv[i][2:]) == "saas"):
-            bindaddr = '0.0.0.0'
+            app.config.update(DEBUG=True)
+        elif arg == "--saas":
+            bindaddr = "0.0.0.0"
+        elif arg == "--listen":
+            listen = it.next().split(":")
+            if len(listen) > 1:
+                b, port = listen[:2]
+            else:
+                b = listen[0]
+            if len(b) != 0:
+                bindaddr = b
+            port = int(port)
     if not os.path.isfile('server.crt'):
-       app.run(host=bindaddr, port=5443, ssl_context='adhoc')
+       app.run(host=bindaddr, port=port, ssl_context='adhoc')
     else:
        context = SSL.Context(SSL.TLSv1_METHOD)
        context = ('server.crt', 'server.key')
-       app.run(host=bindaddr, port=5443, ssl_context=context)
+       app.run(host=bindaddr, port=port, ssl_context=context)
+
