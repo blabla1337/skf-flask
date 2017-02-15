@@ -6,7 +6,7 @@ Account lock-out
 
 All applications should contain the possibility to lock down accounts for whenever it
 detects attacks by/on users. Also you should include options for both soft and hard
-lock-out mechanismes. 
+lock-out mechanisms. 
 
  
 **Solution:**

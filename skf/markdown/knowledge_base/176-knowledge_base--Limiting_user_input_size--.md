@@ -4,8 +4,8 @@ Limiting the size of user input
 
 **Description:**
 
-Whenever there is userinput supplied into your application you also want to limit
-the size of the userinput to appropriate maximum lengths.
+Whenever there is user-input supplied into your application you also want to limit
+the size of the user-input to appropriate maximum lengths.
  
 **Solution:**
 

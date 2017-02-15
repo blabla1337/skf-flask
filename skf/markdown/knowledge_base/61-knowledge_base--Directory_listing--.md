@@ -14,6 +14,6 @@ credentials or old vulnerable system demo functions which might lead to remote c
 **Solution:**
 
 Different types of servers require a different type of approach in order to disable 
-directory listing. for instance: apache uses a .htacces in order to disable directory listing.
+directory listing. For instance: apache uses a .htacces in order to disable directory listing.
 As in iis7 directory listing is disabled by default. 
 

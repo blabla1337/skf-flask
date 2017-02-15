@@ -15,7 +15,7 @@ an extra layer of security where an attacker first need to break out from.
 Use the sandbox attribute of an iframe for untrusted content. The sandbox attribute of an 
 iframe enables restrictions on content within a iframe. The following restrictions are 
 
-active when the sandbox attribute is set: 
+Active when the sandbox attribute is set: 
 
 - All markup is treated as being from a unique origin
 - All forms and scripts are disabled. 

@@ -11,8 +11,8 @@ Therefore, it's recommended not to store any sensitive information in local stor
 **Solution:**
 
 Verify that authenticated data is cleared from client storage, such as the browser DOM, after the 
-session is terminated. This also goed for other session and local storage information which could
-assist an attacker launching an succesfull attack.
+session is terminated. This also goes for other session and local storage information which could
+assist an attacker launching an successful attack.
 
 Recommended knowledge base items:
 

@@ -61,7 +61,7 @@ When you have installed the above software you are now able to create a VirtualB
 ````bash
 cd ~/
 wget https://github.com/blabla1337/owasp-skf-chef/archive/master.zip
-unzup master.zip
+unzip master.zip
 cd owasp-skf-chef-master
 kitchen converge default 
 ```
@@ -369,4 +369,5 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Bithin Alangot
 - Martin Knobloch
 - Adam Fisher
-- -Tom Wirschell
+- Tom Wirschell
+- Joerg Stephan

@@ -4,7 +4,7 @@ Aggregate user requests
 
 **Description:**
 
-verify the system can protect against aggregation or continuous access to functions,  
+Verify the system can protect against aggregation or continuous access to functions,  
 resources, or data. For example, possibly by the use of a resource governor to limit the 
 number of edits per minute in order to to prevent an automatic attack
 

@@ -19,7 +19,7 @@ Recommended knowlege-base items:
 - User credentials in audit logs
 - Log injection
 - Repudiation attacks
-- Logging guidelinges
+- Logging guidelines
 - Logging is performed before executing the transaction
 
 

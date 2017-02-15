@@ -1,10 +1,10 @@
 
-Enforce policys for sensitive data processing
+Enforce policies for sensitive data processing
 -------
 
 **Description:**
 
-When you proces data you should always enforce policies for the transfer of sensitive data 
+When you process data you should always enforce policies for the transfer of sensitive data 
 in order to enforce higher level of security imposing structured thresholds to 
 fend of attackers.
 
@@ -22,10 +22,10 @@ Also, determine whenever data storage is necessary or becomes a redundancy.
 Whenever sensitive data does not have to be stored don't store it. This reduces the
 quantity of data may your application ever be compromised.
 
-Ultimatly, verify accessing sensitive data is logged, if the data is collected under 
+Ultimately, verify accessing sensitive data is logged, if the data is collected under 
 relevant data protection directives or where logging of accesses is required.  
 
-sensitive data or primary keys, such as personally identifiable information or credit 
+Sensitive data or primary keys, such as personally identifiable information or credit 
 cards should also be anonymized, masked or truncated on the server before transmission 
 to the client. 
 	

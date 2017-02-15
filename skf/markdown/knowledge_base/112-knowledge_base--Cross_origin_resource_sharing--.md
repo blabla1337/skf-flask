@@ -38,7 +38,7 @@ Use the Access-Control-Allow-Origin header only on chosen URLs that need to be
 accessed cross-domain. Don't use the header for the whole domain.
 
 3. Allow only selected, trusted domains in the Access-Control-Allow-Origin header. 
-Prefer whitelisting domains over blacklisting or allowing any domain 
+Prefer white-listing domains over blacklisting or allowing any domain 
 (do not use * wildcard nor blindly return the Origin header content without any checks)
 
 4. Keep in mind that CORS does not prevent the requested data from going to an

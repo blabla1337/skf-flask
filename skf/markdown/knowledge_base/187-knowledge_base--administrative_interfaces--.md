@@ -4,8 +4,8 @@ Administrative interfaces are not accessible to untrusted parties
 **Description:**
 
 Whenever it is not necessary for administrative pages to be publicly accessible these
-pages should have restriced access for users. Whenever these pages are secluded from the rest
-of the application in terms of accessability this could reduce the attack vector of malicious users.
+pages should have restricted access for users. Whenever these pages are secluded from the rest
+of the application in terms of accessibility this could reduce the attack vector of malicious users.
 
 **Solution:**
 

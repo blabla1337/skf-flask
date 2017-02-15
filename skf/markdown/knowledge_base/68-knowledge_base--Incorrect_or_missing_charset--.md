@@ -10,7 +10,7 @@ the application, then this could could lead to XSS injections when guessing wron
 
 **Solution:**
 
-Define the charset for al your pages in order to prevent the browser for guessing 
+Define the charset for all your pages in order to prevent the browser for guessing 
 the content types.
 
 This could be done by adding a meta header in the head of your HTML like:

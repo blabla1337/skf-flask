@@ -17,7 +17,7 @@ is to process this data server-side and validate the data to see if it returns e
 values. If not these failures should be logged.
 
 Also important to always verify that the same access control rules implied by the presentation layer 
-are enforced on the serverside.
+are enforced on the server-side.
 
 Recommended knowledge base items:
 

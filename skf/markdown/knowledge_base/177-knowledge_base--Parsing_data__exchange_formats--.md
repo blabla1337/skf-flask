@@ -5,8 +5,8 @@ Parsing data exchange formats
 **Description:**
 
 Whenever you are parsing data exchange formats such as, XML, JSON, CSV, etc, you
-have to make sure that whenever these data files contain malicious code this wil not be
-executed by your application. You should also not solely depend on your parser to do al 
+have to make sure that whenever these data files contain malicious code this will not be
+executed by your application. You should also not solely depend on your parser to do all 
 the encoding and escaping for you since there could always be an edge case that does 
 execute certain attacks. 
 

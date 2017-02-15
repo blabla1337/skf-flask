@@ -27,8 +27,8 @@ still needs to then go and submit the domain to the list.
 
 There is still a window where a user who has a fresh install, or who wipes out their local state, 
 is vulnerable. This is due to the fact that the browser is not yet aware of the fact if the application
-the iser is trying to connect to supports HSTS. Whenever you are added to the preload list, 
-the application its preference is hardcoded into the browser and al first initial connections will
+the it is trying to connect to supports HSTS. Whenever you are added to the preload list, 
+the application its preference is hard-coded into the browser and all first initial connections will
 always be made by HTTPS.
 
 **CAUTION**

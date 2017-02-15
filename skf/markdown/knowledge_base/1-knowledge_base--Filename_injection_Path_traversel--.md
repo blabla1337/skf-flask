@@ -1,5 +1,5 @@
 
-Filename Injection / Path Traversel 
+Filename Injection / Path Traversal 
 -------
 
 **Description:**

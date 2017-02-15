@@ -11,7 +11,7 @@ consideration before you start developing this type of functionality.
 
 **Solution:**
 
-It is highly recommended to study al the listed items and implement these principles in 
+It is highly recommended to study all the listed items and implement these principles in 
 your access control/login system in order to enforce a higher level of security.
 
 1. Audit logs

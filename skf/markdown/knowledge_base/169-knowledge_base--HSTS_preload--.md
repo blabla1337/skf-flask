@@ -38,5 +38,5 @@ Adding your website to the list:
 https://www.chromium.org/hsts     
 
 
-source:
+Source:
 https://wiki.mozilla.org/Privacy/Features/HSTS_Preload_List

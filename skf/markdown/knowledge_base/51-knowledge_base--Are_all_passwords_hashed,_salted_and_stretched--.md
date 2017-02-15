@@ -11,7 +11,7 @@ abuse the password when obtained.
 **Solution:**
 
 A user should always be forced to use a proper password when signing in into the application. 
-Preferably a pass-phrase instead of a password. this in order to extend the duration 
+Preferably a pass-phrase instead of a password. This in order to extend the duration 
 of a brute-force attack.
 
 Verify that account passwords are protected using an adaptive key derivation function.
