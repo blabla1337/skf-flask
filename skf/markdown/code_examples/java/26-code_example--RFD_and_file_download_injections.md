@@ -140,7 +140,7 @@ public class FileDownloader {
          // Create path components to save the file
          // The location of stored files should always be outside of your root
          
-        file = "C:\\Users\\xvassilakopoulos\\Desktop\\test\\tsec.jpg";
+        file = "C:\\tsec.jpg";
         
         fileplace = new File(file); 
         
