@@ -26,16 +26,21 @@ public class passwordcheck {
 		String error = "";
         boolean complete = true;
         /*
-        Here we define the minimal expexted value's for your password.
-        The password must at least contain a Capital letter, a normal letter, a special character
-        a number and must be at least 8 characters long
+        for example here we define the expexted value's for your password.
+		
+		^                 # start-of-string
+		(?=.*[0-9])       # a digit must occur at least once
+		(?=.*[a-z])       # a lower case letter must occur at least once
+		(?=.*[A-Z])       # an upper case letter must occur at least once
+		(?=.*[@#$%^&+=])  # a special character must occur at least once
+		(?=\S+$)          # no whitespace allowed in the entire string
+		.{8,}             # anything, at least eight places though
+		$                 # end-of-string
         */
         
-        String[] pattern = { "[0-9]", "[A-Z]", "[a-z]" };
+        String vaildation = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$";
              
-         for (String vaildation : pattern )
-         {
-        	 
+
     	  // Create a Pattern object
    	      Pattern r = Pattern.compile(vaildation);
    	      // Now create matcher object.
@@ -44,7 +49,6 @@ public class passwordcheck {
 	    	  error = "You did not enter a valid password";
               complete = false;  
 	      }		
-         }
           	 /*
              Also very important is the fact that you have to take into consideration that
              Password1! is a valid password according to password standards. This however is not the case since
