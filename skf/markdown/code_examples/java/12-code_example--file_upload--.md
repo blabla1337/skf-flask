@@ -6,12 +6,50 @@ File Upload
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
+
 In this example we show the steps that must be taken in order to upload a file securely. The main steps are input validation 
 ,file extension checks and mime type checks. 
 
+
+the following code snipet shows the jsp page that performs the post action to upload a certain file to destination 
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>File Upload</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <form method="post" action="FileUpload" enctype="multipart/form-data" >
+            File:
+            <input type="file" name="file" id="file" /> <br/>
+            Destination:
+            <input type="text" value="C:\Users\someuser\Desktop\test" name="destination"/>
+            </br>
+            <input type="submit" value="Upload" name="upload" id="upload" />
+        </form>
+        <%
+		String message =  " "; 
+        message = (String) request.getAttribute("msg");
+        if (message == null)
+        {
+        	message = " ";
+        }
+		out.println(" " + message);
+	    %> 
+    </body>
+</html>
+
+
+the following code snipet performs the file uploading functionality from the post action performed at the jsp page ahowing above
+
+
+
 package com.edw;
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -59,7 +97,8 @@ public class FileUpload extends HttpServlet {
         // Create path components to save the file
         // The location of stored files should always be outside of your root
         
-        
+        // the destination path used to store the file gotten from the POST parameter
+		
         final String path = request.getParameter("destination");
      	final File f = new File(path);
         final Part filePart = request.getPart("file");
