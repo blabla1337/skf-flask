@@ -1013,21 +1013,22 @@ def function_del():
     assert_session()
     permissions("delete")
     check_token()
-    id = request.form['projectID']
-    id_param = int(request.form['paramID'])
-    valNum(id, 12)
-    valNum(id_param, 12)
+    projectID = request.form['projectID']
+    paramID = request.form['paramID']
+    valNum(projectID, 12)
+    valNum(paramID, 12)
     with contextlib.closing(get_db()) as con:
         #First check if the user is allowed to delete this parameter
-        projects = con.execute('SELECT p.projectID, p.groupID, m.groupID, m.userID from projects as p JOIN groupMembers as m ON m.groupID = p.groupID where m.userID=?',
-                                       [session['userID']]).fetchall()
+        projects = con.execute('SELECT p.projectID, p.groupID, m.groupID, m.userID from projects as p '
+            'JOIN groupMembers as m ON m.groupID = p.groupID where m.userID=?',
+            [session['userID']]).fetchall()
         for project in projects:
-            if int(id) == int(project[0]):
+            if int(projectID) == int(project[0]):
                 with con as cur:
                     cur.execute("DELETE FROM parameters WHERE projectID=? AND paramID=?",
-                                   [id, id_param])
+                                   [projectID, paramID])
                 break
-    redirect_url = "/project-functions/"+str(id)
+    redirect_url = "/project-functions/" + projectID
     return redirect(redirect_url)
 
 
