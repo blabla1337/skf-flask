@@ -1,7 +1,7 @@
-WYSIWYG editors
+# WYSIWYG editors
 -------
 
-**Description:**
+## Description:
 
 WYSIWYG editors can be a great risk to your web application since it allows direct
 HTML as input to make the user perform styling on their submissions. This is why the
@@ -17,7 +17,7 @@ When providing your web application with an WYSIWYG editor you should also take 
 most people just want to use bullets, make text bold or underline some text. They mostly
 do not understand half the functionalities the editors are providing.
 
-**Solution:**
+## Solution:
 
 Download a HTML sanitizer and configure it to your specific needs. When configuring the sanitizer make sure
 you disable all unused components. The less options an attacker has to insert into your application the less

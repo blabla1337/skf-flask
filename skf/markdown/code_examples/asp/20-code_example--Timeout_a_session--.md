@@ -1,7 +1,7 @@
 Timeout a session
 -------
 
-**Example:**
+## Example:
 
 	/*
 	Within your web.config you can configure your session idle timeout.

@@ -1,7 +1,7 @@
-Open forward and Open redirects
+# Open forward and Open redirects
 -------
 
-**Description:**
+## Description:
 
 Unvalidated redirects and forwards are possible when a web application accepts untrusted
 input that could cause the web application to redirect the request to a URL contained
@@ -13,7 +13,7 @@ to maliciously craft a URL that would pass the application's access control chec
 then forward the attacker to privileged functions that they would normally not be able
 to access.
 
-**Solution:**
+## Solution:
 
 Use a whitelisting method for determining where the user should be redirected towards.
 You could also show a warning when redirecting to potentially untrusted content.

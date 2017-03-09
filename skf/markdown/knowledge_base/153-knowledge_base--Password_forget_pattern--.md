@@ -1,7 +1,7 @@
-Password forget function - pattern
+# Password forget function - pattern
 -------
 
-**Description:**
+## Description:
 
 Whenever you are implementing a forgot password function into your system there are
 a few things you need to take into consideration in order to prevent security flaws
@@ -14,7 +14,7 @@ in your application.
 5. Disallow the use of old passwords
 
 
-**Solution:**
+## Solution:
 
 The first thing is to verify that forgot password and other recovery paths
 send a link including a time-limited activation token rather than the password itself.
@@ -28,6 +28,6 @@ password is in progress. This could lead to a Denial of service attack whenever 
 attacker decides to intentionally lock out the users with an automated attack.
 
 Third, whenever the new password request was set in progress, the message you display
-should be generalised in order to prevent username enumeration.
+should be generalized in order to prevent username enumeration.
 
 Fourth, always disallow the use of old passwords and implement a strong password policy.

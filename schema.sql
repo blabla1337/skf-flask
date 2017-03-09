@@ -16,9 +16,7 @@ CREATE TABLE `users` (
 `access` varchar(255) NOT NULL
 );
 
-
 INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "false", "false", "example@owasp.org");
-
 
 --
 -- Table structure for table `privileges`
@@ -34,12 +32,6 @@ INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edi
 INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read");
 INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read");
 
-
-
-
-
-
-
 --
 -- Table structure for table `kb_items`
 --
@@ -49,7 +41,6 @@ CREATE TABLE `kb_items` (
 `title` varchar(250) NOT NULL,
 `content` varchar(250) NOT NULL
 );
-
 
 --
 -- Table structure for table `projects`
@@ -65,6 +56,52 @@ CREATE TABLE `projects` (
 `ownerID` int(11) NOT NULL,
 `timestamp` timestamp NOT NULL
 );
+
+--
+-- Table structure for table `groups`
+--
+drop table if exists `groups`;
+CREATE TABLE `groups` (
+`groupID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`ownerID` int(11) NOT NULL,
+`groupName` varchar(250) NOT NULL,
+`timestamp` timestamp
+);
+
+INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup");
+
+--
+-- Table structure for table `groupmembers`
+--
+drop table if exists `groupmembers`;
+CREATE TABLE `groupmembers` (
+`memberID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`userID` int(11) NOT NULL,
+`groupID` int(11) NOT NULL,
+`ownerID` int(11) NOT NULL,
+`timestamp` timestamp
+);
+
+INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1);
+
+
+--
+-- Table structure for table `logs`
+--
+drop table if exists `logs`;
+CREATE TABLE `logs` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`date` varchar(255) NOT NULL,
+`time` varchar(255) NOT NULL,
+`threat` varchar(255) NOT NULL,
+`ip` varchar(255) NOT NULL,
+`status` varchar(255) NOT NULL,
+`message` varchar(255) NOT NULL
+);
+
+
+
+
 
 
 --

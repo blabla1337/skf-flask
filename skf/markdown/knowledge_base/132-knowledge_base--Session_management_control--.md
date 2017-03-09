@@ -1,7 +1,7 @@
-Session management control
+# Session management control
 -------
 
-**Description:**
+## Description:
 
 The ability to restrict and maintain user actions within unique sessions is critical to
 web security. Most users of this guide will be using an application framework with built
@@ -12,7 +12,7 @@ scratch are often weak and breakable. Developers are strongly discouraged from
 implementing their own Session Management.
 
 
-**Solution:**
+## Solution:
 
 Always use the frameworks default session management control implementation
 in your application. If not possible you should find hardened guides in how to accomplish

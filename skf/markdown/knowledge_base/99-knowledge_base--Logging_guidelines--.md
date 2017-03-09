@@ -1,13 +1,13 @@
-Logging guidelines
+# Logging guidelines
 -------
 
-**Description:**
+## Description:
 
-The logging should contain some guidelines in order to organise your logging file in such
+The logging should contain some guidelines in order to organize your logging file in such
 a way it becomes clear and easy to find information
 
 
-**Solution:**
+## Solution:
 
 The logging file should at least contain, a timestamp from a reliable source, severity
 level of the event, an indication that this is a security relevant event

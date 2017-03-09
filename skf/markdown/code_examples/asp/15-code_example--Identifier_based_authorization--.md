@@ -1,7 +1,7 @@
 Identifier-based authorization
 -------
 
-**Example:**
+## Example:
 
 
 	using System;

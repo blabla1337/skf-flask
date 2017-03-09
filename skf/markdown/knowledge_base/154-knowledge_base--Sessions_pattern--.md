@@ -1,7 +1,7 @@
-Sessions - pattern
+# Sessions - pattern
 -------
 
-**Description:**
+## Description:
 
 When working with sessions there are a couple of things you need to consider in order
 to implement them securely throughout your system. For more detailed information about
@@ -22,7 +22,7 @@ these items you should check the knowledge-base about:
 13. Verify that the session id is never disclosed
 14. Session cookies (Domain)
 
-**Solution:**
+## Solution:
 
 The items as pointed out before should be looked into and taken into consideration
 whenever you are working with sessions on your system in order to enforce a

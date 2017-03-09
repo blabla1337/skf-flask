@@ -1,7 +1,7 @@
 Crossdomain.xml 
 -------
 
-**Example:**
+## Example:
 
 
 	A bad example of a crossdomain.xml would be:

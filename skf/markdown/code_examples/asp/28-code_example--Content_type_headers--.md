@@ -1,7 +1,7 @@
 Content type headers
 -------
 
-**Example:**
+## Example:
 
 
     /*

@@ -1,7 +1,7 @@
-File upload injections
+# File upload injections
 -------
 
-**Description:**
+## Description:
 
 Uploaded files represent a significant risk to applications.
 The first step in many attacks is to get some code to the system to be attacked.
@@ -22,7 +22,7 @@ The other class of problem is with the file size or content.
 An attacker can easily craft a valid image file with php code inside.
 
 
-**Solution:**
+## Solution:
 
 Uploaded files always needs to be placed outside the document root of the web-server.
 

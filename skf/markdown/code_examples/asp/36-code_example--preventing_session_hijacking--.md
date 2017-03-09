@@ -1,7 +1,7 @@
 Session hijacking
 -------
 
-**Example:**
+## Example:
 
 
 	/*

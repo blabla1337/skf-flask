@@ -1,7 +1,7 @@
-Audit logs
+# Audit logs
 -------
 
-**Description:**
+## Description:
 
 An audit trail (also called audit log) is a security-relevant chronological record,
 set of records, and/or destination and source of records that provide documentary
@@ -9,7 +9,7 @@ evidence of the sequence of activities that have affected at any time a specific
 procedure, or event.
 
 
-**Solution:**
+## Solution:
 
 An audit log should contain the following items:
 

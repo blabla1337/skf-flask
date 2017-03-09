@@ -2,7 +2,7 @@
 User registration / Sql truncation prevention
 -------
 
-**Example:**
+## Example:
 
    	<?php
 

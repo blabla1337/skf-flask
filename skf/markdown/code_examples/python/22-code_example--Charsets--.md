@@ -2,7 +2,7 @@
 Charsets
 -------
 
-**Example:**
+## Example:
 
 
 

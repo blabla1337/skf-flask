@@ -1,7 +1,7 @@
-Cross subdomain cookie attacks
+# Cross subdomain cookie attacks
 -------
 
-**Description:**
+## Description:
 
 A quick overview of how it works:
 
@@ -12,7 +12,7 @@ A quick overview of how it works:
 5. Mallory can now use Alice her account.
 
 
-**Solution:**
+## Solution:
 
 In this scenario changing the sessionID on login does not make any difference since
 Alice is already logged in when she visits Mallory's evil webpage.

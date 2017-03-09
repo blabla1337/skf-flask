@@ -1,7 +1,7 @@
-Include anti clickjacking headers
+# Include anti clickjacking headers
 -------
 
-**Description:**
+## Description:
 
 Clickjacking, also known as a "UI redress attack", is when an attacker uses multiple
 transparent or opaque layers to trick a user into clicking on a button or link on another
@@ -15,7 +15,7 @@ are typing in the password to their email or bank account, but are instead typin
 invisible frame controlled by the attacker.
 
 
-**Solution:**
+## Solution:
 
 To avoid your application from being clickjacked you can add the X-frame-Options header
 to your application. These headers can be configured as:

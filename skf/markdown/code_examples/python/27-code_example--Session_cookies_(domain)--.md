@@ -2,7 +2,7 @@
 Session cookies (domain)
 -------
 
-**Example:**
+## Example:
 
 
 

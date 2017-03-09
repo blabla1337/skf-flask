@@ -2,7 +2,7 @@
 Identifier-based authorization
 -------
 
-**Example:**
+## Example:
 
 
     <?php

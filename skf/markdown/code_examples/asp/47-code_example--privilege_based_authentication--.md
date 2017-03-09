@@ -1,7 +1,7 @@
  Privilege based authentication
 -------
 
-**Example:**
+## Example:
    	
    	/*
     For privilege based authentication we need an extra tabel in your database in order to write the users privileges to.

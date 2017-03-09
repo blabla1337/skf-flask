@@ -1,7 +1,7 @@
-X-Path injections
+# X-Path injections
 -------
 
-**Description:**
+## Description:
 
 Web applications heavily use databases to store and access the data they need for their
 operations. Historically, relational databases have been by far the most common
@@ -12,7 +12,7 @@ their standard query language.
 
 
 
-**Solution:**
+## Solution:
 
 Just like the techniques to avoid SQL injection, you need to use a parameterised X-Path
 interface if one is available, or escape the user input to make it safe to include in a

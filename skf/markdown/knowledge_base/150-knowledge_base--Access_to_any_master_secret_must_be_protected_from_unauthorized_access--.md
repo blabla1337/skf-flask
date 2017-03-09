@@ -1,13 +1,13 @@
-Access to any master secret must be protected from unauthorized access
+# Access to any master secret must be protected from unauthorized access
 -------
 
-**Description:**
+## Description:
 
 Access to any master secret must be protected from unauthorized access in order to protect
 the integrity and the confidentiality of the data.
 
 
-**Solution:**
+## Solution:
 
 Whenever sensitive data is stored on the server you should consider storing this data in a
 separate folder with permission rules in order to prevent unauthorized

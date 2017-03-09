@@ -1,7 +1,7 @@
-Absolute session time-out
+# Absolute session time-out
 -------
 
-**Description:**
+## Description:
 
 All sessions should implement an absolute timeout, regardless of session activity.
 This timeout defines the maximum amount of time a session can be active,
@@ -12,7 +12,7 @@ a new session. The absolute session limits the amount of time an attacker can us
 hijacked session and impersonate the victim user.
 
 
-**Solution:**
+## Solution:
 
 Always ensure that sessions absolute time-out server-side in order to decrease a hackers
 attack vector.

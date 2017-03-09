@@ -1,7 +1,7 @@
-Sensitive information stored in cookies
+# Sensitive information stored in cookies
 -------
 
-**Description:**
+## Description:
 
 Sensitive data should not be stored in a cookie.
 Because the cookie is also used client-side and is adaptable and thus making
@@ -10,6 +10,6 @@ attacks and gain the sensitive information stored
 in the targets cookie.
 
 
-**Solution:**
+## Solution:
 
 Do not store sensitive information in cookies.

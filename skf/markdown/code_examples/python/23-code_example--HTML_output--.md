@@ -2,7 +2,7 @@
 HTML output
 -------
 
-**Example:**
+## Example:
 
 
     <?php

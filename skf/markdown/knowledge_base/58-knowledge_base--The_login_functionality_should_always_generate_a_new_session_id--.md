@@ -1,13 +1,13 @@
-The login functionality should always generate (and use) a new session id  
+# The login functionality should always generate (and use) a new session id  
 -------
 
-**Description:**
+## Description:
 
 Whenever an user is successfully authenticated the application should generate a
 new session cookie.
 
 
-**Solution:**
+## Solution:
 
 The login functionality should always generate (and use) a new session id after a
 successful login. This is done to prevent an attacker doing a session fixation attack

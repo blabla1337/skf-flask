@@ -1,7 +1,7 @@
-Command injection
+# Command injection
 -------
 
-**Description:**
+## Description:
 
 Command injection is an attack in which the goal is execution of arbitrary commands on
 the host operating system via a vulnerable application. Command injection attacks are
@@ -15,7 +15,7 @@ In Code Injection, the attacker extends the default functionality of the applica
 without the necessity of executing system commands.
 
 
-**Solution:**
+## Solution:
 
 User-input that is used in a shell command should not contain dangerous characters.
 A blacklist of characters is not a good option because it may be difficult to think of

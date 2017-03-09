@@ -1,7 +1,7 @@
 CSRF tokens
 -------
 
-**Example:**
+## Example:
 
 	
     /*

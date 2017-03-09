@@ -2,7 +2,7 @@
 Directory listing
 -------
 
-**Example:**
+## Example:
 
 
 

@@ -1,7 +1,7 @@
 Password storage(salting/stretching/hashing)
 -------
 
-**Example:**
+## Example:
 
 
 	using System;

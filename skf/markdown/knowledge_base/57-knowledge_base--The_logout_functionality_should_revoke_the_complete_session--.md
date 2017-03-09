@@ -1,13 +1,13 @@
-The logout functionality should revoke the complete session  
+# The logout functionality should revoke the complete session  
 -------
 
-**Description:**
+## Description:
 
 When the logout functionality does not revoke the complete session an attacker could
 impersonate a user when he has access to the session cookie.
 
 
-**Solution:**
+## Solution:
 
 The logout functionality should revoke the complete session whenever a user
 wants to terminate his session.

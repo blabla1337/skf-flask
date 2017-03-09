@@ -2,7 +2,7 @@
 Re-authentication
 -------
 
-**Example:**
+## Example:
 
     <?php
 

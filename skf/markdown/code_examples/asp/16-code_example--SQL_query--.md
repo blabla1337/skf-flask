@@ -1,7 +1,7 @@
 SQL query
 -------
 
-**Example:**
+## Example:
 
 
 	/*

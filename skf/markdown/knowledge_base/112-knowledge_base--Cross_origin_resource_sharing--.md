@@ -1,7 +1,7 @@
-Cross origin resource sharing
+# Cross origin resource sharing
 -------
 
-**Description:**
+## Description:
 
 Cross Origin Resource Sharing or CORS is a mechanism that enables a web browser to perform
 'cross-domain' requests using the XMLHttpRequest L2 API in a controlled manner.
@@ -9,7 +9,7 @@ In the past, the XMLHttpRequest L1 API only allowed requests to be sent within t
 origin as it was restricted by the same origin policy.
 
 
-**Solution:**
+## Solution:
 
 Cross-Origin requests have an Origin header, that identifies the domain initiating the
 request and is always sent to the server. CORS defines the protocol to use between a web

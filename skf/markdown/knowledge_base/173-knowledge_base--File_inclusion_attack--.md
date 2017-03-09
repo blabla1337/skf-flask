@@ -1,11 +1,11 @@
-File inclusion attack
+# File inclusion attack
 -------
 
-**Description:**
+## Description:
 
 The File Inclusion vulnerability allows an attacker to include a file, usually exploiting
- a "dynamic file inclusion" mechanisms implemented in the target application.
- The vulnerability occurs due to the use of user-supplied input without proper validation.
+a "dynamic file inclusion" mechanisms implemented in the target application.
+The vulnerability occurs due to the use of user-supplied input without proper validation.
 
 
 This can lead to something as outputting the contents of the file, but depending on the
@@ -26,7 +26,7 @@ not properly sanitized, allowing directory traversal characters (such as dot-dot
 to be injected. Although most examples point to vulnerable PHP scripts, we should keep
 in mind that it is also common in other technologies such as JSP, ASP and others.
 
-**Solution:**
+## Solution:
 
 The most effective solution to eliminate file inclusion vulnerabilities is to avoid
 passing user-submitted input to any filesystem/framework API. If this is not possible

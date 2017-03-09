@@ -1,7 +1,7 @@
 Positive validation model
 -------
 
-**Description:**
+## Description:
 
 There are two popular methods in handling input validation. The first is blacklisting
 and the second one is the whitelisting method, also known as a positive validation model.
@@ -24,7 +24,7 @@ or even special strings such as names as an o'reily.
 
 This methods also makes your code clear, transparent and highly maintainable.
 
-**Solution:**
+## Solution:
 
 First there must be a client side input validation method as you would apply to the server
 side. This means you should also apply input rejection as well as typecasting and such.

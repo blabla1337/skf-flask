@@ -2,7 +2,7 @@
 Anti clickjacking headers
 -------
 
-**Example:**
+## Example:
 
 
 

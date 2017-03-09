@@ -1,13 +1,13 @@
-Are all passwords hashed, salted and stretched 
+# Are all passwords hashed, salted and stretched 
 -------
 
-**Description:**
+## Description:
 
 Whenever a password is not properly hashed, salted and stretched an attacker could easily
 abuse the password when obtained.
 
 
-**Solution:**
+## Solution:
 
 A user should always be forced to use a proper password when signing in into the application.
 Preferably a pass-phrase instead of a password. This in order to extend the duration

@@ -1,7 +1,7 @@
 X-XSS-Protection header
 -------
 
-**Example:**
+## Example:
 
 
     /*

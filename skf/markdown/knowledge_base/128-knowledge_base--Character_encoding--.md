@@ -1,7 +1,7 @@
-Character encoding
+# Character encoding
 -------
 
-**Description:**
+## Description:
 
 Character encoding is the process of mapping characters, numbers and other symbols to a
 standard format. Typically, this is done to create a message ready for transmission
@@ -17,10 +17,7 @@ bypass of input validation filters, or take advantage of particular ways in whic
 render encoded text.
 
 
-**Solution:**
-
-**note:These three ways of providing the character encoding of a document are not
-equivalent.**
+## Solution:
 
 When trying to figure out the character encoding of a resource, user agents will try, in
 this order:
@@ -31,3 +28,8 @@ this order:
 
 Make sure this information is provided by your application for the server in order to
 prevent it from guessing the wrong encoding standard, leaving room for injection.
+
+## Note:
+
+These three ways of providing the character encoding of a document are not
+equivalent.

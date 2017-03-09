@@ -2,7 +2,7 @@
 Random password/token generation
 -------
 
-**Example:**
+## Example:
 
 
 

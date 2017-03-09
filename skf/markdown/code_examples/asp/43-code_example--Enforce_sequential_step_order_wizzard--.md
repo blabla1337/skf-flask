@@ -1,7 +1,7 @@
 Enforce sequential step order (Wizzard)
 -------
 
-**Example:**
+## Example:
 	
 	//Example as used in your controller:
 	

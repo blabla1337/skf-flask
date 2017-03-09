@@ -1,7 +1,7 @@
-User registration - pattern
+# User registration - pattern
 -------
 
-**Description:**
+## Description:
 
 Whenever you allow users to register on your system there are a couple of things you need
 to take into consideration in order to enforce a high level of security
@@ -16,7 +16,7 @@ For more detailed information about these items you should check the knowledge-b
 6. Does The application enforce the use of secure passwords.
 
 
-**Solution:**
+## Solution:
 
 The items as pointed out before should be looked into and taken into consideration
 whenever you are letting users register on your system in order to enforce a
@@ -37,7 +37,7 @@ and repercussions should be taken whenever these infringements are frequent.
 Third, never display the users password on screen anywhere.
 
 Fourth, Whenever you generate a password for your users, this password should always
-be randomised sufficiently.
+be randomized sufficiently.
 
 Fifth, encrypt your passwords by proven cryptographic standards when storing them.
 

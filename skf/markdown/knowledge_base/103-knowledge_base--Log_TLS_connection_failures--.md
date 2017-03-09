@@ -1,11 +1,11 @@
-Log TLS connection failures
+# Log TLS connection failures
 -------
 
-**Description:**
+## Description:
 
 Failing TLS connections should always be logged. This is a great indicator that 'something' is wrong.
 
 
-**Solution:**
+## Solution:
 
 Verify that backend TLS connection failures are logged.

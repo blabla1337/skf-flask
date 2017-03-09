@@ -2,7 +2,7 @@
 Secure session cookies
 -------
 
-**Example:**
+## Example:
 
 
     <?php

@@ -1,7 +1,7 @@
-Username enumeration
+# Username enumeration
 -------
 
-**Description:**
+## Description:
 
 Whenever an application generates an error like:
 
@@ -14,7 +14,7 @@ Whenever an user forgot his password, make him fill in his email address
 rather than an username.
 
 
-**Solution:**
+## Solution:
 
 All error messages should be generalized in order to prevent username enumeration.
 Also sometimes you cannot avoid information leaking in functionalities such as a

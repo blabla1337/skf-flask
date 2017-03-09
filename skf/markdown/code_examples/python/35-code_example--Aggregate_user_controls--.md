@@ -2,7 +2,7 @@
 Aggregate user controlls
 -------
 
-**Example:**
+## Example:
 
    	<?php
 

@@ -1,13 +1,13 @@
-External session hijacking
+# External session hijacking
 -------
 
-**Description:**
+## Description:
 
 When an attacker obtains a users session cookie, then he could steal the identity of the
 user which the session cookie belonged to.
 
 
-**Solution:**
+## Solution:
 
 As soon as a session is set for an authenticated user,
 the server should keep track of the IP address in which the user used when he started the session.

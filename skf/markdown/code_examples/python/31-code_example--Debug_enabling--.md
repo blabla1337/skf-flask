@@ -2,7 +2,7 @@
 Debug Enabling
 -------
 
-**Example:**
+## Example:
 
     <?php
 

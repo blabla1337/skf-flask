@@ -1,7 +1,7 @@
 Aggregate user controlls
 -------
 
-**Example:**
+## Example:
 
    	
 	/*

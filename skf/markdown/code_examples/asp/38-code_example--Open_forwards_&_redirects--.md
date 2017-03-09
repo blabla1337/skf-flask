@@ -1,7 +1,7 @@
 Open forwards & redirects
 -------
 
-**Example:**
+## Example:
 	
 	/*
 	When using forwards & redirects you should make sure the URL is being explicitly 

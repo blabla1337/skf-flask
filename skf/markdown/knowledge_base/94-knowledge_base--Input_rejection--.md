@@ -1,13 +1,13 @@
-Input rejection
+# Input rejection
 -------
 
-**Description:**
+## Description:
 
 Whenever the application detects malicious or unexpected user-input you want to make sure
 the application actual rejects the submitted user-input rather than directly process it.
 
 
-**Solution:**
+## Solution:
 
 Verify that the application actually rejects the user requests whenever malicious input
 is detected by your application. The base of this process will be checking the application

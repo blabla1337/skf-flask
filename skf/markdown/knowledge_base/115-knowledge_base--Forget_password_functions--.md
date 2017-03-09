@@ -1,7 +1,7 @@
-Forget password functions
+# Forget password functions
 -------
 
-**Description:**
+## Description:
 
 Whenever a user forgets his password and your application provides a password
 forget functionality or any other type of recovery paths
@@ -9,7 +9,7 @@ there are a couple of things to take into consideration when you want to harden 
 security.
 
 
-**Solution:**
+## Solution:
 
 The forget password function should never send a new password by email but should contain
 a reset link with a token which is valid for a limited amount of time.

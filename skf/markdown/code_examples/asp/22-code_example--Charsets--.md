@@ -1,7 +1,7 @@
 Charsets
 -------
 
-**Example:**
+## Example:
 
 
 	/*

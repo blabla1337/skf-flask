@@ -1,7 +1,7 @@
 Session cookies (domain)
 -------
 
-**Example:**
+## Example:
 
 	/*
 	Setting the "Domain" attribute to a too permissive value, such as "example.com" 

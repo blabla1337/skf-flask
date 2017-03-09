@@ -2,7 +2,7 @@
 Session hijacking and session fixation
 -------
 
-**Example:**
+## Example:
 
    	<?php
 

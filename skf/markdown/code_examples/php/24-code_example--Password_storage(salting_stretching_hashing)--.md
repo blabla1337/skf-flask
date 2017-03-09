@@ -1,47 +1,45 @@
-
-Password storage(salting/stretching/hashing)
+# Password storage(salting/stretching/hashing)
 -------
 
-**Example:**
+## Example:
 
-	<?php
-	class passwordHash{	
-		public function createHash($pwd){
-			
-			/*
-			For the encryption of passwords we use php's BCRYPT encryption method.
-			*/
 
-			//Here we generate a hash with a random salt
-			public function HashPassword($password){
-				$options = [
-				'cost' => 11,
-				'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
-				];
+    <?php
 
-				$hash =	password_hash($password, PASSWORD_BCRYPT, $options)."\n";
+			class passwordHash{
+				public function createHash($pwd){
 
-				return $hash;
-			}
+					/*
+					For the encryption of passwords we use php's BCRYPT encryption method.
+					*/
 
-			//Validate your password
-			public function ValidatePassword($correctHash, $password)
-			{
-			if(password_verify($password, $correctHash))
-				{
-					//After successful validation we want to log that password was validated successfully:
-					setLog($_SESSION['userID'],"Password return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
-					return true;
-				}else{		
-					//We log invalid password use
-					setLog($_SESSION['userID'],"Password return false", "FAIL", date(dd-mm-yyyy), $privelige, "LOW");
-					return false;
+					//Here we generate a hash with a random salt
+					public function HashPassword($password){
+						$options = [
+						'cost' => 11,
+						'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+						];
+
+						$hash =	password_hash($password, PASSWORD_BCRYPT, $options)."\n";
+
+						return $hash;
+					}
+
+					//Validate your password
+					public function ValidatePassword($correctHash, $password)
+					{
+					if(password_verify($password, $correctHash))
+						{
+							//After successful validation we want to log that password was validated successfully:
+							setLog($_SESSION['userID'],"Password return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+							return true;
+						}else{		
+							//We log invalid password use
+							setLog($_SESSION['userID'],"Password return false", "FAIL", date(dd-mm-yyyy), $privelige, "LOW");
+							return false;
+						}
+					}
 				}
 			}
-		}
-	}
-	?>
-
-
-
-	
+			
+	  ?>

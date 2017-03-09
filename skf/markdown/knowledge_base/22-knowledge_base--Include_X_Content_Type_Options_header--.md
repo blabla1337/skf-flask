@@ -1,7 +1,7 @@
-Include X-Content-Type-Options header
+# Include X-Content-Type-Options header
 -------
 
-**Description:**
+## Description:
 
 The only defined value, nosniff, prevents Internet Explorer and Google Chrome from
 MIME-sniffing a response away from the declared content-type.
@@ -11,7 +11,7 @@ content that, by clever naming, could be treated by MSIE as executable or dynami
 files.
 
 
-**Solution:**
+## Solution:
 
 These headers are also known as the: X-Content-Type-Options: nosniff;
 and provide protection against Mime content type attacks when implemented in the

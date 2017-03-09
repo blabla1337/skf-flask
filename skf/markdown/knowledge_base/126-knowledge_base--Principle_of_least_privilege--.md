@@ -1,14 +1,14 @@
-Principle of least privilege
+# Principle of least privilege
 -------
 
-**Description:**
+## Description:
 
 The principle of least privilege recommends that accounts have the least amount of
 privilege required to perform their business processes. This encompasses user rights,
 resource permissions such as CPU limits, memory, network, and file system permissions.
 
 
-**Solution:**
+## Solution:
 
 The principle means giving a user account only those privileges which are essential to
 that users work. For example, a backup user does not need to install software: hence,

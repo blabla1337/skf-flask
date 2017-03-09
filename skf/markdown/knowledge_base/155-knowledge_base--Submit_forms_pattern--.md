@@ -1,7 +1,7 @@
-Submit forms - pattern
+# Submit forms - pattern
 -------
 
-**Description:**
+## Description:
 
 Whenever a user can submit a form in your system you should consider implementing
 the following defense mechanism in order to ensure high level security.
@@ -13,7 +13,7 @@ the following defense mechanism in order to ensure high level security.
 
 
 
-**Solution:**
+## Solution:
 
 Here are the steps described briefly.
 For more detailed information you should look into these items in the knowledge base.

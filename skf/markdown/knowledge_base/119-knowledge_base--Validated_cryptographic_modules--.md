@@ -1,7 +1,7 @@
-Validated cryptographic modules
+# Validated cryptographic modules
 -------
 
-**Description:**
+## Description:
 
 The National Institute of Standards and Technology (NIST) issued the FIPS 140 Publication
 Series to coordinate the requirements and standards for cryptography modules that include
@@ -10,7 +10,7 @@ security system is necessary to maintain the confidentiality and integrity of th
 information protected by the module.
 
 
-**Solution:**
+## Solution:
 
 Verify that cryptographic modules used by the application have been validated against
 FIPS 140-2 or an equivalent standard.

@@ -2,7 +2,7 @@
 Enforce secure passwords
 -------
 
-**Example:**
+## Example:
 
 
 

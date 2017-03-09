@@ -1,7 +1,7 @@
-STRIDE
+# STRIDE
 -------
 
-**Description:**
+## Description:
 
 STRIDE is a collective for a series of vulnerabilities your applications should
 cover in order to harden your applications security.
@@ -13,7 +13,7 @@ Repudiation
 Information Disclosure
 Elevation of privilege
 
-**Solution:**
+## Solution:
 
 In the context of network security, a spoofing attack is a situation in which one person
 or program successfully masquerades as another by falsifying data and thereby gaining an

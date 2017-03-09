@@ -2,7 +2,7 @@
 Logout function
 -------
 
-**Example:**
+## Example:
 
 
 

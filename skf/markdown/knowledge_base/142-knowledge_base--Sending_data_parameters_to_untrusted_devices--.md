@@ -1,15 +1,15 @@
-Sending data/parameters to untrusted devices
+# Sending data/parameters to untrusted devices
 -------
 
-**Description:**
+## Description:
 
 Whenever an application sends data/parameters to untrusted devices this data could be
 compromised if the device has malicious intents.
 
 
-**Solution:**
+## Solution:
 
-Verify the application minimises the number of parameters sent to untrusted systems,
+Verify the application minimizes the number of parameters sent to untrusted systems,
 such as hidden fields, Ajax variables, cookies and header values.
 
 These untrusted devices should also be documented if possible and should be taken into

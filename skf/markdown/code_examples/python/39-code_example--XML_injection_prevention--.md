@@ -2,7 +2,7 @@
 XML injection prevention
 -------
 
-**Example:**
+## Example:
 
    		
 	<?php

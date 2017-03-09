@@ -1,7 +1,7 @@
-Double decoding of headers/parameters
+# Double decoding of headers/parameters
 -------
 
-**Description:**
+## Description:
 
 Double decoding is a problem which often occurs when multiple servers are used in which a
 configuration error is made.
@@ -17,6 +17,6 @@ Attackers can inject double encoding in pathnames or query strings to bypass the
 authentication schema and security filters in use by the web application.
 
 
-**Solution:**
+## Solution:
 
 Only one web-server should decode/encode the data.

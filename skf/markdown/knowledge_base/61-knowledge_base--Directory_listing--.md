@@ -1,7 +1,7 @@
-Directory listing
+# Directory listing
 -------
 
-**Description:**
+## Description:
 
 Whenever directory listing is enabled an attacker could gain sensitive information about
 the systems hierarchical structure and gain knowledge about directories or files which should
@@ -10,7 +10,7 @@ increase his attack vector. In some cases this could even lead to an attacker ga
 credentials or old vulnerable system demo functions which might lead to remote code execution.
 
 
-**Solution:**
+## Solution:
 
 Different types of servers require a different type of approach in order to disable
 directory listing. For instance: apache uses a .htacces in order to disable directory listing.

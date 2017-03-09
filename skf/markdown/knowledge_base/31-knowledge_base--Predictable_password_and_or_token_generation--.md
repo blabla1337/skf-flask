@@ -1,13 +1,13 @@
-Predictable password and/or token generation
+# Predictable password and/or token generation
 -------
 
-**Description:**
+## Description:
 
 Tokens or passwords that are used within the application must contain a high entropy in
 order to prevent the prediction of these values.
 
 
-**Solution:**
+## Solution:
 
 Tokens should contain a high level entropy and randomness to prevent predictable token generation.
 All random numbers, random file names, random GUIDs, and random must be generated using

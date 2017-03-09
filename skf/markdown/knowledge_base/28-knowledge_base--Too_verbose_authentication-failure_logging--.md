@@ -1,14 +1,14 @@
-Too verbose authentication-failure logging
+# Too verbose authentication-failure logging
 -------
 
-**Description:**
+## Description:
 
 The error messages that are displayed when a user fails to login into an application
 should selected with caution. When this error message gives away too much information,
 this information can be exploited by a hacker.
 
 
-**Solution:**
+## Solution:
 
 The application should never publish available usernames. When an attacker gains this
 information he increases his attack vector and reduces the time

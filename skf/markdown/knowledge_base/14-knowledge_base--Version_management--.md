@@ -1,7 +1,7 @@
-Version management
+# Version management
 -------
 
-**Description:**
+## Description:
 
 Whenever a programmer decides to use third party software,
 he should keep an eye implementing a proper version management methodology for this software.
@@ -12,7 +12,7 @@ script kiddies could easily compromise your application by following the
 exploit tutorials online, thus compromising your application.
 
 
-**Solution:**
+## Solution:
 
 One option is not to use components that you did not write.
 But that is not very realistic.

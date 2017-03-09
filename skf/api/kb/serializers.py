@@ -18,7 +18,11 @@ page_of_kb_items = api.inherit('Page of KB items', pagination, {
     'items': fields.List(fields.Nested(kb))
 })
 
-kb_update = api.model('kb_update', {
+kb_update = api.model('KB update', {
     'title': fields.String(required=True, description='New KB title'),
     'content': fields.String(required=True, description='New KB content'),
+})
+
+message = api.model('Response message', {
+    'message': fields.String(required=True, description='Response message'),
 })

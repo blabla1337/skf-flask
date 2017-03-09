@@ -1,14 +1,14 @@
-Aggregate user requests
+# Aggregate user requests
 -------
 
-**Description:**
+## Description:
 
 Verify the system can protect against aggregation or continuous access to functions,  
 resources, or data. For example, possibly by the use of a resource governor to limit the
 number of edits per minute in order to to prevent an automatic attack
 
 
-**Solution:**
+## Solution:
 
 Verify the application has the ability to detect and alert on abnormal numbers of requests
 for information or processing high value transactions for that user role, such as screen

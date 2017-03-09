@@ -1,7 +1,7 @@
-GET/POST requests
+# GET/POST requests
 -------
 
-**Description:**
+## Description:
 
 Authors of services which use the HTTP protocol SHOULD NOT use GET based forms for the
 submission of sensitive data, because this will cause this data to be
@@ -12,7 +12,7 @@ GET parameters are also more likely to be vulnerable to XSS. Please refer to the
 XSS manual in the knowledge base for more information.
 
 
-**Solution:**
+## Solution:
 
 Whenever transmitting sensitive data always do this by means of the POST request or by header.
 Note: Avoid user-input in your application header, this could lead to vulnerabilities.

@@ -1,7 +1,7 @@
 Path traversal
 -------
 
-**Example:**
+## Example:
 
 	using System;
 	using System.Collections.Generic;

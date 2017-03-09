@@ -2,7 +2,7 @@
 XML External entities
 -------
 
-**Example:**
+## Example:
 
 
 

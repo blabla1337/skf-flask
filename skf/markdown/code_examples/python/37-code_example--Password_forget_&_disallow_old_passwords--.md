@@ -2,7 +2,7 @@
 Password forget & Disallow old passwords
 -------
 
-**Example:**
+## Example:
 
     /*
 	Whenever you are developing a password forget function, these are the steps to follow

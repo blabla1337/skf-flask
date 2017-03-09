@@ -1,7 +1,7 @@
-Aggregate access control protection
+# Aggregate access control protection
 -------
 
-**Description:**
+## Description:
 
  Verify the system can protect against aggregation or continuous access of
  secured functions, resources, or data. For example, possibly by the use of a
@@ -9,7 +9,7 @@ Aggregate access control protection
  from being scraped by an individual user.
 
 
-**Solution:**
+## Solution:
 
 The system should contain a counter which can keep up with the number of times a certain
 users addresses database tables and should be rejected when he passes a reasonable number.

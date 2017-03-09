@@ -1,14 +1,14 @@
-Account lock-out
+# Account lock-out
 -------
 
-**Description:**
+## Description:
 
 All applications should contain the possibility to lock down accounts for whenever it
 detects attacks by/on users. Also you should include options for both soft and hard
 lock-out mechanisms.
 
 
-**Solution:**
+## Solution:
 
 Soft lock-out:
 This can be a good option for protecting your users against brute force attacks.

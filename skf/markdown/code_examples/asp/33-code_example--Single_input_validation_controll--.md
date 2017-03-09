@@ -1,7 +1,7 @@
 Single input validation controll
 -------
 
-**Example:**
+## Example:
 	
 	using System;
 	using System.Collections.Generic;

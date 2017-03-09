@@ -1,12 +1,12 @@
-Limiting the size of user input
+# Limiting the size of user input
 -------
 
-**Description:**
+## Description:
 
 Whenever there is user-input supplied into your application you also want to limit
 the size of the user-input to appropriate maximum lengths.
 
-**Solution:**
+## Solution:
 
 Verify that XML or JSON schema are in place and verified before accepting input.
 

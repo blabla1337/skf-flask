@@ -1,7 +1,7 @@
-CSRF injection
+# CSRF injection
 -------
 
-**Description:**
+## Description:
 
 Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious Web site,
 email, blog, instant message, or program causes a users Web browser to perform an unwanted
@@ -16,7 +16,7 @@ knowledge of the target user at least until the unauthorised function has been c
 
 
 
-**Solution:**
+## Solution:
 
 To arm an application against automated attacks and tooling you need to use unique tokens
 who are included into the forms of an application, API calls or AJAX requests.  

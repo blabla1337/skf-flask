@@ -1,7 +1,7 @@
-The crossdomain.xml should only contains trusted domains 
+# The crossdomain.xml should only contains trusted domains 
 -------
 
-**Description:**
+## Description:
 
 The use of a crossdomain.xml file is required when the web application uses Flash.
 This file is used to set up restrictions for any other web servers using the
@@ -9,6 +9,6 @@ flash application. If these are not set correctly, an attacker could exploit thi
 execute targeted attacks against the users of the web application.
 
 
-**Solution:**
+## Solution:
 
 Always make sure the crossdomain.xml only contains trusted domains.

@@ -2,7 +2,7 @@
 Timeout a session
 -------
 
-**Example:**
+## Example:
 
 
 

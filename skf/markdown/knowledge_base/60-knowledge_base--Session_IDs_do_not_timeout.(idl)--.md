@@ -1,7 +1,7 @@
-Session IDs do not timeout (idl)
+# Session IDs do not timeout (idl)
 -------
 
-**Description:**
+## Description:
 
 All sessions should implement an idle or inactivity timeout.
 This timeout defines the amount of time a session will remain active in case there is no
@@ -18,7 +18,7 @@ parameters to track time references (e.g. number of minutes since login time), a
 could manipulate these to extend the session duration.
 
 
-**Solution:**
+## Solution:
 
 All user sessions should time-out based on logic server-side in order to decrease an
 attackers attack vector on the user session.

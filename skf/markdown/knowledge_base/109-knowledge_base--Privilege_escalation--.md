@@ -1,7 +1,7 @@
-Privilege escalation
+# Privilege escalation
 -------
 
-**Description:**
+## Description:
 
 In every portion of the application where a user can create information in the database
 (e.g., making a payment, adding a contact, or sending a message), then he can receive
@@ -12,7 +12,7 @@ possible to access a function that should not be permitted by the users role/pri
 (but might be permitted as another user).
 
 
-**Solution:**
+## Solution:
 
 Checking if a user has enough authorization to execute certain request should always be
 enforced on the server-side. Also you may to apply the Principle of Least privilege,

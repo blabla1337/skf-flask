@@ -1,7 +1,7 @@
 X-path query
 -------
 
-**Example:**
+## Example:
 
 	using System;
 	using System.Collections.Generic;

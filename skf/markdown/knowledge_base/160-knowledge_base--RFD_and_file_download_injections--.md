@@ -1,7 +1,7 @@
-Reflective file download and File download injections
+# Reflective file download and File download injections
 -------
 
-**Description:**
+## Description:
 
 Reflective file download occurs whenever an attacker can "forge" a download through
 misconfiguration in your "disposition" and "content type" headers. Instead of having
@@ -22,7 +22,7 @@ into the response like: filename=evil.bat%0A%0D%0A%0DinsertEvilStringHere
 Whenever the user now opens the downloaded file the attacker can gain full control over
 the targets device.
 
-**Solution:**
+## Solution:
 
 First of all never use user-input directly into your headers since an attacker can now
 take control over it.

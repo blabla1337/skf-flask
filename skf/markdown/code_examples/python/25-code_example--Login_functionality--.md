@@ -2,7 +2,7 @@
 Login functionality
 -------
 
-**Example:**
+## Example:
 
     <?php
 

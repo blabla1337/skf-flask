@@ -1,7 +1,7 @@
-Sandboxing
+# Sandboxing
 -------
 
-**Description:**
+## Description:
 
 A sandbox is a security mechanism for separating running programs.
 It is often used to execute untested code, or untrusted programs from
@@ -9,7 +9,7 @@ unverified third parties, suppliers, untrusted users and untrusted websites. It'
 an extra layer of security where an attacker first need to break out from.
 
 
-**Solution:**
+## Solution:
 
 Use the sandbox attribute of an iframe for untrusted content. The sandbox attribute of an
 iframe enables restrictions on content within a iframe. The following restrictions are

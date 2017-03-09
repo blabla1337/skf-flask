@@ -1,7 +1,7 @@
-Parsing data exchange formats
+# Parsing data exchange formats
 -------
 
-**Description:**
+## Description:
 
 Whenever you are parsing data exchange formats such as, XML, JSON, CSV, etc, you
 have to make sure that whenever these data files contain malicious code this will not be
@@ -10,14 +10,14 @@ the encoding and escaping for you since there could always be an edge case that 
 execute certain attacks.
 
 
-**Solution:**
+## Solution:
 
-We highly recommend to do your own escaping, sanitising, encoding on all data before
+We highly recommend to do your own escaping, sanitizing, encoding on all data before
 entering your application. The risk also depend on the context of wherever you are putting
 this data into. So before you are doing any mutations with your data after getting it from
 the resources, make sure you have applied the right mitigations.
 
-Also another reason to build an extra layer of escaping, sanitising, encoding routines
+Also another reason to build an extra layer of escaping, sanitizing, encoding routines
 in your application is because of the logging you want to apply on the data.
 
 Recommended knowledge base items:

@@ -1,7 +1,7 @@
-External DTD parsing
+# External DTD parsing
 -------
 
-**Description:**
+## Description:
 
 Processing of an external entity containing tainted data may lead to disclosure of
 confidential information and other system impacts.
@@ -30,6 +30,6 @@ can access local resources that may not stop returning data, possibly impacting 
 availability if too many threads or processes are not released.
 
 
-**Solution:**
+## Solution:
 
 Disable the XML DTD parsing. This can be set when initiating the XML parser.

@@ -2,7 +2,7 @@
 Password storage(salting/stretching/hashing)
 -------
 
-**Example:**
+## Example:
 
     <?php
 

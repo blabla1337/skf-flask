@@ -1,7 +1,7 @@
-Identifier-based authorization
+# Identifier-based authorization
 -------
 
-**Description:**
+## Description:
 
 An application uses parameters in order to process data.
 These parameters can also be used to assign certain roles and retrieve
@@ -17,7 +17,7 @@ In this situation the application will get content and subscribe user roles corr
 In this situation the application will get content and subscribe user roles corresponding to the admin parameter.
 
 
-**Solution:**
+## Solution:
 
 Whenever you are checking whether a user is restricted to review certain data, the access
 restrictions should be processed server-side.

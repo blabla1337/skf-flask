@@ -2,7 +2,7 @@
 Audit logs
 -------
 
-**Example:**
+## Example:
 
     <?php
 

@@ -1,7 +1,7 @@
 Anti clickjacking headers
 -------
 
-**Example:**
+## Example:
 
 	/*
     One way to defend against clickjacking is to include a "frame-breaker" script in each 

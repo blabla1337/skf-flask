@@ -1,7 +1,7 @@
-SSI injections
+# SSI injections
 -------
 
-**Description:**
+## Description:
 
 Web servers usually give developers the ability to add small pieces of dynamic code inside
 static HTML pages, without having to deal with full-fledged server-side
@@ -13,6 +13,6 @@ be interpreted by SSI mechanisms. A successful exploitation of this vulnerabilit
 allows an attacker to inject code into HTML pages or even perform remote code execution.
 
 
-**Solution:**
+## Solution:
 
 The SSI handler on the web-server should not be activated when it is not used.

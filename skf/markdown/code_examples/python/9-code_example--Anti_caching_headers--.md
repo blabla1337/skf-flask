@@ -2,7 +2,7 @@
 Anti-caching headers
 -------
 
-**Example:**
+## Example:
 
 
 

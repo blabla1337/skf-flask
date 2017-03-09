@@ -1,7 +1,7 @@
-HTTP header injection
+# HTTP header injection
 -------
 
-**Description:**
+## Description:
 
 HTTP header injection is a general class of web application security vulnerability which
 occurs when Hypertext Transfer Protocol (HTTP) headers are
@@ -15,7 +15,7 @@ Vulnerabilities due to HTTP header injections such as CRLF are no longer
 feasible due to the fact that multiple header requests are not possible.
 
 
-**Solution:**
+## Solution:
 
 When user-input will be used in HTTP headers then the newlines should be escaped in a
 correct manner. Recommended would be a whitelist of expected input or use a validation method

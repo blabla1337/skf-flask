@@ -1,7 +1,7 @@
-LDAP injection
+# LDAP injection
 -------
 
-**Description:**
+## Description:
 
 LDAP Injection is an attack used to exploit web based applications that
 construct LDAP statements based on user input. When an application fails to properly
@@ -12,7 +12,7 @@ The same advanced exploitation techniques available in SQL Injection can be simi
 applied in LDAP Injection.
 
 
-**Solution:**
+## Solution:
 
 The best way to prevent LDAP injection is to use a positive validation scheme for ensuring
 that the data going into your queries does not contain any attacks. However, in some cases,

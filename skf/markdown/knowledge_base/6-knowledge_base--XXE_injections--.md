@@ -1,7 +1,7 @@
-XXE injections
+# XXE injections
 -------
 
-**Description:**
+## Description:
 
 Processing of an Xml eXternal Entity containing tainted data may lead to disclosure of
 confidential information and other system impacts.
@@ -15,7 +15,7 @@ accessible by the application. Attacks can include disclosing local files, which
 contain sensitive data such as passwords or private
 
 
-**Solution:**
+## Solution:
 
 Disable the possibility to fetch resources from an external source.
 This is normally done in the configuration of the used XML parser.

@@ -1,7 +1,7 @@
-XSS injection
+# XSS injection
 -------
 
-**Description:**
+## Description:
 
 Every time the application gets user-input, whether this showing it on screen or processing
 this data in the application background, these parameters should be escaped for malicious
@@ -12,7 +12,7 @@ application. This could lead to accounts being compromised by stealing session c
 or directly affect the operation of the target application.
 
 
-**Solution:**
+## Solution:
 
 In order to prevent XSS injections all user-input should be escaped or encoded.
 You could start by sanitising user-input as soon as it is inserted into the application,

@@ -1,7 +1,7 @@
 Audit logs
 -------
 
-**Example:**
+## Example:
 
    	using System;
 	using System.Collections.Generic;

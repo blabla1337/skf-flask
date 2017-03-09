@@ -1,13 +1,13 @@
-Certificate paths/revocation information
+# Certificate paths/revocation information
 -------
 
-**Description:**
+## Description:
 
 Whenever your certificate authority is not trusted anymore you should always be able to
 recall these certificates asap.
 
 
-**Solution:**
+## Solution:
 
 The trust anchor for given zone is found in the keyset-<zone name> file on the secure
 signing computer in the same location where the signed and unsigned copies of the zone reside.

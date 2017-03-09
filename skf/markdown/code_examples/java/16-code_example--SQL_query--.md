@@ -2,7 +2,7 @@
 SQL query
 -------
 
-**Example:**
+## Example:
 
       /*
       This example uses a prepared statement in order to insert data into the database.

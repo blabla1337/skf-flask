@@ -1,7 +1,7 @@
 Session cookies HttpOnly
 -------
 
-**Example:**
+## Example:
 
 	/*
 	Whenever a session is started, the "httpOnly" option should always be set

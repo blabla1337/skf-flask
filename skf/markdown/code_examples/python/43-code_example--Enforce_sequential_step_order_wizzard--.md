@@ -2,7 +2,7 @@
 Enforce sequential step order (Wizzard)
 -------
 
-**Example:**
+## Example:
 
 	<?php
 

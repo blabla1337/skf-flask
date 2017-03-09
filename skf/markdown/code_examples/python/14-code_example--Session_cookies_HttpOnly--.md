@@ -2,7 +2,7 @@
 Session cookies HttpOnly
 -------
 
-**Example:**
+## Example:
 
 
     <?php

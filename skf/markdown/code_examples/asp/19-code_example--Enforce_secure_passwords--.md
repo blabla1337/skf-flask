@@ -1,7 +1,7 @@
 Enforce secure passwords
 -------
 
-**Example:**
+## Example:
 
 	
 	using System;

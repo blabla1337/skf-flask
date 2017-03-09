@@ -1,7 +1,7 @@
 HTML output
 -------
 
-**Example:**
+## Example:
 
 
 	/*

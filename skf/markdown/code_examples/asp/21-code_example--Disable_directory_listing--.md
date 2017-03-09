@@ -1,7 +1,7 @@
 Disable directory listing
 -------
 
-**Example:**
+## Example:
 
 	<configuration>
 	  <location path="Secured">

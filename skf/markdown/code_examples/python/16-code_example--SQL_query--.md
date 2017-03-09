@@ -2,7 +2,7 @@
 SQL query
 -------
 
-**Example:**
+## Example:
 
 
     <?php

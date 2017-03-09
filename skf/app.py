@@ -21,15 +21,15 @@ import logging.config, click, os, re
 from flask import Flask, Blueprint
 from sqlite3 import dbapi2 as sqlite3
 from sqlalchemy import text
-from flask_bcrypt import Bcrypt
 from skf import settings
 from skf.api.user.endpoints.activate import ns as users_activate_namespace
+from skf.api.user.endpoints.login import ns as users_login_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_items_namespace
+from skf.api.projects.endpoints.project_items import ns as project_items_namespace
 from skf.api.restplus import api
 from skf.database import db
 
 app = Flask(__name__)
-bcrypt = Bcrypt(app)
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
@@ -49,7 +49,9 @@ def initialize_app(flask_app):
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
     api.add_namespace(users_activate_namespace)
+    api.add_namespace(users_login_namespace)
     api.add_namespace(kb_items_namespace)
+    api.add_namespace(project_items_namespace)
     flask_app.register_blueprint(blueprint)
     db.init_app(flask_app)
 

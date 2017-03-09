@@ -2,7 +2,7 @@
 X-Content-Type-Options header
 -------
 
-**Example:**
+## Example:
 
 
     <?php

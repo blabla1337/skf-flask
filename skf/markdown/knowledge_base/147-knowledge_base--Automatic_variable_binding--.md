@@ -1,7 +1,7 @@
-Automatic variable binding
+# Automatic variable binding
 -------
 
-**Description:**
+## Description:
 
 If the application framework allows automatic mass parameter assignment
 (also called automatic variable binding) from the inbound request to a model,
@@ -12,7 +12,7 @@ could become a safety hazard since the application processes these variables
 in his operations.
 
 
-**Solution:**
+## Solution:
 
 When working with automatic variable binding you should create whitelists of what
 parameters are expected and allow only these parameters to be passed into your

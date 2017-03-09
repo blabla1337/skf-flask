@@ -1,7 +1,7 @@
 Secure session cookies
 -------
 
-**Example:**
+## Example:
 
 	/*
 	Whenever  a cookie is sent over a secured connection, the cookie should be set

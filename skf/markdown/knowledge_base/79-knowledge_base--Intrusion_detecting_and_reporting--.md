@@ -1,20 +1,20 @@
-Intrusion detecting and reporting
+# Intrusion detecting and reporting
 -------
 
-**Description:**
+## Description:
 
 All possible attacks on your application should be detected an reported in order to
 prevent further escalation.
 
 
-**Solution:**
+## Solution:
 
 Intrusion detecting could be done by means of a:
 
 "Positive security model:"
 In this model you create certain regular expressions in order to only make the application
 pass the so called "known good".
-Whenever an application detects strange behaviour and anomalies,
+Whenever an application detects strange behavior and anomalies,
 these issues should be reported. Keep in mind whenever the application changes this
 whitelist method has to evolve alongside with it. A big con is it could generate a lot
 of reports and alerts.

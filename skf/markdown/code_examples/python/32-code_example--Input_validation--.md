@@ -2,7 +2,7 @@
 input validation
 -------
 
-**Example:**
+## Example:
    
 
     <?php
@@ -59,7 +59,7 @@ input validation
 		*/
 		setCounter(3);
 					
-		//The die function is to make sure the rest of the php code is not excecuted beyond this point
+		//The die function is to make sure the rest of the php code is not executed beyond this point
 		die(); 
 	}
 	

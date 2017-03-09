@@ -1,7 +1,7 @@
-Session cookies without the Secure flag
+# Session cookies without the Secure flag
 -------
 
-**Description:**
+## Description:
 
 The secure flag is an option that can be set when creating a cookie.
 This flag ensures that the cookie will not be sent over an unencrypted
@@ -9,7 +9,7 @@ connection by the browser.
 Which ensures that the session cookie can not be send over a non-encrypted link.
 
 
-**Solution:**
+## Solution:
 
 When creating a session cookie which is send over an encrypted connection
 you should set the secure flag. The Secure flag should be set during every set-cookie.

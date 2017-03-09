@@ -2,7 +2,7 @@
 Enforce sequential step order (Shopping)
 -------
 
-**Example:**
+## Example:
 
    	<?php
 
