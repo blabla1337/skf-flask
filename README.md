@@ -7,7 +7,7 @@
 
 <br/>
 Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.  
- 
+
 ##Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
@@ -33,6 +33,17 @@ By means of the answers supplied by the developer the application again generate
 
 ##<a name="installing"></a>Installing
 
+####Docker
+----------
+When Docker is available, the fastest way to start using the SKF project is using the pre-built container hosted at Docker hub.
+```
+docker run -ti -p 127.0.0.1:443:5443 blabla1337/skf-flask
+```
+The application will greet you on:
+https://127.0.0.1
+
+This container always has the very latest version from the repository.
+
 ####Automated installation with Chef
 ----------
 
@@ -54,7 +65,7 @@ For using the SKF chef cookbook you will need to install the 3 software products
 
 **Vagrant**
 * Vagrant is has pre-build images ready to use for stable and fast development
-* [https://www.vagrantup.com/downloads.html](https://www.vagrantup.com/downloads.html) 
+* [https://www.vagrantup.com/downloads.html](https://www.vagrantup.com/downloads.html)
 
 When you have installed the above software you are now able to create a VirtualBox image with Vagrant configuration and using Chef to configure the SKF application. The SKF chef cookbook will do this all for you and you only need to follow the steps below on your machine/laptop.
 
@@ -63,7 +74,7 @@ cd ~/
 wget https://github.com/blabla1337/owasp-skf-chef/archive/master.zip
 unzip master.zip
 cd owasp-skf-chef-master
-kitchen converge default 
+kitchen converge default
 ```
 
 Now you have to wait a few minutes and watch the magic happen! ^^
@@ -77,10 +88,10 @@ Below are some useful Kitchen 101 commands.
 # All the below commands should be run in the SKF chef directory
 
 # Command for creating the VM with the SKF project
-kitchen converge default 
+kitchen converge default
 
 # Command for login to the VM with the SKF project
-kitchen login default 
+kitchen login default
 
 # Command for detroying the VM with the SKF project
 kitchen destroy
@@ -98,7 +109,7 @@ To run SKF you need Python pip and sqlite3 database support.
 ```bash
   On 64-bit platform:
   sudo apt-get install python-pip sqlite3 lib32z1-dev python-dev libxml2-dev libxslt-dev libffi-dev libssl-dev
-  
+
   On 32-bit platform:
   sudo apt-get install python-pip sqlite3 zlib1g-dev python-dev libxml2-dev libxslt-dev libffi-dev libssl-dev
 ```
@@ -260,7 +271,7 @@ For more detailed information such as user guides and other documentation see:
 ####Waffle.io:
 https://waffle.io/blabla1337/skf-flask
 
-[![Throughput Graph](https://graphs.waffle.io/blabla1337/skf-flask/throughput.svg)](https://waffle.io/blabla1337/skf-flask/metrics) 
+[![Throughput Graph](https://graphs.waffle.io/blabla1337/skf-flask/throughput.svg)](https://waffle.io/blabla1337/skf-flask/metrics)
 
 ##<a name="testing"></a>Testing
 ####Travis-ci.org:
@@ -371,3 +382,9 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Adam Fisher
 - Tom Wirschell
 - Joerg Stephan
+- Simon Brakhane
+- Gerco Grandia
+- Ross Nanopoulos
+- Bob van den Heuvel
+- Mariano
+
