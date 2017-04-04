@@ -1,7 +1,7 @@
 
 from flask import request
 from flask_restplus import Resource
-from skf.api.security import log, security_headers, validate_privilege
+from skf.api.security import log, security_headers, validate_privilege, val_num
 from skf.api.kb.business import update_kb_item
 from skf.api.kb.serializers import page_of_kb_items, kb, kb_update, message
 from skf.api.kb.parsers import pagination_arguments, authorization
@@ -23,6 +23,7 @@ class KBCollection(Resource):
         Privileges required: none
         """
         args = pagination_arguments.parse_args(request)
+
         page = args.get('page', 1)
         per_page = args.get('per_page', 10)
 

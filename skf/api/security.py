@@ -1,4 +1,4 @@
-import jwt, datetime
+import jwt, datetime, re
 
 from skf import settings
 from flask import request, abort
@@ -34,7 +34,7 @@ def log(message, threat, status):
     db.session.add(event)
     db.session.commit()
 
-def val_alpha_num(value, countLevel):
+def val_alpha_num(value):
     """User input validation for checking a-z A-Z 0-9"""
     match = re.findall(r"[a-zA-Z0-9_.-]", value)
     if match:
@@ -44,7 +44,7 @@ def val_alpha_num(value, countLevel):
         return True
 
 
-def val_num(value, countLevel):
+def val_num(value):
     """User input validation for checking numeric values only 0-9"""
     match = re.findall(r'[0-9]', str(value))
     if match:
@@ -54,7 +54,7 @@ def val_num(value, countLevel):
         return True
 
 
-def val_alpha(value, countLevel):
+def val_alpha(value):
     """User input validation for checking a-z A-Z"""
     match = re.findall(r'[a-zA-Z_]', str(value))
     if match:

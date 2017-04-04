@@ -1,4 +1,4 @@
-Segregated components
+# Segregated components
 -------
 
 ## Description:
@@ -11,5 +11,5 @@ different segment of the network. Always apply INGRESS and EGRESS filtering for 
 
 ## Solution:
 
-Verify that components are segregated from each other via a defined security control, such as 
+Verify that components are segregated from each other via a defined security control, such as
 network segmentation, firewall rules, or cloud based security groups.

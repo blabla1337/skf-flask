@@ -37,6 +37,7 @@
       */
 
      	class privilege{
+
   		//Here is the isAuthorized function in which we check whether the user is permitted to do the action
   		public function isAutorized($ispermitted){
 
