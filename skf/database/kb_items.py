@@ -7,7 +7,7 @@ class kb_items(db.Model):
     title = db.Column(db.Text)
     content = db.Column(db.Text)
 
-    def __init__(self, kbID, content, title):
+    def __init__(self, kbID, title, content):
         self.kbID = kbID
         self.title = title
         self.content = content

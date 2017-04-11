@@ -4,7 +4,7 @@ from flask_restplus import Resource
 from skf.api.security import log, security_headers, validate_privilege, val_num
 from skf.api.kb.business import update_kb_item
 from skf.api.kb.serializers import page_of_kb_items, kb, kb_update, message
-from skf.api.kb.parsers import pagination_arguments, authorization
+from skf.api.kb.parsers import pagination_arguments, authorization, id_arguments
 from skf.api.restplus import api
 from skf.database.kb_items import kb_items
 
@@ -37,7 +37,7 @@ class KBCollection(Resource):
 @ns.route('/<int:id>')
 class KBItem(Resource):
 
-    @api.expect(pagination_arguments)
+    @api.expect(id_arguments)
     @api.marshal_with(kb)
     @api.response(400, 'Validation Error', message)
     def get(self, id):

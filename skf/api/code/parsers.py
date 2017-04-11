@@ -10,3 +10,7 @@ authorization = reqparse.RequestParser()
 authorization.add_argument('Authorization', location='headers', required=True, help='Authorization JWT token')
 
 id_arguments = reqparse.RequestParser()
+
+code_lang_arguments = reqparse.RequestParser()
+code_lang_arguments.add_argument('code_lang', type=str, required=True, choices=["php", "asp", "java", "python"],
+                                  default='php', help='Code language selection')

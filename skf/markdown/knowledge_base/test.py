@@ -14,4 +14,13 @@ def jsonify_md(markdown_file):
 
 #item = jsonify_md("1-knowledge_base--Filename_injection_Path_traversel--.md")
 item = jsonify_md("3-knowledge_base--xss_injection--.md")
-print(item)
+#print(item)
+
+
+nester = CMarkASTNester()
+renderer = Renderer()
+ast = get_markdown_ast("3-knowledge_base--xss_injection--.md")
+nested = nester.nest(ast)
+rendered = renderer.stringify_dict(nested)
+result = json.dumps(rendered)
+print(result['Description'])

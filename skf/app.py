@@ -19,17 +19,21 @@
 import logging.config, click, os, re
 
 from flask import Flask, Blueprint
+from flask_cors import CORS, cross_origin
 from sqlite3 import dbapi2 as sqlite3
 from sqlalchemy import text
 from skf import settings
 from skf.api.user.endpoints.activate import ns as users_activate_namespace
 from skf.api.user.endpoints.login import ns as users_login_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_items_namespace
+from skf.api.code.endpoints.code_items import ns as code_items_namespace
 from skf.api.projects.endpoints.project_items import ns as project_items_namespace
 from skf.api.restplus import api
 from skf.database import db
 
 app = Flask(__name__)
+# TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
@@ -80,35 +84,49 @@ def get_db():
 
 @app.cli.command('initdb')
 def initdb_command():
-    """Creates the database."""
-    init_md("knowledge_base")
+    """Creates the database with all the Markdown files."""
+    init_md_knowledge_base()
+    init_md_code_examples()
+    #init_md_checklists()
     init_db()
     print('Initialized the database.')
 
 
-def init_md(markdown_dir):
-    """Converts markdown kb items"""
-    kb_dir = os.path.join(app.root_path, 'markdown/'+markdown_dir)
-    if markdown_dir == "knowledge_base":
-        for filename in os.listdir(kb_dir):
+def init_md_knowledge_base():
+    """Converts markdown knowledge-base items to DB."""
+    kb_dir = os.path.join(app.root_path, 'markdown/knowledge_base')
+    for filename in os.listdir(kb_dir):
+        if filename.endswith(".md"):
+            name_raw = filename.split("-")
+            title = name_raw[3].replace("_", " ")
+            file = os.path.join(kb_dir, filename)
+            data = open(file, 'r')
+            file_content = data.read()
+            data.close()
+            content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+            query = "INSERT OR REPLACE INTO kb_items (content, title) VALUES ('"+content_escaped+"', '"+title+"'); \n"
+            with open(os.path.join(app.root_path, 'db.sqlite_test'), 'a') as myfile:
+                    myfile.write(query)
+    print('Initialized the markdown knowledge-base items to database.')
+
+def init_md_code_examples():
+    """Converts markdown code-example items to DB."""
+    kb_dir = os.path.join(app.root_path, 'markdown/code_examples/')
+    code_langs = ['asp', 'java', 'php', 'python']
+    for lang in code_langs:
+        for filename in os.listdir(kb_dir+lang):
             if filename.endswith(".md"):
                 name_raw = filename.split("-")
                 title = name_raw[3].replace("_", " ")
-                file = os.path.join(kb_dir, filename)
+                file = os.path.join(kb_dir+lang, filename)
                 data = open(file, 'r')
                 file_content = data.read()
                 data.close()
-                content_escaped = file_content.translate(str.maketrans({
-                                              "'":  r"''",
-                                              "\n": r"NEWLINE"}))
-                query = "INSERT OR REPLACE INTO kb_items (content, title) VALUES ('"+content_escaped+"', '"+title+"'); \n"
+                content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                query = "INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('"+content_escaped+"', '"+title+"', '"+lang+"'); \n"
                 with open(os.path.join(app.root_path, 'db.sqlite_test'), 'a') as myfile:
-                    myfile.write(query)
-    elif markdown_dir == "checklists":
-        #do checklists transform
-        print("do checklists transform")
-    print('Initialized the markdown to database.')
-
+                        myfile.write(query)
+    print('Initialized the markdown code-example items to database.')
 
 def main():
     initialize_app(app)
