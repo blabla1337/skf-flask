@@ -23,14 +23,11 @@ class KBCollection(Resource):
         Privileges required: none
         """
         args = pagination_arguments.parse_args(request)
-
         page = args.get('page', 1)
         per_page = args.get('per_page', 10)
-
         kb_query = kb_items.query
         kb_page = kb_query.paginate(page, per_page, error_out=False)
-
-        log("User requested list of kb items", "LOW", "PASS")
+        log("User requested list of kb items", "LOW", "PASS", self)
         return kb_page, 200, security_headers()
 
 
@@ -45,11 +42,12 @@ class KBItem(Resource):
         Returns a kb item.
         Privileges required: none
         """
+        val_num(id)
         try:
-            log("User requested specific kb item", "LOW", "PASS")
+            log("User requested specific kb item", "LOW", "PASS", self)
             return kb_items.query.filter(kb_items.kbID == id).one(), 200, security_headers()
         except:
-            log("User triggered error requesting specific kb item", "LOW", "FAIL")
+            log("User triggered error requesting specific kb item", "LOW", "FAIL", self)
             return {'message': 'Validation error'}, 400, security_headers()
 
 @ns.route('/update/<int:id>')
@@ -64,11 +62,12 @@ class KBItemUpdate(Resource):
         Privileges required: edit
         """
         validate_privilege(self, 'edit')
+        val_num(id)
         data = request.json
         try:
-            log("User requested updated specific kb item", "LOW", "PASS")
+            log("User requested updated specific kb item", "LOW", "PASS", self)
             update_kb_item(id, data)
             return {'message': 'KB item successfully updated'}, 200, security_headers()
         except:
-            log("User triggered error updating specific kb item", "LOW", "FAIL")
+            log("User triggered error updating specific kb item", "LOW", "FAIL", self)
             return {'message': 'KB item not updated'}, 400, security_headers()

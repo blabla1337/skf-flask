@@ -31,6 +31,7 @@ from skf.api.projects.endpoints.project_items import ns as project_items_namespa
 from skf.api.restplus import api
 from skf.database import db
 
+
 app = Flask(__name__)
 # TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -109,6 +110,7 @@ def init_md_knowledge_base():
                     myfile.write(query)
     print('Initialized the markdown knowledge-base items to database.')
 
+
 def init_md_code_examples():
     """Converts markdown code-example items to DB."""
     kb_dir = os.path.join(app.root_path, 'markdown/code_examples/')
@@ -127,6 +129,25 @@ def init_md_code_examples():
                 with open(os.path.join(app.root_path, 'db.sqlite_test'), 'a') as myfile:
                         myfile.write(query)
     print('Initialized the markdown code-example items to database.')
+
+
+def init_md_checklists():
+    """Converts markdown checklists items to DB."""
+    kb_dir = os.path.join(app.root_path, 'markdown/checklists')
+    for filename in os.listdir(kb_dir):
+        if filename.endswith(".md"):
+            name_raw = filename.split("-")
+            title = name_raw[3].replace("_", " ")
+            file = os.path.join(kb_dir, filename)
+            data = open(file, 'r')
+            file_content = data.read()
+            data.close()
+            content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+            query = "INSERT OR REPLACE INTO kb_items (content, title) VALUES ('"+content_escaped+"', '"+title+"'); \n"
+            with open(os.path.join(app.root_path, 'db.sqlite_test'), 'a') as myfile:
+                    myfile.write(query)
+    print('Initialized the markdown knowledge-base items to database.')
+
 
 def main():
     initialize_app(app)

@@ -1,7 +1,7 @@
 
 from flask import request
 from flask_restplus import Resource
-from skf.api.security import log, security_headers, validate_privilege, select_userid_jwt
+from skf.api.security import log, security_headers, validate_privilege, select_userid_jwt, val_num
 from skf.api.projects.business import new_project, update_project, delete_project
 from skf.api.projects.serializers import page_of_project_items, project, project_update, project_new, message
 from skf.api.projects.parsers import pagination_arguments, authorization
@@ -28,11 +28,9 @@ class ProjectCollection(Resource):
         args = pagination_arguments.parse_args(request)
         page = args.get('page', 1)
         per_page = args.get('per_page', 10)
-
         project_query = (projects.query.filter(projects.groupID == groupmembers.groupID))
         project_page = project_query.paginate(page, per_page, error_out=False)
-
-        log("User requested list projects", "MEDIUM", "PASS")
+        log("User requested list projects", "MEDIUM", "PASS", self)
         return project_page, 200, security_headers()
 
 
@@ -48,12 +46,13 @@ class ProjectItem(Resource):
         Privileges required: read
         """
         validate_privilege(self, 'read')
+        val_num(id)
         user_id = select_userid_jwt(self)
         try:
-            log("User requested specific project", "MEDIUM", "PASS")
+            log("User requested specific project", "MEDIUM", "PASS", self)
             return (projects.query.filter(projects.projectID == id).filter(projects.userID == user_id).one()), 200, security_headers()
         except:
-            log("User triggered error requesting specific project", "MEDIUM", "FAIL")
+            log("User triggered error requesting specific project", "MEDIUM", "FAIL", self)
             return {'message': 'Validation error'}, 400, security_headers()
 
 
@@ -69,14 +68,15 @@ class ProjectItemUpdate(Resource):
         Privileges required: edit
         """
         validate_privilege(self, 'edit')
+        val_num(id)
         user_id = select_userid_jwt(self)
         data = request.json
         try:
-            log("User updated project", "MEDIUM", "PASS")
+            log("User updated project", "MEDIUM", "PASS", self)
             update_project(id, user_id, data)
             return {'message': 'Project successfully updated'}, 200, security_headers()
         except:
-            log("User triggered error updating project", "MEDIUM", "FAIL")
+            log("User triggered error updating project", "MEDIUM", "FAIL", self)
             return {'message': 'Project not updated'}, 400, security_headers()
 
 
@@ -96,10 +96,10 @@ class ProjectItemNew(Resource):
         data = request.json
         try:
             new_project(user_id, data)
-            log("User created new project", "MEDIUM", "PASS")
+            log("User created new project", "MEDIUM", "PASS", self)
             return {'message': 'Project successfully created'}, 200, security_headers()
         except:
-            log("User triggered error creating new project", "MEDIUM", "FAIL")
+            log("User triggered error creating new project", "MEDIUM", "FAIL", self)
             return {'message': 'Project not created'}, 400, security_headers()
 
 @ns.route('/delete/<int:id>')
@@ -114,11 +114,12 @@ class ProjectItemDelete(Resource):
         Privileges required: delete
         """
         validate_privilege(self, 'edit')
+        val_num(id)
         user_id = select_userid_jwt(self)
         try:
             delete_project(id, user_id)
-            log("User deleted project", "MEDIUM", "PASS")
+            log("User deleted project", "MEDIUM", "PASS", self)
             return {'message': 'Project successfully deleted'}, 200, security_headers()
         except:
-            log("User triggered error deleting project", "MEDIUM", "FAIL")
+            log("User triggered error deleting project", "MEDIUM", "FAIL", self)
             return {'message': 'Project not deleted'}, 400, security_headers()

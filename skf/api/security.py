@@ -24,41 +24,45 @@ def security_headers():
                 'Server': 'Security Knowledge Framework API'}
 
 
-def log(message, threat, status):
+def log(message, threat, status, self):
     """Create log entry and write events triggerd by the user, contains FAIL or SUCCESS and threat LOW MEDIUM HIGH"""
     now = datetime.datetime.now()
     dateLog = now.strftime("%Y-%m-%d")
     dateTime = now.strftime("%H:%M")
     ip = request.remote_addr
-    event = logs(dateLog, dateTime, threat, ip, status, message)
+    if not request.headers.get('Authorization'):
+        userID = 0
+    else:
+        userID = select_userid_jwt(self)
+    event = logs(dateLog, dateTime, threat, ip, userID, status, message)
     db.session.add(event)
     db.session.commit()
 
-def val_alpha_num(value):
-    """User input validation for checking a-z A-Z 0-9"""
-    match = re.findall(r"[a-zA-Z0-9_.-]", value)
-    if match:
-        log("User supplied not an a-zA-Z0-9 value", "HIGH", "FAIL")
-        return False
-    else:
-        return True
-
-
-def val_num(value):
-    """User input validation for checking numeric values only 0-9"""
-    match = re.findall(r'[0-9]', str(value))
-    if match:
-        log("User supplied not an 0-9", "HIGH", "FAIL")
-        return False
-    else:
-        return True
-
 
 def val_alpha(value):
-    """User input validation for checking a-z A-Z"""
-    match = re.findall(r'[a-zA-Z_]', str(value))
+    """User input validation for checking a-zA-Z"""
+    match = re.findall(r"[^a-zA-Z_]", str(value))
     if match:
-        log("User supplied not an a-zA-Z", "HIGH", "FAIL")
+        log("User supplied not an a-zA-Z", "MEDIUM", "FAIL", self)
+        return False
+    else:
+        return True
+
+
+def val_alpha_num(value):
+    """User input validation for checking a-z A-Z 0-9 _ . -"""
+    match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
+    if match:
+        log("User supplied not an a-z A-Z 0-9 _ . - value", "MEDIUM", "FAIL", self)
+        return False
+    else:
+        return True
+
+
+def val_num(value): 
+    """User input validation for checking numeric values only 0-9"""
+    if not isinstance( value, int ):
+        log("User supplied not an 0-9", "MEDIUM", "FAIL", self)
         return False
     else:
         return True

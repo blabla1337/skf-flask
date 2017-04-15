@@ -23,9 +23,9 @@ class userLogin(Resource):
         Privileges required: none
         """
         try:
-            log("User successfully logedin", "HIGH", "PASS")
+            log("User successfully logedin", "HIGH", "PASS", self)
             token = login_user(request.json)
             return {'Authorization token': token}, 200, security_headers()
         except:
-            log("User login failed", "HIGH", "FAIL")
+            log("User login failed", "HIGH", "FAIL", self)
             return {'message': 'Wrong username/password'}, 400, security_headers()

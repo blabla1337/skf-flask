@@ -3,12 +3,16 @@ import datetime
 from skf.database import db
 from skf.database.projects import projects
 from skf.database.groupmembers import groupmembers
+from skf.api.security import val_num, val_alpha, val_alpha_num
 
 def update_project(project_id, user_id, data):
     project = projects.query.filter(projects.projectID == project_id).one()
     project.projectName = data.get('name')
     project.projectVersion = data.get('version')
     project.projectDesc = data.get('description')
+    val_alpha_num(project.projectName)
+    val_alpha_num(project.projectVersion)
+    val_alpha_num(project.projectDesc)
     project.userID = user_id
     groupmember = groupmembers.query.filter(groupmembers.userID == userID).one()
     ownerID = groupmember.ownerID
@@ -23,6 +27,9 @@ def new_project(user_id, data):
     projectName = data.get('name')
     projectVersion = data.get('version')
     projectDesc = data.get('description')
+    val_alpha_num(project.projectName)
+    val_alpha_num(project.projectVersion)
+    val_alpha_num(project.projectDesc)
     userID = user_id
     groupmember = groupmembers.query.filter(groupmembers.userID == userID).one()
     ownerID = groupmember.ownerID

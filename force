@@ -1,0 +1,13 @@
+#! /bin/bash
+
+while :
+do
+	case "$(ps x |grep -v grep |grep -c "Python skf")" in
+
+	0)  echo "Restarting skf:"
+	    python3.6 skf/app.py
+	    ;;
+	2)  echo "SKF already running"
+	    ;;
+	esac
+done

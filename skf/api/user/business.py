@@ -7,9 +7,11 @@ from skf import settings
 from skf.database import db
 from skf.database.users import users
 from skf.database.privileges import privileges
+from skf.api.security import val_num, val_alpha, val_alpha_num
 
 
 def activate_user(user_id, data):
+    val_num(user_id)
     user = users.query.filter(users.userID == user_id).one()
     if users.query.filter(users.activated == "false").one():
         if users.query.filter(users.accessToken == data.get('accessToken')).one():
@@ -25,8 +27,9 @@ def activate_user(user_id, data):
 
 def login_user(data):
     username = data.get('username')
-    if users.query.filter(users.userName == data.get('username')).one():
-        user = users.query.filter(users.userName == data.get('username')).one()
+    val_alpha(username)
+    if users.query.filter(users.userName == username).one():
+        user = users.query.filter(users.userName == username).one()
         if check_password_hash(user.password, data.get('password')):
             priv_user = privileges.query.filter(str(user.privilegeID)).first()
 

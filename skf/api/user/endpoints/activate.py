@@ -1,7 +1,7 @@
 
 from flask import request
 from flask_restplus import Resource
-from skf.api.security import log, security_headers
+from skf.api.security import log, security_headers, val_num
 from skf.api.user.business import activate_user
 from skf.api.user.serializers import activate, message
 from skf.api.user.parsers import user_activation_arguments
@@ -23,10 +23,11 @@ class userActivation(Resource):
         Privileges required: none
         """
         data = request.json
+        val_num(id)
         try:
-            log("User is activated", "HIGH", "PASS")
+            log("User is activated", "HIGH", "PASS", self)
             activate_user(id, data)
             return {'message': 'User successfully activated'}, 200, security_headers()
         except:
-            log("User is activation failed", "HIGH", "FAIL")
+            log("User is activation failed", "HIGH", "FAIL", self)
             return {'message': 'User could not be activated'}, 400, security_headers()

@@ -8,6 +8,7 @@ CREATE TABLE `logs` (
 `time` varchar(255) NOT NULL,
 `threat` varchar(255) NOT NULL,
 `ip` varchar(255) NOT NULL,
+`userID` varchar(255) NOT NULL,
 `status` varchar(255) NOT NULL,
 `message` varchar(255) NOT NULL
 );
@@ -110,9 +111,6 @@ CREATE TABLE `code_items` (
 `content` varchar(900) NOT NULL,
 `code_lang` varchar(100) NOT NULL
 );
-
-
-
 
 
 
