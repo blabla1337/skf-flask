@@ -1,4 +1,4 @@
-#OWASP Security Knowledge Framework
+# OWASP Security Knowledge Framework
 [![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/)
 <br>Project status details:<br>
 [![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=master)](https://travis-ci.org/blabla1337/skf-flask)
@@ -8,7 +8,7 @@
 <br/>
 Security Knowledge Framework is an expert system application that uses OWASP Application Security Verification Standard, code examples, helps developers in pre-development and post-development.  
 
-##Table of Contents
+## Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
 * [Usage](#usage)
@@ -19,7 +19,7 @@ Security Knowledge Framework is an expert system application that uses OWASP App
 * [Pebble OWASP-SKF](#pebble)
 * [Contributors](#contributors)
 
-##<a name="introduction"></a>Introduction
+## <a name="introduction"></a>Introduction
 
 Our experience taught us that the current level of security the current web-applications contain is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers which are lurking, waiting to be exploited by hackers.
 
@@ -31,9 +31,9 @@ The second stage of the application is validating if the developer properly impl
 
 By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
 
-##<a name="installing"></a>Installing
+## <a name="installing"></a>Installing
 
-####Docker
+#### Docker
 ----------
 When Docker is available, the fastest way to start using the SKF project is using the pre-built container hosted at Docker hub.
 ```
@@ -44,7 +44,7 @@ https://127.0.0.1
 
 This container always has the very latest version from the repository.
 
-####Automated installation with Chef
+#### Automated installation with Chef
 ----------
 
 The easiest way to use the SKF project is using the Chef cookbook that we created.
@@ -103,7 +103,7 @@ A CloudFormation template is provided to make it easy to set up the
 Security Knowledge Framework in AWS. For more information consult
 [the README in the `cloudformation` directory](cloudformation/README.md).
 
-####Ubuntu manual installation
+#### Ubuntu manual installation
 ----------
 To run SKF you need Python pip and sqlite3 database support.
 ```bash
@@ -125,7 +125,7 @@ Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and r
   python skf.py
 ```
 
-####Windows manual installation
+#### Windows manual installation
 -----------
 Download and install [Python 2.7.9](https://www.python.org/downloads/release/python-279/)
 
@@ -140,7 +140,7 @@ Now you can start the program by opening the folder and run the skf.py file:
   cd C:\Python27\Lib\site-packages\skf
   C:\Python27\python.exe skf.py
 ```
-####Mac OSX manual installation
+#### Mac OSX manual installation
 ----------
 The first step is to install brew
 ```bash
@@ -168,7 +168,7 @@ Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and r
   sudo python skf.py
 ```
 
-####Ubuntu Apache WSGI Setup (manual installation)
+#### Ubuntu Apache WSGI Setup (manual installation)
 ----------
 To run the OWASP-SKF as a service (SaaS) you can hook it up to your existing webservers using the WSGI module.
 
@@ -253,28 +253,28 @@ The final step:
 The application can be visited at port http://the_ip_/:5443
 Also now you can apply your favourite Apache SSL/TLS settings.
 
-##<a name="usage"></a>Usage
+## <a name="usage"></a>Usage
 
 For more detailed information such as user guides and other documentation see:
 <br/>
 * [Readme: extended documentation](http://skf.readme.io/)  
 <br/>
 
-##<a name="development"></a>Development
+## <a name="development"></a>Development
 
 1. Fork and clone https://github.com/blabla1337/skf-flask
 2. pip install -r requirements.txt
 3. cd skf && python ./skf.py
 4. Create your changes commit and open a PR from your fork to the master repo
 
-##<a name="scrum"></a>Scrum Board
-####Waffle.io:
+## <a name="scrum"></a>Scrum Board
+#### Waffle.io:
 https://waffle.io/blabla1337/skf-flask
 
 [![Throughput Graph](https://graphs.waffle.io/blabla1337/skf-flask/throughput.svg)](https://waffle.io/blabla1337/skf-flask/metrics)
 
-##<a name="testing"></a>Testing
-####Travis-ci.org:
+## <a name="testing"></a>Testing
+#### Travis-ci.org:
 -----------
 ```
 Test and Deploy with Confidence. Easily sync your GitHub projects with Travis CI and you'll be testing your code in minutes!
@@ -282,7 +282,7 @@ SKF Build details:
 ```
 https://travis-ci.org/blabla1337/skf-flask
 
-####Coveralls.io:
+#### Coveralls.io:
 ------------
 ```
 DELIVER BETTER CODE. We help developers deliver code confidently by showing which parts of your code aren't covered by your test suite.
@@ -290,7 +290,7 @@ SKF Coveralls details:
 ```
 https://coveralls.io/r/blabla1337/skf-flask
 
-####Scrutinizer-ci.com:
+#### Scrutinizer-ci.com:
 ------------
 ```
 Why to use Scrutinizer. Improve code quality and find bugs before they hit production with our continuous inspection platform. Improve Code Quality.
@@ -298,13 +298,13 @@ SKF Scrutinizer details:
 ```
 https://scrutinizer-ci.com/g/blabla1337/skf-flask/
 
-####uptimerobot.com:
+#### uptimerobot.com:
 ------------
 ```
 Monitor HTTP(s), Ping, Port and check Keywords. Get alerted via e-mail, SMS, Twitter, web-hooks or push. View uptime, downtime and response times.
 ```
 
-####ssllabs.com & sslbadge.org:
+#### ssllabs.com & sslbadge.org:
 ------------
 ```
 ssllabs.org:
@@ -315,7 +315,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 ```
 [![SSL Rating](http://sslbadge.org/?domain=securityknowledgeframework.org)](https://www.ssllabs.com/ssltest/analyze.html?d=securityknowledgeframework.org)
 
-##<a name="license"></a>License
+## <a name="license"></a>License
     Copyright (C) 2016  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
@@ -331,7 +331,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-####SKF includes the following software:
+#### SKF includes the following software:
 ----------------------------------------
 
 * [Owasp](http://owasp.com/index.php/Main_Page)  
@@ -363,11 +363,11 @@ Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
 
 * Boostrap theme thanks to http://www.blacktie.com
 
-##<a name="pebble"></a>Pebble OWASP-SKF
+## <a name="pebble"></a>Pebble OWASP-SKF
 We have also created a Pebble application called: OWASP-SKF Pebble, check it out:
 http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 
-##<a name="contributors"></a>Contributors
+## <a name="contributors"></a>Contributors
 - [Glenn ten Cate](https://twitter.com/FooBar_testing_)
 - [Riccardo ten Cate](https://twitter.com/RiieCco)
 - [Alexander Kaasjager](https://twitter.com/akaasjager)
