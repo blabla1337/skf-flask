@@ -1,4 +1,4 @@
-####Add checklist items:
+#### Add checklist items:
 ----------
 
 In order to add new checklist items to the custom checklist
@@ -26,7 +26,7 @@ or head as so:
 ```
 The checklist engine will read this when building the checklist to create the checklists.
 
-####Add knowledge base items:
+#### Add knowledge base items:
 ----------
 
 In order to add new knowledge base items to the s.k.f
@@ -67,7 +67,7 @@ In the solution we tell how to mitigate and what things you must take into consi
 whenever you put these mitigations into practice.
 
 
-####Add code examples:
+#### Add code examples:
 ----------
 
 In order to add new code examples to the s.k.f
