@@ -1,1 +1,0 @@
-16.3 Verify that files obtained from untrusted sources are validated to be of expected type and scanned by antivirus scanners to prevent upload of known malicious content.

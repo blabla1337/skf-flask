@@ -1,1 +1,0 @@
-18.1 Verify that the same encoding style is used between the client and the server.

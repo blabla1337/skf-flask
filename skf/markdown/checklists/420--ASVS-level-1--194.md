@@ -1,1 +1,0 @@
-16.9 Do not use Flash, Active-X, Silverlight, NACL, client-side Java or other client side technologies not supported natively via W3C browser standards.

@@ -1,1 +1,0 @@
-2.12 Verify that all suspicious authentication decisions are logged. This should include requests with relevant metadata needed for security investigations.

@@ -1,1 +1,0 @@
-V18: Web services verification requirements

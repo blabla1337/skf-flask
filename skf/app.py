@@ -86,9 +86,9 @@ def get_db():
 @app.cli.command('initdb')
 def initdb_command():
     """Creates the database with all the Markdown files."""
-    init_md_knowledge_base()
-    init_md_code_examples()
-    #init_md_checklists()
+    init_md_checklists()
+    #init_md_knowledge_base()
+    #init_md_code_examples()
     init_db()
     print('Initialized the database.')
 
@@ -137,16 +137,34 @@ def init_md_checklists():
     for filename in os.listdir(kb_dir):
         if filename.endswith(".md"):
             name_raw = filename.split("-")
-            title = name_raw[3].replace("_", " ")
+            level = name_raw[4].replace("_", " ")
+            if level == "0":
+                # For the ASVS categories
+                file = os.path.join(kb_dir, filename)
+                data = open(file, 'r')
+                file_content = data.read()
+                data.close()
+                checklistID_raw = file_content.split(":")
+                checklistID = checklistID_raw[0]
+                checklistID = checklistID.lstrip('V')
+            else :
+                # For the ASVS items
+                file = os.path.join(kb_dir, filename)
+                data = open(file, 'r')
+                file_content = data.read()
+                data.close()
+                checklistID_raw = file_content.split(" ")
+                checklistID = checklistID_raw[0]             
             file = os.path.join(kb_dir, filename)
             data = open(file, 'r')
             file_content = data.read()
             data.close()
-            content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-            query = "INSERT OR REPLACE INTO kb_items (content, title) VALUES ('"+content_escaped+"', '"+title+"'); \n"
+            content = file_content.split(' ', 1)[1]
+            content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+            query = "INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"'); \n"
             with open(os.path.join(app.root_path, 'db.sqlite_test'), 'a') as myfile:
                     myfile.write(query)
-    print('Initialized the markdown knowledge-base items to database.')
+    print('Initialized the markdown checklist items to database.')
 
 
 def main():

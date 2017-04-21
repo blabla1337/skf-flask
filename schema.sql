@@ -1,6 +1,3 @@
-
-
-
 --
 -- Table structure for table `users`
 --
@@ -100,41 +97,70 @@ CREATE TABLE `logs` (
 );
 
 
-
-
-
-
 --
--- Table structure for table `techhacks`
+-- Table structure for table `checklists`
 --
-drop table if exists `techhacks`;
-CREATE TABLE `techhacks` (
-`techID` int(11) NOT NULL,
-`techName` varchar(255) NOT NULL
+drop table if exists `checklists`;
+CREATE TABLE `checklists` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`checklistID` int(11),
+`content` varchar(255) NOT NULL,
+`level` int(11),
+`testguideID` int(11),
+`cweID` int(11),
+`nistID` int(11)
 );
 
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (1, 'SQL commands');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (2, 'Path or Filenames');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (3, 'File inclusion');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (4, 'X-Path');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (5, 'User-input in HTML output');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (6, 'LDAP commands');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (7, 'HTTP headers');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (8, 'XSLT input and output');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (9, 'SSI commands');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (10, 'System commands');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (11, 'Private user data');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (12, 'Eval type functions');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (13, 'Regular expressions');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (14, 'File upload ');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (15, 'File Download');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (16, 'XML files');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (17, 'GET variables or parameters');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (18, 'Forward or redirect');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (19, 'Password forget functions');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (20, 'Sessions');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (21, 'Forms');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (22, 'User registration');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (23, 'Access controls or Login systems');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (24, 'sub-domains');
-INSERT OR REPLACE INTO `techhacks` (`techID`, `techName`) VALUES (25, 'third party software');
+--
+-- Table structure for table `questions`
+--
+drop table if exists `questions`;
+CREATE TABLE `questions` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`question` varchar(255) NOT NULL,
+`include_always` int(11),
+`include_first` int(11)
+);
+
+
+--
+-- Table structure for table `questions_checklists`
+--
+drop table if exists `questions_checklists`;
+CREATE TABLE `questions_checklists` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`questionID` int(11) NOT NULL,
+`checklistID` int(11) NOT NULL,
+`level` varchar(255)
+);
+
+
+--
+-- Table structure for table `checklists`
+--
+drop table if exists `checklists`;
+CREATE TABLE `checklists` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`checklistID` int(11),
+`content` varchar(255) NOT NULL,
+`level` int(11),
+`testguideID` int(11),
+`cweID` int(11),
+`nistID` int(11)
+);
+
+
+--
+-- Table structure for table `checklists_kb`
+--
+drop table if exists `checklists_kb`;
+CREATE TABLE `checklists_kb` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`checklistID` int(11),
+`questionID` int(11),
+`kbID` int(11),
+`codeID_php` int(11),
+`codeID_asp` int(11),
+`codeID_java` int(11),
+`codeID_python` int(11)
+);

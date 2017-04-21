@@ -1,1 +1,0 @@
-1.10 Verify that there is no sensitive business logic, secret keys or other proprietary information in client side code.

@@ -1,1 +1,0 @@
-4.9 Verify that the same access control rules implied by the presentation layer are enforced on the server side.
