@@ -69,32 +69,33 @@
                               <thead>
 								  <tr>
 									  <th><i class="fa fa-bullhorn"></i> <b>Project Name</b></th>
+									  <th><i class="fa fa-bullhorn"></i> <b>Version</b></th>
 									  <th class="hidden-phne"><i class="fa fa-question-circle"></i><b> Checklist</b></th>
 									  <th><i class="fa fa-clock-o"></i> <b>Date/Time</b></th>
 									  <th><i class="fa fa-download"></i> <b>Download</b></th>
 								  </tr>
                               </thead>
                               <tbody>
-                  {% set counter = 0 -%}
                   {% for entry in entries -%}
                               
 							<tr>
-								<td>{{entry.projectName|safe}} {{entry.projectVersion|safe}}</td>
-								<td>{{entry.listName|safe}}</td>
-								<td><span class="label label-info label-mini">{{entry.entryDate|safe}}</span></td>
+								<td>{{entry.projectName}}</td>
+								<td>{{entry.projectVersion}}</td>
+								<td>{{entry.listName}}</td>
+								<td><span class="label label-info label-mini">{{entry.entryDate}}</span></td>
 								<td>
-									<a href='/results-checklist-report/{{entry.entryDate|safe}}' target='_self' >  
+									<a href='/results-checklist-report/{{entry.entryDate}}' target='_self' >  
 										<button class='btn btn-success btn-xs'><center>View Results</center></button>
 									</a>
 									<!-- Button trigger modal -->
 									{% if "delete" in session['permissions'] -%}
-									<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{counter|safe}}">
+									<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{loop.index0}}">
 										<i class="fa fa-times"></i>                  
 									</button>
 									{% endif -%}
 									<!-- Modal -->
 									
-									<div class="modal fade" id="myModal{{counter|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal fade" id="myModal{{loop.index0}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
 											<div class="modal-content">
 											
@@ -119,11 +120,11 @@
 												<div class="modal-footer">
 														
 												  <form method="POST" action="/results-checklists-del">
-				                                  <input type="hidden" value="{{entry.entryDate|safe}}" name="entryDate"/>
-				                                  <input type="hidden" value="{{entry.projectID|safe}}" name="projectID"/>
-				                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+				                                  <input type="hidden" value="{{entry.entryDate}}" name="entryDate"/>
+				                                  <input type="hidden" value="{{entry.projectID}}" name="projectID"/>
+				                                  <input type="hidden" value="{{csrf_token}}" name="csrf_token"/>
 				                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				                                  <input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
+				                                  <input type="submit" value="Remove answers" id="" class="btn btn-danger"/>
 				                                  </form>
 												</div>
 											</div>
@@ -136,7 +137,6 @@
                               
                      
                               
-                  {% set counter = counter + 1 %}
                   {% endfor %}
 						
 
