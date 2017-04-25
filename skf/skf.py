@@ -1607,7 +1607,7 @@ def download_file_function(projectID):
     )
     p.add_run('\n')
     p = document.add_paragraph(
-        'In this part of security knowledge framework, al the parameters and variables are audited by means of the information given by the programmer such as the processing techniques. Each of these techniques contain different types of vulnerabilities when implemented in a improper fashion. This document will raise awareness about these vulnerabilities, as well as presenting solutions for the right implementation.'
+        'In this part of security knowledge framework, all the parameters and variables are audited by means of the information given by the programmer such as the processing techniques. Each of these techniques contain different types of vulnerabilities when implemented in a improper fashion. This document will raise awareness about these vulnerabilities, as well as presenting solutions for the right implementation.'
     )
     document.add_page_break()
     i = 0

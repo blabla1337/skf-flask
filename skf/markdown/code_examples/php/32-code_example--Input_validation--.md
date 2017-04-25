@@ -9,7 +9,7 @@ input validation
     <?php
 	
 	/*
-	This function is where you store al your input validation controls. 
+	This function is where you store all your input validation controls. 
 	It makes it easy to maintain whenever you want to apply changes for 
 	certain input validation roles and reduces the chance of mistakes in your regexes.	
 	*/

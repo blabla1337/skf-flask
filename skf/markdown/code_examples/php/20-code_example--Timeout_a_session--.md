@@ -22,7 +22,7 @@ Timeout a session
 	
 	/*
 	You could also set the session cookie its secure function with a ini_set
-	This ini_set has to be included in the header of al your pages in order to work
+	This ini_set has to be included in the header of all your pages in order to work
 	*/
 	
     ini_set('session.cookie_lifetime', 3600);
