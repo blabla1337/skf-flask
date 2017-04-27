@@ -158,8 +158,9 @@ $(document).ready(function() {
 		stop: function(){
 			var result = $("#drop").empty();
 			$(".ui-selected", this).each(function(){
-				var index = $("#selectable li").index(this);
-				result.append($(this).text() + '&nbsp;');
+				var el = $(this);
+				var option = new Option(el.text(), el.data("id"), true, true);
+				result.append(option);
 			});
 		}
 	});

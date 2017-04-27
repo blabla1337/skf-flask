@@ -19,37 +19,7 @@
 -->
 
 {% include 'header.html' %} 
- 
-<script>
 
-var arrTech = new Array();
-
-{% for entry in techlist -%}
-
-arrTech.push({'{{entry.vulnID}}--{{entry.techID}}':'{{entry.techName}}'});
-
-{% endfor %}
-
-
-var j = 0;
-
-function addList()
-{
-
-var select = "<div class='item'><select class='form-control' name=test"+j+" id=test"+j+"></div>";
-$("#checkboxes").append(select);
-i = 0;
-$.each(arrTech, function(key, value) {
-    $.each(value, function(k, v) {
-        var o = new Option(v, k);
-  var name = "#test"+j 
-        $(name).append(o);
-    });
-});
-j++;
-};
-</script>
- 
 <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
@@ -76,13 +46,12 @@ j++;
 				
 					<h4>Please select the functions applicable to the project you are going to build:</h4>
 					
-				   <div class="functions alert alert-info">
+					<div class="functions alert alert-info">
 					<ul id="selectable">
 						{% for entry in techlist -%}
-							<li class="ui-widget-content">{{ entry.techName}}</li>
-					{% endfor %}
+							<li class="ui-widget-content" data-id="{{entry.vulnID}}--{{entry.techID}}">{{ entry.techName}}</li>
+						{% endfor %}
 					</ul>
-					<!-- for later release
 					<p>All lists will be collected into a single document per project.</p>
 					
 					<form action="/project-function-add" method="POST">
@@ -102,88 +71,20 @@ j++;
 							<div class="row">
 								<div class="wide">
 									
-									<textarea id="drop"></textarea>
-									<input type="hidden" id="project_id" name="project_id" value="{{project_id}}" /> 
-									<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
-									
+									<select id="drop" multiple name="test" class="hide"></select>
+									<input type="hidden" name="project_id" value="{{project_id}}" />
+									<input type="hidden" name="csrf_token" value="{{csrf_token}}" />
+
 									<input type="submit" class="btn btn-default" value="Create new list with provided functions" name="submit" />
 									
 								</div>
 							</div>
 						</div>
 					
-					</form>					
-					-->
+					</form>
 				   </div>
-				   
-					<!--<nav class="nav">
-						<button class="btn btn-default" style="visibility: none;" data-toggle="modal">Create a new list based on these items</button>
-					</nav>-->
-				   
-				</div><!-- /col-lg-4 -->      
+				</div><!-- /col-lg-4 -->
 			</div><!-- /row -->
-
-          <div class="row mt">
-            <div class="col-lg-12">
-
-			<div class="col-lg-4 col-md-4 col-sm-4 mb">
-									
-					<nav class="nav">
-						<button class="btn btn-default" data-target="#myModal" style="visibility: none;" data-toggle="modal">Add Functions</button>
-						<a class="back" href="/results-functions">Done <i class="fa fa-check"></i></a>
-					</nav>
-					
-					<!-- Modal -->
-					
-					<div id="myModal" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="display: none;">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
-									<h4 id="myModalLabel" class="modal-title">Add a new function</h4>
-								</div>
-								<div class="modal-body">
-								
-									<div class="alert alert-info">
-										Please select the processing techniques which your application contains. The Add Functions button can spawn the ammount you need.
-									</div>
-									
-									<form action="/project-function-add" method="POST">
-									
-									<div class="tbl_container">
-										<div class="row">
-											<div class="left"><input class="form-control" type="text" name="functionName" placeholder="List name" /></div>
-											<div class="right"><b>For example:</b> Scrum sprint Nr.1</div>
-										</div>
-										
-										<div class="row">
-											<div class="left"><textarea class="form-control" rows="3" name="functionDesc" placeholder="List description"></textarea></div>
-											<div class="right"><b>For example:</b> In this sprint release we will add user functionality. </div>
-										</div>
-										
-										<div class="row">
-											<div class="wide">
-												<input type="hidden" id="project_id" name="project_id" value="{{project_id}}" /> 
-												<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
-												<a class="btn btn-default" href="#" onClick="addList();">Add Function</a>
-												<div id="checkboxes">
-													<!-- used for Ajax -->
-												</div>
-											
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<input type="submit" class="btn btn-default" value="Add values" name="submit" />
-									</div>
-									
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-
-			</div>  
 
 			<div class="row mt">
 				<div class="col-md-12">
@@ -207,7 +108,6 @@ j++;
 							</tr>
 							</thead>
 							<tbody>
-							{% endif -%}
 
 							{% for entry in entries -%}
 							
@@ -225,16 +125,16 @@ j++;
 								{% endif -%}
 								<!-- Modal -->
 								
-								<div class="modal fade" id="myModal{{entry.paramID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="myModal{{entry.paramID}}" tabindex="-1" role="dialog" aria-labelledby="remove-function-modal" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">Warning</h4>
+												<h4 class="modal-title" id="remove-function-modal">Warning</h4>
 											</div>
 											<div class="modal-body">
 												<div class="alert alert-info">
-													<p>When you press the "Remove function" button, the function which this project contains will be deleted from the documentation. <b>Are you sure you want to continue?</b></p>
+													<p>When you press the "Remove function" button, the function which this project contains will be deleted from the project. <b>Are you sure you want to continue?</b></p>
 												</div>
 											</div>
 											<div class="modal-footer">
@@ -257,7 +157,10 @@ j++;
 
 							</tbody>
 						</table>
-							  
+						<p>
+							<a class="btn btn-default" href="/results-function-report/{{project_id}}">View functions report</a>
+						</p>
+						{% endif -%}
 				</div><!-- /content-panel -->
 			</div><!-- /col-md-12 -->
 		
