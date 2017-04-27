@@ -48,7 +48,6 @@
 								<div class="form-group">
 									<div class="wrap desc">
 										<label for="inputName" class="col-sm-2 control-label">&nbsp;</label>
-										<div class="col-sm-10">Only normal characters and numbers. No funny business, capiche?</div>
 									</div>
 									<div class="wrap">
 										<label for="inputName" class="col-sm-2 control-label">Project Name</label>
@@ -86,7 +85,7 @@
 							  
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
-										<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
+										<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token">
 										<input type="submit" id="projectFormSubmit" name="projectFormSubmit" value="Create Project" class="btn btn-default">
 										<span class="desc">... Let's rock.</span>
 									</div>

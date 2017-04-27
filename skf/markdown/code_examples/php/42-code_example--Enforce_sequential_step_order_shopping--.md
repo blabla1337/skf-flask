@@ -92,8 +92,8 @@ Enforce sequential step order (Shopping)
 	}
 	
 	/*
-	On submit we send al the shopping cart data to another table in the database, but
-	this time al the items also contain the same random token. Now an attacker cannot sneak 
+	On submit we send all the shopping cart data to another table in the database, but
+	this time all the items also contain the same random token. Now an attacker cannot sneak 
 	in new items since these tokens will be evaluated on the payment page.
 	
 	next, the user lands on a page where he has to fill in his costumer info:
@@ -143,16 +143,16 @@ Enforce sequential step order (Shopping)
         else{
                         	
         	header('location:summary.php');
-        	//In this step we also insert al the consumer data into the database.
+        	//In this step we also insert all the consumer data into the database.
         }
         
     /*
-    Then we select al the comsumer info and shopping items on sessionID from the 
+    Then we select all the consumer info and shopping items on sessionID from the 
     database and display it on screen in order for the user to verify if all the 
     information displayed is correct.
     */
 	
-	//when the user has verfied we again check the checkout tokens to see if no new items where added
+	//when the user has verified we again check the checkout tokens to see if no new items where added
 	checkTokens();    
     
     /*
@@ -169,7 +169,7 @@ Enforce sequential step order (Shopping)
 	$stmt->execute(array($verified, session_id(), $_SESSION['token']));
 	$affected_rows = $stmt->rowCount();
     
-    //also in this step we clear al the db items matching to the phpsessionid
+    //also in this step we clear all the db items matching to the phpsessionid
     $stmt = $db->prepare("DELETE FROM costumerinfo WHERE sessionID=:id");
 	$stmt->execute(array(session_id()));
 	$affected_rows = $stmt->rowCount();

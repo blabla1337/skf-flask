@@ -58,7 +58,7 @@ Enforce sequential step order (Wizzard)
 				}
 			
 				//If variable's are not set we destroy the session and the user has to start
-				//The wizard al over again.
+				//The wizard all over again.
 				if (!$check){
 					echo "something went wrong, please start again.";
 				
@@ -71,13 +71,13 @@ Enforce sequential step order (Wizzard)
 					session_start();
 					session_destroy();
 				}else{
-					//If al goes well we set the session to the final version where we going to process the data
+					//If all goes well we set the session to the final version where we going to process the data
 					$_SESSION['active'] = 'final';
 			}
 		}
 
 
-	//Final step in the wizzard.
+	//Final step in the wizard.
 	if($_SESSION['active'] == "final"){
 		echo 
 		"

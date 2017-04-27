@@ -15,7 +15,7 @@ System commands
 		*/
 		public function command($whiteListPattern, $validationType, $inputParameter){
 		
-			//Here we include al the necessary classes like audit logs, whitelisting and validation:
+			//Here we include all the necessary classes like audit logs, whitelisting and validation:
 			include("classes.php");
 			
 			$validate  = new validation();

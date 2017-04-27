@@ -64,21 +64,20 @@
                               <tbody>
                               {% endif -%}
 
-                                        {% set counter = 0 -%}
                                         {% for entry in groups -%}
-                  <div id="projectRow{{entry.projectID|safe}}">
+                  <div id="projectRow{{entry.projectID}}">
                               <tr>
-                                  <td><a href="/group-users">{{entry.groupName|safe}}</a></td>
-                                  <td><span class="label label-info label-mini">{{entry.timestamp|safe}}</span></td>
+                                  <td><a href="/group-users">{{entry.groupName}}</a></td>
+                                  <td><span class="label label-info label-mini">{{entry.timestamp}}</span></td>
                                   <td>  
                                   {% if "delete" in session['permissions'] -%} 
                                   <!-- Button trigger modal -->
-                                   <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.groupID|safe}}">
+                                   <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.groupID}}">
                                   <i class="fa fa-times "></i>                 
                                   </button>
                        			  {% endif -%} 
                                   <!-- Modal -->
-                                  <div class="modal fade" id="myModal{{entry.groupID|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal fade" id="myModal{{entry.groupID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                   <div class="modal-content">
                                   <div class="modal-header">
@@ -97,8 +96,8 @@
                                   </div>
                                   <div class="modal-footer">
                                   <form method="POST" action="/group-del">
-                                  <input type="hidden" value="{{entry.groupID|safe}}" name="groupID"/>
-                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+                                  <input type="hidden" value="{{entry.groupID}}" name="groupID"/>
+                                  <input type="hidden" value="{{csrf_token}}" name="csrf_token"/>
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                   <input type="submit" value="Remove group" id="" class="btn btn-danger"/>
                                   </form>
@@ -113,7 +112,6 @@
 
                                   </td>
                               </tr>   
-                                        {% set counter = counter + 1 %}
                                         {% endfor %}
                              
                     

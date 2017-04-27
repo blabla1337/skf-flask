@@ -27,11 +27,16 @@ Parameters:
   DataBucketName:
     Description: Name to use for the S3 bucket that persists the database
     Type: String
+  AMI:
+    Description: Base AMI for SKF instances (Ubuntu 14.04 LTS, "trusty")
+    Type: AWS::EC2::Image::Id
 
 Mappings:
   Constants:
     App:
       Value: security-knowledge-framework
+    Stack:
+      Value: security
 
 Resources:
   DataBucket:
@@ -40,6 +45,13 @@ Resources:
       AccessControl: Private
       BucketName:
         Ref: DataBucketName
+      Tags:
+      - Key: App
+        Value:
+          Fn::FindInMap: [ Constants, App, Value ]
+      - Key: Stack
+        Value:
+          Fn::FindInMap: [ Constants, Stack, Value ]
 
   LoadBalancerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -57,6 +69,9 @@ Resources:
       - Key: App
         Value:
           Fn::FindInMap: [ Constants, App, Value ]
+      - Key: Stack
+        Value:
+          Fn::FindInMap: [ Constants, Stack, Value ]
 
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -91,6 +106,9 @@ Resources:
       - Key: App
         Value:
           Fn::FindInMap: [ Constants, App, Value ]
+      - Key: Stack
+        Value:
+          Fn::FindInMap: [ Constants, Stack, Value ]
 
   InstanceRole:
     Type: AWS::IAM::Role
@@ -163,16 +181,20 @@ Resources:
       - Key: App
         Value:
           Fn::FindInMap: [ Constants, App, Value ]
+      - Key: Stack
+        Value:
+          Fn::FindInMap: [ Constants, Stack, Value ]
 
   LaunchConfig:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
       KeyName:
         Ref: KeyName
-      ImageId: ami-47a23a30
+      ImageId:
+        Ref: AMI
       SecurityGroups:
       - Ref: InstanceSecurityGroup
-      InstanceType: t2.nano
+      InstanceType: t2.micro
       IamInstanceProfile:
         Ref: InstanceProfile
       AssociatePublicIpAddress: true
@@ -189,8 +211,11 @@ Resources:
               # install dependencies
               locale-gen en_GB.UTF-8
               apt-get --yes update
+              apt-get --yes upgrade
               apt-get install --yes git apache2 libapache2-mod-wsgi sqlite3 lib32z1-dev python-dev libxml2-dev libxslt-dev libffi-dev libssl-dev python-pip
               a2enmod wsgi
+              pip install --upgrade pip
+              pip install -U setuptools
               pip install awscli https://github.com/mitsuhiko/flask/tarball/master owasp-skf
 
               # setup skf
@@ -276,6 +301,10 @@ Resources:
       - Key: App
         Value:
           Fn::FindInMap: [ Constants, App, Value ]
+        PropagateAtLaunch: true
+      - Key: Stack
+        Value:
+          Fn::FindInMap: [ Constants, Stack, Value ]
         PropagateAtLaunch: true
 
 Outputs:

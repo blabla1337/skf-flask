@@ -64,33 +64,32 @@
                               </thead>
                               <tbody>
 
-                                        {% set counter = 0 -%}
                                         {% for entry in users -%}
-                 			 <div id="projectRow{{entry.projectID|safe}}">
+                 			 <div id="projectRow{{entry.projectID}}">
                               <tr>
-                                  <td>{{entry.userName|safe}}</td>
-                                  <td>{{entry.email|safe}}</td>
-                                  <td style="color:green;" >{{entry.privilege|safe}}</td>
+                                  <td>{{entry.userName}}</td>
+                                  <td>{{entry.email}}</td>
+                                  <td style="color:green;" >{{entry.privilege}}</td>
                                   <td>
                                   <form method="post" action="user-access">
 									  <select onchange="this.form.submit();" id="dropdown" name="access">
-										  <option selected="selected">{{entry.access|safe}}</option>
+										  <option selected="selected">{{entry.access}}</option>
 										  <option value="false">false</option>
 										  <option value="true">true</option>
 									  </select>
-									  <input type="hidden" value="{{entry.userID|safe}}" name="userID"/>
-									  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+									  <input type="hidden" value="{{entry.userID}}" name="userID"/>
+									  <input type="hidden" value="{{csrf_token}}" name="csrf_token"/>
 									  </form>
                                   </td>
                                   
                                   <td>  
                             
                                   <!-- Button trigger modal -->
-                                   <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.userID|safe}}">
+                                   <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.userID}}">
                                   <i class="fa fa-times "></i>                 
                                   </button>
                                   <!-- Modal -->
-                                  <div class="modal fade" id="myModal{{entry.userID|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal fade" id="myModal{{entry.userID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                   <div class="modal-content">
                                   <div class="modal-header">
@@ -109,9 +108,9 @@
                                   </div>
                                   <div class="modal-footer">
                                   <form method="POST" action="/user-del">
-                              <input type="hidden" value="{{entry.userID|safe}}" name="userID"/>
+                              <input type="hidden" value="{{entry.userID}}" name="userID"/>
 
-                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+                                  <input type="hidden" value="{{csrf_token}}" name="csrf_token"/>
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                   <input type="submit" value="Remove user" id="" class="btn btn-danger"/>
                                   </form>
@@ -126,7 +125,6 @@
 
                                   </td>
                               </tr>   
-                                        {% set counter = counter + 1 %}
                                         {% endfor %}
                              
                     
