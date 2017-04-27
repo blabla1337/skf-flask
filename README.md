@@ -385,4 +385,4 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Ilguiz Latypov
 - Laurence Keijmel
 - Ross Nanopoulos
-- kingthorin
+- Rick Mitchell (Kingthorin)
