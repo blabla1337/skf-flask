@@ -14,5 +14,3 @@ class code_items(db.Model):
         self.content = content
         self.code_lang = code_lang
 
-    def __repr__(self):
-        return '<code_items %r>' % self.title

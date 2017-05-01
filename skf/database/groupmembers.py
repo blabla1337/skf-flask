@@ -16,5 +16,3 @@ class groupmembers(db.Model):
         self.ownerID = ownerID
         self.timestamp = timestamp
 
-    def __repr__(self):
-        return '<groupmembers %r>' % self.memberID

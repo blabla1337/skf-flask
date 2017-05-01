@@ -10,5 +10,3 @@ class privileges(db.Model):
         self.privilegeID = privilegeID
         self.privilege = privilege
 
-    def __repr__(self):
-        return '<privileges %r>' % self.privilegeID

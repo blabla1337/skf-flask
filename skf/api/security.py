@@ -68,6 +68,15 @@ def val_num(value):
         return True
 
 
+def val_float(value): 
+    """User input validation for checking float values only 0-9 ."""
+    if not isinstance( value, float ):
+        log("User supplied not an 0-9 .", "MEDIUM", "FAIL", self)
+        return False
+    else:
+        return True
+
+
 def validate_privilege(self, privilege):
     """Validates the JWT privileges"""
     if not request.headers.get('Authorization'):

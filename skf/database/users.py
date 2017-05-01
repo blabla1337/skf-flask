@@ -22,5 +22,3 @@ class users(db.Model):
         self.activated = activated
         self.email = email
 
-    def __repr__(self):
-        return '<users %r>' % self.userName

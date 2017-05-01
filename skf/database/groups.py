@@ -14,5 +14,3 @@ class groups(db.Model):
         self.groupName = groupName
         self.timestamp = timestamp
 
-    def __repr__(self):
-        return '<groups %r>' % self.groupID

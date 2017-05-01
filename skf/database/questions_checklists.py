@@ -13,5 +13,3 @@ class questions_checklists(db.Model):
         self.checklistID = checklistID
         self.level = level
 
-    def __repr__(self):
-        return '<questions_checklists %r>' % self.id

@@ -21,5 +21,3 @@ class projects(db.Model):
         self.ownerID = ownerID
         self.timestamp = timestamp
 
-    def __repr__(self):
-        return '<projects %r>' % self.projectID

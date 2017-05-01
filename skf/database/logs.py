@@ -21,5 +21,3 @@ class logs(db.Model):
         self.message = message
         self.status = status
 
-    def __repr__(self):
-        return '<logs %r>' % self.id

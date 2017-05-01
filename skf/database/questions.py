@@ -13,5 +13,3 @@ class questions(db.Model):
         self.include_always = include_always
         self.include_first = include_first
 
-    def __repr__(self):
-        return '<questions %r>' % self.id
