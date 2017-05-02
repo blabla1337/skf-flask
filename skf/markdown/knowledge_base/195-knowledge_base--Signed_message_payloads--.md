@@ -10,4 +10,5 @@ and makes it harder for attackers to impersonate different users.
 
 ## Solution:
 
-Verify that a message payload is signed to ensure reliable transport between client and service.
+Verify that the message payload is signed to ensure reliable transport between client and
+service, using JSON Web Signing or WS-Security for SOAP requests.
