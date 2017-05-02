@@ -384,5 +384,5 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Mariano
 - Ilguiz Latypov
 - Laurence Keijmel
-- Ross Nanopoulos
+- [Ross Nanopoulos](https://twitter.com/rossnanop)
 - Rick Mitchell (Kingthorin)
