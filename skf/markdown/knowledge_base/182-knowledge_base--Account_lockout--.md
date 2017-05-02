@@ -26,4 +26,7 @@ give the user back his account or take further legal actions against him.
 This type of approach prevents the attacker from further penetrating your application
 and infrastructure.
 
+# Note: 
+Be cautious that a soft-lockout countermessure does not override a hard-lockout status.
+
 
