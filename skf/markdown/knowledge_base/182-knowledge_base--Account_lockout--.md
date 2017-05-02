@@ -27,7 +27,3 @@ This type of approach prevents the attacker from further penetrating your applic
 and infrastructure.
 
 
-Recommended knowledge-base items:
-
-- Audit logs
-- Privilege based authentication
