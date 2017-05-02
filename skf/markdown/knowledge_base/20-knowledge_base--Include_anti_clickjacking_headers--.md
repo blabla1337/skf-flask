@@ -1,4 +1,4 @@
-# Include anti clickjacking headers
+# (X-Frame-Options) Anti clickjacking headers
 -------
 
 ## Description:
