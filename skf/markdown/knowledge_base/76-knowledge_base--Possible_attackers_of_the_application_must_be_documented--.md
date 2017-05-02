@@ -3,20 +3,21 @@
 
 ## Description:
 
-Activity logs of the hackers session is very valuable information and is very helpful
-when investigating a hack on an application.
+Authentication decisions should be logged along with relevant metadata for security 
+investigations. This information could for example be used whenever there is suspicion about
+account compromisation. Also, passwords and other sensitive information should never be stored
+into these log files. Whenever an attacker gains knowledge of these files, this information
+could be used to compromise other accounts. 
+
+note: "Usernames should also never be stored in the log files, users are not always paying
+attention to their actions and sometimes provide the username form field with their password.
+
+If the application would log the usernames, these passwords are now also stored and can be
+used to compromise accounts whenever an attacker gains knowledge of these files.
 
 
 ## Solution:
 
-The possible attackers needs to be monitored as much as possible. This information is
-crucial for forensics and law enforcements.
-
-Recommended knowlege-base items:
-
-- Audit logs
-- User credentials in audit logs
-- Log injection
-- Repudiation attacks
-- Logging guidelines
-- Logging is performed before executing the transaction
+Verify that all authentication decisions can be logged, without storing sensitive session 
+identifiers or passwords. This should include requests with relevant metadata
+needed for security investigations.
