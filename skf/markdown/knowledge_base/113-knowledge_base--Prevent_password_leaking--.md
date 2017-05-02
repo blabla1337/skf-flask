@@ -1,27 +1,30 @@
-# Prevent password leaking
+
+Prevent pre-filling of passwords
 -------
 
-## Description:
+** Description **
 
-Whenever an users password is displayed on screen or send by email, an attacker gains the
-opportunity of compromising the password since it is displayed or sent in plain text.
-Since the password is displayed on screen it could even be copied simply by looking at it.
+Passwords should never be stored plaintext or in reversible format on the application. Whenever an attacker hacks 
+into the applications SQL database the passwords are directly compromised. In the case of
+pre-filled forms in the application an attacker could also hijack the credentials by badly
+configured CORS rules or XSS attacks.
 
+**  Solution **
 
-## Solution:
+Verify that forms containing credentials are not filled in by
+the application. Pre-filling by the application implies that
+credentials are stored in plaintext or a reversible format,
+which is explicitly prohibited. Passwords should be stored by preferably PBKDF functions.
 
-Never display passwords on screen in an unprotected matter since this could easily lead
-to the password being compromised.
-Some practices are for you to:
+PBKDF2 uses a pseudorandom function and a configurable number of iterations to derive a
+cryptographic key from a password. Because this process is difficult to reverse
+(similar to a cryptographic hash function) but can also be configured to be slow to 
+compute, key derivation functions are ideally suited for password hashing use cases.
 
-- set input field type to password.
-- Set autocomplete=off for the password input field.
+Examples of good ways to store passwords are with, BCRYPT, Blowfish or in some cases SCRYPT
+which is a little harder to implement correctly
 
-This turns off the auto complete and remember password features of the browser.
-
-## NOTE:
-For some browsers this means you have to put all the input fields the form contains
-to autocomplete=off, otherwise it will not comply.
-
-Also whenever a user has the opportunity to use password forget functions
-you should send a reset link rather than a new auto-generated password.
+NOTE: Password pre-filling also happens when using the browsers password manager. For the login input
+fields the 'autocomplete=off' HTML attribute should be added to disable the password manager. The credentials
+could otherwise be stolen by XSS attacks whenever an attacker injects an HTML login form into the application
+which is pre-filled by the password manager.
