@@ -94,13 +94,10 @@ class ProjectItemNew(Resource):
         validate_privilege(self, 'edit')
         user_id = select_userid_jwt(self)
         data = request.json
-        try:
-            new_project(user_id, data)
-            log("User created new project", "MEDIUM", "PASS", self)
-            return {'message': 'Project successfully created'}, 200, security_headers()
-        except:
-            log("User triggered error creating new project", "MEDIUM", "FAIL", self)
-            return {'message': 'Project not created'}, 400, security_headers()
+        new_project(user_id, data)
+        log("User created new project", "MEDIUM", "PASS", self)
+        return {'message': 'Project successfully created'}, 200, security_headers()
+
 
 @ns.route('/delete/<int:id>')
 class ProjectItemDelete(Resource):

@@ -42,7 +42,7 @@ class ChecklistCat(Resource):
             log("User requested specific checklist category and belonging items", "LOW", "PASS", self)
             id_str = str(id)
             id_str = id_str[:-1]
-            checklistCat = checklists.query.order_by(checklists.checklistID).filter(checklists.checklistID.like(id_str+'%')).all()
+            checklistCat = checklists_kb.query.order_by(checklists_kb.checklistID).filter(checklists_kb.checklistID.like(id_str+'%')).all()
             return checklistCat, 200, security_headers()
         except:
             log("User triggered error requesting specific checklist category and belonging items", "LOW", "FAIL", self)
@@ -62,7 +62,7 @@ class ChecklistItem(Resource):
         """
         try:
             log("User requested specific checklist item", "LOW", "PASS", self)
-            return checklists.query.filter(checklists.checklistID == id).one(), 200, security_headers()
+            return checklists_kb.query.filter(checklists_kb.checklistID == id).one(), 200, security_headers()
         except:
             log("User triggered error requesting specific checklist item", "LOW", "FAIL", self)
             return {'message': 'Validation error'}, 400, security_headers()

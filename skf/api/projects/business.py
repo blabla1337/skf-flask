@@ -27,9 +27,9 @@ def new_project(user_id, data):
     projectName = data.get('name')
     projectVersion = data.get('version')
     projectDesc = data.get('description')
-    val_alpha_num(project.projectName)
-    val_alpha_num(project.projectVersion)
-    val_alpha_num(project.projectDesc)
+    val_alpha_num(projectName)
+    val_alpha_num(projectVersion)
+    val_alpha_num(projectDesc)
     userID = user_id
     groupmember = groupmembers.query.filter(groupmembers.userID == userID).one()
     ownerID = groupmember.ownerID
