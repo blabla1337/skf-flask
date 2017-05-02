@@ -1,19 +1,21 @@
 # Are all passwords hashed, salted and stretched 
 -------
 
-## Description:
+# Description
 
-Whenever a password is not properly hashed, salted and stretched an attacker could easily
-abuse the password when obtained.
+Verify that account passwords are one way hashed with a salt, and there is sufficient work 
+factor to defeat brute force and password hash recovery attacks.
 
+# Solution
 
-## Solution:
+Recommended for password usage are PBKDF functions. PBKDF2 uses a pseudorandom function 
+and a configurable number of iterations to derive a cryptographic key from a password. 
+Because this process is difficult to reverse (similar to a cryptographic hash function)
+but can also be configured to be slow to compute, key derivation functions are ideally 
+suited for password hashing use cases.
 
-A user should always be forced to use a proper password when signing in into the application.
-Preferably a pass-phrase instead of a password. This in order to extend the duration
-of a brute-force attack.
-
-Verify that account passwords are protected using an adaptive key derivation function.
-Make sure the salt for the user is always unique and you apply bcrypt, scrypt or
-PBKDF2 before storing the password, with a minimum work factor iteration count of 150,000
-loops to eliminate the possibility of brute forcing.
+Another alternative would be bcrypt. bcrypt is a password hashing function designed by 
+Niels Provos and David Mazières, based on the Blowfish cipher, and presented at USENIX in 
+1999. Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an 
+adaptive function: over time, the iteration count can be increased to make it slower, 
+so it remains resistant to brute-force search attacks even with increasing computation power.
