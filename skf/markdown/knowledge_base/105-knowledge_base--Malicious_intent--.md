@@ -19,3 +19,8 @@ of a code review for back doors, Easter eggs, and logic flaws.
 
 This should also mean that authorized administrators must have the capability to verify the integrity of
 all security-relevant configurations to ensure that they have not been tampered with.
+
+Note:
+Studies have shown backdoors written by employees with malicious intend wil propably do this within
+the first half year of their employment. The implementing of back doors has little to do with how happy an
+employee is with the current employer, it has proven to be a trait of character rather than a trait of discontent.
