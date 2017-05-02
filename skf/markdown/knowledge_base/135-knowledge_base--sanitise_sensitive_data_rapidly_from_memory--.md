@@ -4,8 +4,7 @@
 ## Description:
 
 Whenever sensitive data is rapidly removed from the systems memory, this decreases the
-possibility the attacker can compromise this data since it is removed as soon as it is no
-longer needed.
+possibility the attacker can compromise this data by means of memory dumping attacks.
 
 
 ## Solution:
