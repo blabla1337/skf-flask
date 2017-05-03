@@ -86,7 +86,7 @@ class ProjectItemNew(Resource):
     @api.expect(authorization, project_new)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'Validation Error', message)
-    def put(self):
+    def post(self):
         """
         Create new project item.
         Privileges required: edit

@@ -19,3 +19,4 @@ checklist = api.model('checklist', {
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
 })
+ 

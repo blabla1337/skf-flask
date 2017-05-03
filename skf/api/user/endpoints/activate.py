@@ -4,7 +4,6 @@ from flask_restplus import Resource
 from skf.api.security import log, security_headers, val_num
 from skf.api.user.business import activate_user
 from skf.api.user.serializers import activate, message
-from skf.api.user.parsers import user_activation_arguments
 from skf.api.restplus import api
 from skf.database.users import users
 

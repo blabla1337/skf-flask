@@ -12,8 +12,7 @@ class users(db.Model):
     activated = db.Column(db.Text)
     email = db.Column(db.Text)
 
-    def __init__(self, userID, privilegeID, accessToken, userName, password, access, activated, email):
-        self.userID = userID
+    def __init__(self, privilegeID, accessToken, userName, password, access, activated, email):
         self.privilegeID = privilegeID
         self.accessToken = accessToken
         self.userName = userName
@@ -21,4 +20,3 @@ class users(db.Model):
         self.access = access
         self.activated = activated
         self.email = email
-

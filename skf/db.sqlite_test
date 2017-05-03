@@ -1,21 +1,4 @@
 --
--- Table structure for table `users`
---
-drop table if exists `users`;
-CREATE TABLE `users` (
-`userID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`privilegeID` int(11) NOT NULL,
-`userName` varchar(255) NOT NULL UNIQUE,
-`email` varchar(255) ,
-`password` varchar(255) NOT NULL,
-`accessToken` varchar(255),
-`activated` varchar(255),
-`access` varchar(255) NOT NULL
-);
-
-INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "false", "false", "example@owasp.org");
-
---
 -- Table structure for table `privileges`
 --
 drop table if exists `privileges`;
@@ -173,9 +156,9 @@ CREATE TABLE `users` (
 `userID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `privilegeID` int(11) NOT NULL,
 `userName` varchar(255) NOT NULL UNIQUE,
-`email` varchar(255) ,
+`email` varchar(255) NOT NULL UNIQUE,
 `password` varchar(255) NOT NULL,
-`accessToken` varchar(255),
+`accessToken` varchar(255)NOT NULL UNIQUE,
 `activated` varchar(255),
 `access` varchar(255) NOT NULL
 );
@@ -351,6 +334,8 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.0, 2, 3, 3, 3, 3, 3);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (19.0, 2, 3, 3, 3, 3, 3);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.8, 2, 3, 3, 3, 3, 3);
+
+
 
 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.0', 'Architecture, design and threat modelling', '0'); 
@@ -732,6 +717,11 @@ of a code review for back doors, Easter eggs, and logic flaws.
 
 This should also mean that authorized administrators must have the capability to verify the integrity of
 all securityrelevant configurations to ensure that they have not been tampered with.
+
+Note:
+Studies have shown backdoors written by employees with malicious intend wil propably do this within
+the first half year of their employment. The implementing of back doors has little to do with how happy an
+employee is with the current employer, it has proven to be a trait of character rather than a trait of discontent.
 ', 'Malicious intent'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sandboxing
 
@@ -970,33 +960,36 @@ Applicationlevel protocols should be used to protect sensitive data.
 **NOTE:** Always make sure that even though you have set the allow origin header to trusted sources, you
 have to make authentication/session management before displaying sensitive information.
 ', 'Cross origin resource sharing'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Prevent password leaking
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
+Prevent prefilling of passwords
 
 
- Description:
+** Description **
 
-Whenever an users password is displayed on screen or send by email, an attacker gains the
-opportunity of compromising the password since it is displayed or sent in plain text.
-Since the password is displayed on screen it could even be copied simply by looking at it.
+Passwords should never be stored plaintext or in reversible format on the application. Whenever an attacker hacks 
+into the applications SQL database the passwords are directly compromised. In the case of
+prefilled forms in the application an attacker could also hijack the credentials by badly
+configured CORS rules or XSS attacks.
 
+**  Solution **
 
- Solution:
+Verify that forms containing credentials are not filled in by
+the application. Prefilling by the application implies that
+credentials are stored in plaintext or a reversible format,
+which is explicitly prohibited. Passwords should be stored by preferably PBKDF functions.
 
-Never display passwords on screen in an unprotected matter since this could easily lead
-to the password being compromised.
-Some practices are for you to:
+PBKDF2 uses a pseudorandom function and a configurable number of iterations to derive a
+cryptographic key from a password. Because this process is difficult to reverse
+(similar to a cryptographic hash function) but can also be configured to be slow to 
+compute, key derivation functions are ideally suited for password hashing use cases.
 
- set input field type to password.
- Set autocomplete=off for the password input field.
+Examples of good ways to store passwords are with, BCRYPT, Blowfish or in some cases SCRYPT
+which is a little harder to implement correctly
 
-This turns off the auto complete and remember password features of the browser.
-
- NOTE:
-For some browsers this means you have to put all the input fields the form contains
-to autocomplete=off, otherwise it will not comply.
-
-Also whenever a user has the opportunity to use password forget functions
-you should send a reset link rather than a new autogenerated password.
+NOTE: Password prefilling also happens when using the browsers password manager. For the login input
+fields the ''autocomplete=off'' HTML attribute should be added to disable the password manager. The credentials
+could otherwise be stolen by XSS attacks whenever an attacker injects an HTML login form into the application
+which is prefilled by the password manager.
 ', 'Prevent password leaking'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All authentication controls must fail securely
 
@@ -1461,8 +1454,7 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sanitize sensitive da
  Description:
 
 Whenever sensitive data is rapidly removed from the systems memory, this decreases the
-possibility the attacker can compromise this data since it is removed as soon as it is no
-longer needed.
+possibility the attacker can compromise this data by means of memory dumping attacks.
 
 
  Solution:
@@ -2867,11 +2859,10 @@ give the user back his account or take further legal actions against him.
 This type of approach prevents the attacker from further penetrating your application
 and infrastructure.
 
+ Note: 
+Be cautious that a softlockout countermessure does not override a hardlockout status.
 
-Recommended knowledgebase items:
 
- Audit logs
- Privilege based authentication
 ', 'Account lockout'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' XML Attacks
 
@@ -3058,7 +3049,7 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Client side storage
 
  Description:
 
-Also known as Offline Storage, Web Storage. Underlying storage mechanism may vary from one
+Client side storage also known as Offline Storage or Web Storage. The Underlying storage mechanism may vary from one
 user agent to the next. In other words, any authentication your application requires can
 be bypassed by a user with local privileges to the machine on which the data is stored.
 Therefore, it''s recommended not to store any sensitive information in local storage.
@@ -3069,9 +3060,10 @@ Verify that authenticated data is cleared from client storage, such as the brows
 session is terminated. This also goes for other session and local storage information which could
 assist an attacker launching an successful attack.
 
-Recommended knowledge base items:
+Verify that data stored in client side storage (such as HTML5 local storage, session storage, IndexedDB, regular
+cookies or Flash cookies) does not contain sensitive data or PII (personal identifiable information).
 
- HTML5 caching
+
 ', 'Client side storage'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Log rotation and separation
 
@@ -3182,7 +3174,8 @@ and makes it harder for attackers to impersonate different users.
 
  Solution:
 
-Verify that a message payload is signed to ensure reliable transport between client and service.
+Verify that the message payload is signed to ensure reliable transport between client and
+service, using JSON Web Signing or WSSecurity for SOAP requests.
 ', 'Signed message payloads'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Hardware key vault
 
@@ -3213,6 +3206,7 @@ documents are to bind operations to a specific transport protocol SOAP.
  Solution:
 
 Verify that the SOAP based web services are making use of the WSI Basic profile.
+To be complient to this standard it essentially means the application intfrastructure must be TLS protected.
 
 Source:
 http://www.wsi.org/Profiles/SimpleSoapBindingProfile1.0.html
@@ -3256,7 +3250,7 @@ rules apply, also think about what type of third party services can access the c
 Creating scripts to monitor for bad behavior of a third party service can be an option as an extra
 quality control check.
 ', 'Build Deploy secure'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include anti clickjacking headers
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' (XFrameOptions) Anti clickjacking headers
 
 
  Description:
@@ -3351,15 +3345,17 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Zero keys and secrets
 
  Description:
 
-Attackers are always on the lookout for secrets of a server of computer. When these secrets are
+Attackers are always on the lookout for secrets of a server or computer. When these secrets are
 accessible for an attacker because the key was not properly being destroyed then this can lead to
-security issues.
+security vulnerabilities. All secrets and keys should be completely erased from the memory since 
+an attacker could otherwise potentially retrieve these keys with memory dumping attacks on the application.
 
  Solution:
 
-Before destroying a secret or a security key it''s needed by the application to overwrite the secret
-with a new value zeroes. This will make it harder for an attacker to obtain the correct old value
-of the secret or security key.
+Secrets and keys should be erased from the memory and zeroed when they are no longer needed to prevent attackers from 
+doing memory dumping attacks.
+
+Also take into consideration the different Garbage collectors of your programming language. Whenever you zero out the keys of secret in question, you have no guarantee that a copy of it doesn''t exist elsewhere in memory.
 ', 'Keys secrets zeroed'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All keys and passwords should be replaceable
 
@@ -3420,6 +3416,52 @@ when stored on the disk. This is needed to protect the user from identity theft 
 Personally Identifiable Information needs to be stored encrypted at rest and ensure that all
 communication goes via protected channels like SSL/TLS.
 ', 'PII protection'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+Whenever security researchers find a vulnerability in a library, modules, frameworks, platforms or 
+operating system, these vulnerabilities are reported and saved in the CVE list. 
+
+CVE is a list of information security vulnerabilities and exposures that aims to provide 
+common names for  publicly known cyber security issues. The goal of CVE is to make it easier 
+to share data  across separate vulnerability capabilities (tools, repositories, and services) 
+with this "common enumeration."
+
+Attackers can use these lists to find publicly known exploits which might exists in the target application. 
+A lot of populair CVE exploits also have exploits available in Metasploit
+or the Exploit database. This enables script kiddies to easily exploit the target applications
+services, libraries and operating systems.
+
+
+Solution
+
+Verify that all application components, libraries, modules,
+frameworks, platform, and operating systems are free from known vulnerabilities.
+
+This could be achieved with for example, strict patch management and periodic scanning of
+the environment for new issued CVEs''. 
+
+It is also highly recommended to run the applications libraries and modules in the SDLC 
+through tools like OWASP dependency check. This tool checks imported modules and libraries
+for known CVEs''
+
+    https://www.owasp.org/index.php/OWASP_Dependency_Check
+', '1 11'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+Browser autocomplete and password managers could be used by attackers to steal sensitive
+information. Whenever an application is susceptible to XSS (Cross site scripting) attacks,
+the attacker can inject forms into the application which are autocompleted by the browser.
+
+The attacker can than use javascript to read the input fields and steal credentials or
+other sensitive information.
+
+Solution
+
+The browser should explicitly be told for al the input fields that the autocomplete function
+should be turned of. The "autocomplete=off" HTML attribute should be added to al the input and
+hidden input fields in the form you want to disable the autocomplete of.
+
+', '2 33'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include XXSSProtection header
 
 
@@ -3433,6 +3475,139 @@ web browsers. It is usually enabled by default anyway, so the role of this heade
 
 These headers are also known as the: XXSSProtection: 1; mode=block and provide protection against XSS attacks when implemented in the application or webserver.
 ', 'Include X XSS'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+All time sources must be synchronized throughout for example, different API servers or 
+microservices. to prevent logs to be tainted and become unusable for forensics.
+
+
+Solution:
+Time sources should be synchronized to ensure logs have the correct time. If these
+time sources are not synchronized, the logs lose integrity and can become untrusted for
+investigators.
+', '8 13'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('description
+
+ID values stored on the device such as IMEI and UDID should not be used as authentication tokens. 
+These tokens are retrievable by other applications and thus warrant no integrity.
+ 
+Using ID values from the mobile device also implies the use of static API tokens which is considered
+insecure. These tokens cannot for example, expire or be invalidated by the application.
+ 
+Whenever the application uses static tokens such as the ID values and a user gets man in 
+the middled by an attacker, this attacker can now fully compromise without being rejected by
+expiration or invalidation. 
+
+
+Solution
+
+Authentication tokens should always be generic and should be cryptographically random strong 
+with at least 120 bit of effective entropy. The best way to implement these tokens is to
+go with proven method such as JWT (json web tokens)
+
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and 
+selfcontained way for securely transmitting information between parties as a JSON object. 
+This information can be verified and trusted because it is digitally signed. JWTs can be 
+signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA. 
+', '7 1'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+The mobile application should not store sensitive data into unencrypted shared
+resources on the device. These resources can be accessible by other applications or 
+physically accessible whenever a device gets lost or stolen. 
+
+Solution
+
+Sensitive information should always be stored encrypted and preferably on the server side
+and retrieved using an object reference with proper authorization mechanisms in place. 
+
+Do not implement an existing cryptographic algorithm on your own, no matter how easy 
+it appears. Instead, use widely accepted algorithms and widely accepted implementations.
+
+The cardinal rule of mobile apps is to not store data unless absolutely necessary. 
+As a developer you have to assume that the data is forfeited as soon as it touches the phone. 
+You also have to consider the implications of losing mobile users'' data to a silent 
+jailbreak or root exploit.
+', '7 2'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+The mobile application should not store sensitive data into unencrypted manner, even in
+the applications key chains since these can be easily accessed once a phone is jailbroken 
+or exploited the keychain can be easily read. 
+
+Solution
+
+Determine the context of where the sensitive information is being stored, is it a small 
+data set or is the data stored in an SQLite database. For every context determine the 
+applications platform recommended native options settings and follow these 
+recommendations accordingly. 
+
+ 
+', '7 3'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+Secret keys, API tokens, or passwords must be dynamically generated. Whenever these tokens
+are not dynamically generated they can become predicable and used by attackers to compromise
+user accounts. 
+
+Solution
+
+When it comes to API tokens and secret keys these values have to be dynamically generated 
+and should be cryptographically random secure with at least 120 bit of effective entropy.
+
+Passwords on the other hand should be created by the user himself, rather than assigning
+a user a dynamically generated password, the user should be presented a link with a 
+cryptographically random token by means of an email or sms which is used to activate his 
+account and provide a password of his own.
+ 
+', '7 4'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+The mobile application should not leak sensitive information. This information could be leaked for example whenever:
+
+ Screenshots are saved of the current application as the primary  application is backgrounded 
+ Sensitive information is written to the console of the mobile device
+ The Activitymanager should show the application name and a blank page and not show information
+
+Solution
+
+ Disallow screenshots of the application whenever the application is backgrounded
+ Do not write sensitive information to the applications console, this information is accessible by attackers.
+ Create a custom window for whenever the application is shown in the ActivityManager, so it does not give away sensitive
+  information.
+', '7 5'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+the application should always be request minimal permissions for required functionality and
+resources. This is also known as principle of least privilege. The principle of least privilege 
+recommends that accounts have the least amount of privilege required to perform their 
+business processes. This encompasses user rights, resource permissions such as CPU limits, 
+memory, network, and file system permissions. 
+
+Whenever the application is compromised by an
+potential attacker, the attacker does not gain more arbitrary control over the victims device
+
+Solution
+
+Verify that the application is requesting minimal permissions for required functionality and
+resources.
+
+', '7 6'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('TODO:
+', '7 7'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('TODO:
+', '7 8&7 7TODO'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+The application should never export sensitive activities, intents, or content providers.
+These activities could than potentially be exploited by third party applications installed
+on the same device.
+
+Solution
+
+Identify throughout the application if there are any sensitive activities, intents or 
+content providers that are being exported. 
+
+', '7 9'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include XContentTypeOptions header
 
 
@@ -3452,6 +3627,65 @@ These headers are also known as the: XContentTypeOptions: nosniff;
 and provide protection against Mime content type attacks when implemented in the
 application or webserver.
 ', 'Include X Content Type Options header'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+Whenever sensitive information in stored in the devices’ memory, this information can 
+be dumped by various tool such as “android debugger (ADB)“ on android devices. This 
+information could give critical information about the application and could aid attackers 
+in their attacks.
+
+Solution
+
+sensitive information maintained in memory must be overwritten with zeros as soon as it 
+no longer actively used, to mitigate memory dumping attacks.
+
+Note: 
+Whenever the programming language has a garbage collector make sure whenever values are zeroed the GC is also
+emptied.
+', '7 10'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+Whenever input from exported activities intents or content providers is not properly validated
+this input could potentially exploit vulnerabilities on the mobile application depending on
+the context in where the input is being used.
+
+
+Solution
+
+Input from exported activities, intents or content providers should be validated against 
+the applications intended operation, i.e if the application expects a field with an integer value,
+all other incoming data that work out of this intended operation should be logged and rejected
+by the application.
+', '7 11'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+
+Whenever input from exported activities intents or content providers is not properly validated
+this input could potentially exploit vulnerabilities on the mobile application depending on
+the context in where the input is being used.
+
+
+Solution
+
+Input from exported activities, intents or content providers should be validated against 
+the applications intended operation, i.e if the application expects a field with an integer value,
+all other incoming data that work out of this intended operation should be logged and rejected
+by the application.
+', '7 12'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description 
+
+Whenever application assets such as javascript libraries or CSS styleshees are not hosted
+on the application itself but on a external CDN which is not under your control these
+CDNs'' can introduce security vulnerabilities. Whenever one of these CDN gets compromised
+attackers can include malicious scripts. Also whenever one of these CDNs'' get out of service
+it could affect the operation of the application and even cause a denial of service.
+
+
+Solution
+
+Verify that all application assets are hosted by the application, such as JavaScript libraries, CSS
+stylesheets and web fonts are hosted by the application rather than rely on a CDN or external
+provider. 
+', '19.10'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include StrictTransportSecurity header
 
 
@@ -3977,26 +4211,32 @@ value generated by a cryptographically secure random number generator.
 
 The CSRF token is then added as a hidden field for forms and validated on the sever side whenever
 a user is sending a request to the server.
+
+Note :
+Whenever the application is an REST service and is using tokens such as JWT tokens, whenever these tokens are being send
+in the application headers rather than stored in cookies the application should not be suspectible to CSRF attacks for a succesfull CSRF attacke depends on the browsers cookie jar.
 ', 'csrf injection'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Are all passwords hashed, salted and stretched 
 
 
- Description:
+ Description
 
-Whenever a password is not properly hashed, salted and stretched an attacker could easily
-abuse the password when obtained.
+Verify that account passwords are one way hashed with a salt, and there is sufficient work 
+factor to defeat brute force and password hash recovery attacks.
 
+ Solution
 
- Solution:
+Recommended for password usage are PBKDF functions. PBKDF2 uses a pseudorandom function 
+and a configurable number of iterations to derive a cryptographic key from a password. 
+Because this process is difficult to reverse (similar to a cryptographic hash function)
+but can also be configured to be slow to compute, key derivation functions are ideally 
+suited for password hashing use cases.
 
-A user should always be forced to use a proper password when signing in into the application.
-Preferably a passphrase instead of a password. This in order to extend the duration
-of a bruteforce attack.
-
-Verify that account passwords are protected using an adaptive key derivation function.
-Make sure the salt for the user is always unique and you apply bcrypt, scrypt or
-PBKDF2 before storing the password, with a minimum work factor iteration count of 150,000
-loops to eliminate the possibility of brute forcing.
+Another alternative would be bcrypt. bcrypt is a password hashing function designed by 
+Niels Provos and David Mazières, based on the Blowfish cipher, and presented at USENIX in 
+1999. Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an 
+adaptive function: over time, the iteration count can be increased to make it slower, 
+so it remains resistant to bruteforce search attacks even with increasing computation power.
 ', 'Are all passwords hashed, salted and stretched'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sensitive information transmitted by unencrypted methods
 
@@ -4127,15 +4367,18 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Does the application 
 
  Description:
 
-When an application does not enforce the use of secure passwords,
-these passwords could easily be bruteforced thus compromising the users account.
+Applications should encourage the use of strong passwords and passphrases. Preferably the
+password policy should not put limitations or restrictions on the chosen passwords.
+Whenever the application supports strong passwords and the use of password managers, the
+possibility for an attacker performing a succesfull bruteforce attack drops significally.
 
  Solution:
 
-The user should be enforced to use secure passwords. This can be done by using a
-passphrase policy. Also known top 1000 passwords should also be forbidden.
+Verify password entry fields allow, or encourage, the use of passphrases, and do not prevent
+password managers, long passphrases or highly complex passwords being entered. Also known top 1000 passwords
+should also be forbidden and rejected.
 
- NOTE:
+note:
 Never put restrictions on the password the user submits. Some applications for
 instance do not allow passwords longer than twenty chars. This is an example of bad
 practice since the password must be allowed as strong as the users wants it to be.
@@ -4495,23 +4738,24 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Possible attackers of
 
  Description:
 
-Activity logs of the hackers session is very valuable information and is very helpful
-when investigating a hack on an application.
+Authentication decisions should be logged along with relevant metadata for security 
+investigations. This information could for example be used whenever there is suspicion about
+account compromisation. Also, passwords and other sensitive information should never be stored
+into these log files. Whenever an attacker gains knowledge of these files, this information
+could be used to compromise other accounts. 
+
+note: "Usernames should also never be stored in the log files, users are not always paying
+attention to their actions and sometimes provide the username form field with their password.
+
+If the application would log the usernames, these passwords are now also stored and can be
+used to compromise accounts whenever an attacker gains knowledge of these files.
 
 
  Solution:
 
-The possible attackers needs to be monitored as much as possible. This information is
-crucial for forensics and law enforcements.
-
-Recommended knowlegebase items:
-
- Audit logs
- User credentials in audit logs
- Log injection
- Repudiation attacks
- Logging guidelines
- Logging is performed before executing the transaction
+Verify that all authentication decisions can be logged, without storing sensitive session 
+identifiers or passwords. This should include requests with relevant metadata
+needed for security investigations.
 ', 'Possible attackers of the application must be documented'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Audit logs
 

@@ -66,3 +66,4 @@ class ChecklistItem(Resource):
         except:
             log("User triggered error requesting specific checklist item", "LOW", "FAIL", self)
             return {'message': 'Validation error'}, 400, security_headers()
+            

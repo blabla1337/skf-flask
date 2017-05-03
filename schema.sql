@@ -12,7 +12,7 @@ CREATE TABLE `users` (
 `activated` varchar(255),
 `access` varchar(255) NOT NULL
 );
-
+ 
 INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "false", "false", "example@owasp.org");
 
 --
@@ -173,9 +173,9 @@ CREATE TABLE `users` (
 `userID` INTEGER PRIMARY KEY AUTOINCREMENT,
 `privilegeID` int(11) NOT NULL,
 `userName` varchar(255) NOT NULL UNIQUE,
-`email` varchar(255) ,
+`email` varchar(255) NOT NULL UNIQUE,
 `password` varchar(255) NOT NULL,
-`accessToken` varchar(255),
+`accessToken` varchar(255)NOT NULL UNIQUE,
 `activated` varchar(255),
 `access` varchar(255) NOT NULL
 );

@@ -1,4 +1,4 @@
-import jwt
+import jwt, secrets
 
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
@@ -13,16 +13,16 @@ from skf.api.security import val_num, val_alpha, val_alpha_num
 def activate_user(user_id, data):
     val_num(user_id)
     user = users.query.filter(users.userID == user_id).one()
-    if users.query.filter(users.activated == "false").one():
-        if users.query.filter(users.accessToken == data.get('accessToken')).one():
+    if user.activated == "false":
+        if user.email == data.get('email'):
             if data.get('password') == data.get('repassword'):
                 pw_hash = generate_password_hash(data.get('password')).decode('utf-8')
                 user.password = pw_hash
                 user.access = "true"
                 user.activated = "true"
-                user.email = data.get('repassword')
                 db.session.add(user)
                 db.session.commit()
+
 
 
 def login_user(data):
@@ -48,3 +48,24 @@ def login_user(data):
             token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
             token = str(token_raw,'utf-8')
             return token
+
+
+def create_user(data):
+    my_secure_rng = secrets.SystemRandom()
+    pincode = my_secure_rng.randrange(10000000, 99999999)
+    username = data.get('username')
+    val_alpha_num(username)
+    email = data.get('email')
+    access = "false"
+    activated = "false"
+    # New users can only edit:read:delete
+    privilege_id = "2"
+    password = ""
+    user = users(privilege_id, pincode, username, password, access, activated, email)
+    try:
+        db.session.add(user)
+        db.session.commit()
+        user_created = users.query.filter(users.email == email).one()
+        return user_created
+    except:
+        return False
