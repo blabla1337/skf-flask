@@ -1,15 +1,14 @@
-
-Prevent pre-filling of passwords
+# Prevent pre-filling of passwords
 -------
 
-** Description **
+## Description:
 
 Passwords should never be stored plaintext or in reversible format on the application. Whenever an attacker hacks 
 into the applications SQL database the passwords are directly compromised. In the case of
 pre-filled forms in the application an attacker could also hijack the credentials by badly
 configured CORS rules or XSS attacks.
 
-**  Solution **
+## Solution: 
 
 Verify that forms containing credentials are not filled in by
 the application. Pre-filling by the application implies that

@@ -36,7 +36,7 @@ from skf.database import db
 app = Flask(__name__)
 # TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
-logging.config.fileConfig('logging.conf')
+#logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
 

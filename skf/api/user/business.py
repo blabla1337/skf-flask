@@ -59,7 +59,8 @@ def create_user(data):
     access = "false"
     activated = "false"
     # New users can only edit:read:delete
-    privilege_id = "2"
+    if data.get('privilege') != '1':
+        privilege_id = data.get('privilege')
     password = ""
     user = users(privilege_id, pincode, username, password, access, activated, email)
     try:

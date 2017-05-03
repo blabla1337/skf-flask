@@ -16,6 +16,7 @@ login = api.model('login', {
 create = api.model('create', {
     'username': fields.String(required=True, description='Username of the user'),
     'email': fields.String(required=True, description='Email of the user'),
+    'privilege': fields.Integer(required=True, description='Role of the user privilege: 2, 3, 4'),
 })
 
 created = api.model('created', {
