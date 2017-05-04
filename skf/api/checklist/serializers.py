@@ -8,11 +8,11 @@ checklist = api.model('checklist', {
     'codeID_asp': fields.String(readOnly=True, description='The unique identifier of a asp code item'),
     'codeID_java': fields.String(readOnly=True, description='The unique identifier of a java code item'),
     'codeID_python': fields.String(readOnly=True, description='The unique identifier of a python code item'),
-    'kb_items.title': fields.String(required=True, description='Knowledge base title'),
-    'kb_items.content': fields.String(required=True, description='Knowledge base content'),
-    'checklist_items.checklistID': fields.String(required=True, description='The unique identifier of a checklist item'),
-    'checklist_items.content': fields.String(required=True, description='Checklist content'),
-    'checklist_items.level': fields.String(required=True, description='Checklist level'),
+    'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
+    'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
+    'checklist_items_checklistID': fields.String(attribute='checklist_items.checklistID', required=True, description='The unique identifier of a checklist item'),
+    'checklist_items_content': fields.String(attribute='checklist_items.content', required=True, description='Checklist content'),
+    'checklist_items_level': fields.String(attribute='checklist_items.level', required=True, description='Checklist level'),
 })
 
 
