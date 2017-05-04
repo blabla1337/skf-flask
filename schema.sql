@@ -313,6 +313,7 @@ CREATE TABLE `checklists` (
 `level` int(11),
 `testguideID` int(11),
 `cweID` int(11),
+`pcidssID` int(11),
 `nistID` int(11)
 );
 

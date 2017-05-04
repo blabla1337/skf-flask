@@ -3,6 +3,7 @@ from skf.api.restplus import api
 
 activate = api.model('activate', {
     'accessToken': fields.Integer(required=True, description='Authentication token that was generated'),
+    'username': fields.String(required=True, description='Username of the new user'),
     'email': fields.String(required=True, description='Email of the user'),
     'password': fields.String(required=True, description='Password of the user'),
     'repassword': fields.String(required=True, description='Retyped password'),
@@ -14,7 +15,6 @@ login = api.model('login', {
 })
 
 create = api.model('create', {
-    'username': fields.String(required=True, description='Username of the user'),
     'email': fields.String(required=True, description='Email of the user'),
     'privilege': fields.Integer(required=True, description='Role of the user privilege: 2, 3, 4'),
 })

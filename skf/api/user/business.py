@@ -20,6 +20,7 @@ def activate_user(user_id, data):
                 user.password = pw_hash
                 user.access = "true"
                 user.activated = "true"
+                user.username = data.get('username')
                 db.session.add(user)
                 db.session.commit()
 
@@ -53,7 +54,7 @@ def login_user(data):
 def create_user(data):
     my_secure_rng = secrets.SystemRandom()
     pincode = my_secure_rng.randrange(10000000, 99999999)
-    username = data.get('username')
+    username = pincode
     val_alpha_num(username)
     email = data.get('email')
     access = "false"
