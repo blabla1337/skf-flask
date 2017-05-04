@@ -1,5 +1,8 @@
 #! /bin/bash
 
+export FLASK_APP=skf/app.py flask initdb
+export PYTHONPATH=.:$PYTHONPATH
+
 while :
 do
 	case "$(ps x |grep -v grep |grep -c "Python skf")" in
