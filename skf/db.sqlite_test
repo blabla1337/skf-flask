@@ -338,7 +338,6 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 
 
 
-
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.0', 'Architecture, design and threat modelling', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.9', 'Verify the application has a clear separation between the data layer, controller layer and the display layer, such that security decisions can be enforced on trusted systems.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.0', 'Error handling and logging verification requirements', '0'); 
@@ -961,18 +960,17 @@ Applicationlevel protocols should be used to protect sensitive data.
 **NOTE:** Always make sure that even though you have set the allow origin header to trusted sources, you
 have to make authentication/session management before displaying sensitive information.
 ', 'Cross origin resource sharing'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
-Prevent prefilling of passwords
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Prevent prefilling of passwords
 
 
-** Description **
+ Description:
 
 Passwords should never be stored plaintext or in reversible format on the application. Whenever an attacker hacks 
 into the applications SQL database the passwords are directly compromised. In the case of
 prefilled forms in the application an attacker could also hijack the credentials by badly
 configured CORS rules or XSS attacks.
 
-**  Solution **
+ Solution: 
 
 Verify that forms containing credentials are not filled in by
 the application. Prefilling by the application implies that
@@ -996,6 +994,7 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All authentication co
 
 
  Description:
+
 Handling errors securely is a key aspect of secure coding.
 There are two types of errors that deserve special attention. The first is exceptions
 that occur in the processing of a security control itself. It''s important that these
@@ -1022,25 +1021,35 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Forget password funct
  Description:
 
 Whenever a user forgets his password and your application provides a password
-forget functionality or any other type of recovery paths
-there are a couple of things to take into consideration when you want to harden its
-security.
+forget functionality or any other type of recovery paths there are a couple of things
+to take into consideration when you want to harden it''s security.
 
 
  Solution:
 
-The forget password function should never send a new password by email but should contain
-a reset link with a token which is valid for a limited amount of time.
-Additional authentication based on softtokens
-(e.g. SMS token, native mobile applications, etc.) can be required as well before the
-link is sent over. Also make sure whenever such a recovery cycle is started, the
-application does not reveal the users current password in any way.
+The recommended solutions are to use TOTP (Timebased OneTime Password algorithm). This 
+method is an example of a hashbased message authentication code (HMAC). It combines a 
+secret key with the current timestamp using a cryptographic hash function to generate 
+a onetime password. Because network latency and outofsync clocks can result in the password 
+recipient having to try a range of possible times to authenticate against, the timestamp typically 
+increases in 30second intervals, which thus cuts the potential search space.
 
-Recommended knowledgebase items:
+Or the other option is to use a Mathematicalalgorithmbased onetime password method. This other 
+type of onetime password uses a complex mathematical algorithm, such as a hash chain, to generate 
+a series of onetime passwords from a secret shared key. Each password is unguessable, even when 
+previous passwords are known. The open source OAuth algorithm is standardized; other algorithms are 
+covered by U.S. patents. Each password is observably unpredictable and independent on previous ones. 
+Therefore, an adversary would be unable to guess what the next password may be, even with the 
+knowledge of all previous passwords.
 
- Prevent password leaking
- Disallow the use of old passwords
- Predictable password and/or token generation
+Example of a hard token mathimatical algorithm would be a yubikey
+Example of a soft token TOTP would be google authenticator
+
+The last resort would be to send a new password by email. This mail should contain a reset link with 
+a token which is valid for a limited amount of time. Additional authentication based on softtokens 
+(e.g. SMS token, native mobile applications, etc.) can be required as well before the link is 
+sent over. Also make sure whenever such a recovery cycle is started, the application does not 
+reveal the users current password in any way.
 ', 'Forget password functions'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Aggregate access control protection
 
@@ -2294,7 +2303,7 @@ Recommended knowledge base items:
  Input rejection
  Input validation
 ', 'Client side validation'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Positive validation model
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Positive validation model
 
 
  Description:

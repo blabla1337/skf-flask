@@ -1,12 +1,14 @@
 import os
+from skf import settings
 from flask import Flask
 from sqlite3 import dbapi2 as sqlite3
+
 
 app = Flask(__name__)
 
 def connect_db():
     """Connects to the specific database."""
-    rv = sqlite3.connect(os.path.join(app.root_path, 'db.sqlite'))
+    rv = sqlite3.connect(os.path.join(app.root_path, settings.DATABASE))
     rv.row_factory = sqlite3.Row
     return rv
 
@@ -21,7 +23,7 @@ def init_db():
 
 def get_db():
     """Opens a new database connection if there is none yet for the current application context."""
-    if not hasattr(g, 'sqlite_db'):
+    if not hasattr(g, settings.DATABASE):
         g.sqlite_db = connect_db()
     return g.sqlite_db
 

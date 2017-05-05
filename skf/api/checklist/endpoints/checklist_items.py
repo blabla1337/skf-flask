@@ -27,28 +27,6 @@ class ChecklistCollection(Resource):
         return categories, 200, security_headers()
 
 
-@ns.route('/category/<float:id>')
-class ChecklistCat(Resource):
-
-    @api.expect(id_arguments)
-    @api.marshal_with(checklist)
-    @api.response(400, 'Validation Error', message)
-    def get(self, id):
-        """
-        Returns a checklist category and belonging items.
-        Privileges required: none
-        """
-        try:        
-            log("User requested specific checklist category and belonging items", "LOW", "PASS", self)
-            id_str = str(id)
-            id_str = id_str[:-1]
-            checklistCat = checklists_kb.query.order_by(checklists_kb.checklistID).filter(checklists_kb.checklistID.like(id_str+'%')).all()
-            return checklistCat, 200, security_headers()
-        except:
-            log("User triggered error requesting specific checklist category and belonging items", "LOW", "FAIL", self)
-            return {'message': 'Validation error'}, 400, security_headers()
-
-
 @ns.route('/<float:id>')
 class ChecklistItem(Resource):
 
