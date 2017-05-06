@@ -12,7 +12,6 @@ install:
   - pip install pytest-cov
   - pip install coverage
   - pip install python-coveralls
-  - pip install importlib
 
 script:
   - python setup.py test
