@@ -7,6 +7,8 @@ python:
 
 env:
   - PYTHONWARNINGS="ignore"
+  - FLASK_APP=skf/app.py
+  - PYTHONPATH=.:$PYTHONPATH
 
 install:
   - pip install pytest-cov
