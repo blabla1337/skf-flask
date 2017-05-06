@@ -17,7 +17,7 @@ script:
   - python setup.py test
   - python tests/run.py
 after_script:
-  - coverage run test_skf.py test
+  - coverage run tests/run.py test
 
 #after_success:
 #  - coveralls
