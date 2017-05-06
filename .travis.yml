@@ -5,11 +5,6 @@ sudo: false
 python:
   - "3.6"
 
-env:
-  - PYTHONWARNINGS="ignore"
-  - FLASK_APP=skf/app.py
-  - PYTHONPATH=.:$PYTHONPATH
-
 install:
   - pip install pytest-cov
   - pip install coverage
@@ -17,7 +12,11 @@ install:
 
 script:
   - python setup.py test
+  - export PYTHONWARNINGS="ignore"
+  - export FLASK_APP=skf/app.py
+  - export PYTHONPATH=.:$PYTHONPATH
   - python tests/run.py
+  
 after_script:
   - coverage run tests/run.py test
 
