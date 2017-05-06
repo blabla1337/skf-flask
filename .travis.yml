@@ -1,11 +1,14 @@
 language: python
+
 sudo: false
+
 python:
-  - "2.6"
-  - "2.7"
+  - "3.6"
+
+env:
+  - PYTHONWARNINGS="ignore"
+
 install:
-  - pip install owasp-skf
-  - pip install https://github.com/mitsuhiko/flask/tarball/master
   - pip install pytest-cov
   - pip install coverage
   - pip install python-coveralls
@@ -13,9 +16,9 @@ install:
 
 script:
   - python setup.py test
-  - cd skf
-#  - python -m pytest --cov test_skf.py
-#after_script:
-#  - coverage run  test_skf.py test
+  - python tests/run.py
+after_script:
+  - coverage run test_skf.py test
+
 #after_success:
 #  - coveralls
