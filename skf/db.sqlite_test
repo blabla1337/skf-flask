@@ -338,6 +338,9 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 
 
 
+
+
+
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.0', 'Architecture, design and threat modelling', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.9', 'Verify the application has a clear separation between the data layer, controller layer and the display layer, such that security decisions can be enforced on trusted systems.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.0', 'Error handling and logging verification requirements', '0'); 

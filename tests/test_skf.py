@@ -90,7 +90,7 @@ class TestRestPlusApi(unittest.TestCase):
 
 
     def test_update_kb(self):
-        """Test if the get kb items call is working"""
+        """Test if the update kb items call is working"""
         jwt = self.login('admin', 'admin')        
         payload = {'content': 'Unit test content update', 'title': 'Unit test tile update'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
@@ -150,14 +150,14 @@ class TestRestPlusApi(unittest.TestCase):
 #        self.assertEqual(response_dict['projectName'], "Unit test name project update")
 
 
-    def test_delete_project_item(self):
-        """Test if the delete project item call is working"""
-        jwt = self.login('admin', 'admin') 
-        headers = {'Authorization': jwt}
-        response = self.client.delete('/api/project/items/delete/1', headers=headers)
-        self.assertEqual(response.status_code, 200)
-        response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['message'], "Project successfully deleted")
+#    def test_delete_project_item(self):
+#        """Test if the delete project item call is working"""
+#        jwt = self.login('admin', 'admin') 
+#        headers = {'Authorization': jwt}
+#        response = self.client.delete('/api/project/items/delete/1', headers=headers)
+#        self.assertEqual(response.status_code, 200)
+#        response_dict = json.loads(response.data.decode('utf-8'))
+#        self.assertEqual(response_dict['message'], "Project successfully deleted")
 
 
 

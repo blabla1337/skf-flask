@@ -16,7 +16,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
-import logging.config, click, os, re
+import logging.config, os, re
 
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
