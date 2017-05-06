@@ -10,3 +10,5 @@
 **/dist
 **/owasp_skf.egg-info/
 .coverage
+skf/db.sqlite
+skf/db.unittesting

@@ -9,15 +9,14 @@ class TestRestPlusApi(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.client = app.test_client()
-        cls.db_fd, skf.settings.DATABASE = tempfile.mkstemp()
+        skf.settings.DATABASE = "db.unittesting"
         with app.app_context():
             skf.settings.TESTING = True
             skf.app.initialize_app(app)
             skf.app.init_db()
-    # TO DO
-    #def tearDown(cls):
-    #    os.close(cls.db_fd)
-    #    os.unlink(cls.db_fd)
+
+    def tearDownClass():
+        os.remove(os.path.join(app.root_path, "db.unittesting"))
 
 
     def test_get_status(self):
@@ -78,7 +77,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items/')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['title'], "Filename injection Path traversel")
+        self.assertEqual(response_dict['items'][1]['title'], "External DTD parsing")
 
 
     def test_get_kb_item_10(self):
@@ -129,25 +128,11 @@ class TestRestPlusApi(unittest.TestCase):
 #        """Test if the project item call is working"""
 #        jwt = self.login('admin', 'admin') 
 #        headers = {'Authorization': jwt}
-#        response = self.client.get('/api/project/items/2', headers=headers)
+#        response = self.client.get('/api/project/items/1', headers=headers)
 #        self.assertEqual(response.status_code, 200)
 #        response_dict = json.loads(response.data.decode('utf-8'))
 #        self.assertEqual(response_dict['projectName'], "Unit test name project")
 
-
-#    def test_update_project_item(self):
-#        """Test if the project item update call is working"""
-#        jwt = self.login('admin', 'admin') 
-#        payload = {'description': 'Unit test description project update', 'name': 'Unit test name project update', 'version': 'version 1.1'}
-#        headers = {'Authorization': jwt}
-#        response = self.client.put('/api/project/items/update/2', data=json.dumps(payload), headers=headers)
-#        self.assertEqual(response.status_code, 200)
-#        response_dict = json.loads(response.data.decode('utf-8'))
-#        self.assertEqual(response_dict['projectName'], "Unit test name project")
-#        response = self.client.get('/api/project/items/2', headers=headers)
-#        self.assertEqual(response.status_code, 200)
-#        response_dict = json.loads(response.data.decode('utf-8'))
-#        self.assertEqual(response_dict['projectName'], "Unit test name project update")
 
 
 #    def test_delete_project_item(self):
@@ -159,6 +144,20 @@ class TestRestPlusApi(unittest.TestCase):
 #        response_dict = json.loads(response.data.decode('utf-8'))
 #        self.assertEqual(response_dict['message'], "Project successfully deleted")
 
+
+#    def test_update_project_item(self):
+#        """Test if the project item update call is working"""
+#        jwt = self.login('admin', 'admin') 
+#        payload = {'description': 'Unit test description project update', 'name': 'Unit test name project update', 'version': 'version 1.1'}
+#        headers = {'Authorization': jwt}
+#        response = self.client.put('/api/project/items/update/3', data=json.dumps(payload), headers=headers)
+#        self.assertEqual(response.status_code, 200)
+#        response_dict = json.loads(response.data.decode('utf-8'))
+#        self.assertEqual(response_dict['projectName'], "Unit test name project")
+#        response = self.client.get('/api/project/items/3', headers=headers)
+#        self.assertEqual(response.status_code, 200)
+#        response_dict = json.loads(response.data.decode('utf-8'))
+#        self.assertEqual(response_dict['projectName'], "Unit test name project update")
 
 
 
