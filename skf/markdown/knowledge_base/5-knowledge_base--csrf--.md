@@ -1,4 +1,4 @@
-# CSRF injection
+# Cross site request forgery
 -------
 
 ## Description:
