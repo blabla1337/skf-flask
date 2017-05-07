@@ -10,16 +10,13 @@ def update_project(project_id, user_id, data):
     project.projectName = data.get('name')
     project.projectVersion = data.get('version')
     project.projectDesc = data.get('description')
-    val_alpha_num(project.projectName)
-    val_alpha_num(project.projectVersion)
-    val_alpha_num(project.projectDesc)
     project.userID = user_id
-    groupmember = groupmembers.query.filter(groupmembers.userID == userID).one()
+    groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
     ownerID = groupmember.ownerID
     groupID = groupmember.groupID
     now = datetime.datetime.now()
     project.timestamp = now.strftime("%Y-%m-%d %H:%M")
-    db.session.add(project)
+    db.session.add(project) 
     db.session.commit()
 
 

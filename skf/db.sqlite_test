@@ -340,6 +340,14 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 
 
 
+
+
+
+
+
+
+
+
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.0', 'Architecture, design and threat modelling', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.9', 'Verify the application has a clear separation between the data layer, controller layer and the display layer, such that security decisions can be enforced on trusted systems.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.0', 'Error handling and logging verification requirements', '0'); 
@@ -408,12 +416,15 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('15.1', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('15.2', 'Verify the application has business limits and correctly enforces on a per user basis, with configurable alerting and automated reactions to automated or unusual attack.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.0', 'Files and resources verification requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.1', 'Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.2', 'Verify that untrusted file data submitted to the application is not used directly with file I/O commands,particularly to protect against path traversal, local file include, file mime type, and OS command injection vulnerabilities.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.3', 'Verify that files obtained from untrusted sources are validated to be of expected type and scanned by antivirus scanners to prevent upload of known malicious content.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.2', 'Verify that untrusted file data submitted to the application is not used directly with file I/O commands,particularly to protect against path traversal, local file include, file mime type, and OS command injection vulnerabilities.
+', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.3', 'Verify that files obtained from untrusted sources are validated to be of expected type and scanned by antivirus scanners to prevent upload of known malicious content.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.4', 'Verify that untrusted data is not used within inclusion, class loader, or reflection capabilities to prevent remote/local file inclusion vulnerabilities.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.4', 'Verify all authentication controls are enforced on the server side.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.5', 'Verify that untrusted data is not used within crossdomain resource sharing (CORS) to protect against arbitrary remote content.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.6', 'Verify that files obtained from untrusted sources are stored outside the webroot, with limited permissions, preferably with strong validation.', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.6', 'Verify that files obtained from untrusted sources are stored outside the webroot, with limited permissions, preferably with strong validation.
+', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.7', 'Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.8', 'Verify the application code does not execute uploaded data obtained from untrusted sources.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.9', 'Do not use Flash, ActiveX, Silverlight, NACL, clientside Java or other client side technologies not supported natively via W3C browser standards.', '1'); 
@@ -438,7 +449,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.3', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.4', 'Verify that all input is limited to an appropriate size limit.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.5', 'Verify that SOAP based web services are compliant with Web ServicesInteroperability (WSI) Basic Profile at minimum. This essentially means TLS encryption.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.6', 'Verify the use of sessionbased authentication and authorization. Please refer to sections 2, 3 and 4 for further guidance. Avoid the use of static "API keys" and similar.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.7', 'Verify that the REST service is protected from CrossSite Request Forgery via the use of at least one or more of the following: ORIGIN checks, double submit cookie pattern, CSRF nonces, and referrer checks.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.7', 'Verify that the REST service is protected from CrossSite Request Forgery via the use of at least one or more of the following: ORIGIN checks, double submit cookie pattern, CSRF nonces, and referrer checks.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.8', 'Verify the REST service explicitly check the incoming ContentType to be the expected one, such as application/xml or application/json.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.9', 'Verify that the message payload is signed to ensure reliable transport between client and service, using JSON Web Signing or WSSecurity for SOAP requests.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.10', 'Verify that alternative and less secure access paths do not exist.', '2'); 
@@ -3698,6 +3710,59 @@ Verify that all application assets are hosted by the application, such as JavaSc
 stylesheets and web fonts are hosted by the application rather than rely on a CDN or external
 provider. 
 ', '19.10'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Cross site request forgery on REST
+
+
+ Description:
+
+CrossSite Request Forgery (CSRF) is a type of attack that occurs when a malicious Web site,
+email, blog, instant message, or program causes a users Web browser to perform an unwanted
+action on a trusted site for which the user is currently authenticated.
+
+The impact of a successful crosssite request forgery attack is limited to the
+capabilities exposed by the vulnerable application. For example, this attack could result
+in a transfer of funds, changing a password, or purchasing an item in the users context.
+In effect, CSRF attacks are used by an attacker to make a target system perform a
+function (funds Transfer, form submission etc.) via the targets browser without
+knowledge of the target user at least until the unauthorised function has been committed.
+
+
+ Solution:
+
+REST (REpresentational State Transfer) is a simple stateless architecture that generally runs
+over HTTPS/TLS. The REST style emphasizes that interactions between clients and services are
+enhanced by having a limited number of operations
+
+Since the archetecture is stateless, the application should make use of sessions or cookies to
+store the HTTP sessions, which allow associating information with individual visitors. The prefered method for REST
+services is to utilize tokens for interactive information interchange between the user and the server. 
+
+By sending this information solely by means of headers, the application is no longer suspectible to CSRF attacks
+since the CSRF attack utilizes the browsers cookie jar for succesfull attacks.
+', 'CSRF REST'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
+
+I/O commands allow you to own, use, read from, write to, and close devices. To direct I/O operations to a device.
+Whenever user supplied input i.e file names and/or file data is being directly used in these commands this could lead 
+to path traversal, local file include, file mime type, and OS command injection vulnerabilities.
+
+ Solution:
+
+File names and file contents should be sanitized before being used in I/O commands. 
+', 'File'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
+
+a
+
+
+
+ Solution:
+', 'File upload anti virus check'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
+
+
+ Solution:
+', 'File upload outside document root'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include StrictTransportSecurity header
 
 
@@ -4195,7 +4260,7 @@ all the SQL code, and then pass in each parameter to the query later. This codin
 allows the database to distinguish between code and data, regardless of what user input
 is supplied.
 ', 'Prepared statements and query parameterization'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' CSRF injection
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Cross site request forgery
 
 
  Description:
@@ -4227,7 +4292,7 @@ a user is sending a request to the server.
 Note :
 Whenever the application is an REST service and is using tokens such as JWT tokens, whenever these tokens are being send
 in the application headers rather than stored in cookies the application should not be suspectible to CSRF attacks for a succesfull CSRF attacke depends on the browsers cookie jar.
-', 'csrf injection'); 
+', 'csrf'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Are all passwords hashed, salted and stretched 
 
 
