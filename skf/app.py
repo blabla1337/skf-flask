@@ -71,9 +71,6 @@ def initialize_app(flask_app):
 @app.cli.command('initdb')
 def initdb_command():
     """Creates the database with all the Markdown files."""
-    init_md_checklists()
-    init_md_knowledge_base()
-    init_md_code_examples()
     init_db()
     print('Initialized the database.')
 

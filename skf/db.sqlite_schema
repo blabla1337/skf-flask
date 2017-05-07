@@ -310,7 +310,6 @@ CREATE TABLE `checklists_kb` (
 `checklistID` varchar(255),
 `questionID` int(11),
 `kbID` int(11),
-`kb_items_kbID` int(11),
 `codeID_php` int(11),
 `codeID_asp` int(11),
 `codeID_java` int(11),
@@ -335,15 +334,6 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.0, 2, 3, 3, 3, 3, 3);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (19.0, 2, 3, 3, 3, 3, 3);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.8, 2, 3, 3, 3, 3, 3);
-
-
-
-
-
-
-
-
-
 
 
 
@@ -487,7 +477,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.26', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.27', 'Verify that measures are in place to block the use of commonly chosen passwords and weak passphrases.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.28', 'Verify that all authentication challenges, whether successful or failed, should respond in the same average response time.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.29', 'Verify that secrets, API keys, and passwords are not included in the source code, or online source code repositories.', '3'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.31', 'Verify that if an application allows users to authenticate, they can authenticate using twofactor authentication or other strong authentication, or any similar scheme that provides protection against username + password disclosure.', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.31', 'Verify that if an application allows users to authenticate, they can authenticate using twofactor authentication or other strong authentication, or any similar scheme that provides protection against username + password disclosure.
+', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.32', 'Verify that administrative interfaces are not accessible to untrusted parties', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.33', 'Browser autocomplete, and integration with password managers are permitted unless prohibited by risk based policy.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.3', 'Verify that a highlevel architecture for the application has been defined.', '2'); 
@@ -3752,17 +3743,112 @@ File names and file contents should be sanitized before being used in I/O comman
 ', 'File'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
 
-a
-
-
+whenver files from untrusted services are uploaded to the server, there should be additional checks
+in place to verift whether these files contain viruses (malware, trojans, ransomeware). 
 
  Solution:
+
+After uploading the file, the file should be placed in quarantine and antivirus has to 
+inspect the file for malicious viruses. Antivirus software that has a commandline interface is 
+requisite for doing such scans. There are also API''s available for other services such as
+from "VirusTotal.com" 
+
+This site provides a free service in which your file is given as input to 
+numerous antivirus products and you receive back a detailed report with the evidences resulting from 
+the scanning process
 ', 'File upload anti virus check'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
 
+Files that are uploaded by users or other untrusted services should always be placed outside
+of the document root. This is to prevent malicious files from being parsed by attackers such as PHP files.
+
+Should an attacker succeed to bypass file upload restrictions and upload an malicous file, it would
+be impossible for the attacker to parse these files since they are not located inside of the
+applications document root.
 
  Solution:
+
+Files should be stored outside of the applications document root. Preferably files should be stored
+on a seperate file server which serves back and fort to the application server. 
+
+Files should always be stored outside of the scope of the attacker to prevent files from
+being parsed or executed.
+
+When storing files outside of the document root, take into consideration potential path traversal injections
+in the applications file name such as "../html/backtoroot/file.php". Whenever this filename is being used directly
+into the path that is used to store files, it could be used to manipulate the storage path.
 ', 'File upload outside document root'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
+
+Whenever security logs can be modified by unauthorized users, potential attackers could use these
+privileges to erase their attacks against the appliation or simply soil the log files.
+
+
+ Solution:
+
+
+From PCI:
+
+"10.5.5 Use fileintegrity monitoring or changedetection software on logs  to ensure that existing 
+log data cannot be changed without generating alerts (although new data being added should not cause an alert). "
+', 'Authentication integrety checks'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
+
+Security logs should never allow unauthorized/unauthenticated access because these files include
+a lot of sensitive information and could assist an attacker into leveraging attacks. Whenever
+these logs can be accessed and modified, attackers could also erase their presence and attack
+trail they made to the application.
+
+ Solution:
+
+The security logs could be protected by means of (HIDS).
+This is a system that monitors important operating system files to make sure the files can only
+be accessed by particular users. Security log files could also be proteced by the OS itself by
+defining groups and users and grant only a particular set of users access to the files.
+', 'Authentication security logs'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Prevent the use of commonly chosen passwords and weak passphrases.
+
+ Description:
+
+Whenever an attacker has enumerated usernames from an application the attacker could start
+a bruteforce attack on the authentication functionality. Whenever users have common known weak
+passwords or passphrases there is a high probability that the attacker can compromise 
+some of the accounts on the application.
+
+ Solution:
+
+The internet is full of top X worst password lists which can be used to verify the users 
+freshly entered password against. Whenever a user enters a password that matches up to a password
+provided in one of those lists. The password should be rejected and the user should be adviced to take
+another password.
+', 'commonly chosen weak passwords'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
+ schemes that provide protection against username + password disclosure.
+
+ Description:
+
+Whenever the users username and passwords are disclosed by an application on what ever fashion possible, the 
+users account should still be proteced by two factor authentication mechanisms to prevent attackers
+from logging in with the credentials.
+
+
+ Solution:
+
+Multifactor authentication (MFA) is a method of computer access control in which a user is granted access only after successfully presenting several separate pieces of evidence to an authentication mechanism – typically at least two of the following categories: knowledge (something they know), possession (something they have), and inherence (something they are)
+
+Examples of two/multi factor authentication can be 
+
+1. Google authenticator
+   Google Authenticator is an application that implements twostep verification services using the Timebased 
+   Onetime Password Algorithm (TOTP) and HMACbased Onetime Password Algorithm 
+
+2. Yubikey
+
+  The YubiKey is a hardware authentication device manufactured by Yubico that supports onetime passwords, public key   
+  encryption and authentication, and the Universal 2nd Factor (U2F) protocol[1] developed by the FIDO Alliance (FIDO U2F).
+  It allows users to securely log into their accounts by emitting onetime passwords or using a FIDObased public/private
+  key pair generated by the device
+', 'two factor authentication against username password disclosure'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include StrictTransportSecurity header
 
 
@@ -4224,21 +4310,24 @@ retrieve user data from the database like : SELECT data from personaldata where 
 Now an possible attacker can not tamper and change the application operation since the
 identifier for retrieving the data is handled serverside.
 ', 'Identifier based authorization'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Missing authentication or authorization
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Principle of complete mediation
 
 
  Description:
 
-If pages are not properly checked for authentication or authorization, an attacker could
-abuse these flaws. The consequences are differ per application but may lead to
-high risk vulnerabilities.
+Throughout development of the application there must be perpetual checks in place to check
+if all pages and resources by default require authentication except those specifically intended to be public.
+
+Sometimes developers simply forget to implement these checks, or they remove the checks 
+temporarily for testing purposes. 
+
 
 
  Solution:
 
-You should verify all access controls are implemented properly in order to
-prevent a user access data/functions which he was not intended to use.
-', 'Missing authentication or authorization'); 
+Verify all access controls are implemented properly in order to prevent a user access data/functions which 
+he was not intended to use.
+', 'Principle of complete mediation'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' SQL injection
 
 
@@ -4449,16 +4538,13 @@ password policy should not put limitations or restrictions on the chosen passwor
 Whenever the application supports strong passwords and the use of password managers, the
 possibility for an attacker performing a succesfull bruteforce attack drops significally.
 
+This also increases the possibility that the application can be used with users'' passwords managers.
+
  Solution:
 
 Verify password entry fields allow, or encourage, the use of passphrases, and do not prevent
-password managers, long passphrases or highly complex passwords being entered. Also known top 1000 passwords
-should also be forbidden and rejected.
+password managers, long passphrases or highly complex passwords being entered. 
 
-note:
-Never put restrictions on the password the user submits. Some applications for
-instance do not allow passwords longer than twenty chars. This is an example of bad
-practice since the password must be allowed as strong as the users wants it to be.
 ', 'Does The application enforce the use of secure passwords'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' XXE injections
 

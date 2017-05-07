@@ -1,21 +1,4 @@
 --
--- Table structure for table `users`
---
-drop table if exists `users`;
-CREATE TABLE `users` (
-`userID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`privilegeID` int(11) NOT NULL,
-`userName` varchar(255) NOT NULL UNIQUE,
-`email` varchar(255) ,
-`password` varchar(255) NOT NULL,
-`accessToken` varchar(255),
-`activated` varchar(255),
-`access` varchar(255) NOT NULL
-);
- 
-INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "false", "false", "example@owasp.org");
-
---
 -- Table structure for table `privileges`
 --
 drop table if exists `privileges`;
@@ -333,7 +316,6 @@ CREATE TABLE `checklists_kb` (
 `codeID_python` int(11)
 );
 
-
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (3.0, 2, 3, 3, 3, 3, 3);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (4.0, 2, 3, 3, 3, 3, 3);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (5.0, 2, 3, 3, 3, 3, 3);
@@ -352,3 +334,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.0, 2, 3, 3, 3, 3, 3);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (19.0, 2, 3, 3, 3, 3, 3);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.8, 2, 3, 3, 3, 3, 3);
+
+
+
+

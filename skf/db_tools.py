@@ -1,5 +1,6 @@
 import os
 from skf import settings
+from shutil import copyfile
 from flask import Flask
 from sqlite3 import dbapi2 as sqlite3
 
@@ -15,8 +16,14 @@ def connect_db():
 
 def init_db():
     """Initializes the database."""
+    os.remove(os.path.join(app.root_path, 'db.sqlite'))
+    os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
+    copyfile(os.path.join(app.root_path, "schema.sql"), os.path.join(app.root_path, 'db.sqlite_schema'))
+    init_md_checklists()
+    init_md_knowledge_base()
+    init_md_code_examples()
     db = connect_db()
-    with app.open_resource(os.path.join(app.root_path, 'db.sqlite_test'), mode='r') as f:
+    with app.open_resource(os.path.join(app.root_path, 'db.sqlite_schema'), mode='r') as f:
         db.cursor().executescript(f.read())
     db.commit()
 
@@ -41,7 +48,7 @@ def init_md_knowledge_base():
             data.close()
             content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
             query = "INSERT OR REPLACE INTO kb_items (content, title) VALUES ('"+content_escaped+"', '"+title+"'); \n"
-            with open(os.path.join(app.root_path, 'db.sqlite_test'), 'a') as myfile:
+            with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                     myfile.write(query)
     print('Initialized the markdown knowledge-base items to database.')
 
@@ -61,7 +68,7 @@ def init_md_code_examples():
                 data.close()
                 content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
                 query = "INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('"+content_escaped+"', '"+title+"', '"+lang+"'); \n"
-                with open(os.path.join(app.root_path, 'db.sqlite_test'), 'a') as myfile:
+                with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                         myfile.write(query)
     print('Initialized the markdown code-example items to database.')
 
@@ -98,6 +105,6 @@ def init_md_checklists():
             content = file_content.split(' ', 1)[1]
             content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
             query = "INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"'); \n"
-            with open(os.path.join(app.root_path, 'db.sqlite_test'), 'a') as myfile:
+            with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                     myfile.write(query)
     print('Initialized the markdown checklist items to database.')
