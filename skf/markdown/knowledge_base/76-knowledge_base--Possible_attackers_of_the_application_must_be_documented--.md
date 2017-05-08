@@ -11,7 +11,6 @@ could be used to compromise other accounts.
 
 note: "Usernames should also never be stored in the log files, users are not always paying
 attention to their actions and sometimes provide the username form field with their password.
-
 If the application would log the usernames, these passwords are now also stored and can be
 used to compromise accounts whenever an attacker gains knowledge of these files.
 
