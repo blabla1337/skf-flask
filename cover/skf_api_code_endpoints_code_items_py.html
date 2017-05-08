@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/code/endpoints/code_items.py: 76%</title>
+    <title>Coverage for skf/api/code/endpoints/code_items.py: 90%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/code/endpoints/code_items.py</b> :
-            <span class="pc_cov">76%</span>
+            <span class="pc_cov">90%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
             62 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">47 run</span>
-            <span class="mis shortkey_m button_toggle_mis">15 missing</span>
+            <span class="run hide_run shortkey_r button_toggle_run">56 run</span>
+            <span class="mis shortkey_m button_toggle_mis">6 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -131,15 +131,15 @@
 <p id="n62" class="pln"><a href="#n62">62</a></p>
 <p id="n63" class="pln"><a href="#n63">63</a></p>
 <p id="n64" class="pln"><a href="#n64">64</a></p>
-<p id="n65" class="stm mis"><a href="#n65">65</a></p>
-<p id="n66" class="stm mis"><a href="#n66">66</a></p>
-<p id="n67" class="stm mis"><a href="#n67">67</a></p>
-<p id="n68" class="stm mis"><a href="#n68">68</a></p>
-<p id="n69" class="stm mis"><a href="#n69">69</a></p>
-<p id="n70" class="stm mis"><a href="#n70">70</a></p>
-<p id="n71" class="stm mis"><a href="#n71">71</a></p>
-<p id="n72" class="stm mis"><a href="#n72">72</a></p>
-<p id="n73" class="stm mis"><a href="#n73">73</a></p>
+<p id="n65" class="stm run hide_run"><a href="#n65">65</a></p>
+<p id="n66" class="stm run hide_run"><a href="#n66">66</a></p>
+<p id="n67" class="stm run hide_run"><a href="#n67">67</a></p>
+<p id="n68" class="stm run hide_run"><a href="#n68">68</a></p>
+<p id="n69" class="stm run hide_run"><a href="#n69">69</a></p>
+<p id="n70" class="stm run hide_run"><a href="#n70">70</a></p>
+<p id="n71" class="stm run hide_run"><a href="#n71">71</a></p>
+<p id="n72" class="stm run hide_run"><a href="#n72">72</a></p>
+<p id="n73" class="stm run hide_run"><a href="#n73">73</a></p>
 <p id="n74" class="pln"><a href="#n74">74</a></p>
 <p id="n75" class="pln"><a href="#n75">75</a></p>
 <p id="n76" class="pln"><a href="#n76">76</a></p>
@@ -232,15 +232,15 @@
 <p id="t62" class="pln"><span class="str">        Returns a code example item.</span><span class="strut">&nbsp;</span></p>
 <p id="t63" class="pln"><span class="str">        Privileges required: none</span><span class="strut">&nbsp;</span></p>
 <p id="t64" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
-<p id="t65" class="stm mis">        <span class="nam">log</span><span class="op">(</span><span class="str">"User requested specific code language items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">,</span> <span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t66" class="stm mis">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
-<p id="t67" class="stm mis">        <span class="nam">code_lang</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'code_lang'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t68" class="stm mis">        <span class="nam">args</span> <span class="op">=</span> <span class="nam">pagination_arguments</span><span class="op">.</span><span class="nam">parse_args</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t69" class="stm mis">        <span class="nam">page</span> <span class="op">=</span> <span class="nam">args</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'page'</span><span class="op">,</span> <span class="num">1</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t70" class="stm mis">        <span class="nam">per_page</span> <span class="op">=</span> <span class="nam">args</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'per_page'</span><span class="op">,</span> <span class="num">10</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t71" class="stm mis">        <span class="nam">code_query</span> <span class="op">=</span> <span class="op">(</span><span class="nam">code_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">code_items</span><span class="op">.</span><span class="nam">code_lang</span> <span class="op">==</span> <span class="nam">code_lang</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t72" class="stm mis">        <span class="nam">code_page</span> <span class="op">=</span> <span class="nam">code_query</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="nam">page</span><span class="op">,</span> <span class="nam">per_page</span><span class="op">,</span> <span class="nam">error_out</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t73" class="stm mis">        <span class="key">return</span> <span class="nam">code_page</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t65" class="stm run hide_run">        <span class="nam">log</span><span class="op">(</span><span class="str">"User requested specific code language items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">,</span> <span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t66" class="stm run hide_run">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
+<p id="t67" class="stm run hide_run">        <span class="nam">code_lang</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'code_lang'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t68" class="stm run hide_run">        <span class="nam">args</span> <span class="op">=</span> <span class="nam">pagination_arguments</span><span class="op">.</span><span class="nam">parse_args</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t69" class="stm run hide_run">        <span class="nam">page</span> <span class="op">=</span> <span class="nam">args</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'page'</span><span class="op">,</span> <span class="num">1</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t70" class="stm run hide_run">        <span class="nam">per_page</span> <span class="op">=</span> <span class="nam">args</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'per_page'</span><span class="op">,</span> <span class="num">10</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t71" class="stm run hide_run">        <span class="nam">code_query</span> <span class="op">=</span> <span class="op">(</span><span class="nam">code_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">code_items</span><span class="op">.</span><span class="nam">code_lang</span> <span class="op">==</span> <span class="nam">code_lang</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t72" class="stm run hide_run">        <span class="nam">code_page</span> <span class="op">=</span> <span class="nam">code_query</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="nam">page</span><span class="op">,</span> <span class="nam">per_page</span><span class="op">,</span> <span class="nam">error_out</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t73" class="stm run hide_run">        <span class="key">return</span> <span class="nam">code_page</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t74" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t75" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t76" class="pln"><span class="strut">&nbsp;</span></p>
@@ -276,7 +276,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-08 16:58
+            created at 2017-05-08 17:02
         </p>
     </div>
 </div>
