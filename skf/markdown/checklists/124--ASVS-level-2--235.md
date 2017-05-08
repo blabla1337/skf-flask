@@ -1,0 +1,1 @@
+9.10 Verify accessing sensitive data is logged, if the data is collected under relevant data protection directives or where logging of accesses is required.
