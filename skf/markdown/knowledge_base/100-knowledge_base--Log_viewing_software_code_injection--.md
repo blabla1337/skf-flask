@@ -1,4 +1,4 @@
-# code injection log viewing software
+# Code injection log viewing software
 -------
 
 ## Description:
