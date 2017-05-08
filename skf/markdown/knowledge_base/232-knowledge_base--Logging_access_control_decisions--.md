@@ -1,5 +1,5 @@
 
-## All authentication decisions must be logged
+## All access control decisions must be logged
 
 ## Description:
 
