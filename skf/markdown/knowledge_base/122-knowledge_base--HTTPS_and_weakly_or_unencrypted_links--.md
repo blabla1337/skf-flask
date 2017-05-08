@@ -12,11 +12,6 @@ vulnerable data towards other unencrypted/weak encrypted links in your applicati
 
 ## Solution:
 
-Do not traverse unencrypted or weakly encrypted links.
-As soon as you allow a single connection to be send over unencrypted lines, the
-integrity and confidentiality of your data can no longer be guaranteed.
+Verify that credentials are transported using a suitable encrypted link and that all pages/functions that
+require a user to enter credentials are done so using an encrypted link.
 
-Recommended knowledge-base items:
-
-- HTTP strict transport security
-- HSTS preload
