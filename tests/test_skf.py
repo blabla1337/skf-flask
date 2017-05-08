@@ -1,5 +1,7 @@
 import os, json, unittest, tempfile, skf
 from skf import settings
+from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num
+from skf.db_tools import init_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
 from skf.app import app
 
 
@@ -10,7 +12,8 @@ class TestRestPlusApi(unittest.TestCase):
     def setUpClass(cls):
         cls.client = app.test_client()
         with app.app_context():
-            skf.settings.TESTING = True
+            settings.TESTING = True
+            #settings.DATABASE = "db.unittesting"
             skf.app.initialize_app(app)
 
 
@@ -222,6 +225,50 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][1]['title'], "CSRF Token JSF")
+
+
+class TestDB(unittest.TestCase):
+
+    def test_init_md_knowledge_base(self):
+        """Test if the init markdown of kb items is working"""
+        self.assertTrue(init_md_knowledge_base())
+
+
+    def test_init_md_checklists(self):
+        """Test if the init markdown of checklist items is working"""
+        self.assertTrue(init_md_checklists())
+
+
+    def test_init_md_code_examples(self):
+        """Test if the init markdown of code items is working"""
+        self.assertTrue(init_md_code_examples())
+
+
+    def test_init_db(self):
+        """Test if the init markdown of code items is working"""
+        init_db()
+
+
+class TestSecurity(unittest.TestCase):
+
+    def test_val_alpha(self):
+        """Test if the val_alpha method is working"""
+        self.assertTrue(val_alpha("woopwoop"))
+
+
+    def test_val_num(self):
+        """Test if the val_num method is working"""
+        self.assertTrue(val_num(1337))
+
+
+    def test_val_alpha_num(self):
+        """Test if the val_alpha_num method is working"""
+        self.assertTrue(val_alpha_num("woop woop 1337"))
+
+
+    def test_val_float(self):
+        """Test if the val_float method is working"""
+        self.assertTrue(val_float(10.11))
 
 
 if __name__ == '__main__':

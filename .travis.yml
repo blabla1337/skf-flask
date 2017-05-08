@@ -17,7 +17,9 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - coverage run tests/run.py test
+  - python tests/run.py 
+  - flask initdb
+  - coverage run tests/test_skf.py test
 
 after_success:
   - coveralls
