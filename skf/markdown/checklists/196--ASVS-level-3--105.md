@@ -1,1 +1,0 @@
-19.8 Verify that third party components come from trusted repositories.
