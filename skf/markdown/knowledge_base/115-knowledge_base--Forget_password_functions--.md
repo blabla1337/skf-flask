@@ -3,9 +3,9 @@
 
 ## Description:
 
-Whenever a user forgets his password and your application provides a password
-forget functionality or any other type of recovery paths there are a couple of things
-to take into consideration when you want to harden it's security.
+Whenever the applications application provides a password forget functionality or other 
+type of recovery methods there are several implementations of hardened proven ways to make
+the user recover his password.
 
 
 ## Solution:
