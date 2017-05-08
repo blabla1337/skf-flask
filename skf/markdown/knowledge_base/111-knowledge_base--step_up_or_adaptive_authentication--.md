@@ -7,6 +7,8 @@ Whenever a user browses a section of a web based application that contains sensi
 information the user should be challenged authenticate again using a higher assurance
 credential to be granted access to this information.
 
+This is to prevent attackers from reading sensitive information after they succesfully hijacked a 
+user account.
 
 ## Solution:
 
@@ -15,6 +17,4 @@ Verify the application has additional authorization
 granted access to sensitive information. This rule also applies for making critical
 changes to an account or action.
 
-This also means that the adaptation of authentication has
-to be implemented in such a manner that the application correctly enforces context-sensitive
-authorization so as to not allow unauthorized manipulation by means of in example, parameter tampering.
+Segregation of duties should be applied for high value applications to enforce anti-fraud controls as per the risk of application and past fraud.
