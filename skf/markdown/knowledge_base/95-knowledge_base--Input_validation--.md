@@ -23,20 +23,4 @@ counter for tracking the number of his violations(submitting bad input) in your 
 validation class. You should enforce a lockout whenever a unreasonable number of
 violations are detected by your application in order to protect it from attackers.
 
-Also verify that structured data is strongly typed and validated against a defined schema
-including allowed characters, length and pattern (e.g. credit card numbers or telephone,
-or validating that two related fields are reasonable, such as validating suburbs and zip
-or post codes match).
 
-This also goes for whenever you are expecting just an integer or alphanumeric values etc.
-Every detection of input outside of the intended operation of the application should be
-logged and rejected by your application.
-
-Note: All this validation and rejection should always be performed on the server side.
-
-Recommended knowledge base items:
-
-- Positive validation method
-- Input rejection
-- Client side validation
-- Single input validation controls
