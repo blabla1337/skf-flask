@@ -86,7 +86,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_update_kb(self):
         """Test if the update kb items call is working"""
         jwt = self.login('admin', 'admin')        
-        payload = {'content': 'Unit test content update', 'title': 'Unit test tile update'}
+        payload = {'content': 'Unit test content update', 'title': 'Unit test title update'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/kb/items/update/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -95,7 +95,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items/')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['title'], "Unit test tile update")
+        self.assertEqual(response_dict['items'][0]['title'], "Unit test title update")
 
 
     def test_create_project(self):
@@ -158,6 +158,42 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Project successfully deleted")
+
+
+    def test_get_code(self):
+        """Test if the get code items call is working"""
+        response = self.client.get('/api/code/items/')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking headers")
+
+
+    def test_get_code_item_10(self):
+        """Test if the get specific code item call is working"""
+        response = self.client.get('/api/code/items/10')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['title'], "Enforce secure passwords")
+
+
+    def test_update_code(self):
+        """Test if the update code items call is working"""
+        jwt = self.login('admin', 'admin')        
+        payload = {'code_lang': 'php', 'content': 'Unit test content update', 'title': 'Unit test title update'}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/code/items/update/1', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "Code example item successfully updated")
+        response = self.client.get('/api/code/items/')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['title'], "Unit test title update")
+
+
+
+
+
 
 
 if __name__ == '__main__':

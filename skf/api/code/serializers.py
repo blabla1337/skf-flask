@@ -8,6 +8,12 @@ code = api.model('code', {
     'code_lang': fields.String(required=True, description='Code language'),
 })
 
+code_update = api.model('code_update', {
+    'title': fields.String(required=True, description='Code title'),
+    'content': fields.String(required=True, description='Code content'),
+    'code_lang': fields.String(required=True, description='Code language'),
+})
+
 pagination = api.model('A page of results', {
     'page': fields.Integer(description='Number of the page of results'),
     'pages': fields.Integer(description='Total number of pages of results'),
