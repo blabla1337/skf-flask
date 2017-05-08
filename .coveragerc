@@ -1,0 +1,12 @@
+build:
+    tests:
+        override:
+            -
+		command: "export FLASK_APP=skf/app.py"
+		command: "export PYTHONPATH=.:$PYTHONPATH"
+		command: "export PYTHONWARNINGS='ignore'"
+                command: 'python3.6 tests/run.py'
+                coverage:
+                    file: '.coverage'
+                    config_file: '.coveragerc'
+                    format: 'py-cc'
