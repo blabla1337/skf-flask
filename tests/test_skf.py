@@ -14,6 +14,7 @@ class TestRestPlusApi(unittest.TestCase):
         with app.app_context():
             settings.TESTING = True
             #settings.DATABASE = "db.unittesting"
+            init_db()
             skf.app.initialize_app(app)
 
 
@@ -229,19 +230,23 @@ class TestRestPlusApi(unittest.TestCase):
 
 class TestDB(unittest.TestCase):
 
+
     def test_init_md_knowledge_base(self):
         """Test if the init markdown of kb items is working"""
         self.assertTrue(init_md_knowledge_base())
+        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
 
 
     def test_init_md_checklists(self):
         """Test if the init markdown of checklist items is working"""
         self.assertTrue(init_md_checklists())
+        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
 
 
     def test_init_md_code_examples(self):
         """Test if the init markdown of code items is working"""
         self.assertTrue(init_md_code_examples())
+        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
 
 
     def test_init_db(self):
