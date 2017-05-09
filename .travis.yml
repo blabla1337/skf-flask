@@ -15,9 +15,9 @@ before_script:
   - export PYTHONWARNINGS="ignore" 
   - export FLASK_APP=skf/app.py 
   - export PYTHONPATH=.:$PYTHONPATH
+  - coverage run tests/run.py test
 
 script:
-  - coverage run tests/run.py test
-  - coverage run --source=skf setup.py test
+  - py.test tests/test_skf.py -v
 after_success:
   - coveralls
