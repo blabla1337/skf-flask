@@ -21,8 +21,8 @@ def init_db():
     os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
     copyfile(os.path.join(app.root_path, "schema.sql"), os.path.join(app.root_path, 'db.sqlite_schema'))
     init_md_checklists()
-    init_md_knowledge_base()
     init_md_code_examples()
+    init_md_knowledge_base()
     db = connect_db()
     with app.open_resource(os.path.join(app.root_path, 'db.sqlite_schema'), mode='r') as f:
         db.cursor().executescript(f.read())
