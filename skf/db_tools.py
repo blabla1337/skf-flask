@@ -84,6 +84,7 @@ def init_md_checklists():
     """Converts markdown checklists items to DB."""
     kb_dir = os.path.join(app.root_path, 'markdown/checklists')
     try:
+     code_langs = ['asvs', 'pcidss', 'custom']       
         for filename in os.listdir(kb_dir):
             if filename.endswith(".md"):
                 name_raw = filename.split("-")
