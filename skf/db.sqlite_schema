@@ -389,7 +389,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.12',
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.13', 'Ensure forward secrecy ciphers are in use to mitigate passive attackers recording traffic.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.14', 'Verify that proper certification revocation, such as Online Certificate Status Protocol (OSCP) Stapling, is enabled and configured.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.15', 'Verify that only strong algorithms, ciphers, and protocols are used, through all the certificate hierarchy, including root and intermediary certificates of your selected certifying authority.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.16', 'Verify that the TLS settings are in line with current leading practice, particularly as common configurations, ciphers, and algorithms become insecure.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.16', 'Verify that the TLS settings are in line with current leading practice, particularly as common configurations, ciphers, and algorithms become insecure.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.1', 'Verify all pages and resources by default require authentication except those specifically intended to be public (Principle of complete mediation).', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.0', 'HTTP security configuration verification requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.1', 'Verify that the application accepts only a defined set of required HTTP request methods, such as GET and POST are accepted, and unused methods (e.g. TRACE, PUT, and DELETE) are explicitly blocked.', '1'); 
@@ -452,7 +453,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.0', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.1', 'All components should be up to date with proper security configuration(s) and version(s). This should include removal of unneeded configurations and folders such as sample applications, platform documentation, and default or example users.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.8', 'Verify all account identity authentication functions (such as update profile, forgot password, disabled / lost token, help desk or IVR) that might regain access to the account are at least as resistant to attack as the primary authentication mechanism.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.2', 'Communications between components, such as between the application server and the database server, should be encrypted, particularly when the components are in different containers or on different systems.', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.3', 'Communications between components, such as between the application server and the database server should be authenticated using an account with the least necessary privileges.', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.3', 'Communications between components, such as between the application server and the database server should be authenticated using an account with the least necessary privileges.
+', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.4', 'Verify application deployments are adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.5', 'Verify that the application build and deployment processes are performed in a secure fashion.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.6', 'Verify that authorised administrators have the capability to verify the integrity of all securityrelevant configurations to ensure that they have not been tampered with.
@@ -484,7 +486,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.26', 
 ', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.27', 'Verify that measures are in place to block the use of commonly chosen passwords and weak passphrases.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.28', 'Verify that all authentication challenges, whether successful or failed, should respond in the same average response time.', '3'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.29', 'Verify that secrets, API keys, and passwords are not included in the source code, or online source code repositories.', '3'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.29', 'Verify that secrets, API keys, and passwords are not included in the source code, or online source code repositories.
+', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.31', 'Verify that if an application allows users to authenticate, they can authenticate using twofactor authentication or other strong authentication, or any similar scheme that provides protection against username + password disclosure.
 ', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.32', 'Verify that administrative interfaces are not accessible to untrusted parties', '1'); 
@@ -513,7 +516,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.8', '
 ', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.9', 'Verify that the same access control rules implied by the presentation layer are enforced on the server side.
 ', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.5', 'Verify that all components that are not part of the application but that the application relies on to operate are defined in terms of the functions, and/or security functions, they provide.', '3'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.5', 'Verify that all components that are not part of the application but that the application relies on to operate are defined in terms of the functions, and/or security functions, they provide.
+', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.10', 'Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.11', 'Verify that there is a centralized mechanism (including libraries that call external authorization services) for protecting access to each type of protected resource.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.12', 'Verify that all access control decisions can be logged and all failed decisions are logged.
@@ -547,7 +551,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.22', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.23', 'For autoescaping template technology, if UI escaping is disabled, ensure that HTML sanitization is enabled instead.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.24', 'Verify that data transferred from one DOM context to another, uses safe JavaScript methods, such as using .innerText and .val.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.25', 'Verify when parsing JSON in browsers, that JSON.parse is used to parse JSON on the client. Do not use eval() to parse JSON on the client.', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.26', 'Verify that authenticated data is cleared from client storage, such as the browser DOM, after the session is terminated.', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.26', 'Verify that authenticated data is cleared from client storage, such as the browser DOM, after the session is terminated.
+', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('7.0', 'Cryptography at rest verification requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.8', 'Verify that components are segregated from each other via a defined security control, such as network segmentation, firewall rules, or cloud based security groups.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('7.2', 'Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable oracle padding.', '1'); 
@@ -1220,9 +1225,7 @@ number of edits per minute in order to to prevent an automatic attack
  Solution:
 
 Verify the application has the ability to detect and alert on abnormal numbers of requests
-for information or processing high value transactions for that user role, such as screen
-scraping, automated use of web service extraction, or data loss prevention. For example,
-the average user should not be able to access more than 5 records per hour or 30 records
+for information or processing high value transactions for that user role, automated use of web service extraction, or data loss prevention. For example, the average user should not be able to access more than 5 records per hour or 30 records
 per day, or add 10 friends to a social network per minute.
 ', 'Aggregate user requests'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Principle of least privilege
@@ -4080,6 +4083,107 @@ to decrypt a message by attempting all possible keys.
 Therefore, we need to ensure that both the algorithm and the key size are taken into account when selecting
 an algorithm. Whenever computer power increases the standards for selecting a new alogrithm changes as wel.
 ', 'TLS HTTPS'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Screen scraping and data harvesting
+
+ Description:
+
+Whenever the application does not put a threshold on the number requests made to the server,
+screen scraping and data harvesting tools can gather data and information.
+
+i.e should the application contain an insecure direct object reference, than the data harvesting
+tool could now harvest information it was not originally authorized to access to.
+
+Or the application is a web shop and the competition is scraping prices and products in order to 
+give them an edge on comparison web sites and get more business.
+
+ Solution:
+
+ModSecurity can be used to set up rules to prevent attackers from scraping and harvesting data
+from the application. The ModSecurity can be set up with thresholds and rate limiting and block
+ip adresses if they exceed the threshold.
+', 'screen scraping data harvest'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Communication between components (low privileges)
+
+ Description:
+
+If accounts for communicating between components have granted more privileges than
+necessary, these accounts could impose a great threat whenever one of these components gets
+compromised by attackers. 
+
+i.e:
+A web application running on root privileges which has an path traversal vulnerability
+can be used to read both the "etc/passwd" file as wel as reading the "etc/shadow" file.
+
+These files can than be used in an offline password cracking attacks to recover accounts
+on the server.
+
+ Solution:
+
+Communications between components, such as between the application server and the database 
+server should be authenticated using an account with the least necessary privileges.
+', 'low privileges'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' TLS settings are in line with current leading practice
+
+ Description:
+
+TLS settings must always be in line with current leading practice. Whenever TLS
+settings and cyphers get outdated, the TLS connection can be degraded/broken and used by
+attackers to eavesdrop on users traffic over the application.
+
+ Solution:
+
+There should be structural scans that are done regurarly against the applications TLS settings
+and configurations to check whether the TLS settings are in line with current leading practice.
+
+This could be achieved by using the SSLLabs api or the OWASP OSaft project.
+
+OSaft is an easy to use tool to show informations about SSL certificate and tests the SSL 
+connection according given list of ciphers and various SSL configurations.
+
+It''s designed to be used by penetration testers, security auditors or server administrators. 
+The idea is to show the important informations or the special checks with a simple call of the tool.
+However, it provides a wide range of options so that it can be used for comprehensive and special 
+checks by experienced people.
+
+', 'TLS leading practice'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Data retention policy
+
+ Description:
+
+For all the data gathered in an application there should be set up a data retention policy
+to make sure al the dat is removed from the application when it is no longer used. This reduces
+the damage done by potential attackers when they get access to the applications data due to a breach.
+
+ Solution:
+
+Al the sensitive information within the application must be mapped allong with the 
+timeframe it is necessary to store this data on the application. For each data set there
+must be determined how to effectively clear this information from the application.
+
+', 'Data retention policy'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' authenticated data cleared from client storage
+
+ Description:
+
+All authenticated data should be removed from the browsers storage as soon as
+the session is terminated. This reduces the possibility that a potential attacker gains
+sensitive authenticated information whenever the application is attacked.
+
+This aproach also is necessary to disable unauthenticated users to access the information
+if the user was initially logged in on a public computer.
+
+ Solution:
+
+Whenever the user terminates his session al sensitive authenticated information should be 
+cleared from the browser in the client storage. such as:
+
+* local storage
+* Session storage
+* web SQL
+* Cache storage
+* Application cache
+* etc
+', 'Client storage authenticated data'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include StrictTransportSecurity header
 
 
@@ -4111,6 +4215,59 @@ Visit:
     https://hstspreload.appspot.com/
 Here you can find how to add your application to HSTS preload
 ', 'Include Strict Transport Security header'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Third party components
+
+ Description: 
+
+All third party components the application depends on to operate must be mapped in
+terms of the functions, and/or security functions, they provide for several reasons.
+
+1. Whenever one of these dependencies is down the application has to handle the missing of
+   that dependency gracefully and not break down resulting in an DOS.
+
+2. All security functions they provide must be mapped and backed up by a WAF or ModSecurity in case
+   the dependency goes down for service.
+
+ Solution:
+
+Verify that all components that are not part of the application but that the application
+relies on to operate are defined in terms of the functions, and/or security functions, they provide.
+', 'third party components'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sensitive information inside the source code or online repositories
+
+ Description:
+
+Whenever secrets, API keys, and passwords are stored in the applications source code an attacker
+can potentially retrieve this sensitive information by i.e:
+
+1. finding old zip files with earlier releases
+2. retrieve and read files by path traversal attacks
+
+Also be cautious not to store this sensitive information on online repositories.
+Whenever this repository gets made public by accident or compromised all this sensitive information
+can fall in to the hands of attackers.
+
+ Solution:
+
+Verify that secrets, API keys, and passwords are not included in the source code, or online source code 
+repositories.This could be achieved by manual code reviews and potentially small tools that checks te code
+for these keys and secrets by means of pattern matching.
+', 'sensitive information in code or online repositories'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Identify all application components
+
+ Description:
+
+components are defined in terms of the business functions and/or security functions they provide
+it is easier for forensics to do their investigations whenever a breach has happened on an application.
+
+These insights also help whenever an update or release is made on the application to determine what security
+risks are effectively covered by the security functions. 
+
+ Solution:
+
+Verify that all application components are defined in terms of the business functions
+and/or security functions they provide.
+', 'Identify all components'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sensitive information stored in cookies
 
 
