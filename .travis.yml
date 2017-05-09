@@ -19,7 +19,6 @@ before_script:
 
 script:
   - coverage run tests/run.py test
-  - coverage run tests/test_skf.py -v
 
 after_success:
   - coveralls
