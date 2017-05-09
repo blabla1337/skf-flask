@@ -245,7 +245,7 @@ class TestDB(unittest.TestCase):
 
 
     def test_init_db(self):
-        """Test if the init markdown of code items is working"""
+        """Test if the init db is working"""
         init_db()
 
 
