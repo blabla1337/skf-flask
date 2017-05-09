@@ -16,10 +16,10 @@ before_script:
   - export PYTHONWARNINGS="ignore" 
   - export FLASK_APP=skf/app.py 
   - export PYTHONPATH=.:$PYTHONPATH
-  - py.test tests/test_skf.py -v
+  - coverage run tests/run.py test
 
 script:
-  - coverage run tests/run.py test
+  - coverage run tests/test_skf.py -v
 
 after_success:
   - coveralls
