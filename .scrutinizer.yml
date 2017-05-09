@@ -14,4 +14,4 @@ checks:
 
 filter:
     excluded_paths:
-        - '*test_skf*'
+        - '*tests*'
