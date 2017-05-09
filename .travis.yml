@@ -18,6 +18,6 @@ before_script:
 
 script:
   - coverage run tests/run.py test
-
+  - coverage run --source=skf setup.py test
 after_success:
   - coveralls
