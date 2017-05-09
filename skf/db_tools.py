@@ -17,6 +17,7 @@ def connect_db():
 def init_db():
     """Initializes the database."""
     os.remove(os.path.join(app.root_path, settings.DATABASE))
+    open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a')
     os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
     copyfile(os.path.join(app.root_path, "schema.sql"), os.path.join(app.root_path, 'db.sqlite_schema'))
     init_md_checklists()
