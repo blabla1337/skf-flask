@@ -464,10 +464,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.8', 
 ', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.9', 'Ensure that build processes for system level languages have all security flags enabled, such as ASLR, DEP, and security checks.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.10', 'Verify that all application assets are hosted by the application, such as JavaScript libraries, CSS stylesheets and web fonts are hosted by the application rather than rely on a CDN or external provider.', '3'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('20.0', 'Custom checklist title example', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.1', 'Verify that all application components are identified and are known to be needed', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.9', 'Verify that the changing password functionality includes the old password, the new password, and a password confirmation.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('20.1', 'Custom checklist item example, lorum ipsum ', '14.md'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.12', 'Verify that all authentication decisions can be logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.13', 'Verify that account passwords are one way hashed with a salt, and there is sufficient work factor to defeat brute force and password hash recovery attacks.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.16', 'Verify that credentials are transported using a suitable encrypted link and that all pages/functions that require a user to enter credentials are done so using an encrypted link.', '1'); 

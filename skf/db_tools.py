@@ -82,40 +82,43 @@ def init_md_code_examples():
 
 def init_md_checklists():
     """Converts markdown checklists items to DB."""
-    kb_dir = os.path.join(app.root_path, 'markdown/checklists')
+    kb_dir = os.path.join(app.root_path, 'markdown/checklists/')
     try:
-     code_langs = ['asvs', 'pcidss', 'custom']       
-        for filename in os.listdir(kb_dir):
-            if filename.endswith(".md"):
-                name_raw = filename.split("-")
-                level = name_raw[4].replace("_", " ")
-                if level == "0":
-                    # For the ASVS categories
-                    file = os.path.join(kb_dir, filename)
+        #checklists = ['asvs', 'pcidss', 'custom']
+        checklists = ['asvs', 'custom']
+        for checklist in checklists:
+            if checklist == "asvs":
+                for filename in os.listdir(kb_dir+checklist):
+                    if filename.endswith(".md"):
+                        name_raw = filename.split("-")
+                        level = name_raw[4].replace("_", " ")
+                        if level == "0":
+                            # For the ASVS categories
+                            file = os.path.join(kb_dir+checklist, filename)
+                            data = open(file, 'r')
+                            file_content = data.read()
+                            data.close()
+                            checklistID_raw = file_content.split(":")
+                            checklistID = checklistID_raw[0]
+                            checklistID = checklistID.lstrip('V')
+                            checklistID = checklistID+".0"
+                        else :
+                            # For the ASVS items
+                            file = os.path.join(kb_dir+checklist, filename)
+                            data = open(file, 'r')
+                            file_content = data.read()
+                            data.close()
+                            checklistID_raw = file_content.split(" ")
+                            checklistID = checklistID_raw[0]     
+                    file = os.path.join(kb_dir+checklist, filename)
                     data = open(file, 'r')
                     file_content = data.read()
                     data.close()
-                    checklistID_raw = file_content.split(":")
-                    checklistID = checklistID_raw[0]
-                    checklistID = checklistID.lstrip('V')
-                    checklistID = checklistID+".0"
-                else :
-                    # For the ASVS items
-                    file = os.path.join(kb_dir, filename)
-                    data = open(file, 'r')
-                    file_content = data.read()
-                    data.close()
-                    checklistID_raw = file_content.split(" ")
-                    checklistID = checklistID_raw[0]             
-                file = os.path.join(kb_dir, filename)
-                data = open(file, 'r')
-                file_content = data.read()
-                data.close()
-                content = file_content.split(' ', 1)[1]
-                content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-                query = "INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"'); \n"
-                with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
-                        myfile.write(query)
+                    content = file_content.split(' ', 1)[1]
+                    content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                    query = "INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"'); \n"
+                    with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
+                            myfile.write(query)
         print('Initialized the markdown checklist items to database.')
         return True
     except:
