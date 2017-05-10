@@ -34,3 +34,6 @@ the application can maintain a white list of files, that may be included by the 
 then use an identifier (for example the index number) to access to the selected file.
 Any request containing an invalid identifier has to be rejected, in this way there is
 no attack surface for malicious users to manipulate the path.
+
+Also disable the oppertunity for the application to load remote resources. This is mostly achieved by adding a server configuration file such as php.ini or web.xml
+f
