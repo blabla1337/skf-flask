@@ -46,3 +46,8 @@ maintained by Chrome (and used by Firefox and Safari), then use:
 The 'preload' flag indicates the site owner's consent to have their domain preloaded. The site owner
 still needs to then go and submit the domain to the list.
 
+## CAUTION:
+
+Make sure to have a perfectly smooth certification management. Whenever there is no
+valid certificate, the application can not be downgraded temporary over HTTP. The failing of
+the TLS certificate will lead to a DOS since HSTS does not allow the application to be visited over HTTP
