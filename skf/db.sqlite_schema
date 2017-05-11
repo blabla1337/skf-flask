@@ -105,6 +105,28 @@ CREATE TABLE `questions` (
 `include_first` int(11)
 );
 
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (1, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (2, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (3, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (4, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (5, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (6, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (7, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (8, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (9, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (10, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (11, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (12, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (13, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (14, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (15, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (16, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (17, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (18, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (19, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (20, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (21, "", , );
+INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (22, "", , );
 
 --
 -- Table structure for table `questions_checklists`
