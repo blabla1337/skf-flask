@@ -15,6 +15,9 @@ checklist = api.model('checklist', {
     'checklist_items_level': fields.String(attribute='checklist_items.level', required=True, description='Checklist level'),
 })
 
+level = api.model('level', {
+    'level': fields.String(required=True, description='Checklist level', location='form'),
+})
 
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),

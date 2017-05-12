@@ -105,28 +105,6 @@ CREATE TABLE `questions` (
 `include_first` int(11)
 );
 
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (1, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (2, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (3, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (4, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (5, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (6, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (7, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (8, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (9, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (10, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (11, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (12, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (13, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (14, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (15, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (16, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (17, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (18, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (19, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (20, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (21, "", , );
-INSERT OR REPLACE INTO `questions` (`id`, `question`, `include_always`, `include_first`) VALUES (22, "", , );
 
 --
 -- Table structure for table `questions_checklists`
@@ -364,7 +342,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.0', '
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.9', 'Verify the application has a clear separation between the data layer, controller layer and the display layer, such that security decisions can be enforced on trusted systems.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.0', 'Error handling and logging verification requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.1', 'Verify that the application does not output error messages or stack traces containing sensitive data that could assist an attacker, including session id, software/framework versions and personal information', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.2', 'Verify that error handling logic in security controls denies access by default.', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.2', 'Verify that error handling logic in security controls denies access by default.
+', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.3', 'Verify security logging controls provide the ability to log success and particularly failure events that are identified as securityrelevant.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.4', 'Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.5', 'Verify that all events that include untrusted data will not execute as code in the intended log viewing software.', '2'); 
@@ -377,7 +356,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.10', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.10', 'Verify that an audit log or similar allows for nonrepudiation of key transactions.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.11', 'Verify that security logs have some form of integrity checking or controls to prevent unauthorized modification.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.12', 'Verify that the logs are stored on a different partition than the application is running with proper log rotation.', '3'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.13', 'Time sources should be synchronized to ensure logs have the correct time.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.13', 'Time sources should be synchronized to ensure logs have the correct time.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.0', 'Data protection verification requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.1', 'Verify that all forms containing sensitive information have disabled client side caching, including autocomplete features.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.2', 'Verify that the list of sensitive data processed by the application is identified, and that there is an explicit policy for how access to this data must be controlled, encrypted and enforced under relevant data protection directives.', '1'); 
@@ -388,7 +368,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.4', '
     CacheControl: nostore, nocache, mustrevalidate, maxage=0 CacheControl: postcheck=0, precheck=0
     Pragma: nocache', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.5', 'Verify that on the server, all cached or temporary copies of sensitive data stored are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data.', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.11', 'Verify that all application components, libraries, modules, frameworks, platform, and operating systems are free from known vulnerabilities.', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.11', 'Verify that all application components, libraries, modules, frameworks, platform, and operating systems are free from known vulnerabilities.
+', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.6', 'Verify that there is a method to remove each type of sensitive data from the application at the end of the required retention policy.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.7', 'Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.8', 'Verify the application has the ability to detect and alert on abnormal numbers of requests for data harvesting for an example screen scraping.', '3'); 
@@ -407,7 +388,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.6', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.8', 'Verify that there is a single standard TLS implementation that is used by the application that is configured to operate in an approved mode of operation.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.10', 'Verify that TLS certificate public key pinning (HPKP) is implemented with production and backup public keys. For more information, please see the references below.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.11', 'Verify that HTTP Strict Transport Security headers are included on all requests and for all subdomains, such as StrictTransportSecurity: maxage=15724800; includeSubdomains', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.12', 'Verify that production website URL has been submitted to preloaded list of Strict Transport Security domains maintained by web browser vendors. ', '3'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.12', 'Verify that production website URL has been submitted to preloaded list of Strict Transport Security domains maintained by web browser vendors. 
+', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.13', 'Ensure forward secrecy ciphers are in use to mitigate passive attackers recording traffic.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.14', 'Verify that proper certification revocation, such as Online Certificate Status Protocol (OSCP) Stapling, is enabled and configured.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('10.15', 'Verify that only strong algorithms, ciphers, and protocols are used, through all the certificate hierarchy, including root and intermediary certificates of your selected certifying authority.', '1'); 
@@ -418,7 +400,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.0', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.1', 'Verify that the application accepts only a defined set of required HTTP request methods, such as GET and POST are accepted, and unused methods (e.g. TRACE, PUT, and DELETE) are explicitly blocked.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.2', 'Verify that every HTTP response contains a content type header specifying a safe character set (e.g., UTF8, ISO 88591).', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.3', 'Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application.', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.4', 'Verify that a suitable XFRAMEOPTIONS header is in use for sites where content should not be viewed in a 3rdparty XFrame.', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.4', 'Verify that a suitable XFRAMEOPTIONS header is in use for sites where content should not be viewed in a 3rdparty XFrame.
+', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.5', 'Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.6', 'Verify that all API responses contain XContentTypeOptions: nosniff and ContentDisposition: attachment; filename="api.json" (or other appropriate filename for the content type).', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('11.7', 'Verify that a content security policy (CSPv2) is in place that helps mitigate common DOM, XSS, JSON, and JavaScript injection vulnerabilities.', '1'); 
@@ -437,7 +420,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.2', 
 ', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.3', 'Verify that files obtained from untrusted sources are validated to be of expected type and scanned by antivirus scanners to prevent upload of known malicious content.
 ', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.4', 'Verify that untrusted data is not used within inclusion, class loader, or reflection capabilities to prevent remote/local file inclusion vulnerabilities.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.4', 'Verify that untrusted data is not used within inclusion, class loader, or reflection capabilities to prevent remote/local file inclusion vulnerabilities.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.4', 'Verify all authentication controls are enforced on the server side.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.5', 'Verify that untrusted data is not used within crossdomain resource sharing (CORS) to protect against arbitrary remote content.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.6', 'Verify that files obtained from untrusted sources are stored outside the webroot, with limited permissions, preferably with strong validation.
@@ -446,18 +430,29 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.7', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.8', 'Verify the application code does not execute uploaded data obtained from untrusted sources.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('16.9', 'Do not use Flash, ActiveX, Silverlight, NACL, clientside Java or other client side technologies not supported natively via W3C browser standards.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.0', 'Mobile verification requirements', '0'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.1', 'Verify that ID values stored on the device and retrievable by other applications, such as the UDID or IMEI number are not used as authentication tokens.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.2', 'Verify that the mobile app does not store sensitive data onto potentially unencrypted shared resources on the device (e.g. SD card or shared folders).', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.3', 'Verify that sensitive data is not stored unprotected on the device, even in system protected areas such as key chains.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.4', 'Verify that secret keys, API tokens, or passwords are dynamically generated in mobile applications.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.1', 'Verify that ID values stored on the device and retrievable by other applications, such as the UDID or IMEI number are not used as authentication tokens.
+', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.2', 'Verify that the mobile app does not store sensitive data onto potentially unencrypted shared resources on the device (e.g. SD card or shared folders).
+', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.3', 'Verify that sensitive data is not stored unprotected on the device, even in system protected areas such as key chains.
+', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.4', 'Verify that secret keys, API tokens, or passwords are dynamically generated in mobile applications.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.6', 'Verify all authentication controls fail securely to ensure attackers cannot log in.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.5', 'Verify that the mobile app prevents leaking of sensitive information (for example, screenshots are saved of the current application as the application is backgrounded or writing sensitive information in console).', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.6', 'Verify that the application is requesting minimal permissions for required functionality and resources.', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.7', 'Verify that the application sensitive code is laid out unpredictably in memory (For example ASLR).', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.8', 'Verify that there are antidebugging techniques present that are sufficient enough to deter or delay likely attackers from injecting debuggers into the mobile app (For example GDB).', '3'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.9', 'Verify that the app does not export sensitive activities, intents, or content providers for other mobile apps on the same device to exploit.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.10', 'Verify that sensitive information maintained in memory is overwritten with zeros as soon as it no longer required, to mitigate memory dumping attacks.', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.11', 'Verify that the app validates input to exported activities, intents, or content providers.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.5', 'Verify that the mobile app prevents leaking of sensitive information (for example, screenshots are saved of the current application as the application is backgrounded or writing sensitive information in console).
+', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.6', 'Verify that the application is requesting minimal permissions for required functionality and resources.
+', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.7', 'Verify that the application sensitive code is laid out unpredictably in memory (For example ASLR).
+', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.8', 'Verify that there are antidebugging techniques present that are sufficient enough to deter or delay likely attackers from injecting debuggers into the mobile app (For example GDB).
+', '3'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.9', 'Verify that the app does not export sensitive activities, intents, or content providers for other mobile apps on the same device to exploit.
+', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.10', 'Verify that sensitive information maintained in memory is overwritten with zeros as soon as it no longer required, to mitigate memory dumping attacks.
+', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('17.11', 'Verify that the app validates input to exported activities, intents, or content providers.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.0', 'Web services verification requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.1', 'Verify that the same encoding style is used between the client and the server.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.2', 'Verify that access to administration and management functions within the Web Service Application is limited to web service administrators.', '1'); 
@@ -485,7 +480,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.7', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.8', 'Verify that third party components come from trusted repositories.
 ', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.9', 'Ensure that build processes for system level languages have all security flags enabled, such as ASLR, DEP, and security checks.', '3'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.10', 'Verify that all application assets are hosted by the application, such as JavaScript libraries, CSS stylesheets and web fonts are hosted by the application rather than rely on a CDN or external provider.', '3'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.10', 'Verify that all application assets are hosted by the application, such as JavaScript libraries, CSS stylesheets and web fonts are hosted by the application rather than rely on a CDN or external provider.
+', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.1', 'Verify that all application components are identified and are known to be needed', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.9', 'Verify that the changing password functionality includes the old password, the new password, and a password confirmation.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.12', 'Verify that all authentication decisions can be logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations.', '2'); 
@@ -511,7 +507,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.29', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.31', 'Verify that if an application allows users to authenticate, they can authenticate using twofactor authentication or other strong authentication, or any similar scheme that provides protection against username + password disclosure.
 ', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.32', 'Verify that administrative interfaces are not accessible to untrusted parties', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.33', 'Browser autocomplete, and integration with password managers are permitted unless prohibited by risk based policy.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('2.33', 'Browser autocomplete, and integration with password managers are permitted unless prohibited by risk based policy.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.3', 'Verify that a highlevel architecture for the application has been defined.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.0', 'Session Management Verification Requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.1', 'Verify that there is no custom session manager, or that the custom session manager is resistant against all common session management attacks.', '1'); 
@@ -526,8 +523,10 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.11', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.4', 'Verify that all application components are defined in terms of the business functions and/or security functions they provide.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.12', 'Verify that session ids stored in cookies have their path set to an appropriately restrictive value for the application, and authentication session tokens additionally set the "HttpOnly" and "secure" attributes', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.16', 'Verify that the application limits the number of active concurrent sessions.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.17', 'Verify that an active session list is displayed in the account profile or similar of each user. The user should be able to terminate any active session.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.18', 'Verify the user is prompted with the option to terminate all other active sessions after a successful change password process.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.17', 'Verify that an active session list is displayed in the account profile or similar of each user. The user should be able to terminate any active session.
+', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('3.18', 'Verify the user is prompted with the option to terminate all other active sessions after a successful change password process.
+', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.0', 'Access Control Verification Requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.1', 'Verify that the principle of least privilege exists  users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.4', 'Verify that access to sensitive records is protected, such that only authorized objects or data is accessible to each user (for example, protect against users tampering with a parameter to see or alter another user''s account).', '1'); 
@@ -538,8 +537,10 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.9', '
 ', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('1.5', 'Verify that all components that are not part of the application but that the application relies on to operate are defined in terms of the functions, and/or security functions, they provide.
 ', '3'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.10', 'Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.11', 'Verify that there is a centralized mechanism (including libraries that call external authorization services) for protecting access to each type of protected resource.', '3'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.10', 'Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.
+', '2'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.11', 'Verify that there is a centralized mechanism (including libraries that call external authorization services) for protecting access to each type of protected resource.
+', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.12', 'Verify that all access control decisions can be logged and all failed decisions are logged.
 ', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.13', 'Verify that the application or framework uses strong random antiCSRF tokens or has another transaction protection mechanism.', '1'); 
@@ -12993,6 +12994,9 @@ the application can maintain a white list of files, that may be included by the 
 then use an identifier (for example the index number) to access to the selected file.
 Any request containing an invalid identifier has to be rejected, in this way there is
 no attack surface for malicious users to manipulate the path.
+
+Also disable the oppertunity for the application to load remote resources. This is mostly achieved by adding a server configuration file such as php.ini or web.xml
+
 ', 'File inclusion attack'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Access management
 
@@ -13391,6 +13395,8 @@ about this and should give him the opportunity to end the other sessions.
 With this defense in place it becomes harder for attackers to hijack a users session since
 they will be notified about concurrent sessions.
 
+
+
  Solution:
 
 The application should keep track and limit all the granted sessions.
@@ -13399,27 +13405,13 @@ it should do regular checks to see if there are:
 
 1. Multiple active sessions linked to same user id
 2. Multiple active sessions from different locations
-3. Limit and destroy sessions if they become concurrent.
+3. Multiple active sessions from different devices
+4. Limit and destroy sessions when they exceed an accepted threshold.
 
-If so, the user should be notified and given the opportunity to end the other sessions.
+The more critical the application becomes the lower the accepted threshold for
+concurrent sessions should be.
 
-A best practice would be to create a function which summarizes all the different active sessions
-with the opportunity to terminate them at any given time.
 
-As an extra layer of protection the user should also be prompted with the option to terminate all
-active sessions whenever he:
-
-1. changes his password
-2. reauthenticates
-3. does step up or adaptive authentication
-
-Along with the renewal of the session identifier in these steps you now have full hardened defenses against
-session hijacking attacks.
-
-Recommended knowledgebase items:
-
- Session hijacking
- Session fixation
 ', 'concurrent session handling'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Auto escaping technology 
 
@@ -13510,29 +13502,29 @@ HTTP Strict Transport Security (HSTS) is an optin security enhancement that is s
 by a web application through the use of a special response header. Once a supported browser
 receives this header that browser will prevent any communications from being sent over
 HTTP to the specified domain and will instead send all communications over HTTPS. It also
-prevents HTTPS click through prompts on browsers.
+prevents HTTPS click through prompts on browsers. 
 
+HSTS addresses the following threats:
+
+1. User bookmarks or manually types http://example.com and is subject to a maninthemiddle attacker
+   HSTS automatically redirects HTTP requests to HTTPS for the target domain
+2. Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP
+   HSTS automatically redirects HTTP requests to HTTPS for the target domain
+3. A maninthemiddle attacker attempts to intercept traffic from a victim user using an invalid certificate and 
+   hopes the user will accept the bad certificate
+4. HSTS does not allow a user to override the invalid certificate message
 
  Solution:
+
+When users are visiting the application it should set the following header:
+These headers should be set in a base class which always sets the header no mather what
+page the users initially visit.
 
 Simple example, using a long (1 year) maxage:
     StrictTransportSecurity: maxage=31536000
 
 If all present and future subdomains will be HTTPS:
     StrictTransportSecurity: maxage=31536000; includeSubDomains
-
-Recommended: If the site owner would like their domain to be included in the HSTS preload list
-maintained by Chrome (and used by Firefox and Safari), then use:
-    StrictTransportSecurity: maxage=31536000; includeSubDomains; preload
-
-The ''preload'' flag indicates the site owner''s consent to have their domain preloaded. The site owner
-still needs to then go and submit the domain to the list.
-
-There is still a window where a user who has a fresh install, or who wipes out their local state,
-is vulnerable. This is due to the fact that the browser is not yet aware of the fact if the application
-the it is trying to connect to supports HSTS. Whenever you are added to the preload list,
-the application its preference is hardcoded into the browser and all first initial connections will
-always be made by HTTPS.
 
  CAUTION: 
 Site owners can use HSTS to identify users without cookies. This can lead to a significant
@@ -13542,6 +13534,7 @@ Cookies can be manipulated from subdomains, so omitting the include "includeSubD
 option permits a broad range of cookierelated attacks that HSTS would otherwise prevent
 by requiring a valid certificate for a subdomain. Ensuring the "Secure Flag" is set on all
 cookies will also prevent, some, but not all, of the same attacks.
+
 ', 'HTTP strict transport security'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' API responses security headers
 
@@ -14674,6 +14667,48 @@ Visit:
     https://hstspreload.appspot.com/
 Here you can find how to add your application to HSTS preload
 ', 'Include Strict Transport Security header'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' File inclusion attack 
+
+
+ Description:
+
+The File Inclusion vulnerability allows an attacker to include a file, usually exploiting
+a "dynamic file inclusion" mechanisms implemented in the target application.
+The vulnerability occurs due to the use of usersupplied input without proper validation.
+
+Note: Also take into consideration the class loader, or reflection capabilities. These 
+functions could also lead to file inclusion vulnerabilities.
+
+This can lead to something as outputting the contents of the file, but depending on the
+severity, it can also lead to:
+
+* Code execution on the web server
+* Code execution on the clientside such as JavaScript which can lead to other attacks
+  such as cross site scripting (XSS)
+* Denial of Service (DoS)
+* Sensitive Information Disclosure
+
+
+Local File Inclusion (also known as LFI) is the process of including files, that are
+already locally present on the server, through the exploiting of vulnerable inclusion
+procedures implemented in the application. This vulnerability occurs, for example, when a
+page receives, as input, the path to the file that has to be included and this input is
+not properly sanitized, allowing directory traversal characters (such as dotdotslash)
+to be injected. Although most examples point to vulnerable PHP scripts, we should keep
+in mind that it is also common in other technologies such as JSP, ASP and others.
+
+ Solution:
+
+The most effective solution to eliminate file inclusion vulnerabilities is to avoid
+passing usersubmitted input to any filesystem/framework API. If this is not possible
+the application can maintain a white list of files, that may be included by the page, and
+then use an identifier (for example the index number) to access to the selected file.
+Any request containing an invalid identifier has to be rejected, in this way there is
+no attack surface for malicious users to manipulate the path.
+
+Also disable the oppertunity for the application to load remote resources. This is mostly 
+achieved by adding a server configuration file such as php.ini or web.xml.
+', 'File inclusion attack II'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Third party components
 
  Description: 
@@ -14692,6 +14727,31 @@ terms of the functions, and/or security functions, they provide for several reas
 Verify that all components that are not part of the application but that the application
 relies on to operate are defined in terms of the functions, and/or security functions, they provide.
 ', 'third party components'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All error handling logic must fail securely
+
+
+ Description:
+
+Handling errors securely is a key aspect of secure coding.
+There are two types of errors that deserve special attention. The first is exceptions
+that occur in the processing of a security control itself. It''s important that these
+exceptions do not enable behavior that the countermeasure would normally not allow.
+As a developer, you should consider that there are generally three possible outcomes
+from a security mechanism:
+
+1. allow the operation
+2. disallow the operation
+3. exception
+
+In general, you should design your security mechanism so that a failure will follow the same execution path
+as disabling the operation
+
+ Solution:
+
+Make sure all the error handling logic is thoroughly tested for failing securely before
+using it in your application. It is common that complete unittest are created especially
+for this purpose.
+', 'All error handling logic must fail securely'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sensitive information inside the source code or online repositories
 
  Description:
@@ -14727,6 +14787,116 @@ risks are effectively covered by the security functions.
 Verify that all application components are defined in terms of the business functions
 and/or security functions they provide.
 ', 'Identify all components'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Display concurrent and active sessions
+
+ Description:
+
+Whenever the user is presented a summary of all concurrent sessions, this decreases a potential
+succesfull hijacking attack since the user can now see all sessions and terminate one whenever
+it does not feel trusted.
+
+ Solution:
+
+The user should be presented with all concurrent and active sessions in his profile / account 
+summary. This way the user can keep track of what is happening and can choose to terminate a 
+session whenever it feels untrusted. 
+
+Whenever the user shared permission to other applications by means of for example Oauth,
+than the user should also be presented that have shared permissions allong with the type of permissions 
+and activation date.
+
+', 'display concurrent and active sessions'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Password change leads to destroying concurrent sessions
+
+ Description:
+
+Whenever a user changes his password, the user should be granted the option
+to kill all other concurrent sessions. This countermessure helps to exclude
+potential attackers lifing on a hijacked session.
+
+Note: Whenever users are granted the possibility to change their passwords,
+      do not forget to make them reauthenticate or to use a form of step up
+      or adaptive authentication mechanism.
+
+ Solution:
+
+Verify the user is prompted with the option to terminate all other active sessions 
+after a successful change password process.
+', 'change password destroy concurrent sessions'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' HSTS preload
+
+ Description:
+
+HTTP Strict Transport Security (HSTS) is an optin security enhancement that is specified by a 
+web application through the use of a special response header. Once a supported browser receives 
+this header that browser will prevent any communications from being sent over HTTP to the specified 
+domain and will instead send all communications over HTTPS. It also prevents HTTPS click through prompts on browsers.
+
+However there is still a window where a user who has a fresh install, or who wipes out their local state,
+is vulnerable. This is due to the fact that the browser is not yet aware of the fact if the application
+the it is trying to connect to supports HSTS. Whenever you are added to the preload list,
+the application its preference is hardcoded into the browser and all first initial connections will
+always be made by HTTPS.
+
+ Solution:
+
+In order to request for HSTS preloading there are some requirements the application has to 
+be complient to. The submission for the HSTS preloading can be performed on the following url:
+
+    https://hstspreload.org/
+
+Submission Requirements
+
+If a site sends the preload directive in an HSTS header, it is considered to be requesting 
+inclusion in the preload list and may be submitted via the form on this site.
+
+In order to be accepted to the HSTS preload list the site must satisfy the following set of requirements:
+
+1. Serve a valid certificate.
+2. Redirect from HTTP to HTTPS on the same host, if you are listening on port 80.
+3. Serve all subdomains over HTTPS.
+    In particular, you must support HTTPS for the www subdomain if a DNS record for that subdomain exists.
+5. Serve an HSTS header on the base domain for HTTPS requests:
+    The maxage must be at least eighteen weeks (10886400 seconds).
+    The includeSubDomains directive must be specified.
+    The preload directive must be specified.
+    If you are serving an additional redirect from your HTTPS site, that redirect must still have the HSTS
+     header (rather than the page it redirects to).
+
+Now the following parameter can be added to the HSTS header,
+
+maintained by Chrome (and used by Firefox and Safari), then use:
+    StrictTransportSecurity: maxage=31536000; includeSubDomains; preload
+
+The ''preload'' flag indicates the site owner''s consent to have their domain preloaded. The site owner
+still needs to then go and submit the domain to the list.
+
+ CAUTION:
+
+Make sure to have a perfectly smooth certification management. Whenever there is no
+valid certificate, the application can not be downgraded temporary over HTTP. The failing of
+the TLS certificate will lead to a DOS since HSTS does not allow the application to be visited over HTTP
+', 'HSTS preload'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
+ OPEN
+
+ Description:
+
+OPEN
+ Solution:
+
+OPEN
+', 'OPEN'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
+ OPEN
+
+ Description:
+
+OPEN
+ Solution:
+
+OPEN
+', 'OPEN'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sensitive information stored in cookies
 
 
