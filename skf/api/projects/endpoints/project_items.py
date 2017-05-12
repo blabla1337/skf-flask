@@ -30,7 +30,7 @@ class ProjectCollection(Resource):
         per_page = args.get('per_page', 10)
         project_query = (projects.query.filter(projects.groupID == groupmembers.groupID))
         project_page = project_query.paginate(page, per_page, error_out=False)
-        log("User requested list projects", "MEDIUM", "PASS", self)
+        log("User requested list projects", "MEDIUM", "PASS")
         return project_page, 200, security_headers()
 
 
@@ -49,10 +49,10 @@ class ProjectItem(Resource):
         val_num(id)
         user_id = select_userid_jwt(self)
         try:
-            log("User requested specific project", "MEDIUM", "PASS", self)
+            log("User requested specific project", "MEDIUM", "PASS")
             return (projects.query.filter(projects.projectID == id).filter(projects.userID == user_id).one()), 200, security_headers()
         except:
-            log("User triggered error requesting specific project", "MEDIUM", "FAIL", self)
+            log("User triggered error requesting specific project", "MEDIUM", "FAIL")
             return {'message': 'Validation error'}, 400, security_headers()
 
 
@@ -72,11 +72,11 @@ class ProjectItemUpdate(Resource):
         user_id = select_userid_jwt(self)
         data = request.json
         try:
-            log("User updated project", "MEDIUM", "PASS", self)
+            log("User updated project", "MEDIUM", "PASS")
             update_project(id, user_id, data)
             return {'message': 'Project successfully updated'}, 200, security_headers()
         except:
-            log("User triggered error updating project", "MEDIUM", "FAIL", self)
+            log("User triggered error updating project", "MEDIUM", "FAIL")
             return {'message': 'Project not updated'}, 400, security_headers()
 
 
@@ -96,10 +96,10 @@ class ProjectItemNew(Resource):
         data = request.json
         try:
             new_project(user_id, data)
-            log("User created new project", "MEDIUM", "PASS", self)
+            log("User created new project", "MEDIUM", "PASS")
             return {'message': 'Project successfully created'}, 200, security_headers()
         except:
-            log("User triggered error creating new project", "MEDIUM", "FAIL", self)
+            log("User triggered error creating new project", "MEDIUM", "FAIL")
             return {'message': 'Project not created'}, 400, security_headers()
 
 
@@ -119,8 +119,8 @@ class ProjectItemDelete(Resource):
         user_id = select_userid_jwt(self)
         try:
             delete_project(id, user_id)
-            log("User deleted project", "MEDIUM", "PASS", self)
+            log("User deleted project", "MEDIUM", "PASS")
             return {'message': 'Project successfully deleted'}, 200, security_headers()
         except:
-            log("User triggered error deleting project", "MEDIUM", "FAIL", self)
+            log("User triggered error deleting project", "MEDIUM", "FAIL")
             return {'message': 'Project not deleted'}, 400, security_headers()

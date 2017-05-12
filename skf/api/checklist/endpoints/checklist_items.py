@@ -24,7 +24,7 @@ class ChecklistCollection(Resource):
         Privileges required: none
         """
         categories = checklists_kb.query.all()
-        log("User requested list of checklist items", "LOW", "PASS", self)
+        log("User requested list of checklist items", "LOW", "PASS")
         return categories, 200, security_headers()
 
 
@@ -40,10 +40,10 @@ class ChecklistItem(Resource):
         Privileges required: none
         """
         try:
-            log("User requested specific checklist item", "LOW", "PASS", self)
+            log("User requested specific checklist item", "LOW", "PASS")
             return checklists_kb.query.filter(checklists_kb.checklistID == id).one(), 200, security_headers()
         except:
-            log("User triggered error requesting specific checklist item", "LOW", "FAIL", self)
+            log("User triggered error requesting specific checklist item", "LOW", "FAIL")
             return {'message': 'Validation error'}, 400, security_headers()
             
 
@@ -61,9 +61,9 @@ class ChecklistItem(Resource):
         data = request.json
         lvl = data.get('level')
         try:
-            log("User requested list of checklist items based on level", "LOW", "PASS", self)
+            log("User requested list of checklist items based on level", "LOW", "PASS")
             categories_levels = checklists_kb.query.filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = lvl)).all()        
             return categories_levels, 200, security_headers()
         except:
-            log("User triggered error requesting specific checklist items based on level", "LOW", "FAIL", self)
+            log("User triggered error requesting specific checklist items based on level", "LOW", "FAIL")
             return {'message': 'Validation error'}, 400, security_headers()

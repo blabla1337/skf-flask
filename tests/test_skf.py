@@ -1,7 +1,7 @@
 import os, json, unittest, tempfile, skf
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num
-from skf.db_tools import init_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
+from skf.db_tools import init_db, connect_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
 from skf.app import app
 
 
@@ -12,8 +12,6 @@ class TestRestPlusApi(unittest.TestCase):
         cls.client = app.test_client()
         with app.app_context():
             settings.TESTING = True
-            #settings.DATABASE = "db.unittesting"
-            init_db()
             skf.app.initialize_app(app)
 
 
@@ -70,7 +68,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict[0]['checklist_items_checklistID'], "3.0")
+        self.assertEqual(response_dict[0]['checklist_items_checklistID'], "1.0")
 
 
     def test_get_checklist_item_10(self):
@@ -89,7 +87,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/checklist/items/level', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict[0]['checklist_items_content'], "Session Management Verification Requirements")
+        self.assertEqual(response_dict[0]['checklist_items_content'], "Architecture, design and threat modelling")
         self.assertEqual(response_dict[0]['checklist_items_level'], "0")
 
 
@@ -310,8 +308,9 @@ class TestSecurity(unittest.TestCase):
 
     def test_val_alpha(self):
         """Test if the val_alpha method is working"""
+        connect_db()
         self.assertTrue(val_alpha("woopwoop"))
-        #self.assertFalse(val_alpha("woop %$*@><'1337"))
+        self.assertFalse(val_alpha("woop %$*@><'1337"))
         #self.assertFalse(val_alpha("woop woop 1337"))
 
     def test_val_num(self):

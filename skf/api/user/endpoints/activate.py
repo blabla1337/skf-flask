@@ -24,9 +24,9 @@ class userActivation(Resource):
         data = request.json
         val_num(id)
         try:
-            log("User is activated", "HIGH", "PASS", self)
+            log("User is activated", "HIGH", "PASS")
             activate_user(id, data)
             return {'message': 'User successfully activated'}, 200, security_headers()
         except:
-            log("User is activation failed", "HIGH", "FAIL", self)
+            log("User is activation failed", "HIGH", "FAIL")
             return {'message': 'User could not be activated'}, 400, security_headers()

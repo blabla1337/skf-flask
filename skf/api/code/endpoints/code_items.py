@@ -27,7 +27,7 @@ class CodeCollection(Resource):
         per_page = args.get('per_page', 10)
         code_query = code_items.query
         code_page = code_query.paginate(page, per_page, error_out=False)
-        log("User requested list of code example items", "LOW", "PASS", self)
+        log("User requested list of code example items", "LOW", "PASS")
         return code_page, 200, security_headers()
 
 
@@ -44,10 +44,10 @@ class CodeItem(Resource):
         """
         val_num(id)
         try:
-            log("User requested specific code example item", "LOW", "PASS", self)
+            log("User requested specific code example item", "LOW", "PASS")
             return code_items.query.filter(code_items.codeID == id).one(), 200, security_headers()
         except:
-            log("User triggered error requesting specific code example item", "LOW", "FAIL", self)
+            log("User triggered error requesting specific code example item", "LOW", "FAIL")
             return {'message': 'Validation error'}, 400, security_headers()
 
 
@@ -62,7 +62,7 @@ class CodeLangItem(Resource):
         Returns a code example item.
         Privileges required: none
         """
-        log("User requested specific code language items", "LOW", "PASS", self)
+        log("User requested specific code language items", "LOW", "PASS")
         data = request.json
         code_lang = data.get('code_lang')
         args = pagination_arguments.parse_args(request)
@@ -89,10 +89,10 @@ class CodeItemUpdate(Resource):
         val_num(id)
         data = request.json
         try:
-            log("User requested updated specific code example item", "LOW", "PASS", self)
+            log("User requested updated specific code example item", "LOW", "PASS")
             update_code_item(id, data)
             return {'message': 'Code example item successfully updated'}, 200, security_headers()
         except:
-            log("User triggered error updating specific code example item", "LOW", "FAIL", self)
+            log("User triggered error updating specific code example item", "LOW", "FAIL")
             return {'message': 'Code example item not updated'}, 400, security_headers()
  
