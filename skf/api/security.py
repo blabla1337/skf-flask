@@ -41,7 +41,6 @@ def log(message, threat, status):
         userID = "0"
         ip = "0.0.0.0"
         event = "Datelog: "+dateLog+" "+" Datetime: "+dateTime+" "+"Threat: "+threat+" "+" IP:"+ip+" "+"UserId: "+userID+" "+"Status: "+status+" "+"Message: "+message
-        print(event)
 
 def val_alpha(value):
     """User input validation for checking a-zA-Z"""
