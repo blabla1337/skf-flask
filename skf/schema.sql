@@ -315,9 +315,9 @@ CREATE TABLE `checklists_kb` (
 `codeID_java` int(11),
 `codeID_python` int(11)
 );
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V1:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (1.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (1.9, 0, 185, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V8:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (8.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (8.1, 0, 15, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (8.2, 0, 251, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (8.3, 0, 83, 0, 0, 0, 0);
@@ -332,7 +332,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (8.11, 0, 45, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (8.12, 0, 191, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (8.13, 0, 210, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V9:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (9.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (9.1, 0, 140, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (9.2, 0, 999, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (9.3, 0, 72, 0, 0, 0, 0);
@@ -345,11 +345,11 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (9.9, 0, 190, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (9.10, 0, 235, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (9.11, 0, 135, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V10:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.1, 0, 101, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.3, 0, 244, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.4, 0, 103, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V2:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.5, 0, 139, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.6, 0, 84, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.8, 0, 127, 0, 0, 0, 0);
@@ -361,7 +361,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.15, 0, 198, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (10.16, 0, 247, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.1, 0, 45, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V11:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (11.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (11.1, 0, 129, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (11.2, 0, 104, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (11.3, 0, 131, 0, 0, 0, 0);
@@ -370,14 +370,14 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (11.6, 0, 193, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (11.7, 0, 178, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (11.8, 0, 21, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V13:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (13.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.2, 0, 113, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (13.1, 0, 239, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (13.2, 0, 105, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V15:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (15.0:, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (15.1, 0, 110, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (15.2, 0, 125, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V16:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (16.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (16.1, 0, 67, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (16.2, 0, 225, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (16.3, 0, 226, 0, 0, 0, 0);
@@ -388,7 +388,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (16.7, 0, 138, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (16.8, 0, 13, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (16.9, 0, 194, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V17:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (17.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (17.1, 0, 211, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (17.2, 0, 212, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (17.3, 0, 213, 0, 0, 0, 0);
@@ -401,7 +401,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (17.9, 0, 219, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (17.10, 0, 220, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (17.11, 0, 221, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V18:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.1, 0, 33, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.2, 0, 187, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.7, 0, 59, 0, 0, 0, 0);
@@ -413,7 +413,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.8, 0, 160, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.9, 0, 195, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (18.10, 0, 80, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V19:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (19.0:, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (19.1, 0, 14, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.8, 0, 85, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (19.2, 0, 102, 0, 0, 0, 0);
@@ -448,7 +448,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.32, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (2.33, 0, 209, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (1.3, 0, 163, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V3:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (3.0:, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (3.1, 0, 132, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (3.2, 0, 57, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (3.3, 0, 60, 0, 0, 0, 0);
@@ -463,7 +463,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (3.16, 0, 188, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (3.17, 0, 253, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (3.18, 0, 254, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V4:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (4.0:, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (4.1, 0, 126, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (4.4, 0, 44, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (4.5, 0, 61, 0, 0, 0, 0);
@@ -477,7 +477,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (4.14, 0, 116, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (4.15, 0, 111, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (4.16, 0, 241, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V5:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (5.0, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (5.1, 0, 146, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (5.3, 0, 95, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (1.6, 0, 172, 0, 0, 0, 0);
@@ -501,7 +501,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `co
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (5.24, 0, 179, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (5.25, 0, 181, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (5.26, 0, 249, 0, 0, 0, 0);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (V7:, 0, 0, 0, 0, 0, 0);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (7.0:, 0, 0, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (1.8, 0, 206, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (7.2, 0, 149, 0, 0, 0, 0);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`) VALUES (7.6, 0, 118, 0, 0, 0, 0);
