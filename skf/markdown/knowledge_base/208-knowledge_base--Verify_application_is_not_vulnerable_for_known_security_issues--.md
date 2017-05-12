@@ -1,4 +1,7 @@
-#Description
+# Verify application is not vulnerable for known security issues
+-------
+
+## Description:
 
 Whenever security researchers find a vulnerability in a library, modules, frameworks, platforms or 
 operating system, these vulnerabilities are reported and saved in the CVE list. 
@@ -13,8 +16,7 @@ A lot of populair CVE exploits also have exploits available in Metasploit
 or the Exploit database. This enables script kiddies to easily exploit the target applications
 services, libraries and operating systems.
 
-
-#Solution
+## Solution:
 
 Verify that all application components, libraries, modules,
 frameworks, platform, and operating systems are free from known vulnerabilities.

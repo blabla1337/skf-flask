@@ -16,7 +16,6 @@ In this situation the application will get content and subscribe user roles corr
 
 In this situation the application will get content and subscribe user roles corresponding to the admin parameter.
 
-
 ## Solution:
 
 Whenever you are checking whether a user is restricted to review certain data, the access

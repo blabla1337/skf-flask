@@ -11,7 +11,6 @@ A quick overview of how it works:
 4. When Alice visits www.example.com, this cookie will be sent with the request, as the specs for cookies states, and Alice will have the session specified by Mallory's cookie.
 5. Mallory can now use Alice her account.
 
-
 ## Solution:
 
 In this scenario changing the sessionID on login does not make any difference since

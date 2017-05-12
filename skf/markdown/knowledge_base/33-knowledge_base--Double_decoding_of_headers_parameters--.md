@@ -16,7 +16,6 @@ place.
 Attackers can inject double encoding in pathnames or query strings to bypass the
 authentication schema and security filters in use by the web application.
 
-
 ## Solution:
 
 Only one web-server should decode/encode the data.

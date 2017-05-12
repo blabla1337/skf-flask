@@ -13,7 +13,6 @@ The attacker can abuse this behavior of the database to overflow the length limi
 and truncate his submit and register himself as the admin, thus gaining its
 privileges.
 
-
 ## Solution:
 
 On critical places where unique values are enforced and expected

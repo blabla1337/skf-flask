@@ -9,7 +9,6 @@ vectors that have direct access to the keys. This implies that keys should not b
 on the application or web server (assuming that application attackers are part of the
 relevant threat model).
 
-
 ## Solution:
 
 Verify that all consumers of cryptographic services do not have direct access to key material.

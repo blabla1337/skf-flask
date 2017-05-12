@@ -6,7 +6,6 @@
 Whenever there are unnecessary features enabled or installed this could increase
 the attack vector which could lead to serious danger such as XXE/CMD/XSS injections.
 
-
 ## Solution:
 
 Make sure all features and software available on the application/server is necessary for

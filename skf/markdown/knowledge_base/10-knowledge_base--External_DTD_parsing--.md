@@ -29,7 +29,6 @@ possibly allowing arbitrary code execution under the application account. Other 
 can access local resources that may not stop returning data, possibly impacting application
 availability if too many threads or processes are not released.
 
-
 ## Solution:
 
 Disable the XML DTD parsing. This can be set when initiating the XML parser.

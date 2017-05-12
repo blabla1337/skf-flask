@@ -1,4 +1,5 @@
-## Verify that structured data is strongly typed and validated
+# Verify that structured data is strongly typed and validated
+-------
 
 ## Description:
 

@@ -1,11 +1,12 @@
+# Authentication integrety checks 
+-------
+
 ## Description:
 
 Whenever security logs can be modified by unauthorized users, potential attackers could use these
 privileges to erase their attacks against the appliation or simply soil the log files.
 
-
 ## Solution:
-
 
 From PCI:
 

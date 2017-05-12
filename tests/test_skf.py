@@ -11,6 +11,7 @@ class TestRestPlusApi(unittest.TestCase):
     def setUpClass(cls):
         cls.client = app.test_client()
         with app.app_context():
+            init_db()
             settings.TESTING = True
             skf.app.initialize_app(app)
 
@@ -223,7 +224,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/code/items/code_lang/', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking headers")
+        self.assertEqual(response_dict['items'][0]['title'], "File upload")
 
 
     def test_get_code_item_lang_asp(self):
@@ -312,12 +313,14 @@ class TestSecurity(unittest.TestCase):
         self.assertFalse(val_alpha("woop %$*@><'1337"))
         self.assertFalse(val_alpha("woop woop 1337"))
 
+
     def test_val_num(self):
         """Test if the val_num method is working"""
         self.assertTrue(val_num(1337))
         self.assertFalse(val_num("woopwoop"))        
         self.assertFalse(val_num("woop woop 1337"))
         self.assertFalse(val_num("woop %$*@><'1337"))
+
 
     def test_val_alpha_num(self):
         """Test if the val_alpha_num method is working"""
@@ -332,7 +335,6 @@ class TestSecurity(unittest.TestCase):
         self.assertFalse(val_float("woop woop 1337"))
         self.assertFalse(val_float("woop %$*@><'1337"))
     
-
 
 if __name__ == '__main__':
     unittest.main()

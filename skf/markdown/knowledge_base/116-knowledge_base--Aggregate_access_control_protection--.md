@@ -3,11 +3,10 @@
 
 ## Description:
 
- Verify the system can protect against aggregation or continuous access of
- secured functions, resources, or data. For example, possibly by the use of a
- resource governor to limit the number of edits per hour or to prevent the entire database
- from being scraped by an individual user.
-
+Verify the system can protect against aggregation or continuous access of
+secured functions, resources, or data. For example, possibly by the use of a
+resource governor to limit the number of edits per hour or to prevent the entire database
+from being scraped by an individual user.
 
 ## Solution:
 

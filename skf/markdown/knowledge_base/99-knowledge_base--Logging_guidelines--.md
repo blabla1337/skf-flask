@@ -6,7 +6,6 @@
 The logging should contain some guidelines in order to organize your logging file in such
 a way it  would allow for a detailed investigation of the timeline when an event happens.
 
-
 ## Solution:
 
 The logging file should at least contain, a timestamp from a reliable source, severity

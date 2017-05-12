@@ -6,7 +6,6 @@
 Whenever your certificate authority is not trusted anymore you should always be able to
 recall these certificates asap.
 
-
 ## Solution:
 
 The trust anchor for given zone is found in the keyset-<zone name> file on the secure

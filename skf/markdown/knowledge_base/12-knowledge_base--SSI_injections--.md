@@ -12,7 +12,6 @@ The attacker will try to inject code into the application that will
 be interpreted by SSI mechanisms. A successful exploitation of this vulnerability
 allows an attacker to inject code into HTML pages or even perform remote code execution.
 
-
 ## Solution:
 
 The SSI handler on the web-server should not be activated when it is not used.

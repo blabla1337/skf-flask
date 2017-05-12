@@ -1,4 +1,5 @@
-## Password change leads to destroying concurrent sessions
+# Password change leads to destroying concurrent sessions
+-------
 
 ## Description:
 

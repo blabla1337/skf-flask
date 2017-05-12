@@ -11,8 +11,6 @@ the following defense mechanism in order to ensure high level security.
 3.  Principle of least privilege
 4.  GET/POST requests
 
-
-
 ## Solution:
 
 Here are the steps described briefly.

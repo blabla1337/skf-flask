@@ -9,7 +9,6 @@ modify business logic in the application without the application notice. Signed 
 components can help harden your application and make it noticeable when an attacker tries to
 modify the code in the application.
 
-
 ## Solution:
 
 Create for the different components in the application signed signatures and verify these in

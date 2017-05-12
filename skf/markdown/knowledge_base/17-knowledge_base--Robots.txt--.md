@@ -8,7 +8,6 @@ The robots.txt determines what pages may or may not be indexed by google or yaho
 However, a common mistake made by programmers is applying a blacklisting method causing
 the application displaying sensitive information to attackers.
 
-
 ## Solution:
 
 Instead of the blacklisting method:

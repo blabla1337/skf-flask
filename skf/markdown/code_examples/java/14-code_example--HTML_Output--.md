@@ -32,7 +32,7 @@
 	String htmlatr = ESAPI.encoder().encodeForHTMLAttribute("onload='alert(1337);'");
 			
 	/*
-	Whenever parameters are rendered via javascript your application will detect normal injections
+	Whenever parameters are rendered via JavaScript your application will detect normal injections
 	in the first instant. in order for the application not to be vulnerable to javascrpt encoding you MUST use the encodeForJavaScript function, any other escaping function still leaves your code vulnerable
 	*/	      
 

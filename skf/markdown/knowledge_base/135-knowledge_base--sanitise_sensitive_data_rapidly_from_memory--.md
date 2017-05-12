@@ -6,7 +6,6 @@
 Whenever sensitive data is rapidly removed from the systems memory, this decreases the
 possibility the attacker can compromise this data by means of memory dumping attacks.
 
-
 ## Solution:
 
 Verify that sensitive data is rapidly sanitized from memory as soon as it is no longer

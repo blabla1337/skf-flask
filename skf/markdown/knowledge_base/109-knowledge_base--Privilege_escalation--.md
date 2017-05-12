@@ -11,7 +11,6 @@ The tester should try to access such functions as another user in order to verif
 possible to access a function that should not be permitted by the users role/privilege
 (but might be permitted as another user).
 
-
 ## Solution:
 
 Checking if a user has enough authorization to execute certain request should always be

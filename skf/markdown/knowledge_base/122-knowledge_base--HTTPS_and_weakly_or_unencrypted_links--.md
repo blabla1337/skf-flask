@@ -9,7 +9,6 @@ will be HTTPS the username and password will not be send through an encrypted ma
 could be easily compromised by attackers. This principle also applies to sending
 vulnerable data towards other unencrypted/weak encrypted links in your application.
 
-
 ## Solution:
 
 Verify that credentials are transported using a suitable encrypted link and that all pages/functions that

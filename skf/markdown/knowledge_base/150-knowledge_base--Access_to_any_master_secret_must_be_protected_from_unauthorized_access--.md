@@ -6,7 +6,6 @@
 Access to any master secret must be protected from unauthorized access in order to protect
 the integrity and the confidentiality of the data.
 
-
 ## Solution:
 
 Whenever sensitive data is stored on the server you should consider storing this data in a

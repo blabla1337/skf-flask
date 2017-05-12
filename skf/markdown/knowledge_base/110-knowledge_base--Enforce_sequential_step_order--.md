@@ -8,7 +8,6 @@ Whenever an functionality consists out of following several steps to achieve som
 User adds items to chart -> User enters shipping information -> User pays for goods -> Items will be shipped.
 You want to make sure the user can not skip the payment step in order to receive his goods.
 
-
 ## Solution:
 
 In order to verify that this stage was run through by a sincere user you want to enforce

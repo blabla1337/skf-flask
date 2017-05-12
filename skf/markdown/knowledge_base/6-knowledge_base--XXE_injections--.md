@@ -14,7 +14,6 @@ identifier and the XML processor may disclose confidential information normally 
 accessible by the application. Attacks can include disclosing local files, which may
 contain sensitive data such as passwords or private
 
-
 ## Solution:
 
 Disable the possibility to fetch resources from an external source.

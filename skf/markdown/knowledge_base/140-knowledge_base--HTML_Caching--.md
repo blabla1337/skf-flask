@@ -8,7 +8,6 @@ the HTML5 ApplicationCache interface. The Application Cache uses a cache manifes
 specify which files in an HTML5 application can be used offline, and which files require a
 network connection.
 
-
 ## Solution:
 
 Never store sensitive information in a client side cache since this can be easily

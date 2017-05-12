@@ -4,10 +4,9 @@
 ## Description:
 
 The http-only flag is an option that can be set when creating a cookie.
-This flag ensures that the cookie can not be read or edited by javascript.
+This flag ensures that the cookie can not be read or edited by JavaScript.
 This ensures that an attacker can not steal this cookie as a cross-site scripting
 vulnerability is present in the application.
-
 
 ## Solution:
 

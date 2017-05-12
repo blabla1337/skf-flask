@@ -9,7 +9,6 @@ possibly not be publicly accessible. An attacker could use this information to
 increase his attack vector. In some cases this could even lead to an attacker gaining knowledge about
 credentials or old vulnerable system demo functions which might lead to remote code execution.
 
-
 ## Solution:
 
 Different types of servers require a different type of approach in order to disable

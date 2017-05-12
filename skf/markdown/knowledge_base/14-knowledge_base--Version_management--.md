@@ -11,7 +11,6 @@ when your software is not upgraded to the latest available version,
 script kiddies could easily compromise your application by following the
 exploit tutorials online, thus compromising your application.
 
-
 ## Solution:
 
 One option is not to use components that you did not write.

@@ -8,7 +8,6 @@ It is often used to execute untested code, or untrusted programs from
 unverified third parties, suppliers, untrusted users and untrusted websites. It's creating
 an extra layer of security where an attacker first need to break out from.
 
-
 ## Solution:
 
 Examples of sandbox implementations include the following:

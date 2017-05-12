@@ -9,7 +9,6 @@ If not an attacker can inject malicious code into these queries he gains the abi
 manipulate them and now he can withdraw, update and delete data which is stored on the
 target database.
 
-
 ## Solution:
 
 The use of prepared statements and parameterized queries is how all developers should

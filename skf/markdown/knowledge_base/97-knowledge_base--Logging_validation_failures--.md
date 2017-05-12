@@ -7,7 +7,6 @@ When you log all the input validation failures in your application you can disco
 early stage that your application is under attack and take quick countermeasures against
 the attackers.
 
-
 ## Solution:
 
 Verify that all input validation failures are logged in order to counter possible attacks

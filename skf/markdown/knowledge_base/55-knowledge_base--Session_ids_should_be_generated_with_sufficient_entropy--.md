@@ -7,7 +7,6 @@ Whenever session ids are not generated with a sufficient entropy this could lead
 session collision or session hijacking. If an attacker can guess an authenticated user's
 session identifier, he can take over the user's session.
 
-
 ## Solution:
 
 The WebLogic deployment descriptor should specify a session identifier length of at

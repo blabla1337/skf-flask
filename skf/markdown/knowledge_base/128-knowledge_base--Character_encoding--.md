@@ -16,15 +16,14 @@ encoding malicious injection strings in a way that obfuscates them. This can lea
 bypass of input validation filters, or take advantage of particular ways in which browsers
 render encoded text.
 
-
 ## Solution:
 
 When trying to figure out the character encoding of a resource, user agents will try, in
 this order:
 
-* The HTTP Content-Type header sent by the server
-* the XML declaration (only for XHTML documents)
-* HTML/XHTML meta element.
+- The HTTP Content-Type header sent by the server
+- The XML declaration (only for XHTML documents)
+- HTML/XHTML meta element.
 
 Make sure this information is provided by your application for the server in order to
 prevent it from guessing the wrong encoding standard, leaving room for injection.

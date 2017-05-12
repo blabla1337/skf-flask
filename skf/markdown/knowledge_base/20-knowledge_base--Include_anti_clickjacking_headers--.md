@@ -1,4 +1,4 @@
-# (X-Frame-Options) Anti clickjacking headers
+# Include anti clickjacking headers
 -------
 
 ## Description:
@@ -13,7 +13,6 @@ Using a similar technique, keystrokes can also be hijacked. With a carefully cra
 combination of stylesheets, iframes, and text boxes, a user can be led to believe they
 are typing in the password to their email or bank account, but are instead typing into an
 invisible frame controlled by the attacker.
-
 
 ## Solution:
 

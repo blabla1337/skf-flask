@@ -14,7 +14,6 @@ by Amit Klein in his work on request/response smuggling/splitting.
 Vulnerabilities due to HTTP header injections such as CRLF are no longer
 feasible due to the fact that multiple header requests are not possible.
 
-
 ## Solution:
 
 When user-input will be used in HTTP headers then the newlines should be escaped in a

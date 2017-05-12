@@ -1586,8 +1586,8 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('HTML outp
 	ViewBag.htmlatr = HttpUtility.HtmlAttributeEncode("onload=''alert(1337);''");
 
 	/*
-	Whenever parameters are rendered via javascript your application will detect normal injections
-	in the first instant. But your application still remains vulnerable to javascript encoding which will not
+	Whenever parameters are rendered via JavaScript your application will detect normal injections
+	in the first instant. But your application still remains vulnerable to JavaScript encoding which will not
 	be detected by the ASP.NET encoder. You MUST use the JavaScriptStringEncode function, any other 
 	escaping function still leaves your code vulnerable
 	*/
@@ -1599,7 +1599,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('HTML outp
 	that looks like this "javacript:alert("XSS");" whenever a victim now clicks the link this XSS
 	will be executed in his browser.
 	*/ 
-	ViewBag.url = HttpUtility.UrlEncode("javascript:alert(234);");
+	ViewBag.url = HttpUtility.UrlEncode("JavaScript:alert(234);");
 
 	/*
 	Security consists of different layers of protection in order to guarantuee the integrity
@@ -4175,7 +4175,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' HTML enc
 	String htmlatr = ESAPI.encoder().encodeForHTMLAttribute("onload=''alert(1337);''");
 			
 	/*
-	Whenever parameters are rendered via javascript your application will detect normal injections
+	Whenever parameters are rendered via JavaScript your application will detect normal injections
 	in the first instant. in order for the application not to be vulnerable to javascrpt encoding you MUST use the encodeForJavaScript function, any other escaping function still leaves your code vulnerable
 	*/	      
 
@@ -4250,7 +4250,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' HTML Out
 	String htmlatr = ESAPI.encoder().encodeForHTMLAttribute("onload=''alert(1337);''");
 			
 	/*
-	Whenever parameters are rendered via javascript your application will detect normal injections
+	Whenever parameters are rendered via JavaScript your application will detect normal injections
 	in the first instant. in order for the application not to be vulnerable to javascrpt encoding you MUST use the encodeForJavaScript function, any other escaping function still leaves your code vulnerable
 	*/	      
 
@@ -11207,7 +11207,6 @@ possibly allowing arbitrary code execution under the application account. Other 
 can access local resources that may not stop returning data, possibly impacting application
 availability if too many threads or processes are not released.
 
-
  Solution:
 
 Disable the XML DTD parsing. This can be set when initiating the XML parser.
@@ -11263,7 +11262,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All connections shoul
 Whenever an application provides TLS, all connections should be TLS otherwise the
 encryption will be lost.
 
-
  Solution:
 
 Verify that TLS is used for all connections
@@ -11279,7 +11277,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Log TLS connection fa
 
 Failing TLS connections should always be logged. This is a great indicator that ''something'' is wrong.
 
-
  Solution:
 
 Verify that backend TLS connection failures are logged.
@@ -11293,7 +11290,6 @@ Setting the right content headers is important for hardening your applications s
 this reduces exposure to driveby download attacks or sites serving user uploaded
 content that, by clever naming could be treated by MS Internet Explorer as executable or
 dynamic HTML files and thus can lead to security vulnerabilities.
-
 
  Solution:
 
@@ -11341,7 +11337,6 @@ It is often used to execute untested code, or untrusted programs from
 unverified third parties, suppliers, untrusted users and untrusted websites. It''s creating
 an extra layer of security where an attacker first need to break out from.
 
-
  Solution:
 
 Examples of sandbox implementations include the following:
@@ -11379,7 +11374,6 @@ Its usage can be extended to general data manipulation in the name of others,
 in a similar manner as spoofing mail messages. If this attack takes place, the data stored
 on log files can be considered invalid or misleading.
 
-
  Solution:
 
 This type of data should always be processed out of reach of the user and should be
@@ -11397,7 +11391,6 @@ which he can use to tamper data after they have been validated and send to the s
 
 Or the attacker can simply change the constraint on the client side in his browser to bypass the 
 constraints.
-
 
  Solution:
 
@@ -11422,7 +11415,6 @@ information (statement of account, order details, etc.), or delete information
 The tester should try to access such functions as another user in order to verify if it is
 possible to access a function that should not be permitted by the users role/privilege
 (but might be permitted as another user).
-
 
  Solution:
 
@@ -11450,7 +11442,6 @@ unauthorised queries, and content modification inside the LDAP tree.
 The same advanced exploitation techniques available in SQL Injection can be similarly
 applied in LDAP Injection.
 
-
  Solution:
 
 The best way to prevent LDAP injection is to use a positive validation scheme for ensuring
@@ -11468,7 +11459,6 @@ Whenever an functionality consists out of following several steps to achieve som
 
 User adds items to chart > User enters shipping information > User pays for goods > Items will be shipped.
 You want to make sure the user can not skip the payment step in order to receive his goods.
-
 
  Solution:
 
@@ -11502,7 +11492,7 @@ granted access to sensitive information. This rule also applies for making criti
 changes to an account or action.
 
 Segregation of duties should be applied for high value applications to enforce antifraud controls as per the risk of application and past fraud.
-', 'step up or adaptive authentication'); 
+', 'Step up or adaptive authentication'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Cross origin resource sharing
 
 
@@ -11512,7 +11502,6 @@ Cross Origin Resource Sharing or CORS is a mechanism that enables a web browser 
 ''crossdomain'' requests using the XMLHttpRequest L2 API in a controlled manner.
 In the past, the XMLHttpRequest L1 API only allowed requests to be sent within the same
 origin as it was restricted by the same origin policy.
-
 
  Solution:
 
@@ -11627,7 +11616,6 @@ Whenever the applications application provides a password forget functionality o
 type of recovery methods there are several implementations of hardened proven ways to make
 the user recover his password.
 
-
  Solution:
 
 The recommended solutions are to use TOTP (Timebased OneTime Password algorithm). This 
@@ -11659,11 +11647,10 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Aggregate access cont
 
  Description:
 
- Verify the system can protect against aggregation or continuous access of
- secured functions, resources, or data. For example, possibly by the use of a
- resource governor to limit the number of edits per hour or to prevent the entire database
- from being scraped by an individual user.
-
+Verify the system can protect against aggregation or continuous access of
+secured functions, resources, or data. For example, possibly by the use of a
+resource governor to limit the number of edits per hour or to prevent the entire database
+from being scraped by an individual user.
 
  Solution:
 
@@ -11680,7 +11667,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Canonicalization of u
 Whenever userinput is partially validated there is a high probability that the application
 misses a malicious input which could execute into a successful attack on your application.
 
-
  Solution:
 
 All userinput should be validated whenever the userinput string is complete and is being
@@ -11693,7 +11679,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Approved random numbe
 
 The lack of entropy available for, or used by, a pseudorandom number generator can be a
 stability and security threat.
-
 
  Solution:
 
@@ -11711,7 +11696,6 @@ Series to coordinate the requirements and standards for cryptography modules tha
 both hardware and software components. Protection of a cryptographic module within a
 security system is necessary to maintain the confidentiality and integrity of the
 information protected by the module.
-
 
  Solution:
 
@@ -11732,7 +11716,6 @@ The attacker will try to inject code into the application that will
 be interpreted by SSI mechanisms. A successful exploitation of this vulnerability
 allows an attacker to inject code into HTML pages or even perform remote code execution.
 
-
  Solution:
 
 The SSI handler on the webserver should not be activated when it is not used.
@@ -11744,7 +11727,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Policy for managing c
 
 When there is no policy for managing your cryptographic keys, expired or revoked keys
 that could unknowingly be used again thus becoming a threat for your encrypted data.
-
 
  Solution:
 
@@ -11763,7 +11745,6 @@ will be HTTPS the username and password will not be send through an encrypted ma
 could be easily compromised by attackers. This principle also applies to sending
 vulnerable data towards other unencrypted/weak encrypted links in your application.
 
-
  Solution:
 
 Verify that credentials are transported using a suitable encrypted link and that all pages/functions that
@@ -11778,7 +11759,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Error handling on tru
 Whenever error handling is not applied through trusted devices the errors it supplies can
 not be trusted since they can be tampered with.
 
-
  Solution:
 
 Verify that all error handling is performed on trusted devices.
@@ -11791,7 +11771,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Single applicationlev
 Whenever the application contains a single applicationlevel logging implementation it
 becomes clear, transparent and easy to maintain. It also reduces the possibility that you
 overlook high priority logging.
-
 
  Solution:
 
@@ -11807,7 +11786,6 @@ Verify the system can protect against aggregation or continuous access to functi
 resources, or data. For example, possibly by the use of a resource governor to limit the
 number of edits per minute in order to to prevent an automatic attack
 
-
  Solution:
 
 Verify the application has the ability to detect and alert on abnormal numbers of requests
@@ -11822,7 +11800,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Principle of least pr
 The principle of least privilege recommends that accounts have the least amount of
 privilege required to perform their business processes. This encompasses user rights,
 resource permissions such as CPU limits, memory, network, and file system permissions.
-
 
  Solution:
 
@@ -11855,7 +11832,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' TLS implementation mu
 To enforce the maximum amount of security out of the TLS implementation it should always
 suffice the approved mode of operation.
 
-
  Solution:
 
 See See http://csrc.nist.gov/groups/STM/cmvp/documents/fips1402/FIPS1402IG.pdf
@@ -11879,15 +11855,14 @@ encoding malicious injection strings in a way that obfuscates them. This can lea
 bypass of input validation filters, or take advantage of particular ways in which browsers
 render encoded text.
 
-
  Solution:
 
 When trying to figure out the character encoding of a resource, user agents will try, in
 this order:
 
-* The HTTP ContentType header sent by the server
-* the XML declaration (only for XHTML documents)
-* HTML/XHTML meta element.
+ The HTTP ContentType header sent by the server
+ The XML declaration (only for XHTML documents)
+ HTML/XHTML meta element.
 
 Make sure this information is provided by your application for the server in order to
 prevent it from guessing the wrong encoding standard, leaving room for injection.
@@ -11906,7 +11881,6 @@ HTTP offers a number of methods that can be used to perform actions on the web s
 Many of these methods are designed to aid developers in deploying and testing
 HTTP applications. These HTTP methods can be used for nefarious purposes if the web
 server is misconfigured.
-
 
  Solution:
 
@@ -11935,7 +11909,6 @@ in a bad location. You must validate the metadata extremely carefully before usi
 
 The other class of problem is with the file size or content.
 An attacker can easily craft a valid image file with php code inside.
-
 
  Solution:
 
@@ -11975,7 +11948,6 @@ Revealing system data or debugging information helps an adversary learn about th
 and form a plan of attack. An information leak occurs when system data or debugging
 information leaves the program through an output stream or logging function.
 
-
  Solution:
 
 Verify that the HTTP headers do not expose detailed version information of system
@@ -11989,7 +11961,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' HTTP headers added by
 
 Use these kind of HTTP headers such as a bearer token only if you have authenticated the sever sending
 the header to your application.
-
 
  Solution:
 
@@ -12009,7 +11980,6 @@ session management systems are at an immediate disadvantage. Implementations bui
 scratch are often weak and breakable. Developers are strongly discouraged from
 implementing their own Session Management.
 
-
  Solution:
 
 Always use the frameworks default session management control implementation
@@ -12024,7 +11994,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Available log analysi
 With a log analysis tool in place you can easily and quickly do forensics as soon as you
 notice your application is under attack by attackers and block them out.
 
-
  Solution:
 
 A list of recommended tools by OWASP you can find at
@@ -12037,7 +12006,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Distinguish logfields
 
 Whenever log fields are distinguished from each other by means of logs from trusted and
 untrusted log fields in your log entries your logs become clearer and more transparent.
-
 
  Solution:
 
@@ -12062,13 +12030,12 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sanitize sensitive da
 Whenever sensitive data is rapidly removed from the systems memory, this decreases the
 possibility the attacker can compromise this data by means of memory dumping attacks.
 
-
  Solution:
 
 Verify that sensitive data is rapidly sanitized from memory as soon as it is no longer
 needed and handled in accordance to functions and techniques supported by the
 framework/library/operating system.
-', 'sanitise sensitive data rapidly from memory'); 
+', 'Sanitise sensitive data rapidly from memory'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Logging is performed before executing the transaction
 
 
@@ -12076,7 +12043,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Logging is performed 
 
 Whenever the logging is performed before executing a transaction you can be ensured that
 the transactions are logged. This increases the integrity of your log files.
-
 
  Solution:
 
@@ -12093,7 +12059,6 @@ Always use checksums when working with interpreted code, libraries, executables,
 and configuration files, when these checksums do not match you can determine that
 these files are corrupted or backdoored.
 
-
  Solution:
 
 Verify that the integrity of interpreted code, libraries, executables, and configuration
@@ -12108,7 +12073,6 @@ You should always fend of remote connections with untrusted systems/resources wh
 connect to your application in order to prevent connecting to malicious systems that try
 to attack your application.
 
-
  Solution:
 
 Since this is very difficult to achieve on application level we recommend implementing
@@ -12121,7 +12085,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Certificate paths/rev
 
 Whenever your certificate authority is not trusted anymore you should always be able to
 recall these certificates asap.
-
 
  Solution:
 
@@ -12152,7 +12115,6 @@ to push the developers of this software to fix their issues. As a result,
 when your software is not upgraded to the latest available version,
 script kiddies could easily compromise your application by following the
 exploit tutorials online, thus compromising your application.
-
 
  Solution:
 
@@ -12192,7 +12154,6 @@ the HTML5 ApplicationCache interface. The Application Cache uses a cache manifes
 specify which files in an HTML5 application can be used offline, and which files require a
 network connection.
 
-
  Solution:
 
 Never store sensitive information in a client side cache since this can be easily
@@ -12212,7 +12173,6 @@ Whenever cryptographic modules do not operate in their approved mode according t
 published security policies these methods could become weak and become inadequate to
 ensure strong cyphers.
 
-
  Solution:
 
 Always verify that cryptographic modules operate in their approved mode according to
@@ -12225,7 +12185,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sending data/paramete
 
 Whenever an application sends data/parameters to untrusted devices this data could be
 compromised if the device has malicious intents.
-
 
  Solution:
 
@@ -12251,7 +12210,6 @@ it reduces the movability of an attacker and chances of succeeding to
 perform successful attacks. If an attacker should breach your application his actions
 could be rapidly followed and counter measures could be taken.
 
-
  Solution:
 
 Verify the application processes or verifies all high value business logic flows in a
@@ -12265,7 +12223,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Data from untrusted s
 Whenever data from untrusted servers is executed by your application there is a high
 probability this data could be contaminated with malicious code. Such as for example
 XSS from JSON files, or XXE when parsing XML files.
-
 
  Solution:
 
@@ -12283,7 +12240,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' User restriction for 
 Always enforce multiple layers of security whenever you want to protect sensitive data/files
 on your application. If one layer should fail the other layers should prevent the attackers
 from succeeding.
-
 
  Solution:
 
@@ -12305,7 +12261,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Runtime environment
 Whenever you use runtime environments you want to make sure these are not susceptible for
 buffer overflows since this could lead to compromise of your application.
 
-
  Solution:
 
 There are a number of runtime solutions that can detect stack corruption and buffer
@@ -12325,7 +12280,6 @@ in HTTPs GET statement and passes them as variables to code within the applicati
 could become a safety hazard since the application processes these variables
 in his operations.
 
-
  Solution:
 
 When working with automatic variable binding you should create whitelists of what
@@ -12340,12 +12294,11 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Cryptographic functio
 Whenever cryptographic function is not implemented on the server side then these
 cryptographic functions could easily be bypassed by an attacker.
 
-
  Solution:
 
 Verify that all cryptographic functions used to protect secrets from the application
 user are implemented server side.
-', 'cryptographic function implementation'); 
+', 'Cryptographic function implementation'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Cryptographic modules must fail securely
 
 
@@ -12354,12 +12307,11 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Cryptographic modules
 Whenever a cryptographic module does not fail securely this the device needs to be put in
 error state so it''s not useable anymore.
 
-
  Solution:
 
 We recommend using the NIST standard on testing the cryptographic module making it perform
 the selftests to see if it fails securely.
-', 'cryptographic modules must fail securely'); 
+', 'Cryptographic modules must fail securely'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Verbose error messaging
 
 
@@ -12370,7 +12322,6 @@ to debug certain functionalities. However, this stage often displays sensitive t
 information. If an attacker gains this technical information, he can learn more about the
 operation of the application. The application should always display userfriendly messages
 only, when put on a live environment.
-
 
  Solution:
 
@@ -12384,7 +12335,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Access to any master 
 
 Access to any master secret must be protected from unauthorized access in order to protect
 the integrity and the confidentiality of the data.
-
 
  Solution:
 
@@ -12401,7 +12351,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Enforce policies for 
 When you process data you should always enforce policies for the transfer of sensitive data
 in order to enforce higher level of security imposing structured thresholds to
 fend of attackers.
-
 
  Solution:
 
@@ -12430,7 +12379,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Accesscontrol/Login s
 
 For successful access control/login functionality there are a lot of things to take into
 consideration before you start developing this type of functionality.
-
 
  Solution:
 
@@ -12463,7 +12411,6 @@ in your application.
 3. Username enumeration
 4. Does The application enforce the use of secure passwords
 5. Disallow the use of old passwords
-
 
  Solution:
 
@@ -12526,8 +12473,6 @@ the following defense mechanism in order to ensure high level security.
 3.  Principle of least privilege
 4.  GET/POST requests
 
-
-
  Solution:
 
 Here are the steps described briefly.
@@ -12565,7 +12510,6 @@ The attacker can abuse this behavior of the database to overflow the length limi
 and truncate his submit and register himself as the admin, thus gaining its
 privileges.
 
-
  Solution:
 
 On critical places where unique values are enforced and expected
@@ -12589,7 +12533,6 @@ For more detailed information about these items you should check the knowledgeba
 4. Predictable password and or token generation
 5. Are all passwords hashed, salted and stretched
 6. Does The application enforce the use of secure passwords.
-
 
  Solution:
 
@@ -12631,7 +12574,6 @@ A quick overview of how it works:
 4. When Alice visits www.example.com, this cookie will be sent with the request, as the specs for cookies states, and Alice will have the session specified by Mallory''s cookie.
 5. Mallory can now use Alice her account.
 
-
  Solution:
 
 In this scenario changing the sessionID on login does not make any difference since
@@ -12645,7 +12587,7 @@ for untrusted sites.
 Also when setting your cookies to specify which domains they are allowed to
 be send to. Especially on your trusted domain you do not want to leak cookies to unintended
 subdomains. highly recommended is to not use wildcards when setting this option.
-', 'cross subdomain cookie attack'); 
+', 'Cross subdomain cookie attack'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' HTML injections
 
 
@@ -12707,7 +12649,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Debug enabling
 Sometimes it is possible through an "enabling debug parameter" to display technical
 information within the application. As a result the attacker learns more about the
 operation of the application, increasing his attack vector.
-
 
  Solution:
 
@@ -12774,7 +12715,7 @@ libraries, and/or executables) that are present in the application are identifie
 
 When you identified these components you may want to map and document them in order to
 have a quick reference to this infrastructure when needed.
-', 'identify all application components'); 
+', 'Identify all application components'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Identify all external dependencies
 
 
@@ -12791,7 +12732,7 @@ attacks.
 First you must identify which external dependencies your application relays on
 for its operation. Second, there should be a fail safe implemented should this dependency ever
 fail to deliver its services towards your application.
-', 'identify external dependencies'); 
+', 'Identify external dependencies'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' High level architecture should be defined.
 
 
@@ -12801,7 +12742,6 @@ Whenever you are developing an application you want to map all the architecture
 it contains. Whenever there are breaches, updates, or other escalations it makes it
 easy and transparent for forensics, operators and developers to do their job as fast as
 possible.
-
 
  Solution:
 
@@ -12862,7 +12802,6 @@ authentication functionality. He can measure the average response time between a
 containing a valid username and a request containing a invalid username. The
 attacker can now use this differential in response time to enumerate user accounts.
 
-
  Solution:
 
 Verify that all authentication challenges, whether successful or failed, should respond
@@ -12883,7 +12822,6 @@ in your website''s clientside JavaScript code. Consequently, even with completel
 secure serverside code, the clientside code might still unsafely include user input in a
 DOM update after the page has loaded. If this happens, the clientside code has enabled
 an XSS attack through no fault of the serverside code.
-
 
  Solution:
 
@@ -12981,7 +12919,6 @@ HSTS may not be over HTTPS. A preload list will allow us to ship Firefox with so
 preset HSTS sites that, from the first time they''re accessed in the browser, will require
 a secure connection.
 
-
  Solution:
 
 In order to be included on the HSTS preload list, your site must:
@@ -13019,7 +12956,6 @@ Each site uses a robots.txt file which allows search engines to provide informat
 The robots.txt determines what pages may or may not be indexed by google or yahoo etc.
 However, a common mistake made by programmers is applying a blacklisting method causing
 the application displaying sensitive information to attackers.
-
 
  Solution:
 
@@ -13161,11 +13097,11 @@ The vulnerability occurs due to the use of usersupplied input without proper val
 This can lead to something as outputting the contents of the file, but depending on the
 severity, it can also lead to:
 
-* Code execution on the web server
-* Code execution on the clientside such as JavaScript which can lead to other attacks
+ Code execution on the web server
+ Code execution on the clientside such as JavaScript which can lead to other attacks
   such as cross site scripting (XSS)
-* Denial of Service (DoS)
-* Sensitive Information Disclosure
+ Denial of Service (DoS)
+ Sensitive Information Disclosure
 
 
 Local File Inclusion (also known as LFI) is the process of including files, that are
@@ -13255,7 +13191,6 @@ executed by your application. You should also not solely depend on your parser t
 the encoding and escaping for you since there could always be an edge case that does
 execute certain attacks.
 
-
  Solution:
 
 We highly recommend to do your own escaping, sanitizing, encoding on all data before
@@ -13288,7 +13223,7 @@ to execute and which scripts are most likely been injected by an attacker.
  Solution:
 
 A best practice for implementing CSP in your application would be to externalize all
-javascript within the web pages.
+JavaScript within the web pages.
 
 So this:
     <script>
@@ -13306,8 +13241,8 @@ Must become this:
 The header for this code could look something like:
     ContentSecurityPolicy: defaultsrc''self''; objectsrc''none''; scriptsrc''https://mycdn.com''
 
-Since it is not entirely realistic to implement all javascript on external pages we can
-apply sort of a cross site request forgery token to your inline javascript. This way
+Since it is not entirely realistic to implement all JavaScript on external pages we can
+apply sort of a cross site request forgery token to your inline JavaScript. This way
 the browser can again distinguish the difference between code which is part of the
 application against probable malicious injected code, in CSP this is called the ''nonce''.
 Of course this method is also very applicable on your existing code and designs.
@@ -13318,7 +13253,7 @@ would become guessable. So it should also contain a high entropy and should be h
 predict. Similar to the operation of the CSRF tokens, the nonce becomes impossible for
 the attacker to predict making it difficult to execute a successful XSS attack.
 
-Inline javascript example containing nonce:
+Inline JavaScript example containing nonce:
 	<script nonce=sfsdf03nceI23wlsgle9h3sdd21>
     <! Your javscript code >
     </script>
@@ -13335,12 +13270,12 @@ When applying the CSP header, although it blocks XSS attacks. Your
 application still remains vulnerable to HTML and other code injections.
 So this is not a substitute for, validation, sanitizing and encoding of userinput.
 ', 'Content security policy headers'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Safe javascript and jquery methods
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Safe JavaScript and jquery methods
 
 
  Description:
 
-Whenever you are supplying your javascript/jquery with data which is controlled by the
+Whenever you are supplying your JavaScript/jquery with data which is controlled by the
 user, you should make sure this data is not supplied towards functions which could
 interpreted the supplied and parse input as code. This could lead to XSS and other code
 injections.
@@ -13348,7 +13283,7 @@ injections.
  Solution:
 
 Below we listed some safe functions for whenever it is needed to supply your
-javascript/jquery functions with userinput.
+JavaScript/jquery functions with userinput.
 
 JQUERY functions:
 .txt();
@@ -13377,7 +13312,7 @@ Example:
 	}
 	</script>
 ', 'Safe javascript jquery methods'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Accessible nonparsed dynamic scripts
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Accessible non parsed dynamic scripts
 
 
  Description:
@@ -13387,12 +13322,11 @@ approached by normal users, the operation of the application can be traced becau
 source code becomes available. This improves the possibility that the attacker discovers
 vulnerabilities.
 
-
  Solution:
 
 Always add the different types of extensions to the webserver handler to parse.
 This way the file source cannot be viewed.
-', 'accessible non'); 
+', 'Accessible non parsed dynamic scripts'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' WYSIWYG editors
 
 
@@ -13432,7 +13366,6 @@ or more JavaScript statements, eval() executes the statements.
 This is exactly the reason why eval() should NEVER be used to parse JSON or other
 formats of data which could possible contain malicious code.
 
-
  Solution:
 
 For the purpose of parsing JSON we would recommend the use of the json.parse functionality.
@@ -13448,7 +13381,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Account lockout
 All applications should contain the possibility to lock down accounts for whenever it
 detects attacks by/on users. Also you should include options for both soft and hard
 lockout mechanisms.
-
 
  Solution:
 
@@ -13468,7 +13400,7 @@ give the user back his account or take further legal actions against him.
 This type of approach prevents the attacker from further penetrating your application
 and infrastructure.
 
- Note: 
+Note: 
 Be cautious that a softlockout countermessure does not override a hardlockout status.
 
 
@@ -13485,7 +13417,6 @@ Extensible Markup Language (XML) is a markup language that defines a set of rule
 encoding documents in a format which is both humanreadable and machinereadable. It is
 defined by the W3C''s XML 1.0 Specification and by several other related specifications,
 all of which are free open standards.
-
 
  Solution:
 
@@ -13509,12 +13440,11 @@ Whenever security controls do not have a centralized implementation there is a h
 probability for bugs or security issues being hidden into your application due to the loss
 of abstraction and duplication.
 
-
  Solution:
 
 Make sure all your different type of security controls have a centralized place of implementation.
 Also verify that error handling logic in security controls denies access by default.
-', 'centralized security controls'); 
+', 'Centralized security controls'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Separated data, controller, display layers
 
 
@@ -13526,14 +13456,13 @@ application more clear and understandable in terms of abstraction due to separat
 Whenever your application is more organized and abstracted it is much easier to implement
 less flawed security controls.
 
-
  Solution:
 
 Make sure your different type of data layers are separated in your application.
 
 The separation of these different layers is also know as a design pattern which goes
 by the name MVC (model, view, controller).
-', 'data controller display layer sepperation'); 
+', 'Data controller display layer sepperation'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Proven authentication mechanisms
 
 
@@ -13553,7 +13482,7 @@ is a "proven" one in order to harden your application against attackers.
 These guidelines are listed in the following knowledgebase item:
 
  Access control pattern
-', 'proven authentication mechanisms'); 
+', 'Proven authentication mechanisms'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Administrative interfaces are not accessible to untrusted parties
 
 
@@ -13572,7 +13501,7 @@ to enforce a stepup or adaptive authentication for logging in into the administr
 Recommended knowledgebase item:
 
  Step up or adaptive authentication
-', 'administrative interfaces'); 
+', 'Administrative interfaces'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Concurrent session handling
 
 
@@ -13584,8 +13513,6 @@ about this and should give him the opportunity to end the other sessions.
 
 With this defense in place it becomes harder for attackers to hijack a users session since
 they will be notified about concurrent sessions.
-
-
 
  Solution:
 
@@ -13602,7 +13529,7 @@ The more critical the application becomes the lower the accepted threshold for
 concurrent sessions should be.
 
 
-', 'concurrent session handling'); 
+', 'Concurrent session handling'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Auto escaping technology 
 
 
@@ -13626,7 +13553,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include anticaching h
 
 Anticaching headers have the ability to tell the browser,
 computer and proxies what information they may or may not store on the intermediate media
-
 
  Solution:
 
@@ -13670,7 +13596,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Log rotation and sepa
 Log separation is indispensable in order to prevent it from either radically downgrading your
 application its performance or even causing a Denial of service because the server becomes
 unavailable due to the flooding of logs.
-
 
  Solution:
 
@@ -13735,7 +13660,6 @@ There are some security headers which should be properly configured in order to 
 
 Also check that the API response is not dynamic, if so use input validation and encoding in order to prevent XSS and Same origin method execution attacks.
 
-
  Solution:
 
 Verify that all API responses contain XContentTypeOptions: nosniff and ContentDisposition: attachment; filename="api.json" (or other appropriate filename for the content type).
@@ -13754,7 +13678,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Client side technolog
 When using unsupported client side technologies which are not supported natively via
 W3C browser standards. Your application could be open to different types of attacks.
 
-
  Solution:
 
 Do not use Flash, ActiveX, Silverlight, NACL, clientside Java or other client side technologies
@@ -13768,7 +13691,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Signed message payloa
 In order to establish trust between two communicating party''s such as servers and clients
 there message payload should be signed by means of public/private key method. This builds trust
 and makes it harder for attackers to impersonate different users.
-
 
  Solution:
 
@@ -13785,7 +13707,6 @@ is a gap between the threat vectors that have direct access to the data and the 
 vectors that have direct access to the keys. This implies that keys should not be stored
 on the application or web server (assuming that application attackers are part of the
 relevant threat model).
-
 
  Solution:
 
@@ -13848,7 +13769,7 @@ rules apply, also think about what type of third party services can access the c
 Creating scripts to monitor for bad behavior of a third party service can be an option as an extra
 quality control check.
 ', 'Build Deploy secure'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' (XFrameOptions) Anti clickjacking headers
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include anti clickjacking headers
 
 
  Description:
@@ -13863,7 +13784,6 @@ Using a similar technique, keystrokes can also be hijacked. With a carefully cra
 combination of stylesheets, iframes, and text boxes, a user can be led to believe they
 are typing in the password to their email or bank account, but are instead typing into an
 invisible frame controlled by the attacker.
-
 
  Solution:
 
@@ -13898,7 +13818,6 @@ of the application and load inject a backdoor into the application. Also the att
 modify business logic in the application without the application notice. Signed application
 components can help harden your application and make it noticeable when an attacker tries to
 modify the code in the application.
-
 
  Solution:
 
@@ -14014,7 +13933,10 @@ when stored on the disk. This is needed to protect the user from identity theft 
 Personally Identifiable Information needs to be stored encrypted at rest and ensure that all
 communication goes via protected channels like SSL/TLS.
 ', 'PII protection'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Verify application is not vulnerable for known security issues
+
+
+ Description:
 
 Whenever security researchers find a vulnerability in a library, modules, frameworks, platforms or 
 operating system, these vulnerabilities are reported and saved in the CVE list. 
@@ -14029,8 +13951,7 @@ A lot of populair CVE exploits also have exploits available in Metasploit
 or the Exploit database. This enables script kiddies to easily exploit the target applications
 services, libraries and operating systems.
 
-
-Solution
+ Solution:
 
 Verify that all application components, libraries, modules,
 frameworks, platform, and operating systems are free from known vulnerabilities.
@@ -14043,23 +13964,26 @@ through tools like OWASP dependency check. This tool checks imported modules and
 for known CVEs''
 
     https://www.owasp.org/index.php/OWASP_Dependency_Check
-', '1 11'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'Verify application is not vulnerable for known security issues'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Disable autocomplete for all the input fields in forms
+
+
+ Description:
 
 Browser autocomplete and password managers could be used by attackers to steal sensitive
 information. Whenever an application is susceptible to XSS (Cross site scripting) attacks,
 the attacker can inject forms into the application which are autocompleted by the browser.
 
-The attacker can than use javascript to read the input fields and steal credentials or
+The attacker can then use JavaScript to read the input fields and steal credentials or
 other sensitive information.
 
-Solution
+ Solution:
 
 The browser should explicitly be told for al the input fields that the autocomplete function
 should be turned of. The "autocomplete=off" HTML attribute should be added to al the input and
 hidden input fields in the form you want to disable the autocomplete of.
 
-', '2 33'); 
+', 'Disable autocomplete for all the input fields in forms'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include XXSSProtection header
 
 
@@ -14068,22 +13992,28 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include XXSSProtectio
 This header enables the Crosssite scripting (XSS) filter built into most recent
 web browsers. It is usually enabled by default anyway, so the role of this header is to reenable the filter for this particular website if it was disabled by the user. This header is supported in IE 8 and in Chrome 4.
 
-
  Solution:
 
 These headers are also known as the: XXSSProtection: 1; mode=block and provide protection against XSS attacks when implemented in the application or webserver.
 ', 'Include X XSS'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All time sources should be synchronized
+
+
+ Description:
+
 All time sources must be synchronized throughout for example, different API servers or 
 microservices. to prevent logs to be tainted and become unusable for forensics.
 
+ Solution:
 
-Solution:
 Time sources should be synchronized to ensure logs have the correct time. If these
 time sources are not synchronized, the logs lose integrity and can become untrusted for
 investigators.
-', '8 13'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('description
+', 'All time sources should be synchronized'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Generate strong crypto tokens with at least 120 bit of effective entropy
+
+
+ Description:
 
 ID values stored on the device such as IMEI and UDID should not be used as authentication tokens. 
 These tokens are retrievable by other applications and thus warrant no integrity.
@@ -14095,8 +14025,7 @@ Whenever the application uses static tokens such as the ID values and a user get
 the middled by an attacker, this attacker can now fully compromise without being rejected by
 expiration or invalidation. 
 
-
-Solution
+ Solution:
 
 Authentication tokens should always be generic and should be cryptographically random strong 
 with at least 120 bit of effective entropy. The best way to implement these tokens is to
@@ -14106,14 +14035,17 @@ JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and
 selfcontained way for securely transmitting information between parties as a JSON object. 
 This information can be verified and trusted because it is digitally signed. JWTs can be 
 signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA. 
-', '7 1'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'Generate strong crypto tokens with at least 120 bit of effective entropy'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Enforce sensitive information to be stored encrypted on device
+
+
+ Description:
 
 The mobile application should not store sensitive data into unencrypted shared
 resources on the device. These resources can be accessible by other applications or 
 physically accessible whenever a device gets lost or stolen. 
 
-Solution
+ Solution:
 
 Sensitive information should always be stored encrypted and preferably on the server side
 and retrieved using an object reference with proper authorization mechanisms in place. 
@@ -14125,14 +14057,17 @@ The cardinal rule of mobile apps is to not store data unless absolutely necessar
 As a developer you have to assume that the data is forfeited as soon as it touches the phone. 
 You also have to consider the implications of losing mobile users'' data to a silent 
 jailbreak or root exploit.
-', '7 2'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'Enforce sensitive information to be stored encrypted on device'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' woop woop
+
+
+ Description:
 
 The mobile application should not store sensitive data into unencrypted manner, even in
 the applications key chains since these can be easily accessed once a phone is jailbroken 
 or exploited the keychain can be easily read. 
 
-Solution
+ Solution:
 
 Determine the context of where the sensitive information is being stored, is it a small 
 data set or is the data stored in an SQLite database. For every context determine the 
@@ -14140,14 +14075,17 @@ applications platform recommended native options settings and follow these
 recommendations accordingly. 
 
  
-', '7 3'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'woop woop'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Secrets should be secure random generated
+
+
+ Description:
 
 Secret keys, API tokens, or passwords must be dynamically generated. Whenever these tokens
 are not dynamically generated they can become predicable and used by attackers to compromise
 user accounts. 
 
-Solution
+ Solution:
 
 When it comes to API tokens and secret keys these values have to be dynamically generated 
 and should be cryptographically random secure with at least 120 bit of effective entropy.
@@ -14157,8 +14095,11 @@ a user a dynamically generated password, the user should be presented a link wit
 cryptographically random token by means of an email or sms which is used to activate his 
 account and provide a password of his own.
  
-', '7 4'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'Secrets should be secure random generated'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Protection against different exfiltration techniques
+
+
+ Description:
 
 The mobile application should not leak sensitive information. This information could be leaked for example whenever:
 
@@ -14166,14 +14107,17 @@ The mobile application should not leak sensitive information. This information c
  Sensitive information is written to the console of the mobile device
  The Activitymanager should show the application name and a blank page and not show information
 
-Solution
+ Solution:
 
  Disallow screenshots of the application whenever the application is backgrounded
  Do not write sensitive information to the applications console, this information is accessible by attackers.
  Create a custom window for whenever the application is shown in the ActivityManager, so it does not give away sensitive
   information.
-', '7 5'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'Protection against different exfiltration techniques'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Principle of least privilege
+
+
+ Description:
 
 the application should always be request minimal permissions for required functionality and
 resources. This is also known as principle of least privilege. The principle of least privilege 
@@ -14184,28 +14128,51 @@ memory, network, and file system permissions.
 Whenever the application is compromised by an
 potential attacker, the attacker does not gain more arbitrary control over the victims device
 
-Solution
+ Solution:
 
 Verify that the application is requesting minimal permissions for required functionality and
 resources.
 
-', '7 6'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('TODO:
-', '7 7'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('TODO:
-', '7 8&7 7TODO'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'Principle of least privilege'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' woop woop
+
+
+ Description:
+
+todo
+
+ Solution:
+
+todo
+
+', 'woop woop'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' woop woop
+
+
+ Description:
+
+todo
+
+ Solution:
+
+todo
+
+', 'woop woop'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Protect sensitive activities, intents or content providers
+
+
+ Description:
 
 The application should never export sensitive activities, intents, or content providers.
 These activities could than potentially be exploited by third party applications installed
 on the same device.
 
-Solution
+ Solution:
 
 Identify throughout the application if there are any sensitive activities, intents or 
 content providers that are being exported. 
 
-', '7 9'); 
+', 'Protect sensitive activities intents or content providers'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Include XContentTypeOptions header
 
 
@@ -14218,72 +14185,80 @@ This reduces exposure to driveby download attacks and sites serving user uploade
 content that, by clever naming, could be treated by MSIE as executable or dynamic HTML
 files.
 
-
  Solution:
 
 These headers are also known as the: XContentTypeOptions: nosniff;
 and provide protection against Mime content type attacks when implemented in the
 application or webserver.
 ', 'Include X Content Type Options header'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Mitigate memory dumping attacks
+
+
+ Description:
 
 Whenever sensitive information in stored in the devices’ memory, this information can 
 be dumped by various tool such as “android debugger (ADB)“ on android devices. This 
 information could give critical information about the application and could aid attackers 
 in their attacks.
 
-Solution
+ Solution:
 
-sensitive information maintained in memory must be overwritten with zeros as soon as it 
+Sensitive information maintained in memory must be overwritten with zeros as soon as it 
 no longer actively used, to mitigate memory dumping attacks.
 
 Note: 
 Whenever the programming language has a garbage collector make sure whenever values are zeroed the GC is also
 emptied.
-', '7 10'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'Mitigate memory dumping attacks'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Cross site request forgery on REST
+
+
+ Description:
 
 Whenever input from exported activities intents or content providers is not properly validated
 this input could potentially exploit vulnerabilities on the mobile application depending on
 the context in where the input is being used.
 
-
-Solution
+ Solution:
 
 Input from exported activities, intents or content providers should be validated against 
 the applications intended operation, i.e if the application expects a field with an integer value,
 all other incoming data that work out of this intended operation should be logged and rejected
 by the application.
-', '7 11'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description
+', 'Protect agains exported activities or content providers'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Protect agains exported activities or content providers
+
+
+ Description:
 
 Whenever input from exported activities intents or content providers is not properly validated
 this input could potentially exploit vulnerabilities on the mobile application depending on
 the context in where the input is being used.
 
-
-Solution
+ Solution:
 
 Input from exported activities, intents or content providers should be validated against 
 the applications intended operation, i.e if the application expects a field with an integer value,
 all other incoming data that work out of this intended operation should be logged and rejected
 by the application.
-', '7 12'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Description 
+', 'Protect agains exported activities or content providers'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Application assets hosted on secure location
 
-Whenever application assets such as javascript libraries or CSS styleshees are not hosted
+
+ Description:
+
+Whenever application assets such as JavaScript libraries or CSS styleshees are not hosted
 on the application itself but on a external CDN which is not under your control these
 CDNs'' can introduce security vulnerabilities. Whenever one of these CDN gets compromised
 attackers can include malicious scripts. Also whenever one of these CDNs'' get out of service
 it could affect the operation of the application and even cause a denial of service.
 
-
-Solution
+ Solution:
 
 Verify that all application assets are hosted by the application, such as JavaScript libraries, CSS
 stylesheets and web fonts are hosted by the application rather than rely on a CDN or external
 provider. 
-', '19.10'); 
+', 'Application assets hosted on secure location'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Cross site request forgery on REST
 
 
@@ -14299,7 +14274,6 @@ in a transfer of funds, changing a password, or purchasing an item in the users 
 In effect, CSRF attacks are used by an attacker to make a target system perform a
 function (funds Transfer, form submission etc.) via the targets browser without
 knowledge of the target user at least until the unauthorised function has been committed.
-
 
  Solution:
 
@@ -14361,21 +14335,25 @@ When storing files outside of the document root, take into consideration potenti
 in the applications file name such as "../html/backtoroot/file.php". Whenever this filename is being used directly
 into the path that is used to store files, it could be used to manipulate the storage path.
 ', 'File upload outside document root'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Authentication integrety checks 
+
+
+ Description:
 
 Whenever security logs can be modified by unauthorized users, potential attackers could use these
 privileges to erase their attacks against the appliation or simply soil the log files.
 
-
  Solution:
-
 
 From PCI:
 
 "10.5.5 Use fileintegrity monitoring or changedetection software on logs  to ensure that existing 
 log data cannot be changed without generating alerts (although new data being added should not cause an alert). "
 ', 'Authentication integrety checks'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Description:
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Unauthorized and unauthenticated access security logs
+
+
+ Description:
 
 Security logs should never allow unauthorized/unauthenticated access because these files include
 a lot of sensitive information and could assist an attacker into leveraging attacks. Whenever
@@ -14388,8 +14366,9 @@ The security logs could be protected by means of (HIDS).
 This is a system that monitors important operating system files to make sure the files can only
 be accessed by particular users. Security log files could also be proteced by the OS itself by
 defining groups and users and grant only a particular set of users access to the files.
-', 'Authentication security logs'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Prevent the use of commonly chosen passwords and weak passphrases.
+', 'Unauthorized and unauthenticated access security logs'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Commonly chosen weak passwords and passphrases.
+
 
  Description:
 
@@ -14404,9 +14383,9 @@ The internet is full of top X worst password lists which can be used to verify t
 freshly entered password against. Whenever a user enters a password that matches up to a password
 provided in one of those lists. The password should be rejected and the user should be adviced to take
 another password.
-', 'commonly chosen weak passwords'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
- schemes that provide protection against username + password disclosure.
+', 'Commonly chosen weak passwords and passphrases'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Two faction authentication against username + password disclosure.
+
 
  Description:
 
@@ -14431,9 +14410,9 @@ Examples of two/multi factor authentication can be
   encryption and authentication, and the Universal 2nd Factor (U2F) protocol[1] developed by the FIDO Alliance (FIDO U2F).
   It allows users to securely log into their accounts by emitting onetime passwords or using a FIDObased public/private
   key pair generated by the device
-', 'two factor authentication against username password disclosure'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
- All access control decisions must be logged
+', 'Two factor authentication against username password disclosure'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All access control decisions must be logged
+
 
  Description:
 
@@ -14446,6 +14425,7 @@ attacks. Since it can be messured where users loggedin from and how many concurr
 Verify that all access control decisions can be logged and all failed decisions are logged.
 ', 'Logging access control decisions'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' High value transactions
+
 
  Description:
 
@@ -14482,8 +14462,9 @@ To provide a high level of assurance of the authenticity and integrity of
 the hash it is essential to calculate the hash on a trusted device, such as a separate smart card reader.
 Calculating a hash on an Internetconnected PC or mobile device such as a mobile telephone/PDA would be
 counterproductive as malware and attackers can attack these platforms and potentially subvert the signing process itself.
-', 'high value transactions'); 
+', 'High value transactions'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Verify that structured data is strongly typed and validated
+
 
  Description:
 
@@ -14499,8 +14480,9 @@ Verify that structured data is strongly typed and validated against a defined sc
 including allowed characters, length and pattern (e.g. credit card numbers or telephone, 
 or validating that two related fields are reasonable, such as validating suburbs and zip or 
 post codes match
-', 'strongly type structured date'); 
+', 'Strongly type structured date'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Logging guidelines when accessing sensitive information
+
 
  Description:
 
@@ -14520,6 +14502,7 @@ Verify accessing sensitive data is logged, if the data is collected
 under relevant data protection directives or where logging of accesses is required.
 ', 'Logging guidelines to access sensitive information'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Log injection
+
 
  Description:
 
@@ -14547,6 +14530,7 @@ to prevent log injection.
 ', 'Log injection'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Validate the integrity of all securityrelevant configurations 
 
+
  Description:
 
 Only authorised administrators should have access to change securityrelevant configurations.
@@ -14565,8 +14549,9 @@ One way to achieve this would be to apply (HIDS) rules.
 This is a system that monitors important operating system files and can verify whether these files
 have been edited. Whenever these files are edited a four eyes principle must be applied that checks
 the integrity of these changes.
-', 'malicious intent security configs'); 
+', 'Malicious intent security configs'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Trusted repositories
+
 
  Description:
 
@@ -14581,11 +14566,10 @@ security bugs are being reported and mitigated, if the component is not end of l
 You can also scan the component in your SDLC through OWASP dependency checker to see if there are any
 known CVEs for this component.
 ', 'Trusted repositories'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
-Sandboxing
+INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Sandboxing
 
 
-**Description:**
+ Description:
 
 A sandbox is a security mechanism for separating running programs. 
 It is often used to execute untested code, or untrusted programs from 
@@ -14593,7 +14577,7 @@ unverified third parties, suppliers, untrusted users and untrusted websites. It'
 an extra layer of security where an attacker first need to break out from.
 
 
-**Solution:**
+ Solution:
 
 Use the sandbox attribute of an iframe for untrusted content. The sandbox attribute of an 
 iframe enables restrictions on content within a iframe. The following restrictions are 
@@ -14614,12 +14598,13 @@ content if supported. Apart from this attribute, to prevent Clickjacking attacks
 unsolicited framing it is encouraged to use the header XFrameOptions which supports 
 the deny and sameorigin values. Other solutions like framebusting: 
 
-```javascript
+```JavaScript
 if(window!== window.top) { window.top.location = location; } 
 Only for legacy browser support
 ```
 ', 'Sandboxing malicious code'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Client side constraints
+
 
  Description:
 
@@ -14636,8 +14621,9 @@ fuzzing himself into different pages. Again the access controls should be enforc
 
 All critical decision making logic must be enforced on the server side out of scope of a potential 
 attacker. Client side constraints can be easilly bypassed.
-', 'client side constraints'); 
+', 'Client side constraints'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Context sensitive authorization
+
 
  Description:
 
@@ -14662,7 +14648,7 @@ The user logs into the application, the user id is than stored in a local variab
 The application stores grants(privileges/attributes/claims) in the database and for each
 function the user calls the application gets the grants from the DB using the local variable
 and checks if the user has access to this function.
-', 'context sensitive authorization'); 
+', 'Context sensitive authorization'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All Access controls must fail securely
 
 
@@ -14690,6 +14676,7 @@ for this purpose.
 ', 'All access controls must fail securely'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Prevent password leakage
 
+
  Description:
 
 After completing a password recovery functionality, the user should not be send a plaintext
@@ -14704,6 +14691,7 @@ lose their integrity since they could be compromised by someone looking over ano
 see the password. 
 ', 'Password leakage'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' TLS implementation
+
 
  Description:
 
@@ -14727,6 +14715,7 @@ an algorithm. Whenever computer power increases the standards for selecting a ne
 ', 'TLS HTTPS'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Screen scraping and data harvesting
 
+
  Description:
 
 Whenever the application does not put a threshold on the number requests made to the server,
@@ -14743,8 +14732,9 @@ give them an edge on comparison web sites and get more business.
 ModSecurity can be used to set up rules to prevent attackers from scraping and harvesting data
 from the application. The ModSecurity can be set up with thresholds and rate limiting and block
 ip adresses if they exceed the threshold.
-', 'screen scraping data harvest'); 
+', 'Screen scraping data harvest'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Communication between components (low privileges)
+
 
  Description:
 
@@ -14763,8 +14753,9 @@ on the server.
 
 Communications between components, such as between the application server and the database 
 server should be authenticated using an account with the least necessary privileges.
-', 'low privileges'); 
+', 'Low privileges'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' TLS settings are in line with current leading practice
+
 
  Description:
 
@@ -14790,6 +14781,7 @@ checks by experienced people.
 ', 'TLS leading practice'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Data retention policy
 
+
  Description:
 
 For all the data gathered in an application there should be set up a data retention policy
@@ -14804,6 +14796,7 @@ must be determined how to effectively clear this information from the applicatio
 
 ', 'Data retention policy'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' authenticated data cleared from client storage
+
 
  Description:
 
@@ -14835,7 +14828,6 @@ HTTP StrictTransportSecurity (HSTS) enforces secure (HTTP over SSL/TLS) connecti
 the server. This reduces impact of bugs in web applications leaking session data through
 cookies and external links and defends against Maninthemiddle attacks. HSTS also
 disables the ability for user''s to ignore SSL negotiation warnings
-
 
  Solution:
 
@@ -14901,6 +14893,7 @@ achieved by adding a server configuration file such as php.ini or web.xml.
 ', 'File inclusion attack II'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Third party components
 
+
  Description: 
 
 All third party components the application depends on to operate must be mapped in
@@ -14916,7 +14909,7 @@ terms of the functions, and/or security functions, they provide for several reas
 
 Verify that all components that are not part of the application but that the application
 relies on to operate are defined in terms of the functions, and/or security functions, they provide.
-', 'third party components'); 
+', 'Third party components'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' All error handling logic must fail securely
 
 
@@ -14944,6 +14937,7 @@ for this purpose.
 ', 'All error handling logic must fail securely'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sensitive information inside the source code or online repositories
 
+
  Description:
 
 Whenever secrets, API keys, and passwords are stored in the applications source code an attacker
@@ -14961,8 +14955,9 @@ can fall in to the hands of attackers.
 Verify that secrets, API keys, and passwords are not included in the source code, or online source code 
 repositories.This could be achieved by manual code reviews and potentially small tools that checks te code
 for these keys and secrets by means of pattern matching.
-', 'sensitive information in code or online repositories'); 
+', 'Sensitive information in code or online repositories'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Identify all application components
+
 
  Description:
 
@@ -14978,6 +14973,7 @@ Verify that all application components are defined in terms of the business func
 and/or security functions they provide.
 ', 'Identify all components'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Display concurrent and active sessions
+
 
  Description:
 
@@ -14995,8 +14991,9 @@ Whenever the user shared permission to other applications by means of for exampl
 than the user should also be presented that have shared permissions allong with the type of permissions 
 and activation date.
 
-', 'display concurrent and active sessions'); 
+', 'Display concurrent and active sessions'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Password change leads to destroying concurrent sessions
+
 
  Description:
 
@@ -15012,8 +15009,9 @@ Note: Whenever users are granted the possibility to change their passwords,
 
 Verify the user is prompted with the option to terminate all other active sessions 
 after a successful change password process.
-', 'change password destroy concurrent sessions'); 
+', 'Change password destroy concurrent sessions'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' HSTS preload
+
 
  Description:
 
@@ -15105,23 +15103,25 @@ temporarily for testing purposes.
 
 Verify all access controls are implemented properly in order to prevent a user access data/functions which 
 he was not intended to use.
-', 'unauthorised access and modification'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
- OPEN
+', 'Unauthorised access and modification'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' 
+
 
  Description:
 
 OPEN
+
  Solution:
 
 OPEN
 ', 'OPEN'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('
- OPEN
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' 
+
 
  Description:
 
 OPEN
+
  Solution:
 
 OPEN
@@ -15137,19 +15137,17 @@ it content readable. A hacker could gain access to a cookie through cross site s
 attacks and gain the sensitive information stored
 in the targets cookie.
 
-
  Solution:
 
 Do not store sensitive information in cookies.
-', 'sensitive information stored in cookies'); 
+', 'Sensitive information stored in cookies'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Clientside state management
 
 
  Description:
 
-An application can implement all kinds of logic rules through javascript and html.
+An application can implement all kinds of logic rules through JavaScript and html.
 However, these are clientside constraints that a hacker can easily disable or modify.
-
 
  Solution:
 
@@ -15164,7 +15162,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Too verbose authentic
 The error messages that are displayed when a user fails to login into an application
 should selected with caution. When this error message gives away too much information,
 this information can be exploited by a hacker.
-
 
  Solution:
 
@@ -15193,7 +15190,6 @@ Login functions should not abused in an automated way that an attacker could cre
 script that contains a list of usernames and passwords, which he could use against your
 login function in order to gain unauthorized access to user accounts.
 
-
  Solution:
 
 Implement a method that limit the amount of tries with automated tools.
@@ -15208,10 +15204,9 @@ Every time the application gets userinput, whether this showing it on screen or 
 this data in the application background, these parameters should be escaped for malicious
 code in order to prevent cross site scripting injections.
 When an attacker gains the possibility to perform a XSS injection,
-he is given the opportunity to inject HTML and javascript code directly into the
+he is given the opportunity to inject HTML and JavaScript code directly into the
 application. This could lead to accounts being compromised by stealing session cookies,
 or directly affect the operation of the target application.
-
 
  Solution:
 
@@ -15240,10 +15235,10 @@ This type of encoding/escaping should be applied to whenever you are using useri
 tag.
 
 Javascript encoding
-Whenever parameters are rendered via javascript your application will detect normal injections
-in the first instant. But your application still remains vulnerable to javascript encoding which will not
+Whenever parameters are rendered via JavaScript your application will detect normal injections
+in the first instant. But your application still remains vulnerable to JavaScript encoding which will not
 be detected by the normal encoding/escaping methods.
-', 'xss injection'); 
+', 'XSS injection'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Denialofservice by locking out accounts
 
 
@@ -15252,7 +15247,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Denialofservice by lo
 Whenever there is offered the opportunity to log into the application it should not lock
 out accounts. A hacker could abuse this function to make the application deny access
 towards its power users.
-
 
  Solution:
 
@@ -15265,7 +15259,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Predictable password 
 
 Tokens or passwords that are used within the application must contain a high entropy in
 order to prevent the prediction of these values.
-
 
  Solution:
 
@@ -15282,7 +15275,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Unauthorized credenti
 An application which offers a user login functionality, usually has an administration page
 where his userdata can be modified. When the user wants to change this data he should
 specify his current password.
-
 
  Solution:
 
@@ -15309,7 +15301,6 @@ place.
 Attackers can inject double encoding in pathnames or query strings to bypass the
 authentication schema and security filters in use by the web application.
 
-
  Solution:
 
 Only one webserver should decode/encode the data.
@@ -15334,7 +15325,6 @@ and backslash is risky when used in methods that interact with the file system.
 The resource injection attack focuses on accessing other resources than the local
 filesystem, which is different attack technique known as a Path Manipulation attack.
 
-
  Solution:
 
 Safe use of resource identifiers can be done by performing authorisation checks if the
@@ -15348,7 +15338,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Dynamic scripting inj
 When user input is used to evaluate scripting code then this could introduce
 high security risks. If the input is not properly escaped an attacker can inject his own
 script code and gain access to the server.
-
 
  Solution:
 
@@ -15380,7 +15369,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Automated spamming vi
 A hacker must not gain the possibility to abuse an applications email functionality by
 means of scripts which sends automated spamming mails.
 
-
  Solution:
 
 This problem could be prevented by implementing CAPTCHA or ratelimiting mechanisms.
@@ -15394,7 +15382,6 @@ The secure flag is an option that can be set when creating a cookie.
 This flag ensures that the cookie will not be sent over an unencrypted
 connection by the browser.
 Which ensures that the session cookie can not be send over a nonencrypted link.
-
 
  Solution:
 
@@ -15414,10 +15401,9 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Session cookies witho
  Description:
 
 The httponly flag is an option that can be set when creating a cookie.
-This flag ensures that the cookie can not be read or edited by javascript.
+This flag ensures that the cookie can not be read or edited by JavaScript.
 This ensures that an attacker can not steal this cookie as a crosssite scripting
 vulnerability is present in the application.
-
 
  Solution:
 
@@ -15447,7 +15433,6 @@ injection allows the attacker to adds his own code that is then executed by the 
 In Code Injection, the attacker extends the default functionality of the application
 without the necessity of executing system commands.
 
-
  Solution:
 
 Userinput that is used in a shell command should not contain dangerous characters.
@@ -15462,7 +15447,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' External session hija
 
 When an attacker obtains a users session cookie, then he could steal the identity of the
 user which the session cookie belonged to.
-
 
  Solution:
 
@@ -15480,7 +15464,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Insecure transmission
 If the session cookies are sent over an unencrypted connection,
 they should be withdrawn immediately.
 These cookies are not to be trusted anymore as a hacker may have captured their values.
-
 
  Solution:
 
@@ -15504,7 +15487,6 @@ The encryption techniques used in the application must be known and proven metho
 When there is a selfmade hashing algorithm developed it is very likely to contain
 vulnerabilities due to mathflaws resulting in encryption which can be broken.
 
-
  Solution:
 
 Never implement your own designed Crypto functions.
@@ -15519,7 +15501,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Clientside authentica
 An application could implement authentication functionalities through JavaScript and HTML.
 However, these are clientside constraints that are imposed, which means that a hacker
 can easily disable or modify these constraints.
-
 
  Solution:
 
@@ -15544,7 +15525,6 @@ In this situation the application will get content and subscribe user roles corr
 
 In this situation the application will get content and subscribe user roles corresponding to the admin parameter.
 
-
  Solution:
 
 Whenever you are checking whether a user is restricted to review certain data, the access
@@ -15567,8 +15547,6 @@ if all pages and resources by default require authentication except those specif
 Sometimes developers simply forget to implement these checks, or they remove the checks 
 temporarily for testing purposes. 
 
-
-
  Solution:
 
 Verify all access controls are implemented properly in order to prevent a user access data/functions which 
@@ -15584,7 +15562,6 @@ protected by the use of query parameterization.
 If not an attacker can inject malicious code into these queries he gains the ability to
 manipulate them and now he can withdraw, update and delete data which is stored on the
 target database.
-
 
  Solution:
 
@@ -15611,8 +15588,6 @@ In effect, CSRF attacks are used by an attacker to make a target system perform 
 function (funds Transfer, form submission etc.) via the targets browser without
 knowledge of the target user at least until the unauthorised function has been committed.
 
-
-
  Solution:
 
 To arm an application against automated attacks and tooling you need to use unique tokens
@@ -15627,16 +15602,16 @@ a user is sending a request to the server.
 Note :
 Whenever the application is an REST service and is using tokens such as JWT tokens, whenever these tokens are being send
 in the application headers rather than stored in cookies the application should not be suspectible to CSRF attacks for a succesfull CSRF attacke depends on the browsers cookie jar.
-', 'csrf'); 
+', 'Cross site request forgery'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Are all passwords hashed, salted and stretched 
 
 
- Description
+ Description:
 
 Verify that account passwords are one way hashed with a salt, and there is sufficient work 
 factor to defeat brute force and password hash recovery attacks.
 
- Solution
+ Solution:
 
 Recommended for password usage are PBKDF functions. PBKDF2 uses a pseudorandom function 
 and a configurable number of iterations to derive a cryptographic key from a password. 
@@ -15658,7 +15633,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Sensitive information
 Whenever sensitive information is send by unencrypted methods an attacker could intercept
 this data and use this for malicious intents.
 
-
  Solution:
 
 All sensitive information should always be send by an encrypted methods
@@ -15679,7 +15653,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Session information i
 Whenever session information is not stored serverside an attacker could easily tamper
 and manipulate these values. This is always a bad idea and you should not do this!
 
-
  Solution:
 
 Session information should always be stored serverside by means of a serverside language.
@@ -15694,7 +15667,6 @@ This file is used to set up restrictions for any other web servers using the
 flash application. If these are not set correctly, an attacker could exploit this to
 execute targeted attacks against the users of the web application.
 
-
  Solution:
 
 Always make sure the crossdomain.xml only contains trusted domains.
@@ -15707,7 +15679,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Session ids should be
 Whenever session ids are not generated with a sufficient entropy this could lead to a
 session collision or session hijacking. If an attacker can guess an authenticated user''s
 session identifier, he can take over the user''s session.
-
 
  Solution:
 
@@ -15728,7 +15699,6 @@ When the attacker then changes his own session credentials with the easily to re
 value he used on the target''s computer. The attacker could do a session hijacking
 on the targets current session.
 
-
  Solution:
 
 All session ids not generated by the server should be rejected.
@@ -15740,7 +15710,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' The logout functional
 
 When the logout functionality does not revoke the complete session an attacker could
 impersonate a user when he has access to the session cookie.
-
 
  Solution:
 
@@ -15758,7 +15727,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' The login functionali
 
 Whenever an user is successfully authenticated the application should generate a
 new session cookie.
-
 
  Solution:
 
@@ -15808,7 +15776,6 @@ identifier and the XML processor may disclose confidential information normally 
 accessible by the application. Attacks can include disclosing local files, which may
 contain sensitive data such as passwords or private
 
-
  Solution:
 
 Disable the possibility to fetch resources from an external source.
@@ -15833,12 +15800,11 @@ used to enforce the session timeout, for example using the session token or othe
 parameters to track time references (e.g. number of minutes since login time), an attacker
 could manipulate these to extend the session duration.
 
-
  Solution:
 
 All user sessions should timeout based on logic serverside in order to decrease an
 attackers attack vector on the user session.
-', 'Session IDs do not timeout.(idl)'); 
+', 'Session IDs do not timeout (idl)'); 
 INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Directory listing
 
 
@@ -15849,7 +15815,6 @@ the systems hierarchical structure and gain knowledge about directories or files
 possibly not be publicly accessible. An attacker could use this information to
 increase his attack vector. In some cases this could even lead to an attacker gaining knowledge about
 credentials or old vulnerable system demo functions which might lead to remote code execution.
-
 
  Solution:
 
@@ -15865,7 +15830,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Unnecessary features 
 Whenever there are unnecessary features enabled or installed this could increase
 the attack vector which could lead to serious danger such as XXE/CMD/XSS injections.
 
-
  Solution:
 
 Make sure all features and software available on the application/server is necessary for
@@ -15879,7 +15843,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Avoid the use of defa
 Whenever default or predictable accounts are available on an application/server this could
 lead to an attacker compromising these services. Make sure all default and predictable
 accounts are disabled or deleted from the services.
-
 
  Solution:
 
@@ -15895,8 +15858,6 @@ Whenever certain security settings in your application frameworks
 (e.g., Struts, Spring, ASP.NET) and libraries are not set to secure values this could lead
 to vulnerabilities in your application which an attacker could exploit.
 
-
-
  Solution:
 
 Make sure all your security settings in your development framework are set to secure values.
@@ -15909,8 +15870,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Insecure datastorage
 
 Whenever sensitive data is stored cleartext this data is compromised as soon as it
 falls into the hands of an attacker.
-
-
 
  Solution:
 
@@ -15926,7 +15885,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Authentication based 
 
 This is a form of security by obscurity. Whenever an attacker manages to fuzz or spider
 this url the application could compromise whatever is behind this url.
-
 
  Solution:
 
@@ -15960,7 +15918,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Incorrect or missing 
 When the browser has to guess the charset according of the content that is presented by
 the application, then this could could lead to XSS injections when guessing wrong.
 
-
  Solution:
 
 Define the charset for all your pages in order to prevent the browser for guessing
@@ -15988,13 +15945,12 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Extraneous files in d
 Whenever the document root contains extraneous files, these files could be accessed by an
 attacker or could possibly contain functionality witch could contain other vulnerabilities.
 
-
  Solution:
 
 Extraneous files in document root should be investigated and deleted if it''s not necessary
 for operation of the application.
-', 'extraneous files in document root'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES (' XPath injections
+', 'Extraneous files in document root'); 
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' X Path injections
 
 
  Description:
@@ -16005,8 +15961,6 @@ technology for data storage, but, in the last years, we are witnessing an increa
 popularity for databases that organise data using the XML language.
 Just like relational databases are accessed via SQL language, XML databases use XPath as
 their standard query language.
-
-
 
  Solution:
 
@@ -16031,7 +15985,6 @@ bruteforce attack. Same goes for "Password forget" functions.
 
 Whenever an user forgot his password, make him fill in his email address
 rather than an username.
-
 
  Solution:
 
@@ -16060,7 +16013,6 @@ by Amit Klein in his work on request/response smuggling/splitting.
 Vulnerabilities due to HTTP header injections such as CRLF are no longer
 feasible due to the fact that multiple header requests are not possible.
 
-
  Solution:
 
 When userinput will be used in HTTP headers then the newlines should be escaped in a
@@ -16081,7 +16033,6 @@ visible to third parties. Servers can use POSTbased form submission instead.
 GET parameters are also more likely to be vulnerable to XSS. Please refer to the
 XSS manual in the knowledge base for more information.
 
-
  Solution:
 
 Whenever transmitting sensitive data always do this by means of the POST request or by header.
@@ -16098,7 +16049,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Insecure internal com
 Whenever organizations communicate by means of unencrypted connections, an attacker
 could easily sniff these insecure communication and gain sensitive information.
 
-
  Solution:
 
 Use TLS encrypted data lines for all internal communication channels.
@@ -16114,7 +16064,6 @@ Sometimes when developing an application a programmer stores a password or other
 credentials into the sourcecode as a comment for other developers to
 login into the application. When these comments still exist in a live environment,
 an attacker could use these credentials to gain access to the system.
-
 
  Solution:
 
@@ -16134,7 +16083,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' The possible risks to
 The information that is stored of the application and/or user
 activities needs to be documented, this will make it transparent where sensitive
 information is stored and why.
-
 
  Solution:
 
@@ -16158,7 +16106,6 @@ attention to their actions and sometimes provide the username form field with th
 If the application would log the usernames, these passwords are now also stored and can be
 used to compromise accounts whenever an attacker gains knowledge of these files.
 
-
  Solution:
 
 Verify that all authentication decisions can be logged, without storing sensitive session 
@@ -16175,16 +16122,15 @@ set of records, and/or destination and source of records that provide documentar
 evidence of the sequence of activities that have affected at any time a specific operation,
 procedure, or event.
 
-
  Solution:
 
 An audit log should contain the following items:
 
-User id
-Operation
-Success/failure of the operation
-Privileges
-Timestamp
+ User id
+ Operation
+ Success/failure of the operation
+ Privileges
+ Timestamp
 
 Depending on the gravity of the users violation there should also be a record kept for
 each user to lock their accounts after a certain number of violations. This should be
@@ -16201,7 +16147,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' User credentials in a
 
 Whenever there are user credentials supplied in an audit log,
 this could become a risk whenever an attacker could gain access to one of these log files.
-
 
  Solution:
 
@@ -16220,7 +16165,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Intrusion detecting a
 All possible attacks on your application should be detected an reported in order to
 prevent further escalation.
 
-
  Solution:
 
 Intrusion detecting could be done by means of a:
@@ -16232,7 +16176,6 @@ Whenever an application detects strange behavior and anomalies,
 these issues should be reported. Keep in mind whenever the application changes this
 whitelist method has to evolve alongside with it. A big con is it could generate a lot
 of reports and alerts.
-
 
 "Negative security model:"
 Create a blacklist with known attacks and malicious input and make the application report
@@ -16254,7 +16197,6 @@ application or service. The injection of unintended XML content and/or structure
 an XML message can alter the intend logic of the application. Further, XML injection
 can cause the insertion of malicious content into the resulting message/document.
 
-
  Solution:
 
 In addition to the existing input validation, define a positive approach which
@@ -16268,7 +16210,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Authentication at a c
 
 Authentication should always be performed at a central location in the application in
 order to prevent missing authentication on certain levels in the application.
-
 
  Solution:
 
@@ -16287,7 +16228,6 @@ Whenever IP addresses are used in HTTP headers in internal structures of your or
 an attacker could use these to enlarge his attack vector and recon your
 internal infrastructures.
 
-
  Solution:
 
 Never use IP addresses in internal HTTP headers.
@@ -16301,7 +16241,6 @@ Authentication should be enforced by the webserver. Whenever these configuration
 not enabled on the server an attacker could gain access to authorized
 pages on your application.
 
-
  Solution:
 
 Always make sure your webserver is correctly configured to enforce authentication,
@@ -16314,7 +16253,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' The audit log must in
 
 If the audit log does not contain a clear priority system it will be difficult to
 prioritize different types of process failures.
-
 
  Solution:
 
@@ -16336,7 +16274,6 @@ explicit authentication and is internet facing then this results into that the s
 cannot be trusted. This is because the server can be potentially be owned and managed by
 everybody including hackers.
 
-
  Solution:
 
 Whenever the webapplication is facing the internet third parties trying to
@@ -16355,7 +16292,6 @@ compromising the application or other users accounts.
  Solution:
 
 Always ensure full hardened security on all layers of the web application.
-
 Recommended knowledgebase item:
 
  High level architecture should be defined
@@ -16384,7 +16320,6 @@ Whenever an application ask an user a secret question such as for i.e a password
 functionality, these questions should not be shared knowledge an attacker could get from
 the web to prevent him compromising the account by this function.
 
-
  Solution:
 
 Secret questions should never include shared knowledge, predictable or easy
@@ -16397,7 +16332,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Disallow the use of o
 
 This is a mitigation of the risk that a password can leak by any means towards a possible,
 attacker. By changing the password to a new one minimizes the damage.
-
 
  Solution:
 
@@ -16417,7 +16351,6 @@ the user is forced to (re)authenticate again in the web application and establis
 a new session. The absolute session limits the amount of time an attacker can use a
 hijacked session and impersonate the victim user.
 
-
  Solution:
 
 Always ensure that sessions absolute timeout serverside in order to decrease a hackers
@@ -16434,7 +16367,6 @@ he could include a file which contains malicious code to be parsed on the target
 This could lead to, code execution, reading arbitrary files and many more
 vulnerabilities such as XSS.
 
-
  Solution:
 
 To protect against such vulnerability one needs to make sure that he does not use
@@ -16449,7 +16381,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Logout structuring
 
 Placing a logout link on every page that requires authentication helps the user end the
 session when he is done with the site. Ending the session helps prevent hijacking.
-
 
  Solution:
 
@@ -16468,7 +16399,6 @@ an attacker and could leak through the referrer header towards other severs. Als
 the session id is disclosed in the URL the possibility also arises to perform other
 attacks like session fixation which could lead to session hijacking.
 
-
  Solution:
 
 Session id should never be included in places other than the application cookie header.
@@ -16479,7 +16409,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Session cookies (Doma
  Description:
 
 The Domain option allows you to specify whether or not to send the cookie to subdomains.
-
 
  Solution:
 
@@ -16513,7 +16442,6 @@ mechanism: allow the operation, disallow the operation, exception In general.
 You should design your security mechanism so that a failure will follow the same
 execution path as disallowing the operation.
 
-
  Solution:
 
 Security methods like isAuthorized(), isAuthenticated(), and validate() should all return
@@ -16528,7 +16456,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Input rejection
 
 Whenever the application detects malicious or unexpected userinput you want to make sure
 the application actual rejects the submitted userinput rather than directly process it.
-
 
  Solution:
 
@@ -16610,7 +16537,6 @@ When you log all the input validation failures in your application you can disco
 early stage that your application is under attack and take quick countermeasures against
 the attackers.
 
-
  Solution:
 
 Verify that all input validation failures are logged in order to counter possible attacks
@@ -16625,7 +16551,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Logging implemented o
 Logging should always be implemented on the serverside since an attacker otherwise 
 manipulate the functionality and erase his traces.
 
-
  Solution:
 
 Verify that all logging controls are implemented on the serverside.
@@ -16637,7 +16562,6 @@ INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Logging guidelines
 
 The logging should contain some guidelines in order to organize your logging file in such
 a way it  would allow for a detailed investigation of the timeline when an event happens.
-
 
  Solution:
 
@@ -16653,7 +16577,7 @@ taint each other whenever log injection occurs.
 Verify accessing sensitive data is logged, if the data is collected under relevant data protection
 directives or where logging of accesses is required.
 ', 'Logging guidelines'); 
-INSERT OR REPLACE INTO kb_items (content, title) VALUES ('Not available item
+INSERT OR REPLACE INTO kb_items (content, title) VALUES (' Not available item
 
 
  Description:

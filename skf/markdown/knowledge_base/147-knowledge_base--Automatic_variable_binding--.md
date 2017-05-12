@@ -11,7 +11,6 @@ in HTTPs GET statement and passes them as variables to code within the applicati
 could become a safety hazard since the application processes these variables
 in his operations.
 
-
 ## Solution:
 
 When working with automatic variable binding you should create whitelists of what

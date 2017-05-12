@@ -10,7 +10,6 @@ This reduces exposure to drive-by download attacks and sites serving user upload
 content that, by clever naming, could be treated by MSIE as executable or dynamic HTML
 files.
 
-
 ## Solution:
 
 These headers are also known as the: X-Content-Type-Options: nosniff;

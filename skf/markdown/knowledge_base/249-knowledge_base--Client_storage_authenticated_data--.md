@@ -1,4 +1,5 @@
-## authenticated data cleared from client storage
+# authenticated data cleared from client storage
+-------
 
 ## Description:
 

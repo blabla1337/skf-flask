@@ -1,4 +1,5 @@
-## Display concurrent and active sessions
+# Display concurrent and active sessions
+-------
 
 ## Description:
 

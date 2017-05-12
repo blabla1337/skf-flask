@@ -7,7 +7,6 @@ The error messages that are displayed when a user fails to login into an applica
 should selected with caution. When this error message gives away too much information,
 this information can be exploited by a hacker.
 
-
 ## Solution:
 
 The application should never publish available usernames. When an attacker gains this

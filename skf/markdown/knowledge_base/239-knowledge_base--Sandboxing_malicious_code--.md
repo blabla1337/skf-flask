@@ -1,8 +1,7 @@
-
-Sandboxing
+#Sandboxing
 -------
 
-**Description:**
+## Description:
 
 A sandbox is a security mechanism for separating running programs. 
 It is often used to execute untested code, or untrusted programs from 
@@ -10,7 +9,7 @@ unverified third parties, suppliers, untrusted users and untrusted websites. It'
 an extra layer of security where an attacker first need to break out from.
 
 
-**Solution:**
+## Solution:
 
 Use the sandbox attribute of an iframe for untrusted content. The sandbox attribute of an 
 iframe enables restrictions on content within a iframe. The following restrictions are 
@@ -31,7 +30,7 @@ content if supported. Apart from this attribute, to prevent Clickjacking attacks
 unsolicited framing it is encouraged to use the header X-Frame-Options which supports 
 the deny and same-origin values. Other solutions like framebusting: 
 
-```javascript
+```JavaScript
 if(window!== window.top) { window.top.location = location; } 
 #Only for legacy browser support
 ```

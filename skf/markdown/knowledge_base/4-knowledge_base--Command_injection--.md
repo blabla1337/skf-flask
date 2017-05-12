@@ -14,7 +14,6 @@ injection allows the attacker to adds his own code that is then executed by the 
 In Code Injection, the attacker extends the default functionality of the application
 without the necessity of executing system commands.
 
-
 ## Solution:
 
 User-input that is used in a shell command should not contain dangerous characters.

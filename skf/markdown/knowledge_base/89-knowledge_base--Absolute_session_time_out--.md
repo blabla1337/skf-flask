@@ -11,7 +11,6 @@ the user is forced to (re)authenticate again in the web application and establis
 a new session. The absolute session limits the amount of time an attacker can use a
 hijacked session and impersonate the victim user.
 
-
 ## Solution:
 
 Always ensure that sessions absolute time-out server-side in order to decrease a hackers

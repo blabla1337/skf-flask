@@ -1,4 +1,4 @@
-# X-Path injections
+# X Path injections
 -------
 
 ## Description:
@@ -9,8 +9,6 @@ technology for data storage, but, in the last years, we are witnessing an increa
 popularity for databases that organise data using the XML language.
 Just like relational databases are accessed via SQL language, XML databases use X-Path as
 their standard query language.
-
-
 
 ## Solution:
 

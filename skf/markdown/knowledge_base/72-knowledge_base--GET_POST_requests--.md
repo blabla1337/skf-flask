@@ -11,7 +11,6 @@ visible to third parties. Servers can use POST-based form submission instead.
 GET parameters are also more likely to be vulnerable to XSS. Please refer to the
 XSS manual in the knowledge base for more information.
 
-
 ## Solution:
 
 Whenever transmitting sensitive data always do this by means of the POST request or by header.

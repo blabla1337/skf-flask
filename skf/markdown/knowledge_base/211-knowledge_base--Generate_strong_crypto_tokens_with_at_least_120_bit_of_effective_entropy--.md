@@ -1,4 +1,7 @@
-#description
+# Generate strong crypto tokens with at least 120 bit of effective entropy
+-------
+
+## Description:
 
 ID values stored on the device such as IMEI and UDID should not be used as authentication tokens. 
 These tokens are retrievable by other applications and thus warrant no integrity.
@@ -10,8 +13,7 @@ Whenever the application uses static tokens such as the ID values and a user get
 the middled by an attacker, this attacker can now fully compromise without being rejected by
 expiration or invalidation. 
 
-
-#Solution
+## Solution:
 
 Authentication tokens should always be generic and should be cryptographically random strong 
 with at least 120 bit of effective entropy. The best way to implement these tokens is to

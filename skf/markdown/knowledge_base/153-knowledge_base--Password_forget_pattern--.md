@@ -13,7 +13,6 @@ in your application.
 4. Does The application enforce the use of secure passwords
 5. Disallow the use of old passwords
 
-
 ## Solution:
 
 The first thing is to verify that forgot password and other recovery paths

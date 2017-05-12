@@ -1,9 +1,9 @@
-# Safe javascript and jquery methods
+# Safe JavaScript and jquery methods
 -------
 
 ## Description:
 
-Whenever you are supplying your javascript/jquery with data which is controlled by the
+Whenever you are supplying your JavaScript/jquery with data which is controlled by the
 user, you should make sure this data is not supplied towards functions which could
 interpreted the supplied and parse input as code. This could lead to XSS and other code
 injections.
@@ -11,7 +11,7 @@ injections.
 ## Solution:
 
 Below we listed some safe functions for whenever it is needed to supply your
-javascript/jquery functions with user-input.
+JavaScript/jquery functions with user-input.
 
 JQUERY functions:
 .txt();

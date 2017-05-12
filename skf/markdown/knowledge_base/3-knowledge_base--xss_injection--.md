@@ -7,10 +7,9 @@ Every time the application gets user-input, whether this showing it on screen or
 this data in the application background, these parameters should be escaped for malicious
 code in order to prevent cross site scripting injections.
 When an attacker gains the possibility to perform a XSS injection,
-he is given the opportunity to inject HTML and javascript code directly into the
+he is given the opportunity to inject HTML and JavaScript code directly into the
 application. This could lead to accounts being compromised by stealing session cookies,
 or directly affect the operation of the target application.
-
 
 ## Solution:
 
@@ -39,6 +38,6 @@ This type of encoding/escaping should be applied to whenever you are using user-
 tag.
 
 Javascript encoding
-Whenever parameters are rendered via javascript your application will detect normal injections
-in the first instant. But your application still remains vulnerable to javascript encoding which will not
+Whenever parameters are rendered via JavaScript your application will detect normal injections
+in the first instant. But your application still remains vulnerable to JavaScript encoding which will not
 be detected by the normal encoding/escaping methods.

@@ -1,4 +1,4 @@
-# Accessible non-parsed dynamic scripts
+# Accessible non parsed dynamic scripts
 -------
 
 ## Description:
@@ -7,7 +7,6 @@ Applications often include files in other pages. When these files can be directl
 approached by normal users, the operation of the application can be traced because the
 source code becomes available. This improves the possibility that the attacker discovers
 vulnerabilities.
-
 
 ## Solution:
 

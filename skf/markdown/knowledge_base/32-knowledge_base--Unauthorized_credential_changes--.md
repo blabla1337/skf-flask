@@ -7,7 +7,6 @@ An application which offers a user login functionality, usually has an administr
 where his user-data can be modified. When the user wants to change this data he should
 specify his current password.
 
-
 ## Solution:
 
 When changing user credentials or email address the user must always enter a valid

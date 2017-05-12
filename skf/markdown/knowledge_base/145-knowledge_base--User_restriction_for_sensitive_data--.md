@@ -7,7 +7,6 @@ Always enforce multiple layers of security whenever you want to protect sensitiv
 on your application. If one layer should fail the other layers should prevent the attackers
 from succeeding.
 
-
 ## Solution:
 
 Whenever sensitive data is stored on the server you should consider storing this data in

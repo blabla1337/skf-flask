@@ -1,4 +1,5 @@
-## Logging guidelines when accessing sensitive information
+# Logging guidelines when accessing sensitive information
+-------
 
 ## Description:
 

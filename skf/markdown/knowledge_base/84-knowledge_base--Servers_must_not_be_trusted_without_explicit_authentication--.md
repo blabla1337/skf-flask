@@ -8,7 +8,6 @@ explicit authentication and is internet facing then this results into that the s
 cannot be trusted. This is because the server can be potentially be owned and managed by
 everybody including hackers.
 
-
 ## Solution:
 
 Whenever the web-application is facing the internet third parties trying to

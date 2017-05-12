@@ -7,7 +7,6 @@ The encryption techniques used in the application must be known and proven metho
 When there is a self-made hashing algorithm developed it is very likely to contain
 vulnerabilities due to math-flaws resulting in encryption which can be broken.
 
-
 ## Solution:
 
 Never implement your own designed Crypto functions.

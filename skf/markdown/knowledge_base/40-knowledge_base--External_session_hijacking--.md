@@ -6,7 +6,6 @@
 When an attacker obtains a users session cookie, then he could steal the identity of the
 user which the session cookie belonged to.
 
-
 ## Solution:
 
 As soon as a session is set for an authenticated user,

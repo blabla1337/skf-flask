@@ -7,7 +7,6 @@ When you process data you should always enforce policies for the transfer of sen
 in order to enforce higher level of security imposing structured thresholds to
 fend of attackers.
 
-
 ## Solution:
 
 First you have to create a list which contains locations of where all sensitive data is

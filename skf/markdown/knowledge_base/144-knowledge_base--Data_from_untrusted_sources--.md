@@ -7,7 +7,6 @@ Whenever data from untrusted servers is executed by your application there is a 
 probability this data could be contaminated with malicious code. Such as for example
 XSS from JSON files, or XXE when parsing XML files.
 
-
 ## Solution:
 
 Verify the application code does not execute uploaded data obtained from untrusted sources.

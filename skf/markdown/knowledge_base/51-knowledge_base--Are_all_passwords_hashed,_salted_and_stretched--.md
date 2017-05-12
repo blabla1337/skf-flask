@@ -1,12 +1,12 @@
 # Are all passwords hashed, salted and stretched 
 -------
 
-# Description
+## Description:
 
 Verify that account passwords are one way hashed with a salt, and there is sufficient work 
 factor to defeat brute force and password hash recovery attacks.
 
-# Solution
+## Solution:
 
 Recommended for password usage are PBKDF functions. PBKDF2 uses a pseudorandom function 
 and a configurable number of iterations to derive a cryptographic key from a password. 

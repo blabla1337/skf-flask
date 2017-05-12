@@ -6,7 +6,6 @@
 Whenever an application provides TLS, all connections should be TLS otherwise the
 encryption will be lost.
 
-
 ## Solution:
 
 Verify that TLS is used for all connections

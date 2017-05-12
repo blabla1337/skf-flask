@@ -9,7 +9,6 @@ he could include a file which contains malicious code to be parsed on the target
 This could lead to, code execution, reading arbitrary files and many more
 vulnerabilities such as XSS.
 
-
 ## Solution:
 
 To protect against such vulnerability one needs to make sure that he does not use

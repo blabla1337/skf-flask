@@ -14,8 +14,6 @@ In effect, CSRF attacks are used by an attacker to make a target system perform 
 function (funds Transfer, form submission etc.) via the targets browser without
 knowledge of the target user at least until the unauthorised function has been committed.
 
-
-
 ## Solution:
 
 To arm an application against automated attacks and tooling you need to use unique tokens

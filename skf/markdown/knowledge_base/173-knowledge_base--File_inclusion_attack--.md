@@ -11,11 +11,11 @@ The vulnerability occurs due to the use of user-supplied input without proper va
 This can lead to something as outputting the contents of the file, but depending on the
 severity, it can also lead to:
 
-* Code execution on the web server
-* Code execution on the client-side such as JavaScript which can lead to other attacks
+- Code execution on the web server
+- Code execution on the client-side such as JavaScript which can lead to other attacks
   such as cross site scripting (XSS)
-* Denial of Service (DoS)
-* Sensitive Information Disclosure
+- Denial of Service (DoS)
+- Sensitive Information Disclosure
 
 
 Local File Inclusion (also known as LFI) is the process of including files, that are

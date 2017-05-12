@@ -6,7 +6,6 @@
 Whenever organizations communicate by means of unencrypted connections, an attacker
 could easily sniff these insecure communication and gain sensitive information.
 
-
 ## Solution:
 
 Use TLS encrypted data lines for all internal communication channels.

@@ -21,7 +21,6 @@ in a bad location. You must validate the metadata extremely carefully before usi
 The other class of problem is with the file size or content.
 An attacker can easily craft a valid image file with php code inside.
 
-
 ## Solution:
 
 Uploaded files always needs to be placed outside the document root of the web-server.

@@ -8,16 +8,15 @@ set of records, and/or destination and source of records that provide documentar
 evidence of the sequence of activities that have affected at any time a specific operation,
 procedure, or event.
 
-
 ## Solution:
 
 An audit log should contain the following items:
 
--User id
--Operation
--Success/failure of the operation
--Privileges
--Timestamp
+- User id
+- Operation
+- Success/failure of the operation
+- Privileges
+- Timestamp
 
 Depending on the gravity of the users violation there should also be a record kept for
 each user to lock their accounts after a certain number of violations. This should be

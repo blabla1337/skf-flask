@@ -9,7 +9,6 @@ both hardware and software components. Protection of a cryptographic module with
 security system is necessary to maintain the confidentiality and integrity of the
 information protected by the module.
 
-
 ## Solution:
 
 Verify that cryptographic modules used by the application have been validated against

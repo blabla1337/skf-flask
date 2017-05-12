@@ -9,7 +9,6 @@ application more clear and understandable in terms of abstraction due to separat
 Whenever your application is more organized and abstracted it is much easier to implement
 less flawed security controls.
 
-
 ## Solution:
 
 Make sure your different type of data layers are separated in your application.

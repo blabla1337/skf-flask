@@ -7,7 +7,6 @@ Authentication should be enforced by the web-server. Whenever these configuratio
 not enabled on the server an attacker could gain access to authorized
 pages on your application.
 
-
 ## Solution:
 
 Always make sure your web-server is correctly configured to enforce authentication,

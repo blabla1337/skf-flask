@@ -8,7 +8,6 @@ Many of these methods are designed to aid developers in deploying and testing
 HTTP applications. These HTTP methods can be used for nefarious purposes if the web
 server is misconfigured.
 
-
 ## Solution:
 
 Verify that the application accepts only a defined set of HTTP request methods, such as

@@ -1,4 +1,5 @@
-## Communication between components (low privileges)
+# Communication between components (low privileges)
+-------
 
 ## Description:
 

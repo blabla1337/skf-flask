@@ -6,7 +6,6 @@
 Whenever the logging is performed before executing a transaction you can be ensured that
 the transactions are logged. This increases the integrity of your log files.
 
-
 ## Solution:
 
 Verify that logging is performed before executing the transaction. If logging was

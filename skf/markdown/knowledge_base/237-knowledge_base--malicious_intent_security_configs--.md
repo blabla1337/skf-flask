@@ -1,4 +1,5 @@
-## Validate the integrity of all security-relevant configurations 
+# Validate the integrity of all security-relevant configurations 
+-------
 
 ## Description:
 

@@ -1,4 +1,5 @@
-## Context sensitive authorization
+# Context sensitive authorization
+-------
 
 ## Description:
 

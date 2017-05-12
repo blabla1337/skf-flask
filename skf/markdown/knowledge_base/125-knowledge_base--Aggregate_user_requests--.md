@@ -7,7 +7,6 @@ Verify the system can protect against aggregation or continuous access to functi
 resources, or data. For example, possibly by the use of a resource governor to limit the
 number of edits per minute in order to to prevent an automatic attack
 
-
 ## Solution:
 
 Verify the application has the ability to detect and alert on abnormal numbers of requests

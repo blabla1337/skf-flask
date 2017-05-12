@@ -1,4 +1,5 @@
-## Sensitive information inside the source code or online repositories
+# Sensitive information inside the source code or online repositories
+-------
 
 ## Description:
 

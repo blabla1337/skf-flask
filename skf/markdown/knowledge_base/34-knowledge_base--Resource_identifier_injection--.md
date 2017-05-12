@@ -18,7 +18,6 @@ and backslash is risky when used in methods that interact with the file system.
 The resource injection attack focuses on accessing other resources than the local
 filesystem, which is different attack technique known as a Path Manipulation attack.
 
-
 ## Solution:
 
 Safe use of resource identifiers can be done by performing authorisation checks if the

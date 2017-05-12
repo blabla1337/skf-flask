@@ -9,7 +9,6 @@ executed by your application. You should also not solely depend on your parser t
 the encoding and escaping for you since there could always be an edge case that does
 execute certain attacks.
 
-
 ## Solution:
 
 We highly recommend to do your own escaping, sanitizing, encoding on all data before

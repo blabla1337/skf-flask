@@ -1,3 +1,6 @@
+# Unauthorized and unauthenticated access security logs
+-------
+
 ## Description:
 
 Security logs should never allow unauthorized/unauthenticated access because these files include

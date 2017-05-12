@@ -1,4 +1,7 @@
-#Description
+# Protection against different exfiltration techniques
+-------
+
+## Description:
 
 The mobile application should not leak sensitive information. This information could be leaked for example whenever:
 
@@ -6,7 +9,7 @@ The mobile application should not leak sensitive information. This information c
 - Sensitive information is written to the console of the mobile device
 - The Activitymanager should show the application name and a blank page and not show information
 
-#Solution
+## Solution:
 
 - Disallow screenshots of the application whenever the application is backgrounded
 - Do not write sensitive information to the applications console, this information is accessible by attackers.

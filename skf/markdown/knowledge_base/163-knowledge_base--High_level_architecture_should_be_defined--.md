@@ -8,7 +8,6 @@ it contains. Whenever there are breaches, updates, or other escalations it makes
 easy and transparent for forensics, operators and developers to do their job as fast as
 possible.
 
-
 ## Solution:
 
 Verify that a high-level architecture for the application has been defined. This means

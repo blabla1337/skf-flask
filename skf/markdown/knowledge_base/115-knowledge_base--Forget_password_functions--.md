@@ -7,7 +7,6 @@ Whenever the applications application provides a password forget functionality o
 type of recovery methods there are several implementations of hardened proven ways to make
 the user recover his password.
 
-
 ## Solution:
 
 The recommended solutions are to use TOTP (Time-based One-Time Password algorithm). This 

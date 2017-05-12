@@ -9,7 +9,6 @@ information. If an attacker gains this technical information, he can learn more 
 operation of the application. The application should always display user-friendly messages
 only, when put on a live environment.
 
-
 ## Solution:
 
 The level of debug information needs to be determined according to the environment where

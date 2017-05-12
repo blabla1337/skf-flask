@@ -12,7 +12,6 @@ mechanism: allow the operation, disallow the operation, exception In general.
 You should design your security mechanism so that a failure will follow the same
 execution path as disallowing the operation.
 
-
 ## Solution:
 
 Security methods like isAuthorized(), isAuthenticated(), and validate() should all return

@@ -6,7 +6,6 @@
 For successful access control/login functionality there are a lot of things to take into
 consideration before you start developing this type of functionality.
 
-
 ## Solution:
 
 It is highly recommended to study all the listed items and implement these principles in

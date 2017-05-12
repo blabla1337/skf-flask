@@ -8,7 +8,6 @@ application or service. The injection of unintended XML content and/or structure
 an XML message can alter the intend logic of the application. Further, XML injection
 can cause the insertion of malicious content into the resulting message/document.
 
-
 ## Solution:
 
 In addition to the existing input validation, define a positive approach which

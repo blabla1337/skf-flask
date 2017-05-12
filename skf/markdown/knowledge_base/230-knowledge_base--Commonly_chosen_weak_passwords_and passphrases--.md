@@ -1,4 +1,5 @@
-## Prevent the use of commonly chosen passwords and weak passphrases.
+# Commonly chosen weak passwords and passphrases.
+-------
 
 ## Description:
 

@@ -6,7 +6,6 @@
 Whenever you use runtime environments you want to make sure these are not susceptible for
 buffer overflows since this could lead to compromise of your application.
 
-
 ## Solution:
 
 There are a number of runtime solutions that can detect stack corruption and buffer

@@ -1,4 +1,5 @@
-## Trusted repositories
+# Trusted repositories
+-------
 
 ## Description:
 

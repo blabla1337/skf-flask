@@ -6,7 +6,6 @@ from skf.database import db
 from skf.database.logs import logs
 
 
-
 def security_headers():
     """This decorator passes multiple security headers"""
     if settings.FLASK_SERVER_NAME == 'localhost:8888':

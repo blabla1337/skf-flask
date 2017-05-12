@@ -14,7 +14,7 @@ to execute and which scripts are most likely been injected by an attacker.
 ## Solution:
 
 A best practice for implementing CSP in your application would be to externalize all
-javascript within the web pages.
+JavaScript within the web pages.
 
 So this:
     <script>
@@ -32,8 +32,8 @@ Must become this:
 The header for this code could look something like:
     Content-Security-Policy: default-src'self'; object-src'none'; script-src'https://mycdn.com'
 
-Since it is not entirely realistic to implement all javascript on external pages we can
-apply sort of a cross site request forgery token to your inline javascript. This way
+Since it is not entirely realistic to implement all JavaScript on external pages we can
+apply sort of a cross site request forgery token to your inline JavaScript. This way
 the browser can again distinguish the difference between code which is part of the
 application against probable malicious injected code, in CSP this is called the 'nonce'.
 Of course this method is also very applicable on your existing code and designs.
@@ -44,7 +44,7 @@ would become guessable. So it should also contain a high entropy and should be h
 predict. Similar to the operation of the CSRF tokens, the nonce becomes impossible for
 the attacker to predict making it difficult to execute a successful XSS attack.
 
-Inline javascript example containing nonce:
+Inline JavaScript example containing nonce:
 	<script nonce=sfsdf03nceI23wlsgle9h3sdd21>
     <!-- Your javscript code -->
     </script>

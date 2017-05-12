@@ -7,7 +7,6 @@ Login functions should not abused in an automated way that an attacker could cre
 script that contains a list of usernames and passwords, which he could use against your
 login function in order to gain unauthorized access to user accounts.
 
-
 ## Solution:
 
 Implement a method that limit the amount of tries with automated tools.

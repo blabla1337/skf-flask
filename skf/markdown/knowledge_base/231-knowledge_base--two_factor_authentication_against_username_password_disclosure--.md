@@ -1,5 +1,5 @@
-
-## schemes that provide protection against username + password disclosure.
+# Two faction authentication against username + password disclosure.
+-------
 
 ## Description:
 

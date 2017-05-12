@@ -11,7 +11,6 @@ which he can use to tamper data after they have been validated and send to the s
 Or the attacker can simply change the constraint on the client side in his browser to bypass the 
 constraints.
 
-
 ## Solution:
 
 All validation of input should be handled on the server side. Whenever the validation is handled on 

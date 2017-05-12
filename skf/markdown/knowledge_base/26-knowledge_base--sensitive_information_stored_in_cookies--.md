@@ -9,7 +9,6 @@ it content readable. A hacker could gain access to a cookie through cross site s
 attacks and gain the sensitive information stored
 in the targets cookie.
 
-
 ## Solution:
 
 Do not store sensitive information in cookies.

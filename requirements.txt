@@ -3,6 +3,6 @@ flask-restplus==0.9.2
 flask-sqlalchemy==2.1
 flask-bcrypt==0.7.1
 flask-cors==3.0.2
-pyjwt==1.4.2
+pyjwt==1.5.0
 pytest==3.0.7
 coverage==4.3.4

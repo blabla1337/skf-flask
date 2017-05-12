@@ -1,10 +1,13 @@
-#Description
+# Secrets should be secure random generated
+-------
+
+## Description:
 
 Secret keys, API tokens, or passwords must be dynamically generated. Whenever these tokens
 are not dynamically generated they can become predicable and used by attackers to compromise
 user accounts. 
 
-#Solution
+## Solution:
 
 When it comes to API tokens and secret keys these values have to be dynamically generated 
 and should be cryptographically random secure with at least 120 bit of effective entropy.

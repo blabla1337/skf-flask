@@ -6,7 +6,6 @@
 Whenever sensitive information is send by unencrypted methods an attacker could intercept
 this data and use this for malicious intents.
 
-
 ## Solution:
 
 All sensitive information should always be send by an encrypted methods

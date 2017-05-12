@@ -31,8 +31,8 @@ HTML output
 	ViewBag.htmlatr = HttpUtility.HtmlAttributeEncode("onload='alert(1337);'");
 
 	/*
-	Whenever parameters are rendered via javascript your application will detect normal injections
-	in the first instant. But your application still remains vulnerable to javascript encoding which will not
+	Whenever parameters are rendered via JavaScript your application will detect normal injections
+	in the first instant. But your application still remains vulnerable to JavaScript encoding which will not
 	be detected by the ASP.NET encoder. You MUST use the JavaScriptStringEncode function, any other 
 	escaping function still leaves your code vulnerable
 	*/
@@ -44,7 +44,7 @@ HTML output
 	that looks like this "javacript:alert("XSS");" whenever a victim now clicks the link this XSS
 	will be executed in his browser.
 	*/ 
-	ViewBag.url = HttpUtility.UrlEncode("javascript:alert(234);");
+	ViewBag.url = HttpUtility.UrlEncode("JavaScript:alert(234);");
 
 	/*
 	Security consists of different layers of protection in order to guarantuee the integrity

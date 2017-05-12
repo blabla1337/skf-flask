@@ -1,4 +1,5 @@
-## Data retention policy
+# Data retention policy
+-------
 
 ## Description:
 

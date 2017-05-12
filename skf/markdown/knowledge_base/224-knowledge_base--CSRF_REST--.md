@@ -14,7 +14,6 @@ In effect, CSRF attacks are used by an attacker to make a target system perform 
 function (funds Transfer, form submission etc.) via the targets browser without
 knowledge of the target user at least until the unauthorised function has been committed.
 
-
 ## Solution:
 
 REST (REpresentational State Transfer) is a simple stateless architecture that generally runs

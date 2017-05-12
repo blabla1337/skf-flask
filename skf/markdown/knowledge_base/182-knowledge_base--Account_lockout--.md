@@ -7,7 +7,6 @@ All applications should contain the possibility to lock down accounts for whenev
 detects attacks by/on users. Also you should include options for both soft and hard
 lock-out mechanisms.
 
-
 ## Solution:
 
 Soft lock-out:
@@ -26,7 +25,7 @@ give the user back his account or take further legal actions against him.
 This type of approach prevents the attacker from further penetrating your application
 and infrastructure.
 
-# Note: 
+Note: 
 Be cautious that a soft-lockout countermessure does not override a hard-lockout status.
 
 
