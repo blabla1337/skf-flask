@@ -101,9 +101,30 @@ drop table if exists `questions`;
 CREATE TABLE `questions` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `question` varchar(255) NOT NULL,
-`include_always` int(11),
-`include_first` int(11)
+
 );
+
+
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (1,  "Does the sprint implement/changes authentication");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (2,  "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (3,  "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (4,  "Does the sprint implement/changes functions that send parameters and data over a GET request method");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (5,  "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (6,  "Does the sprint implement/changes functions that use SQL");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (7,  "Does the sprint implement/changes functions that use LDAP");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (8,  "Does the sprint implement/changes functions that perform system commands");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (9,  "Does the sprint implement/changes functions that perform local/remote file inclusion");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (10, "Does the sprint implement/changes functions that uses/parses XML");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (11, "Does the sprint implement/changess functions that reflect user supplied input on the client-side");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (12, "Does the sprint implement/changess functions that use automatic variable binding (ORM)");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (13, "Does the sprint implement/changess WYSIWIG like editors");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (14, "Does the sprint implement/changes JSON");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (15, "Does the sprint implement/changes functionality that stores data in the local/client/session storage");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (16, "Does the sprint implement/changes functionality that needs secure random tokens (password forget link, CSRF, ETC)");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (17, "Does the sprint implement/changes functionality that requires encryption");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (18, "Does the sprint implement/changes functionality which allows users to upload files or other data structures to the application");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (19, "Does the sprint implement/changes functionality which implement/changess functionality that needs to share data "Cross Origin"");
+INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (20, "Does the sprint implement/changes functionality that contain forwards or redirects");
 
 
 --
