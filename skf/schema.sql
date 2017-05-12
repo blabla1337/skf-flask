@@ -329,7 +329,7 @@ CREATE TABLE `checklists_kb` (
 
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES (1.0, 0, 0, 0, 0, 0, 0, true, true);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES (1.9, 0, 185, 0, 0, 0, 0, true, true);
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES (V8:, 0, 0, 0, 0, 0, 0, true, true);
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES (8.0, 0, 0, 0, 0, 0, 0, true, true);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES (8.1, 0, 15, 0, 0, 0, 0, true, true);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES (8.2, 0, 251, 0, 0, 0, 0, true, true);
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `questionID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES (8.3, 0, 83, 0, 0, 0, 0, true, true);
