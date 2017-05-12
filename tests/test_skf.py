@@ -308,30 +308,29 @@ class TestSecurity(unittest.TestCase):
 
     def test_val_alpha(self):
         """Test if the val_alpha method is working"""
-        connect_db()
         self.assertTrue(val_alpha("woopwoop"))
         self.assertFalse(val_alpha("woop %$*@><'1337"))
-        #self.assertFalse(val_alpha("woop woop 1337"))
+        self.assertFalse(val_alpha("woop woop 1337"))
 
     def test_val_num(self):
         """Test if the val_num method is working"""
         self.assertTrue(val_num(1337))
-        #self.assertFalse(val_num("woopwoop"))        
-        #self.assertFalse(val_num("woop woop 1337"))
-        #self.assertFalse(val_num("woop %$*@><'1337"))
+        self.assertFalse(val_num("woopwoop"))        
+        self.assertFalse(val_num("woop woop 1337"))
+        self.assertFalse(val_num("woop %$*@><'1337"))
 
     def test_val_alpha_num(self):
         """Test if the val_alpha_num method is working"""
         self.assertTrue(val_alpha_num("woop woop 1337"))
-        #self.assertFalse(val_alpha_num("woop %$*@><'1337"))
+        self.assertFalse(val_alpha_num("woop %$*@><'1337"))
 
 
     def test_val_float(self):
         """Test if the val_float method is working"""
         self.assertTrue(val_float(10.11))
-        #self.assertFalse(val_float(1337))
-        #self.assertFalse(val_float("woop woop 1337"))
-        #self.assertFalse(val_float("woop %$*@><'1337"))
+        self.assertFalse(val_float(1337))
+        self.assertFalse(val_float("woop woop 1337"))
+        self.assertFalse(val_float("woop %$*@><'1337"))
     
 
 
