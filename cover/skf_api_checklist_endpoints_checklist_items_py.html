@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/checklist/endpoints/checklist_items.py: 84%</title>
+    <title>Coverage for skf/api/checklist/endpoints/checklist_items.py: 86%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,14 +24,14 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/checklist/endpoints/checklist_items.py</b> :
-            <span class="pc_cov">84%</span>
+            <span class="pc_cov">86%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            37 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">31 run</span>
+            43 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">37 run</span>
             <span class="mis shortkey_m button_toggle_mis">6 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
@@ -127,10 +127,15 @@
 <p id="n58" class="pln"><a href="#n58">58</a></p>
 <p id="n59" class="pln"><a href="#n59">59</a></p>
 <p id="n60" class="pln"><a href="#n60">60</a></p>
-<p id="n61" class="stm mis"><a href="#n61">61</a></p>
-<p id="n62" class="stm mis"><a href="#n62">62</a></p>
-<p id="n63" class="stm mis"><a href="#n63">63</a></p>
-<p id="n64" class="pln"><a href="#n64">64</a></p>
+<p id="n61" class="stm run hide_run"><a href="#n61">61</a></p>
+<p id="n62" class="stm run hide_run"><a href="#n62">62</a></p>
+<p id="n63" class="stm run hide_run"><a href="#n63">63</a></p>
+<p id="n64" class="stm run hide_run"><a href="#n64">64</a></p>
+<p id="n65" class="stm run hide_run"><a href="#n65">65</a></p>
+<p id="n66" class="stm run hide_run"><a href="#n66">66</a></p>
+<p id="n67" class="stm mis"><a href="#n67">67</a></p>
+<p id="n68" class="stm mis"><a href="#n68">68</a></p>
+<p id="n69" class="stm mis"><a href="#n69">69</a></p>
 
             </td>
             <td class="text">
@@ -138,7 +143,7 @@
 <p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="nam">flask</span> <span class="key">import</span> <span class="nam">request</span><span class="strut">&nbsp;</span></p>
 <p id="t3" class="stm run hide_run"><span class="key">from</span> <span class="nam">flask_restplus</span> <span class="key">import</span> <span class="nam">Resource</span><span class="strut">&nbsp;</span></p>
 <p id="t4" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">security</span> <span class="key">import</span> <span class="nam">log</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">,</span> <span class="nam">validate_privilege</span><span class="op">,</span> <span class="nam">val_num</span><span class="op">,</span> <span class="nam">val_alpha_num</span><span class="strut">&nbsp;</span></p>
-<p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">checklist</span><span class="op">,</span> <span class="nam">checklist_level</span><span class="op">,</span> <span class="nam">level</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
+<p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">checklist</span><span class="op">,</span> <span class="nam">level</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">parsers</span> <span class="key">import</span> <span class="nam">authorization</span><span class="op">,</span> <span class="nam">id_arguments</span><span class="op">,</span> <span class="nam">pagination_arguments</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">restplus</span> <span class="key">import</span> <span class="nam">api</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span><span class="op">.</span><span class="nam">checklists_kb</span> <span class="key">import</span> <span class="nam">checklists_kb</span><span class="strut">&nbsp;</span></p>
@@ -186,18 +191,23 @@
 <p id="t50" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/level'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t51" class="stm run hide_run"><span class="key">class</span> <span class="nam">ChecklistItem</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t52" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t53" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t53" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">level</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t54" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">checklist</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t55" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">'Validation Error'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t56" class="pln">    <span class="key">def</span> <span class="nam">post</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t57" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
-<p id="t58" class="pln"><span class="str">        Returns list of checklist items.</span><span class="strut">&nbsp;</span></p>
+<p id="t58" class="pln"><span class="str">        Returns list of checklist items based on level.</span><span class="strut">&nbsp;</span></p>
 <p id="t59" class="pln"><span class="str">        Privileges required: none</span><span class="strut">&nbsp;</span></p>
 <p id="t60" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
-<p id="t61" class="stm mis">        <span class="nam">categories_levels</span> <span class="op">=</span> <span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">checklist_items</span><span class="op">.</span><span class="nam">has</span><span class="op">(</span><span class="nam">level</span> <span class="op">=</span> <span class="num">0</span><span class="op">)</span> <span class="op">|</span> <span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">checklist_items</span><span class="op">.</span><span class="nam">has</span><span class="op">(</span><span class="nam">level</span> <span class="op">=</span> <span class="num">1</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t62" class="stm mis">        <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of checklist items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">,</span> <span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t63" class="stm mis">        <span class="key">return</span> <span class="nam">categories_levels</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t64" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t61" class="stm run hide_run">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
+<p id="t62" class="stm run hide_run">        <span class="nam">lvl</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'level'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t63" class="stm run hide_run">        <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t64" class="stm run hide_run">            <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of checklist items based on level"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">,</span> <span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t65" class="stm run hide_run">            <span class="nam">categories_levels</span> <span class="op">=</span> <span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">checklist_items</span><span class="op">.</span><span class="nam">has</span><span class="op">(</span><span class="nam">level</span> <span class="op">=</span> <span class="num">0</span><span class="op">)</span> <span class="op">|</span> <span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">checklist_items</span><span class="op">.</span><span class="nam">has</span><span class="op">(</span><span class="nam">level</span> <span class="op">=</span> <span class="nam">lvl</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t66" class="stm run hide_run">            <span class="key">return</span> <span class="nam">categories_levels</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t67" class="stm mis">        <span class="key">except</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t68" class="stm mis">            <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error requesting specific checklist items based on level"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">,</span> <span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t69" class="stm mis">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Validation error'</span><span class="op">}</span><span class="op">,</span> <span class="num">400</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -208,7 +218,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-12 08:24
+            created at 2017-05-12 12:36
         </p>
     </div>
 </div>

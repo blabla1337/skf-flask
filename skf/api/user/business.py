@@ -55,7 +55,6 @@ def create_user(data):
     my_secure_rng = secrets.SystemRandom()
     pincode = my_secure_rng.randrange(10000000, 99999999)
     username = pincode
-    val_alpha_num(username)
     email = data.get('email')
     access = "false"
     activated = "false"

@@ -24,11 +24,8 @@ class userCreation(Resource):
         """
         data = request.json
         validate_privilege(self, 'manage')
-        try:
-            log("User created", "MEDIUM", "PASS", self)
-            created_user = create_user(data)
-            return created_user, 200, security_headers()
-        except:
-            log("User triggered error creating new user", "MEDIUM", "FAIL", self)
-            return {'message': 'User not created'}, 400, security_headers()
+        log("User created", "MEDIUM", "PASS", self)
+        created_user = create_user(data)
+        return created_user, 200, security_headers()
+
 

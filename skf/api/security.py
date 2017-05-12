@@ -80,21 +80,21 @@ def val_float(value):
 def validate_privilege(self, privilege):
     """Validates the JWT privileges"""
     if not request.headers.get('Authorization'):
-        log("Request sent with missing JWT header", "HIGH", "FAIL")
+        log("Request sent with missing JWT header", "HIGH", "FAIL", self)
         abort(403, 'JWT missing authorization header')
     try:
         check_privilege = select_privilege_jwt(self)
     except jwt.exceptions.DecodeError:
-        log("User JWT header could not be decoded", "HIGH", "FAIL")
+        log("User JWT header could not be decoded", "HIGH", "FAIL", self)
         abort(403, 'JWT decode error')
     except jwt.exceptions.ExpiredSignature:
-        log("User JWT header is expired", "HIGH", "FAIL")
+        log("User JWT header is expired", "HIGH", "FAIL", self)
         abort(403, 'JWT token expired')
     privileges = check_privilege['privilege'].split(':')
     for value in privileges:
         if value == privilege:
             return True
-    log("User JWT header contains wrong privilege", "HIGH", "FAIL")
+    log("User JWT header contains wrong privilege", "HIGH", "FAIL", self)
     return  abort(403, 'JWT wrong privileges')
 
 
@@ -104,10 +104,10 @@ def select_userid_jwt(self):
     try:
         checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
     except jwt.exceptions.DecodeError:
-        log("User JWT header could not be decoded", "HIGH", "FAIL")
+        log("User JWT header could not be decoded", "HIGH", "FAIL", self)
         abort(403, 'JWT decode error')
     except jwt.exceptions.ExpiredSignature:
-        log("User JWT header is expired", "HIGH", "FAIL")
+        log("User JWT header is expired", "HIGH", "FAIL", self)
         abort(403, 'JWT token expired')
     return checkClaims['UserId']
 
@@ -118,9 +118,9 @@ def select_privilege_jwt(self):
     try:
         check_privilege = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
     except jwt.exceptions.DecodeError:
-        log("User JWT header could not be decoded", "HIGH", "FAIL")
+        log("User JWT header could not be decoded", "HIGH", "FAIL", self)
         abort(403, 'JWT decode error')
     except jwt.exceptions.ExpiredSignature:
-        log("User JWT header is expired", "HIGH", "FAIL")
+        log("User JWT header is expired", "HIGH", "FAIL", self)
         abort(403, 'JWT token expired')
     return check_privilege

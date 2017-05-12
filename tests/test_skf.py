@@ -5,7 +5,6 @@ from skf.db_tools import init_db, init_md_knowledge_base, init_md_checklists, in
 from skf.app import app
 
 
-
 class TestRestPlusApi(unittest.TestCase):
 
     @classmethod
@@ -45,6 +44,17 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertTrue(response_dict.get('Authorization token'))
 
 
+    def test_login_create(self):
+        """Test if the login create call is working"""
+        jwt = self.login('admin', 'admin')
+        payload = {'email': 'test_user@owasp.org', 'privilege': 1}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/user/create/', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['email'], "test_user@owasp.org")
+
+
     def login(self, username, password):
         """Login method needed for testing"""
         payload = {'username': ''+username+'', 'password': ''+password+''}
@@ -69,6 +79,18 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['checklist_items_checklistID'], "10.0")
+
+
+    def test_get_checklist_items_level(self):
+        """Test if the get specific checklist item by level call is working"""
+        jwt = self.login('admin', 'admin')
+        payload = {'level': '1'}
+        headers = {'content-type': 'application/json'}
+        response = self.client.post('/api/checklist/items/level', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict[0]['checklist_items_content'], "Session Management Verification Requirements")
+        self.assertEqual(response_dict[0]['checklist_items_level'], "0")
 
 
     def test_get_kb(self):
@@ -228,6 +250,36 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['items'][1]['title'], "CSRF Token JSF")
 
 
+    def test_assert_403_project_get(self):
+        headers = {'content-type': 'application/json'}
+        response = self.client.get('/api/project/items/1')
+        self.assertEqual(response.status_code, 403)
+
+    def test_assert_403_project_new(self):
+        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'version': 'version 1.0'}
+        headers = {'content-type': 'application/json'}
+        response = self.client.put('/api/project/items/new', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 403)
+
+    def test_assert_403_project_update(self):
+        payload = {'description': 'Unit test description project update', 'name': 'Unit test name project update', 'version': 'version 1.1'}
+        headers = {'content-type': 'application/json'}
+        response = self.client.put('/api/project/items/update/1', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 403)
+
+    def test_assert_403_project_delete(self):
+        payload = {'test': 'test'}
+        headers = {'content-type': 'application/json'}
+        response = self.client.delete('/api/project/items/delete/1', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 403)
+
+    def test_assert_403_user_create(self):
+        payload = {'email': 'test_user123@owasp.org', 'privilege': 1}
+        headers = {'content-type': 'application/json'}
+        response = self.client.put('/api/user/create/', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 403)
+
+
 class TestDB(unittest.TestCase):
 
 
@@ -259,21 +311,29 @@ class TestSecurity(unittest.TestCase):
     def test_val_alpha(self):
         """Test if the val_alpha method is working"""
         self.assertTrue(val_alpha("woopwoop"))
-
+        #self.assertFalse(val_alpha("woop %$*@><'1337"))
+        #self.assertFalse(val_alpha("woop woop 1337"))
 
     def test_val_num(self):
         """Test if the val_num method is working"""
         self.assertTrue(val_num(1337))
-
+        #self.assertFalse(val_num("woopwoop"))        
+        #self.assertFalse(val_num("woop woop 1337"))
+        #self.assertFalse(val_num("woop %$*@><'1337"))
 
     def test_val_alpha_num(self):
         """Test if the val_alpha_num method is working"""
         self.assertTrue(val_alpha_num("woop woop 1337"))
+        #self.assertFalse(val_alpha_num("woop %$*@><'1337"))
 
 
     def test_val_float(self):
         """Test if the val_float method is working"""
         self.assertTrue(val_float(10.11))
+        #self.assertFalse(val_float(1337))
+        #self.assertFalse(val_float("woop woop 1337"))
+        #self.assertFalse(val_float("woop %$*@><'1337"))
+    
 
 
 if __name__ == '__main__':
