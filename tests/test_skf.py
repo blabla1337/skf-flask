@@ -1,7 +1,7 @@
 import os, json, unittest, tempfile, skf
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num
-from skf.db_tools import init_db, connect_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
+from skf.db_tools import init_db, connect_db, get_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
 from skf.app import app
 
 
@@ -282,6 +282,11 @@ class TestRestPlusApi(unittest.TestCase):
 class TestDB(unittest.TestCase):
 
 
+    def test_connect_db(self):
+        """Test if the connect_db is working"""
+        self.assertTrue(connect_db())
+
+
     def test_init_md_knowledge_base(self):
         """Test if the init markdown of kb items is working"""
         self.assertTrue(init_md_knowledge_base())
@@ -302,7 +307,8 @@ class TestDB(unittest.TestCase):
 
     def test_init_db(self):
         """Test if the init db is working"""
-        init_db()
+        self.assertTrue(init_db())
+        
 
 
 class TestSecurity(unittest.TestCase):
