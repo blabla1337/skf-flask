@@ -1,4 +1,4 @@
-# woop woop
+# Encrypt sensitive information different depending on context
 -------
 
 ## Description:

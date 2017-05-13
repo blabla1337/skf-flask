@@ -11,9 +11,7 @@ This can lead to MiTM attacks and impact the 3 security pillars C.I.A.
 
 Verify that only strong algorithms, ciphers, and protocols are used, through all the certificate hierarchy,
 including root and intermediary certificates of your selected certifying authority.
-
 Because this is always in flux we recommend to use the SSLlabs free test:
 
 https://www.ssllabs.com/ssltest/
-
 These TLS hardening recommendations can then be applied on all servers.
