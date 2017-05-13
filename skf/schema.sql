@@ -131,7 +131,7 @@ INSERT OR REPLACE INTO `questions` (`id`, `question`) VALUES (22, "Does the spri
 -- Table structure for table `questions_pre`
 --
 drop table if exists `questions_pre`;
-CREATE TABLE `questions` (
+CREATE TABLE `questions_pre` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `question` varchar(255) NOT NULL
 );
