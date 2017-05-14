@@ -358,7 +358,7 @@ CREATE TABLE `pre_question_results` (
 -- Table structure for table `checklists_results`
 --
 drop table if exists `checklists_results`;
-CREATE TABLE `questions_checklists` (
+CREATE TABLE `checklists_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `checklistID` int(11) NOT NULL,
 `projectID` int(11) NOT NULL,
