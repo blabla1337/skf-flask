@@ -335,7 +335,7 @@ CREATE TABLE `sprint_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `projectID` int(11) NOT NULL,
 `questionID` int(11) NOT NULL,
-`result` int(11) NOT NULL
+`result` boolean
 );
 
 
@@ -347,7 +347,7 @@ CREATE TABLE `pre_question_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `projectID` int(11) NOT NULL,
 `question_pre_ID` int(11) NOT NULL,
-`result` int(11) NOT NULL
+`result` boolean
 );
 
 -- Bovenstaande tabellen gaan de checklists_results tabel vullen met 
