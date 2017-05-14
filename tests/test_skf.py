@@ -1,6 +1,6 @@
 import os, json, unittest, tempfile, skf
 from skf import settings
-from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num
+from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
 from skf.db_tools import init_db, connect_db, get_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
 from skf.app import app
 
@@ -72,6 +72,12 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict[0]['checklist_items_checklistID'], "1.0")
 
 
+    def test_get_checklist_fail(self):
+        """Test if the get checklist items fail call is working"""
+        response = self.client.get('/api/checklist/items/1337.1337')
+        self.assertEqual(response.status_code, 400)
+
+
     def test_get_checklist_item_10(self):
         """Test if the get specific checklist item call is working"""
         response = self.client.get('/api/checklist/items/10.0')
@@ -134,6 +140,15 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['message'], "Project successfully created")
 
 
+    def test_create_project_fail(self):
+        """Test if the create new project fail call is working"""
+        jwt = self.login('admin', 'admin')        
+        payload = {'description_wrong': 'Unit test description project'}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/project/items/new', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 400)
+
+
     def test_project_items(self):
         """Test if the project items call is working"""
         jwt = self.login('admin', 'admin') 
@@ -184,6 +199,23 @@ class TestRestPlusApi(unittest.TestCase):
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Project successfully deleted")
 
+
+    def test_delete_project_item_fail(self):
+        """Test if the delete project item fail call is working"""
+        jwt = self.login('admin', 'admin') 
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.delete('/api/project/items/delete/1', headers=headers)
+        self.assertEqual(response.status_code, 400)
+
+
+    def test_delete_project_item_fail(self):
+        """Test if the delete project item fail call is working"""
+        jwt = self.login('admin', 'admin') 
+        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'version': 'version 1.0'}
+        headers = {'content-type': 'application/json', 'Authorization': 'woopwoopwrong'}
+        response = self.client.put('/api/project/items/new', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 403)
+    
 
     def test_get_code(self):
         """Test if the get code items call is working"""
@@ -279,6 +311,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 403)
 
 
+
 class TestDB(unittest.TestCase):
 
 
@@ -340,7 +373,17 @@ class TestSecurity(unittest.TestCase):
         self.assertFalse(val_float(1337))
         self.assertFalse(val_float("woop woop 1337"))
         self.assertFalse(val_float("woop %$*@><'1337"))
-    
+
+
+    def test_security_headers(self):
+        """Test if the security_headers method is working"""
+        result_headers = security_headers()
+        self.assertEqual(result_headers['X-Frame-Options'], "deny")
+        self.assertEqual(result_headers['X-XSS-Protection'], "1")
+        self.assertEqual(result_headers['X-Content-Type-Options'], "nosniff")
+        self.assertEqual(result_headers['Cache-Control'], "no-store, no-cache")
+
+
 
 if __name__ == '__main__':
     unittest.main()
