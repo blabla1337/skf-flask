@@ -88,7 +88,6 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_checklist_items_level(self):
         """Test if the get specific checklist item by level call is working"""
-        jwt = self.login('admin', 'admin')
         payload = {'level': '1'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/checklist/items/level', data=json.dumps(payload), headers=headers)
@@ -250,7 +249,6 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_code_item_lang_php(self):
         """Test if the php language code items call is working"""
-        jwt = self.login('admin', 'admin')
         payload = {'code_lang': 'php'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/code/items/code_lang/', data=json.dumps(payload), headers=headers)
@@ -261,7 +259,6 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_code_item_lang_asp(self):
         """Test if the asp language code items call is working"""
-        jwt = self.login('admin', 'admin')
         payload = {'code_lang': 'asp'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/code/items/code_lang/', data=json.dumps(payload), headers=headers)
@@ -272,13 +269,30 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_code_item_lang_java(self):
         """Test if the java language code items call is working"""
-        jwt = self.login('admin', 'admin')
         payload = {'code_lang': 'java'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/code/items/code_lang/', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][1]['title'], "CSRF Token JSF")
+
+
+    def test_get_question_items(self):
+        """Test if the question items call is working"""
+        headers = {'content-type': 'application/json'}
+        response = self.client.get('/api/question/items/', headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict[0]['question'], "Does the sprint implement/changes authentication?")
+
+
+    def test_get_question_pre_items(self):
+        """Test if the question pre items call is working"""
+        headers = {'content-type': 'application/json'}
+        response = self.client.get('/api/question_pre/items/', headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict[0]['question'], "You have a blueprint for the design, architecture and validated this using ASVS?")
 
 
     def test_assert_403_project_get(self):

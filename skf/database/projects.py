@@ -12,6 +12,7 @@ class projects(db.Model):
     ownerID = db.Column(db.Integer)
     timestamp = db.Column(db.Text)
 
+
     def __init__(self, userID, groupID, projectName, projectVersion, projectDesc, ownerID, timestamp):
         self.userID = userID
         self.groupID = groupID

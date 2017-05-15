@@ -29,6 +29,9 @@ from skf.api.kb.endpoints.kb_items import ns as kb_items_namespace
 from skf.api.code.endpoints.code_items import ns as code_items_namespace
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_items_namespace
 from skf.api.projects.endpoints.project_items import ns as project_items_namespace
+from skf.api.questions.endpoints.question_items import ns as questions_namespace
+from skf.api.questions.endpoints.question_pre_items import ns as questions_pre_namespace
+
 from skf.api.restplus import api
 from skf.database import db
 
@@ -64,6 +67,8 @@ def initialize_app(flask_app):
     api.add_namespace(kb_items_namespace)
     api.add_namespace(checklist_items_namespace)
     api.add_namespace(project_items_namespace)
+    api.add_namespace(questions_namespace)
+    api.add_namespace(questions_pre_namespace)
     flask_app.register_blueprint(blueprint)
     db.init_app(flask_app)
 
