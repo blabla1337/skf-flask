@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-public class passwordcheck {
+public class PasswordCheck {
 	
 	final static Logger logger = Logger.getLogger(sessionhijack.class);
 	
@@ -25,6 +25,7 @@ public class passwordcheck {
 		
 		String error = "";
         boolean complete = true;
+		
         /*
         for example here we define the expexted value's for your password.
 		
@@ -38,31 +39,28 @@ public class passwordcheck {
 		$                 # end-of-string
         */
         
-        String vaildation = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$";
-             
+        String vaildation = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$";    
 
     	  // Create a Pattern object
-   	      Pattern r = Pattern.compile(vaildation);
+   	      Pattern reg = Pattern.compile(vaildation);
    	      // Now create matcher object.
-   	      Matcher m = r.matcher(password);
-	      if (!m.find()) {	
+   	      Matcher match = reg.matcher(password);
+	      if (!match.find()) {	
 	    	  error = "You did not enter a valid password";
               complete = false;  
 	      }		
           	 /*
-             Also very important is the fact that you have to take into consideration that
-             Password1! is a valid password according to password standards. This however is not the case since
-             this password is included in almost every dictionairy attack system. So we have to prevent 
-             the user from using these weak passwords, this we do by defining these bad passwords in a text 
-             file and compare the user's password with the bad passwords defined in the text file.
+             Also we have to take into consideration that Password1! is a valid password according to password standards. This however is not the case since this password is included in almost every dictionairy attack mechanisms. So we have to prevent the user from using these weak passwords. In such case we will define these bad passwords in a text 
+             file in order to compare the user's password with the list of bad passwords inside that file.
              */
+			 
              try {
              BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\Public\\xml\\test.txt"));
              String[] strTemp = null ;
              String line;
+			 
              while((line = in.readLine()) != null)
-             {
-                
+             {                
             	strTemp = line.split(",");
              }
              
