@@ -22,7 +22,7 @@ class ChecklistCollection(Resource):
         Returns list of checklist items.
         Privileges required: none
         """
-        categories = checklists_kb.query.order_by(asc(checklists_kb.checklistID)).all()
+        categories = checklists_kb.query.all()
         log("User requested list of checklist items", "LOW", "PASS")
         return categories, 200, security_headers()
 
