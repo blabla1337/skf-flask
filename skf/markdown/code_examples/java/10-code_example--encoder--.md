@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import org.owasp.esapi.ESAPI;
 import org.owasp.esapi.codecs.MySQLCodec;
 
-public class encoding {
+public class Encoding {
 	
 	AuditLog Log = new AuditLog(); 
 	
@@ -32,10 +32,10 @@ public class encoding {
         */
 		  String pattern = "^[a-zA-Z0-9" + allowed + "]+$";
 	      // Create a Pattern object
-	      Pattern r = Pattern.compile(pattern);
+	      Pattern reg = Pattern.compile(pattern);
 	      // Now create matcher object.
-	      Matcher m = r.matcher(input);
-	      if (!m.find()) {	
+	      Matcher match = reg.matcher(input);
+	      if (!match.find()) {	
 				Log.SetLog(user_id, "Illegal characters", "FAIL", LocalDateTime.now(),  "HIGH");
 	      }		
 	    //We return the user input encoded	      
