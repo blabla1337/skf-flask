@@ -7,7 +7,6 @@ from skf.api.checklist.parsers import authorization, id_arguments, pagination_ar
 from skf.api.restplus import api
 from skf.database.checklists_kb import checklists_kb
 from skf.database.checklists import checklists
-from pprint import pprint
 
 ns = api.namespace('checklist/items', description='Operations related to checklist items')
 
@@ -23,7 +22,7 @@ class ChecklistCollection(Resource):
         Returns list of checklist items.
         Privileges required: none
         """
-        categories = checklists_kb.query.all()
+        categories = checklists_kb.query.order_by(asc(checklists_kb.checklistID)).all()
         log("User requested list of checklist items", "LOW", "PASS")
         return categories, 200, security_headers()
 
