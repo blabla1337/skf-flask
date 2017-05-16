@@ -58,6 +58,7 @@
                     <li><a class="logout" href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
             	</ul>
             </div>
+
             <!-- Logged user message -->
             <div style='float:left' class="welcome">
               Logged as: {{ session['userName'] }}
@@ -71,12 +72,10 @@
                 <ul class="dropdown-menu" id="themes">
                   <li><a href="/code/php">PHP</a></li>
                   <li><a href="/code/asp">C# .NET</a></li>
-                  <li><a href="javascript:;">JAVA <span class="label">Coming Soon</span></a></li>
                 </ul>
             </div>
         </header>
       <!--header end-->
-
 
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
@@ -147,11 +146,9 @@
                       </a>
                   </li>
               </ul>
-
 			  <div class="copy">
 					<img width="40" height="40" src="/static/img/logos/owasp-icon-grey.svg"> Supported by <a href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
 			  </div>
-
               <!-- sidebar menu end-->
           </div>
       </aside>

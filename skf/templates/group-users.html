@@ -26,7 +26,7 @@ var arrTech = new Array();
 
 {% for entry in users -%}
 
-arrTech.push({'{{entry.userID|safe}}--':'{{entry.username|safe}}'});
+arrTech.push({'{{entry.userID}}--':'{{entry.username}}'});
 
 {% endfor %}
 
@@ -103,7 +103,7 @@ j++;
 							<div class="modal-content">
 								<div class="modal-header">
 									<button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
-									<h4 id="myModalLabel" class="modal-title">Add new group</h4>
+									<h4 id="myModalLabel" class="modal-title">Enlist user</h4>
 								</div>
 								<div class="modal-body">
 								
@@ -116,9 +116,9 @@ j++;
 									<div class="tbl_container">
 										<div class="row">
 											<div class="left">
-											    <select name="groupName" class="form-control">
+											    <select name="groupID" class="form-control">
 											        {% for entry in groups -%}
-											    	<option value="{{entry.groupID|safe}}">{{entry.groupName|safe}}</option>
+											    	<option value="{{entry.groupID}}">{{entry.groupName}}</option>
 											    	{% endfor %}
 											    </select>
 											</div>
@@ -126,7 +126,7 @@ j++;
 										</div>
 										<div class="row">
 											<div class="wide">
-												<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token" />
+												<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token" />
 												<a class="btn btn-default" href="#" onClick="addList();">Add User</a>
 												<div id="checkboxes">
 													<!-- used for Ajax -->
@@ -161,7 +161,7 @@ j++;
 							  <th><i class="fa fa-edit"></i> Date/Time</th>
 							 
 							 {% if "delete" in session['permissions'] -%}  
-							 <th><b>Remove</b></th>
+							 <th><b>Delist</b></th>
 							 {% endif -%}
 							 
 							 {% endif -%}
@@ -169,24 +169,23 @@ j++;
 							</thead>
 							<tbody>
 
-							{% set counter = 0 -%}
 							{% for entry in summary -%}
 							
 							<tr>
-								<td>{{entry.username|safe}}</td>
-								<td class="hidden-phone">{{entry.groupName|safe}} </td>
-								<td><span class="label label-info label-mini">{{entry.timestamp|safe}}</span></td>
+								<td>{{entry.username}}</td>
+								<td class="hidden-phone">{{entry.groupName}} </td>
+								<td><span class="label label-info label-mini">{{entry.timestamp}}</span></td>
 								<td>
 									
 								<!-- Button trigger modal -->
 								{% if "delete" in session['permissions'] -%} 
-								<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.groupID|safe}}">
+								<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal{{entry.groupID}}">
 									<i class="fa fa-times"></i>                  
 								</button>
 								{% endif -%} 
 								<!-- Modal -->
 								
-								<div class="modal fade" id="myModal{{entry.groupID|safe}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="myModal{{entry.groupID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -195,16 +194,16 @@ j++;
 											</div>
 											<div class="modal-body">
 												<div class="alert alert-info">
-													<p>When you press the "Remove function" button, the function which this project contains will be deleted from the documentation. <b>Are you sure you want to continue?</b></p>
+													<b>Delist the user from the group?</b></p>
 												</div>
 											</div>
 											<div class="modal-footer">
-			                                  <form method="POST" action="/user-del">
-			                                  <input type="hidden" value="{{entry.userID|safe}}" name="userID"/>
-			                                  <input type="hidden" value="{{entry.groupID|safe}}" name="groupID"/>
-			                                  <input type="hidden" value="{{csrf_token|safe}}" name="csrf_token"/>
+			                                  <form method="POST" action="/group-del-users">
+			                                  <input type="hidden" value="{{entry.userID}}" name="userID"/>
+			                                  <input type="hidden" value="{{entry.groupID}}" name="groupID"/>
+			                                  <input type="hidden" value="{{csrf_token}}" name="csrf_token"/>
 			                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			                                  <input type="submit" value="Remove Project" id="" class="btn btn-danger"/>
+			                                  <input type="submit" value="Delist User" id="" class="btn btn-danger"/>
 			                                  </form>
 											</div>
 										</div>
@@ -214,7 +213,6 @@ j++;
 							  </td>
 							</tr>
 
-							{% set counter = counter + 1 %}
 							{% endfor %}
 
 							</tbody>
