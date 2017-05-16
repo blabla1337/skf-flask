@@ -15,12 +15,12 @@ First after a successful validation of a user login, the application must also s
 which contains the "cross site request forgery" token.
 
 For generating the token we want to use a secure cryptographic function
-SecureRandom csprng = new SecureRandom();
+SecureRandom random = new SecureRandom();
 
 //Then we generate a long value token containing a high entropy
 byte[] randomBytes  = new byte[128];
 
-csprng.nextBytes(randombytes);
+random.nextBytes(randomBytes);
 
 //Then we base64 encode the string
 String csrftoken = Base64.getEncoder().encodeToString(randomBytes);
@@ -84,9 +84,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 // TODO Auto-generated method stub
 
 String token = request.getParameter("token");
-String Sessiontoken = (String) request.getSession().getAttribute("CSRF")
+String sessionToken = (String) request.getSession().getAttribute("CSRF")
 
-if(!Sessiontoken.equals(token))
+if(!sessionToken.equals(token))
 { 
 
 	/*
