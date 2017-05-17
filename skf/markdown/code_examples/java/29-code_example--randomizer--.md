@@ -41,7 +41,7 @@ public class Randomizer {
 		try {
 			csrftoken = this.bin2hex(randomBytes[0]);
 		} catch (Exception e) {
-			 logger.error(raddomizer error : " + e.toString());
+			 logger.error("Raddomizer error : " + e.toString());
 		}
 		return csrftoken;		
 	}
