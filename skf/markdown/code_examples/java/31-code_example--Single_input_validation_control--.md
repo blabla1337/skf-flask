@@ -39,7 +39,6 @@ public class inputValidation {
 
 	      // Create a Pattern object
 	      Pattern reg = Pattern.compile(validator);
-	     // String validate = "pass" ; 
 	      // Now create matcher object.
 	      Matcher match = reg.matcher(input);
 	      if (!match.find()) {	

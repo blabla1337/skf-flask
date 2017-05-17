@@ -69,6 +69,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import com.Lib.AuditLog;
+import com.Lib.WinRegistry;
+import com.Lib.inputValidation;
 
 import org.apache.commons.io.FilenameUtils;
 
@@ -81,7 +84,7 @@ public class FileUpload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	final static Logger logger = Logger.getLogger(FileUpload.class);
 	private AuditLog Log = new AuditLog(); 
-    inputvalidation validate = new inputvalidation();
+    inputValidation validate = new inputValidation();
 
     //We check for form submit
   
@@ -142,7 +145,7 @@ public class FileUpload extends HttpServlet {
         
         String  fileExtension = FilenameUtils.getExtension(fileName);
 
-        if (!fileExtension.equals("jpg") && !StrSpli.equals("png") )
+        if (!fileExtension.equals("jpg") && !fileExtension.equals("png") )
         {
             continueFunction = false;
      
