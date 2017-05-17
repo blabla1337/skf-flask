@@ -14,11 +14,13 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class Randomizer {
 	
 	private List<Integer> bytes = new ArrayList<>();
     private int address = 0;
+	final static Logger logger = Logger.getLogger(Randomizer.class);
 	
 	public String randomize()
 	{		
@@ -39,8 +41,7 @@ public class Randomizer {
 		try {
 			csrftoken = this.bin2hex(randomBytes[0]);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			 logger.error("cannot write to file : "  + e.toString());
 		}
 		return csrftoken;		
 	}
