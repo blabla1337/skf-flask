@@ -35,10 +35,10 @@ public class Login extends HttpServlet{
 	 public int userID;
 	 public String salt;
 	 public String access ;
-	 public int privilege;	 
+	 public int privilege;
 
 	  //First we include the audit log class.
-	  auditlogs Log = new auditlogs();
+	  Auditlog Log = new Auditlog();
 		
 	  //Second we include the password hash.
 	  hashing hash = new hashing();
