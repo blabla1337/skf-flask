@@ -61,7 +61,7 @@ import org.apache.log4j.Logger;
 
 public class PasswordForget {
 
-	final static Logger logger = Logger.getLogger(Aggregate.class);
+	final static Logger logger = Logger.getLogger(PasswordForget.class);
 	private String password = "" ; 
 	public int userID; 
 	private randomizer rand = new randomizer();
