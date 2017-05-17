@@ -162,18 +162,6 @@ INSERT OR REPLACE INTO `questions_pre` (`id`, `question`) VALUES (4, "You have a
 
 
 --
--- Table structure for table `questions_checklists`
---
-drop table if exists `questions_checklists`;
-CREATE TABLE `questions_checklists` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`questionID` int(11) NOT NULL,
-`checklistID` int(11) NOT NULL,
-`level` varchar(255)
-);
-
-
---
 -- Table structure for table `checklists`
 --
 drop table if exists `checklists`;
