@@ -41,7 +41,7 @@ public class Randomizer {
 		try {
 			csrftoken = this.bin2hex(randomBytes[0]);
 		} catch (Exception e) {
-			 logger.error("cannot write to file : "  + e.toString());
+			 logger.error(raddomizer error : " + e.toString());
 		}
 		return csrftoken;		
 	}
