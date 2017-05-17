@@ -45,7 +45,7 @@ the following code snipet shows the jsp page that performs the post action to up
 </html>
 
 
-the following code snipet performs the file uploading functionality from the post action performed at the jsp page ahowing above
+the following code snipet performs the file uploading functionality from the post action performed at the jsp page showed above
 
 
 
@@ -60,8 +60,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -80,7 +79,7 @@ public class FileUpload extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private final static Logger LOGGER = Logger.getLogger(FileUpload.class.getCanonicalName());
+	final static Logger logger = Logger.getLogger(FileUpload.class);
 	private AuditLog Log = new AuditLog(); 
     inputvalidation validate = new inputvalidation();
 
@@ -91,8 +90,8 @@ public class FileUpload extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String userID = request.getSession().getAttribute("userID");
         boolean continueFunction = true;
-        boolean sessiontermination = false;
-        boolean blockaccess = false ;
+        boolean sessionTermination = false;
+        boolean blockAccess = false ;
         
         // Create path components to save the file
         // The location of stored files should always be outside of your root
@@ -119,13 +118,13 @@ public class FileUpload extends HttpServlet {
         {
            request.getSession().invalidate();
            continueFunction = false;
-           sessiontermination=true;
+           sessionTermination=true;
         }   
         
         else if (validate.validateInput(userID, fileName, "alphanummeric", "Block access",request.getRemoteAddr(),"HIGH").equals("block"))
         {
            continueFunction = false;
-           blockaccess=true;
+           blockAccess=true;
         }  
         else 
         {
@@ -141,9 +140,9 @@ public class FileUpload extends HttpServlet {
         bypass the check by uploading an file like: "filename.jpg.php".
         */       
         
-        String  StrSpli = FilenameUtils.getExtension(fileName);
+        String  fileExtension = FilenameUtils.getExtension(fileName);
 
-        if (!StrSpli.equals("jpg") && !StrSpli.equals("png") )
+        if (!fileExtension.equals("jpg") && !StrSpli.equals("png") )
         {
             continueFunction = false;
      
@@ -169,11 +168,11 @@ public class FileUpload extends HttpServlet {
                 out.write(bytes, 0, read);
             }
                        
-            LOGGER.log(Level.ALL, "File {0} being uploaded to {1}" ,  new Object[]{fileName, path});
+			logger.info("File" + fileName + "has beeng uploaded to" + path); 
             
         } catch (FileNotFoundException fne) {
 
-          	 LOGGER.log(Level.SEVERE, "Problems during file upload. Error: {0}", new Object[]{fne.getMessage()});
+			  logger.error("Problems during file upload. Error:" + fne.toString());
       	
         } finally {
             if (out != null) {
@@ -199,8 +198,7 @@ public class FileUpload extends HttpServlet {
 			key = ls.stream().filter(st -> st.matches("."+StrSpli)).findAny().orElse(null);
 			
 		} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
-			LOGGER.log(Level.SEVERE, "Problems reading the extension key on Windows registry. Error: {0}", new Object[]{e.getMessage()});
-			
+			logger.error("Problems during file upload. Error: " + e.toString());
 		}
         	
         	
@@ -209,7 +207,7 @@ public class FileUpload extends HttpServlet {
 				mimeType = WinRegistry.readString(WinRegistry.HKEY_LOCAL_MACHINE, "SOFTWARE\\Classes\\"+key, "Content Type");
 			} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
 				// TODO Auto-generated catch block
-				LOGGER.log(Level.SEVERE, "Problems reading the extension value on Windows registry. Error: {0}", new Object[]{e.getMessage()});
+				logger.error("Problems reading the extension value on Windows registry. Error: " + e.toString());
 			}
 
   
@@ -223,7 +221,7 @@ public class FileUpload extends HttpServlet {
 			
 			  
      
-			    if (continueFunction == false && sessiontermination == false && blockaccess == false)
+			    if (continueFunction == false && sessionTermination == false && blockAccess == false)
 		        {    
 			    	 request.setAttribute("msg","FAIL! file has not been uploaded");	
 			    	 RequestDispatcher dd = request.getRequestDispatcher("/FileUpload.jsp");
@@ -231,7 +229,7 @@ public class FileUpload extends HttpServlet {
 				     return;		   
 		        }
 			      
-			    if (continueFunction == true && sessiontermination == false && blockaccess == false)
+			    if (continueFunction == true && sessionTermination == false && blockAccess == false)
 			    {
 			    	 request.setAttribute("msg","SUCCESS! file uploaded");
 			    	 request.getRequestDispatcher("/FileUpload.jsp").forward(request, response);
@@ -239,7 +237,7 @@ public class FileUpload extends HttpServlet {
 			    	
 			    }      
 			    
-			    if (continueFunction == false && sessiontermination == false && blockaccess == true)
+			    if (continueFunction == false && sessionTermination == false && blockAccess == true)
 		        {  
 			    	 request.setAttribute("msg","Access Blocked!");
 			    	 request.getRequestDispatcher("/error.jsp").forward(request, response);
@@ -247,7 +245,7 @@ public class FileUpload extends HttpServlet {
 			    	
 		        }
 			    
-			    if (continueFunction == false && sessiontermination == true && blockaccess == false)
+			    if (continueFunction == false && sessionTermination == true && blockAccess == false)
 		        {  
 			    	 request.getSession().invalidate();
 			    	 request.setAttribute("msg","Session terminated!");
@@ -283,7 +281,7 @@ Content-Type: text/plain
 private String getFileName(final Part part)
 {
         final String partHeader = part.getHeader("content-disposition");
-        LOGGER.log(Level.INFO, "Part Header = {0}", partHeader);
+		logger.info("Part Header = " + partHeader)
         
         for (String content : part.getHeader("content-disposition").split(";"))
         {
