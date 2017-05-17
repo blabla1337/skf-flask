@@ -18,7 +18,7 @@ import org.apache.log4j.Logger;
 
 public class PasswordCheck {
 	
-	final static Logger logger = Logger.getLogger(sessionhijack.class);
+	final static Logger logger = Logger.getLogger(PasswordCheck.class);
 	
 	public boolean checkPassword(String password)
     {
