@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
-public class randomizer {
+public class Randomizer {
 	
 	private List<Integer> bytes = new ArrayList<>();
     private int address = 0;
