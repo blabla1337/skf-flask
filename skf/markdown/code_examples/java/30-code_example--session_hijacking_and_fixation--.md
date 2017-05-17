@@ -104,17 +104,17 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class sessionhijack extends HttpServlet{
+public class SessionHijack extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
     
-    public sessionhijack() {
+    public SessionHijack() {
         super();
         // TODO Auto-generated constructor stub
     }
 	
 	//First we include the audit log class.
-	final static Logger logger = Logger.getLogger(sessionhijack.class);
+	final static Logger logger = Logger.getLogger(SessionHijack.class);
 		
 	private int userID;
 	private String ipaddress;
