@@ -92,7 +92,8 @@ if(!sessionToken.equals(token))
 	/*
 	If there was no match, the authentication session will be emptied and sessions will be abandoned. Then, the user must be redirected towards the login page.
 	*/		
-	if (request.getSession().getAttribute("authenticateUser").equals(""))
+	if ("".equalsIgonereCase(request.getSession().getAttribute("authenticateUser")))
+	
 	{
 		request.getSession().invalidate();
 		request.setAttribute("msg", "Served at: " + request.getContextPath());
