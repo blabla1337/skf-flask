@@ -27,9 +27,9 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class login extends HttpServlet{
+public class Login extends HttpServlet{
 
-	 final static Logger logger = Logger.getLogger(aggregateControll.class);
+	 final static Logger logger = Logger.getLogger(Login.class);
 	 public String password ;
 	 public String username;
 	 public int userID;
