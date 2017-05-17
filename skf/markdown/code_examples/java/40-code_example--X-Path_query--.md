@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
-import com.edw.inputvalidation; 
+import com.edw.inputValidation; 
 
 @ManagedBean
 public class xpath {
@@ -94,7 +94,7 @@ public class xpath {
 		 boolean continueFunction = true;
          
 
-         inputvalidation validate = new inputvalidation();
+         inputValidation validate = new inputValidation();
          
          
          //Here we put the variable in our input validation method in order to prevent untrusted user input from parsing

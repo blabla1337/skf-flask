@@ -19,7 +19,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import com.edw.inputValidationControll; 
+import com.edw.inputValidationControl; 
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -30,10 +30,10 @@ public class XMLPrevention {
     {
 		
 		/*
-        First we import our inputvalidation controll class. for more detailed information about 
+        First we import our inputValidationControl class. for more detailed information about 
         input validation check the code examples for "Input validation" & "Single input validation".
         */
-        inputValidationControll validate = new inputValidationControll();
+        inputValidationControl validate = new inputValidationControl();
 
         boolean  doFunction = true;
 

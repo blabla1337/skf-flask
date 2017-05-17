@@ -44,10 +44,10 @@ public class Login extends HttpServlet{
 	  hashing hash = new hashing();
 
 	  //Third we include the random password/token class.
-	  randomizer CSRF = new randomizer();
+	  Randomizer CSRF = new Randomizer();
 	    
-	  //Last we include the random inputvalidation class.
-	  inputvalidation validate = new inputvalidation();
+	  //Last we include the random inputValidation class.
+	  inputValidation validate = new inputValidation();
 	 	   
 	 /**
 	 * 

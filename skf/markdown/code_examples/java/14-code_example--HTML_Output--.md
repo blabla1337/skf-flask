@@ -66,7 +66,7 @@ As an example, what do you do when you expect a nummeric value from your applica
 you first sanitize the userinput by means of an input validation method like:
 See the "input validation" class for the entire example!
 */
-inputvalidation validate = new inputvalidation();
+inputValidation validate = new inputValidation();
 	      String userinput = "when this string is evil the application will block operation!";
 	      if(validate.validateInput(userinput, "nummeric", "Unecpected userinput", "HIGH", 3)== false)
 	      { /* Cancel operation of your application */ }
