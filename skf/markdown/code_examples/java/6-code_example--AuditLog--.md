@@ -32,7 +32,7 @@ public class AuditLog {
 	public int blocker; 
 	public static String validation = "pass"; 
 	
-	final static Logger logger = Logger.getLogger(auditlogs.class);
+	final static Logger logger = Logger.getLogger(AuditLog.class);
 	
 	
 	public void SetLog(String userid, String message, String state, LocalDateTime localDateTime, String ThreatLevel, String remote_address)
