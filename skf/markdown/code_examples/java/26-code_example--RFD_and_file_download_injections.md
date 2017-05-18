@@ -99,7 +99,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import com.Lib.AuditLog;
-import com.Lib.inputValidation;
+import com.Lib.InputValidation;
 import com.Lib.whitelist;
  
 
@@ -117,7 +117,7 @@ public class FileDownloader {
     private final static Logger LOGGER = Logger.getLogger(FileUploader.class.getCanonicalName());
     private AuditLog Log = new AuditLog(); 
     private whitelist wl = new whitelist();
-    inputValidation validate = new inputValidation();
+    InputValidation validate = new InputValidation();
     private UIComponent component;
     private String file;
     private File fileplace;

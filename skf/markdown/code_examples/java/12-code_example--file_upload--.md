@@ -71,7 +71,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import com.Lib.AuditLog;
 import com.Lib.WinRegistry;
-import com.Lib.inputValidation;
+import com.Lib.InputValidation;
 
 import org.apache.commons.io.FilenameUtils;
 
@@ -84,7 +84,7 @@ public class FileUpload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	final static Logger logger = Logger.getLogger(FileUpload.class);
 	private AuditLog Log = new AuditLog(); 
-    inputValidation validate = new inputValidation();
+    InputValidation validate = new InputValidation();
 
     //We check for form submit
   

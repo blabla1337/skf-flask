@@ -39,7 +39,7 @@ public class IdentifierBased {
      */
      Aggregate aggregate =  new Aggregate();
      
-     inputValidation validate = new inputValidation();
+     InputValidation validate = new InputValidation();
      
      /* 
      the following function return a String value that informs the appropriate 

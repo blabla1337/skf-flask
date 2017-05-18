@@ -46,8 +46,8 @@ public class Login extends HttpServlet{
 	  //Third we include the random password/token class.
 	  Randomizer CSRF = new Randomizer();
 	    
-	  //Last we include the random inputValidation class.
-	  inputValidation validate = new inputValidation();
+	  //Last we include the random InputValidation class.
+	  InputValidation validate = new InputValidation();
 	 	   
 	 /**
 	 * 

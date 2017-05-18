@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class inputValidation {
+public class InputValidation {
 	
 	private AuditLog Log = new AuditLog(); 
 	public String validate = "pass"; 
