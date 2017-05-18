@@ -26,7 +26,7 @@ public class IdentifierBased {
      public String name;
      public String email;
      public String phone ;
-     final static Logger logger = Logger.getLogger(privilegeBasedAuthentication.class);
+     final static Logger logger = Logger.getLogger(IdentifierBased.class);
      /*
      First we include the audit log class.
      For more detailed information see the Auditlog code example
