@@ -382,4 +382,6 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Ross Nanopoulos
 - Bob van den Heuvel
 - Mariano
+- Xenofon Vassilakopoulos
+- Heeraj Nair
 
