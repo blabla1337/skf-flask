@@ -1,7 +1,7 @@
-<!-- 
-    Security Knowledge Framework is an expert system application 
+<!--
+    Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples,
-    helps developers in pre-development and post-development.  
+    helps developers in pre-development and post-development.
     Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
@@ -58,20 +58,25 @@
                     <li><a class="logout" href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
             	</ul>
             </div>
+
+            <!-- Logged user message -->
+            <div style='float:left' class="welcome">
+              Logged as: {{ session['userName'] }}
+            </div>
+            <!-- Logged user end -->
             <div style='margin-top:14px; margin-right:55px;' class="btn-group pull-right theme-container animated tada">
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-code"></i><span class="hidden-sm hidden-xs"> Code Language </span>
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" id="themes">
-                   <li><a href="/code/php">PHP</a></li>
-                   <li><a href="/code/asp">C# .NET</a></li>
+                  <li><a href="/code/php">PHP</a></li>
+                  <li><a href="/code/asp">C# .NET</a></li>
                 </ul>
             </div>
         </header>
-      <!--header end--> 
+      <!--header end-->
 
-  
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
@@ -139,15 +144,12 @@
                           <i class="fa fa-code"></i>
                           <span>Code examples</span>
                       </a>
-                  </li>         
+                  </li>
               </ul>
-			  
 			  <div class="copy">
 					<img width="40" height="40" src="/static/img/logos/owasp-icon-grey.svg"> Supported by <a href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
 			  </div>
-			  
               <!-- sidebar menu end-->
           </div>
       </aside>
       <!--sidebar end-->
- 
