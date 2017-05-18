@@ -59,10 +59,7 @@ class ChecklistItem(Resource):
         """
         data = request.json
         lvl = data.get('level')
-        try:
-            log("User requested list of checklist items based on level", "LOW", "PASS")
-            categories_levels = checklists_kb.query.filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = lvl)).all()        
-            return categories_levels, 200, security_headers()
-        except:
-            log("User triggered error requesting specific checklist items based on level", "LOW", "FAIL")
-            return {'message': 'Validation error'}, 400, security_headers()
+
+        log("User requested list of checklist items based on level", "LOW", "PASS")
+        categories_levels = checklists_kb.query.filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = lvl)).group_by(checklists_kb.checklistID).all()        
+        return categories_levels, 200, security_headers()
