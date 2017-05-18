@@ -63,7 +63,7 @@ For using the SKF chef cookbook you will need to install the 3 software products
 * [https://downloads.chef.io/chef-dk/](https://downloads.chef.io/chef-dk/)
 
 **Vagrant**
-* Vagrant is has pre-build images ready to use for stable and fast development
+* Vagrant has pre-build images ready to use for stable and fast development.
 * [https://www.vagrantup.com/downloads.html](https://www.vagrantup.com/downloads.html)
 
 When you have installed the above software you are now able to create a VirtualBox image with Vagrant configuration and using Chef to configure the SKF application. The SKF chef cookbook will do this all for you and you only need to follow the steps below on your machine/laptop.
@@ -381,7 +381,11 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Gerco Grandia
 - Ross Nanopoulos
 - Bob van den Heuvel
-- Mariano
+- Mariano Jose Abdala
+- Ilguiz Latypov
+- Laurence Keijmel
+- [Ross Nanopoulos](https://twitter.com/rossnanop)
+- Rick Mitchell (Kingthorin)
 - Xenofon Vassilakopoulos
 - Heeraj Nair
 
