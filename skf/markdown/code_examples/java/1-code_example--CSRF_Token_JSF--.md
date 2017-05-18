@@ -15,7 +15,7 @@ it must be re-used on several locations throughout the application
 After a successful validation of a user login, the application must also start a session
 which contains the "cross site request forgery" token.
 
-From the randomizer class we are generating the token we want by using a secure cryptographic function
+From the Randomizer class we are generating the token we want by using a secure cryptographic function
 SecureRandom csprng = new SecureRandom();
 
 Then we generate a long value token containing a high entropy
@@ -69,7 +69,7 @@ public void generateToken(){
 		HttpServletRequest origRequest = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 
     	//we include the random password/token class.
-  	    randomizer CSRF = new randomizer();
+  	    Randomizer CSRF = new Randomizer();
 		 /*
         Now we create a random value for our CSRF tokens. See "Random password token generation" in
         the code examples for more detailed information:

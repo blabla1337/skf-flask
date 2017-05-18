@@ -53,7 +53,7 @@ public class Reauth extends HttpServlet {
      hashing hash = new hashing();
 
      //Third we include the random password/token class.
-     randomizer CSRF = new randomizer();
+     Randomizer CSRF = new Randomizer();
      
     /**
      * @see HttpServlet#HttpServlet()

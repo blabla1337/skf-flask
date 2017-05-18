@@ -64,7 +64,7 @@ public class PasswordForget {
 	final static Logger logger = Logger.getLogger(PasswordForget.class);
 	private String password = "" ; 
 	public int userID; 
-	private randomizer rand = new randomizer();
+	private Randomizer rand = new Randomizer();
 	private String active = "";
 	public String token = ""; 
 	
