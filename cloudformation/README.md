@@ -17,9 +17,8 @@ in AWS**.
 If you're experienced with AWS then the steps are as follows:
 
 1. create SSL cert and upload to your AWS account
-2. convert the provided YAML file to JSON
-3. create a new CloudFormation stack from the JSON file
-4. CNAME your domain to the `LoadBalancerUrl` in the stack's `Outputs`
+2. create a new CloudFormation stack from the JSON file
+3. CNAME your domain to the `LoadBalancerUrl` in the stack's `Outputs`
 
 Further details on each step are below.
 
@@ -28,28 +27,14 @@ Further details on each step are below.
 You will need an SSL certificate before you can set the SKF up in
 AWS. If you already have an appropriate certificate in your account
 (perhaps you've already set it up or you have a wildcard) you will be
-able to use that, otherwise you'll need to do the following:
+able to use that.
 
-1. create/purchase an SSL certificate
-2. use the AWS CLI tool to upload it to AWS
+If you do not already have a certificate the easiest way is to use
+[AWS Certificate Manager](https://aws.amazon.com/certificate-manager/).
 
-How you accomplish the first point will depend on you / your company's
-preferences. To upload the certificate to your AWS account you can
-[follow AWS' instructions for uploading a new certificate](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html#upload-cert).
-The "Uploading the Server Certificate" section is the bit you're
-after. The output of this command will give you the new certificate's
-ARN (Amazon Resource Name). Make a note of it because you'll need it
-in a moment.
+Once you've created the certificate make a note of its ARN.
 
-### 2. Convert to JSON
-
-The accompanying CloudFormation template is in `YAML` format for
-clarity but AWS expects CloudFormation templates to be in JSON
-format. You must first convert the file using any `YAML` -> `JSON`
-tool (many online tools exist or you can use a library in your
-favourite language).
-
-### 3. CloudFormation
+### 2. CloudFormation
 
 Log into the AWS console using your IAM username and password. Make
 sure your user has full admin access because CloudFormation will
@@ -58,7 +43,7 @@ require lots of permissions.
 Once you have logged in, go to the 'CloudFormation' section of the
 console.
 
-Make sure you are in the correct region, using the drop down in the
+Make sure you are in the correct region using the drop down in the
 top right of the console.
 
 > *Note* You will need a VPC to run the SKF. If your AWS account was
@@ -69,8 +54,9 @@ top right of the console.
 Click the `Create Stack` button to create a new stack using
 CloudFormation.
 
-On the `Select Template` screen, choose the JSON file you created in
-the previous step and click `Next`.
+On the `Select Template` screen, choose the
+[owasp-security-knowledge-framework.template.yaml](owasp-security-knowledge-framework.template.yaml)
+file from this repository and click `Next`.
 
 Next you'll see the `Specify Details` screen. This is where you
 configure the Security Knowledge Framework for your needs.
@@ -84,6 +70,25 @@ you.
 #### Parameters
 
 The following parameters are required for the CloudFormation.
+
+##### AMI
+
+The CloudFormation stack will spin up an EC2 instance that runs the
+OWASP Security Knowledge Framework. This parameter selects the Amazon
+Machine Image that should be used to start the image. This corresponds
+to the choice of operating system and version. You should look up the
+latest AMI for Ubuntu 14.04 LTS (Trusty Tahr) and use this.
+
+This script will look up the most up-to-date version of Ubuntu 14.04
+LTS that is currently available, suitable for use here.
+
+```bash
+aws --region REGION ec2 describe-images \
+    --filters Name=root-device-type,Values=ebs Name=architecture,Values=x86_64 Name=virtualization-type,Values=hvm Name=name,Values=*ubuntu-trusty-14.04-amd64-server* \
+    --query 'Images[*].[ImageId,CreationDate]' \
+    --output text \
+  | sort -k2,2 | tail -n1 | cut -f1
+```
 
 ##### DataBucketName
 
@@ -161,7 +166,7 @@ SKF.
 When it completes look at the `Outputs` tab of that stack and you will
 see `LoadBalancerUrl`. Make a note of this for the next step.
 
-### 4. DNS
+### 3. DNS
 
 The last step is to point the domain you'd like to use at the new
 stack. You can do this by creating a CNAME record that points to the
