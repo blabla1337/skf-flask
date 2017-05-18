@@ -17,7 +17,7 @@ import com.edw.inputValidation;
 import com.edw.whitelist;
 import org.apache.log4j.Logger;
 
-public class rewrite extends HttpServlet
+public class Rewrite extends HttpServlet
 {
 
 	private static final long serialVersionUID = 1L;
@@ -25,11 +25,11 @@ public class rewrite extends HttpServlet
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public rewrite() {
+    public Rewrite() {
         super();
     }
 	
-	final static Logger logger = Logger.getLogger(rewrite.class);
+	final static Logger logger = Logger.getLogger(Rewrite.class);
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
