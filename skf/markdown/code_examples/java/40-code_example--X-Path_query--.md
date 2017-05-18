@@ -28,7 +28,7 @@ import org.xml.sax.InputSource;
 import com.edw.InputValidation; 
 
 @ManagedBean
-public class xpath {
+public class XPath {
 	
 	private String employeeID;
 	private String employeeRole;
@@ -50,7 +50,7 @@ public class xpath {
     }
     
     
-	final static Logger logger = Logger.getLogger(xpath.class);
+	final static Logger logger = Logger.getLogger(XPath.class);
 
 	 public void selectPath()
      {
