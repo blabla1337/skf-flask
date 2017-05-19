@@ -41,20 +41,20 @@ import org.w3c.dom.ls.DOMImplementationLS;
 
 public class IncludeXSL {
 
-	private whitelist wt = new whitelist();
+	private WhiteList wt = new WhiteList();
 	
-	public String includeXSL(String whitelisting, String input)
+	public String includeXSL(String WhiteListing, String input)
 	{
 		LSSerializer serializer = null ;
 		boolean continue_ = true;
 		Document result = null;
 		
 		/*
-        We want to whitelist the paged for expected values, in this example they are,
-        page1,page2 etc.. for more information about whitelisting see "white-listing" in the code examples:
+        We want to WhiteList the paged for expected values, in this example they are,
+        page1,page2 etc.. for more information about WhiteListing see "white-listing" in the code examples:
         */
 		
-        if (wt.whitelisting(whitelisting, input) == false) { continue_ = false; }
+        if (wt.WhiteListing(WhiteListing, input) == false) { continue_ = false; }
 		
         //If all went good we do the function
         if(continue_ == true){

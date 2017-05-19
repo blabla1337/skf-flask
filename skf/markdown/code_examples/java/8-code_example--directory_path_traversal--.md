@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.edw.InputValidation;
-import com.edw.whitelist;
+import com.edw.WhiteList;
 import org.apache.log4j.Logger;
 
 public class Rewrite extends HttpServlet
@@ -34,7 +34,7 @@ public class Rewrite extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 			InputValidation validate = new InputValidation();
-			whitelist listme = new whitelist();
+			WhiteList listme = new WhiteList();
 
 			/*
             First, we want to filter the filenames for expected values. For this example we use only use 0-9
@@ -46,11 +46,11 @@ public class Rewrite extends HttpServlet
             if (validate.validateInput(getFile.toString(), "nummeric", "Failed to get file", "HIGH") == false) { validated = false; }
 
             /*
-            see the "whitelisting" code example for more detailed information about this function
+            see the "WhiteListing" code example for more detailed information about this function
             Let's assume there are three files named 1,2,3
             */
 
-            if (listme.whitelisting("1,2,3", getFile.toString()) == false) { validated = false; }
+            if (listme.WhiteListing("1,2,3", getFile.toString()) == false) { validated = false; }
 
             //Only if the pattern was true we allow the variable into the streamreader function
             if (validated == true)
