@@ -50,7 +50,7 @@ public class Reauth extends HttpServlet {
 	 AuditLog Log = new AuditLog();
 
      //Second we include the password hash.
-     hashing hash = new hashing();
+     Hashing hash = new Hashing();
 
      //Third we include the random password/token class.
      Randomizer CSRF = new Randomizer();
@@ -147,7 +147,7 @@ public class Reauth extends HttpServlet {
 		}
 	    
 	    /*
-        We validate the password see "Password storage(salting stretching hashing)" in the code examples
+        We validate the password see "Password storage(salting stretching Hashing)" in the code examples
         for more detailed information:
         */
         if (hash.Validate(passwordHash, salt, password) == true)

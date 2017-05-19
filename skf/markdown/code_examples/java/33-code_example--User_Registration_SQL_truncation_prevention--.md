@@ -46,7 +46,7 @@ import org.apache.log4j.Logger;
 public class RegisterUser {
 	
     private AuditLog Log = new AuditLog();
-    private hashing hash = new hashing();
+    private Hashing hash = new Hashing();
 	final static Logger logger = Logger.getLogger(RegisterUser.class);
 	
 	public boolean userCheck(String username){

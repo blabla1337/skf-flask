@@ -170,7 +170,7 @@ public class PasswordForget {
 	}
 
 	public String resetPassword(String resetlink, String Password) throws InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException{
-		hashing hasher = new hashing();
+		Hashing hasher = new Hashing();
 		String message = ""; 		
 		 /*
         Imagine the user clicked on his link with the token included and is redirected towards

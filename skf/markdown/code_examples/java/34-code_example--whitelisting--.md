@@ -10,10 +10,10 @@ package com.edw;
 
 import org.apache.log4j.Logger;
 
-public class whitelist
+public class Whitelist
 {
 	
-	final static Logger logger = Logger.getLogger(whitelist.class);
+	final static Logger logger = Logger.getLogger(Whitelist.class);
 
 	
 	public boolean whitelisting(String allowed, String input)

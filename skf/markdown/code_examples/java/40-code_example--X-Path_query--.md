@@ -1,3 +1,11 @@
+Xpath Injection Prevantion 
+---------------------------
+
+***Example:***
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 package prime.com.beans;
 
 import java.io.File;
@@ -28,7 +36,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
 import com.Lib.AuditLog;
-import com.Lib.hashing;
+import com.Lib.Hashing;
 import com.Lib.InputValidation; 
 
 @ManagedBean
@@ -40,7 +48,7 @@ public class Xpath  implements Serializable {
 	AuditLog Log = new AuditLog();
 		
 	//Second we include the password hash.
-	hashing hash = new hashing();
+	Hashing hash = new Hashing();
 
 	
 	final static Logger logger = Logger.getLogger(Xpath.class);
@@ -364,3 +372,6 @@ public class Xpath  implements Serializable {
           }         
      }
 }
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
