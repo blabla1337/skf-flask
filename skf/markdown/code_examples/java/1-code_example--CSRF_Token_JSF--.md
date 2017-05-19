@@ -87,24 +87,23 @@ the following function used to destroy the cookie and invalidate the session whe
 
     public void antiCSRF() throws IOException
     {		
-        HttpServletRequest origRequest = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        HttpServletResponse origResponse = (HttpServletResponse)FacesContext.getCurrentInstance().getExternalContext().getResponse();
-        String AUTH_KEY =  (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AUTH_KEY");
-       	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(AUTH_KEY);
-   		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-   		Cookie cookie = null;
-   		Cookie[] cookies = null;
+    	ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		HttpServletRequest origRequest = (HttpServletRequest)externalContext.getRequest();
+		HttpServletResponse origResponse = (HttpServletResponse)externalContext.getResponse();
+		String AUTH_KEY =  (String) externalContext.getSessionMap().get("AUTH_KEY");
+		externalContext.getSessionMap().remove(AUTH_KEY);
+		externalContext.invalidateSession();
+		
    	    // Get an array of Cookies associated with this domain
-   	    cookies = origRequest.getCookies();		         
-   		for (Cookie cookie2 : cookies) 
-   		{
-   			cookie = cookie2;		         
-   				if (cookie.getName().equals("JSESSIONID"))
+   		Cookie[] cookies = origRequest.getCookies();		         
+   		for (Cookie cookie : cookies) 
+   		{	         
+   				if ("JSSESIONID".equalsIgnoreCase(cookie.getName()))
    				{        	 
 	   				cookie.setValue(null);	       		
 	   				origResponse.addCookie(cookie);
 	   			
-	                Log.SetLog("", "", "Cookie has been desroyed!", "", "NULL");    
+	                Log.SetLog("", "", "Cookie has been desroyed!", LocalDateTime.now(), "", "");    
    				} 
    		}		     
     }
@@ -122,7 +121,7 @@ This function used to decode the viewstate and get the token value from the html
 			String value = String.valueOf(requestMap.get("_CSRFToken"));
 
 			// access the session and get the token
-			HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
+			HttpSession session = (HttpSession) external.getSession(false);
 			String token = (String) session.getAttribute("CSRF");
 
 			// check if the token exists
