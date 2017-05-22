@@ -208,10 +208,10 @@
 <p id="t10" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span><span class="op">.</span><span class="nam">groupmembers</span> <span class="key">import</span> <span class="nam">groupmembers</span><span class="strut">&nbsp;</span></p>
 <p id="t11" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t12" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t13" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'project/items'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to project items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t13" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'project'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to project items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t14" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t15" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t16" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t16" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t17" class="stm run hide_run"><span class="key">class</span> <span class="nam">ProjectCollection</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t18" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t19" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">authorization</span><span class="op">,</span> <span class="nam">pagination_arguments</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -332,7 +332,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-12 17:32
+            created at 2017-05-23 00:17
         </p>
     </div>
 </div>

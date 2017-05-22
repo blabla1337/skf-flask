@@ -1,4 +1,50 @@
 --
+-- Table structure for table `users`
+--
+drop table if exists `users`;
+CREATE TABLE `users` (
+`userID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`privilegeID` int(11) NOT NULL,
+`userName` varchar(255) NOT NULL UNIQUE,
+`email` varchar(255) NOT NULL UNIQUE,
+`password` varchar(255) NOT NULL,
+`accessToken` varchar(255)NOT NULL UNIQUE,
+`activated` varchar(255),
+`access` varchar(255) NOT NULL
+);
+
+INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "false", "false", "example@owasp.org");
+
+
+--
+-- Table structure for table `groups`
+--
+drop table if exists `groups`;
+CREATE TABLE `groups` (
+`groupID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`ownerID` int(11) NOT NULL,
+`groupName` varchar(250) NOT NULL,
+`timestamp` timestamp
+);
+
+INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup");
+
+--
+-- Table structure for table `groupmembers`
+--
+drop table if exists `groupmembers`;
+CREATE TABLE `groupmembers` (
+`memberID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`userID` int(11) NOT NULL,
+`groupID` int(11) NOT NULL,
+`ownerID` int(11) NOT NULL,
+`timestamp` timestamp
+);
+
+INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1);
+
+
+--
 -- Table structure for table `privileges`
 --
 drop table if exists `privileges`;
@@ -50,32 +96,18 @@ CREATE TABLE `projects` (
 `timestamp` timestamp NOT NULL
 );
 
---
--- Table structure for table `groups`
---
-drop table if exists `groups`;
-CREATE TABLE `groups` (
-`groupID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`ownerID` int(11) NOT NULL,
-`groupName` varchar(250) NOT NULL,
-`timestamp` timestamp
-);
-
-INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup");
 
 --
--- Table structure for table `groupmembers`
+-- Table structure for table `project_sprints`
 --
-drop table if exists `groupmembers`;
-CREATE TABLE `groupmembers` (
-`memberID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`userID` int(11) NOT NULL,
+drop table if exists `project_sprints`;
+CREATE TABLE `project_sprints` (
+`sprintID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`projectID` int(11) NOT NULL,
 `groupID` int(11) NOT NULL,
-`ownerID` int(11) NOT NULL,
-`timestamp` timestamp
+`sprintName` varchar(250) NOT NULL,
+`sprintDesc` varchar(250) NOT NULL
 );
-
-INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1);
 
 
 --
@@ -143,18 +175,6 @@ INSERT OR REPLACE INTO `questions_pre` (`id`, `question`) VALUES (4, "You have a
 
 
 --
--- Table structure for table `questions_checklists`
---
-drop table if exists `questions_checklists`;
-CREATE TABLE `questions_checklists` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`questionID` int(11) NOT NULL,
-`checklistID` int(11) NOT NULL,
-`level` varchar(255)
-);
-
-
---
 -- Table structure for table `checklists`
 --
 drop table if exists `checklists`;
@@ -166,184 +186,24 @@ CREATE TABLE `checklists` (
 );
 
 
---
--- Table structure for table `checklists_kb`
---
-drop table if exists `checklists_kb`;
-CREATE TABLE `checklists_kb` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklistID` varchar(255),
-`questionID` int(11),
-`kbID` int(11),
-`testguideID` int(11),
-`cweID` int(11),
-`nistID` int(11),
-`codeID_php` int(11),
-`codeID_asp` int(11),
-`codeID_java` int(11),
-`codeID_python` int(11)
-);
 
 --
--- Table structure for table `users`
+-- Table structure for table `question_sprint_results`
 --
-drop table if exists `users`;
-CREATE TABLE `users` (
-`userID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`privilegeID` int(11) NOT NULL,
-`userName` varchar(255) NOT NULL UNIQUE,
-`email` varchar(255) NOT NULL UNIQUE,
-`password` varchar(255) NOT NULL,
-`accessToken` varchar(255)NOT NULL UNIQUE,
-`activated` varchar(255),
-`access` varchar(255) NOT NULL
-);
-
-INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "false", "false", "example@owasp.org");
-
---
--- Table structure for table `privileges`
---
-drop table if exists `privileges`;
-CREATE TABLE `privileges` (
-`privilegeID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`privilege` varchar(255) NOT NULL
-);
-
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete");
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete");
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read");
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read");
-
---
--- Table structure for table `kb_items`
---
-drop table if exists `kb_items`;
-CREATE TABLE `kb_items` (
-`kbID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`title` varchar(250) NOT NULL,
-`content` varchar(250) NOT NULL
-);
-
-
---
--- Table structure for table `code_items`
---
-drop table if exists `code_items`;
-CREATE TABLE `code_items` (
-`codeID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`title` varchar(250) NOT NULL,
-`content` varchar(250) NOT NULL,
-`code_lang` varchar(250) NOT NULL
-);
-
-
---
--- Table structure for table `projects`
---
-drop table if exists `projects`;
-CREATE TABLE `projects` (
-`projectID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`userID` int(11) NOT NULL,
-`groupID` int(11) NOT NULL,
-`projectName` varchar(250) NOT NULL,
-`projectVersion` varchar(250) NOT NULL,
-`projectDesc` text NOT NULL,
-`ownerID` int(11) NOT NULL,
-`timestamp` timestamp NOT NULL
-);
-
---
--- Table structure for table `groups`
---
-drop table if exists `groups`;
-CREATE TABLE `groups` (
-`groupID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`ownerID` int(11) NOT NULL,
-`groupName` varchar(250) NOT NULL,
-`timestamp` timestamp
-);
-
-INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup");
-
---
--- Table structure for table `groupmembers`
---
-drop table if exists `groupmembers`;
-CREATE TABLE `groupmembers` (
-`memberID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`userID` int(11) NOT NULL,
-`groupID` int(11) NOT NULL,
-`ownerID` int(11) NOT NULL,
-`timestamp` timestamp
-);
-
-INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1);
-
-
---
--- Table structure for table `logs`
---
-drop table if exists `logs`;
-CREATE TABLE `logs` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`date` varchar(255) NOT NULL,
-`time` varchar(255) NOT NULL,
-`threat` varchar(255) NOT NULL,
-`ip` varchar(255) NOT NULL,
-`userID` varchar(255) NOT NULL,
-`status` varchar(255) NOT NULL,
-`message` varchar(255) NOT NULL
-);
-
-
-
---
--- Table structure for table `questions_checklists`
---
-drop table if exists `questions_checklists`;
-CREATE TABLE `questions_checklists` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`questionID` int(11) NOT NULL,
-`checklistID` int(11) NOT NULL,
-`level` varchar(255)
-);
-
-
---
--- Table structure for table `checklists`
---
-drop table if exists `checklists`;
-CREATE TABLE `checklists` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklistID` varchar(255),
-`content` varchar(255) NOT NULL,
-`level` int(11),
-`testguideID` int(11),
-`cweID` int(11),
-`pcidssID` int(11),
-`nistID` int(11)
-);
-
-
-
---
--- Table structure for table `sprint_results`
---
-drop table if exists `sprint_results`;
-CREATE TABLE `sprint_results` (
+drop table if exists `question_sprint_results`;
+CREATE TABLE `question_sprint_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `projectID` int(11) NOT NULL,
-`questionID` int(11) NOT NULL,
+`question_sprint_ID` int(11) NOT NULL,
 `result` boolean
 );
 
 
 --
--- Table structure for table `pre_question_results`
+-- Table structure for table `question_pre_results`
 --
-drop table if exists `pre_question_results`;
-CREATE TABLE `pre_question_results` (
+drop table if exists `question_pre_results`;
+CREATE TABLE `question_pre_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `projectID` int(11) NOT NULL,
 `question_pre_ID` int(11) NOT NULL,
@@ -351,8 +211,8 @@ CREATE TABLE `pre_question_results` (
 );
 
 -- Bovenstaande tabellen gaan de checklists_results tabel vullen met 
--- correlerende checklist items waarin sprint_results een transitie tabel is en
--- pre_question_results results blijft staan voor de volgende sprints
+-- correlerende checklist items waarin question_sprint_results een transitie tabel is en
+-- question_pre_results results blijft staan voor de volgende sprints
 
 --
 -- Table structure for table `checklists_results`
@@ -627,8 +487,8 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.11', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.12', 'Verify that the logs are stored on a different partition than the application is running with proper log rotation.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('8.13', 'Time sources should be synchronized to ensure logs have the correct time.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.0', 'Data protection verification requirements', '0'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.1', 'Verify that all forms containing sensitive information have disabled client side caching, including autocomplete features.', '3'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.2', 'Verify that the list of sensitive data processed by the application is identified, and that there is an explicit policy for how access to this data must be controlled, encrypted and enforced under relevant data protection directives.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.1', 'Verify that all forms containing sensitive information have disabled client side caching, including autocomplete features.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.2', 'Verify that the list of sensitive data processed by the application is identified, and that there is an explicit policy for how access to this data must be controlled, encrypted and enforced under relevant data protection directives.', '3'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.3', 'Verify that all sensitive data is sent to the server in the HTTP message body or headers (i.e., URL parameters are never used to send sensitive data).', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('9.4', 'Verify that the application sets appropriate anticaching headers as per the risk of the application, such as the following:
     Expires: Tue, 03 Jul 2001 06:00:00 GMT 
@@ -708,7 +568,7 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.4', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.5', 'Verify that SOAP based web services are compliant with Web ServicesInteroperability (WSI) Basic Profile at minimum. This essentially means TLS encryption.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.6', 'Verify the use of sessionbased authentication and authorization. Please refer to sections 2, 3 and 4 for further guidance. Avoid the use of static "API keys" and similar.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.7', 'Verify that the REST service is protected from CrossSite Request Forgery via the use of at least one or more of the following: ORIGIN checks, double submit cookie pattern, CSRF nonces, and referrer checks.', '1'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.8', 'Verify the REST service explicitly check the incoming ContentType to be the expected one, such as application/xml or application/json.', '1'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.8', 'Verify the REST service explicitly check the incoming ContentType to be the expected one, such as application/xml or application/json.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.9', 'Verify that the message payload is signed to ensure reliable transport between client and service, using JSON Web Signing or WSSecurity for SOAP requests.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('18.10', 'Verify that alternative and less secure access paths do not exist.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('19.0', 'Configuration', '0'); 
@@ -774,7 +634,7 @@ INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.12', 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.13', 'Verify that the application or framework uses strong random antiCSRF tokens or has another transaction protection mechanism.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.14', 'Verify the system can protect against aggregate or continuous access of secured functions, resources, or data. For example, consider the use of a resource governor to limit the number of edits per hour or to prevent the entire database from being scraped by an individual user.', '2'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.15', 'Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce antifraud controls as per the risk of application and past fraud.', '2'); 
-INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.16', 'Verify that the application correctly enforces contextsensitive authorisation so as to not allow unauthorised manipulation by means of parameter tampering.', '3'); 
+INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('4.16', 'Verify that the application correctly enforces contextsensitive authorisation so as to not allow unauthorised manipulation by means of parameter tampering.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.0', 'Malicious input handling verification requirements', '0'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.1', 'Verify that the runtime environment is not susceptible to buffer overflows, or that security controls prevent buffer overflows.', '1'); 
 INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('5.3', 'Verify that server side input validation failures result in request rejection and are logged.', '1'); 

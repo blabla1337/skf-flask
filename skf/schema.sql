@@ -98,6 +98,19 @@ CREATE TABLE `projects` (
 
 
 --
+-- Table structure for table `project_sprints`
+--
+drop table if exists `project_sprints`;
+CREATE TABLE `project_sprints` (
+`sprintID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`projectID` int(11) NOT NULL,
+`groupID` int(11) NOT NULL,
+`sprintName` varchar(250) NOT NULL,
+`sprintDesc` varchar(250) NOT NULL
+);
+
+
+--
 -- Table structure for table `logs`
 --
 drop table if exists `logs`;
@@ -169,32 +182,28 @@ CREATE TABLE `checklists` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `checklistID` varchar(255),
 `content` varchar(255) NOT NULL,
-`level` int(11),
-`testguideID` int(11),
-`cweID` int(11),
-`pcidssID` int(11),
-`nistID` int(11)
+`level` int(11)
 );
 
 
 
 --
--- Table structure for table `sprint_results`
+-- Table structure for table `question_sprint_results`
 --
-drop table if exists `sprint_results`;
-CREATE TABLE `sprint_results` (
+drop table if exists `question_sprint_results`;
+CREATE TABLE `question_sprint_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `projectID` int(11) NOT NULL,
-`questionID` int(11) NOT NULL,
+`question_sprint_ID` int(11) NOT NULL,
 `result` boolean
 );
 
 
 --
--- Table structure for table `pre_question_results`
+-- Table structure for table `question_pre_results`
 --
-drop table if exists `pre_question_results`;
-CREATE TABLE `pre_question_results` (
+drop table if exists `question_pre_results`;
+CREATE TABLE `question_pre_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `projectID` int(11) NOT NULL,
 `question_pre_ID` int(11) NOT NULL,
@@ -202,8 +211,8 @@ CREATE TABLE `pre_question_results` (
 );
 
 -- Bovenstaande tabellen gaan de checklists_results tabel vullen met 
--- correlerende checklist items waarin sprint_results een transitie tabel is en
--- pre_question_results results blijft staan voor de volgende sprints
+-- correlerende checklist items waarin question_sprint_results een transitie tabel is en
+-- question_pre_results results blijft staan voor de volgende sprints
 
 --
 -- Table structure for table `checklists_results`

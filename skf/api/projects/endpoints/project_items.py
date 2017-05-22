@@ -10,10 +10,10 @@ from skf.database.projects import projects
 from skf.database.groupmembers import groupmembers
 
 
-ns = api.namespace('project/items', description='Operations related to project items')
+ns = api.namespace('project', description='Operations related to project items')
 
 
-@ns.route('/')
+@ns.route('/items')
 class ProjectCollection(Resource):
 
     @api.expect(authorization, pagination_arguments)
