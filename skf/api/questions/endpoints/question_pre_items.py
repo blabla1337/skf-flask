@@ -2,8 +2,8 @@
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import log, security_headers, validate_privilege, select_userid_jwt, val_num, val_alpha_num
-from skf.api.questions.business import store_pre_questions
-from skf.api.questions.serializers import question, store_list_items_pre, message
+from skf.api.questions.business import store_pre_questions, update_pre_questions
+from skf.api.questions.serializers import question, store_list_items_pre, update_list_items_pre, message
 from skf.api.questions.parsers import authorization, id_arguments
 from skf.api.restplus import api
 from skf.database.questions_pre import questions_pre
@@ -47,3 +47,29 @@ class QuestionPreStoreCollection(Resource):
         except:
             log("User triggered error creating new pre question list", "MEDIUM", "FAIL")
             return {'message': 'Pre questions not stored'}, 400, security_headers()
+
+
+@ns.route('/update/<int:id>')
+class QuestionPreUpdateCollection(Resource):
+
+    @api.expect(authorization, update_list_items_pre)
+    @api.marshal_with(message, 'Success')
+    @api.response(400, 'Validation Error', message)
+    def put(self, id):
+        """
+        Update list of question pre items.
+        Privileges required: edit
+        """
+        validate_privilege(self, 'edit')
+        user_id = select_userid_jwt(self)
+        val_num(id)
+        data = request.json
+        try:
+            log("User updated pre question list", "MEDIUM", "PASS")
+            update_pre_questions(id, user_id, data)
+            return {'message': 'Pre questions successfully updated'}, 200, security_headers()
+        except:
+            log("User triggered error updating new pre question list", "MEDIUM", "FAIL")
+            return {'message': 'Pre questions not updated'}, 400, security_headers()
+
+            

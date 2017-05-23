@@ -27,6 +27,10 @@ store_list_items_sprint = api.inherit('List of questions sprint', {
     'questions': fields.List(fields.Nested(list_sprint))
 })
 
+update_list_items_pre = api.inherit('List of questions pre', {
+    'questions': fields.List(fields.Nested(list_pre))
+})
+
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
 })

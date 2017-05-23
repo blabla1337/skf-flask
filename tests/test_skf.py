@@ -373,7 +373,7 @@ class TestRestPlusApi(unittest.TestCase):
 
 
     def test_store_questions_pre_items(self):
-        """Test if the question pre items call is working"""
+        """Test if the store question pre items call is working"""
         jwt = self.login('admin', 'admin') 
         payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
@@ -387,6 +387,26 @@ class TestRestPlusApi(unittest.TestCase):
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Pre questions successfully created")
 
+
+    def test_update_questions_pre_items(self):
+        """Test if the update question pre items call is working"""
+        jwt = self.login('admin', 'admin') 
+        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'version': 'version 1.0'}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "Project successfully created")
+        payload = {'projectID': '3', 'questions': [ {'question_pre_ID': '1','result': 'True'},{'question_pre_ID': '2','result': 'True'} ]}
+        response = self.client.put('/api/questions_pre/store', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "Pre questions successfully created")
+        payload = {'questions': [ {'question_pre_ID': '1','result': 'False'},{'question_pre_ID': '2','result': 'False'} ]}
+        response = self.client.put('/api/questions_pre/update/3', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "Pre questions successfully updated")
 
     def test_assert_403_project_get(self):
         headers = {'content-type': 'application/json'}
