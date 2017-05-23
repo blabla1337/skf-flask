@@ -95,9 +95,9 @@ class ProjectItemNew(Resource):
         user_id = select_userid_jwt(self)
         data = request.json
         try:
-            new_project(user_id, data)
+            projectID = new_project(user_id, data)
             log("User created new project", "MEDIUM", "PASS")
-            return {'message': 'Project successfully created'}, 200, security_headers()
+            return {'projectID': projectID, 'message': 'Project successfully created'}, 200, security_headers()
         except:
             log("User triggered error creating new project", "MEDIUM", "FAIL")
             return {'message': 'Project not created'}, 400, security_headers()

@@ -1,6 +1,7 @@
 import datetime
 
 from skf.database import db
+from sqlalchemy import desc
 from skf.database.projects import projects 
 from skf.database.groupmembers import groupmembers
 from skf.api.security import val_num, val_alpha, val_alpha_num
@@ -36,6 +37,8 @@ def new_project(user_id, data):
     project = projects(userID, groupID, projectName, projectVersion, projectDesc, ownerID, timestamp)
     db.session.add(project)
     db.session.commit()
+    project = (projects.query.filter(projects.userID == user_id).order_by(desc(projects.projectID)).first())
+    return project.projectID
 
 
 def delete_project(project_id, user_id):

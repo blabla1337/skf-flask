@@ -38,4 +38,5 @@ project_new = api.model('Project new', {
 
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
+    'projectID': fields.Integer(readOnly=True, description='The unique identifier of a project item'),  
 })
