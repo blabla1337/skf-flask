@@ -17,12 +17,12 @@ list_sprint = api.model('store_list_sprint', {
     'result': fields.String(readOnly=True, description='The question result'),
 })
 
-store_list_items_pre = api.inherit('List of questions', {
+store_list_items_pre = api.inherit('List of questions pre', {
     'projectID': fields.String(readOnly=True, description='The unique identifier of the projectID'),
     'questions': fields.List(fields.Nested(list_pre))
 })
 
-store_list_items_sprint = api.inherit('List of questions', {
+store_list_items_sprint = api.inherit('List of questions sprint', {
     'projectID': fields.String(readOnly=True, description='The unique identifier of the projectID'),
     'questions': fields.List(fields.Nested(list_sprint))
 })

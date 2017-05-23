@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/questions/endpoints/question_pre_items.py: 68%</title>
+    <title>Coverage for skf/api/questions/endpoints/question_pre_items.py: 90%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/questions/endpoints/question_pre_items.py</b> :
-            <span class="pc_cov">68%</span>
+            <span class="pc_cov">90%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
             31 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">21 run</span>
-            <span class="mis shortkey_m button_toggle_mis">10 missing</span>
+            <span class="run hide_run shortkey_r button_toggle_run">28 run</span>
+            <span class="mis shortkey_m button_toggle_mis">3 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -106,13 +106,13 @@
 <p id="n37" class="pln"><a href="#n37">37</a></p>
 <p id="n38" class="pln"><a href="#n38">38</a></p>
 <p id="n39" class="pln"><a href="#n39">39</a></p>
-<p id="n40" class="stm mis"><a href="#n40">40</a></p>
-<p id="n41" class="stm mis"><a href="#n41">41</a></p>
-<p id="n42" class="stm mis"><a href="#n42">42</a></p>
-<p id="n43" class="stm mis"><a href="#n43">43</a></p>
-<p id="n44" class="stm mis"><a href="#n44">44</a></p>
-<p id="n45" class="stm mis"><a href="#n45">45</a></p>
-<p id="n46" class="stm mis"><a href="#n46">46</a></p>
+<p id="n40" class="stm run hide_run"><a href="#n40">40</a></p>
+<p id="n41" class="stm run hide_run"><a href="#n41">41</a></p>
+<p id="n42" class="stm run hide_run"><a href="#n42">42</a></p>
+<p id="n43" class="stm run hide_run"><a href="#n43">43</a></p>
+<p id="n44" class="stm run hide_run"><a href="#n44">44</a></p>
+<p id="n45" class="stm run hide_run"><a href="#n45">45</a></p>
+<p id="n46" class="stm run hide_run"><a href="#n46">46</a></p>
 <p id="n47" class="stm mis"><a href="#n47">47</a></p>
 <p id="n48" class="stm mis"><a href="#n48">48</a></p>
 <p id="n49" class="stm mis"><a href="#n49">49</a></p>
@@ -129,10 +129,10 @@
 <p id="t8" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">restplus</span> <span class="key">import</span> <span class="nam">api</span><span class="strut">&nbsp;</span></p>
 <p id="t9" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span><span class="op">.</span><span class="nam">questions_pre</span> <span class="key">import</span> <span class="nam">questions_pre</span><span class="strut">&nbsp;</span></p>
 <p id="t10" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t11" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'question_pre/items'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to question pre items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'questions_pre'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to question pre items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t12" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t13" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t14" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t14" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="stm run hide_run"><span class="key">class</span> <span class="nam">QuestionPreCollection</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t16" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t17" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">question</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -158,13 +158,13 @@
 <p id="t37" class="pln"><span class="str">        Store list of question pre items.</span><span class="strut">&nbsp;</span></p>
 <p id="t38" class="pln"><span class="str">        Privileges required: edit</span><span class="strut">&nbsp;</span></p>
 <p id="t39" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
-<p id="t40" class="stm mis">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'edit'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t41" class="stm mis">        <span class="nam">user_id</span> <span class="op">=</span> <span class="nam">select_userid_jwt</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t42" class="stm mis">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
-<p id="t43" class="stm mis">        <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t44" class="stm mis">            <span class="nam">store_pre_questions</span><span class="op">(</span><span class="nam">user_id</span><span class="op">,</span> <span class="nam">data</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t45" class="stm mis">            <span class="nam">log</span><span class="op">(</span><span class="str">"User stored new pre question list"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t46" class="stm mis">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Pre questions successfully created'</span><span class="op">}</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t40" class="stm run hide_run">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'edit'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t41" class="stm run hide_run">        <span class="nam">user_id</span> <span class="op">=</span> <span class="nam">select_userid_jwt</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t42" class="stm run hide_run">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
+<p id="t43" class="stm run hide_run">        <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t44" class="stm run hide_run">            <span class="nam">store_pre_questions</span><span class="op">(</span><span class="nam">user_id</span><span class="op">,</span> <span class="nam">data</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t45" class="stm run hide_run">            <span class="nam">log</span><span class="op">(</span><span class="str">"User stored new pre question list"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t46" class="stm run hide_run">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Pre questions successfully created'</span><span class="op">}</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t47" class="stm mis">        <span class="key">except</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t48" class="stm mis">            <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error creating new pre question list"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t49" class="stm mis">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Pre questions not stored'</span><span class="op">}</span><span class="op">,</span> <span class="num">400</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -178,7 +178,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-23 00:17
+            created at 2017-05-23 10:55
         </p>
     </div>
 </div>

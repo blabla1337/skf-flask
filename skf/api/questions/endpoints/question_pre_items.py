@@ -8,10 +8,10 @@ from skf.api.questions.parsers import authorization, id_arguments
 from skf.api.restplus import api
 from skf.database.questions_pre import questions_pre
 
-ns = api.namespace('question_pre/items', description='Operations related to question pre items')
+ns = api.namespace('questions_pre', description='Operations related to question pre items')
 
 
-@ns.route('/')
+@ns.route('/items')
 class QuestionPreCollection(Resource):
 
     @api.marshal_with(question)

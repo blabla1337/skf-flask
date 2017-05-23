@@ -1,17 +1,17 @@
 
 from flask import request
 from flask_restplus import Resource
-from skf.api.security import log, security_headers, validate_privilege, val_num, val_alpha_num
+from skf.api.security import log, security_headers, validate_privilege, select_userid_jwt, val_num, val_alpha_num
 from skf.api.questions.business import store_sprint_questions
 from skf.api.questions.serializers import question, store_list_items_sprint, message
 from skf.api.questions.parsers import authorization, id_arguments
 from skf.api.restplus import api
 from skf.database.questions import questions
 
-ns = api.namespace('question_sprint/items', description='Operations related to question items')
+ns = api.namespace('questions_sprint', description='Operations related to question items')
 
 
-@ns.route('/')
+@ns.route('/items')
 class QuestionCollection(Resource):
 
     @api.marshal_with(question)
@@ -41,7 +41,7 @@ class QuestionSprintStoreCollection(Resource):
         user_id = select_userid_jwt(self)
         data = request.json
         try:
-            store_questions(user_id, data)
+            store_sprint_questions(user_id, data)
             log("User stored new sprint question list", "MEDIUM", "PASS")
             return {'message': 'Sprint questions successfully created'}, 200, security_headers()
         except:
