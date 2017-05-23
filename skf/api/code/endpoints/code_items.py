@@ -8,10 +8,10 @@ from skf.api.code.parsers import pagination_arguments, authorization, id_argumen
 from skf.api.restplus import api
 from skf.database.code_items import code_items
 
-ns = api.namespace('code/items', description='Operations related to code example items')
+ns = api.namespace('code', description='Operations related to code example items')
 
 
-@ns.route('/')
+@ns.route('/items')
 class CodeCollection(Resource):
 
     @api.expect(pagination_arguments)
@@ -51,7 +51,7 @@ class CodeItem(Resource):
             return {'message': 'Validation error'}, 400, security_headers()
 
 
-@ns.route('/code_lang/')
+@ns.route('/lang/')
 class CodeLangItem(Resource):
 
     @api.expect(code_lang)

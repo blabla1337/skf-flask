@@ -8,10 +8,10 @@ from skf.api.restplus import api
 from skf.database.checklists_kb import checklists_kb
 from skf.database.checklists import checklists
 
-ns = api.namespace('checklist/items', description='Operations related to checklist items')
+ns = api.namespace('checklist', description='Operations related to checklist items')
 
 
-@ns.route('/')
+@ns.route('/items')
 class ChecklistCollection(Resource):
 
     @api.expect()

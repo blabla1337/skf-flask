@@ -8,10 +8,10 @@ from skf.api.kb.parsers import pagination_arguments, authorization, id_arguments
 from skf.api.restplus import api
 from skf.database.kb_items import kb_items
 
-ns = api.namespace('kb/items', description='Operations related to kb items')
+ns = api.namespace('kb', description='Operations related to kb items')
 
 
-@ns.route('/')
+@ns.route('/items')
 class KBCollection(Resource):
 
     @api.expect(pagination_arguments)

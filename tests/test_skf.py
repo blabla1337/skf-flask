@@ -66,7 +66,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_checklist(self):
         """Test if the get checklist items call is working"""
-        response = self.client.get('/api/checklist/items/')
+        response = self.client.get('/api/checklist/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict[0]['checklist_items_checklistID'], "1.0")
@@ -74,13 +74,13 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_checklist_fail(self):
         """Test if the get checklist items fail call is working"""
-        response = self.client.get('/api/checklist/items/1337.1337')
+        response = self.client.get('/api/checklist/1337.1337')
         self.assertEqual(response.status_code, 400)
 
 
     def test_get_checklist_item_10(self):
         """Test if the get specific checklist item call is working"""
-        response = self.client.get('/api/checklist/items/10.0')
+        response = self.client.get('/api/checklist/10.0')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['checklist_items_checklistID'], "10.0")
@@ -90,7 +90,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the get specific checklist item by level call is working"""
         payload = {'level': '1'}
         headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/checklist/items/level', data=json.dumps(payload), headers=headers)
+        response = self.client.post('/api/checklist/level', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict[0]['checklist_items_content'], "Architecture, design and threat modelling")
@@ -99,7 +99,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_kb(self):
         """Test if the get kb items call is working"""
-        response = self.client.get('/api/kb/items/')
+        response = self.client.get('/api/kb/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][1]['title'], "External DTD parsing")
@@ -107,7 +107,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_kb_item_10(self):
         """Test if the get specific kb item call is working"""
-        response = self.client.get('/api/kb/items/10')
+        response = self.client.get('/api/kb/10')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['title'], "Repudiation attack")
@@ -118,11 +118,11 @@ class TestRestPlusApi(unittest.TestCase):
         jwt = self.login('admin', 'admin')        
         payload = {'content': 'Unit test content update', 'title': 'Unit test title update'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        response = self.client.put('/api/kb/items/update/1', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/kb/update/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "KB item successfully updated")
-        response = self.client.get('/api/kb/items/')
+        response = self.client.get('/api/kb/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['title'], "Unit test title update")
@@ -279,7 +279,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_code(self):
         """Test if the get code items call is working"""
-        response = self.client.get('/api/code/items/')
+        response = self.client.get('/api/code/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking headers")
@@ -287,7 +287,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_code_item_10(self):
         """Test if the get specific code item call is working"""
-        response = self.client.get('/api/code/items/10')
+        response = self.client.get('/api/code/10')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['title'], "Enforce secure passwords")
@@ -298,11 +298,11 @@ class TestRestPlusApi(unittest.TestCase):
         jwt = self.login('admin', 'admin')        
         payload = {'code_lang': 'php', 'content': 'Unit test content update', 'title': 'Unit test title update'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        response = self.client.put('/api/code/items/update/1', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/code/update/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Code example item successfully updated")
-        response = self.client.get('/api/code/items/')
+        response = self.client.get('/api/code/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['title'], "Unit test title update")
@@ -312,7 +312,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the php language code items call is working"""
         payload = {'code_lang': 'php'}
         headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/code/items/code_lang/', data=json.dumps(payload), headers=headers)
+        response = self.client.post('/api/code/lang/', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['title'], "File upload")
@@ -322,7 +322,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the asp language code items call is working"""
         payload = {'code_lang': 'asp'}
         headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/code/items/code_lang/', data=json.dumps(payload), headers=headers)
+        response = self.client.post('/api/code/lang/', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking headers")
@@ -332,7 +332,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the java language code items call is working"""
         payload = {'code_lang': 'java'}
         headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/code/items/code_lang/', data=json.dumps(payload), headers=headers)
+        response = self.client.post('/api/code/lang/', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][1]['title'], "CSRF Token JSF")
