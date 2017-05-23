@@ -32,6 +32,7 @@ def init_db():
     except:
         return False
 
+
 def get_db():
     """Opens a new database connection if there is none yet for the current application context."""
     if not hasattr(g, settings.DATABASE):
@@ -55,10 +56,11 @@ def init_md_knowledge_base():
                 query = "INSERT OR REPLACE INTO kb_items (content, title) VALUES ('"+content_escaped+"', '"+title+"'); \n"
                 with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                         myfile.write(query)
-        print('Initialized the markdown knowledge-base items to database.')
+        print('Initialized the markdown knowledge-base.')
         return True
     except:
         return False
+
 
 def init_md_code_examples():
     """Converts markdown code-example items to DB."""
@@ -78,10 +80,11 @@ def init_md_code_examples():
                     query = "INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('"+content_escaped+"', '"+title+"', '"+lang+"'); \n"
                     with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                             myfile.write(query)
-        print('Initialized the markdown code-example items to database.')
+        print('Initialized the markdown code-example.')
         return True
     except:
         return False
+
 
 def init_md_checklists():
     """Converts markdown checklists items to DB."""
@@ -122,7 +125,7 @@ def init_md_checklists():
                     query = "INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"'); \n"
                     with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                             myfile.write(query)
-        print('Initialized the markdown checklist items to database.')
+        print('Initialized the markdown checklists.')
         return True
     except:
         return False    

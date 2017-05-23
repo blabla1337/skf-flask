@@ -199,7 +199,6 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['message'], "Project successfully deleted")
 
 
-
     def test_create_sprint(self):
         """Test if the create new sprint call is working"""
         jwt = self.login('admin', 'admin')        
@@ -394,11 +393,13 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/project/1')
         self.assertEqual(response.status_code, 403)
 
+
     def test_assert_403_project_new(self):
         payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'version': 'version 1.0'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)
+
 
     def test_assert_403_project_update(self):
         payload = {'description': 'Unit test description project update', 'name': 'Unit test name project update', 'version': 'version 1.1'}
@@ -406,11 +407,13 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.put('/api/project/update/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)
 
+
     def test_assert_403_project_delete(self):
         payload = {'test': 'test'}
         headers = {'content-type': 'application/json'}
         response = self.client.delete('/api/project/delete/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)
+
 
     def test_assert_403_user_create(self):
         payload = {'email': 'test_user123@owasp.org', 'privilege': 1}
