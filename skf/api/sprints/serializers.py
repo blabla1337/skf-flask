@@ -27,4 +27,5 @@ sprint_new = api.model('Sprint new', {
 
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
+    'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),  
 })

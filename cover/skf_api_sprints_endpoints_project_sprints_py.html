@@ -251,9 +251,9 @@
 <p id="t74" class="stm run hide_run">        <span class="nam">user_id</span> <span class="op">=</span> <span class="nam">select_userid_jwt</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t75" class="stm run hide_run">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
 <p id="t76" class="stm run hide_run">        <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t77" class="stm run hide_run">            <span class="nam">new_sprint</span><span class="op">(</span><span class="nam">user_id</span><span class="op">,</span> <span class="nam">data</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t77" class="stm run hide_run">            <span class="nam">sprintID</span> <span class="op">=</span> <span class="nam">new_sprint</span><span class="op">(</span><span class="nam">user_id</span><span class="op">,</span> <span class="nam">data</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t78" class="stm run hide_run">            <span class="nam">log</span><span class="op">(</span><span class="str">"User created new sprint"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t79" class="stm run hide_run">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Sprint successfully created'</span><span class="op">}</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t79" class="stm run hide_run">            <span class="key">return</span> <span class="op">{</span><span class="str">'sprintID'</span><span class="op">:</span> <span class="nam">sprintID</span><span class="op">,</span> <span class="str">'message'</span><span class="op">:</span> <span class="str">'Sprint successfully created'</span><span class="op">}</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t80" class="stm mis">        <span class="key">except</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t81" class="stm mis">            <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error creating new sprint"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t82" class="stm mis">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Sprint not created'</span><span class="op">}</span><span class="op">,</span> <span class="num">400</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -290,7 +290,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-23 00:17
+            created at 2017-05-24 22:42
         </p>
     </div>
 </div>

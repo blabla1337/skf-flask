@@ -74,9 +74,9 @@ class ProjectSprintItemNew(Resource):
         user_id = select_userid_jwt(self)
         data = request.json
         try:
-            new_sprint(user_id, data)
+            sprintID = new_sprint(user_id, data)
             log("User created new sprint", "MEDIUM", "PASS")
-            return {'message': 'Sprint successfully created'}, 200, security_headers()
+            return {'sprintID': sprintID, 'message': 'Sprint successfully created'}, 200, security_headers()
         except:
             log("User triggered error creating new sprint", "MEDIUM", "FAIL")
             return {'message': 'Sprint not created'}, 400, security_headers()
