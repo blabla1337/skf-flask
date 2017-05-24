@@ -100,7 +100,6 @@
 <p id="n31" class="stm mis"><a href="#n31">31</a></p>
 <p id="n32" class="stm mis"><a href="#n32">32</a></p>
 <p id="n33" class="stm mis"><a href="#n33">33</a></p>
-<p id="n34" class="pln"><a href="#n34">34</a></p>
 
             </td>
             <td class="text">
@@ -114,10 +113,10 @@
 <p id="t8" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">restplus</span> <span class="key">import</span> <span class="nam">api</span><span class="strut">&nbsp;</span></p>
 <p id="t9" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span><span class="op">.</span><span class="nam">users</span> <span class="key">import</span> <span class="nam">users</span><span class="strut">&nbsp;</span></p>
 <p id="t10" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t11" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'user/create'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to creating of users'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'user'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to creating of users'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t12" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t13" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t14" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t14" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/create'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="stm run hide_run"><span class="key">class</span> <span class="nam">userCreation</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t16" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t17" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">authorization</span><span class="op">,</span> <span class="nam">create</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -137,7 +136,6 @@
 <p id="t31" class="stm mis">        <span class="key">except</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t32" class="stm mis">            <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error creating new user"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t33" class="stm mis">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'User not created'</span><span class="op">}</span><span class="op">,</span> <span class="num">400</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t34" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -148,7 +146,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-12 17:32
+            created at 2017-05-24 09:49
         </p>
     </div>
 </div>

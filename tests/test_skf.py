@@ -37,7 +37,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the login call is working"""
         payload = {'username': 'admin', 'password': 'admin'}
         headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/user/login/', data=json.dumps(payload), headers=headers)
+        response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertTrue(response_dict.get('Authorization token'))
@@ -48,7 +48,7 @@ class TestRestPlusApi(unittest.TestCase):
         jwt = self.login('admin', 'admin')
         payload = {'email': 'test_user@owasp.org', 'privilege': 1}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        response = self.client.put('/api/user/create/', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['email'], "test_user@owasp.org")
@@ -58,7 +58,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Login method needed for testing"""
         payload = {'username': ''+username+'', 'password': ''+password+''}
         headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/user/login/', data=json.dumps(payload), headers=headers)
+        response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         return response_dict.get('Authorization token')
@@ -438,7 +438,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_assert_403_user_create(self):
         payload = {'email': 'test_user123@owasp.org', 'privilege': 1}
         headers = {'content-type': 'application/json'}
-        response = self.client.put('/api/user/create/', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)
 
 

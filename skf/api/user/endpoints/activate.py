@@ -7,10 +7,10 @@ from skf.api.user.serializers import activate, message
 from skf.api.restplus import api
 from skf.database.users import users
 
-ns = api.namespace('user/activate', description='Operations related to activation of users')
+ns = api.namespace('user', description='Operations related to users')
 
 
-@ns.route('/<int:id>')
+@ns.route('/activate/<int:id>')
 class userActivation(Resource):
 
     @api.expect(activate)

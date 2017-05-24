@@ -7,10 +7,10 @@ from skf.api.user.serializers import login, message, token_auth
 from skf.api.restplus import api
 from skf.database.users import users
 
-ns = api.namespace('user/login', description='Operations related to login of users')
+ns = api.namespace('user', description='Operations related to users')
 
 
-@ns.route('/')
+@ns.route('/login')
 class userLogin(Resource):
 
     @api.expect(login)

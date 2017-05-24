@@ -8,10 +8,10 @@ from skf.api.user.parsers import authorization
 from skf.api.restplus import api
 from skf.database.users import users
 
-ns = api.namespace('user/create', description='Operations related to creating of users')
+ns = api.namespace('user', description='Operations related to users')
 
 
-@ns.route('/')
+@ns.route('/create')
 class userCreation(Resource):
 
     @api.expect(authorization, create)
@@ -31,4 +31,3 @@ class userCreation(Resource):
         except:
             log("User triggered error creating new user", "MEDIUM", "FAIL")
             return {'message': 'User not created'}, 400, security_headers()
-
