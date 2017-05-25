@@ -24,6 +24,7 @@ store_list_items_pre = api.inherit('List of questions pre', {
 
 store_list_items_sprint = api.inherit('List of questions sprint', {
     'projectID': fields.String(readOnly=True, description='The unique identifier of the projectID'),
+    'sprintID': fields.String(readOnly=True, description='The unique identifier of the sprintID'),
     'questions': fields.List(fields.Nested(list_sprint))
 })
 

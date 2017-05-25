@@ -356,7 +356,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Project successfully created")
-        payload = {'projectID': '3', 'questions': [ {'question_sprint_ID': '1','result': 'True'},{'question_sprint_ID': '2','result': 'True'} ]}
+        payload = {'projectID': '3', 'sprintID': '1', 'questions': [ {'question_sprint_ID': '1','result': 'True'},{'question_sprint_ID': '2','result': 'True'} ]}
         response = self.client.put('/api/questions_sprint/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))

@@ -26,8 +26,7 @@ def update_pre_questions(project_id, user_id, data):
     clear_rows.delete(synchronize_session=False)
     db.session.commit()
     project = projects.query.filter(projects.projectID == project_id).one()
-    userID = user_id
-    groupmember = groupmembers.query.filter(groupmembers.userID == userID).one()
+    groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
     if groupmember.ownerID == project.ownerID & groupmember.groupID == project.groupID:
         for result in data.get('questions'):
             question_pre_ID = result['question_pre_ID']
@@ -39,14 +38,14 @@ def update_pre_questions(project_id, user_id, data):
 
 def store_sprint_questions(user_id, data):
     project_id = data.get('projectID')
+    sprint_id = data.get('sprintID')
     project = projects.query.filter(projects.projectID == project_id).one()
-    userID = user_id
-    groupmember = groupmembers.query.filter(groupmembers.userID == userID).one()
+    groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
     if groupmember.ownerID == project.ownerID & groupmember.groupID == project.groupID:
         for result in data.get('questions'):
             question_sprint_ID = result['question_sprint_ID']
             question_result = result['result']
-            questions = question_sprint_results(project_id, question_sprint_ID, question_result)
+            questions = question_sprint_results(project_id, sprint_id, question_sprint_ID, question_result)
             db.session.add(questions)
             db.session.commit()
 

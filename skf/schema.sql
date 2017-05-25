@@ -186,7 +186,6 @@ CREATE TABLE `checklists` (
 );
 
 
-
 --
 -- Table structure for table `question_sprint_results`
 --
@@ -194,6 +193,7 @@ drop table if exists `question_sprint_results`;
 CREATE TABLE `question_sprint_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `projectID` int(11) NOT NULL,
+`sprintID` int(11) NOT NULL,
 `question_sprint_ID` int(11) NOT NULL,
 `result` boolean
 );
