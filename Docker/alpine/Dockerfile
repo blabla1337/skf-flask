@@ -32,4 +32,4 @@ USER nobody
 
 EXPOSE 5443
 
-[ENTRYPOINT ["python", "skf.py", "--saas"]
+ENTRYPOINT ["python", "skf.py", "--saas"]
