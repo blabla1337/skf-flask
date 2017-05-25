@@ -191,7 +191,7 @@ public class Xpath  implements Serializable {
 				    type_result = salt_expr.evaluate(document, XPathConstants.STRING).toString();  
 	    
 					} catch (Exception e) {
-		       			e.printStackTrace();
+		       			logger.error(" General error in executing xpath query :" + e.toString()); 
 		       		}  
 	        
 					
@@ -242,7 +242,7 @@ public class Xpath  implements Serializable {
 	        	    login_result = login_expr.evaluate(document, XPathConstants.STRING).toString(); 
 	        	    
 				} catch (Exception e) {
-	       			e.printStackTrace();
+	       			logger.error(" General error in executing xpath query :" + e.toString());
 	       		}  
         
 				
