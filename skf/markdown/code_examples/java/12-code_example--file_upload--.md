@@ -209,7 +209,6 @@ public class FileUpload extends HttpServlet {
 			try {
 				mimeType = WinRegistry.readString(WinRegistry.HKEY_LOCAL_MACHINE, "SOFTWARE\\Classes\\"+key, "Content Type");
 			} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
-				// TODO Auto-generated catch block
 				logger.error("Problems reading the extension value on Windows registry. Error: " + e.toString());
 			}
 

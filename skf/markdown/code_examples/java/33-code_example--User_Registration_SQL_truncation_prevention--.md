@@ -123,8 +123,7 @@ public class RegisterUser {
 	            passhash = hash.hashPassword(salt, password);
 	        
 			} catch (InvalidKeyException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error("Error in hasing algorithm " + e.toString();
 			}   
 	        
 			 //Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 

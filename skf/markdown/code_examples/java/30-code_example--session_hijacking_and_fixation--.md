@@ -110,7 +110,6 @@ public class SessionHijack extends HttpServlet{
     
     public SessionHijack() {
         super();
-        // TODO Auto-generated constructor stub
     }
 	
 	//First we include the audit log class.
@@ -191,7 +190,6 @@ public class SessionHijack extends HttpServlet{
 
 	
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	response.getWriter().append("Served at: ").append(request.getContextPath()).append(" - OWASP Knowledge Base Code Examples");
 }
 

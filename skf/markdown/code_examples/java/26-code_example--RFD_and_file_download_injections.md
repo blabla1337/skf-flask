@@ -81,8 +81,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import java.util.regex.Pattern;
 
 import javax.faces.application.FacesMessage;
@@ -113,8 +112,8 @@ public class FileDownloader {
     // Canonical means the simplest or most standard form of something. Canonicalization is the process of converting something from one representation to the simplest form.
     // Web applications have to deal with lots of canonicalization issues from URL encoding to IP address translation. 
     // When security decisions are made based on less than perfectly canonicalized data, the application itself must be able to deal with unexpected input safely. 
-    
-    private final static Logger LOGGER = Logger.getLogger(FileUploader.class.getCanonicalName());
+	
+	final static Logger logger = Logger.getLogger(FileUploader.class);
     private AuditLog Log = new AuditLog(); 
     private WhiteList wl = new WhiteList();
     InputValidation validate = new InputValidation();
@@ -219,7 +218,7 @@ public class FileDownloader {
               st.close();
               conn.close();
             } catch (SQLException | NamingException e) {
-                LOGGER.log(Level.SEVERE, "cannot read from database. check query = {0}", e.toString());
+				logger.error("cannot read from database. check query :" e.toString());
             }     
 
             /*
@@ -250,7 +249,7 @@ public class FileDownloader {
             out.flush();
             
             } catch (IOException e) {
-                LOGGER.log(Level.SEVERE, "Cannot download file = {0}", e.toString());
+				logger.error("Cannot download file - " e.toString());
             }
           
         }
@@ -267,8 +266,7 @@ public class FileDownloader {
              try {
                 ec.redirect(ec.getRequestContextPath() + "/Menu.xhtml");
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                LOGGER.log(Level.SEVERE, "Cannot redirect = {0}", e.toString());
+				logger.error("Cannot redirect - " e.toString());
             }
         }
         if (action.equals("validation failed"))
@@ -329,7 +327,7 @@ public class FileDownloader {
                 in.close();
                 out.flush();
                 } catch (IOException e) {
-                    LOGGER.log(Level.SEVERE, "Cannot download file = {0}", e.toString());
+					logger.error("Cannot download file - " e.toString());
             
                 }
               

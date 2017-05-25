@@ -76,12 +76,10 @@ private static final long serialVersionUID = 1L;
 
 public CheckCSRF() {
 super();
-// TODO Auto-generated constructor stub
 }
 
 //here we are sending the token towards the function which does the token validation    
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-// TODO Auto-generated method stub
 
 String token = request.getParameter("token");
 String sessionToken = (String) request.getSession().getAttribute("CSRF")
@@ -105,7 +103,6 @@ if(!sessionToken.equals(token))
 }
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-// TODO Auto-generated method stub
 super.doGet(request, response);
 }
 

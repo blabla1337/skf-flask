@@ -49,7 +49,6 @@ public class Hashing {
 		try {
 			Hasher = new Rfc2898DeriveBytes(Password + "ALongPepperValue",Salt.getBytes(), 10000);
 		} catch (InvalidKeyException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			logger.error("error in hasing password!" + e.toString());
 		}
         String bencoded = new String(Base64.encodeBase64(Hasher.GetBytes(25)));
@@ -62,8 +61,7 @@ public class Hashing {
         Rfc2898DeriveBytes Hasher = null;
 		try {
 			Hasher = new Rfc2898DeriveBytes(enteredPassword + "ALongPepperValue",saltHash.getBytes(), 10000);
-		} catch (InvalidKeyException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
+		} catch (InvalidKeyException | NoSuchAlgorithmException | UnsupportedEncodingException e) 
 			logger.error("Validation error in hasing password!" + e.toString());
 		}
         String bencoded = new String(Base64.encodeBase64(Hasher.GetBytes(25)));
