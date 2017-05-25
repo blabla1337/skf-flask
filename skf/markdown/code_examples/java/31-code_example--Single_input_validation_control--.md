@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 public class InputValidation {
 	
 	private AuditLog Log = new AuditLog(); 
-	public String validate = "pass"; 
+	private String validate = "pass"; 
 	
 	 public String validateInput(String user_id,String input, String type, String logMessage, String remote_address, String theatLevel)
      {

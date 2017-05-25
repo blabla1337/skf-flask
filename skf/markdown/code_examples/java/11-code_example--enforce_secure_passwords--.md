@@ -87,7 +87,7 @@ public class PasswordCheck {
 
          }
 
-         if (complete == true)
+         if (complete)
          {
              //Do further operation
              return true;
