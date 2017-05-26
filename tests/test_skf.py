@@ -381,7 +381,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Project successfully created")
-        payload = {'projectID': '3', 'questions': [ {'question_pre_ID': '1','result': 'True'},{'question_pre_ID': '2','result': 'True'} ]}
+        payload = {'projectID': '2', 'questions': [ {'question_pre_ID': '1','result': 'True'},{'question_pre_ID': '2','result': 'False'},{'question_pre_ID': '3','result': 'True'} ]}
         response = self.client.put('/api/questions_pre/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -397,7 +397,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Project successfully created")
-        payload = {'projectID': '3', 'questions': [ {'question_pre_ID': '1','result': 'True'},{'question_pre_ID': '2','result': 'True'} ]}
+        payload = {'projectID': '2', 'questions': [ {'question_pre_ID': '1','result': 'True'},{'question_pre_ID': '2','result': 'True'} ]}
         response = self.client.put('/api/questions_pre/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
