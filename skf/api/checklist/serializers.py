@@ -3,7 +3,8 @@ from skf.api.restplus import api
 
 
 checklist = api.model('checklist', {
-    'questionID': fields.String(readOnly=True, description='The unique identifier of a question item'),
+    'question_pre_ID': fields.String(readOnly=True, description='The unique identifier of a question pre item'),
+    'question_sprint_ID': fields.String(readOnly=True, description='The unique identifier of a question sprint item'),
     'codeID_php': fields.String(readOnly=True, description='The unique identifier of a php code item'),
     'codeID_asp': fields.String(readOnly=True, description='The unique identifier of a asp code item'),
     'codeID_java': fields.String(readOnly=True, description='The unique identifier of a java code item'),

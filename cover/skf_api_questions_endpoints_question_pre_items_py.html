@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/questions/endpoints/question_pre_items.py: 87%</title>
+    <title>Coverage for skf/api/questions/endpoints/question_pre_items.py: 93%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/questions/endpoints/question_pre_items.py</b> :
-            <span class="pc_cov">87%</span>
+            <span class="pc_cov">93%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            47 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">41 run</span>
-            <span class="mis shortkey_m button_toggle_mis">6 missing</span>
+            43 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">40 run</span>
+            <span class="mis shortkey_m button_toggle_mis">3 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -136,12 +136,9 @@
 <p id="n67" class="stm run hide_run"><a href="#n67">67</a></p>
 <p id="n68" class="stm run hide_run"><a href="#n68">68</a></p>
 <p id="n69" class="stm run hide_run"><a href="#n69">69</a></p>
-<p id="n70" class="stm run hide_run"><a href="#n70">70</a></p>
-<p id="n71" class="stm mis"><a href="#n71">71</a></p>
-<p id="n72" class="stm mis"><a href="#n72">72</a></p>
-<p id="n73" class="stm mis"><a href="#n73">73</a></p>
-<p id="n74" class="pln"><a href="#n74">74</a></p>
-<p id="n75" class="pln"><a href="#n75">75</a></p>
+<p id="n70" class="pln"><a href="#n70">70</a></p>
+<p id="n71" class="pln"><a href="#n71">71</a></p>
+<p id="n72" class="pln"><a href="#n72">72</a></p>
 
             </td>
             <td class="text">
@@ -211,15 +208,12 @@
 <p id="t64" class="stm run hide_run">        <span class="nam">user_id</span> <span class="op">=</span> <span class="nam">select_userid_jwt</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t65" class="stm run hide_run">        <span class="nam">val_num</span><span class="op">(</span><span class="nam">id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t66" class="stm run hide_run">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
-<p id="t67" class="stm run hide_run">        <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t68" class="stm run hide_run">            <span class="nam">log</span><span class="op">(</span><span class="str">"User updated pre question list"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t69" class="stm run hide_run">            <span class="nam">update_pre_questions</span><span class="op">(</span><span class="nam">id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">,</span> <span class="nam">data</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t70" class="stm run hide_run">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Pre questions successfully updated'</span><span class="op">}</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t71" class="stm mis">        <span class="key">except</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t72" class="stm mis">            <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error updating new pre question list"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t73" class="stm mis">            <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Pre questions not updated'</span><span class="op">}</span><span class="op">,</span> <span class="num">400</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t74" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t75" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t67" class="stm run hide_run">        <span class="nam">log</span><span class="op">(</span><span class="str">"User updated pre question list"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t68" class="stm run hide_run">        <span class="nam">update_pre_questions</span><span class="op">(</span><span class="nam">id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">,</span> <span class="nam">data</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t69" class="stm run hide_run">        <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Pre questions successfully updated'</span><span class="op">}</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t70" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t71" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t72" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -230,7 +224,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-23 12:49
+            created at 2017-05-26 16:15
         </p>
     </div>
 </div>

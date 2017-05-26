@@ -12,24 +12,24 @@ list_pre = api.model('store_list_pre', {
     'result': fields.String(readOnly=True, description='The question result'),
 })
 
-list_sprint = api.model('store_list_sprint', {
-    'question_sprint_ID': fields.String(readOnly=True, description='The unique identifier of a question sprint item'),
-    'result': fields.String(readOnly=True, description='The question result'),
-})
-
 store_list_items_pre = api.inherit('List of questions pre', {
     'projectID': fields.String(readOnly=True, description='The unique identifier of the projectID'),
     'questions': fields.List(fields.Nested(list_pre))
 })
 
-store_list_items_sprint = api.inherit('List of questions sprint', {
-    'projectID': fields.String(readOnly=True, description='The unique identifier of the projectID'),
-    'sprintID': fields.String(readOnly=True, description='The unique identifier of the sprintID'),
-    'questions': fields.List(fields.Nested(list_sprint))
-})
-
 update_list_items_pre = api.inherit('List of questions pre', {
     'questions': fields.List(fields.Nested(list_pre))
+})
+
+list_sprint = api.model('store_list_sprint', {
+    'question_sprint_ID': fields.String(readOnly=True, description='The unique identifier of a question sprint item'),
+    'result': fields.String(readOnly=True, description='The question result'),
+})
+
+store_list_items_sprint = api.inherit('List of questions sprint', {
+    'sprintID': fields.String(readOnly=True, description='The unique identifier of the sprintID'),
+    'projectID': fields.String(readOnly=True, description='The unique identifier of the projectID'),
+    'questions': fields.List(fields.Nested(list_sprint))
 })
 
 message = api.model('Response message', {

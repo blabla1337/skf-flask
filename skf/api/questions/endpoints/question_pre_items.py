@@ -64,12 +64,9 @@ class QuestionPreUpdateCollection(Resource):
         user_id = select_userid_jwt(self)
         val_num(id)
         data = request.json
-        try:
-            log("User updated pre question list", "MEDIUM", "PASS")
-            update_pre_questions(id, user_id, data)
-            return {'message': 'Pre questions successfully updated'}, 200, security_headers()
-        except:
-            log("User triggered error updating new pre question list", "MEDIUM", "FAIL")
-            return {'message': 'Pre questions not updated'}, 400, security_headers()
+        log("User updated pre question list", "MEDIUM", "PASS")
+        update_pre_questions(id, user_id, data)
+        return {'message': 'Pre questions successfully updated'}, 200, security_headers()
+
 
             
