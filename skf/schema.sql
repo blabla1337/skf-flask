@@ -243,7 +243,7 @@ CREATE TABLE `checklists_kb` (
 `codeID_python` int(11),
 `include_always` boolean,
 `include_first` boolean
-);
+); 
 
 
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES (1.0, 0, 0, 0, 0, 0, 0, 0, 'False', 'False');

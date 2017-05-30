@@ -4,6 +4,7 @@ from skf.database import db
 from sqlalchemy import desc
 from skf.database.projects import projects 
 from skf.database.groupmembers import groupmembers
+from skf.database.checklists_results import checklists_results
 from skf.api.security import val_num, val_alpha, val_alpha_num
 
 def update_project(project_id, user_id, data):
@@ -45,3 +46,14 @@ def delete_project(project_id, user_id):
     project = (projects.query.filter(projects.projectID == project_id).filter(projects.userID == user_id).one())
     db.session.delete(project)
     db.session.commit()
+
+
+def stats_project(project_id):
+    project_info = (projects.query.filter(projects.projectID == project_id).one())
+    project_name = project_info.projectName
+    project_desc = project_info.projectDesc
+    project_open = (checklists_results.query.filter(checklists_results.projectID == project_id).filter(checklists_results.status == 1).group_by(checklists_results.checklistID).count())
+    project_closed = (checklists_results.query.filter(checklists_results.projectID == project_id).filter(checklists_results.status == 2).group_by(checklists_results.checklistID).count())
+    project_accepted = (checklists_results.query.filter(checklists_results.projectID == project_id).filter(checklists_results.status == 3).group_by(checklists_results.checklistID).count())
+    project = {'project_id': project_id, 'project_name': project_name, 'project_desc': project_desc, 'project_open': project_open, 'project_closed': project_closed, 'project_accepted': project_accepted}
+    return project

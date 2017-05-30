@@ -2,8 +2,8 @@
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import log, security_headers, validate_privilege, select_userid_jwt, val_num
-from skf.api.projects.business import new_project, update_project, delete_project
-from skf.api.projects.serializers import page_of_project_items, project, project_update, project_new, message
+from skf.api.projects.business import new_project, update_project, delete_project, stats_project
+from skf.api.projects.serializers import page_of_project_items, project, project_update, project_new, message, project_stats
 from skf.api.projects.parsers import pagination_arguments, authorization
 from skf.api.restplus import api
 from skf.database.projects import projects
@@ -124,3 +124,27 @@ class ProjectItemDelete(Resource):
         except:
             log("User triggered error deleting project", "MEDIUM", "FAIL")
             return {'message': 'Project not deleted'}, 400, security_headers()
+
+
+@ns.route('/stats/<int:id>')
+class ProjectStats(Resource):
+
+    @api.expect(authorization)
+    @api.marshal_with(project_stats)
+    @api.response(400, 'Validation Error', message)
+    def get(self, id):
+        """
+        Returns project stats.
+        Privileges required: read
+        """
+        validate_privilege(self, 'read')
+        val_num(id)
+        user_id = select_userid_jwt(self)
+        stats = stats_project(id)
+        try:
+            log("User requested specific project stats", "MEDIUM", "PASS")
+            return stats, 200, security_headers()
+        except:
+            log("User triggered error requesting stats", "MEDIUM", "FAIL")
+            return {'message': 'Project stats not available'}, 400, security_headers()
+

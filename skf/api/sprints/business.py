@@ -2,12 +2,13 @@ import datetime
 
 from skf.database import db
 from sqlalchemy import desc
-from skf.database.project_sprints import project_sprints 
 from skf.database.groupmembers import groupmembers
+from skf.database.project_sprints import project_sprints 
+from skf.database.checklists_results import checklists_results 
 from skf.api.security import val_num, val_alpha, val_alpha_num
 
-def update_sprint(project_id, user_id, data):
-    sprint = project_sprints.query.filter(project_sprints.projectID == project_id).one()
+def update_sprint(sprint_id, user_id, data):
+    sprint = project_sprints.query.filter(project_sprints.sprintID == sprint_id).one()
     sprint.sprintName = data.get('name')
     sprint.sprintDesc = data.get('description')
     db.session.add(sprint) 
@@ -28,6 +29,18 @@ def new_sprint(user_id, data):
     db.session.commit()
     sprint = (project_sprints.query.filter(project_sprints.groupID == groupID).order_by(desc(project_sprints.sprintID)).first())
     return sprint.sprintID
+
+
+def stats_sprint(sprint_id):
+    sprint_info = (project_sprints.query.filter(project_sprints.sprintID == sprint_id).one())
+    sprint_id = sprint_info.sprintID
+    sprint_desc = sprint_info.sprintDesc
+    sprint_name = sprint_info.sprintName
+    sprint_open = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 1).group_by(checklists_results.checklistID).count())
+    sprint_closed = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 2).group_by(checklists_results.checklistID).count())
+    sprint_accepted = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 3).group_by(checklists_results.checklistID).count())
+    sprint = {'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted}
+    return sprint
 
 
 def delete_sprint(sprint_id, user_id):

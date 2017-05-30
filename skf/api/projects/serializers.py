@@ -11,6 +11,15 @@ project = api.model('project', {
     'timestamp': fields.String(required=True, description='Project timestamp'),
 })
 
+project_stats = api.model('project_stats', {
+    'project_id': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
+    'project_name': fields.String(required=True, description='The name of a project'),
+    'project_desc': fields.String(required=True, description='The description of a project'),
+    'project_open': fields.Integer(readOnly=True, description='The count of open items per project'),
+    'project_closed': fields.Integer(readOnly=True, description='The count of closed items per project'),
+    'project_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per project'),
+})
+
 pagination = api.model('A page of results', {
     'page': fields.Integer(description='Number of this page of results'),
     'pages': fields.Integer(description='Total number of pages of results'),
@@ -40,3 +49,4 @@ message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
     'projectID': fields.Integer(readOnly=True, description='The unique identifier of a project item'),  
 })
+

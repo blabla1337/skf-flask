@@ -2,12 +2,13 @@
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import log, security_headers, validate_privilege, select_userid_jwt, val_num
-from skf.api.sprints.business import new_sprint, update_sprint, delete_sprint
-from skf.api.sprints.serializers import sprint, sprint_update, sprint_new, message
+from skf.api.sprints.business import new_sprint, update_sprint, delete_sprint, stats_sprint
+from skf.api.sprints.serializers import sprint, sprint_update, sprint_new, message, sprint_stats
 from skf.api.sprints.parsers import authorization
 from skf.api.restplus import api
-from skf.database.project_sprints import project_sprints
 from skf.database.groupmembers import groupmembers
+from skf.database.project_sprints import project_sprints
+from skf.database.checklists_results import checklists_results
 
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
@@ -29,7 +30,7 @@ class ProjectSprintItem(Resource):
         user_id = select_userid_jwt(self)
         try:
             log("User requested specific sprint", "MEDIUM", "PASS")
-            return (project_sprints.query.filter(project_sprints.projectID == id).all()), 200, security_headers()
+            return (project_sprints.query.filter(project_sprints.sprintID == id).all()), 200, security_headers()
         except:
             log("User triggered error requesting specific sprint", "MEDIUM", "FAIL")
             return {'message': 'Validation error'}, 400, security_headers()
@@ -103,3 +104,27 @@ class ProjectSprintItemDelete(Resource):
         except:
             log("User triggered error deleting sprint", "MEDIUM", "FAIL")
             return {'message': 'Sprint not deleted'}, 400, security_headers()
+
+
+@ns.route('/stats/<int:id>')
+class ProjectSprintStats(Resource):
+
+    @api.expect(authorization)
+    @api.marshal_with(sprint_stats)
+    @api.response(400, 'Validation Error', message)
+    def get(self, id):
+        """
+        Returns sprints stats.
+        Privileges required: read
+        """
+        validate_privilege(self, 'read')
+        val_num(id)
+        user_id = select_userid_jwt(self)
+        stats = stats_sprint(id)
+        try:
+            log("User requested specific project sprint stats", "MEDIUM", "PASS")
+            return stats, 200, security_headers()
+        except:
+            log("User triggered error requesting sprint stats", "MEDIUM", "FAIL")
+            return {'message': 'Sprint stats not available'}, 400, security_headers()
+

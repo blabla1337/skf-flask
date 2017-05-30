@@ -9,6 +9,15 @@ sprint = api.model('sprint', {
     'sprintDesc': fields.String(required=True, description='Sprint description'),
 })
 
+sprint_stats = api.model('sprint_stats', {
+    'sprint_id': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
+    'sprint_name': fields.String(required=True, description='The name of a sprint'),
+    'sprint_desc': fields.String(required=True, description='The description of a sprint'),
+    'sprint_open': fields.Integer(readOnly=True, description='The count of open items per sprint'),
+    'sprint_closed': fields.Integer(readOnly=True, description='The count of closed items per sprint'),
+    'sprint_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per sprint'),
+})
+
 page_of_sprint_items = api.inherit('Page of sprint items', {
     'items': fields.List(fields.Nested(sprint))
 })
