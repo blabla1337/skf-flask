@@ -43,8 +43,12 @@ public class Rewrite extends HttpServlet
             boolean validated = true;
 
             //see the "input validation" code example for more detailed information about this function
-            if (validate.validateInput(getFile.toString(), "nummeric", "Failed to get file", "HIGH") == false) { validated = false; }
-
+			
+			final boolean validInput = validate.validateInput(getFile.toString(), "nummeric", "Failed to get file", "HIGH");
+			
+			if (!validInput) { 
+				validated = false; 
+			}
             /*
             see the "WhiteListing" code example for more detailed information about this function
             Let's assume there are three files named 1,2,3

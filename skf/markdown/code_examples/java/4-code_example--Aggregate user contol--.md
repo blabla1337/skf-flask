@@ -81,15 +81,15 @@ Servlet
 the following code snippet can be used in relation with the following servlet snippet
 
 
-public class aggregateControl extends HttpServlet{
+public class AggregateControl extends HttpServlet{
 	private static final long serialVersionUID = 1L;
     public aggregateControl() {
         super();
     }
 	
-	final static Logger logger = Logger.getLogger(aggregateControl.class);
-	public String userName;
-	public String password;
+	final static Logger logger = Logger.getLogger(AggregateControl.class);
+	private String userName;
+	private String password;
 	private String userID;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 

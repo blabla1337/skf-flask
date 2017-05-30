@@ -57,7 +57,7 @@ public class IncludeXSL {
         if (wt.WhiteListing(WhiteListing, input) == false) { continue_ = false; }
 		
         //If all went good we do the function
-        if(continue_ == true){
+        if(continue_){
         	//LOAD XML FILE
             //Load the XML source
         	Document xslt = null; 
