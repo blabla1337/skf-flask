@@ -53,7 +53,7 @@ public class Rewrite extends HttpServlet
             if (listme.WhiteListing("1,2,3", getFile.toString()) == false) { validated = false; }
 
             //Only if the pattern was true we allow the variable into the streamreader function
-            if (validated == true)
+            if (validated)
             {
             	String canonicalPath = getFile.getCanonicalPath();
             	if (!canonicalPath.equals("C:\\....\\WEB-INF" + getFile)) 

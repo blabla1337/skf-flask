@@ -21,15 +21,15 @@ SecureRandom csprng = new SecureRandom();
 Then we generate a long value token containing a high entropy
 byte[] randomBytes  = new byte[128];
 
-csprng.nextBytes(randombytes);
+prng.nextBytes(randombytes);
 
 Then we base64 encode the string
-String csrftoken = Base64.getEncoder().encodeToString(randomBytes);
+String csrfToken = Base64.getEncoder().encodeToString(randomBytes);
 
 Then we set the session attribute.
 
 origRequest.getSession(false);
-origRequest.getSession().setAttribute("CSRF", CSRftoken);
+origRequest.getSession().setAttribute("CSRF", csrfToken);
 
 The next step is to implement this random token in each form field as a hidden input parameter
 and send it to a function which checks if the submitted token is equal to the one set after succesful validation.

@@ -26,10 +26,10 @@ import org.apache.log4j.Logger;
 public class AuditLog {
 
 	
-	public int countID;
-	public int userID; 
-	public int count; 
-	public int blocker; 
+	private int countID;
+	private int userID; 
+	private int count; 
+	private int blocker; 
 	public static String validation = "pass"; 
 	
 	final static Logger logger = Logger.getLogger(AuditLog.class);

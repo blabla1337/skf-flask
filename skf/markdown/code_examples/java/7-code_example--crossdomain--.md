@@ -14,7 +14,7 @@ A bad example of a crossdomain.xml would be:
   <allow-http-request-headers-from domain="*" headers="*"/>
 </cross-domain-policy>
 
-Because it allows acces from all other domains.
+Because it allows access from all other domains.
 
 Instead of this approach you might want to use the following restrictions. 
 Example by twitter's crossdomain.xml:
