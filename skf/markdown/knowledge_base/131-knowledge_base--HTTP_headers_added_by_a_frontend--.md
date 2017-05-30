@@ -3,8 +3,7 @@
 
 ## Description:
 
-Use these kind of HTTP headers such as a bearer token only if you have authenticated the sever sending
-the header to your application.
+Use this kind of HTTP headers such as a bearer token only if you have authenticated the server sending the header to your application.
 
 ## Solution:
 
