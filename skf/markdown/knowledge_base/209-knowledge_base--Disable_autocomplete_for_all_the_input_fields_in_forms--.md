@@ -12,7 +12,7 @@ other sensitive information.
 
 ## Solution:
 
-The browser should explicitly be told for al the input fields that the autocomplete function
-should be turned of. The "autocomplete=off" HTML attribute should be added to al the input and
+The browser should explicitly be told for all the input fields that the autocomplete function
+should be turned off. The "autocomplete=off" HTML attribute should be added to all the input and
 hidden input fields in the form you want to disable the autocomplete of.
 
