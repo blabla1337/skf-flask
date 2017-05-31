@@ -12,7 +12,7 @@ to share data  across separate vulnerability capabilities (tools, repositories, 
 with this "common enumeration."
 
 Attackers can use these lists to find publicly known exploits which might exists in the target application. 
-A lot of populair CVE exploits also have exploits available in Metasploit
+A lot of popular CVE exploits also have exploits available in Metasploit
 or the Exploit database. This enables script kiddies to easily exploit the target applications
 services, libraries and operating systems.
 
