@@ -86,7 +86,6 @@
 <p id="n17" class="stm run hide_run"><a href="#n17">17</a></p>
 <p id="n18" class="pln"><a href="#n18">18</a></p>
 <p id="n19" class="pln"><a href="#n19">19</a></p>
-<p id="n20" class="pln"><a href="#n20">20</a></p>
 
             </td>
             <td class="text">
@@ -97,9 +96,9 @@
 <p id="t5" class="stm run hide_run"><span class="nam">checklist</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'checklist'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="pln">    <span class="str">'kb_item_title'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'kb_items.title'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Knowledge base title'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="pln">    <span class="str">'kb_items_content'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'kb_items.content'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Knowledge base content'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t8" class="pln">    <span class="str">'checklist_items_checklistID'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'checklist_items.checklistID'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'The unique identifier of a checklist item'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t8" class="pln">    <span class="str">'checklist_items_checklistID'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">Float</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'checklist_items.checklistID'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'The unique identifier of a checklist item'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t9" class="pln">    <span class="str">'checklist_items_content'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'checklist_items.content'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Checklist content'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t10" class="pln">    <span class="str">'checklist_items_level'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'checklist_items.level'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Checklist level'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="pln">    <span class="str">'checklist_items_level'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">Integer</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'checklist_items.level'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Checklist level'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t11" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t12" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t13" class="stm run hide_run"><span class="nam">level</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'level'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
@@ -109,7 +108,6 @@
 <p id="t17" class="stm run hide_run"><span class="nam">message</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'Response message'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
 <p id="t18" class="pln">    <span class="str">'message'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Response message'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t20" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -120,7 +118,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-31 16:25
+            created at 2017-06-01 00:16
         </p>
     </div>
 </div>

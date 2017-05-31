@@ -94,9 +94,6 @@
 <p id="n25" class="pln"><a href="#n25">25</a></p>
 <p id="n26" class="stm run hide_run"><a href="#n26">26</a></p>
 <p id="n27" class="stm run hide_run"><a href="#n27">27</a></p>
-<p id="n28" class="pln"><a href="#n28">28</a></p>
-<p id="n29" class="pln"><a href="#n29">29</a></p>
-<p id="n30" class="pln"><a href="#n30">30</a></p>
 
             </td>
             <td class="text">
@@ -113,7 +110,7 @@
 <p id="t11" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t12" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t13" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/&lt;float:id>'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t14" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">404</span><span class="op">,</span> <span class="str">'Validation Error'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t14" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">404</span><span class="op">,</span> <span class="str">'Validation error'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="stm run hide_run"><span class="key">class</span> <span class="nam">ChecklistItem</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t16" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t17" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">id_arguments</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -122,14 +119,11 @@
 <p id="t20" class="pln">    <span class="key">def</span> <span class="nam">get</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">id</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t21" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
 <p id="t22" class="pln"><span class="str">        Returns a checklist item.</span><span class="strut">&nbsp;</span></p>
-<p id="t23" class="pln"><span class="str">        * Privileges required: none</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="pln"><span class="str">        * Privileges required: **none**</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="pln"><span class="str">        * Specify the ID of the checklist item in the request URL path.</span><span class="strut">&nbsp;</span></p>
 <p id="t25" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">get_checklist_item</span><span class="op">(</span><span class="nam">id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t27" class="stm run hide_run">        <span class="key">return</span> <span class="nam">result</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t28" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t29" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t30" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -140,7 +134,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-31 16:25
+            created at 2017-06-01 00:16
         </p>
     </div>
 </div>

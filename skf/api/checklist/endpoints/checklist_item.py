@@ -11,7 +11,7 @@ ns = api.namespace('checklist', description='Operations related to checklist ite
 
 
 @ns.route('/<float:id>')
-@api.response(404, 'Validation Error')
+@api.response(404, 'Validation error')
 class ChecklistItem(Resource):
 
     @api.expect(id_arguments)
@@ -20,11 +20,8 @@ class ChecklistItem(Resource):
     def get(self, id):
         """
         Returns a checklist item.
-        * Privileges required: none
+        * Privileges required: **none**
         * Specify the ID of the checklist item in the request URL path.
         """
         result = get_checklist_item(id)
         return result, 200, security_headers()
-           
-
-                

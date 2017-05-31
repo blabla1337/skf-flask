@@ -70,7 +70,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict[0]['checklist_items_checklistID'], "1.0")
+        self.assertEqual(response_dict[0]['checklist_items_checklistID'], 1.0)
 
 
     def test_get_checklist_fail(self):
@@ -84,7 +84,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/10.0')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['checklist_items_checklistID'], "10.0")
+        self.assertEqual(response_dict['checklist_items_checklistID'], 10.0)
 
 
     def test_get_checklist_items_level(self):
@@ -95,7 +95,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict[0]['checklist_items_content'], "Architecture, design and threat modelling")
-        self.assertEqual(response_dict[0]['checklist_items_level'], "0")
+        self.assertEqual(response_dict[0]['checklist_items_level'], 0)
 
 
     def test_get_kb(self):
@@ -583,7 +583,6 @@ class TestSecurity(unittest.TestCase):
         self.assertEqual(result_headers['X-XSS-Protection'], "1")
         self.assertEqual(result_headers['X-Content-Type-Options'], "nosniff")
         self.assertEqual(result_headers['Cache-Control'], "no-store, no-cache")
-
 
 
 if __name__ == '__main__':
