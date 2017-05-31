@@ -29,6 +29,8 @@ from skf.api.user.endpoints.create import ns as users_create_namespace
 from skf.api.user.endpoints.activate import ns as users_activate_namespace
 from skf.api.user.endpoints.login import ns as users_login_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_items_namespace
+from skf.api.kb.endpoints.kb_item import ns as kb_items_namespace
+from skf.api.kb.endpoints.kb_item_update import ns as kb_items_namespace
 from skf.api.code.endpoints.code_items import ns as code_items_namespace
 from skf.api.projects.endpoints.project_items import ns as project_items_namespace
 from skf.api.sprints.endpoints.project_sprints import ns as project_sprints_namespace
@@ -65,10 +67,10 @@ def initialize_app(flask_app):
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
     api.add_namespace(checklist_namespace)
+    api.add_namespace(kb_items_namespace)
     api.add_namespace(users_create_namespace)
     api.add_namespace(users_activate_namespace)
     api.add_namespace(users_login_namespace)
-    api.add_namespace(kb_items_namespace)
     api.add_namespace(project_items_namespace)
     api.add_namespace(project_sprints_namespace)
     api.add_namespace(questions_sprint_namespace)

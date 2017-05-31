@@ -7,14 +7,7 @@ kb = api.model('kb', {
     'content': fields.String(required=True, description='KB content'),
 })
 
-pagination = api.model('A page of results', {
-    'page': fields.Integer(description='Number of the page of results'),
-    'pages': fields.Integer(description='Total number of pages of results'),
-    'per_page': fields.Integer(description='Number of items per page of results'),
-    'total': fields.Integer(description='Total number of results'),
-})
-
-page_of_kb_items = api.inherit('Page of KB items', pagination, {
+page_of_kb_items = api.inherit('Page of KB items', {
     'items': fields.List(fields.Nested(kb))
 })
 
