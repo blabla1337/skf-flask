@@ -9,12 +9,8 @@ from succeeding.
 
 ## Solution:
 
-Whenever sensitive data is stored on the server you should consider storing this data in
-a separate folder with permission rules in order to prevent unauthorized users to
-read these files. As an in depth solution you could also check if the session of the user
-has sufficient privileges to read the files according to the level of authorization.
-
+Whenever sensitive data is stored on the server store the data in a separate folder with permission rules in order to prevent unauthorized users from reading the files. As an in-depth solution, you could also check if the session of the user has sufficient privileges to read the files according to the level of authorization.
 Recommended knowledge base item:
+•	Missing authentication or authorization
+•	Sanitize sensitive data rapidly from memory
 
-- Missing authentication or authorization
-- Sanitize sensitive data rapidly from memory
