@@ -3,7 +3,7 @@
 
 ## Description:
 
-Whenever there are high value transactions a normal username / password static authentication method does
+Whenever there are high value transactions a normal username/password static authentication method does
 not suffice to ensure a high level of security. Whenever the application digests high level of transactions ensure that
 risk based re-authentication, two factor or transaction signing is in place.
 
@@ -30,7 +30,7 @@ Transaction signing (or digital transaction signing) is the process of calculati
 to generate a unique string which can be used to verify both the authenticity and integrity of an online transaction.
 
 A keyed hash is a function of the user's private or secret key and the transaction details, 
-such as the transfer to account number and the transfer amount.
+such as the transfer to the account number and the transfer amount.
 
 To provide a high level of assurance of the authenticity and integrity of 
 the hash it is essential to calculate the hash on a trusted device, such as a separate smart card reader.
