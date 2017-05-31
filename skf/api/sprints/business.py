@@ -31,15 +31,17 @@ def new_sprint(user_id, data):
     return sprint.sprintID
 
 
-def stats_sprint(sprint_id):
-    sprint_info = (project_sprints.query.filter(project_sprints.sprintID == sprint_id).one())
-    sprint_id = sprint_info.sprintID
-    sprint_desc = sprint_info.sprintDesc
-    sprint_name = sprint_info.sprintName
-    sprint_open = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 1).group_by(checklists_results.checklistID).count())
-    sprint_closed = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 2).group_by(checklists_results.checklistID).count())
-    sprint_accepted = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 3).group_by(checklists_results.checklistID).count())
-    sprint = {'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted}
+def stats_sprint(project_id):
+    sprint_info = (project_sprints.query.filter(project_sprints.projectID == project_id).all())
+    sprint = []
+    for result in sprint_info:
+        sprint_id = result.sprintID
+        sprint_desc = result.sprintDesc
+        sprint_name = result.sprintName
+        sprint_open = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 1).group_by(checklists_results.checklistID).count())
+        sprint_closed = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 2).group_by(checklists_results.checklistID).count())
+        sprint_accepted = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 3).group_by(checklists_results.checklistID).count())
+        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted})
     return sprint
 
 
