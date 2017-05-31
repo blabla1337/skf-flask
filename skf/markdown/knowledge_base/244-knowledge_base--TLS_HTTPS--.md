@@ -3,7 +3,7 @@
 
 ## Description:
 
-Whenever sensitive information is being send over the application TLS must be applied in the application
+Whenever sensitive information is being sent over the application TLS must be applied in the application
 to prevent malicious attackers eavesdropping the network can look into and manipulate this
 sensitive information.
 
@@ -19,4 +19,4 @@ key sizes that will provide assurance that with today’s technology and underst
 to decrypt a message by attempting all possible keys.
 
 Therefore, we need to ensure that both the algorithm and the key size are taken into account when selecting
-an algorithm. Whenever computer power increases the standards for selecting a new alogrithm changes as wel.
+an algorithm. Whenever computer power increases the standards for selecting a new alogrithm changes as well.
