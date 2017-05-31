@@ -8,16 +8,15 @@ web application through the use of a special response header. Once a supported b
 this header that browser will prevent any communications from being sent over HTTP to the specified 
 domain and will instead send all communications over HTTPS. It also prevents HTTPS click through prompts on browsers.
 
-However there is still a window where a user who has a fresh install, or who wipes out their local state,
-is vulnerable. This is due to the fact that the browser is not yet aware of the fact if the application
-the it is trying to connect to supports HSTS. Whenever you are added to the preload list,
+However, there is still a window where a user who has a fresh install, or who wipes out their local state,
+is vulnerable. This is due to the fact that the browser is not yet aware of the fact if the application is trying to connect to supports HSTS. Whenever you are added to the preload list,
 the application its preference is hard-coded into the browser and all first initial connections will
 always be made by HTTPS.
 
 ## Solution:
 
-In order to request for HSTS preloading there are some requirements the application has to 
-be complient to. The submission for the HSTS preloading can be performed on the following url:
+In order to request for HSTS preloading, there are some requirements the application has to 
+be complient with. The submission for the HSTS preloading can be performed on the following url:
 
     https://hstspreload.org/
 
@@ -50,5 +49,5 @@ still needs to then go and submit the domain to the list.
 ## CAUTION:
 
 Make sure to have a perfectly smooth certification management. Whenever there is no
-valid certificate, the application can not be downgraded temporary over HTTP. The failing of
+valid certificate, the application can not be downgraded temporarily over HTTP. The failing of
 the TLS certificate will lead to a DOS since HSTS does not allow the application to be visited over HTTP
