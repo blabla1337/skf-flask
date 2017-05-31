@@ -1,4 +1,5 @@
 import os, json, unittest, tempfile, skf
+from werkzeug.exceptions import BadRequest
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
 from skf.db_tools import init_db, connect_db, get_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
@@ -537,30 +538,42 @@ class TestSecurity(unittest.TestCase):
     def test_val_alpha(self):
         """Test if the val_alpha method is working"""
         self.assertTrue(val_alpha("woopwoop"))
-        self.assertFalse(val_alpha("woop %$*@><'1337"))
-        self.assertFalse(val_alpha("woop woop 1337"))
+        try:
+            self.assertFalse(val_alpha("woop %$*@><'1337"))
+            self.assertFalse(val_alpha("woop woop 1337"))
+        except BadRequest:
+            return True
 
 
     def test_val_num(self):
         """Test if the val_num method is working"""
         self.assertTrue(val_num(1337))
-        self.assertFalse(val_num("woopwoop"))        
-        self.assertFalse(val_num("woop woop 1337"))
-        self.assertFalse(val_num("woop %$*@><'1337"))
+        try:
+            self.assertFalse(val_num("woopwoop"))        
+            self.assertFalse(val_num("woop woop 1337"))
+            self.assertFalse(val_num("woop %$*@><'1337"))
+        except BadRequest:
+            return True
 
 
     def test_val_alpha_num(self):
         """Test if the val_alpha_num method is working"""
         self.assertTrue(val_alpha_num("woop woop 1337"))
-        self.assertFalse(val_alpha_num("woop %$*@><'1337"))
+        try:
+            self.assertFalse(val_alpha_num("woop %$*@><'1337"))
+        except BadRequest:
+            return True
 
 
     def test_val_float(self):
         """Test if the val_float method is working"""
         self.assertTrue(val_float(10.11))
-        self.assertFalse(val_float(1337))
-        self.assertFalse(val_float("woop woop 1337"))
-        self.assertFalse(val_float("woop %$*@><'1337"))
+        try:
+            self.assertFalse(val_float(1337))
+            self.assertFalse(val_float("woop woop 1337"))
+            self.assertFalse(val_float("woop %$*@><'1337"))
+        except BadRequest:
+            return True
 
 
     def test_security_headers(self):

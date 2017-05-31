@@ -22,12 +22,14 @@ from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
 from skf.db_tools import init_md_checklists, init_md_knowledge_base, init_md_code_examples, init_db
+from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_level import ns as checklist_namespace
 from skf.api.user.endpoints.create import ns as users_create_namespace
 from skf.api.user.endpoints.activate import ns as users_activate_namespace
 from skf.api.user.endpoints.login import ns as users_login_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_items_namespace
 from skf.api.code.endpoints.code_items import ns as code_items_namespace
-from skf.api.checklist.endpoints.checklist_items import ns as checklist_items_namespace
 from skf.api.projects.endpoints.project_items import ns as project_items_namespace
 from skf.api.sprints.endpoints.project_sprints import ns as project_sprints_namespace
 from skf.api.questions.endpoints.question_pre_items import ns as questions_pre_namespace
@@ -62,11 +64,11 @@ def initialize_app(flask_app):
     configure_app(flask_app)
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
+    api.add_namespace(checklist_namespace)
     api.add_namespace(users_create_namespace)
     api.add_namespace(users_activate_namespace)
     api.add_namespace(users_login_namespace)
     api.add_namespace(kb_items_namespace)
-    api.add_namespace(checklist_items_namespace)
     api.add_namespace(project_items_namespace)
     api.add_namespace(project_sprints_namespace)
     api.add_namespace(questions_sprint_namespace)
