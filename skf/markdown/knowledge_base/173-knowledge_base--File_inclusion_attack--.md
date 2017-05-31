@@ -13,7 +13,7 @@ severity, it can also lead to:
 
 - Code execution on the web server
 - Code execution on the client-side such as JavaScript which can lead to other attacks
-  such as cross site scripting (XSS)
+  such as cross-site scripting (XSS)
 - Denial of Service (DoS)
 - Sensitive Information Disclosure
 
@@ -28,12 +28,8 @@ in mind that it is also common in other technologies such as JSP, ASP and others
 
 ## Solution:
 
-The most effective solution to eliminate file inclusion vulnerabilities is to avoid
-passing user-submitted input to any filesystem/framework API. If this is not possible
-the application can maintain a white list of files, that may be included by the page, and
-then use an identifier (for example the index number) to access to the selected file.
-Any request containing an invalid identifier has to be rejected, in this way there is
-no attack surface for malicious users to manipulate the path.
+The most effective solution to eliminate file inclusion vulnerabilities is to avoid passing user-submitted input to any filesystem/framework API. If this is not possible the application can maintain a white list of files, that may be included on the page, and then use an identifier (for example the index number) to access the selected file. Any request containing an invalid identifier has to be rejected, in this way, there is no attack surface for malicious users to manipulate the path.
 
-Also disable the oppertunity for the application to load remote resources. This is mostly achieved by adding a server configuration file such as php.ini or web.xml
+Also, disable the opportunity for the application to load remote resources. This is mostly achieved by adding a server configuration file such as php.ini or web.xml
+
 
