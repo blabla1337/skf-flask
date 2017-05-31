@@ -1,4 +1,4 @@
-# Process high value business logic flows in a trusted environment
+# Process high-value business logic flows in a trusted environment
 -------
 
 ## Description:
