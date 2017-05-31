@@ -12,7 +12,7 @@ i.e whenever a user gets his authorization grants through a cookie that says,
     auth=admin or auth=user
 ````
 
-These authorization grants are easilly manipulable.
+These authorization grants are easily manipulable.
 
 
 ## Solution:
