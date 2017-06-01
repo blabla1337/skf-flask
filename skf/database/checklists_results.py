@@ -9,12 +9,14 @@ class checklists_results(db.Model):
     sprintID = db.Column(db.Integer)
     status = db.Column(db.Integer)
     comment = db.Column(db.Text)
+    preItem = db.Column(db.Integer)
     
 
-    def __init__(self, checklistID, projectID, sprintID, status, comment):
+    def __init__(self, checklistID, projectID, sprintID, status, comment, preItem):
         self.checklistID = checklistID
         self.projectID = projectID
         self.sprintID = sprintID
         self.status = status
         self.comment = comment
+        self.preItem = preItem
 

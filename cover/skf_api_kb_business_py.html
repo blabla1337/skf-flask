@@ -128,7 +128,7 @@
 <p id="t15" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t16" class="stm run hide_run">    <span class="key">if</span> <span class="key">not</span> <span class="nam">result</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t17" class="stm mis">        <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error updating specific kb item"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t18" class="stm mis">        <span class="key">return</span> <span class="key">False</span><span class="strut">&nbsp;</span></p>
+<p id="t18" class="stm mis">        <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'KB item not updated'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="pln">    <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t20" class="stm run hide_run">        <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'KB item successfully updated'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t21" class="pln"><span class="strut">&nbsp;</span></p>
@@ -162,7 +162,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-01 10:47
+            created at 2017-06-01 12:43
         </p>
     </div>
 </div>

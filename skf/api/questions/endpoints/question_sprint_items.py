@@ -40,10 +40,6 @@ class QuestionSprintStoreCollection(Resource):
         validate_privilege(self, 'edit')
         user_id = select_userid_jwt(self)
         data = request.json
-        try:
-            store_sprint_questions(user_id, data)
-            log("User stored new sprint question list", "MEDIUM", "PASS")
-            return {'message': 'Sprint questions successfully created'}, 200, security_headers()
-        except:
-            log("User triggered error creating new sprint question list", "MEDIUM", "FAIL")
-            return {'message': 'Sprint questions not stored'}, 400, security_headers()
+        store_sprint_questions(user_id, data)
+        log("User stored new sprint question list", "MEDIUM", "PASS")
+        return {'message': 'Sprint questions successfully created'}, 200, security_headers()

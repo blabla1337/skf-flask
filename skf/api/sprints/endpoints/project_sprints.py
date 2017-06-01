@@ -128,3 +128,4 @@ class ProjectSprintStats(Resource):
             log("User triggered error requesting sprint stats", "MEDIUM", "FAIL")
             return {'message': 'Sprint stats not available'}, 400, security_headers()
 
+ 

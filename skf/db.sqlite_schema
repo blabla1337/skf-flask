@@ -224,7 +224,8 @@ CREATE TABLE `checklists_results` (
 `projectID` int(11) NOT NULL,
 `sprintID` int(11) NOT NULL,
 `status` int(11) NOT NULL,
-`comment` varchar(255)
+`comment` varchar(255),
+`preItem` int(11) NOT NULL
 );
 
 --

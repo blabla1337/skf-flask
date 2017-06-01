@@ -49,3 +49,4 @@ def delete_sprint(sprint_id, user_id):
     sprint = (project_sprints.query.filter(project_sprints.sprintID == sprint_id).one())
     db.session.delete(sprint)
     db.session.commit()
+ 
