@@ -11,11 +11,12 @@ ns = api.namespace('kb', description='Operations related to kb items')
 
 
 @ns.route('/update/<int:id>')
+@api.response(404, 'Validation error')
 class KBItemUpdate(Resource):
 
     @api.expect(authorization, kb_update)
     @api.marshal_with(message, 'Success')
-    @api.response(400, 'Validation Error', message)
+    @api.response(400, 'No results found', message)
     def put(self, id):
         """
         Update a kb item.
@@ -24,6 +25,6 @@ class KBItemUpdate(Resource):
         """
         validate_privilege(self, 'edit')
         data = request.json
-        update_kb_item(id, data)
-        return {'message': 'KB item successfully updated'}, 200, security_headers()
+        result = update_kb_item(id, data)
+        return result, 200, security_headers()
 

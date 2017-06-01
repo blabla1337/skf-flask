@@ -15,9 +15,9 @@ def update_kb_item(kb_id, data):
     db.session.commit()
     if not result:
         log("User triggered error updating specific kb item", "LOW", "FAIL")
-        return False
+        return {'message': 'KB item not updated'}
     else:
-        return result
+        return {'message': 'KB item successfully updated'}
 
 
 def get_kb_item(kb_id):
