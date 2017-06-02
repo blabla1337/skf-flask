@@ -1,10 +1,10 @@
-# Does the application enforce the use of secure passwords
+# Does the application enforce the use of secure passwords?
 -------
 
 ## Description:
 
 Applications should encourage the use of strong passwords and pass-phrases. Preferably the
-password policy should not put limitations or restrictions on the chosen passwords.
+password policy not should put limitations or restrictions on the chosen passwords.
 Whenever the application supports strong passwords and the use of password managers, the
 possibility for an attacker performing a succesfull brute-force attack drops significally.
 
