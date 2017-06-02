@@ -1,4 +1,4 @@
-# Session IDs do not timeout (idl)
+# Session IDs do not timeout (idle)
 -------
 
 ## Description:
@@ -12,7 +12,7 @@ from another user. However, if the attacker is able to hijack a given session,
 the idle timeout does not limit the attacker's actions, as he can generate activity on
 the session periodically to keep the session active for longer periods of time.
 
-Session timeout management and expiration must be enforced server-side. If the client is
+Session timeout management and expiration must be enforced on the server-side. If the client is
 used to enforce the session timeout, for example using the session token or other client
 parameters to track time references (e.g. number of minutes since login time), an attacker
 could manipulate these to extend the session duration.
