@@ -31,3 +31,4 @@ def get_checklist_items_lvl(lvl):
         log("User triggered error requesting specific checklist items based on level", "LOW", "FAIL")
     else:
         return result
+

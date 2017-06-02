@@ -17,7 +17,7 @@ def update_kb_item(kb_id, data):
         log("User triggered error updating specific kb item", "LOW", "FAIL")
         return {'message': 'KB item not updated'}
     else:
-        return {'message': 'KB item successfully updated'}
+        return {'message': 'KB item successfully updated'} 
 
 
 def get_kb_item(kb_id):

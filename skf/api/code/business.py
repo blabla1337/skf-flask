@@ -1,13 +1,49 @@
 from skf.database import db
 from skf.database.code_items import code_items
-from skf.api.security import val_num, val_alpha, val_alpha_num
+from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 def update_code_item(code_id, data):
-    code = code_items.query.filter(code_items.codeID == code_id).one()
-    code.title = data.get('title')
-    code.content = data.get('content')
-    code.code_lang = data.get('code_lang')
-    val_alpha_num(code.title)
-    val_alpha(code.code_lang)
-    db.session.add(code)
+    log("User requested updated specific code example item", "LOW", "PASS")
+    result = code_items.query.filter(code_items.codeID == code_id).one()
+    result.title = data.get('title')
+    result.content = data.get('content')
+    result.code_lang = data.get('code_lang')
+    val_alpha_num(result.content)
+    val_alpha_num(result.title)
+    val_alpha(result.code_lang)
+    db.session.add(result)
     db.session.commit()
+    if not result:
+        log("User triggered error updating specific code example item", "LOW", "FAIL")
+        return {'message': 'Code example item not updated'}
+    else:
+        return {'message': 'Code example item successfully updated'}
+
+
+def get_code_items():
+    log("User requested list of code items", "LOW", "PASS")
+    result = code_items.query.paginate()
+    if not result:
+        log("User triggered error requesting list of code items", "LOW", "FAIL")
+    else:
+        return result
+
+
+def get_code_item(code_id):
+    log("User requested code item", "LOW", "PASS")
+    val_num(code_id)
+    result = code_items.query.filter(code_items.codeID == code_id).one()
+    if not result:
+        log("User triggered error requesting code item", "LOW", "FAIL")
+    else:
+        return result
+
+
+def get_code_items_lang(code_lang):
+    log("User requested code lang items", "LOW", "PASS")
+    val_alpha(code_lang)
+    result = code_items.query.filter(code_items.code_lang == code_lang).paginate()
+    if not result:
+        log("User triggered error requesting code lang items", "LOW", "FAIL")
+    else:
+        return result

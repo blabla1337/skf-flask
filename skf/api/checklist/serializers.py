@@ -17,4 +17,3 @@ checklist_items = api.inherit('List of checklist items', {
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
 })
-

@@ -366,9 +366,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_code_item_lang_php(self):
         """Test if the php language code items call is working"""
-        payload = {'code_lang': 'php'}
-        headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/code/lang/', data=json.dumps(payload), headers=headers)
+        response = self.client.get('/api/code/lang/php')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['title'], "File upload")
@@ -376,9 +374,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_code_item_lang_asp(self):
         """Test if the asp language code items call is working"""
-        payload = {'code_lang': 'asp'}
-        headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/code/lang/', data=json.dumps(payload), headers=headers)
+        response = self.client.get('/api/code/lang/asp')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking headers")
@@ -386,9 +382,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_code_item_lang_java(self):
         """Test if the java language code items call is working"""
-        payload = {'code_lang': 'java'}
-        headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/code/lang/', data=json.dumps(payload), headers=headers)
+        response = self.client.get('/api/code/lang/java')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][1]['title'], "CSRF Token JSF")

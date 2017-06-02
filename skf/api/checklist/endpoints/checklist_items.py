@@ -22,3 +22,4 @@ class ChecklistCollection(Resource):
         """
         result = get_checklist_items()
         return result, 200, security_headers()
+
