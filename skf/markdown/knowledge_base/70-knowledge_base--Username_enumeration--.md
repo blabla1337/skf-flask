@@ -10,7 +10,7 @@ Whenever an application generates an error like:
 An attacker could enumerate these usernames, enlarging his chance for a successful
 brute-force attack. Same goes for "Password forget" functions.
 
-Whenever an user forgot his password, make him fill in his email address
+Whenever an user forgets his password, make him fill in his email address
 rather than an username.
 
 ## Solution:
