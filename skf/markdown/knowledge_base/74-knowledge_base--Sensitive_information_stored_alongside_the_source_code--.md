@@ -14,6 +14,6 @@ Search your source code for comments which contains possible user-credentials.
 You should also verify that there are no secrets and API keys are included in the
 source code, or end up within the resulting binary.
 
-This also goes for providing information about business logic and other critical sensitive
+This also applies to providing information about business logic and other critically sensitive
 information. Verify that there is no sensitive business logic, secret keys or other
 proprietary information in client side code.
