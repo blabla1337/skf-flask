@@ -13,5 +13,5 @@ hijacked session and impersonate the victim user.
 
 ## Solution:
 
-Always ensure that sessions absolute time-out server-side in order to decrease a hackers
+Always ensure that sessions absolute time-out  is on the server-side in order to decrease a hackers
 attack vector.
