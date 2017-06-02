@@ -91,7 +91,6 @@
 <p id="n22" class="pln"><a href="#n22">22</a></p>
 <p id="n23" class="stm run hide_run"><a href="#n23">23</a></p>
 <p id="n24" class="stm run hide_run"><a href="#n24">24</a></p>
-<p id="n25" class="pln"><a href="#n25">25</a></p>
 
             </td>
             <td class="text">
@@ -100,7 +99,7 @@
 <p id="t3" class="stm run hide_run"><span class="key">from</span> <span class="nam">flask_restplus</span> <span class="key">import</span> <span class="nam">Resource</span><span class="strut">&nbsp;</span></p>
 <p id="t4" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">security</span> <span class="key">import</span> <span class="nam">security_headers</span><span class="strut">&nbsp;</span></p>
 <p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">business</span> <span class="key">import</span> <span class="nam">get_checklist_items</span><span class="strut">&nbsp;</span></p>
-<p id="t6" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">checklist</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
+<p id="t6" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">checklist_items</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">restplus</span> <span class="key">import</span> <span class="nam">api</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t9" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'checklist'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to checklist items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -110,7 +109,7 @@
 <p id="t13" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">404</span><span class="op">,</span> <span class="str">'Validation error'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t14" class="stm run hide_run"><span class="key">class</span> <span class="nam">ChecklistCollection</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t16" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">checklist</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t16" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">checklist_items</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t17" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">'No results found'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t18" class="pln">    <span class="key">def</span> <span class="nam">get</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
@@ -119,7 +118,6 @@
 <p id="t22" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
 <p id="t23" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">get_checklist_items</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="stm run hide_run">        <span class="key">return</span> <span class="nam">result</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t25" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -130,7 +128,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-01 00:16
+            created at 2017-06-02 11:14
         </p>
     </div>
 </div>

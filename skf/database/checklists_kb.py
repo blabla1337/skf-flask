@@ -12,7 +12,7 @@ class checklists_kb(db.Model):
     codeID_python = db.Column(db.Integer)
     include_always = db.Column(db.Boolean)
     include_first = db.Column(db.Boolean)
-    checklistID = db.Column(db.Integer, db.ForeignKey("checklists.checklistID"))
+    checklistID = db.Column(db.String, db.ForeignKey("checklists.checklistID"))
     checklist_items = db.relationship("checklists", foreign_keys=[checklistID])
     kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
     kb_items = db.relationship("kb_items", foreign_keys=[kbID])

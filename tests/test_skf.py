@@ -70,7 +70,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict[0]['checklist_items_checklistID'], 1.0)
+        self.assertEqual(response_dict['items'][0]['checklist_items_checklistID'], '1.0')
 
 
     def test_get_checklist_fail(self):
@@ -81,17 +81,15 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_checklist_item_10(self):
         """Test if the get specific checklist item call is working"""
-        response = self.client.get('/api/checklist/10.0')
+        response = self.client.get('/api/checklist/1.1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['checklist_items_checklistID'], 10.0)
+        self.assertEqual(response_dict['checklist_items_checklistID'], '1.1')
 
 
     def test_get_checklist_items_level(self):
         """Test if the get specific checklist item by level call is working"""
-        payload = {'level': '1'}
-        headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/checklist/level', data=json.dumps(payload), headers=headers)
+        response = self.client.get('/api/checklist/level/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict[0]['checklist_items_content'], "Architecture, design and threat modelling")

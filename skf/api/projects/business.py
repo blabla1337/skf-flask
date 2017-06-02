@@ -1,5 +1,4 @@
 import datetime
-
 from skf.database import db
 from sqlalchemy import desc
 from skf.database.projects import projects 
@@ -7,6 +6,7 @@ from skf.database.groupmembers import groupmembers
 from skf.database.project_sprints import project_sprints 
 from skf.database.checklists_results import checklists_results
 from skf.api.security import val_num, val_alpha, val_alpha_num
+
 
 def update_project(project_id, user_id, data):
     project = projects.query.filter(projects.projectID == project_id).one()

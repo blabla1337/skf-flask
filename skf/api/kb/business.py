@@ -26,7 +26,6 @@ def get_kb_item(kb_id):
     result = kb_items.query.filter(kb_items.kbID == kb_id).one()
     if not result:
         log("User triggered error requesting specific kb item", "LOW", "FAIL")
-        return False
     else:
         return result
 
@@ -36,6 +35,5 @@ def get_kb_items():
     result = kb_items.query.paginate()
     if not result:
         log("User triggered error requesting list of kb items", "LOW", "FAIL")
-        return False
     else:
         return result
