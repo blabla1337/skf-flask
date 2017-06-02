@@ -4,7 +4,7 @@
 ## Description:
 
 Authentication should be enforced by the web-server. Whenever these configurations are
-not enabled on the server an attacker could gain access to authorized
+not enabled on the server, an attacker could gain access to authorized
 pages on your application.
 
 ## Solution:
