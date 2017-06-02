@@ -106,9 +106,5 @@ def create_user(data):
     db.session.add(user)
     db.session.commit()
     result = users.query.filter(users.email == email).one()
-    if not result:
-        log("User triggered error creating new user", "MEDIUM", "FAIL")
-        return {'message': 'User could not be created'}
-    else:
-        return result
+    return result
 

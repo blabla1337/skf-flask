@@ -13,37 +13,24 @@ def update_code_item(code_id, data):
     val_alpha(result.code_lang)
     db.session.add(result)
     db.session.commit()
-    if not result:
-        log("User triggered error updating specific code example item", "LOW", "FAIL")
-        return {'message': 'Code example item not updated'}
-    else:
-        return {'message': 'Code example item successfully updated'}
+    return {'message': 'Code example item successfully updated'}
 
 
 def get_code_items():
     log("User requested list of code items", "LOW", "PASS")
     result = code_items.query.paginate()
-    if not result:
-        log("User triggered error requesting list of code items", "LOW", "FAIL")
-    else:
-        return result
+    return result
 
 
 def get_code_item(code_id):
     log("User requested code item", "LOW", "PASS")
     val_num(code_id)
     result = code_items.query.filter(code_items.codeID == code_id).one()
-    if not result:
-        log("User triggered error requesting code item", "LOW", "FAIL")
-    else:
-        return result
+    return result
 
 
 def get_code_items_lang(code_lang):
     log("User requested code lang items", "LOW", "PASS")
     val_alpha(code_lang)
     result = code_items.query.filter(code_items.code_lang == code_lang).paginate()
-    if not result:
-        log("User triggered error requesting code lang items", "LOW", "FAIL")
-    else:
-        return result
+    return result
