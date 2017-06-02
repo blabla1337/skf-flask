@@ -15,8 +15,8 @@ ns = api.namespace('user', description='Operations related to users')
 class userLogin(Resource):
 
     @api.expect(login)
+    @api.marshal_with(token_auth)
     @api.response(400, 'No results found', message)
-    @api.marshal_with(token_auth, 'Authorization token')
     def post(self):
         """
         Login an user.

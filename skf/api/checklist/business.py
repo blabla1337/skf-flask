@@ -26,7 +26,7 @@ def get_checklist_items():
 def get_checklist_items_lvl(lvl):
     log("User requested list of checklist items based on level", "LOW", "PASS")
     val_num(lvl)
-    result = checklists_kb.query.filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = lvl)).group_by(checklists_kb.checklistID).all()
+    result = checklists_kb.query.filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = lvl)).group_by(checklists_kb.checklistID).paginate()
     if not result:
         log("User triggered error requesting specific checklist items based on level", "LOW", "FAIL")
     else:

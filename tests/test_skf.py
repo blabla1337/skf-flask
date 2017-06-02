@@ -34,6 +34,16 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['message'], "User successfully activated")
 
 
+    def login(self, username, password):
+        """Login method needed for testing"""
+        payload = {'username': ''+username+'', 'password': ''+password+''}
+        headers = {'content-type': 'application/json'}
+        response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        return response_dict.get('Authorization token')
+        
+
     def test_fail_token_activate_user(self):
         """Test if the fail token activate user call is working"""
         payload = {'accessToken': 123, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admin', 'username': 'admin'}
@@ -97,16 +107,16 @@ class TestRestPlusApi(unittest.TestCase):
     def test_login_create(self):
         """Test if the login create call is working"""
         jwt = self.login('admin', 'admin')
-        payload = {'email': 'test_user@owasp.org', 'privilege': 2}
+        payload = {'email': 'woop@owasp.org', 'privilege': 2}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['email'], "test_user@owasp.org")
+        self.assertEqual(response_dict['email'], "woop@owasp.org")
 
 
-    def test_fail_login_create(self):
-        """Test if the fail login create call is working"""
+    def test_fail_login_create_priv(self):
+        """Test if the fail login create privilege call is working"""
         jwt = self.login('admin', 'admin')
         payload = {'email': 'test_user2@owasp.org', 'privilege': 1}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
@@ -114,16 +124,6 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['email'], None)
-
-
-    def login(self, username, password):
-        """Login method needed for testing"""
-        payload = {'username': ''+username+'', 'password': ''+password+''}
-        headers = {'content-type': 'application/json'}
-        response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
-        self.assertEqual(response.status_code, 200)
-        response_dict = json.loads(response.data.decode('utf-8'))
-        return response_dict.get('Authorization token')
 
 
     def test_get_checklist(self):
@@ -558,6 +558,21 @@ class TestRestPlusApi(unittest.TestCase):
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)
+
+
+    def test_assert_400_user_create(self):
+        """Test if the login fail create call is working"""
+        jwt = self.login('admin', 'admin')
+        payload = {'email': 'test_user@owasp.org', 'privilege': 2}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['email'], "test_user@owasp.org")
+        response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 400)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "A database result was required but none was found.")
 
 
 

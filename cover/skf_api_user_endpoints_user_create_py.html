@@ -117,8 +117,8 @@
 <p id="t16" class="stm run hide_run"><span class="key">class</span> <span class="nam">userCreation</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t17" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t18" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">authorization</span><span class="op">,</span> <span class="nam">create</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t19" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">'No results found'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t20" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">created</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t19" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">created</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t20" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">'No results found'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t21" class="pln">    <span class="key">def</span> <span class="nam">put</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t22" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
 <p id="t23" class="pln"><span class="str">        Create an user.</span><span class="strut">&nbsp;</span></p>
@@ -138,7 +138,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-02 17:35
+            created at 2017-06-02 18:22
         </p>
     </div>
 </div>

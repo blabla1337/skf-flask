@@ -16,8 +16,8 @@ ns = api.namespace('user', description='Operations related to users')
 class userActivation(Resource):
 
     @api.expect(activate)
-    @api.response(400, 'No results found', message)
     @api.marshal_with(message, 'Success')
+    @api.response(400, 'No results found', message)
     def put(self, id):
         """
         Activate an user.

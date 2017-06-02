@@ -16,8 +16,8 @@ ns = api.namespace('user', description='Operations related to users')
 class userCreation(Resource):
 
     @api.expect(authorization, create)
+    @api.marshal_with(created)
     @api.response(400, 'No results found', message)
-    @api.marshal_with(created, message)
     def put(self):
         """
         Create an user.
