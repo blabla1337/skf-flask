@@ -15,7 +15,8 @@ sprint_stats = api.model('sprint_stats', {
     'sprint_desc': fields.String(required=True, description='The description of a sprint'),
     'sprint_open': fields.Integer(readOnly=True, description='The count of open items per sprint'),
     'sprint_closed': fields.Integer(readOnly=True, description='The count of closed items per sprint'),
-    'sprint_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per sprint'),
+    'sprint_accepted': fields.Integer(readOnly=True, description='The count of accepted items per sprint'),
+    'sprint_items_total': fields.Integer(readOnly=True, description='The count of total available items in a sprint'),
 })
 
 page_of_sprint_items = api.inherit('Page of sprint items', {
