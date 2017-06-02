@@ -3,7 +3,7 @@
 
 ## Description:
 
-A hacker must not gain the possibility to abuse an applications email functionality by
+A hacker must not gain the ability to abuse an applications email functionality by
 means of scripts which sends automated spamming mails.
 
 ## Solution:
