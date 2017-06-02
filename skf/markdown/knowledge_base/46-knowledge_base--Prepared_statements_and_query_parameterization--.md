@@ -3,10 +3,10 @@
 
 ## Description:
 
-All SQL queries, HQL, OSQL, NOSQL and stored procedures, calling of stored procedures should be
+All SQL queries, HQL, OSQL, NOSQL and stored procedures, related to stored procedures should be
 protected by the use of query parameterization.
-If not an attacker can inject malicious code into these queries he gains the ability to
-manipulate them and now he can withdraw, update and delete data which is stored on the
+If not an attacker can inject malicious code into these queries and gain the ability to
+manipulate them and can withdraw, update and delete data which is stored on the
 target database.
 
 ## Solution:
