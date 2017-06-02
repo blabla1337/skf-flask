@@ -4,7 +4,7 @@
 ## Description:
 
 Whenever the server your web-application is connecting towards is not using any form of
-explicit authentication and is internet facing then this results into that the server
+explicit authentication and is internet facing, then this means the server
 cannot be trusted. This is because the server can be potentially be owned and managed by
 everybody including hackers.
 
