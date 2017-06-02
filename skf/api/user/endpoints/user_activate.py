@@ -11,22 +11,19 @@ ns = api.namespace('user', description='Operations related to users')
 
 
 @ns.route('/activate/<int:id>')
+@api.doc(params={'id': 'The user id'})
+@api.response(404, 'Validation error')
 class userActivation(Resource):
 
     @api.expect(activate)
-    @api.response(400, 'Validation Error', message)
+    @api.response(400, 'No results found', message)
     @api.marshal_with(message, 'Success')
     def put(self, id):
         """
         Activate an user.
-        Privileges required: none
+        * Privileges required: **none**
         """
         data = request.json
-        val_num(id)
-        try:
-            log("User is activated", "HIGH", "PASS")
-            activate_user(id, data)
-            return {'message': 'User successfully activated'}, 200, security_headers()
-        except:
-            log("User is activation failed", "HIGH", "FAIL")
-            return {'message': 'User could not be activated'}, 400, security_headers()
+        result = activate_user(id, data)
+        return result, 200, security_headers()
+

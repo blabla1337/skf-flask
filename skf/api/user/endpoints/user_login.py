@@ -11,20 +11,18 @@ ns = api.namespace('user', description='Operations related to users')
 
 
 @ns.route('/login')
+@api.response(404, 'Validation error')
 class userLogin(Resource):
 
     @api.expect(login)
-    @api.response(400, 'Validation Error', message)
+    @api.response(400, 'No results found', message)
     @api.marshal_with(token_auth, 'Authorization token')
     def post(self):
         """
         Login an user.
-        Privileges required: none
+        * Privileges required: **none**
         """
-        try:
-            log("User successfully logedin", "HIGH", "PASS")
-            token = login_user(request.json)
-            return {'Authorization token': token}, 200, security_headers()
-        except:
-            log("User login failed", "HIGH", "FAIL")
-            return {'message': 'Wrong username/password'}, 400, security_headers()
+        data = request.json
+        result = login_user(data)
+        return result, 200, security_headers()
+

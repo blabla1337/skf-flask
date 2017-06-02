@@ -8,7 +8,7 @@ CREATE TABLE `users` (
 `userName` varchar(255) NOT NULL UNIQUE,
 `email` varchar(255) NOT NULL UNIQUE,
 `password` varchar(255) NOT NULL,
-`accessToken` varchar(255)NOT NULL UNIQUE,
+`accessToken` int(11) NOT NULL UNIQUE,
 `activated` varchar(255),
 `access` varchar(255) NOT NULL
 );

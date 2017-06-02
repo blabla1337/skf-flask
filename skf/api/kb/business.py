@@ -37,3 +37,4 @@ def get_kb_items():
         log("User triggered error requesting list of kb items", "LOW", "FAIL")
     else:
         return result
+        

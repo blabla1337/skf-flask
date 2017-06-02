@@ -1,7 +1,7 @@
 
 from flask import request
 from flask_restplus import Resource
-from skf.api.security import log, security_headers, validate_privilege, val_num
+from skf.api.security import security_headers, validate_privilege
 from skf.api.user.business import create_user
 from skf.api.user.serializers import create, created, message
 from skf.api.user.parsers import authorization
@@ -12,22 +12,18 @@ ns = api.namespace('user', description='Operations related to users')
 
 
 @ns.route('/create')
+@api.response(404, 'Validation error')
 class userCreation(Resource):
 
     @api.expect(authorization, create)
-    @api.response(400, 'Validation Error', message)
-    @api.marshal_with(created)
+    @api.response(400, 'No results found', message)
+    @api.marshal_with(created, message)
     def put(self):
         """
         Create an user.
-        Privileges required: manage
+        * Privileges required: **manage**
         """
         data = request.json
         validate_privilege(self, 'manage')
-        try:
-            log("A new user created", "MEDIUM", "PASS")
-            created_user = create_user(data)
-            return created_user, 200, security_headers()
-        except:
-            log("User triggered error creating new user", "MEDIUM", "FAIL")
-            return {'message': 'User not created'}, 400, security_headers()
+        result = create_user(data)
+        return result, 200, security_headers()

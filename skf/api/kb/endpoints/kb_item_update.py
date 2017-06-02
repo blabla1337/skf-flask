@@ -11,6 +11,7 @@ ns = api.namespace('kb', description='Operations related to kb items')
 
 
 @ns.route('/update/<int:id>')
+@api.doc(params={'id': 'The kb item id'})
 @api.response(404, 'Validation error')
 class KBItemUpdate(Resource):
 
@@ -21,7 +22,6 @@ class KBItemUpdate(Resource):
         """
         Update a kb item.
         * Privileges required: **edit**
-        * Specify the ID of the kb item in the request URL path.
         """
         validate_privilege(self, 'edit')
         data = request.json

@@ -10,6 +10,7 @@ ns = api.namespace('kb', description='Operations related to kb items')
 
 
 @ns.route('/<int:id>')
+@api.doc(params={'id': 'The kb item id'})
 @api.response(404, 'Validation error')
 class KBItem(Resource):
 
@@ -19,7 +20,6 @@ class KBItem(Resource):
         """
         Returns a kb item.
         * Privileges required: **none**
-        * Specify the ID of the kb item in the request URL path.
         """
         result = get_kb_item(id)
         return result, 200, security_headers()
