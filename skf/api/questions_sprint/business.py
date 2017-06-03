@@ -1,9 +1,9 @@
 import datetime
 
 from skf.database import db
-from skf.database.questions import questions
 from skf.database.checklists_kb import checklists_kb
 from skf.database.project_sprints import project_sprints
+from skf.database.questions_sprint import questions_sprint
 from skf.database.checklists_results import checklists_results
 from skf.database.question_sprint_results import question_sprint_results
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
@@ -11,7 +11,7 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 def get_sprint_items():
     log("User requested list of question sprint items", "LOW", "PASS")
-    result = questions.query.paginate()
+    result = questions_sprint.query.paginate()
     return result
 
 
