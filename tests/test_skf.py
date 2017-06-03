@@ -495,7 +495,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': '5'}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'projectID': 5, 'question_pre_ID': 1,'result': 'True'},{'projectID': 5, 'question_pre_ID': 2,'result': 'True'} ]}
+        payload = {'questions': [ {'projectID': 5, 'question_pre_ID': 1,'result': 'True'},{'projectID': 5, 'question_pre_ID': 2,'result': 'False'} ]}
         response = self.client.put('/api/questions_pre/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
