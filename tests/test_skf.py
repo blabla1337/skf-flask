@@ -115,6 +115,26 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['email'], "woop@owasp.org")
 
 
+    def test_expired_login_create(self):
+        """Test if the expired token login create call is working"""
+        payload = {'email': 'test@owasp.org', 'privilege': 2}
+        headers = {'content-type': 'application/json', 'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySWQiOjEsImlhdCI6MTQ5NjQxMzg1NiwicHJpdmlsZWdlIjoiZWRpdDpyZWFkOm1hbmFnZTpkZWxldGUiLCJleHAiOjE0OTY0MjEwNTZ9.FkwLGwLNqPi87JC8nl2muRB5QLNk01r4XFcaFdFHiDc'}
+        response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 403)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "JWT token expired")
+
+
+    def test_decode_login_create(self):
+        """Test if the decode token login create call is working"""
+        payload = {'email': 'test@owasp.org', 'privilege': 2}
+        headers = {'content-type': 'application/json', 'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJVc2VySWQiOjEsImlhdCI6MTQ5NjQxMzg1NiwicHJpdmlsZWdlIjoiZWRpdDpyZWFkOm1hbmFnZTpkZWxldGUiLCJleHAiOjE0OTY0MjEwNTZ9.FkwLGwLNqPi87JC8nl2muRB5QLNk01r4XFfoobar'}
+        response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 403)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "JWT decode error")
+
+
     def test_fail_login_create_priv(self):
         """Test if the fail login create privilege call is working"""
         jwt = self.login('admin', 'admin')
