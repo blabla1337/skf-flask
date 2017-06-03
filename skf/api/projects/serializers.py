@@ -20,14 +20,7 @@ project_stats = api.model('project_stats', {
     'project_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per project'),
 })
 
-pagination = api.model('A page of results', {
-    'page': fields.Integer(description='Number of this page of results'),
-    'pages': fields.Integer(description='Total number of pages of results'),
-    'per_page': fields.Integer(description='Number of items per page of results'),
-    'total': fields.Integer(description='Total number of results'),
-})
-
-page_of_project_items = api.inherit('Page of project items', pagination, {
+page_of_project_items = api.inherit('Page of project items', {
     'items': fields.List(fields.Nested(project))
 })
 

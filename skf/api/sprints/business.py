@@ -2,16 +2,18 @@ import datetime
 
 from skf.database import db
 from sqlalchemy import desc
+from skf.database.projects import projects 
 from skf.database.groupmembers import groupmembers
 from skf.database.project_sprints import project_sprints 
 from skf.database.checklists_results import checklists_results 
 from skf.api.security import log, val_num, val_alpha_num
 
 
-def get_sprint_item(sprint_id):
+def get_sprint_item(sprint_id, user_id):
     log("User requested specific sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
-    result = project_sprints.query.filter(project_sprints.sprintID == sprint_id).all()
+    val_num(user_id)
+    result = project_sprints.query.filter(project_sprints.sprintID == sprint_id).one()
     return result
 
 
@@ -53,7 +55,7 @@ def new_sprint(user_id, data):
     sprintAdd = project_sprints(sprintName, sprintDesc, groupID, projectID)
     db.session.add(sprintAdd)
     db.session.commit()
-    result = (project_sprints.query.filter(project_sprints.groupID == groupID).order_by(desc(project_sprints.sprintID)).first())
+    result = project_sprints.query.filter(project_sprints.groupID == groupID).order_by(desc(project_sprints.sprintID)).first()
     return {'sprintID': result.sprintID, 'message': 'Sprint successfully created'}
 
 

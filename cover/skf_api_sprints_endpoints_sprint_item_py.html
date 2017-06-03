@@ -126,7 +126,7 @@
 <p id="t25" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="stm run hide_run">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'read'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t27" class="stm run hide_run">        <span class="nam">user_id</span> <span class="op">=</span> <span class="nam">select_userid_jwt</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t28" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">get_sprint_item</span><span class="op">(</span><span class="nam">id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t28" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">get_sprint_item</span><span class="op">(</span><span class="nam">id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="stm run hide_run">        <span class="key">return</span> <span class="nam">result</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -138,7 +138,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-03 14:28
+            created at 2017-06-03 17:06
         </p>
     </div>
 </div>

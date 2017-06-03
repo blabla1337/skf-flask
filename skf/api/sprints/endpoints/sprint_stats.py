@@ -27,6 +27,3 @@ class ProjectSprintStats(Resource):
         user_id = select_userid_jwt(self)
         result = stats_sprint(id)
         return result, 200, security_headers()
-
-
- 

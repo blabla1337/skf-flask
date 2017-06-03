@@ -2,30 +2,29 @@
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import security_headers, validate_privilege, select_userid_jwt
-from skf.api.sprints.business import update_sprint
-from skf.api.sprints.serializers import sprint_update, message
-from skf.api.sprints.parsers import authorization
+from skf.api.projects.business import new_project
+from skf.api.projects.serializers import project_new, message
+from skf.api.projects.parsers import authorization
 from skf.api.restplus import api
 
-ns = api.namespace('sprint', description='Operations related to sprint items')
+ns = api.namespace('project', description='Operations related to project items')
 
 
-@ns.route('/update/<int:id>')
-@api.doc(params={'id': 'The sprint id'})
+@ns.route('/new')
 @api.response(404, 'Validation error')
-class ProjectSprintItemUpdate(Resource):
+class ProjectItemNew(Resource):
 
-    @api.expect(authorization, sprint_update)
+    @api.expect(authorization, project_new)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'No results found', message)
-    def put(self, id):
+    def put(self):
         """
-        Update a sprint item.
+        Create new project item.
         * Privileges required: **edit**
         """
         validate_privilege(self, 'edit')
         user_id = select_userid_jwt(self)
         data = request.json
-        result = update_sprint(id, user_id, data)
+        result = new_project(user_id, data)   
         return result, 200, security_headers()
 

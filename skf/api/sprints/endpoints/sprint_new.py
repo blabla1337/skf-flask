@@ -27,4 +27,3 @@ class ProjectSprintItemNew(Resource):
         data = request.json
         result = new_sprint(user_id, data)
         return result, 200, security_headers()
-

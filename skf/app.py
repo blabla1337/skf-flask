@@ -40,12 +40,17 @@ from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_p
 from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
-from skf.api.sprints.endpoints.sprint_item import ns as project_sprints_namespace
-from skf.api.sprints.endpoints.sprint_delete import ns as project_sprints_namespace
-from skf.api.sprints.endpoints.sprint_new import ns as project_sprints_namespace
-from skf.api.sprints.endpoints.sprint_stats import ns as project_sprints_namespace
-from skf.api.sprints.endpoints.sprint_update import ns as project_sprints_namespace
-from skf.api.projects.endpoints.project_items import ns as project_items_namespace
+from skf.api.sprints.endpoints.sprint_item import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_delete import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_new import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_stats import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_update import ns as sprints_namespace
+from skf.api.projects.endpoints.project_items import ns as project_namespace
+from skf.api.projects.endpoints.project_item import ns as project_namespace
+from skf.api.projects.endpoints.project_delete import ns as project_namespace
+from skf.api.projects.endpoints.project_new import ns as project_namespace
+from skf.api.projects.endpoints.project_stats import ns as project_namespace
+from skf.api.projects.endpoints.project_update import ns as project_namespace
 
 
 from skf.api.restplus import api
@@ -76,14 +81,14 @@ def initialize_app(flask_app):
     configure_app(flask_app)
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
-    api.add_namespace(checklist_namespace)
     api.add_namespace(kb_namespace)
     api.add_namespace(code_namespace)
     api.add_namespace(users_namespace)
-    api.add_namespace(questions_sprint_namespace)
+    api.add_namespace(project_namespace)
+    api.add_namespace(sprints_namespace)
+    api.add_namespace(checklist_namespace)
     api.add_namespace(questions_pre_namespace)
-    api.add_namespace(project_items_namespace)
-    api.add_namespace(project_sprints_namespace)
+    api.add_namespace(questions_sprint_namespace)
     flask_app.register_blueprint(blueprint)
     db.init_app(flask_app)
 

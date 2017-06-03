@@ -16,7 +16,7 @@ class userLogin(Resource):
 
     @api.expect(login)
     @api.marshal_with(token_auth)
-    @api.response(400, 'No results found', message)
+    @api.response(400, 'No results found', token_auth)
     def post(self):
         """
         Login an user.

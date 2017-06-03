@@ -30,6 +30,6 @@ created = api.model('created', {
 })
 
 token_auth = api.model('Response Authorization token', {
-    'Authorization token': fields.String(required=True, description='Response Authorization token'),
+    'Authorization token': fields.String(required=True, description='Response Authorization token', default="Wrong username/password"),
 })
  

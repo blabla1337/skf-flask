@@ -25,5 +25,5 @@ class ProjectSprintItem(Resource):
         """
         validate_privilege(self, 'read')
         user_id = select_userid_jwt(self)
-        result = get_sprint_item(id)
+        result = get_sprint_item(id, user_id)
         return result, 200, security_headers()
