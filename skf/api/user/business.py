@@ -13,11 +13,11 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 def activate_user(user_id, data):
     log("User is activated", "HIGH", "PASS")
-    username = data.get('username')
-    username = username.replace(" ", "")
     val_num(user_id)
     val_num(data.get('accessToken'))
-    val_alpha_num(username)
+    val_alpha_num(data.get('username'))
+    username = data.get('username')
+    username = username.replace(" ", "")
     result = users.query.filter(users.userID == user_id).one()
     if result.activated == "false":
         if result.email == data.get('email'):
@@ -51,8 +51,8 @@ def activate_user(user_id, data):
 
 def login_user(data):
     log("User successfully logedin", "HIGH", "PASS")
+    val_alpha_num(data.get('username'))
     username = data.get('username')
-    val_alpha_num(username)
     try:
         user = users.query.filter(users.userName == username).one()
         if (users.query.filter(users.activated == "true").one()):

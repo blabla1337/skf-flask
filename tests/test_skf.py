@@ -270,7 +270,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': '3'}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'projectID': '3', 'question_sprint_ID': '1','result': 'True', 'sprintID': '4'},{'projectID': '3', 'question_sprint_ID': '2','result': 'True', 'sprintID': '4'} ]}
+        payload = {'questions': [ {'projectID': 3, 'question_sprint_ID': 1,'result': 'True', 'sprintID': 4},{'projectID': 3, 'question_sprint_ID': 2,'result': 'True', 'sprintID': 4} ]}
         response = self.client.put('/api/questions_sprint/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -278,7 +278,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': '3'}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'projectID': '3', 'question_sprint_ID': '1','result': 'True', 'sprintID': '5'},{'projectID': '3', 'question_sprint_ID': '2','result': 'True', 'sprintID': '5'} ]}
+        payload = {'questions': [ {'projectID': 3, 'question_sprint_ID': 1,'result': 'True', 'sprintID': 5},{'projectID': 3, 'question_sprint_ID': 2,'result': 'True', 'sprintID': 5} ]}
         response = self.client.put('/api/questions_sprint/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -366,7 +366,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': '1'}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'projectID': '1', 'question_sprint_ID': '1','result': 'True', 'sprintID': '2'},{'projectID': '1', 'question_sprint_ID': '2','result': 'True', 'sprintID': '2'} ]}
+        payload = {'questions': [ {'projectID': 1, 'question_sprint_ID': 1,'result': 'True', 'sprintID': 2},{'projectID': 1, 'question_sprint_ID': 2,'result': 'True', 'sprintID': 2} ]}
         response = self.client.put('/api/questions_sprint/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -455,7 +455,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/questions_sprint/items', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict[0]['question'], "Does the sprint implement/changes authentication?")
+        self.assertEqual(response_dict['items'][0]['question'], "Does the sprint implement/changes authentication?")
 
 
     def test_store_questions_sprint_items(self):
@@ -467,7 +467,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Project successfully created")
-        payload = {'questions': [ {'projectID': '3', 'question_sprint_ID': '1','result': 'True', 'sprintID': '1'},{'projectID': '3', 'question_sprint_ID': '2','result': 'True', 'sprintID': '1'} ]}
+        payload = {'questions': [ {'projectID': 3, 'question_sprint_ID': 1,'result': 'True', 'sprintID': 1},{'projectID': 3, 'question_sprint_ID': 2,'result': 'True', 'sprintID': 1} ]}
         response = self.client.put('/api/questions_sprint/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -480,7 +480,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/questions_pre/items', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict[0]['question'], "You have a blueprint for the design, architecture and validated this using ASVS?")
+        self.assertEqual(response_dict['items'][0]['question'], "You have a blueprint for the design, architecture and validated this using ASVS?")
 
 
     def test_store_questions_pre_items(self):
@@ -495,7 +495,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': '5'}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'projectID': '5', 'question_pre_ID': '1','result': 'True'},{'projectID': '5', 'question_pre_ID': '2','result': 'True'} ]}
+        payload = {'questions': [ {'projectID': 5, 'question_pre_ID': 1,'result': 'True'},{'projectID': 5, 'question_pre_ID': 2,'result': 'True'} ]}
         response = self.client.put('/api/questions_pre/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -514,12 +514,12 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': '7'}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'projectID': '7', 'question_pre_ID': '1','result': 'True'},{'projectID': '7', 'question_pre_ID': '2','result': 'True'} ]}
+        payload = {'questions': [ {'projectID': 7, 'question_pre_ID': 1,'result': 'True'},{'projectID': 7, 'question_pre_ID': 2,'result': 'True'} ]}
         response = self.client.put('/api/questions_pre/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Pre questions successfully created")
-        payload = {'questions': [ {'question_pre_ID': '1','result': 'False'},{'question_pre_ID': '2','result': 'False'} ]}
+        payload = {'questions': [ {'question_pre_ID': 1,'result': 'False'},{'question_pre_ID': 2,'result': 'False'} ]}
         response = self.client.put('/api/questions_pre/update/7', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))

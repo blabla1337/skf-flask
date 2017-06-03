@@ -35,10 +35,14 @@ from skf.api.user.endpoints.user_login import ns as users_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
+from skf.api.questions_pre.endpoints.question_pre_items import ns as questions_pre_namespace
+from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_pre_namespace
+from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
+from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
+from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
 from skf.api.projects.endpoints.project_items import ns as project_items_namespace
 from skf.api.sprints.endpoints.project_sprints import ns as project_sprints_namespace
-from skf.api.questions.endpoints.question_pre_items import ns as questions_pre_namespace
-from skf.api.questions.endpoints.question_sprint_items import ns as questions_sprint_namespace
+
 
 from skf.api.restplus import api
 from skf.database import db
@@ -72,10 +76,10 @@ def initialize_app(flask_app):
     api.add_namespace(kb_namespace)
     api.add_namespace(code_namespace)
     api.add_namespace(users_namespace)
-    api.add_namespace(project_items_namespace)
-    api.add_namespace(project_sprints_namespace)
     api.add_namespace(questions_sprint_namespace)
     api.add_namespace(questions_pre_namespace)
+    api.add_namespace(project_items_namespace)
+    api.add_namespace(project_sprints_namespace)
     flask_app.register_blueprint(blueprint)
     db.init_app(flask_app)
 

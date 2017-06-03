@@ -6,11 +6,11 @@ from skf.api.security import log, val_num, val_alpha_num
 def update_kb_item(kb_id, data):
     log("User requested update a specific kb item", "LOW", "PASS")
     val_num(kb_id)
+    val_alpha_num(data.get('content'))
+    val_alpha_num(data.get('title'))
     result = kb_items.query.filter(kb_items.kbID == kb_id).one()
     result.title = data.get('title')
     result.content = data.get('content')
-    val_alpha_num(result.title)
-    val_alpha_num(result.content)
     db.session.add(result)
     db.session.commit()
     return {'message': 'KB item successfully updated'} 
