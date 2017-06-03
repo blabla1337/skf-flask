@@ -22,6 +22,17 @@ from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
 from skf.db_tools import init_md_checklists, init_md_knowledge_base, init_md_code_examples, init_db
+from skf.api.projects.endpoints.project_items import ns as project_namespace
+from skf.api.projects.endpoints.project_item import ns as project_namespace
+from skf.api.projects.endpoints.project_delete import ns as project_namespace
+from skf.api.projects.endpoints.project_new import ns as project_namespace
+from skf.api.projects.endpoints.project_stats import ns as project_namespace
+from skf.api.projects.endpoints.project_update import ns as project_namespace
+from skf.api.sprints.endpoints.sprint_item import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_delete import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_new import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_stats import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_update import ns as sprints_namespace
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_level import ns as checklist_namespace
@@ -40,17 +51,6 @@ from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_p
 from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
-from skf.api.sprints.endpoints.sprint_item import ns as sprints_namespace
-from skf.api.sprints.endpoints.sprint_delete import ns as sprints_namespace
-from skf.api.sprints.endpoints.sprint_new import ns as sprints_namespace
-from skf.api.sprints.endpoints.sprint_stats import ns as sprints_namespace
-from skf.api.sprints.endpoints.sprint_update import ns as sprints_namespace
-from skf.api.projects.endpoints.project_items import ns as project_namespace
-from skf.api.projects.endpoints.project_item import ns as project_namespace
-from skf.api.projects.endpoints.project_delete import ns as project_namespace
-from skf.api.projects.endpoints.project_new import ns as project_namespace
-from skf.api.projects.endpoints.project_stats import ns as project_namespace
-from skf.api.projects.endpoints.project_update import ns as project_namespace
 
 
 from skf.api.restplus import api

@@ -11,7 +11,7 @@ ns = api.namespace('kb', description='Operations related to kb items')
 
 @ns.route('/<int:id>')
 @api.doc(params={'id': 'The kb item id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class KBItem(Resource):
 
     @api.marshal_with(kb)

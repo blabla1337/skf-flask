@@ -11,7 +11,7 @@ ns = api.namespace('questions_sprint', description='Operations related to questi
 
 
 @ns.route('/store')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class QuestionSprintStoreCollection(Resource):
 
     @api.expect(authorization, store_list_items_sprint)

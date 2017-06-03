@@ -11,7 +11,7 @@ ns = api.namespace('code', description='Operations related to code example items
 
 @ns.route('/<int:id>')
 @api.doc(params={'id': 'The code item id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class CodeItem(Resource):
 
     @api.marshal_with(code)

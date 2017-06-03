@@ -12,7 +12,7 @@ ns = api.namespace('project', description='Operations related to project items')
 
 @ns.route('/<int:id>')
 @api.doc(params={'id': 'The project id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class ProjectItem(Resource):
 
     @api.expect(authorization)

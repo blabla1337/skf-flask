@@ -12,7 +12,7 @@ ns = api.namespace('user', description='Operations related to users')
 
 @ns.route('/activate/<int:id>')
 @api.doc(params={'id': 'The user id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class userActivation(Resource):
 
     @api.expect(activate)

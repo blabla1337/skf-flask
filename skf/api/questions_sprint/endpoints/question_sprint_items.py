@@ -10,7 +10,7 @@ ns = api.namespace('questions_sprint', description='Operations related to questi
 
 
 @ns.route('/items')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class QuestionCollection(Resource):
 
     @api.marshal_with(question_items)

@@ -11,7 +11,7 @@ ns = api.namespace('project', description='Operations related to project items')
 
 
 @ns.route('/new')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class ProjectItemNew(Resource):
 
     @api.expect(authorization, project_new)

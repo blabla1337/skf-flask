@@ -4,7 +4,7 @@ from flask_restplus import Resource
 from skf.api.security import security_headers, validate_privilege, select_userid_jwt
 from skf.api.projects.business import update_project
 from skf.api.projects.serializers import project_update, message
-from skf.api.projects.parsers import pagination_arguments, authorization
+from skf.api.projects.parsers import authorization
 from skf.api.restplus import api
 
 ns = api.namespace('project', description='Operations related to project items')
@@ -12,7 +12,7 @@ ns = api.namespace('project', description='Operations related to project items')
 
 @ns.route('/update/<int:id>')
 @api.doc(params={'id': 'The project id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class ProjectItemUpdate(Resource):
 
     @api.expect(authorization, project_update)

@@ -11,7 +11,7 @@ ns = api.namespace('code', description='Operations related to code example items
 
 @ns.route('/lang/<string:code_lang>')
 @api.doc(params={'code_lang': 'The code lang type'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class CodeLangItem(Resource):
 
     @api.marshal_with(code_items)

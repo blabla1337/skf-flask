@@ -12,7 +12,7 @@ ns = api.namespace('sprint', description='Operations related to sprint items')
 
 @ns.route('/stats/<int:id>')
 @api.doc(params={'id': 'The project id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class ProjectSprintStats(Resource):
 
     @api.expect(authorization)

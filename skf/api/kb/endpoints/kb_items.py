@@ -10,7 +10,7 @@ ns = api.namespace('kb', description='Operations related to kb items')
 
 
 @ns.route('/items')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class KBCollection(Resource):
 
     @api.marshal_with(kb_items)

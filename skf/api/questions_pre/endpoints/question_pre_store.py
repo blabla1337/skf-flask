@@ -11,7 +11,7 @@ ns = api.namespace('questions_pre', description='Operations related to question 
 
 
 @ns.route('/store')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class QuestionPreStoreCollection(Resource):
 
     @api.expect(authorization, store_list_items_pre)

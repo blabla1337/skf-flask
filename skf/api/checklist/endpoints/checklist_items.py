@@ -10,7 +10,7 @@ ns = api.namespace('checklist', description='Operations related to checklist ite
 
 
 @ns.route('/items')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class ChecklistCollection(Resource):
 
     @api.marshal_with(checklist_items)

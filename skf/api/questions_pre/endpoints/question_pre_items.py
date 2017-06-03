@@ -10,7 +10,7 @@ ns = api.namespace('questions_pre', description='Operations related to question 
 
 
 @ns.route('/items')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class QuestionPreCollection(Resource):
 
     @api.marshal_with(question_items)

@@ -12,7 +12,7 @@ ns = api.namespace('questions_pre', description='Operations related to question 
 
 @ns.route('/update/<int:id>')
 @api.doc(params={'id': 'The project id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class QuestionPreUpdateCollection(Resource):
 
     @api.expect(authorization, update_list_items_pre)

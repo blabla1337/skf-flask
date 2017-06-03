@@ -12,7 +12,7 @@ ns = api.namespace('kb', description='Operations related to kb items')
 
 @ns.route('/update/<int:id>')
 @api.doc(params={'id': 'The kb item id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class KBItemUpdate(Resource):
 
     @api.expect(authorization, kb_update)

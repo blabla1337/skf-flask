@@ -30,20 +30,7 @@ def activate_user(user_id, data):
                     result.userName = username
                     db.session.add(result)
                     db.session.commit()
-                    if not result:
-                        log("User triggered error activation failed", "HIGH", "FAIL")
-                        return {'message': 'User could not be activated'}
-                    else:
-                        return {'message': 'User successfully activated'}
-                else:
-                    log("User triggered error activation failed", "HIGH", "FAIL")
-                    return {'message': 'User could not be activated'}
-            else:
-                log("User triggered error activation failed", "HIGH", "FAIL")
-                return {'message': 'User could not be activated'}
-        else:
-            log("User triggered error activation failed", "HIGH", "FAIL")
-            return {'message': 'User could not be activated'}
+                    return {'message': 'User successfully activated'}
     else:
         log("User triggered error activation failed", "HIGH", "FAIL")
         return {'message': 'User could not be activated'}
@@ -77,9 +64,6 @@ def login_user(data):
                 else:
                     log("User triggered error login failed", "HIGH", "FAIL")
                     return {'Authorization token': 'Wrong username/password'}
-            else:
-                log("User triggered error login failed", "HIGH", "FAIL")
-                return {'Authorization token': 'Wrong username/password'}
     except NoResultFound:
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': 'Wrong username/password'}

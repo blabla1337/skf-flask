@@ -11,7 +11,7 @@ ns = api.namespace('checklist', description='Operations related to checklist ite
 
 @ns.route('/<float:id>')
 @api.doc(params={'id': 'The checklist item id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class ChecklistItem(Resource):
 
     @api.marshal_with(checklist)

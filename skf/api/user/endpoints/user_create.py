@@ -12,7 +12,7 @@ ns = api.namespace('user', description='Operations related to users')
 
 
 @ns.route('/create')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class userCreation(Resource):
 
     @api.expect(authorization, create)

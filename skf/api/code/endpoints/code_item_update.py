@@ -13,7 +13,7 @@ ns = api.namespace('code', description='Operations related to code example items
 
 @ns.route('/update/<int:id>')
 @api.doc(params={'id': 'The code item id'})
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class CodeItemUpdate(Resource):
 
     @api.expect(authorization, code_update)

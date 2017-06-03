@@ -11,7 +11,7 @@ ns = api.namespace('user', description='Operations related to users')
 
 
 @ns.route('/login')
-@api.response(404, 'Validation error')
+@api.response(404, 'Validation error', message)
 class userLogin(Resource):
 
     @api.expect(login)
