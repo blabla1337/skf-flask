@@ -3,8 +3,8 @@ from skf.api.restplus import api
 
 sprint = api.model('sprint', {
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
-    'projectID': fields.String(required=True, description='The unique identifier of a sprint project'),
-    'groupID': fields.String(required=True, description='The unique identifier of a sprint group'),
+    'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
+    'groupID': fields.Integer(required=True, description='The unique identifier of a sprint group'),
     'sprintName': fields.String(required=True, description='Sprint name'),
     'sprintDesc': fields.String(required=True, description='Sprint description'),
 })
@@ -32,7 +32,7 @@ sprint_update = api.model('Sprint update', {
 sprint_new = api.model('Sprint new', {
     'name': fields.String(required=True, description='New sprint name'),
     'description': fields.String(required=True, description='New sprint description'),
-    'projectID': fields.String(required=True, description='The unique identifier of a sprint project'),
+    'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
 })
 
 message = api.model('Response message', {

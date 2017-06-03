@@ -27,4 +27,3 @@ def get_kb_items():
     log("User requested list of kb items", "LOW", "PASS")
     result = kb_items.query.paginate()
     return result
-        

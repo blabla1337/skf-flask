@@ -128,4 +128,4 @@ def init_md_checklists():
         print('Initialized the markdown checklists.')
         return True
     except:
-        return False    
+        return False

@@ -40,8 +40,12 @@ from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_p
 from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
+from skf.api.sprints.endpoints.sprint_item import ns as project_sprints_namespace
+from skf.api.sprints.endpoints.sprint_delete import ns as project_sprints_namespace
+from skf.api.sprints.endpoints.sprint_new import ns as project_sprints_namespace
+from skf.api.sprints.endpoints.sprint_stats import ns as project_sprints_namespace
+from skf.api.sprints.endpoints.sprint_update import ns as project_sprints_namespace
 from skf.api.projects.endpoints.project_items import ns as project_items_namespace
-from skf.api.sprints.endpoints.project_sprints import ns as project_sprints_namespace
 
 
 from skf.api.restplus import api
