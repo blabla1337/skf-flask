@@ -6,7 +6,7 @@
 A sandbox is a security mechanism for separating running programs.
 It is often used to execute untested code, or untrusted programs from
 unverified third parties, suppliers, untrusted users and untrusted websites. It's creating
-an extra layer of security where an attacker first need to break out from.
+an extra layer of security where an attacker first needs to break out from.
 
 ## Solution:
 
