@@ -211,7 +211,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_create_project(self):
         """Test if the create new project call is working"""
         jwt = self.login('admin', 'admin')        
-        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -251,7 +251,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_update_project_item(self):
         """Test if the project update call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project update', 'name': 'Unit test name project update', 'version': 'version 1.1'}
+        payload = {'description': 'Unit test description project update', 'name': 'Unit test name project update', 'level': 1, 'version': 'version 1.1'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/update/2', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -266,7 +266,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_delete_project_item(self):
         """Test if the delete project item call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -281,7 +281,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_stats_project_items(self):
         """Test if the stats of sprint call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project for sprint', 'name': 'Unit test name project for sprint', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project for sprint', 'name': 'Unit test name project for sprint', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -377,7 +377,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_stats_sprint_items(self):
         """Test if the stats of sprint call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project for sprint', 'name': 'Unit test name project for sprint', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project for sprint', 'name': 'Unit test name project for sprint', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -408,7 +408,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_delete_project_item_fail(self):
         """Test if the delete project item fail call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': 'woopwoopwrong'}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)
@@ -481,7 +481,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_store_questions_sprint_items(self):
         """Test if the question sprint items call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project for sprint', 'name': 'Unit test name project for sprint', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project for sprint', 'name': 'Unit test name project for sprint', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -506,7 +506,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_store_questions_pre_items(self):
         """Test if the store question pre items call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -525,7 +525,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_update_questions_pre_items(self):
         """Test if the update question pre items call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -553,14 +553,14 @@ class TestRestPlusApi(unittest.TestCase):
 
 
     def test_assert_403_project_new(self):
-        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)
 
 
     def test_assert_403_project_update(self):
-        payload = {'description': 'Unit test description project update', 'name': 'Unit test name project update', 'version': 'version 1.1'}
+        payload = {'description': 'Unit test description project update', 'name': 'Unit test name project update', 'level': 1, 'version': 'version 1.1'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/project/update/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)

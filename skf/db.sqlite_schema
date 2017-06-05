@@ -93,7 +93,8 @@ CREATE TABLE `projects` (
 `projectVersion` varchar(250) NOT NULL,
 `projectDesc` text NOT NULL,
 `ownerID` int(11) NOT NULL,
-`timestamp` timestamp NOT NULL
+`timestamp` timestamp NOT NULL,
+`level` int(11) NOT NULL
 );
 
 
