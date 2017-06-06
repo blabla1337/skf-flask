@@ -13,7 +13,7 @@ signing computer in the same location where the signed and unsigned copies of th
 This file is created automatically as part of the signing process.
 A certificate revocation list (CRL) is a list, created and signed by a
 certificate authority (CA), which contains serial numbers of certificates that have been
-issued by that CA and are currently revoked. In addition to the serial number for the
+issued by that CA and are currently revoked. In addition to the serial number of the
 revoked certifications, the CRL also contains the reason for revocation for each certificate
 and the time the certificate was revoked. The serial number for each revoked certificate is
 kept in the CAs database and published in the CRL until the certificate expires.
