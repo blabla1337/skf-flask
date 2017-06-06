@@ -21,7 +21,7 @@ def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).all()
+    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).paginate(1, 500, False)
     print(result)
     return result
 

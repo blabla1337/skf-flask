@@ -25,6 +25,6 @@ class CommentItemNew(Resource):
         validate_privilege(self, 'edit')
         user_id = select_userid_jwt(self)
         data = request.json
-        result = update_comment_item(user_id, data)
+        result = new_comment_item(user_id, data)
         return result, 200, security_headers()
 

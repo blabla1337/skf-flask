@@ -3,7 +3,7 @@ import datetime
 from skf.database import db
 from skf.database.comments import comments
 from skf.database.checklists_results import checklists_results 
-from skf.api.security import log, val_num, val_alpha_num, val_float
+from skf.api.security import log, val_num, val_alpha_num
 
 
 def get_comment_items(data):
@@ -37,4 +37,4 @@ def new_comment_item(user_id, data):
         row.status = status
         db.session.add(row)
         db.session.commit()
-    return {'message': 'Comment item successfully updated'} 
+    return {'message': 'Comment item successfully created'} 
