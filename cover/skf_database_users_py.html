@@ -81,7 +81,7 @@
 <p id="n12" class="stm run hide_run"><a href="#n12">12</a></p>
 <p id="n13" class="stm run hide_run"><a href="#n13">13</a></p>
 <p id="n14" class="pln"><a href="#n14">14</a></p>
-<p id="n15" class="stm run hide_run"><a href="#n15">15</a></p>
+<p id="n15" class="pln"><a href="#n15">15</a></p>
 <p id="n16" class="stm run hide_run"><a href="#n16">16</a></p>
 <p id="n17" class="stm run hide_run"><a href="#n17">17</a></p>
 <p id="n18" class="stm run hide_run"><a href="#n18">18</a></p>
@@ -89,6 +89,7 @@
 <p id="n20" class="stm run hide_run"><a href="#n20">20</a></p>
 <p id="n21" class="stm run hide_run"><a href="#n21">21</a></p>
 <p id="n22" class="stm run hide_run"><a href="#n22">22</a></p>
+<p id="n23" class="stm run hide_run"><a href="#n23">23</a></p>
 
             </td>
             <td class="text">
@@ -99,21 +100,22 @@
 <p id="t5" class="stm run hide_run"><span class="key">class</span> <span class="nam">users</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Model</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm run hide_run">    <span class="nam">userID</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">primary_key</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="stm run hide_run">    <span class="nam">privilegeID</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t8" class="stm run hide_run">    <span class="nam">accessToken</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t8" class="stm run hide_run">    <span class="nam">accessToken</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t9" class="stm run hide_run">    <span class="nam">userName</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t10" class="stm run hide_run">    <span class="nam">password</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t11" class="stm run hide_run">    <span class="nam">access</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t12" class="stm run hide_run">    <span class="nam">activated</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t13" class="stm run hide_run">    <span class="nam">email</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t14" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t15" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">privilegeID</span><span class="op">,</span> <span class="nam">accessToken</span><span class="op">,</span> <span class="nam">userName</span><span class="op">,</span> <span class="nam">password</span><span class="op">,</span> <span class="nam">access</span><span class="op">,</span> <span class="nam">activated</span><span class="op">,</span> <span class="nam">email</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t16" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">privilegeID</span> <span class="op">=</span> <span class="nam">privilegeID</span><span class="strut">&nbsp;</span></p>
-<p id="t17" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">accessToken</span> <span class="op">=</span> <span class="nam">accessToken</span><span class="strut">&nbsp;</span></p>
-<p id="t18" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">userName</span> <span class="op">=</span> <span class="nam">userName</span><span class="strut">&nbsp;</span></p>
-<p id="t19" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">password</span> <span class="op">=</span> <span class="nam">password</span><span class="strut">&nbsp;</span></p>
-<p id="t20" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">access</span> <span class="op">=</span> <span class="nam">access</span><span class="strut">&nbsp;</span></p>
-<p id="t21" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">activated</span> <span class="op">=</span> <span class="nam">activated</span><span class="strut">&nbsp;</span></p>
-<p id="t22" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">email</span> <span class="op">=</span> <span class="nam">email</span><span class="strut">&nbsp;</span></p>
+<p id="t15" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t16" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">privilegeID</span><span class="op">,</span> <span class="nam">accessToken</span><span class="op">,</span> <span class="nam">userName</span><span class="op">,</span> <span class="nam">password</span><span class="op">,</span> <span class="nam">access</span><span class="op">,</span> <span class="nam">activated</span><span class="op">,</span> <span class="nam">email</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t17" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">privilegeID</span> <span class="op">=</span> <span class="nam">privilegeID</span><span class="strut">&nbsp;</span></p>
+<p id="t18" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">accessToken</span> <span class="op">=</span> <span class="nam">accessToken</span><span class="strut">&nbsp;</span></p>
+<p id="t19" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">userName</span> <span class="op">=</span> <span class="nam">userName</span><span class="strut">&nbsp;</span></p>
+<p id="t20" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">password</span> <span class="op">=</span> <span class="nam">password</span><span class="strut">&nbsp;</span></p>
+<p id="t21" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">access</span> <span class="op">=</span> <span class="nam">access</span><span class="strut">&nbsp;</span></p>
+<p id="t22" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">activated</span> <span class="op">=</span> <span class="nam">activated</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">email</span> <span class="op">=</span> <span class="nam">email</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -124,7 +126,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-05-12 13:35
+            created at 2017-06-02 12:34
         </p>
     </div>
 </div>

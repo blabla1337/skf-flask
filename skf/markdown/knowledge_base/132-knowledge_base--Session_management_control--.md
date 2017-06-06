@@ -13,4 +13,5 @@ implementing their own Session Management.
 
 ## Solution:
 
-Always use the frameworks’ default session management control implementation in your application. If not possible you should find hardened guides in how to accomplish this in a secure manner.
+Always use the frameworks default session management control implementation in your application. 
+If not possible you should find hardened guides in how to accomplish this in a secure manner.

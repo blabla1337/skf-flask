@@ -20,4 +20,4 @@ the results.
 Note: Validation of input should never be done with a black-listing aproach since attackers can be very
 nifty in bypassing these type of constraints. Always perform white list validation checks preferably in
 combination on type checking. i.e if the application expects the value to be an integer, do not make
-the application accept a value of string. This input should be logged and rejected.
+the application accept a value of a string. This input should be logged and rejected.

@@ -2,6 +2,7 @@ import jwt, datetime, re
 
 from skf import settings
 from flask import request, abort
+from skf.api.restplus import api
 from skf.database import db
 from skf.database.logs import logs
 
@@ -30,9 +31,12 @@ def log(message, threat, status):
     dateTime = now.strftime("%H:%M")
     try:
         ip = request.remote_addr
-        token = request.headers.get('Authorization').split()[0]
-        checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
-        userID = checkClaims['UserId']
+        if request.headers.get('Authorization'):
+            token = request.headers.get('Authorization').split()[0]
+            checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
+            userID = checkClaims['UserId']
+        else:
+            userID = "0"
         event = logs(dateLog, dateTime, threat, ip, userID, status, message)
         db.session.add(event)
         db.session.commit()
@@ -41,12 +45,13 @@ def log(message, threat, status):
         ip = "0.0.0.0"
         event = "Datelog: "+dateLog+" "+" Datetime: "+dateTime+" "+"Threat: "+threat+" "+" IP:"+ip+" "+"UserId: "+userID+" "+"Status: "+status+" "+"Message: "+message
 
+
 def val_alpha(value):
     """User input validation for checking a-zA-Z"""
     match = re.findall(r"[^a-zA-Z_]", str(value))
     if match:
         log("User supplied not an a-zA-Z", "MEDIUM", "FAIL")
-        return False
+        abort(400, "Validation Error")
     else:
         return True
 
@@ -56,7 +61,7 @@ def val_alpha_num(value):
     match = re.findall(r"[^ a-zA-Z0-9_.-]", value)
     if match:
         log("User supplied not an a-z A-Z 0-9 _ . - value", "MEDIUM", "FAIL")
-        return False
+        abort(400, "Validation Error")
     else:
         return True
 
@@ -65,7 +70,7 @@ def val_num(value):
     """User input validation for checking numeric values only 0-9"""
     if not isinstance( value, int ):
         log("User supplied not an 0-9", "MEDIUM", "FAIL")
-        return False
+        abort(400, "Validation Error")
     else:
         return True
 
@@ -73,8 +78,8 @@ def val_num(value):
 def val_float(value): 
     """User input validation for checking float values only 0-9 ."""
     if not isinstance( value, float ):
-        log("User supplied not an 0-9 .", "MEDIUM", "FAIL")
-        return False
+        log("User supplied not a float value.", "MEDIUM", "FAIL")
+        abort(400, "Validation Error")
     else:
         return True
 

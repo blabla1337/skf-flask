@@ -27,7 +27,7 @@ Software projects should have a process in place to:
 -Monitor the security of these components in public databases,
 project mailing lists, and security mailing lists, and keep them up to date.
 
--Establish security policies governing component use, such as requiring certain software
+-Establish security policies governing components use, such as requiring certain software
 development practices, passing security tests, and acceptable licenses.
 
 -Where appropriate, consider adding security wrappers around components to disable unused

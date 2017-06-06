@@ -6,11 +6,3 @@ class kb_items(db.Model):
     kbID = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text)
     content = db.Column(db.Text)
-
-
-    def __init__(self, kbID, title, content):
-        self.kbID = kbID
-        self.title = title
-        self.content = content
-
-

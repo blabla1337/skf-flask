@@ -14,19 +14,7 @@ code_update = api.model('code_update', {
     'code_lang': fields.String(required=True, description='Code language'),
 })
 
-pagination = api.model('A page of results', {
-    'page': fields.Integer(description='Number of the page of results'),
-    'pages': fields.Integer(description='Total number of pages of results'),
-    'per_page': fields.Integer(description='Number of items per page of results'),
-    'total': fields.Integer(description='Total number of results'),
-})
-
-code_lang = api.model('Code language', {
-    'code_lang': fields.String(required=True, description='Code language', location='form'),
-})
-
-
-page_of_code_items = api.inherit('Page of code items', pagination, {
+code_items = api.inherit('List of code example items', {
     'items': fields.List(fields.Nested(code))
 })
 
