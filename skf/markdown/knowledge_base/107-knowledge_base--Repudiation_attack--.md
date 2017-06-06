@@ -9,7 +9,7 @@ the identification of new actions. This attack can be used to change the authori
 information of actions executed by a malicious user in order to log wrong data to log files.
 Its usage can be extended to general data manipulation in the name of others,
 in a similar manner as spoofing mail messages. If this attack takes place, the data stored
-on log files can be considered invalid or misleading.
+in log files can be considered invalid or misleading.
 
 ## Solution:
 
