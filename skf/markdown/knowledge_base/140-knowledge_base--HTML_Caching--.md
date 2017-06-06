@@ -1,4 +1,4 @@
-# Client side Caching and HTML5 Caching
+# Client-side Caching and HTML5 Caching
 -------
 
 ## Description:
