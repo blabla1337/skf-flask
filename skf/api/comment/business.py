@@ -1,3 +1,5 @@
+import datetime
+
 from skf.database import db
 from skf.database.comments import comments
 from skf.database.checklists_results import checklists_results 
@@ -14,7 +16,7 @@ def get_comment_items(data):
     return result
 
 
-def update_comment_item(user_id, data):
+def new_comment_item(user_id, data):
     log("User requested update a specific comment item", "LOW", "PASS")
     val_num(user_id)
     val_alpha_num(data.get('checklistID'))
@@ -25,7 +27,9 @@ def update_comment_item(user_id, data):
     checklist_id = data.get('checklistID')
     status = data.get('status')
     comment = data.get('comment')
-    result = comments(sprint_id, checklist_id, user_id, status, comment)
+    now = datetime.datetime.now()
+    dateLog = now.strftime("%Y-%m-%d %H:%M")
+    result = comments(sprint_id, checklist_id, user_id, status, comment, dateLog)
     db.session.add(result)
     db.session.commit()
     result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.checklistID == checklist_id).all()

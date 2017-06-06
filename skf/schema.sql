@@ -236,7 +236,8 @@ CREATE TABLE `comments` (
 `checklistID` int(11) NOT NULL,
 `userID` int(11) NOT NULL, 
 `status` int(11) NOT NULL, 	
-`comment` varchar(255)
+`comment` varchar(255),
+`date` varchar(255) NOT NULL
 );
 
 --

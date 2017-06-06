@@ -53,7 +53,7 @@ from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_
 from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
 from skf.api.comment.endpoints.comment_items import ns as comment_namespace
-from skf.api.comment.endpoints.comment_update import ns as comment_namespace
+from skf.api.comment.endpoints.comment_new import ns as comment_namespace
 
 from skf.api.restplus import api
 from skf.database import db

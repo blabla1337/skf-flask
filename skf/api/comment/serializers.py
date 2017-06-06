@@ -8,6 +8,7 @@ comment = api.model('comment', {
     'userID': fields.Integer(readOnly=True, description='The unique identifier of a user'),
     'status': fields.Integer(readOnly=True, description='The status of a checklist item: 1, 2, 3'),
     'comment': fields.String(required=True, description='Comment content'),
+    'date': fields.String(required=True, description='date of creation comment'),
 })
 
 comment_get = api.model('comment_get', {
@@ -15,7 +16,7 @@ comment_get = api.model('comment_get', {
     'checklistID': fields.String(readOnly=True, description='The unique identifier of a checklist item'),
 })
 
-comment_update = api.model('comment_update', {
+comment_new = api.model('comment_new', {
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
     'checklistID': fields.String(readOnly=True, description='The unique identifier of a checklist item'),
     'status': fields.Integer(readOnly=True, description='The status of a checklist item: 1, 2, 3'),

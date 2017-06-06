@@ -9,11 +9,13 @@ class comments(db.Model):
     userID = db.Column(db.Integer)
     status = db.Column(db.Integer)
     comment = db.Column(db.Text)
+    date = db.Column(db.Integer)
 
 
-    def __init__(self, sprintID, checklistID, userID, status, comment):
+    def __init__(self, sprintID, checklistID, userID, status, comment, date):
         self.sprintID = sprintID
         self.checklistID = checklistID
         self.userID = userID
         self.status = status
         self.comment = comment
+        self.date = date
