@@ -110,8 +110,8 @@
 <p id="t12" class="stm run hide_run">    <span class="nam">preItem</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t13" class="stm run hide_run">    <span class="nam">checklistID</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">String</span><span class="op">,</span> <span class="nam">db</span><span class="op">.</span><span class="nam">ForeignKey</span><span class="op">(</span><span class="str">"checklists.checklistID"</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t14" class="stm run hide_run">    <span class="nam">checklist_items</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">relationship</span><span class="op">(</span><span class="str">"checklists"</span><span class="op">,</span> <span class="nam">foreign_keys</span><span class="op">=</span><span class="op">[</span><span class="nam">checklistID</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t15" class="pln">    <span class="com">#kbID = db.Column(db.Integer, db.ForeignKey("checklists.kbID"))</span><span class="strut">&nbsp;</span></p>
-<p id="t16" class="pln">    <span class="com">#kb_items = db.relationship("checklists", foreign_keys=[kbID])  </span><span class="strut">&nbsp;</span></p>
+<p id="t15" class="pln">    <span class="com">#kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))</span><span class="strut">&nbsp;</span></p>
+<p id="t16" class="pln">    <span class="com">#kb_items = db.relationship("kb_items", foreign_keys=[kbID])  </span><span class="strut">&nbsp;</span></p>
 <p id="t17" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t18" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t19" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">checklistID</span><span class="op">,</span> <span class="nam">projectID</span><span class="op">,</span> <span class="nam">sprintID</span><span class="op">,</span> <span class="nam">status</span><span class="op">,</span> <span class="nam">comment</span><span class="op">,</span> <span class="nam">preItem</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -132,7 +132,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-06 12:56
+            created at 2017-06-06 14:52
         </p>
     </div>
 </div>
