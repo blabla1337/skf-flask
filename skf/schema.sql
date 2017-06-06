@@ -232,7 +232,6 @@ CREATE TABLE `checklists_results` (
 drop table if exists `comments`;
 CREATE TABLE `comments` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`projectID` int(11) NOT NULL,
 `sprintID` int(11) NOT NULL,
 `checklistID` int(11) NOT NULL,
 `userID` int(11) NOT NULL, 

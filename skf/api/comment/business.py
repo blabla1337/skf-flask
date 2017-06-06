@@ -10,7 +10,7 @@ def get_comment_items(data):
     val_num(data.get('sprintID'))
     sprint_id = data.get('sprintID')
     checklist_id = data.get('checklistID')
-    result = comments.query.filter(comments.sprintID == sprint_id).filter(comments.checklistID == checklist_id).group_by(comments.comment).paginate()
+    result = comments.query.filter(comments.sprintID == sprint_id).filter(comments.checklistID == checklist_id).group_by(comments.comment).paginate(1, 50, False)
     return result
 
 
@@ -22,11 +22,10 @@ def update_comment_item(user_id, data):
     val_num(data.get('status'))
     val_alpha_num(data.get('comment'))
     sprint_id = data.get('sprintID')
-    project_id = data.get('projectID')
     checklist_id = data.get('checklistID')
     status = data.get('status')
     comment = data.get('comment')
-    result = comments(project_id, sprint_id, checklist_id, user_id, status, comment)
+    result = comments(sprint_id, checklist_id, user_id, status, comment)
     db.session.add(result)
     db.session.commit()
     result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.checklistID == checklist_id).all()

@@ -14,7 +14,7 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 def get_pre_items():
     log("User requested list of question pre items", "LOW", "PASS")
-    result = questions_pre.query.paginate()
+    result = questions_pre.query.paginate(1, 500, False)
     return result
 
 

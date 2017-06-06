@@ -3,7 +3,6 @@ from skf.api.restplus import api
 
 
 comment = api.model('comment', {
-    'projectID': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
     'checklistID': fields.String(readOnly=True, description='The unique identifier of a checklist item'),
     'userID': fields.Integer(readOnly=True, description='The unique identifier of a user'),
@@ -18,7 +17,6 @@ comment_get = api.model('comment_get', {
 
 comment_update = api.model('comment_update', {
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
-    'projectID': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
     'checklistID': fields.String(readOnly=True, description='The unique identifier of a checklist item'),
     'status': fields.Integer(readOnly=True, description='The status of a checklist item: 1, 2, 3'),
     'comment': fields.String(required=True, description='Comment content'),

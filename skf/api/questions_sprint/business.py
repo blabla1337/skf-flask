@@ -12,7 +12,7 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 def get_sprint_items():
     log("User requested list of question sprint items", "LOW", "PASS")
-    result = questions_sprint.query.paginate()
+    result = questions_sprint.query.paginate(1, 500, False)
     return result
 
 

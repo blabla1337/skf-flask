@@ -4,7 +4,6 @@ from skf.database import db
 
 class comments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    projectID = db.Column(db.Integer)
     sprintID = db.Column(db.Integer)
     checklistID = db.Column(db.Integer)
     userID = db.Column(db.Integer)
@@ -12,8 +11,7 @@ class comments(db.Model):
     comment = db.Column(db.Text)
 
 
-    def __init__(self, projectID, sprintID, checklistID, userID, status, comment):
-        self.projectID = projectID
+    def __init__(self, sprintID, checklistID, userID, status, comment):
         self.sprintID = sprintID
         self.checklistID = checklistID
         self.userID = userID

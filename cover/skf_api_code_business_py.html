@@ -126,7 +126,7 @@
 <p id="t18" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t19" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_code_items</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t20" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of code items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t21" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">code_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t21" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">code_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t22" class="stm run hide_run">    <span class="key">return</span> <span class="nam">result</span><span class="strut">&nbsp;</span></p>
 <p id="t23" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t24" class="pln"><span class="strut">&nbsp;</span></p>
@@ -140,7 +140,7 @@
 <p id="t32" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_code_items_lang</span><span class="op">(</span><span class="nam">code_lang</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t33" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested code lang items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t34" class="stm run hide_run">    <span class="nam">val_alpha</span><span class="op">(</span><span class="nam">code_lang</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t35" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">code_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">code_items</span><span class="op">.</span><span class="nam">code_lang</span> <span class="op">==</span> <span class="nam">code_lang</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t35" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">code_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">code_items</span><span class="op">.</span><span class="nam">code_lang</span> <span class="op">==</span> <span class="nam">code_lang</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t36" class="stm run hide_run">    <span class="key">return</span> <span class="nam">result</span><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -152,7 +152,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-03 13:13
+            created at 2017-06-06 23:08
         </p>
     </div>
 </div>
