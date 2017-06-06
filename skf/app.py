@@ -52,7 +52,8 @@ from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_p
 from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
-
+from skf.api.comment.endpoints.comment_items import ns as comment_namespace
+from skf.api.comment.endpoints.comment_update import ns as comment_namespace
 
 from skf.api.restplus import api
 from skf.database import db
@@ -86,6 +87,7 @@ def initialize_app(flask_app):
     api.add_namespace(code_namespace)
     api.add_namespace(users_namespace)
     api.add_namespace(project_namespace)
+    api.add_namespace(comment_namespace)
     api.add_namespace(sprints_namespace)
     api.add_namespace(checklist_namespace)
     api.add_namespace(questions_pre_namespace)

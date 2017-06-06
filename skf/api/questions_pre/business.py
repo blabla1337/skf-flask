@@ -27,9 +27,11 @@ def store_pre_questions(user_id, data):
     userID = user_id
     project_results = project_sprints.query.filter(project_sprints.projectID == project_id).one()
     sprint_id = project_results.sprintID
+    projects_result = projects.query.filter(projects.projectID == project_id).one()
+    project_lvl = projects_result.level
     status = 1
     pre_item = "True"
-    comment = ""
+    comment = 0
     for result in data.get('questions'):
         val_num(result['question_pre_ID'])
         val_alpha(result['result'])
@@ -44,14 +46,14 @@ def store_pre_questions(user_id, data):
     for results in questions_results:
         project_id = results.projectID
         questionpreID = results.question_pre_ID
-        checklists = checklists_kb.query.filter(checklists_kb.question_pre_ID == questionpreID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+        checklists = checklists_kb.query.filter(checklists_kb.question_pre_ID == questionpreID).filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = project_lvl)).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
         for row in checklists:
-            checklists_query = checklists_results(row.checklistID, project_id, sprint_id, status, comment, pre_item, row.kbID)
+            checklists_query = checklists_results(row.checklistID, project_id, sprint_id, status, pre_item, row.kbID)
             db.session.add(checklists_query)
             db.session.commit()
-    checklists_first = checklists_kb.query.filter(checklists_kb.include_first == "True").group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+    checklists_first = checklists_kb.query.filter(checklists_kb.include_first == "True").filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = project_lvl)).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
     for row in checklists_first:
-        checklists_query_first = checklists_results(row.checklistID, question_project_id, sprint_id, status, comment, pre_item, row.kbID)
+        checklists_query_first = checklists_results(row.checklistID, question_project_id, sprint_id, status, pre_item, row.kbID)
         db.session.add(checklists_query_first)
         db.session.commit()
     return {'message': 'Pre questions successfully created'}
@@ -68,9 +70,11 @@ def update_pre_questions(project_id, user_id, data):
     db.session.commit()
     project_results = project_sprints.query.filter(project_sprints.projectID == project_id).one()
     sprint_id = project_results.sprintID
+    projects_result = projects.query.filter(projects.projectID == project_id).one()
+    project_lvl = projects_result.level
     status = 1
     pre_item = "True"
-    comment = ""
+    comment = 0
     for result in data.get('questions'):
         val_num(result['question_pre_ID'])
         val_alpha(result['result'])
@@ -83,14 +87,14 @@ def update_pre_questions(project_id, user_id, data):
     for results in questions_results:
         projectID = results.projectID
         questionpreID = results.question_pre_ID
-        checklists = checklists_kb.query.filter(checklists_kb.question_pre_ID == questionpreID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+        checklists = checklists_kb.query.filter(checklists_kb.question_pre_ID == questionpreID).filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = project_lvl)).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
         for row in checklists:
-            checklists_query = checklists_results(row.checklistID, projectID, sprint_id, status, comment, pre_item, row.kbID)
+            checklists_query = checklists_results(row.checklistID, projectID, sprint_id, status, pre_item, row.kbID)
             db.session.add(checklists_query)
             db.session.commit()
-    checklists_first = checklists_kb.query.filter(checklists_kb.include_first == "True").group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+    checklists_first = checklists_kb.query.filter(checklists_kb.include_first == "True").filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = project_lvl)).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
     for row in checklists_first:
-        checklists_query_first = checklists_results(row.checklistID, projectID, sprint_id, status, comment, pre_item, row.kbID)
+        checklists_query_first = checklists_results(row.checklistID, projectID, sprint_id, status, pre_item, row.kbID)
         db.session.add(checklists_query_first)
         db.session.commit()
     return {'message': 'Pre questions successfully updated'}

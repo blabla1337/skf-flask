@@ -306,7 +306,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/project/stats/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['project_open'], 142)
+        self.assertEqual(response_dict['project_open'], 72)
 
 
     def test_create_sprint(self):
@@ -393,7 +393,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/sprint/stats/4', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict[0]['sprint_open'], 71)
+        self.assertEqual(response_dict[0]['sprint_open'], 36)
 
 
     def test_delete_project_item_fail(self):
