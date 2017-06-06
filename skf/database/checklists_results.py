@@ -10,6 +10,10 @@ class checklists_results(db.Model):
     status = db.Column(db.Integer)
     comment = db.Column(db.Text)
     preItem = db.Column(db.Integer)
+    checklistID = db.Column(db.String, db.ForeignKey("checklists.checklistID"))
+    checklist_items = db.relationship("checklists", foreign_keys=[checklistID])
+    #kbID = db.Column(db.Integer, db.ForeignKey("checklists.kbID"))
+    #kb_items = db.relationship("checklists", foreign_keys=[kbID])  
     
 
     def __init__(self, checklistID, projectID, sprintID, status, comment, preItem):

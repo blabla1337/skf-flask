@@ -11,7 +11,7 @@ These depedencies and libraries should also be validated for known vulnerabiliti
 
 ## Solution:
 
-Running your code through a static code analyzer or auditing tools could give you a change
+Running your code through a static code analyzer or auditing tools could give you a chance
 to find malicious pieces of code which could be embedded into the software.
 Also if the new or adjusted functionality is critical then check manually it in the form
 of a code review for back doors, Easter eggs, and logic flaws.
@@ -19,9 +19,9 @@ of a code review for back doors, Easter eggs, and logic flaws.
 This should also mean that authorized administrators must have the capability to verify the integrity of
 all security-relevant configurations to ensure that they have not been tampered with.
 
-Determine also that the business logic of high value transactions is not imported from untrusted third party libraries.
+Determine also that the business logic of high-value transactions is not imported from untrusted third party libraries.
 
 Note:
-Studies have shown backdoors written by employees with malicious intend wil propably do this within
+Studies have shown backdoors written by employees with malicious intend will propably do this within
 the first half year of their employment. The implementing of back doors has little to do with how happy an
 employee is with the current employer, it has proven to be a trait of character rather than a trait of discontent.

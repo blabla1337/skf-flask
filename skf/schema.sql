@@ -183,7 +183,8 @@ CREATE TABLE `checklists` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `checklistID` varchar(255),
 `content` varchar(255) NOT NULL,
-`level` int(11)
+`level` int(11),
+`kbID` int(11)
 );
 
 

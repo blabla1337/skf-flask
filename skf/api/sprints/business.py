@@ -17,6 +17,15 @@ def get_sprint_item(sprint_id, user_id):
     return result
 
 
+def get_sprint_results(sprint_id, user_id):
+    log("User requested specific sprint", "MEDIUM", "PASS")
+    val_num(sprint_id)
+    val_num(user_id)
+    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).all()
+    print(result)
+    return result
+
+
 def delete_sprint(sprint_id, user_id):
     log("User deleted sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
