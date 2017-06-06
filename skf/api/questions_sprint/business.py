@@ -39,12 +39,12 @@ def store_sprint_questions(user_id, data):
         questionsprintID = results.question_sprint_ID
         checklists = checklists_kb.query.filter(checklists_kb.question_sprint_ID == questionsprintID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
         for row in checklists:
-            checklists_query = checklists_results(row.checklistID, projectID, sprint_id, status, comment, pre_item)
+            checklists_query = checklists_results(row.checklistID, projectID, sprint_id, status, comment, pre_item, row.kbID)
             db.session.add(checklists_query)
             db.session.commit()
     checklists_always = checklists_kb.query.filter(checklists_kb.include_always == "True").group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
     for row in checklists_always:
-        checklists_query_always = checklists_results(row.checklistID, projectID, sprint_id, status, comment, pre_item)
+        checklists_query_always = checklists_results(row.checklistID, projectID, sprint_id, status, comment, pre_item, row.kbID)
         db.session.add(checklists_query_always)
         db.session.commit()
     return {'message': 'Sprint questions successfully created'}

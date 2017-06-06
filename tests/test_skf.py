@@ -333,7 +333,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the sprint item call is working"""
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': 1}
+        payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': 2}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -347,13 +347,13 @@ class TestRestPlusApi(unittest.TestCase):
     def test_update_sprint_item(self):
         """Test if the sprint update call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description sprint update', 'name': 'Unit test name sprint update', 'projectID': 1}
+        payload = {'description': 'Unit test description sprint update', 'name': 'Unit test name sprint update', 'projectID': 7}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        response = self.client.put('/api/sprint/update/2', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/sprint/update/3', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Sprint successfully updated")
-        response = self.client.get('/api/sprint/2', headers=headers)
+        response = self.client.get('/api/sprint/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['sprintName'], "Unit test name sprint update")
@@ -362,13 +362,12 @@ class TestRestPlusApi(unittest.TestCase):
     def test_delete_sprint_item(self):
         """Test if the delete project item call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': 1}
+        payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': 2}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
-        self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Sprint successfully created")
-        response = self.client.delete('/api/sprint/delete/1', headers=headers)
+        response = self.client.delete('/api/sprint/delete/2', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Sprint successfully deleted")
@@ -383,15 +382,15 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Project successfully created")
-        payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': 1}
+        payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'projectID': 4}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'projectID': 1, 'question_sprint_ID': 1,'result': 'True', 'sprintID': 2},{'projectID': 1, 'question_sprint_ID': 2,'result': 'True', 'sprintID': 2} ]}
+        payload = {'questions': [ {'projectID': 4, 'question_sprint_ID': 1,'result': 'True', 'sprintID': 6},{'projectID': 4, 'question_sprint_ID': 2,'result': 'True', 'sprintID': 6} ]}
         response = self.client.put('/api/questions_sprint/store', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Sprint questions successfully created")
-        response = self.client.get('/api/sprint/stats/1', headers=headers)
+        response = self.client.get('/api/sprint/stats/4', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict[0]['sprint_open'], 71)

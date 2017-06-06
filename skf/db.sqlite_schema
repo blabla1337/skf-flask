@@ -227,7 +227,8 @@ CREATE TABLE `checklists_results` (
 `sprintID` int(11) NOT NULL,
 `status` int(11) NOT NULL,
 `comment` varchar(255),
-`preItem` int(11) NOT NULL
+`preItem` int(11) NOT NULL,
+`kbID` int(11)
 );
 
 --
