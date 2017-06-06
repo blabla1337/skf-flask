@@ -13,7 +13,7 @@ def get_checklist_item(checklist_id):
 
 def get_checklist_items():
     log("User requested list of checklist items", "LOW", "PASS")
-    result = checklists_kb.query.paginate(1, 1500, False)
+    result = checklists_kb.query.group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     return result
 
 
