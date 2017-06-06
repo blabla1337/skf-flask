@@ -334,7 +334,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/sprint/results/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['kb_item_title'], "Principle of least privilege")
+        self.assertEqual(response_dict['items'][0]['projectID'], 3)
 
 
     def test_create_sprint(self):
