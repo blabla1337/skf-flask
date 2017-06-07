@@ -126,7 +126,7 @@
 <p id="t25" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t26" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_kb_items</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t27" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of kb items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t28" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">kb_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t28" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">kb_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="stm run hide_run">    <span class="key">return</span> <span class="nam">result</span><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -138,7 +138,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-03 14:28
+            created at 2017-06-06 23:08
         </p>
     </div>
 </div>

@@ -15,6 +15,7 @@ project_stats = api.model('project_stats', {
     'project_id': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
     'project_name': fields.String(required=True, description='The name of a project'),
     'project_desc': fields.String(required=True, description='The description of a project'),
+    'project_level': fields.Integer(readOnly=True, description='The selected ASVS level of a project item'),
     'project_open': fields.Integer(readOnly=True, description='The count of open items per project'),
     'project_closed': fields.Integer(readOnly=True, description='The count of closed items per project'),
     'project_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per project'),
@@ -27,6 +28,7 @@ page_of_project_items = api.inherit('Page of project items', {
 project_update = api.model('Project update', {
     'name': fields.String(required=True, description='Update project name'),
     'description': fields.String(required=True, description='Update project description'),
+    'level': fields.Integer(required=True, description='The selected ASVS level of a project'),
     'version': fields.String(required=True, description='Update project version'),
 
 })
@@ -34,6 +36,7 @@ project_update = api.model('Project update', {
 project_new = api.model('Project new', {
     'name': fields.String(required=True, description='New project name'),
     'description': fields.String(required=True, description='New project description'),
+    'level': fields.Integer(required=True, description='The selected ASVS level of a project'),
     'version': fields.String(required=True, description='New project version'),
 
 })

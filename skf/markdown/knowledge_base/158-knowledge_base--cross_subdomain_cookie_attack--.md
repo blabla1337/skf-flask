@@ -5,7 +5,7 @@
 
 A quick overview of how it works:
 
-1. A web site www.example.com hands out subdomains to untrusted third parties
+1. A website www.example.com hands out subdomains to untrusted third parties
 2. One such party, Mallory, who now controls evil.example.com, lures Alice to her site
 3. A visit to evil.example.com sets a session cookie with the domain .example.com on Alice's browser
 4. When Alice visits www.example.com, this cookie will be sent with the request, as the specs for cookies states, and Alice will have the session specified by Mallory's cookie.
@@ -14,7 +14,7 @@ A quick overview of how it works:
 ## Solution:
 
 In this scenario changing the sessionID on login does not make any difference since
-Alice is already logged in when she visits Mallory's evil webpage.
+Alice is already logged in when she visits Mallory's evil web page.
 
 It is good practice to use a completely different domain for all trusted activity.
 

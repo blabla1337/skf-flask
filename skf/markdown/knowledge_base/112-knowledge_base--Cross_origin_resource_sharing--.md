@@ -10,11 +10,7 @@ origin as it was restricted by the same origin policy.
 
 ## Solution:
 
-Cross-Origin requests have an Origin header, that identifies the domain initiating the
-request and is always sent to the server. CORS defines the protocol to use between a web
-browser and a server to determine whether a cross-origin request is allowed. In order to
-accomplish this goal, there are a few HTTP headers involved in this process,
-that are supported by all major browsers:
+Cross-Origin requests have an Origin header, that identifies the domain initiating the request and is always sent to the server. CORS defines the protocol to use a web browser and a server to determine whether a cross-origin request is allowed. In order to accomplish this goal, there are a few HTTP headers involved in this process, that are supported by all major browsers:
 
 - Origin
 - Access-Control-Request-Method
@@ -31,12 +27,12 @@ cross domain; this behavior can lead to code injection by a remote attacker. Pay
 attention to absolute URLs.
 
 2. Ensure that URLs responding with Access-Control-Allow-Origin: * do not include any
-sensitive content or information that might aid attacker in further attacks.
+sensitive content or information that might aid an attacker in further attacks.
 Use the Access-Control-Allow-Origin header only on chosen URLs that need to be
 accessed cross-domain. Don't use the header for the whole domain.
 
 3. Allow only selected, trusted domains in the Access-Control-Allow-Origin header.
-Prefer white-listing domains over blacklisting or allowing any domain
+Prefer whitelisting domains over blacklisting or allowing any domain
 (do not use * wildcard nor blindly return the Origin header content without any checks)
 
 4. Keep in mind that CORS does not prevent the requested data from going to an
@@ -54,5 +50,5 @@ content bugs.
 this header in CORS requests, but may be spoofed outside the browser.
 Application-level protocols should be used to protect sensitive data.
 
-**NOTE:** Always make sure that even though you have set the allow origin header to trusted sources, you
+**NOTE:** Always make sure that even though you have set the allow Origin header to trusted sources, you
 have to make authentication/session management before displaying sensitive information.

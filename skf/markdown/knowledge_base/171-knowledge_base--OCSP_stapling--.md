@@ -1,4 +1,4 @@
-# Forward secrecy cyphers
+# Forward secrecy ciphers
 -------
 
 ## Description:

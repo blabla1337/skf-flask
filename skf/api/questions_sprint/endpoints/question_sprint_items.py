@@ -11,7 +11,7 @@ ns = api.namespace('questions_sprint', description='Operations related to questi
 
 @ns.route('/items')
 @api.response(404, 'Validation error', message)
-class QuestionCollection(Resource):
+class QuestionSprintCollection(Resource):
 
     @api.marshal_with(question_items)
     @api.response(400, 'No results found', message)

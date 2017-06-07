@@ -7,13 +7,14 @@ Whenever you allow users to register on your system there are a couple of things
 to take into consideration in order to enforce a high level of security
 For more detailed information about these items you should check the knowledge-base about:
 
-1. Column truncation sql injection(for mysql databases)
-2. Single input validation controls  
-2. Audit logs
-3. Prevent password leaking
-4. Predictable password and or token generation
-5. Are all passwords hashed, salted and stretched
-6. Does The application enforce the use of secure passwords.
+1.	Column Truncation SQL injection(for MySQL databases)
+2.	Single input validation controls
+3.	Audit logs
+4.	Prevent password leaking
+5.	Predictable password and or token generation
+6.	Are all passwords hashed, salted and stretched
+7.	Does the application enforce the use of secure passwords?
+
 
 ## Solution:
 
@@ -33,7 +34,7 @@ validate the expected input values in order to verify if the user is not tamperi
 or injecting malicious code into your application. All infringements should be logged
 and repercussions should be taken whenever these infringements are frequent.
 
-Third, never display the users password on screen anywhere.
+Third, never display the user’s password on a screen anywhere.
 
 Fourth, Whenever you generate a password for your users, this password should always
 be randomized sufficiently.

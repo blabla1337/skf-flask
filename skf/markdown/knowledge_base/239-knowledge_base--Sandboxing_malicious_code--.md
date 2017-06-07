@@ -5,21 +5,21 @@
 
 A sandbox is a security mechanism for separating running programs. 
 It is often used to execute untested code, or untrusted programs from 
-unverified third parties, suppliers, untrusted users and untrusted websites. It's creating 
-an extra layer of security where an attacker first need to break out from.
+unverified third-parties, suppliers, untrusted users and untrusted websites. It's creating 
+an extra layer of security where an attacker first needs to break out from.
 
 
 ## Solution:
 
 Use the sandbox attribute of an iframe for untrusted content. The sandbox attribute of an 
-iframe enables restrictions on content within a iframe. The following restrictions are 
+iframe enables restrictions on content within an iframe. The following restrictions are 
 
 Active when the sandbox attribute is set: 
 
 - All markup is treated as being from a unique origin
 - All forms and scripts are disabled. 
 - All links are prevented from targeting other browsing contexts 
-- All features that triggers automatically are blocked 
+- All features that trigger automatically are blocked 
 - All plugins are disabled 
 
 It is possible to have a fine-grained control over iframe capabilities using the value of 

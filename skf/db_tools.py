@@ -98,6 +98,8 @@ def init_md_checklists():
                     if filename.endswith(".md"):
                         name_raw = filename.split("-")
                         level = name_raw[4].replace("_", " ")
+                        kbid_raw = name_raw[6].split(".")
+                        kb_id = kbid_raw[0]
                         if level == "0":
                             # For the ASVS categories
                             file = os.path.join(kb_dir+checklist, filename)
@@ -122,7 +124,7 @@ def init_md_checklists():
                     data.close()
                     content = file_content.split(' ', 1)[1]
                     content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-                    query = "INSERT OR REPLACE INTO checklists (checklistID, content, level) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"'); \n"
+                    query = "INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"', '"+kb_id+"'); \n"
                     with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                             myfile.write(query)
         print('Initialized the markdown checklists.')

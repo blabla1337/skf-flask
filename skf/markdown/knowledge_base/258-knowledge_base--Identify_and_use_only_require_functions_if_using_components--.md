@@ -4,10 +4,10 @@
 ## Description:
 
 Applications have many different components that are needed for the business functions 
-or for the security functions they provide. With these many different components there are
-also possible vulnerabilities that can arise. Also most of the components functions 
+or for the security functions they provide. With many different components, there are
+also possible vulnerabilities that can arise. Also, most of the components functions 
 that are delivered are not necessary needed and can introduce a vulnerability in a specific part
-that may not be even used by the application. Also these security issues in the components 
+that may not be even used by the application. Also, these security issues in the components 
 are publicly well know and documented. 
 
 ## Solution:

@@ -7,3 +7,4 @@ class checklists(db.Model):
     checklistID = db.Column(db.Text)
     content = db.Column(db.Text)
     level = db.Column(db.Integer)
+    kbID = db.Column(db.Integer)

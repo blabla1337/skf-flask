@@ -3,7 +3,7 @@
 
 ## Description:
 
-Whenever an functionality consists out of following several steps to achieve some goal i.e,
+Whenever a functionality consists out of following several steps to achieve some goal i.e,
 
 User adds items to chart -> User enters shipping information -> User pays for goods -> Items will be shipped.
 You want to make sure the user can not skip the payment step in order to receive his goods.

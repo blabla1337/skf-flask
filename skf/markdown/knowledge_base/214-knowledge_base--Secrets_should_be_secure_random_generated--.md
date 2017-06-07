@@ -13,7 +13,7 @@ When it comes to API tokens and secret keys these values have to be dynamically 
 and should be cryptographically random secure with at least 120 bit of effective entropy.
 
 Passwords on the other hand should be created by the user himself, rather than assigning
-a user a dynamically generated password, the user should be presented a link with a 
-cryptographically random token by means of an email or sms which is used to activate his 
+a user a dynamically generated password. The user should be presented a link with a 
+cryptographically random token by means of an email or SMS which is used to activate his 
 account and provide a password of his own.
  

@@ -1,4 +1,4 @@
-# Cross site request forgery on REST
+# Cross-site request forgery on REST
 -------
 
 ## Description:
@@ -12,7 +12,7 @@ capabilities exposed by the vulnerable application. For example, this attack cou
 in a transfer of funds, changing a password, or purchasing an item in the users context.
 In effect, CSRF attacks are used by an attacker to make a target system perform a
 function (funds Transfer, form submission etc.) via the targets browser without
-knowledge of the target user at least until the unauthorised function has been committed.
+knowledge of the target user at least until the unauthorized function has been committed.
 
 ## Solution:
 
@@ -20,9 +20,9 @@ REST (REpresentational State Transfer) is a simple stateless architecture that g
 over HTTPS/TLS. The REST style emphasizes that interactions between clients and services are
 enhanced by having a limited number of operations
 
-Since the archetecture is stateless, the application should make use of sessions or cookies to
-store the HTTP sessions, which allow associating information with individual visitors. The prefered method for REST
+Since the architecture is stateless, the application should make use of sessions or cookies to
+store the HTTP sessions, which allow associating information with individual visitors. The preferred method for REST
 services is to utilize tokens for interactive information interchange between the user and the server. 
 
-By sending this information solely by means of headers, the application is no longer suspectible to CSRF attacks
-since the CSRF attack utilizes the browsers cookie jar for succesfull attacks.
+By sending this information solely by means of headers, the application is no longer susceptible to CSRF attacks
+since the CSRF attack utilizes the browsers cookie jar for succesful attacks.
