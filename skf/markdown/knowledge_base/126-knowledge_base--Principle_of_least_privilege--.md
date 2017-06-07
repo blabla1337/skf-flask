@@ -10,7 +10,7 @@ resource permissions such as CPU limits, memory, network, and file system permis
 ## Solution:
 
 The principle means giving a user account only those privileges which are essential to
-that users work. For example, a backup user does not need to install software: hence,
+that user’s work. For example, a backup user does not need to install software: hence,
 the backup user has rights only to run backup and backup-related applications.
 Any other privileges, such as installing new software, are blocked.
 
@@ -26,6 +26,6 @@ We still use sessions in order to identify if the user was logged in correctly, 
 instead of assigning that user with a specific role we assign him with privileges to
 verify which actions he is privileged to perform on the system.
 
-Also a big pro of this method is, whenever a user has to be assigned less privileges
+Also, a big pro of this method is, whenever a user has to be assigned fewer privileges
 your changes will be applied on the fly since the assigning does not depend on the session
 which otherwise had to expire first.
