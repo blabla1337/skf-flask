@@ -1,4 +1,4 @@
-# The crossdomain.xml should only contains trusted domains 
+# The crossdomain.xml should only contain trusted domains 
 -------
 
 ## Description:
