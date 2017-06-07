@@ -9,6 +9,7 @@ unverified third parties, suppliers, untrusted users and untrusted websites. It'
 an extra layer of security where an attacker first needs to break out from.
 
 ## Solution:
+
 Examples of sandbox implementations include the following:
 A jail: network-access restrictions, and a restricted file system namespace. Jails are most commonly used in virtual hosting.
 Rule-based execution gives users full control over what processes are started, spawned (by other applications), or allowed to inject code into other applications and have access to the net, by having the system assign access levels to users or programs according to a set of determined rules. It also can control file/registry security (what programs can read and write to the file system/registry). In such an environment, viruses and Trojans have fewer opportunities of infecting a computer. The SELinux and AppArmor security frameworks are two such implementations for Linux.
