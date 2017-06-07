@@ -4,7 +4,7 @@
 ## Description:
 
 Whenever a user can submit a form in your system you should consider implementing
-the following defense mechanism in order to ensure high level security.
+the following defense mechanism in order to ensure high-level security.
 
 1.  Single user input validation controls and Audit logs
 2.  CSRF tokens
@@ -21,14 +21,7 @@ validate the expected input values in order to verify if the user is not tamperi
 or is injecting malicious code into your application. All infringements should be logged
 and repercussions should be taken whenever these infringements are frequent.
 
-Second, whenever an authenticated user is submitting the form always ensure the forms
-contain CSRF tokens in order to prevent cross site request forgery.
+Second, whenever an authenticated user is submitting the form always ensure the forms contain CSRF tokens in order to prevent cross-site request forgery.
+Third, Whenever there are authenticated users with different roles/privileges you should enforce restrictions on the server side upon your form submits/processing in order to prevent privilege escalation. You should apply the principle of least privilege in order to ensure a higher level of security.
+Fourth, Whenever the application is sending sensitive data through the form submit this data must always be sent through a POST variable instead of a GET since a GET will leak this data through the URL by example the referrer header.
 
-Third, Whenever there are authenticated users with different roles/privileges you should
-enforce restrictions on the server side upon your form submits/processing in order
-to prevent privilege escalation. You should apply the principle of least privilege in
-order to ensure higher level of security.
-
-Fourth, Whenever the application is sending sensitive data through the form submit
-this data must always be send through an POST variable instead of an GET since
-a GET will leak this data through the url by example the referrer header.
