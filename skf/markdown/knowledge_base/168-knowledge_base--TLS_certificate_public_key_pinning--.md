@@ -19,7 +19,7 @@ establishing a secure connection.
 To harden the channel, the program would take advantage of the OnConnect callback offered
 by a library, framework or platform. In the callback, the program would verify the
 remote host's identity by validating its certificate or public key. While pinning does
-not have to occur in an OnConnect callback, its often most convenient because the
+not have to occur in an OnConnect callback, it is often most convenient because the
 underlying connection information is readily available.
 
 For more extended information on different types of implementation please see:
