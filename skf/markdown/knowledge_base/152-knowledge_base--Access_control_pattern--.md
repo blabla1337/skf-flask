@@ -21,4 +21,4 @@ your access control/login system in order to enforce a higher level of security.
 8. Forget password functions
 9. Client side authentication
 10. Client side state management
-11. cross sub domain cookie attack
+11. Cross subdomain cookie attack
