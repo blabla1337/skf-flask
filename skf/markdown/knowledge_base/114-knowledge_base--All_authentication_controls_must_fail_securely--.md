@@ -10,9 +10,9 @@ exceptions do not enable behavior that the countermeasure would normally not all
 As a developer, you should consider that there are generally three possible outcomes
 from a security mechanism:
 
-1. allow the operation
-2. disallow the operation
-3. exception
+1. Allow the operation
+2. Disallow the operation
+3. Exception
 
 In general, you should design your security mechanism so that a failure will follow the same execution path
 as disabling the operation
