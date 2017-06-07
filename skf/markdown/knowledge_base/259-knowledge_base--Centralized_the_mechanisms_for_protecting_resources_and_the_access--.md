@@ -4,7 +4,7 @@
 ## Description:
 
 Applications have often different ways for granting access to protected resources, sometimes these are 
-done based on a role that is defined in a Database or using an Active Directory permission. Also external
+done based on a role that is defined in a Database or using an Active Directory permission. Also, external
 authorization services may be implemented and needed for the application. With all these different ways 
 for protecting resources and the access to these assets mistakes will be easily made. 
 
