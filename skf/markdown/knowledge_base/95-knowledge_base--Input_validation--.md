@@ -4,7 +4,7 @@
 ## Description:
 
 To ensure that the application is robust against all forms of input data, this data should
-be sanitized and/or encoded server-side since an attacker could otherwise easy bypass
+be sanitized and/or encoded on server-side since an attacker could otherwise easy bypass
 these checks with an intercepting proxy.
 
 ## Solution:
@@ -15,10 +15,10 @@ after validating the user-input, whenever the input is bad it actually rejects, 
 or formats your user-input into not malicious data.
 
 The recommended method for validating user input would be the positive validation method.
-White-list input validation means allowing only input that is explicitly defined as valid,
+Whitelist input validation means allowing only input that is explicitly defined as valid,
 as opposed to black-list input validation, which filters out known bad input.
 
-You must also keep track of the users movements by adding an audit trail as well as an
+You must also keep track of the users movements by adding an audit trail as well as a
 counter for tracking the number of his violations(submitting bad input) in your input
 validation class. You should enforce a lockout whenever a unreasonable number of
 violations are detected by your application in order to protect it from attackers.
