@@ -12,5 +12,5 @@ some of the accounts on the application.
 
 The internet is full of top X worst password lists which can be used to verify the users 
 freshly entered password against. Whenever a user enters a password that matches up to a password
-provided in one of those lists. The password should be rejected and the user should be adviced to take
+provided in one of those lists. The password should be rejected and the user should be advised to take
 another password.
