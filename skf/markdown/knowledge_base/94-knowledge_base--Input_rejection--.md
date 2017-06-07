@@ -15,7 +15,7 @@ contains a checkbox, there are fixed values which your application can expect fr
 the user to return. Whenever this value differs from what the application served the user
 as possible answers, you can assume the request was corrupted and you reject the request.
 
-You must also keep track of the users movements by adding an audit trail as well as an
+You must also keep track of the users movements by adding an audit trail as well as a
 counter for tracking the number of his violations(submitting bad input) in your input
 validation class. You should enforce a lockout whenever a unreasonable number of
 violations are detected by your application in order to protect it from attackers.
