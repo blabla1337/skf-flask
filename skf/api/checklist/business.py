@@ -13,13 +13,13 @@ def get_checklist_item(checklist_id):
 
 def get_checklist_items():
     log("User requested list of checklist items", "LOW", "PASS")
-    result = checklists_kb.query.paginate()
+    result = checklists_kb.query.group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     return result
 
 
 def get_checklist_items_lvl(lvl):
     log("User requested list of checklist items based on level", "LOW", "PASS")
     val_num(lvl)
-    result = checklists_kb.query.filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = lvl)).group_by(checklists_kb.checklistID).paginate()
+    result = checklists_kb.query.filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = lvl)).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     return result
 

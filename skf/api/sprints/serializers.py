@@ -35,6 +35,20 @@ sprint_new = api.model('Sprint new', {
     'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
 })
 
+results = api.model('results', {
+    'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
+    'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
+    'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
+    'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
+    'checklist_items_checklistID': fields.String(attribute='checklist_items.checklistID', required=True, description='The unique identifier of a checklist item'),
+    'checklist_items_content': fields.String(attribute='checklist_items.content', required=True, description='Checklist content'),
+    'checklist_items_level': fields.Integer(attribute='checklist_items.level', required=True, description='Checklist level'),
+})
+
+sprint_results = api.inherit('Page of sprint results', {
+    'items': fields.List(fields.Nested(results))
+})
+
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),  

@@ -183,7 +183,8 @@ CREATE TABLE `checklists` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `checklistID` varchar(255),
 `content` varchar(255) NOT NULL,
-`level` int(11)
+`level` int(11),
+`kbID` int(11)
 );
 
 
@@ -211,10 +212,6 @@ CREATE TABLE `question_pre_results` (
 `result` boolean
 );
 
--- Bovenstaande tabellen gaan de checklists_results tabel vullen met 
--- correlerende checklist items waarin question_sprint_results een transitie tabel is en
--- question_pre_results results blijft staan voor de volgende sprints
-
 --
 -- Table structure for table `checklists_results`
 --
@@ -225,8 +222,22 @@ CREATE TABLE `checklists_results` (
 `projectID` int(11) NOT NULL,
 `sprintID` int(11) NOT NULL,
 `status` int(11) NOT NULL,
+`preItem` int(11) NOT NULL,
+`kbID` int(11)
+);
+
+--
+-- Table structure for table `comments`
+--
+drop table if exists `comments`;
+CREATE TABLE `comments` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`sprintID` int(11) NOT NULL,
+`checklistID` int(11) NOT NULL,
+`userID` int(11) NOT NULL, 
+`status` int(11) NOT NULL, 	
 `comment` varchar(255),
-`preItem` int(11) NOT NULL
+`date` varchar(255) NOT NULL
 );
 
 --

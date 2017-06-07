@@ -189,7 +189,7 @@
 <p id="t10" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t11" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_project_items</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t12" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list projects"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t13" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">projects</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">projects</span><span class="op">.</span><span class="nam">groupID</span> <span class="op">==</span> <span class="nam">groupmembers</span><span class="op">.</span><span class="nam">groupID</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t13" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">projects</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">projects</span><span class="op">.</span><span class="nam">groupID</span> <span class="op">==</span> <span class="nam">groupmembers</span><span class="op">.</span><span class="nam">groupID</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t14" class="stm run hide_run">    <span class="key">return</span> <span class="nam">result</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t16" class="pln"><span class="strut">&nbsp;</span></p>
@@ -294,7 +294,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-05 19:58
+            created at 2017-06-06 23:08
         </p>
     </div>
 </div>

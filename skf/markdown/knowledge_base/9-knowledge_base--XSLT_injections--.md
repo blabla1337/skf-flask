@@ -3,7 +3,7 @@
 
 ## Description:
 
-The vulnerability occurs when a XSL file is loaded from a source controlled by an attacker.
+A vulnerability occurs when an XSL file is loaded from a source controlled by an attacker.
 When the attacker is given the opportunity to specify the source of the included XSL file
 he could include a file which contains malicious code to be parsed on the target application.
 This could lead to, code execution, reading arbitrary files and many more

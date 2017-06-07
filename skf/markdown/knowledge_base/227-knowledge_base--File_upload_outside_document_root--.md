@@ -3,14 +3,14 @@
 Files that are uploaded by users or other untrusted services should always be placed outside
 of the document root. This is to prevent malicious files from being parsed by attackers such as PHP files.
 
-Should an attacker succeed to bypass file upload restrictions and upload an malicous file, it would
+Should an attacker succeed to bypass file upload restrictions and upload a malicous file, it would
 be impossible for the attacker to parse these files since they are not located inside of the
 applications document root.
 
 ## Solution:
 
 Files should be stored outside of the applications document root. Preferably files should be stored
-on a seperate file server which serves back and fort to the application server. 
+on a seperate file server which serves back and forth to the application server. 
 
 Files should always be stored outside of the scope of the attacker to prevent files from
 being parsed or executed.

@@ -3,7 +3,7 @@
 
 ## Description:
 
-Whenever cryptographic function is not implemented on the server side then these
+Whenever a cryptographic function is not implemented on the server side then these
 cryptographic functions could easily be bypassed by an attacker.
 
 ## Solution:

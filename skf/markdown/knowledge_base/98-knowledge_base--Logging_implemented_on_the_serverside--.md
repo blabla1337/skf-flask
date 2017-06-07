@@ -4,7 +4,7 @@
 ## Description:
 
 Logging should always be implemented on the server-side since an attacker otherwise 
-manipulate the functionality and erase his traces.
+manipulates the functionality and erases his traces.
 
 ## Solution:
 

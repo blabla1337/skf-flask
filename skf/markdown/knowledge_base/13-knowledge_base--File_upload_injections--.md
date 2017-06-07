@@ -19,11 +19,11 @@ This data may trick the application into overwriting a critical file or storing 
 in a bad location. You must validate the metadata extremely carefully before using it.
 
 The other class of problem is with the file size or content.
-An attacker can easily craft a valid image file with php code inside.
+An attacker can easily craft a valid image file with PHP code inside.
 
 ## Solution:
 
-Uploaded files always needs to be placed outside the document root of the web-server.
+Uploaded files always need to be placed outside the document root of the web-server.
 
 You should also check the user-input(filename) for having the right
 allowed extensions such as .jpg, .png etc.
@@ -32,7 +32,7 @@ Note: when checking these extensions always make sure your application validates
 possible extension so an attacker could not simply inject ".jpg.php" and bypass your
 validation
 
-After this validation you must also check the user-input(filename) for containing possible
+After this validation, you must also check the user-input(filename) for containing possible
 path traversal patterns in order to prevent him from uploading outside of
 the intended directory.
 

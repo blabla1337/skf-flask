@@ -18,7 +18,7 @@ def update_code_item(code_id, data):
 
 def get_code_items():
     log("User requested list of code items", "LOW", "PASS")
-    result = code_items.query.paginate()
+    result = code_items.query.paginate(1, 500, False)
     return result
 
 
@@ -32,5 +32,5 @@ def get_code_item(code_id):
 def get_code_items_lang(code_lang):
     log("User requested code lang items", "LOW", "PASS")
     val_alpha(code_lang)
-    result = code_items.query.filter(code_items.code_lang == code_lang).paginate()
+    result = code_items.query.filter(code_items.code_lang == code_lang).paginate(1, 500, False)
     return result

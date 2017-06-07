@@ -17,5 +17,5 @@ unintended sensitive data towards these devices.
 
 Recommended knowledge base items:
 
-- High level architecture should be defined
+- High-level architecture should be defined
 - Identify all application components

@@ -8,10 +8,10 @@ necessary, these accounts could impose a great threat whenever one of these comp
 compromised by attackers. 
 
 i.e:
-A web application running on root privileges which has an path traversal vulnerability
-can be used to read both the "etc/passwd" file as wel as reading the "etc/shadow" file.
+A web application running on root privileges which has a path traversal vulnerability
+can be used to read both the "etc/passwd" file as well as reading the "etc/shadow" file.
 
-These files can than be used in an offline password cracking attacks to recover accounts
+These files can then be used in an offline password cracking attacks to recover accounts
 on the server.
 
 ## Solution:

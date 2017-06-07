@@ -3,11 +3,11 @@
 
 ## Description:
 
-Only authorised administrators should have access to change security-relevant configurations.
+Only authorized administrators should have access to change security-relevant configurations.
 
-These administrators should also regurarly check these configurations to be adequate and that
+These administrators should also regularly check these configurations to be adequate and that
 they are not unchanged by malicious intent. This could keep systems vulnerable to attacks due
-to the disabeling of important security systems.
+to the disabling of important security systems.
 
 
 ## Solution:
