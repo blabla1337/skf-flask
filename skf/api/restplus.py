@@ -4,6 +4,7 @@ import traceback
 from flask_restplus import Api
 from skf import settings
 from sqlalchemy.orm.exc import NoResultFound
+from sqlalchemy.exc import IntegrityError
 
 log = logging.getLogger(__name__)
 
@@ -23,3 +24,10 @@ def default_error_handler(e):
 def database_not_found_error_handler(e):
     #log.warning(traceback.format_exc())
     return {'message': 'A database result was required but none was found.'}, 400 
+
+
+@api.errorhandler(IntegrityError)
+def database_integrity_error_handler(e):
+    #log.warning(traceback.format_exc())
+    return {'message': 'A database result was required but none was found.'}, 400 
+

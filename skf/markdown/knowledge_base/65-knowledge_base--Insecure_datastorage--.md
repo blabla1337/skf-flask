@@ -1,9 +1,9 @@
-# Insecure datastorage
+# Insecure data storage
 -------
 
 ## Description:
 
-Whenever sensitive data is stored clear-text this data is compromised as soon as it
+Whenever sensitive data is stored clear-text, this data is compromised as soon as it
 falls into the hands of an attacker.
 
 ## Solution:

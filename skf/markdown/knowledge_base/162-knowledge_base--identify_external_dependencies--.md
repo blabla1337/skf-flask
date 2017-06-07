@@ -11,6 +11,6 @@ attacks.
 
 ## Solution:
 
-First you must identify which external dependencies your application relays on
-for its operation. Second, there should be a fail safe implemented should this dependency ever
+First, you must identify which external dependencies your application relays on
+for its operation. Second, there should be a fail-safe implemented should this dependency ever
 fail to deliver its services towards your application.

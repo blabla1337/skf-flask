@@ -26,6 +26,6 @@ This type of approach prevents the attacker from further penetrating your applic
 and infrastructure.
 
 Note: 
-Be cautious that a soft-lockout countermessure does not override a hard-lockout status.
+Be cautious that a soft-lockout countermeasure does not override a hard-lockout status.
 
 

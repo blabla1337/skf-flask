@@ -15,25 +15,20 @@ project_stats = api.model('project_stats', {
     'project_id': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
     'project_name': fields.String(required=True, description='The name of a project'),
     'project_desc': fields.String(required=True, description='The description of a project'),
+    'project_level': fields.Integer(readOnly=True, description='The selected ASVS level of a project item'),
     'project_open': fields.Integer(readOnly=True, description='The count of open items per project'),
     'project_closed': fields.Integer(readOnly=True, description='The count of closed items per project'),
     'project_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per project'),
 })
 
-pagination = api.model('A page of results', {
-    'page': fields.Integer(description='Number of this page of results'),
-    'pages': fields.Integer(description='Total number of pages of results'),
-    'per_page': fields.Integer(description='Number of items per page of results'),
-    'total': fields.Integer(description='Total number of results'),
-})
-
-page_of_project_items = api.inherit('Page of project items', pagination, {
+page_of_project_items = api.inherit('Page of project items', {
     'items': fields.List(fields.Nested(project))
 })
 
 project_update = api.model('Project update', {
     'name': fields.String(required=True, description='Update project name'),
     'description': fields.String(required=True, description='Update project description'),
+    'level': fields.Integer(required=True, description='The selected ASVS level of a project'),
     'version': fields.String(required=True, description='Update project version'),
 
 })
@@ -41,6 +36,7 @@ project_update = api.model('Project update', {
 project_new = api.model('Project new', {
     'name': fields.String(required=True, description='New project name'),
     'description': fields.String(required=True, description='New project description'),
+    'level': fields.Integer(required=True, description='The selected ASVS level of a project'),
     'version': fields.String(required=True, description='New project version'),
 
 })

@@ -5,7 +5,7 @@
 
 Web applications heavily use databases to store and access the data they need for their
 operations. Historically, relational databases have been by far the most common
-technology for data storage, but, in the last years, we are witnessing an increasing
+technology for data storage, but in the last years, we are witnessing an increasing
 popularity for databases that organise data using the XML language.
 Just like relational databases are accessed via SQL language, XML databases use X-Path as
 their standard query language.

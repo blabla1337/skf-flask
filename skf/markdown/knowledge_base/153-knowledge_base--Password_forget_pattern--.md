@@ -15,18 +15,9 @@ in your application.
 
 ## Solution:
 
-The first thing is to verify that forgot password and other recovery paths
-send a link including a time-limited activation token rather than the password itself.
-
-Additional authentication based on soft-tokens
-(e.g. SMS token, native mobile applications, etc.) can be required as well before
-the link is sent over.
-
-Second, you should not lock out the users account whilst the process of getting a new
-password is in progress. This could lead to a Denial of service attack whenever an
-attacker decides to intentionally lock out the users with an automated attack.
-
-Third, whenever the new password request was set in progress, the message you display
-should be generalized in order to prevent username enumeration.
-
+The first thing is verify the password has been forgotten and other recovery paths send a link including a time-limited activation token rather than the password itself.
+Additional authentication based on soft-tokens (e.g. SMS token, native mobile applications, etc.) can be required as well before the link is sent over.
+Second, you should not lock out the user’s account whilst the process of getting a new password is in progress. This could lead to a Denial of service attack whenever an attacker decides to intentionally lock out the users with an automated attack.
+Third, whenever the new password request was set in progress, the message you display should be generalized in order to prevent username enumeration.
 Fourth, always disallow the use of old passwords and implement a strong password policy.
+

@@ -5,7 +5,7 @@
 
 Access control decisions must be logged for forensics in the case of brute force attacks. 
 The logs of the access controls can also help with keeping track of potential session hijacking
-attacks. Since it can be messured where users loggedin from and how many concurrent sessions are active.
+attacks. Since it can be measured where users logged in from and how many concurrent sessions are active.
 
 ## Solution:
 

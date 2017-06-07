@@ -9,6 +9,10 @@ activate = api.model('activate', {
     'repassword': fields.String(required=True, description='Retyped password'),
 })
 
+message = api.model('Response message', {
+    'message': fields.String(required=True, description='Response message'),
+})
+
 login = api.model('login', {
     'username': fields.String(required=True, description='The username of the user'),
     'password': fields.String(required=True, description='The password of the user'),
@@ -25,11 +29,7 @@ created = api.model('created', {
     'accessToken': fields.String(required=True, description='Generated accessToken of the user'),
 })
 
-message = api.model('Response message', {
-    'message': fields.String(required=True, description='Response message'),
-})
-
 token_auth = api.model('Response Authorization token', {
-    'Authorization token': fields.String(required=True, description='Response Authorization token'),
+    'Authorization token': fields.String(required=True, description='Response Authorization token', default="Wrong username/password"),
 })
  

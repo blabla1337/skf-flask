@@ -3,8 +3,8 @@ from skf.api.restplus import api
 
 sprint = api.model('sprint', {
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
-    'projectID': fields.String(required=True, description='The unique identifier of a sprint project'),
-    'groupID': fields.String(required=True, description='The unique identifier of a sprint group'),
+    'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
+    'groupID': fields.Integer(required=True, description='The unique identifier of a sprint group'),
     'sprintName': fields.String(required=True, description='Sprint name'),
     'sprintDesc': fields.String(required=True, description='Sprint description'),
 })
@@ -15,7 +15,8 @@ sprint_stats = api.model('sprint_stats', {
     'sprint_desc': fields.String(required=True, description='The description of a sprint'),
     'sprint_open': fields.Integer(readOnly=True, description='The count of open items per sprint'),
     'sprint_closed': fields.Integer(readOnly=True, description='The count of closed items per sprint'),
-    'sprint_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per sprint'),
+    'sprint_accepted': fields.Integer(readOnly=True, description='The count of accepted items per sprint'),
+    'sprint_items_total': fields.Integer(readOnly=True, description='The count of total available items in a sprint'),
 })
 
 page_of_sprint_items = api.inherit('Page of sprint items', {
@@ -31,7 +32,21 @@ sprint_update = api.model('Sprint update', {
 sprint_new = api.model('Sprint new', {
     'name': fields.String(required=True, description='New sprint name'),
     'description': fields.String(required=True, description='New sprint description'),
-    'projectID': fields.String(required=True, description='The unique identifier of a sprint project'),
+    'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
+})
+
+results = api.model('results', {
+    'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
+    'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
+    'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
+    'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
+    'checklist_items_checklistID': fields.String(attribute='checklist_items.checklistID', required=True, description='The unique identifier of a checklist item'),
+    'checklist_items_content': fields.String(attribute='checklist_items.content', required=True, description='Checklist content'),
+    'checklist_items_level': fields.Integer(attribute='checklist_items.level', required=True, description='Checklist level'),
+})
+
+sprint_results = api.inherit('Page of sprint results', {
+    'items': fields.List(fields.Nested(results))
 })
 
 message = api.model('Response message', {

@@ -3,7 +3,7 @@
 
 ## Description:
 
-Processing of an Xml eXternal Entity containing tainted data may lead to disclosure of
+Processing of an Xml eXternal Entity containing tainted data may lead to the disclosure of
 confidential information and other system impacts.
 The XML 1.0 standard defines the structure of an XML document.
 The standard defines a concept called an entity, which is a storage unit of some type.
