@@ -3,8 +3,7 @@
 
 ## Description:
 
-This is a mitigation of the risk that a password can leak by any means towards a possible,
-attacker. By changing the password to a new one minimizes the damage.
+This is a mitigation of the risk that a password can leak by any means towards a possible attacker.Changing the password to a new one minimizes the damage.
 
 ## Solution:
 
