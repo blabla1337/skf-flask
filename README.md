@@ -389,4 +389,5 @@ http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
 - Rick Mitchell (Kingthorin)
 - Xenofon Vassilakopoulos
 - Heeraj Nair
+- Alpha Kitonga
 
