@@ -585,6 +585,27 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['message'], "Comment item successfully created")
 
 
+    def test_create_post_checklist(self):
+        """Test if the create post checklist call is working"""
+        jwt = self.login('admin', 'admin') 
+        payload = {'questions': [ {'checklistID': '8.4', 'projectID': 1, 'sprintID': 1, 'kbID': 105, 'status': 1}, {'checklistID': '8.5', 'projectID': 1, 'sprintID': 1, 'kbID': 103, 'status': 2}, {'checklistID': '8.6', 'projectID': 1, 'sprintID': 1, 'kbID': 101, 'status': 1} ]}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/questions_post/store', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "Post questions successfully stored")
+
+
+    def test_get_post_checklist(self):
+        """Test if the post checklist call is working"""
+        jwt = self.login('admin', 'admin') 
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.get('/api/questions_post/1', headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['kb_item_title'], "Do not support untrusted client side technologies")
+
+
     def test_get_comment_item(self):
         """Test if the get comment items call is working"""
         jwt = self.login('admin', 'admin') 

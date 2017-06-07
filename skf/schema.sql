@@ -227,6 +227,19 @@ CREATE TABLE `checklists_results` (
 );
 
 --
+-- Table structure for table `checklists_post`
+--
+drop table if exists `checklists_post`;
+CREATE TABLE `checklists_post` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`checklistID` int(11) NOT NULL,
+`projectID` int(11) NOT NULL,
+`sprintID` int(11) NOT NULL,
+`status` int(11) NOT NULL,
+`kbID` int(11)
+);
+
+--
 -- Table structure for table `comments`
 --
 drop table if exists `comments`;

@@ -12,8 +12,8 @@ question_items = api.inherit('List of question sprint items', {
 })
 
 list_sprint = api.model('list_sprint', {
-    'projectID': fields.Integer(readOnly=True, description='The unique identifier of the projectID'),
-    'sprintID': fields.Integer(readOnly=True, description='The unique identifier of the sprintID'),
+    'projectID': fields.Integer(readOnly=True, description='The unique identifier of the project'),
+    'sprintID': fields.Integer(readOnly=True, description='The unique identifier of the sprint'),
     'question_sprint_ID': fields.Integer(readOnly=True, description='The unique identifier of a question sprint item'),
     'result': fields.String(readOnly=True, description='The question result'),
 })

@@ -12,7 +12,7 @@ question_items = api.inherit('List of question pre items', {
 })
 
 list_pre = api.model('list_pre', {
-    'projectID': fields.Integer(readOnly=True, description='The unique identifier of the projectID'),
+    'projectID': fields.Integer(readOnly=True, description='The unique identifier of the project'),
     'question_pre_ID': fields.Integer(readOnly=True, description='The unique identifier of a question pre item'),
     'result': fields.String(readOnly=True, description='The question result'),
 })
