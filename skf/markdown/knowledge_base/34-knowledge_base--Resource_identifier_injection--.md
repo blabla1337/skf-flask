@@ -14,11 +14,11 @@ In order to be properly executed, the attacker must have the possibility to spec
 resource identifier through the application form and the application must permit the execution.
 The resource type affected by user input indicates the content type that may be exposed.
 For example, an application that permits input of special characters like period, slash,
-and backslash is risky when used in methods that interact with the file system.
+and backlash is risky when used in methods that interact with the file system.
 The resource injection attack focuses on accessing other resources than the local
 filesystem, which is different attack technique known as a Path Manipulation attack.
 
 ## Solution:
 
 Safe use of resource identifiers can be done by performing authorisation checks if the
-identifier is belonging to the user.
+identifier belongs to the user.
