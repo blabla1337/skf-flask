@@ -3,7 +3,7 @@
 
 ## Description:
 
-Whenever session IDs are not generated with sufficient entropy this could lead to a
+Whenever session IDs are not generated with a sufficient entropy this could lead to a
 session collision or session hijacking. If an attacker can guess an authenticated user's
 session identifier, he can take over the user's session.
 
