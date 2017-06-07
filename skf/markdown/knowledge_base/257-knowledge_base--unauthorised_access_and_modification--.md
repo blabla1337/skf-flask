@@ -3,7 +3,7 @@
 
 ## Description:
 
-Throughout development of the application there must be perpetual checks in place to check
+Throughout the development of the application there must be perpetual checks in place to check
 if all pages and resources by default require authentication except those specifically intended to be public.
 
 Sometimes developers simply forget to implement these checks, or they remove the checks 
