@@ -7,7 +7,7 @@ RUN apk update --no-cache && apk add python3 \
 gcc \
 sqlite \
 nodejs \
-npm \
+nodejs-npm \
 musl-dev \
 python3-dev \
 libffi-dev \ 
