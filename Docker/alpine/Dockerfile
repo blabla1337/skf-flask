@@ -1,8 +1,20 @@
-FROM ubuntu:14.04
+FROM alpine
+
 MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y python3 python3-pip sqlite3 python-dev libssl-dev libffi-dev git
+
+RUN apk update --no-cache && apk add python3 \
+gcc \
+sqlite \
+musl-dev \
+python3-dev \
+libffi-dev \ 
+py3-pip \
+git 
 RUN git clone -b rebuild https://github.com/blabla1337/skf-flask.git
 WORKDIR /skf-flask
 RUN pip3 install -r requirements.txt
+ENV FLASK_APP=skf/app.py
 ENV PYTHONPATH=/skf-flask
+USER nobody
+EXPOSE 8888
 ENTRYPOINT ["python3", "skf/app.py"]
