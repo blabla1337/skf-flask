@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SKFAngular</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.css">
+    <!-- Custom static for this template -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/chosen.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style-responsive.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/table-responsive.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/monokai_sublime.css">
+    <!-- wij zijn ook geimporteerd en moeten vervangen worden -->
+     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/monokai_sublime.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <!-- eind import -->
+
+<style>
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid;
+  border-radius: 50%;
+  border-top: 16px solid #787BB0;
+  border-right: 16px solid #C3C3C7;
+  border-bottom: 16px solid #787BB0;
+  border-left: 16px solid #C3C3C7;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.welcome{
+
+text-align:center;
+margin-top:30%;
+color:black;
+font-size:1.5em;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+</style>
+</head>
+<body>
+  <app-root>
+<div class="loader"></div>
+<p class="welcome">Welcome to the security knowledge framework<p>
+    </app-root>
+</body>
+</html>
+
+

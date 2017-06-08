@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/modal/modal-dismiss-reasons.ts"],"names":[],"mappings":"AAAA,MAAM,CAAN,IAAY,mBAGX;AAHD,WAAY,mBAAmB;IAC7B,iFAAc,CAAA;IACd,2DAAG,CAAA;AACL,CAAC,EAHW,mBAAmB,KAAnB,mBAAmB,QAG9B","file":"modal-dismiss-reasons.js","sourceRoot":"","sourcesContent":["export enum ModalDismissReasons {\n  BACKDROP_CLICK,\n  ESC\n}\n"]}

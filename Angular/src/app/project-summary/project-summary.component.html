@@ -1,0 +1,105 @@
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+
+<section id="main-content" class="page03 project-list">
+  <section class="intro">
+    <div class="inner">
+      <div class="text">
+        <h1>Sprint summary</h1>
+        <p>Close, open or accept different sprint items. Leave comments to have an audit trail!</p>
+      </div>
+      <button style="float:right;" (click)="back()" class="btn btn-default">Back</button>
+    </div>
+  </section>
+  <section class="wrapper" style="margin-top:0px;">
+    <div class="row mt">
+      <div class="col-lg-12">
+        <div class="src">
+          <input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search" />
+          <i class="fa fa-search"></i>
+        </div>
+        <div *ngFor="let item of sprintResult" class="content-panel" style="padding-bottom:1%">
+          <div (click)="fetchComment(item.checklist_items_checklistID)">
+            <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+              <ngb-panel title="( Lvl:{{item.checklist_items_level}} ) {{item.checklist_items_checklistID}} {{item.checklist_items_content}}">
+                <ng-template ngbPanelContent>
+                  <ngb-tabset>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle><b>Summary</b></ng-template>
+                      <ng-template ngbTabContent>
+                        <br/>
+                        <h4>{{item.kb_item_title}}</h4>
+                        <p>
+                          {{item.kb_items_content}}
+                        </p>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle><b>Status</b></ng-template>
+                      <ng-template ngbTabContent>
+                        <div class="form-group">
+                          <div class="wrap desc">
+                            <label for="inputName" class="col-sm-2 control-label">&nbsp;</label>
+                          </div>
+                          <div class="wrap">
+                            <div class="col-sm-10" style="margin-right:200px; margin-top:-30px;">
+
+                              <ngb-alert *ngIf="succes" [dismissible]="false">
+                                <strong>Success! </strong> {{succes}}
+                              </ngb-alert>
+                              <p><b>Leave a comment for audit trail and change status!</b></p>
+                              <p>Here we can change the status of the open security mitigation.
+                                <br/>Please explain why the item is mitigated, opened or closed!</p>
+                              <textarea required class="form-control" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
+                              <br/>
+                              <div style="float:right">
+                                <button (click)="save(2, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success">Close</button>
+                                <button (click)="save(3, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning">Accept</button>
+                                <button (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger">Open</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle><b>Audit trail</b></ng-template>
+                      <ng-template ngbTabContent>
+                        <form *ngFor="let comment of comments" >
+                          <div class="col-md-3">
+                            <div class="card">
+                              <div class="card-block">
+                                <div *ngIf="comment" class="card-header" style="text-align:center;">
+                                  <b *ngIf="comment.status == 1">OPEN</b>
+                                  <b *ngIf="comment.status == 2">CLOSED</b>
+                                  <b *ngIf="comment.status == 3">ACCEPTED</b>
+                                </div>
+
+                                <p *ngIf="comment">{{comment.comment}}</p>
+
+                                <p *ngIf="error">{{error}}</p>
+                                <div *ngIf="comment" class="card-footer text-muted text-center">
+                                  <span class="name">Admin, {{comment.date}}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+          </div>
+        </div>
+      </div>
+      <!-- /col-lg-4 -->
+    </div>
+    <!-- /row -->
+  </section>
+  <!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->

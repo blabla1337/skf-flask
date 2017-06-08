@@ -1,0 +1,53 @@
+<div style="z-index:100;" id="login" class="container">
+
+  <div class="col-wrapper">
+    <div class="lock-screen">
+      <div class="login-wrapper">
+        <div class="logo"><img src="/assets/img/logos/logo_login.svg" width="60" height="60" /></div>
+        <div *ngFor="let errors of error">
+          <br/>
+          <ngb-alert [dismissible]="false">
+            <strong>Warning!</strong> {{errors}}
+          </ngb-alert>
+        </div>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 style="text-align: center" class="modal-title">Activate a user account</h4>
+            </div>
+            <div class="modal-body">
+              <form method="post">
+                 <input [(ngModel)]="userID" name="userID" placeholder="user ID" autocomplete="off" class="form-control placeholder-no-fix"
+                />
+                <br>
+                <input [(ngModel)]="accessToken" name="token" placeholder="Access token" autocomplete="off" class="form-control placeholder-no-fix"
+                />
+                <br>
+                <input [(ngModel)]="email" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" />
+                <br>
+                <input [(ngModel)]="username" name="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
+                />
+                <br>
+                <input [(ngModel)]="password" type="password" name="token" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"
+                />
+                <br>
+                <input [(ngModel)]="repassword" type="password" name="token" placeholder="Re-type password" autocomplete="off" class="form-control placeholder-no-fix"/>
+   
+                <div class="modal-footer centered">
+                  <a href="#" routerLink="/login"> <button class="btn btn-theme03" type="submit">Cancel</button></a>
+                  <button (click)="activateUser()" class="btn btn-theme03" type="submit">Create account</button>
+                </div>
+              </form>
+            </div>
+            <!-- js placed at the end of the document so the pages load faster -->
+            <script src="/assets/js/bootstrap.min.js"></script>
+          </div>
+        </div>
+      </div>
+      <div class="copy">
+        <img src="/assets/img/logos/owasp-icon-grey.svg" width="40" height="40" />Supported by <a style="color:#4d6aa9;"
+          href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
+      </div>
+    </div>
+  </div>
+</div>
