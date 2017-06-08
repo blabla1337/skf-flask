@@ -299,7 +299,7 @@
 <p id="t110" class="pln">    <span class="str">"""Main SKF method"""</span><span class="strut">&nbsp;</span></p>
 <p id="t111" class="stm mis">    <span class="nam">initialize_app</span><span class="op">(</span><span class="nam">app</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t112" class="stm mis">    <span class="nam">log</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">'>>>>> Starting development server at http://{}/api/ &lt;&lt;&lt;&lt;&lt;'</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">app</span><span class="op">.</span><span class="nam">config</span><span class="op">[</span><span class="str">'SERVER_NAME'</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t113" class="stm mis">    <span class="nam">app</span><span class="op">.</span><span class="nam">run</span><span class="op">(</span><span class="nam">debug</span><span class="op">=</span><span class="nam">settings</span><span class="op">.</span><span class="nam">FLASK_DEBUG</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t113" class="stm mis">    <span class="nam">app</span><span class="op">.</span><span class="nam">run</span><span class="op">(</span><span class="nam">host</span><span class="op">=</span><span class="nam">settings</span><span class="op">.</span><span class="nam">FLASK_HOST</span><span class="op">,</span> <span class="nam">port</span><span class="op">=</span><span class="nam">settings</span><span class="op">.</span><span class="nam">FLASK_PORT</span><span class="op">,</span> <span class="nam">debug</span><span class="op">=</span><span class="nam">settings</span><span class="op">.</span><span class="nam">FLASK_DEBUG</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t114" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t115" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t116" class="stm run hide_run"><span class="key">if</span> <span class="nam">__name__</span> <span class="op">==</span> <span class="str">"__main__"</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -314,7 +314,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-07 23:43
+            created at 2017-06-08 12:00
         </p>
     </div>
 </div>

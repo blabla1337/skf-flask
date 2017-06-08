@@ -110,7 +110,7 @@ def main():
     """Main SKF method"""
     initialize_app(app)
     log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(app.config['SERVER_NAME']))
-    app.run(debug=settings.FLASK_DEBUG)
+    app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=settings.FLASK_DEBUG)
 
 
 if __name__ == "__main__":
