@@ -6,6 +6,7 @@ MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
 RUN apk update --no-cache && apk add python3 \
 gcc \
 sqlite \
+nodejs \
 musl-dev \
 python3-dev \
 libffi-dev \ 
@@ -18,4 +19,4 @@ ENV FLASK_APP=skf/app.py
 ENV PYTHONPATH=/skf-flask
 USER nobody
 EXPOSE 8888
-ENTRYPOINT ["python3", "skf/app.py"]
+#ENTRYPOINT ["python3", "skf/app.py"]
