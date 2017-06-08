@@ -1,7 +1,7 @@
 # Flask settings
 FLASK_HOST = '0.0.0.0'
-FLASK_PORT = '8888'
-FLASK_SERVER_NAME = FLASK_HOST+":"+FLASK_PORT
+FLASK_PORT = 8888
+FLASK_SERVER_NAME = FLASK_HOST+":"+str(FLASK_PORT)
 FLASK_DEBUG = True  # Do not use debug mode in production
 
 # Flask-Restplus settings
