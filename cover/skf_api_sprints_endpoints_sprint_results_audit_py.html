@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/sprints/endpoints/sprint_results.py: 100%</title>
+    <title>Coverage for skf/api/sprints/endpoints/sprint_results_audit.py: 100%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -23,7 +23,7 @@
 
 <div id="header">
     <div class="content">
-        <h1>Coverage for <b>skf/api/sprints/endpoints/sprint_results.py</b> :
+        <h1>Coverage for <b>skf/api/sprints/endpoints/sprint_results_audit.py</b> :
             <span class="pc_cov">100%</span>
         </h1>
 
@@ -103,7 +103,7 @@
 <p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="nam">flask</span> <span class="key">import</span> <span class="nam">request</span><span class="strut">&nbsp;</span></p>
 <p id="t3" class="stm run hide_run"><span class="key">from</span> <span class="nam">flask_restplus</span> <span class="key">import</span> <span class="nam">Resource</span><span class="strut">&nbsp;</span></p>
 <p id="t4" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">security</span> <span class="key">import</span> <span class="nam">security_headers</span><span class="op">,</span> <span class="nam">validate_privilege</span><span class="op">,</span> <span class="nam">select_userid_jwt</span><span class="strut">&nbsp;</span></p>
-<p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">sprints</span><span class="op">.</span><span class="nam">business</span> <span class="key">import</span> <span class="nam">get_sprint_results</span><span class="strut">&nbsp;</span></p>
+<p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">sprints</span><span class="op">.</span><span class="nam">business</span> <span class="key">import</span> <span class="nam">get_sprint_results_audit</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">sprints</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">sprint_results</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">sprints</span><span class="op">.</span><span class="nam">parsers</span> <span class="key">import</span> <span class="nam">authorization</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">restplus</span> <span class="key">import</span> <span class="nam">api</span><span class="strut">&nbsp;</span></p>
@@ -111,22 +111,22 @@
 <p id="t10" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'sprint'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to sprint items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t11" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t12" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t13" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/results/&lt;int:id>'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t13" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/results/audit/&lt;int:id>'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t14" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">doc</span><span class="op">(</span><span class="nam">params</span><span class="op">=</span><span class="op">{</span><span class="str">'id'</span><span class="op">:</span> <span class="str">'The sprint id'</span><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">404</span><span class="op">,</span> <span class="str">'Validation error'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t16" class="stm run hide_run"><span class="key">class</span> <span class="nam">ProjectSprintResultItem</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t16" class="stm run hide_run"><span class="key">class</span> <span class="nam">ProjectSprintResultAuditItem</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t17" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t18" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">authorization</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">sprint_results</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t20" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">'No results found'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t21" class="pln">    <span class="key">def</span> <span class="nam">get</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">id</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t22" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
-<p id="t23" class="pln"><span class="str">        Returns sprint items.</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="pln"><span class="str">        Returns sprint audit items.</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="pln"><span class="str">        * Privileges required: **read**</span><span class="strut">&nbsp;</span></p>
 <p id="t25" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="stm run hide_run">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'read'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t27" class="stm run hide_run">        <span class="nam">user_id</span> <span class="op">=</span> <span class="nam">select_userid_jwt</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t28" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">get_sprint_results</span><span class="op">(</span><span class="nam">id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t28" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">get_sprint_results_audit</span><span class="op">(</span><span class="nam">id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="stm run hide_run">        <span class="key">return</span> <span class="nam">result</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -138,7 +138,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-09 23:33
+            created at 2017-06-10 00:21
         </p>
     </div>
 </div>

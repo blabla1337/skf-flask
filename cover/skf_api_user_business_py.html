@@ -226,7 +226,7 @@
 <p id="t60" class="pln">                    <span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t61" class="stm run hide_run">                    <span class="nam">token_raw</span> <span class="op">=</span> <span class="nam">jwt</span><span class="op">.</span><span class="nam">encode</span><span class="op">(</span><span class="nam">payload</span><span class="op">,</span> <span class="nam">settings</span><span class="op">.</span><span class="nam">JWT_SECRET</span><span class="op">,</span> <span class="nam">algorithm</span><span class="op">=</span><span class="str">'HS256'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t62" class="stm run hide_run">                    <span class="nam">token</span> <span class="op">=</span> <span class="nam">str</span><span class="op">(</span><span class="nam">token_raw</span><span class="op">,</span><span class="str">'utf-8'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t63" class="stm run hide_run">                    <span class="key">return</span> <span class="op">{</span><span class="str">'Authorization token'</span><span class="op">:</span> <span class="nam">token</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t63" class="stm run hide_run">                    <span class="key">return</span> <span class="op">{</span><span class="str">'Authorization token'</span><span class="op">:</span> <span class="nam">token</span><span class="op">,</span> <span class="str">'username'</span><span class="op">:</span> <span class="nam">username</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t64" class="pln">                <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t65" class="stm run hide_run">                    <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error login failed"</span><span class="op">,</span> <span class="str">"HIGH"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t66" class="stm run hide_run">                    <span class="key">return</span> <span class="op">{</span><span class="str">'Authorization token'</span><span class="op">:</span> <span class="str">'Wrong username/password'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
@@ -268,7 +268,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-03 19:46
+            created at 2017-06-09 23:33
         </p>
     </div>
 </div>

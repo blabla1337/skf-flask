@@ -34,6 +34,7 @@ from skf.api.sprints.endpoints.sprint_new import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_stats import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_update import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_results_audit import ns as sprints_namespace
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_level import ns as checklist_namespace
@@ -70,7 +71,8 @@ log = logging.getLogger(__name__)
 
 def configure_app(flask_app):
     """Configure the SKF app."""
-    flask_app.config['SERVER_NAME'] = settings.FLASK_SERVER_NAME
+    #cannot use SERVER_NAME because it will mess up the routing
+    #flask_app.config['SERVER_NAME'] = settings.FLASK_SERVER_NAME
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = settings.SQLALCHEMY_DATABASE_URI
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
     flask_app.config['SWAGGER_UI_DOC_EXPANSION'] = settings.RESTPLUS_SWAGGER_UI_DOC_EXPANSION
@@ -109,7 +111,7 @@ def initdb_command():
 def main():
     """Main SKF method"""
     initialize_app(app)
-    log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(app.config['SERVER_NAME']))
+    log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
     app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=settings.FLASK_DEBUG)
 
 

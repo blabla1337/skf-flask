@@ -60,7 +60,7 @@ def login_user(data):
                     }
                     token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
                     token = str(token_raw,'utf-8')
-                    return {'Authorization token': token}
+                    return {'Authorization token': token, 'username': username}
                 else:
                     log("User triggered error login failed", "HIGH", "FAIL")
                     return {'Authorization token': 'Wrong username/password'}

@@ -9,19 +9,12 @@ from skf.database.logs import logs
 
 def security_headers():
     """This decorator passes multiple security headers"""
-    if settings.FLASK_SERVER_NAME == 'localhost:8888':
-        return {'X-Frame-Options': 'deny',
-                'X-XSS-Protection': '1',
-                'X-Content-Type-Options': 'nosniff',
-                'Cache-Control': 'no-store, no-cache',
-                'Server': 'Security Knowledge Framework API'}
-    else:
-        return {'X-Frame-Options': 'deny',
-                'X-XSS-Protection': '1',
-                'X-Content-Type-Options': 'nosniff',
-                'Cache-Control': 'no-store, no-cache',
-                'Strict-Transport-Security': 'max-age=16070400; includeSubDomains',
-                'Server': 'Security Knowledge Framework API'}
+    return {'X-Frame-Options': 'deny',
+            'X-XSS-Protection': '1',
+            'X-Content-Type-Options': 'nosniff',
+            'Cache-Control': 'no-store, no-cache',
+            'Strict-Transport-Security': 'max-age=16070400; includeSubDomains',
+            'Server': 'Security Knowledge Framework API'}
 
 
 def log(message, threat, status):

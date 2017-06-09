@@ -16,6 +16,8 @@ sprint_stats = api.model('sprint_stats', {
     'sprint_open': fields.Integer(readOnly=True, description='The count of open items per sprint'),
     'sprint_closed': fields.Integer(readOnly=True, description='The count of closed items per sprint'),
     'sprint_accepted': fields.Integer(readOnly=True, description='The count of accepted items per sprint'),
+    'sprint_sec_ack': fields.Integer(readOnly=True, description='The count of verified correct items per sprint by security review'),
+    'sprint_sec_fail': fields.Integer(readOnly=True, description='The count of failed items per sprint by security review'),
     'sprint_items_total': fields.Integer(readOnly=True, description='The count of total available items in a sprint'),
 })
 
@@ -36,6 +38,7 @@ sprint_new = api.model('Sprint new', {
 })
 
 results = api.model('results', {
+    'status': fields.Integer(readOnly=True, description='The status of a sprint item'),
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
     'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),

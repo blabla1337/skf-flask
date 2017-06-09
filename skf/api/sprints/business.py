@@ -7,7 +7,7 @@ from skf.api.security import log, val_num, val_alpha_num
 
 
 def get_sprint_item(sprint_id, user_id):
-    log("User requested specific sprint", "MEDIUM", "PASS")
+    log("User requested specific sprint item", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
     result = project_sprints.query.filter(project_sprints.sprintID == sprint_id).one()
@@ -15,10 +15,18 @@ def get_sprint_item(sprint_id, user_id):
 
 
 def get_sprint_results(sprint_id, user_id):
-    log("User requested specific sprint", "MEDIUM", "PASS")
+    log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
     result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).paginate(1, 500, False)
+    return result
+
+
+def get_sprint_results_audit(sprint_id, user_id):
+    log("User requested specific sprint audit items", "MEDIUM", "PASS")
+    val_num(sprint_id)
+    val_num(user_id)
+    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).paginate(1, 500, False)
     return result
 
 
@@ -75,8 +83,11 @@ def stats_sprint(project_id):
         sprint_open = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 1).group_by(checklists_results.checklistID).count())
         sprint_closed = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 2).group_by(checklists_results.checklistID).count())
         sprint_accepted = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 3).group_by(checklists_results.checklistID).count())
-        total = sprint_open + sprint_closed + sprint_accepted
-        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted, 'sprint_items_total': total})
+        sprint_sec_ack = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 4).group_by(checklists_results.checklistID).count())
+        sprint_sec_fail = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).count())
+        total = sprint_open + sprint_closed + sprint_accepted + sprint_sec_ack + sprint_sec_fail
+
+        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted, 'sprint_sec_ack': sprint_sec_ack, 'sprint_sec_fail': sprint_sec_fail, 'sprint_items_total': total})
     return sprint
 
 
