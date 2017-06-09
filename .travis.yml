@@ -18,7 +18,7 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - coverage run tests/run.py test
+#  - coverage run tests/run.py test
   - coverage run --source=skf setup.py test
 
 after_success:
