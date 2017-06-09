@@ -15,3 +15,5 @@ checks:
 filter:
     excluded_paths:
         - '*tests*'
+        - '*Angular*'
+                
