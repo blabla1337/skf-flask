@@ -1,5 +1,3 @@
-import datetime
-
 from sqlalchemy import distinct
 from skf.database import db
 from skf.database.projects import projects
@@ -9,7 +7,7 @@ from skf.database.project_sprints import project_sprints
 from skf.database.checklists_results import checklists_results
 from skf.database.question_pre_results import question_pre_results
 from skf.database.question_sprint_results import question_sprint_results
-from skf.api.security import log, val_num, val_alpha, val_alpha_num
+from skf.api.security import log, val_num, val_alpha
 
 
 def get_pre_items():
@@ -24,14 +22,12 @@ def store_pre_questions(user_id, data):
     question = data.get('questions')
     val_num(question[0]['projectID'])
     project_id = question[0]['projectID']
-    userID = user_id
     project_results = project_sprints.query.filter(project_sprints.projectID == project_id).one()
     sprint_id = project_results.sprintID
     projects_result = projects.query.filter(projects.projectID == project_id).one()
     project_lvl = projects_result.level
     status = 1
     pre_item = "True"
-    comment = 0
     for result in data.get('questions'):
         val_num(result['question_pre_ID'])
         val_alpha(result['result'])
@@ -74,7 +70,6 @@ def update_pre_questions(project_id, user_id, data):
     project_lvl = projects_result.level
     status = 1
     pre_item = "True"
-    comment = 0
     for result in data.get('questions'):
         val_num(result['question_pre_ID'])
         val_alpha(result['result'])

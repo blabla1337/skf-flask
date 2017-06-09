@@ -1,13 +1,10 @@
-import datetime
-
 from skf.database import db
 from skf.database.projects import projects
 from skf.database.checklists_kb import checklists_kb
-from skf.database.project_sprints import project_sprints
 from skf.database.questions_sprint import questions_sprint
 from skf.database.checklists_results import checklists_results
 from skf.database.question_sprint_results import question_sprint_results
-from skf.api.security import log, val_num, val_alpha, val_alpha_num
+from skf.api.security import log, val_num, val_alpha
 
 
 def get_sprint_items():
@@ -35,7 +32,6 @@ def store_sprint_questions(user_id, data):
         project_lvl = projects_result.level
         status = 1
         pre_item = "False"
-        comment = 0
         questions_results = question_sprint_results.query.filter(question_sprint_results.result == "True").group_by(question_sprint_results.question_sprint_ID).all()
     for results in questions_results:
         projectID = results.projectID

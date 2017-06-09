@@ -1,10 +1,7 @@
-import datetime
-
 from skf.database import db
 from skf.database.projects import projects
-from skf.database.checklists_kb import checklists_kb
 from skf.database.checklists_post import checklists_post
-from skf.api.security import log, val_num, val_alpha, val_alpha_num
+from skf.api.security import log, val_num, val_alpha_num
 
 
 def get_post_items(sprint_id):

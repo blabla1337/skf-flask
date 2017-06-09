@@ -1,5 +1,4 @@
 import logging
-import traceback
 
 from flask_restplus import Api
 from skf import settings

@@ -5,7 +5,7 @@ from skf.database.projects import projects
 from skf.database.groupmembers import groupmembers
 from skf.database.project_sprints import project_sprints 
 from skf.database.checklists_results import checklists_results
-from skf.api.security import log, val_num, val_alpha, val_alpha_num
+from skf.api.security import log, val_num, val_alpha_num
 
 
 def get_project_items():
@@ -36,9 +36,9 @@ def update_project(project_id, user_id, data):
     project.projectDesc = data.get('description')
     project.level = data.get('level')
     project.userID = user_id
-    groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
-    ownerID = groupmember.ownerID
-    groupID = groupmember.groupID
+    #groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
+    #ownerID = groupmember.ownerID
+    #groupID = groupmember.groupID
     now = datetime.datetime.now()
     project.timestamp = now.strftime("%Y-%m-%d %H:%M")
     db.session.add(project) 
@@ -88,8 +88,6 @@ def stats_project(project_id):
     sprint_accepted = 0
     for result in sprint_info:
         sprint_id = result.sprintID
-        sprint_desc = result.sprintDesc
-        sprint_name = result.sprintName
         sprint_open_add = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 1).group_by(checklists_results.checklistID).count())
         sprint_open += sprint_open_add
         sprint_closed_add = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 2).group_by(checklists_results.checklistID).count())

@@ -1,8 +1,5 @@
-import datetime
-
 from skf.database import db
 from sqlalchemy import desc
-from skf.database.projects import projects 
 from skf.database.groupmembers import groupmembers
 from skf.database.project_sprints import project_sprints 
 from skf.database.checklists_results import checklists_results 
@@ -58,7 +55,6 @@ def new_sprint(user_id, data):
     sprintDesc = data.get('description')
     projectID = data.get('projectID')
     groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
-    ownerID = groupmember.ownerID
     groupID = groupmember.groupID
     sprintAdd = project_sprints(sprintName, sprintDesc, groupID, projectID)
     db.session.add(sprintAdd)
