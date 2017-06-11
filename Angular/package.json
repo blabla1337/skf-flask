@@ -1,10 +1,10 @@
 {
   "name": "skf-angular",
-  "version": "0.0.0",
-  "license": "MIT",
+  "version": "1.0.0",
+  "license": "AGPL-3.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host=0.0.0.0",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
