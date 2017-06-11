@@ -17,8 +17,7 @@ RUN git clone -b rebuild https://github.com/blabla1337/skf-flask.git
 # Start Angular app
 WORKDIR /skf-flask/Angular
 RUN npm install
-#RUN npm rebuild
-#RUN npm start
+RUN npm start
 EXPOSE 4100
 # Start python API app
 WORKDIR /skf-flask
