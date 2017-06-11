@@ -7,7 +7,7 @@
   <section class="intro">
     <div class="inner">
       <div class="text">
-        <h1>Sprint summary</h1>
+        <h1>Sprint summary for: {{selector}}</h1>
         <p>Close, open or accept different sprint items. Leave comments to have an audit trail!</p>
       </div>
       <button style="float:right;" (click)="back()" class="btn btn-default">Back</button>
@@ -16,14 +16,14 @@
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
-        <div class="src">
-          <input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search" />
-          <i class="fa fa-search"></i>
+        <div style='float:right; margin-bottom:1%'>
+          <button class="btn btn-info" (click)="select('Security')">Security</button>
+          <button class="btn btn-info" (click)="select('Development')">Development</button>
         </div>
-        <div *ngFor="let item of sprintResult" class="content-panel" style="padding-bottom:1%">
+        <div *ngFor="let item of sprintResult | StartsWithPipe : queryString" class="content-panel" style="padding-bottom:1%">
           <div (click)="fetchComment(item.checklist_items_checklistID)">
             <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
-              <ngb-panel title="( Lvl:{{item.checklist_items_level}} ) {{item.checklist_items_checklistID}} {{item.checklist_items_content}}">
+              <ngb-panel title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}} ( Lvl:{{item.checklist_items_level}} )">
                 <ng-template ngbPanelContent>
                   <ngb-tabset>
                     <ngb-tab>
@@ -55,9 +55,15 @@
                               <textarea required class="form-control" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
                               <br/>
                               <div style="float:right">
-                                <button (click)="save(2, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success">Close</button>
-                                <button (click)="save(3, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning">Accept</button>
-                                <button (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger">Open</button>
+                                <div *ngIf="selector == 'Development'">
+                                  <button (click)="save(2, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success">Close</button>
+                                  <button (click)="save(3, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning">Accept</button>
+                                  <button (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger">Open</button>
+                                </div>
+                                <div *ngIf="selector == 'Security'">
+                                  <button (click)="save(4, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success">Verified</button>
+                                  <button (click)="save(5, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger">Failed</button>
+                                   </div>
                               </div>
                             </div>
                           </div>
@@ -67,7 +73,7 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle><b>Audit trail</b></ng-template>
                       <ng-template ngbTabContent>
-                        <form *ngFor="let comment of comments" >
+                        <form *ngFor="let comment of comments">
                           <div class="col-md-3">
                             <div class="card">
                               <div class="card-block">

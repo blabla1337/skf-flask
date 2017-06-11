@@ -15,8 +15,8 @@ declare var hljs: any;
 
 export class CodeExamplesComponent implements OnInit, DoCheck {
 
-  lang: string;
-  codeExamples: CodeExample[];
+  public lang: string;
+  public codeExamples: CodeExample[];
   public error: string;
 
   constructor(private code: CodeExamplesService, private highlightJsService: HighlightJsService, private el: ElementRef) {

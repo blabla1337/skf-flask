@@ -18,4 +18,4 @@ WORKDIR /skf-flask
 RUN pip3.6 install -r requirements.txt
 ENV PYTHONPATH=/skf-flask
 EXPOSE 8888
-ENTRYPOINT ["python3.6", "skf/app.py"]
+#ENTRYPOINT ["python3.6", "skf/app.py"]

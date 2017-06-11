@@ -21,7 +21,7 @@ export class QuestionsSprintService {
     return this.http
       .put('http://127.0.0.1:8888/api/questions_sprint/store', JSON.stringify({questions}),
       { headers: this.postHeaders })
-      .map(a => { 
-        return a.json()});
+      .map(response => { 
+        return response.json()});
   }
 }

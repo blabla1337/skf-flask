@@ -3,7 +3,7 @@ import { ChecklistService } from '../services/checklist.service'
 import { Checklist } from '../models/checklist';
 import { StartsWithPipe } from '../pipes/starts-with.pipe'
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import {OrderBy} from '../pipes/order-by.pipe'
+import { OrderBy } from '../pipes/order-by.pipe'
 
 
 @Component({
@@ -16,8 +16,8 @@ export class ChecklistComponent implements OnInit {
   private checklistItems: Checklist[]
   public queryString: string;
   public closeResult: string;
-  public color:string;
-  
+  public color: string;
+
   constructor(private checklistService: ChecklistService, private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class ChecklistComponent implements OnInit {
   open(content, level: number) {
     this.checklistService
       .getChecklist(level)
-      .subscribe(checklistItems => { this.checklistItems = checklistItems});
+      .subscribe(checklistItems => { this.checklistItems = checklistItems });
 
     this.modalService.open(content, { size: 'lg' }).result.then((result) => {
       this.closeResult = 'Closed with: ${result}';

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
 import { SprintService } from '../services/sprint.service'
 import { CommentService } from '../services/comment.service'
 
@@ -28,6 +27,7 @@ export class ProjectSummaryComponent implements OnInit {
   public comments: Comment;
   public error : string;
   public succes: string;
+  public selector: string = "Development";
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -39,6 +39,10 @@ export class ProjectSummaryComponent implements OnInit {
 
   back() {
     this.route.params.subscribe(params => { this.router.navigate(["/project-dashboard/", params['id']]) })
+  }
+
+  select(option:string){
+    this.selector = option;
   }
 
   save(status: number, checklist:string) {

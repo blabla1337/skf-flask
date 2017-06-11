@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { Sprint } from '../models/sprint';
-import 'rxjs/add/operator/toPromise';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
+import { Sprint } from '../models/sprint';
 
+ 
 @Injectable()
 export class SprintService {
 
-  constructor(private http: Http, private router: Router) { }
+  constructor(
+    private http: Http, 
+    private router: Router,
+    ) { }
+  
   public headers = new Headers({ 'Authorization': sessionStorage.getItem('auth_token') });
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem('auth_token') });
  

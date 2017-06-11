@@ -31,6 +31,7 @@ export class ProjectNewComponent implements OnInit {
   public project: Project[];
   public type = "info"
   public isvalid = false;
+  public level :string;
   public error: string[] = [];
   public return: boolean = true;
 
@@ -55,8 +56,11 @@ export class ProjectNewComponent implements OnInit {
     )
   }
 
+  levelSelect(option:string){
+    this.level = option;
+    console.log("aaa")
+  }
   save(): void {
-
     this.return = true;
     this.error = [];
     if (!this.projectName) { this.error.push("Project name was left empty"); this.return = false; }
@@ -64,6 +68,7 @@ export class ProjectNewComponent implements OnInit {
     if (!this.projectDescription) { this.error.push("Project description was left empty"); this.return = false; }
     if (!this.sprintName) { this.error.push("Sprint name was left empty"); this.return = false; }
     if (!this.sprintDescription) { this.error.push("Sprint description was left empty"); this.return = false; }
+    if (!this.level) { this.error.push("No ASVS level was selected"); this.return = false; }
 
     if (this.return == false) { return; }
 
@@ -75,9 +80,9 @@ export class ProjectNewComponent implements OnInit {
     let pre_dev_items = JSON.parse(localStorage.getItem("pre_dev"));
     let count_pre = Object.keys(pre_dev_items).length
 
-    this.projectService.newProject(this.projectName, this.projectVersion, this.projectDescription)
+    this.projectService.newProject(this.projectName, this.projectVersion, this.projectDescription, this.level)
       .subscribe((res) => { this.projectID = res["projectID"] }, err => console.log("Error storing project"), () => {
-        this.sprintService.newSprint(this.projectName, this.projectID, this.sprintDescription)
+        this.sprintService.newSprint(this.sprintName, this.projectID, this.sprintDescription)
           .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
 
             for (let i = 1; i < count_pre + 1; i++) {

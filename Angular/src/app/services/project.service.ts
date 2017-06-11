@@ -13,13 +13,13 @@ export class ProjectService {
   public postHeaders = new Headers({'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem('auth_token') });
   public getHeaders = new Headers({'Authorization': sessionStorage.getItem('auth_token') });
 
-  newProject(name: string, version: string, description: string): Observable<any> {
+  newProject(name: string, version: string, description: string, level: string): Observable<any> {
     return this.http
       .put('http://127.0.0.1:8888/api/project/new', JSON.stringify({
         name: name,
         version: version,
         description: description,
-        level:1
+        level: parseInt(level, 10)
       }),
       { headers: this.postHeaders })
       .map(a => {return a.json()});

@@ -23,7 +23,8 @@
           </div>
 
             <ngb-alert *ngIf="data" [dismissible]="false">
-              <strong>Authorization token: </strong> for user with ID {{data.userID}}  :  {{data.accessToken}}
+              <p><strong>Authorization token: </strong> for user with ID {{data.userID}}  :  {{data.accessToken}}</p>
+              <p>You must use the ID and token to activate users in the "first login" menu when authenticating.</p>
             </ngb-alert>
           <form class="form-horizontal" role="form" style="padding-left:20px;padding-right:20px; padding-top:-20px;"
             action="/user-add">

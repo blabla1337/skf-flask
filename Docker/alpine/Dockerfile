@@ -17,13 +17,13 @@ RUN git clone -b rebuild https://github.com/blabla1337/skf-flask.git
 # Start Angular app
 WORKDIR /skf-flask/Angular
 RUN npm install
-#RUN npm start
+RUN npm start
 EXPOSE 4100
 # Start python API app
 WORKDIR /skf-flask
 RUN pip3 install -r requirements.txt
 ENV FLASK_APP=skf/app.py
 ENV PYTHONPATH=/skf-flask
-USER nobody
+#USER nobody
 EXPOSE 8888
 #ENTRYPOINT ["python3", "skf/app.py"]

@@ -10,7 +10,6 @@ import { Router } from '@angular/router'
 })
 
 export class UserAddComponent implements OnInit {
-  public username: string;
   public email: string;
   public privileges: string;
   public return: boolean;
@@ -33,5 +32,8 @@ export class UserAddComponent implements OnInit {
       data => this.data = data,
       err => this.error.push("Error whilst adding user, potential duplicate email adres!")
       )
+
+      this.email = "";
+      this.privileges = '0';
   }
 }

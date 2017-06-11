@@ -104,23 +104,14 @@
                     <span aria-hidden="true">&times;</span>
          </button>
 	</div>
-
-	<div class="modal-info">
-		<div class="alert alert-info">
-			<p>For your convenience the report shall <b>only</b> contain all objects that have <b>failed</b> the checklist. Items that
-				marked as not applicable (N.A.) will also be hidden in the report.</p>
-		</div>
-	</div>
-
-	<form method="post" action="/project-checklist-add">
+	<form class="form-horizontal" role="form" #myForm="ngForm">
 
 		<!-- Modal Body -->
 
 		<div class="modal-body">
 			<table class="table table-striped table-advance table-hover checklist">
 				<tbody>
-					<tr *ngFor="let item of checklistItems | orderBy:['checklist_items_checklistID'] ; let myIndex = index; ">
-
+					<tr *ngFor="let item of checklistItems | orderBy:['checklist_items_checklistID']; let myIndex = index; ">
 						<th *ngIf="item.checklist_items_level == 0" colspan="6">{{item.checklist_items_checklistID}} {{item.checklist_items_content}}</th>
 						<td *ngIf="item.checklist_items_level != 0">
 							<ngb-accordion #acc="ngbAccordion">
@@ -130,15 +121,6 @@
 									</ng-template>
 								</ngb-panel>
 							</ngb-accordion>
-
-						<td *ngIf="item.checklist_items_level != 0" width="20%">
-							<select ngModel name="answer" class="form-control">
-								<option value="">-- Select --</option>
-								<option value="no">No</option>
-								<option value="yes">Yes</option>
-								<option value="na">N.A.</option>
-                            </select>
-						</td>
 					</tr>
 					<tr style="display: none;">
 						<td>
@@ -151,17 +133,13 @@
 		</div>
 
 		<!-- Modal Footer -->
-		
-		<div class="modal-footer">
 
-			<div class="alert alert-info">
-				<b>Note:</b> Please finish the entire checklist before submitting, submitted forms can not be updated!
-			</div>
+		<div class="modal-footer">
 		</div>
-		<div class="modal-footer">	
+		<div class="modal-footer">
 			<div class="buttons">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="submit" name="submit" class="btn btn-success"><i class="fa fa-check"></i> Save checklist</button>
+				<button type="button" class="btn btn-default" (click)="c('Close click')" data-dismiss="modal">Close</button>
+				<button type="submit" name="submit" (click)="save(myForm)" class="btn btn-success"><i class="fa fa-check"></i> Save checklist</button>
 			</div>
 		</div>
 

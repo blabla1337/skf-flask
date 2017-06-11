@@ -14,6 +14,7 @@ export class ProjectListComponent implements OnInit {
   closeResult: string;
   public number: number;
   public error: string;
+  public delete: string;
 
   constructor(private _projectService: ProjectService, private modalService: NgbModal) { }
 
@@ -22,9 +23,11 @@ export class ProjectListComponent implements OnInit {
   }
 
   deleter(id: number) {
-    this._projectService.delete(id).subscribe(x =>
-      //Get the new project list on delete 
-      this.projectList())
+    if (this.delete == "DELETE") {
+      this._projectService.delete(id).subscribe(x =>
+        //Get the new project list on delete 
+        this.projectList())
+    }
   }
 
   open(content) {

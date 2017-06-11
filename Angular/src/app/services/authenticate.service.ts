@@ -14,9 +14,9 @@ export class AuthenticateService {
   authenticate(username: string, password: string) {
     return this.http
       .post('http://127.0.0.1:8888/api/user/login', JSON.stringify({ username: username, password: password }), { headers: this.headers })
-      .map(res => res.json()).map(resp => {
-        if (resp["Authorization token"] != null && resp["Authorization token"] != "Wrong username/password") {
-          sessionStorage.setItem("auth_token", resp["Authorization token"]);
+      .map(response => response.json()).map(response => {
+        if (response["Authorization token"] != null && response["Authorization token"] != "Wrong username/password") {
+          sessionStorage.setItem("auth_token", response["Authorization token"]);
           location.replace("dashboard"),
             error => console.log("An error occured whilst logging in");
         }
@@ -33,8 +33,8 @@ export class AuthenticateService {
         username:username
       }),
       { headers: this.headers })
-      .map(a => {
-        return a.json()
+      .map(response => {
+        return response.json()
       });
   }
 
