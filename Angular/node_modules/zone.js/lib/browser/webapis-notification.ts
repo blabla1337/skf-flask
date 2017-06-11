@@ -5,20 +5,14 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-((_global: any) => {
-  // patch Notification
-  patchNotification(_global);
-
-  function patchNotification(_global: any) {
-    const Notification = _global['Notification'];
-    if (!Notification || !Notification.prototype) {
-      return;
-    }
-    const desc = Object.getOwnPropertyDescriptor(Notification.prototype, 'onerror');
-    if (!desc || !desc.configurable) {
-      return;
-    }
-    const patchOnProperties = Zone[Zone['__symbol__']('patchOnProperties')];
-    patchOnProperties(Notification.prototype, null);
+Zone.__load_patch('notification', (global: any, Zone: ZoneType, api: _ZonePrivate) => {
+  const Notification = global['Notification'];
+  if (!Notification || !Notification.prototype) {
+    return;
   }
-})(typeof window === 'object' && window || typeof self === 'object' && self || global);
+  const desc = Object.getOwnPropertyDescriptor(Notification.prototype, 'onerror');
+  if (!desc || !desc.configurable) {
+    return;
+  }
+  api.patchOnProperties(Notification.prototype, null);
+});

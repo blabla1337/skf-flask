@@ -1,0 +1,15 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { NgAnalyzedModules } from '@angular/compiler';
+import { AstResult } from './common';
+import { Declarations, Diagnostics, TemplateSource } from './types';
+export interface AstProvider {
+    getTemplateAst(template: TemplateSource, fileName: string): AstResult;
+}
+export declare function getTemplateDiagnostics(fileName: string, astProvider: AstProvider, templates: TemplateSource[]): Diagnostics;
+export declare function getDeclarationDiagnostics(declarations: Declarations, modules: NgAnalyzedModules): Diagnostics;
