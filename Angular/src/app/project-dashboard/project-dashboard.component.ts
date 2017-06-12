@@ -91,6 +91,13 @@ export class ProjectDashboardComponent implements OnInit {
       this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },
         err => console.log("Error Storing new questions for sprint"));
     }, 1000);
+
+    this.route.params.subscribe(params => {
+      this.sprintService.getSprintStats(params['id']).subscribe(
+        resp => this.sprintResult = resp,
+        err => console.log("Error getting sprint stats"))
+    });
+
   }
 
   updatePre(form: NgForm) {
@@ -106,7 +113,6 @@ export class ProjectDashboardComponent implements OnInit {
       this.questionPreService.updatePre(params['id'], this.pre_dev_store).subscribe(() => { },
         err => console.log("Error Storing new questions for sprint"));
     });
-
   }
 
   open(content) {
