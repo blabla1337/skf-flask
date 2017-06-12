@@ -1,5 +1,6 @@
 import datetime
 
+from sqlalchemy import desc
 from skf.database import db
 from skf.database.comments import comments
 from skf.database.checklists_results import checklists_results 
@@ -12,7 +13,7 @@ def get_comment_items(data):
     val_num(data.get('sprintID'))
     sprint_id = data.get('sprintID')
     checklist_id = data.get('checklistID')
-    result = comments.query.filter(comments.sprintID == sprint_id).filter(comments.checklistID == checklist_id).group_by(comments.comment).paginate(1, 50, False)
+    result = comments.query.filter(comments.sprintID == sprint_id).filter(comments.checklistID == checklist_id).order_by(desc(comments.date)).group_by(comments.comment).paginate(1, 50, False)
     return result
 
 

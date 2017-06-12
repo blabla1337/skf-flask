@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export FLASK_APP=skf/app.py flask initdb
+export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
 
 while :
