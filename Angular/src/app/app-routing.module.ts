@@ -5,6 +5,7 @@ import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { ProjectSummaryComponent } from './project-summary/project-summary.component';
+import { ProjectSummaryAuditComponent } from './project-summary-audit/project-summary-audit.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { KnowledgebaseComponent } from './knowledgebase/knowledgebase.component';
 import { CodeExamplesComponent } from './code-examples/code-examples.component';
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'project-list', component: ProjectListComponent, canActivate: [GuardService] },
   { path: 'project-dashboard/:id', component: ProjectDashboardComponent, canActivate: [GuardService] },
   { path: 'project-summary/:id', component: ProjectSummaryComponent, canActivate: [GuardService] },
+  { path: 'project-summary-audit/:id', component: ProjectSummaryAuditComponent, canActivate: [GuardService] },
   { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },
   { path: 'code-examples', component: CodeExamplesComponent, canActivate: [GuardService] },
   { path: 'user-add', component: UserAddComponent, canActivate: [GuardService] },

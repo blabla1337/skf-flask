@@ -3,16 +3,15 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SprintService } from '../services/sprint.service'
 import { CommentService } from '../services/comment.service'
-
 import { Sprint } from '../models/sprint'
 import { Comment } from '../models/comment'
 
 @Component({
-  selector: 'app-project-summary',
-  templateUrl: './project-summary.component.html',
+  selector: 'app-project-summary-audit',
+  templateUrl: './project-summary-audit.component.html',
   providers: [SprintService, CommentService]
 })
-export class ProjectSummaryComponent implements OnInit {
+export class ProjectSummaryAuditComponent implements OnInit {
 
   constructor(
     private sprintService: SprintService,
@@ -31,7 +30,7 @@ export class ProjectSummaryComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.sprintService.getSprintResults(params['id']).subscribe(
+      this.sprintService.getSprintResultsAudit(params['id']).subscribe(
         resp => this.sprintResult = resp,
         err => console.log("Error getting sprint stats"))
     });
@@ -55,16 +54,16 @@ export class ProjectSummaryComponent implements OnInit {
     });
 
     this.route.params.subscribe(params => {
-      this.sprintService.getSprintResults(params['id']).subscribe(
+      this.sprintService.getSprintResultsAudit(params['id']).subscribe(
         resp => this.sprintResult = resp,
         err => console.log("Error getting sprint stats"))
     });
-    this.comment = "";
   }
 
   fetchComment(checklistId) {
     this.error = "";
     this.succes = "";
+    this.comment = "";
     this.route.params.subscribe(params => {
       this.commentService.getComment(checklistId, params['id']).subscribe(
         (data) => {

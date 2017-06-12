@@ -20,6 +20,7 @@ import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDashboardComponent }   from './project-dashboard/project-dashboard.component';
 import { ProjectSummaryComponent }   from './project-summary/project-summary.component';
+import { ProjectSummaryAuditComponent }   from './project-summary-audit/project-summary-audit.component';
 import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.component';
 import { CodeExamplesComponent }   from './code-examples/code-examples.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
@@ -43,6 +44,7 @@ import { FirstLoginComponent } from './first-login/first-login.component';
     ProjectListComponent,
     ProjectDashboardComponent,
     ProjectSummaryComponent,
+    ProjectSummaryAuditComponent,
     UserAddComponent,
     KnowledgebaseComponent,
     CodeExamplesComponent,

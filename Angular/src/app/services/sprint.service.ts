@@ -4,18 +4,18 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { Sprint } from '../models/sprint';
 
- 
+
 @Injectable()
 export class SprintService {
 
   constructor(
-    private http: Http, 
+    private http: Http,
     private router: Router,
-    ) { }
-  
+  ) { }
+
   public headers = new Headers({ 'Authorization': sessionStorage.getItem('auth_token') });
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem('auth_token') });
- 
+
   newSprint(name: string, projectID: number, description: string): Observable<Sprint> {
     return this.http
       .put('http://127.0.0.1:8888/api/sprint/new', JSON.stringify({
@@ -32,8 +32,13 @@ export class SprintService {
       .map(response => response.json())
   }
 
-    getSprintResults(id: number): Observable<Sprint[]> {
+  getSprintResults(id: number): Observable<Sprint[]> {
     return this.http.get(`http://127.0.0.1:8888/api/sprint/results/${id}`, { headers: this.headers })
+      .map(response => response.json().items)
+  }
+
+  getSprintResultsAudit(id: number): Observable<Sprint[]> {
+    return this.http.get(`http://127.0.0.1:8888/api/sprint/results/audit/${id}`, { headers: this.headers })
       .map(response => response.json().items)
   }
 

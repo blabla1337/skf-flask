@@ -445,6 +445,7 @@ ul.sidebar-menu li a.act:hover i {
   float: left;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
 }
 .content-panel.narrow {
   width: 100%;
@@ -2386,6 +2387,19 @@ a#finish.nav-link {
   color: #000;
 }
 /* Cards */
+.card-footer {
+  float: left;
+  width: 100%;
+}
+.card-footer .left {
+  float: left;
+}
+.card-footer .right {
+  float: right;
+}
+.card-footer .msg-success {
+  line-height: 2.5em;
+}
 .card-header {
   color: #fff;
   background: #515594;
@@ -2436,4 +2450,61 @@ a#finish.nav-link {
 /* Project List */
 .project-list .btn-danger {
   border: none;
+}
+/* Project Summary */
+.blob {
+  width: 2.5em;
+  height: 2.5em;
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  background: red;
+  z-index: 1;
+  border-radius: 100%;
+  color: #fff;
+}
+.blob i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  font-size: 1.25em;
+  margin: auto;
+  bottom: 0;
+  text-align: center;
+  line-height: 1em;
+}
+.blob.msg-purple {
+  background: #6a6eae;
+}
+.blob.msg-orange {
+  background: #ec971f;
+}
+.blob.msg-green {
+  background: #5cb85c;
+}
+.blob.msg-red {
+  background: #c9302c;
+}
+.project-list .card-header.padding-right {
+  padding-right: 4em;
+}
+.card-header.no-padding b {
+  float: left;
+  width: 100%;
+  display: block;
+  padding: 1em;
+  box-sizing: border-box;
+  color: #fff;
+}
+.card-header.no-padding b.orange {
+  background: #ec971f;
+}
+.card-header.no-padding b.green {
+  background: #5cb85c;
+}
+.card-header.no-padding b.red {
+  background: #c9302c;
 }

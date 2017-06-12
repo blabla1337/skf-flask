@@ -20,7 +20,7 @@
 			</ngb-alert>
 			<div class="row" *ngIf="codeExamples"> 
 				<div (click)="highlight()" class="col-lg-12">
-					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion" activeIds="ngb-panel-0">
 						<div *ngFor="let examples of codeExamples | StartsWithPipe : queryString">
 							<br/>
 							<ngb-panel title="{{examples.title}}">

@@ -25,12 +25,12 @@
               <ng-template ngbTabContent>
                 <div class="inner">
                   <h4>What ASVS level do i need?</h4>
-                  <p>Select the level of security verification for your project. Read the descriptions below to find out which level is right for you.</p>
+                  <p>Select the level of security verification for your project. Read the descriptions below to find out which level is right for you by expanding a accordeon menu and selecting the level!</p>
                   <ngb-alert *ngIf="level" [dismissible]="false">
                       <strong>Message,</strong> Level {{level}} is selected for ASVS!
                     </ngb-alert>
                 </div>
-                <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+                <ngb-accordion [closeOthers]="true" #acc="ngbAccordion" >
                   <ngb-panel title="Level 1: Opportunistic">
                     <ng-template ngbPanelContent>
                       <p>             
