@@ -63,10 +63,10 @@ def login_user(data):
                     return {'Authorization token': token, 'username': username}
                 else:
                     log("User triggered error login failed", "HIGH", "FAIL")
-                    return {'Authorization token': 'Wrong username/password'}
+                    return {'Authorization token': ''}
     except NoResultFound:
         log("User triggered error login failed", "HIGH", "FAIL")
-        return {'Authorization token': 'Wrong username/password'}
+        return {'Authorization token': ''}
 
 
 def create_user(data):
