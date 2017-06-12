@@ -44,7 +44,9 @@ def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
     kb_dir = os.path.join(app.root_path, 'markdown/knowledge_base')
     try:
-        for filename in os.listdir(kb_dir):
+        lst = sorted(os.listdir(kb_dir))
+        print(lst)
+        for filename in lst:
             if filename.endswith(".md"):
                 name_raw = filename.split("-")
                 title = name_raw[3].replace("_", " ")
@@ -54,6 +56,7 @@ def init_md_knowledge_base():
                 data.close()
                 content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
                 query = "INSERT OR REPLACE INTO kb_items (content, title) VALUES ('"+content_escaped+"', '"+title+"'); \n"
+                #print(query)
                 with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                         myfile.write(query)
         print('Initialized the markdown knowledge-base.')

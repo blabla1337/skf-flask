@@ -91,7 +91,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['Authorization token'], "Wrong username/password")
+        self.assertEqual(response_dict['Authorization token'], "")
 
 
     def test_fail_password_login(self):
@@ -101,7 +101,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['Authorization token'], "Wrong username/password")
+        self.assertEqual(response_dict['Authorization token'], "")
 
 
     def test_login_create(self):
