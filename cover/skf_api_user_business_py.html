@@ -229,10 +229,10 @@
 <p id="t63" class="stm run hide_run">                    <span class="key">return</span> <span class="op">{</span><span class="str">'Authorization token'</span><span class="op">:</span> <span class="nam">token</span><span class="op">,</span> <span class="str">'username'</span><span class="op">:</span> <span class="nam">username</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t64" class="pln">                <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t65" class="stm run hide_run">                    <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error login failed"</span><span class="op">,</span> <span class="str">"HIGH"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t66" class="stm run hide_run">                    <span class="key">return</span> <span class="op">{</span><span class="str">'Authorization token'</span><span class="op">:</span> <span class="str">'Wrong username/password'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t66" class="stm run hide_run">                    <span class="key">return</span> <span class="op">{</span><span class="str">'Authorization token'</span><span class="op">:</span> <span class="str">''</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t67" class="stm run hide_run">    <span class="key">except</span> <span class="nam">NoResultFound</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t68" class="stm run hide_run">        <span class="nam">log</span><span class="op">(</span><span class="str">"User triggered error login failed"</span><span class="op">,</span> <span class="str">"HIGH"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t69" class="stm run hide_run">        <span class="key">return</span> <span class="op">{</span><span class="str">'Authorization token'</span><span class="op">:</span> <span class="str">'Wrong username/password'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t69" class="stm run hide_run">        <span class="key">return</span> <span class="op">{</span><span class="str">'Authorization token'</span><span class="op">:</span> <span class="str">''</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t70" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t71" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t72" class="stm run hide_run"><span class="key">def</span> <span class="nam">create_user</span><span class="op">(</span><span class="nam">data</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -268,7 +268,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.3.4</a>,
-            created at 2017-06-09 23:33
+            created at 2017-06-13 22:35
         </p>
     </div>
 </div>

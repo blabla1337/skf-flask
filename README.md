@@ -5,6 +5,7 @@
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 [![bitHound Overall Score](https://www.bithound.io/github/blabla1337/skf-flask/badges/score.svg)](https://www.bithound.io/github/blabla1337/skf-flask)
+[![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=rebuild)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=rebuild)
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with code examples to help developers in pre-development and post-development.  
@@ -97,6 +98,13 @@ BitHound provides your Node team with comprehensive and prioritized issues in yo
 SKF Bithound details:
 ```
 https://www.bithound.io/github/blabla1337/skf-flask
+
+### Requires.io:
+```
+Stay Up-to-date! Stay secure! Requires.io monitors your Python projects dependencies, and notify you whenever any of your dependency is out-of-date.
+SKF Requires details:
+```
+https://requires.io/github/blabla1337/skf-flask/requirements/
 
 ### uptimerobot.com:
 ```

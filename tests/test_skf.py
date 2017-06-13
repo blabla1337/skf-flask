@@ -182,7 +182,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "External DTD parsing")
+        self.assertEqual(response_dict['items'][1]['title'], "xss injection")
 
 
     def test_get_kb_item_10(self):
@@ -190,7 +190,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/10')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['title'], "Repudiation attack")
+        self.assertEqual(response_dict['title'], "External DTD parsing")
 
 
     def test_update_kb(self):
@@ -611,7 +611,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/questions_post/1', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['kb_item_title'], "Do not support untrusted client side technologies")
+        self.assertEqual(response_dict['items'][0]['kb_item_title'], "Malicious intent")
 
 
     def test_get_comment_item(self):
