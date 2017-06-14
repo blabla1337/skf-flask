@@ -30,11 +30,9 @@ mkdir /run/nginx
 # Generate files for Nginx
 nginx
 
-rm /run/nginx/conf.d/default.conf
+rm /etc/nginx/conf.d/default.conf
 if [[ "$HTTPS" == "true" ]]; then
-    cp /site-tls.conf /run/nginx/conf.d/default.conf
+    cp /skf-flask/Docker/alpine/site-tls.conf /etc/nginx/conf.d/default.conf
 else
-    cp /front.conf /run/nginx/conf.d/default.conf
+    cp skf-flask/Docker/alpine/front.conf /etc/nginx/conf.d/default.conf
 fi
-# Reload Nginx
-nginx
