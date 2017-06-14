@@ -1,8 +1,11 @@
+#!/bin/ash
+
+set -x 
 
 HTTPS=${HTTPS:-'true'}
 
 # Creation of certificates
-if [[ "$HTTPS" == "true"]]; then
+if [[ "$HTTPS" == "true" ]]; then
     if [[ -e "/skf-flask/server.pem" && -e "/skf-flask/server.key" ]]; then
         CERT="/skf-flask/server.pem"
         KEY="/skf-flask/server.key"
@@ -29,10 +32,23 @@ fi
 mkdir /run/nginx
 # Generate files for Nginx
 nginx
-
 rm /etc/nginx/conf.d/default.conf
+
 if [[ "$HTTPS" == "true" ]]; then
     cp /skf-flask/Docker/alpine/site-tls.conf /etc/nginx/conf.d/default.conf
 else
-    cp skf-flask/Docker/alpine/front.conf /etc/nginx/conf.d/default.conf
+    cp /skf-flask/Docker/alpine/front.conf /etc/nginx/conf.d/default.conf
 fi
+
+killall nginx
+nginx
+
+# Start the SKF Angular app
+cd /skf-flask/Angular
+npm start
+
+# Start the SKF Python API
+cd /skf-flask 
+export FLASK_APP=skf/app.py
+export PYTHONPATH=/skf-flask
+python3.6 skf/app.py
