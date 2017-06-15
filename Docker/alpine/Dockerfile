@@ -28,5 +28,7 @@ RUN pip3 install -r requirements.txt
 VOLUME [ "/skf-flask" ]
 #USER nobody
 COPY entrypoint.sh /
+COPY wrapper.sh /
 RUN ["chmod", "+x", "/entrypoint.sh"]
+RUN ["chmod", "+x", "/wrapper.sh"]
 ENTRYPOINT ["/entrypoint.sh"]

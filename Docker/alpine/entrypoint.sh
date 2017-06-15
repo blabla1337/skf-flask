@@ -40,3 +40,4 @@ else
     cp /skf-flask/Docker/alpine/front.conf /etc/nginx/conf.d/default.conf
 fi
 
+./wrapper.sh
