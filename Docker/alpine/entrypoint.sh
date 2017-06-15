@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 set -x 
 
@@ -40,15 +40,3 @@ else
     cp /skf-flask/Docker/alpine/front.conf /etc/nginx/conf.d/default.conf
 fi
 
-killall nginx
-nginx
-
-# Start the SKF Angular app
-cd /skf-flask/Angular
-npm start
-
-# Start the SKF Python API
-cd /skf-flask 
-export FLASK_APP=skf/app.py
-export PYTHONPATH=/skf-flask
-python3.6 skf/app.py
