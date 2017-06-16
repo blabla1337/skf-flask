@@ -6,6 +6,7 @@
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 [![bitHound Overall Score](https://www.bithound.io/github/blabla1337/skf-flask/badges/score.svg)](https://www.bithound.io/github/blabla1337/skf-flask)
 [![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=rebuild)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=rebuild)
+[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results/branches/rebuild/badge-risk.svg)](https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results/branches/rebuild)
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with code examples to help developers in pre-development and post-development.  
@@ -105,6 +106,13 @@ Stay Up-to-date! Stay secure! Requires.io monitors your Python projects dependen
 SKF Requires details:
 ```
 https://requires.io/github/blabla1337/skf-flask/requirements/
+
+### Black Duck Security Risk:
+```
+Announcing Black Duck CoPilot, a new service helping open source project teams catalog and report on their project's dependencies.
+SKF Requires details:
+```
+https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results
 
 ### uptimerobot.com:
 ```

@@ -23,13 +23,13 @@ fi
 # Otherwise it will loop forever, waking up every 60 seconds
   
 while /bin/true; do
-  PROCESS_1_STATUS=$(ps aux |grep -q skf_api_process |grep -v grep)
-  PROCESS_2_STATUS=$(ps aux |grep -q skf_angular_process | grep -v grep)
+  PROCESS_1_STATUS=$(ps aux |grep -q skf-api* |grep -v grep)
+  PROCESS_2_STATUS=$(ps aux |grep -q skf-angular* | grep -v grep)
   # If the greps above find anything, they will exit with 0 status
   # If they are not both 0, then something is wrong
-  if [ $PROCESS_1_STATUS -ne 0 -o $PROCESS_2_STATUS -ne 0 ]; then
+  if [[ $PROCESS_1_STATUS -ne '0' || $PROCESS_2_STATUS -ne '0' ]]; then
     echo "One of the processes has already exited."
     exit -1
   fi
-  sleep 60
+  sleep 10
 done
