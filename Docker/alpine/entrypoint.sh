@@ -30,9 +30,14 @@ fi
 
 # Create Nginx dir
 mkdir /run/nginx
+
 # Generate files for Nginx
 nginx
+sleep 5
 rm /etc/nginx/conf.d/default.conf
+
+# Stop nginx
+killall nginx
 
 if [[ "$HTTPS" == "true" ]]; then
     cp /skf-flask/Docker/alpine/site-tls.conf /etc/nginx/conf.d/default.conf
@@ -40,4 +45,9 @@ else
     cp /skf-flask/Docker/alpine/front.conf /etc/nginx/conf.d/default.conf
 fi
 
+# Start nginx
+sleep 5
+nginx
+
+# Start SKF services
 /wrapper.sh
