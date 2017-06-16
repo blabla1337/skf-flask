@@ -29,6 +29,10 @@ VOLUME [ "/skf-flask" ]
 #USER nobody
 COPY entrypoint.sh /
 COPY wrapper.sh /
+COPY skf-api.sh /
+COPY skf-angular.sh /
 RUN ["chmod", "+x", "/entrypoint.sh"]
 RUN ["chmod", "+x", "/wrapper.sh"]
+RUN ["chmod", "+x", "/skf-api.sh"]
+RUN ["chmod", "+x", "/skf-angular.sh"]
 ENTRYPOINT ["/entrypoint.sh"]

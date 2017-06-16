@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start the first process
-./skf-api.sh -D
+/skf-api.sh -D
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start skf_api_process: $status"
@@ -9,7 +9,7 @@ if [ $status -ne 0 ]; then
 fi
 
 # Start the second process
-./skf-angular.sh -D
+/skf-angular.sh -D
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start skf_angular_process: $status"
