@@ -41,7 +41,20 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
+    browsers: ['Chrome', 'Firefox'],
+    singleRun: false,
+
+    customLaunchers: {
+        Chrome_travis_ci: {
+            base: 'Chrome',
+            flags: ['--no-sandbox']
+        }
+    }
+
   });
+
+  if (process.env.TRAVIS) {
+      cfg.browsers = ['Chrome_travis_ci'];
+  }
+  
 };
