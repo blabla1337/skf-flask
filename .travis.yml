@@ -31,9 +31,8 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-# - coverage run tests/run.py test
   - coverage run --source=skf setup.py test
-  - cd Angular; node_modules/karma/bin/karma start karma.conf.js
+#  - cd Angular; node_modules/karma/bin/karma start karma.conf.js
 
 after_success:
   - coveralls

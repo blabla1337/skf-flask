@@ -41,8 +41,6 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    singleRun: true,
-
     customLaunchers: {
         Chrome_travis_ci: {
             base: 'Chrome',
@@ -52,8 +50,11 @@ module.exports = function (config) {
 
   });
     if (process.env.TRAVIS) {
-        config.browsers = ['Chrome_travis_ci'];
+        config.browsers = ['Chrome_travis_ci'],
+        config.singleRun = true;
+
     }else{
-        config.browsers = ['Chrome', 'Firefox'];
+        config.browsers = ['Chrome', 'Firefox'],
+        config.singleRun = false;
     }
 };
