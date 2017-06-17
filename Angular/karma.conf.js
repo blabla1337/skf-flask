@@ -35,13 +35,12 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'coverage-istanbul']
+              ? ['progress', 'coverage-english']
               : ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome', 'Firefox'],
     singleRun: false,
 
     customLaunchers: {
@@ -52,9 +51,9 @@ module.exports = function (config) {
     }
 
   });
-
-  if (process.env.TRAVIS) {
-      browsers = ['Chrome_travis_ci'];
-  }
-  
+    if (process.env.TRAVIS) {
+        config.browsers = ['Chrome_travis_ci'];
+    }else{
+        config.browsers = ['Chrome', 'Firefox'];
+    }
 };
