@@ -28,7 +28,7 @@ before_script:
 script:
 # - coverage run tests/run.py test
   - coverage run --source=skf setup.py test
-  - karma start --browsers Chrome
+  - cd Angular; node_modules/karma/bin/karma start karma.conf.js --browsers Chrome
 
 after_success:
   - coveralls
