@@ -148,7 +148,7 @@
                       <div class="inner">
                         <h4>Add a sprint (Step 2)</h4>
                       </div>
-                      <form #myForm="ngForm">
+                      <form #formpje="ngForm">
                         <table class="table table-striped table-advance table-hover">
                           <tbody>
                             <tr *ngFor="let questions of sprints;">
@@ -164,7 +164,7 @@
                           </tbody>
                         </table>
                         <button type="button" class="btn btn-danger" style="float:right; margin-top:1.5%" (click)="c('Close click')"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
-                        <button class="btn btn-success" style="float:right; margin-top:1.5%; margin-right:2%;" (click)="newSprintQuestions(myForm); c('Close click')">Save</button>
+                        <button class="btn btn-success" style="float:right; margin-top:1.5%; margin-right:2%;" (click)="newSprintQuestions(formpje); c('Close click')">Save</button>
                       </form>
                     </div>
                   </ng-template>

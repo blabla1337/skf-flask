@@ -28,6 +28,7 @@ export class ProjectSummaryComponent implements OnInit {
   public error: string;
   public succes: string;
   public selector: string = "Development";
+  public backID : string;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -38,7 +39,7 @@ export class ProjectSummaryComponent implements OnInit {
   }
 
   back() {
-    this.route.params.subscribe(params => { this.router.navigate(["/project-dashboard/", params['id']]) })
+    this.router.navigate(["/project-dashboard/", localStorage.getItem("tempParamID")]);
   }
 
   select(option: string) {

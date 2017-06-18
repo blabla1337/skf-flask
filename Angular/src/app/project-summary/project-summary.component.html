@@ -23,7 +23,6 @@
         </div>
         <div *ngFor="let item of sprintResult; let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
           <div (click)="fetchComment(item.checklist_items_checklistID)">
-            
             <div *ngIf="item.status == 1" class="blob msg-purple open"><i class="fa fa-code" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 2" class="blob msg-green closed"><i class="fa fa-lock" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 3" class="blob msg-orange accepted"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>

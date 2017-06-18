@@ -40,6 +40,7 @@ export class ProjectDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      localStorage.setItem("tempParamID", params['id']);
       this.sprintService.getSprintStats(params['id']).subscribe(
         resp => this.sprintResult = resp,
         err => console.log("Error getting sprint stats"))
@@ -58,6 +59,7 @@ export class ProjectDashboardComponent implements OnInit {
       err => console.log("getting sprint questions failed"));
   }
 
+
   newSprint() {
     this.errors = [];
     this.return = true;
@@ -72,31 +74,28 @@ export class ProjectDashboardComponent implements OnInit {
 
   newSprintQuestions(form: NgForm) {
     this.sprintStore = [];
-    this.route.params.subscribe(params => {
-      this.sprintService.newSprint(this.sprintName, parseInt(params['id'], 10), this.sprintDescription)
-        .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
+    this.sprintService.newSprint(this.sprintName, parseInt(localStorage.getItem('tempParamID'), 10), this.sprintDescription)
+      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
+        for (let i = 1; i < 22 + 1; i++) {
+          if (!form.value["sprint_answer" + i]) { form.value["sprint_answer" + i] = "False"; }
 
-          let count_sprint = Object.keys(form.value).length
-
-          this.route.params.subscribe(params => {
-            for (let i = 1; i < count_sprint + 1; i++) {
-              if (form.value["sprint_answer" + i].toString() == "") { form.value["sprint_answer" + i] = "False"; }
-              this.sprintStore.push({ "projectID": parseInt(params['id'], 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i].toString(), "sprintID": this.sprintID });
-            }
-          });
-        });
-    });
+          this.sprintStore.push({ "projectID": parseInt(localStorage.getItem('tempParamID'), 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i], "sprintID": this.sprintID });
+        }
+      });
 
     setTimeout(() => {
+      console.log(this.sprintStore);
       this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },
-        err => console.log("Error Storing new questions for sprint"));
-    }, 1000);
+        err => console.log("Error Storing new questions for sprint"), () => {
+      this.route.params.subscribe(params => {
+        this.sprintService.getSprintStats(params['id']).subscribe(
+          resp => this.sprintResult = resp,
+          err => console.log("Error getting sprint stats"))
+      });
+  
 
-    this.route.params.subscribe(params => {
-      this.sprintService.getSprintStats(params['id']).subscribe(
-        resp => this.sprintResult = resp,
-        err => console.log("Error getting sprint stats"))
-    });
+        });
+    }, 1000);
 
   }
 
