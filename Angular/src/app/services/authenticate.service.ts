@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../models/user'
 import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
+import { environment } from '../../environments/environment';
 
 
 @Injectable()
@@ -15,7 +16,7 @@ export class AuthenticateService {
 
   authenticate(username: string, password: string) {
     return this.http
-      .post(AppSettings.API_ENDPOINT + '/user/login', JSON.stringify({ username: username, password: password }), { headers: this.headers })
+      .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ username: username, password: password }), { headers: this.headers })
       .map(response => response.json()).map(response => {
         if (response["Authorization token"] != "") {
           sessionStorage.setItem("auth_token", response["Authorization token"]);
@@ -27,7 +28,7 @@ export class AuthenticateService {
 
   activateUser(email: string, username: string, accessToken: string, password: string, repassword: string, userID: number): Observable<User[]> {
     return this.http
-      .put(AppSettings.API_ENDPOINT + '/user/activate/' + userID, JSON.stringify({
+      .put(environment.API_ENDPOINT + '/user/activate/' + userID, JSON.stringify({
         accessToken: parseInt(accessToken, 10),
         email: email,
         password: password,

@@ -4,6 +4,7 @@ import { Headers, Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class CodeExamplesService {
@@ -20,7 +21,7 @@ export class CodeExamplesService {
       localStorage.setItem("code_lang", "php");
     }
 
-    return this.http.get(AppSettings.API_ENDPOINT + '/code/lang/' + codeLang, { headers: this.headers })
+    return this.http.get(environment.API_ENDPOINT + '/code/lang/' + codeLang, { headers: this.headers })
       .map(response => response.json().items)
   }
 }

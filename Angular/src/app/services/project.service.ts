@@ -4,7 +4,7 @@ import { Project } from '../models/project';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
-
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ProjectService {
@@ -15,7 +15,7 @@ export class ProjectService {
 
   newProject(name: string, version: string, description: string, level: string): Observable<any> {
     return this.http
-      .put(AppSettings.API_ENDPOINT + '/project/new', JSON.stringify({
+      .put(environment.API_ENDPOINT + '/project/new', JSON.stringify({
         name: name,
         version: version,
         description: description,
@@ -26,12 +26,12 @@ export class ProjectService {
   }
 
   getProjects(): Observable<Project[]> {
-    return this.http.get(AppSettings.API_ENDPOINT + '/project/items', { headers: this.getHeaders })
+    return this.http.get(environment.API_ENDPOINT + '/project/items', { headers: this.getHeaders })
       .map(response => response.json().items)
   }
 
   delete(id: number) {
-    const url = AppSettings.API_ENDPOINT + `/project/delete/${id}`;
+    const url = environment.API_ENDPOINT + `/project/delete/${id}`;
     return this.http.delete(url, { headers: this.postHeaders })
       .map(
       data => data,
