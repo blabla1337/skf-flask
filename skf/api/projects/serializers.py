@@ -9,6 +9,7 @@ project = api.model('project', {
     'projectVersion': fields.String(required=True, description='Project version'),
     'projectDesc': fields.String(required=True, description='Project description'),
     'timestamp': fields.String(required=True, description='Project timestamp'),
+    'level': fields.String(required=True, description='Project checklist level'),
 })
 
 project_stats = api.model('project_stats', {

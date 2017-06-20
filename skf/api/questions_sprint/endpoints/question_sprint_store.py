@@ -27,4 +27,3 @@ class QuestionSprintStoreCollection(Resource):
         data = request.json
         result = store_sprint_questions(user_id, data)
         return result, 200, security_headers()
-
