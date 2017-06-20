@@ -28,6 +28,7 @@
                 <th><i class="fa fa-bullhorn"></i> Project Name</th>
                 <th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
                 <th><i class="fa fa-clock-o"></i> Creation date</th>
+                <th><i class="fa fa-university"></i> Project level</th>               
                 <th><i class="fa fa-bookmark"></i> Project version</th>
                 <th><i class="fa fa-times"></i> Delete</th>
               </tr>
@@ -37,6 +38,7 @@
                 <td style="color:#515594"><a [routerLink]="['/project-dashboard',project.projectID]" class="btn btn-default btn-xs">{{project.projectName}}</a></td>
                 <td>{{project.projectDesc}}</td>
                 <td><span class="label">{{project.timestamp}}</span></td>
+                <td>{{project.level}}</td>
                 <td>{{project.projectVersion}}</td>
                 <td>
                   <button (click)="open(content)" class="btn btn-danger btn-xs">
