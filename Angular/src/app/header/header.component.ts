@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppSettings } from '../globals';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit() {
-    if (sessionStorage.getItem("auth_token") != null) {
+    if (AppSettings.AUTH_TOKEN) {
       this.isLoggedin = true;
     }
 

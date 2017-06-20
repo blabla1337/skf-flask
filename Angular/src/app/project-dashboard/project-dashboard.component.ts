@@ -59,7 +59,6 @@ export class ProjectDashboardComponent implements OnInit {
       err => console.log("getting sprint questions failed"));
   }
 
-
   newSprint() {
     this.errors = [];
     this.return = true;
@@ -78,7 +77,6 @@ export class ProjectDashboardComponent implements OnInit {
       .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
         for (let i = 1; i < 22 + 1; i++) {
           if (!form.value["sprint_answer" + i]) { form.value["sprint_answer" + i] = "False"; }
-
           this.sprintStore.push({ "projectID": parseInt(localStorage.getItem('tempParamID'), 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i], "sprintID": this.sprintID });
         }
       });
@@ -87,22 +85,19 @@ export class ProjectDashboardComponent implements OnInit {
       console.log(this.sprintStore);
       this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },
         err => console.log("Error Storing new questions for sprint"), () => {
-      this.route.params.subscribe(params => {
-        this.sprintService.getSprintStats(params['id']).subscribe(
-          resp => this.sprintResult = resp,
-          err => console.log("Error getting sprint stats"))
-      });
-  
-
+          this.route.params.subscribe(params => {
+            this.sprintService.getSprintStats(params['id']).subscribe(
+              resp => this.sprintResult = resp,
+              err => console.log("Error getting sprint stats"))
+          });
         });
     }, 1000);
 
+      this.steps = false;
   }
 
   updatePre(form: NgForm) {
     let count_pre = Object.keys(form.value).length
-
-
     for (let i = 1; i < count_pre + 1; i++) {
       if (form.value["pre_dev_answer" + i].toString() == "") { form.value["pre_dev_answer" + i] = "False"; }
       this.pre_dev_store.push({ "question_pre_ID": i, "result": form.value["pre_dev_answer" + i].toString() });
