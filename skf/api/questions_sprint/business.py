@@ -43,6 +43,7 @@ def store_sprint_questions(user_id, data):
         elif project_lvl == 3:
             checklists = checklists_kb.query.filter(checklists_kb.question_sprint_ID == questionsprintID).filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3)).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
         for row in checklists:
+            print(row.checklistID)
             checklists_query = checklists_results(row.checklistID, projectID, sprint_id, status, pre_item, row.kbID)
             db.session.add(checklists_query)
             db.session.commit()

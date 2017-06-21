@@ -1,4 +1,3 @@
-from sqlalchemy import distinct
 from skf.database import db
 from skf.database.projects import projects
 from skf.database.checklists_kb import checklists_kb

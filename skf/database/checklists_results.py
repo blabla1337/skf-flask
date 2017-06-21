@@ -4,7 +4,7 @@ from skf.database import db
 
 class checklists_results(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    checklistID = db.Column(db.Integer)
+    checklistID = db.Column(db.String)
     projectID = db.Column(db.Integer)
     sprintID = db.Column(db.Integer)
     status = db.Column(db.Integer)
