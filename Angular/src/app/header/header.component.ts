@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   public code: boolean;
   public knowledge: boolean;
   public check: boolean;
-
+  public user: string = AppSettings.USER;
 
   ngOnInit() {
     if (AppSettings.AUTH_TOKEN) {

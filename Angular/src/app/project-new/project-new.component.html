@@ -53,7 +53,7 @@
                       application. If data processed by your application has high value, you would rarely want to
                       stop at a Level 1 review.
                        </p>
-                       <button (click)="levelSelect('1')" class="btn btn-info" style='float:right' >Select this level</button>
+                       <button (click)="levelSelect('1'); t.select('step1');" class="btn btn-info" style='float:right' >Select this level</button>
                     </ng-template>
                   </ngb-panel>
                   <ngb-panel title="Level 2: Standard">
@@ -69,7 +69,7 @@
                       Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at
                       discovering and exploiting weaknesses within applications. 
                       </p>
-                      <button (click)="levelSelect('2')" class="btn btn-info" style='float:right' >Select this level</button>
+                      <button (click)="levelSelect('2'); t.select('step1')" class="btn btn-info" style='float:right' >Select this level</button>
                     </ng-template>
                   </ngb-panel>
                   <ngb-panel title="Level 3: Advanced">
@@ -86,7 +86,7 @@
                       responsibilities (defence in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions,
                       input validation), availability (e.g. handling load gracefully), authentication (including between systems), non-repudiation, authorization, and auditing (logging). 
                       </p>
-                      <button (click)="levelSelect('3')" class="btn btn-info" style='float:right' >Select this level</button>
+                      <button (click)="levelSelect('3'); t.select('step1')" class="btn btn-info" style='float:right' >Select this level</button>
                     </ng-template>
                   </ngb-panel>
                 </ngb-accordion>

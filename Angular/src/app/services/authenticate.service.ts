@@ -20,6 +20,7 @@ export class AuthenticateService {
       .map(response => response.json()).map(response => {
         if (response["Authorization token"] != "") {
           sessionStorage.setItem("auth_token", response["Authorization token"]);
+          sessionStorage.setItem("user", response["username"]);
           location.replace("dashboard"),
             error => console.log("An error occured whilst logging in");
         }

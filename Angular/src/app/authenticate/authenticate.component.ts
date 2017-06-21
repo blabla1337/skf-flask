@@ -24,11 +24,6 @@ export class AuthenticateComponent implements OnInit {
     if(this.return == false){return;}
 
     this._authenticateService.authenticate(this.username, this.password).subscribe(
-      resp => {response => {if (response["Authorization token"] != "") {
-          sessionStorage.setItem("auth_token", response["Authorization token"]);
-          location.replace("dashboard"),
-            error => console.log("An error occured whilst logging in");
-        }}
-    })
+      resp => {resp})
   }
 }

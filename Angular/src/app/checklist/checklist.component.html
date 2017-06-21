@@ -117,7 +117,9 @@
 							<ngb-accordion #acc="ngbAccordion">
 								<ngb-panel style="max-width:10%" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}}">
 									<ng-template ngbPanelContent>
-										{{item.kb_items_content}}
+										<p style="white-space: pre-line; max-width:70%">
+										  {{item.kb_items_content}}
+										</p>
 									</ng-template>
 								</ngb-panel>
 							</ngb-accordion>
