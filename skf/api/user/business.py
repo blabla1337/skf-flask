@@ -41,9 +41,9 @@ def login_user(data):
     val_alpha_num(data.get('username'))
     username = data.get('username')
     try:
-        user = users.query.filter(users.userName == username).one()
-        if (users.query.filter(users.activated == "true").one()):
-            if (users.query.filter(users.userName == username).one()):
+        if (users.query.filter(users.userName == username).one()):
+            user = users.query.filter(users.userName == username).one()
+            if (user.activated == "true"):
                 if check_password_hash(user.password, data.get('password')):
                     priv_user = privileges.query.filter(str(user.privilegeID)).first()
                     payload = {
