@@ -189,11 +189,31 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['checklist_items_checklistID'], '1.1')
 
 
-    def test_get_checklist_items_level(self):
+    def test_get_checklist_items_level1(self):
         """Test if the get specific checklist item by level call is working"""
         response = self.client.get('/api/checklist/level/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, design and threat modelling")
+        self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
+
+
+    def test_get_checklist_items_level2(self):
+        """Test if the get specific checklist item by level 2 call is working"""
+        response = self.client.get('/api/checklist/level/2')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        print(response_dict)
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, design and threat modelling")
+        self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
+
+
+    def test_get_checklist_items_level3(self):
+        """Test if the get specific checklist item by level 3 call is working"""
+        response = self.client.get('/api/checklist/level/3')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        print(response_dict)
         self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, design and threat modelling")
         self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
 
@@ -327,13 +347,13 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/project/stats/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['project_open'], 93)
+        self.assertEqual(response_dict['project_open'], 194)
 
 
     def test_results_sprint(self):
         """Test if the results sprint call is working"""
         jwt = self.login('admin', 'admin')
-        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'level': 1, 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'level': 3, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -538,7 +558,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_store_questions_sprint_items(self):
         """Test if the question sprint items call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project for sprint', 'name': 'Unit test name project for sprint', 'level': 1, 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project for sprint', 'name': 'Unit test name project for sprint', 'level': 2, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -582,7 +602,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_update_questions_pre_items(self):
         """Test if the update question pre items call is working"""
         jwt = self.login('admin', 'admin') 
-        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'level': 1, 'version': 'version 1.0'}
+        payload = {'description': 'Unit test description project for pre', 'name': 'Unit test name project for pre', 'level': 3, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
