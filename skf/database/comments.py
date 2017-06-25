@@ -10,7 +10,8 @@ class comments(db.Model):
     status = db.Column(db.Integer)
     comment = db.Column(db.Text)
     date = db.Column(db.Integer)
-
+    userID = db.Column(db.String, db.ForeignKey("users.userID"))
+    user_items = db.relationship("users", foreign_keys=[userID])
 
     def __init__(self, sprintID, checklistID, userID, status, comment, date):
         self.sprintID = sprintID

@@ -6,6 +6,7 @@ comment = api.model('comment', {
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
     'checklistID': fields.String(readOnly=True, description='The unique identifier of a checklist item'),
     'userID': fields.Integer(readOnly=True, description='The unique identifier of a user'),
+    'username': fields.String(attribute='user_items.userName', required=True, description='Username of comment'),
     'status': fields.Integer(readOnly=True, description='The status of a checklist item: 1, 2, 3'),
     'comment': fields.String(required=True, description='Comment content'),
     'date': fields.String(required=True, description='date of creation comment'),

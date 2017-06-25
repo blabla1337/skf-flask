@@ -19,7 +19,7 @@ def activate_user(user_id, data):
     username = data.get('username')
     username = username.replace(" ", "")
     result = users.query.filter(users.userID == user_id).one()
-    if result.activated == "false":
+    if result.activated == "False":
         if result.email == data.get('email'):
             if data.get('password') == data.get('repassword'):
                 if data.get('accessToken') == result.accessToken:
@@ -64,6 +64,9 @@ def login_user(data):
                 else:
                     log("User triggered error login failed", "HIGH", "FAIL")
                     return {'Authorization token': ''}
+            else:
+                log("User triggered error login failed", "HIGH", "FAIL")
+                return {'Authorization token': ''}
     except NoResultFound:
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
@@ -76,8 +79,8 @@ def create_user(data):
     pincode = my_secure_rng.randrange(10000000, 99999999)
     username = pincode
     email = data.get('email')
-    access = "false"
-    activated = "false"
+    access = "False"
+    activated = "False"
     privilege_id = 0
     # New users can only edit:read:delete
     if data.get('privilege') == 1:
@@ -90,5 +93,28 @@ def create_user(data):
     db.session.add(user)
     db.session.commit()
     result = users.query.filter(users.email == email).one()
+    return result
+
+
+def manage_user(user_id, data):
+    log("Manage user triggered", "HIGH", "PASS")
+    val_num(user_id)
+    val_alpha(data.get('active'))
+    status_activated = data.get('active')
+    result = users.query.filter(users.userID == user_id).one()
+    if users.query.filter(users.userID == user_id).one():
+        result.activated = status_activated
+        result.access = status_activated
+        db.session.add(result)
+        db.session.commit()
+        return {'message': 'User successfully managed'}
+    else:
+        log("User triggered error managing failed", "HIGH", "FAIL")
+        return {'message': 'User could not be managed'}
+
+
+def list_users():
+    log("Overview of list users triggered", "HIGH", "PASS")
+    result = users.query.paginate(1, 50, False)
     return result
 

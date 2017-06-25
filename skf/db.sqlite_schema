@@ -13,7 +13,7 @@ CREATE TABLE `users` (
 `access` varchar(255) NOT NULL
 );
 
-INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "false", "false", "example@owasp.org");
+INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org");
 
 
 --
@@ -440,7 +440,7 @@ INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `qu
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('4.15', 2, 0, 111, 0, 0, 0, 0, 'False', 'False');
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('4.16', 1, 0, 241, 0, 0, 0, 0, 'False', 'False');
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('5.0', 0, 0, 0, 0, 0, 0, 0, 'False', 'False');
-INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('5.1', 0, 0, 146, 0, 0, 0, 0, 'True', 'False');
+INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('5.1', 0, 0, 146, 0, 0, 0, 0, 'False', 'True');
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('5.3', 3, 0, 95, 0, 0, 0, 0, 'False', 'False');
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('5.3', 4, 0, 95, 0, 0, 0, 0, 'False', 'False');
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('5.3', 5, 0, 95, 0, 0, 0, 0, 'False', 'False');

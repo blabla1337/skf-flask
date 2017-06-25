@@ -23,6 +23,10 @@ create = api.model('create', {
     'privilege': fields.Integer(required=True, description='Role of the user privilege: 2, 3, 4'),
 })
 
+manage = api.model('manage', {
+    'active': fields.String(required=True, default="True", description='Status of the user account'),
+})
+
 created = api.model('created', {
     'userID': fields.Integer(required=True, description='The unique identifier of the user'),
     'email': fields.String(required=True, description='Email of the user'),
@@ -34,3 +38,13 @@ token_auth = api.model('Response Authorization token', {
     'username': fields.String(required=True, description='Response Authorization token'),
 })
  
+user_list = api.model('user_list', {
+    'userName': fields.String(required=True, description='Username of the user'),
+    'email': fields.String(required=True, description='Email of the user'),
+    'access': fields.String(required=True, description='User has access to application'),
+    'activated': fields.String(required=True, description='User is activated'),
+})
+
+user_items = api.inherit('List of user items', {
+    'items': fields.List(fields.Nested(user_list))
+})

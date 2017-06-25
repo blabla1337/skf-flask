@@ -13,7 +13,7 @@ def get_comment_items(data):
     val_num(data.get('sprintID'))
     sprint_id = data.get('sprintID')
     checklist_id = data.get('checklistID')
-    result = comments.query.filter(comments.sprintID == sprint_id).filter(comments.checklistID == checklist_id).order_by(desc(comments.date)).group_by(comments.date).paginate(1, 50, False)
+    result = comments.query.filter(comments.sprintID == sprint_id).filter(comments.checklistID == checklist_id).order_by(desc(comments.date)).paginate(1, 50, False)
     return result
 
 
@@ -29,7 +29,7 @@ def new_comment_item(user_id, data):
     status = data.get('status')
     comment = data.get('comment')
     now = datetime.datetime.now()
-    dateLog = now.strftime("%Y-%m-%d %H:%M")
+    dateLog = now.strftime("%Y-%m-%d %H:%M:%S")
     result = comments(sprint_id, checklist_id, user_id, status, comment, dateLog)
     db.session.add(result)
     db.session.commit()

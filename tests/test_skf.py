@@ -115,6 +115,27 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['email'], "woop@owasp.org")
 
 
+    def test_login_list(self):
+        """Test if the login list call is working"""
+        jwt = self.login('admin', 'admin')
+        headers = {'Authorization': jwt}
+        response = self.client.get('/api/user/list', headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['userName'], "admin")
+
+
+    def test_user_manage(self):
+        """Test if the user manage call is working"""
+        jwt = self.login('admin', 'admin')
+        payload = {'active': 'False'}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/user/manage/2', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "User successfully managed")
+
+
     def test_expired_login_create(self):
         """Test if the expired token login create call is working"""
         payload = {'email': 'test@owasp.org', 'privilege': 2}
@@ -306,7 +327,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/project/stats/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['project_open'], 94)
+        self.assertEqual(response_dict['project_open'], 93)
 
 
     def test_results_sprint(self):
@@ -430,7 +451,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/sprint/stats/5', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict[0]['sprint_open'], 37)
+        self.assertEqual(response_dict[0]['sprint_open'], 36)
 
 
     def test_delete_project_item_fail(self):
