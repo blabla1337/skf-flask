@@ -32,7 +32,7 @@ def store_sprint_questions(user_id, data):
         project_lvl = projects_result.level
         status = 1
         pre_item = "False"
-        questions_results = question_sprint_results.query.filter(question_sprint_results.result == "True").all()
+        questions_results = question_sprint_results.query.filter(projects.projectID == question_project_id).filter(question_sprint_results.result == "True").all()
     for results in questions_results:
         projectID = results.projectID
         questionsprintID = results.question_sprint_ID

@@ -6,6 +6,7 @@ import { AuthenticateService } from '../services/authenticate.service';
   templateUrl: './authenticate.component.html',
   providers: [AuthenticateService]
 })
+
 export class AuthenticateComponent implements OnInit {
   public username: string;
   public password: string;

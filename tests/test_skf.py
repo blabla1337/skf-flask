@@ -203,7 +203,6 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/level/2')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        print(response_dict)
         self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, design and threat modelling")
         self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
 
