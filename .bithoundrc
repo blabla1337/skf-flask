@@ -1,10 +1,15 @@
 {
     "packageJsonLocation": "Angular/package.json",
-    
+
     "ignore": [
         "**/cover/**",
         "**/karma.conf.js"
     ],
+
+    "critics": {
+    "wc": { "limit": 50000 }
+    },
+
     "dependencies": {
         "mute": [
             "foo"
