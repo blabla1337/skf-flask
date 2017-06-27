@@ -9,58 +9,66 @@
 [![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results/branches/rebuild/badge-risk.svg)](https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results/branches/rebuild)
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with code examples to help developers in pre-development and post-development.  
+Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with detailed code examples (secure coding principles) to help developers in pre-development and post-development phases and create applications that are secure by design.
 
 ## Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
 * [Usage](#usage)
-* [Development](#development)
+* [Development-API](#development-api)
+* [Development-Angular](#development-angular)
 * [Scrum Board](#scrum-board)
-* [Testing](#testing)
+* [CI-Pipeline](#ci-pipeline)
 * [License](#license)
 * [Contributors](#contributors)
 
 ## <a name="introduction"></a>Introduction
 
-Our experience taught us that the current level of security the current web-applications contain is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers which are lurking, waiting to be exploited by hackers.
+Our experience taught us that the current level of security of web-applications is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers that are lurking, waiting to be exploited by hackers.
 
-Because of this we decided to develop a proof of concept framework in order to create a guide system available for all developers so they can develop applications secure by design.
+Because of this we decided to develop a framework in order to create a guide-system available for all developers so they can develop applications secure by design from the start.
 
-The security knowledge framework is here to support developers create secure applications. By analysing processing techniques in which the developers use to edit their data the application can link these techniques to different known vulnerabilities and give the developer feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
+The OWASP Security Knowledge Framework is here to support developers create secure applications. By using the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) as a security requirement and give the developer feedback regarding descriptions and solutions on how to properly implement these security controls in a safe manner.
 
-The second stage of the application is validating if the developer properly implemented different types of defence mechanisms by means of checklists with among others the OWASP Application security verification standards.
-
-By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
+The second stage is validating if the developer properly implemented different security controls and the belonging defence mechanisms by means of checklists created with the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
 
 ## <a name="installing"></a>Installing
 
 ### Docker
 
-When Docker is available, the fastest way to start using the SKF project is using the pre-built container hosted at Docker hub.
+The fastest way to start using the SKF project is using the pre-built container hosted at Docker hub. This container always has the very latest version from the master repository.
+
 ```
-docker run -ti -p 127.0.0.1:443:5443 blabla1337/skf-flask
+docker run -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
 ```
 
 The application will greet you on:
 https://127.0.0.1
 
-This container always has the very latest version from the repository.
-
 ## <a name="usage"></a>Usage
 
-For more detailed information such as user guides and other documentation see:
+For more detailed information such as setting up an admin account and user guides please see the extended documentation that can be found below:
 
-[Readme: extended documentation](http://skf.readme.io/)  
+[Readme: extended documentation](https://skf.readme.io/)  
 
-## <a name="development"></a>Development
+## <a name="development-api"></a>Development SKF-API
 
 1. Fork and clone https://github.com/blabla1337/skf-flask
 2. pip install -r requirements.txt
 3. export FLASK_APP=skf/app.py
 4. export PYTHONPATH=.:$PYTHONPATH
 5. python3.6 skf/app.py
-4. Create your changes, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
+6. Run the manual test first to verify if everything is good
+7. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
+
+## <a name="development-angular"></a>Development SKF-ANGULAR
+
+1. Fork and clone https://github.com/blabla1337/skf-flask
+2. cd Angular
+3. npm install
+4. npm start
+5. Run the manual test first to verify if everything is good
+6. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
 
 ## <a name="scrum-board"></a>Scrum Board
 
@@ -70,7 +78,7 @@ https://waffle.io/blabla1337/skf-flask
 
 [![Throughput Graph](https://graphs.waffle.io/blabla1337/skf-flask/throughput.svg)](https://waffle.io/blabla1337/skf-flask/metrics)
 
-## <a name="testing"></a>Testing
+## <a name="CI-Pipeline"></a>CI-Pipeline
 
 ### Travis-ci.org:
 ```
@@ -131,11 +139,17 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 
 ### Manual testing:
 ```
-go to the SKF root dir and run:
+TESTING SKF-API:
+Go to the SKF root dir and run:
 
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
 coverage run tests/run.py test
+
+TESTING SKF-ANGULAR
+Go to the Angular dir in the SKF root dir and run:
+
+karma start karma.conf.js
 ```
 
 ## <a name="license"></a>License
