@@ -23,6 +23,7 @@ install:
   - pip install -r requirements.txt
   - cd Angular
   - npm install
+  - npm install bithound --save-dev
 
 before_script:
   - cd ../
@@ -32,6 +33,7 @@ before_script:
 
 script:
   - coverage run --source=skf setup.py test
+  - bithound check git@github.com:blabla1337/skf-flask.git
 #  - cd Angular; node_modules/karma/bin/karma start karma.conf.js
 
 after_success:
