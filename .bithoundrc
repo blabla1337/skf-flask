@@ -1,1 +1,9 @@
-"packageJsonLocation": "Angular/package.json"
+{
+    "ignore": [
+        "**/cover/**",
+        "**/karma.conf.js"
+    ],
+
+    "packageJsonLocation": "Angular/package.json"
+}
+
