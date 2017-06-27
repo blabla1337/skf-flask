@@ -61,20 +61,19 @@ export class ProjectDashboardComponent implements OnInit {
     if (!this.sprintName) { this.errors.push("Sprint name was empty!"); this.return = false }
     if (!this.sprintDescription) { this.errors.push("Sprint description was empty!"); this.return = false; }
     if (this.return == false) { return; }
-
+    this.sprintService.newSprint(this.sprintName, parseInt(localStorage.getItem('tempParamID'), 10), this.sprintDescription)
+      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"));
     this.steps = true;
   }
 
   newSprintQuestions(form: NgForm) {
     this.sprintStore = [];
-    this.sprintService.newSprint(this.sprintName, parseInt(localStorage.getItem('tempParamID'), 10), this.sprintDescription)
-      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
+
+
         for (let i = 1; i < 22 + 1; i++) {
           if (!form.value["sprint_answer" + i]) { form.value["sprint_answer" + i] = "False"; }
           this.sprintStore.push({ "projectID": parseInt(localStorage.getItem('tempParamID'), 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i], "sprintID": this.sprintID });
         }
-      });
-
     setTimeout(() => {
       console.log(this.sprintStore);
       this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },

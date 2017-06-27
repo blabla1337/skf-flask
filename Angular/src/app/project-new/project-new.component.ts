@@ -72,11 +72,11 @@ export class ProjectNewComponent implements OnInit {
 
     if (this.return == false) { return; }
 
-    //This is for storing the sprint items from local storage
+    //This is for getting the sprint items from local storage
     let sprint_items = JSON.parse(localStorage.getItem("sprint"));
     let count_sprint = Object.keys(sprint_items).length
 
-    //This is for storing the pre dev items from local storage
+    //This is for getting the pre dev items from local storage
     let pre_dev_items = JSON.parse(localStorage.getItem("pre_dev"));
     let count_pre = Object.keys(pre_dev_items).length
 
