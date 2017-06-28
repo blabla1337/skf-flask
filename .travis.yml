@@ -32,16 +32,15 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - coverage run --source=skf setup.py test
   - cd Angular; ./node_modules/.bin/bithound check git@github.com:blabla1337/skf-flask.git
   - cd Angular; ./node_modules/karma/bin/karma start karma.conf.js
+  - coverage run --source=skf setup.py test
 
 after_success:
-  - coveralls
   - pip install hub-pip==1.1.0
   - python setup.py hub_pip --DeployHubBdio=false
   - bash <(curl -s https://copilot.blackducksoftware.com/bash/travis) ./build/blackduck/*.jsonld
-
+  - coveralls
 
 notifications:
   webhooks:
