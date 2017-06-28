@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProjectNewComponent } from './project-new.component';
+import { HttpModule } from '@angular/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 describe('ProjectNewComponent', () => {
   let component: ProjectNewComponent;
@@ -8,7 +12,8 @@ describe('ProjectNewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectNewComponent ]
+      declarations: [ ProjectNewComponent ],
+      imports:[NgbModule.forRoot(), HttpModule, RouterTestingModule, FormsModule]
     })
     .compileComponents();
   }));
@@ -19,7 +24,7 @@ describe('ProjectNewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the flow to create a new project', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProjectSummaryComponent } from './project-summary.component';
+import { HttpModule } from '@angular/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 describe('ProjectSummaryComponent', () => {
   let component: ProjectSummaryComponent;
@@ -8,7 +12,8 @@ describe('ProjectSummaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectSummaryComponent ]
+      declarations: [ ProjectSummaryComponent ],
+      imports:[NgbModule.forRoot(), FormsModule, HttpModule, RouterTestingModule]
     })
     .compileComponents();
   }));
@@ -19,7 +24,7 @@ describe('ProjectSummaryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a summary of all sprints and pre development', () => {
     expect(component).toBeTruthy();
   });
 });

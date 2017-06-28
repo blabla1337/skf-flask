@@ -1,30 +1,35 @@
-import { Component, OnInit,ElementRef } from '@angular/core';
-import {KnowledgebaseService} from '../services/knowledgebase.service'
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { KnowledgebaseService } from '../services/knowledgebase.service'
 import { Knowledgebase } from '../models/knowledgebase';
-import {StartsWithPipe} from '../pipes/starts-with.pipe'
+import { StartsWithPipe } from '../pipes/starts-with.pipe'
+import { ReplaySubject } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-knowledgebase',
-  templateUrl: './knowledgebase.component.html',
-  providers: [KnowledgebaseService],
+  templateUrl: './knowledgebase.component.html'
 })
 
 export class KnowledgebaseComponent implements OnInit {
-  private knowledgeitems : Knowledgebase[]
-  public queryString:string;
-  public error:string;
+  
+  public knowledgeitems: Knowledgebase[]
+  public queryString: string;
+  public error: string;
 
-  constructor(private _knowledgeService:KnowledgebaseService) { }
+  constructor(public _knowledgeService: KnowledgebaseService) { }
 
   ngOnInit() {
-   this._knowledgeService.getKnowledgeBase().subscribe(requestData => 
-           {
-             this.knowledgeitems = requestData
-             if(!this.knowledgeitems){
-                this.error = "Error getting knowledge items, contact the administrator!"
-             }
-          },
-             err => this.error = "Error getting knowledge items, contact the administrator!"
-     );
+    this.getKnowledgeItems();
   }
+
+  getKnowledgeItems() {
+    this._knowledgeService.getKnowledgeBase().subscribe(requestData => {
+      this.knowledgeitems = requestData
+      if (!this.knowledgeitems) {
+        this.error = "Error getting knowledge items, contact the administrator!"
+      }
+    },
+      err => this.error = "Error getting knowledge items, contact the administrator!"
+    );
+  }
+
 }

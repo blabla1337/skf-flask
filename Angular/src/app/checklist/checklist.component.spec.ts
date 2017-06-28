@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ChecklistComponent } from './checklist.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { OrderBy } from '../pipes/order-by.pipe'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('ChecklistComponent', () => {
   let component: ChecklistComponent;
@@ -8,9 +12,10 @@ describe('ChecklistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChecklistComponent ]
+      declarations: [ChecklistComponent, OrderBy],
+      imports: [RouterTestingModule, HttpModule, FormsModule, NgbModule.forRoot()],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +24,7 @@ describe('ChecklistComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the checklist component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AuthenticateComponent } from './authenticate.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 describe('LoginComponent', () => {
   let component: AuthenticateComponent;
@@ -8,9 +10,10 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthenticateComponent ]
+      declarations: [AuthenticateComponent],
+      imports:[RouterTestingModule, FormsModule, HttpModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +22,7 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the login component', () => {
     expect(component).toBeTruthy();
   });
 });
