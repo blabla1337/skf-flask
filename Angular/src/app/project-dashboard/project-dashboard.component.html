@@ -1,3 +1,23 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
 <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
@@ -8,7 +28,7 @@
     <div class="inner">
       <div class="text">
         <h1>Project overview</h1>
-        <p>View and add processing functions and checklists by clicking on a project name </p>
+        <p>An overview of all the current sprints in the project. More information about the security requirements by clicking on the view button. </p>
       </div>
       <button style="float:right;" (click)="open(content)" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i> Add new sprint</button>
     </div>
@@ -20,7 +40,7 @@
           <div *ngFor="let sprint of sprintResult" class="col-md-4">
             <div class="card">
               <div class="card-header padding-right">
-                {{sprint.sprint_name}}, <span>{{sprint.sprint_items_total}}</span>
+                Sprint: {{sprint.sprint_name}} 
               </div>
               <div class="card-block">
                 <ngb-tabset>
@@ -51,8 +71,10 @@
                     <ng-template ngbTabTitle><b>Information</b></ng-template>
                     <ng-template ngbTabContent>
                       <br/>
-                      <p><b>{{sprint.sprint_name}}</b></p>
-                      <p> {{sprint.sprint_desc}} </p>
+                      <p><b>Sprint name: <br>{{sprint.sprint_name}}</b></p>
+                      <p>Sprint description: <br>{{sprint.sprint_desc}} </p>
+                      <br>
+                      <p>Total created items: <span>{{sprint.sprint_items_total}}</span></p>
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
