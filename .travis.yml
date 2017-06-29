@@ -34,13 +34,14 @@ before_script:
 
 script:
   - cd Angular; ./node_modules/.bin/bithound check git@github.com:blabla1337/skf-flask.git
-  - ./node_modules/karma/bin/karma start karma.conf.js
+  - npm test
   - cd ../; coverage run --source=skf setup.py test
 
 after_success:
   - pip install hub-pip==1.1.0
   - python setup.py hub_pip --DeployHubBdio=false
   - bash <(curl -s https://copilot.blackducksoftware.com/bash/travis) ./build/blackduck/*.jsonld
+#  - bash <(curl -s https://codecov.io/bash) -f Angular/coverage/lcov.info
   - codecov
   - coveralls
 
