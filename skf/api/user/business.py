@@ -25,8 +25,8 @@ def activate_user(user_id, data):
                 if data.get('accessToken') == result.accessToken:
                     pw_hash = generate_password_hash(data.get('password')).decode('utf-8')
                     result.password = pw_hash
-                    result.access = "true"
-                    result.activated = "true"
+                    result.access = "True"
+                    result.activated = "True"
                     result.userName = username
                     db.session.add(result)
                     db.session.commit()
@@ -43,24 +43,28 @@ def login_user(data):
     try:
         if (users.query.filter(users.userName == username).one()):
             user = users.query.filter(users.userName == username).one()
-            if (user.activated == "true"):
-                if check_password_hash(user.password, data.get('password')):
-                    priv_user = privileges.query.filter(str(user.privilegeID)).first()
-                    payload = {
-                        # userid
-                        'UserId': user.userID,
-                        #issued at
-                        'iat': datetime.utcnow(),
-                        #privileges
-                        'privilege': priv_user.privilege,
-                        #expiry
-                        'exp': datetime.utcnow() + timedelta(minutes=120)
-                        #claims for access api calls
-                        #'claims': 'kb/items/update,project/items,non/existing/bla,'
-                    }
-                    token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
-                    token = str(token_raw,'utf-8')
-                    return {'Authorization token': token, 'username': username}
+            if (user.activated == "True"):
+                if (user.access == "True"):
+                    if check_password_hash(user.password, data.get('password')):
+                        priv_user = privileges.query.filter(str(user.privilegeID)).first()
+                        payload = {
+                            # userid
+                            'UserId': user.userID,
+                            #issued at
+                            'iat': datetime.utcnow(),
+                            #privileges
+                            'privilege': priv_user.privilege,
+                            #expiry
+                            'exp': datetime.utcnow() + timedelta(minutes=120)
+                            #claims for access api calls
+                            #'claims': 'kb/items/update,project/items,non/existing/bla,'
+                        }
+                        token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
+                        token = str(token_raw,'utf-8')
+                        return {'Authorization token': token, 'username': username}
+                    else:
+                        log("User triggered error login failed", "HIGH", "FAIL")
+                        return {'Authorization token': ''}
                 else:
                     log("User triggered error login failed", "HIGH", "FAIL")
                     return {'Authorization token': ''}
@@ -103,7 +107,6 @@ def manage_user(user_id, data):
     status_activated = data.get('active')
     result = users.query.filter(users.userID == user_id).one()
     if users.query.filter(users.userID == user_id).one():
-        result.activated = status_activated
         result.access = status_activated
         db.session.add(result)
         db.session.commit()

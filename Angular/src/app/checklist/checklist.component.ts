@@ -17,7 +17,6 @@ export class ChecklistComponent implements OnInit {
   public queryString: string;
   public closeResult: string;
   public color: string;
-
   constructor(private checklistService: ChecklistService, private modalService: NgbModal) { }
 
   ngOnInit() {

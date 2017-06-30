@@ -3,7 +3,6 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SprintService } from '../services/sprint.service'
 import { CommentService } from '../services/comment.service'
-
 import { Sprint } from '../models/sprint'
 import { Comment } from '../models/comment'
 
@@ -12,6 +11,7 @@ import { Comment } from '../models/comment'
   templateUrl: './project-summary.component.html',
   providers: [SprintService, CommentService]
 })
+
 export class ProjectSummaryComponent implements OnInit {
 
   constructor(

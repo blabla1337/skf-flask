@@ -11,6 +11,7 @@ import { Comment } from '../models/comment'
   templateUrl: './project-summary-audit.component.html',
   providers: [SprintService, CommentService]
 })
+
 export class ProjectSummaryAuditComponent implements OnInit {
 
   constructor(

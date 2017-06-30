@@ -6,6 +6,7 @@ import { AppSettings } from '../globals';
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
+
 export class HeaderComponent implements OnInit {
 
   constructor(public router: Router) { }

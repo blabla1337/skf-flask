@@ -9,12 +9,12 @@ import { Question_sprint } from '../models/question_sprint'
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'app-project-dashboard',
   templateUrl: './project-dashboard.component.html',
   providers: [QuestionPreService, QuestionsSprintService, SprintService]
 })
+
 export class ProjectDashboardComponent implements OnInit {
 
   closeResult: string;

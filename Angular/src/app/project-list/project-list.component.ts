@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Rx';
   templateUrl: './project-list.component.html',
   providers: [ProjectService]
 })
+
 export class ProjectListComponent implements OnInit {
   projects: Project[];
   closeResult: string;

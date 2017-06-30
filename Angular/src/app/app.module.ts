@@ -1,8 +1,6 @@
 /*
 Dependencies:
 https://ng-bootstrap.github.io/#/getting-started
-npm install --save @ng-bootstrap/ng-bootstrap
-npm install --save angular2-highlight-js
 
 */
 
@@ -26,10 +24,11 @@ import { CodeExamplesComponent }   from './code-examples/code-examples.component
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { UserAddComponent } from './user-add/user-add.component';
+import { UserManageComponent } from './user-manage/user-manage.component';
 import { GuardService } from './guard/guard.service';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {StartsWithPipe} from './pipes/starts-with.pipe'
-import {OrderBy} from './pipes/order-by.pipe'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StartsWithPipe } from './pipes/starts-with.pipe'
+import { OrderBy } from './pipes/order-by.pipe'
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
 
@@ -46,6 +45,7 @@ import { FirstLoginComponent } from './first-login/first-login.component';
     ProjectSummaryComponent,
     ProjectSummaryAuditComponent,
     UserAddComponent,
+    UserManageComponent,
     KnowledgebaseComponent,
     CodeExamplesComponent,
     AuthenticateComponent,

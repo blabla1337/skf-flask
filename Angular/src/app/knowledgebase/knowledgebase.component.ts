@@ -14,7 +14,6 @@ export class KnowledgebaseComponent implements OnInit {
   public knowledgeitems: Knowledgebase[]
   public queryString: string;
   public error: string;
-
   constructor(public _knowledgeService: KnowledgebaseService) { }
 
   ngOnInit() {
