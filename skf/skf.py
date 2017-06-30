@@ -1142,58 +1142,58 @@ def add_checklist():
 
 
 def populate_checklists(checklist_paths, kb_paths, lvl_name, 
-        owasp_ids_lvl, owasp_ygbs_lvl, owasp_kbs_lvl, owasp_contents_lvl, owasp_descs_lvl):
-    owasp_ids = []
-    owasp_ygbs = []
-    owasp_kbs = []
-    owasp_contents = []
-    owasp_descs = []
+        asvs_ids_lvl, asvs_ygbs_lvl, asvs_kbs_lvl, asvs_contents_lvl, asvs_descs_lvl):
+    asvs_ids = []
+    asvs_ygbs = []
+    asvs_kbs = []
+    asvs_contents = []
+    asvs_descs = []
 
     for path in checklist_paths:
         basepath = os.path.basename(path)
-        owasp_path_elems = basepath.split("-")
-        owasp_checklist_name = owasp_path_elems[2]
-        if owasp_checklist_name == "ASVS":
-            owasp_checklist_name = "-".join(owasp_path_elems[2:5])
+        asvs_path_elems = basepath.split("-")
+        asvs_checklist_name = asvs_path_elems[2]
+        if asvs_checklist_name == "ASVS":
+            asvs_checklist_name = "-".join(asvs_path_elems[2:5])
             parse_index = 6
         else:
             parse_index = 4
-        if owasp_checklist_name == lvl_name:
-            owasp_id = get_num(owasp_path_elems[0])
-            owasp_kb = owasp_path_elems[parse_index]
-            owasp_ygb = owasp_path_elems[parse_index + 2]
+        if asvs_checklist_name == lvl_name:
+            asvs_id = get_num(asvs_path_elems[0])
+            asvs_kb = asvs_path_elems[parse_index]
+            asvs_ygb = asvs_path_elems[parse_index + 2]
 
-            owasp_ids.append(owasp_id)
-            owasp_kbs.append(owasp_kb)
-            owasp_ygbs.append(owasp_ygb)
+            asvs_ids.append(asvs_id)
+            asvs_kbs.append(asvs_kb)
+            asvs_ygbs.append(asvs_ygb)
             with open(path, 'r') as pathf:
                 checklistmd = pathf.read()
-            owasp_contents.append(Markup(markdown.markdown(checklistmd)))
+            asvs_contents.append(Markup(markdown.markdown(checklistmd)))
 
             descriptions = []
             for kbpath in kb_paths:
                 kbbasepath = os.path.basename(kbpath)
                 path_vuln = get_num(kbbasepath.split("-")[0])
-                if int(owasp_kb) == int(path_vuln):
+                if int(asvs_kb) == int(path_vuln):
                     with open(kbpath, 'r') as kbpathf:
                         kbmd = kbpathf.read()
                     description = kbmd.split("**")
                     descriptions.append(description[2])
-            owasp_descs.append("\n".join(descriptions))
+            asvs_descs.append("\n".join(descriptions))
 
-    owasp_ids_lvl.append(owasp_ids)
-    owasp_ygbs_lvl.append(owasp_ygbs)
-    owasp_kbs_lvl.append(owasp_kbs)
-    owasp_contents_lvl.append(owasp_contents)
-    owasp_descs_lvl.append(owasp_descs)
+    asvs_ids_lvl.append(asvs_ids)
+    asvs_ygbs_lvl.append(asvs_ygbs)
+    asvs_kbs_lvl.append(asvs_kbs)
+    asvs_contents_lvl.append(asvs_contents)
+    asvs_descs_lvl.append(asvs_descs)
 
     return lvl_name
     
 
-NUM_ASVS_LEVELS = 6
-ASVS_1, ASVS_2, ASVS_3, ASVS_BASIC, ASVS_ADVANCED, ASVS_CUSTOM = range(NUM_ASVS_LEVELS)
-ASVS_NAMES = ("ASVS-level-1", "ASVS-level-2", "ASVS-level-3", "CS_basic_audit", "CS_advanced_audit", "custom")
-ASVS_TITLES = ("OWASP ASVS Level 1", "OWASP ASVS Level 2", "OWASP ASVS Level 3", 
+NUM_ASVS_LEVELS = 7
+ASVS_1, ASVS_2, ASVS_3, CYBER_ESSENTIALS, ASVS_BASIC, ASVS_ADVANCED, ASVS_CUSTOM = range(NUM_ASVS_LEVELS)
+ASVS_NAMES = ("ASVS-level-1", "ASVS-level-2", "ASVS-level-3", "Cyber-Essentials", "CS_basic_audit", "CS_advanced_audit", "custom")
+ASVS_TITLES = ("OWASP ASVS Level 1", "OWASP ASVS Level 2", "OWASP ASVS Level 3", "Cyber Essentials",
         "Basic Audit Checklist", "Advanced Audit Checklist", "Custom Checklist")
 
 
@@ -1209,14 +1209,14 @@ def project_checklists(project_id):
                             [project_id, session['userID']]).fetchall()
     projectName = ""
 
-    owasp_level_descs = []
-    owasp_level_recommendations = []
+    asvs_level_descs = []
+    asvs_level_recommendations = []
 
-    owasp_ids_lvl = []
-    owasp_ygbs_lvl = []
-    owasp_kbs_lvl = []
-    owasp_contents_lvl = []
-    owasp_descs_lvl = []
+    asvs_ids_lvl = []
+    asvs_ygbs_lvl = []
+    asvs_kbs_lvl = []
+    asvs_contents_lvl = []
+    asvs_descs_lvl = []
 
     for prep in projects:
         projectName = prep[3]
@@ -1231,20 +1231,22 @@ def project_checklists(project_id):
             level = level0 + 1
             level_name = ASVS_NAMES[level0]
             populate_checklists(checklist_paths, kb_paths, level_name,
-                    owasp_ids_lvl, owasp_ygbs_lvl, 
-                    owasp_kbs_lvl, owasp_contents_lvl, owasp_descs_lvl)
+                    asvs_ids_lvl, asvs_ygbs_lvl,
+                    asvs_kbs_lvl, asvs_contents_lvl, asvs_descs_lvl)
             if level0 < 3:
                 level_desc = "OWASP Application Security Verification Standard Level %d" % (level0 + 1,)
                 if level0 < 2:
                     level_recommendation = "Recommended"
                 else:
                     level_recommendation = "Advanced"
+            elif level0 == 3:
+                level_desc = "UK Government-backed cyber security certification scheme"
             else:
                 level_desc = ("This checklist is a template for your own %s checklist. "
                         "If you have created one please create a Pull request on GIT.") % (level_name,)
                 level_recommendation = "Custom"
-            owasp_level_descs.append(level_desc)
-            owasp_level_recommendations.append(level_recommendation)
+            asvs_level_descs.append(level_desc)
+            asvs_level_recommendations.append(level_recommendation)
 
         break
 
@@ -1252,13 +1254,13 @@ def project_checklists(project_id):
                 NUM_ASVS_LEVELS=NUM_ASVS_LEVELS,
                 ASVS_NAMES=ASVS_NAMES,
                 ASVS_TITLES=ASVS_TITLES,
-                owasp_level_descs=owasp_level_descs,
-                owasp_level_recommendations=owasp_level_recommendations,
-                owasp_ids_lvl=owasp_ids_lvl,
-                owasp_ygbs_lvl=owasp_ygbs_lvl, 
-                owasp_kbs_lvl=owasp_kbs_lvl, 
-                owasp_contents_lvl=owasp_contents_lvl, 
-                owasp_descs_lvl=owasp_descs_lvl,
+                asvs_level_descs=asvs_level_descs,
+                asvs_level_recommendations=asvs_level_recommendations,
+                asvs_ids_lvl=asvs_ids_lvl,
+                asvs_ygbs_lvl=asvs_ygbs_lvl,
+                asvs_kbs_lvl=asvs_kbs_lvl,
+                asvs_contents_lvl=asvs_contents_lvl,
+                asvs_descs_lvl=asvs_descs_lvl,
                 projectName=projectName,
                 project_id=project_id
             )
