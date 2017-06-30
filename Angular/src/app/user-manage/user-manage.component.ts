@@ -33,7 +33,7 @@ export class UserManageComponent implements OnInit {
   }
 
   grant(id: number) {
-    if (this.revoke_str == "GRANT") {
+    if (this.grant_str == "GRANT") {
       this._userService.grant(id).subscribe(x =>
         //Get the new user list on delete 
         this.userList())

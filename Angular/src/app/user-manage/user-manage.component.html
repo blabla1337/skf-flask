@@ -57,14 +57,14 @@
                 <td>{{user.email}}</td>
                 <td>{{user.access}}</td>
                 <td>
-                  <button (click)="open(grant)" class="btn btn-success btn-xs">
+                  <button (click)="open(granter)" class="btn btn-success btn-xs">
                     <i>Grant</i>                 
                   </button>
-                  <button (click)="open(revoke)" class="btn btn-danger btn-xs">
+                  <button (click)="open(revoker)" class="btn btn-danger btn-xs">
                     <i>Revoke</i>                 
                   </button>
                 </td>
-                <ng-template #revoke let-c="close" let-d="dismiss">
+                <ng-template #revoker let-c="close" let-d="dismiss">
                   <div class="modal-header">
                     <h4 class="modal-title">Revoke user access</h4>
                     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -81,7 +81,7 @@
                     <button type="button" class="btn btn-danger" (click)="revoke(user.userID);c('Close click')">Revoke</button>
                   </div>
                 </ng-template>
-                <ng-template #grant let-c="close" let-d="dismiss">
+                <ng-template #granter let-c="close" let-d="dismiss">
                   <div class="modal-header">
                     <h4 class="modal-title">Grant user access</h4>
                     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
