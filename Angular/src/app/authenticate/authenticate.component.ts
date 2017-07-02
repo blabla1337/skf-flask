@@ -1,21 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
   selector: 'app-authenticate',
   templateUrl: './authenticate.component.html',
-  providers: [AuthenticateService]
+  providers:[AuthenticateService]
 })
 
-export class AuthenticateComponent implements OnInit {
+export class AuthenticateComponent{
   public username: string;
   public password: string;
   public error : string[]=[];
   public return: boolean;
   constructor(private _authenticateService : AuthenticateService) { }
-
-  ngOnInit() {
-  }
 
   onLogin(){
     this.return = true;

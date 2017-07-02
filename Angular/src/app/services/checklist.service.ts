@@ -18,7 +18,9 @@ export class ChecklistService {
       .map(response => response.json().items)
   }
 
-  newChecklist(questions: Question_post[]): Observable<Question_post[]> {
+/*
+for next release!
+ newChecklist(questions: Question_post[]): Observable<Question_post[]> {
     return this.http
       .put(environment.API_ENDPOINT + '/questions_post/store', JSON.stringify({ questions }),
       { headers: this.postHeaders })
@@ -26,5 +28,6 @@ export class ChecklistService {
         return a.json()
       });
   }
+*/
 
 }

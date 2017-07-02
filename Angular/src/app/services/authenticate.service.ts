@@ -10,7 +10,6 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class AuthenticateService {
   public loggedIn: boolean;
-
   constructor(private http: Http, private router: Router) { }
   public headers = new Headers({ 'Content-Type': 'application/json' });
 
@@ -22,7 +21,7 @@ export class AuthenticateService {
           sessionStorage.setItem("auth_token", response["Authorization token"]);
           sessionStorage.setItem("user", response["username"]);
           location.replace("dashboard"),
-            error => console.log("An error occured whilst logging in");
+           error => console.log("An error occured whilst logging in");
         }
       })
   }

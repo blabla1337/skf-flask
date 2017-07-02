@@ -2,13 +2,11 @@ import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router'
 import { User } from '../models/user'
 import { AuthenticateService } from '../services/authenticate.service'
-
 @Component({
   selector: 'app-first-login',
   templateUrl: './first-login.component.html',
   providers: [AuthenticateService]
 })
-
 export class FirstLoginComponent implements OnInit {
 
   constructor(private activate: AuthenticateService, private router: Router) { }

@@ -1,48 +1,45 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DebugElement } from '@angular/core'
-import { KnowledgebaseComponent } from './knowledgebase.component';
-import { Observable } from 'rxjs/Rx';
-import { Knowledgebase } from '../models/knowledgebase';
-import { HttpModule } from '@angular/http';
-import { KnowledgebaseService } from "../services/knowledgebase.service";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterTestingModule } from '@angular/router/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StartsWithPipe } from '../pipes/starts-with.pipe'
-import { By } from "@types/selenium-webdriver";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FormsModule } from "@angular/forms";
+import { OrderBy } from '../pipes/order-by.pipe'
+import { HttpModule } from "@angular/http";
+import { Observable } from "rxjs/Observable";
+
+import { fakeAsync } from "@angular/core/testing";
+import { tick } from "@angular/core/testing";
+import { KnowledgebaseComponent } from "./knowledgebase.component";
+import { Knowledgebase } from "../models/knowledgebase";
+import { StartsWithPipe } from "../pipes/starts-with.pipe";
 
 
-describe('KnowledgebaseComponent', () => {
-let fixture: ComponentFixture<KnowledgebaseComponent>;
-let component : KnowledgebaseComponent;
-let de : DebugElement;
-let knowledgebaseService : KnowledgebaseService;
-let knowledgebase : Knowledgebase[] = [{ id:1, title:"foobar", content:"foobar" }]
-let htmlElement:HTMLElement;
-let debugElement : DebugElement;
-beforeEach(() => {
-TestBed.configureTestingModule({
-  imports:[HttpModule, FormsModule, NgbModule.forRoot()],
-  declarations:[KnowledgebaseComponent, StartsWithPipe],
-  providers:[KnowledgebaseService]
+describe('Checklist component', () => {
+  let component: KnowledgebaseComponent;
+  let fixture: ComponentFixture<KnowledgebaseComponent>;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
+  let knowledgeBase: Knowledgebase[] = [{ id:1, title:"I am a very specific title for testing the assertion", content:"aa"}]
+
+  beforeEach(async () => {
+    TestBed.configureTestingModule({
+      declarations: [KnowledgebaseComponent, OrderBy, StartsWithPipe],
+      imports: [NgbModule.forRoot(), FormsModule, HttpModule]
+    }).compileComponents();
 })
 
-fixture = TestBed.createComponent(KnowledgebaseComponent)
-component = fixture.componentInstance;
-de = fixture.debugElement.nativeElement;
-knowledgebaseService = TestBed.get(KnowledgebaseService)
-});
+    beforeEach(() => {
+      fixture = TestBed.createComponent(KnowledgebaseComponent)
+      component = fixture.componentInstance;
+      component.knowledgeitems = knowledgeBase;
+      debugElement = fixture.debugElement.query(By.css('section'));
+      fixture.detectChanges()
+    })
 
-
-it(`should test getKnowledgeItems to see if it gets filled by knowledbaseService`, () => {
-  spyOn(knowledgebaseService, 'getKnowledgeBase').and.returnValue(Observable.of(knowledgebase))
-  fixture.detectChanges()
-  expect(component.knowledgeitems).toEqual(jasmine.objectContaining([{ id: 1, title:"foobar", content:"foobar" }]));
+  it('should show quote after getQuote promise (fakeAsync)', fakeAsync(() => {
+    fixture.detectChanges(); // update view with quote
+    expect(debugElement.nativeElement.textContent).toMatch('I am a very specific title for testing the assertion');
+  }));
 })
 
-// it(`should test getKnowledgeItems to see if it fills the template with values`, () => {
-//   spyOn(knowledgebaseService, 'getKnowledgeBase').and.returnValue(Observable.of(knowledgebase))
-//   fixture.detectChanges()
-// })
-
-});
+   

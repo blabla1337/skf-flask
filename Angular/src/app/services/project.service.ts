@@ -29,7 +29,7 @@ export class ProjectService {
     return this.http.get(environment.API_ENDPOINT + '/project/items', { headers: this.getHeaders })
       .map(response => response.json().items)
   }
- 
+
   delete(id: number) {
     const url = environment.API_ENDPOINT + `/project/delete/${id}`;
     return this.http.delete(url, { headers: this.postHeaders })

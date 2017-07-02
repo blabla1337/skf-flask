@@ -9,7 +9,6 @@ describe('GuardService', () => {
       imports:[RouterTestingModule]
     });
   });
-
   it('should create the service for the route guard', inject([GuardService], (service: GuardService) => {
     expect(service).toBeTruthy();
   }));

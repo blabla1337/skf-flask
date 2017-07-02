@@ -15,7 +15,6 @@ import { Project } from '../models/project'
   templateUrl: './project-new.component.html',
   providers: [SprintService, ProjectService, QuestionPreService, QuestionsSprintService]
 })
-
 export class ProjectNewComponent implements OnInit {
 
   public projectName: string;
