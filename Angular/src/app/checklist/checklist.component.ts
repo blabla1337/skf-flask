@@ -5,6 +5,7 @@ import { StartsWithPipe } from '../pipes/starts-with.pipe'
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { OrderBy } from '../pipes/order-by.pipe'
 
+
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',

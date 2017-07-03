@@ -1,27 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
   selector: 'app-authenticate',
   templateUrl: './authenticate.component.html',
-  providers:[AuthenticateService]
+  providers: [AuthenticateService]
 })
 
-export class AuthenticateComponent{
+export class AuthenticateComponent implements OnInit {
   public username: string;
+  public user: string;
   public password: string;
-  public error : string[]=[];
+  public error: string[] = [];
   public return: boolean;
-  constructor(private _authenticateService : AuthenticateService) { }
+  public loggedin: string;
+ 
+  constructor(public _authenticateService: AuthenticateService) { }
 
-  onLogin(){
+  ngOnInit(){
+    this.loggedin= "";
+  }
+  
+  onLogin() {
     this.return = true;
-    this.error =[];
-    if(!this.username){ this.return = false; this.error.push("No username was provided"); }
-    if(!this.password){ this.return = false; this.error.push("No password was provided"); }
-    if(this.return == false){return;}
+    this.error = [];
+    
+    if (!this.username) { this.return = false; this.error.push("No username was provided"); }
+    if (!this.password) { this.return = false; this.error.push("No password was provided"); }
+    if (this.return == false) { return; }
 
     this._authenticateService.authenticate(this.username, this.password).subscribe(
-      resp => {resp})
+      response => {
+        this.loggedin = response["Authorization token"];
+        this.user = response["username"]
+      })
+
+    if (this.loggedin != "") {
+      sessionStorage.setItem("auth_token", this.loggedin);
+      sessionStorage.setItem("user", this.user);
+      location.replace("dashboard");
+    } else { this.error.push("Wrong username/password combination!"); }
   }
 }

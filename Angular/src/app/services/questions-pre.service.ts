@@ -7,8 +7,9 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class QuestionPreService {
-  
+
   constructor(private http: Http) { }
+
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
   getPreQuestions() {

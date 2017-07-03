@@ -3,11 +3,11 @@ import { MockBackend } from '@angular/http/testing';
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { async } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
 import { CommentService } from "../comment.service";
 import { Comment } from '../../models/comment'
+import { RouterTestingModule } from "@angular/router/testing";
 
-describe('Comments service', () => {
+describe('Checklist service', () => {
   let mockResponse, matchingItem, connection, mockResponse2;
   let sprintID = 1;
 
@@ -22,6 +22,7 @@ describe('Comments service', () => {
           useFactory: (backend, defaultOptions) => new Http(backend, defaultOptions),
           deps: [MockBackend, BaseRequestOptions]
         },
+        //{ provide: XHRBackend, useClass: MockBackend }        
       ],
       imports: [RouterTestingModule]
     });

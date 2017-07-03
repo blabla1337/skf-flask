@@ -23,12 +23,7 @@ export class KnowledgebaseComponent implements OnInit {
   }
 
   getKnowledgeItems() {
-    this._knowledgeService.getKnowledgeBase().subscribe(requestData => {
-      this.knowledgeitems = requestData
-      if (!this.knowledgeitems) {
-        this.error = "Error getting knowledge items, contact the administrator!"
-      }
-    },
+    this._knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgeitems = requestData,
       err => this.error = "Error getting knowledge items, contact the administrator!"
     );
   }

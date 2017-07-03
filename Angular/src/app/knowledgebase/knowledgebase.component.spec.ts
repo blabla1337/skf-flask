@@ -12,34 +12,47 @@ import { tick } from "@angular/core/testing";
 import { KnowledgebaseComponent } from "./knowledgebase.component";
 import { Knowledgebase } from "../models/knowledgebase";
 import { StartsWithPipe } from "../pipes/starts-with.pipe";
+import { KnowledgebaseService } from "../services/knowledgebase.service";
 
 
-describe('Checklist component', () => {
+describe('Knowledgebase component component', () => {
   let component: KnowledgebaseComponent;
   let fixture: ComponentFixture<KnowledgebaseComponent>;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
-  let knowledgeBase: Knowledgebase[] = [{ id:1, title:"I am a very specific title for testing the assertion", content:"aa"}]
+  let knowledgeBase: Knowledgebase[] = [{ id: 1, title: "I am a very specific title for testing the assertion", content: "aa" }]
+  let test: Knowledgebase[];
+  let mockService = Observable.of(knowledgeBase);
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [KnowledgebaseComponent, OrderBy, StartsWithPipe],
-      imports: [NgbModule.forRoot(), FormsModule, HttpModule]
+      imports: [NgbModule.forRoot(), FormsModule, HttpModule],
+      providers: [{ provide: KnowledgebaseService, useClass: mockService }]
     }).compileComponents();
-})
+  })
 
-    beforeEach(() => {
-      fixture = TestBed.createComponent(KnowledgebaseComponent)
-      component = fixture.componentInstance;
-      component.knowledgeitems = knowledgeBase;
-      debugElement = fixture.debugElement.query(By.css('section'));
-      fixture.detectChanges()
-    })
+  beforeEach(() => {
+    fixture = TestBed.createComponent(KnowledgebaseComponent)
+    component = fixture.componentInstance;
+    debugElement = fixture.debugElement.query(By.css('section'));
+    fixture.detectChanges()
+  })
 
-  it('should show quote after getQuote promise (fakeAsync)', fakeAsync(() => {
+  it('Knowledgebase items should be reflected in the html', fakeAsync(() => {
+    component.knowledgeitems = knowledgeBase;
     fixture.detectChanges(); // update view with quote
     expect(debugElement.nativeElement.textContent).toMatch('I am a very specific title for testing the assertion');
   }));
+
+  it('check if component compiles succesfully', () => {
+    component.error = "I am a mocked error";
+    fixture.detectChanges();
+    expect(debugElement.nativeElement.textContent).toMatch('I am a mocked error');
+  });
+
+  it('check if component compiles succesfully', () => {
+    expect(component).toBeTruthy();
+  });
 })
 
-   
