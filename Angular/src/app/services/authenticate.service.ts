@@ -13,7 +13,7 @@ export class AuthenticateService {
   constructor(private http: Http, private router: Router) { }
   public headers = new Headers({ 'Content-Type': 'application/json' });
 
-  authenticate(username: string, password: string): Observable<string> {
+  authenticate(username: string, password: string): Observable<any> {
     return this.http
       .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ username: username, password: password }), { headers: this.headers })
       .map(response => {return response.json()})   

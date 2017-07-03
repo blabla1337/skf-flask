@@ -54,7 +54,8 @@ module.exports = function (config) {
         config.singleRun = true;
 
     }else{
-        config.browsers = ['Chrome', 'Firefox'],
+        //config.browsers = ['Chrome', 'Firefox'],
+        config.browsers = ['Chrome'],
         config.singleRun = false;
     }
 };
