@@ -185,7 +185,8 @@ describe('Project service', () => {
         expect(connection.request.headers.get("Content-Type")).toEqual("application/json");
         expect(connection.request.headers.get("Authorization")).toBeDefined;
         expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/project/delete/1");
-        });
+      });
+      expect(service.delete(1)).toBeTruthy();
     }));
   });
 
