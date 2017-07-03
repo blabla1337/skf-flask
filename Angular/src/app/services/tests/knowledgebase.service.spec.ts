@@ -6,7 +6,7 @@ import { async } from "@angular/core/testing";
 import { Knowledgebase } from "../../models/knowledgebase";
 import { KnowledgebaseService } from "../knowledgebase.service";
 
-describe('Checklist service', () => {
+describe('Knowledge base service', () => {
   let mockResponse, matchingItem, connection;
   KnowledgebaseService
   beforeEach(() => {
