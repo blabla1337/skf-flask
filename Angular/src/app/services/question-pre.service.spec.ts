@@ -89,7 +89,7 @@ describe('Question-pre service', () => {
         expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_pre/store");
       });
 
-      service.newProject(1, 1, "True")
+      service.newQuestion(1, 1, "True")
         .subscribe((items) => {
           expect(items).toEqual({items2})
         });

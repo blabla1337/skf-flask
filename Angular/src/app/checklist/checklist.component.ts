@@ -22,7 +22,7 @@ export class ChecklistComponent {
 
   open(content, level: number) {
     this.checklistService
-      .getChecklist(level)
+      .getChecklistLvl(level)
       .subscribe(checklistItems => { this.checklistItems = checklistItems });
 
     this.modalService.open(content, { size: 'lg' }).result.then((result) => {

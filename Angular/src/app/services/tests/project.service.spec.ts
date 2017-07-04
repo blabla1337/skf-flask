@@ -167,6 +167,22 @@ describe('Project service', () => {
           expect(items).toEqual({items2})
         });
     }));
+
+    it('should update a project', inject([ProjectService, MockBackend], (service: ProjectService, backend: MockBackend) => {
+      backend.connections.subscribe(connection => {
+        connection.mockRespond(mockResponseNew);
+        expect(connection.request.method).toEqual(RequestMethod.Put);
+        expect(connection.request.headers.get("Content-Type")).toEqual("application/json");
+        expect(connection.request.headers.get("Authorization")).toBeDefined;
+        expect(connection.request.text()).toEqual(JSON.stringify({name: "Project name example", description: "Project description update", level: "1", version: "1.1"}));
+        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/project/update/1");
+      });
+
+      service.updateProject(1, "Project name example","Project description update", "1" ,"1.1")
+        .subscribe((items) => {
+          expect(items).toEqual({items2})
+        });
+    }));
   });
 
   describe('Delete project', () => {

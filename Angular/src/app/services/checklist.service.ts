@@ -13,9 +13,19 @@ export class ChecklistService {
   public headers = new Headers({ 'Content-Type': 'application/json' });
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
-  getChecklist(id: number): Observable<Checklist[]> {
+  getChecklistLvl(id: number): Observable<Checklist[]> {
     return this.http.get(environment.API_ENDPOINT + `/checklist/level/${id}`, { headers: this.headers })
       .map(response => response.json().items)
+  }
+
+  getChecklist(): Observable<Checklist[]> {
+    return this.http.get(environment.API_ENDPOINT + `/checklist/items`, { headers: this.headers })
+      .map(response => response.json().items)
+  }
+
+  getChecklistItem(id: number): Observable<Checklist[]> {
+  return this.http.get(environment.API_ENDPOINT + `/checklist/${id}`, { headers: this.headers })
+    .map(response => response.json().items)
   }
 
 /*

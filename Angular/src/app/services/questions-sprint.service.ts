@@ -7,23 +7,26 @@ import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class QuestionsSprintService {
+export class QuestionsSprintService { 
 
   constructor(private http: Http) { }
-
-  public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN});
+  public putHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN});
 
   getSprintQuestions() {
     return this.http.get(environment.API_ENDPOINT + '/questions_sprint/items')
       .map(response => response.json().items)
   }
 
-  newSprint(questions: Question_sprint[]): Observable<Question_sprint[]> {
+  newSprintQuestion(projectID: number, question_sprint_ID: number,  result: string, sprintID: string): Observable<any> {
     return this.http
-      .put(environment.API_ENDPOINT + '/questions_sprint/store', JSON.stringify({ questions }),
-      { headers: this.postHeaders })
-      .map(response => {
-        return response.json()
-      });
-  }
+      .put(environment.API_ENDPOINT + '/questions_sprint/store', JSON.stringify({
+        projectID: projectID,
+        question_sprint_ID: question_sprint_ID,
+        sprintID: sprintID,
+        result: result
+      }),
+      { headers: this.putHeaders })
+      .map(a => { return a.json() });
+  }  
+
 }

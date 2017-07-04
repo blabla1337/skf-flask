@@ -7,8 +7,6 @@ import { AuthenticateService } from "../authenticate.service";
 import { RouterTestingModule } from "@angular/router/testing";
 import { AppModule } from "../../app.module";
 
-
-
 describe('Authenticate service', () => {
   let mockResponse, matchingItem, connection;
   const items = [

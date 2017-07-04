@@ -40,7 +40,7 @@ describe('Knowledge base service', () => {
 
   });
 
-  describe('Get checklists by level {id}', () => {
+  describe('Get all the knowledge base items', () => {
     //Subscribing to the connection and storing it for later
     it('should return all the items', inject([KnowledgebaseService, MockBackend], (service: KnowledgebaseService, backend: MockBackend) => {
       backend.connections.subscribe(connection => {

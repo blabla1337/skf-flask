@@ -100,12 +100,9 @@ export class ProjectNewComponent implements OnInit {
     setTimeout(() => {
       this.questionPreService.newProject(this.pre_dev_store).subscribe(() => { },
         err => console.log("Error Storing pre development questions"));
-
-      this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },
+      this.questionsSprintService.newSprintQuestion(this.sprintStore).subscribe(() => { },
         err => console.log("Error Storing new questions for sprint"));
-
       this.router.navigate(['project-dashboard/' + this.projectID]);
-      
     }, 1000);
 
   }

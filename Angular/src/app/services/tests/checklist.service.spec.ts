@@ -26,7 +26,7 @@ describe('Checklist service', () => {
     });
 
    const items = [
-       {
+    {
       "checklist_items_checklistID": "1.1",
       "checklist_items_content": "Verify that all application components are identified and are known to be needed",
       "checklist_items_level": 1,
@@ -41,6 +41,7 @@ describe('Checklist service', () => {
       "kb_items_content": " Sensitive information stored alongside the source code\n\n\n Description:\n\nSometimes when developing an application a programmer stores a password or other\ncredentials into the sourcecode as a comment for other developers to\nlogin into the application. When these comments still exist in a live environment,\nan attacker could use these credentials to gain access to the system.\n\n Solution:\n\nSearch your source code for comments which contains possible usercredentials.\nYou should also verify that there are no secrets and API keys are included in the\nsource code, or end up within the resulting binary.\n\nThis also applies to providing information about business logic and other critically sensitive\ninformation. Verify that there is no sensitive business logic, secret keys or other\nproprietary information in client side code.\n"
     }
     ];
+    
    mockResponse = new Response(new ResponseOptions({body: {items}}));
 
   });
@@ -55,12 +56,48 @@ describe('Checklist service', () => {
         expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/checklist/level/1");
       });
 
-      service.getChecklist(1)
+      service.getChecklistLvl(1)
         .subscribe((items: Checklist[]) => {
          expect(items.length).toBe(2);
          expect(items[0]['checklist_items_checklistID']).toMatch("1.1");
         });
     }));
-
   });
+
+  describe('Get all checklists items', () => {
+  //Subscribing to the connection and storing it for later
+  it('should return all the items', inject([ChecklistService, MockBackend], (service: ChecklistService, backend: MockBackend) => {
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(mockResponse);
+      expect(connection.request.method).toEqual(RequestMethod.Get);
+      expect(connection.request.headers.get("Content-Type")).toEqual("application/json");
+      expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/checklist/items");
+    });
+
+    service.getChecklist()
+      .subscribe((items: Checklist[]) => {
+        expect(items.length).toBe(2);
+        expect(items[1]['kb_item_title']).toMatch("Sensitive information stored alongside the source code");
+      });
+    }));
+  });
+
+  describe('Get a checklist item', () => {
+  //Subscribing to the connection and storing it for later
+  it('should return one item', inject([ChecklistService, MockBackend], (service: ChecklistService, backend: MockBackend) => {
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(mockResponse);
+      expect(connection.request.method).toEqual(RequestMethod.Get);
+      expect(connection.request.headers.get("Content-Type")).toEqual("application/json");
+      expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/checklist/1");
+    });
+
+    service.getChecklistItem(1)
+      .subscribe((items: Checklist[]) => {
+        expect(items.length).toBe(2);
+        expect(items[1]['kb_item_title']).toMatch("Sensitive information stored alongside the source code");
+      });
+    }));
+  });
+  
 });

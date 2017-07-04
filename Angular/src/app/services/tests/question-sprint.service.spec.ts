@@ -4,16 +4,16 @@ import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHR
 import { Observable } from 'rxjs/Rx';
 import { async } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
-import { Question_pre } from "../../models/question_pre";
-import { QuestionPreService } from "../questions-pre.service";
+import { Question_sprint } from "../../models/question_sprint";
+import { QuestionsSprintService } from "../questions-sprint.service";
 
 describe('Question-pre service', () => {
   let mockResponseList, mockResponseNew, matchingItem, connection;
-  QuestionPreService
+  QuestionsSprintService
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        QuestionPreService,
+        QuestionsSprintService,
         MockBackend,
         BaseRequestOptions,
         {
@@ -41,15 +41,15 @@ describe('Question-pre service', () => {
 
     mockResponseList = new Response(new ResponseOptions({body: {items}}));
     //Subscribing to the connection and storing it for later
-    it('should return all the pre questions', inject([QuestionPreService, MockBackend], (service: QuestionPreService, backend: MockBackend) => {
+    it('should return all the sprint questions', inject([QuestionsSprintService, MockBackend], (service: QuestionsSprintService, backend: MockBackend) => {
       backend.connections.subscribe(connection => {
         connection.mockRespond(mockResponseList);
         expect(connection.request.method).toEqual(RequestMethod.Get);
         expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_pre/items");
       });
 
-      service.getPreQuestions()
-        .subscribe((items: Question_pre[]) => {
+      service.getSprintQuestions()
+        .subscribe((items: Question_sprint[]) => {
          expect(items.length).toBe(2);
          expect(items[1]['id']).toEqual(2);
          expect(items[1]['question']).toEqual("You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
@@ -57,7 +57,7 @@ describe('Question-pre service', () => {
     }));
   });
   
-  describe('New pre questions', () => {
+  describe('New sprint questions', () => {
    const items = [
     {
       "projectID": 1,
@@ -73,23 +73,23 @@ describe('Question-pre service', () => {
 
     const items2 = [
       {
-        "return": "Stored the pre questions"
+        "return": "Stored the sprint questions"
       }
     ];
 
     mockResponseNew = new Response(new ResponseOptions({ body: { items2 } }));
     //Subscribing to the connection and storing it for later
-    it('should store the pre questions results', inject([QuestionPreService, MockBackend], (service: QuestionPreService, backend: MockBackend) => {
+    it('should store the sprint questions results', inject([QuestionsSprintService, MockBackend], (service: QuestionsSprintService, backend: MockBackend) => {
       backend.connections.subscribe(connection => {
         connection.mockRespond(mockResponseNew);
         expect(connection.request.method).toEqual(RequestMethod.Put);
         expect(connection.request.headers.get("Content-Type")).toEqual("application/json");
         expect(connection.request.headers.get("Authorization")).toBeDefined;
-        expect(connection.request.text()).toEqual(JSON.stringify({projectID: 1, question_pre_ID: 1, result: "True"}));
-        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_pre/store");
+        expect(connection.request.text()).toEqual(JSON.stringify({projectID: 1, question_sprint_ID: 1, result: "True"}));
+        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_sprint/store");
       });
 
-      service.newProject(1, 1, "True")
+      service.newSprintQuestion(1, 1, "True")
         .subscribe((items) => {
           expect(items).toEqual({items2})
         });
