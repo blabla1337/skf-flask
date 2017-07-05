@@ -22,10 +22,10 @@ import org.apache.log4j.Logger;
 
 public final class IdentifierBased {
 
-	 public int userID  ;
-     public String name;
-     public String email;
-     public String phone ;
+	 private int userID  ;
+     private String name;
+     private String email;
+     private String phone ;
      final static Logger logger = Logger.getLogger(IdentifierBased.class);
      /*
      First we include the audit log class.
