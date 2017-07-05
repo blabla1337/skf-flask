@@ -14,8 +14,9 @@ import { FirstLoginComponent } from './first-login/first-login.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 import { GuardService } from './guard/guard.service';
+import { UserManageComponent } from "./user-manage/user-manage.component";
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
   
   { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] },
   { path: 'project-new', component: ProjectNewComponent, canActivate: [GuardService] },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },
   { path: 'code-examples', component: CodeExamplesComponent, canActivate: [GuardService] },
   { path: 'user-add', component: UserAddComponent, canActivate: [GuardService] },
+  { path: 'user-manage', component: UserManageComponent, canActivate: [GuardService] },
   { path: 'checklist', component: ChecklistComponent, canActivate: [GuardService] },
   { path: 'login', component: AuthenticateComponent },
   { path: 'first-login', component: FirstLoginComponent },

@@ -37,7 +37,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
   }
 
   back() {
-    this.route.params.subscribe(params => { this.router.navigate(["/project-dashboard/", params['id']]) })
+    this.route.params.subscribe(params => { this.router.navigate(["/project-dashboard/", localStorage.getItem("tempParamID")]) })
   }
 
   select(option: string) {
@@ -48,7 +48,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.commentService.newComment(checklist, this.comment, params['id'], status).subscribe(
         () => { },
-        err => console.log("Error whilst storing the comment!"),
+        err => this.succes = "nonono",
         () => { this.succes = "comment was added to trail"; }
       )
     });

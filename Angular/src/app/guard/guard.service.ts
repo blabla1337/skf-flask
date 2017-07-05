@@ -6,16 +6,16 @@ import { AppSettings } from '../globals';
 export class GuardService implements CanActivate {
 
     constructor(private router: Router) { }
-
+    public returner:boolean;
     canActivate() {
         if (AppSettings.AUTH_TOKEN) {
             // logged in so return true
-            return true;
+            return this.returner = true;;
         }
 
         // not logged in so redirect to login page
         this.router.navigate(['/login']);
-        return false;
+        return this.returner = false;
     }
 }
 

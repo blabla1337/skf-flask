@@ -18,7 +18,8 @@ export class HeaderComponent implements OnInit {
   public code: boolean;
   public knowledge: boolean;
   public check: boolean;
-
+  public color:string = '#515594';
+  public user: string = AppSettings.USER;
 
   ngOnInit() {
     if (AppSettings.AUTH_TOKEN) {
@@ -125,11 +126,11 @@ export class HeaderComponent implements OnInit {
 
   
 
-  getProjectStyle() { if (this.projects) { return "#515594"; } else { return "" } }
-  getUSerStyle() { if (this.users) { return "#515594"; } else { return "" } }
-  getGroupStyle() { if (this.groups) { return "#515594"; } else { return "" } }
-  getKnowledgeStyle() { if (this.knowledge) { return "#515594"; } else { return "" } }
-  getCodeStyle() { if (this.code) { return "#515594"; } else { return "" } }
-  getChecklistStyle() { if (this.check) { return "#515594"; } else { return "" } }
+  getProjectStyle() { if (this.projects) { return this.color; } else { return "" } }
+  getUSerStyle() { if (this.users) { return this.color; } else { return "" } }
+  getGroupStyle() { if (this.groups) { return this.color; } else { return "" } }
+  getKnowledgeStyle() { if (this.knowledge) { return this.color; } else { return "" } }
+  getCodeStyle() { if (this.code) { return this.color; } else { return "" } }
+  getChecklistStyle() { if (this.check) { return this.color; } else { return "" } }
   
 }

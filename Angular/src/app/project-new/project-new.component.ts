@@ -34,6 +34,7 @@ export class ProjectNewComponent implements OnInit {
   public level :string;
   public error: string[] = [];
   public return: boolean = true;
+  
 
   constructor(
     private projectService: ProjectService,
@@ -58,9 +59,9 @@ export class ProjectNewComponent implements OnInit {
 
   levelSelect(option:string){
     this.level = option;
-    console.log("aaa")
+
   }
-  save(): void {
+  save() {
     this.return = true;
     this.error = [];
     if (!this.projectName) { this.error.push("Project name was left empty"); this.return = false; }
@@ -72,15 +73,15 @@ export class ProjectNewComponent implements OnInit {
 
     if (this.return == false) { return; }
 
-    //This is for storing the sprint items from local storage
+    //This is for getting the sprint items from local storage
     let sprint_items = JSON.parse(localStorage.getItem("sprint"));
     let count_sprint = Object.keys(sprint_items).length
 
-    //This is for storing the pre dev items from local storage
+    //This is for getting the pre dev items from local storage
     let pre_dev_items = JSON.parse(localStorage.getItem("pre_dev"));
     let count_pre = Object.keys(pre_dev_items).length
 
-    this.projectService.newProject(this.projectName, this.projectVersion, this.projectDescription, this.level)
+    this.projectService.newProject(this.projectName, this.projectDescription, parseInt(this.level, 10), this.projectVersion)
       .subscribe((res) => { this.projectID = res["projectID"] }, err => console.log("Error storing project"), () => {
         this.sprintService.newSprint(this.sprintName, this.projectID, this.sprintDescription)
           .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
@@ -107,17 +108,18 @@ export class ProjectNewComponent implements OnInit {
       this.router.navigate(['project-dashboard/' + this.projectID]);
       
     }, 1000);
-
   }
 
   //Temp storage for pre development questionaire
   storePre(form: NgForm) {
     localStorage.setItem("pre_dev", JSON.stringify(form.value));
+    return true;
   }
 
   //Temp storage for sprint questionaire
   storeSprint(form: NgForm) {
     localStorage.setItem("sprint", JSON.stringify(form.value));
+    return true;
   }
 
   isInvalid() {

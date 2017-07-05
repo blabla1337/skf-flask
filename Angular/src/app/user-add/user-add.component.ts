@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserAddService } from '../services/user-add.service'
 import { User } from '../models/user'
 import { Router } from '@angular/router'
@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
   providers: [UserAddService]
 })
 
-export class UserAddComponent implements OnInit {
+export class UserAddComponent{
   public email: string;
   public privileges: string;
   public return: boolean;
@@ -17,23 +17,19 @@ export class UserAddComponent implements OnInit {
   public data: User[];
   constructor(private _userAddService: UserAddService, private _router: Router) { }
 
-  ngOnInit() {
-  }
-
-  save(): User[] {
+  save() {
     this.return = true;
     this.error = [];
     if (!this.email) { this.error.push("No email was provided!"); this.return = false; }
-    if (!this.privileges) { this.error.push("No privilege was provided!"); this.return = false; }
+    //if (!this.privileges) { this.error.push("No privilege was provided!"); this.return = false; }
     if (this.return == false) { return; }
     
-    this._userAddService.newUser(this.email, this.privileges)
+    this._userAddService.newUser(this.email, '2')
       .subscribe(
       data => this.data = data,
       err => this.error.push("Error whilst adding user, potential duplicate email adres!")
-      )
-
+      );
       this.email = "";
-      this.privileges = '0';
+      return "assad"
   }
 }

@@ -18,7 +18,7 @@ export class CodeExamplesComponent implements OnInit, DoCheck {
   public lang: string;
   public codeExamples: CodeExample[];
   public error: string;
-
+  public hljs;
   constructor(private code: CodeExamplesService, private highlightJsService: HighlightJsService, private el: ElementRef) {
     this.lang = localStorage.getItem("code_lang")
   }
@@ -27,9 +27,6 @@ export class CodeExamplesComponent implements OnInit, DoCheck {
     this.code.getCode(localStorage.getItem("code_lang"))
       .subscribe(examples => {
         this.codeExamples = examples
-        if (!this.codeExamples) {
-          this.error = "There was an error getting the code examples!"
-        }
       },
       err => this.error = "There was an error catching code examples.")
   }
@@ -38,12 +35,7 @@ export class CodeExamplesComponent implements OnInit, DoCheck {
     if (this.lang != localStorage.getItem("code_lang")) {
       this.lang = localStorage.getItem("code_lang")
       this.code.getCode(localStorage.getItem("code_lang"))
-        .subscribe(examples => {
-          this.codeExamples = examples
-          if (!this.codeExamples) {
-            this.error = "There was an error getting the code examples!"
-          }
-        },
+        .subscribe(examples => { this.codeExamples = examples },
         err => this.error = "There was an error catching code examples.")
     }
     this.lang = localStorage.getItem("code_lang")
