@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { Sprint } from '../models/sprint';
 import { AppSettings } from '../globals';
-import { environment } from '../../environments/environment';
 
 @Injectable()
 export class SprintService {
@@ -19,7 +18,7 @@ export class SprintService {
 
   newSprint(name: string, projectID: number, description: string): Observable<Sprint> {
     return this.http
-      .put(environment.API_ENDPOINT + '/sprint/new', JSON.stringify({
+      .put(AppSettings.API_ENDPOINT + '/sprint/new', JSON.stringify({
         name: name,
         description: description,
         projectID: projectID
@@ -29,22 +28,22 @@ export class SprintService {
   }
 
   getSprintStats(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/stats/${id}`, { headers: this.headers })
+    return this.http.get(AppSettings.API_ENDPOINT + `/sprint/stats/${id}`, { headers: this.headers })
       .map(response => response.json())
   }
 
   getSprintResults(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/${id}`, { headers: this.headers })
+    return this.http.get(AppSettings.API_ENDPOINT + `/sprint/results/${id}`, { headers: this.headers })
       .map(response => response.json().items)
   }
 
   getSprintResultsAudit(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/audit/${id}`, { headers: this.headers })
+    return this.http.get(AppSettings.API_ENDPOINT + `/sprint/results/audit/${id}`, { headers: this.headers })
       .map(response => response.json().items)
   }
 
   delete(id: number) {
-    const url = environment.API_ENDPOINT + `/sprint/delete/${id}`;
+    const url = AppSettings.API_ENDPOINT + `/sprint/delete/${id}`;
     return this.http.delete(url, { headers: this.headers })
       .map(
       data => data,

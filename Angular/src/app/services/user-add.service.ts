@@ -4,7 +4,6 @@ import { Headers, Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
-import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UserAddService {
@@ -15,7 +14,7 @@ export class UserAddService {
   newUser(email: string, privileges: string): Observable<User[]> {
    
     return this.http
-      .put(environment.API_ENDPOINT + '/user/create', JSON.stringify({
+      .put(AppSettings.API_ENDPOINT + '/user/create', JSON.stringify({
         email: email,
         privilege: parseInt(privileges, 10)
       }),

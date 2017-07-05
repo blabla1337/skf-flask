@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 207  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,8 @@
 			<div class="text">
 
 				<h1>Security Knowledge Framework 2.0.0</h1>
-				<p>SKF is an expert system application that uses the OWASP Application Security Verification Standard with detailed code examples (secure coding principles) to help developers in pre-development and post-development phases and create applications that are secure by design.</p>
+				<p>In order to provide you with accurate data about your application the framework needs to know what processing functions
+					are included in your application. Create a new project to get started if you haven't done so already.</p>
 
 			</div>
 			<!--
@@ -56,7 +57,40 @@
 						<div class="col-md-3">
 							<div class="card">
 								<div class="card-header" style="text-align:center;">
-									PROJECTS
+									START
+								</div>
+								<div class="card-block">
+									<ngb-tabset>
+										<ngb-tab>
+											<ng-template ngbTabTitle><b>Icon</b></ng-template>
+											<ng-template ngbTabContent>
+												<div class="content-panel selection four">
+													<br/>
+													<a routerLink="/project-new">
+														<span class="icon"><i class="fa fa-file-code-o fa-4x"></i></span>
+													</a>
+												</div>
+											</ng-template>
+										</ngb-tab>
+										<ngb-tab>
+											<ng-template ngbTabTitle><b>Information</b></ng-template>
+											<ng-template ngbTabContent>
+												<br/>
+												<p><b>New project</b></p>
+												<p>Here we start a new project and go through the project flow.</p>
+											</ng-template>
+										</ngb-tab>
+									</ngb-tabset>
+								</div>
+								<div class="card-footer text-muted text-center">
+									<span class="name">Start new project</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card">
+								<div class="card-header" style="text-align:center;">
+									EDIT
 								</div>
 								<div class="card-block">
 									<ngb-tabset>
@@ -66,7 +100,7 @@
 												<div class="content-panel selection four">
 													<br/>
 													<a routerLink="/project-list">
-														<span class="icon"><i class="fa fa-file-text-o fa-4x"></i></span>
+									<span class="icon"><i class="fa fa-file-text-o fa-4x"></i></span>
 													</a>
 												</div>
 											</ng-template>
@@ -75,47 +109,14 @@
 											<ng-template ngbTabTitle><b>Information</b></ng-template>
 											<ng-template ngbTabContent>
 												<br/>
-												<p><b>Existing projects</b></p>
-												<p>Already have an existing project? From here we start editing existing projects and take you to the project page overview to start right away!</p>
+												<p><b>Edit existing project</b></p>
+												<p>Already have a project? From here we start editing existing projects!</p>
 											</ng-template>
 										</ngb-tab>
 									</ngb-tabset>
 								</div>
 								<div class="card-footer text-muted text-center">
-							<span class="name">Existing projects</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="card">
-								<div class="card-header" style="text-align:center;">
-									CHECKLISTS
-								</div>
-								<div class="card-block">
-									<ngb-tabset>
-										<ngb-tab>
-											<ng-template ngbTabTitle><b>Icon</b></ng-template>
-											<ng-template ngbTabContent>
-												<div class="content-panel selection four">
-													<br/>
-													<a routerLink="/checklist">
-														<span class="icon"><i class="fa fa-list-alt fa-4x"></i></span>
-													</a>
-												</div>
-											</ng-template>
-										</ngb-tab>
-										<ngb-tab>
-											<ng-template ngbTabTitle><b>Information</b></ng-template>
-											<ng-template ngbTabContent>
-												<br/>
-												<p><b>Checklists</b></p>
-												<p>Show different checklists that you can select for reference material. Click on the security control in the checklist to show the correlated knowledge base item. </p>
-											</ng-template>
-										</ngb-tab>
-									</ngb-tabset>
-								</div>
-								<div class="card-footer text-muted text-center">
-									<span class="name">Security requirements</span>
+							<span class="name">Edit projects</span>
 								</div>
 							</div>
 						</div>
@@ -132,7 +133,7 @@
 												<div class="content-panel selection four">
 													<br/>
 													<a routerLink="/knowledgebase">
-														<span class="icon"><i class="fa fa-book fa-4x"></i></span>
+									<span class="icon"><i class="fa fa-book fa-4x"></i></span>
 													</a>
 												</div>
 											</ng-template>
@@ -142,7 +143,7 @@
 											<ng-template ngbTabContent>
 												<br/>
 												<p><b>The knowledge base</b></p>
-												<p>All the information which is correlated throughout the project can be found here! Need specific information on the spot then search through the Knowledge base items.</p>
+												<p>All the information which is correlated throughout the project can be found here!</p>
 											</ng-template>
 										</ngb-tab>
 									</ngb-tabset>
@@ -165,7 +166,7 @@
 												<div class="content-panel selection four">
 													<br/>
 													<a routerLink="/code-examples">
-														<span class="icon"><i class="fa fa-code fa-4x"></i></span>
+									<span class="icon"><i class="fa fa-code fa-4x"></i></span>
 													</a>
 												</div>
 											</ng-template>
@@ -175,7 +176,7 @@
 											<ng-template ngbTabContent>
 												<br/>
 												<p><b>Code examples</b></p>
-												<p>The code examples show how to approach some common functionalities and how to apply the secure coding principles! We have secure code examples in different languages for example; PHP, Python, Java and .NET</p>
+												<p>The code examples show how to tackle some common functionalities and show secure coding principles!</p>
 											</ng-template>
 										</ngb-tab>
 									</ngb-tabset>

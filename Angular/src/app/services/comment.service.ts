@@ -4,7 +4,7 @@ import { Comment } from '../models/comment';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
-import { environment } from '../../environments/environment';
+
 
 @Injectable()
 export class CommentService {
@@ -15,7 +15,7 @@ export class CommentService {
 
   newComment(checklistID: string, comment: string, sprintID: string, status: number): Observable<Comment> {
     return this.http
-      .put(environment.API_ENDPOINT + '/comment/new', JSON.stringify({
+      .put(AppSettings.API_ENDPOINT + '/comment/new', JSON.stringify({
         checklistID: checklistID,
         comment: comment,
         sprintID: parseInt(sprintID, 10),
@@ -27,7 +27,7 @@ export class CommentService {
 
   getComment(checklistID: string, sprintID: string): Observable<Comment> {
     return this.http
-      .post(environment.API_ENDPOINT + '/comment/items', JSON.stringify({
+      .post(AppSettings.API_ENDPOINT + '/comment/items', JSON.stringify({
         checklistID: checklistID,
         sprintID: parseInt(sprintID, 10)
       }),

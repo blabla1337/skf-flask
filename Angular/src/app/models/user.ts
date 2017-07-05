@@ -4,8 +4,6 @@ export class User {
   username: string,
   accessToken: number,
   password: string,
-  access: string,
-  active: string,
   repassword: string,
   userID: number
   ){}

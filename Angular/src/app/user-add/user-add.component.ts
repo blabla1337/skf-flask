@@ -24,10 +24,10 @@ export class UserAddComponent implements OnInit {
     this.return = true;
     this.error = [];
     if (!this.email) { this.error.push("No email was provided!"); this.return = false; }
-    //if (!this.privileges) { this.error.push("No privilege was provided!"); this.return = false; }
+    if (!this.privileges) { this.error.push("No privilege was provided!"); this.return = false; }
     if (this.return == false) { return; }
     
-    this._userAddService.newUser(this.email, '2')
+    this._userAddService.newUser(this.email, this.privileges)
       .subscribe(
       data => this.data = data,
       err => this.error.push("Error whilst adding user, potential duplicate email adres!")

@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2015  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -17,7 +17,6 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <section *ngIf="isLoggedin" id="container" class="animsition">
     <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -50,7 +49,7 @@
                     <button class="btn btn-default dropdown-toggle user" id="dropdownBasic2" ngbDropdownToggle>
                         <span class="image"><img src="/assets/img/placeholder-male.jpg" alt="Placeholder" width="250" height="250" /> </span>
                         <span class="name">
-                            {{user}}
+                            Erik de Kuijper
                         </span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownBasic2">
@@ -90,7 +89,7 @@
                     </a>
                     <ul *ngIf="users" class="sub" style="display:block;">
                         <li><a routerLink="/user-add" id="2">Add users</a></li>
-                        <li><a routerLink="/user-manage" id="2">Manage users</a></li>
+                        <li><a id="2">Manage users</a></li>
                     </ul>
                 </li>
                 <li [style.background-color]="getChecklistStyle()" class="">

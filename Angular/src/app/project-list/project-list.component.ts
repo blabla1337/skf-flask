@@ -30,19 +30,6 @@ export class ProjectListComponent implements OnInit {
     }
   }
 
-  projectList() {
-    this._projectService
-      .getProjects()
-      .subscribe(
-      projects => {
-        this.projects = projects;
-        if (!this.projects) {
-          this.error = "There are no projects to show!"
-        }
-      },
-      err => this.error = "Getting the projects failed, contact an administrator! ");
-  }
-
   open(content) {
     this.modalService.open(content).result.then((result) => {
       this.closeResult = 'Closed with: ${result}';
@@ -61,4 +48,16 @@ export class ProjectListComponent implements OnInit {
     }
   }
 
+  projectList() {
+    this._projectService
+      .getProjects()
+      .subscribe(
+      projects => {
+        this.projects = projects;
+        if (!this.projects) {
+          this.error = "There are no projects to show!"
+        }
+      },
+      err => this.error = "Getting the projects failed, contact an administrator! ");
+  }
 }

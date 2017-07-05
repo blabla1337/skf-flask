@@ -29,7 +29,6 @@ export class ProjectDashboardComponent implements OnInit {
   public sprintID: number;
   public return: boolean;
   public pre_dev_store: Question_pre[] = [];
-  public delete: string;
 
   constructor(
     private modalService: NgbModal,
@@ -47,6 +46,12 @@ export class ProjectDashboardComponent implements OnInit {
         err => console.log("Error getting sprint stats"))
     });
 
+    this.questionPreService
+      .getPreQuestions()
+      .subscribe(
+      projectService => this.preDevelopment = projectService,
+      err => console.log("getting pre-development failed"));
+
     this.questionsSprintService
       .getSprintQuestions()
       .subscribe(
@@ -61,22 +66,24 @@ export class ProjectDashboardComponent implements OnInit {
     if (!this.sprintName) { this.errors.push("Sprint name was empty!"); this.return = false }
     if (!this.sprintDescription) { this.errors.push("Sprint description was empty!"); this.return = false; }
     if (this.return == false) { return; }
-    this.sprintService.newSprint(this.sprintName, parseInt(localStorage.getItem('tempParamID'), 10), this.sprintDescription)
-      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"));
+
     this.steps = true;
+
   }
 
   newSprintQuestions(form: NgForm) {
     this.sprintStore = [];
-
-
+    this.sprintService.newSprint(this.sprintName, parseInt(localStorage.getItem('tempParamID'), 10), this.sprintDescription)
+      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
         for (let i = 1; i < 22 + 1; i++) {
           if (!form.value["sprint_answer" + i]) { form.value["sprint_answer" + i] = "False"; }
           this.sprintStore.push({ "projectID": parseInt(localStorage.getItem('tempParamID'), 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i], "sprintID": this.sprintID });
         }
+      });
+
     setTimeout(() => {
       console.log(this.sprintStore);
-      this.questionsSprintService.newSprintQuestion(this.sprintStore).subscribe(() => { },
+      this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },
         err => console.log("Error Storing new questions for sprint"), () => {
           this.route.params.subscribe(params => {
             this.sprintService.getSprintStats(params['id']).subscribe(
@@ -86,22 +93,21 @@ export class ProjectDashboardComponent implements OnInit {
         });
     }, 1000);
 
-    this.steps = false;
+      this.steps = false;
   }
 
-  deleter(id: number) {
-    console.log(id)
-    if (this.delete == "DELETE") {
-      this.sprintService.delete(id).subscribe(x =>
-        this.route.params.subscribe(params => {
-          this.sprintService.getSprintStats(params['id']).subscribe(
-            resp => this.sprintResult = resp,
-            err => console.log("Error getting sprint stats"))
-        })
-      )
+  updatePre(form: NgForm) {
+    let count_pre = Object.keys(form.value).length
+    for (let i = 1; i < count_pre + 1; i++) {
+      if (form.value["pre_dev_answer" + i].toString() == "") { form.value["pre_dev_answer" + i] = "False"; }
+      this.pre_dev_store.push({ "question_pre_ID": i, "result": form.value["pre_dev_answer" + i].toString() });
     }
-  }
 
+    this.route.params.subscribe(params => {
+      this.questionPreService.updatePre(params['id'], this.pre_dev_store).subscribe(() => { },
+        err => console.log("Error Storing new questions for sprint"));
+    });
+  }
 
   open(content) {
     this.modalService.open(content, { size: 'lg' }).result.then((result) => {

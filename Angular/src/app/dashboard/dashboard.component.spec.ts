@@ -1,8 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DashboardComponent } from './dashboard.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterTestingModule } from '@angular/router/testing';
 
+import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -10,8 +8,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ],
-      imports:[NgbModule.forRoot(), RouterTestingModule]
+      declarations: [ DashboardComponent ]
     })
     .compileComponents();
   }));
@@ -22,7 +19,7 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create the main dashboard', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChecklistService } from '../services/checklist.service'
 import { Checklist } from '../models/checklist';
 import { StartsWithPipe } from '../pipes/starts-with.pipe'
@@ -12,17 +12,20 @@ import { OrderBy } from '../pipes/order-by.pipe'
   providers: [ChecklistService],
 })
 
-export class ChecklistComponent {
-  public checklistItems: Checklist[]
+export class ChecklistComponent implements OnInit {
+  private checklistItems: Checklist[]
   public queryString: string;
   public closeResult: string;
   public color: string;
 
   constructor(private checklistService: ChecklistService, private modalService: NgbModal) { }
 
+  ngOnInit() {
+  }
+
   open(content, level: number) {
     this.checklistService
-      .getChecklistLvl(level)
+      .getChecklist(level)
       .subscribe(checklistItems => { this.checklistItems = checklistItems });
 
     this.modalService.open(content, { size: 'lg' }).result.then((result) => {

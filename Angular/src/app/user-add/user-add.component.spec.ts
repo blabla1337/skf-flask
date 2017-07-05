@@ -1,10 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserAddComponent } from './user-add.component';
-import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterTestingModule } from '@angular/router/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { UserAddComponent } from './user-add.component';
 
 describe('UserAddComponent', () => {
   let component: UserAddComponent;
@@ -12,8 +8,7 @@ describe('UserAddComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserAddComponent ],
-      imports:[NgbModule.forRoot(), FormsModule, RouterTestingModule, HttpModule]
+      declarations: [ UserAddComponent ]
     })
     .compileComponents();
   }));
@@ -24,7 +19,7 @@ describe('UserAddComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create the component to add users', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

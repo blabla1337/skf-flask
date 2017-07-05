@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router'
 import { User } from '../models/user'
 import { AuthenticateService } from '../services/authenticate.service'
@@ -7,7 +7,7 @@ import { AuthenticateService } from '../services/authenticate.service'
   templateUrl: './first-login.component.html',
   providers: [AuthenticateService]
 })
-export class FirstLoginComponent{
+export class FirstLoginComponent implements OnInit {
 
   constructor(private activate: AuthenticateService, private router: Router) { }
 
@@ -21,6 +21,9 @@ export class FirstLoginComponent{
   public error : string[]=[];
   public return: boolean;
 
+  ngOnInit() {
+  }
+
   activateUser() {
     this.error = []
     this.return = true;
@@ -29,7 +32,7 @@ export class FirstLoginComponent{
     if(!this.repassword){this.return = false; this.error.push("Repassword field was left empty")}
     if(!this.accessToken){this.return = false; this.error.push("AccessToken field was left empty")}
     if(!this.username){this.return = false; this.error.push("Username field was left empty")}
-    if(!this.userID){this.return = false; this.error.push("UserID field was left empty")}
+    if(!this.userID){this.return = false; this.error.push("User id field was left empty")}
 
     if(this.return == false){return;}
     

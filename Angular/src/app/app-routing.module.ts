@@ -15,7 +15,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 import { GuardService } from './guard/guard.service';
 
-export const appRoutes: Routes = [
+const appRoutes: Routes = [
   
   { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] },
   { path: 'project-new', component: ProjectNewComponent, canActivate: [GuardService] },
