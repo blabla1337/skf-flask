@@ -43,37 +43,5 @@ describe('Question-sprint service', () => {
         .subscribe(() => {
         });
     }));
-  
-  
-  describe('New sprint questions', () => {
-  
-   let questions: Sprint[] = [];
-   questions.push({"projectID": 1,"question_pre_ID": "1","result": "True"}) 
-   questions.push({"projectID": 1,"question_pre_ID": "2","result": "False"}) 
-   
-    const items2 = 
-      {
-        "return": "Stored the sprint questions"
-      }
-    
-    ;
-
-    mockResponseNew = new Response(new ResponseOptions({ body: { items2 } }));
-    //Subscribing to the connection and storing it for later
-    it('should store the sprint questions results', inject([QuestionsSprintService, MockBackend], (service: QuestionsSprintService, backend: MockBackend) => {
-      backend.connections.subscribe(connection => {
-        connection.mockRespond(mockResponseNew);
-        expect(connection.request.method).toEqual(RequestMethod.Put);
-        expect(connection.request.headers.get("Content-Type")).toEqual("application/json");
-        expect(connection.request.headers.get("Authorization")).toBeDefined;
-        expect(connection.request.text()).toEqual(JSON.stringify({questions}));
-        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_sprint/store");
-      });
-      service.newSprint(questions)
-        .subscribe((items) => {
-          expect(items).toMatch(JSON.stringify([{return:'Stored the sprint questions'}]))
-        });
-    }));
-  });
 
 });
