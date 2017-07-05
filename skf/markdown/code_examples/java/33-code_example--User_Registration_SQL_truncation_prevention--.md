@@ -43,7 +43,7 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class RegisterUser {
+public final class RegisterUser {
 	
     private AuditLog Log = new AuditLog();
     private Hashing hash = new Hashing();

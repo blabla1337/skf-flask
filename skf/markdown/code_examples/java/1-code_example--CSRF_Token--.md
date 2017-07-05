@@ -69,7 +69,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/CheckCSRF")
 
-public class CheckCSRF extends HttpServlet
+public final class CheckCSRF extends HttpServlet
 {
 
 private static final long serialVersionUID = 1L;

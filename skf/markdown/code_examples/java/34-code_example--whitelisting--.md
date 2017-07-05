@@ -10,7 +10,7 @@ package com.edw;
 
 import org.apache.log4j.Logger;
 
-public class WhiteList
+public final class WhiteList
 {
 	
 	final static Logger logger = Logger.getLogger(WhiteList.class);

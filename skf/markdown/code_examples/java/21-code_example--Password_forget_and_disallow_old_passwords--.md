@@ -59,7 +59,7 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class PasswordForget {
+public final class PasswordForget {
 
 	final static Logger logger = Logger.getLogger(PasswordForget.class);
 	private String password = "" ; 

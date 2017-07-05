@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class IdentifierBased {
+public final class IdentifierBased {
 
 	 public int userID  ;
      public String name;
@@ -50,9 +50,10 @@ public class IdentifierBased {
       * 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		userID = request.getParameter("userID");
+		name = request.getParameter("User");
 		
 		IdentifierBased au = new IdentifierBased() ;
-		String auth = au.IdentifierBasedAuthentication(pageID, userID);
+		String auth = au.IdentifierBasedAuthentication(pageID, userID, name);
 		
 		if (auth.equals("terminate"))
 		{
@@ -74,7 +75,7 @@ public class IdentifierBased {
       * 
       */
      
-     public String IdentifierBasedAuthentication(int pageID, String user_id)
+     public String IdentifierBasedAuthentication(int pageID, String user_id, String username)
      {
     	 
     	 String page  = new Integer(pageID).toString();
@@ -121,7 +122,7 @@ public class IdentifierBased {
      		 Log.SetLog(user_id, "Connection to the database was made succesfully", "SUCCESS", LocalDateTime.now(),"","");
 
              //We also count the connection to the database.
-             aggregate.aggregateControl(1);
+             aggregate.aggregateControl(1,username , user_id);
 
              /* 
              Whenever you are checking whether a user is restricted to review certain data,
@@ -144,7 +145,7 @@ public class IdentifierBased {
 			conn = ds.getConnection();	
 			
 			//We also count the connection to the database.
-            aggregate.aggregateControl(1);
+            aggregate.aggregateControl(1,username , user_id);
 		
 			  /* Here we select the users privilege level from the users table */
 		      String query = "SELECT * from profile WHERE userID = ? ";

@@ -76,7 +76,7 @@ import com.Lib.InputValidation;
 import org.apache.commons.io.FilenameUtils;
 
 @MultipartConfig
-public class FileUpload extends HttpServlet {
+public final class FileUpload extends HttpServlet {
 	
     /**
 	 * 

@@ -36,15 +36,15 @@ import com.ning.http.client.Request;
  * Servlet implementation class Reauth
  */
 @WebServlet("/Reauth")
-public class Reauth extends HttpServlet {
+public final class Reauth extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public int userID; 
-	public String username; 
-	public String password; 
-	public String access; 
-	public String salt; 
-	public int privilege; 
-	public boolean loggedin = false;
+	private int userID; 
+	private String username; 
+	private String password; 
+	private String access; 
+	private String salt; 
+	private int privilege; 
+	private boolean loggedin = false;
 	final static Logger logger = Logger.getLogger(Reauth.class);
        
 	 AuditLog Log = new AuditLog();

@@ -81,7 +81,7 @@ Servlet
 the following code snippet can be used in relation with the following servlet snippet
 
 
-public class AggregateControl extends HttpServlet{
+public final class AggregateControl extends HttpServlet{
 	private static final long serialVersionUID = 1L;
     public aggregateControl() {
         super();
@@ -115,16 +115,20 @@ output logs indicating that user has been logged out after many database connect
 
 [ .... ] 
 
-2016-11-24 11:17:55 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2
-2016-11-24 11:18:07 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2
-2016-11-24 11:18:15 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2
-2016-11-24 11:18:23 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2
-2016-11-24 11:18:32 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2
-2016-11-24 11:18:39 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2
+2016-11-24 11:17:55 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2 Time: 2017-07-05T12:19:20.803
+2016-11-24 11:18:07 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2 Time: 2017-07-05T12:36:09.763
+2016-11-24 11:18:15 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2 Time: 2017-07-05T12:36:52.443
+2016-11-24 11:18:23 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2 Time: 2017-07-05T12:37:28.358
+2016-11-24 11:18:32 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2 Time: 2017-07-05T12:38:03.250
+2016-11-24 11:18:39 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2 Time: 2017-07-05T12:38:36.413
 2016-11-24 11:18:49 INFO  Aggregate:240 -  User account was locked out due to aggregate user control system  User: ddd  Userid ID:  2
 2016-11-24 11:18:49 INFO  Aggregate:277 - Connection to the database was made successfully   User: ddd  User ID:  2
- 
- 
+
+[ ..... ]
+
+
+The following example gives another implementation of Aggregate class
+
 */
 
 package com.edw;
@@ -141,19 +145,34 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class NewAggregate {
+package prime.com.beans;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import org.apache.log4j.Logger;
+
+public final class Aggregate {
+
 	
-	public String userName;
-	public String password;
-	public String userID;
+	private String userName;
+	private String password;
+	private String userID;
 	private int control = 0;
 	
 	
-	final static Logger logger = Logger.getLogger(NewAggregate.class);
+	final static Logger logger = Logger.getLogger(Aggregate.class);
 
-	public boolean aggregateControl(int count)
-	{
-		
+	public boolean aggregateControl(int count, String userName, String userID)
+	{		
 			boolean invalidate_sessions = false; 
 				
 			 //Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 
@@ -179,7 +198,7 @@ public class NewAggregate {
 		      while (rs.next())
 		      {
 		        control  = rs.getInt("aggregate");
-		
+				userName  = rs.getString("userName");
 		      }
 
 		      //We update the aggregate table in the database in order to 
@@ -207,7 +226,7 @@ public class NewAggregate {
 	          {
 	            
 	                  //this breach has to be reported into the log files
-	        	      logger.info( " User account was locked out due to aggregate user control system" + "  User: " + userName + "  Userd ID:  " +  userID);
+	        	      logger.info( " User account was locked out due to aggregate user control system" + "  User: " + userName + "  Userd ID:  " +  userID + "Time: " + LocalDateTime.now());
 
 	                  /*
 	                  Whenever the reasonable number of connections the user made was surpassed we destroy all the 
@@ -218,7 +237,7 @@ public class NewAggregate {
 	                 
 	                  /*
 	                  Than we set his access level on his account to FALSE in order to prevent 
-	                  him from logging in again till you did your forensics on the log files
+	                  him from logging in again till you did your Forensics on the log files
 	                  */
 	        	      
 	                  // create the java MySql update prepared statement
@@ -245,10 +264,10 @@ public class NewAggregate {
 	       		
 		    //the connection has to be reported into the log files
 			if(logger.isInfoEnabled()){
-				logger.info("Connection to the database was made succesfully " + "  User: " + userName + "  Userd ID:  " +  userID);
+				logger.info("Connection to the database was made succesfully " + "  User: " + userName + "  Userd ID:  " +  userID + "Time: " + LocalDateTime.now() );
 			}
 			else{
-			logger.error("Couldnt connect to database - " +  "  User: " + userName + "  Userd ID:  " +  userID);
+			logger.error("Couldnt connect to database - " +  "  User: " + userName + "  Userd ID:  " +  userID + "Time: " + LocalDateTime.now());
 			}
 			
 		return invalidate_sessions;

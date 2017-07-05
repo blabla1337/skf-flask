@@ -104,7 +104,7 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class SessionHijack extends HttpServlet{
+public final class SessionHijack extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
     

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.prefs.Preferences;
 
-public class WinRegistry {
+public final class WinRegistry {
   public static final int HKEY_CURRENT_USER = 0x80000001;
   public static final int HKEY_LOCAL_MACHINE = 0x80000002;
   public static final int HKEY_CLASSES_ROOT = 0x80000003;  

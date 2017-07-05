@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-public class PasswordCheck {
+public final class PasswordCheck {
 	
 	final static Logger logger = Logger.getLogger(PasswordCheck.class);
 	

@@ -24,7 +24,7 @@ import com.edw.InputValidation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class XMLPrevention {
+public final class XMLPrevention {
 
 	public void storeFuncion(String name, String lastName, String gender)
     {

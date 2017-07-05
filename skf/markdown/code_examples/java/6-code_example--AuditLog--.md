@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class AuditLog {
+public final class AuditLog {
 
 	
 	private int countID;

@@ -12,7 +12,7 @@ import org.owasp.esapi.ESAPI;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 
-public class XssFilter {
+public final class XssFilter {
 
 	/**
 	 * Strips any potential XSS threats out of the value

@@ -51,7 +51,7 @@ will be executed in his browser.
 try {
 	ESAPI.encoder().encodeForURL("javascript:alert(234);");
 } catch (EncodingException e) {
-	logger.error("Error encoding characters : " + e.toString());
+	logger.error("Error encoding characters : " + e.toString() + " Time : " + LocalDateTime.now());
 	}
 
 

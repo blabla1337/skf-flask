@@ -27,15 +27,15 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
-public class Login extends HttpServlet{
+public final class Login extends HttpServlet{
 
 	 final static Logger logger = Logger.getLogger(Login.class);
-	 public String password ;
-	 public String username;
-	 public int userID;
-	 public String salt;
-	 public String access ;
-	 public int privilege;
+	 private String password ;
+	 private String username;
+	 private int userID;
+	 private String salt;
+	 private String access ;
+	 private int privilege;
 
 	  //First we include the audit log class.
 	  Auditlog Log = new Auditlog();

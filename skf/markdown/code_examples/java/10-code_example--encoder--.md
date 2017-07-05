@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import org.owasp.esapi.ESAPI;
 import org.owasp.esapi.codecs.MySQLCodec;
 
-public class Encoding {
+public final class Encoding {
 	
 	AuditLog Log = new AuditLog(); 
 	

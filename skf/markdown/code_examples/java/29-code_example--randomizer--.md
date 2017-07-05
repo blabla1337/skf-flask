@@ -16,7 +16,7 @@ import java.util.Base64;
 import java.util.List;
 import org.apache.log4j.Logger;
 
-public class Randomizer {
+public final class Randomizer {
 	
 	private List<Integer> bytes = new ArrayList<>();
     private int address = 0;

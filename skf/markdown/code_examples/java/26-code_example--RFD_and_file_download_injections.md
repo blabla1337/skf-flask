@@ -104,7 +104,7 @@ import com.Lib.WhiteList;
 
 @ManagedBean(name="fileDownloadController")
 @MultipartConfig
-public class FileDownloader {
+public final class FileDownloader {
      
     // Applications are rarely tested for Unicode exploits, and yet many are vulnerable due to the same sort of issues which allows HTTP Request Smuggling to work – every browser, 
     // web server, web application firewall or HTTP inspection agent, and other device treats user locale handling in different (and usually confusing) manner.
