@@ -14,6 +14,15 @@ install:
 script:
   - python setup.py test
   - cd skf
+  
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/0166be20e8a41ff19fd8
+    on_success: always  
+    on_failure: always  
+    on_start: never     
+    
 #  - python -m pytest --cov test_skf.py
 #after_script:
 #  - coverage run  test_skf.py test

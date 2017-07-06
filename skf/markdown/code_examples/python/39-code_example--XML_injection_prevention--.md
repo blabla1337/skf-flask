@@ -8,11 +8,11 @@ XML injection prevention
 	<?php
 
 	/*
-	Whenever you are using XML parsers you must sanitise or encode al user-input before 
+	Whenever you are using XML parsers you must sanitise or encode all user-input before 
 	including this input into your XML file.
 
-	Some methods like below, the Domdocument already encodes the input before storing it
-	into the XML. But beware, since this encoded input is stil a threat whenever you are
+	Some methods like below, the DOMdocument already encodes the input before storing it
+	into the XML. But beware, since this encoded input is still a threat whenever you are
 	displaying the this data on screen as HTML output. This encoded data should be escaped
 	at all times before displaying.
 	

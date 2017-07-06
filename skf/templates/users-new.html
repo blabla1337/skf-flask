@@ -66,12 +66,11 @@ function changeVal()
 								<div class="form-group">
 									<div class="wrap desc">
 										<label for="inputName" class="col-sm-2 control-label">&nbsp;</label>
-										<div class="col-sm-10">Only normal characters and numbers. No funny business, capiche?</div>
 									</div>
 									<div class="wrap">
 										<label for="inputName" class="col-sm-2 control-label">Name</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" name="username" id="inputName" value="Username" placeholder="Project Name">
+											<input type="text" class="form-control" name="username" id="inputName" value="" placeholder="username">
 										</div>
 									</div>
 								</div>
@@ -84,7 +83,7 @@ function changeVal()
 									<div class="wrap">
 										<label for="inputVersion" class="col-sm-2 control-label">Email</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputVersion" name="email" value="example@owasp.org" placeholder="Project version">
+											<input type="text" class="form-control" id="inputVersion" name="email" value="" placeholder="example@owasp.org">
 										</div>
 									</div>
 								</div>
@@ -97,7 +96,7 @@ function changeVal()
 									<div class="wrap">
 										<label for="inputVersion" class="col-sm-2 control-label">Pincode</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="randomToken" onclick="changeVal();"  name="pincode" value="generate onclick" placeholder="Project version">
+											<input type="text" class="form-control" id="randomToken" onclick="changeVal();"  name="pincode" value="" placeholder="Generated onclick">
 										</div>
 									</div>
 								</div>
@@ -115,7 +114,7 @@ function changeVal()
 											<select name="privID">
 											  <option value="1">Super-admin</option>
 											  <option value="2">Admin</option>
-											  <option value="3">User</option>
+											  <option value="3" selected>User</option>
 											  <option value="4">Guest</option>
 											</select>
 											</div>	
@@ -124,7 +123,7 @@ function changeVal()
 								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
-										<input type="hidden" name="csrf_token" value="{{csrf_token|safe}}" id="csrf_token">
+										<input type="hidden" name="csrf_token" value="{{csrf_token}}" id="csrf_token">
 										<input type="submit" id="addUsers" name="addUsers" value="Create user" class="btn btn-default">
 										<span class="desc">... Let's rock.</span>
 									</div>

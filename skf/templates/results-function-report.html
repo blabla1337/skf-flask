@@ -31,12 +31,12 @@
 
 				<div class="text">
 				
-				{% if entries.projectName != Null %}
+				{% if projectName %}
 					<h1>Function results</h1>
-					<p>There were no Function results found. Create a project and use the Add functions form in order to create results.</p>
+                    <p>Summary of {{projectName}} {{projectVersion}}</p>
 				{% else %}
 					<h1>Function results</h1>
-					<p>Summary of all function-results, you can download a DOCX file with the current security findings.</p>
+					<p>There were no Function results found. Create a project and use the Add functions form in order to create results.</p>
 				{% endif %}
 				
 				</div>
@@ -45,10 +45,9 @@
 
 	  <section class="wrapper">
 
-			{% if entries.projectName == Null %}
-			{% else %}
+			{% if projectName %}
 			
-			<a class="report" href="/results-function-docx/{{projectID|safe}}">
+			<a class="report" href="/results-function-docx/{{projectID}}">
 				<button class="btn btn-default"><i style="margin-right: 10px;" class="fa fa-file-word-o"></i> Download Report</button>
 			</a>
 
@@ -63,13 +62,11 @@
 			<div class="row mt">
 				<div class="col-lg-12">
 						<div id="report">
-						{% set counter = 0 -%}
 						{% for entry in content %}
 							<div class="modal-body"> 
-								<div class="modal-header">{{entries[counter][8]}}</div>                 
+								<div class="modal-header">{{entries[loop.index0][8]}}</div>                 
 								<div class="well"> {{entry}} </div>
 							</div>
-						{% set counter = counter + 1 %}
 						{% endfor %}
 						</div>
 					</div>

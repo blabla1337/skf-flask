@@ -18,11 +18,9 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
 
-            {% set counter = 0 -%}
             {% for entry in content %}
-                {{ kb_name[counter] }} 
+                {{ kb_name[loop.index0] }} 
                 {{ entry }} 
-                {% set counter = counter + 1 %} 
             {% endfor %}  
           {% if not content %}
                 Sorry we did not find anything
