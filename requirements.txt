@@ -9,3 +9,4 @@ requests
 importlib
 bcrypt==1.1.1
 flask-bcrypt
+PyYAML==3.12

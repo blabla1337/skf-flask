@@ -20,7 +20,7 @@
 """
 
 import contextlib, traceback
-import os, markdown, datetime, string, base64, re, sys, re, requests, mimetypes, smtplib
+import os, markdown, datetime, string, base64, re, sys, re, requests, mimetypes, smtplib, yaml
 from OpenSSL import SSL, rand
 from docx import Document
 from BeautifulSoup import BeautifulSoup
@@ -1140,61 +1140,60 @@ def add_checklist():
     redirect_url = "/results-checklists"
     return redirect(redirect_url)
 
+def get_checklists(root, kb_paths):
+    config = {}
+    with open(os.path.join(root, "asvs.yaml"), "r") as config_file:
+        config = yaml.load(config_file)
 
-def populate_checklists(checklist_paths, kb_paths, lvl_name, 
-        asvs_ids_lvl, asvs_ygbs_lvl, asvs_kbs_lvl, asvs_contents_lvl, asvs_descs_lvl):
-    asvs_ids = []
-    asvs_ygbs = []
-    asvs_kbs = []
-    asvs_contents = []
-    asvs_descs = []
+    checklists = []
 
-    for path in checklist_paths:
-        basepath = os.path.basename(path)
-        asvs_path_elems = basepath.split("-")
-        asvs_checklist_name = asvs_path_elems[2]
-        if asvs_checklist_name == "ASVS":
-            asvs_checklist_name = "-".join(asvs_path_elems[2:5])
-            parse_index = 6
-        else:
-            parse_index = 4
-        if asvs_checklist_name == lvl_name:
-            asvs_id = get_num(asvs_path_elems[0])
-            asvs_kb = asvs_path_elems[parse_index]
-            asvs_ygb = asvs_path_elems[parse_index + 2]
+    for checklist_config in config['checklists']:
+        files = os.listdir(os.path.join(root, checklist_config["id"]))
+        question_files = [filename for filename in files if os.path.splitext(filename)[1] == ".md"]
+        question_files.sort()
+        questions = []
 
-            asvs_ids.append(asvs_id)
-            asvs_kbs.append(asvs_kb)
-            asvs_ygbs.append(asvs_ygb)
-            with open(path, 'r') as pathf:
-                checklistmd = pathf.read()
-            asvs_contents.append(Markup(markdown.markdown(checklistmd)))
+        for question_file in question_files:
+            parts = os.path.splitext(question_file)[0].split("--")
+            question_index = parts[0]
+            ygb = ""
+            knowledge_base_id = int(parts[1])
+            if re.match("^[ygb]{1,3}$", parts[-2]):
+                ygb = parts[-2]
+
+            markdown_content = ""
+            with open(os.path.join(root, checklist_config["id"], question_file), 'r') as content_file:
+                markdown_content = content_file.read()
+            content = Markup(markdown.markdown(markdown_content))
 
             descriptions = []
+            knowledge_base_entry = ""
             for kbpath in kb_paths:
                 kbbasepath = os.path.basename(kbpath)
                 path_vuln = get_num(kbbasepath.split("-")[0])
-                if int(asvs_kb) == int(path_vuln):
+                if path_vuln == knowledge_base_id:
                     with open(kbpath, 'r') as kbpathf:
-                        kbmd = kbpathf.read()
-                    description = kbmd.split("**")
-                    descriptions.append(description[2])
-            asvs_descs.append("\n".join(descriptions))
+                        knowledge_base_entry = kbpathf.read()
+                    descriptions.append(knowledge_base_entry.split("**")[2])
+            questions.append({
+                "ygb": ygb,
+                "index": get_num(question_index),
+                "id": question_index,
+                "content": content,
+                "knowledge_base": knowledge_base_id,
+                "heading": knowledge_base_id == 0,
+                "description": "\n".join(descriptions),
+                "knowldge_base_entry": knowledge_base_entry
+            })
 
-    asvs_ids_lvl.append(asvs_ids)
-    asvs_ygbs_lvl.append(asvs_ygbs)
-    asvs_kbs_lvl.append(asvs_kbs)
-    asvs_contents_lvl.append(asvs_contents)
-    asvs_descs_lvl.append(asvs_descs)
-
-    return lvl_name
-    
-
-NUM_ASVS_LEVELS = 7
-ASVS_1, ASVS_2, ASVS_3, CYBER_ESSENTIALS, ASVS_BASIC, ASVS_ADVANCED, ASVS_CUSTOM = range(NUM_ASVS_LEVELS)
-ASVS_NAMES = ("ASVS-level-1", "ASVS-level-2", "ASVS-level-3", "Cyber-Essentials", "CS_basic_audit", "CS_advanced_audit", "custom")
-ASVS_TITLES = ("OWASP ASVS Level 1", "OWASP ASVS Level 2", "OWASP ASVS Level 3", "Cyber Essentials",
-        "Basic Audit Checklist", "Advanced Audit Checklist", "Custom Checklist")
+        checklists.append({
+            "id": checklist_config['id'],
+            "title": checklist_config['title'],
+            "description": checklist_config['description'],
+            "level": checklist_config['level'],
+            "questions": questions
+        })
+    return checklists
 
 
 @app.route('/project-checklists/<project_id>', methods=['GET'])
@@ -1208,62 +1207,18 @@ def project_checklists(project_id):
         projects = con.execute('SELECT p.projectID, p.userID, p.groupID, p.projectName, p.projectVersion, p.projectDesc, p.ownerID, m.userID, m.groupID FROM projects as p JOIN groupMembers AS m ON m.groupID = p.groupID WHERE p.projectID=? AND m.userID=?',
                             [project_id, session['userID']]).fetchall()
     projectName = ""
-
-    asvs_level_descs = []
-    asvs_level_recommendations = []
-
-    asvs_ids_lvl = []
-    asvs_ygbs_lvl = []
-    asvs_kbs_lvl = []
-    asvs_contents_lvl = []
-    asvs_descs_lvl = []
-
+    checklists = []
     for prep in projects:
         projectName = prep[3]
-        
-        checklist_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
-        checklist_paths.sort()
 
         kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
         kb_paths.sort()
 
-        for level0 in range(NUM_ASVS_LEVELS):
-            level = level0 + 1
-            level_name = ASVS_NAMES[level0]
-            populate_checklists(checklist_paths, kb_paths, level_name,
-                    asvs_ids_lvl, asvs_ygbs_lvl,
-                    asvs_kbs_lvl, asvs_contents_lvl, asvs_descs_lvl)
-            if level0 < 3:
-                level_desc = "OWASP Application Security Verification Standard Level %d" % (level0 + 1,)
-                if level0 < 2:
-                    level_recommendation = "Recommended"
-                else:
-                    level_recommendation = "Advanced"
-            elif level0 == 3:
-                level_desc = "UK Government-backed cyber security certification scheme"
-            else:
-                level_desc = ("This checklist is a template for your own %s checklist. "
-                        "If you have created one please create a Pull request on GIT.") % (level_name,)
-                level_recommendation = "Custom"
-            asvs_level_descs.append(level_desc)
-            asvs_level_recommendations.append(level_recommendation)
-
+        checklists = get_checklists(os.path.join(app.root_path, "markdown/checklists"), kb_paths)
         break
 
-    return render_template('project-checklists.html', csrf_token=session['csrf_token'], 
-                NUM_ASVS_LEVELS=NUM_ASVS_LEVELS,
-                ASVS_NAMES=ASVS_NAMES,
-                ASVS_TITLES=ASVS_TITLES,
-                asvs_level_descs=asvs_level_descs,
-                asvs_level_recommendations=asvs_level_recommendations,
-                asvs_ids_lvl=asvs_ids_lvl,
-                asvs_ygbs_lvl=asvs_ygbs_lvl,
-                asvs_kbs_lvl=asvs_kbs_lvl,
-                asvs_contents_lvl=asvs_contents_lvl,
-                asvs_descs_lvl=asvs_descs_lvl,
-                projectName=projectName,
-                project_id=project_id
-            )
+    return render_template('project-checklists.html',
+                           csrf_token=session['csrf_token'], checklists=checklists, project_id=project_id, projectName=projectName)
 
 
 @app.route('/results-checklists', methods=['GET'])
