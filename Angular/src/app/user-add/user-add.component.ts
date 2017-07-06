@@ -30,6 +30,5 @@ export class UserAddComponent{
       err => this.error.push("Error whilst adding user, potential duplicate email adres!")
       );
       this.email = "";
-      return "assad"
   }
 }

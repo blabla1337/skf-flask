@@ -10,12 +10,14 @@ export class GuardService implements CanActivate {
     canActivate() {
         if (AppSettings.AUTH_TOKEN) {
             // logged in so return true
-            return this.returner = true;;
+            this.returner = true;
+            return this.returner
         }
 
         // not logged in so redirect to login page
         this.router.navigate(['/login']);
-        return this.returner = false;
+         this.returner = false;
+            return this.returner
     }
 }
 

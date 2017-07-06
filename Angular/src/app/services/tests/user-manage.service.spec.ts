@@ -98,7 +98,6 @@ describe('User-manage service', () => {
         .subscribe((items) => {
          expect(items.length).toBe(2);
          expect(items[0]['email']).toEqual('example@owasp.org');
-         console.log(items)
         });
     }));
 

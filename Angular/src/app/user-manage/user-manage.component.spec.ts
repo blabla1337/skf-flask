@@ -22,15 +22,19 @@ describe('Users manage component', () => {
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
   let user: User[] = [{ access: "True", activated: "True", email: "example@owasp.org", userID: 1, userName: "admin" }]
-  let mockService = Observable.of(user);
   let userRevoke: User[] = [{ access: "False", activated: "False", email: "example@owasp.org", userID: 1, userName: "admin" }]
-  let mockService2 = Observable.of(userRevoke);
+  let mocker = {
+    revoke: jasmine.createSpy('revoke'),
+    grant: jasmine.createSpy('grant')
+  }
 
   beforeEach(async () => {
+
+
     TestBed.configureTestingModule({
       declarations: [UserManageComponent, OrderBy, StartsWithPipe],
       imports: [NgbModule.forRoot(), FormsModule, HttpModule, RouterTestingModule],
-      providers: [{ provide: UserService, useClass: mockService }]
+      providers: [{ provide: UserService, useClass: mocker }]
     }).compileComponents();
   })
 
@@ -38,6 +42,8 @@ describe('Users manage component', () => {
     fixture = TestBed.createComponent(UserManageComponent)
     component = fixture.componentInstance;
     debugElement = fixture.debugElement.query(By.css('section'));
+    mocker.revoke.and.returnValue(Observable.of(user))
+    mocker.grant.and.returnValue(Observable.of(user))
     fixture.detectChanges()
   })
 
@@ -49,17 +55,17 @@ describe('Users manage component', () => {
   });
 
   it('If user is grant, status of True must be reflected in the template', () => {
-    component.users = user;
-    component.grant_str = "GRANT";
     component.grant(1);
+    component.grant_str = "GRANT";
+    component.users = user;
     fixture.detectChanges(); // update view with quote
     expect(debugElement.nativeElement.textContent).toMatch('True');
   });
 
   it('If user is revoke, status of False must be reflected in the template', () => {
-    component.users = userRevoke;
-    component.revoke_str = "REVOKE";
     component.revoke(1);
+      component.users = userRevoke;
+    component.revoke_str = "REVOKE";
     fixture.detectChanges(); // update view with quote
     expect(debugElement.nativeElement.textContent).toMatch('False');
   });

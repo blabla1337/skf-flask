@@ -28,11 +28,8 @@ describe('UserAddComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
     it('should create the component to add users', () => {
     component.save()
     expect(component.error).toMatch("No email was provided!")
   });
-
-
 });

@@ -42,12 +42,12 @@ describe("project new component", () => {
     expect(component.selector).toMatch('test');
   });
 
-   it("check errors if params not filled", () => {
-    component.save(1,"checklist String");
+  it("check errors if params not filled", () => {
+    component.save(1, "checklist String");
     expect(component.succes).toBeUndefined()
   });
 
-     it("check errors if params not filled", () => {
+  it("check errors if params not filled", () => {
     component.fetchComment("1.1");
     expect(component.error).toMatch("")
     expect(component.succes).toMatch("")
