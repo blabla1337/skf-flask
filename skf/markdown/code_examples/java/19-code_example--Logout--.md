@@ -1,14 +1,12 @@
 # Logout 
 -------
 
-
 ## Example:
 
 
 package com.edw;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -20,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Logout
  */
 @WebServlet("/Logout")
-public class Logout extends HttpServlet {
+public final class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -28,14 +26,12 @@ public class Logout extends HttpServlet {
      */
     public Logout() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -43,7 +39,6 @@ public class Logout extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		request.getSession().invalidate();
 		request.getSession().setAttribute("Athenticated", "");
@@ -70,4 +65,3 @@ public class Logout extends HttpServlet {
 	}
 
 }
-
