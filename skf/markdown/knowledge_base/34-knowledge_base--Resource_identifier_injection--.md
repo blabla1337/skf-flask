@@ -1,6 +1,3 @@
-# Resource identifier injection
--------
-
 ## Description:
 
 A resource identifier injection basically means that the attacker can determine which
