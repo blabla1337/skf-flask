@@ -1,6 +1,3 @@
-# Auto escaping technology 
--------
-
 ## Description:
 
 Some frameworks/templates have the option to auto-escape all incoming user-input to harmless
