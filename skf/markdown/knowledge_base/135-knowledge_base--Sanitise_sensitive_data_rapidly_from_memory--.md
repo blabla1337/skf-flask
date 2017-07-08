@@ -1,6 +1,3 @@
-# Sanitize sensitive data rapidly from memory
--------
-
 ## Description:
 
 Whenever sensitive data is rapidly removed from the systems’ memory, this decreases the possibility the attacker has to compromise this data by means of memory dumping attacks.
