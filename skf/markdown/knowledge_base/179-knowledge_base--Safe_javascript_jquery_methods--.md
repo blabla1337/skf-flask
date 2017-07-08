@@ -1,6 +1,3 @@
-# Safe JavaScript and jquery methods
--------
-
 ## Description:
 
 Whenever you are supplying your JavaScript/jquery with data which is controlled by the
