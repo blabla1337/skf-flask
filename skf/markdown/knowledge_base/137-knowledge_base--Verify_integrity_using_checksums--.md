@@ -1,6 +1,3 @@
-# Verify integrity using checksums
--------
-
 ## Description:
 
 Always use checksums when working with interpreted code, libraries, executables,
