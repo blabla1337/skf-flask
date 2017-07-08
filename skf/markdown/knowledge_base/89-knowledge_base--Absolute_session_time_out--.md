@@ -1,6 +1,3 @@
-# Absolute session time-out
--------
-
 ## Description:
 
 All sessions should implement an absolute timeout, regardless of session activity.
