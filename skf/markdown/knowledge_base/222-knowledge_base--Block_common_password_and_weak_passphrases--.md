@@ -1,6 +1,3 @@
-# Block Common Passwords and weak Passphrases
--------
-
 ## Description:
 
 Applications should encourage the use of strong passwords and pass-phrases. Preferably the
