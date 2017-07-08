@@ -1,6 +1,3 @@
-# Personally Identifiable Information (PII) protection measurements
--------
-
 ## Description:
 
 There should be extra care taken into account when you are dealing with PII in your
