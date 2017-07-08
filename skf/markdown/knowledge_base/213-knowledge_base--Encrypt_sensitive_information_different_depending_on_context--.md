@@ -1,6 +1,3 @@
-# Encrypt sensitive information different depending on context
--------
-
 ## Description:
 
 The mobile application should not store sensitive data in an unencrypted manner, even in
