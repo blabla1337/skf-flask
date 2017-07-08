@@ -1,6 +1,3 @@
-# Client side storage
--------
-
 ## Description:
 
 Client side storage also known as Offline Storage or Web Storage. The Underlying storage mechanism may vary from one
