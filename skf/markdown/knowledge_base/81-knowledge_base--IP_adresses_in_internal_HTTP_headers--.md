@@ -1,6 +1,3 @@
-# IP address in internal HTTP headers
--------
-
 ## Description:
 
 Whenever IP addresses are used in HTTP headers in internal structures of your organization,
