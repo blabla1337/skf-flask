@@ -1,6 +1,3 @@
-# Client-side state management
--------
-
 ## Description:
 
 An application can implement all kinds of logic rules through JavaScript and HTML.
