@@ -1,6 +1,3 @@
-# Aggregate user requests
--------
-
 ## Description:
 
 Verify the system can protect against aggregation or continuous access to functions,  
