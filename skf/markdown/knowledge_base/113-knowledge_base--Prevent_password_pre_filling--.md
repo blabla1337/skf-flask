@@ -1,6 +1,3 @@
-# Prevent pre-filling of passwords
--------
-
 ## Description:
 
 Passwords should never be stored plaintext or in a reversible format on the application. Whenever an attacker hacks 
