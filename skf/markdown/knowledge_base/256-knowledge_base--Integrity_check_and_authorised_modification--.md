@@ -1,6 +1,3 @@
-# Integrity Checking and Authorized Modification
--------
-
 ## Description:
 
 The Current state of the data or program should be compared to the previous recorded in order to detect changes.
