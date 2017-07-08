@@ -1,6 +1,3 @@
-# Client side constraints
--------
-
 ## Description:
 
 Whenever constraints that are imposed on the client side are not enforced on the server side than
