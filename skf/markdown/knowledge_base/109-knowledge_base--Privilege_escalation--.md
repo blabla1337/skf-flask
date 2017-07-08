@@ -1,6 +1,3 @@
-# Privilege escalation
--------
-
 ## Description:
 
 In every portion of the application where a user can create information in the database (e.g., making a payment, adding a contact, or sending a message), then he can receive information (statement of account, order details, etc.), or delete information (drop users, messages, etc.), it is necessary to record that functionality. The tester should try to access such functions as another user in order to verify if it is possible to access a function that should not be permitted by the users role/privilege (but might be permitted as another user).
