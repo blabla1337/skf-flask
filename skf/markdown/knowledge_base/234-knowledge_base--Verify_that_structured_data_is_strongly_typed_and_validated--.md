@@ -1,6 +1,3 @@
-# Verify that structured data is strongly typed and validated
--------
-
 ## Description:
 
 Whenever structured data is strongly typed and validated against a defined schema the application
