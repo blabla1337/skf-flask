@@ -1,6 +1,3 @@
-# Unproven cryptographic algorithms
--------
-
 ## Description:
 
 The encryption techniques used in the application must be known and proven methods.
