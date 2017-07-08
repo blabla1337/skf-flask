@@ -1,6 +1,3 @@
-# Centralized place for security controls
--------
-
 ## Description:
 
 Whenever security controls do not have a centralized implementation there is a high
