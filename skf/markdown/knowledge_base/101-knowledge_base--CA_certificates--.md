@@ -1,6 +1,3 @@
-# CA certificates
--------
-
 ## Description:
 
 In cryptography, a certificate authority or certification authority (CA) is an entity that
