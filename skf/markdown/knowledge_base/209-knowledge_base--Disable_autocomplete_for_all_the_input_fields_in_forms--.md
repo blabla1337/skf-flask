@@ -1,6 +1,3 @@
-# Disable autocomplete for all the input fields in forms
--------
-
 ## Description:
 
 Browser autocomplete and password managers could be used by attackers to steal sensitive
