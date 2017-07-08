@@ -1,6 +1,3 @@
-# Content type headers
--------
-
 ## Description:
 
 Setting the right content headers is important for hardening your applications security,
