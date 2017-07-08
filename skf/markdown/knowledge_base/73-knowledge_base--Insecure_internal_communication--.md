@@ -1,6 +1,3 @@
-# Insecure internal communication
--------
-
 ## Description:
 
 Whenever organizations communicate by means of unencrypted connections, an attacker
