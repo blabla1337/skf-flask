@@ -1,6 +1,3 @@
-# Generate strong crypto tokens with at least 120 bit of effective entropy
--------
-
 ## Description:
 
 ID values stored on the device such as IMEI and UDID should not be used as authentication tokens. 
