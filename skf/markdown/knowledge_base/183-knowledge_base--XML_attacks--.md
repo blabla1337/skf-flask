@@ -1,6 +1,3 @@
-# XML Attacks
--------
-
 ## Description:
 
 Whenever you are using XML in your application there are a few possibilities for
