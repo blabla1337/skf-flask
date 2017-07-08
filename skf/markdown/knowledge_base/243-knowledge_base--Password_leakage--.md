@@ -1,6 +1,3 @@
-# Prevent password leakage
--------
-
 ## Description:
 
 After completing a password recovery functionality, the user should not be sent a plaintext
