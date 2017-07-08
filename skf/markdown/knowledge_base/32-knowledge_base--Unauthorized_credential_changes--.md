@@ -1,6 +1,3 @@
-# Unauthorized credential changes
--------
-
 ## Description:
 
 An application which offers user login functionality, usually has an administration page
