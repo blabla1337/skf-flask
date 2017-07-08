@@ -1,6 +1,3 @@
-# Identify and use only required functions if using components
--------
-
 ## Description:
 
 Applications have many different components that are needed for the business functions 
