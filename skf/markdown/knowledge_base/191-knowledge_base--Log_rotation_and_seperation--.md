@@ -1,6 +1,3 @@
-# Log rotation and separation
--------
-
 ## Description:
 
 Log separation is indispensable in order to prevent it from either radically downgrading your
