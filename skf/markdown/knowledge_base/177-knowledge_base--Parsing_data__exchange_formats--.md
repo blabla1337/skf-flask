@@ -1,6 +1,3 @@
-# Parsing data exchange formats
--------
-
 ## Description:
 
 Whenever you are parsing data exchange formats such as XML, JSON, CSV, etc, you
