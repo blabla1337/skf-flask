@@ -1,6 +1,3 @@
-# No shared knowledge for secret questions
--------
-
 ## Description:
 
 Whenever an application ask an user a secret question i.e a password forgot
