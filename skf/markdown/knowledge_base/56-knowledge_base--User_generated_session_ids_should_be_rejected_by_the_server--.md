@@ -1,6 +1,3 @@
-# User generated session IDs should be rejected by the server  
--------
-
 ## Description:
 
 Whenever user generated session IDs are not rejected by the server,
