@@ -1,6 +1,3 @@
-# Protection against different exfiltration techniques
--------
-
 ## Description:
 
 The mobile application should not leak sensitive information. This information could be leaked for example whenever:
