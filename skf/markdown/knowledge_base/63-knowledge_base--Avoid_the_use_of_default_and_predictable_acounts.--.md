@@ -1,6 +1,3 @@
-# Avoid the use of default and predictable accounts
--------
-
 ## Description:
 
 Whenever default or predictable accounts are available on an application/server this could
