@@ -1,6 +1,3 @@
-# Predictable password and/or token generation
--------
-
 ## Description:
 
 Tokens or passwords that are used within the application must contain high entropy in
