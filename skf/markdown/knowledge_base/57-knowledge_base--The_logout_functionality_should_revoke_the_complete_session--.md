@@ -1,6 +1,3 @@
-# The logout functionality should revoke the complete session  
--------
-
 ## Description:
 
 When the logout functionality does not revoke the complete session, an attacker could
