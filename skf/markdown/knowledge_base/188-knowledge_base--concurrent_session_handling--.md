@@ -1,6 +1,3 @@
-# Concurrent session handling
--------
-
 ## Description:
 
 You should limit and keep track of all the different active concurrent sessions.
