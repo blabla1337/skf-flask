@@ -1,6 +1,3 @@
-# Does the application enforce the use of secure passwords?
--------
-
 ## Description:
 
 Applications should encourage the use of strong passwords and pass-phrases. Preferably the
