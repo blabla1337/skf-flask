@@ -1,6 +1,3 @@
-# Positive validation model
--------
-
 ## Description:
 
 There are two popular methods for handling input validation. The first is blacklisting and the second one is the whitelisting method, also known as a positive validation model.
