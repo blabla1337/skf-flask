@@ -1,6 +1,3 @@
-# Regular expression injection
--------
-
 ## Description:
 
 If the application uses regular expressions which receive user input,
