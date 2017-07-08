@@ -1,6 +1,3 @@
-# Session management control
--------
-
 ## Description:
 
 The ability to restrict and maintain user actions within unique sessions is critical to
