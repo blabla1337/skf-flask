@@ -1,6 +1,3 @@
-# Double decoding of headers/parameters
--------
-
 ## Description:
 
 Double decoding is a problem which often occurs when multiple servers are used in which a
