@@ -1,6 +1,3 @@
-# Logging validation failures
--------
-
 ## Description:
 
 When you log all the input validation failures in your application you can discover in an
