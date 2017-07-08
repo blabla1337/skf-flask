@@ -1,6 +1,3 @@
-# Session IDs do not timeout (idle)
--------
-
 ## Description:
 
 All sessions should implement an idle or inactivity timeout.
