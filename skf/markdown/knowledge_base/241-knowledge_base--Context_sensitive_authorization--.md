@@ -1,6 +1,3 @@
-# Context sensitive authorization
--------
-
 ## Description:
 
 Whenever granting users different types of authorization throughout the application
