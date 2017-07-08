@@ -1,6 +1,3 @@
-# Character encoding
--------
-
 ## Description:
 
 Character encoding is the process of mapping characters, numbers and other symbols to a
