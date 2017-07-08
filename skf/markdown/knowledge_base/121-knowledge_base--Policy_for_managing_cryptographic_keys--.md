@@ -1,6 +1,3 @@
-# Policy for managing cryptographic keys
--------
-
 ## Description:
 
 When there is no policy for managing your cryptographic keys, expired or revoked keys
