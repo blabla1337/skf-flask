@@ -1,6 +1,3 @@
-# Sessions - pattern
--------
-
 ## Description:
 
 When working with sessions there are a couple of things you need to consider in order to implement them securely throughout your system. For more detailed information about these items you should check the knowledge-base about:
