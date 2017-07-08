@@ -1,6 +1,3 @@
-# Include Strict-Transport-Security header
--------
-
 ## Description:
 
 HTTP Strict-Transport-Security (HSTS) enforces secure (HTTP over SSL/TLS) connections to
