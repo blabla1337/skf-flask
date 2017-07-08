@@ -1,6 +1,3 @@
-# Username enumeration
--------
-
 ## Description:
 
 Whenever an application generates an error like:
@@ -20,6 +17,3 @@ Also sometimes you cannot avoid information leaking in functionalities such as a
 registration page. Here you need to use tar-pitting methods to prevent an automated
 attack by an attacker.
 
-Also recommended knowledge-base item:
-
-- Differential analysis attack
