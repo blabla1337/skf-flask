@@ -1,6 +1,3 @@
-# Enforce random numbers are created with proper entropy at runtime
--------
-
 ## Description:
 
 There are some techniques attackers use to decrease the entropy pool of the system so it will
