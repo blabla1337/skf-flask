@@ -1,6 +1,3 @@
-# Canonicalization of user input
--------
-
 ## Description:
 
 Whenever user-input is partially validated there is a high probability that the application
