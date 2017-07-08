@@ -1,6 +1,3 @@
-# X Path injections
--------
-
 ## Description:
 
 Web applications heavily use databases to store and access the data they need for their
