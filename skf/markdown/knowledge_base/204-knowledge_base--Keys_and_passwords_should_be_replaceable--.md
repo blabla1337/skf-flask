@@ -1,6 +1,3 @@
-# All keys and passwords should be replaceable
--------
-
 ## Description:
 
 It always can happen that you need the keys or the passwords of the application or in components
