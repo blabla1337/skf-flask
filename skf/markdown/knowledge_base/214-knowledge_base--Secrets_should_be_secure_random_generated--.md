@@ -1,6 +1,3 @@
-# Secrets should be secure random generated
--------
-
 ## Description:
 
 Secret keys, API tokens, or passwords must be dynamically generated. Whenever these tokens
