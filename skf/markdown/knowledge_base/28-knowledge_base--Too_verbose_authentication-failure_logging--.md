@@ -1,6 +1,3 @@
-# Too verbose authentication-failure logging
--------
-
 ## Description:
 
 The error messages that are displayed when a user fails to login into an application
