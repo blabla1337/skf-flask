@@ -1,6 +1,3 @@
-# Sensitive information stored in cookies
--------
-
 ## Description:
 
 Sensitive data should not be stored in a cookie,because the cookie is also used on the client-side and is adaptable thus making
