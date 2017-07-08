@@ -1,6 +1,3 @@
-# External session hijacking
--------
-
 ## Description:
 
 When an attacker obtains a users session cookie, then he can steal the identity of the
