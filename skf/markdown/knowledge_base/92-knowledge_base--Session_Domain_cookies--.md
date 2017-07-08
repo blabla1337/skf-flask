@@ -1,6 +1,3 @@
-# Session cookies (Domain)
--------
-
 ## Description:
 
 The Domain option allows you to specify whether or not to send the cookie to subdomains.
@@ -21,4 +18,4 @@ secure.
 Recommended knowledge base items:
 
 - Cross subdomain cookie attacks
-- Sessions pattern
+
