@@ -1,6 +1,3 @@
-# Accessible non parsed dynamic scripts
--------
-
 ## Description:
 
 Applications often include files in other pages. When these files can be directly
