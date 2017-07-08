@@ -1,6 +1,3 @@
-# Sensitive information stored alongside the source code
--------
-
 ## Description:
 
 Sometimes when developing an application a programmer stores a password or other
