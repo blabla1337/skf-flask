@@ -1,6 +1,3 @@
-# Certificate paths/revocation information
--------
-
 ## Description:
 
 Whenever your certificate authority is not trusted anymore you should always be able to
