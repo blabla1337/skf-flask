@@ -1,6 +1,3 @@
-# Authentication based on the knowledge of a secret URL
--------
-
 ## Description:
 
 This is a form of security by obscurity. Whenever an attacker manages to fuzz or spider
