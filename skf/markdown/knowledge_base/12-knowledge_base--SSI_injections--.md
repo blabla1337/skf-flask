@@ -1,6 +1,3 @@
-# SSI injections
--------
-
 ## Description:
 
 Web servers usually give developers the ability to add small pieces of dynamic code inside
