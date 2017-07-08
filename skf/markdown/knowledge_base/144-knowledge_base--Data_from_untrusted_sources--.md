@@ -1,6 +1,3 @@
-# Data from untrusted sources
--------
-
 ## Description:
 
 Whenever data from untrusted servers is executed by your application there is a high
