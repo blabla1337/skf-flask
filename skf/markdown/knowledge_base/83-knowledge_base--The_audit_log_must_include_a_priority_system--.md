@@ -1,6 +1,3 @@
-# The audit log must include a priority system.
--------
-
 ## Description:
 
 If the audit log does not contain a clear priority system, it will be difficult to
