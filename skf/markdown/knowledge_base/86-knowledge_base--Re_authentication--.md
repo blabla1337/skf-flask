@@ -1,6 +1,3 @@
-# Re-authentication
--------
-
 ## Description:
 
 Whenever a user is changing credentials such as his password, the user should always be
