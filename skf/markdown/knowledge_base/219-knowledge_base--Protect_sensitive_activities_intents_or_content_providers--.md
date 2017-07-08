@@ -1,6 +1,3 @@
-# Protect sensitive activities, intents or content providers
--------
-
 ## Description:
 
 The application should never export sensitive activities, intents, or content providers.
