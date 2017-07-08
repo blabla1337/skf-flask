@@ -1,6 +1,3 @@
-# Data retention policy
--------
-
 ## Description:
 
 For all the data gathered in an application, there should be set up a data retention policy
