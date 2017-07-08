@@ -1,6 +1,3 @@
-# Centralized the mechanisms for protecting resources and the access
--------
-
 ## Description:
 
 Applications have often different ways for granting access to protected resources, sometimes these are 
