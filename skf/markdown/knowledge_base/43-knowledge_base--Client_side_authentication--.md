@@ -1,6 +1,3 @@
-# Client-side authentication
--------
-
 ## Description:
 
 An application could implement authentication functionalities through JavaScript and HTML.
