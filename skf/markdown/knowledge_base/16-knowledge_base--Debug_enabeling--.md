@@ -1,6 +1,3 @@
-# Debug enabling
--------
-
 ## Description:
 
 Sometimes it is possible through an "enabling debug parameter" to display technical
