@@ -1,6 +1,3 @@
-# Incorrect or missing charset 
--------
-
 ## Description:
 
 When the browser has to guess the charset according to the content that is presented by
