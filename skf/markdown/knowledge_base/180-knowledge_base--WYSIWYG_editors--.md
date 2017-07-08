@@ -1,6 +1,3 @@
-# WYSIWYG editors
--------
-
 ## Description:
 
 WYSIWYG editors can be a great risk to your web application since it allows direct
