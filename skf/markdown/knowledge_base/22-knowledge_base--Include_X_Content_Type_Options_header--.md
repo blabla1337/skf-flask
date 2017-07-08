@@ -1,6 +1,3 @@
-# Include X-Content-Type-Options header
--------
-
 ## Description:
 
 The only defined value, nosniff, prevents Internet Explorer and Google Chrome from
