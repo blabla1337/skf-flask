@@ -1,6 +1,3 @@
-# Zero keys and secrets before destroying them
--------
-
 ## Description:
 
 Attackers are always on the lookout for secrets of a server or computer. When these secrets are
