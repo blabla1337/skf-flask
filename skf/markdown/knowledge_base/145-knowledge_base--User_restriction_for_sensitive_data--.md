@@ -1,6 +1,3 @@
-# User restriction for sensitive data
--------
-
 ## Description:
 
 Always enforce multiple layers of security whenever you want to protect sensitive data/files
