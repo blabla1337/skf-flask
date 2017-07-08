@@ -1,6 +1,3 @@
-# Authentication at a central location
--------
-
 ## Description:
 
 Authentication should always be performed at a central location in the application, in
