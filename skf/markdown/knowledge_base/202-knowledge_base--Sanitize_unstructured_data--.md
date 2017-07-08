@@ -1,6 +1,3 @@
-# Sanitize unstructured data 
--------
-
 ## Description:
 
 Verify that unstructured data is sanitized to enforce generic safety measures. When this is not
