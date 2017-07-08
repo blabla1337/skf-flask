@@ -1,6 +1,3 @@
-# Access-control/Login systems - pattern
--------
-
 ## Description:
 
 For successful access control/login functionality there are a lot of things to take into
