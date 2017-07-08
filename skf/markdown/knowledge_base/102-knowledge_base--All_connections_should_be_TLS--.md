@@ -1,6 +1,3 @@
-# All connections should be TLS
--------
-
 ## Description:
 
 Whenever an application provides TLS, all connections should be TLS otherwise the
