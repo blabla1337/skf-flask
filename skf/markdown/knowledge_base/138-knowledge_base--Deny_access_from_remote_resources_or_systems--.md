@@ -1,6 +1,3 @@
-# Deny access from remote resources or systems
--------
-
 ## Description:
 
 You should always fend off remote connections with untrusted systems/resources which try to
