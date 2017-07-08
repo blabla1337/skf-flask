@@ -1,6 +1,3 @@
-# Separated data, controller, display layers
--------
-
 ## Description:
 
 The application should separate data, controller, and display layers in order to make your
