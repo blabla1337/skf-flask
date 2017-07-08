@@ -1,6 +1,3 @@
-# Client-side Caching and HTML5 Caching
--------
-
 ## Description:
 
 Developers creating HTML5 applications can create fully offline-aware applications using
