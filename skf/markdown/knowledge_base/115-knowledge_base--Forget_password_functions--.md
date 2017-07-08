@@ -1,6 +1,3 @@
-# Forget password functions
--------
-
 ## Description:
 
 Whenever the application provides a password forget functionality or another 
