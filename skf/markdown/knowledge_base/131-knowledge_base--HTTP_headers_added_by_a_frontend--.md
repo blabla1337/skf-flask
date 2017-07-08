@@ -1,6 +1,3 @@
-# HTTP headers added by a front-end
--------
-
 ## Description:
 
 Use this kind of HTTP headers such as a bearer token only if you have authenticated the server sending the header to your application.
