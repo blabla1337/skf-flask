@@ -1,6 +1,3 @@
-# Identifier-based authorization
--------
-
 ## Description:
 
 An application uses parameters in order to process data.
