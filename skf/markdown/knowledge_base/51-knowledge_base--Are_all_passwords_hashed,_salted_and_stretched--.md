@@ -1,6 +1,3 @@
-# Are all passwords hashed, salted and stretched 
--------
-
 ## Description:
 
 Verify that account passwords are one way hashed with a salt, and there is sufficient work 
