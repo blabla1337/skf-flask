@@ -1,6 +1,3 @@
-# Include X-XSS-Protection header
--------
-
 ## Description:
 
 This header enables the Cross-site scripting (XSS) filter built into most recent
