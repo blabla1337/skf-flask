@@ -1,6 +1,3 @@
-# Forward secrecy ciphers
--------
-
 ## Description:
 
 OCSP stapling, formally known as the TLS Certificate Status Request extension, is an
