@@ -1,6 +1,3 @@
-# Include anti-caching headers
--------
-
 ## Description:
 
 Anti-caching headers have the ability to tell the browser,
