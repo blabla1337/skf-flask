@@ -1,6 +1,3 @@
-# Account lock-out
--------
-
 ## Description:
 
 All applications should contain the possibility to lock down accounts for whenever it
