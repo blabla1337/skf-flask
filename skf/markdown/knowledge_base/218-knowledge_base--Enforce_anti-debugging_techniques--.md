@@ -1,6 +1,3 @@
-# Enforce anti-debugging techniques
--------
-
 ## Description:
 
 An attacker can use debug tooling to find out how the application is working and determain the 
