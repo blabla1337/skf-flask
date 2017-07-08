@@ -1,6 +1,3 @@
-# Enforce sequential step order
--------
-
 ## Description:
 
 Whenever a functionality consists out of following several steps to achieve some goal i.e,
