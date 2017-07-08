@@ -1,6 +1,3 @@
-# Principle of least privilege
--------
-
 ## Description:
 
 The application should always be request minimal permissions for required functionality and
