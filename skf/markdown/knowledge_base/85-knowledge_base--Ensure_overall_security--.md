@@ -1,6 +1,3 @@
-# Ensure overall security
--------
-
 ## Description:
 
 Some parts of the application at first sight might seem to acquire a higher level of
