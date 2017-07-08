@@ -1,6 +1,3 @@
-# The login functionality should always generate (and use) a new session ID  
--------
-
 ## Description:
 
 Whenever an user is successfully authenticated the application should generate a
