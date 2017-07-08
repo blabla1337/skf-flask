@@ -1,6 +1,3 @@
-# Mitigate memory dumping attacks
--------
-
 ## Description:
 
 Whenever sensitive information in stored in the devices’ memory, this information can 
