@@ -1,6 +1,3 @@
-# HTTP header injection
--------
-
 ## Description:
 
 HTTP header injection is a general class of web application security vulnerability which
