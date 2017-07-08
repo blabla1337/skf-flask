@@ -1,6 +1,3 @@
-# Protecting device memory
--------
-
 ## Description:
 
 When critical functionality is loaded into the device memory and always in the same place and location 
