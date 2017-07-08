@@ -1,6 +1,3 @@
-# Input validation
--------
-
 ## Description:
 
 To ensure that the application is robust against all forms of input data, this data should
