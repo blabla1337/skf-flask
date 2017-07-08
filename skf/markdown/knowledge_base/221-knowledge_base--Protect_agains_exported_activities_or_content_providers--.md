@@ -1,6 +1,3 @@
-# Cross site request forgery on REST
--------
-
 ## Description:
 
 Whenever input from exported activities intents or content provided is not properly validated
