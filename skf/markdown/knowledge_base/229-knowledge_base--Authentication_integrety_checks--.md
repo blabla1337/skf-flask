@@ -1,6 +1,3 @@
-# Authentication integrity checks 
--------
-
 ## Description:
 
 Whenever security logs can be modified by unauthorized users, potential attackers could use these
