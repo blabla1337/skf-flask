@@ -1,6 +1,3 @@
-# File inclusion attack
--------
-
 ## Description:
 
 The File Inclusion vulnerability allows an attacker to include a file, usually exploiting
