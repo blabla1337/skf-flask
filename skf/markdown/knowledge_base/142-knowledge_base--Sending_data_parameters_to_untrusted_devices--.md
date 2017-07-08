@@ -1,6 +1,3 @@
-# Sending data/parameters to untrusted devices
--------
-
 ## Description:
 
 Whenever an application sends data/parameters to untrusted devices this data could be
