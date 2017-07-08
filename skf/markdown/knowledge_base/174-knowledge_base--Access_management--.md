@@ -1,6 +1,3 @@
-# Access management
--------
-
 ## Description:
 
 Whenever your application contains administration and management functions you should
