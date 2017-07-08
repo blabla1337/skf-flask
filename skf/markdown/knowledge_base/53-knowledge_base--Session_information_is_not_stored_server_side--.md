@@ -1,6 +1,3 @@
-# Session information is not stored server-side
--------
-
 ## Description:
 
 Whenever session information is not stored on the server-side an attacker could easily tamper
