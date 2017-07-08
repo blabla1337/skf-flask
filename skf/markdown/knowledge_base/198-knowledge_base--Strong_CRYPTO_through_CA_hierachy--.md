@@ -1,6 +1,3 @@
-# Strong Crypto through all the certificate hierarchy
--------
-
 ## Description:
 
 When you have an offline PKI setup you need to have solid strong crypto layers.
