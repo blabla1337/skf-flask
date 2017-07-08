@@ -1,6 +1,3 @@
-# Extraneous files in document root
--------
-
 ## Description:
 
 Whenever the document root contains extraneous files, these files could be accessed by an
