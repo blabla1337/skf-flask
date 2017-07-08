@@ -1,6 +1,3 @@
-# TLS implementation must operate in an approved mode of operation
--------
-
 ## Description:
 
 To enforce the maximum amount of security out of the TLS implementation it should always
