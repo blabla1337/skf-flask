@@ -1,6 +1,3 @@
-# Display concurrent and active sessions
--------
-
 ## Description:
 
 Whenever the user is presented a summary of all concurrent sessions, this decreases a potentially
