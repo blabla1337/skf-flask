@@ -1,6 +1,3 @@
-# Version management
--------
-
 ## Description:
 
 Whenever a programmer decides to use third party software,
