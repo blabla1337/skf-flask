@@ -1,6 +1,3 @@
-# Cross subdomain cookie attacks
--------
-
 ## Description:
 
 A quick overview of how it works:
