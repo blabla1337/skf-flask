@@ -1,6 +1,3 @@
-# Verify application is not vulnerable for known security issues
--------
-
 ## Description:
 
 Whenever security researchers find a vulnerability in a library, modules, frameworks, platforms or 
