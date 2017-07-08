@@ -1,6 +1,3 @@
-# Forward secrecy ciphers
--------
-
 ## Description:
 
 In cryptography, forward secrecy (FS; also known as perfect forward secrecy, or PFS) is a property of key-agreement protocols ensuring that a session key derived from a set of long-term keys cannot be compromised if one of the long-term keys is compromised in the future. The key used to protect the transmission of data must not be used to derive any additional keys, and if the key used to protect the transmission of data is derived from some other keying material, then that material must not be used to derive any more keys. In this way, compromise of a single key permits access only to data protected by that single key.
