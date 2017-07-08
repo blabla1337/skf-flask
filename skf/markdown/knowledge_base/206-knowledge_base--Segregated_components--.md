@@ -1,6 +1,3 @@
-# Segregated components
--------
-
 ## Description:
 
 It's always possible that an attacker can find a security flaw and abuse this to gain access
