@@ -1,6 +1,3 @@
-# Logging guidelines when accessing sensitive information
--------
-
 ## Description:
 
 Whenever sensitive data is accessed by a user this event should be logged to later verify
