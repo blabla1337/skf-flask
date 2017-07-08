@@ -1,6 +1,3 @@
-# Cryptographic modules should operate in their approved mode according to their published security policies
--------
-
 ## Description:
 
 Whenever cryptographic modules do not operate in their approved mode according to their
