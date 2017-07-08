@@ -1,6 +1,3 @@
-# Authentication enforced by the web-sever
--------
-
 ## Description:
 
 Authentication should be enforced by the web-server. Whenever these configurations are
