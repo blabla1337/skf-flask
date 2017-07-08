@@ -1,6 +1,3 @@
-# TLS implementation
--------
-
 ## Description:
 
 Whenever sensitive information is being sent over the application TLS must be applied in the application
