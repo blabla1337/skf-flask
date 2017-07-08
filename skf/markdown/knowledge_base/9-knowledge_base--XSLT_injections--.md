@@ -1,6 +1,3 @@
-# XSLT injections
--------
-
 ## Description:
 
 A vulnerability occurs when an XSL file is loaded from a source controlled by an attacker.
