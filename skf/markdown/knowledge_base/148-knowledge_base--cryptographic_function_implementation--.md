@@ -1,6 +1,3 @@
-# Cryptographic function implementation
--------
-
 ## Description:
 
 Whenever a cryptographic function is not implemented on the server side then these
