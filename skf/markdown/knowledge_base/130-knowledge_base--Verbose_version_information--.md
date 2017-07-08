@@ -1,6 +1,3 @@
-# Verbose version information
--------
-
 ## Description:
 
 Revealing system data or debugging information helps an adversary learn about the system
