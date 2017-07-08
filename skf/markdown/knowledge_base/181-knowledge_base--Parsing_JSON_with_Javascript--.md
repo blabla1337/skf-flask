@@ -1,6 +1,3 @@
-# JSON parsing
--------
-
 ## Description:
 
 The eval() function evaluates or executes an argument.
