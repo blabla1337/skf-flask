@@ -1,6 +1,3 @@
-# Logging implemented on the server-side
--------
-
 ## Description:
 
 Logging should always be implemented on the server-side since an attacker otherwise 
