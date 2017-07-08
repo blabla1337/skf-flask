@@ -1,6 +1,3 @@
-# Automated spamming via feedback scripts
--------
-
 ## Description:
 
 A hacker must not gain the ability to abuse an applications email functionality by
