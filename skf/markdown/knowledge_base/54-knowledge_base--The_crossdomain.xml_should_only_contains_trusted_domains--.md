@@ -1,6 +1,3 @@
-# The crossdomain.xml should only contain trusted domains 
--------
-
 ## Description:
 
 The use of a crossdomain.xml file is required when the web application uses Flash.
