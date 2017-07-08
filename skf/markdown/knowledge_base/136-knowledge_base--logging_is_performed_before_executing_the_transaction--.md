@@ -1,6 +1,3 @@
-# Logging is performed before executing the transaction
--------
-
 ## Description:
 
 Whenever the logging is performed before executing a transaction you can be ensured that
