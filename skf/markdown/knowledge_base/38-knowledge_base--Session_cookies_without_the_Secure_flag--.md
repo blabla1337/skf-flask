@@ -1,6 +1,3 @@
-# Session cookies without the Secure flag
--------
-
 ## Description:
 
 The secure flag is an option that can be set when creating a cookie.
@@ -15,6 +12,4 @@ This will instruct the browser to never send the cookie over HTTP.
 The purpose of this flag is to prevent the accidental exposure of a cookie value if a user
 follows an HTTP link.
 
-Recommended knowledge base item:
 
-- Session management
