@@ -1,6 +1,3 @@
-# HSTS preload list
--------
-
 ## Description:
 
 HTTP Strict-Transport-Security (HSTS) allows sites to specify that they should be accessed
