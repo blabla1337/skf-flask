@@ -1,6 +1,3 @@
-# Process high-value business logic flows in a trusted environment
--------
-
 ## Description:
 
 Whenever high-value business logic flows are processed in a trusted monitored environment
