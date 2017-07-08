@@ -1,6 +1,3 @@
-# Logout structuring
--------
-
 ## Description:
 
 Placing a logout link on every page that requires authentication helps the user end the
