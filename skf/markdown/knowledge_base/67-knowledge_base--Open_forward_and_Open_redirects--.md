@@ -1,6 +1,3 @@
-# Open forward and Open redirects
--------
-
 ## Description:
 
 Unvalidated redirects and forwards are possible when a web application accepts untrusted
