@@ -1,6 +1,3 @@
-# Build process security hardening
--------
-
 ## Description:
 
 Building you application should always be done on a server that you trust, you are in control and
