@@ -1,6 +1,3 @@
-# Threat modeling
--------
-
 ## Description:
 
 Threat modeling is a procedure for optimizing Network/ Application/ Internet Security by
