@@ -1,6 +1,3 @@
-# All Access controls must fail securely
--------
-
 ## Description:
 
 Handling errors securely is a key aspect of secure coding.
