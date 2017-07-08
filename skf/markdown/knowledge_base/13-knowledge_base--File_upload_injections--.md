@@ -1,6 +1,3 @@
-# File upload injections
--------
-
 ## Description:
 
 Uploaded files represent a significant risk to applications.
