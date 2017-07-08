@@ -1,6 +1,3 @@
-# Servers must not be trusted without explicit authentication
--------
-
 ## Description:
 
 Whenever the server your web-application is connecting towards is not using any form of
