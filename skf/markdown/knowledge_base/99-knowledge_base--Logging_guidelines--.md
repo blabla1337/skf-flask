@@ -1,6 +1,3 @@
-# Logging guidelines
--------
-
 ## Description:
 
 The logging should contain some guidelines in order to organize your logging file in such
