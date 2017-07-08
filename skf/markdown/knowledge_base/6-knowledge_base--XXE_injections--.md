@@ -1,6 +1,3 @@
-# XXE injections
--------
-
 ## Description:
 
 Processing of an Xml eXternal Entity containing tainted data may lead to the disclosure of
