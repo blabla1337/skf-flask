@@ -1,6 +1,3 @@
-# HTTP request methods
--------
-
 ## Description:
 
 HTTP offers a number of methods that can be used to perform actions on the web server.
