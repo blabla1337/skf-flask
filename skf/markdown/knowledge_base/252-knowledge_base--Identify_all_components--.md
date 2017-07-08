@@ -1,6 +1,3 @@
-# Identify all application components
--------
-
 ## Description:
 
 Components are defined in terms of the business functions and/or security functions they provide.
