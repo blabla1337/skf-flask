@@ -1,6 +1,3 @@
-# authenticated data cleared from client storage
--------
-
 ## Description:
 
 All authenticated data should be removed from the browsers storage as soon as
