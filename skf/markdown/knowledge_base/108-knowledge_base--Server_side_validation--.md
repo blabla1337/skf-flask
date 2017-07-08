@@ -1,6 +1,3 @@
-# Server-side input validation
--------
-
 ## Description:
 
 Validation of user supplied input must always be enforced on the server side.
