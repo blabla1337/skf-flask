@@ -1,6 +1,3 @@
-# Identify all external dependencies
--------
-
 ## Description:
 
 Sometimes your application has certain external dependencies which may strongly
