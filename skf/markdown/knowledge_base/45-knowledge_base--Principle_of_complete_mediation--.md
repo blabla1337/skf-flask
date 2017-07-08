@@ -1,6 +1,3 @@
-# Principle of complete mediation
--------
-
 ## Description:
 
 Throughout development of the application, there must be perpetual checks in place to check
