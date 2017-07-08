@@ -1,6 +1,3 @@
-# XSS injection
--------
-
 ## Description:
 
 Every time the application gets user-input, whether this showing it on screen or processing
