@@ -12,8 +12,5 @@ your method should be "proven" and secure in the sense of that:
 
 ## Solution:
 
-There are some general guidelines in order to ensure your authentication mechanism
-is a "proven" one in order to harden your application against attackers.
-These guidelines are listed in the following knowledgebase item:
-
-- Access control pattern
+Verify authentication mechanisms in the application are proven and verified against
+ASVS.
