@@ -1,6 +1,3 @@
-# Signed message payloads
--------
-
 ## Description:
 
 In order to establish trust between two communicating party's such as servers and clients
