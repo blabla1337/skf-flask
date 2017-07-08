@@ -1,6 +1,3 @@
-# Cryptographic modules must fail securely
--------
-
 ## Description:
 
 Whenever a cryptographic module does not fail securely this the device needs to be put in
