@@ -1,6 +1,3 @@
-# All time sources should be synchronized
--------
-
 ## Description:
 
 All time sources must be synchronized throughout for example, different API servers or 
