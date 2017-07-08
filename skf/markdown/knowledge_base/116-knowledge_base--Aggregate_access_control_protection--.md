@@ -1,6 +1,3 @@
-# Aggregate access control protection
--------
-
 ## Description:
 
 Verify the system can protect against aggregation or continuous access of
