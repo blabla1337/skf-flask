@@ -1,6 +1,3 @@
-# Brute-force password guessing
--------
-
 ## Description:
 
 Login functions should not be abused in an automated way that an attacker could create a
