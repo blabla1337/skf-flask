@@ -1,6 +1,3 @@
-# Verify that the session id is never disclosed
--------
-
 ## Description:
 
 If the session id is disclosed in the URL the users session ID can be easily obtained by
