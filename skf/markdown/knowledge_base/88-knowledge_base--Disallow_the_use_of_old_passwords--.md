@@ -1,6 +1,3 @@
-# Disallow the use of old passwords
--------
-
 ## Description:
 
 This is a mitigation of the risk that a password can leak by any means towards a possible attacker.Changing the password to a new one minimizes the damage.
