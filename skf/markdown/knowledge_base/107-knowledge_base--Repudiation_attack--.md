@@ -1,6 +1,3 @@
-# Repudiation attack
--------
-
 ## Description:
 
 A repudiation attack happens when an application or system does not adopt controls to
