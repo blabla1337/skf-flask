@@ -1,6 +1,3 @@
-# Proven authentication mechanisms
--------
-
 ## Description:
 
 Whenever your application has the option for users to authenticate themselves
