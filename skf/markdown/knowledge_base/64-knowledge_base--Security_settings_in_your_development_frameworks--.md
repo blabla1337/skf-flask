@@ -1,6 +1,3 @@
-# Security settings in your development frameworks
--------
-
 ## Description:
 
 Whenever certain security settings in your application frameworks
