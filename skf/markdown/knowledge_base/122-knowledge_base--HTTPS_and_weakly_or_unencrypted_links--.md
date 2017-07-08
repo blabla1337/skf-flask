@@ -1,6 +1,3 @@
-# HTTPS and weakly or unencrypted links
--------
-
 ## Description:
 
 Imagine the scenario where you have a login form and an application which supports HTTPS.
