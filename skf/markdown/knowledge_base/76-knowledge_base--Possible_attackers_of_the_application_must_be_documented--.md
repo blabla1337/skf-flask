@@ -1,6 +1,3 @@
-# Possible attackers of the application must be documented
--------
-
 ## Description:
 
 Authentication decisions should be logged along with relevant metadata for security 
