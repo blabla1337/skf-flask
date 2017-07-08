@@ -1,6 +1,3 @@
-# Password change leads to destroying concurrent sessions
--------
-
 ## Description:
 
 Whenever a user changes his password, the user should be granted the option
