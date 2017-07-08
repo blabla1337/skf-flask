@@ -1,6 +1,3 @@
-# Screen scraping and data harvesting
--------
-
 ## Description:
 
 Whenever the application does not put a threshold on the number requests made to the server,
