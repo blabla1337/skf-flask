@@ -1,6 +1,3 @@
-# TLS certificate public key pinning
--------
-
 ## Description:
 
 Pinning is the process of associating a host with their expected X509 certificate or
