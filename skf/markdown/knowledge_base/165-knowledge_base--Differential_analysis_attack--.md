@@ -1,6 +1,3 @@
-# Differential analysis attack
--------
-
 ## Description:
 
 Whenever an attacker sends a request to the server, an example by means of
