@@ -1,6 +1,3 @@
-# Enforce sensitive information to be stored encrypted on device
--------
-
 ## Description:
 
 The mobile application should not store sensitive data into unencrypted shared
