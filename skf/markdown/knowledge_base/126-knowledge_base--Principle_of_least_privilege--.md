@@ -1,6 +1,3 @@
-# Principle of least privilege
--------
-
 ## Description:
 
 The principle of least privilege recommends that accounts have the least amount of
