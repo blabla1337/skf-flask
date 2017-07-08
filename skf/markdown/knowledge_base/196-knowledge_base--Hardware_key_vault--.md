@@ -1,6 +1,3 @@
-# Hardware key vault
--------
-
 ## Description:
 
 Keys should remain in a protected key vault at all times. In particular, ensure that there
