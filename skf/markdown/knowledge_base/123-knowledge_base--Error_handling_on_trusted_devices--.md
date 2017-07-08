@@ -1,6 +1,3 @@
-# Error handling on trusted devices
--------
-
 ## Description:
 
 Whenever error handling is not applied through trusted devices the errors it supplies can
