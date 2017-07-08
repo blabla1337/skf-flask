@@ -1,6 +1,3 @@
-# Column Truncation SQL injection
--------
-
 ## Description:
 
 Whenever an applications structural logic mismatches with the database structural logic an attacker gains the opportunity to truncate his submit towards your database column by submitting a value longer than the limit allowed in the database.
