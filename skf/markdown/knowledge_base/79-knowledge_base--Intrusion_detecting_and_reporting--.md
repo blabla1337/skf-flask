@@ -1,6 +1,3 @@
-# Intrusion detecting and reporting
--------
-
 ## Description:
 
 All possible attacks on your application should be detected and reported in order to
