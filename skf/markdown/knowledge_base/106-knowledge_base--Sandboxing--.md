@@ -1,6 +1,3 @@
-# Sandboxing
--------
-
 ## Description:
 
 A sandbox is a security mechanism for separating running programs.
