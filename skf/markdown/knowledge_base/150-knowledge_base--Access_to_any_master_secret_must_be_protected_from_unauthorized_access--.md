@@ -1,6 +1,3 @@
-# Access to any master secret must be protected from unauthorized access
--------
-
 ## Description:
 
 Access to any master secret must be protected from unauthorized access in order to protect
