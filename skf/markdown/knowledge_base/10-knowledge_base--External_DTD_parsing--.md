@@ -1,6 +1,3 @@
-# External DTD parsing
--------
-
 ## Description:
 
 Processing of an external entity containing tainted data may lead to the disclosure of confidential information and other system impacts. The XML 1.0 standard defines the structure of an XML document. The standard defines a concept called an entity, which is a storage unit of some type. There exists a specific type of entity, an external general parsed entity often shortened to an external entity that can access local or remote content via a declared system identifier. The system identifier is assumed to be a URI that can be dereferenced (accessed) by the XML processor when processing the entity.
