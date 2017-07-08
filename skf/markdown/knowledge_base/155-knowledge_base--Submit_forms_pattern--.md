@@ -1,6 +1,3 @@
-# Submit forms - pattern
--------
-
 ## Description:
 
 Whenever a user can submit a form in your system you should consider implementing
