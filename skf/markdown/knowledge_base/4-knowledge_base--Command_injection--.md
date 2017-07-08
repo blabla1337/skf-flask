@@ -1,6 +1,3 @@
-# Command injection
--------
-
 ## Description:
 
 Command injection is an attack in which the goal is execution of arbitrary commands on
