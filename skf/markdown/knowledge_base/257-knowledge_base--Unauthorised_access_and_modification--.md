@@ -1,6 +1,3 @@
-# Unauthorized Access and Modification
--------
-
 ## Description:
 
 Throughout the development of the application there must be perpetual checks in place to check
@@ -8,7 +5,6 @@ if all pages and resources by default require authentication except those specif
 
 Sometimes developers simply forget to implement these checks, or they remove the checks 
 temporarily for testing purposes. 
-
 
 
 ## Solution:
