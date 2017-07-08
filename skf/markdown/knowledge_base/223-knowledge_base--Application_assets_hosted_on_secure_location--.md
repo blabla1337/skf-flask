@@ -1,6 +1,3 @@
-# Application assets hosted on secure location
--------
-
 ## Description:
 
 Whenever application assets such as JavaScript libraries or CSS styleshees are not hosted
