@@ -1,6 +1,3 @@
-# Validated cryptographic modules
--------
-
 ## Description:
 
 The National Institute of Standards and Technology (NIST) issued the FIPS 140 Publication
