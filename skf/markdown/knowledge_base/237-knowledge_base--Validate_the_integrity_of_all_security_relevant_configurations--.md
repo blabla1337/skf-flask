@@ -1,6 +1,3 @@
-# Validate the integrity of all security-relevant configurations 
--------
-
 ## Description:
 
 Only authorized administrators should have access to change security-relevant configurations.
