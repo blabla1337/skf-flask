@@ -1,6 +1,3 @@
-# Commonly chosen weak passwords and passphrases.
--------
-
 ## Description:
 
 Whenever an attacker has enumerated usernames from an application the attacker could start
