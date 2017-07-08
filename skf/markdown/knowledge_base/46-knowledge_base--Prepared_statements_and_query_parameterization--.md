@@ -1,6 +1,3 @@
-# SQL injection
--------
-
 ## Description:
 
 All SQL queries, HQL, OSQL, NOSQL and stored procedures, related to stored procedures should be
