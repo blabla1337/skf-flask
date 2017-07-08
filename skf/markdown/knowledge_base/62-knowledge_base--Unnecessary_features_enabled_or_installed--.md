@@ -1,6 +1,3 @@
-# Unnecessary features enabled or installed
--------
-
 ## Description:
 
 Whenever there are unnecessary features enabled or installed this could increase
