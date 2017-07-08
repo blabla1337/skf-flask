@@ -1,6 +1,3 @@
-# Sensitive information inside the source code or online repositories
--------
-
 ## Description:
 
 Whenever secrets, API keys, and passwords are stored in the applications source code an attacker
