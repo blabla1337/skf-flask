@@ -1,6 +1,3 @@
-# Password forget function - pattern
--------
-
 ## Description:
 
 Whenever you are implementing a forgot password function into your system there are
