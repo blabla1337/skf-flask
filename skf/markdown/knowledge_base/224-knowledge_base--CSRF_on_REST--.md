@@ -1,6 +1,3 @@
-# Cross-site request forgery on REST
--------
-
 ## Description:
 
 Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious Web site,
