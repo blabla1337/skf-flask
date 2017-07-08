@@ -1,6 +1,3 @@
-# Signed application components
--------
-
 ## Description:
 
 When an application don't use signed application components an attacker can easily modify parts
