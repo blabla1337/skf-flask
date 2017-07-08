@@ -1,6 +1,3 @@
-# Identify all application components
--------
-
 ## Description:
 
 When you are building an application you first want to map where you are placing
