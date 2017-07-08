@@ -1,6 +1,3 @@
-# User registration - pattern
--------
-
 ## Description:
 
 Whenever you allow users to register on your system there are a couple of things you need
