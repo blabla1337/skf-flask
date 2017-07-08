@@ -1,6 +1,3 @@
-# Robots.txt
--------
-
 ## Description:
 
 Each site uses a robots.txt file which allows search engines to provide information.
