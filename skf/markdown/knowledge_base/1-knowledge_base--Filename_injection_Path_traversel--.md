@@ -1,6 +1,3 @@
-# Filename Injection / Path Traversal
--------
-
 ## Description:
 
 A Path Traversal attack aims to access files and directories that are stored outside the web root folder. By browsing the application, the attacker looks for absolute links to files stored on the web server. By manipulating variables that reference files with dot-dot-slash (../); sequences and its variations, it may be possible to access arbitrary files and directories stored on file system, including application source code, configuration, and critical system files, limited by system operational access control.
