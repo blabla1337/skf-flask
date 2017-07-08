@@ -1,6 +1,3 @@
-# XML injection
--------
-
 ## Description:
 
 XML Injection is an attack technique used to manipulate or compromise the logic of an XML
