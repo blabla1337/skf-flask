@@ -1,6 +1,3 @@
-# TLS settings are in line with current leading practice
--------
-
 ## Description:
 
 TLS settings must always be in line with current leading practice. Whenever TLS
