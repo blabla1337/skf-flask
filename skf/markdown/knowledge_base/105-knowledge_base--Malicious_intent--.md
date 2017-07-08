@@ -1,6 +1,3 @@
-# Malicious intent
--------
-
 ## Description:
 
 Before pushing a code live you should check the software for malicious code in order to
