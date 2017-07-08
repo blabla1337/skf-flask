@@ -1,6 +1,3 @@
-# Runtime environment
--------
-
 ## Description:
 
 Whenever you use runtime environments you want to make sure these are not susceptible for
