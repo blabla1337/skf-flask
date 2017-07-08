@@ -1,6 +1,3 @@
-# Single application-level logging
--------
-
 ## Description:
 
 Whenever the application contains a single application-level logging implementation it
