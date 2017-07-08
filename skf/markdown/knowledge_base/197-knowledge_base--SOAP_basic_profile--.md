@@ -1,6 +1,3 @@
-# SOAP based web services compliant with (WS-I) Basic Profile
--------
-
 ## Description:
 
 Simple Soap Binding Profile is a specification from the Web Services Interoperability industry consortium. It
