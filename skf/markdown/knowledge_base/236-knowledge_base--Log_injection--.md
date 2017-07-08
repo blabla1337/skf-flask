@@ -1,6 +1,3 @@
-# Log injection
--------
-
 ## Description:
 
 Log injection problems are a subset of injection problem, in which invalid entries taken
