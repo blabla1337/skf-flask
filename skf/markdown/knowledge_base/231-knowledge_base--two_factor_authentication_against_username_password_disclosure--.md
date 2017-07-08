@@ -1,6 +1,3 @@
-# Two faction authentication against username + password disclosure.
--------
-
 ## Description:
 
 Whenever the users username and passwords are disclosed by an application on what ever fashion possible, the 
