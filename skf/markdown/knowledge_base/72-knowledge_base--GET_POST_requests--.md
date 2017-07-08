@@ -1,6 +1,3 @@
-# GET/POST requests
--------
-
 ## Description:
 
 Authors of services which use the HTTP protocol SHOULD NOT use GET-based forms for the
