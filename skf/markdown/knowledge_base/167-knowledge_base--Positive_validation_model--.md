@@ -15,13 +15,3 @@ side. This means you should also apply input rejection as well as typecasting an
 This is to prevent users from being attacked by XSS attacks which are undetectable by
 the server.
 
-Recommended knowledge base items:
-
-- Single input validation controls
-- Input rejection
-- Input validation
-
-
-
-
-   
