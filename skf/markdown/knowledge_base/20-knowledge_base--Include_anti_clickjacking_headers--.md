@@ -1,6 +1,3 @@
-# Include anti clickjacking headers
--------
-
 ## Description:
 
 Clickjacking, also known as a "UI redress attack", is when an attacker uses multiple
