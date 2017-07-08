@@ -1,6 +1,3 @@
-# Directory listing
--------
-
 ## Description:
 
 Whenever directory listing is enabled, an attacker could gain sensitive information about
