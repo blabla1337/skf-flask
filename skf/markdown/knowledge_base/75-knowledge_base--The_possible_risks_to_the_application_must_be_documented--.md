@@ -1,6 +1,3 @@
-# The possible risks to the application must be documented
--------
-
 ## Description:
 
 The information that is stored of the application and/or user
