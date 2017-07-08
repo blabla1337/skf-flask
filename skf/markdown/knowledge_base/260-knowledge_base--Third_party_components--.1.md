@@ -1,6 +1,3 @@
-# Third party components
--------
-
 ## Description: 
 
 All third party components the application depends on to operate must be mapped in
