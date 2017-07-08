@@ -1,6 +1,3 @@
-# All access control decisions must be logged
--------
-
 ## Description:
 
 Access control decisions must be logged for forensics in the case of brute force attacks. 
