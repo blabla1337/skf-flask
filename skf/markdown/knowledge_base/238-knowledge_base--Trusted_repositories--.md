@@ -1,6 +1,3 @@
-# Trusted repositories
--------
-
 ## Description:
 
 Whenever the components are loaded from untrusted repositories this could imply the 
