@@ -1,6 +1,3 @@
-# High value transactions
--------
-
 ## Description:
 
 Whenever there are high value transactions a normal username/password static authentication method does
