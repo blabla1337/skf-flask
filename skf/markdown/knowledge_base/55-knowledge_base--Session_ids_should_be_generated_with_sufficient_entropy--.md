@@ -1,6 +1,3 @@
-# Session IDs should be generated with sufficient entropy  
--------
-
 ## Description:
 
 Whenever session IDs are not generated with a sufficient entropy this could lead to a
