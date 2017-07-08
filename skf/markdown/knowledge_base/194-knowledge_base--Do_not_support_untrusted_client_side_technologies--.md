@@ -1,6 +1,3 @@
-# Client side technologies not supported natively via W3C browser standards
--------
-
 ## Description:
 
 When using unsupported client side technologies which are not supported natively via
