@@ -59,6 +59,16 @@ def val_alpha_num(value):
         return True
 
 
+def val_alpha_num_special(value):
+    """User input validation for checking a-z A-Z 0-9 _ . - ' " """
+    match = re.findall(r"[^ a-zA-Z0-9_.-.'.\"]", value)
+    if match:
+        log("User supplied not an a-z A-Z 0-9 _ . - ' \" value", "MEDIUM", "FAIL")
+        abort(400, "Validation Error")
+    else:
+        return True
+
+
 def val_num(value): 
     """User input validation for checking numeric values only 0-9"""
     if not isinstance( value, int ):

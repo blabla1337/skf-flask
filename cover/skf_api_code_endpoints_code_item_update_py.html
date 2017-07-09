@@ -125,9 +125,9 @@
 <p id="t22" class="pln">    <span class="key">def</span> <span class="nam">put</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">id</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t23" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="pln"><span class="str">        Update a code example item.</span><span class="strut">&nbsp;</span></p>
-<p id="t25" class="pln"><span class="str">        * Privileges required: **edit**</span><span class="strut">&nbsp;</span></p>
+<p id="t25" class="pln"><span class="str">        * Privileges required: **manage**</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
-<p id="t27" class="stm run hide_run">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'edit'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t27" class="stm run hide_run">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'manage'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t28" class="stm run hide_run">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">update_code_item</span><span class="op">(</span><span class="nam">id</span><span class="op">,</span> <span class="nam">data</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t30" class="stm run hide_run">        <span class="key">return</span> <span class="nam">result</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -142,7 +142,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.4.1</a>,
-            created at 2017-06-13 22:38
+            created at 2017-07-09 21:34
         </p>
     </div>
 </div>

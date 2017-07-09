@@ -4,7 +4,7 @@ from sqlalchemy import desc
 from skf.database import db
 from skf.database.comments import comments
 from skf.database.checklists_results import checklists_results 
-from skf.api.security import log, val_num, val_alpha_num
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 
 def get_comment_items(data):
@@ -23,7 +23,7 @@ def new_comment_item(user_id, data):
     val_alpha_num(data.get('checklistID'))
     val_num(data.get('sprintID'))
     val_num(data.get('status'))
-    val_alpha_num(data.get('comment'))
+    val_alpha_num_special(data.get('comment'))
     sprint_id = data.get('sprintID')
     checklist_id = data.get('checklistID')
     status = data.get('status')

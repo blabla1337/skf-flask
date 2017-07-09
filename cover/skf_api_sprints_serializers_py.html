@@ -116,15 +116,14 @@
 <p id="n47" class="pln"><a href="#n47">47</a></p>
 <p id="n48" class="pln"><a href="#n48">48</a></p>
 <p id="n49" class="pln"><a href="#n49">49</a></p>
-<p id="n50" class="pln"><a href="#n50">50</a></p>
-<p id="n51" class="stm run hide_run"><a href="#n51">51</a></p>
+<p id="n50" class="stm run hide_run"><a href="#n50">50</a></p>
+<p id="n51" class="pln"><a href="#n51">51</a></p>
 <p id="n52" class="pln"><a href="#n52">52</a></p>
 <p id="n53" class="pln"><a href="#n53">53</a></p>
-<p id="n54" class="pln"><a href="#n54">54</a></p>
-<p id="n55" class="stm run hide_run"><a href="#n55">55</a></p>
+<p id="n54" class="stm run hide_run"><a href="#n54">54</a></p>
+<p id="n55" class="pln"><a href="#n55">55</a></p>
 <p id="n56" class="pln"><a href="#n56">56</a></p>
 <p id="n57" class="pln"><a href="#n57">57</a></p>
-<p id="n58" class="pln"><a href="#n58">58</a></p>
 
             </td>
             <td class="text">
@@ -175,17 +174,16 @@
 <p id="t45" class="pln">    <span class="str">'kb_items_content'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'kb_items.content'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Knowledge base content'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t46" class="pln">    <span class="str">'checklist_items_checklistID'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'checklist_items.checklistID'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'The unique identifier of a checklist item'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t47" class="pln">    <span class="str">'checklist_items_content'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'checklist_items.content'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Checklist content'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t48" class="pln">    <span class="str">'checklist_items_level'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">Integer</span><span class="op">(</span><span class="nam">attribute</span><span class="op">=</span><span class="str">'checklist_items.level'</span><span class="op">,</span> <span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Checklist level'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t49" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t50" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t51" class="stm run hide_run"><span class="nam">sprint_results</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">inherit</span><span class="op">(</span><span class="str">'Page of sprint results'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
-<p id="t52" class="pln">    <span class="str">'items'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">List</span><span class="op">(</span><span class="nam">fields</span><span class="op">.</span><span class="nam">Nested</span><span class="op">(</span><span class="nam">results</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t53" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t54" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t55" class="stm run hide_run"><span class="nam">message</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'Response message'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
-<p id="t56" class="pln">    <span class="str">'message'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Response message'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t57" class="pln">    <span class="str">'sprintID'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">Integer</span><span class="op">(</span><span class="nam">readOnly</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'The unique identifier of a sprint item'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t58" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t48" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t49" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t50" class="stm run hide_run"><span class="nam">sprint_results</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">inherit</span><span class="op">(</span><span class="str">'Page of sprint results'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
+<p id="t51" class="pln">    <span class="str">'items'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">List</span><span class="op">(</span><span class="nam">fields</span><span class="op">.</span><span class="nam">Nested</span><span class="op">(</span><span class="nam">results</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t52" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t53" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t54" class="stm run hide_run"><span class="nam">message</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'Response message'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
+<p id="t55" class="pln">    <span class="str">'message'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Response message'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t56" class="pln">    <span class="str">'sprintID'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">Integer</span><span class="op">(</span><span class="nam">readOnly</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'The unique identifier of a sprint item'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t57" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -196,7 +194,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.4.1</a>,
-            created at 2017-06-13 22:38
+            created at 2017-07-09 21:57
         </p>
     </div>
 </div>

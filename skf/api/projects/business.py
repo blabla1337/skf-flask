@@ -5,7 +5,7 @@ from skf.database.projects import projects
 from skf.database.groupmembers import groupmembers
 from skf.database.project_sprints import project_sprints 
 from skf.database.checklists_results import checklists_results
-from skf.api.security import log, val_num, val_alpha_num
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 
 def get_project_items():
@@ -26,9 +26,9 @@ def update_project(project_id, user_id, data):
     log("User updated project", "MEDIUM", "PASS")
     val_num(project_id)
     val_num(user_id)
-    val_alpha_num(data.get('name'))
+    val_alpha_num_special(data.get('name'))
     val_alpha_num(data.get('version'))
-    val_alpha_num(data.get('description'))
+    val_alpha_num_special(data.get('description'))
     val_num(data.get('level'))
     project = projects.query.filter(projects.projectID == project_id).one()
     project.projectName = data.get('name')
@@ -49,9 +49,9 @@ def update_project(project_id, user_id, data):
 def new_project(user_id, data):
     log("User created new project", "MEDIUM", "PASS")
     val_num(user_id)
-    val_alpha_num(data.get('name'))
+    val_alpha_num_special(data.get('name'))
     val_alpha_num(data.get('version'))
-    val_alpha_num(data.get('description'))
+    val_alpha_num_special(data.get('description'))
     val_num(data.get('level'))
     projectName = data.get('name')
     projectVersion = data.get('version')

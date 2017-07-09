@@ -1,9 +1,9 @@
 from skf.database import db
-from sqlalchemy import desc
+from sqlalchemy import asc, desc
 from skf.database.groupmembers import groupmembers
 from skf.database.project_sprints import project_sprints 
 from skf.database.checklists_results import checklists_results 
-from skf.api.security import log, val_num, val_alpha_num
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 
 def get_sprint_item(sprint_id, user_id):
@@ -18,7 +18,7 @@ def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).group_by(checklists_results.checklistID).order_by(desc(checklists_results.status)).paginate(1, 500, False)
+    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).group_by(checklists_results.checklistID).order_by(asc(checklists_results.status)).paginate(1, 500, False)
     return result
 
 
@@ -45,8 +45,8 @@ def update_sprint(sprint_id, user_id, data):
     val_num(sprint_id)
     val_num(user_id)
     sprint = project_sprints.query.filter(project_sprints.sprintID == sprint_id).one()
-    val_alpha_num(data.get('name'))
-    val_alpha_num(data.get('description'))
+    val_alpha_num_special(data.get('name'))
+    val_alpha_num_special(data.get('description'))
     sprint.sprintName = data.get('name')
     sprint.sprintDesc = data.get('description')
     db.session.add(sprint) 
@@ -56,8 +56,8 @@ def update_sprint(sprint_id, user_id, data):
 
 def new_sprint(user_id, data):
     log("User created new sprint", "MEDIUM", "PASS")
-    val_alpha_num(data.get('name'))
-    val_alpha_num(data.get('description'))
+    val_alpha_num_special(data.get('name'))
+    val_alpha_num_special(data.get('description'))
     val_num(data.get('projectID'))
     sprintName = data.get('name')
     sprintDesc = data.get('description')
@@ -88,7 +88,6 @@ def stats_sprint(project_id):
         total = sprint_open + sprint_closed + sprint_accepted + sprint_sec_ack + sprint_sec_fail
         sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted, 'sprint_sec_ack': sprint_sec_ack, 'sprint_sec_fail': sprint_sec_fail, 'sprint_items_total': total})
     return sprint
-
 
 
  
