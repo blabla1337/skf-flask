@@ -34,7 +34,7 @@ before_script:
 
 script:
   - cd Angular; ./node_modules/.bin/bithound check git@github.com:blabla1337/skf-flask.git
-  - npm test
+  - ng test
   - cd ../; coverage run --source=skf setup.py test
 
 after_success:
