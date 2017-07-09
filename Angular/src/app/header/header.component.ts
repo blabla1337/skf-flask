@@ -116,6 +116,7 @@ export class HeaderComponent implements OnInit {
 
   LogOff() {
     sessionStorage.removeItem('auth_token');
+    localStorage.clear();
     location.reload();
   }
 

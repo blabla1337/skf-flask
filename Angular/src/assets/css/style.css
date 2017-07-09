@@ -183,6 +183,9 @@ input:-moz-placeholder {
   cursor: pointer;
   border: none;
 }
+.btn-yellow { background: #ffc000; color: #fff; }
+.btn-green { background: #92d050; color: #fff; }
+.btn-blue { background: #00b0f0; color: #fff; }
 .btn-xs {
   font-size: 0.9em;
 }
@@ -2451,7 +2454,10 @@ a#finish.nav-link {
 .project-list .btn-danger {
   border: none;
 }
+.project-list td { vertical-align: middle; }
 /* Project Summary */
+.project-summary .col-md-4 { padding: 0.5em; }
+.project-summary .log { padding: 0.5em; }
 .blob {
   width: 2.5em;
   height: 2.5em;
@@ -2508,3 +2514,4 @@ a#finish.nav-link {
 .card-header.no-padding b.red {
   background: #c9302c;
 }
+.card-block > p { float: left; width: 100%; }

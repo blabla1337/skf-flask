@@ -24,6 +24,12 @@
     <div class="lock-screen">
       <div class="login-wrapper">
         <div class="logo"><img src="/assets/img/logos/logo_login.svg" width="60" height="60" /></div>
+        <div *ngIf="expired">
+          <br/>
+          <ngb-alert [dismissible]="false">
+            <strong>Warning!</strong> Your session has expired!
+          </ngb-alert>
+        </div>
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

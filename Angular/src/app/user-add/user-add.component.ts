@@ -21,6 +21,8 @@ export class UserAddComponent{
     this.return = true;
     this.error = [];
     if (!this.email) { this.error.push("No email was provided!"); this.return = false; }
+    let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+    if(EMAIL_REGEXP.test(this.email) == false) { this.error.push("Email validation failed, provide a valid adress!");  this.return = false}
     //if (!this.privileges) { this.error.push("No privilege was provided!"); this.return = false; }
     if (this.return == false) { return; }
     

@@ -28,7 +28,8 @@
     <div class="inner">
       <div class="text">
         <h1>Project overview</h1>
-        <p>An overview of all the current sprints in the project. More information about the security requirements by clicking on the view button. </p>
+        <p>An overview of all the current sprints in the project. More information about the security requirements by clicking
+          on the view button. </p>
       </div>
       <button style="float:right;" (click)="open(content)" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i> Add new sprint</button>
     </div>
@@ -40,31 +41,34 @@
           <div *ngFor="let sprint of sprintResult" class="col-md-4">
             <div class="card">
               <div class="card-header padding-right">
-                Sprint: {{sprint.sprint_name}} 
+                Sprint: {{sprint.sprint_name}}
               </div>
               <div class="card-block">
                 <ngb-tabset>
                   <ngb-tab>
                     <ng-template ngbTabTitle><b>Summary</b></ng-template>
                     <ng-template ngbTabContent>
-                      <br/>
+                      
                       <p>
-                        <span style="color:red">Open items:</span>
-
+                        <span style="color:#ff6666">Open items: <i class="fa fa-code" aria-hidden="true"></i></span>
                         <ngb-progressbar type="danger" [value]=sprint.sprint_open [striped]="true" [max]=sprint.sprint_items_total [animated]="true"><i>{{sprint.sprint_open}}</i></ngb-progressbar>
                       </p>
                       <p>
-                        <span style="color:#F39C12;">Accepted risks:</span>
+                        <span style="color:#F39C12;"> Accepted risks: <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>
                         <ngb-progressbar type="warning" [value]=sprint.sprint_accepted [striped]="true" [max]=sprint.sprint_items_total [animated]="true"><i>{{sprint.sprint_accepted}}</i></ngb-progressbar>
                       </p>
                       <p>
-                        <span style="color:green">Closed items:</span>
+                        <span style="color:limegreen"> Closed items: <i class="fa fa-lock" aria-hidden="true"></i> </span>
                         <ngb-progressbar type="success" [value]=sprint.sprint_closed [striped]="true" [max]=sprint.sprint_items_total [animated]="true"><i>{{sprint.sprint_closed}}</i></ngb-progressbar>
                       </p>
-                      <div style="text-align:center; padding-top:4%">
-
-
-                      </div>
+                      <p>
+                        <span style="color:red">Failed items: <i class="fa fa-times" aria-hidden="true"></i></span>
+                        <ngb-progressbar type="danger" [value]=sprint.sprint_sec_fail  [max]=sprint.sprint_items_total [animated]="true"><i>{{sprint.sprint_sec_fail}}</i></ngb-progressbar>
+                      </p>
+                      <p>
+                        <span style="color:green"> Verified items: <i class="fa fa-bug" aria-hidden="true"> </i></span>
+                        <ngb-progressbar type="success" [value]=sprint.sprint_sec_ack  [max]=sprint.sprint_items_total [animated]="true"><i>{{sprint.sprint_sec_ack }}</i></ngb-progressbar>
+                      </p>
                     </ng-template>
                   </ngb-tab>
                   <ngb-tab>
@@ -81,12 +85,12 @@
               </div>
               <div class="card-footer text-muted text-center">
                 <div class="left">
-                  <span class="msg-success" style="color:limegreen" *ngIf="sprint.sprint_sec_fail < 1">Audit has no failed items</span>
+                  <span class="msg-success" style="color:limegreen" *ngIf="sprint.sprint_sec_fail < 1">No Failed items</span>
                 </div>
                 <div class="right">
-                  <a *ngIf="sprint.sprint_sec_fail > 0" class="btn btn-danger btn-xs" href="" [routerLink]="['/project-summary-audit',sprint.sprint_id]"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span *ngIf="sprint.sprint_sec_fail > 0">Audit has failed items</span></a>
+                  <a *ngIf="sprint.sprint_sec_fail > 0" class="btn btn-danger btn-xs" href="" [routerLink]="['/project-summary-audit',sprint.sprint_id]"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span *ngIf="sprint.sprint_sec_fail > 0">Failed items!</span></a>
                   <button [routerLink]="['/project-summary',sprint.sprint_id]" class="btn btn-default btn-xs">View</button>
-                  <button (click)="open(deleteModal)" class="btn btn-danger btn-xs">Delete</button>
+                  <button (click)="open(deleteModal)" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> </button>
 
                   <!-- We have to throw in the model here for the id to delete -->
                   <ng-template #deleteModal let-c="close" let-d="dismiss">
@@ -132,9 +136,10 @@
                 <form>
                   <div class="form-group">
                     <div class="wrap">
-                      <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
+                      <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Sprint name</label>
                       <div class="col-sm-10">
-                        <input required [(ngModel)]="sprintName" type="text" class="form-control" id="inputVersion" name="sprintName" placeholder="">
+                        <input required [(ngModel)]="sprintName" maxlength="20" type="text" class="form-control" id="inputVersion" name="sprintName"
+                          placeholder="">
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">Make it easy for your team to recognise.</div>
                         </div>
@@ -145,13 +150,14 @@
                     <div class="wrap">
                       <label for="inputDesc" class="col-sm-2 control-label">Sprint Description</label>
                       <div class="col-sm-10">
-                        <textarea required class="form-control" [(ngModel)]="sprintDescription" name="sprintDescription" id="inputDesc" style="height: 90px;"
-                          placeholder=""></textarea>
+                        <textarea required class="form-control" maxlength="255" [(ngModel)]="sprintDescription" name="sprintDescription" id="inputDesc"
+                          style="height: 90px;" placeholder=""></textarea>
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the sprint overview.</div>
                         </div>
-                        <button type="button" class="btn btn-danger" style="float:right; margin-top:1.5%" (click)="c('Close click')"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
-                        <button class="btn btn-success" style="float:right; margin-top:1.5%; margin-right:2%;" (click)="newSprint()">Step 2</button>
+                        <button class="btn btn-success" style="float:right; margin-top:1.5%;" (click)="newSprint()">Step 2</button>
+                        <button type="button" class="btn btn-danger" style="float:right; margin-top:1.5%; margin-right:2%;" (click)="c('Close click')"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+
                       </div>
                     </div>
                   </div>
@@ -176,8 +182,8 @@
                       </tr>
                     </tbody>
                   </table>
-                  <button type="button" class="btn btn-danger" style="float:right; margin-top:1.5%" (click)="c('Close click')"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
-                  <button class="btn btn-success" style="float:right; margin-top:1.5%; margin-right:2%;" (click)="newSprintQuestions(formpje); c('Close click')">Save</button>
+                  <button class="btn btn-success" style="float:right; margin-top:1.5%;" (click)="newSprintQuestions(formpje); c('Close click')">Save</button>
+                  <button type="button" class="btn btn-danger" style="float:right; margin-top:1.5%; margin-right:2%;" (click)="c('Close click')"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
                 </form>
               </div>
             </div>

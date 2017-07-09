@@ -15,6 +15,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 import { GuardService } from './guard/guard.service';
 import { UserManageComponent } from "./user-manage/user-manage.component";
+import { UndefinedComponent } from "./undefined/undefined.component";
 
 export const appRoutes: Routes = [
   
@@ -22,6 +23,7 @@ export const appRoutes: Routes = [
   { path: 'project-new', component: ProjectNewComponent, canActivate: [GuardService] },
   { path: 'project-list', component: ProjectListComponent, canActivate: [GuardService] },
   { path: 'project-dashboard/:id', component: ProjectDashboardComponent, canActivate: [GuardService] },
+  { path: 'undefined', component: UndefinedComponent, canActivate: [GuardService] },
   { path: 'project-summary/:id', component: ProjectSummaryComponent, canActivate: [GuardService] },
   { path: 'project-summary-audit/:id', component: ProjectSummaryAuditComponent, canActivate: [GuardService] },
   { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },

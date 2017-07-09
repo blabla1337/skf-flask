@@ -29,6 +29,7 @@ export class ProjectSummaryComponent implements OnInit {
   public succes: string;
   public selector: string = "Development";
   public backID : string;
+  public showMe : string;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -66,6 +67,7 @@ export class ProjectSummaryComponent implements OnInit {
   fetchComment(checklistId) {
     this.error = "";
     this.succes = "";
+    this.showMe = checklistId;
     this.route.params.subscribe(params => {
       this.commentService.getComment(checklistId, params['id']).subscribe(
         (data) => {

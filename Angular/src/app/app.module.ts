@@ -33,6 +33,7 @@ import { StartsWithPipe } from './pipes/starts-with.pipe'
 import { OrderBy } from './pipes/order-by.pipe'
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
+import { UndefinedComponent } from './undefined/undefined.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { FirstLoginComponent } from './first-login/first-login.component';
     ChecklistComponent,
     StartsWithPipe,
     OrderBy,
-    FirstLoginComponent
+    FirstLoginComponent,
+    UndefinedComponent
   ],
   imports: [
     BrowserModule,

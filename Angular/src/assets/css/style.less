@@ -159,14 +159,17 @@ input:-moz-placeholder { color: lighten(#000000,75%); }
 }
 
 .btn { border-radius: 0; cursor: pointer; border: none; }
+.btn-yellow { background: #ffc000; color: #fff; }
+.btn-green { background: #92d050; color: #fff; }
+.btn-blue { background: #00b0f0; color: #fff; }
 .btn-xs { font-size: 0.9em; }
 button { cursor: pointer; }
 
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #797979;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #797979;
 }
 
 
@@ -1766,9 +1769,12 @@ a#intro.nav-link, a#step1.nav-link, a#step2.nav-link,a#step3.nav-link, a#step4.n
 /* Project List */
 
 .project-list .btn-danger { border: none; }
+.project-list td { vertical-align: middle; }
 
 /* Project Summary */
 
+.project-summary .col-md-4 { padding: 0.5em; }
+.project-summary .log { padding: 0.5em; }
 .blob { width: 2.5em; height: 2.5em; position: absolute; right: 0.5em; top: 0.5em; background: red; z-index: 1; border-radius: 100%; color: #fff; 
     i { position: absolute; left: 0; top: 0; right: 0; width: 1em; height: 1em; font-size: 1.25em; margin: auto; bottom: 0; text-align: center; line-height: 1em; }
 }
@@ -1783,3 +1789,4 @@ a#intro.nav-link, a#step1.nav-link, a#step2.nav-link,a#step3.nav-link, a#step4.n
     &.green { background: #5cb85c; }
     &.red { background: #c9302c; }
 }
+.card-block > p { float: left; width: 100%; }

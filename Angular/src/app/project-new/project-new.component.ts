@@ -31,10 +31,10 @@ export class ProjectNewComponent implements OnInit {
   public project: Project[];
   public type = "info"
   public isvalid = false;
-  public level :string;
+  public level: string;
   public error: string[] = [];
   public return: boolean = true;
-  
+
 
   constructor(
     private projectService: ProjectService,
@@ -57,7 +57,7 @@ export class ProjectNewComponent implements OnInit {
     )
   }
 
-  levelSelect(option:string){
+  levelSelect(option: string) {
     this.level = option;
 
   }
@@ -104,9 +104,10 @@ export class ProjectNewComponent implements OnInit {
 
       this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },
         err => console.log("Error Storing new questions for sprint"));
-
-      this.router.navigate(['project-dashboard/' + this.projectID]);
-      
+      if (!this.sprintID) { this.router.navigate(['undefined']) }
+      else {
+        this.router.navigate(['project-dashboard/' + this.projectID]);
+      }
     }, 1000);
   }
 

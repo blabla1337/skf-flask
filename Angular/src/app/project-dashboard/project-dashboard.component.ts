@@ -99,6 +99,10 @@ export class ProjectDashboardComponent implements OnInit {
 
 
   open(content) {
+    this.steps = false;
+    this.delete = "";
+    this.sprintDescription = ""
+    this.sprintName = "";
     this.modalService.open(content, { size: 'lg' })
   }
 }

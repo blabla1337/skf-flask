@@ -41,7 +41,7 @@
           <button class="btn btn-default" (click)="select('Security')"><i class="fa fa-bug" aria-hidden="true"></i> Security Specialist</button>
           <button class="btn btn-default" (click)="select('Development')"><i class="fa fa-code" aria-hidden="true"></i> Developer</button>
         </div>
-        <div *ngFor="let item of sprintResult; let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
+        <div *ngFor="let item of sprintResult;  let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
           <div (click)="fetchComment(item.checklist_items_checklistID)">
             <div *ngIf="item.status == 1" class="blob msg-purple open"><i class="fa fa-code" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 2" class="blob msg-green closed"><i class="fa fa-lock" aria-hidden="true"></i></div>
@@ -49,8 +49,7 @@
 
             <div *ngIf="item.status == 4" class="blob msg-green verified"><i class="fa fa-bug" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 5" class="blob msg-red failed"><i class="fa fa-times" aria-hidden="true"></i></div>
-
-            <ngb-accordion #acc="ngbAccordion" [closeOthers]="true" activeIds="ngb-panel-0">
+            <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
               <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}} ( Lvl:{{item.checklist_items_level}} )">
                 <ng-template ngbPanelContent>
                   <ngb-tabset>
@@ -59,7 +58,7 @@
                       <ng-template ngbTabContent>
                         <br/>
                         <h4>{{item.kb_item_title}}</h4>
-                        <p>
+                        <p style="white-space: pre-line; max-width:70%">
                           {{item.kb_items_content}}
                         </p>
                       </ng-template>
@@ -73,14 +72,13 @@
                           </div>
                           <div class="wrap">
                             <div class="col-sm-10" style="margin-right:200px; margin-top:-30px;">
-
                               <ngb-alert *ngIf="succes" [dismissible]="false">
                                 <strong>Success! </strong> {{succes}}
                               </ngb-alert>
                               <p><b>Leave a comment for audit log and change status!</b></p>
                               <p>Here we can change the status of the open security mitigation.
                                 <br/>Please explain why the item is mitigated, opened or closed!</p>
-                              <textarea required class="form-control" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
+                              <textarea required class="form-control" maxlength="255" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
                               <br/>
                               <div style="float:right">
                                 <div *ngIf="selector == 'Development'">
@@ -101,6 +99,7 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle><b>Audit log</b></ng-template>
                       <ng-template ngbTabContent>
+                        <div *ngIf="showMe == item.checklist_items_checklistID">
                         <form *ngFor="let comment of comments">
                           <div class="col-md-3">
                             <div class="card">
@@ -123,6 +122,11 @@
                             </div>
                           </div>
                         </form>
+                        </div>
+                        <div *ngIf="showMe != item.checklist_items_checklistID">
+                          <br/>
+                          <ngb-alert [dismissible]="false"> Another tab has been selected and is in focus. To prevent cross-reading of audit trails, these messages are not showed!</ngb-alert>
+                        </div>
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>

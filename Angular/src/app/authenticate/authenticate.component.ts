@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
@@ -7,17 +7,25 @@ import { AuthenticateService } from '../services/authenticate.service';
   providers: [AuthenticateService]
 })
 
-export class AuthenticateComponent {
+export class AuthenticateComponent implements OnInit {
   public username: string;
   public password: string;
   public error: string[] = [];
   public return: boolean;
+  public expired: boolean;
 
   constructor(public _authenticateService: AuthenticateService) { }
+
+  ngOnInit() {
+    this.expired = false;
+    if (localStorage.getItem('session') == "expired") { this.expired = true }
+    localStorage.clear();
+  }
 
   onLogin() {
     this.return = true;
     this.error = [];
+
 
     if (!this.username) { this.return = false; this.error.push("No username was provided"); }
     if (!this.password) { this.return = false; this.error.push("No password was provided"); }

@@ -73,7 +73,7 @@
                       application. If data processed by your application has high value, you would rarely want to
                       stop at a Level 1 review.
                        </p>
-                       <button (click)="levelSelect('1'); t.select('step1');" class="btn btn-info" style='float:right' >Select this level</button>
+                       <button (click)="levelSelect('1'); t.select('step1');" class="btn btn-yellow" style='float:right' >Select this level</button>
                     </ng-template>
                   </ngb-panel>
                   <ngb-panel title="Level 2: Standard">
@@ -89,7 +89,7 @@
                       Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at
                       discovering and exploiting weaknesses within applications. 
                       </p>
-                      <button (click)="levelSelect('2'); t.select('step1')" class="btn btn-info" style='float:right' >Select this level</button>
+                      <button (click)="levelSelect('2'); t.select('step1')" class="btn btn-green" style='float:right' >Select this level</button>
                     </ng-template>
                   </ngb-panel>
                   <ngb-panel title="Level 3: Advanced">
@@ -106,7 +106,7 @@
                       responsibilities (defence in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions,
                       input validation), availability (e.g. handling load gracefully), authentication (including between systems), non-repudiation, authorization, and auditing (logging). 
                       </p>
-                      <button (click)="levelSelect('3'); t.select('step1')" class="btn btn-info" style='float:right' >Select this level</button>
+                      <button (click)="levelSelect('3'); t.select('step1')" class="btn btn-blue" style='float:right' >Select this level</button>
                     </ng-template>
                   </ngb-panel>
                 </ngb-accordion>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="form-group">
                   <div class="wrap">
-                    <label for="inputName" class="col-sm-2 control-label">Project Name</label>
+                    <label for="inputName" maxlength="20" class="col-sm-2 control-label">Project Name</label>
                     <div class="col-sm-10">
                       <input ngModel required [(ngModel)]="projectName" type="text" class="form-control" name="name" id="inputName" value="SKF"
                         placeholder="">
@@ -145,7 +145,7 @@
                   <div class="wrap">
                     <label for="inputVersion" class="col-sm-2 control-label">Project Version</label>
                     <div class="col-sm-10">
-                      <input [(ngModel)]="projectVersion" type="text" class="form-control" id="inputVersion" name="Version" value="1.2" placeholder=""
+                      <input [(ngModel)]="projectVersion" maxlength="20" type="text" class="form-control" id="inputVersion" name="Version" value="1.2" placeholder=""
                         required>
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">Your project could have new or changed security checks in different phases of development.</div>
@@ -158,7 +158,7 @@
                   <div class="wrap">
                     <label for="inputDesc" class="col-sm-2 control-label">Project Description</label>
                     <div class="col-sm-10">
-                      <textarea ngNoForm required class="form-control" [(ngModel)]="projectDescription" name="Description" value="Example: In this version we have new functions like searching in SQL."
+                      <textarea ngNoForm required maxlength="255" class="form-control" [(ngModel)]="projectDescription" name="Description" value="Example: In this version we have new functions like searching in SQL."
                         id="inputDesc" style="height: 90px;" placeholder=""></textarea>
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">The project description is shown in the project overview, auditor screens and audit summary.</div>
@@ -217,7 +217,7 @@
                   <div class="wrap">
                     <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
                     <div class="col-sm-10">
-                      <input required [(ngModel)]="sprintName" type="text" class="form-control" id="inputVersion" name="sprintName" placeholder="">
+                      <input required maxlength="20" [(ngModel)]="sprintName" type="text" class="form-control" id="inputVersion" name="sprintName" placeholder="">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Make it easy for your team to recognise.</div>
                       </div>
@@ -229,7 +229,7 @@
                   <div class="wrap">
                     <label for="inputDesc" class="col-sm-2 control-label">Sprint Description</label>
                     <div class="col-sm-10">
-                      <textarea required class="form-control" [(ngModel)]="sprintDescription" name="sprintDescription" id="inputDesc" style="height: 90px;"
+                      <textarea required class="form-control"  [(ngModel)]="sprintDescription" name="sprintDescription" id="inputDesc" style="height: 90px;"
                         placeholder=""></textarea>
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the sprint overview.</div>

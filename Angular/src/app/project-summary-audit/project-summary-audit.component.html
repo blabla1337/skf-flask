@@ -38,7 +38,7 @@
       <div class="col-lg-12">
         <ngb-alert *ngIf="sprintResult == 0" [dismissible]="false">
           <strong>Message, </strong> There are no more available failed items!
-         </ngb-alert>
+        </ngb-alert>
         <div *ngFor="let item of sprintResult; let myIndex = index" class="content-panel" style="padding-bottom:1%">
           <div (click)="fetchComment(item.checklist_items_checklistID)">
 
@@ -48,8 +48,7 @@
 
             <div *ngIf="item.status == 4" class="blob msg-green verified"><i class="fa fa-bug" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 5" class="blob msg-red failed"><i class="fa fa-times" aria-hidden="true"></i></div>
-
-            <ngb-accordion #acc="ngbAccordion" [closeOthers]="true" activeIds="ngb-panel-0">
+            <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
               <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}} ( Lvl:{{item.checklist_items_level}} )">
                 <ng-template ngbPanelContent>
                   <ngb-tabset>
@@ -58,7 +57,7 @@
                       <ng-template ngbTabContent>
                         <br/>
                         <h4>{{item.kb_item_title}}</h4>
-                        <p>
+                        <p style="white-space: pre-line; max-width:70%">
                           {{item.kb_items_content}}
                         </p>
                       </ng-template>
@@ -79,7 +78,8 @@
                               <p><b>Leave a comment for audit trail and change status!</b></p>
                               <p>Here we can change the status of the open security mitigation.
                                 <br/>Please explain why the item is mitigated, opened or closed!</p>
-                              <textarea required class="form-control" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
+                              <textarea required class="form-control" maxlength="255" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;"
+                                placeholder="Rule comment"></textarea>
                               <br/>
                               <div style="float:right">
                                 <button (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" class="btn btn-success"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
@@ -92,6 +92,7 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle><b>Audit trail</b></ng-template>
                       <ng-template ngbTabContent>
+                        <div *ngIf="showMe == item.checklist_items_checklistID">
                         <form *ngFor="let comment of comments">
                           <div class="col-md-3">
                             <div class="card">
@@ -114,6 +115,13 @@
                             </div>
                           </div>
                         </form>
+                        </div>
+                        <div *ngIf="showMe != item.checklist_items_checklistID">
+                          <br/>
+                          <ngb-alert [dismissible]="false"> 
+                            Another tab has been selected and is in focus. To prevent cross-reading of audit trails, these messages are not showed!
+                            </ngb-alert>
+                        </div>
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
