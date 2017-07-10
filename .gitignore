@@ -11,5 +11,4 @@
 **/owasp_skf.egg-info/
 .coverage
 skf/db.unittesting
-skf/Angular/node_modules
-
+Angular/node_modules
