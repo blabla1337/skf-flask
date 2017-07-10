@@ -15,6 +15,7 @@ libffi-dev \
 py3-pip \
 openssl \
 bash \
+perl \
 git 
 RUN git clone -b rebuild https://github.com/blabla1337/skf-flask.git
 # Start Angular app

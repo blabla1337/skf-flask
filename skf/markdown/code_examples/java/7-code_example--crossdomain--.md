@@ -1,4 +1,4 @@
-# crossdomain
+# Crossdomain
 -------
 
 ## Example:
