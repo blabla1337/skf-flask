@@ -3,7 +3,7 @@
 set -x 
 
 HTTPS=${HTTPS:-'true'}
-JWT_SECRET=${JWT_SECRET:-''}
+JWT_SECRET=${JWT_SECRET:-'changeme'}
 ORIGIN=${ORIGIN:-'localhost'}
 
 # Creation of certificates
@@ -30,7 +30,7 @@ else
     PORT=80
 fi
 
-if [[ "$JWT_SECRET" != "" ]]; then
+if [[ "$JWT_SECRET" != "changeme" ]]; then
     perl -pi -e "s/JWT_SECRET = ''/JWT_SECRET = '$JWT_SECRET'/" /skf-flask/skf/settings.py
 else
     echo 'You need to select a JWT_SECRET'

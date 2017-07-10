@@ -77,7 +77,7 @@ coverage run tests/run.py test
 1. Fork and clone https://github.com/blabla1337/skf-flask
 2. cd Angular
 3. npm install
-4. npm start
+4. ng serve --host=0.0.0.0 
 5. Run the manual test in the Angular dir first to verify if everything is good
 ``` 
 npm test
