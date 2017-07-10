@@ -48,11 +48,11 @@ def store_sprint_questions(user_id, data):
             db.session.add(checklists_query)
             db.session.commit()
     if project_lvl == 1:
-        checklists_always = checklists_kb.query.filter(checklists_kb.question_pre_ID == 0).filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1)).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+        checklists_always = checklists_kb.query.filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1)).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
     elif project_lvl == 2:
-        checklists_always = checklists_kb.query.filter(checklists_kb.question_pre_ID == 0).filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2)).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+        checklists_always = checklists_kb.query.filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2)).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
     elif project_lvl == 3:
-        checklists_always = checklists_kb.query.filter(checklists_kb.question_pre_ID == 0).filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3)).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+        checklists_always = checklists_kb.query.filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3)).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
     for row in checklists_always:
         checklists_query_always = checklists_results(row.checklistID, question_project_id, sprint_id, status, pre_item, row.kbID)
         db.session.add(checklists_query_always)
