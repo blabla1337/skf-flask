@@ -44,10 +44,10 @@ The second stage is validating if the developer properly implemented different s
 
 ### Docker
 
-The fastest way to start using the SKF project is using the pre-built container hosted at Docker hub. This container always has the very latest version from the master repository.
+The fastest way to start using the SKF project is using the pre-built container hosted at Docker hub. This container always has the very latest version from the master repository. Change the JWT_SECRET value to a new random secret string before starting the docker image.
 
 ```
-docker run -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
+docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
 ```
 
 The application will greet you on:
@@ -191,37 +191,10 @@ npm test
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-### SKF includes the following software:
+### OWASP:
 
 * [Owasp](http://owasp.com/index.php/Main_Page)  
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
-
-* [python-Flask](http://flask.pocoo.org/)  
-Licensed under the [BSD license](http://flask.pocoo.org/docs/0.10/license/) license
-
-* [flask](https://github.com/mitsuhiko/flask/)  
-Copyright (c) 2015 by Armin Ronacher and contributors, Some rights reserved.
-
-* [flask-restplus](https://github.com/noirbizarre/flask-restplus) 
-Copyright (c) 2013 Twilio, Inc / 2014 Axel Haustant
-
-* [flask-sqlalchemy](http://flask-sqlalchemy.pocoo.org/2.1/)  
-Licensed under the [BSD license](http://flask-sqlalchemy.pocoo.org/2.1/license/) license
-
-* [flask-bcrypt](https://github.com/maxcountryman/flask-bcrypt)  
-Licensed under the [BSD license](https://raw.githubusercontent.com/maxcountryman/flask-bcrypt/master/LICENSE) license
-
-* [flask-cors](https://github.com/corydolphin/flask-cors)  
-Licensed under the [MIT license](https://raw.githubusercontent.com/corydolphin/flask-cors/master/LICENSE) license
-
-* [pyjwt](https://github.com/jpadilla/pyjwt)  
-Licensed under the [MIT license](https://raw.githubusercontent.com/jpadilla/pyjwt/master/LICENSE) license
-
-* [pytest](https://github.com/pytest-dev/pytest)  
-Licensed under the [MIT license](https://raw.githubusercontent.com/pytest-dev/pytest/master/LICENSE) license
-
-* [coverage](https://github.com/nedbat/coveragepy)  
-Licensed under the [Apache 2.0 license](https://raw.githubusercontent.com/nedbat/coveragepy/master/LICENSE.txt) license
 
 ## <a name="contributors"></a>Contributors
 
