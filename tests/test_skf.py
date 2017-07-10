@@ -143,7 +143,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 403)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['message'], "JWT token expired")
+        self.assertEqual(response_dict['message'], "JWT decode error")
 
 
     def test_decode_login_create(self):
