@@ -44,6 +44,6 @@ export class ProjectListComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService.open(content).result
+    this.modalService.open(content, { size: 'lg' }).result
   }
 }

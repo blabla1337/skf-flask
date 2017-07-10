@@ -27,6 +27,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
   public error: string;
   public succes: string;
   public selector: string = "Development";
+  public showMe: string;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -64,6 +65,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
     this.error = "";
     this.succes = "";
     this.comment = "";
+    this.showMe = checklistId;
     this.route.params.subscribe(params => {
       this.commentService.getComment(checklistId, params['id']).subscribe(
         (data) => {

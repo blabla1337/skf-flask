@@ -66,7 +66,7 @@ from skf.database import db
 
 app = Flask(__name__)
 # TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/*": {"origins": settings.ORIGINS}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
@@ -82,8 +82,8 @@ def configure_app(flask_app):
     flask_app.config['RESTPLUS_MASK_SWAGGER'] = settings.RESTPLUS_MASK_SWAGGER
     flask_app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
     flask_app.config['TESTING'] = settings.TESTING
-    flask_app.config['DEBUG'] = settings.FLASK_DEBUG
-    
+    flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
+
 
 def initialize_app(flask_app):
     """Initialize the SKF app."""
@@ -121,11 +121,11 @@ def main():
             log.info('>>>>> Configure the JWT_SECRET in the settings.py file and choose an unique 128 character long secret <<<<<')
         else:
             log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
-            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=settings.FLASK_DEBUG)
+            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)
     if app.debug == True:
         if  settings.JWT_SECRET == '':
             log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
-            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=settings.FLASK_DEBUG)        
+            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)        
 
 
 if __name__ == "__main__":

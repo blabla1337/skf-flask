@@ -3,6 +3,8 @@
 set -x 
 
 HTTPS=${HTTPS:-'true'}
+JWT_SECRET=${JWT_SECRET:-''}
+ORIGIN=${ORIGIN:-'localhost'}
 
 # Creation of certificates
 if [[ "$HTTPS" == "true" ]]; then
@@ -26,6 +28,20 @@ else
     CERT=""
     KEY=""
     PORT=80
+fi
+
+if [[ "$JWT_SECRET" != "" ]]; then
+    perl -pi -e "s/JWT_SECRET = ''/JWT_SECRET = '$JWT_SECRET'/" /skf-flask/skf/settings.py
+else
+    echo 'You need to select a JWT_SECRET'
+    exit
+fi
+
+if [[ "$ORIGIN" != "" ]]; then
+    perl -pi -e "s/\*/https:\/\/$ORIGIN/" /skf-flask/skf/settings.py
+else
+    echo 'You need to select a ORIGIN location'
+    exit
 fi
 
 # Create Nginx dir

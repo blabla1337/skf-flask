@@ -18,6 +18,7 @@ SQLALCHEMY_ECHO = False
 
 # JWT settings
 JWT_SECRET = ''
+ORIGINS = '*'
 
 # TESTING settings
 TESTING = False
