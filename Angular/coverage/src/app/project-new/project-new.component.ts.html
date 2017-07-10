@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/project-new/project-new.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/app/project-new</a> project-new.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.62% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>51/87</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60.98% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>25/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17.39% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.03% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>35/66</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit } from '@angular/core';
+import { ProjectService } from '../services/project.service'
+import { QuestionPreService } from '../services/questions-pre.service'
+import { QuestionsSprintService } from '../services/questions-sprint.service'
+import { SprintService } from '../services/sprint.service'
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router'
+import { Question_pre } from '../models/question_pre'
+import { Question_sprint } from '../models/question_sprint'
+import { Sprint } from '../models/sprint'
+import { Project } from '../models/project'
+&nbsp;
+@Component({
+  selector: 'app-project-new',
+  templateUrl: './project-new.component.html',
+  providers: [SprintService, ProjectService, QuestionPreService, QuestionsSprintService]
+})
+export class ProjectNewComponent implements OnInit {
+&nbsp;
+  public projectName: string;
+  public projectVersion: string;
+  public projectDescription: string;
+  public projectID: number;
+  public sprintID: number;
+  public sprintName: string;
+  public sprintDescription: string;
+  public pre_dev: Question_pre[];
+  public pre_dev_store: Question_pre[] = [];
+  public sprints: Question_sprint[];
+  public sprintStore: Sprint[] = [];
+  public project: Project[];
+  public type = "info"
+  public isvalid = false;
+  public level :string;
+  public error: string[] = [];
+  public return: boolean = true;
+  
+&nbsp;
+  constructor(
+    private projectService: ProjectService<span class="branch-1 cbranch-no" title="branch not covered" >,</span>
+    private sprintService: SprintService<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+    private questionPreService: QuestionPreService<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+    private questionsSprintService: QuestionsSprintService<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+    private router: Router<span class="branch-2 cbranch-no" title="branch not covered" ></span>
+  ) { }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  ngOnInit() {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.questionPreService.getPreQuestions().subscribe(</span>
+<span class="fstat-no" title="function not covered" ></span>      questions =&gt; <span class="cstat-no" title="statement not covered" >this.pre_dev = questions,</span>
+<span class="fstat-no" title="function not covered" ></span>      err =&gt; <span class="cstat-no" title="statement not covered" >console.log("getting pre dev questions failed")</span>
+    )
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.questionsSprintService.getSprintQuestions().subscribe(</span>
+<span class="fstat-no" title="function not covered" ></span>      questions =&gt; <span class="cstat-no" title="statement not covered" >this.sprints = questions,</span>
+<span class="fstat-no" title="function not covered" ></span>      err =&gt; <span class="cstat-no" title="statement not covered" >console.log("getting sprint questions failed")</span>
+    )
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  levelSelect(</span>option:string){
+<span class="cstat-no" title="statement not covered" >    this.level = option;</span>
+&nbsp;
+  }
+  save() {
+    this.return = true;
+    this.error = [];
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.projectName) { this.error.push("Project name was left empty"); this.return = false; }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.projectVersion) { this.error.push("Project version was left empty"); this.return = false; }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.projectDescription) { this.error.push("Project description was left empty"); this.return = false; }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.sprintName) { this.error.push("Sprint name was left empty"); this.return = false; }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.sprintDescription) { this.error.push("Sprint description was left empty"); this.return = false; }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.level) { this.error.push("No ASVS level was selected"); this.return = false; }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.return == false) { return; }
+&nbsp;
+    //This is for getting the sprint items from local storage
+    let sprint_items = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem("sprint"));</span>
+    let count_sprint = <span class="cstat-no" title="statement not covered" >Object.keys(sprint_items).length</span>
+&nbsp;
+    //This is for getting the pre dev items from local storage
+    let pre_dev_items = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem("pre_dev"));</span>
+    let count_pre = <span class="cstat-no" title="statement not covered" >Object.keys(pre_dev_items).length</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.projectService.newProject(this.projectName, this.projectDescription, parseInt(this.level, 10), this.projectVersion)</span>
+      .subscribe(<span class="fstat-no" title="function not covered" >(</span>res) =&gt; { <span class="cstat-no" title="statement not covered" >this.projectID = res["projectID"] </span>}, <span class="fstat-no" title="function not covered" ></span>err =&gt; <span class="cstat-no" title="statement not covered" >console.log("Error storing project"),</span> <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        this.sprintService.newSprint(this.sprintName, this.projectID, this.sprintDescription)</span>
+          .subscribe(<span class="fstat-no" title="function not covered" ></span>res =&gt; { <span class="cstat-no" title="statement not covered" >this.sprintID = res['sprintID'] </span>}, <span class="fstat-no" title="function not covered" ></span>error =&gt; <span class="cstat-no" title="statement not covered" >console.log("error storing sprint"),</span> <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (let i = 1; i &lt; count_pre + 1; i++) {</span>
+<span class="cstat-no" title="statement not covered" >              if (pre_dev_items["pre_dev_answer" + i].toString() == "") { <span class="cstat-no" title="statement not covered" >pre_dev_items["pre_dev_answer" + i] = "False"; </span>}</span>
+<span class="cstat-no" title="statement not covered" >              this.pre_dev_store.push({ "projectID": this.projectID, "question_pre_ID": i, "result": pre_dev_items["pre_dev_answer" + i].toString() });</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (let i = 1; i &lt; count_sprint + 1; i++) {</span>
+<span class="cstat-no" title="statement not covered" >              if (sprint_items["sprint_answer" + i].toString() == "") { <span class="cstat-no" title="statement not covered" >sprint_items["sprint_answer" + i] = "False"; </span>}</span>
+<span class="cstat-no" title="statement not covered" >              this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": i, "result": sprint_items["sprint_answer" + i].toString(), "sprintID": this.sprintID });</span>
+            }
+          })
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      this.questionPreService.newProject(this.pre_dev_store).subscribe(<span class="fstat-no" title="function not covered" >() =&gt; { </span>},</span>
+<span class="fstat-no" title="function not covered" ></span>        err =&gt; <span class="cstat-no" title="statement not covered" >console.log("Error Storing pre development questions"))</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.questionsSprintService.newSprint(this.sprintStore).subscribe(<span class="fstat-no" title="function not covered" >() =&gt; { </span>},</span>
+<span class="fstat-no" title="function not covered" ></span>        err =&gt; <span class="cstat-no" title="statement not covered" >console.log("Error Storing new questions for sprint"))</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.router.navigate(['project-dashboard/' + this.projectID]);</span>
+      
+    }, 1000);
+  }
+&nbsp;
+  //Temp storage for pre development questionaire
+<span class="fstat-no" title="function not covered" >  storePre(</span>form: NgForm) {
+<span class="cstat-no" title="statement not covered" >    localStorage.setItem("pre_dev", JSON.stringify(form.value));</span>
+<span class="cstat-no" title="statement not covered" >    return true;</span>
+  }
+&nbsp;
+  //Temp storage for sprint questionaire
+<span class="fstat-no" title="function not covered" >  storeSprint(</span>form: NgForm) {
+<span class="cstat-no" title="statement not covered" >    localStorage.setItem("sprint", JSON.stringify(form.value));</span>
+<span class="cstat-no" title="statement not covered" >    return true;</span>
+  }
+&nbsp;
+  isInvalid() {
+    return true;
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jul 06 2017 10:01:26 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

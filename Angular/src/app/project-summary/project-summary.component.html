@@ -1,0 +1,146 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+
+<section id="main-content" class="page03 project-list">
+  <section class="intro">
+    <div class="inner">
+      <div class="text">
+        <h1>Sprint summary for: {{selector}}</h1>
+        <p>Close, open or accept different sprint items. Leave comments to have an audit log!</p>
+      </div>
+      <button style="float:right;" (click)="back()" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+    </div>
+  </section>
+  <section class="wrapper" style="margin-top:0px;">
+    <div class="row mt">
+      <div class="col-lg-12">
+        <div style='float:right; margin-bottom:1%'>
+          I am a:
+          <button class="btn btn-default" (click)="select('Security')"><i class="fa fa-bug" aria-hidden="true"></i> Security Specialist</button>
+          <button class="btn btn-default" (click)="select('Development')"><i class="fa fa-code" aria-hidden="true"></i> Developer</button>
+        </div>
+        <div *ngFor="let item of sprintResult;  let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
+          <div (click)="fetchComment(item.checklist_items_checklistID)">
+            <div *ngIf="item.status == 1" class="blob msg-purple open"><i class="fa fa-code" aria-hidden="true"></i></div>
+            <div *ngIf="item.status == 2" class="blob msg-green closed"><i class="fa fa-lock" aria-hidden="true"></i></div>
+            <div *ngIf="item.status == 3" class="blob msg-orange accepted"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>
+
+            <div *ngIf="item.status == 4" class="blob msg-green verified"><i class="fa fa-bug" aria-hidden="true"></i></div>
+            <div *ngIf="item.status == 5" class="blob msg-red failed"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+              <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}} ( Lvl:{{item.checklist_items_level}} )">
+                <ng-template ngbPanelContent>
+                  <ngb-tabset>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle><b>Summary</b></ng-template>
+                      <ng-template ngbTabContent>
+                        <br/>
+                        <h4>{{item.kb_item_title}}</h4>
+                        <p style="white-space: pre-line; max-width:70%">
+                          {{item.kb_items_content}}
+                        </p>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle><b>Status</b></ng-template>
+                      <ng-template ngbTabContent>
+                        <div class="form-group">
+                          <div class="wrap desc">
+                            <label for="inputName" class="col-sm-2 control-label">&nbsp;</label>
+                          </div>
+                          <div class="wrap">
+                            <div class="col-sm-10" style="margin-right:200px; margin-top:-30px;">
+                              <ngb-alert *ngIf="succes" [dismissible]="false">
+                                <strong>Success! </strong> {{succes}}
+                              </ngb-alert>
+                              <p><b>Leave a comment for audit log and change status!</b></p>
+                              <p>Here we can change the status of the open security mitigation.
+                                <br/>Please explain why the item is mitigated, opened or closed!</p>
+                              <textarea required class="form-control" maxlength="255" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
+                              <br/>
+                              <div style="float:right">
+                                <div *ngIf="selector == 'Development'">
+                                  <button (click)="save(2, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>
+                                  <button (click)="save(3, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>
+                                  <button (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
+                                </div>
+                                <div *ngIf="selector == 'Security'">
+                                  <button (click)="save(4, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
+                                  <button (click)="save(5, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
+                                   </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab> 
+                    <ngb-tab>
+                      <ng-template ngbTabTitle><b>Audit log</b></ng-template>
+                      <ng-template ngbTabContent>
+                        <div *ngIf="showMe == item.checklist_items_checklistID">
+                        <form *ngFor="let comment of comments">
+                          <div class="col-md-3">
+                            <div class="card">
+                              <div class="card-block">
+                                <div *ngIf="comment" class="card-header no-padding" style="text-align:center;">
+                                  <b class="orange" *ngIf="comment.status == 1">OPEN</b>
+                                  <b class="green" *ngIf="comment.status == 2">CLOSED</b>
+                                  <b class="orange" *ngIf="comment.status == 3">ACCEPTED</b>
+                                  <b class="green" *ngIf="comment.status == 4">VERIFIED</b>
+                                  <b class="red" *ngIf="comment.status == 5">FAILED</b>
+                                </div>
+
+                                <p *ngIf="comment">{{comment.comment}}</p>
+
+                                <p *ngIf="error">{{error}}</p>
+                                <div *ngIf="comment" class="card-footer text-muted text-center">
+                                  <span class="name">Admin, {{comment.date}}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                        </div>
+                        <div *ngIf="showMe != item.checklist_items_checklistID">
+                          <br/>
+                          <ngb-alert [dismissible]="false"> Another tab has been selected and is in focus. To prevent cross-reading of audit trails, these messages are not showed!</ngb-alert>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+
+          </div>
+        </div>
+      </div>
+      <!-- /col-lg-4 -->
+    </div>
+    <!-- /row -->
+  </section>
+  <!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->

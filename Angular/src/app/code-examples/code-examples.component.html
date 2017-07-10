@@ -1,0 +1,63 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<section id="main-content" class="page08 code-examples">
+	<section class="intro">
+		<div class="inner">
+			<div class="text">
+				<h1>Code examples: {{lang}}</h1>
+				<p>Step for step explanation of implementing the secure code principles into your project. In depth information how to approach specific functionality and the correct mitigations!</p>
+			</div>
+		</div>
+	</section>
+	<section class="wrapper">
+		<div class="srcWrap">
+			<div class="src">
+				<input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search vulnerability" />
+				<i class="fa fa-search"></i>
+			</div>
+		</div>
+		<div class="content-panel narrow" style="width:100%">
+			<ngb-alert *ngIf="error" [dismissible]="false">
+				<strong>Warning! </strong> {{error}}
+			</ngb-alert>
+			<div class="row" *ngIf="codeExamples"> 
+				<div (click)="highlight()" class="col-lg-12">
+					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+						<div *ngFor="let examples of codeExamples | StartsWithPipe : queryString">
+							<br/>
+							<ngb-panel title="{{examples.title}}">
+								<ng-template ngbPanelContent>
+									<pre><code id="changeme" class="php">
+							 {{examples.content}} 
+        					</code></pre>
+								</ng-template>
+							</ngb-panel>
+						</div>
+					</ngb-accordion>
+				</div>
+			</div>
+		</div>
+	</section>
+</section>
+
+<div id="changeme" style="display:none">
+	<pre><code id="changeme" class="php"></code></pre>
+</div>

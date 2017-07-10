@@ -1,0 +1,59 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<section id="main-content" class="page08 code-examples">
+	<section class="intro">
+		<div class="inner">
+			<div class="text">
+				<h1>Knowledge Base</h1>
+				<p>In depth information on how to approach specific funtionality or problems with explanation of attack surface and mitigations!</p>
+			</div>
+		</div>
+	</section>
+	<section class="wrapper">
+		<div class="srcWrap">
+			<div class="src">
+				<input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search vulnerability" />
+				<i class="fa fa-search"></i>
+			</div>
+		</div>
+		<div class="content-panel narrow">
+			<ngb-alert *ngIf="error" [dismissible]="false">
+				<strong>Warning! </strong> {{error}}
+			</ngb-alert>
+			<div class="row" *ngIf="knowledgeitems">
+				<div class="col-lg-12">
+					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+						<div *ngFor="let knowledge of knowledgeitems | StartsWithPipe : queryString">
+							<br/>
+							<ngb-panel title="{{knowledge.title}}">
+								<ng-template ngbPanelContent>
+									<p style="white-space: pre-line; max-width:70%">
+										{{knowledge.content}}
+									</p>
+								</ng-template>
+							</ngb-panel>
+						</div>
+					</ngb-accordion>
+				</div>
+			</div>
+		</div>
+	</section>
+</section>
