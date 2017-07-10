@@ -1,17 +1,19 @@
-SQL Query
+SQL query
 -------
 
-**Example:**
+## Example:
 
 
-In c# MVC there are a lot of different methods in order to process your SQL query's to
-the database. Most of them are already secure by design and leave little to no room for
-error such as SQL to LinQ or doing your database handling by the entity framework.
+	/*
+	In c# MVC there are a lot of different methods in order to process your SQL query's to 
+	the database. Most of them are already secure by design and leave little to no room for
+	error such as SQL to LinQ or doing your database handeling by the entity framework.
 
-However if you want to use the sql command method you must use this functionality by
-means of prepared statements in order to prevent sql injections.
+	However if you want to use the sql command method you must use this functionality by
+	means of prepared statements in order to prevent sql injections.
+	*/
 
-	:::cs
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -29,7 +31,7 @@ means of prepared statements in order to prevent sql injections.
 		{
 			//Getters and setters for our user method
 			[Key]
-
+		
 			public int userID      { get; set; }
 			public string username { get; set; }
 			public string email    { get; set; }
@@ -38,7 +40,7 @@ means of prepared statements in order to prevent sql injections.
 			//AuditLog Log = new AuditLog();
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
-			SqlConnection conn = new
+			SqlConnection conn = new 
 			SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
 			public void selectStatement()
@@ -85,15 +87,15 @@ means of prepared statements in order to prevent sql injections.
 				try
 				{
 					using (SqlCommand command = conn.CreateCommand())
-					{
-
+					{ 
+					
 						command.CommandText = "INSERT INTO users(username,email) VALUES(@param1,@param2)";  
-
+					
 						//Again we bind the parameters in order to prevent SQL injections
 						command.Parameters.AddWithValue("@param1", username);  
 						command.Parameters.AddWithValue("@param2", email);   
 
-						command.ExecuteNonQuery();
+						command.ExecuteNonQuery(); 
 					}
 				}
 				catch(SqlException e)
@@ -110,3 +112,9 @@ means of prepared statements in order to prevent sql injections.
 			}
 		}
 	}
+	
+	
+
+
+
+	

@@ -1,9 +1,8 @@
-XML External Entities 
------------------------
+# XML External Entities 
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /*
 The overall prevention method for loading external entities is adding the following line of code:
@@ -138,7 +137,4 @@ import org.xml.sax.XMLReader;
       
     }
 ...
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 

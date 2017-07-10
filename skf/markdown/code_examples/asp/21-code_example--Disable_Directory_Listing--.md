@@ -1,7 +1,7 @@
-Disable Directory Listing
+Disable directory listing
 -------
 
-**Example:**
+## Example:
 
 	<configuration>
 	  <location path="Secured">
@@ -11,4 +11,9 @@ Disable Directory Listing
 	  </location>
 	</configuration>
 
-NOTE: This example applies to IIS 7+, for IIS 6 you'll have to do it from IIS Manager
+	this example applies to IIS 7+, for IIS 6 you'll have to do it from IIS Manager
+
+
+
+
+	

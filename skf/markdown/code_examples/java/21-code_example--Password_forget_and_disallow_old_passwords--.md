@@ -1,9 +1,7 @@
-Password forget and disallow old passwords
--------------------------------------------
+# Password forget and disallow old passwords
+-------
 
-***Example:***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Example:
 
 
 /*
@@ -288,4 +286,3 @@ public final class PasswordForget {
 	}	
 }
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

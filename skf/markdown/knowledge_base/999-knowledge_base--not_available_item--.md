@@ -1,16 +1,9 @@
-
-Not available item
--------
-
-**Description:**
+## Description:
 
 This item is currently not available.
 
 
 
-
-**Solution:**
+## Solution:
 
 This item is currently not available.
-
-

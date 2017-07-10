@@ -1,9 +1,8 @@
-Secure Database Configuration
-------------------------------
+# Secure Database Configuration
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // in order for the connection to be secure, it is best practice the credentials and all the relevant sensitive information about the database to be kept at the server configuration files. For this reason the following changes have been made at tomcat's server.xml configuration file. 
 
@@ -60,5 +59,4 @@ Also in order for the application to map the database reference we have to inclu
     <res-auth>Container</res-auth>
   </resource-ref>
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   

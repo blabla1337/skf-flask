@@ -1,9 +1,9 @@
-Aggregate User Control 
------------------------
+# Aggregate User Control 
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 /*
 In order to enforce Aggregate access control protection the best method would be to 
 define your rules by means of a database structure rather than sessions or logs.
@@ -298,4 +298,4 @@ public final class Aggregate {
 	}
 
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+`

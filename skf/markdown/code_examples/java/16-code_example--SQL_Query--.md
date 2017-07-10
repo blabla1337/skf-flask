@@ -1,7 +1,7 @@
-SQL Query
+# SQL Query prepared statement and binding
 -------
 
-**Example:**
+## Example: 
 
 This example uses a prepared statement in order to insert data into the database.
 Because this method enforces the user to prepare all user input  passed into the query, it always escapes SQL

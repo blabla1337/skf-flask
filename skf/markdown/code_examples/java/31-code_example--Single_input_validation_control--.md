@@ -1,9 +1,8 @@
-Single input validation control 
---------------------------------
+# Single input validation control 
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 import java.time.LocalDateTime;
@@ -128,4 +127,3 @@ public final class InputValidation {
 	 
 }
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

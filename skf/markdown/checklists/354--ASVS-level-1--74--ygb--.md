@@ -1,1 +1,0 @@
-2.30 Verify that if an application allows users to authenticate, they use a proven secure authentication mechanism.

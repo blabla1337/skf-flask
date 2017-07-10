@@ -1,11 +1,10 @@
-RFD and file download injections
---------------------------------
+# RFD and file download injections
+-------
 
-**Example:**
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 /*
-
 the following code snippet represents the jsf page used to download a file 
 
 
@@ -338,4 +337,4 @@ public final class FileDownloader {
     
  
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

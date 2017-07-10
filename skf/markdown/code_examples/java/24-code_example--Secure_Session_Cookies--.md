@@ -1,9 +1,7 @@
-Secure Session Cookies 
-------------------------
+# Secure Session Cookies 
+-------
 
-***Example:***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Example:
 
 
 //Secure Flag
@@ -33,6 +31,3 @@ Secure Session Cookies
 
 String sessionid = request.getSession().getId();
 response.setHeader("SET-COOKIE", "JSESSIONID=" + sessionid + "; secure");
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

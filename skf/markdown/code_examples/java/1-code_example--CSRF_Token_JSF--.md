@@ -1,11 +1,8 @@
-CSRF Tokens - JSF
------------------
+# CSRF Tokens - JSF
+-------
 
- 
-***Example:***
+## Example:
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 /*
 
@@ -175,4 +172,3 @@ the following function used to encode the viewstate with the html tag into a jsf
 
 */
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

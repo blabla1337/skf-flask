@@ -1,11 +1,8 @@
+# CSRF Token 
+-------
 
+## Example:
 
-CSRF Token 
------------
-
-***Example:***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /*
 For CSRF tokens we used a separate class outside of the normal controller, since
@@ -108,4 +105,4 @@ super.doGet(request, response);
 
 }
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

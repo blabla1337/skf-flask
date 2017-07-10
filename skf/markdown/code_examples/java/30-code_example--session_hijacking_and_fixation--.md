@@ -1,10 +1,8 @@
+# Session hijacking and fixation 
+-------
 
-Session hijacking and fixation 
--------------------------------
+## Example:
 
-***Example:***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 package com.edw;
 /*
@@ -201,4 +199,3 @@ Otherwise the user just has to terminate the current session in order to lock ou
 other sessions.
 */
 	
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

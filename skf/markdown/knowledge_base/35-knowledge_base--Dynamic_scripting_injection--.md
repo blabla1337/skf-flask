@@ -1,17 +1,9 @@
+## Description:
 
-Dynamic scripting injection
--------
+When user input is used to evaluate scripting code, high-security risks could be introduced. If the input is not properly escaped an attacker can inject his own script code and gain access to the server.
 
-**Description:**
+## Solution:
 
-When user input is used to evaluate scripting code then this could introduce 
-high security risks. If the input is not properly escaped an attacker can inject his own 
-script code and gain access to the server.
-
-
-**Solution:**
-
-Do not use direct user-input in the dynamic scripting function. You should first 
+Do not use direct user-input in the dynamic scripting function. You should first
 use an input validation or encoding function on the user submitted data to clean and
-sanitise the input against malicious intent.
-	
+sanitize the input against malicious intent.

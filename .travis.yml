@@ -1,20 +1,52 @@
+dist: trusty
+
+addons:
+  chrome: stable
+
 language: python
+
 sudo: false
+
 python:
-  - "2.6"
-  - "2.7"
+  - "3.6"
+  - "3.7-dev"
+
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  
 install:
-  - pip install owasp-skf
-  - pip install https://github.com/mitsuhiko/flask/tarball/master
   - pip install pytest-cov
   - pip install coverage
   - pip install python-coveralls
-  - pip install importlib
+  - pip install -r requirements.txt
+  - cd Angular
+  - npm install
+  - npm install -g @angular/cli
+  - npm install -g codecov
+  - npm install bithound --save-dev
+
+before_script:
+  - cd ../
+  - export PYTHONWARNINGS="ignore" 
+  - export FLASK_DEBUG=1
+  - export FLASK_APP=skf/app.py 
+  - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - python setup.py test
-  - cd skf
-  
+  - cd Angular; ./node_modules/.bin/bithound check git@github.com:blabla1337/skf-flask.git
+  - ng test
+  - cd ../; coverage run --source=skf setup.py test
+
+after_success:
+  - pip install hub-pip==1.1.0
+  - python setup.py hub_pip --DeployHubBdio=false
+  - bash <(curl -s https://copilot.blackducksoftware.com/bash/travis) ./build/blackduck/*.jsonld
+#  - bash <(curl -s https://codecov.io/bash) -f Angular/coverage/lcov.info
+  - codecov
+  - coveralls
+
 notifications:
   webhooks:
     urls:
@@ -22,9 +54,3 @@ notifications:
     on_success: always  
     on_failure: always  
     on_start: never     
-    
-#  - python -m pytest --cov test_skf.py
-#after_script:
-#  - coverage run  test_skf.py test
-#after_success:
-#  - coveralls

@@ -1,269 +1,89 @@
 # OWASP Security Knowledge Framework
 [![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/)
+
 <br>Project status details:<br>
 [![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=master)](https://travis-ci.org/blabla1337/skf-flask)
-[![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 [![bitHound Overall Score](https://www.bithound.io/github/blabla1337/skf-flask/badges/score.svg)](https://www.bithound.io/github/blabla1337/skf-flask)
+[![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=rebuild)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=rebuild)
+[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results/branches/rebuild/badge-risk.svg)](https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results/branches/rebuild)
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with code examples to help developers in pre-development and post-development.  
+
+<br>Code Coverage SKF-Angular:<br>
+[![codecov](https://codecov.io/gh/blabla1337/skf-flask/branch/master/graph/badge.svg)](https://codecov.io/gh/blabla1337/skf-flask)
+<br>Code Coverage SKF-API:<br>
+[![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
+
+
+Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with detailed code examples (secure coding principles) to help developers in pre-development and post-development phases and create applications that are secure by design.
 
 ## Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
 * [Usage](#usage)
-* [Development](#development)
-* [Scrum Board](#scrum-board)
+* [CI-Pipeline](#ci-pipeline)
+* [Development-API](#development-api)
+* [Development-Angular](#development-angular)
 * [Testing](#testing)
+* [Scrum Board](#scrum-board)
 * [License](#license)
-* [Pebble OWASP-SKF](#pebble-owasp-skf)
 * [Contributors](#contributors)
 
 ## <a name="introduction"></a>Introduction
 
-Our experience taught us that the current level of security the current web-applications contain is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers which are lurking, waiting to be exploited by hackers.
+Our experience taught us that the current level of security of web-applications is not sufficient enough to ensure security. This is mainly because web-developers simply aren't aware of the risks and dangers that are lurking, waiting to be exploited by hackers.
 
-Because of this we decided to develop a proof of concept framework in order to create a guide system available for all developers so they can develop applications secure by design.
+Because of this we decided to develop a framework in order to create a guide-system available for all developers so they can develop applications secure by design from the start.
 
-The security knowledge framework is here to support developers create secure applications. By analysing processing techniques in which the developers use to edit their data the application can link these techniques to different known vulnerabilities and give the developer feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
+The OWASP Security Knowledge Framework is here to support developers create secure applications. By using the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) as a security requirement and give the developer feedback regarding descriptions and solutions on how to properly implement these security controls in a safe manner.
 
-The second stage of the application is validating if the developer properly implemented different types of defence mechanisms by means of checklists with among others the OWASP Application security verification standards.
-
-By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
+The second stage is validating if the developer properly implemented different security controls and the belonging defence mechanisms by means of checklists created with the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
 
 ## <a name="installing"></a>Installing
 
 ### Docker
 
-When Docker is available, the fastest way to start using the SKF project is using the pre-built container hosted at Docker hub.
+The fastest way to start using the SKF project is using the pre-built container hosted at Docker hub. This container always has the very latest version from the master repository.
+
 ```
-docker run -ti -p 127.0.0.1:443:5443 blabla1337/skf-flask
+docker run -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
 ```
 
 The application will greet you on:
 https://127.0.0.1
 
-This container always has the very latest version from the repository.
-
-### Automated installation with Chef
-
-The easiest way to use the SKF project is using the Chef cookbook that we created.
-
-What is Chef?
-
-*Chef is a configuration management and automation platform from Opscode. Chef helps you describe your infrastructure with code. Because your infrastructure is managed with code, it can be automated, tested and reproduced with ease. Check out [https://www.chef.io](https://www.chef.io) for more information about Chef*  
-
-For using the SKF chef cookbook you will need to install the 3 software products on your machine/laptop. Those are all free to use.
-
-**VirtualBox**
-* VirtualBox is a free to use Virtual Machine that can load images.
-* [https://www.virtualbox.org/wiki/Downloads ](https://www.virtualbox.org/wiki/Downloads )
-
-**Chef Development Kit**
-* Chef Development Kit is a free to use tooling for testing and running cookbooks created with chef.
-* [https://downloads.chef.io/chef-dk/](https://downloads.chef.io/chef-dk/)
-
-**Vagrant**
-* Vagrant has pre-build images ready to use for stable and fast development.
-* [https://www.vagrantup.com/downloads.html](https://www.vagrantup.com/downloads.html)
-
-When you have installed the above software you are now able to create a VirtualBox image with Vagrant configuration and using Chef to configure the SKF application. The SKF chef cookbook will do this all for you and you only need to follow the steps below on your machine/laptop.
-
-```bash
-cd ~/
-wget https://github.com/blabla1337/owasp-skf-chef/archive/master.zip
-unzip master.zip
-cd owasp-skf-chef-master
-kitchen converge default
-```
-
-Now you have to wait a few minutes and watch the magic happen! ^^
-When the Chef run has completed (-----> Kitchen is finished!) the application is ready to use. When you will start the VirtualBox GUI you can see the cookbook created a new VB image that is running and holding the SKF application.
-
-The application will greet you on
-https://192.168.33.118
-
-Below are some useful Kitchen 101 commands, all of which should be run in the SKF chef directory
-```bash
-# Command for creating the VM with the SKF project
-kitchen converge default
-
-# Command for login to the VM with the SKF project
-kitchen login default
-
-# Command for detroying the VM with the SKF project
-kitchen destroy
-```
-
-### AWS installation
-
-A CloudFormation template is provided to make it easy to set up the
-Security Knowledge Framework in AWS. For more information consult
-[the README in the `cloudformation` directory](cloudformation/README.md).
-
-### Ubuntu manual installation
-
-To run SKF you need Python pip and sqlite3 database support.
-```bash
-# On 64-bit platform
-sudo apt-get install python-pip sqlite3 lib32z1-dev python-dev libxml2-dev libxslt-dev libffi-dev libssl-dev
-
-# On 32-bit platform
-sudo apt-get install python-pip sqlite3 zlib1g-dev python-dev libxml2-dev libxslt-dev libffi-dev libssl-dev
-```
-
-After the prerequisites you can install the Python packages.
-```bash
-sudo pip install https://github.com/mitsuhiko/flask/tarball/master
-sudo pip install owasp-skf
-```
-
-Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
-```bash
-python skf.py
-```
-
-### Windows manual installation
-
-Download and install [Python 2.7.9](https://www.python.org/downloads/release/python-279/)
-
-Run below commands in cmd (As Administrator):
-```
-C:\Python27\Scripts\pip.exe install https://github.com/mitsuhiko/flask/tarball/master
-C:\Python27\Scripts\pip.exe install owasp-skf
-```
-
-Now you can start the program by opening the folder and run the skf.py file:
-```
-cd C:\Python27\Lib\site-packages\skf
-C:\Python27\python.exe skf.py
-```
-### Mac OSX manual installation
-
-The first step is to install brew
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-After installing brew you can now install sqllite3
-```bash
-brew install python-pip sqlite3
-```
-
-Now we install python pip
-```bash
-sudo easy_install pip
-```
-
-After the prerequisites you can install the Python packages.
-```bash
-sudo pip install https://github.com/mitsuhiko/flask/tarball/master
-sudo pip install owasp-skf
-```
-
-Now you can start the program by opening the folder (e.g. /opt/owasp-skf/) and run:
-```bash
-sudo python skf.py
-```
-
-### Ubuntu Apache WSGI Setup (manual installation)
-
-To run the OWASP-SKF as a service (SaaS) you can hook it up to your existing webservers using the WSGI module.
-
-First do the normal owasp-skf installation.
-User that is installing this software is foobar, change foobar for your own user
-```bash
-apt-get install git apache2 libapache2-mod-wsgi
-sudo a2enmod wsgi
-cd /home/foobar
-git clone https://github.com/blabla1337/skf-flask.git
-```
-
-Now disable SSL settings, we want Apache to do this
-
-Edit the file file:
-/home/foobar/skf-flask/skf/skf.py
-```bash
-  Change line:
-       app.run(host=bindaddr, port=5443, ssl_context='adhoc')
-  to:
-       app.run(host=bindaddr, port=5443)
-```
-
-Now we can edit the configuration file of Apache
-
-Edit the following file and add this below the virtualHost config for port 80
-/etc/apache2/sites-enabled/000-default.conf
-```bash
-  WSGIRestrictStdout Off
-  Listen 5443
-  <VirtualHost *:5443>
-
-    WSGIDaemonProcess skf user=www-data group=www-data threads=5
-    WSGIScriptAlias / /home/foobar/skf-flask/skf/skf.wsgi
-
-    <Directory /home/foobar/skf-flask/skf>
-        WSGIProcessGroup skf
-        WSGIApplicationGroup %{GLOBAL}
-        Order deny,allow
-        Allow from all
-        Require all granted
-    </Directory>
-
-  </VirtualHost>
-```
-
-Now edit the configuration file of WSGI
-
-Edit the following file:
-/etc/apache2/mods-enabled/wsgi.conf
-Add below inside the if_module of mod_wsgi:
-```bash
-  <FilesMatch ".+\.py$">
-    SetHandler wsgi-script
-  </FilesMatch>
-
-  # Deny access to compiled binaries
-  # You should not serve these to anyone
-  <FilesMatch ".+\.py(c|o)$">
-    Order Deny,Allow
-    Deny from all
-  </FilesMatch>
-```
-Create the WSGI file so it can be loaded by Apache
-
-Create new skf.py file:
-/home/foobar/skf-flask/skf/skf.wsgi
-```bash
-import sys, os
-sys.path.insert (0,'/home/foobar/skf-flask/skf')
-os.chdir("/home/foobar/skf-flask/skf")
-from skf import app as application
-```
-
-The final step:
-```bash
-chmod +x /home/foobar/skf-flask/skf/skf.py
-chown -R www-data:www-data /home/foobar/skf-flask
-sudo service apache2 restart
-```
-
-The application can be visited at port http://the_ip_/:5443
-Also now you can apply your favourite Apache SSL/TLS settings.
-
 ## <a name="usage"></a>Usage
 
-For more detailed information such as user guides and other documentation see:
+For more detailed information such as setting up an admin account and user guides please see the extended documentation that can be found below:
 
-[Readme: extended documentation](http://skf.readme.io/)  
+[Readme: extended documentation](https://skf.readme.io/)  
 
-## <a name="development"></a>Development
+## <a name="development-api"></a>Development SKF-API
 
 1. Fork and clone https://github.com/blabla1337/skf-flask
 2. pip install -r requirements.txt
-3. cd skf && python ./skf.py
-4. Create your changes commit and open a PR from your fork to the master repo
+3. export FLASK_APP=skf/app.py
+4. export PYTHONPATH=.:$PYTHONPATH
+5. python3.6 skf/app.py
+6. Run the manual test first to verify if everything is good
+``` 
+coverage run tests/run.py test
+``` 
+7. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
+
+## <a name="development-angular"></a>Development SKF-ANGULAR
+
+1. Fork and clone https://github.com/blabla1337/skf-flask
+2. cd Angular
+3. npm install
+4. ng serve --host=0.0.0.0 
+5. Run the manual test in the Angular dir first to verify if everything is good
+``` 
+npm test
+``` 
+6. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
+
 
 ## <a name="scrum-board"></a>Scrum Board
 
@@ -273,7 +93,7 @@ https://waffle.io/blabla1337/skf-flask
 
 [![Throughput Graph](https://graphs.waffle.io/blabla1337/skf-flask/throughput.svg)](https://waffle.io/blabla1337/skf-flask/metrics)
 
-## <a name="testing"></a>Testing
+## <a name="CI-Pipeline"></a>CI-Pipeline
 
 ### Travis-ci.org:
 ```
@@ -282,12 +102,19 @@ SKF Build details:
 ```
 https://travis-ci.org/blabla1337/skf-flask
 
-### Coveralls.io:
+### Coveralls.io Python:
 ```
 DELIVER BETTER CODE. We help developers deliver code confidently by showing which parts of your code aren't covered by your test suite.
 SKF Coveralls details:
 ```
 https://coveralls.io/r/blabla1337/skf-flask
+
+### codecov.io for Angular:
+```
+Code coverage done right. Highly integrated with GitHub, Bitbucket and GitLab.
+SKF codecov details:
+```
+https://codecov.io/gh/blabla1337/skf-flask
 
 ### Scrutinizer-ci.com:
 ```
@@ -295,6 +122,27 @@ Why to use Scrutinizer. Improve code quality and find bugs before they hit produ
 SKF Scrutinizer details:
 ```
 https://scrutinizer-ci.com/g/blabla1337/skf-flask/
+
+### Bithound.io NPM packages:
+```
+BitHound provides your Node team with comprehensive and prioritized issues in your code and npm packages.
+SKF Bithound details:
+```
+https://www.bithound.io/github/blabla1337/skf-flask
+
+### Requires.io pip packages:
+```
+Stay Up-to-date! Stay secure! Requires.io monitors your Python projects dependencies, and notify you whenever any of your dependency is out-of-date.
+SKF Requires details:
+```
+https://requires.io/github/blabla1337/skf-flask/requirements/
+
+### Black Duck Security Risk:
+```
+Announcing Black Duck CoPilot, a new service helping open source project teams catalog and report on their project's dependencies.
+SKF Requires details:
+```
+https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results
 
 ### uptimerobot.com:
 ```
@@ -311,8 +159,24 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 ```
 [![SSL Rating](http://sslbadge.org/?domain=securityknowledgeframework.org)](https://www.ssllabs.com/ssltest/analyze.html?d=securityknowledgeframework.org)
 
+## <a name="testing"></a>Testing
+
+TESTING SKF-API<br>
+Go to the SKF root dir and run:
+```
+export FLASK_APP=skf/app.py
+export PYTHONPATH=.:$PYTHONPATH
+coverage run tests/run.py test
+```
+
+TESTING SKF-ANGULAR<br>
+Go to the Angular dir in the SKF root dir and run:
+```
+npm test
+```
+
 ## <a name="license"></a>License
-    Copyright (C) 2016  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -332,36 +196,32 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 * [Owasp](http://owasp.com/index.php/Main_Page)  
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
 
-* [Python-Flask](http://flask.pocoo.org/)  
+* [python-Flask](http://flask.pocoo.org/)  
 Licensed under the [BSD license](http://flask.pocoo.org/docs/0.10/license/) license
 
-* [jQuery](http://jquery.org)  
-Licensed under the [MIT license](http://jquery.org/license)
-
-* [Certified secure](https://www.certifiedsecure.com/frontpage)  
-Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
-
-* [Flask](https://github.com/mitsuhiko/flask/)  
+* [flask](https://github.com/mitsuhiko/flask/)  
 Copyright (c) 2015 by Armin Ronacher and contributors, Some rights reserved.
 
-* [Markdown](https://pypi.python.org/pypi/Markdown)  
-Licensed under the [BSD](http://www.linfo.org/bsdlicense.html) license
+* [flask-restplus](https://github.com/noirbizarre/flask-restplus) 
+Copyright (c) 2013 Twilio, Inc / 2014 Axel Haustant
 
-* [BeautifulSoup](https://pypi.python.org/pypi/beautifulsoup4/4.3.2)  
-Licensed under the [MIT](http://en.wikipedia.org/wiki/MIT_License) license
+* [flask-sqlalchemy](http://flask-sqlalchemy.pocoo.org/2.1/)  
+Licensed under the [BSD license](http://flask-sqlalchemy.pocoo.org/2.1/license/) license
 
-* [Python-docx](https://pypi.python.org/pypi/pyOpenSSL)  
-Licensed under the [MIT](http://en.wikipedia.org/wiki/MIT_License) license
+* [flask-bcrypt](https://github.com/maxcountryman/flask-bcrypt)  
+Licensed under the [BSD license](https://raw.githubusercontent.com/maxcountryman/flask-bcrypt/master/LICENSE) license
 
-* [pyOpenSSL](https://pypi.python.org/pypi/python-docx)  
-Licensed under the [APL2](https://www.apache.org/licenses/LICENSE-2.0) license
+* [flask-cors](https://github.com/corydolphin/flask-cors)  
+Licensed under the [MIT license](https://raw.githubusercontent.com/corydolphin/flask-cors/master/LICENSE) license
 
-* Boostrap theme thanks to http://www.blacktie.com
+* [pyjwt](https://github.com/jpadilla/pyjwt)  
+Licensed under the [MIT license](https://raw.githubusercontent.com/jpadilla/pyjwt/master/LICENSE) license
 
-## <a name="pebble-owasp-skf"></a>Pebble OWASP-SKF
+* [pytest](https://github.com/pytest-dev/pytest)  
+Licensed under the [MIT license](https://raw.githubusercontent.com/pytest-dev/pytest/master/LICENSE) license
 
-We have also created a Pebble application called: OWASP-SKF Pebble, check it out:
-http://apps.getpebble.com/en_US/application/556b65b8389795176b000042
+* [coverage](https://github.com/nedbat/coveragepy)  
+Licensed under the [Apache 2.0 license](https://raw.githubusercontent.com/nedbat/coveragepy/master/LICENSE.txt) license
 
 ## <a name="contributors"></a>Contributors
 

@@ -1,1 +1,0 @@
-10.16 Verify that the TLS settings are in line with current leading practice, particularly as common configurations, ciphers, and algorithms become insecure.

@@ -1,10 +1,8 @@
-Charset
-----------
+# Charset
+-------
 
+## Example:
 
-***Example:***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	/*
 		In order to set the "Charsets" header you'll have to add the 
@@ -20,4 +18,3 @@ Charset
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

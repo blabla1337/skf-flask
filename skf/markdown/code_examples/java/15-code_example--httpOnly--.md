@@ -1,9 +1,8 @@
-HttpOnly
----------
+# HttpOnly
+-------
 
-***Example***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //If you're using Servlets 3.0, you can actually instruct the app server to ensure that all session cookies are HttpOnly and Secure //with the following fragments:
 
@@ -29,5 +28,3 @@ HttpOnly
 
 //  My interpretation is that it also works for an individual context by setting it on the desired Context entry in conf/server.xml // (in the same manner as above).
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

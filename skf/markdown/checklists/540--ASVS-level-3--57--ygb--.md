@@ -1,1 +1,0 @@
-3.2 Verify that sessions are invalidated when the user logs out.

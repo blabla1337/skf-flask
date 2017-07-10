@@ -1,9 +1,8 @@
 Encoding
 -------
 
-**Example:**
-
-	:::cs	
+## Example:
+	
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;

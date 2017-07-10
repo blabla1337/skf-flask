@@ -1,9 +1,8 @@
-XML Injection Prevantion 
----------------------------
+# XML Injection Prevantion 
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 package com.edw;
 
@@ -111,4 +110,3 @@ NOTE: Do not forget to also properly encode your input as a last line of defense
       in order to prevent XXE injections.
   */
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

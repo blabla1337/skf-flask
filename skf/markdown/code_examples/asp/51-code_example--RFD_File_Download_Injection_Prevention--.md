@@ -1,9 +1,8 @@
 RFD and file download injections
 -------
 
-**Example:**
-
-	:::cs
+## Example:
+	
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -35,7 +34,7 @@ RFD and file download injections
 				*/
 
 				//Since we only expect an integer back from the user we validate the userinput for integers
-				if (validate.validateInput(Convert.ToString(fileID), "numeric", "invalid input", "HIGH") == false) { proceed = false; }
+				if (validate.validateInput(Convert.ToString(fileID), "nummeric", "invalid input", "HIGH") == false) { proceed = false; }
 
 				if (proceed == true)
 				{
@@ -64,8 +63,8 @@ RFD and file download injections
 							We also define the mimetype per download file.
 							This is because whenever a user can only download images it is not necessary to set
 							an uncommon content-type header for it.
-							NOTE: These mimetypes should not be stored based upon the mimetype which was send
-							the response header when the user uploaded the file. This value can be easily
+							NOTE: These mimetypes should not be stored based upon the mimetype which was send 
+							the reponse header when the user uploaded the file. This value can be easily 
 							manipulated with an intercepting proxy. You should get the mimetype from the file
 							itself after it was stored on the server.
 							*/
@@ -93,7 +92,7 @@ RFD and file download injections
 			public void fixedDownloads(string download)
 			{
 				/*
-				The second example is for whenever you are providing users with fixed downloads
+				The seccond example is for whenever you are providing users with fixed downloads
 				such as manuals etc. We do not only check if the file just exists, because that would
 				allow an attacker to also download important other files from your server, so instead
 				we whitelist them.
@@ -113,4 +112,3 @@ RFD and file download injections
 			}
 		}
 	}
-	

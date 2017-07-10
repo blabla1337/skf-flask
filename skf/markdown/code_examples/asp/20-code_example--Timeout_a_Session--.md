@@ -1,10 +1,12 @@
-Timeout a Session
+Timeout a session
 -------
 
-**Example:**
+## Example:
 
-Within your web.config you can configure your session idle timeout.
-The default time is set to 20 minutes.
+	/*
+	Within your web.config you can configure your session idle timeout.
+	The default time is set to 20 minutes.
+	*/
 		
 	<configuration>
 	   <system.web>

@@ -1,14 +1,10 @@
-Log rotation and separation
--------
-
-**Description:**
+## Description:
 
 Log separation is indispensable in order to prevent it from either radically downgrading your
-application its performance or even causing a Denial of service because the server becomes 
+application its performance or even causing a Denial of service because the server becomes
 unavailable due to the flooding of logs.
 
-
-**Solution:**
+## Solution:
 
 Log rotation is an automated process used in system administration in which dated log
 files are archived. Servers which run large applications, such as LAMP stacks, often

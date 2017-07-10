@@ -1,9 +1,8 @@
-Identifier-based authorization
-------------------------------
+# Identifier-based authorization
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 package com.edw;
 
@@ -211,5 +210,3 @@ public final class IdentifierBased {
 	}
 
 }
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

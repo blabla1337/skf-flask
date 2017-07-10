@@ -1,9 +1,8 @@
-XSL Injection Prevention 
--------------------------
+# XSL Injection Prevention 
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /*
 In order to prevent XSL injections you must enforce strict policy's whenever the
@@ -107,4 +106,3 @@ public class IncludeXSL {
     }
 }
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

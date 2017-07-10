@@ -1,9 +1,9 @@
-Random Password/Token Generation
+Random password/token generation
 -------
 
-**Example:**
+## Example:
 
-	:::cs
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -32,4 +32,6 @@ Random Password/Token Generation
 				return randomString;
 			}
 		}
-	}	
+	}
+
+	

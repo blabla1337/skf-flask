@@ -1,19 +1,22 @@
-Open Forwards & Redirects
+Open forwards & redirects
 -------
 
-**Example:**
+## Example:
 	
-When using forwards & redirects you should make sure the URL is being explicitly 
-declared in the code and cannot be manipulated by an attacker like:
-
-	:::cs	
+	/*
+	When using forwards & redirects you should make sure the URL is being explicitly 
+	declared in the code and cannot be manipulated by an attacker like:
+	*/
+	
 	HttpContext.Current.Response.Redirect("/login", true);
 	
-Generally you should avoid getting input into the redirect which could contain
-user-input by any means. if for any reason this may not be feasible than you 
-should make a whitelist input validation for the redirect like so:
-
-	:::cs 
+	/*
+	Generally you should avoid getting input into the redirect which could contain
+	user-input by any means. if for any reason this may not be feasible than you 
+	should make a whitelist input validation for the redirect like so:
+	*/
+	
+	     
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -49,3 +52,5 @@ should make a whitelist input validation for the redirect like so:
 			}
 		}
 	}
+	
+

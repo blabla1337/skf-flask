@@ -1,10 +1,8 @@
-Anti-clickjacking
-------------------
+# Anti-clickjacking
+-------
 
+## Example:
 
-***Example:***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /*
 One way to defend against clickjacking is to include a "frame-breaker" script in each 
@@ -43,5 +41,3 @@ response.addHeader("X-Frame-Options", "deny")
 //this will completely prevent your page from being displayed in an iframe on other sites.
 response.addHeader("X-Frame-Options", "SAMEORIGIN")
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,9 +1,8 @@
-Sandboxing
-------------
+# Sandboxing
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 <iframe sandbox="value">
 
@@ -16,5 +15,3 @@ allow-same-origin  Allows the iframe content to be treated as being from the sam
 allow-scripts  Re-enables scripts
 allow-top-navigation  Allows the iframe content to navigate its top-level browsing context
 */
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

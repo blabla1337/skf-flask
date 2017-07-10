@@ -1,28 +1,20 @@
+## Description:
 
-Server-side validation
--------
+Validation of user supplied input must always be enforced on the server side.
+Whenever validation of the input is being perfomed on the server side than
+the constraints can easilly be bypassed whenever an attacker uses an intercepting proxy
+which he can use to tamper data after they have been validated and send to the server. 
 
-**Description:**
+Or the attacker can simply change the constraint on the client side in his browser to bypass the 
+constraints.
 
-Whenever the application is processing high value business logic parameters these values 
-should always be processed out of reach of the users and validated against expected
-values on the server.
+## Solution:
 
+All validation of input should be handled on the server side. Whenever the validation is handled on 
+the server side, the validation logic is outside of the scope of the attacker and he can not influence
+the results.
 
-**Solution:**
-
-Verify the application does not allow high value business logic parameters to be 
-tampered with. The users should not be able to have control over this value, recommended 
-is to process this data server-side and validate the data to see if it returns expected 
-values. If not these failures should be logged.
-
-Also important to always verify that the same access control rules implied by the presentation layer 
-are enforced on the server-side.
-
-Recommended knowledge base items:
-
-- Input validation 
-- Input rejection
-- Single input validation class
-- Character encoding
-- Client side input validation
+Note: Validation of input should never be done with a black-listing aproach since attackers can be very
+nifty in bypassing these type of constraints. Always perform white list validation checks preferably in
+combination on type checking. i.e if the application expects the value to be an integer, do not make
+the application accept a value of a string. This input should be logged and rejected.

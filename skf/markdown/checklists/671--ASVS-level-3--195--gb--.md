@@ -1,1 +1,0 @@
-18.9 Verify that the message payload is signed to ensure reliable transport between client and service.

@@ -1,11 +1,9 @@
-	    
-HTML encoding
---------------
+# HTML encoding
+-------
 
-***Example***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		
+				
 /*
 Whenever user input is displayed in the application all user input should be properly escaped 
 to prevent XSS injections.
@@ -74,5 +72,3 @@ InputValidation validate = new InputValidation();
 In this example the application cancelled the request by means of simple validation.
 */
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

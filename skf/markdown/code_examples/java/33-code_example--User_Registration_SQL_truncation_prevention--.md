@@ -1,9 +1,8 @@
-User registration SQL truncation prevention
---------------------------------------------
+# User registration SQL truncation prevention
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /*
 In order to prevent Column truncation SQL injection Solution we have to make sure the
@@ -168,5 +167,3 @@ public final class RegisterUser {
 	
 }
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

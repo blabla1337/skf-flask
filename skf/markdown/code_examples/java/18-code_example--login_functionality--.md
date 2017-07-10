@@ -1,9 +1,7 @@
-Login Functionality 
---------------------
+# Login Functionality 
+-------
 
-***Example:***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Example:
 
 
 package com.edw;
@@ -204,5 +202,3 @@ public final class Login extends HttpServlet{
     }    
  }
 }
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

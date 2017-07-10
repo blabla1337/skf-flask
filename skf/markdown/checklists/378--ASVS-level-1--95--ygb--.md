@@ -1,1 +1,0 @@
-5.3 Verify that server side input validation failures result in request rejection and are logged.

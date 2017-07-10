@@ -1,16 +1,24 @@
-Content Type Headers
+Content type headers
 -------
 
-**Example:**
+## Example:
 
-In order to set the Content-type header, you'll have to add the following 
-code to the head of your application, the following code could be used in your controller:
+
+    /*
+    In order to set the Content-type header, you'll have to add the following 
+    code to the head of your application, the following code could be used in your controller:
+    */
     
-	:::cs
-	Response.AppendHeader("Content-Type:text/html", "charset=UTF-8"); 
+    Response.AppendHeader("Content-Type:text/html", "charset=UTF-8"); 
 
-In your classes you can use the following code:
-
-	:::cs	
+	/*
+	In your classes you can use the following code:
+	*/
+	
 	HttpContext.Current.Response.AppendHeader("Content-Type:text/html", "charset=UTF-8");
+	
+
+	
+
+
 	

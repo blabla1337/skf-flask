@@ -1,0 +1,22 @@
+{
+    "packageJsonLocation": "Angular/package.json",
+
+    "ignore": [
+        "**/cover/**",
+        "**/karma.conf.js",
+        "**/Angular/src/assets/js/jquery-3.1.1.slim.min.js",
+        "**/Angular/src/assets/js/highlight.min.js",
+        "**/Angular/src/assets/js/tether.min.js"
+    ],
+
+    "critics": {
+    "wc": { "limit": 50000 }
+    },
+
+    "dependencies": {
+        "mute": [
+            "foo"
+        ]
+    }
+}
+

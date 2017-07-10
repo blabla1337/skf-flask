@@ -1,18 +1,10 @@
-File Upload 
--------------
+# File Upload 
+-------
+
+## Example:
 
 
-***Example:***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-In this example we show the steps that must be taken in order to upload a file securely. The main steps are input validation 
-,file extension checks and mime type checks. 
-
-
+In this example we show the steps that must be taken in order to upload a file securely. The main steps are input validation ,file extension checks and mime type checks. 
 the following code snipet shows the jsp page that performs the post action to upload a certain file to destination 
 
 
@@ -299,5 +291,5 @@ private String getFileName(final Part part)
 }
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 

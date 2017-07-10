@@ -1,9 +1,8 @@
-X-Path Query
+X-path query
 -------
 
-**Example:**
+## Example:
 
-	:::cs
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -19,11 +18,11 @@ X-Path Query
 			public string selectPath(string employeeID)
 			{
 				 /*
-				 In order to prevent x-path injections we have to treat these query's similar as
+				 In order to prevent x-path injections we have to treat these query's similar as 
 				 to the sql query's. An option would be to use a precompiled XPath query.
 				 But since this is a third party library i consider it untrusted and would
 				 rather use our own crafted escaping function.
-
+			 
 				 NOTE: if you want to look into the precompiled x-path library you can find more
 				 detailed information about it on: http://www.tkachenko.com/blog/archives/000385.html
 				 */
@@ -41,7 +40,7 @@ X-Path Query
 
 				//Here we put the variable in our inputvalidation method in order to prevent untrusted userinput from parsing
 				//NOTE: logging and countering is also done in your validation method
-				if (validate.validateInput(Convert.ToString(employeeID), "nummeric", "x-path input validation", "HIGH") == false)
+				if (validate.validateInput(Convert.ToString(employeeID), "nummeric", "x-path input validation", "HIGH") == false) 
 				{ continueFunction = false; }
 
 				//Only if our validation function returned true we put the userinput in the function
@@ -71,7 +70,9 @@ X-Path Query
 		}
 	}
 
-The same principle as seen in the example applies for whenever you expect alphanumeric values or even names.
-The only difference is that you take another validation type from the input validation function
-i.e whenever you must accept names like O’Reilly you must encode the quotes.See the "input validation" code example
-for more detailed information about these escape methods.
+	/* 
+	The same principle as seen in the example applys for whenever you expect alphanumeric values or even names. 
+	The only difference is that you take another validation type from the input validation function 
+	i.e whenever you must accept names like o'reily you must encode the quotes.See the "input validation" code example
+	for more detailed information about these escape methods.
+	*/

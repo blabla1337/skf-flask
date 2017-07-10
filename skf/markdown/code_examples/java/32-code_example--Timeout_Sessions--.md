@@ -1,9 +1,8 @@
-Timeout Sessions 
------------------
+# Timeout Sessions 
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /*
 Within your web.xml you can configure your session idle timeout.
@@ -17,6 +16,3 @@ The default time is set to 20 minutes.
   </session-config>
 </webapp>
 
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

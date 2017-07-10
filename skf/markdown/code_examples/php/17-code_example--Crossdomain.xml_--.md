@@ -1,8 +1,7 @@
-
-Crossdomain.xml 
+# Crossdomain.xml
 -------
 
-**Example:**
+## Example:
 
 
 	A bad example of a crossdomain.xml would be:
@@ -14,9 +13,9 @@ Crossdomain.xml
 	  <allow-http-request-headers-from domain="*" headers="*"/>
 	</cross-domain-policy>
 
-	Because it allows acces from all other domains.
+	Because it allows access from all other domains.
 
-	Instead of this approach you might want to use the following restrictions. 
+	Instead of this approach you might want to use the following restrictions.
 	Example by twitter's crossdomain.xml:
 
 	<?xml version="1.0" encoding="UTF-8"?>
@@ -28,6 +27,3 @@ Crossdomain.xml
 		<site-control permitted-cross-domain-policies="master-only"/>
 	  <allow-http-request-headers-from domain="*.twitter.com" headers="*" secure="true"/>
 	</cross-domain-policy>
-
-
-	

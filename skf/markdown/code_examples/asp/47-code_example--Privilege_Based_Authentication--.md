@@ -1,39 +1,38 @@
- Privilege Based Authentication
+ Privilege based authentication
 -------
 
-**Example:**
+## Example:
+   	
+   	/*
+    For privilege based authentication we need an extra tabel in your database in order to write the users privileges to.
 
-For privilege based authentication we need an extra table in your database in order to write the users privileges to.
+    TABLE users
+    ---------------------------------------------------------------------------------    
+    | userID | userName | password | privilegeID |    access	| AggregrateControl	|
+    ---------------------------------------------------------------------------------   
+    |   1	 | Admin	| Csdar323 |	  1		 | 	   TRUE		|		2336		|
+    ---------------------------------------------------------------------------------   	
+    |	2	 | User		| Adf4fsv  |	  2		 |	   FALSE	|		 0			|
+    ---------------------------------------------------------------------------------   
+    |	3	 | Guest	| dff4fKr  |	  3		 |	   TRUE		|		135			|
+    ---------------------------------------------------------------------------------   
 
-```
-TABLE users
----------------------------------------------------------------------------------    
-| userID | userName | password | privilegeID |    access	| AggregateControl	|
----------------------------------------------------------------------------------   
-|   1	 | Admin	| Csdar323 |	  1		 | 	   TRUE		|		2336		|
----------------------------------------------------------------------------------   	
-|	2	 | User		| Adf4fsv  |	  2		 |	   FALSE	|		 0			|
----------------------------------------------------------------------------------   
-|	3	 | Guest	| dff4fKr  |	  3		 |	   TRUE		|		135			|
----------------------------------------------------------------------------------   
+    TABLE privileges
+    ----------------------------------   
+    | privilegeID | privilege 		 | 
+    ----------------------------------
+    |     1	 	  | edit:read:delete |
+    ----------------------------------
+    |	  2	 	  | edit:read		 |
+    ----------------------------------
+    |	  3	 	  | read			 |
+    ----------------------------------
 
-TABLE privileges
-----------------------------------   
-| privilegeID | privilege 		 |
-----------------------------------
-|     1	 	  | edit:read:delete |
-----------------------------------
-|	  2	 	  | edit:read		 |
-----------------------------------
-|	  3	 	  | read			 |
-----------------------------------
-```
-
-Now instead of using roles in sessions we rather want to assign privileges to users
-by means of a Database-Based Authentication system.
-Now we can easily assign a user certain privileges for him to access.
-
-	:::cs
+    Now instead of using roles in sessions we rather want to assign privileges to users 
+    by means of a Database-Based Authentication system. 
+    Now we can easily assign a user certain privileges for him to access.
+    */
+    
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -60,7 +59,7 @@ Now we can easily assign a user certain privileges for him to access.
 			auditLogs Log = new auditLogs();
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
-			SqlConnection conn =
+			SqlConnection conn = 
 			new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
 			public string privileges()
@@ -69,18 +68,18 @@ Now we can easily assign a user certain privileges for him to access.
 
 				conn.Open();
 
-				//the connection has to be reported into the log files
-				Log.SetLog("Null", "Connection to the database was made successfully", "SUCCESS", "NULL");
+				//the connection has to be repported into the log files
+				Log.SetLog("Null", "Connection to the database was made succesfully", "SUCCESS", "NULL");
 
 				/*
-				Here we select the users privilege level from the users table
+				Here we select the users privelege level from the users tabele
 				NOTE: query has to be in one line but could not fit screen otherwise
 				*/
 				string query = string.Format("
-				SELECT a.username, a.password, a.privilegeID, b.privilegeID,
-				b.privilege FROM users as a JOIN privileges as b ON a.privilegeID = b.privilegeID
+				SELECT a.username, a.password, a.privilegeID, b.privelegeID, 
+				b.privelege FROM users as a JOIN priveleges as b ON a.privilegeID = b.privelegeID 
 				WHERE a.userID =@userID and a.access='TRUE'");
-
+				
 				SqlCommand cmd = new SqlCommand(query, conn);
 
 				//We bind the parameter in order to prevent sql injections
@@ -98,45 +97,45 @@ Now we can easily assign a user certain privileges for him to access.
 				return privileges;
 			}
 
-			//Here we check the privileges string against the permissions needed to perform the actions
-			public bool validator(string privileges, string ispermitted)
+			//Here we check the priveleges string against the permissions needed to perform the actions
+			public bool validator(string priveleges, string ispermitted)
 			{
 
 				bool privileged = false;
-				string[] privDB = privileges.Split(':');
+				string[] privDB = priveleges.Split(':');
 				string[] permission = ispermitted.Split(':');
 
 				int count = permission.Length;
-				int countsuccess = 0;
+				int countsucces = 0;
 
 				foreach (string priv in privDB)
 				{
-					//We count the number of times the regex hits your privilege
+					//We count the number of times the regex hits your privelege
 					Regex regex = new Regex(priv);
 					if (priv != "")
 					{
 						Match match = regex.Match(ispermitted);
 						if (match.Success)
 						{
-							countsuccess += 1;
+							countsucces += 1;
 						}
 					}
 				}
 
 				//Whenever the count is bigger or equal to the results we know the user was permitted
-				if (countsuccess >= count)
+				if (countsucces >= count)
 				{
 					privileged = true;
-					//the connection has to be reported into the log files
-					Log.SetLog(Convert.ToString(System.Web.HttpContext.Current.Session["userID"]),
-					"User did have the right privileges!", "SUCCESS", "NULL");
+					//the connection has to be repported into the log files
+					Log.SetLog(Convert.ToString(System.Web.HttpContext.Current.Session["userID"]), 
+					"User did have the right priveleges!", "SUCCESS", "NULL");
 				}
 				else
 				{
-					//the connection has to be reported into the log files
-					Log.SetLog("Null", "User did not have the right privileges!", "FAIL", "NULL");
+					//the connection has to be repported into the log files
+					Log.SetLog("Null", "User did not have the right priveleges!", "FAIL", "NULL");
 
-					//Terminate session since the user tries to tamper his privileges
+					//Terminiate session since the user tries to tamper his privileges
 					Log.setCounter(3);
 					privileged = false;
 				}
@@ -145,6 +144,10 @@ Now we can easily assign a user certain privileges for him to access.
 		}
 	}
 
-If ever there are new 'roles' added to the system you can easily assign them the needed privileges without
-having to add new roles throughout your entire system. This system takes a little more planning up ahead but
-it enforces higher level of security.
+	/*
+    if ever there are new 'roles' added to the system you can easily asign them the needed privileges without 
+    having to add new roles throughought your entire system. This system takes a little more planning up ahead but 
+    it enforces higher level of security.
+    */
+    
+    

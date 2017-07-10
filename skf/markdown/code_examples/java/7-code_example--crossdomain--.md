@@ -1,9 +1,8 @@
-crossdomain
-------------
+# Crossdomain
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
 
 A bad example of a crossdomain.xml would be:
 
@@ -29,5 +28,3 @@ xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
     <site-control permitted-cross-domain-policies="master-only"/>
   <allow-http-request-headers-from domain="*.twitter.com" headers="*" secure="true"/>
 </cross-domain-policy>
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`

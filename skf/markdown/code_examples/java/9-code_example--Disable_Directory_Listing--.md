@@ -1,9 +1,7 @@
-Diseable Directory Listing 
----------------------------
+# Diseable Directory Listing 
+-------
 
-***Example***
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Example:
 
 
 // Directory Listing configuraton in web.xml 
@@ -24,4 +22,3 @@ Diseable Directory Listing
     <load-on-startup>1</load-on-startup>
 </servlet>
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,11 +1,9 @@
-HTML Output
-------------
+# HTML Output
+-------
 
-***Example:***
+## Example:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-	    
+	      
 /*
 Whenever user input is displayed in the application all user input should be properly escaped 
 to prevent XSS injections.
@@ -75,4 +73,4 @@ In this example the application cancelled the request by means of simple validat
 */
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

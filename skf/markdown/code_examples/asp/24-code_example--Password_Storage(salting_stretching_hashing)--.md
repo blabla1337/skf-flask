@@ -1,9 +1,9 @@
-Password Storage (salting/stretching/hashing)
+Password storage(salting/stretching/hashing)
 -------
 
-**Example:**
+## Example:
 
-	:::cs
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;

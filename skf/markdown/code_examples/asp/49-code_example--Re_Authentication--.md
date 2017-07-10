@@ -1,9 +1,8 @@
 Re-authentication
 -------
 
-**Example:**
-
-	:::cs
+## Example:
+	
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -28,7 +27,7 @@ Re-authentication
 			//First we include the audit log class.
 			auditLogs Log = new auditLogs();
 
-			//Second we include the password hash.
+			//Seccond we include the password hash.
 			hashing hash = new hashing();
 
 			//Third we include the random password/token class.
@@ -48,7 +47,7 @@ Re-authentication
 
 				conn.Open();
 
-				//Here we select the user from the users table by the sessionID
+				//Here we select the user from the users tabele by the sessionID
 				string query = string.Format("SELECT * from users WHERE userID = @userID ");
 				SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -71,15 +70,15 @@ Re-authentication
 				*/
 				if (hash.Validate(passwordHash, salt, password) == true)
 				{
-					//the connection has to be reported into the log files
+					//the connection has to be repported into the log files
 					Log.SetLog("Null", "login was OK!", "SUCCESS", "NULL");
 
 					/*
 					This is is to prevent session fixation, after login we create a new cookie which
-					we than use to authenticate. This value can not be fixated since it is set after
+					we than use to authenticate. This value can not be fixated since it is set after 
 					login.
-
-					create a a new GUID and save into the session:
+				 
+					createa a new GUID and save into the session:
 					*/
 
 					//Al the random tokens will now be changed
@@ -109,3 +108,4 @@ Re-authentication
 			}
 		}
 	}
+

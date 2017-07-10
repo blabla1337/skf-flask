@@ -1,35 +1,40 @@
 FROM alpine
 
-MAINTAINER Mariano Abdala <marianoabdala@gmail.com>
+# Thanks to Mariano Abdala <marianoabdala@gmail.com>
+MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
 
-RUN apk update --no-cache && apk add python \
-py2-pip \
-git \
+RUN apk update --no-cache && apk add python3 \
 gcc \
-libffi \
+nginx \
 sqlite \
-python-dev \
-libxml2 \
-libxml2-dev \
-libxslt-dev \
-libffi-dev \
-libssl1.0 \
+nodejs \
+nodejs-npm \
 musl-dev \
+python3-dev \
+libffi-dev \ 
+py3-pip \
 openssl \
-openssl-dev && \
-pip install pip --upgrade && \
-pip install https://github.com/mitsuhiko/flask/tarball/master && \
-git clone https://github.com/blabla1337/skf-flask.git && \
-cd skf-flask && python setup.py install && \
-apk del git gcc openssl py2-pip musl-dev openssl-dev && \
-rm -fr /var/cache/* && \
-rm -fr .git dist build && \
-chown -R nobody:nobody /skf-flask
+bash \
+perl \
+git 
+RUN git clone -b rebuild https://github.com/blabla1337/skf-flask.git
+# Start Angular app
+WORKDIR /skf-flask/Angular
+RUN npm install -g angular-cli
+RUN npm install
+EXPOSE 443
 
-WORKDIR /skf-flask/skf
-
-USER nobody
-
-EXPOSE 5443
-
-ENTRYPOINT ["python", "skf.py", "--saas"]
+# Start python API app
+WORKDIR /skf-flask
+RUN pip3 install -r requirements.txt
+VOLUME [ "/skf-flask" ]
+#USER nobody
+COPY entrypoint.sh /
+COPY wrapper.sh /
+COPY skf-api.sh /
+COPY skf-angular.sh /
+RUN ["chmod", "+x", "/entrypoint.sh"]
+RUN ["chmod", "+x", "/wrapper.sh"]
+RUN ["chmod", "+x", "/skf-api.sh"]
+RUN ["chmod", "+x", "/skf-angular.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
