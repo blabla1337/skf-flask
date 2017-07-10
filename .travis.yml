@@ -30,6 +30,7 @@ install:
 before_script:
   - cd ../
   - export PYTHONWARNINGS="ignore" 
+  - export FLASK_DEBUG=True
   - export FLASK_APP=skf/app.py 
   - export PYTHONPATH=.:$PYTHONPATH
 

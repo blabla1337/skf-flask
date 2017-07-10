@@ -1,8 +1,8 @@
 # Flask settings
-#FLASK_SERVER_NAME = FLASK_HOST+":"+str(FLASK_PORT)
+# FLASK_SERVER_NAME = FLASK_HOST+":"+str(FLASK_PORT)
 FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 8888
-FLASK_DEBUG = True  # Do not use debug mode in production
+FLASK_DEBUG = False  # Do not use debug mode in production
 
 # Flask-Restplus settings
 RESTPLUS_SWAGGER_UI_DOC_EXPANSION = 'list'
@@ -16,8 +16,8 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///'+DATABASE
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 SQLALCHEMY_ECHO = False
 
-#JWT settings
-JWT_SECRET = 'oS&&QET@ea4J(LXMRR#X3s@J&uL_tE)VYvBCxmN+xlxZ*OAgS5!FknacRX8d1RYnnk8htcK#O80+tXZ1*Xr585r8I=f$cRo(*MTYkT6RXrAn6&pCkbJ=8g0Vl5H'
+# JWT settings
+JWT_SECRET = ''
 
-#TESTING settings
+# TESTING settings
 TESTING = False

@@ -82,7 +82,8 @@ def configure_app(flask_app):
     flask_app.config['RESTPLUS_MASK_SWAGGER'] = settings.RESTPLUS_MASK_SWAGGER
     flask_app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
     flask_app.config['TESTING'] = settings.TESTING
-
+    flask_app.config['DEBUG'] = settings.FLASK_DEBUG
+    
 
 def initialize_app(flask_app):
     """Initialize the SKF app."""
@@ -113,8 +114,18 @@ def initdb_command():
 def main():
     """Main SKF method"""
     initialize_app(app)
-    log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
-    app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=settings.FLASK_DEBUG)
+
+    print(app.debug)
+    if app.debug == False:
+        if  settings.JWT_SECRET == '':
+            log.info('>>>>> Configure the JWT_SECRET in the settings.py file and choose an unique 128 character long secret <<<<<')
+        else:
+            log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
+            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=settings.FLASK_DEBUG)
+    if app.debug == True:
+        if  settings.JWT_SECRET == '':
+            log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
+            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=settings.FLASK_DEBUG)        
 
 
 if __name__ == "__main__":
