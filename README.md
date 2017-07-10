@@ -46,6 +46,11 @@ The second stage is validating if the developer properly implemented different s
 
 The fastest way to start using the SKF project is using the pre-built container hosted at Docker hub. This container always has the very latest version from the master repository. Change the JWT_SECRET value to a new random secret string before starting the docker image.
 
+First run the docker pull command to get the latest image
+```
+docker pull blabla1337/skf-flask
+```
+Then start the docker image 
 ```
 docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
 ```
