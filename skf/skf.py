@@ -1131,7 +1131,7 @@ def add_checklist():
                         vulnidx = "vulnID" + qnostr
                         vulnID = f[vulnidx]
                         valNum(vulnID, 12)
-                        
+
                         date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
                         with con as cur:
                             cur.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName, userID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
@@ -1140,13 +1140,15 @@ def add_checklist():
     redirect_url = "/results-checklists"
     return redirect(redirect_url)
 
-def get_checklists(root, kb_paths):
+def get_checklists(root):
     config = {}
     with open(os.path.join(root, "asvs.yaml"), "r") as config_file:
         config = yaml.load(config_file)
 
-    checklists = []
+    kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
+    kb_paths.sort()
 
+    checklists = []
     for checklist_config in config['checklists']:
         files = os.listdir(os.path.join(root, checklist_config["id"]))
         question_files = [filename for filename in files if os.path.splitext(filename)[1] == ".md"]
@@ -1183,7 +1185,7 @@ def get_checklists(root, kb_paths):
                 "knowledge_base": knowledge_base_id,
                 "heading": knowledge_base_id == 0,
                 "description": "\n".join(descriptions),
-                "knowldge_base_entry": knowledge_base_entry
+                "knowledge_base_entry": Markup(markdown.markdown(knowledge_base_entry))
             })
 
         checklists.append({
@@ -1210,11 +1212,7 @@ def project_checklists(project_id):
     checklists = []
     for prep in projects:
         projectName = prep[3]
-
-        kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-        kb_paths.sort()
-
-        checklists = get_checklists(os.path.join(app.root_path, "markdown/checklists"), kb_paths)
+        checklists = get_checklists(os.path.join(app.root_path, "markdown/checklists"))
         break
 
     return render_template('project-checklists.html',
@@ -1295,9 +1293,7 @@ def checklist_results(entryDate):
     """show checklist results report"""
     assert_session()
     permissions("read")
-    ygb = []
-    questions = []
-    content = []
+
     with contextlib.closing(get_db()) as con:
         entries = con.execute("SELECT l.projectID, p.projectName, p.projectVersion, l.listName, l.questionID, l.vulnID FROM questionlist AS l JOIN projects AS p ON p.projectID = l.projectID JOIN groupMembers AS m ON m.groupID = p.groupID WHERE l.answer='no' AND l.entryDate=? AND m.userID=? ORDER BY p.projectName, p.projectVersion, l.listName, l.questionID",
                [entryDate, session['userID']]).fetchall()
@@ -1305,46 +1301,37 @@ def checklist_results(entryDate):
     projectVersion = None
     listName = None
     questionID = None
-    vulnID = None
-    for entry in entries:
-        projectName = entry[1]
-        projectVersion = entry[2]
-        listName = entry[3]
-        questionID = entry[4]
-        vulnID = entry[5]
-        kb_paths = get_filepaths(os.path.join(app.root_path, "markdown/knowledge_base"))
-        for kbpath in kb_paths:
-            kbbasepath = os.path.basename(kbpath)
-            kbpath_vuln = get_num(kbbasepath.split("-")[0])
-            if int(vulnID) == int(kbpath_vuln):
-                with open(kbpath, 'r') as kbpathf:
-                    kbmd = kbpathf.read()
-                content.append(Markup(markdown.markdown(kbmd)))
+    checklist = None
+    questions = []
 
-                checklist_paths = get_filepaths(os.path.join(app.root_path, "markdown/checklists"))
-                ckqs = []
-                ckygbs = []
-                for path in checklist_paths:
-                    basepath = os.path.basename(path)
-                    elems = basepath.split("-")
-                    path_questionID = get_num(elems[0])
-                    if int(questionID) == int(path_questionID):
-                        with open(path, 'r') as pathf:
-                            checklistmd = pathf.read()
-                        ckqs.append(Markup(markdown.markdown(checklistmd)))
-                        checklist_name = elems[2]
-                        if checklist_name == "ASVS":
-                            checklist_name = "-".join(elems[2:5])
-                            checklist_kb = elems[6]
-                            checklist_ygb = elems[8]
-                        else:
-                            checklist_kb = elems[4]
-                            checklist_ygb = elems[6]
-                        ckygbs.append(checklist_ygb)
-                questions.append("\n".join(ckqs))
-                ygb.append(" ".join(ckygbs))
+    if entries:
+        # continue to assume all entries are from the same submission for now
+        projectName = entries[0][1]
+        projectVersion = entries[0][2]
+        listName = entries[0][3]
+        questionID = None
 
-    return render_template('results-checklist-report.html', **locals())
+        checklists = get_checklists(os.path.join(app.root_path, "markdown/checklists"))
+        matched_checklists = filter(lambda c: c["id"] == listName, checklists)
+
+        for matched in matched_checklists:
+            checklist = matched
+            for entry in entries:
+                questionID = entry[4]
+                matching_question = []
+                for checklist_question in checklist["questions"]:
+                    if unicode(checklist_question["index"]) == questionID:
+                        matching_question = [checklist_question]
+                questions += matching_question
+            break  # only take the first matching checklist
+
+    return render_template('results-checklist-report.html',
+        entryDate = entryDate,
+        checklist = checklist,
+        questions = questions,
+        projectName = projectName,
+        projectVersion = projectVersion
+    )
 
 
 @app.route('/results-checklist-docx/<entryDate>')

@@ -32,7 +32,7 @@
 				<div class="text">
 				
 				{% if projectName %}
-                    <h1>Checklist {{listName}} {{entryDate}} for {{projectName}} {{projectVersion}}</h1>
+                    <h1>Checklist {{checklist["title"]}} {{entryDate}} for {{projectName}} {{projectVersion}}</h1>
 					<p>Summary of failed checklist items</p>
 				{% else %}
 					<h1>Nothing has been checked yet. Get to work!</h1>
@@ -61,21 +61,21 @@
 		  	<div class="row mt">
 			  	<div class="col-lg-12">
 			  		<div id="report">
-						{% for entry in content %}
+						{% for question in questions %}
 							<div class="modal-body"> 
                                 <ul class="level">
-                                {% if 'y' in ygb[loop.index0] -%}
+                                {% if 'y' in question["ygb"] -%}
                                     <li class="yellow"></li>
                                 {% endif %}
-                                {% if 'g' in ygb[loop.index0] -%}
+                                {% if 'g' in question["ygb"] -%}
                                     <li class="green"></li>
                                 {% endif %}
-                                {% if 'b' in ygb[loop.index0] -%}
+                                {% if 'b' in question["ygb"] -%}
                                     <li class="blue"></li>
                                 {% endif %}
                                 </ul>
-								<div class="modal-header">{{questions[loop.index0]|safe}}</div>
-								<div class="well"> {{entry}} </div>
+								<div class="modal-header">{{question["content"]|safe}}</div>
+								<div class="well"> {{question["knowledge_base_entry"]|safe}} </div>
 							</div>
 						<br/>
 						{% endfor %}
