@@ -870,7 +870,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('XXSSProte
 	HttpContext.Current.Response.AppendHeader("XXSSProtection:1", "mode=block");
 	
 
-', 'X XSS Protection header', 'asp'); 
+', 'X XSS protection header', 'asp'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('XContentTypeOptions header
 
 
@@ -895,7 +895,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('XContentT
 
     ?>
 
-', 'X Content Type Options header', 'asp'); 
+', 'X content type pptions header', 'asp'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('Secure session cookies
 
 
@@ -2242,7 +2242,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('Session h
 
 	?>
 
-', 'preventing session hijacking', 'asp'); 
+', 'Preventing session hijacking', 'asp'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('Open forwards & redirects
 
 
@@ -2888,7 +2888,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Privileg
     */
     
     
-', 'privilege based authentication', 'asp'); 
+', 'Privilege based authentication', 'asp'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('Reauthentication
 
 
@@ -3000,7 +3000,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('Reauthent
 		}
 	}
 
-', 're authentication', 'asp'); 
+', 'Re authentication', 'asp'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('Logout functionality
 
 
@@ -3042,7 +3042,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('Logout fu
 				HttpContext.Current.Response.Redirect("/login", true);
 			}
 		}
-	}', 'logout', 'asp'); 
+	}', 'Logout', 'asp'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('RFD and file download injections
 
 
@@ -3658,7 +3658,7 @@ public final class Encoding {
 		return ESAPI.encoder().encodeForSQL(new MySQLCodec(MySQLCodec.MYSQL_MODE), input);
 	}
 }
-', 'encoder', 'java'); 
+', 'Encoder SQL ESAPI', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Enforce Secure Password
 
 
@@ -3759,7 +3759,7 @@ public final class PasswordCheck {
 
 }
 
-', 'enforce secure passwords', 'java'); 
+', 'Enforce secure passwords', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' File Upload 
 
 
@@ -4055,7 +4055,7 @@ private String getFileName(final Part part)
 
 
 
-', 'file upload', 'java'); 
+', 'File upload', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' HTML encoding
 
 
@@ -4238,7 +4238,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' HttpOnly
 
 //  My interpretation is that it also works for an individual context by setting it on the desired Context entry in conf/server.xml // (in the same manner as above).
 
-', 'httpOnly', 'java'); 
+', 'HttpOnly', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' SQL Query prepared statement and binding
 
 
@@ -4712,7 +4712,7 @@ public final class Login extends HttpServlet{
     }    
  }
 }
-', 'login functionality', 'java'); 
+', 'Login functionality', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Logout 
 
 
@@ -4800,7 +4800,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Charset
 		*/
 
 		<meta httpequiv="ContentType" content="text/html; charset=utf8">
-		', 'charset', 'java'); 
+		', 'Charset', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Open Forwards and Redirects 
 
 
@@ -5265,7 +5265,7 @@ to the session IDs from secure.example.com.
 Configuration is done by editing METAINF/context.xml
 
 <Context sessionCookiePath="/something" sessionCookieDomain=".domain.tld" />
-', 'session cookies (domain)', 'java'); 
+', 'Session cookies domain', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' RFD and file download injections
 
 
@@ -5794,7 +5794,7 @@ public final class Rfc2898DeriveBytes
 
 }
 
-', 'Rfc2898DeriveBytes', 'java'); 
+', 'Rfc2898 DeriveBytes', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Reauthentication 
 
 
@@ -6105,7 +6105,7 @@ public final class Randomizer {
     }
 }
 
-', 'randomizer', 'java'); 
+', 'Randomizer', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' XSS filtering
 
 
@@ -6345,7 +6345,7 @@ the ipadress, sessionID and userID if you want to accept the other sessions as v
 Otherwise the user just has to terminate the current session in order to lock out the
 other sessions.
 */
-	', 'session hijacking and fixation', 'java'); 
+	', 'Session hijacking and fixation', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Single input validation control 
 
 
@@ -6733,7 +6733,7 @@ public final class WhiteList
 }
 
 
-', 'whitelisting', 'java'); 
+', 'Whitelisting', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Reading from Windows Registry 
 
 
@@ -7198,7 +7198,7 @@ response.addHeader("XFrameOptions", "deny")
 //this will completely prevent your page from being displayed in an iframe on other sites.
 response.addHeader("XFrameOptions", "SAMEORIGIN")
 
-', 'anti clickjacling', 'java'); 
+', 'Anti clickjacling', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' XContentTypeOptions header
 
 
@@ -7211,7 +7211,7 @@ following code to the head of your application, the following code could be used
 */
 
 response.appendHeader("XContentTypeOptions", "nosniff");
-', 'X', 'java'); 
+', 'X Content Type Options header', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' XML External Entities 
 
 
@@ -8142,7 +8142,7 @@ public class Xpath  implements Serializable {
 
 
 
-', 'X', 'java'); 
+', 'X Path query', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' XSL Injection Prevention 
 
 
@@ -8251,7 +8251,7 @@ public class IncludeXSL {
     }
 }
 
-', 'XSL Injection Prevention', 'java'); 
+', 'XSL injection prevention', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Hashing
 
 
@@ -8371,7 +8371,7 @@ public void doPrivilegedAction(
 }
 
 
-', 'SQL Query', 'java'); 
+', 'SQL query JDBC.md', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Anticashing headers 
 
 
@@ -8387,7 +8387,7 @@ response.appendHeader("CacheControl", "nocache, nostore, mustrevalidate"); // HT
 response.appendHeader("Pragma", "nocache"); // HTTP 1.0.
 response.appendHeader("Expires", "0"); // Proxies.
 
-', 'anti', 'java'); 
+', 'Anti caching headers', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' AuditLogs
 
 
@@ -8618,7 +8618,7 @@ public final class AuditLog {
 
 
 ', 'AuditLog', 'java'); 
-INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' crossdomain
+INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Crossdomain
 
 
  Example:
@@ -8648,7 +8648,7 @@ xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
     <sitecontrol permittedcrossdomainpolicies="masteronly"/>
   <allowhttprequestheadersfrom domain="*.twitter.com" headers="*" secure="true"/>
 </crossdomainpolicy>
-', 'crossdomain', 'java'); 
+', 'Crossdomain', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Directory Path traversal 
 
 
@@ -8731,7 +8731,7 @@ public class Rewrite extends HttpServlet
 }
 
 `
-', 'directory path traversal', 'java'); 
+', 'Directory path traversal', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Diseable Directory Listing 
 
 
@@ -8756,7 +8756,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Diseable
     <loadonstartup>1</loadonstartup>
 </servlet>
 
-', 'Disable Directory Listing', 'java'); 
+', 'Disable directory listing', 'java'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' File upload
 
 
@@ -8922,7 +8922,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' XContent
       header(''XContentTypeOptions: nosniff'');
 
     ?>
-', 'X Content Type Options header', 'php'); 
+', 'X content type Options header', 'php'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Secure session cookies
 
 
@@ -11351,7 +11351,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' XML Exte
 			libxml_disable_entity_loader(true);
 
 		?>
-', 'XML External entities', 'php'); 
+', 'XML external entities', 'php'); 
 INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Xpath query
 
 
@@ -11431,8 +11431,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' File upl
 ', 'File upload', 'python'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('1',' Description:
 
-A Path Traversal attack aims to access files and directories that are stored outside the web root folder. By browsing the application, the attacker looks for absolute links to files stored on the web server. By manipulating variables that reference files with dotdotslash (../); sequences and its variations, it may be possible to access arbitrary files and directories stored on file system, including application source code, configuration, and critical system files, limited by system operational access control.
-The attacker uses  ../../ sequences to move up to root directory, thus permitting navigation through the file system. This attack can be executed with an external malicious code injected on the path, like the Resource Injection attack.
+A Path Traversal attack aims to access files and directories that are stored outside the web root folder. By browsing the application, the attacker looks for absolute links to files stored on the web server. By manipulating variables that reference files with dotdotslash (../); sequences and its variations, it may be possible to access arbitrary files and directories stored on file system, including application source code, configuration, and critical system files, limited by system operational access control. The attacker uses  ../../ sequences to move up to root directory, thus permitting navigation through the file system. This attack can be executed with an external malicious code injected on the path, like the Resource Injection attack.
 
 
  Solution:

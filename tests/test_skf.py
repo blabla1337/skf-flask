@@ -494,7 +494,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "Anti Clickjacking Headers")
+        self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking headers")
 
 
     def test_get_code_item_10(self):
@@ -502,7 +502,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/10')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['title'], "Enforce Secure Passwords")
+        self.assertEqual(response_dict['title'], "Enforce secure passwords")
 
 
     def test_update_code(self):
@@ -533,7 +533,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/lang/asp')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "Anti Clickjacking Headers")
+        self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking headers")
 
 
     def test_get_code_item_lang_java(self):
