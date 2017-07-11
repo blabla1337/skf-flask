@@ -1,4 +1,4 @@
-# Whitelisting 
+# Whitelisting function
 -------
 
 ## Example:

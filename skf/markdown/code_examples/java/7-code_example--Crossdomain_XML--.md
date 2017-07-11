@@ -1,4 +1,4 @@
-# Crossdomain
+# Crossdomain XML
 -------
 
 ## Example:

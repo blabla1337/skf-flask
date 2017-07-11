@@ -1,4 +1,4 @@
-# File Upload 
+# File Uploading 
 -------
 
 ## Example:

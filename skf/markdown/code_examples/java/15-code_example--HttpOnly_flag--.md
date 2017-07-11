@@ -1,4 +1,4 @@
-# HttpOnly
+# HttpOnly flag
 -------
 
 ## Example:

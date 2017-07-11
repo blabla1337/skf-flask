@@ -1,4 +1,4 @@
-Enforce secure passwords
+Enforce secure password
 -------
 
 ## Example:

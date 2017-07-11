@@ -1,4 +1,4 @@
-# Directory Path traversal 
+# Directory Path traversal
 -------
 
 ## Example:

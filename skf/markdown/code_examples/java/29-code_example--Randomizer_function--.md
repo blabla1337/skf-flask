@@ -1,4 +1,4 @@
-# Randomizer 
+# Randomizer function
 -------
 
 ## Example:

@@ -1,4 +1,4 @@
-Anti-caching headers
+Anti-caching header
 -------
 
 ## Example:

@@ -1,4 +1,4 @@
-# Charset
+# Charsets 
 -------
 
 ## Example:
