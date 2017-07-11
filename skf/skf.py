@@ -141,6 +141,15 @@ def valNum(value, countLevel):
 def valBool(value, countLevel):
     return whiteList(r'^(true|false)$', value, countLevel)
 
+def memoize(func):
+    cache = {}
+    @wraps(func)
+    def wrapped(*args, **kwargs):
+        key = (tuple(args), tuple(kwargs.items()))
+        if key not in cache:
+            cache[key] = func(*args, **kwargs)
+        return cache[key]
+    return wrapped
 
 #secret key for flask internal session use
 rand.cleanup()
@@ -1140,6 +1149,7 @@ def add_checklist():
     redirect_url = "/results-checklists"
     return redirect(redirect_url)
 
+@memoize
 def get_checklists(root):
     config = {}
     with open(os.path.join(root, "asvs.yaml"), "r") as config_file:
