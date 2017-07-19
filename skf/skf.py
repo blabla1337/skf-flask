@@ -1104,6 +1104,7 @@ def add_checklist():
     valNum(project_id, 12)
     project_name = request.form['projectName']
     valAlphaNum(project_name, 12)
+    date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
     with contextlib.closing(get_db()) as con:
         #Check if submitted projectID is owned by user
@@ -1141,7 +1142,6 @@ def add_checklist():
                         vulnID = f[vulnidx]
                         valNum(vulnID, 12)
 
-                        date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
                         with con as cur:
                             cur.execute('INSERT INTO questionlist (entryDate, answer, projectName, projectID, questionID, vulnID, listName, userID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
                                     [date, answer, project_name, project_id, questionID, vulnID, 
