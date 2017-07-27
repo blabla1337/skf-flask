@@ -1,13 +1,13 @@
 checklists:
-- id: OWASP-level-1
+- id: ASVS-level-1
   title: OWASP ASVS Level 1
   description: OWASP Application Security Verification Standard Level 1
   level: Recommended
-- id: OWASP-level-2
+- id: ASVS-level-2
   title: OWASP ASVS Level 2
   description: OWASP Application Security Verification Standard Level 2
   level: Recommended
-- id: OWASP-level-3
+- id: ASVS-level-3
   title: OWASP ASVS Level 3
   description: OWASP Application Security Verification Standard Level 3
   level: Advanced
