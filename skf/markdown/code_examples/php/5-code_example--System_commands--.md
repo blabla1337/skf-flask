@@ -49,7 +49,7 @@
 					$command = './configure '.$inputParameter;
 					$escaped_command = escapeshellcmd($command);
 					//Only after validation do we put the shellcommand into the system() function:
-					system($inputParameter);
+					system($escaped_command);
 				}
 			}
 		}
