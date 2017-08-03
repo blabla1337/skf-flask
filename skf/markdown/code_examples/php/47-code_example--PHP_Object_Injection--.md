@@ -21,7 +21,7 @@
 
 		$data = $_GET['data'];
 
-		unserialize($data);
+		$obj = unserialize($data);
 
 	?>
 
@@ -49,6 +49,6 @@
 
 		$data = $_GET['data'];
 
-		json_decode($data);
+		$obj = json_decode($data);
 
 	?>	
