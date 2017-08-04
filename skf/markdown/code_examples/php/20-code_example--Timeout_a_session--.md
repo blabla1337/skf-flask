@@ -10,7 +10,7 @@
 
     		$lifetime = 3600; // <-- lifetime of a session
     		$path     = "/";
-    		$domain   = "";
+    		$domain   = "www.example.com";
     		$secure   = 0;
     		$httponly = true;
 
