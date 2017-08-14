@@ -16,7 +16,7 @@
 
     		$lifetime = 3600;
     		$path     = "/";
-    		$domain   = "";
+    		$domain   = "www.example.com";
     		$secure   = true; // <-- the secure flag
     		$httponly = true;
 
