@@ -58,7 +58,7 @@ docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_
 ```
 
 The application will greet you on:
-https://127.0.0.1
+https://localhost
 
 ## <a name="usage"></a>Usage
 
