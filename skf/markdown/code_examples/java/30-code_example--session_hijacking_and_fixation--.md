@@ -4,7 +4,6 @@
 ## Example:
 
 
-package com.edw;
 /*
 As soon as a user logs into your application you must store his session id as wel as his
 IP adress allong with his userID. This information will be used later on in your application in order to
@@ -86,6 +85,8 @@ if there are mulitple users active on the same session.
 If so, we can let the user decide to terminate the session and terminate the
 other assigned sessions.
 */
+
+package com.edw;
 
 import java.io.IOException;
 import java.sql.*;

@@ -79,10 +79,10 @@ public final class AuditLog {
 		DataSource ds = (DataSource)webContext.lookup("jdbc/myJdbc");
 		connect = ds.getConnection();			
 		
-			/*
-	        First we select the counts from the count table in order to verify if the user session should be terminated
-	        or that the user should be locked out.
-	        */
+		  /*
+	      First we select the counts from the count table in order to verify if the user session should be terminated
+	      or that the user should be locked out.
+	      */
 	      String sqlquery = "SELECT * from counter";
 	   
 	      //We bind the parameter in order to prevent sql injections
@@ -120,10 +120,10 @@ public final class AuditLog {
 		DataSource ds = (DataSource)webContext.lookup("jdbc/myJdbc");
 		conn = ds.getConnection();			
 		
-			/*
-	        First we select the counts from the count table in order to verify if the user session should be terminated
-	        or that the user should be locked out.
-	        */
+		  /*
+		  First we select the counts from the count table in order to verify if the user session should be terminated
+		  or that the user should be locked out.
+		  */
 	      String query = "SELECT * from counter WHERE userID = ?";
 	   
 	      //We bind the parameter in order to prevent sql injections
@@ -152,7 +152,7 @@ public final class AuditLog {
 		}
 	    
 	    
-	     //We add the counting to the database results for the final value
+	    //We add the counting to the database results for the final value
 	    count  = count + counting; 
         int finalCount = count;
         blocker = blocker + counting;
@@ -197,23 +197,23 @@ public final class AuditLog {
         	//Here we connect to the database  
             Connection conn3 = null;
             try {
-            Context initContext3 = new InitialContext();
-    		Context webContext3  = (Context)initContext3.lookup("java:/comp/env");
-    		DataSource ds3 = (DataSource)webContext3.lookup("jdbc/myJdbc");
-    		conn3 = ds3.getConnection();	
-             
-    	      // create the java mysql update prepared statement
-    	      String query3 = "UPDATE users set access = ? WHERE userID = ?";
-    	      PreparedStatement preparedStmt3 = conn3.prepareStatement(query3);
-    	      preparedStmt3.setInt(1, access);
-    	      preparedStmt3.setInt(3, userID);
+				Context initContext3 = new InitialContext();
+				Context webContext3  = (Context)initContext3.lookup("java:/comp/env");
+				DataSource ds3 = (DataSource)webContext3.lookup("jdbc/myJdbc");
+				conn3 = ds3.getConnection();	
+				
+				// create the java mysql update prepared statement
+				String query3 = "UPDATE users set access = ? WHERE userID = ?";
+				PreparedStatement preparedStmt3 = conn3.prepareStatement(query3);
+				preparedStmt3.setInt(1, access);
+				preparedStmt3.setInt(3, userID);
 
-    	      // execute the java preparedstatement
-    	      preparedStmt3.executeUpdate();
-    	      
-    	      validation = "block";
-    	      
-    	      conn3.close();
+				// execute the java preparedstatement
+				preparedStmt3.executeUpdate();
+				
+				validation = "block";
+				
+				conn3.close();
     		} catch (SQLException | NamingException e) {    					    			
     			logger.error("SQL insert query error in update access" + e.toString() );
     			return "SQL insert query error in update access" ;  // this can be used to dispatch the response back to the client showing a corresponding message    		    		

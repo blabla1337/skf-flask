@@ -4,8 +4,6 @@
 ## Example:
 
 
-package com.edw;
-
 /*
 When using forwards & redirects you should make sure the URL is being explicitly 
 declared in the code and cannot be manipulated by an attacker like:
@@ -19,6 +17,8 @@ Generally you should avoid getting input into the redirect which could contain
 user-input by any means. if for any reason this may not be feasible than you 
 should make a WhiteList input validation for the redirect like so:
 */
+
+package com.edw;
 
 public class OpenForwards {
 

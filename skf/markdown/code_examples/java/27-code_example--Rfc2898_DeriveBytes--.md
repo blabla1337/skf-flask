@@ -13,9 +13,10 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-/**
- * RFC 2898 password derivation compatible with .NET Rfc2898DeriveBytes class.
- */
+/*
+ - RFC 2898 password derivation compatible with .NET Rfc2898DeriveBytes class.
+*/
+
 public final class Rfc2898DeriveBytes
 {
 	public static void main(String[] args) throws Exception

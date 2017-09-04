@@ -5,10 +5,10 @@
 
 
 /*
-* The JDBC library provides an API for building SQL commands that sanitize untrusted data. Use the java.sql.PreparedStatement class properly to escape input strings and prevent SQL injection.
-* This example uses a parametric query with a ? character as a placeholder for the argument, and also validates the length of the username argument, preventing an attacker from submitting an arbitrarily long user name.
-* 
+- The JDBC library provides an API for building SQL commands that sanitize untrusted data. Use the java.sql.PreparedStatement class properly to escape input strings and prevent SQL injection.
+- This example uses a parametric query with a ? character as a placeholder for the argument, and also validates the length of the username argument, preventing an attacker from submitting an arbitrarily long user name.
 */
+
 public void doPrivilegedAction(
   String username, char[] password
 ) throws SQLException {

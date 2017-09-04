@@ -35,9 +35,9 @@ TABLE privileges
 ----------------------------------
 
 The following code snippets can be used in relation with this class in order to have a full implemented example 
+*/
 
-HTML/JSP page index.jsp
-
+// HTML/JSP page index.jsp
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -75,10 +75,10 @@ HTML/JSP page index.jsp
 
 
 
-Servlet 
+// Servlet 
 
 
-the following code snippet can be used in relation with the following servlet snippet
+//The following code snippet can be used in relation with the following servlet snippet
 
 
 public final class AggregateControl extends HttpServlet{
@@ -110,8 +110,9 @@ public final class AggregateControl extends HttpServlet{
 		doGet(request, response);
 		
 		}
-		
-output logs indicating that user has been logged out after many database connections  
+
+/*		
+Output logs indicating that user has been logged out after many database connections  
 
 [ .... ] 
 
@@ -126,9 +127,7 @@ output logs indicating that user has been logged out after many database connect
 
 [ ..... ]
 
-
 The following example gives another implementation of Aggregate class
-
 */
 
 package com.edw;
@@ -214,13 +213,13 @@ public final class Aggregate {
 		      // execute the java prepared statement
 		      preparedStmt2.executeUpdate();
 		      
-					/*
-		            Every time the user accesses the database we keep track of the number of times he
-		            connected. Whenever the user passes a reasonable number he should be rejected 
-		            since he could be an attacker scraping your table contents and stealing company information
-		            You could a CRON job or stored procedure in your system in order to 
-		            clean the Aggregate column within certain time frames
-		            */
+			  /*
+			  Every time the user accesses the database we keep track of the number of times he
+			  connected. Whenever the user passes a reasonable number he should be rejected 
+			  since he could be an attacker scraping your table contents and stealing company information
+			  You could a CRON job or stored procedure in your system in order to 
+			  clean the Aggregate column within certain time frames
+			  */
 	          
 	          if ( control > 5000)
 	          {

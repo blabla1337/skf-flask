@@ -8,9 +8,7 @@
 The overall prevention method for loading external entities is adding the following line of code:
 This line of code function tells the underlying libxml parsing to not try to interpret the values 
 of the entities in the incoming XML and leave the entity references intact.
-*/
 
-/*
 Both DocumentBuilderFactory and SAXParserFactory XML Parsers can be configured using the same techniques to protect them against XXE.The JAXP DocumentBuilderFactory setFeature method allows a developer to control which implementation-specific XML processor features are enabled or disabled. The features can either be set on the factory or the underlying XMLReader setFeature method. Each XML processor implementation has its own features that govern how DTDs and external entities are processed.
 */
 

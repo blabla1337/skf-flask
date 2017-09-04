@@ -3,10 +3,10 @@
 
 ## Example:
 
-
+/*
 In this example we show the steps that must be taken in order to upload a file securely. The main steps are input validation ,file extension checks and mime type checks. 
 the following code snipet shows the jsp page that performs the post action to upload a certain file to destination 
-
+*/
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,8 +37,7 @@ the following code snipet shows the jsp page that performs the post action to up
 </html>
 
 
-the following code snipet performs the file uploading functionality from the post action performed at the jsp page showed above
-
+// The following code snipet performs the file uploading functionality from the post action performed at the jsp page showed above
 
 
 package com.edw;

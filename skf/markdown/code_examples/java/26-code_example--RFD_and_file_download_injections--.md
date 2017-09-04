@@ -7,7 +7,6 @@
 /*
 the following code snippet represents the jsf page used to download a file 
 
-
  <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
@@ -67,7 +66,7 @@ the following code snippet represents the jsf page used to download a file
 */
 
 
-the following bean represents the managed bean to perform the file download action   
+// The following bean represents the managed bean to perform the file download action   
 
 package prime.com.beans;
 
