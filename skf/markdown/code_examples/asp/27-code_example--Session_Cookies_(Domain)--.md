@@ -3,6 +3,7 @@ Session cookies (domain)
 
 ## Example:
 
+
 	/*
 	Setting the "Domain" attribute to a too permissive value, such as "example.com" 
 	allows an attacker to launch attacks on the session IDs between different hosts and 
@@ -10,7 +11,6 @@ Session cookies (domain)
 	For example, vulnerabilities in www.example.com might allow an attacker to get access 
 	to the session IDs from secure.example.com.
 	*/
-	
 	
 	<system.web>
 		<httpCookies domain="demo.mySite.com" />

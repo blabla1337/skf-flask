@@ -61,7 +61,6 @@ XML External entities
 	process it. Finally, you can set DtdProcessing to Parse if you do want to allow and process inline DTDs.
 	
 	For extra detailed information please visit:
-	
 	https://msdn.microsoft.com/en-us/magazine/ee335713.aspx 
 
 	*/

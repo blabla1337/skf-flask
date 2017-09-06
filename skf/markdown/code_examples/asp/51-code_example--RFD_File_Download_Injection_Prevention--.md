@@ -3,6 +3,7 @@ RFD and file download injections
 
 ## Example:
 	
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -78,8 +79,7 @@ RFD and file download injections
 							response.Flush();
 							response.End();
 						}
-						catch (NullReferenceException e)
-						{
+						catch (NullReferenceException e){
 							if (e.Source != null)
 							{
 								HttpContext.Current.Response.Write("error!");

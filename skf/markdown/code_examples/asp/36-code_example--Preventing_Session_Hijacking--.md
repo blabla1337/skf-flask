@@ -166,5 +166,5 @@ Session hijacking
 	other sessions.
 	*/
 
-	?>
+
 

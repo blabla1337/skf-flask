@@ -6,88 +6,88 @@
 
     <?php
 
-			/*
-			Whenever you are using XML parsers you must sanitize or encode al user-input before
-			including this input into your XML file.
+	/*
+	Whenever you are using XML parsers you must sanitize or encode al user-input before
+	including this input into your XML file.
 
-			Some methods like below, the Dom document already encodes the input before storing it
-			into the XML. But beware, since this encoded input is still a threat whenever you are
-			displaying the this data on screen as HTML output. This encoded data should be escaped
-			at all times before displaying.
+	Some methods like below, the Dom document already encodes the input before storing it
+	into the XML. But beware, since this encoded input is still a threat whenever you are
+	displaying the this data on screen as HTML output. This encoded data should be escaped
+	at all times before displaying.
 
-			Whenever your XML function does not encode your data on the fly, you may want to write
-			your own function for achieving this. See the code examples and search for "Input encoding"
-			for more detailed information.
-			*/
-
-
-			//Let us take an easy example where we store your favorite number name into a XML file.
-			$doc = new DOMDocument();
-			$doc->formatOutput = true;
-
-			$r = $doc->createElement( "employees" );
-			$doc->appendChild( $r );
-
-			$b = $doc->createElement( "employee" );
-
-			$name = $doc->createElement( "name" );
-			$name->appendChild(
-			$doc->createTextNode( $_POST['name'] )
-			);
-			$b->appendChild( $name );
-
-			$r->appendChild( $b );
-
-			$doc->save("test.xml");
-
-			/*
-			We will try to insert <script>alert(123);</script> into the XML file,
-			Now after inserting the employee name into the XML file it will look like:
+	Whenever your XML function does not encode your data on the fly, you may want to write
+	your own function for achieving this. See the code examples and search for "Input encoding"
+	for more detailed information.
+	*/
 
 
-				<?xml version="1.0"?>
-			<employees>
-			  <employee>
-				<name>&lt;script&gt;alert(123);&lt;/script&gt;</name>
-			  </employee>
-			</employees>
+	//Let us take an easy example where we store your favorite number name into a XML file.
+	$doc = new DOMDocument();
+	$doc->formatOutput = true;
 
-			As you can see de input has been encoded but still can trigger an XSS whenever we
-			extract the data as shown in the example below:
+	$r = $doc->createElement( "employees" );
+	$doc->appendChild( $r );
 
-			NOTE: if you ever want to include the xml files by means of user-selected sources,
-			be aware of the fact that an attacker could also include sources from external websites
-			and even execute External entity injections on your applications. See the "XSLT injection prevention"
-			code example for more detailed information on how to implement this type of functionality since
-			the same principle's apply to both functions.
-			*/
+	$b = $doc->createElement( "employee" );
+
+	$name = $doc->createElement( "name" );
+	$name->appendChild(
+	$doc->createTextNode( $_POST['name'] )
+	);
+	$b->appendChild( $name );
+
+	$r->appendChild( $b );
+
+	$doc->save("test.xml");
+
+	/*
+	We will try to insert <script>alert(123);</script> into the XML file,
+	Now after inserting the employee name into the XML file it will look like:
 
 
-			$doc = new DOMDocument();
-			$doc->load( 'test.xml' );
-			$doc -> validateOnParse = true;
-			$employees = $doc->getElementsByTagName( "employee" );
+	<?xml version="1.0"?>
+	<employees>
+		<employee>
+		<name>&lt;script&gt;alert(123);&lt;/script&gt;</name>
+		</employee>
+	</employees>
 
-			foreach( $employees as $employee )
-			{
+	As you can see de input has been encoded but still can trigger an XSS whenever we
+	extract the data as shown in the example below:
 
-				$names = $employee->getElementsByTagName( "name" );
-				$name = $names->item(0)->nodeValue;
+	NOTE: if you ever want to include the xml files by means of user-selected sources,
+	be aware of the fact that an attacker could also include sources from external websites
+	and even execute External entity injections on your applications. See the "XSLT injection prevention"
+	code example for more detailed information on how to implement this type of functionality since
+	the same principle's apply to both functions.
+	*/
 
-				//This example is vulnerable to XSS
-				echo $name;
 
-				//This example is escaped
-				$esc = htmlspecialchars($name);
+	$doc = new DOMDocument();
+	$doc->load( 'test.xml' );
+	$doc -> validateOnParse = true;
+	$employees = $doc->getElementsByTagName( "employee" );
 
-				echo $esc;
+	foreach( $employees as $employee )
+	{
 
-			}
+		$names = $employee->getElementsByTagName( "name" );
+		$name = $names->item(0)->nodeValue;
 
-			/*
-			We recommend to not rely solely on the encoding of the input by the Dom document.
-			So before you insert user-input into the XML file you want to have it sanitized.
-			See the "Encoding" and "input validation" code examples for more detailed information
-			*/
+		//This example is vulnerable to XSS
+		echo $name;
+
+		//This example is escaped
+		$esc = htmlspecialchars($name);
+
+		echo $esc;
+
+	}
+
+	/*
+	We recommend to not rely solely on the encoding of the input by the Dom document.
+	So before you insert user-input into the XML file you want to have it sanitized.
+	See the "Encoding" and "input validation" code examples for more detailed information
+	*/
 
     ?>

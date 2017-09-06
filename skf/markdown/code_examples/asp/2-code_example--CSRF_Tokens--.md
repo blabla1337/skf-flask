@@ -2,7 +2,7 @@ CSRF tokens
 -------
 
 ## Example:
-
+    
 	
     /*
     For CSRF tokens we used a sepperate class outside of the normal controller, since
@@ -29,12 +29,10 @@ CSRF tokens
 
 	System.Web.HttpContext.Current.Session["CSRF"] = csrftoken; 
 
-
 	/*
 	The next step is implementing this random token in each form field as a hidden input parameter
 	and send it to a function which checks if the submitted token is equal to the one set after succesfull validation.
 	*/
-	
 
 	<form method="post" action="/Home/csrf">
     <input type="text" name="testValue" />
@@ -45,7 +43,6 @@ CSRF tokens
 	//here we are sending the token towards the function which does the token validation    
 	public void checkCSRF(string token)
 	{
-	
 		string Sessiontoken = Convert.ToString(System.Web.HttpContext.Current.Session["CSRF"]);
 	
 		//We compare the incomming token with the current session Token which was assigned on login

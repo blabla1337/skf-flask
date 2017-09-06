@@ -6,24 +6,24 @@
 
     <?php
 
-    	//Whenever a session is started, the "httpOnly" option should always be set to "true" or "1":
+	//Whenever a session is started, the "httpOnly" option should always be set to "true" or "1":
 
-    	public function sessionStart(){
+	public function sessionStart(){
 
-    		$lifetime = 3600;
-    		$path     = "/";
-    		$domain   = "www.example.com";
-    		$secure   = 0;
-    		$httponly = true; // <--  the httponly flag
+		$lifetime = 3600;
+		$path     = "/";
+		$domain   = "www.example.com";
+		$secure   = 0;
+		$httponly = true; // <--  the httponly flag
 
-    		session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
-    	}
+		session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+	}
 
-    	/*
-    	You could also set the session cookie its httpOnly function with a ini_set
-    	This ini_set has to be included in the header of al your pages in order to work
-    	*/
+	/*
+	You could also set the session cookie its httpOnly function with a ini_set
+	This ini_set has to be included in the header of al your pages in order to work
+	*/
 
-    	ini_set('session.cookie_httponly', 1);
+	ini_set('session.cookie_httponly', 1);
 
 	?>

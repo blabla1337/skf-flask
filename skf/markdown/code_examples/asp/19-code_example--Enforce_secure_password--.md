@@ -19,8 +19,6 @@ Enforce secure password
 			public bool checkPassword(string password)
 			{
 				string error = "";
-
-
 				bool complete = true;
 
 				/*
@@ -69,8 +67,7 @@ Enforce secure password
 
 					sr.Close();
 				}
-				catch
-				{
+				catch{
 					HttpContext.Current.Response.Write("catching file failed");
 					throw;
 				}
@@ -80,7 +77,6 @@ Enforce secure password
 				{
 					error = "The password was to short";
 					complete = false;
-
 				}
 
 				if (complete == true)
@@ -88,9 +84,7 @@ Enforce secure password
 					//Do further operation
 					HttpContext.Current.Response.Write("Good job password was ok!");
 					return true;
-				}
-				else
-				{
+				}else{
 					HttpContext.Current.Response.Write(error);
 					return false;
 				}

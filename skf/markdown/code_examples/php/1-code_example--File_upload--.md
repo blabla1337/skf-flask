@@ -7,6 +7,7 @@
 	<?php
 
 	class fileUpload{
+		
 		public function Image(){
 
 			include('classes.php');

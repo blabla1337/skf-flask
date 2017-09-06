@@ -1,6 +1,0 @@
-# File upload
--------
-
-## Example:
-
-

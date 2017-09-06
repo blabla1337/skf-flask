@@ -27,7 +27,7 @@ HTML output
 	html attributes.
 	The attack below will now be outputted as:
 	onload=&amp;#39;alert(1337)&amp;#39;
-	 */
+	*/
 	ViewBag.htmlatr = HttpUtility.HtmlAttributeEncode("onload='alert(1337);'");
 
 	/*
@@ -61,7 +61,6 @@ HTML output
 	string userinput = "when this string is evil the application will block operation!";
 	if(validate.validateInput(userinput, "nummeric", "Unecpected userinput", "HIGH", 3)== false)
 	{ /* Cancel operation of your application */ }
-	
 
 	/*
 	In this example the application cancelled the request by means of simple validation.

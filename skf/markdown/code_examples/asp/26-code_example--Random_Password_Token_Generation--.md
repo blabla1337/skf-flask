@@ -23,7 +23,6 @@ Random password/token generation
 
 				//Then set the size of the password
 				byte[] buffer = new byte[numberOfBytes];
-
 				rng.GetBytes(buffer);
 
 				//Then we base64 encode the string in order to prevent null bytes

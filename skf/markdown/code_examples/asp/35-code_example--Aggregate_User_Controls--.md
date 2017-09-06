@@ -54,9 +54,7 @@ Aggregate user controlls
 			public string password { get; set; }
 			public string access { get; set; }
 			public int aggregate { get; set; }
-			public int privilege { get; set; }
-
-			
+			public int privilege { get; set; }		
 
 			//Here we connect to the database by means of a connection string as configured in the web.config
 			SqlConnection conn = new SqlConnection
@@ -65,7 +63,6 @@ Aggregate user controlls
 			//The count integer is set every time the user connects to the databse to process data
 			public void aggregateControll(int count)
 			{
-				
 				//First we include the audit log class.
 				AuditLog Log = new AuditLog();
 			
@@ -143,17 +140,9 @@ Aggregate user controlls
 						command.ExecuteNonQuery();
 					}
 				}
-
 				conn.Close();
 			}
-
 		}
 	}
     
-    
-
 	
-	
-
-	
-

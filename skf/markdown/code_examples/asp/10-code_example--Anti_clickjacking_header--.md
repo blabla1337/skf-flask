@@ -26,7 +26,6 @@ Anti clickjacking headers
 	   }
     </script>
 
-
 	
 	/*
 	The second option is to use "security headers".

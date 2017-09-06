@@ -3,6 +3,7 @@ Re-authentication
 
 ## Example:
 	
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -44,7 +45,6 @@ Re-authentication
 
 				bool loggedin = false;
 				string passwordHash = "";
-
 				conn.Open();
 
 				//Here we select the user from the users tabele by the sessionID
@@ -96,11 +96,8 @@ Re-authentication
 					System.Web.HttpContext.Current.Session["CSRF"] = CSRftoken;
 
 					HttpContext.Current.Session["Authenticated"] = "access";
-
 					loggedin = true;
-				}
-				else
-				{
+				}else{
 					//If things went wrong we destroy the entire session. see "logout" code example for more info:
 					logoff.logOut();
 				}

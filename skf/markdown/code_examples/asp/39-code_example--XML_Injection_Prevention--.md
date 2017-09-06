@@ -25,9 +25,7 @@ XML injection prevention
 				inputValidationControll validate = new inputValidationControll();
 
 				bool doFunction = true;
-
 				//If the function returns false, we do not execute the function
-				
 				//see the "input validation" code example for more detailed information about this function
 				if (validate.validateInput(name, "alphanummeric", "Invalid userinput name", "HIGH") == false)     { doFunction = false; }
 				if (validate.validateInput(lastName, "alphanummeric", "Invalid userinput name", "HIGH") == false) { doFunction = false; }
@@ -47,16 +45,16 @@ XML injection prevention
 					}
 				}
 			}
-
 		}
 	}
+
 	/*
 	Now we prevented malicious userinput from comming into your XML file.
 	NOTE: Do not forget to also properly encode your input as a last line of defense, 
 		  also In this example the XmlReader diasble's external entities by default.
 		  If you should choose another parser make sure your parser disables these entities 
 		  in order to prevent XXE injections.
-	  */
+	*/
           
 
     

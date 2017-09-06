@@ -3,6 +3,7 @@
 
 ## Example:
 	
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -51,7 +52,6 @@
 				{
 					//this breach has to be repported into the log files
 					Log.setLog(HttpContext.Current.Session["userID"], "Audit log message!", "FAIL", "HIGH");
-				
 					Log.setCounter.count(3);
 				}
 				return validated;

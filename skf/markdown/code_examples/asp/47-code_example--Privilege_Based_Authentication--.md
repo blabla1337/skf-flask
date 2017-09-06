@@ -2,7 +2,8 @@
 -------
 
 ## Example:
-   	
+
+
    	/*
     For privilege based authentication we need an extra tabel in your database in order to write the users privileges to.
 
@@ -93,7 +94,6 @@
 						privileges = Convert.ToString(oReader["privilege"]);
 					}
 				}
-
 				return privileges;
 			}
 
@@ -129,9 +129,7 @@
 					//the connection has to be repported into the log files
 					Log.SetLog(Convert.ToString(System.Web.HttpContext.Current.Session["userID"]), 
 					"User did have the right priveleges!", "SUCCESS", "NULL");
-				}
-				else
-				{
+				}else{
 					//the connection has to be repported into the log files
 					Log.SetLog("Null", "User did not have the right priveleges!", "FAIL", "NULL");
 

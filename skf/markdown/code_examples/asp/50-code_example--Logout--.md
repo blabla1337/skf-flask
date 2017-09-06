@@ -3,6 +3,7 @@ Logout functionality
 
 ## Example:
 	
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -35,7 +36,6 @@ Logout functionality
 					HttpContext.Current.Response.Cookies["AuthToken"].Value = string.Empty;
 					HttpContext.Current.Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
 				}
-
 				HttpContext.Current.Response.Redirect("/login", true);
 			}
 		}

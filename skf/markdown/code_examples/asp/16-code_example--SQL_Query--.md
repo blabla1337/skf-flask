@@ -69,8 +69,7 @@ SQL query
 					//close the connection again
 					conn.Close();
 				}
-				catch(SqlException e)
-				{
+				catch(SqlException e){
 					if (e.Source != null)
 					{
 						System.Web.HttpContext.Current.Response.Write("Invalid select query");
@@ -98,8 +97,7 @@ SQL query
 						command.ExecuteNonQuery(); 
 					}
 				}
-				catch(SqlException e)
-				{
+				catch(SqlException e){
 					if(e.Source != null)
 					{
 						System.Web.HttpContext.Current.Response.Write("SQL insert query error");

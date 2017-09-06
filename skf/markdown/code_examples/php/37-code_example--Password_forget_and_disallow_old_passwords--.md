@@ -3,197 +3,198 @@
 
 ## Example:
 
-    <?hp
 
-      /*
-    	Whenever you are developing a password forget function, these are the steps to follow
-    	in order to create hardened defenses.
+    <?php
 
-    	 TABLE users
-        -----------------------------------------------------------------
-        | userID | userName | password |   EmailAdress	 |    access	  |
-        -----------------------------------------------------------------   
-        |   1	   | Admin	  | Csdar323 | info@admin.com	 | 	   TRUE		  |
-        -----------------------------------------------------------------    	
-        |	  2	   | User		  | Adf4fsv  | info@user.com   |	   FALSE	  |
-        -----------------------------------------------------------------    
-        |	  3	   | Guest	  | dff4fKr  | info@guest.com	 |	   TRUE		  |
-        -----------------------------------------------------------------    
+	/*
+	Whenever you are developing a password forget function, these are the steps to follow
+	in order to create hardened defenses.
 
-
-        TABLE passwordForget
-        -----------------------------------------------------------------------------------------   
-        | forgotPasswordID | 		Token 			     | 	UserID |   Active	|	  olPasswords	          |
-        -----------------------------------------------------------------------------------------
-        |      1  	 	     | 	c3ab8ff13720e....	 |	  1	   | 	YES		  |	   Csdar323	          	|
-        -----------------------------------------------------------------------------------------
-        |	     2	 	       | 	7dd39466b3c89....	 |	  1	   | 	NO		  |		ef0c4f2		            |
-        -----------------------------------------------------------------------------------------
-        |	     3	 	       | 	83d4a3960714c....	 |	  3	   | 	NO		  |		dff4fKr		            |
-        -----------------------------------------------------------------------------------------
+	TABLE users
+	-----------------------------------------------------------------
+	| userID | userName | password |   EmailAdress	 |    access    |
+	-----------------------------------------------------------------   
+	|   1    | Admin    | Csdar323 | info@admin.com	 | 	   TRUE	    |
+	-----------------------------------------------------------------    	
+	|   2    | User	    | Adf4fsv  | info@user.com   |	   FALSE    |
+	-----------------------------------------------------------------    
+	|   3    | Guest    | dff4fKr  | info@guest.com	 |	   TRUE	    |
+	-----------------------------------------------------------------    
 
 
-    	As you can see we also store the old passwords into the password forget table, this
-    	we do in order to prevent the user from using old passwords later on in the process.
+	TABLE passwordForget
+	-----------------------------------------------------------------------------------------   
+	| forgotPasswordID | 		Token 	         | 	UserID |   Active	|	  olPasswords   |
+	-----------------------------------------------------------------------------------------
+	|      1           | 	c3ab8ff13720e....	 |	  1	   | 	YES	    |	   Csdar323	    |
+	-----------------------------------------------------------------------------------------
+	|	   2  	       | 	7dd39466b3c89....	 |	  1	   | 	NO	    |		ef0c4f2	    |
+	-----------------------------------------------------------------------------------------
+	|	   3 	       | 	83d4a3960714c....	 |	  3	   | 	NO	    |		dff4fKr	    |
+	-----------------------------------------------------------------------------------------
 
-    	Also use a cron job to make sure the generated tokens for the password reset are
-    	expire after a certain amount of time like 20 minutes.
-    	*/
 
-    	class passwordForget{
-    		public function checkValidity(){
+	As you can see we also store the old passwords into the password forget table, this
+	we do in order to prevent the user from using old passwords later on in the process.
 
-    			//init a DB connection
-    			include("classes.php");
-    			$con = new database();
-    			$db = $con ->connection()
+	Also use a cron job to make sure the generated tokens for the password reset are
+	expire after a certain amount of time like 20 minutes.
+	*/
 
-    			$stmt = $db->prepare("SELECT * FROM members WHERE email=?");
-    			$stmt->execute(array($_POST['email']));
-    			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	class passwordForget{
+		public function checkValidity(){
 
-    			foreach($rows as $row){
-    				//Here we select the old password as well as the userid from the members table
-    				$password = $row['password'];
-    				$userID   = $row['id'];
-    				$email 	  = $row['email'];
-    			}
+			//init a DB connection
+			include("classes.php");
+			$con = new database();
+			$db = $con ->connection()
 
-    			//If the select was not empty we will be sending an email to the user as well as
-    			//preparing the password forget function
-    			if(!empty($rows)){
+			$stmt = $db->prepare("SELECT * FROM members WHERE email=?");
+			$stmt->execute(array($_POST['email']));
+			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    				echo "An email was sent to your email for password reset";
+			foreach($rows as $row){
+				//Here we select the old password as well as the userid from the members table
+				$password = $row['password'];
+				$userID   = $row['id'];
+				$email 	  = $row['email'];
+			}
 
-    				/*
-    				Before we do anything we first set all other possible active statuses to NO
-    				in order to prevent an attacker creating a whole lot of tokens and than fuzz
-    				the password reset token.
-    				*/
+			//If the select was not empty we will be sending an email to the user as well as
+			//preparing the password forget function
+			if(!empty($rows)){
 
-    				$active = "NO";
-    				$stmt = $db->prepare("UPDATE forgetPassword SET active=? WHERE userID=?");
-    				$stmt->execute(array($active, $userID));
-    				$affected_rows = $stmt->rowCount();
+				echo "An email was sent to your email for password reset";
 
-    				//Here we generate the password forget token
-    				$bytes = openssl_random_pseudo_bytes(30);
-    				$token = bin2hex($bytes);
+				/*
+				Before we do anything we first set all other possible active statuses to NO
+				in order to prevent an attacker creating a whole lot of tokens and than fuzz
+				the password reset token.
+				*/
 
-    				$stmt = $db->prepare("
-    				INSERT INTO forgetPassword
-    					(token, userID, active, oldPasswords)
-    						VALUES
-    							(?, ?, ?, ?)");
+				$active = "NO";
+				$stmt = $db->prepare("UPDATE forgetPassword SET active=? WHERE userID=?");
+				$stmt->execute(array($active, $userID));
+				$affected_rows = $stmt->rowCount();
 
-    				$stmt->execute(array(
-    				$token,
-    				$userID,
-    				'YES',
-    				$password
-    				));
+				//Here we generate the password forget token
+				$bytes = openssl_random_pseudo_bytes(30);
+				$token = bin2hex($bytes);
 
-    				//Here we send an email to the user with the needed reset function
-    				$msg = "follow this link to reset your password http://example.com/index.php?resetLink=$token";
-    				mail($email,"Password reset",$msg);
-    			}else{
+				$stmt = $db->prepare("
+				INSERT INTO forgetPassword
+					(token, userID, active, oldPasswords)
+						VALUES
+							(?, ?, ?, ?)");
 
-    				/*
-    				We show the user the same message in order to prevent the enumeration of
-    				valid email addresses.
-    				*/
+				$stmt->execute(array(
+				$token,
+				$userID,
+				'YES',
+				$password
+				));
 
-    				echo "An email was sent to your email for password reset";			
-    			}
-    		}
+				//Here we send an email to the user with the needed reset function
+				$msg = "follow this link to reset your password http://example.com/index.php?resetLink=$token";
+				mail($email,"Password reset",$msg);
+			}else{
 
-    		public function resetPassword(){
+				/*
+				We show the user the same message in order to prevent the enumeration of
+				valid email addresses.
+				*/
 
-    			//init a DB connection and make objects for hashing and secure password enforcing
-    			include("classes.php");
+				echo "An email was sent to your email for password reset";			
+			}
+		}
 
-    			$con  = new database();
-    			$hash = new passwordHash();
-    			$pwd  = new passwordPolicy();
+		public function resetPassword(){
 
-    			$db = $con->connection()		
+			//init a DB connection and make objects for hashing and secure password enforcing
+			include("classes.php");
 
-    			/*
-    			Imagine the user clicked on his link with the token included and is redirected towards
-    			the page where he can enter his new password.
+			$con  = new database();
+			$hash = new passwordHash();
+			$pwd  = new passwordPolicy();
 
-    			Now we select the information from the forgot password function where the
-    			forgot tokens matches the token in the database.
-    			*/
+			$db = $con->connection()		
 
-    			$active = "YES";
+			/*
+			Imagine the user clicked on his link with the token included and is redirected towards
+			the page where he can enter his new password.
 
-    			$stmt = $db->prepare("
-    			SELECT  a.userID, a.token, b.id
-    					FROM forgetPassword as a
-    						JOIN members as b
-    							ON a.userID = b.id WHERE token=? and Active=? ");
+			Now we select the information from the forgot password function where the
+			forgot tokens matches the token in the database.
+			*/
 
-    			$stmt->execute(array($_GET['resetLink'], $active));
-    			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$active = "YES";
 
-    			foreach($rows as $row){
+			$stmt = $db->prepare("
+			SELECT  a.userID, a.token, b.id
+					FROM forgetPassword as a
+						JOIN members as b
+							ON a.userID = b.id WHERE token=? and Active=? ");
 
-    				//Here we select token and users id:
-    				$token  = $row['token'];
-    				$userID = $row['userID'];
+			$stmt->execute(array($_GET['resetLink'], $active));
+			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    			}
+			foreach($rows as $row){
 
-    			if($token === $_GET['resetLink']){
+				//Here we select token and users id:
+				$token  = $row['token'];
+				$userID = $row['userID'];
 
-    				/*
-    				First we pull the password through our function which enforces the input of
-    				secure passwords.(see "Enforce secure passwords" in code examples for more
-    				detailed information)
-    				*/
+			}
 
-    				if($pwd->createPassword($_POST['password']) === true);
+			if($token === $_GET['resetLink']){
 
-    				/*
-    				Than we encrypt our password
-    				(see "Password storage" in code examples for more
-    				detailed information)
-    				*/
+				/*
+				First we pull the password through our function which enforces the input of
+				secure passwords.(see "Enforce secure passwords" in code examples for more
+				detailed information)
+				*/
 
-    				$hash->createHash($_POST['password']);
+				if($pwd->createPassword($_POST['password']) === true);
 
-    				/*
-    				Finally we compare the password against other old passwords from the
-    				password reset database in order to prevent the user from using old passwords
-    				which could already be compromised by any means.
-    				*/
+				/*
+				Than we encrypt our password
+				(see "Password storage" in code examples for more
+				detailed information)
+				*/
 
-    				$stmt = $db->prepare("SELECT oldPasswords FROM forgetPassword where userID=?");
-    				$stmt->execute(array($userID));
-    				$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				$hash->createHash($_POST['password']);
 
-    				foreach($rows as $row){
+				/*
+				Finally we compare the password against other old passwords from the
+				password reset database in order to prevent the user from using old passwords
+				which could already be compromised by any means.
+				*/
 
-    					if($newpassword === $row['oldPasswords']){
-    						echo "This was an old password please do not use this password";
-    					}else{
+				$stmt = $db->prepare("SELECT oldPasswords FROM forgetPassword where userID=?");
+				$stmt->execute(array($userID));
+				$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    						//First we update the new password for the user
-    						$active = "NO";
-    						$stmt = $db->prepare("UPDATE members SET password=? WHERE userID=?");
-    						$stmt->execute(array($newPassword, $userID));
-    						$affected_rows = $stmt->rowCount();
+				foreach($rows as $row){
 
-    						//Then we destroy the reset token by setting it's value to NO
-    						$stmt = $db->prepare("UPDATE forgetPassword SET active=? WHERE userID=?");
-    						$stmt->execute(array($active, $userID));
-    						$affected_rows = $stmt->rowCount();
+					if($newpassword === $row['oldPasswords']){
+						echo "This was an old password please do not use this password";
+					}else{
 
-    					}
-    				}
-    			}
-    		}
-    	}
+						//First we update the new password for the user
+						$active = "NO";
+						$stmt = $db->prepare("UPDATE members SET password=? WHERE userID=?");
+						$stmt->execute(array($newPassword, $userID));
+						$affected_rows = $stmt->rowCount();
+
+						//Then we destroy the reset token by setting it's value to NO
+						$stmt = $db->prepare("UPDATE forgetPassword SET active=? WHERE userID=?");
+						$stmt->execute(array($active, $userID));
+						$affected_rows = $stmt->rowCount();
+
+					}
+				}
+			}
+		}
+	}
 
     ?>

@@ -26,7 +26,6 @@ Password storage(salting/stretching/hashing)
 				rng.GetBytes(buffer);
 
 				Rfc2898DeriveBytes hasher = new Rfc2898DeriveBytes(password + "ALongPepperValue", buffer, 10000);
-
 				return Convert.ToBase64String(hasher.GetBytes(25));
 			}
 			

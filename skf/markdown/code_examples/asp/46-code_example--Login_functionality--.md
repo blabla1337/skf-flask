@@ -3,6 +3,7 @@ Login functionality
 
 ## Example:
 	
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -16,7 +17,7 @@ Login functionality
 		public class login
 		{
 			//Getters and setters for our user method
-			[Key]
+		    [Key]
 			public int userID { get; set; }
 			public string username { get; set; }
 			public string password { get; set; }
@@ -74,7 +75,6 @@ Login functionality
 				*/
 				if (hash.Validate(passwordHash, salt, password) == true)
 				{
-
 					/*
 					This is is to prevent session fixation, after login we create a new cookie which
 					we than use to authenticate. This value can not be fixated since it is set after 
@@ -109,9 +109,7 @@ Login functionality
 					System.Web.HttpContext.Current.Session["userID"] = userId;
 
 					loggedin = true;
-				}
-				else
-				{
+				}else{
 					//the connection has to be repported into the log files
 					Log.SetLog("null", "Login failed!", "FAIL", "NULL");
 					loggedin = false;
@@ -134,8 +132,7 @@ Login functionality
 						HttpContext.Current.Response.Redirect("/login", true);
 					}
 				}
-				catch (NullReferenceException e)
-				{
+				catch (NullReferenceException e){
 					if (e.Source != null)
 					{   
 						HttpContext.Current.Response.Redirect("/login", true);

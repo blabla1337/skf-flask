@@ -3,6 +3,7 @@ Audit logs
 
 ## Example:
 
+
    	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -31,7 +32,6 @@ Audit logs
 
 			public void SetLog(string session, string message, string state, string threat)
 			{
-
 				using (StreamWriter writer = new StreamWriter(@"C:\Users\Public\xml\logs.txt", true))
 				{
                     writer.WriteLine(session + " - " + message + " - " + HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"] +
@@ -74,7 +74,6 @@ Audit logs
 				{
 					using (SqlCommand command = conn.CreateCommand())
 					{
-
 						command.CommandText = "UPDATE counter set count = @count, blocker = @blocker WHERE userID = @userID";
 
 						//Again we bind the parameters in order to prevent SQL injections
@@ -85,13 +84,11 @@ Audit logs
 						command.ExecuteNonQuery();
 					}
 				}
-				catch (SqlException e)
-				{
+				catch (SqlException e){
 					if (e.Source != null)
 					{
 						System.Web.HttpContext.Current.Response.Write("SQL insert query error in update counter");
 						throw;
-
 					}
 				}
 				conn.Close();
@@ -123,8 +120,7 @@ Audit logs
 							HttpContext.Current.Response.Redirect("/login", true);
 						}
 					}
-					catch (SqlException e)
-					{
+					catch (SqlException e){
 						if (e.Source != null)
 						{
 							System.Web.HttpContext.Current.Response.Write("SQL insert query error");

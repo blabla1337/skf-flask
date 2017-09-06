@@ -6,42 +6,42 @@
 
     <?php
 
-    	class whitelisting{
+	class whitelisting{
 
-    		/*
-    		First we create a function which checks the allowed patterns:
-    		checkpattern("value1,value2,value3" , $input, "3")
-    		*/
-    		 function checkpattern($allowed, $input, $countLevel){
+		/*
+		First we create a function which checks the allowed patterns:
+		checkpattern("value1,value2,value3" , $input, "3")
+		*/
+			function checkpattern($allowed, $input, $countLevel){
 
-        		$logging = new logging();
-        		$result  = explode("," , $allowed);
+			$logging = new logging();
+			$result  = explode("," , $allowed);
 
-    			$results = false;
+			$results = false;
 
-    			foreach($result as $pattern){
-    				while(preg_match("/^".$pattern."$/", $input)){		
-    					//If the value is valid we send a log to the logging file.        
-    					$logging->setLog($_SESSION['userID'],"Good whitelist validation",
-    					"SUCCESS", date("d-m-y"),"null", "HIGH");
+			foreach($result as $pattern){
+				while(preg_match("/^".$pattern."$/", $input)){		
+					//If the value is valid we send a log to the logging file.        
+					$logging->setLog($_SESSION['userID'],"Good whitelist validation",
+					"SUCCESS", date("d-m-y"),"null", "HIGH");
 
-    					$results = true;
+					$results = true;
 
-    					//Whenever there was a valid match we return true      			
-    					return true;
-    				}
-    			}
+					//Whenever there was a valid match we return true      			
+					return true;
+				}
+			}
 
-    			//Check for a false in order to send error to log and counter the user.
-    			if($results == false){
-    				//If the value is invalid we send a log to the logging file.        
-    				$logging->setLog($_SESSION['userID'],"Bad whitelist validation",
-    				"FAIL", date("d-m-y"), $_SESSION["privilege"], "HIGH");
+			//Check for a false in order to send error to log and counter the user.
+			if($results == false){
+				//If the value is invalid we send a log to the logging file.        
+				$logging->setLog($_SESSION['userID'],"Bad whitelist validation",
+				"FAIL", date("d-m-y"), $_SESSION["privilege"], "HIGH");
 
-    				$logging->setCounter($countLevel);
-    				return false;		
-    			}
-    		}
-    	}
+				$logging->setCounter($countLevel);
+				return false;		
+			}
+		}
+	}
 
     ?>

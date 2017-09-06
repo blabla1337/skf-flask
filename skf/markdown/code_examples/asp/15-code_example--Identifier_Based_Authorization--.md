@@ -2,7 +2,7 @@ Identifier-based authorization
 -------
 
 ## Example:
-
+   
 
 	using System;
 	using System.Collections.Generic;
@@ -45,7 +45,6 @@ Identifier-based authorization
 			public void IdentifierBasedAuthentication(int pageID)
 			{
 				conn.Open();
-
 				bool doFunction = true;
 
 				/*

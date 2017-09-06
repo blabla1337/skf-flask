@@ -3,6 +3,7 @@ Single input validation controll
 
 ## Example:
 	
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -36,7 +37,6 @@ Single input validation controll
 				Regex regex = new Regex(validator);
 				bool validate = false;
 
-
 				Match match = regex.Match(input);
 				if (match.Success)
 				{
@@ -53,16 +53,12 @@ Single input validation controll
 					*/
 
 					Log.count(1);
-
-				}
-				else
-				{
+				}else{
 					Log.SetLog(Session['userID'], logMessage, date(), "SUCCESS", "NULL");
 				}
 				return validate;
 			}
 		}
-
 	}
 
 	//Usage:

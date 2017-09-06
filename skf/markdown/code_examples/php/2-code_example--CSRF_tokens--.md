@@ -4,27 +4,27 @@
 ## Example:
 
 
-  <?php
+	<?php
 
 	class CSRF{
 
 		public function generateToken(){
-            /*
-            After successful user authentication, the application must start a session
-			      which contains the "Cross Site Request Forgery(CSRF)" token.
-            */
+			/*
+			After successful user authentication, the application must start a session
+					which contains the "Cross Site Request Forgery(CSRF)" token.
+			*/
 
-            $_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
+			$_SESSION['csrf'] = base64_encode(openssl_random_pseudo_bytes(128));
 		}
 
 		/*
 
-        The random CSRF token generated need to be send to the server with every form submission.
-        This token is included in a form as a HTML hidden form field parameter. When the form is
-        submitted the token value is also submitted along with it.
+		The random CSRF token generated need to be send to the server with every form submission.
+		This token is included in a form as a HTML hidden form field parameter. When the form is
+		submitted the token value is also submitted along with it.
 
-        The token is then validated against the csrf token which was generated during user authentication.
-        Below code demonstrate the validation of csrf token at the server side:
+		The token is then validated against the csrf token which was generated during user authentication.
+		Below code demonstrate the validation of csrf token at the server side:
 
 		*/
 

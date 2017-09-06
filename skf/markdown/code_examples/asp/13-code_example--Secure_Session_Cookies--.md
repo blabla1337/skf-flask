@@ -3,6 +3,7 @@ Secure session cookies
 
 ## Example:
 
+    
 	/*
 	Whenever  a cookie is sent over a secured connection, the cookie should be set
 	with the secure flag, in order to guarantee the integrity of the data it contains.
@@ -27,12 +28,10 @@ Secure session cookies
 	
 	
 	//Or programmatically
-
 	//C# Code:
 	
 	HttpCookie myCookie = new HttpCookie("AuthToken", guid);
 	HttpContext.Current.Response.Cookies.Add(myCookie);
-
 	myCookie.Secure = true;
 
 

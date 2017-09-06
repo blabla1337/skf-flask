@@ -3,8 +3,8 @@
 
 ## Example:
 
+    
 	/*
-	
 	Vulnerability occur when unsanitized input is passed into the unserialize function
 
 	<?php
@@ -25,7 +25,7 @@
 
 	?>
 
-	In the above example  user can control the input to the unserialize function, which can lead to change in the $cmd variable which can even result in taking over the server.
+	In the above example user can control the input to the unserialize function, which can lead to change in the $cmd variable which can even result in taking over the server.
 
 	Do not use unserialize() function with user-supplied input, use JSON functions instead.
 	We can use json_decode instead of unserialize.
@@ -33,7 +33,7 @@
 	
 	*/
 
-	// Fix for the PHP object Injection
+	// Secure approach for preventing the PHP object injection
 	
 	<?php
 
@@ -48,7 +48,6 @@
 		}
 
 		$data = $_GET['data'];
-
 		$obj = json_decode($data);
 
 	?>	

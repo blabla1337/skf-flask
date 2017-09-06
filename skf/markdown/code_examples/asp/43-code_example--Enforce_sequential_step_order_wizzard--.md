@@ -3,8 +3,8 @@ Enforce sequential step order (Wizzard)
 
 ## Example:
 	
+
 	//Example as used in your controller:
-	
 	bool next = true;
 
 	//We check for form submit
@@ -18,9 +18,7 @@ Enforce sequential step order (Wizzard)
 		{   
 			//If all went good the session can be set for step2
 			Session["stepOrder"] = "step2";
-		}
-		else
-		{
+		}else{
 		   Session["stepOrder"] = "";
 		   Session.Abandon();
 		   Response.Redirect("/Home/Index", true);
@@ -35,9 +33,7 @@ Enforce sequential step order (Wizzard)
 		if (next == true)
 		{
 			Session["stepOrder"] = "final";
-		}
-		else
-		{
+		}else{
 			Session["stepOrder"] = "";
 			Session.Abandon();
 			Response.Redirect("/Home/Index", true);
@@ -47,7 +43,6 @@ Enforce sequential step order (Wizzard)
 	//Again we check for the new valid session for doing the final operation
 	if ((Request.Form["final"] != null) && (Session["stepOrder"] == "final")) { /* Do final operation! */ }
 	return View();
-
 
 	/*
 	If the user drops his session, he has to start over again, and since we assign different values to the same session

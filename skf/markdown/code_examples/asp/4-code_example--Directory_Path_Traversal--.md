@@ -27,7 +27,7 @@ Path traversal
 				bool validated = true;
 
 				//see the "input validation" code example for more detailed information about this function
-				if (validate.validateInput(getFile, "nummeric", "Failed to get file", "HIGH") == false) { validated = false; }
+				if (validate.validateInput(getFile, "nummeric", "Failed to get file", "HIGH") == false) { validated = false;}
 
 				/*
 				see the "whitelisting" code example for more detailed information about this function
@@ -46,16 +46,13 @@ Path traversal
 
 						sr.Close();
 					}
-					catch(DirectoryNotFoundException e)
-					{
+					catch(DirectoryNotFoundException e){
 						if (e.Source != null)
 						{
 							HttpContext.Current.Response.Write("catching file failed");
 						}
 					}
-				}
-				else
-				{
+				}else{
 					HttpContext.Current.Response.Write("invalid userinput was detected!");
 				}
 			}

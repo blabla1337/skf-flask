@@ -16,7 +16,6 @@ File upload
 	{ 
 		public class auditLogs
 		{
-
 			private bool continueFunction = true;
 			validation validate = new validation();
 
@@ -45,7 +44,6 @@ File upload
 				string[] StrSpli = test.Split('.');
 				int count = StrSpli.Count() - 1;
 
-
 				if ((StrSpli[count] != "png") && (StrSpli[count] != "jpg"))
 				{
 					continueFunction = false;
@@ -69,14 +67,11 @@ File upload
 							var path = Path.Combine(@"C:\Users\Public\xml", fileName);
 							file.SaveAs(path);
 						}
-						catch
-						{
+						catch{
 							HttpContext.Current.Response.Write("File did not upload!");
 						}
 					}
-				}
-				else
-				{
+				}else{
 					HttpContext.Current.Response.Write("end of function we returned false");
 				}
 
@@ -84,7 +79,7 @@ File upload
 				Now we check the uploaded file for the right mime-type
 				We do this after the upload instead of checking the content type header sinds that header 
 				can easily manipulated by an attacker. 
-				 */
+				*/
 
 				string mimeType = "application/unknown";
 				string ext = System.IO.Path.GetExtension(@"C:\Users\Public\xml\"+test+"").ToLower();

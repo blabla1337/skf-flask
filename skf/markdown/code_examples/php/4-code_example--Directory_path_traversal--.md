@@ -4,7 +4,7 @@
 ## Example:
 
 
-  <?php
+	<?php
 
 	class fileGetContents{ 	
 		/*
@@ -42,4 +42,4 @@
 			}
 		}
 	}
-    ?>
+	?>

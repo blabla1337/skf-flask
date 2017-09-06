@@ -2,8 +2,7 @@ Sandboxing
 -------
 
 ## Example:
-
-
+    
 
     <iframe sandbox="value"> 
 	
