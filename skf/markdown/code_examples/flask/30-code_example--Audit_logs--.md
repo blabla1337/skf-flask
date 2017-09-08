@@ -15,7 +15,15 @@
         def setLog(userId, error, value, date, threat):
 
             """
+            There are different threats : LOW, MEDIUM, HIGH
 
+            NULL if the operation is success
+
+            LOW threats are debugging logs or information logs when it goes wrong
+
+            MEDIUM threats can be failure of validation check, whitelisting checks failure
+
+            HIGH threats can even result in ban of users, security testing and maximum number of tries
             """
             
             //Take the client's IP address

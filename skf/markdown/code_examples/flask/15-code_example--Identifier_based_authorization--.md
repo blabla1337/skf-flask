@@ -6,10 +6,10 @@
 
     """
     Define the whitelist pattern and validation type and input parameter like:
-    identity("page1,page2,etc", "alphanummeric", $_GET['page'], "3")
+    identity("page1,page2", "alphanummeric", $_GET['page'])
     """
 
-    def identity(whiteListPattern, validationType, inputParameter, countLevel):
+    def identity(whiteListPattern, validationType, inputParameter):
 
     	continue = True
 
@@ -46,3 +46,9 @@
 
             countAccess(1)
             data = Table.query.filter_by(id=session['id'], page=inputParameter).first()
+
+            return data
+
+        else:
+
+            return False
