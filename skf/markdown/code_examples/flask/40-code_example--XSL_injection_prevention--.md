@@ -16,13 +16,22 @@
 	Before we want to attach the XSL files to the style sheet we first want to
 	do validation on the request to make sure the included file was one of our own pre
 	defined files, example:
-	including("file1.xsl,file2.xsl,etc", $_GET['xslfile'], "3")
+	including("file1.xsl,file2.xsl,etc", 'filename' , $_GET['xslfile'])
 	"""
 
 
 	def including(whiteListing, input, count):
 
 		continue = True
+
+		"""
+		First, we want to filter the filenames for expected values. For this example we use only a-z/0-9 and .
+		Whenever the values are tampered with, we can assume an attacker is trying to inject malicious input.
+		for more information about validation see "input validations" in the code examples:
+		"""
+
+		if inputValidation(inputParameter, validationType, "Invalid userinput", "HIGH") == False:
+			continue = False
 
 		"""
 		We want to whitelist the paged for expected values, in this example they are,
@@ -42,3 +51,7 @@
 
 			//Transform the XML
 			result_tree = transform(root)
+
+		else: 
+
+			return False
