@@ -7,7 +7,7 @@ Content type headers
 	'''
     In order to set the "Content-Type" header you'll have to add the following code to the head of your application
 
-    For adding Content-Type in everypage we have to add a middleware
+    For adding Content-Type in every page we have to add a middleware
 
     Make a middleware in yourapp/middleware.py
     '''

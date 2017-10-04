@@ -5,7 +5,7 @@ Debug Enabling
 ## Example:
 
     """
-    Debug mode makes it a major security risk and therefore it must never be used on production machines. Django will display a detail traceback with more detail about the application such 
+    Debug mode makes it a major security risk and therefore it must never be used on production machines. Django will display a detailed trace-back with more detail about the application such 
     as Django settings
     """
 

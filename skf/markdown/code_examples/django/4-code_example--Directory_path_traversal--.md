@@ -5,7 +5,7 @@
 
 	"""
 	Define the whitelist pattern and validation type and input parameter, countLevel like:
-	getFiles("page1,page2,etc", "alphanummeric", $_GET['filename'])
+	getFiles("page1,page2,etc", "alphanumeric", $_GET['filename'])
 	"""
 
 	def getFiles(request, whiteListPattern, validationType, inputParameter):

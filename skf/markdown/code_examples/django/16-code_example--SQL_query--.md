@@ -4,7 +4,7 @@ SQL query
 ## Example:
 
     """
-    Django supports almost most of the database backends.  
+    Django supports almost most of the database backend.  
 
     A model contains the essential fields and behaviors of the data you’re storing.
     Each model maps to a single database table.
@@ -44,7 +44,7 @@ SQL query
 
 
 	"""
-	After adding the application, inorder to make the changes we need to make migrations
+	After adding the application, in order to make the changes we need to make migrations
 	and migrate - For creating tables 
 	"""
 

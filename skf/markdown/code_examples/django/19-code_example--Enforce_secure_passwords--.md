@@ -47,7 +47,7 @@
         	return True
     	
         else:
-        	flash("Password validation failure(your choise is weak):")
+        	flash("Password validation failure(your choice is weak):")
         	for x in error:
             	print x
         	return False

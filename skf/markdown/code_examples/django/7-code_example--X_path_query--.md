@@ -4,7 +4,7 @@
 ## Example:
 
     """
-    Define the allowed characters and input parameter and countlevel for the
+    Define the allowed characters and input parameter and count level for the
     user lockout like:
     controller("<'>&", $_GET['filename'], "3")
     
