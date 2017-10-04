@@ -17,7 +17,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 SQLALCHEMY_ECHO = False
 
 # JWT settings
-JWT_SECRET = ''
+JWT_SECRET = 'looselips'
 ORIGINS = '*'
 
 # TESTING settings
