@@ -28,7 +28,7 @@ Login functionality
 			//First we include the audit log class.
 			auditLogs Log = new auditLogs();
 
-			//Seccond we include the password hash.
+			//Second we include the password hash.
 			hashing hash = new hashing();
 
 			//Third we include the random password/token class.
@@ -48,9 +48,9 @@ Login functionality
 				conn.Open();
 
 				//we also validate the username input, if it was bad we empty the string:
-				if (validate.validateInput(username, "alphanummeric", "Error in username", "LOW", 0) != true) { username = ""; }
+				if (validate.validateInput(username, "alphanumeric", "Error in username", "LOW", 0) != true) { username = ""; }
 
-				//Here we select the user from the users tabele
+				//Here we select the user from the users table
 				string query = string.Format("SELECT * from users WHERE username = @name ");
 				SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -80,7 +80,7 @@ Login functionality
 					we than use to authenticate. This value can not be fixated since it is set after 
 					login.
 				 
-					createa a new GUID and save into the session:
+					create a a new GUID and save into the session:
 					*/
 
 					string guid = Guid.NewGuid().ToString();
@@ -89,7 +89,7 @@ Login functionality
 					// now create a new cookie with this guid value
 					HttpContext.Current.Response.Cookies.Add(new HttpCookie("AuthToken", guid));
 
-					//the connection has to be repported into the log files
+					//the connection has to be reported into the log files
 					Log.SetLog("Null", "login was OK!", "SUCCESS", "NULL");
 
 					/*

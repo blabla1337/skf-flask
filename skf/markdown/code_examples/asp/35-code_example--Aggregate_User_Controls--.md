@@ -1,4 +1,4 @@
-Aggregate user controlls
+Aggregate user controls
 -------
 
 ## Example:
@@ -60,18 +60,18 @@ Aggregate user controlls
 			SqlConnection conn = new SqlConnection
 			(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
-			//The count integer is set every time the user connects to the databse to process data
-			public void aggregateControll(int count)
+			//The count integer is set every time the user connects to the database to process data
+			public void aggregateControl(int count)
 			{
 				//First we include the audit log class.
 				AuditLog Log = new AuditLog();
 			
 				conn.Open();
 
-				int controll = 0;
+				int control = 0;
 
-				//the connection has to be repported into the log files
-				Log.SetLog(Session['userID'], "Connection to the database was made succesfully", "SUCCESS", "NULL" ");
+				//the connection has to be reported into the log files
+				Log.SetLog(Session['userID'], "Connection to the database was made successfully", "SUCCESS", "NULL" ");
 
 				//Here we select the number of counts from aggregate column in order to verify the number of connections:
 				string query = string.Format("SELECT aggregate from users WHERE userID = @userID ");
@@ -85,7 +85,7 @@ Aggregate user controlls
 				{
 					while (oReader.Read())
 					{
-						controll = Convert.ToInt32(oReader["aggregate"]);
+						control = Convert.ToInt32(oReader["aggregate"]);
 					}
 				}
 
@@ -93,7 +93,7 @@ Aggregate user controlls
 				{
 					//We update the aggregate table in the database in order to 
 					//keep track of the number of connections the user made
-					count += controll;
+					count += control;
 				
 					command.CommandText = "UPDATE users SET aggregate = @count WHERE userID = @userID";
 					//Again we bind the parameters in order to prevent sql injections
@@ -104,19 +104,19 @@ Aggregate user controlls
 				}
 
 				/*
-				Everytime the user accesses the database we keep track of the number of times he
+				Each time the user accesses the database we keep track of the number of times he
 				connected. Whenever the user passes a reasonable number he should be rejected 
 				since he could be an attacker scraping your table contents and stealing company information
 				You could a CRON job or stored procedure in your system in order to 
-				clean the Aggregate column within certain timeframes
+				clean the Aggregate column within certain time frames
 				*/
-				HttpContext.Current.Response.Write(controll);
-				if (controll > 5000)
+				HttpContext.Current.Response.Write(control);
+				if (control > 5000)
 				{
 					using (SqlCommand command = conn.CreateCommand())
 					{
 
-						//this breach has to be repported into the log files
+						//this breach has to be reported into the log files
 						Log.SetLog(Session['userID'], 
 						"User account was locked out due to aggregate user control system", date, FAIL, HIGH");
 

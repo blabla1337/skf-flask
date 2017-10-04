@@ -7,7 +7,7 @@ SQL query
 	/*
 	In c# MVC there are a lot of different methods in order to process your SQL query's to 
 	the database. Most of them are already secure by design and leave little to no room for
-	error such as SQL to LinQ or doing your database handeling by the entity framework.
+	error such as SQL to LinQ or doing your database handling by the entity framework.
 
 	However if you want to use the sql command method you must use this functionality by
 	means of prepared statements in order to prevent sql injections.

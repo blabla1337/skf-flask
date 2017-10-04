@@ -28,7 +28,7 @@ Re-authentication
 			//First we include the audit log class.
 			auditLogs Log = new auditLogs();
 
-			//Seccond we include the password hash.
+			//Second we include the password hash.
 			hashing hash = new hashing();
 
 			//Third we include the random password/token class.
@@ -47,7 +47,7 @@ Re-authentication
 				string passwordHash = "";
 				conn.Open();
 
-				//Here we select the user from the users tabele by the sessionID
+				//Here we select the user from the users table by the sessionID
 				string query = string.Format("SELECT * from users WHERE userID = @userID ");
 				SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -70,7 +70,7 @@ Re-authentication
 				*/
 				if (hash.Validate(passwordHash, salt, password) == true)
 				{
-					//the connection has to be repported into the log files
+					//the connection has to be reported into the log files
 					Log.SetLog("Null", "login was OK!", "SUCCESS", "NULL");
 
 					/*
@@ -78,7 +78,7 @@ Re-authentication
 					we than use to authenticate. This value can not be fixated since it is set after 
 					login.
 				 
-					createa a new GUID and save into the session:
+					create a new GUID and save into the session:
 					*/
 
 					//Al the random tokens will now be changed

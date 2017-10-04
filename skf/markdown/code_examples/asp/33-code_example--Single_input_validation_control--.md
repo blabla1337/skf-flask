@@ -1,4 +1,4 @@
-Single input validation controll
+Single input validation control
 -------
 
 ## Example:
@@ -15,7 +15,7 @@ Single input validation controll
 		public class inputvalidation
 		{
 
-			public bool validateInput(string input, string type, string logMessage, string theatLevel)
+			public bool validateInput(string input, string type, string logMessage, string threatLevel)
 			{
 				/*
 				Than we want to filter the filenames for expected values. For this example we use only a-z/0-9
@@ -29,7 +29,7 @@ Single input validation controll
 					case "alphanumeric":
 						validator = "^[a-zA-Z0-9]+$";                  
 						break;
-					case "nummeric":
+					case "numeric":
 						validator = "^[0-9]*$";
 						break;
 				}
@@ -43,12 +43,12 @@ Single input validation controll
 					//If there was a match this function returns false
 					validate = true;
 
-					//this breach has to be repported into the log files
-					Log.SetLog(Session['userID'], logMessage, date, "FAIL", theatLevel);
+					//this breach has to be reported into the log files
+					Log.SetLog(Session['userID'], logMessage, date, "FAIL", threatLevel);
 
 					/*
 					Set counter; if counter hits 3, the user's session must be terminated.
-					After 3 session terminations the user's acount must be blocked.
+					After 3 session terminations the user's account must be blocked.
 					For detailed information see the "Audit logs" in code examples.
 					*/
 
@@ -62,7 +62,7 @@ Single input validation controll
 	}
 
 	//Usage:
-	if(validate.validateInput(Convert.ToString(employeeID), "nummeric", "input validation", "HIGH") == false) 
+	if(validate.validateInput(Convert.ToString(employeeID), "numeric", "input validation", "HIGH") == false) 
 	{ 
 		continueFunction = false; 
 	}

@@ -130,7 +130,7 @@ Audit logs
 				}
 				
 				/*
-				If the count hit three, the user get's a warning by means of a session termination.
+				If the count hit three, the user gets a warning by means of a session termination.
 				Whenever this termination occurs three times he will lock out his account.
 				*/
 				if (finalCount >= 3)

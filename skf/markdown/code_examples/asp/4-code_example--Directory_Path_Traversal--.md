@@ -27,7 +27,7 @@ Path traversal
 				bool validated = true;
 
 				//see the "input validation" code example for more detailed information about this function
-				if (validate.validateInput(getFile, "nummeric", "Failed to get file", "HIGH") == false) { validated = false;}
+				if (validate.validateInput(getFile, "numeric", "Failed to get file", "HIGH") == false) { validated = false;}
 
 				/*
 				see the "whitelisting" code example for more detailed information about this function

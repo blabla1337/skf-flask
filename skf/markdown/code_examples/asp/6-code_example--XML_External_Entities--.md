@@ -42,7 +42,7 @@ XML External entities
 	You can improve your resilience against these attacks if you customize the behavior 
 	of XmlReader by changing its XmlResolver. XmlResolver objects are used to resolve external 
 	references, including external entities. XmlTextReader instances, as well as XmlReader 
-	instances returned from calls to XmlReader.Create, are prepopulated with default 
+	instances returned from calls to XmlReader.Create, are pre-populated with default 
 	XmlResolvers (actually XmlUrlResolvers). You can prevent XmlReader from resolving 
 	external entities while still allowing it to resolve inline entities by setting the 
 	XmlResolver property of XmlReaderSettings to null. This is attack surface reduction 

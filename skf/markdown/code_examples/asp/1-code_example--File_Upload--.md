@@ -26,10 +26,10 @@ File upload
 				string test = file.FileName;
 
 				/*
-				First we check if the value is alphanummeric only to prevent uploading out of intended directory, 
+				First we check if the value is alphanumeric only to prevent uploading out of intended directory, 
 				as wel as other injections
 				*/
-				if (validate.validateInput(test, "alphanummeric", "validation failed", "HIGH") == false)
+				if (validate.validateInput(test, "alphanumeric", "validation failed", "HIGH") == false)
 				{
 					continueFunction = false;
 				}
@@ -60,7 +60,7 @@ File upload
 
 						try
 						{
-							// extract only the fielname
+							// extract only the filename
 							var fileName = Path.GetFileName(file.FileName);
 
 							// The location of stored files should always be outside of your root
@@ -77,7 +77,7 @@ File upload
 
 				/*
 				Now we check the uploaded file for the right mime-type
-				We do this after the upload instead of checking the content type header sinds that header 
+				We do this after the upload instead of checking the content type header since that header 
 				can easily manipulated by an attacker. 
 				*/
 

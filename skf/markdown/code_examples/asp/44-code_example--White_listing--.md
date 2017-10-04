@@ -50,7 +50,7 @@
 			
 				if (countArray == count)
 				{
-					//this breach has to be repported into the log files
+					//this breach has to be reported into the log files
 					Log.setLog(HttpContext.Current.Session["userID"], "Audit log message!", "FAIL", "HIGH");
 					Log.setCounter.count(3);
 				}
