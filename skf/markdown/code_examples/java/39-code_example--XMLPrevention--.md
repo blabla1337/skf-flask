@@ -1,4 +1,4 @@
-# XML Injection Prevantion 
+# XML Injection Prevention 
 -------
 
 ## Example:
@@ -25,7 +25,7 @@
 
 	public final class XMLPrevention {
 
-		public void storeFuncion(String name, String lastName, String gender)
+		public void storeFunction(String name, String lastName, String gender)
 		{
 			/*
 			First we import our InputValidation class. for more detailed information about 
@@ -35,9 +35,9 @@
 			boolean  doFunction = true;
 			//If the function returns false, we do not execute the function
 			//see the "input validation" code example for more detailed information about this function
-			if (validate.validateInput(name, "alphanummeric", "Invalid userinput name", "HIGH") == false)     { doFunction = false; }
-			if (validate.validateInput(lastName, "alphanummeric", "Invalid userinput name", "HIGH") == false) { doFunction = false; }
-			if (validate.validateInput(gender, "alphanummeric", "Invalid userinput name", "HIGH") == false)    { doFunction = false; }
+			if (validate.validateInput(name, "alphanumeric", "Invalid userinput name", "HIGH") == false)     { doFunction = false; }
+			if (validate.validateInput(lastName, "alphanumeric", "Invalid userinput name", "HIGH") == false) { doFunction = false; }
+			if (validate.validateInput(gender, "alphanumeric", "Invalid userinput name", "HIGH") == false)    { doFunction = false; }
 
 			if (doFunction == true)
 			{
@@ -95,9 +95,9 @@
 	}
 
 	/*
-	Now we prevented malicious userinput from comming into your XML file.
+	Now we prevented malicious user input from coming into your XML file.
 	NOTE: Do not forget to also properly encode your input as a last line of defense, 
-	 	  also In this example the XmlReader diasble's external entities by default.
+	 	  also In this example the XmlReader disables external entities by default.
 		  If you should choose another parser make sure your parser disables these entities 
 		  in order to prevent XXE injections.
 	*/

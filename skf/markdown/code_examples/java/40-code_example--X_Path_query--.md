@@ -326,7 +326,7 @@
 				{
 					//the connection has to be reported into the log files
 					Log.SetLog(username, "", "Login failed!", LocalDateTime.now(), "FAIL", "NULL");
-					message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials"); 
+					message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Logging Error", "Invalid credentials"); 
 					FacesContext.getCurrentInstance().getExternalContext().redirect("xpath.xhtml");
 				}
 				else if (login_result.equals("Admin"))

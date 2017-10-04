@@ -28,7 +28,7 @@
 
 	/*
 	The next step is implementing this random token in each form field as a hidden input parameter
-	and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
+	and send it to a function which checks if the submitted token is equal to the one set after successful validation.
 	*/
 
 	<%
@@ -90,7 +90,7 @@
 				/*
 				If there was no match, the authentication session will be emptied and sessions will be abandoned. Then, the user must be redirected towards the login page.
 				*/		
-				if ("".equalsIgonereCase(request.getSession().getAttribute("authenticateUser")))
+				if ("".equalsIgnoreCase(request.getSession().getAttribute("authenticateUser")))
 				{
 					request.getSession().invalidate();
 					request.setAttribute("msg", "Served at: " + request.getContextPath());

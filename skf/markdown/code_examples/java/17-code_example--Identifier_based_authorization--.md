@@ -85,7 +85,7 @@
 
 			boolean doFunction = true;
 			//see the "input validation" code example for more detailed information about this function
-			if (validate.validateInput("", page, "nummeric", "Failed to get file", "HIGH") == false) { doFunction = false; }
+			if (validate.validateInput("", page, "numeric", "Failed to get file", "HIGH") == false) { doFunction = false; }
 			
 			if (doFunction == false)
 			{
@@ -116,7 +116,7 @@
 			if (doFunction == true)
 			{
 				//the page retrieval has to be reported into the log files
-				Log.SetLog(user_id, "Connection to the database was made succesfully", "SUCCESS", LocalDateTime.now(),"","");
+				Log.SetLog(user_id, "Connection to the database was made successfully", "SUCCESS", LocalDateTime.now(),"","");
 
 				//We also count the connection to the database.
 				aggregate.aggregateControl(1,username , user_id);

@@ -8,9 +8,9 @@
     This example uses a prepared statement in order to insert data into the database.
     Because this method enforces the user to prepare all user input  passed into the query, it always escapes SQL injections so none could be accidentally forgotten.
 
-    For detecting a possible attack on your application simply escaping the userinput is obviously not enough.
-    Therefore, you'll want to verify the input as submitted by the user does not contain malicous code.
-    In this example the expexted input is a-z/0-9:
+    For detecting a possible attack on your application simply escaping the user input is obviously not enough.
+    Therefore, you'll want to verify the input as submitted by the user does not contain malicious code.
+    In this example the expected input is a-z/0-9:
     */
 
     :::java 
@@ -27,7 +27,7 @@
 
         /*
         Set counter; if counter hits 3 the user's session must terminated.
-        After 3 session terminations, the user's acount must be blocked
+        After 3 session terminations, the user's account must be blocked
         */
         counter++;
         if(counter > 2 ){
@@ -40,7 +40,7 @@
         preparedStatement.setInt(2, employeeId);
     }
 
-    // Always use parametrized queries with prepared statements.
+    // Always use parameterized queries with prepared statements.
     // For example, with Hibernate (HQL) named parameters
 
     :::java

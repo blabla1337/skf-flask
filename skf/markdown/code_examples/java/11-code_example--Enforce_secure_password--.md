@@ -25,7 +25,7 @@
             boolean complete = true;
             
             /*
-            for example here we define the expexted value's for your password.
+            for example here we define the expected value's for your password.
             
             ^                 # start-of-string
             (?=.*[0-9])       # a digit must occur at least once
@@ -37,10 +37,10 @@
             $                 # end-of-string
             */
             
-            String vaildation = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$";    
+            String validation = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$";    
 
             // Create a Pattern object
-            Pattern reg = Pattern.compile(vaildation);
+            Pattern reg = Pattern.compile(validation);
             // Now create matcher object.
             Matcher match = reg.matcher(password);
             if (!match.find()) {	
@@ -49,7 +49,7 @@
             }
 
             /*
-            Also we have to take into consideration that Password1! is a valid password according to password standards. This however is not the case since this password is included in almost every dictionairy attack mechanisms. So we have to prevent the user from using these weak passwords. In such case we will define these bad passwords in a text 
+            Also we have to take into consideration that Password1! is a valid password according to password standards. This however is not the case since this password is included in almost every dictionary attack mechanisms. So we have to prevent the user from using these weak passwords. In such case we will define these bad passwords in a text 
             file in order to compare the user's password with the list of bad passwords inside that file.
             */
             

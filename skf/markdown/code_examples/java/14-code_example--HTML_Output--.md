@@ -11,7 +11,7 @@
 
 	/*
 	This escaping is used whenever you put the code straight into the html like:
-	<span>YOUR USERINPUT</span>
+	<span>YOUR USER INPUT</span>
 	The attack bellow will now be outputted as,
 	&lt;script&gt;alert(1337);&lt;/script&gt;
 	*/
@@ -32,15 +32,15 @@
 			
 	/*
 	Whenever parameters are rendered via javascript your application will detect normal injections
-	in the first instant. in order for the application not to be vulnerable to javascrpt encoding you MUST use the encodeForJavaScript function, any other escaping function still leaves your code vulnerable
+	in the first instant. in order for the application not to be vulnerable to javascript encoding you MUST use the encodeForJavaScript function, any other escaping function still leaves your code vulnerable
 	*/	      
 
 	ESAPI.encoder().encodeForJavaScript("\\x3Cscript\\x3Ealert(12);\\x3C\\x2Fscript\\x3E");
 			
 	/*
-	Whenever a user can submit an link/AHREF in your application you must solely depend upon the
+	Whenever a user can submit an link/A HREF in your application you must solely depend upon the
 	"ESAPI.encoder().encodeForURL" method since an attacker could otherwise inject the href with an XSS
-	that looks like this "javacript:alert("XSS");" whenever a victim now clicks the link this XSS
+	that looks like this "javascript:alert("XSS");" whenever a victim now clicks the link this XSS
 	will be executed in his browser.
 	*/ 
 
@@ -51,18 +51,18 @@
 	}
 
 	/*
-	Security consists of different layers of protection in order to guarantuee the integrity
+	Security consists of different layers of protection in order to guarantee the integrity
 	of your application. This means that the value displayed from the database/user should
-	already be sanitised before being proccessed in order to prevent XSS.
+	already be sanitized before being processed in order to prevent XSS.
 
-	As an example, what do you do when you expect a nummeric value from your application?
+	As an example, what do you do when you expect a numeric value from your application?
 
-	you first sanitize the userinput by means of an input validation method like:
+	You first sanitize the user input by means of an input validation method like:
 	See the "input validation" class for the entire example!
 	*/
 	InputValidation validate = new InputValidation();
 	String userinput = "when this string is evil the application will block operation!";
-	if(validate.validateInput(userinput, "nummeric", "Unecpected userinput", "HIGH", 3)== false)
+	if(validate.validateInput(userinput, "numeric", "Unexpected user input", "HIGH", 3)== false)
 	{ /* Cancel operation of your application */ }
 			
 	/*

@@ -13,7 +13,7 @@
 		private AuditLog Log = new AuditLog(); 
 		private String validate = "pass"; 
 		
-		public String validateInput(String user_id,String input, String type, String logMessage, String remote_address, String theatLevel)
+		public String validateInput(String user_id,String input, String type, String logMessage, String remote_address, String threatLevel)
 		{
 			/*
 			we want to filter the filenames for expected values. For this example we use only a-z/0-9
@@ -27,9 +27,9 @@
 				
 				validator = "(.*)(\\W+)(\\D+)(\\s+)(.*)";
 			}
-			else if (type.equals("alphanummeric"))		 
+			else if (type.equals("alphanumeric"))		 
 					validator = "^[a-zA-Z0-9]";
-			else if (type.equals("nummeric"))
+			else if (type.equals("numeric"))
 				//"^[0-9]*$";
 				validator = "(\\d+)";
 			else
@@ -42,10 +42,10 @@
 			if (!match.find()) 
 			{	
 				//If there was a match this function returns "pass"
-				validate = "validatation failed"; 
+				validate = "validation failed"; 
 			
 				//this breach has to be reported into the log files
-				Log.SetLog(user_id, logMessage , "FAIL", LocalDateTime.now(), remote_address, theatLevel);
+				Log.SetLog(user_id, logMessage , "FAIL", LocalDateTime.now(), remote_address, rLevel);
 				
 				/*
 				Set counter; if counter hits 3, the user's session must be terminated.
@@ -77,7 +77,7 @@
 			return validate;
 		}	 
 		
-		public boolean validateInput(String username, String input, String type, String logMessage, String theatLevel)
+		public boolean validateInput(String username, String input, String type, String logMessage, String threatLevel)
 		{
 			/*
 			we want to filter the filenames for expected values. For this example we use only a-z/0-9
@@ -93,9 +93,9 @@
 				validator = "(.*)(\\W+)(\\D+)(\\s+)(.*)";
 				
 			}
-			else if (type.equals("alphanummeric"))		  
+			else if (type.equals("alphanumeric"))		  
 			validator = "^[a-zA-Z0-9]";
-			else if (type.equals("nummeric"))
+			else if (type.equals("numeric"))
 				//"^[0-9]*$";
 				validator = "(\\d+)";
 			else
@@ -112,7 +112,7 @@
 				validate = true; 
 			
 				//this breach has to be reported into the log files
-				Log.SetLog(username, logMessage , "SUCCESS", LocalDateTime.now(),  theatLevel);   
+				Log.SetLog(username, logMessage , "SUCCESS", LocalDateTime.now(),  threatLevel);   
 			}else{
 					Log.SetLog(username, logMessage , "FAIL", LocalDateTime.now(), "NULL");
 			}        

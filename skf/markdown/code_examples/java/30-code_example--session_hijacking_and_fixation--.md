@@ -6,7 +6,7 @@
 
 	/*
 	As soon as a user logs into your application you must store his session id as wel as his
-	IP adress allong with his userID. This information will be used later on in your application in order to
+	IP address along with his userID. This information will be used later on in your application in order to
 	identify possible session hijacking.
 
 	TABLE track_sessions
@@ -81,7 +81,7 @@
 	Now imagine the scenario after the login of the user (see the "login functionality" in
 	the code examples for more details). Whenever the user is logged in, the users ip address 
 	and session id are also stored in the database these values are used in order to verify 
-	if there are mulitple users active on the same session. 
+	if there are multiple users active on the same session. 
 	If so, we can let the user decide to terminate the session and terminate the
 	other assigned sessions.
 	*/
@@ -159,11 +159,11 @@
 						(ipaddress != request.getRemoteAddr()))
 						{   
 						
-							//We log the muliple users on the system 
-							logger.info("Mulitple users with same session id detected" + "  Userd ID:  " +  userID);
+							//We log the multiple users on the system 
+							logger.info("Multiple users with same session id detected" + "  User ID:  " +  userID);
 							/*
 							We redirect the user to a page which alerts him as well as gives him the option to destroy the 
-							mulitple sessions if he does not trust them
+							multiple sessions if he does not trust them
 							*/
 
 							RequestDispatcher rd =
@@ -186,7 +186,7 @@
 	}
 	/*
 	the only thing left to do now is to update your track_sessions table by inserting
-	the ipadress, sessionID and userID if you want to accept the other sessions as valid.
+	the ipaddress, sessionID and userID if you want to accept the other sessions as valid.
 	Otherwise the user just has to terminate the current session in order to lock out the
 	other sessions.
 	*/

@@ -116,7 +116,7 @@
 					salt = hash.createSalt(password);	    	 
 					passhash = hash.hashPassword(salt, password);
 				} catch (InvalidKeyException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
-					logger.error("Error in hasing algorithm " + e.toString();
+					logger.error("Error in hashing algorithm " + e.toString();
 				}   
 				
 				//Here we connect to the database by means of a connection string as configured in the web.xml and /META-INF/context.xml 

@@ -149,19 +149,19 @@
             * For demonstration purposes we assume that the usedID is always 2, which indicated the Administration ID number. 
             */
             
-            if (validate.validateInput("2", fileName, "alphanummeric", "validation failed",request.getRemoteAddr(),"HIGH") == "validation failed")
+            if (validate.validateInput("2", fileName, "alphanumeric", "validation failed",request.getRemoteAddr(),"HIGH") == "validation failed")
             {
             proceed = false;
             action = "validation failed";
             }
             
-            else if (validate.validateInput("2", fileName, "alphanummeric", "Session Termination",request.getRemoteAddr(),"HIGH") == "terminate")
+            else if (validate.validateInput("2", fileName, "alphanumeric", "Session Termination",request.getRemoteAddr(),"HIGH") == "terminate")
             {
                 proceed = false;
                 action = "terminate";
             }   
             
-            else if (validate.validateInput("2", fileName, "alphanummeric", "Block access",request.getRemoteAddr(),"HIGH") == "block")
+            else if (validate.validateInput("2", fileName, "alphanumeric", "Block access",request.getRemoteAddr(),"HIGH") == "block")
             {
                 proceed = false;
                 action = "block";

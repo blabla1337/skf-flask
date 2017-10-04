@@ -38,7 +38,7 @@
     </html>
 
 
-    // The following code snipet performs the file uploading functionality from the post action performed at the jsp page showed above
+    // The following code snippet performs the file uploading functionality from the post action performed at the jsp page showed above
 
 
     package com.edw;
@@ -100,23 +100,23 @@
             final String fileName = getFileName(filePart);
         
             /*
-            First we check if the value is alphanummeric only to prevent uploading out of intended directory, 
+            First we check if the value is alphanumeric only to prevent uploading out of intended directory, 
             as wel as other injections
             */
             
-            if (validate.validateInput(userID, fileName, "alphanummeric", "validation failed",request.getRemoteAddr(),"HIGH").equals("validation failed"))
+            if (validate.validateInput(userID, fileName, "alphanumeric", "validation failed",request.getRemoteAddr(),"HIGH").equals("validation failed"))
             {
                 continueFunction = false;
             }
             
-            else if (validate.validateInput(userID, fileName, "alphanummeric", "Session Termination",request.getRemoteAddr(),"HIGH").equals("terminate"))
+            else if (validate.validateInput(userID, fileName, "alphanumeric", "Session Termination",request.getRemoteAddr(),"HIGH").equals("terminate"))
             {
                 request.getSession().invalidate();
                 continueFunction = false;
                 sessionTermination=true;
             }   
             
-            else if (validate.validateInput(userID, fileName, "alphanummeric", "Block access",request.getRemoteAddr(),"HIGH").equals("block"))
+            else if (validate.validateInput(userID, fileName, "alphanumeric", "Block access",request.getRemoteAddr(),"HIGH").equals("block"))
             {
                 continueFunction = false;
                 blockAccess=true;
@@ -159,7 +159,7 @@
                         out.write(bytes, 0, read);
                     }
                             
-                    logger.info("File" + fileName + "has beeng uploaded to" + path); 
+                    logger.info("File" + fileName + "has been uploaded to" + path); 
                     
                 } catch (FileNotFoundException fne) {
 

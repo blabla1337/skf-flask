@@ -43,7 +43,7 @@
 
             //see the "input validation" code example for more detailed information about this function
             
-            final boolean validInput = validate.validateInput(getFile.toString(), "nummeric", "Failed to get file", "HIGH");
+            final boolean validInput = validate.validateInput(getFile.toString(), "numeric", "Failed to get file", "HIGH");
             
             if (!validInput) { 
                 validated = false; 
@@ -65,7 +65,7 @@
                 }            	 
                 FileInputStream fis = new FileInputStream(canonicalPath);            	
             }else{
-                logger.error("invalid userinput was detected!");              
+                logger.error("invalid user input was detected!");              
             }
             doGet(request,response);
         }
