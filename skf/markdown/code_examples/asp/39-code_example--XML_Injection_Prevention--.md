@@ -16,20 +16,20 @@ XML injection prevention
 	{
 		public class storeXML
 		{
-			public void storeFuncion(string name, string lastName, string gender)
+			public void storeFunction(string name, string lastName, string gender)
 			{
 				/*
-				First we import our inputvalidation controll class. for more detailed information about 
+				First we import our inputvalidation control class. for more detailed information about 
 				input validation check the code examples for "Input validation" & "Single input validation".
 				*/
-				inputValidationControll validate = new inputValidationControll();
+				inputValidationControl validate = new inputValidationControl();
 
 				bool doFunction = true;
 				//If the function returns false, we do not execute the function
 				//see the "input validation" code example for more detailed information about this function
-				if (validate.validateInput(name, "alphanummeric", "Invalid userinput name", "HIGH") == false)     { doFunction = false; }
-				if (validate.validateInput(lastName, "alphanummeric", "Invalid userinput name", "HIGH") == false) { doFunction = false; }
-				if (validate.validateInput(gender, "alphanummeric", "Invalid userinput name", "HIGH") == false)    { doFunction = false; }
+				if (validate.validateInput(name, "alphanumeric", "Invalid userinput name", "HIGH") == false)     { doFunction = false; }
+				if (validate.validateInput(lastName, "alphanumeric", "Invalid userinput name", "HIGH") == false) { doFunction = false; }
+				if (validate.validateInput(gender, "alphanumeric", "Invalid userinput name", "HIGH") == false)    { doFunction = false; }
 
 				if (doFunction == true)
 				{
@@ -49,9 +49,9 @@ XML injection prevention
 	}
 
 	/*
-	Now we prevented malicious userinput from comming into your XML file.
+	Now we prevented malicious userinput from coming into your XML file.
 	NOTE: Do not forget to also properly encode your input as a last line of defense, 
-		  also In this example the XmlReader diasble's external entities by default.
+		  also In this example the XmlReader disables external entities by default.
 		  If you should choose another parser make sure your parser disables these entities 
 		  in order to prevent XXE injections.
 	*/

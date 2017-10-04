@@ -6,12 +6,12 @@ Session hijacking
 
 	/*
 	As soon as a user logs into your application you must store his session id as wel as his
-	IP adress allong with his userID. This information will be used later on in your application in order to
+	IP address along with his userID. This information will be used later on in your application in order to
 	identify possible session hijacking.
 
 	TABLE track_sessions
 	---------------------------------------------------------------------------------
-	| TrackID | userID |		   	   SESSION 		            |     Ip adress	    | 
+	| TrackID | userID |		   	   SESSION 		            |     Ip address	    | 
 	---------------------------------------------------------------------------------
 	|   1     | 1      | 	79dcd529c0f5e01a9bfb2425c52036c6    |	123.45.67.89	|   
 	---------------------------------------------------------------------------------
@@ -80,9 +80,9 @@ Session hijacking
 
 	/*
 	Now imagine the scenario after the login of the user (see the "login functionality" in
-	the code examples for more details). Whenever the user is logged in, the users ip adress 
+	the code examples for more details). Whenever the user is logged in, the users ip address 
 	and session id are also stored in the database these values are used in order to verify 
-	if there are mulitple users active on the same session. 
+	if there are multiple users active on the same session. 
 	If so, we can let the user decide to terminate the session and terminate the
 	other assigned sessions.
 	*/
@@ -107,7 +107,7 @@ Session hijacking
 			public int trackingID  { get; set; }
 			public int userID      { get; set; }
 			public string token    { get; set; }
-			public string ipadress { get; set; }
+			public string ipaddress { get; set; }
 
 			//First we include the audit log class.
 			AuditLog Log = new AuditLog();
@@ -116,7 +116,7 @@ Session hijacking
 			SqlConnection conn = new 
 			SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["users"].ConnectionString);
 
-			//The count integer is set every time the user connects to the databse to process data
+			//The count integer is set every time the user connects to the database to process data
 			public void checkSession()
 			{
 				if ((System.Web.HttpContext.Current.Session["authenticateUser"] != "isLoggedin") || 
@@ -138,18 +138,18 @@ Session hijacking
 				{
 					while (oReader.Read())
 					{
-						session  = oReader["sessiom"].ToString();
-						ipadress = oReader["ipadress"].ToString();
+						session  = oReader["session"].ToString();
+						ipaddress = oReader["ipaddress"].ToString();
 
 						if ((System.Web.HttpContext.Current.Session["ASPsessionID"].ToString() != session) && 
-						(ipadress != HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"]))
+						(ipaddress != HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"]))
 						{   
-							//We log the muliple users on the system 
-							Log.SetLog(Session['userID'], "Mulitple users with same session id detected", date, FAIL, MOD");
+							//We log the multiple users on the system 
+							Log.SetLog(Session['userID'], "Multiple users with same session id detected", date, FAIL, MOD");
 
 							/*
 							We redirect the user to a page which alerts him as well as gives him the option to destroy the 
-							mulitple sessions if he does not trust them
+							multiple sessions if he does not trust them
 							*/
 							HttpContext.Current.Response.Redirect("/Home/multipleUsers", true);
 						}
@@ -161,7 +161,7 @@ Session hijacking
 
 	/*
 	the only thing left to do now is to update your track_sessions table by inserting
-	the ipadress, sessionID and userID if you want to accept the other sessions as valid.
+	the ipaddress, sessionID and userID if you want to accept the other sessions as valid.
 	Otherwise the user just has to terminate his current session in order to lock out the
 	other sessions.
 	*/

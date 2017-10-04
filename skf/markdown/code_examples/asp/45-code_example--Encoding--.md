@@ -25,7 +25,7 @@ Encoding
 				Match match = regex.Match(input);
 				if (!match.Success)
 				{
-					Log.SetLog(Session['userID'], logMessage, date, "FAIL", theatLevel);
+					Log.SetLog(Session['userID'], logMessage, date, "FAIL", threatLevel);
 					Log.count(1);
 					input = "Error";
 				}

@@ -5,10 +5,10 @@ CSRF tokens
     
 	
     /*
-    For CSRF tokens we used a sepperate class outside of the normal controller, since
-    it must be re-used on severall locations throughout the application
+    For CSRF tokens we used a separate class outside of the normal controller, since
+    it must be re-used on several locations throughout the application
     
-	First after a succsesfull validation of a user login, the application must also start a session
+	First after a successful validation of a user login, the application must also start a session
 	which contains the "cross site request forgery" token.
     */
     
@@ -31,7 +31,7 @@ CSRF tokens
 
 	/*
 	The next step is implementing this random token in each form field as a hidden input parameter
-	and send it to a function which checks if the submitted token is equal to the one set after succesfull validation.
+	and send it to a function which checks if the submitted token is equal to the one set after successful validation.
 	*/
 
 	<form method="post" action="/Home/csrf">
@@ -45,7 +45,7 @@ CSRF tokens
 	{
 		string Sessiontoken = Convert.ToString(System.Web.HttpContext.Current.Session["CSRF"]);
 	
-		//We compare the incomming token with the current session Token which was assigned on login
+		//We compare the incoming token with the current session Token which was assigned on login
 		if(Sessiontoken != token)
 		{	
 			/*

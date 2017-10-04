@@ -10,7 +10,7 @@ HTML output
 
 	The C# razor engine encodes userinput by default whenever this is not disabled in the web.config
 	when outputted on screen, BUT you should get used to putting your variables in encoding functions
-	and make this a habbit simply "assuming" your input will be encoded properly is a jack in the box waiting to
+	and make this a habit simply "assuming" your input will be encoded properly is a jack in the box waiting to
 	pop out and bite you in the ....as you will find out when you read on
 	*/
 
@@ -41,17 +41,17 @@ HTML output
 	/*
 	Whenever a user can submit an link/AHREF in your application you must solely depend upon the
 	"HttpUtility.UrlEncode" method since an attacker could otherwise inject the href with an XSS
-	that looks like this "javacript:alert("XSS");" whenever a victim now clicks the link this XSS
+	that looks like this "javascript:alert("XSS");" whenever a victim now clicks the link this XSS
 	will be executed in his browser.
 	*/ 
 	ViewBag.url = HttpUtility.UrlEncode("JavaScript:alert(234);");
 
 	/*
-	Security consists of different layers of protection in order to guarantuee the integrity
+	Security consists of different layers of protection in order to guarantee the integrity
 	of your application. This means that the value displayed from the database/user should
-	already be sanitised before being proccessed in order to prevent XSS.
+	already be sanitized before being processed in order to prevent XSS.
 	
-	As an example, what do you do when you expect a nummeric value from your application?
+	As an example, what do you do when you expect a numeric value from your application?
 	
 	EXACTLY you first sanitize the userinput by means of an input validation method like:
 	See the "input validation" class for the entire example!
@@ -59,7 +59,7 @@ HTML output
 
 	inputvalidation validate = new inputvalidation();
 	string userinput = "when this string is evil the application will block operation!";
-	if(validate.validateInput(userinput, "nummeric", "Unecpected userinput", "HIGH", 3)== false)
+	if(validate.validateInput(userinput, "numeric", "Unexpected userinput", "HIGH", 3)== false)
 	{ /* Cancel operation of your application */ }
 
 	/*
