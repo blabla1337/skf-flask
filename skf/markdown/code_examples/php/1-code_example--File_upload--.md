@@ -23,9 +23,9 @@
 			$filetype = explode(".", $image['name']);
 
 			/*
-			For uploading out of intended directory we check the filename and verify that it only contains alpahnumeric values.
+			For uploading out of intended directory we check the filename and verify that it only contains alphanumeric values.
 			*/
-			if($validated -> inputValidation($filetype[0], "alpanumeric", "invalid filename", "MOD", 2){
+			if($validated -> inputValidation($filetype[0], "alphanumeric", "invalid filename", "MOD", 2){
 				header('location:/page');
 				die();
 			}
@@ -38,7 +38,7 @@
 
 			while(($filetype[$takeLastValue] != "png") && ($filetype[$takeLastValue] != "jpg")){
 
-				//Set a log for whenever there is an unexpected userinput with a threat level
+				//Set a log for whenever there is an unexpected user input with a threat level
 				$log -> setLog($_SESSION['userID'],"Unrestricted image extension upload",
 				"FAIL", date(dd-mm-yyyy), $privilege, "HIGH");
 
@@ -79,9 +79,9 @@
 			if($theType != "image/jpeg" && $theType != "image/png"){    
 				unlink($uploaddir.$image['name']);
 
-				//Set a log for whenever there is unexpected userinput with a threat level
+				//Set a log for whenever there is unexpected user input with a threat level
 				$log -> setLog($_SESSION['userID'],"invalid image mime type",
-				"FAIL", date(dd-mm-yyyy), $privelige, "HIGH");
+				"FAIL", date(dd-mm-yyyy), $privilege, "HIGH");
 
 				/* ^^
 				Set counter; if counter hits 3, the user's session must be terminated.

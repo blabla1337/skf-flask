@@ -24,7 +24,7 @@
 				case "numeric":
 					$pattern = "/^[0-9]+$/";
 					break;
-				case "alphanummeric":
+				case "alphanumeric":
 					$pattern = "/^[a-zA-Z0-9]+$/";
 					break;
 			}
@@ -32,7 +32,7 @@
 			if(!preg_match($pattern, $input)){
 
 				/*
-				Set a log for whenever there is unexpected userinput with a threat level
+				Set a log for whenever there is unexpected user input with a threat level
 				See "audit logs" code example for more information:
 				*/
 				$logging -> setLog($_SESSION['userID'], $logMessage, "FAIL", date("d-m-y"),

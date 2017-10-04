@@ -12,7 +12,7 @@
 
 	TABLE users
 	-----------------------------------------------------------------
-	| userID | userName | password |   EmailAdress	 |    access    |
+	| userID | userName | password |   EmailAddress	 |    access    |
 	-----------------------------------------------------------------   
 	|   1    | Admin    | Csdar323 | info@admin.com	 | 	   TRUE	    |
 	-----------------------------------------------------------------    	

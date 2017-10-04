@@ -66,7 +66,7 @@
 			}else{
 
 				//The user failed re-authenticating himself
-				$loggin->setLog($_SESSION['userID'],"Re-authentication failed", "FAIL", date("d-m-y"), "null", "MOD");
+				$logging->setLog($_SESSION['userID'],"Re-authentication failed", "FAIL", date("d-m-y"), "null", "MOD");
 
 				//If the authentication fails we destroy the session
 				session_start();

@@ -44,7 +44,7 @@
 			$db  = $con->connection();
 
 			/*
-			Everytime the user accesses the database we keep track of the number of times he
+			Each time the user accesses the database we keep track of the number of times he
 			connected. Whenever the user passes a reasonable number he should be rejected
 			since he could be an attacker scraping your table contents and stealing company information
 			You could a CRON job in your mysql system in order to clean the Aggregate column within certain timeframes
