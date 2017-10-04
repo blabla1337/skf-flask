@@ -17,7 +17,7 @@
     should make a whitelist input validation for the redirect like so:
 
     Example : 
-    If the whitlisting list is home, upload and redirectParam is home 
+    If the whitelisting list is home, upload and redirectParam is home 
 
     redirectParam = home
     redirecting("home,upload", redirectParam, "3")

@@ -11,7 +11,7 @@
 
 	from flask import Flask, session
 
-	//Intialize the flask application
+	//Initialize the flask application
 	app = Flask(__name__)
 
 	//Set the secret key.  keep this really secret:

@@ -33,7 +33,7 @@
     from werkzeug.utils import secure_filename
     from flask_wtf.csrf import CSRFProtect, CSRFError
 
-	//Intialize the flask application 
+	//Initialize the flask application 
     app = Flask(__name__)
 
     //To Register CSRF protection globally for the app 

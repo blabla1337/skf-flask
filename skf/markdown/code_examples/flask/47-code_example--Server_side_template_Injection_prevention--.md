@@ -6,7 +6,7 @@
     
 	"""
 	Server Side Template Injection, a frequent critical vulnerability that has high chance of 
-	mistaken as Cross Site Scripting and miss it entirely. But unline XSS, it can lead attack in 
+	mistaken as Cross Site Scripting and miss it entirely. But inline XSS, it can lead attack in 
 	Web server and may even obtain a RCE. Template Injection occurs when user input is embedded in a template in an unsafe manner. 
 	"""
 
@@ -35,7 +35,7 @@
     @app.errorhandler(404)
 	def page_not_found(e):
 
-		//Intialize
+		//Initialize
 		continue = True
 
 		//Escape function would fix the issue

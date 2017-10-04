@@ -13,7 +13,7 @@
     def reauthenticate(password):
         user = User.query.filter_by(id=session['id']).first()
 
-        //Validation of password in bycrypt encryption
+        //Validation of password in bcrypt encryption
         if ValidatePassword(user.password, password):
         
             //After successful validation we will log that password was validated successfully

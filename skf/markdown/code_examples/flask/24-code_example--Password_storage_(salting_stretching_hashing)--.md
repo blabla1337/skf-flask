@@ -6,7 +6,7 @@
 
     from flask.ext.bcrypt import Bcrypt
 
-    //Intialise the application with Bcrypt
+    //Initialize the application with Bcrypt
 	app = Flask(__name__)
 	bcrypt = Bcrypt(app)
 
