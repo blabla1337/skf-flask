@@ -6,7 +6,7 @@
 
     """
     Define the whitelist pattern and validation type and input parameter like:
-    identity("page1,page2", "alphanumeric", $_GET['page'])
+    identity("page1,page2", "alphanumeric", page)
     """
 
     def identity(whiteListPattern, validationType, inputParameter):
