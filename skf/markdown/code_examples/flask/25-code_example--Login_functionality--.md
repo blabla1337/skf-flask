@@ -70,7 +70,7 @@
         if request.method == 'GET':
             return render_template('login.html')
         
-        //Intialising username and password
+        //Initializing username and password
         username = request.form['inputName']
         password = request.form['inputPassword']
 

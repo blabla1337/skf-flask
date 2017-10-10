@@ -1,10 +1,10 @@
-# Diseable Directory Listing 
+# Disable Directory Listing 
 -------
 
 ## Example:
 
 
-    // Directory Listing configuraton in web.xml 
+    // Directory Listing configuration in web.xml 
 
     <servlet>
         <servlet-name>default</servlet-name>

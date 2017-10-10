@@ -16,13 +16,13 @@
     ----------	----------  -----------	 ----------------
     |itemID  |	|cartID  |	|PaymentID|  |ConsumerID    |
     |price	 |	|itemID  |	|itemID   |	 |name          |
-    |name  	 |	|sesionID|	|Token    |	 |address	    |
+    |name  	 |	|sessionID|	|Token    |	 |address	    |
     ----------	----------  |sessionID|  |sessionID   	|
                             |Verified |  |consumerToken |
                             -----------	 ----------------		
 
     As you can see above we have a very simplified database structure for your average
-    webshop. Now we can walk through the different steps needed to enforce the user to take
+    web shop. Now we can walk through the different steps needed to enforce the user to take
     all steps before payment.
 
     We wont cover the entire shopping cart functions since that would become a rather big
@@ -47,7 +47,7 @@
             //Here we check for a different token or new session token
             if x.token == session['token']:
 
-                costumerinfo.query.filter_by(sessionID=session['id']).delete()
+                customerinfo.query.filter_by(sessionID=session['id']).delete()
                 db.session.commit()
 
                 checkout.query.filter_by(sessionID=session['id']).delete()
@@ -55,7 +55,7 @@
 
                 return redirect(url_for('checkout'))
 
-    //As soon as the user visits your website you start sessions in order to asign sessionId
+    //As soon as the user visits your website you start sessions in order to assign sessionId
 
     """
     On submit we send al the shopping cart data to another table in the database, but
@@ -99,7 +99,7 @@
 
     """
     After that the user verifies this information then he will be redirected to the payment
-    page like ideal, Paypall etc.
+    page like ideal, Paypal etc.
 
     Whenever the payment returns true you set the "verified" column on the checkout
     table to TRUE and you send the customer the invoice and send him his items.

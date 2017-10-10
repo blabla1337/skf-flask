@@ -10,7 +10,7 @@
 	
 	from flask import Flask, session
 
-	//Intialize the flask application
+	//Initialize the flask application
 	app = Flask(__name__)
 
 	//Name of the session cookie

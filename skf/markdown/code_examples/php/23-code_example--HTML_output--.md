@@ -32,7 +32,7 @@
 	}
 
 	/*
-	This type of approach should be used whenever you are allowing userinput in
+	This type of approach should be used whenever you are allowing user input in
 	your DOM like for example, let's say a user was allowed to upload an image and
 	set an alt text. when you do not sanitize his input a possible attack string could be:
 	*/

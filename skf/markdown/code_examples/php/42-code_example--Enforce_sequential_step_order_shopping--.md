@@ -18,13 +18,13 @@
 	----------	----------  -----------	 ----------------
 	|itemID  |	|cartID  |	|PaymentID|  |ConsumerID    |
 	|price	 |	|itemID  |	|itemID   |	 |name          |
-	|name  	 |	|sesionID|	|Token    |	 |address	    |
+	|name  	 |	|sessionID|	|Token    |	 |address	    |
 	----------	----------  |sessionID|  |sessionID   	|
 							|Verified |  |consumerToken |
 							 ----------	 ----------------		
 
 	As you can see above we have a very simplified database structure for your average
-	webshop. now we can walk through the different steps needed to enforce the user to take
+	web shop. now we can walk through the different steps needed to enforce the user to take
 	all steps before payment.
 
 	We wont cover the entire shopping cart functions since that would become a rather big
@@ -51,7 +51,7 @@
 			//Here we check for a different token or new session token
 			if(($row['token'] != $row['token']) && ($row['token'] != $_SESSION['token'])){
 
-				$stmt = $db->prepare("DELETE FROM costumerinfo WHERE sessionID=:id");
+				$stmt = $db->prepare("DELETE FROM customerinfo WHERE sessionID=:id");
 				$stmt->execute(array(session_id()));
 				$affected_rows = $stmt->rowCount();
 
@@ -64,7 +64,7 @@
 		}
 	}
 
-	//note: As soon as the user visits your website you start sessions in order to asign phpsessionID
+	//note: As soon as the user visits your website you start sessions in order to assign phpsessionID
 
 	//A random token for every time the form loads
 	$token = base64_encode(openssl_random_pseudo_bytes(128));
@@ -156,7 +156,7 @@
 
 	/*
 	After that the user verifies this information then he will be redirected to the payment
-	page like ideal, Paypall etc.
+	page like ideal, Paypal etc.
 
 	Whenever the payment returns true you set the "verified" column on the checkout
 	table to TRUE and you send the customer the invoice and send him his items.

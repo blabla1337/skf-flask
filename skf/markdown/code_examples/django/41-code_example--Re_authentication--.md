@@ -24,7 +24,7 @@
         if user is not None:
 
             # After successful validation we will log that password was validated successfully
-            log.info('Succeessful reauthentication user : {user} via ip: {ip}'.format(
+            log.info('Successful reauthentication user : {user} via ip: {ip}'.format(
                 user=user,
                 ip=ip
             ))
@@ -35,7 +35,7 @@
             # Save the session ID 
             login(request, user)
 
-            # Sucess page 
+            # Success page 
             return render(request, 'polls/home.html')
 
         else:

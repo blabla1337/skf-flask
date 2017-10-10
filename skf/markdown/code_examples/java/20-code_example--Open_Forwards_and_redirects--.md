@@ -29,7 +29,7 @@
             //For more information about white-listing see the "WhiteListing" code example:
             if (listMe.WhiteListing("page1,page2,page3", redirect) == false) { validated = false; }
 
-            //return the value back to the servlet in order to handle redirections. 
+            //return the value back to the servlet in order to handle redirection. 
             //if the variable validate is true then it will redirect
             
             return validated; 

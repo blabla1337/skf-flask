@@ -37,7 +37,7 @@
             try {
                 csrftoken = this.bin2hex(randomBytes[0]);
             } catch (Exception e) {
-                logger.error("Raddomizer error : " + e.toString());
+                logger.error("Randomizer error : " + e.toString());
             }
             return csrftoken;		
         }

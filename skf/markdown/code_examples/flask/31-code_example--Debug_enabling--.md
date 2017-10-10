@@ -5,7 +5,7 @@
 
     
     """
-    Debug mode makes it a major security risk and therefore it must never be used on production machines. It may even lead to execution of arbitary code.
+    Debug mode makes it a major security risk and therefore it must never be used on production machines. It may even lead to execution of arbitrary code.
     """
 
     //In Linux machines, never export the environment variable FLASK_DEBUG to 1

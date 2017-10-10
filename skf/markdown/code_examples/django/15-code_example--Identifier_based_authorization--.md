@@ -6,7 +6,7 @@
 
     """
     Define the whitelist pattern and validation type and input parameter like:
-    identity("page1,page2,etc", "alphanummeric", $_GET['page'], "3")
+    identity("page1,page2,etc", "alphanumeric", $_GET['page'], "3")
     """
 
     def identity(request, whiteListPattern, validationType, inputParameter, countLevel):
@@ -32,16 +32,16 @@
 
     	"""
     	Whenever you are checking whether a user is restricted to review certain data,
-    	the access restrictions should be processed serverside.
+    	the access restrictions should be processed server side.
     	The userID could be stored inside a session variable on login, and should be used to
-    	retrieve userdata from the database:
+    	retrieve user data from the database:
     	"""
     	
         if continue == True : 
 
     		"""
     		We count the number of connections towards the database,
-    		See "aggregate usercontrolls" code example for more information:
+    		See "aggregate user controls" code example for more information:
     		"""
 
             countAccess(1)

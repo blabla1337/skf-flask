@@ -8,7 +8,7 @@
 
 	/*
 	This is the encoder class for whenever you have to allow certain
-	possibly dangerous characters into your code for i.e names such as O'reily
+	possibly dangerous characters into your code for i.e names such as O'Reilly
 	*/
 
 	class encodeInput {
@@ -23,10 +23,10 @@
 			if(!preg_match("/^[a-zA-Z0-9 ".$allowed."]+$/", $input)){		
 
 				/*
-				Set a log for whenever there is unexpected userinput with a threat level
+				Set a log for whenever there is unexpected user input with a threat level
 				See "audit logs" code example for more information:
 				*/
-				$logging->setLog($_SESSION['userID'],"Bad userinputssss", "FAIL",
+				$logging->setLog($_SESSION['userID'],"Bad user inputs", "FAIL",
 				date("d-m-y"), $_SESSION["privilege"], "HIGH");
 
 				/*

@@ -33,7 +33,7 @@
               url="jdbc:mysql://localhost:3306/auditlogs"/>
               </Context>
 
-    The above snippet indicates the database  resource that will be use in the servlet in ordet to perform a succesfull connection to the database
+    The above snippet indicates the database  resource that will be use in the servlet in order to perform a successful connection to the database
 
     Afterwards the following servlet snippet will be used for the database connection. 
 

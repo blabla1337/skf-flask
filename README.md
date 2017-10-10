@@ -221,12 +221,11 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Joerg Stephan
 - Simon Brakhane
 - Gerco Grandia
-- Ross Nanopoulos
+- [Ross Nanopoulos](https://twitter.com/rossnanop)
 - Bob van den Heuvel
 - Mariano Jose Abdala
 - Ilguiz Latypov
 - Laurence Keijmel
-- [Ross Nanopoulos](https://twitter.com/rossnanop)
 - Rick Mitchell (Kingthorin)
 - Xenofon Vassilakopoulos
 - Heeraj Nair

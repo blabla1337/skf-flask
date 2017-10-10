@@ -10,7 +10,7 @@
 
 		/*
 		Define the whitelist pattern and validation type and input parameter like:
-		identity("page1,page2,etc", "alphanummeric", $_GET['page'], "3")
+		identity("page1,page2,etc", "alphanumeric", $_GET['page'], "3")
 		*/
 		public function identity($whiteListPattern, $validationType, $inputParameter, $countLevel){
 
@@ -19,7 +19,7 @@
 
 			$validate  = new validation();
 			$whitelist = new whitelisting();
-			$aggregate = new aggregateControll();
+			$aggregate = new aggregateControl();
 			$conn  	   = new database();
 
 			//init DB connection
@@ -33,7 +33,7 @@
 			for more information about validation see "input validations" in the code examples:
 			*/
 			if($validate->inputValidation($inputParameter, $validationType,
-			"Invalid userinput", "HIGH", $countLevel) == false) {$continue = false;}
+			"Invalid user input", "HIGH", $countLevel) == false) {$continue = false;}
 
 			/*
 			Second, we want to whitelist the filenames for expected values, in this example they are,
@@ -44,15 +44,15 @@
 
 			/*
 			Whenever you are checking whether a user is restricted to review certain data,
-			the access restrictions should be processed serverside.
+			the access restrictions should be processed server side.
 			The userID could be stored inside a session variable on login, and should be used to
-			retrieve userdata from the database:
+			retrieve user data from the database:
 			*/
 			if($continue == true){
 
 				/*
 				We count the number of connections towards the database,
-				See "aggregate usercontrolls" code example for more information:
+				See "aggregate user controls" code example for more information:
 				*/
 				$aggregate -> countConnections(1);
 

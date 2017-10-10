@@ -218,7 +218,7 @@
 				if ( control > 5000)
 				{		
 					//this breach has to be reported into the log files
-					logger.info( " User account was locked out due to aggregate user control system" + "  User: " + userName + "  Userd ID:  " +  userID + "Time: " + LocalDateTime.now());
+					logger.info( " User account was locked out due to aggregate user control system" + "  User: " + userName + "  User ID:  " +  userID + "Time: " + LocalDateTime.now());
 
 					/*
 					Whenever the reasonable number of connections the user made was surpassed we destroy all the 
@@ -255,9 +255,9 @@
 				
 			//the connection has to be reported into the log files
 			if(logger.isInfoEnabled()){
-				logger.info("Connection to the database was made succesfully " + "  User: " + userName + "  Userd ID:  " +  userID + "Time: " + LocalDateTime.now() );
+				logger.info("Connection to the database was made successfully " + "  User: " + userName + "  User ID:  " +  userID + "Time: " + LocalDateTime.now() );
 			}else{
-				logger.error("Couldnt connect to database - " +  "  User: " + userName + "  Userd ID:  " +  userID + "Time: " + LocalDateTime.now());
+				logger.error("Couldnt connect to database - " +  "  User: " + userName + "  User ID:  " +  userID + "Time: " + LocalDateTime.now());
 			}
 			
 		return invalidate_sessions;

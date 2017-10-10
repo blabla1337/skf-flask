@@ -39,7 +39,7 @@
 	class privilege{
 
 	//Here is the isAuthorized function in which we check whether the user is permitted to do the action
-	public function isAutorized($ispermitted){
+	public function isAuthorized($ispermitted){
 
 		//we make object of logging class for our logging methods also for db connection
 		include("classes.php");

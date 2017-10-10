@@ -11,7 +11,7 @@
 
 	/*
 	This escaping is used whenever you put the code straight into the html like:
-	<span>YOUR USERINPUT</span>
+	<span>YOUR USER INPUT</span>
 	The attack bellow will now be outputted as,
 	&lt;script&gt;alert(1337);&lt;/script&gt;
 	*/
@@ -22,7 +22,7 @@
 	String htmlbug = ESAPI.encoder().encodeForHTML("<script>alert(1337);</script>");
 
 	/*
-	This next encoding method is used whenever you are allowing userinput into 
+	This next encoding method is used whenever you are allowing user input into 
 	html attributes.
 	The attack below will now be outputted as:
 	onload=&amp;#39;alert(1337)&amp;#39;
@@ -51,18 +51,18 @@
 	}
 
 	/*
-	Security consists of different layers of protection in order to guarantuee the integrity
+	Security consists of different layers of protection in order to guarantee the integrity
 	of your application. This means that the value displayed from the database/user should
-	already be sanitised before being proccessed in order to prevent XSS.
+	already be sanitized before being processed in order to prevent XSS.
 
-	As an example, what do you do when you expect a nummeric value from your application?
+	As an example, what do you do when you expect a numeric value from your application?
 
-	you first sanitize the userinput by means of an input validation method like:
+	you first sanitize the user input by means of an input validation method like:
 	See the "input validation" class for the entire example!
 	*/
 	InputValidation validate = new InputValidation();
 	String userinput = "when this string is evil the application will block operation!";
-	if(validate.validateInput(userinput, "nummeric", "Unecpected userinput", "HIGH", 3)== false)
+	if(validate.validateInput(userinput, "numeric", "Unexpected user input", "HIGH", 3)== false)
 	{ /* Cancel operation of your application */ }
 			
 	/*

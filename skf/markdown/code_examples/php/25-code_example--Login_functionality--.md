@@ -11,7 +11,7 @@
 
 	TABLE users
 	---------------------------------------------------------------------------------    
-	| userID | userName | password | privilegeID |    access	| AggregrateControl	|
+	| userID | userName | password | privilegeID |    access	| AggregateControl	|
 	---------------------------------------------------------------------------------   
 	| 1	     | Admin    | Csdar323 |      1	     | 	 TRUE       |       2336        |
 	---------------------------------------------------------------------------------   	
@@ -47,13 +47,13 @@
 			$db = $con->connection();
 
 			/*
-			You must log invalid userinput in order to detect a possible attack on your login form
+			You must log invalid user input in order to detect a possible attack on your login form
 			In this example the expected input is "a-Z/0-9 - _"
 			*/
 
 			if(preg_match("/[^a-zA-Z0-9]/", $username))
 			{       
-				//Set a log for whenever there is unexpected userinput with a threat level
+				//Set a log for whenever there is unexpected user input with a threat level
 				setLog("null","invalid expected input", "FAIL", date("d-m-y"), "null", "HIGH");
 				header("location:login.php");
 				die();
@@ -65,7 +65,7 @@
 			*/
 
 			//After successful validation we want to log that username was validated successfully:
-			setLog($_SESSION['userID'],"Username return true", "SUCCESS", date(dd-mm-yyyy), $privelige, "NULL");
+			setLog($_SESSION['userID'],"Username return true", "SUCCESS", date(dd-mm-yyyy), $privilege, "NULL");
 
 			//PDO prepared statement in order to prevent SQL injections
 			$stmt = $db->prepare("

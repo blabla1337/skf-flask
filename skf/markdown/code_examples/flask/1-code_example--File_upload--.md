@@ -59,7 +59,7 @@
 	        //Move the file form the temporal folder to the upload folder we setup
 	        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-	        //Redirect the user to the uploaded_file route, which will basicaly show on the browser the uploaded file
+	        //Redirect the user to the uploaded_file route, which will basically show on the browser the uploaded file
 	        setLog(0, "Upload was successful", "SUCCESS", str(datetime.utcnow()), "HIGH")
 	        return redirect(url_for('uploaded_file', filename=filename))
 	        

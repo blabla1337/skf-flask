@@ -29,7 +29,7 @@
 	origRequest.getSession().setAttribute("CSRF", csrfToken);
 
 	The next step is to implement this random token in each form field as a hidden input parameter
-	and send it to a function which checks if the submitted token is equal to the one set after succesful validation.
+	and send it to a function which checks if the submitted token is equal to the one set after successful validation.
 
 	The following .xhtml snippet shows the code used to place the antiCSRF token inside the page.
 	When the page renders, the <cu:antiCSRF/> is created as a viewstate encoded html input tag
@@ -73,7 +73,7 @@
 			*/
 			String CSRftoken = CSRF.generate(25);
 					
-			//Set an accesor session.
+			//Set an accessor session.
 			origRequest.getSession(false);
 			origRequest.getSession().setAttribute("CSRF", CSRftoken);
 		}
@@ -101,13 +101,13 @@
 						cookie.setValue(null);	       		
 						origResponse.addCookie(cookie);
 					
-						Log.SetLog("", "", "Cookie has been desroyed!", LocalDateTime.now(), "", "");    
+						Log.SetLog("", "", "Cookie has been destroyed!", LocalDateTime.now(), "", "");    
 					} 
 			}		     
 		}
 
 	/* 
-	This function used to decode the viewstate and get the token value from the html input tag. Also it perfomrms token comparison between the anticsrf token values of the html component and the session attribute. If the comparison fails then the session must be invalid.
+	This function used to decode the viewstate and get the token value from the html input tag. Also it performs token comparison between the anti-CSRF token values of the html component and the session attribute. If the comparison fails then the session must be invalid.
 
 	*/ 
 			public void decode(FacesContext context) {
@@ -129,8 +129,8 @@
 					} catch (IOException e) {
 						logger.error(e.toString());
 					}
-					Log.SetLog("", "", "antiCSRF token doesnt match! Failed attempt", "", "NULL"); 
-					logger.info("antiCSRF token doesnt match! Failed attempt");
+					Log.SetLog("", "", "antiCSRF token doesn't match! Failed attempt", "", "NULL"); 
+					logger.info("antiCSRF token doesn't match! Failed attempt");
 					ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler(); 
 					nav.performNavigation("csrf");
 				}
@@ -142,8 +142,8 @@
 					} catch (IOException e) {
 						logger.error(e.toString());
 					}
-					Log.SetLog("", "", "antiCSRF token doesnt match! Failed attempt", "", "NULL"); 
-					logger.info("antiCSRF token doesnt match! Failed attempt");
+					Log.SetLog("", "", "antiCSRF token doesn't match! Failed attempt", "", "NULL"); 
+					logger.info("antiCSRF token doesn't match! Failed attempt");
 					ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler(); 
 					nav.performNavigation("UserLogin");
 				}

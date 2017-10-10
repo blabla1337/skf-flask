@@ -6,10 +6,10 @@
 	
     <?php
 
-	class xPathControll{ 	
+	class xPathControl{ 	
 
 		/*
-		Define the allowed characters and input parameter and countlevel for the
+		Define the allowed characters and input parameter and count level for the
 		user lockout like:
 		controller("<'>&", $_GET['filename'], "3")
 		*/
@@ -37,7 +37,7 @@
 
 				/*
 				Assuming that you used the encoder function also for adding users, it will now retrieve the
-				user O'reily from the query
+				user O'Reilly from the query
 				*/
 
 				$queryResult = $xpathvar->query('//lemonade[@supplier="'.$return.'"]/price');

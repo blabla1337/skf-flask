@@ -41,7 +41,7 @@
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 			request.getSession().invalidate();
-			request.getSession().setAttribute("Athenticated", "");
+			request.getSession().setAttribute("Authenticated", "");
 			
 			Cookie cookie = null;
 			Cookie[] cookies = null;

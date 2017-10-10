@@ -6,7 +6,7 @@
 
 	"""
 	Define the whitelist pattern and validation type and input parameter like:
-	getFiles("value1,value2,etc", "alphanummeric", $_GET['filename'], "3")
+	getFiles("value1,value2,etc", "alphanumeric", $_GET['filename'], "3")
 	"""
 
 	def command(whiteListPattern, validationType, inputParameter){
@@ -26,7 +26,7 @@
 			continue = False
 
 			"""
-			Seccond, we want to whitelist the filenames for expected values, in this example they are,
+			Second, we want to whitelist the filenames for expected values, in this example they are,
 			page1,page2 etc.. for more information about whitelisting see "white-listing" in the code examples:
 			"""
 

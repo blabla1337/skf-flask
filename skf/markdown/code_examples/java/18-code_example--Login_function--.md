@@ -60,7 +60,7 @@
 			String userId = "";
 
 			//we also validate the username input, if it was bad we empty the string:
-			if (validate.validateInput(username, "alphanummeric", "Error in username", "LOW", "0") != true) { username = ""; }
+			if (validate.validateInput(username, "alphanumeric", "Error in username", "LOW", "0") != true) { username = ""; }
 		
 			//Here we connect to the database by means of a connection string as configured in the web.xml 
 			Connection conn = null;

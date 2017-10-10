@@ -9,7 +9,7 @@
 	class fileGetContents{ 	
 		/*
 		Define the whitelist pattern and validation type and input parameter, countLevel like:
-		getFiles("page1,page2,etc", "alphanummeric", $_GET['filename'], "3")
+		getFiles("page1,page2,etc", "alphanumeric", $_GET['filename'], "3")
 		*/
 		public getFiles($whiteListPattern, $validationType, $inputParameter, $countLevel){
 
@@ -27,7 +27,7 @@
 			for more information about validation see "input validations" in the code examples:
 			*/
 			if($validate->inputValidation($inputParameter, $validationType,
-			"Invalid userinput", "HIGH", $countLevel) == false) {$continue = false;}
+			"Invalid user input", "HIGH", $countLevel) == false) {$continue = false;}
 
 			/*
 			Second, we want to whitelist the filenames for expected values, in this example they are,
