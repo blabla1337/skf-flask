@@ -5,7 +5,7 @@
 
 	"""
 	Define the whitelist pattern and validation type and input parameter, countLevel like:
-	getFiles("page1,page2,etc", "alphanumeric", $_GET['filename'])
+	getFiles("images,css,js", "alphanumeric", foldername)
 	"""
 
 	def getFiles(request, whiteListPattern, validationType, inputParameter):
@@ -30,16 +30,21 @@
 		if whitelisting(whiteListPattern, inputParameter):
 			continue = False
 
-        # Create Path
-        path = os.path.join(settings.MEDIA_ROOT, inputParameter)   
-        images = []
+		if continue == True:
+        	# Create Path
+        	path = os.path.join(settings.MEDIA_ROOT, inputParameter)   
+        	images = []
 
-        # List all the URL
-        for f in os.listdir(path):
-            if f.endswith("jpg") or f.endswith("png"):
-                images.append("%s%s/%s" % (settings.MEDIA_URL, inputParameter, f))
+        	# List all the URL
+        	for f in os.listdir(path):
+            	if f.endswith("jpg") or f.endswith("png"):
+                	images.append("%s%s/%s" % (settings.MEDIA_URL, inputParameter, f))
         
-        return render_to_response('gallery.html', {'images': images})
+        	return render_to_response('gallery.html', {'images': images})
+
+        else:
+
+			return render_to_response('gallery.html', {'images': ''})        	
 
     # gallery.html
 

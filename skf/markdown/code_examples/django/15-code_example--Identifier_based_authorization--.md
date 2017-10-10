@@ -3,13 +3,12 @@
 
 ## Example:
 
-
     """
     Define the whitelist pattern and validation type and input parameter like:
-    identity("page1,page2,etc", "alphanumeric", $_GET['page'], "3")
+    identity("page1,page2", "alphanumeric", page)
     """
 
-    def identity(request, whiteListPattern, validationType, inputParameter, countLevel):
+    def identity(request, whiteListPattern, validationType, inputParameter):
 
     	continue = True
 
@@ -45,7 +44,12 @@
     		"""
 
             countAccess(1)
-
             current_user = request.user
-
             data = Table.objects.filter(id=current_user.id, page=inputParameter).first()
+            
+            return data
+
+        else:
+
+            return False
+
