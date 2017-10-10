@@ -544,6 +544,14 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['items'][1]['title'], "CSRF Token JSF")
 
 
+    def test_get_code_item_lang_go(self):
+        """Test if the go language code items call is working"""
+        response = self.client.get('/api/code/lang/go')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(len(response_dict['items']), 5)
+
+
     def test_get_questions_sprint_items(self):
         """Test if the questions sprint items call is working"""
         headers = {'content-type': 'application/json'}
