@@ -25,9 +25,7 @@ Security Knowledge Framework is an expert system application that uses the OWASP
 * [Installing](#installing)
 * [Usage](#usage)
 * [CI-Pipeline](#ci-pipeline)
-* [Development-API](#development-api)
-* [Development-Angular](#development-angular)
-* [Testing](#testing)
+* [Development / Contributing](https://github.com/blabla1337/skf-flask/blob/master/CONTRIBUTING.md)
 * [Scrum Board](#scrum-board)
 * [License](#license)
 * [Contributors](#contributors)
@@ -65,32 +63,6 @@ https://localhost
 For more detailed information such as setting up an admin account and user guides please see the extended documentation that can be found below:
 
 [Readme: extended documentation](https://skf.readme.io/)  
-
-## <a name="development-api"></a>Development SKF-API
-
-1. Fork and clone https://github.com/blabla1337/skf-flask
-2. pip install -r requirements.txt
-3. export FLASK_APP=skf/app.py
-4. export PYTHONPATH=.:$PYTHONPATH
-5. python3.6 skf/app.py
-6. Run the manual test first to verify if everything is good
-``` 
-coverage run tests/run.py test
-``` 
-7. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
-
-## <a name="development-angular"></a>Development SKF-ANGULAR
-
-1. Fork and clone https://github.com/blabla1337/skf-flask
-2. cd Angular
-3. npm install
-4. ng serve --host=0.0.0.0 
-5. Run the manual test in the Angular dir first to verify if everything is good
-``` 
-npm test
-``` 
-6. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
-
 
 ## <a name="scrum-board"></a>Scrum Board
 
@@ -166,21 +138,6 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 ```
 [![SSL Rating](http://sslbadge.org/?domain=securityknowledgeframework.org)](https://www.ssllabs.com/ssltest/analyze.html?d=securityknowledgeframework.org)
 
-## <a name="testing"></a>Testing
-
-TESTING SKF-API<br>
-Go to the SKF root dir and run:
-```
-export FLASK_APP=skf/app.py
-export PYTHONPATH=.:$PYTHONPATH
-coverage run tests/run.py test
-```
-
-TESTING SKF-ANGULAR<br>
-Go to the Angular dir in the SKF root dir and run:
-```
-npm test
-```
 
 ## <a name="license"></a>License
     Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
