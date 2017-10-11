@@ -48,8 +48,6 @@
             data = Table.objects.filter(id=current_user.id, page=inputParameter).first()
             
             return data
-
         else:
-
             return False
 

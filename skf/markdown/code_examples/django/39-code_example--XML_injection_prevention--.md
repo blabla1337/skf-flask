@@ -1,11 +1,12 @@
 # XML injection prevention
 -------
 
+
 ## Example:
 
 
     """
-
+	
 	Whenever you are using XML parsers you must sanitize or encode al user-input before
 	including this input into your XML file.
 
@@ -17,25 +18,24 @@
 	Whenever your XML function does not encode your data on the fly, you may want to write
 	your own function for achieving this. See the code examples and search for "Input encoding"
 	for more detailed information.
-	
 	"""
 
 
-	# Let us take an easy example where we store your favorite number name into a XML file.
+	//Let us take an easy example where we store your favorite number name into a XML file.
 	from lxml import etree
 
-	# Create Root Element employees
+	//Create Root Element employees
 
 	root = etree.Element("employees")
 	
-	# Create child Element for employees
+	//Create child Element for employees
 	employee = etree.SubElement(root, "employee")
 	name = etree.SubElement(employee, "name")
 	
-	# Insert the text in name tag
+	//Insert the text in name tag
 	name.text = request.form['name']
 
-	#Save it in xml file
+	//Save it in xml file
 	with open("test.xml", "w") as f:
 		f.write(etree.tostring(root, pretty_print=True))
 
@@ -61,15 +61,15 @@
 	the same principle's apply to both functions.
 	"""
 	
-		# Read from a XML file
+		//Read from a XML file
 		x = etree.parse("test.xml")
 
 
 		for element in x.iter("name"):
-   	 		#This example is vulnerable to XSS
+   	 		//This example is vulnerable to XSS
    	 		print element.text
 
-   	 		#This example is escaped
+   	 		//This example is escaped
    	 		print escape(element.text)
 
 	"""

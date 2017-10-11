@@ -26,27 +26,25 @@
 		page1,page2 etc.. for more information about whitelisting see "white-listing" in the code examples:
 		"""
 
-		# Check for filename Whitelisting
+		//Check for filename Whitelisting
 		if whitelisting(whiteListPattern, inputParameter):
 			continue = False
 
 		if continue == True:
-        	# Create Path
+        	//Create Path
         	path = os.path.join(settings.MEDIA_ROOT, inputParameter)   
         	images = []
 
-        	# List all the URL
+        	//List all the URL
         	for f in os.listdir(path):
             	if f.endswith("jpg") or f.endswith("png"):
                 	images.append("%s%s/%s" % (settings.MEDIA_URL, inputParameter, f))
         
         	return render_to_response('gallery.html', {'images': images})
-
         else:
-
 			return render_to_response('gallery.html', {'images': ''})        	
 
-    # gallery.html
+    //gallery.html
 
     {% for image in images %}
     <img src='{{image}}' />

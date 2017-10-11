@@ -1,15 +1,15 @@
-X-XSS-Protection header
+# X-XSS-Protection header
 -------
 
 ## Example:
 
-    '''
+    
+    """
     In order to set the X-XSS-Protection header, you'll have to add the following code to the head of your application
 
-    For adding X-XSS Protection in every page we have to add a middleware
-
+    For adding X-XSS Protection in everypage we have to add a middleware
     Make a middleware in yourapp/middleware.py
-    '''
+    """
 
     class MyMiddleware:
 
@@ -21,26 +21,21 @@ X-XSS-Protection header
         	response['X-XSS-Protection'] = "1; mode=block"
         	return response
    	
-   	# For adding middleware in the project, add in yourproject/settings.py
-
+   	//For adding middleware in the project, add in yourproject/settings.py
    	MIDDLEWARE = [
     	...,
     	'yourapp.middleware.MyMiddleware',
     	...,
 	]	
 
-	'''
-	For adding in the individual response page using render_to_response
-	'''
-
+	//For adding in the individual response page using render_to_response
 	response = render_to_response("template.html", {})
 	response['X-XSS-Protection'] = '1; mode=block'
+
 	return response
 
-	'''
-	For adding in the individual response page using render
-	'''
-
+	//For adding in the individual response page using render
 	response = render(request, "template.html", {})
 	response['X-XSS-Protection'] = '1; mode=block'
+
 	return response

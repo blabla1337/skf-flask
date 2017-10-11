@@ -1,10 +1,11 @@
-SQL query
+# SQL query
 -------
 
 ## Example:
 
+
     """
-    Django supports almost most of the database backend.  
+    Django supports almost most of the database backends.  
 
     A model contains the essential fields and behaviors of the data you’re storing.
     Each model maps to a single database table.
@@ -32,27 +33,21 @@ SQL query
         		self.address,
     		])
 
-    """
-    In order to add your model to django, you have to add the app in INSTALLED_APP
-    """
-
+    //In order to add your model to django, you have to add the app in INSTALLED_APP
     INSTALLED_APPS = [
-    	#...
+    	//...
     	'myapp',
-    	#...
+    	//...
 	]
 
-
 	"""
-	After adding the application, in order to make the changes we need to make migrations
+	After adding the application, inorder to make the changes we need to make migrations
 	and migrate - For creating tables 
 	"""
 
 	$ python manage.py makemigrations
-
 	$ python manage.py migrate
-
-	# Needs to be added
+	//Needs to be added
 
 	"""
 	Inserting data into the database - create, add and commit
@@ -71,7 +66,8 @@ SQL query
 	"""
 	Querying Records
 	"""
-	#Retrieve the user with username
+	
+	//Retrieve the user with username
 	instance = Publisher.objects.filter(name=name).all()
 	instance.address
 
@@ -80,7 +76,7 @@ SQL query
 	"""
 	
 	if inputValidation(inputParameter, 'alphanumeric') == False:
-		people = Person.objects.raw('SELECT * FROM myapp_person WHERE last_name = %s' % (inputParameter,))
+		people = Person.objects.raw('SELECT * FROM myapp_person WHERE last_name = %s', [inputParameter])
 	
 		for p in people:
 			print("%s is %s." % (p.first_name, p.age))

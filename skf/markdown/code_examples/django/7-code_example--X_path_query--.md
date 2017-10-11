@@ -3,8 +3,9 @@
 
 ## Example:
 
+    
     """
-    Define the allowed characters and input parameter and count level for the
+    Define the allowed characters and input parameter and countlevel for the
     user lockout like:
     controller("<'>&", $_GET['filename'], "3")
     
@@ -21,14 +22,12 @@
         
         return = encoder(allowed, input, count)
 
-        # If the encoder came back false we do not process the function!
-
+        //If the encoder came back false we do not process the function!
         if return != False:
 
-            # Parse the register.xml
+            //Parse the register.xml
             root = etree.parse("register.xml")
-
-            # Extract the id from the XML using XPath
+            //Extract the id from the XML using XPath
             find = etree.XPath('/Employees/Employee[ID=' + return + ']')
 
             for x in find(root):

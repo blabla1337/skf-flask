@@ -3,7 +3,7 @@
 
 ## Example:
 
-
+    
     """
     Session hijacking and Session fixation are attempts to gain access to another user. 
     We Should never put session IDS in the URL, use SSL and secure connection and HTTP only
@@ -11,18 +11,14 @@
 
     We should regenerate a SESSION ID when someone logs in. But Django does regenerating 
     Session ID automatically.  
-    """
 
-    """
     First we implement the strict transport security header, this is in order to prevent
     users from accessing your application over an unprotected connection.
     """
 
-    # Example of the strict transport security header:
+    //Example of the strict transport security header:
     response['Strict-Transport-Security'] = "max-age=31536000"
-
-
-    # If all present and future subdomains will be HTTPS:
+    //If all present and future subdomains will be HTTPS:
     response['Strict-Transport-Security'] = "max-age=31536000; includeSubDomains"    
 
     """
@@ -37,9 +33,7 @@
     The site owner still needs to then go and submit the domain to the list. the preload list
     enforces the browser to always present your application on HTTPS even on the first time
     the user hits your application
-    """
 
-    """
     Then we set the httpOnly flag in settings.py
     (see "HttpOnly" in the code examples for more details about implementation)
     """

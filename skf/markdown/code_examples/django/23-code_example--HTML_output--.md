@@ -3,6 +3,7 @@
 
 ## Example:
 
+
     """
     Whenever user input is displayed in the application, whether, as content or a parameter value
     submitted towards the url, all user input should be properly escaped to prevent XSS injections.
@@ -15,25 +16,23 @@
     & is converted to &amp;
     """
 
-    # If data = "<b>"
-
-    # Template to show HTML escaping
+    //If data = "<b>"
+    //Template to show HTML escaping
     This will be escaped: {{ data }}
     This will not be escaped: {{ data|safe }}
 
-    # Output for HTML escaping
+    //Output for HTML escaping
     This will be escaped: &lt;b&gt;
     This will not be escaped: <b>
 
-    # For removing dangerous characters : 
-
+    //For removing dangerous characters : 
     wordDict = {'&': '&amp;', '<' : '&lt;', '>' : '&gt;' , '"' : '&quot;', "'" : '&#x27;', '/' : &#x2F;, '\' : '\\'}
 
     for key in wordDict:
         input = input.replace(key, wordDict[key])
 
-    # For UNTRUSTED DATA in <a href="/site/search?value=UNTRUSTED DATA">clickme</a>
-    # URL Encoding for defense
+    //For UNTRUSTED DATA in <a href="/site/search?value=UNTRUSTED DATA">clickme</a>
+    //URL Encoding for defense
 
     import urllib
     input = urllib.quote_plus(input) 

@@ -1,9 +1,9 @@
-CSRF tokens
+# CSRF tokens
 -------
 
 ## Example:
 
-
+    
     """
     The random CSRF token generated need to be send to the server with every form submission. 
 
@@ -55,8 +55,5 @@ CSRF tokens
     });
 	</script>
 
-    """
-    Using CSRF in Jinja Templates
-    """
-	
+    //Using CSRF in Jinja Templates
     <form action="" method="post">{{ csrf_input }}
