@@ -6,7 +6,7 @@
 
 	"""
 	Define the whitelist pattern and validation type and input parameter like:
-	getFiles("value1,value2,etc", "alphanumeric", $_GET['filename'], "3")
+	getFiles("value1,value2,etc", "alphanumeric", filename)
 	"""
 
 	def command(whiteListPattern, validationType, inputParameter){
@@ -39,3 +39,7 @@
 			# Even though there is match we still escape the shelx.quote():
 			command = './configure {}' .format(quote(inputParameter))
 			os.system(command)
+
+		else:
+
+			return False

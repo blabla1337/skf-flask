@@ -5,7 +5,7 @@
 
 
 	//Define the whitelist pattern and validation type and input parameter like:
-	//getFiles("images,css,js", "filename", $_GET['foldername'])
+	//getFiles("images,css,js", 'alphanumeric', foldername)
 
 	def getFiles(whiteListPattern, validationType, inputParameter):
 		

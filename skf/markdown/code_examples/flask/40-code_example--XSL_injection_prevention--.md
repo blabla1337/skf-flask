@@ -16,11 +16,11 @@
 	Before we want to attach the XSL files to the style sheet we first want to
 	do validation on the request to make sure the included file was one of our own pre
 	defined files, example:
-	including("file1.xsl,file2.xsl,etc", 'filename' , $_GET['xslfile'])
+	including("file1.xsl,file2.xsl,etc", filename)
 	"""
 
 
-	def including(whiteListing, input, count):
+	def including(whiteListing, input):
 
 		continue = True
 

@@ -6,7 +6,7 @@
 
 	"""
 	Define the whitelist pattern and validation type and input parameter like:
-	command("data.txt,users.txt", "filename", $_GET['filename'])
+	command("data.txt,users.txt", "filename", filename)
 	"""
 
 	def command(whiteListPattern, validationType, inputParameter){
