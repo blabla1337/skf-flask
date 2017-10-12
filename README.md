@@ -14,7 +14,7 @@
 
 <br>Quality testing SKF-API:<br>
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
-[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results/branches/master/badge-risk.svg)](https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results/branches/master)
+[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master)
 [![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 [![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=master)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=master)
 
