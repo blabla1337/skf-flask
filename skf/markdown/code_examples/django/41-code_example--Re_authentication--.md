@@ -21,7 +21,7 @@
         //Validation of password 
         if user is not None:
             //After successful validation we will log that password was validated successfully
-            log.info('Succeessful reauthentication user : {user} via ip: {ip}'.format(
+            log.info('Successful reauthentication user : {user} via ip: {ip}'.format(
                 user=user,
                 ip=ip
             ))
@@ -32,7 +32,7 @@
             current_user.is_active = 1
             //Save the session ID 
             login(request, user)
-            //Sucess page 
+            //Success page 
             return render(request, 'polls/home.html')
         else:
             //The user failed re-authenticating himself

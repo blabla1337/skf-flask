@@ -6,7 +6,7 @@
 
     """
     This is the encoder class for whenever you have to allow certain
-    possibly dangerous characters into your code for i.e names such as O'reily
+    possibly dangerous characters into your code for i.e names such as O'Reilly
 	"""
 
 	def encoder(allowed, input, count):

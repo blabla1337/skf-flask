@@ -19,7 +19,7 @@
 
      - Loggers : is configured to have log level. Different log levels are DEBUG, INFO, 
                  WARNING, ERROR, CRITICAL. Each message that is written to the logger is a Log Record.
-     - Handlers : It describes particular logging behaviour such as writing message on the screen, a file or to network socket.  
+     - Handlers : It describes particular logging behavior such as writing message on the screen, a file or to network socket.  
      - Filters : We can place an additional criteria for logging process.
      - Formatters : Formatters describe the exact format of that text.
 
@@ -35,7 +35,7 @@
         - logger.exception()
     """
 
-    //Configuring loggers with app in SETTNGS.PY
+    //Configuring loggers with app in SETTINGS.PY
     """
     This creates polls app log file polls.log
     """

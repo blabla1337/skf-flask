@@ -7,7 +7,7 @@
     """
     In order to set the "X-Content-Type-Options" header you'll have to add the following code to the head of your application
 
-    For adding X-Content-Type-Options in everypage we have to add a middleware
+    For adding X-Content-Type-Options in every page we have to add a middleware
     Make a middleware in yourapp/middleware.py
     """
 

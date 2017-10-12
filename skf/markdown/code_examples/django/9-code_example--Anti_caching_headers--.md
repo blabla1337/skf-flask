@@ -7,7 +7,7 @@
 	"""
     In order to set the Anti-Caching header you'll have to your application head in order to prevent the browser from caching
 
-    For adding Anti-Caching header in everypage we have to add a middleware
+    For adding Anti-Caching header in every page we have to add a middleware
 
     Make a middleware in yourapp/middleware.py
     """

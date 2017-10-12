@@ -10,7 +10,7 @@
 	Models can be easily translated to other formats such as XML, Json, YAML
 	"""
 
-	//Serialization of SomeModel definded in Models.py
+	//Serialization of SomeModel defined in Models.py
 	from django.core import serializers 
 	data = serializers.serialize("xml", SomeModel.objects.all())
 
