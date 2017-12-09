@@ -58,7 +58,7 @@ killall nginx
 if [[ "$HTTPS" == "true" ]]; then
     cp /skf-flask/Docker/alpine/site-tls.conf /etc/nginx/conf.d/default.conf
 else
-    cp /skf-flask/Docker/alpine/front.conf /etc/nginx/conf.d/default.conf
+    cp /skf-flask/Docker/alpine/site.conf /etc/nginx/conf.d/default.conf
 fi
 
 # Start nginx

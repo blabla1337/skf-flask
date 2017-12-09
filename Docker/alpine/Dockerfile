@@ -11,17 +11,18 @@ nodejs \
 nodejs-npm \
 musl-dev \
 python3-dev \
-libffi-dev \ 
+libffi-dev \
 py3-pip \
 openssl \
 bash \
 perl \
-git 
+git
 RUN git clone https://github.com/blabla1337/skf-flask.git
 # Start Angular app
 WORKDIR /skf-flask/Angular
-RUN npm install -g angular-cli
+RUN npm install -g @angular/cli
 RUN npm install
+
 EXPOSE 443
 
 # Start python API app
