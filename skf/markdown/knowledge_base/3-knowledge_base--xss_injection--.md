@@ -15,6 +15,7 @@ by preference using a so called whitelisting method.
 This means you should not check for malicious content like the tags or anything,
 but only allow the expected input. Every input which is outside of the intended operation
 of the application should immediately be detected and log-in rejected.
+Do not try to help use the input in any way because that could introduce a new type of attack by converting characters. 
 
 The second step would be encoding all the parameters or user-input before putting this in
 your html with encoding libraries specially designed for this purpose.
