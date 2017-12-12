@@ -12,6 +12,7 @@ In this situation the application will get content and subscribe user roles corr
     www.target.com/index.php?loggedin=admin
 
 In this situation the application will get content and subscribe user roles corresponding to the admin parameter.
+(Note: the above two links are no longer available.)
 
 ## Solution:
 

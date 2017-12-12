@@ -1,7 +1,7 @@
 ## Description:
 
 When the browser has to guess the charset according to the content that is presented by
-the application, then this could could lead to XSS injections when the guess is wrong.
+the application, then this could lead to XSS injections when the guess is wrong.
 
 ## Solution:
 
