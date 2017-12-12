@@ -1,7 +1,7 @@
 ## Description:
 
 Validation of user supplied input must always be enforced on the server side.
-Whenever validation of the input is being perfomed on the server side than
+Whenever validation of the input is being perfomed on the client side then
 the constraints can easilly be bypassed whenever an attacker uses an intercepting proxy
 which he can use to tamper data after they have been validated and send to the server. 
 
