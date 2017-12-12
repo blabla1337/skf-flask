@@ -9,7 +9,7 @@ There exists a specific type of entity, an external general parsed entity often 
 to an external entity, that can access local or remote content via a declared system
 identifier and the XML processor may disclose confidential information normally not
 accessible by the application. Attacks can include disclosing local files, which may
-contain sensitive data such as passwords or private
+contain sensitive data such as passwords or private user data.
 
 ## Solution:
 

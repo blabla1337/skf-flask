@@ -7,4 +7,4 @@ Since the attack occurs relative to the application processing the XML document,
 
 ## Solution:
 
-Disable the XML DTD parsing. This can be set when initiating the XML parser.
+Disable the XML DTD (Document Type Definition) parsing. This can be set when initiating the XML parser.
