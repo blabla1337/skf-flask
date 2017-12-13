@@ -10,7 +10,7 @@ of the application in terms of accessibility this could reduce the attack vector
 ## Solution:
 
 The first solution is to grant access only from a certain source IP range to the
-administrative interface. If that solution would not be possible than it is always recommended
+administrative interface. If that solution would not be possible then it is always recommended
 to enforce a step-up or adaptive authentication for logging in into the administrative interface.
 
 Recommended knowledgebase item:
