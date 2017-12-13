@@ -8,7 +8,7 @@ compromise of the secrets or integrity of the code of the application.
 
 ## Solution:
 
-Building you application should always be done on a server that you trust, you are in control and
+Building your application should always be done on a server that you trust, you are in control and
 has the latest security patches and hardening configured. For deploying the application the same
 rules apply, also think about what type of third party services can access the code or modify it.
 Creating scripts to monitor for bad behavior of a third party service can be an option as an extra
