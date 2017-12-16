@@ -21,3 +21,6 @@ When working with sessions there are a couple of things you need to consider in 
 The items as pointed out before should be looked into and taken into consideration
 whenever you are working with sessions on your system in order to enforce a
 high level of security.
+
+Though there are more than ten design patterns related to session, all of them need to be implemented. 
+If any one is left out for implementation, the whole session management layer is not secure and could be defeated by attackers.
