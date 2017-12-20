@@ -23,6 +23,7 @@ Security Knowledge Framework is an expert system application that uses the OWASP
 ## Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
+* [Updating](#updating)
 * [Usage](#usage)
 * [CI-Pipeline](#ci-pipeline)
 * [Development / Contributing](https://github.com/blabla1337/skf-flask/blob/master/CONTRIBUTING.md)
@@ -57,6 +58,17 @@ docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_
 
 The application will greet you on:
 https://localhost
+
+## <a name="updating"></a>Updating
+
+There is a method available to update the content of the SKF application.
+
+When you have modified or created new Knowledge base items, code examples or checklist you need to run the following commands in the SKF root directory:
+```
+export FLASK_APP=skf/app.py
+export PYTHONPATH=.:$PYTHONPATH
+flask updatedb
+```
 
 ## <a name="usage"></a>Usage
 
@@ -187,4 +199,10 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Xenofon Vassilakopoulos
 - Heeraj Nair
 - Alpha Kitonga
+- Wojciech Reguła 
+- Amadeusz Starzykiewicz
+- Adam Zima
+- Kacper Madej
+- Rafał Fronczyk
+- Chang Xu (Neo)
 

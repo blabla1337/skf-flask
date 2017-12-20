@@ -18,8 +18,9 @@ Again thank you for your help, you rock!
 2. pip install -r requirements.txt
 3. export FLASK_APP=skf/app.py
 4. export PYTHONPATH=.:$PYTHONPATH
-5. python3.6 skf/app.py
-6. Run the manual test first to verify if everything is good
+5. export FLASK_DEBUG=1
+6. python3.6 skf/app.py
+7. Run the manual test first to verify if everything is good
 ``` 
 coverage run tests/run.py test
 ``` 
@@ -45,6 +46,7 @@ Go to the SKF root dir and run:
 ```
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
+export FLASK_DEBUG=1
 coverage run tests/run.py test
 ```
 

@@ -21,7 +21,7 @@ import logging.config, os, re
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
-from skf.db_tools import init_md_checklists, init_md_knowledge_base, init_md_code_examples, init_db
+from skf.db_tools import init_md_checklists, init_md_knowledge_base, init_md_code_examples, init_db, update_db
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_item import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
@@ -109,6 +109,13 @@ def initdb_command():
     """Creates the database with all the Markdown files."""
     init_db()
     print('Initialized the database.')
+
+
+@app.cli.command('updatedb')
+def initdb_command():
+    """Update the database with the markdown files."""
+    update_db()
+    print('Markdown files updated in the database.')
 
 
 def main():

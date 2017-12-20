@@ -33,6 +33,28 @@ def init_db():
         return False
 
 
+def update_db():
+    """Update the database."""
+    try:
+        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
+        db = connect_db()
+        db.session.delete("TRUNCATE TABLE kb_items")
+        db.session.delete("TRUNCATE TABLE code_items")
+        db.session.delete("TRUNCATE TABLE checklists")
+        db.session.commit()
+        
+        init_md_checklists()
+        init_md_code_examples()
+        init_md_knowledge_base()
+
+        with app.open_resource(os.path.join(app.root_path, 'db.sqlite_schema'), mode='r') as f:
+            db.cursor().executescript(f.read())
+        db.commit()
+        return True
+    except:
+        return False
+
+
 def get_db():
     """Opens a new database connection if there is none yet for the current application context."""
     if not hasattr(g, settings.DATABASE):
@@ -66,7 +88,7 @@ def init_md_knowledge_base():
 def init_md_code_examples():
     """Converts markdown code-example items to DB."""
     kb_dir = os.path.join(app.root_path, 'markdown/code_examples/')
-    code_langs = ['asp', 'java', 'php', 'flask', 'django', 'go']
+    code_langs = ['asp', 'java', 'php', 'flask', 'django', 'go', 'ruby']
     try:
         for lang in code_langs:
             for filename in os.listdir(kb_dir+lang):

@@ -2,7 +2,7 @@ import os, json, unittest, tempfile, skf
 from werkzeug.exceptions import BadRequest
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
-from skf.db_tools import init_db, connect_db, get_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
+from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
 from skf.app import app
 
 
@@ -13,6 +13,7 @@ class TestRestPlusApi(unittest.TestCase):
         cls.client = app.test_client()
         with app.app_context():
             init_db()
+            update_db()
             settings.TESTING = True
             skf.app.initialize_app(app)
 
