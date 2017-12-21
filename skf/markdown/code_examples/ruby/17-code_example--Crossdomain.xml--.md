@@ -1,28 +1,30 @@
 # Crossdomain.xml
+-------
 
-#Example:
+## Example:
 
-# A bad example of a crossdomain.xml would be:
 
-	<?xml version="1.0" ?>
-	<crossdomainpolicy>
-	  <sitecontrol permittedcrossdomainpolicies="masteronly"/>
-	  <allowaccessfrom domain="*"/>
-	  <allowhttprequestheadersfrom domain="*" headers="*"/>
-	</crossdomainpolicy>
+		// A bad example of a crossdomain.xml would be:
 
-#	Because it allows acces from all other domains.
+			<?xml version="1.0" ?>
+			<crossdomainpolicy>
+				<sitecontrol permittedcrossdomainpolicies="masteronly"/>
+				<allowaccessfrom domain="*"/>
+				<allowhttprequestheadersfrom domain="*" headers="*"/>
+			</crossdomainpolicy>
 
-#	Instead of this approach you might want to use the following restrictions. 
-#	Example by twitter's crossdomain.xml:
+		//	Because it allows acces from all other domains.
 
-	<?xml version="1.0" encoding="UTF8"?>
-	<crossdomainpolicy xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" 
-	xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
-	  <allowaccessfrom domain="twitter.com" />
-		<allowaccessfrom domain="api.twitter.com" />
-		<allowaccessfrom domain="search.twitter.com" />
-		<allowaccessfrom domain="static.twitter.com" />
-		<sitecontrol permittedcrossdomainpolicies="masteronly"/>
-	  <allowhttprequestheadersfrom domain="*.twitter.com" headers="*" secure="true"/>
-	</crossdomainpolicy>
+		//	Instead of this approach you might want to use the following restrictions. 
+		//	Example by twitter's crossdomain.xml:
+
+			<?xml version="1.0" encoding="UTF8"?>
+			<crossdomainpolicy xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" 
+			xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
+				<allowaccessfrom domain="twitter.com" />
+				<allowaccessfrom domain="api.twitter.com" />
+				<allowaccessfrom domain="search.twitter.com" />
+				<allowaccessfrom domain="static.twitter.com" />
+				<sitecontrol permittedcrossdomainpolicies="masteronly"/>
+				<allowhttprequestheadersfrom domain="*.twitter.com" headers="*" secure="true"/>
+			</crossdomainpolicy>
