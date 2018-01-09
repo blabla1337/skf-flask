@@ -16,23 +16,27 @@ JQUERY functions:
 .parse();
 
 Example:
+      ````
 	<script>
 	function myFunction() {
 		$( "p" ).text( "append user-input to paragrapgh safely" );
 	}
 	</script>
 
-Javscript functions:
-.innerText();   <- not supported by firefox
-.textContext(); <- not supported on I.E 8 and lower
-.createTextNode();
-.value();
 
+	Javscript functions:
+	.innerText();   <- not supported by firefox
+	.textContext(); <- not supported on I.E 8 and lower
+	.createTextNode();
+	.value();
+	```
+	
 Example:
-
+	```
 	<script>
 	function myFunction() {
    		var t = document.createTextNode("append user-input to body safely");
     	document.body.appendChild(t);
 	}
 	</script>
+	```
