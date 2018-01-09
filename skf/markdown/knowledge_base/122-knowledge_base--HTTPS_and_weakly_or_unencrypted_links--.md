@@ -8,6 +8,4 @@ vulnerable data towards other unencrypted/weak encrypted links in your applicati
 
 ## Solution:
 
-Verify that credentials are transported using a suitable encrypted link and that all pages/functions that
-require a user to enter credentials are done so using an encrypted link.
-
+Verify that credentials or other sensitive information is transported via TLS.
