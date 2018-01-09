@@ -1,6 +1,6 @@
 ## Description:
 
-Building you application should always be done on a server that you trust, you are in control and
+Building an application should always be done on a server that you trust, you are in control of and
 has the latest security patches and hardening configured. In some applications you can use security
 techniques and modules that can protect your application from known security issues. Always use these
 techniques when they are available.

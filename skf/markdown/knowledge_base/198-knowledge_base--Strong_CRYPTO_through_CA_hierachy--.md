@@ -8,7 +8,10 @@ This can lead to Man-In-The-Middle (MITM) attacks and impact the 3 security pill
 
 Verify that only strong algorithms, ciphers, and protocols are used, through all the certificate hierarchy,
 including root and intermediary certificates of your selected certifying authority.
-Because this is always in flux we recommend using the SSLlabs free test:
+Because this is always in flux we
 
-https://www.ssllabs.com/ssltest/
+recommend using the:
+SSLlabs free test https://www.ssllabs.com/ssltest/
+OWASP OSAFT : https://www.owasp.org/index.php/O-Saft
+
 These TLS hardening recommendations can then be applied on all servers.

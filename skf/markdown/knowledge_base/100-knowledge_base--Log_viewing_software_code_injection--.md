@@ -5,7 +5,8 @@ Whenever user supplied input is being handled into log viewing software, this so
 ## Solution:
 
 You should consider these three controls when supplying information to the log viewing software:
-•	Design: If at all possible, avoid logging data that came from external inputs.
-•	Implementation: Ensure that all log entries are statically created, or if they must record external data that the input is vigorously white-list checked.
-•	Run time: Avoid viewing logs with tools that may interpret control characters in the file, such as command-line shells.
+    •	Design: If at all possible, avoid logging data that came from external inputs.
+    •	Implementation: Ensure that all log entries are statically created, or if they must record external data that the input       is vigorously white-list checked.  
+    •	Run time: Avoid viewing logs with tools that may interpret control characters in the file, such as command-line shells.
+
 Also verify that all non-printable symbols and field separators are properly encoded in log entries, to prevent log injection.

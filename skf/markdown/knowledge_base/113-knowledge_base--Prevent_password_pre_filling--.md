@@ -20,7 +20,4 @@ compute, key derivation functions are ideally suited for password hashing use ca
 Examples of good ways to store passwords are with, BCRYPT, Blowfish or in some cases SCRYPT
 which is a little harder to implement correctly
 
-NOTE: Password pre-filling also happens when using the browsers password manager. For the login input
-fields the 'autocomplete=off' HTML attribute should be added to disable the password manager. The credentials
-could otherwise be stolen by XSS attacks whenever an attacker injects an HTML login form into the application
-which is pre-filled by the password manager.
+NOTE: Password pre-filling also happens when using the browsers password manager. However this process is different fromt he context described above since the description above implies an application that pre-filles credentials from the database/localstorage/etc.
