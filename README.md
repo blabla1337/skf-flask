@@ -199,7 +199,7 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Xenofon Vassilakopoulos
 - Heeraj Nair
 - Alpha Kitonga
-- Wojciech Reguła 
+- [Wojciech Reguła](https://www.linkedin.com/in/wojciech-regula/) 
 - Amadeusz Starzykiewicz
 - Adam Zima
 - Kacper Madej
