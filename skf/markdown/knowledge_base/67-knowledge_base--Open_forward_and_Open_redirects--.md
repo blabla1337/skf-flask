@@ -14,3 +14,5 @@ to access.
 
 Use a whitelisting method for determining where the user should be redirected towards.
 You could also show a warning when redirecting to potentially untrusted content.
+
+If not deemed necessary user supplied input should not be used in redirects and forwards anyways.
