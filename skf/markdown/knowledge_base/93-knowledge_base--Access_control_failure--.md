@@ -5,8 +5,13 @@ that deserve special attention. The first is exceptions that occur in the proces
 security control itself. It is important that these exceptions do not enable behavior
 that the countermeasures would normally not allow. As a developer, you should consider
 that there are generally three possible outcomes from a security
-mechanism: allow the operation, disallow the operation and exception In general.
-You should design your security mechanism so that a failure will follow the same
+mechanism: 
+
+- allow the operation
+- disallow the operation
+- exception 
+
+in general you should design your security mechanism so that a failure will follow the same
 execution path as disallowing the operation.
 
 ## Solution:
