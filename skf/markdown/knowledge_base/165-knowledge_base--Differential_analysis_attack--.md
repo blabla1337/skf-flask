@@ -8,4 +8,5 @@ attacker can now use this differential in response time to enumerate user accoun
 ## Solution:
 
 Verify that all authentication challenges, whether successful or failed, should respond
-in the same average response time.
+in the same average response time. This same methodology applies for other sensitive information that could
+potentially be recovered with differential attacks.
