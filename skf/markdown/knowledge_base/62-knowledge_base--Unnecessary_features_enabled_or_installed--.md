@@ -1,7 +1,7 @@
 ## Description:
 
 Whenever there are unnecessary features enabled or installed this could increase
-the attack vector which could lead to serious danger such as XXE/CMD/XSS injections.
+the attack surface of an attacker which could lead to serious danger such as XXE/CMD/XSS injections.
 
 ## Solution:
 
