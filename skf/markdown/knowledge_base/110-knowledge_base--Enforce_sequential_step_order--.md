@@ -12,7 +12,3 @@ the application to only process business logic flows in sequential step order, w
 steps being processed in realistic human time, and not process out of order, skipped steps,
 processed steps from another user, or too quickly submitted transactions.
 
-Recommended knowledge base items:
-
-- Aggregate user requests
-- CSRF injection
