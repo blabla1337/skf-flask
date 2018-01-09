@@ -6,3 +6,6 @@ web browsers. It is usually enabled by default anyway, so the role of this heade
 ## Solution:
 
 These headers are also known as the: X-XSS-Protection: 1; mode=block and provide protection against XSS attacks when implemented in the application or web-server.
+
+##NOTE:
+This header only protects against some reflected XSS attacks. This is no substitute for normal escaping and input filtering and sanitization.
