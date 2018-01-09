@@ -1,7 +1,7 @@
 ## Description:
 
-When the logout functionality does not revoke the complete session, an attacker could
-impersonate a user when he has access to the session cookie.
+When the logout functionality does not revoke the complete session, an attacker could still
+impersonate a user when he has access to the session cookie even after the user is logged off the application.
 
 ## Solution:
 
