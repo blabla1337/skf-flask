@@ -495,7 +495,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "Session Cookies (Domain)")
+        self.assertEqual(response_dict['items'][0]['title'], "X XSS Protection Header")
 
 
     def test_get_code_item_10(self):
@@ -534,7 +534,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/lang/asp')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "Session Cookies (Domain)")
+        self.assertEqual(response_dict['items'][0]['title'], "X XSS Protection Header")
 
 
     def test_get_code_item_lang_java(self):
@@ -542,7 +542,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/lang/java')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "Password forget and disallow old passwords")
+        self.assertEqual(response_dict['items'][0]['title'], "Disable Directory Listing")
 
 
     def test_get_code_item_lang_go(self):
