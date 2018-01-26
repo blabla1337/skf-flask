@@ -495,7 +495,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertNotEqual(response_dict['items'][0]['title'], "")
+        self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking header")
 
 
     def test_get_code_item_10(self):
@@ -503,7 +503,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/10')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertNotEqual(response_dict['title'], "")
+        self.assertEqual(response_dict['title'], "Enforce secure password")
 
 
     def test_update_code(self):
@@ -526,7 +526,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/lang/php')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertNotEqual(response_dict['items'][0]['title'], "")
+        self.assertEqual(response_dict['items'][0]['title'], "File upload")
 
 
     def test_get_code_item_lang_asp(self):
@@ -534,7 +534,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/lang/asp')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertNotEqual(response_dict['items'][0]['title'], "")
+        self.assertEqual(response_dict['items'][1]['title'], "Anti clickjacking header")
 
 
     def test_get_code_item_lang_java(self):
@@ -542,7 +542,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/lang/java')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertNotEqual(response_dict['items'][0]['title'], "")
+        self.assertEqual(response_dict['items'][1]['title'], "CSRF Token JSF")
 
 
     def test_get_code_item_lang_go(self):
