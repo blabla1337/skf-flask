@@ -91,7 +91,6 @@ def stats_sprint(project_id):
 
 
 def order_sprint_results(sprint_results):
-    i = 0
     ordered_list = []
     ordered_closed = [] # 2
     ordered_accepted = [] # 3
@@ -115,25 +114,25 @@ def order_sprint_results(sprint_results):
     return sprint_results
 
 
-def insertInOrder(category, category_requirement, item, list):
-    if (len(list) == 0):
-        list.append(item)
+def insertInOrder(category, category_requirement, item, status_list):
+    if (len(status_list) == 0):
+        status_list.append(item)
     else:
         y = 0
-        while y < len(list):
-            numbers_ordered = list[y].checklistID.split('.')
+        while y < len(status_list):
+            numbers_ordered = status_list[y].checklistID.split('.')
             category_ordered = int(numbers_ordered[0])
             category_requirement_ordered = int(numbers_ordered[1])
             if (category < category_ordered):
-                list.insert(y, item)
+                status_list.insert(y, item)
                 break
             else:
                 if (category == category_ordered):
                     if (category_requirement < category_requirement_ordered):
-                        list.insert(y, item)
+                        status_list.insert(y, item)
                         break
             y = y + 1
-        if (y == len(list)):
-            list.insert(y, item)
-    return list
+        if (y == len(status_list)):
+            status_list.insert(y, item)
+    return status_list
 
