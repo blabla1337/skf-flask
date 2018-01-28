@@ -205,4 +205,5 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Kacper Madej
 - Rafał Fronczyk
 - Chang Xu (Neo)
+- Martin Marsicano
 
