@@ -104,7 +104,7 @@
 		<div class="modal-body">
 			<table class="table table-striped table-advance table-hover checklist">
 				<tbody>
-					<tr *ngFor="let item of checklistItems | orderBy:['checklist_items_checklistID']; let myIndex = index; ">
+					<tr *ngFor="let item of checklistItems; let myIndex = index; ">
 						<th *ngIf="item.checklist_items_level == 0" colspan="6">{{item.checklist_items_checklistID}} {{item.checklist_items_content}}</th>
 						<td *ngIf="item.checklist_items_level != 0">
 							<ngb-accordion #acc="ngbAccordion">
