@@ -47,5 +47,9 @@ content bugs.
 this header in CORS requests, but may be spoofed outside the browser.
 Application-level protocols should be used to protect sensitive data.
 
-**NOTE:** Always make sure that even though you have set the allow Origin header to trusted sources, you
-have to make authentication/session management before displaying sensitive information.
+**NOTE:** 
+Modern application frameworks do dynamically allocation of the origin header, resulting in the browser
+also allowing to send the "Access-Control-Allow-Credentials: true" header as well in requests. 
+Whenever JSON web tokens are being send in cookies rather than headers, potential attackers could abuse this behaviour to 
+make unauthenticated XHR get requests on the authenticated users behalf to read sensitive information from the 
+pages.
