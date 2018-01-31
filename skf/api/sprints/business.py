@@ -2,9 +2,16 @@ from skf.database import db
 from sqlalchemy import asc, desc
 from skf.database.groupmembers import groupmembers
 from skf.database.project_sprints import project_sprints 
-from skf.database.checklists_results import checklists_results 
-from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
+from skf.database.checklists_results import checklists_results
+from skf.database.checklists import checklists
+from skf.database.kb_items import kb_items
+from skf.database.comments import comments
 
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
+import base64
+import string
+import random
+from datetime import date
 
 def get_sprint_item(sprint_id, user_id):
     log("User requested specific sprint item", "MEDIUM", "PASS")
@@ -28,6 +35,14 @@ def get_sprint_results_audit(sprint_id, user_id):
     val_num(user_id)
     result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).paginate(1, 500, False)
     return order_sprint_results(result)
+
+
+def get_sprint_results_audit_export(sprint_id, user_id):
+    log("User requested specific sprint audit export", "MEDIUM", "PASS")
+    val_num(sprint_id)
+    val_num(user_id)
+    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).paginate(1, 500, False)
+    return {'message': export_failed_results(result) }
 
 
 def delete_sprint(sprint_id, user_id):
@@ -101,20 +116,20 @@ def order_sprint_results(sprint_results):
         category = int(numbers[0])
         category_requirement = int(numbers[1])
         if (item.status == 1):
-            ordered_list = insertInOrder(category, category_requirement, item, ordered_list)
+            ordered_list = insert_in_order(category, category_requirement, item, ordered_list)
         elif (item.status == 2):
-            ordered_closed = insertInOrder(category, category_requirement, item, ordered_closed)
+            ordered_closed = insert_in_order(category, category_requirement, item, ordered_closed)
         elif (item.status == 3):
-            ordered_accepted = insertInOrder(category, category_requirement, item, ordered_accepted)
+            ordered_accepted = insert_in_order(category, category_requirement, item, ordered_accepted)
         elif (item.status == 4):
-            ordered_verified = insertInOrder(category, category_requirement, item, ordered_verified)
+            ordered_verified = insert_in_order(category, category_requirement, item, ordered_verified)
         else:
-            ordered_failed = insertInOrder(category, category_requirement, item, ordered_failed)
+            ordered_failed = insert_in_order(category, category_requirement, item, ordered_failed)
     sprint_results.items = ordered_list + ordered_closed + ordered_accepted + ordered_verified + ordered_failed
     return sprint_results
 
 
-def insertInOrder(category, category_requirement, item, status_list):
+def insert_in_order(category, category_requirement, item, status_list):
     if (len(status_list) == 0):
         status_list.append(item)
     else:
@@ -136,3 +151,28 @@ def insertInOrder(category, category_requirement, item, status_list):
             status_list.insert(y, item)
     return status_list
 
+
+def export_failed_results(sprint_results):
+    file_path = "export_" + id_generator(16)
+    with open(file_path, 'a') as file:
+        file.write('date,title,description,mitigation,notes\n')
+
+        for item in sprint_results.items:
+            checklist = checklists.query.filter(checklists.checklistID == item.checklistID).first()
+            kb_item = kb_items.query.filter(kb_items.kbID == item.kbID).first()
+            comment = comments.query.filter(comments.sprintID == item.sprintID).filter(comments.checklistID == item.checklistID).filter(comments.status == item.status).order_by(desc(comments.id)).first()
+            
+            title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+            temp = kb_item.content.replace(',','\\,').split(" Solution:")
+            temp1 = temp[0].split(" Description:")
+            
+            description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+            mitigation = temp[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+            file.write('"' + comment.date + '","' + title + '","' + description + '","' + mitigation + '","' + comment.comment.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ') + '"\n')
+
+    with open(file_path, 'rb') as file:
+        return base64.b64encode(file.read())
+
+
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))

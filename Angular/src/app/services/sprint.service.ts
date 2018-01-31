@@ -43,6 +43,13 @@ export class SprintService {
       .map(response => response.json().items)
   }
 
+  getSprintResultsAuditExport(id: number) {
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${id}`, { headers: this.headers })
+      .map(
+      response => response.json().message,
+      error => console.log("failed to export"));
+  }
+
   delete(id: number) {
     const url = environment.API_ENDPOINT + `/sprint/delete/${id}`;
     return this.http.delete(url, { headers: this.headers })
