@@ -41,6 +41,42 @@ export class ProjectSummaryAuditComponent implements OnInit {
     this.route.params.subscribe(params => { this.router.navigate(["/project-dashboard/", localStorage.getItem("tempParamID")]) })
   }
 
+  export() {
+    this.route.params.subscribe(params => {this.sprintService.getSprintResultsAuditExport(params['id']).subscribe(
+      (resp) => {
+        var base64 = resp.replace('b\'','');
+        base64 = base64.substring(0,base64.lastIndexOf('\''));
+
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        
+        var byteCharacters = atob(base64);
+        var byteArrays = [];
+
+        for (var offset = 0; offset < byteCharacters.length; offset += 512) {
+          var slice = byteCharacters.slice(offset, offset + 512);
+
+          var byteNumbers = new Array(slice.length);
+          for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+
+          var byteArray = new Uint8Array(byteNumbers);
+
+          byteArrays.push(byteArray);
+        }
+
+        var blob = new Blob(byteArrays, {type: 'text/csv'});
+        var url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = 'export.csv';
+        a.click();
+        window.URL.revokeObjectURL(url);
+      },
+      err => console.log("Error getting sprint stats")
+    )});
+  }
+
   select(option: string) {
     this.selector = option;
   }
@@ -79,3 +115,5 @@ export class ProjectSummaryAuditComponent implements OnInit {
     });
   }
 }
+
+
