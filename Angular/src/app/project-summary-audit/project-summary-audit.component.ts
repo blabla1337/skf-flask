@@ -42,9 +42,9 @@ export class ProjectSummaryAuditComponent implements OnInit {
   }
 
   export() {
-    this.route.params.subscribe(params => {this.sprintService.getSprintResultsAuditExport(params["id"]).subscribe(
+    this.route.params.subscribe(params => { this.sprintService.getSprintResultsAuditExport(params["id"]).subscribe(
       (resp) => {
-        let base64fix = resp.replace("b'", "")
+        let base64fix = resp.replace("b'", "");
         const base64 = base64fix.substring(0, base64fix.lastIndexOf("'"));
 
         let a = document.createElement("a");
@@ -74,7 +74,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
         window.URL.revokeObjectURL(url);
       },
       err => console.log("Error getting sprint stats")
-    );});
+    ); });
   }
 
   select(option: string) {
