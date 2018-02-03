@@ -44,7 +44,8 @@ export class ProjectSummaryAuditComponent implements OnInit {
   export() {
     this.route.params.subscribe(params => {this.sprintService.getSprintResultsAuditExport(params["id"]).subscribe(
       (resp) => {
-        const base64 = resp.replace("b'", "").substring(0, base64.lastIndexOf("'));
+        let base64fix = resp.replace("b'", "")
+        const base64 = base64fix.substring(0, base64fix.lastIndexOf("'"));
 
         let a = document.createElement("a");
         document.body.appendChild(a);
