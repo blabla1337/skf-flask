@@ -3,10 +3,12 @@ import jwt, secrets
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
 from sqlalchemy.orm.exc import NoResultFound
+from sqlalchemy import desc
 
 from skf import settings
 from skf.database import db
 from skf.database.users import users
+from skf.database.groupmembers import groupmembers
 from skf.database.privileges import privileges
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
@@ -97,6 +99,13 @@ def create_user(data):
     db.session.add(user)
     db.session.commit()
     result = users.query.filter(users.email == email).one()
+
+    # Add user to default groupmember issue #422
+    groupmember = groupmembers.query.order_by(desc(groupmembers.memberID)).first()
+    groupmemberUser = groupmembers(groupmember.memberID + 1, result.userID, groupmember.groupID, groupmember.ownerID, None)
+    db.session.add(groupmemberUser)
+    db.session.commit()
+
     return result
 
 
