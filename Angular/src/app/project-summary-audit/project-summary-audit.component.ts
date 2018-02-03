@@ -31,7 +31,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.sprintService.getSprintResultsAudit(params['id']).subscribe(
+      this.sprintService.getSprintResultsAudit(params["id"]).subscribe(
         resp => this.sprintResult = resp,
         err => console.log("Error getting sprint stats"))
     });
@@ -42,39 +42,39 @@ export class ProjectSummaryAuditComponent implements OnInit {
   }
 
   export() {
-    this.route.params.subscribe(params => {this.sprintService.getSprintResultsAuditExport(params['id']).subscribe(
+    this.route.params.subscribe(params => { this.sprintService.getSprintResultsAuditExport(params["id"]).subscribe(
       (resp) => {
-        var base64 = resp.replace('b\'','');
-        base64 = base64.substring(0,base64.lastIndexOf('\''));
+        let base64fix = resp.replace("b'", "");
+        const base64 = base64fix.substring(0, base64fix.lastIndexOf("'"));
 
-        var a = document.createElement("a");
+        let a = document.createElement("a");
         document.body.appendChild(a);
-        
-        var byteCharacters = atob(base64);
-        var byteArrays = [];
 
-        for (var offset = 0; offset < byteCharacters.length; offset += 512) {
-          var slice = byteCharacters.slice(offset, offset + 512);
+        const byteCharacters = atob(base64);
+        let byteArrays = [];
 
-          var byteNumbers = new Array(slice.length);
+        for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+          let slice = byteCharacters.slice(offset, offset + 512);
+
+          let byteNumbers = new Array(slice.length);
           for (var i = 0; i < slice.length; i++) {
             byteNumbers[i] = slice.charCodeAt(i);
           }
 
-          var byteArray = new Uint8Array(byteNumbers);
+          let byteArray = new Uint8Array(byteNumbers);
 
           byteArrays.push(byteArray);
         }
 
-        var blob = new Blob(byteArrays, {type: 'text/csv'});
-        var url = window.URL.createObjectURL(blob);
+        const blob = new Blob(byteArrays, {type: "text/csv"});
+        const url = window.URL.createObjectURL(blob);
         a.href = url;
-        a.download = 'export.csv';
+        a.download = "export.csv";
         a.click();
         window.URL.revokeObjectURL(url);
       },
       err => console.log("Error getting sprint stats")
-    )});
+    ); });
   }
 
   select(option: string) {

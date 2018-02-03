@@ -11,7 +11,6 @@ from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 import base64
 import string
 import random
-from datetime import date
 
 def get_sprint_item(sprint_id, user_id):
     log("User requested specific sprint item", "MEDIUM", "PASS")
@@ -161,11 +160,11 @@ def export_failed_results(sprint_results):
             checklist = checklists.query.filter(checklists.checklistID == item.checklistID).first()
             kb_item = kb_items.query.filter(kb_items.kbID == item.kbID).first()
             comment = comments.query.filter(comments.sprintID == item.sprintID).filter(comments.checklistID == item.checklistID).filter(comments.status == item.status).order_by(desc(comments.id)).first()
-            
+
             title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
             temp = kb_item.content.replace(',','\\,').split(" Solution:")
             temp1 = temp[0].split(" Description:")
-            
+
             description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
             mitigation = temp[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
             file.write('"' + comment.date + '","' + title + '","' + description + '","' + mitigation + '","' + comment.comment.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ') + '"\n')

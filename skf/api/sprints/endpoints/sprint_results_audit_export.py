@@ -1,5 +1,4 @@
 
-from flask import request
 from flask_restplus import Resource
 from skf.api.security import security_headers, validate_privilege, select_userid_jwt
 from skf.api.sprints.business import get_sprint_results_audit_export

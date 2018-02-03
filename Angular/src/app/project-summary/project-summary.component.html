@@ -82,13 +82,13 @@
                               <br/>
                               <div style="float:right">
                                 <div *ngIf="selector == 'Development'">
-                                  <button (click)="save(2, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>
-                                  <button (click)="save(3, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>
-                                  <button (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
+                                  <button *ngIf="item.status != 2" (click)="save(2, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>
+                                  <button *ngIf="item.status != 2" (click)="save(3, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>
+                                  <button *ngIf="item.status == 2" (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
                                 </div>
                                 <div *ngIf="selector == 'Security'">
-                                  <button (click)="save(4, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
-                                  <button (click)="save(5, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
+                                  <button *ngIf="item.status != 2" (click)="save(4, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
+                                  <button *ngIf="item.status != 2" (click)="save(5, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
                                    </div>
                               </div>
                             </div>
