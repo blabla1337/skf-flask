@@ -12,6 +12,11 @@ export class UserAddService {
   constructor(private http: Http, private router: Router) { }
    public headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
+  getPrivileges() {
+    return this.http.get(environment.API_ENDPOINT + '/user/list_privileges',
+    { headers: this.headers }).map(response => response.json().items)
+  }
+
   newUser(email: string, privileges: string): Observable<User[]> {
    
     return this.http

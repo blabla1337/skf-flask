@@ -8,6 +8,8 @@ import { Sprint } from '../models/sprint'
 import { Question_sprint } from '../models/question_sprint'
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { AppSettings } from '../globals';
+import * as JWT from 'jwt-decode';
 
 
 @Component({
@@ -31,6 +33,8 @@ export class ProjectDashboardComponent implements OnInit {
   public pre_dev_store: Question_pre[] = [];
   public delete: string;
   public idFromURL: number;
+  public canDelete: boolean;
+  public canEdit: boolean;
   constructor(
     private modalService: NgbModal,
     private questionPreService: QuestionPreService,
@@ -53,6 +57,12 @@ export class ProjectDashboardComponent implements OnInit {
       .subscribe(
       (projectService) => { this.sprints = projectService },
       err => console.log("getting sprint questions failed"));
+
+    if (AppSettings.AUTH_TOKEN) {
+      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canDelete = decodedJWT.privilege.includes("delete");
+      this.canEdit = decodedJWT.privilege.includes("edit");
+    }
   }
 
   newSprint() {

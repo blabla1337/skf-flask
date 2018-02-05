@@ -48,6 +48,7 @@ from skf.api.user.endpoints.user_activate import ns as users_namespace
 from skf.api.user.endpoints.user_login import ns as users_namespace
 from skf.api.user.endpoints.user_list import ns as users_namespace
 from skf.api.user.endpoints.user_manage import ns as users_namespace
+from skf.api.user.endpoints.user_listprivileges import ns as users_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace

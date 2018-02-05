@@ -3,6 +3,8 @@ import { ProjectService } from '../services/project.service';
 import { Project } from '../models/project';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Rx';
+import { AppSettings } from '../globals';
+import * as JWT from 'jwt-decode';
 
 @Component({
   selector: 'app-project-list',
@@ -15,11 +17,16 @@ export class ProjectListComponent implements OnInit {
   public number: number;
   public error: string;
   public delete: string;
+  public canDelete:boolean;
 
   constructor(private _projectService: ProjectService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.projectList();
+    if (AppSettings.AUTH_TOKEN) {
+      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canDelete = decodedJWT.privilege.includes("delete");
+    }
   }
 
   deleter(id: number) {

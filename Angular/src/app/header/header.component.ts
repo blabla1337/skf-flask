@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppSettings } from '../globals';
+import * as JWT from 'jwt-decode';
 
 @Component({
   selector: 'app-header',
@@ -20,10 +21,17 @@ export class HeaderComponent implements OnInit {
   public check: boolean;
   public color:string = '#515594';
   public user: string = AppSettings.USER;
+  public canManage: boolean;
+  public canEdit: boolean;
+  //public canDelete: boolean;
+  //public canRead: boolean;
 
   ngOnInit() {
     if (AppSettings.AUTH_TOKEN) {
       this.isLoggedin = true;
+      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canManage = decodedJWT.privilege.includes("manage");
+      this.canEdit = decodedJWT.privilege.includes("edit");
     }
 
     this.projects = false;

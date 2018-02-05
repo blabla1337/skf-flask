@@ -83,11 +83,11 @@
                         <span id="1">Projects</span>
                     </a>
                     <ul *ngIf="projects" class="sub" id="1" style="display:block;">
-                        <li><a routerLink="/project-new" id="1">New Project</a></li>
+                        <li *ngIf="canEdit"><a routerLink="/project-new" id="1">New Project</a></li>
                         <li><a routerLink="/project-list" id="1">List Projects</a></li>
                     </ul>
                 </li>
-                <li [style.background-color]="getUSerStyle()" class="sub-menu">
+                <li *ngIf="canManage" [style.background-color]="getUSerStyle()" class="sub-menu">
                     <a (click)="UsersShow()" id="2" class="primairy" href="javascript:;">
                         <i class="fa fa-user"></i>
                         <span id="2">Users</span>

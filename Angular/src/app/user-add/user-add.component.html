@@ -60,15 +60,12 @@
               </div>
             </div>
             
-            <!-- All for the next release :-)
             <div class="form-group">
               <div class="wrap">
                 <label for="inputmail" class="col-sm-2 control-label">Privileges</label>
                 <div class="col-sm-10">
-                  <select [(ngModel)]="privileges" name="privileges" class="form-control">
-                    <option value="" selected>-- Please Select --</option>
-                    <option value="2">Observer</option>
-                    <option value="3">Editor</option>
+                  <select [(ngModel)]="privilegeSelected" name="privilegeSelected" class="form-control">
+                    <option *ngFor="let item of privileges;" value="{{item.privilegeID}}">{{item.privilege}}</option>
                   </select>
                   <div class="wrap desc alert-info">
                     <div class="col-sm-10">An <b>observer</b> can only view projects and reports, <b>Editors</b> can add and edit them.</div>
@@ -76,6 +73,7 @@
                 </div>
               </div>
             </div>
+            <!-- All for the next release :-)
             <div class="form-group">
               <div class="wrap">
                 <label for="inputmail" class="col-sm-2 control-label">Avatar</label>

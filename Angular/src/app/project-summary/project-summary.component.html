@@ -63,7 +63,7 @@
                         </p>
                       </ng-template>
                     </ngb-tab>
-                    <ngb-tab>
+                    <ngb-tab *ngIf="canEdit">
                       <ng-template ngbTabTitle><b>Status</b></ng-template>
                       <ng-template ngbTabContent>
                         <div class="form-group">
