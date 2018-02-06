@@ -50,7 +50,7 @@
                 <th><i class="fa fa-clock-o"></i> Creation date</th>
                 <th><i class="fa fa-university"></i> Project level</th>               
                 <th><i class="fa fa-bookmark"></i> Project version</th>
-                <th><i class="fa fa-times"></i> Delete</th>
+                <th *ngIf="canDelete"><i class="fa fa-times"></i> Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -60,7 +60,7 @@
                 <td><span class="label">{{project.timestamp}}</span></td>
                 <td>{{project.level}}</td>
                 <td>{{project.projectVersion}}</td>
-                <td>
+                <td *ngIf="canDelete">
                   <button (click)="open(content)" class="btn btn-danger btn-xs">
                     <i class="fa fa-times "></i>                 
                   </button>

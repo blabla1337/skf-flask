@@ -48,7 +48,7 @@ def login_user(data):
             if (user.activated == "True"):
                 if (user.access == "True"):
                     if check_password_hash(user.password, data.get('password')):
-                        priv_user = privileges.query.filter(str(user.privilegeID)).first()
+                        priv_user = privileges.query.filter(privileges.privilegeID == str(user.privilegeID)).first()
                         payload = {
                             # userid
                             'UserId': user.userID,
@@ -76,6 +76,12 @@ def login_user(data):
     except NoResultFound:
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
+
+
+def list_privileges():
+    log("User requested privileges items", "MEDIUM", "PASS")
+    result = privileges.query.filter(privileges.privilegeID != "1").paginate(1, 500, False)
+    return result
 
 
 def create_user(data):

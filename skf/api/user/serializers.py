@@ -49,3 +49,12 @@ user_list = api.model('user_list', {
 user_items = api.inherit('List of user items', {
     'items': fields.List(fields.Nested(user_list))
 })
+
+privilege_list = api.model('privilege_list', {
+    'privilege': fields.String(required=True, description='The list of privileges'),
+    'privilegeID': fields.Integer(required=True, description='The unique identifier of the privilege'),
+})
+
+privilege_items = api.inherit('List of privilege items', {
+    'items': fields.List(fields.Nested(privilege_list))
+})

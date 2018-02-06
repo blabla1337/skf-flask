@@ -3,9 +3,10 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SprintService } from '../services/sprint.service'
 import { CommentService } from '../services/comment.service'
-
 import { Sprint } from '../models/sprint'
 import { Comment } from '../models/comment'
+import { AppSettings } from '../globals';
+import * as JWT from 'jwt-decode';
 
 @Component({
   selector: 'app-project-summary',
@@ -28,8 +29,9 @@ export class ProjectSummaryComponent implements OnInit {
   public error: string;
   public succes: string;
   public selector: string = "Development";
-  public backID : string;
-  public showMe : string;
+  public backID: string;
+  public showMe: string;
+  public canEdit: boolean;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -37,6 +39,10 @@ export class ProjectSummaryComponent implements OnInit {
         resp => this.sprintResult = resp,
         err => console.log("Error getting sprint stats"))
     });
+    if (AppSettings.AUTH_TOKEN) {
+      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canEdit = decodedJWT.privilege.includes("edit");
+    }
   }
 
   back() {
