@@ -108,7 +108,7 @@
 						<th *ngIf="item.checklist_items_level == 0" colspan="6">{{item.checklist_items_checklistID}} {{item.checklist_items_content}}</th>
 						<td *ngIf="item.checklist_items_level != 0">
 							<ngb-accordion #acc="ngbAccordion">
-								<ngb-panel style="max-width:10%" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}}">
+								<ngb-panel style="max-width:10%" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} (L.{{item.checklist_items_level}})">
 									<ng-template ngbPanelContent>
 										<p style="white-space: pre-line;">
 										  {{item.kb_items_content}}
