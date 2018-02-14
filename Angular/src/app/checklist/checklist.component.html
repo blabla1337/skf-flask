@@ -93,7 +93,9 @@
 <ng-template #content let-c="close" let-d="dismiss">
 
 	<div class="modal-header">
-		<h4 class="modal-title">ASVS</h4>
+		<h4 *ngIf="level == 1" class="modal-title">ASVS Level 1</h4>
+		<h4 *ngIf="level == 2" class="modal-title">ASVS Level 2</h4>
+		<h4 *ngIf="level == 3" class="modal-title">ASVS Level 3</h4>
 		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                     <span aria-hidden="true">&times;</span>
          </button>

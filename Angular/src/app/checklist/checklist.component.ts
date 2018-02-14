@@ -16,11 +16,14 @@ export class ChecklistComponent {
   public checklistItems: Checklist[]
   public queryString: string;
   public closeResult: string;
+  public level: number;
   public color: string;
+  
 
   constructor(private checklistService: ChecklistService, private modalService: NgbModal) { }
 
   open(content, level: number) {
+    this.level = level;
     this.checklistService
       .getChecklist(level)
       .subscribe(checklistItems => { this.checklistItems = checklistItems });
