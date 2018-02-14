@@ -89,6 +89,9 @@
                                 <div *ngIf="selector == 'Security'">
                                   <button *ngIf="item.status != 2" (click)="save(4, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
                                   <button *ngIf="item.status != 2" (click)="save(5, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
+                                  <button *ngIf="item.status == 2" (click)="save(4, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
+                                  <button *ngIf="item.status == 2" (click)="save(5, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
+ 
                                    </div>
                               </div>
                             </div>
