@@ -32,6 +32,9 @@ coverage run tests/run.py test
 2. cd Angular
 3. npm install
 4. ng serve --host=0.0.0.0 
+OR
+4. edit the package.json in Angular folder and remove --env=prod example: "start": "ng serve --host=0.0.0.0"
+4. npm start
 5. Run the manual test in the Angular dir first to verify if everything is good
 ``` 
 npm test
