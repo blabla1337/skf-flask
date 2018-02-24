@@ -1,0 +1,1 @@
+2.9 The app removes sensitive data from views when backgrounded.

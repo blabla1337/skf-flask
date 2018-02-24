@@ -1,0 +1,1 @@
+V7: Code Quality and Build Setting Requirements

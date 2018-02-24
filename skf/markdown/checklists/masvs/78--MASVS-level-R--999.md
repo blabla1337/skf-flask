@@ -1,0 +1,1 @@
+8.7 The app implements multiple different responses to tampering, debugging and emulation, including stealthy responses that don't simply terminate the app.

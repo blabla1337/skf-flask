@@ -1,0 +1,1 @@
+3.6 All random values are generated using a sufficiently secure random number generator.

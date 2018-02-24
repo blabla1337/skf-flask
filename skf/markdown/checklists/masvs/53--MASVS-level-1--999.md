@@ -1,0 +1,1 @@
+6.2 All inputs from external sources and the user are validated and, if necessary, sanitized. This includes data received via the UI, IPC mechanisms such as intents, custom URLs, and network sources.

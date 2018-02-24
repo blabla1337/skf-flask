@@ -17,9 +17,11 @@ def connect_db():
 def init_db():
     """Initializes the database."""
     try:
-        os.remove(os.path.join(app.root_path, settings.DATABASE))
+        if (os.path.exists(os.path.join(app.root_path, settings.DATABASE))):
+            os.remove(os.path.join(app.root_path, settings.DATABASE))
         open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a')
-        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
+        if (os.path.exists(os.path.join(app.root_path, 'db.sqlite_schema'))):
+            os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
         copyfile(os.path.join(app.root_path, "schema.sql"), os.path.join(app.root_path, 'db.sqlite_schema'))
         init_md_checklists()
         init_md_code_examples()
@@ -36,12 +38,13 @@ def init_db():
 def update_db():
     """Update the database."""
     try:
-        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
+        if (os.path.exists(os.path.join(app.root_path, 'db.sqlite_schema'))):
+            os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
         db = connect_db()
-        db.session.delete("TRUNCATE TABLE kb_items")
-        db.session.delete("TRUNCATE TABLE code_items")
-        db.session.delete("TRUNCATE TABLE checklists")
-        db.session.commit()
+        db.execute("DELETE FROM kb_items")
+        db.execute("DELETE FROM code_items")
+        db.execute("DELETE FROM checklists")
+        db.commit()
         
         init_md_checklists()
         init_md_code_examples()
@@ -51,7 +54,8 @@ def update_db():
             db.cursor().executescript(f.read())
         db.commit()
         return True
-    except:
+    except Exception as e:
+        print(e)
         return False
 
 
@@ -114,7 +118,7 @@ def init_md_checklists():
     kb_dir = os.path.join(app.root_path, 'markdown/checklists/')
     try:
         #checklists = ['asvs', 'pcidss', 'custom']
-        checklists = ['asvs', 'custom']
+        checklists = ['asvs', 'custom', 'masvs']
         for checklist in checklists:
             if checklist == "asvs":
                 for filename in os.listdir(kb_dir+checklist):
@@ -150,7 +154,40 @@ def init_md_checklists():
                     query = "INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"', '"+kb_id+"'); \n"
                     with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                             myfile.write(query)
-        print('Initialized the markdown checklists.')
+            if checklist == 'masvs':
+                for filename in os.listdir(kb_dir+checklist):
+                    if filename.endswith(".md"):
+                        name_raw = filename.split("-")
+                        level = name_raw[4].replace("_", " ")
+                        kbid_raw = name_raw[6].split(".")
+                        kb_id = kbid_raw[0]
+                        if level == "0":
+                            # For the MASVS categories
+                            file = os.path.join(kb_dir+checklist, filename)
+                            data = open(file, 'r')
+                            file_content = data.read()
+                            data.close()
+                            checklistID_raw = file_content.split(":")
+                            checklistID = checklistID_raw[0]
+                            checklistID = checklistID.lstrip('V')
+                            checklistID = checklistID+".0"
+                        else :
+                            # For the MASVS items
+                            file = os.path.join(kb_dir+checklist, filename)
+                            data = open(file, 'r')
+                            file_content = data.read()
+                            data.close()
+                            checklistID_raw = file_content.split(" ")
+                            checklistID = checklistID_raw[0]     
+                    file = os.path.join(kb_dir+checklist, filename)
+                    data = open(file, 'r')
+                    file_content = data.read()
+                    data.close()
+                    content = file_content.split(' ', 1)[1]
+                    content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                    query = "INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"', '"+kb_id+"'); \n"
+                    with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
+                            myfile.write(query)
         return True
     except:
         return False
