@@ -15,7 +15,7 @@ Again thank you for your help, you rock!
 ## <a name="development-api"></a>Development SKF-API
 
 1. Fork and clone https://github.com/blabla1337/skf-flask
-2. pip install -r requirements.txt
+2. pip3.6 install -r requirements.txt
 3. export FLASK_APP=skf/app.py
 4. export PYTHONPATH=.:$PYTHONPATH
 5. export FLASK_DEBUG=1
@@ -32,11 +32,13 @@ coverage run tests/run.py test
 2. cd Angular
 3. npm install
 4. ng serve --host=0.0.0.0 
-5. Run the manual test in the Angular dir first to verify if everything is good
+4. OR edit the package.json in Angular folder and remove --env=prod example: "start": "ng serve --host=0.0.0.0"
+5. npm start
+6. Run the manual test in the Angular dir first to verify if everything is good
 ``` 
 npm test
 ``` 
-6. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
+7. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
 
 
 ## <a name="testing"></a>Testing
