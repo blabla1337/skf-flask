@@ -31,7 +31,8 @@ def init_db():
             db.cursor().executescript(f.read())
         db.commit()
         return True
-    except:
+    except Exception as e:
+        print('Exception in file db_tools, method init_db: ' + e)
         return False
 
 
@@ -55,7 +56,7 @@ def update_db():
         db.commit()
         return True
     except Exception as e:
-        print(e)
+        print('Exception in file db_tools, method update_db: ' + e)
         return False
 
 
@@ -85,7 +86,8 @@ def init_md_knowledge_base():
                         myfile.write(query)
         print('Initialized the markdown knowledge-base.')
         return True
-    except:
+    except Exception as e:
+        print('Exception in file db_tools, method init_md_knowledge_base: ' + e)
         return False
 
 
@@ -109,7 +111,8 @@ def init_md_code_examples():
                             myfile.write(query)
         print('Initialized the markdown code-example.')
         return True
-    except:
+    except Exception as e:
+        print('Exception in file db_tools, method init_md_code_examples: ' + e)
         return False
 
 
@@ -122,6 +125,7 @@ def init_md_checklists():
         for checklist in checklists:
             if checklist == "asvs":
                 for filename in os.listdir(kb_dir+checklist):
+                    print(filename)
                     if filename.endswith(".md"):
                         name_raw = filename.split("-")
                         level = name_raw[4].replace("_", " ")
@@ -145,14 +149,14 @@ def init_md_checklists():
                             data.close()
                             checklistID_raw = file_content.split(" ")
                             checklistID = checklistID_raw[0]     
-                    file = os.path.join(kb_dir+checklist, filename)
-                    data = open(file, 'r')
-                    file_content = data.read()
-                    data.close()
-                    content = file_content.split(' ', 1)[1]
-                    content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-                    query = "INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"', '"+kb_id+"'); \n"
-                    with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
+                        file = os.path.join(kb_dir+checklist, filename)
+                        data = open(file, 'r')
+                        file_content = data.read()
+                        data.close()
+                        content = file_content.split(' ', 1)[1]
+                        content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                        query = "INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"', '"+kb_id+"'); \n"
+                        with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                             myfile.write(query)
             if checklist == 'masvs':
                 for filename in os.listdir(kb_dir+checklist):
@@ -179,15 +183,17 @@ def init_md_checklists():
                             data.close()
                             checklistID_raw = file_content.split(" ")
                             checklistID = checklistID_raw[0]     
-                    file = os.path.join(kb_dir+checklist, filename)
-                    data = open(file, 'r')
-                    file_content = data.read()
-                    data.close()
-                    content = file_content.split(' ', 1)[1]
-                    content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-                    query = "INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"', '"+kb_id+"'); \n"
-                    with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
-                            myfile.write(query)
+                        file = os.path.join(kb_dir+checklist, filename)
+                        data = open(file, 'r')
+                        file_content = data.read()
+                        data.close()
+                        content = file_content.split(' ', 1)[1]
+                        content_escaped = content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                        query = "INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"+checklistID+"', '"+content_escaped+"', '"+level+"', '"+kb_id+"'); \n"
+                        with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
+                                myfile.write(query)
+        print('Initialized the markdown checklists.')
         return True
-    except:
+    except Exception as e:
+        print('Exception in file db_tools, method init_md_checklists: ' + e)
         return False
