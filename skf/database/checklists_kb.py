@@ -20,7 +20,7 @@ class checklists_kb(db.Model):
     kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
     kb_items = db.relationship("kb_items", foreign_keys=[kbID])
 
-    def __init__(self, checklistID, checklist):
+    def __init__(self, checklistID, checklist, kbID, kb_items):
         self.question_pre_ID = 0
         self.question_sprint_ID = 0
         self.codeID_php = 0
@@ -31,5 +31,5 @@ class checklists_kb(db.Model):
         self.include_first = False
         self.checklistID = checklistID
         self.checklist_items = checklist
-        self.kbID = None
-        self.kb_items = None
+        self.kbID = kbID
+        self.kb_items = kb_items

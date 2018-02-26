@@ -125,7 +125,6 @@ def init_md_checklists():
         for checklist in checklists:
             if checklist == "asvs":
                 for filename in os.listdir(kb_dir+checklist):
-                    print(filename)
                     if filename.endswith(".md"):
                         name_raw = filename.split("-")
                         level = name_raw[4].replace("_", " ")

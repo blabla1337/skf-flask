@@ -34,11 +34,11 @@ def get_checklist_items_lvl(lvl):
     elif lvl == 5: # MASVS Level 2
         result = checklists_kb.query.filter((checklists_kb.kbID >= 400) & (checklists_kb.kbID < 1000) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     elif lvl == 6: # MASVS Level R
-        result = checklists_kb.query.filter((checklists_kb.kbID >= 400) & (checklists_kb.kbID < 1000) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 'R'))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    return order_checklist_items(result)
+        result = checklists_kb.query.filter((checklists_kb.kbID >= 400) & (checklists_kb.kbID < 1000) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 'R'))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+    return order_checklist_items(result, lvl)
 
 
-def order_checklist_items(checklist_items):
+def order_checklist_items(checklist_items, lvl):
     ordered_checklist_items = []
     for item in checklist_items.items:
         numbers = item.checklistID.split('.')
@@ -64,19 +64,40 @@ def order_checklist_items(checklist_items):
             if (y == len(ordered_checklist_items)):
                 ordered_checklist_items.insert(y, item)
 
-    i = 0
-    previousItemLevel = -1
-    orderedWithEmpties = []
-    for item in ordered_checklist_items:
-        if (item.checklist_items.level == 0 and previousItemLevel == 0):
-            checklist_empty = checklists("0.0", "No items for this category in this checklist level", -1)
-            checklists_kb_empty = checklists_kb("0.0", checklist_empty)
-            orderedWithEmpties.append(checklists_kb_empty)
-            orderedWithEmpties.append(item)
-            previousItemLevel = item.checklist_items.level
-        else:
-            orderedWithEmpties.append(item)
-            previousItemLevel = item.checklist_items.level
-        i = i + 1;
-    checklist_items.items = orderedWithEmpties
+    if (not(lvl == 6)):
+        i = 0
+        previousItemLevel = -1
+        orderedWithEmpties = []
+        for item in ordered_checklist_items:
+            if ((item.checklist_items.level == 0 and previousItemLevel == 0) or (item.checklist_items.content == "Resiliency Against Reverse Engineering Requirements" and not (lvl == 6))):
+                if (item.checklist_items.content == "Resiliency Against Reverse Engineering Requirements"):
+                    orderedWithEmpties.append(item)
+                    previousItemLevel = item.checklist_items.level
+                    checklist_empty = checklists("0.0", "Requirements of Reverse Engineering can be added to form a level " + str(lvl-3) + "+R.", -1, 0)
+                    checklists_kb_empty = checklists_kb("0.0", checklist_empty, 0, None)
+                    orderedWithEmpties.append(checklists_kb_empty)
+                else:
+                    checklist_empty = checklists("0.0", "No items for this category in this checklist level", -1, 0)
+                    checklists_kb_empty = checklists_kb("0.0", checklist_empty, 0, None)
+                    orderedWithEmpties.append(checklists_kb_empty)
+                    orderedWithEmpties.append(item)
+                    previousItemLevel = item.checklist_items.level
+            else:
+                orderedWithEmpties.append(item)
+                previousItemLevel = item.checklist_items.level
+            i = i + 1;
+        checklist_items.items = orderedWithEmpties
+    else:
+        orderedWithR6 = []
+        checklist_empty = checklists("0.0", "Using Requirements of Reverse Engineering you can form the levels L1+R or L2+R.", -1, 0)
+        checklists_kb_empty = checklists_kb("0.0", checklist_empty, 0, None)
+        orderedWithR6.append(checklists_kb_empty)
+        for item in ordered_checklist_items:
+            if (item.checklist_items.level == 'R'):
+                checklist_modified = checklists(item.checklistID, item.checklist_items.content, 6, item.checklist_items.kbID)
+                modifiedItem = checklists_kb(item.checklistID, checklist_modified, item.kbID, item.kb_items)
+                orderedWithR6.append(modifiedItem)
+            else:
+                orderedWithR6.append(item)
+        checklist_items.items = orderedWithR6
     return checklist_items

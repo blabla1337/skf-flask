@@ -9,8 +9,8 @@ class checklists(db.Model):
     level = db.Column(db.Integer)
     kbID = db.Column(db.Integer)
 
-    def __init__(self, checklistID, content, level):
-    	self.checklistID = checklistID
-    	self.content = content
-    	self.level = level
-    	self.kbID = 0
+    def __init__(self, checklistID, content, level, kbId):
+        self.checklistID = checklistID
+        self.content = content
+        self.level = level
+        self.kbID = kbId
