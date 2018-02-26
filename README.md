@@ -77,7 +77,7 @@ sudo pip3.6 install -r requirements.txt
 Modify the files in Local folder
 - site.conf: set both root directories acording to your installation.
 - site-tls.conf: set both root directories acording to your installation and ssl_certificate and ssl_certificate_key locations.
-- entrypoint.sh: change JWT_SECRET and if changed from default, nginx installation folder.
+- entrypoint.sh: change JWT_SECRET and if changed from default, nginx installation folder. Also if you want to run on a specif domain and not on localhost change ORIGIN.
 
 
 #### Run SKF (with terminal in Local folder):

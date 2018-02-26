@@ -135,8 +135,10 @@
 							</ngb-accordion>
 						</td>
 						<td *ngIf="item.checklist_items_level < 0">
-							<ngb-accordion #acc="ngbAccordion">
+							<ngb-accordion>
 								<ngb-panel style="max-width:10%" title="{{item.checklist_items_content}}">
+									<ng-template ngbPanelContent>
+									</ng-template>
 								</ngb-panel>
 							</ngb-accordion>
 						</td>

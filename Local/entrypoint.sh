@@ -39,6 +39,15 @@ fi
 
 if [[ "$ORIGIN" != "" ]]; then
     perl -pi -e "s/\*/https:\/\/$ORIGIN/" ../skf/settings.py
+    perl -pi -e "s/0.0.0.0/$ORIGIN/" ../Angular/package.json
+    perl -pi -e "s/localhost/$ORIGIN/" ../Angular/src/envirnoments/environment.prod.ts
+
+    if [[ "$HTTPS" == "true" ]]; then
+        perl -pi -e "s/http:\/\/localhost:4200/https:\/\/$ORIGIN/" ../Angular/package.json
+        perl -pi -e "s/localhost/$ORIGIN/g" site-tls.conf
+    else
+        perl -pi -e "s/localhost:4200/$ORIGIN/" ../Angular/package.json
+    fi
 else
     echo 'You need to select a ORIGIN location'
     exit
