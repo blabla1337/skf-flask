@@ -63,6 +63,20 @@ def order_checklist_items(checklist_items):
                 y = y + 1
             if (y == len(ordered_checklist_items)):
                 ordered_checklist_items.insert(y, item)
-    checklist_items.items = ordered_checklist_items
-    return checklist_items
 
+    i = 0
+    previousItemLevel = -1
+    orderedWithEmpties = []
+    for item in ordered_checklist_items:
+        if (item.checklist_items.level == 0 and previousItemLevel == 0):
+            checklist_empty = checklists("0.0", "No items for this category in this checklist level", -1)
+            checklists_kb_empty = checklists_kb("0.0", checklist_empty)
+            orderedWithEmpties.append(checklists_kb_empty)
+            orderedWithEmpties.append(item)
+            previousItemLevel = item.checklist_items.level
+        else:
+            orderedWithEmpties.append(item)
+            previousItemLevel = item.checklist_items.level
+        i = i + 1;
+    checklist_items.items = orderedWithEmpties
+    return checklist_items
