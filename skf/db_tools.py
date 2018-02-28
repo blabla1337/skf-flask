@@ -17,11 +17,9 @@ def connect_db():
 def init_db():
     """Initializes the database."""
     try:
-        if (os.path.exists(os.path.join(app.root_path, settings.DATABASE))):
-            os.remove(os.path.join(app.root_path, settings.DATABASE))
+        os.remove(os.path.join(app.root_path, settings.DATABASE))
         open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a')
-        if (os.path.exists(os.path.join(app.root_path, 'db.sqlite_schema'))):
-            os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
+        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
         copyfile(os.path.join(app.root_path, "schema.sql"), os.path.join(app.root_path, 'db.sqlite_schema'))
         init_md_checklists()
         init_md_code_examples()
@@ -31,21 +29,19 @@ def init_db():
             db.cursor().executescript(f.read())
         db.commit()
         return True
-    except Exception as e:
-        print('Exception in file db_tools, method init_db: ' + e)
+    except:
         return False
 
 
 def update_db():
     """Update the database."""
     try:
-        if (os.path.exists(os.path.join(app.root_path, 'db.sqlite_schema'))):
-            os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
+        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
         db = connect_db()
-        db.execute("DELETE FROM kb_items")
-        db.execute("DELETE FROM code_items")
-        db.execute("DELETE FROM checklists")
-        db.commit()
+        db.session.delete("TRUNCATE TABLE kb_items")
+        db.session.delete("TRUNCATE TABLE code_items")
+        db.session.delete("TRUNCATE TABLE checklists")
+        db.session.commit()
 
         init_md_checklists()
         init_md_code_examples()
@@ -55,8 +51,7 @@ def update_db():
             db.cursor().executescript(f.read())
         db.commit()
         return True
-    except Exception as e:
-        print('Exception in file db_tools, method update_db: ' + e)
+    except:
         return False
 
 
@@ -86,8 +81,7 @@ def init_md_knowledge_base():
                         myfile.write(query)
         print('Initialized the markdown knowledge-base.')
         return True
-    except Exception as e:
-        print('Exception in file db_tools, method init_md_knowledge_base: ' + e)
+    except:
         return False
 
 
@@ -111,8 +105,7 @@ def init_md_code_examples():
                             myfile.write(query)
         print('Initialized the markdown code-example.')
         return True
-    except Exception as e:
-        print('Exception in file db_tools, method init_md_code_examples: ' + e)
+    except:
         return False
 
 
