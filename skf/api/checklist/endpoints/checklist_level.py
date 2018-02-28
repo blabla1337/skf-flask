@@ -24,4 +24,3 @@ class ChecklistItem(Resource):
         lvl = id
         result = get_checklist_items_lvl(lvl)
         return result, 200, security_headers()
-                

@@ -170,7 +170,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_checklist(self):
         """Test if the get checklist items call is working"""
-        response = self.client.get('/api/checklist/items')
+        response = self.client.get('/api/checklist/items/0')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['checklist_items_checklistID'], '1.0')
@@ -178,13 +178,13 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_checklist_fail(self):
         """Test if the get checklist items fail call is working"""
-        response = self.client.get('/api/checklist/1337.1337')
+        response = self.client.get('/api/checklist/1337.1337,0')
         self.assertEqual(response.status_code, 400)
 
 
     def test_get_checklist_item_10(self):
         """Test if the get specific checklist item call is working"""
-        response = self.client.get('/api/checklist/1.1')
+        response = self.client.get('/api/checklist/1.1,0')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['checklist_items_checklistID'], '1.1')
