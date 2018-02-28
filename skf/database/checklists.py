@@ -1,5 +1,5 @@
 
-from skf.database import db 
+from skf.database import db
 
 
 class checklists(db.Model):

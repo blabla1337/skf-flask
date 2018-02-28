@@ -46,7 +46,7 @@ def update_db():
         db.execute("DELETE FROM code_items")
         db.execute("DELETE FROM checklists")
         db.commit()
-        
+
         init_md_checklists()
         init_md_code_examples()
         init_md_knowledge_base()
@@ -147,7 +147,7 @@ def init_md_checklists():
                             file_content = data.read()
                             data.close()
                             checklistID_raw = file_content.split(" ")
-                            checklistID = checklistID_raw[0]     
+                            checklistID = checklistID_raw[0]
                         file = os.path.join(kb_dir+checklist, filename)
                         data = open(file, 'r')
                         file_content = data.read()

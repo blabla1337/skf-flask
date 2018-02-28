@@ -1,4 +1,3 @@
-from skf.database import db
 from skf.api.security import log, val_num, val_float
 from skf.database.checklists import checklists
 from skf.database.checklists_kb import checklists_kb
