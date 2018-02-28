@@ -18,7 +18,6 @@ export class ChecklistComponent {
   public closeResult: string;
   public level: number;
   public color: string;
-  
 
   constructor(private checklistService: ChecklistService, private modalService: NgbModal) { }
 
