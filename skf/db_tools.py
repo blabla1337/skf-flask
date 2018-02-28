@@ -181,7 +181,7 @@ def init_md_checklists():
                             file_content = data.read()
                             data.close()
                             checklistID_raw = file_content.split(" ")
-                            checklistID = checklistID_raw[0]     
+                            checklistID = checklistID_raw[0]
                         file = os.path.join(kb_dir+checklist, filename)
                         data = open(file, 'r')
                         file_content = data.read()
