@@ -1,0 +1,1 @@
+5.2 The TLS settings are in line with current best practices, or as close as possible if the mobile operating system does not support the recommended standards.

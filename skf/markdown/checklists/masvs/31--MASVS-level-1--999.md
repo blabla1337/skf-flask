@@ -1,0 +1,1 @@
+3.4 The app does not use cryptographic protocols or algorithms that are widely considered depreciated for security purposes.

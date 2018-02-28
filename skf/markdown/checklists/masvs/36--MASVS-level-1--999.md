@@ -1,0 +1,1 @@
+4.2 The remote endpoint uses randomly generated access tokens toauthenticate client requests without sending the user's credentials.

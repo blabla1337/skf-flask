@@ -1,0 +1,1 @@
+1.3 Security controls are never enforced only on the client side, but on the respective remote endpoints.

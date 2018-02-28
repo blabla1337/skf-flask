@@ -1,0 +1,1 @@
+7.1 The app is signed and provisioned with valid certificate.

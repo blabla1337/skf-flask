@@ -1,0 +1,1 @@
+2.4 The keyboard cache is disabled on text inputs that process sensitive data.

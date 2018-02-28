@@ -43,6 +43,56 @@ The second stage is validating if the developer properly implemented different s
 
 ## <a name="installing"></a>Installing
 
+### Local install
+Local installation based on Ubuntu 16.04.
+
+#### Requirements:
+- nginx (```sudo apt install nginx```)
+- npm (```sudo apt install npm```)
+- ng (```sudo apt install ng-common```)
+- latest version of node ():
+```
+    * sudo npm install n -g
+    * sudo n stable
+```
+- python3.6, pip3.6 (https://stackoverflow.com/questions/42662104/how-to-install-pip-for-python-3-6-on-ubuntu-16-10):
+```
+    * sudo add-apt-repository ppa:jonathonf/python-3.6  # (only for 16.04 LTS)
+    * sudo apt update
+    * sudo apt install python3.6
+    * wget https://bootstrap.pypa.io/get-pip.py
+    * sudo python3.6 get-pip.py
+```
+
+#### Installation:
+Run on terminal
+```
+git clone https://github.com/blabla1337/skf-flask.git
+cd skf-flask/Angular
+npm install
+cd ..
+sudo pip3.6 install -r requirements.txt
+```
+
+Modify the files in Local folder
+- site.conf: set both root directories acording to your installation.
+- site-tls.conf: set both root directories acording to your installation and ssl_certificate and ssl_certificate_key locations.
+- entrypoint.sh: change JWT_SECRET and if changed from default, nginx installation folder. Also if you want to run on a specif domain and not on localhost change ORIGIN.
+
+
+#### Run SKF (with terminal in Local folder):
+```
+./entrypoint.sh
+```
+Navigate to https://localhost
+
+#### Error:
+If you get the following error
+```
+nginx: [emerg] a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-enabled/default:17
+```
+If you are not using that file just remove it: (```sudo rm /etc/nginx/sites-enabled/default```)
+
 ### Docker
 
 The fastest way to start using the SKF project is using the pre-built container hosted at Docker hub. This container always has the very latest version from the master repository. Change the JWT_SECRET value to a new random secret string before starting the docker image.

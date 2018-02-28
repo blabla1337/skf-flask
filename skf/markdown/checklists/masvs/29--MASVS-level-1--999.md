@@ -1,0 +1,1 @@
+3.2 The app uses proven implementations of cryptographic primitives.
