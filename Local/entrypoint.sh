@@ -11,10 +11,9 @@ if [[ "$HTTPS" == "true" ]]; then
     if [[ -e "./server.pem" && -e "./server.key" ]]; then
         echo "Already created ./server.pem and ./server.key"
     else
-        openssl req -nodes -newkey rsa:4096 -keyout ./server.key -out ./server.csr  -subj "/CN=OWASP-SKF"       
+        openssl req -nodes -newkey rsa:4096 -keyout ./server.key -out ./server.csr  -subj "/CN=OWASP-SKF"
         openssl x509 -req -days 365 -in ./server.csr  -signkey ./server.key -out ./server.pem
         rm ./server.csr
-        fi
     fi
 fi
 
