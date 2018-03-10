@@ -1,8 +1,7 @@
 ## Description:
 
-Use this kind of HTTP headers such as a bearer token only if you have authenticated the server sending the header to your application.
+There are some kind of headers that uses tokens such as Bearer or JWT which are signed or calculated using a key, by the server that creates it.
 
 ## Solution:
 
-Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are
-authenticated by the application.
+Verify the integrity and authenticity of the HTTP headers added by a trusted proxy or SSO devices by checking the digital signature or by recalculating the hash or integrity method using a private key or passphrase.
