@@ -7,10 +7,45 @@ Website: http://blacktie.co
 Custom design based upon this template: Erik de Kuijper
 */
 /* Import fonts */
+
+#leg{
+float: right;
+font-size: 16px;
+}
+#legenda th, #legenda td{
+	border-top:none;
+padding:0.15em;
+vertical-align:top;
+}
+#legenda th b,.level_status{
+	color:#515594;
+font-size: 1.3em;
+font-family: 'Ruda', sans-serif;
+}
+
+#legenda.table {
+    border-bottom: 1px solid #000 ;
+	/*font-size: 14px;*/
+}
 .alert-yelow {
   background-color: #fcf8e3;
   border-color: #faf2cc;
   color: #8a6d3b;
+}
+.level_l_1 .card a::before{
+content: "\f0c8";
+font: normal normal normal 20px/1 FontAwesome;
+color:#FEBF2C;
+}
+.level_l_2 .card a::before{
+content: "\f0c8";
+font: normal normal normal 20px/1 FontAwesome;
+color:#93CD57;
+}
+.level_l_3 .card a::before{
+content: "\f0c8";
+font: normal normal normal 20px/1 FontAwesome;
+color:#1DB1EC;
 }
 .transition {
   -webkit-transition: all 0.2s ease-in-out 0s;
