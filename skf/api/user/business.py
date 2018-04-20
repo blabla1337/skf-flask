@@ -1,4 +1,3 @@
-
 import jwt
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
@@ -63,7 +62,7 @@ def login_user(data):
                         }
                         token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
                         token1 = str(token_raw)
-			token = unicode(token1, "utf-8")
+			token = unicode(token1,'utf-8')
                         return {'Authorization token': token, 'username': username}
                     else:
                         log("User triggered error login failed", "HIGH", "FAIL")
