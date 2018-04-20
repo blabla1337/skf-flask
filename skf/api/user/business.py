@@ -3,7 +3,6 @@ from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy import desc
-from future.utils import python_2_unicode_compatible
 
 from skf import settings
 from skf.database import db
@@ -61,14 +60,9 @@ def login_user(data):
                             #claims for access api calls
                             #'claims': 'kb/items/update,project/items,non/existing/bla,'
                         }
-			token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
-                        @python_2_unicode_compatible
-			class MyClass(object):
-                        	def __str__(self):
-        		        	return '{}'      
-                        token = MyClass()
-                        
-                        return {'Authorization token': token, 'username': username}
+			token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256') 
+                        token = str(token_raw)
+			return {'Authorization token': token, 'username': username}
                     else:
                         log("User triggered error login failed", "HIGH", "FAIL")
                         return {'Authorization token': ''}
