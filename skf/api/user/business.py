@@ -62,9 +62,9 @@ def login_user(data):
                             #'claims': 'kb/items/update,project/items,non/existing/bla,'
                         }
                         @python_2_unicode_compatible
-			            class MyClass(object):
-    				        def __str__(self):
-        				        return '{}'      
+			class MyClass(object):
+                        	def __str__(self):
+        		        	return '{}'      
                         token = MyClass()
                         
                         return {'Authorization token': token, 'username': username}
