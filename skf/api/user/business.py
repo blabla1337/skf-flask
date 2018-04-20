@@ -61,6 +61,7 @@ def login_user(data):
                             #claims for access api calls
                             #'claims': 'kb/items/update,project/items,non/existing/bla,'
                         }
+			token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
                         @python_2_unicode_compatible
 			class MyClass(object):
                         	def __str__(self):
