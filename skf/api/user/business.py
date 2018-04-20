@@ -1,5 +1,4 @@
-import jwt, secrets
-
+import jwt
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
 from sqlalchemy.orm.exc import NoResultFound
@@ -62,7 +61,8 @@ def login_user(data):
                             #'claims': 'kb/items/update,project/items,non/existing/bla,'
                         }
                         token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
-                        token = str(token_raw,'utf-8')
+                        token1 = str(token_raw)
+			token = unicode(token1,'utf-8')
                         return {'Authorization token': token, 'username': username}
                     else:
                         log("User triggered error login failed", "HIGH", "FAIL")
@@ -86,7 +86,7 @@ def list_privileges():
 
 def create_user(data):
     log("A new user created", "MEDIUM", "PASS")
-    my_secure_rng = secrets.SystemRandom()
+    my_secure_rng = random.SystemRandom()
     val_num(data.get('privilege'))
     pincode = my_secure_rng.randrange(10000000, 99999999)
     username = pincode
