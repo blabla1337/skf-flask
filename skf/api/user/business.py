@@ -1,4 +1,4 @@
-import os
+
 import jwt
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
