@@ -60,8 +60,8 @@ def login_user(data):
                             #claims for access api calls
                             #'claims': 'kb/items/update,project/items,non/existing/bla,'
                         }
-			token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256') 
-                        token = str(token_raw)
+			token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
+			token = str(token_raw)
 			return {'Authorization token': token, 'username': username}
                     else:
                         log("User triggered error login failed", "HIGH", "FAIL")
