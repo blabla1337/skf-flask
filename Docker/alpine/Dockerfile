@@ -3,16 +3,16 @@ FROM alpine
 # Thanks to Mariano Abdala <marianoabdala@gmail.com>
 MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
 
-RUN apk update --no-cache && apk add python3 \
+RUN apk update --no-cache && apk add python \
 gcc \
 nginx \
 sqlite \
 nodejs \
 nodejs-npm \
 musl-dev \
-python3-dev \
+python-dev \
 libffi-dev \
-py3-pip \
+py-pip \
 openssl \
 bash \
 perl \
@@ -29,7 +29,7 @@ EXPOSE 443
 
 # Start python API app
 WORKDIR /skf-flask
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 VOLUME [ "/skf-flask" ]
 #USER nobody
 COPY entrypoint.sh /
