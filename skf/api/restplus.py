@@ -27,7 +27,6 @@ def database_not_found_error_handler(e):
 
 @api.errorhandler(IntegrityError)
 def database_integrity_error_handler(e):
-    session.rollback()
     #log.warning(traceback.format_exc())
     return {'message': 'A database result was required but none was found.'}, 400 
 
