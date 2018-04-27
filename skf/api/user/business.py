@@ -31,11 +31,7 @@ def activate_user(user_id, data):
                     result.activated = "True"
                     result.userName = username
                     db.session.add(result)
-                    try:
-                        db.session.commit()
-                    except DatabaseError:
-                        session.rollback()
-                        raise
+                    db.session.commit()
                     return {'message': 'User successfully activated'}
     else:
         log("User triggered error activation failed", "HIGH", "FAIL")
