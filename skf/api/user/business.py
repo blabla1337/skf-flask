@@ -31,7 +31,7 @@ def activate_user(user_id, data):
                     result.activated = "True"
                     result.userName = username
                     db.session.add(result)
-                    try:        
+                    try:
                         db.session.commit()
                     except DatabaseError:
                         session.rollback()
