@@ -2,7 +2,6 @@ dist: trusty
 
 addons:
   chrome: stable
-  srcclr: true
   
 language: python
 
