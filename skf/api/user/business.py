@@ -31,13 +31,7 @@ def activate_user(user_id, data):
                     result.activated = "True"
                     result.userName = username
                     db.session.add(result)
-                    try:
-                        db.session.commit()
-                    except:
-                        session.rollback()
-                        raise
-                    finally:
-                        session.close()
+                    db.session.commit()
                     return {'message': 'User successfully activated'}
     else:
         log("User triggered error activation failed", "HIGH", "FAIL")
@@ -69,8 +63,9 @@ def login_user(data):
                         }
                         token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
                         if sys.version_info.major == 3:
-                        	unicode = str
-                        token = unicode(token_raw,'utf-8')
+                            token = unicode(token_raw,'utf-8')
+                        if sys.version_info.major == 2:
+                            token = token_raw.encode('utf-8') 
                         return {'Authorization token': token, 'username': username}
                     else:
                         log("User triggered error login failed", "HIGH", "FAIL")
