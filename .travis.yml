@@ -9,6 +9,7 @@ language: python
 sudo: false
 
 python:
+  - "2.7"
   - "3.6"
 #  - "3.7-dev"
 
@@ -48,10 +49,10 @@ after_success:
   - codecov
   - coveralls
 
-notifications:
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/0166be20e8a41ff19fd8
-    on_success: always  
-    on_failure: always  
-    on_start: never     
+#notifications:
+ # webhooks:
+  #  urls:
+     # - https://webhooks.gitter.im/e/0166be20e8a41ff19fd8
+   # on_success: always  
+    #on_failure: always  
+    #on_start: never     
