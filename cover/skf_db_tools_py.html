@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/db_tools.py: 84%</title>
+    <title>Coverage for skf/db_tools.py: 86%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/db_tools.py</b> :
-            <span class="pc_cov">84%</span>
+            <span class="pc_cov">86%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            128 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">107 run</span>
-            <span class="mis shortkey_m button_toggle_mis">21 missing</span>
+            160 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">138 run</span>
+            <span class="mis shortkey_m button_toggle_mis">22 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -221,8 +221,43 @@
 <p id="n152" class="stm run hide_run"><a href="#n152">152</a></p>
 <p id="n153" class="stm run hide_run"><a href="#n153">153</a></p>
 <p id="n154" class="stm run hide_run"><a href="#n154">154</a></p>
-<p id="n155" class="stm mis"><a href="#n155">155</a></p>
-<p id="n156" class="stm mis"><a href="#n156">156</a></p>
+<p id="n155" class="stm run hide_run"><a href="#n155">155</a></p>
+<p id="n156" class="stm run hide_run"><a href="#n156">156</a></p>
+<p id="n157" class="stm run hide_run"><a href="#n157">157</a></p>
+<p id="n158" class="stm run hide_run"><a href="#n158">158</a></p>
+<p id="n159" class="stm run hide_run"><a href="#n159">159</a></p>
+<p id="n160" class="stm run hide_run"><a href="#n160">160</a></p>
+<p id="n161" class="pln"><a href="#n161">161</a></p>
+<p id="n162" class="stm run hide_run"><a href="#n162">162</a></p>
+<p id="n163" class="stm run hide_run"><a href="#n163">163</a></p>
+<p id="n164" class="stm run hide_run"><a href="#n164">164</a></p>
+<p id="n165" class="stm run hide_run"><a href="#n165">165</a></p>
+<p id="n166" class="stm run hide_run"><a href="#n166">166</a></p>
+<p id="n167" class="stm run hide_run"><a href="#n167">167</a></p>
+<p id="n168" class="stm run hide_run"><a href="#n168">168</a></p>
+<p id="n169" class="stm run hide_run"><a href="#n169">169</a></p>
+<p id="n170" class="pln"><a href="#n170">170</a></p>
+<p id="n171" class="pln"><a href="#n171">171</a></p>
+<p id="n172" class="stm run hide_run"><a href="#n172">172</a></p>
+<p id="n173" class="stm run hide_run"><a href="#n173">173</a></p>
+<p id="n174" class="stm run hide_run"><a href="#n174">174</a></p>
+<p id="n175" class="stm run hide_run"><a href="#n175">175</a></p>
+<p id="n176" class="stm run hide_run"><a href="#n176">176</a></p>
+<p id="n177" class="stm run hide_run"><a href="#n177">177</a></p>
+<p id="n178" class="stm run hide_run"><a href="#n178">178</a></p>
+<p id="n179" class="stm run hide_run"><a href="#n179">179</a></p>
+<p id="n180" class="stm run hide_run"><a href="#n180">180</a></p>
+<p id="n181" class="stm run hide_run"><a href="#n181">181</a></p>
+<p id="n182" class="stm run hide_run"><a href="#n182">182</a></p>
+<p id="n183" class="stm run hide_run"><a href="#n183">183</a></p>
+<p id="n184" class="stm run hide_run"><a href="#n184">184</a></p>
+<p id="n185" class="stm run hide_run"><a href="#n185">185</a></p>
+<p id="n186" class="stm run hide_run"><a href="#n186">186</a></p>
+<p id="n187" class="stm run hide_run"><a href="#n187">187</a></p>
+<p id="n188" class="stm run hide_run"><a href="#n188">188</a></p>
+<p id="n189" class="stm mis"><a href="#n189">189</a></p>
+<p id="n190" class="stm mis"><a href="#n190">190</a></p>
+<p id="n191" class="stm mis"><a href="#n191">191</a></p>
 
             </td>
             <td class="text">
@@ -342,7 +377,7 @@
 <p id="t114" class="stm run hide_run">    <span class="nam">kb_dir</span> <span class="op">=</span> <span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">app</span><span class="op">.</span><span class="nam">root_path</span><span class="op">,</span> <span class="str">'markdown/checklists/'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t115" class="stm run hide_run">    <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t116" class="pln">        <span class="com">#checklists = ['asvs', 'pcidss', 'custom']</span><span class="strut">&nbsp;</span></p>
-<p id="t117" class="stm run hide_run">        <span class="nam">checklists</span> <span class="op">=</span> <span class="op">[</span><span class="str">'asvs'</span><span class="op">,</span> <span class="str">'custom'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t117" class="stm run hide_run">        <span class="nam">checklists</span> <span class="op">=</span> <span class="op">[</span><span class="str">'asvs'</span><span class="op">,</span> <span class="str">'custom'</span><span class="op">,</span> <span class="str">'masvs'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t118" class="stm run hide_run">        <span class="key">for</span> <span class="nam">checklist</span> <span class="key">in</span> <span class="nam">checklists</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t119" class="stm run hide_run">            <span class="key">if</span> <span class="nam">checklist</span> <span class="op">==</span> <span class="str">"asvs"</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t120" class="stm run hide_run">                <span class="key">for</span> <span class="nam">filename</span> <span class="key">in</span> <span class="nam">os</span><span class="op">.</span><span class="nam">listdir</span><span class="op">(</span><span class="nam">kb_dir</span><span class="op">+</span><span class="nam">checklist</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -369,19 +404,54 @@
 <p id="t141" class="stm run hide_run">                            <span class="nam">data</span><span class="op">.</span><span class="nam">close</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t142" class="stm run hide_run">                            <span class="nam">checklistID_raw</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">" "</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t143" class="stm run hide_run">                            <span class="nam">checklistID</span> <span class="op">=</span> <span class="nam">checklistID_raw</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
-<p id="t144" class="stm run hide_run">                    <span class="nam">file</span> <span class="op">=</span> <span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">kb_dir</span><span class="op">+</span><span class="nam">checklist</span><span class="op">,</span> <span class="nam">filename</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t145" class="stm run hide_run">                    <span class="nam">data</span> <span class="op">=</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file</span><span class="op">,</span> <span class="str">'r'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t146" class="stm run hide_run">                    <span class="nam">file_content</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t147" class="stm run hide_run">                    <span class="nam">data</span><span class="op">.</span><span class="nam">close</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t148" class="stm run hide_run">                    <span class="nam">content</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">' '</span><span class="op">,</span> <span class="num">1</span><span class="op">)</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
-<p id="t149" class="stm run hide_run">                    <span class="nam">content_escaped</span> <span class="op">=</span> <span class="nam">content</span><span class="op">.</span><span class="nam">translate</span><span class="op">(</span><span class="nam">str</span><span class="op">.</span><span class="nam">maketrans</span><span class="op">(</span><span class="op">{</span><span class="str">"'"</span><span class="op">:</span>  <span class="str">r"''"</span><span class="op">,</span> <span class="str">"-"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">,</span> <span class="str">"#"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">}</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t150" class="stm run hide_run">                    <span class="nam">query</span> <span class="op">=</span> <span class="str">"INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"</span><span class="op">+</span><span class="nam">checklistID</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">content_escaped</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">level</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">kb_id</span><span class="op">+</span><span class="str">"'); \n"</span><span class="strut">&nbsp;</span></p>
-<p id="t151" class="stm run hide_run">                    <span class="key">with</span> <span class="nam">open</span><span class="op">(</span><span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">app</span><span class="op">.</span><span class="nam">root_path</span><span class="op">,</span> <span class="str">'db.sqlite_schema'</span><span class="op">)</span><span class="op">,</span> <span class="str">'a'</span><span class="op">)</span> <span class="key">as</span> <span class="nam">myfile</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t144" class="stm run hide_run">                        <span class="nam">file</span> <span class="op">=</span> <span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">kb_dir</span><span class="op">+</span><span class="nam">checklist</span><span class="op">,</span> <span class="nam">filename</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t145" class="stm run hide_run">                        <span class="nam">data</span> <span class="op">=</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file</span><span class="op">,</span> <span class="str">'r'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t146" class="stm run hide_run">                        <span class="nam">file_content</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t147" class="stm run hide_run">                        <span class="nam">data</span><span class="op">.</span><span class="nam">close</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t148" class="stm run hide_run">                        <span class="nam">content</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">' '</span><span class="op">,</span> <span class="num">1</span><span class="op">)</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t149" class="stm run hide_run">                        <span class="nam">content_escaped</span> <span class="op">=</span> <span class="nam">content</span><span class="op">.</span><span class="nam">translate</span><span class="op">(</span><span class="nam">str</span><span class="op">.</span><span class="nam">maketrans</span><span class="op">(</span><span class="op">{</span><span class="str">"'"</span><span class="op">:</span>  <span class="str">r"''"</span><span class="op">,</span> <span class="str">"-"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">,</span> <span class="str">"#"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">}</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t150" class="stm run hide_run">                        <span class="nam">query</span> <span class="op">=</span> <span class="str">"INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"</span><span class="op">+</span><span class="nam">checklistID</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">content_escaped</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">level</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">kb_id</span><span class="op">+</span><span class="str">"'); \n"</span><span class="strut">&nbsp;</span></p>
+<p id="t151" class="stm run hide_run">                        <span class="key">with</span> <span class="nam">open</span><span class="op">(</span><span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">app</span><span class="op">.</span><span class="nam">root_path</span><span class="op">,</span> <span class="str">'db.sqlite_schema'</span><span class="op">)</span><span class="op">,</span> <span class="str">'a'</span><span class="op">)</span> <span class="key">as</span> <span class="nam">myfile</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t152" class="stm run hide_run">                            <span class="nam">myfile</span><span class="op">.</span><span class="nam">write</span><span class="op">(</span><span class="nam">query</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t153" class="stm run hide_run">        <span class="nam">print</span><span class="op">(</span><span class="str">'Initialized the markdown checklists.'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t154" class="stm run hide_run">        <span class="key">return</span> <span class="key">True</span><span class="strut">&nbsp;</span></p>
-<p id="t155" class="stm mis">    <span class="key">except</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t156" class="stm mis">        <span class="key">return</span> <span class="key">False</span><span class="strut">&nbsp;</span></p>
+<p id="t153" class="stm run hide_run">            <span class="key">if</span> <span class="nam">checklist</span> <span class="op">==</span> <span class="str">'masvs'</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t154" class="stm run hide_run">                <span class="key">for</span> <span class="nam">filename</span> <span class="key">in</span> <span class="nam">os</span><span class="op">.</span><span class="nam">listdir</span><span class="op">(</span><span class="nam">kb_dir</span><span class="op">+</span><span class="nam">checklist</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t155" class="stm run hide_run">                    <span class="key">if</span> <span class="nam">filename</span><span class="op">.</span><span class="nam">endswith</span><span class="op">(</span><span class="str">".md"</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t156" class="stm run hide_run">                        <span class="nam">name_raw</span> <span class="op">=</span> <span class="nam">filename</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">"-"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t157" class="stm run hide_run">                        <span class="nam">level</span> <span class="op">=</span> <span class="nam">name_raw</span><span class="op">[</span><span class="num">4</span><span class="op">]</span><span class="op">.</span><span class="nam">replace</span><span class="op">(</span><span class="str">"_"</span><span class="op">,</span> <span class="str">" "</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t158" class="stm run hide_run">                        <span class="nam">kbid_raw</span> <span class="op">=</span> <span class="nam">name_raw</span><span class="op">[</span><span class="num">6</span><span class="op">]</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">"."</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t159" class="stm run hide_run">                        <span class="nam">kb_id</span> <span class="op">=</span> <span class="nam">kbid_raw</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t160" class="stm run hide_run">                        <span class="key">if</span> <span class="nam">level</span> <span class="op">==</span> <span class="str">"0"</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t161" class="pln">                            <span class="com"># For the MASVS categories</span><span class="strut">&nbsp;</span></p>
+<p id="t162" class="stm run hide_run">                            <span class="nam">file</span> <span class="op">=</span> <span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">kb_dir</span><span class="op">+</span><span class="nam">checklist</span><span class="op">,</span> <span class="nam">filename</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t163" class="stm run hide_run">                            <span class="nam">data</span> <span class="op">=</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file</span><span class="op">,</span> <span class="str">'r'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t164" class="stm run hide_run">                            <span class="nam">file_content</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t165" class="stm run hide_run">                            <span class="nam">data</span><span class="op">.</span><span class="nam">close</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t166" class="stm run hide_run">                            <span class="nam">checklistID_raw</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">":"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t167" class="stm run hide_run">                            <span class="nam">checklistID</span> <span class="op">=</span> <span class="nam">checklistID_raw</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t168" class="stm run hide_run">                            <span class="nam">checklistID</span> <span class="op">=</span> <span class="nam">checklistID</span><span class="op">.</span><span class="nam">lstrip</span><span class="op">(</span><span class="str">'V'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t169" class="stm run hide_run">                            <span class="nam">checklistID</span> <span class="op">=</span> <span class="nam">checklistID</span><span class="op">+</span><span class="str">".0"</span><span class="strut">&nbsp;</span></p>
+<p id="t170" class="pln">                        <span class="key">else</span> <span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t171" class="pln">                            <span class="com"># For the MASVS items</span><span class="strut">&nbsp;</span></p>
+<p id="t172" class="stm run hide_run">                            <span class="nam">file</span> <span class="op">=</span> <span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">kb_dir</span><span class="op">+</span><span class="nam">checklist</span><span class="op">,</span> <span class="nam">filename</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t173" class="stm run hide_run">                            <span class="nam">data</span> <span class="op">=</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file</span><span class="op">,</span> <span class="str">'r'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t174" class="stm run hide_run">                            <span class="nam">file_content</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t175" class="stm run hide_run">                            <span class="nam">data</span><span class="op">.</span><span class="nam">close</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t176" class="stm run hide_run">                            <span class="nam">checklistID_raw</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">" "</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t177" class="stm run hide_run">                            <span class="nam">checklistID</span> <span class="op">=</span> <span class="nam">checklistID_raw</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t178" class="stm run hide_run">                        <span class="nam">file</span> <span class="op">=</span> <span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">kb_dir</span><span class="op">+</span><span class="nam">checklist</span><span class="op">,</span> <span class="nam">filename</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t179" class="stm run hide_run">                        <span class="nam">data</span> <span class="op">=</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file</span><span class="op">,</span> <span class="str">'r'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t180" class="stm run hide_run">                        <span class="nam">file_content</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t181" class="stm run hide_run">                        <span class="nam">data</span><span class="op">.</span><span class="nam">close</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t182" class="stm run hide_run">                        <span class="nam">content</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">' '</span><span class="op">,</span> <span class="num">1</span><span class="op">)</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t183" class="stm run hide_run">                        <span class="nam">content_escaped</span> <span class="op">=</span> <span class="nam">content</span><span class="op">.</span><span class="nam">translate</span><span class="op">(</span><span class="nam">str</span><span class="op">.</span><span class="nam">maketrans</span><span class="op">(</span><span class="op">{</span><span class="str">"'"</span><span class="op">:</span>  <span class="str">r"''"</span><span class="op">,</span> <span class="str">"-"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">,</span> <span class="str">"#"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">}</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t184" class="stm run hide_run">                        <span class="nam">query</span> <span class="op">=</span> <span class="str">"INSERT OR REPLACE INTO checklists (checklistID, content, level, kbID) VALUES ('"</span><span class="op">+</span><span class="nam">checklistID</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">content_escaped</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">level</span><span class="op">+</span><span class="str">"', '"</span><span class="op">+</span><span class="nam">kb_id</span><span class="op">+</span><span class="str">"'); \n"</span><span class="strut">&nbsp;</span></p>
+<p id="t185" class="stm run hide_run">                        <span class="key">with</span> <span class="nam">open</span><span class="op">(</span><span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">app</span><span class="op">.</span><span class="nam">root_path</span><span class="op">,</span> <span class="str">'db.sqlite_schema'</span><span class="op">)</span><span class="op">,</span> <span class="str">'a'</span><span class="op">)</span> <span class="key">as</span> <span class="nam">myfile</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t186" class="stm run hide_run">                                <span class="nam">myfile</span><span class="op">.</span><span class="nam">write</span><span class="op">(</span><span class="nam">query</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t187" class="stm run hide_run">        <span class="nam">print</span><span class="op">(</span><span class="str">'Initialized the markdown checklists.'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t188" class="stm run hide_run">        <span class="key">return</span> <span class="key">True</span><span class="strut">&nbsp;</span></p>
+<p id="t189" class="stm mis">    <span class="key">except</span> <span class="nam">Exception</span> <span class="key">as</span> <span class="nam">e</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t190" class="stm mis">        <span class="nam">print</span><span class="op">(</span><span class="str">'Exception in file db_tools, method init_md_checklists: '</span> <span class="op">+</span> <span class="nam">e</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t191" class="stm mis">        <span class="key">return</span> <span class="key">False</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -392,7 +462,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.4.1</a>,
-            created at 2017-12-20 12:41
+            created at 2018-04-28 15:31
         </p>
     </div>
 </div>
