@@ -36,7 +36,7 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - cd Angular; ./node_modules/.bin/bithound check git@github.com/blabla1337/skf-flask.git
+  - cd Angular; npm audit
   - npm test
   - cd ../; coverage run --source=skf setup.py test
 
