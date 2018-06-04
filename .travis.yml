@@ -36,8 +36,8 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - cd Angular; npm audit
-  - npm test
+#  - cd Angular; npm audit
+  - cd Angular; npm test
   - cd ../; coverage run --source=skf setup.py test
 
 after_success:
