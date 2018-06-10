@@ -27,6 +27,7 @@ install:
   - npm install -g @angular/cli
   - npm install -g codecov
   - npm install -g snyk
+  - snyk test
   
 before_script:
   - cd ../
@@ -47,6 +48,7 @@ after_success:
 #  - bash <(curl -s https://codecov.io/bash) -f Angular/coverage/lcov.info
   - codecov
   - coveralls
+  - snyk monitor
 
 notifications:
   webhooks:
