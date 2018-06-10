@@ -1,0 +1,18 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.12.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:hoek:20180212':
+    - '@angular/cli > @schematics/update > npm-registry-client > request > hawk > hoek':
+        reason: Not able to update yet...
+        expires: '2018-07-10T18:52:05.700Z'
+    - '@angular/cli > @schematics/update > npm-registry-client > request > hawk > boom > hoek':
+        reason: Not able to update yet...
+        expires: '2018-07-10T18:52:05.700Z'
+    - '@angular/cli > @schematics/update > npm-registry-client > request > hawk > sntp > hoek':
+        reason: Not able to update yet...
+        expires: '2018-07-10T18:52:05.700Z'
+    - '@angular/cli > @schematics/update > npm-registry-client > request > hawk > cryptiles > boom > hoek':
+        reason: Not able to update yet...
+        expires: '2018-07-10T18:52:05.700Z'
+patch: {}
