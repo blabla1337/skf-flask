@@ -26,8 +26,8 @@ install:
   - npm install
   - npm install -g @angular/cli
   - npm install -g codecov
-  - npm install bithound --save-dev
-
+  - npm install -g snyk
+  
 before_script:
   - cd ../
   - export PYTHONWARNINGS="ignore" 
@@ -36,8 +36,8 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - cd Angular; ./node_modules/.bin/bithound check git@github.com/blabla1337/skf-flask.git
-  - npm test
+#  - cd Angular; npm audit
+  - cd Angular; npm test
   - cd ../; coverage run --source=skf setup.py test
 
 after_success:
