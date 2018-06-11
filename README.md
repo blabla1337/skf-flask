@@ -8,9 +8,8 @@
 
 <br>Quality testing SKF-Angular:<br>
 [![codecov](https://codecov.io/gh/blabla1337/skf-flask/branch/master/graph/badge.svg)](https://codecov.io/gh/blabla1337/skf-flask)
-[![bitHound Overall Score](https://www.bithound.io/github/blabla1337/skf-flask/badges/score.svg)](https://www.bithound.io/github/blabla1337/skf-flask)
-[![bitHound Code](https://www.bithound.io/github/blabla1337/skf-flask/badges/code.svg)](https://www.bithound.io/github/blabla1337/skf-flask)
-[![bitHound Dependencies](https://www.bithound.io/github/blabla1337/skf-flask/badges/dependencies.svg)](https://www.bithound.io/github/blabla1337/skf-flask/master/dependencies/npm)
+[![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
+
 
 <br>Quality testing SKF-API:<br>
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
