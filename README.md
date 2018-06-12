@@ -42,7 +42,7 @@ The second stage is validating if the developer properly implemented different s
 
 ## <a name="installing"></a>Installing
 
-### Local install
+### Local / dedicated server install
 Local installation based on Ubuntu 16.04.
 
 #### Requirements:
@@ -63,27 +63,41 @@ Local installation based on Ubuntu 16.04.
     * sudo python3.6 get-pip.py
 ```
 
-#### Installation:
+#### Installation SKF and configuration:
 Run on terminal
 ```
-git clone https://github.com/blabla1337/skf-flask.git
-cd skf-flask/Angular
-npm install
-cd ..
-sudo pip3.6 install -r requirements.txt
+cd /tmp; git clone git://github.com/blabla1337/skf-flask.git
+cd /tmp/skf-flask; pip3.6 install -r requirements.txt 
+cd /tmp/skf-flask/Angular; npm install
+cd /tmp/skf-flask/Angular; npm build -prod -aot ./
+rm /etc/nginx/sites-enabled/default
+cp /tmp/skf-flask/Local/site-tls.conf /etc/nginx/sites-enabled/default
+
+mv /tmp/skf-flask /
+
+# Change the JWT_SECRET value with below command
+perl -pi -e "s/JWT_SECRET = ''/JWT_SECRET = 'THIS_SHOULD_BE_CHANGED_AND_RANDOM'/" /skf-flask/skf/settings.py
+# Change the domain value with below command
+perl -pi -e "s/\*/https:\/\/demo.securityknowledgeframework.org/" /skf-flask/skf/settings.py
+# Change the domain value with below command
+perl -pi -e "s/https:\/\/localhost\/api/https:\/\/demo.securityknowledgeframework.org\/api/" /skf-flask/Angular/src/environments/environment.prod.ts
+
+# Certificates stored in /skf-flask/ dir
+openssl req -nodes -newkey rsa:4096 -keyout /skf-flask/server.key -out /skf-flask/server.csr  -subj "/CN=OWASP-SKF"
+openssl x509 -req -days 365 -in /skf-flask/server.csr  -signkey /skf-flask/server.key -out ./skf-flask/server.pem
+
+# Start nginx
+sleep 5
+sudo nginx
+
 ```
-
-Modify the files in Local folder
-- site.conf: set both root directories acording to your installation.
-- site-tls.conf: set both root directories acording to your installation and ssl_certificate and ssl_certificate_key locations.
-- entrypoint.sh: change JWT_SECRET and if changed from default, nginx installation folder. Also if you want to run on a specif domain and not on localhost change ORIGIN.
-
 
 #### Run SKF (with terminal in Local folder):
 ```
-./entrypoint.sh
+# Start SKF services
+cd /skf-flask/Local; bash wrapper.sh
 ```
-Navigate to https://localhost
+Navigate to https://your_domain_value_you_used_above_commands
 
 #### Error:
 If you get the following error
