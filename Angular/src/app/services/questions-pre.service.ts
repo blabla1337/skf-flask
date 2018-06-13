@@ -4,6 +4,7 @@ import { Question_pre } from '../models/question_pre';
 import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
+import 'rxjs/Rx';
 
 @Injectable()
 export class QuestionPreService {

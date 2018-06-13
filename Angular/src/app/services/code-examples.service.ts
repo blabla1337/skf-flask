@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
+import 'rxjs/Rx';
 
 @Injectable()
 export class CodeExamplesService {

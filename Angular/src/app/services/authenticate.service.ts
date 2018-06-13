@@ -5,6 +5,7 @@ import { User } from '../models/user'
 import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
+import 'rxjs/Rx';
 
 
 @Injectable()

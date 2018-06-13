@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Rx';
 import { Question_post } from '../models/question_post'
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
+import 'rxjs/Rx';
+
 
 @Injectable()
 export class ChecklistService {
