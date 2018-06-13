@@ -11,10 +11,9 @@ export class KnowledgebaseService {
 
   constructor(private http: Http) { }
   public headers = new Headers({ 'Content-Type': 'application/json' });
-  public getHeaders = new Headers({ 'Authorization': AppSettings.AUTH_TOKEN });
   
   getKnowledgeBase(): Observable<Knowledgebase[]> {
-    return this.http.get(environment.API_ENDPOINT + '/kb/items', { headers: this.getHeaders })
-      .map(response => response.json().items)
+    return this.http.get(environment.API_ENDPOINT + '/kb/items', { headers: this.headers })
+      .map(response => response.json().items);
   }
 }
