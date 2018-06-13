@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { Question_sprint } from '../models/question_sprint'
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
+import 'rxjs/Rx';
 
 @Injectable()
 export class QuestionsSprintService {
