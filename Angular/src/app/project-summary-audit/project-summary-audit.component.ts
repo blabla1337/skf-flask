@@ -20,7 +20,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
     private router: Router
   ) { }
 
-  private sprintResult: Sprint[];
+  public sprintResult: Sprint[];
   public comment: string;
   public checklistID: string;
   public comments: Comment;

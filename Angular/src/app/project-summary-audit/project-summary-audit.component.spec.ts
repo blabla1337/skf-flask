@@ -9,10 +9,6 @@ import { Observable } from "rxjs/Observable";
 import { ProjectService } from "../services/project.service";
 import { ProjectSummaryAuditComponent } from "./project-summary-audit.component";
 
-
-
-
-
 describe("project new component", () => {
 
   let component: ProjectSummaryAuditComponent;

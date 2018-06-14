@@ -39,10 +39,10 @@
           <ngb-alert *ngIf="error" [dismissible]="false">
             <strong>Warning! </strong> {{error}}
           </ngb-alert>
-          <ngb-alert *ngIf="users == 0" [dismissible]="false">
+          <ngb-alert *ngIf="!users" [dismissible]="false">
             <strong>Message, </strong> There are no users available to show yet!
           </ngb-alert>
-          <table *ngIf="users != 0" class="table table-striped table-advance table-hover">
+          <table *ngIf="users" class="table table-striped table-advance table-hover">
             <thead>
               <tr>
                 <th><i class="fa fa-user"></i> Username</th>

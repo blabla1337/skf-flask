@@ -21,8 +21,8 @@ describe('Users manage component', () => {
   let fixture: ComponentFixture<UserManageComponent>;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
-  let user: User[] = [{ access: "True", activated: "True", email: "example@owasp.org", userID: 1, userName: "admin" }]
-  let userRevoke: User[] = [{ access: "False", activated: "False", email: "example@owasp.org", userID: 1, userName: "admin" }]
+  let user: User[] = [{ access: "True", active: "True", email: "example@owasp.org", userID: 1, accessToken: 1234, userName: "admin" }]
+  let userRevoke: User[] = [{ access: "False", active: "False", email: "example@owasp.org", userID: 1, accessToken: 1234, userName: "admin" }]
   let mocker = {
     revoke: jasmine.createSpy('revoke'),
     grant: jasmine.createSpy('grant')
@@ -71,13 +71,7 @@ describe('Users manage component', () => {
   });
 
   it('If the list of users is empty, show error message', fakeAsync(() => {
-    component.users = [];
-    fixture.detectChanges(); // update view with quote
-    expect(debugElement.nativeElement.textContent).toMatch('There are no users available to show yet!');
-  }));
-
-  it('If the list of users is empty, show error message', fakeAsync(() => {
-    component.open("foobar")
+    component.open("admin")
     fixture.detectChanges(); // update view with quote
   }));
   

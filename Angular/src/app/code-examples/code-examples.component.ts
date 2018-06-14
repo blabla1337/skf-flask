@@ -19,6 +19,8 @@ export class CodeExamplesComponent implements OnInit, DoCheck {
   public codeExamples: CodeExample[];
   public error: string;
   public hljs;
+  public queryString;
+  
   constructor(private code: CodeExamplesService, private highlightJsService: HighlightJsService, private el: ElementRef) {
     this.lang = localStorage.getItem("code_lang")
   }

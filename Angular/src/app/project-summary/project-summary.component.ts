@@ -22,7 +22,7 @@ export class ProjectSummaryComponent implements OnInit {
     private router: Router
   ) { }
 
-  private sprintResult: Sprint[];
+  public sprintResult: Sprint[];
   public comment: string;
   public checklistID: string;
   public comments: Comment;

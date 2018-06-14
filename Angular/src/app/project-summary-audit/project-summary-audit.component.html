@@ -37,7 +37,7 @@
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
-        <ngb-alert *ngIf="sprintResult == 0" [dismissible]="false">
+        <ngb-alert *ngIf="!sprintResult" [dismissible]="false">
           <strong>Message, </strong> There are no more available failed items!
         </ngb-alert>
         <div *ngFor="let item of sprintResult; let myIndex = index" class="content-panel" style="padding-bottom:1%">

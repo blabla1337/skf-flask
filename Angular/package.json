@@ -4,7 +4,7 @@
   "license": "AGPL-3.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host=0.0.0.0 --env=dev",
+    "start": "ng serve --host=0.0.0.0",
     "build": "ng build",
     "test": "snyk test && ng test --code-coverage",
     "lint": "ng lint",

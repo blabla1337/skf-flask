@@ -69,7 +69,7 @@ Run on terminal
 cd /tmp; git clone git://github.com/blabla1337/skf-flask.git
 cd /tmp/skf-flask; pip3.6 install -r requirements.txt 
 cd /tmp/skf-flask/Angular; npm install
-cd /tmp/skf-flask/Angular; npm build -prod -aot ./
+cd /tmp/skf-flask/Angular; ng build --aot --configuration=production 
 rm /etc/nginx/sites-enabled/default
 cp /tmp/skf-flask/Local/site-tls.conf /etc/nginx/sites-enabled/default
 
