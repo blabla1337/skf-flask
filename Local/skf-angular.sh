@@ -2,4 +2,4 @@
 
 # Start the SKF Angular app
 cd ../Angular
-npm start
+ng serve --configuration=production
