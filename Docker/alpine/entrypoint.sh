@@ -6,6 +6,7 @@ HTTPS=${HTTPS:-'true'}
 JWT_SECRET=${JWT_SECRET:-'changeme'}
 ORIGIN=${ORIGIN:-'localhost'}
 
+
 # Creation of certificates
 if [[ "$HTTPS" == "true" ]]; then
     if [[ -e "/skf-flask/server.pem" && -e "/skf-flask/server.key" ]]; then
@@ -39,6 +40,7 @@ fi
 
 if [[ "$ORIGIN" != "" ]]; then
     perl -pi -e "s/\*/https:\/\/$ORIGIN/" /skf-flask/skf/settings.py
+    perl -pi -e "s/https:\/\/localhost\/api/https:\/\/$ORIGIN\/api/" /skf-flask/Angular/src/environments/environment.prod.ts
 else
     echo 'You need to select a ORIGIN location'
     exit
