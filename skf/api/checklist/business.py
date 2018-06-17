@@ -35,11 +35,11 @@ def get_checklist_items_lvl(lvl):
     # ASVS kbID's below 400
     # MASVS kbID's between 400 and 799
     if lvl == 1: # ASVS Level 1
-        result = checklists_kb.query.filter((checklists_kb.kbID < 400) & checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1)).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+        result = checklists_kb.query.filter((checklists_kb.kbID >= 0) & (checklists_kb.kbID < 400) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     elif lvl == 2: # ASVS Level 2
-        result = checklists_kb.query.filter((checklists_kb.kbID < 400) & checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2)).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+        result = checklists_kb.query.filter((checklists_kb.kbID >= 0) & (checklists_kb.kbID < 400) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     elif lvl == 3: # ASVS Level 3
-        result = checklists_kb.query.filter((checklists_kb.kbID < 400) & checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3)).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+        result = checklists_kb.query.filter((checklists_kb.kbID >= 0) & (checklists_kb.kbID < 400) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     elif lvl == 4: # MASVS Level 1
         result = checklists_kb.query.filter((checklists_kb.kbID >= 400) & (checklists_kb.kbID < 1000) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     elif lvl == 5: # MASVS Level 2
