@@ -81,7 +81,8 @@ perl -pi -e "s/JWT_SECRET = ''/JWT_SECRET = 'THIS_SHOULD_BE_CHANGED_AND_RANDOM'/
 perl -pi -e "s/\*/https:\/\/demo.securityknowledgeframework.org/" /skf-flask/skf/settings.py
 # Change the domain value with below command
 perl -pi -e "s/https:\/\/localhost\/api/https:\/\/demo.securityknowledgeframework.org\/api/" /skf-flask/Angular/src/environments/environment.prod.ts
-
+# Change the domain value with below command
+perl -pi -e "s/localhost/demo.securityknowledgeframework.org/" /skf-flask/Local/skf-angular.sh
 
 # Certificates stored in /skf-flask/ dir
 openssl req -nodes -newkey rsa:4096 -keyout /skf-flask/server.key -out /skf-flask/server.csr  -subj "/CN=OWASP-SKF"
