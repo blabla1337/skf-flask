@@ -22,7 +22,9 @@ class ChatbotQuestion(Resource):
         * Privileges required: **none**
         """
         data = request.json
-        print(data)
-        result = answer(data)
+        data_q=data.get('question')
+       
+        print(data_q)
+        result = answer(data_q)
         return result, 200, security_headers()
 

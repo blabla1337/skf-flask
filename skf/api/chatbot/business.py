@@ -1,5 +1,6 @@
 import json, nltk, os
-from flask import Flask
+
+from flask import Flask, jsonify, request
 from nltk.stem.lancaster import LancasterStemmer
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 from skf.api.chatbot.scripts import intent_classifier
@@ -23,19 +24,21 @@ def des_sol(question,intent):
         if entity is None:
            entity=entity_classifier2.entity(question)
       
-        read_file = open(os.path.join(app.root_path, "api/chatbot/datasets/desc_sol.json"), 'r')
+        read_file = open(os.path.join(app.root_path, "datasets/desc_sol.json"), 'r')
         data = json.load(read_file)
         ite=data['items']
         if type(entity)==str:
             for d in ite:
                  if entity.lower()==d['title'].lower():
                       if intent=="Description":
-                          print("Description for "+d['title']+" is : "+ d[intent])
+                          desc="Description for "+d['title']+" is : "+ d[intent]
                           intent="NULL"
+                          return desc
                           break
                       else:
-                          print("Solution for "+d['title']+" is : "+ d[intent])
+                          sol="Solution for "+d['title']+" is : "+ d[intent]
                           intent="NULL"
+                          return sol
                           break
         else:
              if len(entity)>0:
@@ -108,5 +111,7 @@ def code(question,intent,language):
              question=code_entity[0][n]
              code(question,"Code",language)
 #TO_BE_CHANGEDquestion=input("Enter Question ")
-#TO_BE_CHANGEDanswer(question)
+#TO_BE_CHANGED
+#question=request.form.get('question')
+#answer(question)
 
