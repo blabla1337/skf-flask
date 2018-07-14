@@ -3,6 +3,7 @@ FROM alpine
 # Thanks to Mariano Abdala <marianoabdala@gmail.com>
 MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
 
+RUN apk add alpine-sdk
 RUN apk update --no-cache && apk add python3 \
 gcc \
 nginx \
