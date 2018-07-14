@@ -12,7 +12,6 @@ nodejs \
 nodejs-npm \
 musl-dev \
 python3-dev \
-python-scipy \
 libffi-dev \
 py3-pip \
 openssl \
