@@ -7,7 +7,6 @@ def get_checklist_item(checklist_id, id_checklist):
     log("User requested specific checklist item", "LOW", "PASS")
     val_float(checklist_id)
     val_num(id_checklist)
-
     # 0 = ASVS
     # 1 = MASVS
     if (id_checklist == 0):
@@ -19,7 +18,6 @@ def get_checklist_item(checklist_id, id_checklist):
 def get_checklist_items(id_checklist):
     log("User requested list of checklist items", "LOW", "PASS")
     val_num(id_checklist)
-
     # 0 = ASVS
     # 1 = MASVS
     if (id_checklist == 0):

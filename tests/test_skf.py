@@ -222,7 +222,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "xss injection")
+        self.assertEqual(response_dict['items'][1]['title'], "XSS injection")
 
 
     def test_get_kb_item_10(self):
@@ -481,9 +481,8 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
 
 
-    def test_delete_project_item_fail(self):
+    def test_auth_protected_call(self):
         """Test if the delete project item fail call is working"""
-        jwt = self.login('admin', 'admin') 
         payload = {'description': 'Unit test description project', 'name': 'Unit test name project', 'level': 1, 'version': 'version 1.0'}
         headers = {'content-type': 'application/json', 'Authorization': 'woopwoopwrong'}
         response = self.client.put('/api/project/new', data=json.dumps(payload), headers=headers)

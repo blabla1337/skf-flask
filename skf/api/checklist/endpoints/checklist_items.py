@@ -16,7 +16,7 @@ class ChecklistCollection(Resource):
     @api.response(400, 'No results found', message)
     def get(self, id_checklist):
         """
-        Returns list of checklist items.
+        Returns list of checklist items including the correlated knowledge base items.
         * Privileges required: **none**
         """
         result = get_checklist_items(id_checklist)

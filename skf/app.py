@@ -39,6 +39,7 @@ from skf.api.sprints.endpoints.sprint_results_audit_export import ns as sprints_
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_level import ns as checklist_namespace
+from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
 from skf.api.code.endpoints.code_item_update import ns as code_namespace
@@ -99,6 +100,7 @@ def initialize_app(flask_app):
     api.add_namespace(comment_namespace)
     api.add_namespace(sprints_namespace)
     api.add_namespace(checklist_namespace)
+    api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_pre_namespace)
     api.add_namespace(questions_post_namespace)
     api.add_namespace(questions_sprint_namespace)
@@ -114,7 +116,7 @@ def initdb_command():
 
 
 @app.cli.command('updatedb')
-def initdb_command():
+def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
     print('Markdown files updated in the database.')
