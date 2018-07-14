@@ -13,7 +13,8 @@ app = Flask(__name__)
 def answer(question):
         intent=intent_classifier.predict(question)
         if intent=="Description" or intent=="Solution":
-                   des_sol(question,intent)
+                   y=des_sol(question,intent)
+                   return y
         else:
                    lang=None
                    code(question,intent,lang)
@@ -33,6 +34,7 @@ def des_sol(question,intent):
                       if intent=="Description":
                           desc="Description for "+d['title']+" is : "+ d[intent]
                           intent="NULL"
+                          print(desc)
                           return desc
                           break
                       else:

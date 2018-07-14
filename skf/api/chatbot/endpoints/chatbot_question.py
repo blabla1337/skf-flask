@@ -25,6 +25,7 @@ class ChatbotQuestion(Resource):
         data_q=data.get('question')
        
         print(data_q)
-        result = answer(data_q)
+        result1 = answer(data_q)
+        result={ "options": [{"answer": result1 ,"answer_options": 0}] }
         return result, 200, security_headers()
 
