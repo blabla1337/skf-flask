@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 
 def data():
-    with open(os.path.join(app.root_path, "../datasets/entity_data.txt","r")) as title:
+    #with open(os.path.join(app.root_path, "entity_data.txt")) as title:
+    with open(os.path.join(app.root_path, "../datasets/entity_data.txt")) as title:
         title=title.readlines()
     return title
 

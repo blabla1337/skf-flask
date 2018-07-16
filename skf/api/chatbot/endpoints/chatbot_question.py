@@ -1,4 +1,3 @@
-
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import security_headers, validate_privilege
@@ -23,9 +22,13 @@ class ChatbotQuestion(Resource):
         """
         data = request.json
         data_q=data.get('question')
-       
-        print(data_q)
+        
         result1 = answer(data_q)
-        result={ "options": [{"answer": result1 ,"answer_options": 0}] }
-        return result, 200, security_headers()
+        if type(result1)!=str:
+              result={}
+              result["options"] = [{"answer": result1[i],"answer_options": i} for i in result1]
+              return result, 200, security_headers()   
+        else:
+              result={ "options": [{"answer": result1 ,"answer_options": 0}] }
+              return result, 200, security_headers()
 
