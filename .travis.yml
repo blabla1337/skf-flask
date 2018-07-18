@@ -36,8 +36,8 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-#  - cd Angular; npm audit
-  - cd Angular; npm test
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash cd Angular; npm test; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ng test --code-coverage; fi'
   - cd ../; coverage run --source=skf setup.py test
 
 after_success:
