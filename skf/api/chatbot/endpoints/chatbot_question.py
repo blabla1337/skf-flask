@@ -22,13 +22,18 @@ class ChatbotQuestion(Resource):
         """
         data = request.json
         data_q=data.get('question')
+        #3intent_r=data.get('intent')
         
-        result1 = answer(data_q)
+        #if intent_r is None:
+         #     result1,intent_r = answer(data_q,None)
+        #else:
+        result1 = answer(data_q)              
+        
         if type(result1)!=str:
               result={}
-              result["options"] = [{"answer": result1[i],"answer_options": i} for i in result1]
+              result["options"] = [{"answer": result1[i],"answer_options": i,"answer_intent":None} for i in result1]
               return result, 200, security_headers()   
         else:
-              result={ "options": [{"answer": result1 ,"answer_options": 0}] }
+              result={ "options": [{"answer": result1 ,"answer_options": 0,"answer_intent":None}] }
               return result, 200, security_headers()
 

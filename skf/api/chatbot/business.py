@@ -10,22 +10,49 @@ from skf.api.chatbot.scripts import code_classify
 
 app = Flask(__name__)
 
+#intent_l=[]   
 def answer(question):
+
+        entity=entity_classifier1.entity_recognizer(question.lower())
+        if entity is None:
+           entity=entity_classifier2.entity(question)
+        #if type(entity)==str:
+         #  q=des_sol(question,intent)
+        #else:
+         #  if intent is None:
+        #if len(intent_l)==0:
         intent=intent_classifier.predict(question)
+        #else:
+         #  intent=intent_l[0]
+
         if intent=="Description" or intent=="Solution":
-                   des_sol_ans=des_sol(question,intent)
-                   return des_sol_ans
+                  
+                  if type(entity)==str:
+                       des_sol_ans=des_sol(question,intent)
+                       #return des_sol_ans
+                  else:
+                       #intent_l.insert(0,intent)
+                       des_sol_ans=des_sol(question,intent)
+                       #intenr_l=[]
+
+
+                  #print(intent_l)
+                  return des_sol_ans
+                   
+                   #print(des_sol_optn)
+                   #des_sol_ans=des_sol(des_sol_optn,intent)
+
         else:
-                   lang=None
-                   code_ans=code(question,intent,lang)
-                   return code_ans
+                  lang=None
+                  code_ans=code(question,intent,lang)
+                  return code_ans
 
 
 def des_sol(question,intent):
         entity=entity_classifier1.entity_recognizer(question.lower())
         if entity is None:
            entity=entity_classifier2.entity(question)
-      
+        intent=intent  
         read_file = open(os.path.join(app.root_path, "datasets/desc_sol.json"), 'r')
         data = json.load(read_file)
         ite=data['items']
@@ -44,6 +71,9 @@ def des_sol(question,intent):
                           break
         else:
              if len(entity)>0:
+                for i in entity:
+                    entity[i]=intent+" "+entity[i]
+                
                 return entity
                 #TO_BE_CHANGEDn=int(input("enter your choice "))
                 #n=int(n)
