@@ -10,7 +10,6 @@ sudo: false
 python:
 # - "2.7"
   - "3.6"
-#  - "3.7-dev"
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -21,7 +20,7 @@ install:
   - pip install pytest-cov
   - pip install coverage
   - pip install python-coveralls
-  - pip install -r requirements.txt
+  - pip3 install -r requirements.txt
   - cd Angular
   - npm install
   - npm install -g @angular/cli
@@ -29,6 +28,7 @@ install:
   - npm install -g snyk
   
 before_script:
+  - pwd
   - cd ../
   - export PYTHONWARNINGS="ignore" 
   - export FLASK_DEBUG=1
@@ -36,6 +36,7 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
+  - pwd
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash cd Angular; npm test; fi'
   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash cd Angular; ng test --code-coverage; fi'
   - cd ../; coverage run --source=skf setup.py test
