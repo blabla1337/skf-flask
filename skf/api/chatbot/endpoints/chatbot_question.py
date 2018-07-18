@@ -26,10 +26,11 @@ class ChatbotQuestion(Resource):
         intent=intent_classifier.predict(data_q)
         
         if intent=='Code':
-            lang = None
-            if lang is None:
-               lang=data.get('question_lang')
+            lang=None
             code_ans,lang=code(data_q,intent,lang)
+            if type(lang)!=str:
+               lang=data.get('question_lang')
+               code_ans,lang=code(data_q,intent,lang)
             if type(code_ans)!=str:
                result={}
                result["options"] = [{"answer": code_ans[i],"answer_options": i} for i in code_ans]
