@@ -11,41 +11,41 @@ from skf.api.chatbot.scripts import code_classify
 app = Flask(__name__)
 
 #intent_l=[]   
-def answer(question):
+#def answer(question):
 
-        entity=entity_classifier1.entity_recognizer(question.lower())
-        if entity is None:
-           entity=entity_classifier2.entity(question)
+        #entity=entity_classifier1.entity_recognizer(question.lower())
+        #if entity is None:
+         #  entity=entity_classifier2.entity(question)
         #if type(entity)==str:
          #  q=des_sol(question,intent)
         #else:
          #  if intent is None:
         #if len(intent_l)==0:
-        intent=intent_classifier.predict(question)
+        #intent=intent_classifier.predict(question)
         #else:
          #  intent=intent_l[0]
 
-        if intent=="Description" or intent=="Solution":
+       # if intent=="Description" or intent=="Solution":
                   
-                  if type(entity)==str:
-                       des_sol_ans=des_sol(question,intent)
+              #    if type(entity)==str:
+               #        des_sol_ans=des_sol(question,intent)
                        #return des_sol_ans
-                  else:
+             #     else:
                        #intent_l.insert(0,intent)
-                       des_sol_ans=des_sol(question,intent)
+            #           des_sol_ans=des_sol(question,intent)
                        #intenr_l=[]
 
 
                   #print(intent_l)
-                  return des_sol_ans
+           #       return des_sol_ans
                    
                    #print(des_sol_optn)
                    #des_sol_ans=des_sol(des_sol_optn,intent)
 
-        else:
-                  lang=None
-                  code_ans=code(question,intent,lang)
-                  return code_ans
+       # else:
+        #          lang=None
+         #         code_ans=code(question,intent,lang)
+          #        return code_ans
 
 
 def des_sol(question,intent):
@@ -75,10 +75,6 @@ def des_sol(question,intent):
                     entity[i]=intent+" "+entity[i]
                 
                 return entity
-                #TO_BE_CHANGEDn=int(input("enter your choice "))
-                #n=int(n)
-                #question=entity[n]
-                #des_sol(question,intent)
              else:
                 msg="Please be more specific"
                 return msg
@@ -104,17 +100,18 @@ def code(question,intent,language):
                     if language==d['code_lang'].lower():
                        code_a="Code for "+ d['content']+"\n Code language is " + d['code_lang']
                        count=count+1
-                       return code_a
+                       return code_a,language
             if count==0:
                     code_l={}
-                    entity=str(code_entity[0].strip("\n").lower())
+                    entity=intent+" "+str(code_entity[0].strip("\n").lower())
                     for i in range(len(code_languages)):
-                        code_l[i+1]=code_languages[i]      
+                        code_l[i+1]=code_languages[i]
+                    return entity,code_l      
                     #print("The language you typed is not availabe. Select from the following:")
                     #for i in code_l:
                      #   print(str(i)+":"+code_l[i])
                     #TO_BE_CHANGEDn=int(input("Enter your choice: "))
-                    #lang=code_l[n]
+                    #lang=language
                     for d in code_ite:
                         if entity==d['title'].lower() and lang in code_languages:
                               if lang==d['code_lang'].lower():
@@ -122,22 +119,13 @@ def code(question,intent,language):
                                  #print("\n Code language is " + d['code_lang'])
                                  count=count+1
             #TO_BE_CHANGEDques=input("\n Do you have more Questions Y/N ")
-            #if(ques=="y" or ques=="Y"):
-                   #TO_BE_CHANGEDquestion=input("Enter new question ")
-             #      answer(question)
-            #else:
-             #      print("Thanks for using")
         else:
              if language is None:
                language=str(code_entity[-1].strip("\n").lower())
              else:
                language=language
-             #print("Please select from these options ")
              code_list={}
              for i in code_entity[0]:
-                 code_list[i]=code_entity[0][i]
-             return code_list
-             #TO_BE_CHANGEDn=int(input("enter your choice "))
-             #question=code_entity[0][n]
-             #code(question,"Code",language)
+                 code_list[i]=intent+" "+code_entity[0][i]
+             return code_list,language
 

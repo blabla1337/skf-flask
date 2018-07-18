@@ -1,7 +1,8 @@
 from flask import request
 from flask_restplus import Resource
+from skf.api.chatbot.scripts import intent_classifier
 from skf.api.security import security_headers, validate_privilege
-from skf.api.chatbot.business import answer
+from skf.api.chatbot.business import des_sol,code
 from skf.api.chatbot.serializers import question_response, question_chatbot, message
 from skf.api.restplus import api
 
@@ -22,18 +23,34 @@ class ChatbotQuestion(Resource):
         """
         data = request.json
         data_q=data.get('question')
-        #3intent_r=data.get('intent')
+        intent=intent_classifier.predict(data_q)
         
-        #if intent_r is None:
-         #     result1,intent_r = answer(data_q,None)
-        #else:
-        result1 = answer(data_q)              
-        
-        if type(result1)!=str:
-              result={}
-              result["options"] = [{"answer": result1[i],"answer_options": i,"answer_intent":None} for i in result1]
-              return result, 200, security_headers()   
+        if intent=='Code':
+            lang = None
+            if lang is None:
+               lang=data.get('question_lang')
+            code_ans,lang=code(data_q,intent,lang)
+            if type(code_ans)!=str:
+               result={}
+               result["options"] = [{"answer": code_ans[i],"answer_options": i} for i in code_ans]
+               return result, 200, security_headers()
+            elif type(code_ans)==str and type(lang)!=str:
+               result={}
+               result["options"] = [{"answer": code_ans,"answer_options": i,"answer_lang":lang[i]} for i in lang]
+               return result, 200, security_headers()
+              
+            else:
+               result={ "options": [{"answer": code_ans ,"answer_options": 0,"answer_lang":lang}] }
+               return result, 200, security_headers()
+
+
         else:
-              result={ "options": [{"answer": result1 ,"answer_options": 0,"answer_intent":None}] }
-              return result, 200, security_headers()
+            result1 = des_sol(data_q,intent)              
+            if type(result1)!=str:
+               result={}
+               result["options"] = [{"answer": result1[i],"answer_options": i,"answer_intent":None} for i in result1]
+               return result, 200, security_headers()   
+            else:
+               result={ "options": [{"answer": result1 ,"answer_options": 0,"answer_intent":None}] }
+               return result, 200, security_headers()
 
