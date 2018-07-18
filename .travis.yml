@@ -17,9 +17,9 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   
 install:
-  - pip install pytest-cov
-  - pip install coverage
-  - pip install python-coveralls
+  - pip3 install pytest-cov
+  - pip3 install coverage
+  - pip3 install python-coveralls
   - pip3 install -r requirements.txt
   - cd Angular
   - npm install
@@ -37,8 +37,8 @@ before_script:
 
 script:
   - pwd
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
   - cd ../; coverage run --source=skf setup.py test
 
 after_success:
