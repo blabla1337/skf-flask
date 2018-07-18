@@ -37,8 +37,8 @@ before_script:
 
 script:
   - pwd
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash cd Angular; npm test; fi'
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash cd Angular; ng test --code-coverage; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
   - cd ../; coverage run --source=skf setup.py test
 
 after_success:
