@@ -1,5 +1,4 @@
 import json, nltk, os
-
 from flask import Flask, jsonify, request
 from nltk.stem.lancaster import LancasterStemmer
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
@@ -14,7 +13,7 @@ def des_sol(question,intent):
         entity=entity_classifier1.entity_recognizer(question.lower())
         if entity is None:
            entity=entity_classifier2.entity(question)
-        intent=intent  
+        intent=intent
         read_file = open(os.path.join(app.root_path, "datasets/desc_sol.json"), 'r')
         data = json.load(read_file)
         ite=data['items']
@@ -35,7 +34,6 @@ def des_sol(question,intent):
              if len(entity)>0:
                 for i in entity:
                     entity[i]=intent+" "+entity[i]
-                
                 return entity
              else:
                 msg="Please be more specific"
@@ -43,7 +41,7 @@ def des_sol(question,intent):
 
 def code(question,intent,language):
         code_entity=code_classify.entity(question)
-        read_file = open(os.path.join(app.root_path, "datasets/code_data.json"), 'r') 
+        read_file = open(os.path.join(app.root_path, "datasets/code_data.json"), 'r')
         code_data = json.load(read_file)
         code_ite=code_data['items']
         code_languages=[]
@@ -69,14 +67,13 @@ def code(question,intent,language):
                         entity=intent+" "+str(code_entity[0].strip("\n").lower())+" in "+code_languages[i]
                         print(entity)
                         ent[i]=entity
-                        
-                    return ent     
+                    return ent
                     for d in code_ite:
                         if entity==d['title'].lower() and lang in code_languages:
                               if lang==d['code_lang'].lower():
                                  return d['content']
                                  count=count+1
-            
+          
         else:
              if language is None:
                language=str(code_entity[-1].strip("\n").lower())
@@ -86,4 +83,3 @@ def code(question,intent,language):
              for i in code_entity[0]:
                  code_list[i]=intent+" "+code_entity[0][i]
              return code_list
-
