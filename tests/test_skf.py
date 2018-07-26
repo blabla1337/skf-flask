@@ -672,6 +672,79 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['items'][0]['comment'], "Unit test comment")
 
 
+    def test_get_description_item(self):
+        """Test if the description call is working"""
+        payload = {"question": "waht is xss?", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['options'][0]['answer'], "Description for xss injection is : Every time the application gets userinput, whether this showing it on screen or processingthis data in the application background, these parameters should be escaped for maliciouscode in order to prevent crosssite scripting injections.When an attacker gains the possibility to perform an XSS injection,he is given the opportunity to inject HTML and JavaScript code directly into theapplication. This could lead to accounts being compromised by stealing session cookies or directly affect the operation of the target application.")
+
+    def test_get_solution_item(self):
+        """Test if the solution call is working"""
+        payload = {"question": "how to resolve xss?", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['options'][0]['answer'], "Solution for xss injection is : In order to prevent XSS injections, all userinput should be escaped or encoded.You could start by sanitizing userinput as soon as it is inserted into the application,by preference using a so called whitelisting method.This means you should not check for malicious content like the tags or anything,but only allow the expected input. Every input which is outside of the intended operationof the application should immediately be detected and login rejected.Do not try to help use the input in any way because that could introduce a new type of attack by converting characters. The second step would be encoding all the parameters or userinput before putting this inyour html with encoding libraries specially designed for this purpose.You should take into consideration that there are several contexts for encoding userinput forescaping XSS injections. These contexts are amongst others:HTML encoding is for whenever your userinput is displayed directly into your HTML.HTML attribute encoding is the type of encoding/escaping that should be applied whenever your user input is displayed into the attribute of your HTML tags.HTML URL encoding ;This type of encoding/escaping should be applied to whenever you are using userinput into a HREF tag.JavaScript encoding should be used whenever parameters are rendered via JavaScript; your application will detect normal injections in the first instant. But your application still remains vulnerable to JavaScript encoding which will not be detected by the normal encoding/escaping methods.")
+
+
+    def test_code_item_list(self):
+        """Test if the code item is working"""
+        payload = {"question": "code for xss filtering?", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['options'][0]['answer'], "Code xss filtering in java")
+
+    def test_no_match(self):
+        """Test if the options are working"""
+        payload = {"question": "what is bla?", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['options'][0]['answer'], "Please be more specific")
+
+    def test_get_entity2_item(self):
+        """Test if the options are working"""
+        payload = {"question": "what is the risk of hsts?", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        try:
+            self.assertEqual(response_dict['options'][0]['answer'], "Description the possible risks to the application must be documented")
+        except BadRequest:
+            return True    
+
+
+    def test_code_lang_item(self):
+        """Test if the options are working"""
+        payload = {"question": "code example for code encoder", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        try:
+            self.assertEqual(response_dict['options'][0]['answer'], "Code encoder in php")
+        except BadRequest:
+            return True    
+        
+    
+    def test_code_classify_item(self):
+        """Test if the code classify is working"""
+        payload = {"question": "code example for xss filtering in java", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['options'][0]['answer'], "Code for  XSS filtering\n\n\n Example:\n\n\n\t\tpackage com.edw;\n\n\t\timport org.owasp.esapi.ESAPI;\n\t\timport org.jsoup.Jsoup;\n\t\timport org.jsoup.safety.Whitelist;\n\n\t\tpublic final class XssFilter {\n\n\t\t\t/**\n\t\t\t* Strips any potential XSS threats out of the value\n\t\t\t* @param value\n\t\t\t* @return\n\t\t\t*/\n\t\t\tpublic String filter( String value ) {\n\t\t\t    if( value == null )\n\t\t\t\t\t\t\treturn null;\n\t\t\t\n\t\t\t\t// Use the ESAPI library to avoid encoded attacks.\n\t\t\t\tvalue = ESAPI.encoder().canonicalize( value );\n\t\t\t\n\t\t\t\t// Avoid null characters\n\t\t\t\tvalue = value.replaceAll(\"\\0\", \"\");\n\t\t\t\n\t\t\t\t// Clean out HTML\n\t\t\t\tvalue = Jsoup.clean( value, Whitelist.none() );\n\t\t\t\n\t\t\t\treturn value;\n\t\t\t}\t\n\t\t}\n\n\n Code language is java")
+
+
     def test_assert_403_project_get(self):
         headers = {'content-type': 'application/json'}
         response = self.client.get('/api/project/1')
