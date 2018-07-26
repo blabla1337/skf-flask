@@ -73,7 +73,6 @@ def code(question,intent,language):
                               if lang==d['code_lang'].lower():
                                  return d['content']
                                  count=count+1
-          
         else:
              if language is None:
                language=str(code_entity[-1].strip("\n").lower())
