@@ -27,21 +27,21 @@ class ChatbotQuestion(Resource):
         
         if intent=='Code':
             lang=None
-            code_ans,lang=code(data_q,intent,lang)
-            if type(lang)!=str:
-               lang=data.get('question_lang')
-               code_ans,lang=code(data_q,intent,lang)
+            code_ans=code(data_q,intent,lang)
+            #if type(lang)!=str:
+             #  lang=data.get('question_lang')
+              # code_ans,lang=code(data_q,intent,lang)
             if type(code_ans)!=str:
                result={}
                result["options"] = [{"answer": code_ans[i],"answer_options": i} for i in code_ans]
                return result, 200, security_headers()
-            elif type(code_ans)==str and type(lang)!=str:
+            elif type(code_ans)==str:
                result={}
-               result["options"] = [{"answer": code_ans,"answer_options": i,"answer_lang":lang[i]} for i in lang]
+               result["options"] = [{"answer": code_ans,"answer_options": 0}]
                return result, 200, security_headers()
               
             else:
-               result={ "options": [{"answer": code_ans ,"answer_options": 0,"answer_lang":lang}] }
+               result={ "options": [{"answer": code_ans ,"answer_options": 0}] }
                return result, 200, security_headers()
 
 

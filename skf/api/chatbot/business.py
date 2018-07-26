@@ -62,25 +62,21 @@ def code(question,intent,language):
                     if language==d['code_lang'].lower():
                        code_a="Code for "+ d['content']+"\n Code language is " + d['code_lang']
                        count=count+1
-                       return code_a,language
+                       return code_a
             if count==0:
-                    code_l={}
-                    entity=intent+" "+str(code_entity[0].strip("\n").lower())
+                    ent={}
                     for i in range(len(code_languages)):
-                        code_l[i+1]=code_languages[i]
-                    return entity,code_l      
-                    #print("The language you typed is not availabe. Select from the following:")
-                    #for i in code_l:
-                     #   print(str(i)+":"+code_l[i])
-                    #TO_BE_CHANGEDn=int(input("Enter your choice: "))
-                    #lang=language
+                        entity=intent+" "+str(code_entity[0].strip("\n").lower())+" in "+code_languages[i]
+                        print(entity)
+                        ent[i]=entity
+                        
+                    return ent     
                     for d in code_ite:
                         if entity==d['title'].lower() and lang in code_languages:
                               if lang==d['code_lang'].lower():
                                  return d['content']
-                                 #print("\n Code language is " + d['code_lang'])
                                  count=count+1
-            #TO_BE_CHANGEDques=input("\n Do you have more Questions Y/N ")
+            
         else:
              if language is None:
                language=str(code_entity[-1].strip("\n").lower())
