@@ -12,13 +12,16 @@ nodejs \
 nodejs-npm \
 musl-dev \
 python3-dev \
-python-scipy \
 libffi-dev \
 py3-pip \
 openssl \
 bash \
 perl \
+openblas-dev \
+libstdc++ \ 
+openblas \
 git
+RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
 RUN git clone https://github.com/blabla1337/skf-flask.git
 # Start Angular app
 WORKDIR /skf-flask/Angular
