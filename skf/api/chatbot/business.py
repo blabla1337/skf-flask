@@ -85,5 +85,5 @@ def code(question,intent,language):
              code_list={}
              for i in code_entity[0]:
                  code_list[i]=intent+" "+code_entity[0][i]
-             return code_list,language
+             return code_list
 
