@@ -143,15 +143,14 @@
 <p id="n74" class="stm mis"><a href="#n74">74</a></p>
 <p id="n75" class="stm mis"><a href="#n75">75</a></p>
 <p id="n76" class="pln"><a href="#n76">76</a></p>
-<p id="n77" class="pln"><a href="#n77">77</a></p>
+<p id="n77" class="stm mis"><a href="#n77">77</a></p>
 <p id="n78" class="stm mis"><a href="#n78">78</a></p>
-<p id="n79" class="stm mis"><a href="#n79">79</a></p>
-<p id="n80" class="pln"><a href="#n80">80</a></p>
+<p id="n79" class="pln"><a href="#n79">79</a></p>
+<p id="n80" class="stm mis"><a href="#n80">80</a></p>
 <p id="n81" class="stm mis"><a href="#n81">81</a></p>
 <p id="n82" class="stm mis"><a href="#n82">82</a></p>
 <p id="n83" class="stm mis"><a href="#n83">83</a></p>
 <p id="n84" class="stm mis"><a href="#n84">84</a></p>
-<p id="n85" class="stm mis"><a href="#n85">85</a></p>
 
             </td>
             <td class="text">
@@ -230,16 +229,15 @@
 <p id="t73" class="stm mis">                              <span class="key">if</span> <span class="nam">lang</span><span class="op">==</span><span class="nam">d</span><span class="op">[</span><span class="str">'code_lang'</span><span class="op">]</span><span class="op">.</span><span class="nam">lower</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t74" class="stm mis">                                 <span class="key">return</span> <span class="nam">d</span><span class="op">[</span><span class="str">'content'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t75" class="stm mis">                                 <span class="nam">count</span><span class="op">=</span><span class="nam">count</span><span class="op">+</span><span class="num">1</span><span class="strut">&nbsp;</span></p>
-<p id="t76" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t77" class="pln">        <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t78" class="stm mis">             <span class="key">if</span> <span class="nam">language</span> <span class="key">is</span> <span class="key">None</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t79" class="stm mis">               <span class="nam">language</span><span class="op">=</span><span class="nam">str</span><span class="op">(</span><span class="nam">code_entity</span><span class="op">[</span><span class="op">-</span><span class="num">1</span><span class="op">]</span><span class="op">.</span><span class="nam">strip</span><span class="op">(</span><span class="str">"\n"</span><span class="op">)</span><span class="op">.</span><span class="nam">lower</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t80" class="pln">             <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t81" class="stm mis">               <span class="nam">language</span><span class="op">=</span><span class="nam">language</span><span class="strut">&nbsp;</span></p>
-<p id="t82" class="stm mis">             <span class="nam">code_list</span><span class="op">=</span><span class="op">{</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
-<p id="t83" class="stm mis">             <span class="key">for</span> <span class="nam">i</span> <span class="key">in</span> <span class="nam">code_entity</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t84" class="stm mis">                 <span class="nam">code_list</span><span class="op">[</span><span class="nam">i</span><span class="op">]</span><span class="op">=</span><span class="nam">intent</span><span class="op">+</span><span class="str">" "</span><span class="op">+</span><span class="nam">code_entity</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">[</span><span class="nam">i</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
-<p id="t85" class="stm mis">             <span class="key">return</span> <span class="nam">code_list</span><span class="strut">&nbsp;</span></p>
+<p id="t76" class="pln">        <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t77" class="stm mis">             <span class="key">if</span> <span class="nam">language</span> <span class="key">is</span> <span class="key">None</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t78" class="stm mis">               <span class="nam">language</span><span class="op">=</span><span class="nam">str</span><span class="op">(</span><span class="nam">code_entity</span><span class="op">[</span><span class="op">-</span><span class="num">1</span><span class="op">]</span><span class="op">.</span><span class="nam">strip</span><span class="op">(</span><span class="str">"\n"</span><span class="op">)</span><span class="op">.</span><span class="nam">lower</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t79" class="pln">             <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t80" class="stm mis">               <span class="nam">language</span><span class="op">=</span><span class="nam">language</span><span class="strut">&nbsp;</span></p>
+<p id="t81" class="stm mis">             <span class="nam">code_list</span><span class="op">=</span><span class="op">{</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t82" class="stm mis">             <span class="key">for</span> <span class="nam">i</span> <span class="key">in</span> <span class="nam">code_entity</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t83" class="stm mis">                 <span class="nam">code_list</span><span class="op">[</span><span class="nam">i</span><span class="op">]</span><span class="op">=</span><span class="nam">intent</span><span class="op">+</span><span class="str">" "</span><span class="op">+</span><span class="nam">code_entity</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">[</span><span class="nam">i</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t84" class="stm mis">             <span class="key">return</span> <span class="nam">code_list</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -250,7 +248,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.4.2</a>,
-            created at 2018-07-26 13:00
+            created at 2018-07-27 13:04
         </p>
     </div>
 </div>
