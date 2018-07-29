@@ -36,7 +36,10 @@ def des_sol(question,intent):
                     entity[i]=intent+" "+entity[i]
                 return entity
              else:
+                log=open(os.path.join(app.root_path,"logs.txt"),"a") 
                 msg="Please be more specific"
+                log.write(question+"\n")
+                log.close()
                 return msg
 
 def code(question,intent,language):
@@ -76,8 +79,14 @@ def code(question,intent,language):
         else:
              if language is None:
                language=str(code_entity[-1].strip("\n").lower())
-             else:
+             elif language:
                language=language
+             else:
+                log=open(os.path.join(app.root_path,"logs.txt"),"a") 
+                msg="Please be more specific"
+                log.write(question+"\n")
+                log.close()
+                return msg
              code_list={}
              for i in code_entity[0]:
                  code_list[i]=intent+" "+code_entity[0][i]
