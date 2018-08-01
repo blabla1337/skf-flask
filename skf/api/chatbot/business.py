@@ -87,6 +87,9 @@ def code(question,intent,language):
                 #db.execute("INSERT INTO chatbot_logs (question)VALUES ('question')");
                 log=open(os.path.join(app.root_path,"logs.txt"),"a") 
                 msg="Please be more specific"
+                result = chatbot_post(question)
+                db.session.add(result)
+                db.session.commit()
                 log.write(question+"\n")
                 log.close()
                 return msg
