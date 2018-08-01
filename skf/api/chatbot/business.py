@@ -6,6 +6,8 @@ from skf.api.chatbot.scripts import intent_classifier
 from skf.api.chatbot.scripts import entity_classifier1
 from skf.api.chatbot.scripts import entity_classifier2
 from skf.api.chatbot.scripts import code_classify
+from skf.database import db
+from skf.database.chatbot_logs import chatbot_post
 
 app = Flask(__name__)
 
@@ -82,6 +84,7 @@ def code(question,intent,language):
              elif language:
                language=language
              else:
+                #db.execute("INSERT INTO chatbot_logs (question)VALUES ('question')");
                 log=open(os.path.join(app.root_path,"logs.txt"),"a") 
                 msg="Please be more specific"
                 log.write(question+"\n")
