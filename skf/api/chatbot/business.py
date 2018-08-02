@@ -1,13 +1,15 @@
 import json, nltk, os
 from flask import Flask, jsonify, request
 from nltk.stem.lancaster import LancasterStemmer
+from skf import settings
+from skf.database import db
+from skf.database.chatbot_log import chatbot_log
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 from skf.api.chatbot.scripts import intent_classifier
 from skf.api.chatbot.scripts import entity_classifier1
 from skf.api.chatbot.scripts import entity_classifier2
 from skf.api.chatbot.scripts import code_classify
-from skf.database import db
-from skf.database.chatbot_logs import chatbot_post
+
 
 app = Flask(__name__)
 
@@ -38,10 +40,15 @@ def des_sol(question,intent):
                     entity[i]=intent+" "+entity[i]
                 return entity
              else:
-                log=open(os.path.join(app.root_path,"logs.txt"),"a") 
                 msg="Please be more specific"
-                log.write(question+"\n")
-                log.close()
+                if settings.CHATBOT_LOG == "db":
+                    result = chatbot_log(question)
+                    db.session.add(result)
+                    db.session.commit()
+                else:
+                    log=open(os.path.join(app.root_path,"logs.txt"),"a") 
+                    log.write(question+"\n")
+                    log.close()
                 return msg
 
 def code(question,intent,language):
@@ -84,14 +91,15 @@ def code(question,intent,language):
              elif language:
                language=language
              else:
-                #db.execute("INSERT INTO chatbot_logs (question)VALUES ('question')");
-                log=open(os.path.join(app.root_path,"logs.txt"),"a") 
                 msg="Please be more specific"
-                result = chatbot_post(question)
-                db.session.add(result)
-                db.session.commit()
-                log.write(question+"\n")
-                log.close()
+                if settings.CHATBOT_LOG == "db":
+                    result = chatbot_log(question)
+                    db.session.add(result)
+                    db.session.commit()
+                else:
+                    log=open(os.path.join(app.root_path,"logs.txt"),"a") 
+                    log.write(question+"\n")
+                    log.close()
                 return msg
              code_list={}
              for i in code_entity[0]:

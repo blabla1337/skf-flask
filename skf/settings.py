@@ -3,6 +3,7 @@
 FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 8888
 FLASK_DEBUG = False  # Do not use debug mode in production
+CHATBOT_LOG = "db"
 
 # Flask-Restplus settings
 RESTPLUS_SWAGGER_UI_DOC_EXPANSION = 'list'

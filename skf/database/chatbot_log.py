@@ -1,10 +1,10 @@
+
 from skf.database import db
 
 
-class chatbot_post(db.Model):
+class chatbot_log(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String)   
 
-    def __init__(self, id, question):
-        self.id = id
+    def __init__(self, question):
         self.question = question
