@@ -46,7 +46,7 @@ def des_sol(question,intent):
                     db.session.add(result)
                     db.session.commit()
                 else:
-                    log=open(os.path.join(app.root_path,"logs.txt"),"a") 
+                    log=open(os.path.join(app.root_path,"logs.txt"),"a")
                     log.write(question+"\n")
                     log.close()
                 return msg
