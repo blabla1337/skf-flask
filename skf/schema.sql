@@ -272,6 +272,15 @@ CREATE TABLE `checklists_kb` (
 ); 
 
 --
+-- Table structure for table `chatbot_log`
+--
+drop table if exists `chatbot_log`;
+CREATE TABLE `chatbot_log` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`question` varchar(255)
+); 
+
+--
 --ASVS
 --
 INSERT OR REPLACE INTO `checklists_kb` (`checklistID`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `codeID_php`, `codeID_asp`, `codeID_java`, `codeID_python`, `include_always`, `include_first`) VALUES ('1.0', 0, 0, 0, 0, 0, 0, 0, 'False', 'False');
