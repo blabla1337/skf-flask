@@ -40,6 +40,7 @@ def des_sol(question,intent):
                     entity[i]=intent+" "+entity[i]
                 return entity
              else:
+                log=open(os.path.join(app.root_path,"logs.txt"),"a") 
                 msg="Please be more specific"
                 if settings.CHATBOT_LOG == "db":
                     result = chatbot_log(question)
