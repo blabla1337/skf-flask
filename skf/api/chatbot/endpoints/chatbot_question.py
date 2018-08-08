@@ -5,6 +5,8 @@ from skf.api.security import security_headers, validate_privilege
 from skf.api.chatbot.business import des_sol,code
 from skf.api.chatbot.serializers import question_response, question_chatbot, message
 from skf.api.restplus import api
+
+
 ns = api.namespace('chatbot', description='Operations related to the chatbot interactions')
 @ns.route('/question')
 @api.response(404, 'Validation error', message)

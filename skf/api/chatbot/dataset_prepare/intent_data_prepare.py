@@ -1,5 +1,8 @@
 import json
+<<<<<<< HEAD
 import csv
+=======
+>>>>>>> 58ec772400478864ed0bda7af6db1d13455421c2
 with open("data.json",encoding='utf-8') as read_file:
         data = json.load(read_file)
 
@@ -8,8 +11,12 @@ des=[]
 title=[]
 con=[]
 for d in a:
+<<<<<<< HEAD
 	title.append((d['title']))
 	
+=======
+        title.append((d['title']))
+>>>>>>> 58ec772400478864ed0bda7af6db1d13455421c2
 ques=[]
 sol=[]
 code=[]
@@ -47,14 +54,21 @@ for t in title:
         code.append("Give me some sample code of "+ t )
         code.append("Code example of "+ t + " ?")
         code.append("Code of "+ t )
+<<<<<<< HEAD
         
 
 
+=======
+>>>>>>> 58ec772400478864ed0bda7af6db1d13455421c2
 file=open("intent_data.csv","x")
 file.write('class, question\n')
 for x in ques:
 		x=x.replace(",","")
+<<<<<<< HEAD
 		file.write('Description, '+x+"\n")	 
+=======
+		file.write('Description, '+x+"\n")
+>>>>>>> 58ec772400478864ed0bda7af6db1d13455421c2
 for y in sol:
 		y=y.replace(",","")
 		file.write('Solution, '+y+"\n")
