@@ -1,6 +1,4 @@
 import json
-<<<<<<< HEAD
-import csv
 with open("data.json",encoding='utf-8') as read_file:
         data = json.load(read_file)
 
@@ -63,4 +61,3 @@ for z in code:
 		file.write('Code, '+z+"\n")
 
 file.close()
-

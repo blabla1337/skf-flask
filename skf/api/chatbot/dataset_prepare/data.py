@@ -1,7 +1,5 @@
 import requests
 import json
-import csv
-
 def extract_from_api():
 	r_kb = requests.get("https://demo.securityknowledgeframework.org/api/kb/items", verify = False)
 	r_code = requests.get("https://demo.securityknowledgeframework.org/api/code/items", verify = False)
@@ -62,16 +60,12 @@ def intent_data():
 	        data = json.load(read_file)
 
 	a=data['items']
-	des=[]
 	title=[]
-	con=[]
 	for d in a:
 		title.append((d['title']))
-		
 	ques=[]
 	sol=[]
 	code=[]
-
 	for t in title:
 		ques.append("What is "+ t + " ?")
 		ques.append("What does "+ t + " mean ?")
@@ -101,14 +95,13 @@ def intent_data():
 	        code.append("Give me some sample code of "+ t )
 	        code.append("Code example of "+ t + " ?")
 	        code.append("Code of "+ t )
-	        
 
 
 	file=open(os.path.join(app.root_path, "api/chatbot/datasets/intent_data.csv","w"))
 	file.write('class, question\n')
 	for x in ques:
 			x=x.replace(",","")
-			file.write('Description, '+x+"\n")	 
+			file.write('Description, '+x+"\n")
 	for y in sol:
 			y=y.replace(",","")
 			file.write('Solution, '+y+"\n")
