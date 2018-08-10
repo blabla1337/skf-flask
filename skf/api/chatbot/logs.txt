@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-what isdwgdkwd
-what isdwgdkwd
-what is jhswdhkdb
-=======
-What is owasp top 10
->>>>>>> 58ec772400478864ed0bda7af6db1d13455421c2
