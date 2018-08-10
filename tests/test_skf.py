@@ -676,12 +676,12 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_description_item(self):
         """Test if the description call is working"""
-        payload = {"question": "waht is xss?", "question_option": 0, "question_lang": "string"}
+        payload = {"question": "what is xss?", "question_option": 0, "question_lang": "string"}
         headers = {'content-type': 'application/json', 'Accept':'application/json'}
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['options'][0]['answer'], "Description for xss injection is : Every time the application gets userinput, whether this showing it on screen or processingthis data in the application background, these parameters should be escaped for maliciouscode in order to prevent crosssite scripting injections.When an attacker gains the possibility to perform an XSS injection,he is given the opportunity to inject HTML and JavaScript code directly into theapplication. This could lead to accounts being compromised by stealing session cookies or directly affect the operation of the target application.")
+        self.assertEqual(response_dict['options'][0]['answer'],"Description for XSS injection is : Every time the application gets userinput, whether this showing it on screen or processing this data in the application background, these parameters should be escaped for malicious code in order to prevent crosssite scripting injections. When an attacker gains the possibility to perform an XSS injection, he is given the opportunity to inject HTML and JavaScript code directly into the application. This could lead to accounts being compromised by stealing session cookies or directly affect the operation of the target application.")
 
     def test_get_solution_item(self):
         """Test if the solution call is working"""
@@ -690,7 +690,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['options'][0]['answer'], "Solution for xss injection is : In order to prevent XSS injections, all userinput should be escaped or encoded.You could start by sanitizing userinput as soon as it is inserted into the application,by preference using a so called whitelisting method.This means you should not check for malicious content like the tags or anything,but only allow the expected input. Every input which is outside of the intended operationof the application should immediately be detected and login rejected.Do not try to help use the input in any way because that could introduce a new type of attack by converting characters. The second step would be encoding all the parameters or userinput before putting this inyour html with encoding libraries specially designed for this purpose.You should take into consideration that there are several contexts for encoding userinput forescaping XSS injections. These contexts are amongst others:HTML encoding is for whenever your userinput is displayed directly into your HTML.HTML attribute encoding is the type of encoding/escaping that should be applied whenever your user input is displayed into the attribute of your HTML tags.HTML URL encoding ;This type of encoding/escaping should be applied to whenever you are using userinput into a HREF tag.JavaScript encoding should be used whenever parameters are rendered via JavaScript; your application will detect normal injections in the first instant. But your application still remains vulnerable to JavaScript encoding which will not be detected by the normal encoding/escaping methods.")
+        self.assertEqual(response_dict['options'][0]['answer'],"Solution for XSS injection is : In order to prevent XSS injections, all userinput should be escaped or encoded. You could start by sanitizing userinput as soon as it is inserted into the application, by preference using a so called whitelisting method. This means you should not check for malicious content like the tags or anything, but only allow the expected input. Every input which is outside of the intended operation of the application should immediately be detected and login rejected. Do not try to help use the input in any way because that could introduce a new type of attack by converting characters. The second step would be encoding all the parameters or userinput before putting this in your html with encoding libraries specially designed for this purpose.You should take into consideration that there are several contexts for encoding userinput for escaping XSS injections. These contexts are amongst others:HTML encoding is for whenever your userinput is displayed directly into your HTML. HTML attribute encoding is the type of encoding/escaping that should be applied whenever your user input is displayed into the attribute of your HTML tags. HTML URL encoding ;This type of encoding/escaping should be applied to whenever you are using userinput into a HREF tag.JavaScript encoding should be used whenever parameters are rendered via JavaScript; your application will detect normal injections in the first instant. But your application still remains vulnerable to JavaScript encoding which will not be detected by the normal encoding/escaping methods.")
 
 
     def test_code_item_list(self):
@@ -719,7 +719,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         try:
-            self.assertEqual(response_dict['options'][0]['answer'], "Description the possible risks to the application must be documented")
+            self.assertEqual(response_dict['options'][0]['answer'], "Description the possible risks to the application must be documented") 
         except BadRequest:
             return True    
 

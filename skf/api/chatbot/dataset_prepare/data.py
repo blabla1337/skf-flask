@@ -72,6 +72,7 @@ def intent_data():
 		ques.append("Tell me something about "+ t + " ?")
 		ques.append(t)
 		ques.append("Explain " + t +" ?")
+		ques.append("Description for " + t )
 		ques.append("Elaborate " + t +" ?")
 		ques.append("Can you tell me about " + t + " ?")
 		ques.append("What do you know about " + t + " ?")
@@ -80,21 +81,22 @@ def intent_data():
 		ques.append("Do you have information about " + t + " ?")
 
 	for t in title:
-	        sol.append("How to solve "+ t + " ?")
-	        sol.append("How to resolve "+ t + " ?")
-	        sol.append("How to mitigate "+ t + " ?")
-	        sol.append("Solution for "+ t)
-	        sol.append("Provide me some Solution for "+ t)
-	        sol.append("mitigation for "+ t)
-	        sol.append("How to stop "+ t + " ?")
-	        sol.append("How to defend "+ t + " ?")
-	        sol.append("How to get secured against "+ t + " ?")
-	        sol.append("Solution, "+t)
+		sol.append("How to solve "+ t + " ?")
+		sol.append("How to resolve "+ t + " ?")
+		sol.append("How to mitigate "+ t + " ?")
+		sol.append("Solution for "+ t)
+		sol.append("Provide me some Solution for "+ t)
+		sol.append("mitigation for "+ t)
+		sol.append("How to stop "+ t + " ?")
+		sol.append("How to defend "+ t + " ?")
+		sol.append("How to get secured against "+ t + " ?")
+		sol.append("Solution, "+t)
 
 	for t in title:
-	        code.append("Give me some sample code of "+ t )
-	        code.append("Code example of "+ t + " ?")
-	        code.append("Code of "+ t )
+		code.append("Give me some sample code of "+ t )
+		code.append("Code example of "+ t + " ?")
+		code.append("Code of "+ t )
+		code.append("Code for "+ t )
 
 
 	file=open(os.path.join(app.root_path, "api/chatbot/datasets/intent_data.csv","w"))
