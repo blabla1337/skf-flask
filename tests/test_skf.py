@@ -3,6 +3,7 @@ from werkzeug.exceptions import BadRequest
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
 from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
+from skf import chatbot_tools
 from skf.app import app
 
 
@@ -14,6 +15,7 @@ class TestRestPlusApi(unittest.TestCase):
         with app.app_context():
             init_db()
             update_db()
+            chatbot_tools.init_dataset()
             settings.TESTING = True
             skf.app.initialize_app(app)
 
