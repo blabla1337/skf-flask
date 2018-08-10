@@ -1,6 +1,7 @@
 import os
 from skf import settings
 from flask import Flask
+
 from skf.api.chatbot.dataset_prepare import data
 
 app = Flask(__name__)
