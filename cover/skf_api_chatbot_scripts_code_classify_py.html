@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/chatbot/scripts/code_classify.py: 86%</title>
+    <title>Coverage for skf/api/chatbot/scripts/code_classify.py: 95%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/chatbot/scripts/code_classify.py</b> :
-            <span class="pc_cov">86%</span>
+            <span class="pc_cov">95%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
             58 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">50 run</span>
-            <span class="mis shortkey_m button_toggle_mis">8 missing</span>
+            <span class="run hide_run shortkey_r button_toggle_run">55 run</span>
+            <span class="mis shortkey_m button_toggle_mis">3 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -131,16 +131,16 @@
 <p id="n62" class="stm run hide_run"><a href="#n62">62</a></p>
 <p id="n63" class="stm run hide_run"><a href="#n63">63</a></p>
 <p id="n64" class="pln"><a href="#n64">64</a></p>
-<p id="n65" class="stm mis"><a href="#n65">65</a></p>
+<p id="n65" class="stm run hide_run"><a href="#n65">65</a></p>
 <p id="n66" class="stm mis"><a href="#n66">66</a></p>
 <p id="n67" class="stm mis"><a href="#n67">67</a></p>
 <p id="n68" class="stm mis"><a href="#n68">68</a></p>
 <p id="n69" class="pln"><a href="#n69">69</a></p>
-<p id="n70" class="stm mis"><a href="#n70">70</a></p>
+<p id="n70" class="stm run hide_run"><a href="#n70">70</a></p>
 <p id="n71" class="pln"><a href="#n71">71</a></p>
-<p id="n72" class="stm mis"><a href="#n72">72</a></p>
-<p id="n73" class="stm mis"><a href="#n73">73</a></p>
-<p id="n74" class="stm mis"><a href="#n74">74</a></p>
+<p id="n72" class="stm run hide_run"><a href="#n72">72</a></p>
+<p id="n73" class="stm run hide_run"><a href="#n73">73</a></p>
+<p id="n74" class="stm run hide_run"><a href="#n74">74</a></p>
 <p id="n75" class="pln"><a href="#n75">75</a></p>
 <p id="n76" class="pln"><a href="#n76">76</a></p>
 <p id="n77" class="pln"><a href="#n77">77</a></p>
@@ -215,16 +215,16 @@
 <p id="t62" class="stm run hide_run">    <span class="key">if</span> <span class="nam">count</span><span class="op">==</span><span class="num">1</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t63" class="stm run hide_run">        <span class="key">return</span> <span class="nam">ent</span><span class="op">,</span><span class="nam">code_lang</span><span class="strut">&nbsp;</span></p>
 <p id="t64" class="pln">    <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t65" class="stm mis">        <span class="key">if</span> <span class="nam">len</span><span class="op">(</span><span class="nam">ans</span><span class="op">)</span><span class="op">==</span><span class="num">1</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t65" class="stm run hide_run">        <span class="key">if</span> <span class="nam">len</span><span class="op">(</span><span class="nam">ans</span><span class="op">)</span><span class="op">==</span><span class="num">1</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t66" class="stm mis">           <span class="nam">abc</span><span class="op">=</span><span class="nam">ans</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t67" class="stm mis">           <span class="nam">abc</span><span class="op">=</span><span class="nam">abc</span><span class="op">.</span><span class="nam">lower</span><span class="op">(</span><span class="op">)</span><span class="op">.</span><span class="nam">strip</span><span class="op">(</span><span class="str">"\n"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t68" class="stm mis">           <span class="key">return</span> <span class="nam">abc</span><span class="op">,</span><span class="nam">code_lang</span><span class="strut">&nbsp;</span></p>
 <p id="t69" class="pln">        <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t70" class="stm mis">            <span class="nam">ansD</span><span class="op">=</span><span class="op">{</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t70" class="stm run hide_run">            <span class="nam">ansD</span><span class="op">=</span><span class="op">{</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t71" class="pln">            <span class="com">#print("Select from these\n")</span><span class="strut">&nbsp;</span></p>
-<p id="t72" class="stm mis">            <span class="key">for</span> <span class="nam">i</span> <span class="key">in</span> <span class="nam">range</span><span class="op">(</span><span class="nam">len</span><span class="op">(</span><span class="nam">ans</span><span class="op">)</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t73" class="stm mis">               <span class="nam">ansD</span><span class="op">[</span><span class="nam">i</span><span class="op">+</span><span class="num">1</span><span class="op">]</span><span class="op">=</span><span class="nam">ans</span><span class="op">[</span><span class="nam">i</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
-<p id="t74" class="stm mis">            <span class="key">return</span> <span class="nam">ansD</span><span class="op">,</span><span class="nam">code_lang</span><span class="strut">&nbsp;</span></p>
+<p id="t72" class="stm run hide_run">            <span class="key">for</span> <span class="nam">i</span> <span class="key">in</span> <span class="nam">range</span><span class="op">(</span><span class="nam">len</span><span class="op">(</span><span class="nam">ans</span><span class="op">)</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t73" class="stm run hide_run">               <span class="nam">ansD</span><span class="op">[</span><span class="nam">i</span><span class="op">+</span><span class="num">1</span><span class="op">]</span><span class="op">=</span><span class="nam">ans</span><span class="op">[</span><span class="nam">i</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t74" class="stm run hide_run">            <span class="key">return</span> <span class="nam">ansD</span><span class="op">,</span><span class="nam">code_lang</span><span class="strut">&nbsp;</span></p>
 <p id="t75" class="pln">            <span class="com">#print("Select from these\n")</span><span class="strut">&nbsp;</span></p>
 <p id="t76" class="pln">            <span class="com">#print(ans)</span><span class="strut">&nbsp;</span></p>
 <p id="t77" class="pln"><span class="strut">&nbsp;</span></p>
@@ -242,7 +242,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.4.2</a>,
-            created at 2018-07-26 12:14
+            created at 2018-08-10 10:57
         </p>
     </div>
 </div>

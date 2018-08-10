@@ -5,6 +5,7 @@ from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, 
 from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
 from skf import chatbot_tools
 from skf.app import app
+import pytest
 
 
 class TestRestPlusApi(unittest.TestCase):
@@ -718,10 +719,33 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        try:
-            self.assertEqual(response_dict['options'][0]['answer'], "Description the possible risks to the application must be documented") 
-        except BadRequest:
-            return True    
+        #if (response_dict['options'][0]['answer']) is ("Description the possible risks to the application must be documented"):
+        self.assertTrue((response_dict['options'][0]['answer'])==("Description the possible risks to the application must be documented") or (response_dict['options'][0]['answer'])==("Description hsts preload"))
+        #else:
+         #   self.assertEqual("Description hsts preload",response_dict['options'][0]['answer'])
+
+    def test_get_sol_entity2_item(self):
+        """Test if the options are working"""
+        payload = {"question": "how to solve rest csrf", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        #if (response_dict['options'][0]['answer']) is ("Solution user restriction for sensitive data"):
+        self.assertTrue((response_dict['options'][0]['answer'])==("Solution user restriction for sensitive data") or (response_dict['options'][0]['answer'])==("Solution csrf on rest")) 
+        #else:
+         #   self.assertEqual("Solution csrf on rest",response_dict['options'][0]['answer'])
+
+    def test_code_lang_item2(self):
+        """Test if the options are working"""
+        payload = {"question": "code example for xss", "question_option": 0, "question_lang": "string"}
+        headers = {'content-type': 'application/json', 'Accept':'application/json'}
+        response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        #if (response_dict['options'][0]['answer']) is ("Code encoder"):
+        self.assertTrue((response_dict['options'][0]['answer'])==("Code encoder") or (response_dict['options'][0]['answer'])==("Code xss filtering") or (response_dict['options'][0]['answer'])==("Code x xss protection header") or (response_dict['options'][0]['answer'])==("Code encoder sql esapi"))
+
 
 
     def test_code_lang_item(self):
@@ -731,10 +755,8 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        try:
-            self.assertEqual(response_dict['options'][0]['answer'], "Code encoder in php")
-        except BadRequest:
-            return True    
+        self.assertEqual(response_dict['options'][0]['answer'], "Code encoder in php")
+         
         
     
     def test_code_classify_item(self):
