@@ -1,11 +1,16 @@
 import requests
 import json
+import json, os, requests
+from flask import Flask
+
+app = Flask(__name__)
+
 def extract_from_api():
 	r_kb = requests.get("https://demo.securityknowledgeframework.org/api/kb/items", verify = False)
 	r_code = requests.get("https://demo.securityknowledgeframework.org/api/code/items", verify = False)
 
-	f_kb = open(os.path.join(app.root_path, "api/chatbot/datasets/data.json",'w'))
-	f_code = open(os.path.join(app.root_path, "api/chatbot/datasets/code_data.json", "w"))
+	f_kb = open((os.path.join(app.root_path,"../datasets/data.json")),"w")
+	f_code = open(os.path.join(app.root_path, "../datasets/code_data.json"),"w")
 
 	f_kb.write(r_kb.content.decode('utf-8'))
 	f_code.write(r_code.content.decode('utf-8'))
@@ -15,10 +20,10 @@ def extract_from_api():
 
 
 def desc_sol_data():
-	with open(os.path.join(app.root_path, "api/chatbot/datasets/data.json",encoding='utf-8')) as read_file:
+	with open(os.path.join(app.root_path, "../datasets/data.json"),encoding='utf-8') as read_file:
         	data = json.load(read_file)
 
-	file_des_sol=open(os.path.join(app.root_path, "api/chatbot/datasets/desc_solution.json","w"))
+	file_des_sol=open(os.path.join(app.root_path, "../datasets/desc_solution.json"),"w")
 	file_des_sol.write("{\n"+'"items": [\n')
 	a=data['items']
 	for i in range(len(a)):
@@ -40,7 +45,7 @@ def desc_sol_data():
 	file_des_sol.close()
 
 def entity_data():
-	with open(os.path.join(app.root_path, "api/chatbot/datasets/data.json",encoding='utf-8')) as read_file:
+	with open(os.path.join(app.root_path, "../datasets/data.json"),encoding='utf-8') as read_file:
 	        data = json.load(read_file)
 
 	a=data['items']
@@ -50,13 +55,13 @@ def entity_data():
 	for d in a:
 		title.append((d['title']))
 
-	file_entity=open(os.path.join(app.root_path, "api/chatbot/datasets/entity_title.txt","w"))
+	file_entity=open(os.path.join(app.root_path, "../datasets/entity_title.txt"),"w")
 	for i in title:
 		file_entity.write(i+"\n")
 	file_entity.close()
 
 def intent_data():
-	with open(os.path.join(app.root_path, "api/chatbot/datasets/data.json",encoding='utf-8')) as read_file:
+	with open(os.path.join(app.root_path, "../datasets/data.json"),encoding='utf-8') as read_file:
 	        data = json.load(read_file)
 
 	a=data['items']
@@ -99,7 +104,7 @@ def intent_data():
 		code.append("Code for "+ t )
 
 
-	file=open(os.path.join(app.root_path, "api/chatbot/datasets/intent_data.csv","w"))
+	file=open(os.path.join(app.root_path, "../datasets/intent_data.csv"),"w")
 	file.write('class, question\n')
 	for x in ques:
 			x=x.replace(",","")
@@ -115,7 +120,7 @@ def intent_data():
 	file.close()
 
 def code_entity():
-	with open(os.path.join(app.root_path, "api/chatbot/datasets/code_data.json",encoding='utf-8')) as read_file:
+	with open(os.path.join(app.root_path, "../datasets/code_data.json"),encoding='utf-8') as read_file:
 	        data = json.load(read_file)
 
 	a=data['items']
@@ -125,10 +130,11 @@ def code_entity():
 	for d in a:
 		title.append((d['title']))
 
-	file_code=open(os.path.join(app.root_path, "api/chatbot/datasets/code_title.txt","w"))
+	file_code=open(os.path.join(app.root_path, "../datasets/code_title.txt"),"w")
 	for i in title:
 		file_code.write(i+"\n")
 	file_code.close()
+
 
 
 #extract_from_api()

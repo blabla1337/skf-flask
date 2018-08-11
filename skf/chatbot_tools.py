@@ -5,13 +5,16 @@ app = Flask(__name__)
 
 
 def init_dataset():
-    """Initializes the dataset needed for the chatbot."""
+"""Initializes the dataset needed for the chatbot."""
     try:
-        data.extract_from_api()
-        data.desc_sol_data()
-        data.entity_data()
-        data.intent_data()
-        data.code_entity()
-        return True
+       data.extract_from_api()
+       data.desc_sol_data()
+       data.entity_data()
+       data.intent_data()
+       data.code_entity()
+       return True
     except:
-        return False
+       return False
+
+
+
