@@ -6,8 +6,8 @@ from flask import Flask
 app = Flask(__name__)
 
 def extract_from_api():
-	r_kb = requests.get("https://demo.securityknowledgeframework.org/api/kb/items", verify = False)
-	r_code = requests.get("https://demo.securityknowledgeframework.org/api/code/items", verify = False)
+	r_kb = requests.get("https://demo.securityknowledgeframework.org/api/kb/items", verify = True)
+	r_code = requests.get("https://demo.securityknowledgeframework.org/api/code/items", verify = True)
 
 	f_kb = open((os.path.join(app.root_path,"../datasets/data.json")),"w")
 	f_code = open(os.path.join(app.root_path, "../datasets/code_data.json"),"w")
@@ -26,7 +26,7 @@ def desc_sol_data():
 	file_des_sol=open(os.path.join(app.root_path, "../datasets/desc_solution.json"),"w")
 	file_des_sol.write("{\n"+'"items": [\n')
 	a=data['items']
-	for i in range(len(a)):
+	for i in enumerate(a):
 		file_des_sol.write("{\n")
 		file_des_sol.write('"kbId": '+str(a[i]['kbID'])+",\n")
 		file_des_sol.write('"title": "'+ a[i]['title']+'",\n')
