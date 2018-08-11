@@ -143,11 +143,11 @@
 <p id="t16" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t17" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t18" class="stm run hide_run"><span class="key">def</span> <span class="nam">data_prepare</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t19" class="stm run hide_run">    <span class="nam">col</span> <span class="op">=</span> <span class="op">[</span><span class="str">'classs'</span><span class="op">,</span> <span class="str">'question'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t19" class="stm run hide_run">    <span class="nam">col</span> <span class="op">=</span> <span class="op">[</span><span class="str">'classs'</span><span class="op">,</span><span class="str">'question'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t20" class="stm run hide_run">    <span class="nam">y</span><span class="op">=</span><span class="nam">get_data</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t21" class="stm run hide_run">    <span class="nam">y</span> <span class="op">=</span> <span class="nam">y</span><span class="op">[</span><span class="nam">col</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t22" class="stm run hide_run">    <span class="nam">y</span> <span class="op">=</span> <span class="nam">y</span><span class="op">[</span><span class="nam">pd</span><span class="op">.</span><span class="nam">notnull</span><span class="op">(</span><span class="nam">y</span><span class="op">[</span><span class="str">'question'</span><span class="op">]</span><span class="op">)</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
-<p id="t23" class="stm run hide_run">    <span class="nam">y</span><span class="op">.</span><span class="nam">columns</span> <span class="op">=</span> <span class="op">[</span><span class="str">'classs'</span><span class="op">,</span> <span class="str">'question'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="stm run hide_run">    <span class="nam">y</span><span class="op">.</span><span class="nam">columns</span> <span class="op">=</span> <span class="op">[</span><span class="str">'classs'</span><span class="op">,</span><span class="str">'question'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="stm run hide_run">    <span class="nam">y</span><span class="op">[</span><span class="str">'category_id'</span><span class="op">]</span> <span class="op">=</span> <span class="nam">y</span><span class="op">[</span><span class="str">'classs'</span><span class="op">]</span><span class="op">.</span><span class="nam">factorize</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t25" class="stm run hide_run">    <span class="nam">category_id_df</span> <span class="op">=</span> <span class="nam">y</span><span class="op">[</span><span class="op">[</span><span class="str">'classs'</span><span class="op">,</span> <span class="str">'category_id'</span><span class="op">]</span><span class="op">]</span><span class="op">.</span><span class="nam">drop_duplicates</span><span class="op">(</span><span class="op">)</span><span class="op">.</span><span class="nam">sort_values</span><span class="op">(</span><span class="str">'category_id'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="stm run hide_run">    <span class="nam">category_to_id</span> <span class="op">=</span> <span class="nam">dict</span><span class="op">(</span><span class="nam">category_id_df</span><span class="op">.</span><span class="nam">values</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -190,7 +190,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.4.2</a>,
-            created at 2018-07-26 11:54
+            created at 2018-08-11 06:50
         </p>
     </div>
 </div>

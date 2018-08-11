@@ -1,104 +1,261 @@
-Login function
-XML External entities
-Anti caching headers
-Anti clickjacking
-Aggregate user contol
-Enforce secure password
-Session cookies HttpOnly
-Re authentication
-XML Injection Prevention
-X Content Type Options header
-Password Storage(salting stretching hashing)
-PHP Object Injection
-CSRF Token JSF
-HTML Output
-Timeout Sessions
-Directory path traversal
-Disable Directory Listing
-HttpOnly flag
-Audit Logs
-SQL query JDBC
-File Upload
-Server side template Injection prevention
-Timeout a Session
-SQL query
-Session cookies domain
-Random Password Token Generation
-File upload
-Session hijacking and fixation
-Password storage (salting stretching hashing)
-Charsets
-Audit logs
-Rfc2898 DeriveBytes
-Anti Caching Headers
-Logout function
-Anti caching header
-Debug enabling
-WinRegistry
-Single input validation control
-Content Type Headers
-Re Authentication
-Enforce sequential step order wizzard
-Session cookies (domain)
-HTML encoding
-XSS Filtering
 X XSS Protection Header
-XML External Entities
-Open forwards & redirects
-Identifier based authorization
-Aggregate user controls
-Random password token generation
-Enforce sequential step order shopping
-Identifier Based Authorization
-Directory path traversal attack
-Hashing
-Privilege Based Authentication
-Randomizer function
-Directory Path Traversal
-Input validation
-Crossdomain XML 
-Timeout a session
-session hijacking and fixation
-RFD and file download injection prevention
-RFD File Download Injection Prevention
-Encoder
-AuditLog
-Encoding
-Open Forwards & Redirects
-XSL Injection Prevention
-Anti Clickjacking Headers
-Open Forwards and redirects
-Session Cookies HttpOnly
-Encoder SQL ESAPI
-White listing
-X Path query
-System commands
-XSL injection prevention
-XMLPrevention
-Secure Database Configuration
-Logout
-Sandboxing
-Preventing Session Hijacking
-User registration SQL truncation
-Anti clickjacking headers
 Session Cookies (Domain)
-Login functionality
-Password forget and disallow old passwords
-Reauthentication
+X content type pptions header
+Enforce secure password
+RFD File Download Injection Prevention
+Audit Logs
+CSRF Tokens
+Logout
+Timeout a Session
+White listing
+Random Password Token Generation
+Directory Path Traversal
+Session Cookies HttpOnly
+SQL Query
+Re Authentication
+Open Forwards & Redirects
+Anti clickjacking header
+X Path Query
+Encoding
 Secure Session Cookies
-Absolute timeout of a session
-Content type headers
-Character encoding
+Crossdomain.xml 
+XML External Entities
+Anti caching header
+Aggregate User Controls
+Password Storage(salting stretching hashing)
+Sandboxing
+Privilege Based Authentication
+Identifier Based Authorization
+Enforce sequential step order wizzard
+Preventing Session Hijacking
+Charsets
+Content Type Headers
+XML Injection Prevention
+Single input validation control
+File Upload
+Login functionality
+Disable Directory Listing
+HTML Output
+Disable Directory Listing
+Password forget and disallow old passwords
+Timeout Sessions
+Directory path traversal attack
+Logout
+Enforce secure password
+File uploading
+CSRF Token JSF
+Sandboxing
+Hashing
+HTML encoding
+Anti clickjacking
+XMLPrevention
+X Path query
+Encoder SQL ESAPI
+Single input validation control
+Anti caching headers
+WinRegistry
+Secure Database Configuration
 Crossdomain XML
 CSRF Token
-Anti clickjacking header
-Enforce secure passwords
-User Registration SQL truncation prevention
-Aggregate User Controls
-File uploading
-RFD and file download injections
-Privilege based authentication
-Directory listing
-Whitelisting function
+Aggregate user contol
+SQL query JDBC
 SQL Query
-
+session hijacking and fixation
+AuditLog
+Randomizer function
+Whitelisting function
+Charsets
+X Content Type Options header
+XML External Entities
+XSL Injection Prevention
+XSS Filtering
+User Registration SQL truncation prevention
+Reauthentication
+Open Forwards and redirects
+Secure Session Cookies
+Rfc2898 DeriveBytes
+Login function
+HTML Output
+HttpOnly flag
+Session cookies domain
+RFD and file download injections
+Identifier based authorization
+X XSS Protection header
+Enforce secure passwords
+Re authentication
+XSL injection prevention
+Session cookies (domain)
+Directory listing
+RFD and file download injection prevention
+X Content Type Options header
+Audit logs
+CSRF tokens
+Logout function
+Timeout a session
+White listing
+Session hijacking and fixation
+Random password token generation
+Directory path traversal
+Input validation
+Enforce sequential step order shopping
+System commands
+Session cookies HttpOnly
+SQL query
+Open forwards & redirects
+X path query
+Anti caching headers
+Secure session cookies
+Crossdomain.xml 
+Password forget and disallow old passwords
+XML External entities
+Anti clickjacking headers
+Debug enabling
+Login functionality
+User registration SQL truncation
+Encoder
+Aggregate user controls
+Password storage(salting stretching hashing)
+Sandboxing
+Identifier based authorization
+PHP Object Injection
+Charsets
+Content type headers
+XML injection prevention
+File upload
+Privilege based authentication
+HTML output
+X XSS Protection header
+Server side template Injection prevention
+Enforce secure passwords
+Re authentication
+XSL injection prevention
+Session cookies (domain)
+Directory listing
+RFD and file download injection prevention
+X Content Type Options header
+Audit logs
+CSRF tokens
+Logout function
+White listing
+Session hijacking and fixation
+Random password token generation
+Password storage (salting stretching hashing)
+Directory path traversal
+Input validation
+Enforce sequential step order shopping
+System commands
+Session cookies HttpOnly
+SQL query
+Open forwards & redirects
+X path query
+Anti caching headers
+Secure session cookies
+Crossdomain.xml 
+Password forget and disallow old passwords
+XML External entities
+Anti clickjacking headers
+Debug enabling
+Login functionality
+User registration SQL truncation
+Encoder
+Aggregate user controls
+Absolute timeout of a session
+Sandboxing
+Identifier based authorization
+Charsets
+Content type headers
+XML injection prevention
+File upload
+Privilege based authentication
+HTML output
+X XSS Protection header
+Enforce secure passwords
+Re authentication
+XSL injection prevention
+Session cookies (domain)
+Directory listing
+RFD and file download injection prevention
+X Content Type Options header
+Audit logs
+CSRF tokens
+Logout function
+White listing
+Session hijacking and fixation
+Random password token generation
+Directory path traversal
+Input validation
+System commands
+Session cookies HttpOnly
+SQL query
+Open forwards & redirects
+X path query
+Anti caching headers
+Secure session cookies
+Crossdomain.xml 
+Password forget and disallow old passwords
+XML External entities
+Anti clickjacking headers
+Debug enabling
+Login functionality
+User registration SQL truncation
+Encoder
+Character encoding
+Aggregate user controls
+Absolute timeout of a session
+Password storage(salting stretching hashing)
+Sandboxing
+Identifier based authorization
+Charsets
+Content type headers
+XML injection prevention
+File upload
+Privilege based authentication
+HTML output
+X XSS Protection Header
+X Content Type Options Header
+Anti Caching Headers
+Anti Clickjacking Headers
+Content Type Headers
+X XSS Protection header
+Enforce secure passwords
+Re authentication
+XSL injection prevention
+Session cookies (domain)
+Directory listing
+RFD and file download injection prevention
+X Content Type Options header
+Audit logs
+CSRF tokens
+Logout function
+Timeout a session
+White listing
+Session hijacking and fixation
+Random password token generation
+Directory path traversal
+Input validation
+Enforce sequential step order shopping
+System commands
+Session cookies HttpOnly
+SQL query
+Open forwards & redirects
+X path query
+Anti caching headers
+Secure session cookies
+Password forget and disallow old passwords
+XML External entities
+Anti clickjacking headers
+Debug enabling
+Login functionality
+User registration SQL truncation
+Encoder
+Aggregate user controls
+Password storage(salting stretching hashing)
+Sandboxing
+Identifier based authorization
+Charsets
+Content Type Headers
+XML injection prevention
+Crossdomain.xml
+File upload
+Privilege based authentication
+HTML output
