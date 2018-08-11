@@ -16,11 +16,11 @@ def get_data():
 
 
 def data_prepare():
-    col = ['classs', 'question']
+    col = ['classs','question']
     y=get_data()
     y = y[col]
     y = y[pd.notnull(y['question'])]
-    y.columns = ['classs', 'question']
+    y.columns = ['classs','question']
     y['category_id'] = y['classs'].factorize()[0]
     category_id_df = y[['classs', 'category_id']].drop_duplicates().sort_values('category_id')
     category_to_id = dict(category_id_df.values)
