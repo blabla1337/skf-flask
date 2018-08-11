@@ -1,6 +1,6 @@
 import requests
 import json
-import json, os, requests
+import os
 from flask import Flask
 
 app = Flask(__name__)
