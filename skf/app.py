@@ -87,6 +87,7 @@ def configure_app(flask_app):
     flask_app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
     flask_app.config['TESTING'] = settings.TESTING
     flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
+    flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
 
 
 def initialize_app(flask_app):

@@ -1,20 +1,16 @@
-import requests
-import json
-import os
+import requests, json, os
 from flask import Flask
+from skf import settings
 
 app = Flask(__name__)
 
 def extract_from_api():
-	r_kb = requests.get("https://demo.securityknowledgeframework.org/api/kb/items", verify = False)
-	r_code = requests.get("https://demo.securityknowledgeframework.org/api/code/items", verify =False)
-
+	r_kb = requests.get(settings.SKF_API_URL+"kb/items", verify = False)
+	r_code = requests.get(settings.SKF_API_URL+"code/items", verify =False)
 	f_kb = open((os.path.join(app.root_path,"../datasets/data.json")),"w")
 	f_code = open(os.path.join(app.root_path, "../datasets/code_data.json"),"w")
-
 	f_kb.write(r_kb.content.decode('utf-8'))
 	f_code.write(r_code.content.decode('utf-8'))
-
 	f_kb.close()
 	f_code.close()
 
@@ -22,7 +18,6 @@ def extract_from_api():
 def desc_sol_data():
 	with open(os.path.join(app.root_path, "../datasets/data.json"),encoding='utf-8') as read_file:
         	data = json.load(read_file)
-
 	file_des_sol=open(os.path.join(app.root_path, "../datasets/desc_solution.json"),"w")
 	file_des_sol.write("{\n"+'"items": [\n')
 	a=data['items']
@@ -44,26 +39,23 @@ def desc_sol_data():
 	file_des_sol.write("]"+"\n"+"}")
 	file_des_sol.close()
 
+
 def entity_data():
 	with open(os.path.join(app.root_path, "../datasets/data.json"),encoding='utf-8') as read_file:
 	        data = json.load(read_file)
-
 	a=data['items']
-
 	title=[]
-
 	for d in a:
 		title.append((d['title']))
-
 	file_entity=open(os.path.join(app.root_path, "../datasets/entity_title.txt"),"w")
 	for i in title:
 		file_entity.write(i+"\n")
 	file_entity.close()
 
+
 def intent_data():
 	with open(os.path.join(app.root_path, "../datasets/data.json"),encoding='utf-8') as read_file:
 	        data = json.load(read_file)
-
 	a=data['items']
 	title=[]
 	for d in a:
@@ -84,7 +76,6 @@ def intent_data():
 		ques.append("What can you tell me about " + t + " ?")
 		ques.append("I want to know about XSS " + t )
 		ques.append("Do you have information about " + t + " ?")
-
 	for t in title:
 		sol.append("How to solve "+ t + " ?")
 		sol.append("How to resolve "+ t + " ?")
@@ -96,14 +87,11 @@ def intent_data():
 		sol.append("How to defend "+ t + " ?")
 		sol.append("How to get secured against "+ t + " ?")
 		sol.append("Solution, "+t)
-
 	for t in title:
 		code.append("Give me some sample code of "+ t )
 		code.append("Code example of "+ t + " ?")
 		code.append("Code of "+ t )
 		code.append("Code for "+ t )
-
-
 	file=open(os.path.join(app.root_path, "../datasets/intent_data.csv"),"w")
 	file.write('classs,question\n')
 	for x in ques:
@@ -112,33 +100,21 @@ def intent_data():
 	for y in sol:
 			y=y.replace(",","")
 			file.write('Solution, '+y+"\n")
-
 	for z in code:
 			z=z.replace(",","")
 			file.write('Code, '+z+"\n")
-
 	file.close()
+
 
 def code_entity():
 	with open(os.path.join(app.root_path, "../datasets/code_data.json"),encoding='utf-8') as read_file:
 	        data = json.load(read_file)
-
 	a=data['items']
-
 	title=[]
-
 	for d in a:
 		title.append((d['title']))
-
 	file_code=open(os.path.join(app.root_path, "../datasets/code_title.txt"),"w")
 	for i in title:
 		file_code.write(i+"\n")
 	file_code.close()
 
-
-
-#extract_from_api()
-#desc_sol_data()
-#entity_data()
-#intent_data()
-#code_entity()
