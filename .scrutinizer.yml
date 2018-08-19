@@ -154,7 +154,7 @@ build:
     tests:
         # before:
         override:
-            - coverage3 tests/run.py test
+            - python3 -m coverage run tests/run.py tests
                 # https://scrutinizer-ci.com/docs/build/code_coverage
                 # scrutinizer-ci.com coverage not work. idk why
                 #coverage:
