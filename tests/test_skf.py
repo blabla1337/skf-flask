@@ -217,12 +217,12 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Using Requirements of Reverse Engineering you can form the levels L1+R or L2+R.")
-        self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
+        self.assertEqual(response_dict['items'][0]['checklist_items_level'], -1)
 
 
 
     def test_get_checklist_items_pcidss(self):
-        """Test if the get specific PCIDSS checklist item by level 3 call is working"""
+        """Test if the get specific PCIDSS checklist item by level 1 call is working"""
         response = self.client.get('/api/checklist/level/1/type/2')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
