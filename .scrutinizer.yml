@@ -152,7 +152,8 @@ build:
 
     # https://scrutinizer-ci.com/docs/configuration/build#running-tests
     tests:
-        # before:
+        before:
+            - pip install coverage
         override:
             - python3 -m coverage run tests/run.py tests
                 # https://scrutinizer-ci.com/docs/build/code_coverage
