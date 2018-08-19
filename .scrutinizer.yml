@@ -154,6 +154,7 @@ build:
     tests:
         before:
             - pip install -r requirements.txt
+            - pip install requests
             - export FLASK_APP=skf/app.py
             - export PYTHONPATH=.:$PYTHONPATH
         override:
