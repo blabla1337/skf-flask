@@ -1,0 +1,1 @@
+12.10.3 Designate specific personnel to be available on a 24/7 basis to respond to alerts. 

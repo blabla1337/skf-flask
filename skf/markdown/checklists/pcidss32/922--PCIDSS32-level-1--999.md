@@ -1,0 +1,1 @@
+12.5.3 Assign to an individual or team the information security management responsibilities: Establish, document, and distribute security incident response and escalation procedures to ensure timely and effective handling of all situations. 

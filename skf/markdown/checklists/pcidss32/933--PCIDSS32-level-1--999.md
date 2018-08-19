@@ -1,0 +1,1 @@
+12.8.4 Maintain a program to monitor service providers? PCI DSS compliance status at least annually. 

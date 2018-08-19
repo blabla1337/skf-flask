@@ -181,21 +181,21 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_checklist_fail(self):
         """Test if the get checklist items fail call is working"""
-        response = self.client.get('/api/checklist/1337.1337,0')
+        response = self.client.get('/api/checklist/item/1337.1337/type/0')
         self.assertEqual(response.status_code, 400)
 
 
     def test_get_checklist_item_10(self):
         """Test if the get specific checklist item call is working"""
-        response = self.client.get('/api/checklist/1.1,0')
+        response = self.client.get('/api/checklist/item/1.1/type/0')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['checklist_items_checklistID'], '1.1')
 
 
     def test_get_checklist_items_level1(self):
-        """Test if the get specific checklist item by level call is working"""
-        response = self.client.get('/api/checklist/level/1')
+        """Test if the get specific ASVS checklist item by level call is working"""
+        response = self.client.get('/api/checklist/level/1/type/0')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, design and threat modelling")
@@ -203,20 +203,30 @@ class TestRestPlusApi(unittest.TestCase):
 
 
     def test_get_checklist_items_level2(self):
-        """Test if the get specific checklist item by level 2 call is working"""
-        response = self.client.get('/api/checklist/level/2')
+        """Test if the get specific ASVS checklist item by level 2 call is working"""
+        response = self.client.get('/api/checklist/level/2/type/0')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, design and threat modelling")
         self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
 
 
-    def test_get_checklist_items_level3(self):
-        """Test if the get specific checklist item by level 3 call is working"""
-        response = self.client.get('/api/checklist/level/3')
+    def test_get_checklist_items_masvs(self):
+        """Test if the get specific MASVS checklist item by level 3 call is working"""
+        response = self.client.get('/api/checklist/level/3/type/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, design and threat modelling")
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, Design and Threat Modelling Requirements")
+        self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
+
+
+
+    def test_get_checklist_items_pcidss(self):
+        """Test if the get specific PCIDSS checklist item by level 3 call is working"""
+        response = self.client.get('/api/checklist/level/1/type/2')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Install and maintain a firewall configuration to protect cardholder data")
         self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
 
 

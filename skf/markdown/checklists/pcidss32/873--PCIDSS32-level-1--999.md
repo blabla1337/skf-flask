@@ -1,0 +1,1 @@
+10.5.3 Promptly back up audit trail files to a centralized log server or media that is difficult to alter. 

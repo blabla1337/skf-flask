@@ -1,0 +1,1 @@
+10.3.2 Record the audit trail entry type of event for all system components for each event. 

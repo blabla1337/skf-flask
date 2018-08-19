@@ -1,0 +1,1 @@
+3.5.1 Additional requirement for service providers only: Maintain a documented description of the cryptographic architecture

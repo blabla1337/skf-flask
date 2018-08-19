@@ -1,0 +1,1 @@
+12.3.1 Explicit approval by authorized parties.

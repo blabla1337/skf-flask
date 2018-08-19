@@ -1,0 +1,1 @@
+8.2.4 Change user passwords/passphrases at least once every 90 days.  

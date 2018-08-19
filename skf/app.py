@@ -3,7 +3,7 @@
     Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples
     and helps developers in pre-development & post-development.
-    Copyright (C) 2017 Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2018 Glenn ten Cate, Riccardo ten Cate
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the

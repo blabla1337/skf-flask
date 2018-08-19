@@ -1,0 +1,1 @@
+6.5.6 All high risk vulnerabilities identified in the vulnerability identification process (as defined in PCI DSS.

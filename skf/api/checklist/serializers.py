@@ -8,6 +8,7 @@ checklist = api.model('checklist', {
     'checklist_items_checklistID': fields.String(attribute='checklist_items.checklistID', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='checklist_items.content', required=True, description='Checklist content'),
     'checklist_items_level': fields.Integer(attribute='checklist_items.level', required=True, description='Checklist level'),
+    'checklist_items_type': fields.Integer(attribute='checklist_items.checklist_type', required=True, description='Checklist type'),
 })
 
 checklist_items = api.inherit('List of checklist items', {

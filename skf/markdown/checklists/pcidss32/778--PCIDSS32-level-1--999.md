@@ -1,0 +1,1 @@
+6.5.7 Implemented mitigation for cross-site scripting (XSS).

@@ -1,0 +1,1 @@
+9.10 Ensure that security policies and operational procedures for restricting physical access to cardholder data are documented, in use, and known to all affected parties. 

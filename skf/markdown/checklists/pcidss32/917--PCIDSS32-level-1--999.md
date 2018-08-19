@@ -1,0 +1,1 @@
+12.4 Ensure that the security policy and procedures clearly define information security responsibilities for all personnel. 

@@ -1,0 +1,1 @@
+6.4.5.2 Documented change approval by authorized parties. 

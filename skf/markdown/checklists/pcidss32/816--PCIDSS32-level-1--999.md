@@ -1,0 +1,1 @@
+8.5 Do not use group, shared, or generic IDs, passwords, or other authentication methods.

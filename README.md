@@ -222,7 +222,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 
 
 ## <a name="license"></a>License
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as

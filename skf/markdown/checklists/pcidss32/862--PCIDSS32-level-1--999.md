@@ -1,0 +1,1 @@
+10.3.3 Record the audit trail entry date and time for all system components for each event. 

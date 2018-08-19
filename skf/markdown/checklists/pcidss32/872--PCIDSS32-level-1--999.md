@@ -1,0 +1,1 @@
+10.5.2 Protect audit trail files from unauthorized modifications. 
