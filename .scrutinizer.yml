@@ -1,9 +1,12 @@
 # .scrutinizer.yml
 
+tools:
+    external_code_coverage: true
+
 checks:
     python:
         code_rating: true
-        duplicate_code: false
+        duplicate_code: true
         basic_exec_used: true
         basic_eval_used: true
         basic_dangerous_default_value: true
