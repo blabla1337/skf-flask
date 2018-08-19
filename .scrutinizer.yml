@@ -154,6 +154,8 @@ build:
     tests:
         before:
             - pip install coverage
+            - export FLASK_APP=skf/app.py
+            - export PYTHONPATH=.:$PYTHONPATH
         override:
             - coverage run tests/run.py tests
                 # https://scrutinizer-ci.com/docs/build/code_coverage
