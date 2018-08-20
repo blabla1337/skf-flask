@@ -1,0 +1,13 @@
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+  notify:
+    gitter:
+      default:
+        url: "https://webhooks.gitter.im/e/92345b4a72886bb780ac"
+  status:
+    project: yes
+    patch: yes
+    changes: yes
+    

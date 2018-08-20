@@ -858,7 +858,11 @@ class TestDB(unittest.TestCase):
     def test_init_db(self):
         """Test if the init db is working"""
         self.assertTrue(init_db())
-        
+
+    def test_update_db(self):
+        """Test if the update db is working"""
+        init_db()
+        self.assertTrue(update_db())        
 
 
 class TestSecurity(unittest.TestCase):

@@ -1,7 +1,9 @@
 import os
+from flask import Flask
 from skf import settings
 from shutil import copyfile
-from flask import Flask
+from skf.database import db
+from skf.database.kb_items import kb_items
 from sqlite3 import dbapi2 as sqlite3
 
 
@@ -38,15 +40,12 @@ def update_db():
     try:
         os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
         db = connect_db()
-        db.session.delete("TRUNCATE TABLE kb_items")
-        db.session.delete("TRUNCATE TABLE code_items")
-        db.session.delete("TRUNCATE TABLE checklists")
-        db.session.commit()
-
+        with app.open_resource(os.path.join(app.root_path, 'db.clean'), mode='r') as f:
+            db.cursor().executescript(f.read())
+        db.commit()
         init_md_checklists()
         init_md_code_examples()
         init_md_knowledge_base()
-
         with app.open_resource(os.path.join(app.root_path, 'db.sqlite_schema'), mode='r') as f:
             db.cursor().executescript(f.read())
         db.commit()
