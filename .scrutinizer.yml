@@ -151,14 +151,14 @@ build:
         after: true
 
     # https://scrutinizer-ci.com/docs/configuration/build#running-tests
-    tests:
-        before:
-            - pip install -r requirements.txt
-            - pip install requests
-            - export FLASK_APP=skf/app.py
-            - export PYTHONPATH=.:$PYTHONPATH
-        override:
-            - coverage run tests/run.py tests
+    #tests:
+        #before:
+            #- pip install -r requirements.txt
+            #- pip install requests
+            #- export FLASK_APP=skf/app.py
+            #- export PYTHONPATH=.:$PYTHONPATH
+        #override:
+            #- coverage run tests/run.py tests
                 # https://scrutinizer-ci.com/docs/build/code_coverage
                 # scrutinizer-ci.com coverage not work. idk why
                 #coverage:
