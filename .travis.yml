@@ -53,7 +53,7 @@ after_success:
 notifications:
   webhooks:
     urls:
-      - https://webhooks.gitter.im/e/0166be20e8a41ff19fd8
+      - https://webhooks.gitter.im/e/e55113d395f98b551f5a
     on_success: always  
     on_failure: always  
     on_start: never     
