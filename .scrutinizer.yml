@@ -138,17 +138,17 @@ checks:
         #runs: 7
 
 # https://scrutinizer-ci.com/docs/configuration/build
-build:
-    environment:
+#build:
+    #environment:
         # https://scrutinizer-ci.com/docs/build/environment
         # last version
-        python: '3.6.0'
+        #python: '3.6.0'
 
     # https://scrutinizer-ci.com/docs/configuration/build#dependencies-project-setup
-    dependencies:
-        before: true
-        override: true
-        after: true
+    #dependencies:
+        #before: true
+        #override: true
+        #after: true
 
     # https://scrutinizer-ci.com/docs/configuration/build#running-tests
     #tests:
