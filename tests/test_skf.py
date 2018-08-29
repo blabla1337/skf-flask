@@ -693,7 +693,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         res = response_dict['options'][0]['answer'][0:29]
-        self.assertEqual(res,"Description for xss injection")
+        self.assertEqual(res,"Description for XSS injection")
 
 
     def test_get_solution_item(self):
@@ -704,7 +704,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         res = response_dict['options'][0]['answer'][0:26]
-        self.assertEqual(res,"Solution for xss injection")
+        self.assertEqual(res,"Solution for XSS injection")
 
 
     def test_code_item_list(self):
