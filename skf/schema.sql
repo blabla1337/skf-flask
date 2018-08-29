@@ -139,25 +139,7 @@ CREATE TABLE `questions_sprint` (
 );
 
 --
---ASVS lvl 1
---
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 1, "Does the sprint implement/changes authentication?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 1, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 1, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 1, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 1, "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 1, "Does the sprint implement/changes functions that use SQL?");
---
---ASVS lvl 2
---
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 2, "Does the sprint implement/changes authentication?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 2, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 2, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 2, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 2, "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 2, "Does the sprint implement/changes functions that use SQL?");
---
---ASVS lvl 3
+--ASVS
 --
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "Does the sprint implement/changes authentication?");
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
@@ -181,51 +163,6 @@ INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, 
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "Does the sprint implement/changes functionality that contain forwards or redirects?");
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "Does the sprint implement/changes functionality that are API?");
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "Does the sprint implement/changes functionality that are mobile (native, xamarin, corona, etc)?");
---
---MASVS lvl 1
---
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 1, "Does the sprint implement/changes authentication?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 1, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 1, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 1, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 1, "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 1, "Does the sprint implement/changes functions that use SQL?");
---
---MASVS lvl 2
---
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 2, "Does the sprint implement/changes authentication?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 2, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 2, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 2, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 2, "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 2, "Does the sprint implement/changes functions that use SQL?");
---
---MASVS lvl 3
---
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "Does the sprint implement/changes authentication?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "Does the sprint implement/changes functions that use SQL?");
---
---PCIDSS
---
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (2, 1, "Does the sprint implement/changes authentication?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (2, 1, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (2, 1, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (2, 1, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (2, 1, "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (2, 1, "Does the sprint implement/changes functions that use SQL?");
---
---CUSTOM
---
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (3, 1, "Does the sprint implement/changes authentication?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (3, 1, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (3, 1, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (3, 1, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (3, 1, "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`, `checklist_level`, `question`) VALUES (3, 1, "Does the sprint implement/changes functions that use SQL?");
 
 --
 -- Table structure for table `questions_pre`
@@ -239,49 +176,12 @@ CREATE TABLE `questions_pre` (
 );
 
 --
---ASVS lvl 1
---
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 1, "You have a blueprint for the design, architecture and validated this using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 1, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
---
---ASVS lvl 2
---
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 2, "You have a blueprint for the design, architecture and validated this using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 2, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
---
 --ASVS lvl 3
 --
 INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "You have a blueprint for the design, architecture and validated this using ASVS?");
 INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
 INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "You have a central Single Sign On service and validated this service using ASVS?");
 INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (0, 3, "You have a central Identity Management System service and validated this service using ASVS?");
---
---MASVS lvl 1
---
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 1, "You have a blueprint for the design, architecture and validated this using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 1, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
---
---MASVS lvl 2
---
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 2, "You have a blueprint for the design, architecture and validated this using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 2, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
---
---MASVS lvl 3
---
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "You have a blueprint for the design, architecture and validated this using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "You have a central Single Sign On service and validated this service using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (1, 3, "You have a central Identity Management System service and validated this service using ASVS?");
---
---PCIDSS
---
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (2, 1, "You have a blueprint for the design, architecture and validated this using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (2, 1, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
---
---CUSTOM
---
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (3, 1, "You have a blueprint for the design, architecture and validated this using ASVS?");
-INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `question`) VALUES (3, 1, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
 
 
 --
