@@ -1,1 +1,0 @@
-7.1.3 Assign access based on individual personnel's job classification and function. 

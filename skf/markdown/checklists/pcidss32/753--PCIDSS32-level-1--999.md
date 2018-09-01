@@ -1,1 +1,0 @@
-5.4 Ensure that security policies and operational procedures for protecting systems against malware are documented, in use, and known to all affected parties. 

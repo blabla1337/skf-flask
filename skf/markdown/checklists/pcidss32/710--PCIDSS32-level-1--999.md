@@ -1,1 +1,0 @@
-2.2.2 Enable only necessary services, protocols, daemons, etc., as required for the function of the system. 

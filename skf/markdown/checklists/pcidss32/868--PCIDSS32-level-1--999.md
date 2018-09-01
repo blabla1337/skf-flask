@@ -1,1 +1,0 @@
-10.4.2 Time data is protected. 

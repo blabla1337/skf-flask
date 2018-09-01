@@ -1,1 +1,0 @@
-10.1 Implement audit trails to link all access to system components to each individual user. 

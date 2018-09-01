@@ -1,1 +1,0 @@
-2.3 Encrypt all non-console administrative access using strong cryptography. 

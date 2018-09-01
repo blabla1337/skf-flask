@@ -1,1 +1,0 @@
-9.4.1 Visitors are authorized before entering, and escorted at all times within, areas where cardholder data is processed or maintained. 

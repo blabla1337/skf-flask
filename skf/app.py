@@ -3,7 +3,7 @@
     Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples
     and helps developers in pre-development & post-development.
-    Copyright (C) 2018 Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2017 Glenn ten Cate, Riccardo ten Cate
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
@@ -88,7 +88,6 @@ def configure_app(flask_app):
     flask_app.config['TESTING'] = settings.TESTING
     flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
     flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
-    flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
 
 
 def initialize_app(flask_app):
@@ -129,7 +128,7 @@ def initdataset_command():
 def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
-    print('Database updated with the markdown files.')
+    print('Markdown files updated in the database.')
 
 
 def main():

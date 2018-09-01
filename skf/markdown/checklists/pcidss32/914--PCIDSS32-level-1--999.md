@@ -1,1 +1,0 @@
-12.3.8 Automatic disconnect of sessions for remote-access technologies after a specific period of inactivity.

@@ -45,13 +45,15 @@ export class ProjectDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.idFromURL = params['id'];
-      localStorage.setItem("tempParamID", params['id'])
-      this.sprintService.getSprintStats(this.idFromURL).subscribe(
-        resp => this.sprintResult = resp,
-        err => console.log("Error getting sprint stats"))
+    this.idFromURL = params['id'];
+    localStorage.setItem("tempParamID", params['id'])
+    setTimeout(() => {
+    this.sprintService.getSprintStats(this.idFromURL).subscribe(
+    resp => this.sprintResult = resp,
+    err => console.log("Error getting sprint stats"))
+    }, 1000);
     });
-
+    
     this.questionsSprintService
       .getSprintQuestions()
       .subscribe(

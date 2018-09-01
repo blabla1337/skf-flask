@@ -1,1 +1,0 @@
-6.4 Follow change control processes and procedures for all changes to system components. 

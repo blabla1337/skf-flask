@@ -1,1 +1,0 @@
-6.4.5.3 Functionality testing to verify that the change does not adversely impact the security of the system. 

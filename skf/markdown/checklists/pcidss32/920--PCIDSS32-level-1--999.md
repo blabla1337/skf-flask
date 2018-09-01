@@ -1,1 +1,0 @@
-12.5.1 Assign to an individual or team the following information security management responsibilities: * Establish, document, and distribute security policies and procedures. 

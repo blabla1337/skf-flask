@@ -1,1 +1,0 @@
-1.3.2 Limit inbound Internet traffic to IP addresses within the DMZ. 

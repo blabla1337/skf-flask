@@ -1,1 +1,0 @@
-12.5.2 Assign to an individual or team the information security management responsibilities: Monitor and analyze security alerts and information, and distribute to appropriate personnel. 

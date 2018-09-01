@@ -8,7 +8,6 @@ class checklists(db.Model):
     content = db.Column(db.Text)
     level = db.Column(db.Integer)
     kbID = db.Column(db.Integer)
-    checklist_type = db.Column(db.Integer)
 
     def __init__(self, checklistID, content, level, kbId):
         self.checklistID = checklistID

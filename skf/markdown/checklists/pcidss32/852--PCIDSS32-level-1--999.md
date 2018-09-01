@@ -1,1 +1,0 @@
-10.2.1 Create audit logs for all individual user accesses to cardholder data 

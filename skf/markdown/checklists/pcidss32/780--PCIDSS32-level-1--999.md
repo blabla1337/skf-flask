@@ -1,1 +1,0 @@
-6.5.9 Implemented mitigation for cross-site request forgery (CSRF).

@@ -1,1 +1,0 @@
-9.9 Protect devices that capture payment card data via direct physical interaction with the card from tampering and substitution.

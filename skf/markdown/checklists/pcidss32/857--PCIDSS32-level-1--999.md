@@ -1,1 +1,0 @@
-10.2.6 Create audit logs for all initialization, stopping, or pausing of the audit logs.

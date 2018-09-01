@@ -1,1 +1,0 @@
-1.2 Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 

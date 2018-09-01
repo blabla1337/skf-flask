@@ -1,1 +1,0 @@
-3.2.3 Do not store the personal identification number (PIN) or the encrypted PIN block after authorization. 

@@ -1,1 +1,0 @@
-9.6.2 Send the media by secured courier or other delivery method that can be accurately tracked. 

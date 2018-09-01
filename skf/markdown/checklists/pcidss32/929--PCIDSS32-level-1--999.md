@@ -1,1 +1,0 @@
-12.8 Maintain and implement policies and procedures to manage service providers with whom cardholder data is shared, or that could affect the security of cardholder data. 

@@ -1,1 +1,0 @@
-6.5.10 Implemented mitigation for broken authentication and session management. 

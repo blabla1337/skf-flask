@@ -1,1 +1,0 @@
-10.6.1 Review security events at least daily.

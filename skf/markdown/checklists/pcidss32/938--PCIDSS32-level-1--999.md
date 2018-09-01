@@ -1,1 +1,0 @@
-12.10.2 Review and test the plan, including all elements listed in Requirement 12.10.1, at least annually.

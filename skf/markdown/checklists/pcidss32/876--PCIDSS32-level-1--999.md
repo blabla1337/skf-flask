@@ -1,1 +1,0 @@
-10.6 Review logs and security events for all system components to identify anomalies or suspicious activity. 
