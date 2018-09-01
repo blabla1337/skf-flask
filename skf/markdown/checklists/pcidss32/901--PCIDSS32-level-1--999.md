@@ -1,0 +1,1 @@
+11.6 Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties. 

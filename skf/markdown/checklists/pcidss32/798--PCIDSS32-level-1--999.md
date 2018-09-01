@@ -1,0 +1,1 @@
+8.1.2 Control addition, deletion, and modification of user IDs, credentials, and other identifier objects. 

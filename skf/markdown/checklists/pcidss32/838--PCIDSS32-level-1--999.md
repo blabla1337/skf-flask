@@ -1,0 +1,1 @@
+9.6.3 Ensure management approves any and all media that is moved from a secured area (including when media is distributed to individuals). 

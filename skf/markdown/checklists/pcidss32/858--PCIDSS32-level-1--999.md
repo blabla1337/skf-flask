@@ -1,0 +1,1 @@
+10.2.7 Create audit logs for all creation and deletion of system-level objects.

@@ -48,10 +48,10 @@ export class ProjectDashboardComponent implements OnInit {
     this.idFromURL = params['id'];
     localStorage.setItem("tempParamID", params['id'])
     setTimeout(() => {
-    this.sprintService.getSprintStats(this.idFromURL).subscribe(
-    resp => this.sprintResult = resp,
-    err => console.log("Error getting sprint stats"))
-    }, 2500);
+      this.sprintService.getSprintStats(this.idFromURL).subscribe(
+      resp => this.sprintResult = resp,
+      err => console.log("Error getting sprint stats"))
+    }, 1000);
     });
     
     this.questionsSprintService

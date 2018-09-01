@@ -1,0 +1,1 @@
+12.6.1 Educate personnel upon hire and at least annually. 

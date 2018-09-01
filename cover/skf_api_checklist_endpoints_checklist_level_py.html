@@ -103,20 +103,20 @@
 <p id="t7" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm run hide_run"><span class="nam">ns</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">namespace</span><span class="op">(</span><span class="str">'checklist'</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Operations related to checklist items'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t9" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t10" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/level/&lt;int:level>'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t11" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">doc</span><span class="op">(</span><span class="nam">params</span><span class="op">=</span><span class="op">{</span><span class="str">'level'</span><span class="op">:</span> <span class="str">'The checklist level'</span><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="stm run hide_run"><span class="op">@</span><span class="nam">ns</span><span class="op">.</span><span class="nam">route</span><span class="op">(</span><span class="str">'/level/&lt;int:level>/type/&lt;int:checklist_type>'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">doc</span><span class="op">(</span><span class="nam">params</span><span class="op">=</span><span class="op">{</span><span class="str">'level'</span><span class="op">:</span> <span class="str">'The checklist level'</span><span class="op">,</span> <span class="str">'checklist_type'</span><span class="op">:</span> <span class="str">'The checklist type (0: ASVS, 1: MASVS)'</span><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t12" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">404</span><span class="op">,</span> <span class="str">'Validation error'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t13" class="stm run hide_run"><span class="key">class</span> <span class="nam">ChecklistItem</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t14" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t15" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_list_with</span><span class="op">(</span><span class="nam">checklist_items</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t16" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">'No results found'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t17" class="pln">    <span class="key">def</span> <span class="nam">get</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">level</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t17" class="pln">    <span class="key">def</span> <span class="nam">get</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">level</span><span class="op">,</span> <span class="nam">checklist_type</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t18" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="pln"><span class="str">        Returns list of checklist items based on level.</span><span class="strut">&nbsp;</span></p>
 <p id="t20" class="pln"><span class="str">        * Privileges required: **none**</span><span class="strut">&nbsp;</span></p>
 <p id="t21" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
 <p id="t22" class="stm run hide_run">        <span class="nam">lvl</span> <span class="op">=</span> <span class="nam">level</span><span class="strut">&nbsp;</span></p>
-<p id="t23" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">get_checklist_items_lvl</span><span class="op">(</span><span class="nam">lvl</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">get_checklist_items_lvl</span><span class="op">(</span><span class="nam">lvl</span><span class="op">,</span> <span class="nam">checklist_type</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="stm run hide_run">        <span class="key">return</span> <span class="nam">result</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -128,7 +128,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-08-17 13:17
+            created at 2018-08-19 10:59
         </p>
     </div>
 </div>

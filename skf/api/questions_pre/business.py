@@ -6,12 +6,16 @@ from skf.database.project_sprints import project_sprints
 from skf.database.checklists_results import checklists_results
 from skf.database.question_pre_results import question_pre_results
 from skf.database.question_sprint_results import question_sprint_results
-from skf.api.security import log, val_num, val_alpha
+from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 
-def get_pre_items():
+def get_pre_items(data):
     log("User requested list of question pre items", "LOW", "PASS")
-    result = questions_pre.query.paginate(1, 500, False)
+    val_alpha_num(data.get('question_level'))
+    val_alpha_num(data.get('question_type'))
+    question_level = data.get('question_level')
+    question_type = data.get('question_type')
+    result = questions_pre.query.filter(questions_pre.checklist_level == question_level).filter(questions_pre.checklist_type == question_type).paginate(1, 500, False)
     return result
 
 
@@ -114,3 +118,29 @@ def update_pre_questions(project_id, user_id, data):
     return {'message': 'Pre questions successfully updated'}
 
 
+def update_pre_question(id_pre_question, data):
+    log("User updated pre question item", "MEDIUM", "PASS")
+    val_num(id_pre_question)
+    val_alpha_num(data.get('question'))
+    pre_question = data.get('question')
+    pre_question_level = data.get('question_level')
+    pre_question_type = data.get('question_type')
+    pre = questions_pre.query.filter(questions_pre.id == id_pre_question).one()
+    pre.question = pre_question
+    pre.checklist_level = pre_question_level
+    pre.checklist_type = pre_question_type
+    db.session.add(pre)
+    db.session.commit()
+    return {'message': 'Pre question successfully updated'}
+
+
+def new_pre_question(data):
+    log("User created new pre question item", "MEDIUM", "PASS")
+    val_alpha_num(data.get('question'))
+    pre_question = data.get('question')
+    pre_question_level = data.get('question_level')
+    pre_question_type = data.get('question_type')
+    pre = questions_pre(pre_question, pre_question_type, pre_question_level)
+    db.session.add(pre)
+    db.session.commit()
+    return {'message': 'New pre question successfully created'}

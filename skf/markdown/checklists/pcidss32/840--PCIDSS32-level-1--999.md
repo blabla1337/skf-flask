@@ -1,0 +1,1 @@
+9.7.1 Properly maintain inventory logs of all media and conduct media inventories at least annually. 

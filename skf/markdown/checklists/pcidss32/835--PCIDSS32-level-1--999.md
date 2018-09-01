@@ -1,0 +1,1 @@
+9.6 Maintain strict control over the internal or external distribution of any kind of media, including the following: 

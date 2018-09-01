@@ -1,0 +1,1 @@
+8.1.6 Limit repeated access attempts by locking out the user ID after not more than six attempts. 

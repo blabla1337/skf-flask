@@ -1,0 +1,1 @@
+10.8.1 Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. 

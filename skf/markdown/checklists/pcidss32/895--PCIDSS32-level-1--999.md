@@ -1,0 +1,1 @@
+11.3.3 Exploitable vulnerabilities found during penetration testing are corrected and testing is repeated to verify the corrections. 

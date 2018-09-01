@@ -1,0 +1,1 @@
+10.2.2 Create audit logs for all actions taken by any individual with root or administrative privileges 

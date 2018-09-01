@@ -1,0 +1,1 @@
+4.1 Use strong cryptography and security protocols to safeguard sensitive cardholder data during transmission over open, public networks.

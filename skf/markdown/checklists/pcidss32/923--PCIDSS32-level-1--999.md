@@ -1,0 +1,1 @@
+12.5.4 Assign to an individual or team the information security management responsibilities: Administer user accounts, including additions, deletions, and modifications. 

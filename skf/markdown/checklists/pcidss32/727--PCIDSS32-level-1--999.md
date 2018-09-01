@@ -1,0 +1,1 @@
+3.5 Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse.

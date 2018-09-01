@@ -1,0 +1,1 @@
+8.7 All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted.

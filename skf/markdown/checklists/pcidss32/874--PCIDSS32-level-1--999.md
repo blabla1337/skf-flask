@@ -1,0 +1,1 @@
+10.5.4 Write logs for external-facing technologies onto a secure, centralized, internal log server or media device. 

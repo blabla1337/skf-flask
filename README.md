@@ -22,7 +22,8 @@ Security Knowledge Framework is an expert system application that uses the OWASP
 ## Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
-* [Updating](#updating)
+* [Updating Database](#updating-db)
+* [Updating Chatbot](#updating-dataset)
 * [Usage](#usage)
 * [CI-Pipeline](#ci-pipeline)
 * [Development / Contributing](https://github.com/blabla1337/skf-flask/blob/master/CONTRIBUTING.md)
@@ -129,7 +130,7 @@ docker run -v /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite:/skf-
 The application will greet you on:
 https://localhost
 
-## <a name="updating"></a>Updating
+## <a name="updating-db"></a>Updating Database
 
 There is a method available to update the content of the SKF application.
 
@@ -138,6 +139,17 @@ When you have modified or created new Knowledge base items, code examples or che
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
 flask updatedb
+```
+
+## <a name="updating-dataset"></a>Updating chatbot
+
+There is a method available to update the dataset of the SKF chatbot application.
+
+When you have modified or created new Knowledge base items, code examples or checklist you need to run the following commands in the SKF root directory:
+```
+export FLASK_APP=skf/app.py
+export PYTHONPATH=.:$PYTHONPATH
+flask initdataset
 ```
 
 ## <a name="usage"></a>Usage
@@ -222,7 +234,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 
 
 ## <a name="license"></a>License
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as

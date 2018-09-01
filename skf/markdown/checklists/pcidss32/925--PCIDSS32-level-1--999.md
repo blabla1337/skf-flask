@@ -1,0 +1,1 @@
+12.6 Implement a formal security awareness program to make all personnel aware of the cardholder data security policy and procedures. 

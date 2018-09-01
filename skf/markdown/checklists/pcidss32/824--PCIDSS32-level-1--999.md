@@ -1,0 +1,1 @@
+9.1.2 Implement physical and/or logical controls to restrict access to publicly accessible network jacks. 

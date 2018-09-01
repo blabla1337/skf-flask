@@ -1,0 +1,1 @@
+9.7 Maintain strict control over the storage and accessibility of media. 

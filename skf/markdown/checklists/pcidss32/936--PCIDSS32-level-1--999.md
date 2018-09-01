@@ -1,0 +1,1 @@
+12.10 Implement an incident response plan. Be prepared to respond immediately to a system breach. 

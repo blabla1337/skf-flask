@@ -1,0 +1,1 @@
+3.4 Render PAN unreadable anywhere it is stored (including on portable digital media, backup media, and in logs)

@@ -1,53 +1,73 @@
-from skf.api.security import log, val_num, val_float
+from skf.database import db
+from skf.api.security import log, val_num, val_float, val_alpha_num
 from skf.database.checklists import checklists
 from skf.database.checklists_kb import checklists_kb
 
 
-def get_checklist_item(checklist_id, id_checklist):
+def get_checklist_item(checklist_id, checklist_type):
     log("User requested specific checklist item", "LOW", "PASS")
     val_float(checklist_id)
-    val_num(id_checklist)
-    # 0 = ASVS
-    # 1 = MASVS
-    if (id_checklist == 0):
-        result = checklists_kb.query.filter((checklists_kb.checklistID == checklist_id) & (checklists_kb.kbID < 400)).one()
-    else:
-        result = checklists_kb.query.filter((checklists_kb.checklistID == checklist_id) & (checklists_kb.kbID >= 400) & (checklists_kb.kbID < 800)).one()
+    val_num(checklist_type)
+    result = checklists_kb.query.filter((checklists_kb.checklistID == checklist_id) & (checklists_kb.checklist_type == checklist_type)).one()
     return result
 
-def get_checklist_items(id_checklist):
-    log("User requested list of checklist items", "LOW", "PASS")
-    val_num(id_checklist)
-    # 0 = ASVS
-    # 1 = MASVS
-    if (id_checklist == 0):
-        result = checklists_kb.query.filter(checklists_kb.kbID < 400).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+
+def update_checklist_item(checklist_id, checklist_type, data):
+    log("User requested update a specific checklist item", "LOW", "PASS")
+    val_float(checklist_id)
+    val_num(checklist_type)
+    if data.get('kbID') == "":
+        kbID = 0
     else:
-        result = checklists_kb.query.filter((checklists_kb.kbID >= 400) & (checklists_kb.kbID < 800)).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    return order_checklist_items(result, False, 0)
+        kbID = data.get('kbID')
+    val_num(kbID)
+    val_num(data.get('level'))
+    val_alpha_num(data.get('content'))
+    result_checklist = checklists.query.filter((checklists.checklistID == checklist_id) & (checklists.checklist_type == checklist_type)).one()
+    result_checklist.content = data.get('content')
+    result_checklist.level = data.get('level')
+    result_checklist.kbID = kbID
+    result_checklist.checklistID = checklist_id
+    result_checklist.checklist_type = checklist_type
+    db.session.add(result_checklist)
+    db.session.commit()
+    result_checklist_kb = checklists_kb.query.filter((checklists_kb.checklistID == checklist_id) & (checklists_kb.checklist_type == checklist_type)).one()
+    result_checklist_kb.title = data.get('title')
+    result_checklist_kb.content = data.get('content')
+    result_checklist_kb.level = data.get('level')
+    result_checklist_kb.inlcude_always = data.get('inlcude_always')
+    result_checklist_kb.inlcude_first = data.get('inlcude_first')
+    result_checklist_kb.question_sprint_ID = data.get('question_sprint_ID')
+    result_checklist_kb.question_pre_ID = data.get('question_pre_ID')
+    result_checklist_kb.kbID = kbID
+    result_checklist_kb.checklistID = checklist_id
+    result_checklist_kb.checklist_type = checklist_type
+    db.session.add(result_checklist_kb)
+    db.session.commit()
+    return {'message': 'Checklist item successfully updated'} 
 
 
-def get_checklist_items_lvl(lvl):
+def get_checklist_items(checklist_type):
+    log("User requested list of checklist items", "LOW", "PASS")
+    val_num(checklist_type)
+    result = checklists_kb.query.filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+    return order_checklist_items(result, False, 0, checklist_type)
+
+
+def get_checklist_items_lvl(lvl, checklist_type):
     log("User requested list of checklist items based on level", "LOW", "PASS")
     val_num(lvl)
-    # ASVS kbID's below 400
-    # MASVS kbID's between 400 and 799
-    if lvl == 1: # ASVS Level 1
-        result = checklists_kb.query.filter((checklists_kb.kbID >= 0) & (checklists_kb.kbID < 400) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    elif lvl == 2: # ASVS Level 2
-        result = checklists_kb.query.filter((checklists_kb.kbID >= 0) & (checklists_kb.kbID < 400) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    elif lvl == 3: # ASVS Level 3
-        result = checklists_kb.query.filter((checklists_kb.kbID >= 0) & (checklists_kb.kbID < 400) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    elif lvl == 4: # MASVS Level 1
-        result = checklists_kb.query.filter((checklists_kb.kbID >= 400) & (checklists_kb.kbID < 1000) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    elif lvl == 5: # MASVS Level 2
-        result = checklists_kb.query.filter((checklists_kb.kbID >= 400) & (checklists_kb.kbID < 1000) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    elif lvl == 6: # MASVS Level R
-        result = checklists_kb.query.filter((checklists_kb.kbID >= 400) & (checklists_kb.kbID < 1000) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 'R'))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    return order_checklist_items(result, True, lvl)
+    val_num(checklist_type)
+    if lvl == 1: # Level 1
+        result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+    elif lvl == 2: # Level 2
+        result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+    elif lvl == 3: # Level 3
+        result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+    return order_checklist_items(result, True, lvl, checklist_type)
+    
 
-
-def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl):
+def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl, checklist_type):
     ordered_checklist_items = []
     for item in checklist_items.items:
         numbers = item.checklistID.split('.')
@@ -74,12 +94,12 @@ def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl):
                 ordered_checklist_items.insert(y, item)
 
     if (get_checklist_items_lvl):
-        if (not (lvl == 6)):
+        if (not (checklist_type == 1)):
             i = 0
             previousItemLevel = -1
             orderedWithEmpties = []
             for item in ordered_checklist_items:
-                if ((item.checklist_items.level == 0 and previousItemLevel == 0) or (item.checklist_items.content == "Resiliency Against Reverse Engineering Requirements" and not (lvl == 6))):
+                if ((item.checklist_items.level == 0 and previousItemLevel == 0) or (item.checklist_items.content == "Resiliency Against Reverse Engineering Requirements" and not (lvl == 3))):
                     if (item.checklist_items.content == "Resiliency Against Reverse Engineering Requirements"):
                         orderedWithEmpties.append(item)
                         previousItemLevel = item.checklist_items.level
@@ -103,8 +123,8 @@ def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl):
             checklists_kb_empty = checklists_kb("0.0", checklist_empty, 0, None)
             orderedWithR6.append(checklists_kb_empty)
             for item in ordered_checklist_items:
-                if (item.checklist_items.level == 'R'):
-                    checklist_modified = checklists(item.checklistID, item.checklist_items.content, 6, item.checklist_items.kbID)
+                if (item.checklist_items.level == 3):
+                    checklist_modified = checklists(item.checklistID, item.checklist_items.content, 3, item.checklist_items.kbID)
                     modifiedItem = checklists_kb(item.checklistID, checklist_modified, item.kbID, item.kb_items)
                     orderedWithR6.append(modifiedItem)
                 else:

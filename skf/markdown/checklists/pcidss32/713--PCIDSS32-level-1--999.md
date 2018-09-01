@@ -1,0 +1,1 @@
+2.2.5 Remove all unnecessary functionality, such as scripts, drivers, features, subsystems, file systems, and unnecessary web servers. 

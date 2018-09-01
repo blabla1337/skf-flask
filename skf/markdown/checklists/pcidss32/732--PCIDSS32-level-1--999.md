@@ -1,0 +1,1 @@
+3.6 Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data.

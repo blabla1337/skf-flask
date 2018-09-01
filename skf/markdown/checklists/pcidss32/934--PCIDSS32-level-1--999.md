@@ -1,0 +1,1 @@
+12.8.5 Maintain information about which PCI DSS requirements are managed by each service provider, and which are managed by the entity. 

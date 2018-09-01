@@ -18,6 +18,7 @@ class checklists_kb(db.Model):
             "checklists_kb.kbID==checklists.kbID)")
     kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
     kb_items = db.relationship("kb_items", foreign_keys=[kbID])
+    checklist_type = db.Column(db.Integer)
 
     def __init__(self, checklistID, checklist, kbID, kb_items):
         self.question_pre_ID = 0

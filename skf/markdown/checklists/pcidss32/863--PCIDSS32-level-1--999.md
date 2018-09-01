@@ -1,0 +1,1 @@
+10.3.4 Record the audit trail entry success or failure indication for all system components for each event. 
