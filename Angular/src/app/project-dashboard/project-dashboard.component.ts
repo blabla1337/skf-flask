@@ -51,7 +51,7 @@ export class ProjectDashboardComponent implements OnInit {
     this.sprintService.getSprintStats(this.idFromURL).subscribe(
     resp => this.sprintResult = resp,
     err => console.log("Error getting sprint stats"))
-    }, 1000);
+    }, 2500);
     });
     
     this.questionsSprintService
