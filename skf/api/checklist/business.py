@@ -35,8 +35,8 @@ def update_checklist_item(checklist_id, checklist_type, data):
     result_checklist_kb.title = data.get('title')
     result_checklist_kb.content = data.get('content')
     result_checklist_kb.level = data.get('level')
-    result_checklist_kb.inlcude_always = data.get('inlcude_always')
-    result_checklist_kb.inlcude_first = data.get('inlcude_first')
+    result_checklist_kb.include_always = data.get('include_always')
+    result_checklist_kb.include_first = data.get('include_first')
     result_checklist_kb.question_sprint_ID = data.get('question_sprint_ID')
     result_checklist_kb.question_pre_ID = data.get('question_pre_ID')
     result_checklist_kb.kbID = kbID
