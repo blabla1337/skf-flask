@@ -299,6 +299,25 @@ CREATE TABLE `checklists` (
 
 
 --
+-- Table structure for table `checklist_types`
+--
+drop table if exists `checklist_types`;
+CREATE TABLE `checklist_types` (
+`checklist_type` INTEGER PRIMARY KEY AUTOINCREMENT,
+`checklist_name` varchar(255) NOT NULL
+);
+
+
+--
+-- Default checklist types
+--
+INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("ASVS");
+INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("MASVS");
+INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("PCIDSS");
+INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("Custom");
+
+
+--
 -- Table structure for table `question_sprint_results`
 --
 drop table if exists `question_sprint_results`;

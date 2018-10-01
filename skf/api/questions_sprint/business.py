@@ -17,6 +17,15 @@ def get_sprint_items(data):
     return result
 
 
+def delete_sprint_question(id_sprint_question):
+    log("User deleted sprint item question", "MEDIUM", "PASS")
+    val_num(id_sprint_question)
+    sprint = questions_sprint.query.filter(questions_sprint.id == id_sprint_question).one()
+    db.session.delete(sprint)
+    db.session.commit()
+    return {'message': 'Sprint item question successfully deleted'}
+
+
 def store_sprint_questions(user_id, data):
     log("User stored new sprint question list", "MEDIUM", "PASS")
     val_num(user_id)

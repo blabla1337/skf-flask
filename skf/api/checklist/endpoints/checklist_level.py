@@ -10,7 +10,7 @@ ns = api.namespace('checklist', description='Operations related to checklist ite
 @ns.route('/level/<int:level>/type/<int:checklist_type>')
 @api.doc(params={'level': 'The checklist level', 'checklist_type': 'The checklist type (0: ASVS, 1: MASVS)'})
 @api.response(404, 'Validation error', message)
-class ChecklistItem(Resource):
+class ChecklistItemLevel(Resource):
 
     @api.marshal_list_with(checklist_items)
     @api.response(400, 'No results found', message)

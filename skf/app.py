@@ -41,6 +41,10 @@ from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespac
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_level import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item_update import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_create import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_update import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_delete import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_items import ns as checklist_namespace
 from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
@@ -55,6 +59,7 @@ from skf.api.user.endpoints.user_listprivileges import ns as users_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
+from skf.api.kb.endpoints.kb_item_new import ns as kb_namespace
 from skf.api.questions_pre.endpoints.question_pre_items import ns as questions_pre_namespace
 from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_pre_namespace
 from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
@@ -64,6 +69,7 @@ from skf.api.questions_sprint.endpoints.question_sprint_items import ns as quest
 from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_item_update import ns as question_post_item_update
 from skf.api.questions_sprint.endpoints.question_sprint_item_new import ns as question_post_item_new
+from skf.api.questions_sprint.endpoints.question_sprint_item_delete import ns as question_post_item_update
 from skf.api.questions_post.endpoints.question_post_items import ns as questions_post_namespace
 from skf.api.questions_post.endpoints.question_post_store import ns as questions_post_namespace
 from skf.api.comment.endpoints.comment_items import ns as comment_namespace

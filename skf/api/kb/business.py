@@ -16,6 +16,18 @@ def update_kb_item(kb_id, data):
     return {'message': 'KB item successfully updated'} 
 
 
+def create_kb_item(data):
+    log("User requested creating a new kb item", "LOW", "PASS")
+    content = data.get('content')
+    title = data.get('title')
+    val_alpha_num(content)
+    val_alpha_num(title)
+    result = kb_items(content, title)
+    db.session.add(result)
+    db.session.commit()
+    return {'message': 'KB item successfully created'} 
+
+
 def get_kb_item(kb_id):
     log("User requested specific kb item", "LOW", "PASS")
     val_num(kb_id)

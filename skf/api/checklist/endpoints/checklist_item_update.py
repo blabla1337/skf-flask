@@ -11,7 +11,7 @@ ns = api.namespace('checklist', description='Operations related to checklist ite
 @ns.route('/update/item/<float:checklistID>/type/<int:checklist_type>')
 @api.doc(params={'checklistID': 'The checklist item checklistID (eg. 1.1)', 'checklist_type': 'The checklist type (0: ASVS, 1: MASVS)'})
 @api.response(404, 'Validation error', message)
-class ChecklistItem(Resource):
+class ChecklistItemUpdate(Resource):
 
     @api.expect(authorization, checklist_update)
     @api.response(400, 'No results found', message)

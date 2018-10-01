@@ -2,6 +2,7 @@ from skf.database import db
 from skf.api.security import log, val_num, val_float, val_alpha_num
 from skf.database.checklists import checklists
 from skf.database.checklists_kb import checklists_kb
+from skf.database.checklist_types import checklist_types
 
 
 def get_checklist_item(checklist_id, checklist_type):
@@ -10,6 +11,43 @@ def get_checklist_item(checklist_id, checklist_type):
     val_num(checklist_type)
     result = checklists_kb.query.filter((checklists_kb.checklistID == checklist_id) & (checklists_kb.checklist_type == checklist_type)).one()
     return result
+
+
+def get_checklist_item_types():
+    log("User requested list checklist types", "LOW", "PASS")
+    result = checklist_types.query.paginate(1, 500, False)
+    return result
+
+
+def create_checklist_type(data):
+    log("User requested create a new checklist type", "LOW", "PASS")
+    checklist_name = data.get('checklist_name')
+    val_alpha_num(checklist_name)
+    types = checklist_types(checklist_name)
+    db.session.add(types)
+    db.session.commit()
+    return {'message': 'Checklist item successfully created'} 
+
+
+def update_checklist_type(id, data):
+    log("User requested update checklist type", "LOW", "PASS")
+    checklist_name = data.get('checklist_name')
+    val_alpha_num(checklist_name)
+    val_num(id)
+    result_checklist_types = checklist_types.query.filter(checklist_types.checklist_type == id).one()
+    result_checklist_types.checklist_name = checklist_name
+    db.session.add(result_checklist_types)
+    db.session.commit()
+    return {'message': 'Checklist item successfully updated'} 
+
+
+def delete_checklist_type(checklist_type_id):
+    log("User deleted checklist type", "MEDIUM", "PASS")
+    val_num(checklist_type_id)
+    result_checklist_types = checklist_types.query.filter(checklist_types.checklist_type == checklist_type_id).one()
+    db.session.delete(result_checklist_types)
+    db.session.commit()
+    return {'message': 'Checklist type successfully deleted'}
 
 
 def update_checklist_item(checklist_id, checklist_type, data):
