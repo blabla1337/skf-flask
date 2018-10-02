@@ -227,8 +227,8 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/level/3/type/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Using Requirements of Reverse Engineering you can form the levels L1+R or L2+R.")
-        self.assertEqual(response_dict['items'][0]['checklist_items_level'], -1)
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Architecture, Design and Threat Modelling Requirements")
+        self.assertEqual(response_dict['items'][0]['checklist_items_level'], 0)
 
 
     def test_get_checklist_items_pcidss(self):

@@ -26,7 +26,7 @@ def create_checklist_type(data):
     types = checklist_types(checklist_name)
     db.session.add(types)
     db.session.commit()
-    return {'message': 'Checklist item successfully created'} 
+    return {'message': 'Checklist type successfully created'} 
 
 
 def update_checklist_type(id, data):
@@ -48,6 +48,22 @@ def delete_checklist_type(checklist_type_id):
     db.session.delete(result_checklist_types)
     db.session.commit()
     return {'message': 'Checklist type successfully deleted'}
+
+
+def create_checklist_item(checklistID, checklist_type, data):
+    log("User requested create a new checklist item", "LOW", "PASS")
+    checklist_content = data.get('checklist_content')
+    val_alpha_num(checklist_content)
+    checklist_level = data.get('checklist_level')
+    val_num(checklist_level)
+    checklist_kbID = data.get('kbID')
+    val_num(checklist_kbID)
+    val_float(checklistID)
+    val_num(checklist_type)
+    checklist = checklists(checklistID, checklist_content, checklist_level, checklist_kbID, checklist_type)
+    db.session.add(checklist)
+    db.session.commit()
+    return {'message': 'Checklist item successfully created'} 
 
 
 def update_checklist_item(checklist_id, checklist_type, data):
@@ -89,7 +105,7 @@ def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
     val_num(checklist_type)
     result = checklists_kb.query.filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    return order_checklist_items(result, False, 0, checklist_type)
+    return result
 
 
 def get_checklist_items_lvl(lvl, checklist_type):
@@ -102,7 +118,7 @@ def get_checklist_items_lvl(lvl, checklist_type):
         result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     elif lvl == 3: # Level 3
         result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    return order_checklist_items(result, True, lvl, checklist_type)
+    return result
     
 
 def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl, checklist_type):
