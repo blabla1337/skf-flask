@@ -97,11 +97,15 @@
                         <li><a routerLink="/user-manage" id="2">Manage users</a></li>
                     </ul>
                 </li>
-                <li [style.background-color]="getChecklistStyle()" class="">
-                    <a routerLink="/checklist" (click)="ResetAll(); CheckShow()" id="5" class="primairy">
+                <li *ngIf="canManage" [style.background-color]="getChecklistStyle()" class="sub-menu">
+                    <a (click)="CheckShow()" id="7" class="primairy" href="javascript:;">
                         <i class="fa fa-list-alt"></i>
-                        <span id="5">Checklist</span>
+                        <span id="7">Checklist options</span>
                     </a>
+                    <ul *ngIf="check" class="sub" style="display:block;">
+                        <li><a routerLink="/checklist" id="7">View checklists</a></li>
+                        <li><a routerLink="/checklist-summary" id="7">Manage checklists</a></li>
+                    </ul>
                 </li>
                 <li [style.background-color]="getKnowledgeStyle()" class="">
                     <a routerLink="/knowledgebase" (click)="ResetAll(); KnowledgeShow()" id="5" class="primairy">
@@ -114,6 +118,11 @@
                         <i class="fa fa-code"></i>
                         <span id="6">Code examples</span>
                     </a>
+                    <li class="">
+                            <a routerLink="/questionnaire-pre" id="6" class="primairy">
+                                <i class="fa fa-code"></i>
+                                <span id="6">Test link</span>
+                            </a>
                 </li>
             </ul>
 

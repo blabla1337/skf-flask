@@ -1,6 +1,5 @@
 from skf.database import db
 from skf.api.security import log, val_num, val_float, val_alpha_num
-from skf.database.checklists import checklists
 from skf.database.checklists_kb import checklists_kb
 from skf.database.checklist_types import checklist_types
 
@@ -52,16 +51,16 @@ def delete_checklist_type(checklist_type_id):
 
 def create_checklist_item(checklistID, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
-    checklist_content = data.get('checklist_content')
-    val_alpha_num(checklist_content)
-    checklist_level = data.get('checklist_level')
-    val_num(checklist_level)
+    checklist_content = data.get('content')
+    include_always = data.get('include_always')
+    include_first = data.get('include_first')
+    question_sprint_ID = data.get('question_sprint_ID')
+    question_pre_ID = data.get('question_pre_ID')
     checklist_kbID = data.get('kbID')
     val_num(checklist_kbID)
-    val_float(checklistID)
     val_num(checklist_type)
-    checklist = checklists(checklistID, checklist_content, checklist_level, checklist_kbID, checklist_type)
-    db.session.add(checklist)
+    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always, include_first, 0, 0)
+    db.session.add(checklist_item)
     db.session.commit()
     return {'message': 'Checklist item successfully created'} 
 
@@ -76,7 +75,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
         kbID = data.get('kbID')
     val_num(kbID)
     val_num(data.get('level'))
-    val_alpha_num(data.get('content'))
+
     result_checklist = checklists.query.filter((checklists.checklistID == checklist_id) & (checklists.checklist_type == checklist_type)).one()
     result_checklist.content = data.get('content')
     result_checklist.level = data.get('level')
@@ -104,7 +103,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
 def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
     val_num(checklist_type)
-    result = checklists_kb.query.filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+    result = checklists_kb.query.filter(checklists_kb.checklist_type == checklist_type).paginate(1, 1500, False)
     return result
 
 
@@ -112,12 +111,7 @@ def get_checklist_items_lvl(lvl, checklist_type):
     log("User requested list of checklist items based on level", "LOW", "PASS")
     val_num(lvl)
     val_num(checklist_type)
-    if lvl == 1: # Level 1
-        result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    elif lvl == 2: # Level 2
-        result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    elif lvl == 3: # Level 3
-        result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklist_items.has(level = 0) | checklists_kb.checklist_items.has(level = 1) | checklists_kb.checklist_items.has(level = 2) | checklists_kb.checklist_items.has(level = 3))).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
+    result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type)).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
     return result
     
 
@@ -169,7 +163,7 @@ def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl, checkli
                 else:
                     orderedWithEmpties.append(item)
                     previousItemLevel = item.checklist_items.level
-                i = i + 1;
+                i = i + 1
             checklist_items.items = orderedWithEmpties
         else:
             orderedWithR6 = []

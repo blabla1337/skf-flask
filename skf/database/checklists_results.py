@@ -9,8 +9,8 @@ class checklists_results(db.Model):
     sprintID = db.Column(db.Integer)
     status = db.Column(db.Integer)
     preItem = db.Column(db.Integer)
-    checklistID = db.Column(db.String, db.ForeignKey("checklists.checklistID"))
-    checklist_items = db.relationship("checklists", foreign_keys=[checklistID])
+    checklistID = db.Column(db.String, db.ForeignKey("checklists_kb.checklistID"))
+    checklist_items = db.relationship("checklists_kb", foreign_keys=[checklistID])
     kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
     kb_items = db.relationship("kb_items", foreign_keys=[kbID])  
     

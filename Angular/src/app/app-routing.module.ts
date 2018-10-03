@@ -10,12 +10,16 @@ import { UserAddComponent } from './user-add/user-add.component';
 import { KnowledgebaseComponent } from './knowledgebase/knowledgebase.component';
 import { CodeExamplesComponent } from './code-examples/code-examples.component';
 import { ChecklistComponent } from './checklist/checklist.component';
+import { ChecklistManageComponent } from './checklist-manage/checklist-manage.component';
+import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
+import { ChecklistSummaryComponent } from './checklist-summary/checklist-summary.component';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 import { GuardService } from './guard/guard.service';
 import { UserManageComponent } from "./user-manage/user-manage.component";
 import { UndefinedComponent } from "./undefined/undefined.component";
+import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
 
 export const appRoutes: Routes = [
   
@@ -31,8 +35,12 @@ export const appRoutes: Routes = [
   { path: 'user-add', component: UserAddComponent, canActivate: [GuardService] },
   { path: 'user-manage', component: UserManageComponent, canActivate: [GuardService] },
   { path: 'checklist', component: ChecklistComponent, canActivate: [GuardService] },
+  { path: 'checklist-manage/:id', component: ChecklistManageComponent, canActivate: [GuardService] },
+  { path: 'checklist-edit/:id', component: ChecklistEditComponent, canActivate: [GuardService] },
+  { path: 'checklist-summary', component: ChecklistSummaryComponent, canActivate: [GuardService] },
   { path: 'login', component: AuthenticateComponent },
   { path: 'first-login', component: FirstLoginComponent },
+  { path: 'questionnaire-pre', component: QuestionnairePreComponent, canActivate: [GuardService] },
   { path: '**', component: DashboardComponent, canActivate: [GuardService] }
 ];
 @NgModule({

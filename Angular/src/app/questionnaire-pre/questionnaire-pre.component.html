@@ -1,0 +1,169 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+
+<section id="main-content" class="page03 project-summary">
+  <section class="intro">
+    <div class="inner">
+      <div class="text">
+        <h1>Questionnaire pre settings</h1>
+        <p>Here we can add a new questionnaire pre questions list and correlate these questions to security
+          requirements!</p>
+      </div>
+      <button style="float:right; margin-left:1px" (click)="addQuestion(add)"  class="btn btn-default">Add question</button>
+      <button style="float:right; margin-left:1px" (click)="updateQuestion(update)" class="btn btn-warning">Update question</button>
+      <button style="float:right; margin-left:1px" (click)="deleteQuestion(deletes)" class="btn btn-danger">Delete question</button>
+    </div>
+  </section>
+  <section class="wrapper" style="margin-top:0px;">
+    <div class="row mt">
+      <div class="col-lg-12">
+        <div class="content-panel">
+
+          <div class="form-group">
+            <div class="wrap">
+              <div class="col-sm-12" style="margin-bottom:1.2%">
+                <select class="form-control" id="sel1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+                <div class="wrap desc alert-info">
+                  <div class="col-sm-10">Select the question you want to use from the dropdown</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header" style="text-align:center;">
+                Checklist total
+              </div>
+              <div class="card-block">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header" style="text-align:center;">
+                Checklist items correlated to selected question
+              </div>
+              <div class="card-block">
+
+              </div>
+            </div>
+          </div>
+
+          <!--Modal form for adding question-->
+          <ng-template #add let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Add a new pre question</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="wrap">
+                  <label for="inputVersion" class="col-sm-2 control-label">Question</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="20" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
+                      name="questionName" placeholder="">
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">Is the application TLS configuration hardned and verified against ASVS?</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </ng-template>
+
+          <!--Modal form for updating question-->
+          <ng-template #update let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Update pre question</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="wrap">
+                  <label for="inputVersion" class="col-sm-2 control-label">Question</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="20" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
+                      name="questionName" placeholder="">
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">Is the application TLS configuration hardned and verified against ASVS?</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </ng-template>
+
+          <!--Modal form for deleting question-->
+          <ng-template #deletes let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete pre question</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="wrap">
+                  <label for="inputVersion" class="col-sm-2 control-label">Question</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="20" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
+                      name="questionName" placeholder="">
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">Is the application TLS configuration hardned and verified against ASVS?</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <!-- /col-lg-4 -->
+    </div>
+    <!-- /row -->
+  </section>
+  <!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->

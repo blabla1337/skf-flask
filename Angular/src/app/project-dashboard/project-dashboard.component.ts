@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QuestionPreService } from '../services/questions-pre.service';
 import { QuestionsSprintService } from '../services/questions-sprint.service';
 import { SprintService } from '../services/sprint.service'
 import { Question_pre } from '../models/question_pre'
 import { Sprint } from '../models/sprint'
 import { Question_sprint } from '../models/question_sprint'
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
@@ -35,6 +35,7 @@ export class ProjectDashboardComponent implements OnInit {
   public idFromURL: number;
   public canDelete: boolean;
   public canEdit: boolean;
+  
   constructor(
     private modalService: NgbModal,
     private questionPreService: QuestionPreService,

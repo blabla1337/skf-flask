@@ -1,0 +1,131 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+
+<section id="main-content" class="page03 project-list">
+    <section class="intro">
+      <div class="inner">
+        <div class="text">
+          <h1>Checklist edit options for: {{selector}}</h1>
+          <p>Add and update your requirements!</p>
+        </div>
+        <button style="float:right; margin-left:4px;" (click)="back()" class="btn btn-green"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i> Back</button>
+        <button style="float:right;" (click)="open(modalValue)" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i>
+          Add new checklist item</button>
+      </div>
+    </section>
+    <section class="wrapper" style="margin-top:0px;">
+      <div class="row mt">
+        <div class="col-lg-12">
+  
+            <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+                <div *ngFor="let item of checklist; let myIndex = index">
+                  <br/>
+                  <ngb-panel title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}}">
+                    <ng-template ngbPanelContent>
+                      <p style="white-space: pre-line; max-width:70%">
+                        hier komt form
+                      </p>
+                    </ng-template>
+                  </ngb-panel>
+                </div>
+              </ngb-accordion>
+  
+              
+          <!-- We have to throw in the model here for the id to delete -->
+          <form>
+          <ng-template #modalValue let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Add new checklist item!</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="wrap">
+                  <label for="inputVersion" class="col-sm-2 control-label">Checklist ID</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="20" [(ngModel)]="checklistID" type="text" class="form-control" id="inputVersion" name="checklistID" placeholder="">
+                    <input  maxlength="20" [(ngModel)]="question_sprint_ID" type="text" class="form-control" id="inputVersion" name="question_sprint_ID" placeholder="">
+                    <input  maxlength="20" [(ngModel)]="question_pre_ID" type="text" class="form-control" id="inputVersion" name="question_pre_ID" placeholder="">
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">e.g. 1.1, 1.2 etc</div>
+                    </div>
+                  </div>
+                  <label for="inputVersion" class="col-sm-2 control-label">Type</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="20" [(ngModel)]="content" type="text" class="form-control" id="inputVersion" name="content" placeholder="">
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">Is this a requirement or used to annotate the start of a new chapter?</div>
+                    </div>
+                  </div>
+                  <label for="inputVersion" class="col-sm-2 control-label">KB item</label>
+                  <div class="col-sm-10">
+                      <select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1">
+                          <option *ngFor="let items of knowledgebaseItems; let myIndex = index" value="{{items.kbID}}" >{{items.title}}</option>
+                        </select>
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">Select the knowledgebase item that correlates with this checklist item~</div>
+                    </div>
+                  </div>
+                  <label for="inputVersion" class="col-sm-2 control-label">Include first</label>
+                  <div class="col-sm-10">
+                      <select class="form-control" name="include_first" [(ngModel)]="include_first" id="sel1">
+                          <option value=True>Yes</option>
+                          <option value=False>No</option>
+                        </select>
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">select to use this checklist item in the first sprint</div>
+                    </div>
+                  </div>
+                  <label for="inputVersion" class="col-sm-2 control-label">Include always</label>
+                  <div class="col-sm-10">
+                      <select class="form-control" name="include_always" [(ngModel)]="include_always" id="sel1">
+                          <option value=True>Yes</option>
+                          <option value=False>No</option>
+                        </select>
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">select to use this checklist in all the sprints</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+              <button type="button" class="btn btn-success" (click)="storeChecklistItem(idfromUrl);c('Close click')">Insert</button>
+            </div>
+          </ng-template>
+        </form>
+          <!-- end of ugly modal -->
+        </div>
+        <!-- /col-lg-4 -->
+      </div>
+      <!-- /row -->
+    </section>
+    <!--/wrapper -->
+  </section>
+  <!-- /MAIN CONTENT -->

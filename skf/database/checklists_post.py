@@ -8,8 +8,8 @@ class checklists_post(db.Model):
     projectID = db.Column(db.Integer)
     sprintID = db.Column(db.Integer)
     status = db.Column(db.Integer)
-    checklistID = db.Column(db.String, db.ForeignKey("checklists.checklistID"))
-    checklist_items = db.relationship("checklists", foreign_keys=[checklistID])
+    checklistID = db.Column(db.String, db.ForeignKey("checklists_kb.checklistID"))
+    checklist_items = db.relationship("checklists_kb", foreign_keys=[checklistID])
     kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
     kb_items = db.relationship("kb_items", foreign_keys=[kbID])  
     

@@ -3,7 +3,7 @@ from sqlalchemy import asc, desc
 from skf.database.groupmembers import groupmembers
 from skf.database.project_sprints import project_sprints 
 from skf.database.checklists_results import checklists_results
-from skf.database.checklists import checklists
+from skf.database.checklists_kb import checklists_kb
 from skf.database.kb_items import kb_items
 from skf.database.comments import comments
 

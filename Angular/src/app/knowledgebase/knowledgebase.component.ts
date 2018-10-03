@@ -1,8 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { KnowledgebaseService } from '../services/knowledgebase.service'
 import { Knowledgebase } from '../models/knowledgebase';
-import { StartsWithPipe } from '../pipes/starts-with.pipe'
-import { ReplaySubject } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-knowledgebase',

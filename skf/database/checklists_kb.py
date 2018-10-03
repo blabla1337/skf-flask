@@ -12,24 +12,23 @@ class checklists_kb(db.Model):
     codeID_python = db.Column(db.Integer)
     include_always = db.Column(db.Boolean)
     include_first = db.Column(db.Boolean)
-    checklistID = db.Column(db.String, db.ForeignKey("checklists.checklistID"))
-    checklist_items = db.relationship("checklists",
-        primaryjoin="and_(checklists_kb.checklistID==checklists.checklistID,"
-            "checklists_kb.kbID==checklists.kbID)")
+    checklistID = db.Column(db.String)
+    content = db.Column(db.String)
     kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
     kb_items = db.relationship("kb_items", foreign_keys=[kbID])
     checklist_type = db.Column(db.Integer)
 
-    def __init__(self, checklistID, checklist, kbID, kb_items):
-        self.question_pre_ID = 0
-        self.question_sprint_ID = 0
+    def __init__(self, checklistID, content, kbID, checklist_type, include_always,include_first, question_pre_ID, question_sprint_ID):
+        self.question_pre_ID = question_pre_ID
+        self.question_sprint_ID = question_sprint_ID
         self.codeID_php = 0
         self.codeID_asp = 0
         self.codeID_java = 0
         self.codeID_python = 0
-        self.include_always = False
-        self.include_first = False
+        self.include_always = include_always
+        self.include_first = include_first
         self.checklistID = checklistID
-        self.checklist_items = checklist
+        self.checklist_type = checklist_type
+        self.content = content
         self.kbID = kbID
-        self.kb_items = kb_items
+        self.kb_items = kbID

@@ -25,6 +25,9 @@ import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.componen
 import { CodeExamplesComponent }   from './code-examples/code-examples.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
+import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
+import { ChecklistManageComponent } from './checklist-manage/checklist-manage.component';
+import { ChecklistSummaryComponent } from './checklist-summary/checklist-summary.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { GuardService } from './guard/guard.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -34,6 +37,7 @@ import { OrderBy } from './pipes/order-by.pipe'
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { UndefinedComponent } from './undefined/undefined.component';
+import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
 
 
 @NgModule({
@@ -53,10 +57,14 @@ import { UndefinedComponent } from './undefined/undefined.component';
     CodeExamplesComponent,
     AuthenticateComponent,
     ChecklistComponent,
+    ChecklistManageComponent,
+    ChecklistEditComponent,
+    ChecklistSummaryComponent,
     StartsWithPipe,
     OrderBy,
     FirstLoginComponent,
-    UndefinedComponent
+    UndefinedComponent,
+    QuestionnairePreComponent
   ],
   imports: [
     BrowserModule,
