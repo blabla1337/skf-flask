@@ -17,12 +17,11 @@ checklist_items = api.inherit('List of checklist items', {
 
 checklist_update = api.model('checklist_update', {
     'content': fields.String(required=True, description='Checklist content'),
-    'checklist_type': fields.Integer(readOnly=True, description='The unique identifier of the checklist type'),
     'kbID': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
-    'include_always': fields.Boolean(required=True, description='Always include this checklist item'),
-    'include_first': fields.Boolean(required=True, description='Only include this checklist item first time'),
-    'question_sprint_ID': fields.Integer(required=True, description='The sprint question unique identifier this checklist belongs to'),
-    'question_pre_ID': fields.Integer(required=True, description='The pre question unique identifier this checklist belongs to'),
+    'include_always': fields.Boolean(required=False, description='Always include this checklist item'),
+    'include_first': fields.Boolean(required=False, description='Only include this checklist item first time'),
+    'question_sprint_ID': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
+    'question_pre_ID': fields.Integer(required=False, description='The pre question unique identifier this checklist belongs to'),
 })
 
 checklist_type = api.model('checklist_type_create', {

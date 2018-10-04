@@ -78,20 +78,9 @@ def update_checklist_item(checklist_id, checklist_type, data):
     else:
         kbID = data.get('kbID')
     val_num(kbID)
-    val_num(data.get('level'))
-
-    result_checklist = checklists.query.filter((checklists.checklistID == checklist_id) & (checklists.checklist_type == checklist_type)).one()
-    result_checklist.content = data.get('content')
-    result_checklist.level = data.get('level')
-    result_checklist.kbID = kbID
-    result_checklist.checklistID = checklist_id
-    result_checklist.checklist_type = checklist_type
-    db.session.add(result_checklist)
-    db.session.commit()
     result_checklist_kb = checklists_kb.query.filter((checklists_kb.checklistID == checklist_id) & (checklists_kb.checklist_type == checklist_type)).one()
     result_checklist_kb.title = data.get('title')
     result_checklist_kb.content = data.get('content')
-    result_checklist_kb.level = data.get('level')
     result_checklist_kb.include_always = data.get('include_always')
     result_checklist_kb.include_first = data.get('include_first')
     result_checklist_kb.question_sprint_ID = data.get('question_sprint_ID')
