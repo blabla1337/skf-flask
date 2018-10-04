@@ -67,6 +67,7 @@ export class ChecklistEditComponent implements OnInit {
       .subscribe(
       err => this.errors.push("Error whilst adding user, potential duplicate email adres!")
       );
+      this.checklistList();
   }
 
   getKnowledgeItems() {
