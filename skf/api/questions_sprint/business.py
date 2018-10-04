@@ -9,11 +9,9 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 def get_sprint_items(data):
     log("User requested list of question sprint items", "LOW", "PASS")
-    val_alpha_num(data.get('question_level'))
-    val_alpha_num(data.get('question_type'))
-    question_level = data.get('question_level')
-    question_type = data.get('question_type')
-    result = questions_sprint.query.filter(questions_sprint.checklist_level == question_level).filter(questions_sprint.checklist_type == question_type).paginate(1, 500, False)
+    val_alpha_num(data.get('checklist_type'))
+    checklist_type = data.get('checklist_type')
+    result = questions_sprint.query.filter(questions_sprint.checklist_type == checklist_type).paginate(1, 500, False)
     return result
 
 
@@ -78,12 +76,10 @@ def update_sprint_question(id_sprint_question, data):
     val_num(id_sprint_question)
     val_alpha_num(data.get('question'))
     sprint_question = data.get('question')
-    sprint_question_level = data.get('question_level')
-    sprint_question_type = data.get('question_type')
+    sprint_checklist_type = data.get('checklist_type')
     sprint = questions_sprint.query.filter(questions_sprint.id == id_sprint_question).one()
     sprint.question = sprint_question
-    sprint.checklist_level = sprint_question_level
-    sprint.checklist_type = sprint_question_type
+    sprint.checklist_type = sprint_checklist_type
     db.session.add(sprint)
     db.session.commit()
     return {'message': 'Sprint question successfully updated'}
@@ -93,9 +89,8 @@ def new_sprint_question(data):
     log("User created new sprint question item", "MEDIUM", "PASS")
     val_alpha_num(data.get('question'))
     sprint_question = data.get('question')
-    sprint_question_level = data.get('question_level')
-    sprint_question_type = data.get('question_type')
-    sprint = questions_sprint(sprint_question, sprint_question_type, sprint_question_level)
+    sprint_checklist_type = data.get('checklist_type')
+    sprint = questions_sprint(sprint_question, sprint_checklist_type)
     db.session.add(sprint)
     db.session.commit()
     return {'message': 'New sprint question successfully created'}

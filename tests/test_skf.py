@@ -578,7 +578,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_get_questions_sprint_items(self):
         """Test if the questions sprint items call is working"""
         headers = {'content-type': 'application/json'}
-        payload = {"question_level": "3", "question_type": "0"}
+        payload = {"checklist_type": "0"}
         response = self.client.post('/api/questions_sprint/items', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -589,7 +589,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the create new question sprint item call is working"""
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        payload = {"question": "woop new question","question_level": "3", "question_type": "0"}
+        payload = {"question": "woop new question", "checklist_type": "0"}
         response = self.client.put('/api/questions_sprint/item/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -600,7 +600,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the update question sprint item call is working"""
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        payload = {"question": "woop update question","question_level": "3", "question_type": "1"}
+        payload = {"question": "woop update question", "checklist_type": "1"}
         response = self.client.put('/api/questions_sprint/item/update/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -626,7 +626,7 @@ class TestRestPlusApi(unittest.TestCase):
     def test_get_questions_pre_items(self):
         """Test if the questions pre items call is working"""
         headers = {'content-type': 'application/json'}
-        payload = {"question_level": "3", "question_type": "0"}
+        payload = {"checklist_type": "0"}
         response = self.client.post('/api/questions_pre/items', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -637,7 +637,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the create new question pre item call is working"""
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        payload = {"question": "woop woop new question","question_level": "3", "question_type": "0"}
+        payload = {"question": "woop woop new question", "checklist_type": "0"}
         response = self.client.put('/api/questions_pre/item/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -648,7 +648,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the update question pre item call is working"""
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        payload = {"question": "woop woop update question","question_level": "3", "question_type": "1"}
+        payload = {"question": "woop woop update question", "checklist_type": "1"}
         response = self.client.put('/api/questions_pre/item/update/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))

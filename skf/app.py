@@ -66,7 +66,7 @@ from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_p
 from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
 from skf.api.questions_pre.endpoints.question_pre_item_new import ns as questions_pre_namespace
 from skf.api.questions_pre.endpoints.question_pre_item_update import ns as questions_pre_namespace
-from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
+from skf.apiquestions_.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_item_update import ns as question_post_item_update
 from skf.api.questions_sprint.endpoints.question_sprint_item_new import ns as question_post_item_new

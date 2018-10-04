@@ -11,11 +11,9 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 def get_pre_items(data):
     log("User requested list of question pre items", "LOW", "PASS")
-    val_alpha_num(data.get('question_level'))
-    val_alpha_num(data.get('question_type'))
-    question_level = data.get('question_level')
-    question_type = data.get('question_type')
-    result = questions_pre.query.filter(questions_pre.checklist_level == question_level).filter(questions_pre.checklist_type == question_type).paginate(1, 500, False)
+    val_alpha_num(data.get('checklist_type'))
+    checklist_type = data.get('checklist_type')
+    result = questions_pre.query.filter(questions_pre.checklist_type == checklist_type).paginate(1, 500, False)
     return result
 
 
@@ -123,12 +121,10 @@ def update_pre_question(id_pre_question, data):
     val_num(id_pre_question)
     val_alpha_num(data.get('question'))
     pre_question = data.get('question')
-    pre_question_level = data.get('question_level')
-    pre_question_type = data.get('question_type')
+    pre_checklist_type = data.get('checklist_type')
     pre = questions_pre.query.filter(questions_pre.id == id_pre_question).one()
     pre.question = pre_question
-    pre.checklist_level = pre_question_level
-    pre.checklist_type = pre_question_type
+    pre.checklist_type = pre_checklist_type
     db.session.add(pre)
     db.session.commit()
     return {'message': 'Pre question successfully updated'}
@@ -138,9 +134,8 @@ def new_pre_question(data):
     log("User created new pre question item", "MEDIUM", "PASS")
     val_alpha_num(data.get('question'))
     pre_question = data.get('question')
-    pre_question_level = data.get('question_level')
-    pre_question_type = data.get('question_type')
-    pre = questions_pre(pre_question, pre_question_type, pre_question_level)
+    pre_checklist_type = data.get('checklist_type')
+    pre = questions_pre(pre_question, pre_checklist_type)
     db.session.add(pre)
     db.session.commit()
     return {'message': 'New pre question successfully created'}

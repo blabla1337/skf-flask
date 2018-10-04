@@ -33,14 +33,12 @@ update_list_items_pre = api.inherit('List of questions pre for update', {
 })
 
 question_pre_item = api.model('question_pre_item', {
-    'question_level': fields.String(required=True, description='The question checklist level for pre process step'),
-    'question_type': fields.String(required=True, description='The question checklist type used for pre process step'),
+    'checklist_type': fields.String(required=True, description='The question checklist type used for pre process step'),
 })
 
 question_pre_item_update = api.model('question_pre_item_update', {
     'question': fields.String(readOnly=True, description='The question value'),
-    'question_level': fields.String(required=True, description='The question checklist level for pre process step'),
-    'question_type': fields.String(required=True, description='The question checklist type used for pre process step'),
+    'checklist_type': fields.String(required=True, description='The question checklist type used for pre process step'),
 })
 
 message = api.model('Response message', {

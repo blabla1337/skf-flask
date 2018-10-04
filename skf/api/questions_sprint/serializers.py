@@ -25,14 +25,12 @@ store_list_items_sprint = api.inherit('List of questions sprint', {
 })
 
 question_sprint_item = api.model('question_sprint_item', {
-    'question_level': fields.String(required=True, description='The question checklist level for sprint process step'),
-    'question_type': fields.String(required=True, description='The question checklist type used for sprint process step'),
+    'checklist_type': fields.String(required=True, description='The question checklist type used for sprint process step'),
 })
 
 question_sprint_item_update = api.model('question_sprint_item_update', {
     'question': fields.String(readOnly=True, description='The question value'),
-    'question_level': fields.String(required=True, description='The question checklist level for sprint process step'),
-    'question_type': fields.String(required=True, description='The question checklist type used for sprint process step'),
+    'checklist_type': fields.String(required=True, description='The question checklist type used for sprint process step'),
 })
 
 message = api.model('Response message', {
