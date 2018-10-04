@@ -98,14 +98,6 @@ def get_checklist_items(checklist_type):
     val_num(checklist_type)
     result = checklists_kb.query.filter(checklists_kb.checklist_type == checklist_type).paginate(1, 1500, False)
     return result
-
-
-def get_checklist_items_lvl(lvl, checklist_type):
-    log("User requested list of checklist items based on level", "LOW", "PASS")
-    val_num(lvl)
-    val_num(checklist_type)
-    result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type)).group_by(checklists_kb.checklistID).paginate(1, 1500, False)
-    return result
     
 
 def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl, checklist_type):

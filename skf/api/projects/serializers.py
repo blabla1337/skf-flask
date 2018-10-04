@@ -9,7 +9,7 @@ project = api.model('project', {
     'projectVersion': fields.String(required=True, description='Project version'),
     'projectDesc': fields.String(required=True, description='Project description'),
     'timestamp': fields.String(required=True, description='Project timestamp'),
-    'level': fields.String(required=True, description='Project checklist level'),
+    'checklist_type': fields.String(required=True, description='Project checklist type'),
 })
 
 project_stats = api.model('project_stats', {
@@ -27,17 +27,17 @@ page_of_project_items = api.inherit('Page of project items', {
 })
 
 project_update = api.model('Project update', {
-    'name': fields.String(required=True, description='Update project name'),
-    'description': fields.String(required=True, description='Update project description'),
-    'level': fields.Integer(required=True, description='The selected ASVS level of a project'),
-    'version': fields.String(required=True, description='Update project version'),
+    'name': fields.String(required=False, description='Update project name'),
+    'description': fields.String(required=False, description='Update project description'),
+    'checklist_type': fields.Integer(required=False, description='The selected checklist type of a project'),
+    'version': fields.String(required=False, description='Update project version'),
 
 })
 
 project_new = api.model('Project new', {
     'name': fields.String(required=True, description='New project name'),
     'description': fields.String(required=True, description='New project description'),
-    'level': fields.Integer(required=True, description='The selected ASVS level of a project'),
+    'checklist_type': fields.Integer(required=True, description='The selected checklist type of a project'),
     'version': fields.String(required=True, description='New project version'),
 
 })

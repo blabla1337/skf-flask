@@ -5,7 +5,6 @@ from skf.api.restplus import api
 question = api.model('question', {
     'id': fields.Integer(readOnly=True, description='The unique identifier of a question item'),
     'question': fields.String(readOnly=True, description='The question value'),
-    'checklist_level': fields.String(required=True, description='The question checklist level for pre process step'),
     'checklist_type': fields.String(required=True, description='The question checklist type used for pre process step'),
 })
 

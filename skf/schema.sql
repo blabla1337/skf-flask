@@ -94,7 +94,7 @@ CREATE TABLE `projects` (
 `projectDesc` text NOT NULL,
 `ownerID` int(11) NOT NULL,
 `timestamp` timestamp NOT NULL,
-`level` int(11) NOT NULL
+`checklist_type` int(11) NOT NULL
 );
 
 
