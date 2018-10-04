@@ -9,7 +9,7 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 def get_sprint_items(checklists_type):
     log("User requested list of question sprint items", "LOW", "PASS")
-    val_alpha_num(checklists_type)
+    val_num(checklists_type)
     result = questions_sprint.query.filter(questions_sprint.checklist_type == checklists_type).paginate(1, 500, False)
     return result
 

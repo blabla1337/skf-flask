@@ -577,9 +577,9 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_questions_sprint_items(self):
         """Test if the questions sprint items call is working"""
-        headers = {'content-type': 'application/json'}
-        payload = {"checklist_type": "0"}
-        response = self.client.post('/api/questions_sprint/items', data=json.dumps(payload), headers=headers)
+        jwt = self.login('admin', 'admin')        
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.get('/api/questions_sprint/items/0', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['question'], "Does the sprint implement/changes authentication?")
@@ -625,9 +625,9 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_questions_pre_items(self):
         """Test if the questions pre items call is working"""
-        headers = {'content-type': 'application/json'}
-        payload = {"checklist_type": "0"}
-        response = self.client.post('/api/questions_pre/items', data=json.dumps(payload), headers=headers)
+        jwt = self.login('admin', 'admin')        
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.get('/api/questions_pre/items/0', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['question'], "You have a blueprint for the design, architecture and validated this using ASVS?")
