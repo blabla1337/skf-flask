@@ -9,10 +9,9 @@ from skf.database.question_sprint_results import question_sprint_results
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 
-def get_pre_items(data):
+def get_pre_items(checklists_type):
     log("User requested list of question pre items", "LOW", "PASS")
-    val_alpha_num(data.get('checklist_type'))
-    checklist_type = data.get('checklist_type')
+    val_alpha_num(checklists_type)
     result = questions_pre.query.filter(questions_pre.checklist_type == checklist_type).paginate(1, 500, False)
     return result
 

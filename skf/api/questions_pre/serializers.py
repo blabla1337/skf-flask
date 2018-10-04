@@ -32,10 +32,6 @@ update_list_items_pre = api.inherit('List of questions pre for update', {
     'questions': fields.List(fields.Nested(list_pre_update))
 })
 
-question_pre_item = api.model('question_pre_item', {
-    'checklist_type': fields.String(required=True, description='The question checklist type used for pre process step'),
-})
-
 question_pre_item_update = api.model('question_pre_item_update', {
     'question': fields.String(readOnly=True, description='The question value'),
     'checklist_type': fields.String(required=True, description='The question checklist type used for pre process step'),
