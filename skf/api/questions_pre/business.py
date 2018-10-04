@@ -12,7 +12,7 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num
 def get_pre_items(checklists_type):
     log("User requested list of question pre items", "LOW", "PASS")
     val_alpha_num(checklists_type)
-    result = questions_pre.query.filter(questions_pre.checklist_type == checklist_type).paginate(1, 500, False)
+    result = questions_pre.query.filter(questions_pre.checklist_type == checklists_type).paginate(1, 500, False)
     return result
 
 
