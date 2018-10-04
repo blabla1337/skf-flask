@@ -15,7 +15,7 @@ class TestRestPlusApi(unittest.TestCase):
         cls.client = app.test_client()
         with app.app_context():
             init_db()
-            update_db()
+            #update_db()
             chatbot_tools.init_dataset()
             settings.TESTING = True
             skf.app.initialize_app(app)
@@ -913,10 +913,10 @@ class TestDB(unittest.TestCase):
         """Test if the init db is working"""
         self.assertTrue(init_db())
 
-    def test_update_db(self):
-        """Test if the update db is working"""
-        init_db()
-        self.assertTrue(update_db())        
+    #def test_update_db(self):
+        #"""Test if the update db is working"""
+        #init_db()
+        #self.assertTrue(update_db())        
 
 
 class TestSecurity(unittest.TestCase):
