@@ -27,11 +27,13 @@ checklist_update = api.model('checklist_update', {
 
 checklist_type = api.model('checklist_type_create', {
     'checklist_name': fields.String(required=True, description='Name of the new checklist'),
+    'checklist_description': fields.String(required=True, description='Description of the checklist type'),
 })
 
 checklist_types = api.model('checklist_types', {
     'checklist_type': fields.Integer(readOnly=True, description='The unique identifier of the checklist type'),
     'checklist_name': fields.String(required=True, description='Name of the checklist type'),
+    'checklist_description': fields.String(required=True, description='Description of the checklist type'),
 })
 
 checklist_type_items = api.inherit('List of checklist types', {

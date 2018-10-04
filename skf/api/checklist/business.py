@@ -21,8 +21,10 @@ def get_checklist_item_types():
 def create_checklist_type(data):
     log("User requested create a new checklist type", "LOW", "PASS")
     checklist_name = data.get('checklist_name')
+    checklist_description = data.get('checklist_description')
     val_alpha_num(checklist_name)
-    types = checklist_types(checklist_name)
+    val_alpha_num(checklist_description)
+    types = checklist_types(checklist_name, checklist_description)
     db.session.add(types)
     db.session.commit()
     return {'message': 'Checklist type successfully created'} 
@@ -31,11 +33,13 @@ def create_checklist_type(data):
 def update_checklist_type(id, data):
     log("User requested update checklist type", "LOW", "PASS")
     checklist_name = data.get('checklist_name')
+    checklist_description = data.get('checklist_description')
     val_alpha_num(checklist_name)
+    val_alpha_num(checklist_description)
     val_num(id)
     result_checklist_types = checklist_types.query.filter(checklist_types.checklist_type == id).one()
     result_checklist_types.checklist_name = checklist_name
-    db.session.add(result_checklist_types)
+    db.session.add(result_checklist_types, checklist_description)
     db.session.commit()
     return {'message': 'Checklist item successfully updated'} 
 
@@ -59,7 +63,7 @@ def create_checklist_item(checklistID, checklist_type, data):
     checklist_kbID = data.get('kbID')
     val_num(checklist_kbID)
     val_num(checklist_type)
-    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always, include_first, 0, 0)
+    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always, include_first, question_sprint_ID, question_pre_ID)
     db.session.add(checklist_item)
     db.session.commit()
     return {'message': 'Checklist item successfully created'} 

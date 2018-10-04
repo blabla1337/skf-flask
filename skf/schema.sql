@@ -290,6 +290,7 @@ INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `checklist_level`, `qu
 drop table if exists `checklist_types`;
 CREATE TABLE `checklist_types` (
 `checklist_type` INTEGER PRIMARY KEY AUTOINCREMENT,
+`checklist_description` varchar(255) NOT NULL,
 `checklist_name` varchar(255) NOT NULL
 );
 
@@ -297,10 +298,10 @@ CREATE TABLE `checklist_types` (
 --
 -- Default checklist types
 --
-INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("ASVS");
-INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("MASVS");
-INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("PCIDSS");
-INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("Custom");
+INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("ASVS", "TBD");
+INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("MASVS", "TBD");
+INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("PCIDSS", "TBD");
+INSERT OR REPLACE INTO `checklist_types` (`checklist_name`) VALUES ("Custom", "TBD");
 
 
 --
