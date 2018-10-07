@@ -8,7 +8,7 @@ from skf.api.restplus import api
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
 @ns.route('/items/<int:checklist_type>')
-@api.doc(params={'checklist_type': 'The checklist type (0: ASVS, 1: MASVS)'})
+@api.doc(params={'checklist_type': 'The checklist type (1: ASVS, 2: MASVS, etc)'})
 @api.response(404, 'Validation error', message)
 class ChecklistCollection(Resource):
 
