@@ -69,6 +69,15 @@ def create_checklist_item(checklistID, checklist_type, data):
     return {'message': 'Checklist item successfully created'} 
 
 
+def delete_checklist_item(checklist_id):
+    log("User deleted checklist item", "MEDIUM", "PASS")
+    val_num(checklist_id)
+    checklist = checklists_kb.query.filter(checklists_kb.id == checklist_id).one()
+    db.session.delete(checklist)
+    db.session.commit()
+    return {'message': 'Checklist item successfully deleted'}
+
+
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
     val_float(checklist_id)
