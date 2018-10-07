@@ -109,6 +109,15 @@ def update_pre_question(id_pre_question, data):
     return {'message': 'Pre question successfully updated'}
 
 
+def delete_pre_question(id_pre_question):
+    log("User deleted pre item question", "MEDIUM", "PASS")
+    val_num(id_pre_question)
+    pre = questions_pre.query.filter(questions_pre.id == id_pre_question).one()
+    db.session.delete(pre)
+    db.session.commit()
+    return {'message': 'Pre item question successfully deleted'}
+
+
 def new_pre_question(data):
     log("User created new pre question item", "MEDIUM", "PASS")
     val_alpha_num(data.get('question'))
