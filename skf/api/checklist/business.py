@@ -12,6 +12,13 @@ def get_checklist_item(checklist_id, checklist_type):
     return result
 
 
+def get_checklist_item_question(question_id):
+    log("User requested specific checklist item using questionID", "LOW", "PASS")
+    val_num(question_id)
+    result = checklists_kb.query.filter((checklists_kb.question_pre_ID == question_id) | (checklists_kb.question_sprint_ID == question_id)).all()
+    return result
+
+
 def get_checklist_item_types():
     log("User requested list checklist types", "LOW", "PASS")
     result = checklist_types.query.paginate(1, 500, False)

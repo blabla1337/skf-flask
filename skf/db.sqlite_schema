@@ -217,14 +217,13 @@ drop table if exists `questions_pre`;
 CREATE TABLE `questions_pre` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `checklist_type` int(11),
-`checklist_level` int(11),
 `question` varchar(255) NOT NULL
 );
 
 --
 --ASVS lvl 1
 --
-INSERT OR REPLACE INTO `questions_pre` ( `checklist_level`, `question`) VALUES (1, "You have a blueprint for the design, architecture and validated this using ASVS?");
+INSERT OR REPLACE INTO `questions_pre` ( `checklist_type`, `question`) VALUES (1, "You have a blueprint for the design, architecture and validated this using ASVS?");
 INSERT OR REPLACE INTO `questions_pre` (`checklist_type`, `question`) VALUES (1, "You have a blueprint for performing secure configuration, hardening of the application server and validated this using ASVS?");
 --
 --ASVS lvl 2
