@@ -15,14 +15,14 @@ def get_checklist_item(checklist_id, checklist_type):
 def get_checklist_item_question_pre(question_id):
     log("User requested specific checklist item using pre questionID", "LOW", "PASS")
     val_num(question_id)
-    result = checklists_kb.query.filter(checklists_kb.question_pre_ID == question_id).all()
+    result = checklists_kb.query.filter(checklists_kb.question_pre_ID == question_id).one()
     return result
 
 
 def get_checklist_item_question_sprint(question_id):
     log("User requested specific checklist item using sprint questionID", "LOW", "PASS")
     val_num(question_id)
-    result = checklists_kb.query.filter(checklists_kb.question_sprint_ID == question_id).all()
+    result = checklists_kb.query.filter(checklists_kb.question_sprint_ID == question_id).one()
     return result
 
 
