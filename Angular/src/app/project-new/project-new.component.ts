@@ -46,12 +46,12 @@ export class ProjectNewComponent implements OnInit {
 
   ngOnInit() {
 
-    this.questionPreService.getPreQuestions().subscribe(
+    this.questionPreService.getPreQuestions(1).subscribe(
       questions => this.pre_dev = questions,
       err => console.log("getting pre dev questions failed")
     )
 
-    this.questionsSprintService.getSprintQuestions().subscribe(
+    this.questionsSprintService.getSprintQuestions(1).subscribe(
       questions => this.sprints = questions,
       err => console.log("getting sprint questions failed")
     )

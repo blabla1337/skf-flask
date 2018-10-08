@@ -2,33 +2,42 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { ChecklistService } from '../services/checklist.service'
+import { KnowledgebaseService } from '../services/knowledgebase.service'
+import { QuestionPreService} from '../services/questions-pre.service'
+import { QuestionsSprintService } from '../services/questions-sprint.service'
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
 import { Checklist } from '../models/checklist';
-import { KnowledgebaseService } from '../services/knowledgebase.service'
 import { Knowledgebase } from '../models/knowledgebase';
+import { Question_pre } from '../models/question_pre'
+import { Question_sprint } from '../models/question_sprint'
 
 @Component({
   selector: 'app-checklist-edit',
   templateUrl: './checklist-edit.component.html',
-  providers: [ChecklistService]
+providers: [ChecklistService, QuestionPreService, QuestionsSprintService]
 })
 export class ChecklistEditComponent implements OnInit {
 
   constructor(
     private _checklistService: ChecklistService,
+    private _questionsPreService: QuestionPreService,
+    private _knowledgeService: KnowledgebaseService,
+    private _questionsSprintService: QuestionsSprintService,
     private modalService: NgbModal,
     private router: Router,
-    private _knowledgeService: KnowledgebaseService,
   ) { }
 
   public idfromUrl: string;
   public error: string;
   public errors = [];
+  public delete:string;
   public succes: string;
   public canEdit: boolean;
   public knowledgebaseID: number;
   public checklist: Checklist[]
+  public pre_dev: Question_pre[];
+  public sprints: Question_sprint[];
   public kbID: string;
   public include_first: boolean;
   public include_always: boolean;
@@ -36,6 +45,7 @@ export class ChecklistEditComponent implements OnInit {
   public content: string;
   public question_sprint_ID: number;
   public question_pre_ID: number;
+  public editChecklist:boolean;
   knowledgebaseItems: Knowledgebase[];
 
   ngOnInit() {
@@ -44,30 +54,28 @@ export class ChecklistEditComponent implements OnInit {
       let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
       this.canEdit = decodedJWT.privilege.includes("edit");
     }
-    this.checklistList();
+    this.getChecklistList();
     this.getKnowledgeItems();
-  }
-
-  checklistList() {
-    this._checklistService
-      .getChecklistByType(Number(localStorage.getItem("tempParamID")))
-      .subscribe(
-      checklist => {
-        this.checklist = checklist;
-        if (!this.checklist) {
-          this.error = "There are no checklist types defined yet"
-        }
-      },
-      err => this.error = "Getting the checklist types failed, contact an administrator! ");
+    this.getPreQuestionList(Number(localStorage.getItem("tempParamID")));
+    this.getSprintQuestionList(Number(localStorage.getItem("tempParamID")));
   }
 
   storeChecklistItem(){
     this.errors = [];    
     this._checklistService.newChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), Boolean(this.include_always), Boolean(this.include_first), Number(this.question_sprint_ID), Number(this.question_pre_ID))
       .subscribe(
-      err => this.errors.push("Error whilst adding user, potential duplicate email adres!")
+        () => this.getChecklistList(),
+        () => this.errors.push("Error whilst adding user, potential duplicate email adres!")
       );
-      this.checklistList();
+  }
+
+  updateChecklistItem(){
+    this.errors = [];    
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), Boolean(this.include_always), Boolean(this.include_first), Number(this.question_sprint_ID), Number(this.question_pre_ID))
+      .subscribe(
+        () => this.getChecklistList(),
+        () => this.errors.push("Error whilst adding user, potential duplicate email adres!")
+      );
   }
 
   getKnowledgeItems() {
@@ -76,11 +84,72 @@ export class ChecklistEditComponent implements OnInit {
     );
   }
 
+  getChecklistList() {
+    this._checklistService
+      .getChecklistByType(Number(localStorage.getItem("tempParamID")))
+      .subscribe(
+        checklist => {
+         this.checklist = checklist;
+          if (!this.checklist) {
+          this.error = "There are no checklist types defined yet"
+        }
+      },
+      err => this.error = "Getting the checklist types failed, contact an administrator! ");
+  }
+
+  getPreQuestionList(checklistType:number){
+    this._questionsPreService.getPreQuestions(checklistType).subscribe(
+      pre_dev => this.pre_dev = pre_dev,
+      err => console.log("getting pre dev questions failed")
+    )
+  }
+
+  getSprintQuestionList(checklistType:number){
+    this._questionsSprintService.getSprintQuestions(checklistType).subscribe(
+      questions => this.sprints = questions,
+      err => console.log("getting sprint questions failed")
+    )  
+  }
+
   back() {
     this.router.navigate(["/checklist-manage/", localStorage.getItem("tempParamID")]);
   }
 
-  open(modalValue) {
+  deleteChecklistItem(checklistID:string) {
+    if (this.delete == "DELETE") {
+      this._checklistService.deletechecklistItem(checklistID).subscribe(x =>
+        //Get the new project list on delete 
+        this.getChecklistList())
+      this.delete = "";
+    }
+  }
+  
+  deleteChecklistItemModal(modalValue) {
     this.modalService.open(modalValue, { size: 'lg' })
+  }
+
+  newChecklistItemModal(modalValue) {
+    this.modalService.open(modalValue, { size: 'lg' })
+  }
+
+  editItem(item:string[]){ 
+    this.editChecklist = true 
+    this.checklistID = item["checklist_items_checklistID"]
+    this.content = item["checklist_items_content"]
+    this.question_pre_ID = item["question_pre_ID"]
+    this.question_sprint_ID = item["question_sprint_ID"]
+    this.kbID = item["kb_item_id"]
+    this.include_first = item["include_first"]
+    this.include_always = item["include_always"]
+  }
+  readItem(){ 
+    this.editChecklist = false
+    this.checklistID = null
+    this.content = null
+    this.question_pre_ID = null
+    this.question_sprint_ID = null
+    this.kbID = null
+    this.include_first = null
+    this.include_always = null
   }
 }

@@ -40,7 +40,7 @@ export const appRoutes: Routes = [
   { path: 'checklist-summary', component: ChecklistSummaryComponent, canActivate: [GuardService] },
   { path: 'login', component: AuthenticateComponent },
   { path: 'first-login', component: FirstLoginComponent },
-  { path: 'questionnaire-pre', component: QuestionnairePreComponent, canActivate: [GuardService] },
+  { path: 'questionnaire-pre/:id', component: QuestionnairePreComponent, canActivate: [GuardService] },
   { path: '**', component: DashboardComponent, canActivate: [GuardService] }
 ];
 @NgModule({
