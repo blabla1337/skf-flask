@@ -56,7 +56,7 @@ export class ProjectDashboardComponent implements OnInit {
     });
     
     this.questionsSprintService
-      .getSprintQuestions()
+      .getSprintQuestions(0)
       .subscribe(
       (projectService) => { this.sprints = projectService },
       err => console.log("getting sprint questions failed"));

@@ -1,3 +1,4 @@
+/*
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -11,7 +12,6 @@ import { tick } from "@angular/core/testing";
 import { Knowledgebase } from "../models/knowledgebase";
 import { StartsWithPipe } from "../pipes/starts-with.pipe";
 import { KnowledgebaseService } from "../services/knowledgebase.service";
-import { ProjectDashboardComponent } from "./project-dashboard.component";
 import { QuestionsSprintService } from "../services/questions-sprint.service";
 import { QuestionPreService } from "../services/questions-pre.service";
 import { Sprint } from "../models/sprint";
@@ -24,8 +24,6 @@ import { SprintService } from "../services/sprint.service";
 describe('Knowledgebase component component', () => {
     let component: ProjectDashboardComponent;
     let fixture: ComponentFixture<ProjectDashboardComponent>;
-    let debugElement: DebugElement;
-    let htmlElement: HTMLElement;
     let questions: Sprint[] = [];
     let sprintService: QuestionsSprintService;
 
@@ -86,4 +84,4 @@ describe('Knowledgebase component component', () => {
     });
 })
 
-
+*/

@@ -14,8 +14,8 @@ export class QuestionsSprintService {
 
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN});
 
-  getSprintQuestions() {
-    return this.http.get(environment.API_ENDPOINT + '/questions_sprint/items')
+  getSprintQuestions(checklistType:number) {
+    return this.http.get(environment.API_ENDPOINT + `/questions_sprint/items/${checklistType}`, { headers: this.postHeaders })
       .map(response => response.json().items)
   }
 

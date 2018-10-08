@@ -17,6 +17,7 @@ export class ChecklistSummaryComponent implements OnInit {
   public number: number;
   public delete: string;
   public checklistType: string;
+  public checklistDescription: string;
   public canDelete: boolean;
   public return: boolean;
   public errors: string[] = [];
@@ -51,7 +52,7 @@ export class ChecklistSummaryComponent implements OnInit {
     if (!this.checklistType) { this.errors.push("No checklistType was provided!"); this.return = false; }
     if (this.return == false) { return; }
 
-    this._checklistService.newChecklistTyoe(this.checklistType)
+    this._checklistService.newChecklistTyoe(this.checklistType, this.checklistDescription)
       .subscribe(
         checklistTypes => this.checklistTypes = checklistTypes,
         err => this.errors.push("There was an error storing the new checklistType"),
