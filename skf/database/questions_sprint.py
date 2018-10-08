@@ -5,7 +5,7 @@ from skf.database import db
 class questions_sprint(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.Text)
-    checklist_type = db.Column(db.Text)
+    checklist_type = db.Column(db.Integer)
 
     def __init__(self, question, checklist_type):
         self.question = question

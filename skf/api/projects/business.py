@@ -97,9 +97,9 @@ def stats_project(project_id):
     project_info = (projects.query.filter(projects.projectID == project_id).one())
     project_name = project_info.projectName
     project_desc = project_info.projectDesc
-    project_lvl = project_info.checklist_type
+    project_type = project_info.checklist_type
     project_open = sprint_open
     project_closed = (checklists_results.query.filter(checklists_results.projectID == project_id).filter(checklists_results.status == 2).count())
     project_accepted = (checklists_results.query.filter(checklists_results.projectID == project_id).filter(checklists_results.status == 3).count())
-    result = {'project_id': project_id, 'project_name': project_name, 'project_desc': project_desc, 'project_lvl': project_lvl, 'project_open': project_open, 'project_closed': project_closed, 'project_accepted': project_accepted}
+    result = {'project_id': project_id, 'project_name': project_name, 'project_desc': project_desc, 'project_type': project_type, 'project_open': project_open, 'project_closed': project_closed, 'project_accepted': project_accepted}
     return result

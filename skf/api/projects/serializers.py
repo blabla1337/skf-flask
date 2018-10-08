@@ -9,14 +9,14 @@ project = api.model('project', {
     'projectVersion': fields.String(required=True, description='Project version'),
     'projectDesc': fields.String(required=True, description='Project description'),
     'timestamp': fields.String(required=True, description='Project timestamp'),
-    'checklist_type': fields.String(required=True, description='Project checklist type'),
+    'checklist_type': fields.Integer(required=True, description='Project checklist type'),
 })
 
 project_stats = api.model('project_stats', {
     'project_id': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
     'project_name': fields.String(required=True, description='The name of a project'),
     'project_desc': fields.String(required=True, description='The description of a project'),
-    'project_level': fields.Integer(readOnly=True, description='The selected ASVS level of a project item'),
+    'project_type': fields.Integer(readOnly=True, description='The selected type of checklist of a project item'),
     'project_open': fields.Integer(readOnly=True, description='The count of open items per project'),
     'project_closed': fields.Integer(readOnly=True, description='The count of closed items per project'),
     'project_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per project'),
