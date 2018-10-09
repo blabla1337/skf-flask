@@ -134,7 +134,6 @@ drop table if exists `questions_sprint`;
 CREATE TABLE `questions_sprint` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `checklist_type` int(11),
-`checklist_level` int(11),
 `question` varchar(255) NOT NULL
 );
 
