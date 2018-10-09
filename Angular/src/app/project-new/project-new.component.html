@@ -44,81 +44,23 @@
               <ng-template ngbTabTitle><b>Intro</b></ng-template>
               <ng-template ngbTabContent>
                 <div class="inner">
-                  <h4>What ASVS level do i need?</h4>
-                  <p>Select the level of security verification for your project. Read the descriptions below to find out which level is right for you by expanding a accordeon menu and selecting the level!</p>
-                  <ngb-alert *ngIf="level" [dismissible]="false">
-                      <strong>Message,</strong> Level {{level}} is selected for ASVS!
-                    </ngb-alert>
+                  <h4>Checklist select</h4>
+                  <p>Select the right checklist for your project!</p>
                 </div>
-                <ngb-accordion [closeOthers]="true" #acc="ngbAccordion" >
-                  <ngb-panel title="Level 1: Opportunistic">
-                    <ng-template ngbPanelContent>
-                      <p>             
-                      An application achieves ASVS Level 1 (or Opportunistic) if it adequately defends against
-                      application security vulnerabilities that are easy to discover, and included in the OWASP Top
-                      10 and other similar checklists.
-                      </p>
-                      <p>
-                      Level 1 is typically appropriate for applications where low confidence in the correct use of
-                      security controls is required, or to provide a quick analysis of a fleet of enterprise
-                      applications, or assisting in developing a prioritized list of security requirements as part of a
-                      multi-phase effort. Level 1 controls can be ensured either automatically by tools or simply
-                      manually without access to source code. We consider Level 1 the minimum required for all
-                      applications.
-                      </p>
-                      <p>
-                      Threats to the application will most likely be from attackers who are using simple and low
-                      effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in
-                      contrast to a determined attacker who will spend focused energy to specifically target the
-                      application. If data processed by your application has high value, you would rarely want to
-                      stop at a Level 1 review.
-                       </p>
-                       <button (click)="levelSelect('1'); t.select('step1');" class="btn btn-yellow" style='float:right' >Select this level</button>
-                    </ng-template>
-                  </ngb-panel>
-                  <ngb-panel title="Level 2: Standard">
-                    <ng-template ngbPanelContent>
-                      <p>            
-                      An application achieves ASVS Level 2 (or Standard) if it adequately defends against most of the risks associated with software today.
-                      </p>
-                      <p>
-                      Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business
-                      transactions, including those that process healthcare information, implement businesscritical or sensitive functions, or process other sensitive assets.
-                      </p>
-                      <p>
-                      Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at
-                      discovering and exploiting weaknesses within applications. 
-                      </p>
-                      <button (click)="levelSelect('2'); t.select('step1')" class="btn btn-green" style='float:right' >Select this level</button>
-                    </ng-template>
-                  </ngb-panel>
-                  <ngb-panel title="Level 3: Advanced">
-                    <ng-template ngbPanelContent>
-                      <p>              
-                      ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those
-                      that may be found within areas of military, health and safety, critical infrastructure, etc. Organisations may require ASVS Level 3 for applications that perform critical functions,
-                      where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An
-                      application achieves ASVS Level 3 (or Advanced) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design.
-                      </p>
-                      <p>
-                      An application at ASVS Level 3 requires more in depth analysis, architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to
-                      facilitate e.g. resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security
-                      responsibilities (defence in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions,
-                      input validation), availability (e.g. handling load gracefully), authentication (including between systems), non-repudiation, authorization, and auditing (logging). 
-                      </p>
-                      <button (click)="levelSelect('3'); t.select('step1')" class="btn btn-blue" style='float:right' >Select this level</button>
-                    </ng-template>
-                  </ngb-panel>
-                </ngb-accordion>
+                <select class="form-control" name="question" (change)="selectQuestions()" [(ngModel)]="checklistTypeID"
+                id="sel1">
+                <option disabled hidden [value]="selectUndefinedOptionValue">Select checklist</option>
+                <option *ngFor="let items of checklistType; let myIndex = index" value="{{items.checklist_type}}">{{items.checklist_name}}</option>
+              </select>
                 <br />
                 <div class="alert alert-info">
-                  <p><strong>How to use the standard:</strong></p> 
-                  <p>One of the best ways to use the Application Security
-                  Verification Standard is to use it as blueprint create a Secure Coding Checklist specific to your application, platform or organization. Tailoring the ASVS to your use cases will increase the focus
-                  on the security requirements that are most important to your projects and environments. </p>
-                  <p> More information about the ASVS and how to use it is found <a href="https://www.owasp.org/images/3/33/OWASP_Application_Security_Verification_Standard_3.0.1.pdf">at OWASP.org (pdf)</a>.
+                  <p><strong>So how do i add my own checklist?</strong></p> 
+                  <p>
+                    Follow <a routerLink="/checklist-manage">this</a> link to be presented a page that allows the adding of your own checklist! <br/>
+                    Please refer to <a href="https://skf.readme.io">here, </a> to find more extensive information on how to do this step by step!
                   </p>
                 </div>
+                <button *ngIf="checklistTypeID" (click)="t.select('step1')" class="btn btn-default" style='float:right' >Select</button>
               </ng-template>
             </ngb-tab>
             <!-- start the first step! -->
