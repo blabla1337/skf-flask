@@ -22,10 +22,18 @@ export class QuestionnairePreComponent implements OnInit {
   public questionID: number;
   public questionName: string;
   public pre_dev: Question_pre[];
-  public checklist: Checklist[]
+  public checklist: Checklist[];
+  public correlatedChecklist: Checklist[];
   public error: string;
   public errors=[];
   public delete:string;
+  public checklistID:number;
+  public content:string;
+  public kbID:number;
+  public question_sprint_ID:number;
+  public question_pre_ID:number;
+  public include_first:string;
+  public include_always:string;
 
   constructor(
     private modalService: NgbModal,
@@ -64,8 +72,22 @@ export class QuestionnairePreComponent implements OnInit {
       err => this.error = "Getting the checklist types failed, contact an administrator! ");
   }
 
+  getChecklistListItemsCorrelatedToSelectedQuestion() {
+    this._questionsPreService
+      .getChecklistItemsOnPreQuestionID(this.questionID)
+      .subscribe(
+        correlatedChecklist => {
+        this.correlatedChecklist = correlatedChecklist;
+        if (!this.checklist) {
+          this.error = "There are no items correlated yey"
+        }
+      },
+      err => this.error = "Getting the correlated controls failed, contact an administrator! ");
+  }
+
   selectChecklistItems(){
     console.log(this.questionID)
+    this.getChecklistListItemsCorrelatedToSelectedQuestion()
   }
 
   storeNewQuestion(){
@@ -84,6 +106,16 @@ export class QuestionnairePreComponent implements OnInit {
         () => this.getPreQuestionList(),
         () => this.errors.push("Error whilst adding user, potential duplicate email adres!")
       );
+  }
+
+  correlateQuestionToChecklistITem(checklistID:number){
+    this.errors = [];    
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, this.content, Number(this.kbID), Boolean(this.include_always), Boolean(this.include_first), Number(this.question_sprint_ID), Number(this.question_pre_ID))
+      .subscribe(
+        () => this.getChecklistListItemsCorrelatedToSelectedQuestion(),
+        () => this.errors.push("Adding the checklistID to the question did not happen!")
+      );
+
   }
 
   deleteQuestion(){

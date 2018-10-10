@@ -2,7 +2,7 @@ from skf.database import db
 from skf.api.security import log, val_num, val_float, val_alpha_num
 from skf.database.checklists_kb import checklists_kb
 from skf.database.checklist_types import checklist_types
-
+import sys
 
 def get_checklist_item(checklist_id, checklist_type):
     log("User requested specific checklist item", "LOW", "PASS")
@@ -15,7 +15,7 @@ def get_checklist_item(checklist_id, checklist_type):
 def get_checklist_item_question_pre(question_id):
     log("User requested specific checklist item using pre questionID", "LOW", "PASS")
     val_num(question_id)
-    result = checklists_kb.query.filter(checklists_kb.question_pre_ID == question_id).one()
+    result = checklists_kb.query.filter(checklists_kb.question_pre_ID == question_id).paginate(1, 1500, False)
     return result
 
 

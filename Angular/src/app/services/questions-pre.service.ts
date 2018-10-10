@@ -53,4 +53,9 @@ export class QuestionPreService {
         error => console.log("failed to delete checklist item"))
   }
 
+  getChecklistItemsOnPreQuestionID(preQuestionID:number) {
+    return this.http.get(environment.API_ENDPOINT + `/checklist/item/question_pre/${preQuestionID}`, { headers: this.postHeaders })
+      .map(response => response.json().items)
+  }
+
 }
