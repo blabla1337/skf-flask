@@ -70,7 +70,7 @@ export class QuestionnairePreComponent implements OnInit {
 
   storeNewQuestion(){
     this.errors = [];    
-    this._questionsPreService.newQuestion(localStorage.getItem("tempParamID"), this.questionName)
+    this._questionsPreService.newQuestion(Number(localStorage.getItem("tempParamID")), this.questionName)
       .subscribe(
         () => this.getPreQuestionList(),
         () => this.errors.push("Error whilst adding user, potential duplicate email adres!")
@@ -79,7 +79,7 @@ export class QuestionnairePreComponent implements OnInit {
 
   updateQuestion(){
     this.errors = [];    
-    this._questionsPreService.updateQuestion(localStorage.getItem("tempParamID"), this.questionName, this.questionID)
+    this._questionsPreService.updateQuestion(Number(localStorage.getItem("tempParamID")), this.questionName, this.questionID)
       .subscribe(
         () => this.getPreQuestionList(),
         () => this.errors.push("Error whilst adding user, potential duplicate email adres!")

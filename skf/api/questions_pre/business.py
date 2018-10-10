@@ -7,7 +7,7 @@ from skf.database.checklists_results import checklists_results
 from skf.database.question_pre_results import question_pre_results
 from skf.database.question_sprint_results import question_sprint_results
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
-
+import sys
 
 def get_pre_items(checklists_type):
     log("User requested list of question pre items", "LOW", "PASS")
@@ -42,6 +42,7 @@ def store_pre_questions(user_id, data):
     for results in questions_results:
         project_id = results.projectID
         questionpreID = results.question_pre_ID
+        print(questionpreID, file=sys.stderr)
         checklists = checklists_kb.query.filter(checklists_kb.question_pre_ID == questionpreID).filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
         for row in checklists:
             checklists_query = checklists_results(row.checklistID, project_id, sprint_id, status, pre_item, row.kbID)

@@ -31,14 +31,14 @@ export class QuestionPreService {
       .map(response => response.json())
   }
 
-  newQuestion(checklist_type:string, questionName:string, ) {
+  newQuestion(checklist_type:number, questionName:string, ) {
     return this.http
       .put(environment.API_ENDPOINT + '/questions_pre/item/new', JSON.stringify({ question:questionName, checklist_type:checklist_type }),
       { headers: this.postHeaders })
       .map(response => { return response.json() });
   }
 
-  updateQuestion(checklist_type:string, questionName:string, questionID:number) {
+  updateQuestion(checklist_type:number, questionName:string, questionID:number) {
     return this.http
       .put(environment.API_ENDPOINT + `/questions_pre/item/update/${questionID}`, JSON.stringify({ question:questionName, checklist_type:checklist_type}),
       { headers: this.postHeaders })

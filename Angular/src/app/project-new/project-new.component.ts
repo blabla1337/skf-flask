@@ -86,12 +86,12 @@ export class ProjectNewComponent implements OnInit {
           .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
 
             for (let i = 1; i < count_pre + 1; i++) {
-              if (pre_dev_items["pre_dev_answer" + i] == null) { pre_dev_items["pre_dev_answer" + i] = "False"; }
+              if (!pre_dev_items["pre_dev_answer" + i]) { pre_dev_items["pre_dev_answer" + i] = "False"; }
               this.pre_dev_store.push({ "projectID": this.projectID, "question_pre_ID": i, "result": pre_dev_items["pre_dev_answer" + i].toString() });
             }
 
             for (let i = 1; i < count_sprint + 1; i++) {
-              if (sprint_items["sprint_answer" + i] == null) { sprint_items["sprint_answer" + i] = "False"; }
+              if (!sprint_items["sprint_answer" + i]) { sprint_items["sprint_answer" + i] = "False"; }
               this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": i, "result": sprint_items["sprint_answer" + i].toString(), "sprintID": this.sprintID });
             }
           })
