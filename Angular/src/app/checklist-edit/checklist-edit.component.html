@@ -90,7 +90,7 @@
                   <div class="form-group">
                     <div class="wrap">
                       <br />
-                      <label for="inputVersion" class="col-sm-2 control-label">Checklist ID</label>
+                      <label for="inputVersion" class="col-sm-2 control-label">Checklist ID *</label>
                       <div class="col-sm-10">
                         <input disabled maxlength="20" [(ngModel)]="checklistID" type="text" class="form-control"
                           id="inputVersion" name="checklistID" placeholder="">
@@ -98,7 +98,7 @@
                           <div class="col-sm-10">e.g. 1.1, 1.2 etc</div>
                         </div>
                       </div>
-                      <label for="inputVersion" class="col-sm-2 control-label">Checklist title</label>
+                      <label for="inputVersion" class="col-sm-2 control-label">Checklist title *</label>
                       <div class="col-sm-10">
                         <input required maxlength="20" [(ngModel)]="content"
                           type="text" class="form-control" id="inputVersion"  name="content" placeholder="">
@@ -106,7 +106,7 @@
                           <div class="col-sm-10">What is the title of the checklist item?</div>
                         </div>
                       </div>
-                      <label for="inputVersion" class="col-sm-2 control-label">KB item</label>
+                      <label for="inputVersion" class="col-sm-2 control-label">KB item *</label>
                       <div class="col-sm-10">
                         <select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1">
                           <option *ngFor="let items of knowledgebaseItems; let myIndex = index" value="{{items.kbID}}">{{items.title}}</option>
@@ -136,7 +136,7 @@
                           <div class="col-sm-10">Correlate the checklist item with a sprint questionnaire</div>
                         </div>
                       </div>
-                      <label for="inputVersion" class="col-sm-2 control-label">Include first</label>
+                      <label for="inputVersion" class="col-sm-2 control-label">Include first *</label>
                       <div class="col-sm-10">
                         <select class="form-control" name="include_first" [(ngModel)]="include_first" id="sel1">
                           <option value=True>true</option>
@@ -147,7 +147,7 @@
                           <div class="col-sm-10">select to use this checklist item in the first sprint</div>
                         </div>
                       </div>
-                      <label for="inputVersion" class="col-sm-2 control-label">Include always</label>
+                      <label for="inputVersion" class="col-sm-2 control-label">Include always *</label>
                       <div class="col-sm-10">
                         <select class="form-control" name="include_always" [(ngModel)]="include_always" id="sel1"> 
                           <option value=True>true</option>
@@ -207,7 +207,7 @@
             <div class="modal-body">
               <div class="form-group">
                 <div class="wrap">
-                  <label for="inputVersion" class="col-sm-2 control-label">Checklist ID</label>
+                  <label for="inputVersion" class="col-sm-2 control-label">Checklist ID *</label>
                   <div class="col-sm-10">
                     <input required maxlength="20" [(ngModel)]="checklistID" type="text" class="form-control" id="inputVersion"
                       name="checklistID" placeholder="">
@@ -215,7 +215,7 @@
                       <div class="col-sm-10">e.g. 1.1, 1.2 etc</div>
                     </div>
                   </div>
-                  <label for="inputVersion" class="col-sm-2 control-label">Checklist title</label>
+                  <label for="inputVersion" class="col-sm-2 control-label">Checklist title *</label>
                   <div class="col-sm-10">
                     <input required maxlength="20" [(ngModel)]="content" type="text" class="form-control" id="inputVersion"
                       name="content" placeholder="">
@@ -223,10 +223,11 @@
                       <div class="col-sm-10">What is the title of the checklist item?</div>
                     </div>
                   </div>
-                  <label for="inputVersion" class="col-sm-2 control-label">KB item</label>
+                  <label for="inputVersion" class="col-sm-2 control-label">KB item *</label>
                   <div class="col-sm-10">
                     <select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1">
-                      <option disabled hidden [value]="selectUndefinedOptionValue">Select a knowledgebase item</option>
+                      <option selected [value]="selectUndefinedOptionValue">Select a knowledgebase item</option>
+                      <option value="0">Use this item as a header!</option>
                       <option *ngFor="let items of knowledgebaseItems; let myIndex = index" value="{{items.kbID}}">{{items.title}}</option>
                     </select>
                     <div class="wrap desc alert-info">
@@ -236,7 +237,7 @@
                   <label for="inputVersion" class="col-sm-2 control-label">Pre questionnaire</label>
                   <div class="col-sm-10">
                     <select class="form-control" name="question_pre_ID" [(ngModel)]="question_pre_ID" id="sel1">
-                      <option disabled hidden [value]="selectUndefinedOptionValue">Select pre question (select empty to
+                      <option selected [value]="selectUndefinedOptionValue">Select pre question (select empty to
                         not include)</option>
                       <option value="0">empty</option>
                       <option *ngFor="let items of pre_dev; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
@@ -248,7 +249,7 @@
                   <label for="inputVersion" class="col-sm-2 control-label">Sprint Questionnaire</label>
                   <div class="col-sm-10">
                     <select class="form-control" name="question_sprint_ID" [(ngModel)]="question_sprint_ID" id="sel1">
-                      <option disabled hidden [value]="selectUndefinedOptionValue">Select sprint question (select empty
+                      <option selected [value]="selectUndefinedOptionValue">Select sprint question (select empty
                         to not include)</option>
                       <option value="0">empty</option>
                       <option *ngFor="let items of sprints; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
@@ -257,10 +258,10 @@
                       <div class="col-sm-10">Correlate the checklist item with a sprint questionnaire</div>
                     </div>
                   </div>
-                  <label for="inputVersion" class="col-sm-2 control-label">Include first</label>
+                  <label for="inputVersion" class="col-sm-2 control-label">Include first *</label>
                   <div class="col-sm-10">
                     <select class="form-control" name="include_first" [(ngModel)]="include_first" id="sel1">
-                      <option disabled hidden [value]="selectUndefinedOptionValue">Include first?</option>
+                      <option selected [value]="selectUndefinedOptionValue">Include first?</option>
                       <option value=True>true</option>
                       <option value=False>false</option>
                     </select>
@@ -268,10 +269,10 @@
                       <div class="col-sm-10">select to use this checklist item in the first sprint</div>
                     </div>
                   </div>
-                  <label for="inputVersion" class="col-sm-2 control-label">Include always</label>
+                  <label for="inputVersion" class="col-sm-2 control-label">Include always *</label>
                   <div class="col-sm-10">
                     <select class="form-control" name="include_always" [(ngModel)]="include_always" id="sel1">
-                      <option disabled hidden [value]="selectUndefinedOptionValue">Include always?</option>
+                      <option selected [value]="selectUndefinedOptionValue">Include always?</option>
                       <option value=True>true</option>
                       <option value=False>false</option>
                     </select>

@@ -2,7 +2,7 @@
 from flask_restplus import Resource
 from skf.api.security import security_headers, validate_privilege
 from skf.api.checklist.business import get_checklist_item_question_sprint
-from skf.api.checklist.serializers import checklist, message
+from skf.api.checklist.serializers import checklist_items, message
 from skf.api.kb.parsers import authorization
 from skf.api.restplus import api
 
@@ -14,11 +14,11 @@ ns = api.namespace('checklist', description='Operations related to checklist ite
 class ChecklistItem(Resource):
 
     @api.expect(authorization)
-    @api.marshal_with(checklist)
+    @api.marshal_with(checklist_items)
     @api.response(400, 'No results found', message)
     def get(self, questionID):
         """
-        Returns a checklist item based on question sprint identifier.
+        Returns a list of checklist items correlated to question sprint identifier
         * Privileges required: **manage**
         """
         validate_privilege(self, 'manage')

@@ -70,7 +70,8 @@ export class ChecklistEditComponent implements OnInit {
   }
 
   updateChecklistItem(){
-    this.errors = [];    
+    this.errors = [];
+    if(this.question_sprint_ID = null){ console.log("woop")}    
     this._checklistService.updateChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), Boolean(this.include_always), Boolean(this.include_first), Number(this.question_sprint_ID), Number(this.question_pre_ID))
       .subscribe(
         () => this.getChecklistList(),

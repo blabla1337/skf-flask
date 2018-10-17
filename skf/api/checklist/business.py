@@ -22,7 +22,7 @@ def get_checklist_item_question_pre(question_id):
 def get_checklist_item_question_sprint(question_id):
     log("User requested specific checklist item using sprint questionID", "LOW", "PASS")
     val_num(question_id)
-    result = checklists_kb.query.filter(checklists_kb.question_sprint_ID == question_id).one()
+    result = checklists_kb.query.filter(checklists_kb.question_sprint_ID == question_id).paginate(1, 1500, False)
     return result
 
 

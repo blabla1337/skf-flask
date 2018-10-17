@@ -18,7 +18,7 @@ class ChecklistItem(Resource):
     @api.response(400, 'No results found', message)
     def get(self, questionID):
         """
-        Returns a checklist item based on question pre identifier.
+        Returns a list of checklist items correlated to question pre identifier.
         * Privileges required: **manage**
         """
         validate_privilege(self, 'manage')

@@ -58,7 +58,7 @@
                 <td style="color:#515594"><a [routerLink]="['/checklist-manage',checklists.checklist_type]" class="btn btn-default btn-xs">{{checklists.checklist_name}}</a></td>
                 <td>{{checklists.checklist_description}}</td>
                 <td *ngIf="canDelete">
-                  <button style="float:right;" (click)="open(deleteContent)" class="btn btn-danger btn-xs">
+                  <button (click)="open(deleteContent)" class="btn btn-danger btn-xs">
                     <i class="fa fa-times "></i>
                   </button>
                 </td>

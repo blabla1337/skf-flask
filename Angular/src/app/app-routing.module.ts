@@ -15,11 +15,11 @@ import { ChecklistEditComponent } from './checklist-edit/checklist-edit.componen
 import { ChecklistSummaryComponent } from './checklist-summary/checklist-summary.component';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
-
 import { GuardService } from './guard/guard.service';
 import { UserManageComponent } from "./user-manage/user-manage.component";
 import { UndefinedComponent } from "./undefined/undefined.component";
 import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
+import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnaire-sprint.component';
 
 export const appRoutes: Routes = [
   
@@ -41,6 +41,7 @@ export const appRoutes: Routes = [
   { path: 'login', component: AuthenticateComponent },
   { path: 'first-login', component: FirstLoginComponent },
   { path: 'questionnaire-pre/:id', component: QuestionnairePreComponent, canActivate: [GuardService] },
+  { path: 'questionnaire-sprint/:id', component: QuestionnaireSprintComponent, canActivate: [GuardService] },
   { path: '**', component: DashboardComponent, canActivate: [GuardService] }
 ];
 @NgModule({
