@@ -27,7 +27,12 @@
 			</div>
 		</div>
 	</section>
-	<section class="wrapper">
+	<div *ngIf="codeExamples.length == 0">
+			<ngb-alert [dismissible]="false">
+				<strong>Warning!</strong> No code examples items included yet!
+			</ngb-alert>
+		</div>
+	<section *ngIf="codeExamples.length != 0" class="wrapper">
 		<div class="srcWrap">
 			<div class="src">
 				<input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search vulnerability" />

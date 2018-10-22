@@ -112,7 +112,7 @@ export class QuestionnaireSprintComponent implements OnInit {
   correlateQuestionToChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_pre_ID:string){
     console.log(this.checklistID)
     this.errors = [];    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), Boolean(include_always), Boolean(include_first), Number(localStorage.getItem("questionID")), Number(question_pre_ID))
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(localStorage.getItem("questionID")), Number(question_pre_ID))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
         () => this.errors.push("Adding the checklistID to the question did not happen!")
@@ -122,7 +122,7 @@ export class QuestionnaireSprintComponent implements OnInit {
   removeQuestionFromChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_pre_ID:string){
     console.log(this.checklistID)
     this.errors = [];    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), Boolean(include_always), Boolean(include_first), 0, Number(question_pre_ID))
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, 0, Number(question_pre_ID))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
         () => this.errors.push("Adding the checklistID to the question did not happen!")

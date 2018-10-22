@@ -31,6 +31,7 @@ export class ChecklistEditComponent implements OnInit {
   public idfromUrl: string;
   public error: string;
   public errors = [];
+  public return: boolean;
   public delete:string;
   public succes: string;
   public canEdit: boolean;
@@ -39,8 +40,8 @@ export class ChecklistEditComponent implements OnInit {
   public pre_dev: Question_pre[];
   public sprints: Question_sprint[];
   public kbID: string;
-  public include_first: boolean;
-  public include_always: boolean;
+  public include_first: string;
+  public include_always: string;
   public checklistID: number;
   public content: string;
   public question_sprint_ID: number;
@@ -61,21 +62,44 @@ export class ChecklistEditComponent implements OnInit {
   }
 
   storeChecklistItem(){
-    this.errors = [];    
-    this._checklistService.newChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), Boolean(this.include_always), Boolean(this.include_first), Number(this.question_sprint_ID), Number(this.question_pre_ID))
+    this.errors = [];  
+    this.return = true;
+
+    if (!this.idfromUrl) { this.errors.push("Checklist ID was not filled in"); this.return = false; }
+    if (!this.checklistID) { this.errors.push("Checklist ID validation failed"); this.return = false; }
+    if (!this.content) { this.errors.push("The checklist item name was not filled in"); this.return = false; }
+    if (!this.kbID) { this.errors.push("There was no knowledgebase ID selected"); this.return = false; }
+    if (!this.include_always) { this.errors.push("Include always choice was not made"); this.return = false; }
+    if (!this.include_first) { this.errors.push("Include first choice was not made"); this.return = false; }
+    
+    if (this.return == false) { return; }
+  
+    this._checklistService.newChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), this.include_always, this.include_first, Number(this.question_sprint_ID), Number(this.question_pre_ID))
       .subscribe(
         () => this.getChecklistList(),
-        () => this.errors.push("Error whilst adding user, potential duplicate email adres!")
+        () => this.errors.push("Error storing checklist item, potential duplicate checklist ID")
       );
   }
 
   updateChecklistItem(){
+
+    this.errors = [];  
+    this.return = true;
+
+    if (!this.idfromUrl) { this.errors.push("Checklist ID was not filled in"); this.return = false; }
+    if (!this.checklistID) { this.errors.push("Checklist ID validation failed"); this.return = false; }
+    if (!this.content) { this.errors.push("The checklist item name was not filled in"); this.return = false; }
+    if (!this.kbID) { this.errors.push("There was no knowledgebase ID selected"); this.return = false; }
+    if (!this.include_always) { this.errors.push("Include always choice was not made"); this.return = false; }
+    if (!this.include_first) { this.errors.push("Include first choice was not made"); this.return = false; }
+    
+    if (this.return == false) { return; }
+
     this.errors = [];
-    if(this.question_sprint_ID = null){ console.log("woop")}    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), Boolean(this.include_always), Boolean(this.include_first), Number(this.question_sprint_ID), Number(this.question_pre_ID))
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), this.include_always, this.include_first, Number(this.question_sprint_ID), Number(this.question_pre_ID))
       .subscribe(
         () => this.getChecklistList(),
-        () => this.errors.push("Error whilst adding user, potential duplicate email adres!")
+        () => this.errors.push("Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)")
       );
   }
 
@@ -107,7 +131,7 @@ export class ChecklistEditComponent implements OnInit {
 
   getSprintQuestionList(checklistType:number){
     this._questionsSprintService.getSprintQuestions(checklistType).subscribe(
-      questions => this.sprints = questions,
+      sprints => this.sprints = sprints,
       err => console.log("getting sprint questions failed")
     )  
   }

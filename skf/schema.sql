@@ -365,8 +365,8 @@ CREATE TABLE `checklists_kb` (
 `codeID_asp` int(11),
 `codeID_java` int(11),
 `codeID_python` int(11),
-`include_always` boolean,
-`include_first` boolean,
+`include_always` varchar(5),
+`include_first` varchar(5),
 `checklist_type` int(11)
 ); 
 
