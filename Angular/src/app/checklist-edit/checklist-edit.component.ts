@@ -177,4 +177,6 @@ export class ChecklistEditComponent implements OnInit {
     this.include_first = null
     this.include_always = null
   }
+
+  aa(){this.editChecklist = false;}
 }

@@ -37,11 +37,11 @@
         Add new checklist item</button>
     </div>
   </section>
-  <div *ngIf="checklist.length == 0">
-      <ngb-alert [dismissible]="false">
-        <strong>Warning!</strong> No checklists available yet!
-      </ngb-alert>
-    </div>
+  <div *ngIf="!checklist">
+    <ngb-alert [dismissible]="false">
+      <strong>Warning!</strong> No checklists available yet!
+    </ngb-alert>
+  </div>
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
@@ -50,7 +50,7 @@
             <strong>Warning!</strong> {{alert}}
           </ngb-alert>
         </div>
-        <div *ngIf="checklist.length == 0">
+        <div *ngIf="!checklist">
           <ngb-alert [dismissible]="false">
             <strong>Warning!</strong> No checklists items are available!
           </ngb-alert>
@@ -69,8 +69,8 @@
                         <th style="background-color:white; color:black">checklistID</th>
                         <th style="background-color:white;color:black">checklist Item</th>
                         <th style="background-color:white;color:black">Question pre</th>
-                        <th style="background-color:white;color:black">Kb item</th>
                         <th style="background-color:white;color:black">Question sprint</th>
+                        <th style="background-color:white;color:black">Kb item</th>
                         <th style="background-color:white;color:black">Include first</th>
                         <th style="background-color:white;color:black">Include always</th>
                         <th style="background-color:white;color:black">Edit</th>
@@ -80,15 +80,19 @@
                       <tr>
                         <td>{{item.checklist_items_checklistID}}</td>
                         <td><button type="button" class="btn btn-theme03" placement="top" ngbTooltip="{{item.checklist_items_content}}">show</button></td>
-                        <div *ngFor="let question of pre_dev">
-                          <td><button *ngIf="question.id == item.question_pre_ID" type="button" class="btn btn-theme03"
-                              placement="top" ngbTooltip="{{question.question}}">show</button></td>
-                        </div>
+                        <td>
+                          <span *ngFor="let question of pre_dev">
+                            <button *ngIf="question.id == item.question_pre_ID" type="button" class="btn btn-theme03"
+                              placement="top" ngbTooltip="{{question.question}}">show</button>
+                          </span>
+                        </td>
+                        <td>
+                          <span *ngFor="let question of sprints">
+                            <button *ngIf="question.id == item.question_sprint_ID" type="button" class="btn btn-theme03"
+                              placement="top" ngbTooltip="{{question.question}}">show</button>
+                          </span>
+                        </td>
                         <td><button type="button" class="btn btn-theme03" placement="top" ngbTooltip="{{item.kb_item_title}}">show</button></td>
-                        <div *ngFor="let question of sprints">
-                          <td><button *ngIf="question.id == item.question_sprint_ID" type="button" class="btn btn-theme03"
-                              placement="top" ngbTooltip="{{question.question}}">show</button></td>
-                        </div>
                         <td>{{item.include_first}}</td>
                         <td>{{item.include_always}}</td>
                         <td>
@@ -177,14 +181,13 @@
                             <div class="col-sm-10">select to use this checklist in all the sprints</div>
                           </div>
                         </div>
-                        <div style="padding-top:1%;padding-bottom:1.5%;padding-left:1.5%;">
-                          <button type="button" class="btn btn-danger" (click)="deleteChecklistItemModal(deleteChecklistItem);c('Close click');readItem()">Delete</button>
-                          <button style="margin-right:1.5px; margin-left:1.5px" type="button" class="btn btn-warning"
-                            (click)="updateChecklistItem(idfromUrl);">Update</button>
-                          <button type="button" class="btn btn-success" (click)="readItem(item);">View</button>
-                          <br />
-                        </div>
                       </div>
+                    </div>
+                    <div style="margin-top:2%;padding-bottom:1.5%;padding-left:1.5%;">
+                      <button style="margin-top:2%" type="button" class="btn btn-danger" (click)="deleteChecklistItemModal(deleteChecklistItem);c('Close click');readItem()">Delete</button>
+                      <button style="margin-right:1.5px; margin-left:1.5px; margin-top:2%" type="button" class="btn btn-warning"
+                        (click)="updateChecklistItem(idfromUrl);">Update</button>
+                      <button style="margin-top:2%" type="button" class="btn btn-success" (click)="readItem();">View</button>
                     </div>
                   </form>
                 </div>
