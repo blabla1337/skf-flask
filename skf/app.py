@@ -126,18 +126,18 @@ def initialize_app(flask_app):
     db.init_app(flask_app)
 
 
-@app.cli.command('initdb')
-def initdb_command():
-    """Creates the database with all the Markdown files."""
-    init_db()
-    print('Initialized the database.')
+#@app.cli.command('initdb')
+#def initdb_command():
+#    """Creates the database with all the Markdown files."""
+#    init_db()
+#    print('Initialized the database.')
 
 
-@app.cli.command('initdataset')
-def initdataset_command():
-    """Creates the datasets needed for the chatbot."""
-    init_dataset()
-    print('Initialized the datasets.')
+#@app.cli.command('initdataset')
+#def initdataset_command():
+#    """Creates the datasets needed for the chatbot."""
+#    init_dataset()
+#    print('Initialized the datasets.')
 
 
 @app.cli.command('updatedb')

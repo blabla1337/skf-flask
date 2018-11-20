@@ -88,7 +88,7 @@
               </div>
               <div class="card-block">
                 <div *ngFor="let item of correlatedChecklist; let myIndex = index; trackBy:indexTracker" style="overflow:auto;max-height:1%;">
-                  <button (click)="removeQuestionFromChecklistITem(item.checklist_items_checklistID, item.checklist_items_content, item.checklist_items_type, item.include_always, item.include_first, item.question_sprint_ID, item.question_sprint_ID)"
+                  <button (click)="removeQuestionFromChecklistITem(item.checklist_items_checklistID, item.checklist_items_content, item.checklist_items_type, item.include_always, item.include_first, item.question_pre_ID)"
                     style="width:100%; text-align:left; margin-bottom:0.5%; background-color:rgba(255,0,0,0.2);"><b>{{item.checklist_items_checklistID}}</b><br />
                     {{item.checklist_items_content}} <i class="fa fa-minus-circle" style="float:right"></i></button>
                 </div>
@@ -113,7 +113,7 @@
                   <div class="wrap">
                     <label for="inputVersion" class="col-sm-2 control-label">Question</label>
                     <div class="col-sm-10">
-                      <input required maxlength="20" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
+                      <input required maxlength="120" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
                         name="questionName" placeholder="">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Is the application TLS configuration hardned and verified against ASVS?</div>
@@ -142,7 +142,7 @@
                 <div class="wrap">
                   <label for="inputVersion" class="col-sm-2 control-label">Question</label>
                   <div class="col-sm-10">
-                    <input required maxlength="20" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
+                    <input required maxlength="120" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
                       name="questionName" placeholder="">
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Is the application TLS configuration hardned and verified against ASVS?</div>

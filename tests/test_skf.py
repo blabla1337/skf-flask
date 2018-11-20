@@ -831,7 +831,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_assert_403_project_get(self):
         headers = {'content-type': 'application/json'}
-        response = self.client.get('/api/project/1')
+        response = self.client.get('/api/project/1', headers=headers)
         self.assertEqual(response.status_code, 403)
 
 

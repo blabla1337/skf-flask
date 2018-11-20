@@ -19,6 +19,7 @@ sprint_stats = api.model('sprint_stats', {
     'sprint_sec_ack': fields.Integer(readOnly=True, description='The count of verified correct items per sprint by security review'),
     'sprint_sec_fail': fields.Integer(readOnly=True, description='The count of failed items per sprint by security review'),
     'sprint_items_total': fields.Integer(readOnly=True, description='The count of total available items in a sprint'),
+    'checklist_type': fields.Integer(required=True, description='Project checklist type'),
 })
 
 page_of_sprint_items = api.inherit('Page of sprint items', {

@@ -98,10 +98,10 @@ export class ProjectNewComponent implements OnInit {
             }
 
             for (let i = 1; i < count_sprint + 1; i++) {
-              if (sprint_items["sprint_answer" + i] != '0') {  
+              if (sprint_items["sprint_answer" + i] == '0') {  
                 this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": Number(sprint_items["sprint_answer" + i]), "result": "False", "sprintID": this.sprintID });
               }
-              if (sprint_items["sprint_answer" + i] == '0') {  
+              if (sprint_items["sprint_answer" + i] != '0') {  
                 this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": Number(sprint_items["sprint_answer" + i]), "result": "True", "sprintID": this.sprintID });
               }
             }

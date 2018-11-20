@@ -61,6 +61,7 @@ INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "rea
 --
 -- Table structure for table `kb_items`
 --
+/*
 drop table if exists `kb_items`;
 CREATE TABLE `kb_items` (
 `kbID` INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -79,7 +80,7 @@ CREATE TABLE `code_items` (
 `content` varchar(250) NOT NULL,
 `code_lang` varchar(250) NOT NULL
 );
-
+*/
 
 --
 -- Table structure for table `projects`
@@ -150,33 +151,11 @@ INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES
 --
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (2, "Does the sprint implement/changes authentication?");
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (2, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (2, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (2, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
 --
 --ASVS lvl 3
 --
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes authentication?");
 INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that extend the primairy authentication mechanism (re-authentication/password forget/step-up/etc)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that sends parameters in the request body such as i.e POST requests?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that send parameters and data over a GET request method?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that send parameters and data any request methods other then POST and GET?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that use SQL?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that use LDAP?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that perform system commands?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that perform local/remote file inclusion?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functions that uses/parses XML?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changess functions that reflect user supplied input on the client-side?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changess functions that use automatic variable binding (ORM)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changess WYSIWIG like editors?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes JSON?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functionality that stores data in the local/client/session storage?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functionality that needs secure random tokens (password forget link, CSRF, ETC)?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functionality that requires encryption?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functionality which allows users to upload files or other data structures to the application?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functionality which implement/changess functionality that needs to share data 'Cross Origin'?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functionality that contain forwards or redirects?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functionality that are API?");
-INSERT OR REPLACE INTO `questions_sprint` (`checklist_type`,  `question`) VALUES (3, "Does the sprint implement/changes functionality that are mobile (native, xamarin, corona, etc)?");
 --
 --MASVS lvl 1
 --
@@ -279,10 +258,14 @@ CREATE TABLE `checklist_types` (
 --
 -- Default checklist types
 --
-INSERT OR REPLACE INTO `checklist_types` (`checklist_name`, `checklist_description`) VALUES ("ASVS", "TBD");
-INSERT OR REPLACE INTO `checklist_types` (`checklist_name`, `checklist_description`) VALUES ("MASVS", "TBD");
-INSERT OR REPLACE INTO `checklist_types` (`checklist_name`, `checklist_description`) VALUES ("PCIDSS", "TBD");
-INSERT OR REPLACE INTO `checklist_types` (`checklist_name`, `checklist_description`) VALUES ("Custom", "TBD");
+INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS Lv1", "TBD");
+INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS Lv2", "TBD");
+INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS Lv3", "TBD");
+INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "MASVS Lv1", "TBD");
+INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "MASVS Lv2", "TBD");
+INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "MASVS Lv", "TBD");
+INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "PCIDSS", "TBD");
+INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "Custom", "TBD");
 
 
 --
@@ -351,6 +334,15 @@ CREATE TABLE `comments` (
 );
 
 --
+-- Table structure for table `chatbot_log`
+--
+drop table if exists `chatbot_log`;
+CREATE TABLE `chatbot_log` (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`question` varchar(255)
+); 
+
+--
 -- Table structure for table `checklists_kb`
 --
 drop table if exists `checklists_kb`;
@@ -368,15 +360,6 @@ CREATE TABLE `checklists_kb` (
 `include_always` varchar(5),
 `include_first` varchar(5),
 `checklist_type` int(11)
-); 
-
---
--- Table structure for table `chatbot_log`
---
-drop table if exists `chatbot_log`;
-CREATE TABLE `chatbot_log` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`question` varchar(255)
 ); 
 
 ---

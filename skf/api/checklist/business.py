@@ -8,7 +8,7 @@ def get_checklist_item(checklist_id, checklist_type):
     log("User requested specific checklist item", "LOW", "PASS")
     val_float(checklist_id)
     val_num(checklist_type)
-    result = checklists_kb.query.filter((checklists_kb.checklistID == checklist_id) & (checklists_kb.checklist_type == checklist_type)).one()
+    result = checklists_kb.query.filter((checklists_kb.checklist_type == checklist_type) & (checklists_kb.checklistID == checklist_id)).one()
     return result
 
 
@@ -120,10 +120,11 @@ def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
     val_num(checklist_type)
     result = checklists_kb.query.filter(checklists_kb.checklist_type == checklist_type).paginate(1, 1500, False)
-    return result
+    ordered = order_checklist_items(result)
+    return ordered
     
 
-def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl, checklist_type):
+def order_checklist_items(checklist_items):
     ordered_checklist_items = []
     for item in checklist_items.items:
         numbers = item.checklistID.split('.')
@@ -148,42 +149,5 @@ def order_checklist_items(checklist_items, get_checklist_items_lvl, lvl, checkli
                 y = y + 1
             if (y == len(ordered_checklist_items)):
                 ordered_checklist_items.insert(y, item)
-
-    if (get_checklist_items_lvl):
-        if (not (checklist_type == 1)):
-            i = 0
-            previousItemLevel = -1
-            orderedWithEmpties = []
-            for item in ordered_checklist_items:
-                if ((item.checklist_items.level == 0 and previousItemLevel == 0) or (item.checklist_items.content == "Resiliency Against Reverse Engineering Requirements" and not (lvl == 3))):
-                    if (item.checklist_items.content == "Resiliency Against Reverse Engineering Requirements"):
-                        orderedWithEmpties.append(item)
-                        previousItemLevel = item.checklist_items.level
-                        checklist_empty = checklists("0.0", "Requirements of Reverse Engineering can be added to form a level " + str(lvl-3) + "+R.", -1, 0)
-                        checklists_kb_empty = checklists_kb("0.0", checklist_empty, 0, None)
-                        orderedWithEmpties.append(checklists_kb_empty)
-                    else:
-                        checklist_empty = checklists("0.0", "No items for this category in this checklist level", -1, 0)
-                        checklists_kb_empty = checklists_kb("0.0", checklist_empty, 0, None)
-                        orderedWithEmpties.append(checklists_kb_empty)
-                        orderedWithEmpties.append(item)
-                        previousItemLevel = item.checklist_items.level
-                else:
-                    orderedWithEmpties.append(item)
-                    previousItemLevel = item.checklist_items.level
-                i = i + 1
-            checklist_items.items = orderedWithEmpties
-        else:
-            orderedWithR6 = []
-            checklist_empty = checklists("0.0", "Using Requirements of Reverse Engineering you can form the levels L1+R or L2+R.", -1, 0)
-            checklists_kb_empty = checklists_kb("0.0", checklist_empty, 0, None)
-            orderedWithR6.append(checklists_kb_empty)
-            for item in ordered_checklist_items:
-                if (item.checklist_items.level == 3):
-                    checklist_modified = checklists(item.checklistID, item.checklist_items.content, 3, item.checklist_items.kbID)
-                    modifiedItem = checklists_kb(item.checklistID, checklist_modified, item.kbID, item.kb_items)
-                    orderedWithR6.append(modifiedItem)
-                else:
-                    orderedWithR6.append(item)
-            checklist_items.items = orderedWithR6
+            checklist_items.items = ordered_checklist_items
     return checklist_items

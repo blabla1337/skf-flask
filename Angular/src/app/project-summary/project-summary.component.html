@@ -50,7 +50,7 @@
             <div *ngIf="item.status == 4" class="blob msg-green verified"><i class="fa fa-bug" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 5" class="blob msg-red failed"><i class="fa fa-times" aria-hidden="true"></i></div>
             <ngb-accordion class="level_l_{{item.checklist_items_level}}" #acc="ngbAccordion" [closeOthers]="true">
-              <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}})">
+              <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}}">
 
                 <ng-template ngbPanelContent>
                   <ngb-tabset>
