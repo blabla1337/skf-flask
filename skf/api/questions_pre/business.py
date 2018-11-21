@@ -45,13 +45,13 @@ def store_pre_questions(user_id, data):
         print(results.projectID, file=sys.stderr)
         checklists = checklists_kb.query.filter(checklists_kb.question_pre_ID == questionpreID).filter(checklists_kb.checklist_type == checklist_type).all()
         for row in checklists:
-            print(row.checklistID, file=sys.stderr)
-            checklists_query = checklists_results(row.checklistID, project_id, sprint_id, status, pre_item, row.kbID)
+            print(row.id, file=sys.stderr)
+            checklists_query = checklists_results(row.id, project_id, sprint_id, status, pre_item, row.kbID)
             db.session.add(checklists_query)
             db.session.commit()
     checklists_first = checklists_kb.query.filter(checklists_kb.include_first == "True").filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
     for row in checklists_first:
-        checklists_query_first = checklists_results(row.checklistID, question_project_id, sprint_id, status, pre_item, row.kbID)
+        checklists_query_first = checklists_results(row.id, question_project_id, sprint_id, status, pre_item, row.kbID)
         db.session.add(checklists_query_first)
         db.session.commit()
     return {'message': 'Pre questions successfully created'}
@@ -86,12 +86,12 @@ def update_pre_questions(project_id, user_id, data):
         questionpreID = results.question_pre_ID
         checklists = checklists_kb.query.filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
         for row in checklists:
-            checklists_query = checklists_results(row.checklistID, projectID, sprint_id, status, pre_item, row.kbID)
+            checklists_query = checklists_results(row.id, projectID, sprint_id, status, pre_item, row.kbID)
             db.session.add(checklists_query)
             db.session.commit()
         checklists_first = checklists_kb.query.filter(checklists_kb.include_first == "True").filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
     for row in checklists_first:
-        checklists_query_first = checklists_results(row.checklistID, projectID, sprint_id, status, pre_item, row.kbID)
+        checklists_query_first = checklists_results(row.id, projectID, sprint_id, status, pre_item, row.kbID)
         db.session.add(checklists_query_first)
         db.session.commit()
     return {'message': 'Pre questions successfully updated'}
@@ -129,3 +129,5 @@ def new_pre_question(data):
     db.session.add(pre)
     db.session.commit()
     return {'message': 'New pre question successfully created'}
+
+

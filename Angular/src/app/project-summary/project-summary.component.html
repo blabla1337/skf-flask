@@ -42,7 +42,7 @@
           <button class="btn btn-default" (click)="select('Development')"><i class="fa fa-code" aria-hidden="true"></i> Developer</button>
         </div>
         <div *ngFor="let item of sprintResult;  let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
-          <div (click)="fetchComment(item.checklist_items_checklistID)">
+          <div (click)="fetchComment(item.checklistID)">
             <div *ngIf="item.status == 1" class="blob msg-purple open"><i class="fa fa-code" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 2" class="blob msg-green closed"><i class="fa fa-lock" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 3" class="blob msg-orange accepted"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>
@@ -83,15 +83,15 @@
                               <br/>
                               <div style="float:right">
                                 <div *ngIf="selector == 'Development'">
-                                  <button *ngIf="item.status != 2" (click)="save(2, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>
-                                  <button *ngIf="item.status != 2" (click)="save(3, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>
-                                  <button *ngIf="item.status == 2" (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
+                                  <button *ngIf="item.status != 2" (click)="save(2, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>
+                                  <button *ngIf="item.status != 2" (click)="save(3, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>
+                                  <button *ngIf="item.status == 2" (click)="save(1, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
                                 </div>
                                 <div *ngIf="selector == 'Security'">
-                                  <button *ngIf="item.status != 2" (click)="save(4, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
-                                  <button *ngIf="item.status != 2" (click)="save(5, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
-                                  <button *ngIf="item.status == 2" (click)="save(4, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
-                                  <button *ngIf="item.status == 2" (click)="save(5, item.checklist_items_checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
+                                  <button *ngIf="item.status != 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
+                                  <button *ngIf="item.status != 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
+                                  <button *ngIf="item.status == 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
+                                  <button *ngIf="item.status == 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
  
                                    </div>
                               </div>
@@ -103,7 +103,7 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle><b>Audit log</b></ng-template>
                       <ng-template ngbTabContent>
-                        <div *ngIf="showMe == item.checklist_items_checklistID">
+                        <div *ngIf="showMe == item.checklistID">
                         <form *ngFor="let comment of comments">
                           <div class="col-md-3">
                             <div class="card">
@@ -127,7 +127,7 @@
                           </div>
                         </form>
                         </div>
-                        <div *ngIf="showMe != item.checklist_items_checklistID">
+                        <div *ngIf="showMe != item.checklistID">
                           <br/>
                           <ngb-alert [dismissible]="false"> Another tab has been selected and is in focus. To prevent cross-reading of audit trails, these messages are not showed!</ngb-alert>
                         </div>

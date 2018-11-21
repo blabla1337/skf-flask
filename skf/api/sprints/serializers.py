@@ -42,6 +42,7 @@ results = api.model('results', {
     'status': fields.Integer(readOnly=True, description='The status of a sprint item'),
     'sprintID': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
     'projectID': fields.Integer(required=True, description='The unique identifier of a sprint project'),
+    'checklistID': fields.Integer(required=True, description='id from checklist_ID'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
     'checklist_items_checklistID': fields.String(attribute='checklist_items.checklistID', required=True, description='The unique identifier of a checklist item'),

@@ -35,26 +35,25 @@ def store_sprint_questions(user_id, data):
         question_result = result['result']
         question_project_id = result['projectID']
         sprint_id = result['sprintID']
-        questions = question_sprint_results(question_project_id, sprint_id, question_sprint_ID, question_result)
-        db.session.add(questions)
-        db.session.commit()
+        if question_result == "True":
+            questions = question_sprint_results(question_project_id, sprint_id, question_sprint_ID, question_result)
+            db.session.add(questions)
+            db.session.commit()
         projects_result = projects.query.filter(projects.projectID == question_project_id).one()
-        checklist_type = projects_result.checklist_type
         status = 1
         pre_item = "False"
         questions_results = question_sprint_results.query.filter(question_sprint_results.sprintID == sprint_id).filter(question_sprint_results.projectID == question_project_id).filter(question_sprint_results.result == "True").all()
         for results in questions_results:
             projectID = results.projectID
             questionsprintID = results.question_sprint_ID
-            checklists = checklists_kb.query.filter(checklists_kb.question_pre_ID == 0).filter(checklists_kb.question_sprint_ID == questionsprintID).filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+            checklists = checklists_kb.query.filter(checklists_kb.question_sprint_ID == questionsprintID).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
             for row in checklists:
-                checkID = row.checklistID
-                checklists_query = checklists_results(checkID, projectID, sprint_id, status, pre_item, row.kbID)
+                checklists_query = checklists_results(row.id, projectID, sprint_id, status, pre_item, row.kbID)
                 db.session.add(checklists_query)
                 db.session.commit()
-        checklists_always = checklists_kb.query.filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_type == checklist_type).group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
+        checklists_always = checklists_kb.query.filter(checklists_kb.include_always == "True").group_by(checklists_kb.checklistID).group_by(checklists_kb.checklistID).order_by(checklists_kb.checklistID).all()
         for row in checklists_always:
-            checklists_query_always = checklists_results(row.checklistID, question_project_id, sprint_id, status, pre_item, row.kbID)
+            checklists_query_always = checklists_results(row.id, question_project_id, sprint_id, status, pre_item, row.kbID)
             db.session.add(checklists_query_always)
             db.session.commit()
     return {'message': 'Sprint questions successfully created'}

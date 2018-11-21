@@ -104,27 +104,10 @@
 							<ngb-panel style="max-width:10%" data-html="true" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} ">
 								<ng-template ngbPanelContent>
 									<p style="white-space: pre-line;">
+										<b><h3>{{item.kb_item_title}}</h3></b>
+										<br/>
 										{{item.kb_items_content}}
 									</p>
-								</ng-template>
-							</ngb-panel>
-						</ngb-accordion>
-					</td>
-					<td *ngIf="item.checklist_items_level == 6">
-						<ngb-accordion #acc="ngbAccordion">
-							<ngb-panel style="max-width:10%" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} (L.R)">
-								<ng-template ngbPanelContent>
-									<p style="white-space: pre-line;">
-										{{item.kb_items_content}}
-									</p>
-								</ng-template>
-							</ngb-panel>
-						</ngb-accordion>
-					</td>
-					<td *ngIf="item.checklist_items_level < 0">
-						<ngb-accordion>
-							<ngb-panel style="max-width:10%" title="{{item.checklist_items_content}}">
-								<ng-template ngbPanelContent>
 								</ng-template>
 							</ngb-panel>
 						</ngb-accordion>

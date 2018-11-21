@@ -140,11 +140,11 @@ def initialize_app(flask_app):
 #    print('Initialized the datasets.')
 
 
-@app.cli.command('updatedb')
-def updatedb_command():
-    """Update the database with the markdown files."""
-    update_db()
-    print('Database updated with the markdown files.')
+#@app.cli.command('updatedb')
+#def updatedb_command():
+#    """Update the database with the markdown files."""
+#    update_db()
+#    print('Database updated with the markdown files.')
 
 
 def main():

@@ -75,6 +75,7 @@ export class ProjectDashboardComponent implements OnInit {
 
   newSprintQuestions(form?: NgForm) {
     this.sprintStore = [];
+    console.log(form)
     for (let i = 1; i < 50 + 1; i++) {
       if (!form.value["sprint_answer" + i]) { form.value["sprint_answer" + i] = "False"; }
       this.sprintStore.push({ "projectID": parseInt(this.idFromURL.toString(), 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i], "sprintID": this.sprintID });
