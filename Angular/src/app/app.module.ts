@@ -26,6 +26,7 @@ import { CodeExamplesComponent }   from './code-examples/code-examples.component
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
+import { ChecklistAddNewComponent } from './checklist-add-new/checklist-add-new.component';
 import { ChecklistManageComponent } from './checklist-manage/checklist-manage.component';
 import { ChecklistSummaryComponent } from './checklist-summary/checklist-summary.component';
 import { UserAddComponent } from './user-add/user-add.component';
@@ -60,6 +61,7 @@ import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnai
     ChecklistComponent,
     ChecklistManageComponent,
     ChecklistEditComponent,
+    ChecklistAddNewComponent,
     ChecklistSummaryComponent,
     StartsWithPipe,
     OrderBy,

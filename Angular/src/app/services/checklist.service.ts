@@ -20,6 +20,11 @@ export class ChecklistService {
       .map(response => response.json().items)
   }
 
+  getSingleChecklistItem(checklistID: string, checklist_type: number): Observable<Checklist[]> {
+    return this.http.get(environment.API_ENDPOINT + `/checklist/item/${checklistID}/type/${checklist_type}`, { headers: this.headers })
+      .map(response => response.json())
+  }
+
   getChecklistByType(checklist_type: number): Observable<Checklist[]> {
     return this.http.get(environment.API_ENDPOINT + `/checklist/items/${checklist_type}`, { headers: this.headers })
       .map(response => response.json().items)
@@ -64,7 +69,7 @@ export class ChecklistService {
   }
 
   deletechecklistItem(id: string) {
-    const url = environment.API_ENDPOINT + `/checklist/delete/${id}`;
+    const url = environment.API_ENDPOINT + `/checklist/delete/item/${id}`;
     return this.http.delete(url, { headers: this.postHeaders })
       .map(
         data => data,

@@ -12,6 +12,7 @@ import { CodeExamplesComponent } from './code-examples/code-examples.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistManageComponent } from './checklist-manage/checklist-manage.component';
 import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
+import { ChecklistAddNewComponent } from './checklist-add-new/checklist-add-new.component';
 import { ChecklistSummaryComponent } from './checklist-summary/checklist-summary.component';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
@@ -37,6 +38,7 @@ export const appRoutes: Routes = [
   { path: 'checklist', component: ChecklistComponent, canActivate: [GuardService] },
   { path: 'checklist-manage/:id', component: ChecklistManageComponent, canActivate: [GuardService] },
   { path: 'checklist-edit/:id', component: ChecklistEditComponent, canActivate: [GuardService] },
+  { path: 'checklist-add-new/:id', component: ChecklistAddNewComponent, canActivate: [GuardService] },
   { path: 'checklist-summary', component: ChecklistSummaryComponent, canActivate: [GuardService] },
   { path: 'login', component: AuthenticateComponent },
   { path: 'first-login', component: FirstLoginComponent },

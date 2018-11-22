@@ -19,10 +19,9 @@ export class ChecklistManageComponent implements OnInit {
   public canDelete:boolean;
   public idFromURL: number;
 
-  constructor(private _checkListService: ChecklistService, private modalService: NgbModal, private route: ActivatedRoute,) { }
+  constructor(private _checkListService: ChecklistService, private modalService: NgbModal, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    
     this.route.params.subscribe(params => {
       this.idFromURL = params['id'];
       localStorage.setItem("tempParamID", params['id'])

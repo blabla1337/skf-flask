@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChecklistService } from '../services/checklist.service'
 import { KnowledgebaseService } from '../services/knowledgebase.service'
 import { QuestionPreService} from '../services/questions-pre.service'
@@ -11,13 +11,14 @@ import { Checklist } from '../models/checklist';
 import { Knowledgebase } from '../models/knowledgebase';
 import { Question_pre } from '../models/question_pre'
 import { Question_sprint } from '../models/question_sprint'
+import { PublicFeature } from '@angular/core/src/render3';
 
 @Component({
-  selector: 'app-checklist-edit',
-  templateUrl: './checklist-edit.component.html',
+  selector: 'app-checklist-add-new',
+  templateUrl: './checklist-add-new.component.html',
 providers: [ChecklistService, QuestionPreService, QuestionsSprintService]
 })
-export class ChecklistEditComponent implements OnInit {
+export class ChecklistAddNewComponent implements OnInit {
 
   constructor(
     private _checklistService: ChecklistService,
@@ -25,10 +26,11 @@ export class ChecklistEditComponent implements OnInit {
     private _knowledgeService: KnowledgebaseService,
     private _questionsSprintService: QuestionsSprintService,
     private modalService: NgbModal,
-    private router: Router,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
-  public idfromUrl: string;
+  public checklistTypeFromUrl: string;
   public error: string;
   public errors = [];
   public return: boolean;
@@ -50,7 +52,12 @@ export class ChecklistEditComponent implements OnInit {
   knowledgebaseItems: Knowledgebase[];
 
   ngOnInit() {
-    this.idfromUrl = localStorage.getItem("tempParamID");
+    this.route.params.subscribe(params => {
+      this.checklistTypeFromUrl = params['id'];
+      localStorage.setItem("tempParamID", params['id'])
+    });
+    
+    this.checklistTypeFromUrl = localStorage.getItem("tempParamID");
     if (AppSettings.AUTH_TOKEN) {
       let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
       this.canEdit = decodedJWT.privilege.includes("edit");
@@ -65,7 +72,7 @@ export class ChecklistEditComponent implements OnInit {
     this.errors = [];  
     this.return = true;
 
-    if (!this.idfromUrl) { this.errors.push("Checklist ID was not filled in"); this.return = false; }
+    if (!this.checklistTypeFromUrl) { this.errors.push("Checklist ID was not filled in"); this.return = false; }
     if (!this.checklistID) { this.errors.push("Checklist ID validation failed"); this.return = false; }
     if (!this.content) { this.errors.push("The checklist item name was not filled in"); this.return = false; }
     if (!this.kbID) { this.errors.push("There was no knowledgebase ID selected"); this.return = false; }
@@ -74,32 +81,10 @@ export class ChecklistEditComponent implements OnInit {
     
     if (this.return == false) { return; }
   
-    this._checklistService.newChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), this.include_always, this.include_first, Number(this.question_sprint_ID), Number(this.question_pre_ID))
+    this._checklistService.newChecklistItem(Number(this.checklistTypeFromUrl), this.checklistID, this.content, Number(this.kbID), this.include_always, this.include_first, Number(this.question_sprint_ID), Number(this.question_pre_ID))
       .subscribe(
         () => this.getChecklistList(),
         () => this.errors.push("Error storing checklist item, potential duplicate checklist ID")
-      );
-  }
-
-  updateChecklistItem(){
-
-    this.errors = [];  
-    this.return = true;
-
-    if (!this.idfromUrl) { this.errors.push("Checklist ID was not filled in"); this.return = false; }
-    if (!this.checklistID) { this.errors.push("Checklist ID validation failed"); this.return = false; }
-    if (!this.content) { this.errors.push("The checklist item name was not filled in"); this.return = false; }
-    if (!this.kbID) { this.errors.push("There was no knowledgebase ID selected"); this.return = false; }
-    if (!this.include_always) { this.errors.push("Include always choice was not made"); this.return = false; }
-    if (!this.include_first) { this.errors.push("Include first choice was not made"); this.return = false; }
-    
-    if (this.return == false) { return; }
-
-    this.errors = [];
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), this.checklistID, this.content, Number(this.kbID), this.include_always, this.include_first, Number(this.question_sprint_ID), Number(this.question_pre_ID))
-      .subscribe(
-        () => this.getChecklistList(),
-        () => this.errors.push("Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)")
       );
   }
 
@@ -137,36 +122,12 @@ export class ChecklistEditComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(["/checklist-manage/", localStorage.getItem("tempParamID")]);
-  }
-
-  deleteChecklistItem(checklistID:string) {
-    if (this.delete == "DELETE") {
-      this._checklistService.deletechecklistItem(checklistID).subscribe(x =>
-        //Get the new project list on delete 
-        this.getChecklistList())
-      this.delete = "";
-    }
-  }
-  
-  deleteChecklistItemModal(modalValue) {
-    this.modalService.open(modalValue, { size: 'lg' })
+    this.router.navigate(["/checklist-summary/"]);
   }
 
   newChecklistItemModal(modalValue) {
     this.modalService.open(modalValue, { size: 'lg' })
     this.readItem()
-  }
-
-  editItem(item:string[]){ 
-    this.editChecklist = true 
-    this.checklistID = item["checklist_items_checklistID"]
-    this.content = item["checklist_items_content"]
-    this.question_pre_ID = item["question_pre_ID"]
-    this.question_sprint_ID = item["question_sprint_ID"]
-    this.kbID = item["kb_item_id"]
-    this.include_first = item["include_first"]
-    this.include_always = item["include_always"]
   }
 
   readItem(){ 
@@ -179,6 +140,4 @@ export class ChecklistEditComponent implements OnInit {
     this.include_first = null
     this.include_always = null
   }
-
-  aa(){this.editChecklist = false;}
 }
