@@ -77,20 +77,10 @@ def create_checklist_item(checklistID, checklist_type, data):
     checklist_kbID = data.get('kbID')
     val_num(checklist_kbID)
     val_num(checklist_type)
-    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always, include_first, question_sprint_ID, question_pre_ID)
+    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always, include_first, question_pre_ID, question_sprint_ID)
     db.session.add(checklist_item)
     db.session.commit()
     return {'message': 'Checklist item successfully created'} 
-
-
-def delete_checklist_item(checklist_id):
-    log("User deleted checklist item", "MEDIUM", "PASS")
-    val_num(checklist_id)
-    checklist = checklists_kb.query.filter(checklists_kb.id == checklist_id).one()
-    db.session.delete(checklist)
-    db.session.commit()
-    return {'message': 'Checklist item successfully deleted'}
-
 
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
@@ -111,9 +101,19 @@ def update_checklist_item(checklist_id, checklist_type, data):
     result_checklist_kb.kbID = kbID
     result_checklist_kb.checklistID = checklist_id
     result_checklist_kb.checklist_type = checklist_type
+    val_num(result_checklist_kb.question_sprint_ID)
     db.session.add(result_checklist_kb)
     db.session.commit()
     return {'message': 'Checklist item successfully updated'} 
+
+
+def delete_checklist_item(checklist_id):
+    log("User deleted checklist item", "MEDIUM", "PASS")
+    val_num(checklist_id)
+    checklist = checklists_kb.query.filter(checklists_kb.id == checklist_id).one()
+    db.session.delete(checklist)
+    db.session.commit()
+    return {'message': 'Checklist item successfully deleted'}
 
 
 def get_checklist_items(checklist_type):

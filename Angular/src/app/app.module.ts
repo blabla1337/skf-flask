@@ -22,6 +22,7 @@ import { ProjectDashboardComponent }   from './project-dashboard/project-dashboa
 import { ProjectSummaryComponent }   from './project-summary/project-summary.component';
 import { ProjectSummaryAuditComponent }   from './project-summary-audit/project-summary-audit.component';
 import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.component';
+import { KnowledgebaseEditComponent }   from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent }   from './code-examples/code-examples.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
@@ -56,6 +57,7 @@ import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnai
     UserAddComponent,
     UserManageComponent,
     KnowledgebaseComponent,
+    KnowledgebaseEditComponent,
     CodeExamplesComponent,
     AuthenticateComponent,
     ChecklistComponent,

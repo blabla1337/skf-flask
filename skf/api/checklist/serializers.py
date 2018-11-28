@@ -12,8 +12,8 @@ checklist = api.model('checklists_kb', {
     'checklist_items_type': fields.Integer(attribute='checklist_type', required=True, description='Checklist type'),
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'include_first': fields.String(attribute='include_first',required=True, description='Only include this checklist item first time'),
-    'question_sprint_ID': fields.Integer(attribute='question_sprint_ID',required=False, description='The sprint question unique identifier this checklist belongs to'),
-    'question_pre_ID': fields.Integer(attribute='question_pre_ID',required=False, description='The pre question unique identifier this checklist belongs to'),
+    'question_sprint_ID': fields.Integer(attribute='question_sprint_ID',required=True, description='The sprint question unique identifier this checklist belongs to'),
+    'question_pre_ID': fields.Integer(attribute='question_pre_ID',required=True, description='The pre question unique identifier this checklist belongs to'),
 })
 
 checklist_items = api.inherit('List of checklist items', {

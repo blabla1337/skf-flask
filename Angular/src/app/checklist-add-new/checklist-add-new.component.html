@@ -78,8 +78,8 @@
                         </td>
                         <td>
                           <span *ngFor="let question of sprints">
-                            <button *ngIf="question.id == item.question_sprint_ID" type="button" class="btn btn-theme03"
-                              placement="top" ngbTooltip="{{question.question}}">show</button>
+                            <button *ngIf="question.id === item.question_sprint_ID" type="button" class="btn btn-theme03"
+                              placement="top" ngbTooltip="{{question.question}}">show</button>                          
                           </span>
                         </td>
                         <td><button type="button" class="btn btn-theme03" placement="top" ngbTooltip="{{item.kb_item_title}}">show</button></td>

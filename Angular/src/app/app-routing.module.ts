@@ -8,6 +8,7 @@ import { ProjectSummaryComponent } from './project-summary/project-summary.compo
 import { ProjectSummaryAuditComponent } from './project-summary-audit/project-summary-audit.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { KnowledgebaseComponent } from './knowledgebase/knowledgebase.component';
+import { KnowledgebaseEditComponent } from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent } from './code-examples/code-examples.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistManageComponent } from './checklist-manage/checklist-manage.component';
@@ -32,6 +33,7 @@ export const appRoutes: Routes = [
   { path: 'project-summary/:id', component: ProjectSummaryComponent, canActivate: [GuardService] },
   { path: 'project-summary-audit/:id', component: ProjectSummaryAuditComponent, canActivate: [GuardService] },
   { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },
+  { path: 'knowledgebase-edit/:id', component: KnowledgebaseEditComponent, canActivate: [GuardService] },
   { path: 'code-examples', component: CodeExamplesComponent, canActivate: [GuardService] },
   { path: 'user-add', component: UserAddComponent, canActivate: [GuardService] },
   { path: 'user-manage', component: UserManageComponent, canActivate: [GuardService] },

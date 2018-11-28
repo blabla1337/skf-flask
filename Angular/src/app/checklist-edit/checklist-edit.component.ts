@@ -107,16 +107,14 @@ export class ChecklistEditComponent implements OnInit {
       .getSingleChecklistItem(this.checklistIDFromUrl, Number(this.checklistTypeFromStorage))
       .subscribe(
         checklist => {
-          this.content = checklist['checklist_items_content'];
-          this.checklistID = checklist['checklist_items_checklistID'];
-          this.kbID = checklist['kb_item_id'];
+          this.content = checklist['checklist_items_content']
+          this.checklistID = checklist['checklist_items_checklistID']
+          this.kbID = checklist['kb_item_id']
           this.kb_item_title = checklist['kb_item_title']
           this.include_always = checklist['include_always']
           this.include_first = checklist['include_first']
           this.question_pre_ID = checklist['question_pre_ID']
           this.question_sprint_ID = checklist['question_sprint_ID']
-
-          console.log(checklist['checklist_items_content'])
           if (!this.checklist) {
             this.error = "There are no checklist types defined yet"
           }
