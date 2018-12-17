@@ -22,7 +22,7 @@ from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
 from skf.chatbot_tools import init_dataset
-from skf.db_tools import init_md_checklists, init_md_knowledge_base, init_md_code_examples, init_db, update_db
+from skf.db_tools import init_md_knowledge_base, init_md_code_examples, init_db, update_db
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_item import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
@@ -126,25 +126,25 @@ def initialize_app(flask_app):
     db.init_app(flask_app)
 
 
-#@app.cli.command('initdb')
-#def initdb_command():
-#    """Creates the database with all the Markdown files."""
-#    init_db()
-#    print('Initialized the database.')
+@app.cli.command('initdb')
+def initdb_command():
+    """Creates the database with all the Markdown files."""
+    init_db()
+    print('Initialized the database.')
 
 
-#@app.cli.command('initdataset')
-#def initdataset_command():
-#    """Creates the datasets needed for the chatbot."""
-#    init_dataset()
-#    print('Initialized the datasets.')
+@app.cli.command('initdataset')
+def initdataset_command():
+    """Creates the datasets needed for the chatbot."""
+    init_dataset()
+    print('Initialized the datasets.')
 
 
-#@app.cli.command('updatedb')
-#def updatedb_command():
-#    """Update the database with the markdown files."""
-#    update_db()
-#    print('Database updated with the markdown files.')
+@app.cli.command('updatedb')
+def updatedb_command():
+    """Update the database with the markdown files."""
+    update_db()
+    print('Database updated with the markdown files.')
 
 
 def main():

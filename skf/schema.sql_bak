@@ -61,7 +61,7 @@ INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "rea
 --
 -- Table structure for table `kb_items`
 --
-
+/*
 drop table if exists `kb_items`;
 CREATE TABLE `kb_items` (
 `kbID` INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -80,7 +80,7 @@ CREATE TABLE `code_items` (
 `content` varchar(250) NOT NULL,
 `code_lang` varchar(250) NOT NULL
 );
-
+*/
 
 --
 -- Table structure for table `projects`

@@ -2,7 +2,7 @@ import os, json, unittest, tempfile, skf
 from werkzeug.exceptions import BadRequest
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
-from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_checklists, init_md_code_examples
+from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_code_examples
 from skf import chatbot_tools
 from skf.app import app
 import pytest
@@ -15,7 +15,7 @@ class TestRestPlusApi(unittest.TestCase):
         cls.client = app.test_client()
         with app.app_context():
             init_db()
-            #update_db()
+            update_db()
             chatbot_tools.init_dataset()
             settings.TESTING = True
             skf.app.initialize_app(app)
@@ -176,7 +176,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_checklistID'], '3.12')
+        self.assertEqual(response_dict['items'][0]['checklist_items_checklistID'], '1.0')
 
 
     def test_get_checklist_fail(self):
@@ -189,7 +189,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the update specific checklist item call is working"""
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        payload = {"content": "This is a updated checklist item", "kbID": 12, "include_always": False, "include_first": True, "question_sprint_ID": 22, "question_pre_ID": 0}
+        payload = {"content": "This is a updated checklist item", "kbID": 12, "include_always": "False", "include_first": "True", "question_sprint_ID": 22, "question_pre_ID": 0}
         response = self.client.put('/api/checklist/update/item/5.12/type/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -209,7 +209,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:30], 'Verify that session ids stored')
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:30], 'Architecture, design and threa')
 
 
     def test_get_checklist_items_level2(self):
@@ -217,7 +217,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/2')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:33], 'Verify that session ids stored in')
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:30], 'Architecture, design and threa')
 
 
     def test_get_checklist_items_masvs(self):
@@ -225,7 +225,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/6')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:34], "The app uses multiple functionally")
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:34], "Architecture, Design and Threat Mo")
 
 
     def test_get_checklist_items_pcidss(self):
@@ -233,7 +233,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/7')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Protect stored cardholder data ")
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Install and maintain a firewall configuration to protect cardholder data")
 
 
     def test_get_kb(self):
@@ -890,12 +890,6 @@ class TestDB(unittest.TestCase):
     def test_init_md_knowledge_base(self):
         """Test if the init markdown of kb items is working"""
         self.assertTrue(init_md_knowledge_base())
-        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
-
-
-    def test_init_md_checklists(self):
-        """Test if the init markdown of checklist items is working"""
-        self.assertTrue(init_md_checklists())
         os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
 
 

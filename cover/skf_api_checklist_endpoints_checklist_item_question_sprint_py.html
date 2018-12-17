@@ -100,7 +100,7 @@
 <p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="nam">flask_restplus</span> <span class="key">import</span> <span class="nam">Resource</span><span class="strut">&nbsp;</span></p>
 <p id="t3" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">security</span> <span class="key">import</span> <span class="nam">security_headers</span><span class="op">,</span> <span class="nam">validate_privilege</span><span class="strut">&nbsp;</span></p>
 <p id="t4" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">business</span> <span class="key">import</span> <span class="nam">get_checklist_item_question_sprint</span><span class="strut">&nbsp;</span></p>
-<p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">checklist</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
+<p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">checklist</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">checklist_items</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">kb</span><span class="op">.</span><span class="nam">parsers</span> <span class="key">import</span> <span class="nam">authorization</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">restplus</span> <span class="key">import</span> <span class="nam">api</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="pln"><span class="strut">&nbsp;</span></p>
@@ -112,11 +112,11 @@
 <p id="t14" class="stm run hide_run"><span class="key">class</span> <span class="nam">ChecklistItem</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t16" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">authorization</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t17" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">checklist</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t17" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">marshal_with</span><span class="op">(</span><span class="nam">checklist_items</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t18" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">'No results found'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="pln">    <span class="key">def</span> <span class="nam">get</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">questionID</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t20" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
-<p id="t21" class="pln"><span class="str">        Returns a checklist item based on question sprint identifier.</span><span class="strut">&nbsp;</span></p>
+<p id="t21" class="pln"><span class="str">        Returns a list of checklist items correlated to question sprint identifier</span><span class="strut">&nbsp;</span></p>
 <p id="t22" class="pln"><span class="str">        * Privileges required: **manage**</span><span class="strut">&nbsp;</span></p>
 <p id="t23" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="stm mis">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'manage'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -131,8 +131,8 @@
 <div id="footer">
     <div class="content">
         <p>
-            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-10-09 17:52
+            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
+            created at 2018-12-17 15:29
         </p>
     </div>
 </div>
