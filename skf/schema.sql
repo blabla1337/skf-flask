@@ -1596,7 +1596,7 @@ INSERT OR REPLACE INTO checklists_kb (checklist_type, checklistID, content, kbID
 --- Custom ---
 ---
 INSERT OR REPLACE INTO checklists_kb (checklist_type, checklistID, content, kbID) VALUES (8, '20.0', 'Custom checklist title example', '0'); 
-INSERT OR REPLACE INTO checklists_kb (checklist_type, checklistID, content, kbID) VALUES (8, '20.1', 'Custom checklist item example, lorum ipsum', '14'); 
+INSERT OR REPLACE INTO checklists_kb (checklist_type, checklistID, content, kbID, question_pre_ID, question_sprint_ID) VALUES (8, '20.1', 'Custom checklist item example, lorum ipsum', '14', '2', '0'); 
 INSERT OR REPLACE INTO checklists_kb (checklist_type, checklistID, content, kbID) VALUES (8, '20.0', 'Custom checklist title example', '0'); 
-INSERT OR REPLACE INTO checklists_kb (checklist_type, checklistID, content, kbID) VALUES (8, '20.1', 'Custom checklist item example, lorum ipsum', '14'); 
+INSERT OR REPLACE INTO checklists_kb (checklist_type, checklistID, content, kbID, question_pre_ID, question_sprint_ID) VALUES (8, '20.2', 'Custom checklist item example, lorum ipsum', '15', '0', '22'); 
 

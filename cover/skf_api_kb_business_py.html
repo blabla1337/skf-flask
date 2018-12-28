@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/kb/business.py: 77%</title>
+    <title>Coverage for skf/api/kb/business.py: 100%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/kb/business.py</b> :
-            <span class="pc_cov">77%</span>
+            <span class="pc_cov">100%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
             30 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">23 run</span>
-            <span class="mis shortkey_m button_toggle_mis">7 missing</span>
+            <span class="run hide_run shortkey_r button_toggle_run">30 run</span>
+            <span class="mis shortkey_m button_toggle_mis">0 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -85,13 +85,13 @@
 <p id="n16" class="pln"><a href="#n16">16</a></p>
 <p id="n17" class="pln"><a href="#n17">17</a></p>
 <p id="n18" class="stm run hide_run"><a href="#n18">18</a></p>
-<p id="n19" class="stm mis"><a href="#n19">19</a></p>
-<p id="n20" class="stm mis"><a href="#n20">20</a></p>
-<p id="n21" class="stm mis"><a href="#n21">21</a></p>
-<p id="n22" class="stm mis"><a href="#n22">22</a></p>
-<p id="n23" class="stm mis"><a href="#n23">23</a></p>
-<p id="n24" class="stm mis"><a href="#n24">24</a></p>
-<p id="n25" class="stm mis"><a href="#n25">25</a></p>
+<p id="n19" class="stm run hide_run"><a href="#n19">19</a></p>
+<p id="n20" class="stm run hide_run"><a href="#n20">20</a></p>
+<p id="n21" class="stm run hide_run"><a href="#n21">21</a></p>
+<p id="n22" class="stm run hide_run"><a href="#n22">22</a></p>
+<p id="n23" class="stm run hide_run"><a href="#n23">23</a></p>
+<p id="n24" class="stm run hide_run"><a href="#n24">24</a></p>
+<p id="n25" class="stm run hide_run"><a href="#n25">25</a></p>
 <p id="n26" class="pln"><a href="#n26">26</a></p>
 <p id="n27" class="pln"><a href="#n27">27</a></p>
 <p id="n28" class="stm run hide_run"><a href="#n28">28</a></p>
@@ -126,13 +126,13 @@
 <p id="t16" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t17" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t18" class="stm run hide_run"><span class="key">def</span> <span class="nam">create_kb_item</span><span class="op">(</span><span class="nam">data</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t19" class="stm mis">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested creating a new kb item"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t20" class="stm mis">    <span class="nam">content</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'content'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t21" class="stm mis">    <span class="nam">title</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'title'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t22" class="stm mis">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">kb_items</span><span class="op">(</span><span class="nam">content</span><span class="op">,</span> <span class="nam">title</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t23" class="stm mis">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">result</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t24" class="stm mis">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t25" class="stm mis">    <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'KB item successfully created'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t19" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested creating a new kb item"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t20" class="stm run hide_run">    <span class="nam">content</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'content'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t21" class="stm run hide_run">    <span class="nam">title</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'title'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t22" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">kb_items</span><span class="op">(</span><span class="nam">content</span><span class="op">,</span> <span class="nam">title</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">result</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t24" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t25" class="stm run hide_run">    <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'KB item successfully created'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t27" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t28" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_kb_item</span><span class="op">(</span><span class="nam">kb_id</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -156,7 +156,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2018-12-17 15:29
+            created at 2018-12-27 16:56
         </p>
     </div>
 </div>

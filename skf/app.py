@@ -74,8 +74,6 @@ from skf.api.questions_sprint.endpoints.question_sprint_store import ns as quest
 from skf.api.questions_sprint.endpoints.question_sprint_item_update import ns as question_post_item_update
 from skf.api.questions_sprint.endpoints.question_sprint_item_new import ns as question_post_item_new
 from skf.api.questions_sprint.endpoints.question_sprint_item_delete import ns as question_post_item_update
-from skf.api.questions_post.endpoints.question_post_items import ns as questions_post_namespace
-from skf.api.questions_post.endpoints.question_post_store import ns as questions_post_namespace
 from skf.api.comment.endpoints.comment_items import ns as comment_namespace
 from skf.api.comment.endpoints.comment_new import ns as comment_namespace
 
@@ -120,7 +118,6 @@ def initialize_app(flask_app):
     api.add_namespace(checklist_namespace)
     api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_pre_namespace)
-    api.add_namespace(questions_post_namespace)
     api.add_namespace(questions_sprint_namespace)
     flask_app.register_blueprint(blueprint)
     db.init_app(flask_app)

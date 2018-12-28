@@ -82,6 +82,7 @@ def create_checklist_item(checklistID, checklist_type, data):
     db.session.commit()
     return {'message': 'Checklist item successfully created'} 
 
+
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
     val_float(checklist_id)
