@@ -1,1 +1,0 @@
-11.1.2 Implement incident response procedures in the event unauthorized wireless access points are detected. 

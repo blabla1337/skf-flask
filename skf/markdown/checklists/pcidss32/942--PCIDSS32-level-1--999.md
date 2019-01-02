@@ -1,1 +1,0 @@
-12.10.6 Develop a process to modify and evolve the incident response plan according to lessons learned and to incorporate industry developments. 

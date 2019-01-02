@@ -1,1 +1,0 @@
-7.2.2 Assignment of privileges to individuals based on job classification and function. 

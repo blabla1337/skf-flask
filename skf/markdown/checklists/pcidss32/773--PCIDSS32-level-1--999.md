@@ -1,1 +1,0 @@
-6.5.2 Implemented mitigation for buffer overflows.

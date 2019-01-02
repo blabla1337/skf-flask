@@ -1,1 +1,0 @@
-3.1 Verify that there is no custom session manager, or that the custom session manager is resistant against all common session management attacks.

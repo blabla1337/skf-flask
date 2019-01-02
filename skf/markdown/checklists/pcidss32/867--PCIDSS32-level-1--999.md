@@ -1,1 +1,0 @@
-10.4.1 Critical systems have the correct and consistent time. 

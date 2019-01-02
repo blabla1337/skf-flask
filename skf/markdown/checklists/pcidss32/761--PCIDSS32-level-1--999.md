@@ -1,1 +1,0 @@
-6.4.1 Separate development/test environments from production environments, and enforce the separation with access controls. 

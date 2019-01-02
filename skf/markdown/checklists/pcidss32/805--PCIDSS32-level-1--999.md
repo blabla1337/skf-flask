@@ -1,1 +1,0 @@
-8.2 In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components.

@@ -1,1 +1,0 @@
-12.3.2 Authentication for use of the technology.

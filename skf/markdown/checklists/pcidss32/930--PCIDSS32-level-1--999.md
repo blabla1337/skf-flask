@@ -1,1 +1,0 @@
-12.8.1 Maintain a list of service providers including a description of the service provided. 

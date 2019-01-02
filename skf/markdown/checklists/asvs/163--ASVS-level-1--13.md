@@ -1,1 +1,0 @@
-16.8 Verify the application code does not execute uploaded data obtained from untrusted sources.

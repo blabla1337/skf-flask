@@ -1,1 +1,0 @@
-12.1 Establish, publish, maintain, and disseminate a security policy. 

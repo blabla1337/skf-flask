@@ -1,1 +1,0 @@
-11.3 Implement a methodology for penetration testing.

@@ -1,1 +1,0 @@
-12.3.6 Acceptable network locations for the technologies.

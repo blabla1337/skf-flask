@@ -1,1 +1,0 @@
-8.2.2 Verify user identity before modifying any authentication credential for example, performing password resets, provisioning new tokens, or generating new keys. 

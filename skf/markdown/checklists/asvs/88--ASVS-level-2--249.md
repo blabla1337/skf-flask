@@ -1,1 +1,0 @@
-5.26 Verify that authenticated data is cleared from client storage, such as the browser DOM, after the session is terminated.

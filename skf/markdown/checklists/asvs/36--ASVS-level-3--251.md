@@ -1,1 +1,0 @@
-2.29 Verify that secrets, API keys, and passwords are not included in the source code, or online source code repositories.

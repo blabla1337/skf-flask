@@ -1,1 +1,0 @@
-2.27 Verify that measures are in place to block the use of commonly chosen passwords and weak passphrases.

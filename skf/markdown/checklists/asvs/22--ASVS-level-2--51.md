@@ -1,1 +1,0 @@
-2.13 Verify that account passwords are one way hashed with a salt, and there is sufficient work factor to defeat brute force and password hash recovery attacks.

@@ -1,1 +1,0 @@
-1.3.4 Do not allow unauthorized outbound traffic from the cardholder data environment to the Internet. 

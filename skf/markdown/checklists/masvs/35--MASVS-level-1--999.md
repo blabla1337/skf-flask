@@ -1,1 +1,0 @@
-4.1 If the app provides users with access to a remote service, an acceptable form of authentication such as username/password authentication is performed at the remote endpoint.

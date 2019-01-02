@@ -1,1 +1,0 @@
-7.1.4 Require documented approval by authorized parties specifying required privileges. 

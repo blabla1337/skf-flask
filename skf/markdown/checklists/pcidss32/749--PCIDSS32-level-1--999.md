@@ -1,1 +1,0 @@
-5.1.1 Ensure that anti-virus programs are capable of detecting, removing, and protecting against all known types of malicious software. 

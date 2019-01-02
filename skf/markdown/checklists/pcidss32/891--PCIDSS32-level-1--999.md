@@ -1,1 +1,0 @@
-11.2.3 Perform internal and external scans, and rescans as needed, after any significant change. Scans must be performed by qualified personnel. 

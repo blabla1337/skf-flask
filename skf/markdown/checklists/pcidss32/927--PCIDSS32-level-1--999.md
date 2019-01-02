@@ -1,1 +1,0 @@
-12.6.2 Require personnel to acknowledge at least annually that they have read and understood the security policy and procedures. 

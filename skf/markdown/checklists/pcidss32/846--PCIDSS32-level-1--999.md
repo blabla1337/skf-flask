@@ -1,1 +1,0 @@
-9.9.2 Periodically inspect device surfaces to detect tampering (for example, addition of card skimmers to devices), or substitution.

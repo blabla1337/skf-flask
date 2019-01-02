@@ -1,1 +1,0 @@
-6.3 Develop internal and external software applications (including web-based administrative access to applications) securely.
