@@ -6,7 +6,7 @@
 
 	/*
 	Whenever you are developing a password forget function, these are the steps to follow
-	in order to create hardened defenses.
+	in order to create hardened defenses. 
 
 	TABLE users
 	--------------------------------------------------------------------------------------
@@ -39,75 +39,78 @@
 	expire after a certain amount of time like 20 minutes.
 	*/
 
-	app.post('/forgot', function(req, res, next) {
-	  async.waterfall([
-	    function(done) {
-	      crypto.randomBytes(20, function(err, buf) {
-	        var token = buf.toString('hex');
-	        done(err, token);
-	      });
-	    },
-		function(token, done) {
-      		User.findOne({ email: req.body.email }, function(err, user) { // get user by email
-		        if (!user) {
-    		      req.flash('Success', 'You should receive an email with your password reset link shortly');
-          	return res.redirect('/forgot');
+    app.post('/forgot', function(req, res, next) {
+      async.waterfall([
+        function(done) {
+          crypto.randomBytes(20, function(err, buf) {
+            var token = buf.toString('hex');
+            done(err, token);
+          }); 
+        },
+        function(token, done) {
+          User.findOne({ email: req.body.email }, 
+            function(err, user) { // get user by email
+              if (!user) {
+                req.flash('Success', 'You should receive an email with your password reset link shortly');
+                return res.redirect('/forgot');
+              }
+              user.resetPasswordToken = token;
+              user.resetPasswordExpires = Date.now() + PASSWORD_EXPIRY_TOKEN_DURATION; // 1 hour
+              user.save(function(err) {
+                done(err, token, user);
+              });
+            });
+        },
+        function(token, user, done) {
+          send_reset_password_email()
         }
-        user.resetPasswordToken = token;
-        user.resetPasswordExpires = Date.now() + PASSWORD_EXPIRY_TOKEN_DURATION; // 1 hour
-        user.save(function(err) {
-          done(err, token, user);
-        });
-      });
-    },
-    function(token, user, done) {
-		send_reset_password_email()
-        }
-      });
-    }
-  ], function(err) {S
-    if (err) return next(err);
-    res.redirect('/forgot');
-  });
-});
-
-
-app.get('/reset/:token', function(req, res) {
-  User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-    if (!user) {
-      req.flash('error', 'Password reset token is invalid or has expired.');
-      return res.redirect('/forgot');
-    }
-    res.render('reset', {
-      user: req.user
+      ])
+    }, 
+    function(err) {
+      if (err) return next(err);
+      res.redirect('/forgot');
     });
-  });
-});
 
-app.post('/reset/:token', function(req, res) {
-  async.waterfall([
-    function(done) {
+    app.get('/reset/:token', function(req, res) {
       User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
         if (!user) {
           req.flash('error', 'Password reset token is invalid or has expired.');
-          return res.redirect('back');
+          return res.redirect('/forgot');
         }
-		if (req.body.password ){
-			hash = password_hash(req.body.password)
-        user.resetPasswordToken = undefined;
-        user.resetPasswordExpires = undefined;
-
-        user.save(function(err) {
-          req.logIn(user, function(err) {
-            done(err, user);
-          });
+        res.render('reset', {
+          user: req.user
         });
       });
-    },
-    function(user, done) {
-      send_pass_change_confirmation_email()
-    }
-  ], function(err) {
-    res.redirect('/');
-  });
-});
+    });
+
+    app.post('/reset/:token', function(req, res) {
+      async.waterfall([
+        function(done) {
+          User.findOne({ 
+            resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() }, 
+            function(err, user) {
+              if (!user) {
+                req.flash('error', 'Password reset token is invalid or has expired.');
+                return res.redirect('back');
+              }
+              if (req.body.password ) {
+                hash = password_hash(req.body.password)
+                user.resetPasswordToken = undefined;
+                user.resetPasswordExpires = undefined;
+                user.save(function(err) {
+                  req.logIn(user, function(err) {
+                    done(err, user);
+                  });
+                });
+              });
+            }
+          });
+        }
+        function(user, done) {
+          send_pass_change_confirmation_email()
+        }
+      ]), 
+      function(err) {
+        res.redirect('/');
+      })  
+    });
