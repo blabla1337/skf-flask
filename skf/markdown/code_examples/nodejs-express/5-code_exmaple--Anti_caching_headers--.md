@@ -3,7 +3,6 @@
 
 ## Example:
 
-
     /*
     Add the following headers to your application head in order to prevent the browser from caching
     the following code could be used in your controller:

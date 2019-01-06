@@ -1,11 +1,11 @@
-# CSRF Tokens - JSF
+# CSRF Tokens
 -------
 
 ## Example:
 
 	/*
 	General:
-	If you're using JSON  over REST to mutate server state and the application doesn't support plain HTML form submissions and your CORS configuration bans cross-domain requests then Express has built-in CSRF protection.
+	If you're using JSON over REST to mutate server state and the application doesn't support plain HTML form submissions and your CORS configuration bans cross-domain requests then Express has built-in CSRF protection.
 	If you support plain HTML form submissions, read on.
 	Hint: you can check if you support plain HTML form submissions by searching for:
 	require("body-parser"); and
@@ -13,15 +13,11 @@
 	*/
 
 	/*
-
-	The following handlebar template snippet shows the code used to place the antiCSRF token inside the page.
+	The following handlebar template snippet shows the code used to place the antiCSRF token inside a html page.
 	When the page renders, the <cu:antiCSRF/> is created as a viewstate encoded html input tag
 	which then carries the antiCSRF token.
-	While in process of rendering the page, a new token is generated
-	and added into the existing session.
-	When the user press the commandButton
-	then CSRF token parameter is compared with the CSRF session parameter. 
-
+	While in process of rendering the page, a new token is generated and added into the existing session.
+	When the user press the commandButton then CSRF token parameter is compared with the CSRF session parameter. 
 	*/
 
 	/*
@@ -31,10 +27,13 @@
     	<button type="submit">Submit</button>
 	</form>
 	*/
-	 
-	//	the following snippet is used to generate and check the token. 
+	
+	// The following snippet is used to generate and check the token. 
 	var csrf = require('csurf')    //csrf module
 	var csrfProtection = csrf({ cookie: true }) // setup route middlewares
+	
+	// This is required because "cookie" is true in csrfProtection
+	app.use(cookieParser())
 
 	// Error handler(Optional) shows custom error message
 	// when token is missing or mismatches
@@ -48,7 +47,7 @@
 
 	//  we need to pass the middleware to each view 
 	app.get('/form', csrfProtection, function(req, res) {
-  		// generate and pass the csrfToken to the view
+  	  // generate and pass the csrfToken to the view
 	  res.render('send', { csrfToken: req.csrfToken() })
 	})
 

@@ -31,9 +31,9 @@
     // the above methods could be used as follows
 	app.get('/read_file', function(req, res) {
         filename = req.query.filename
-        if(is_varlid_path(filename) and is_allowed_location(filename))
+        if (is_valid_path(filename) and is_allowed_location(filename))
             serve_request()
-        else{
+        else {
             //return error
         }   
 
