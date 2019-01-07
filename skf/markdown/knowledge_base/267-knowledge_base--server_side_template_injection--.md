@@ -30,11 +30,11 @@ The prefered way to add the user supplied input to this template would be:
   @app.errorhandler(404)
   def page_not_found(e):
     input = request.url
-    return render_template("errorpage.html",input = input), 404
+    return render_template("errorpage.html", input = input), 404
     
 Wheras the content of the errorpage.html would look like
 
   <html>
       <p>{{input}}</p>
   </html>
-    
+
