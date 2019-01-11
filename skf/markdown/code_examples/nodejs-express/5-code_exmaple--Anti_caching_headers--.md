@@ -1,14 +1,29 @@
 # Anti-cashing headers 
--------
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#Considerations)
 
-    /*
-    Add the following headers to your application head in order to prevent the browser from caching
-    the following code could be used in your controller:
-    */
+## General
+TBA
 
-    resp.set("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-    res.set("Pragma", "no-cache"); // HTTP 1.0.
-    res.set("Expires", "0"); // Proxies.
-    
+## Example
+Add the following headers to your response head in order to prevent the browser from caching:
+
+### HTTP 1.1
+```js
+resp.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+```
+
+### HTTP 1.0
+```js
+res.set('Pragma', 'no-cache');
+```
+
+### Proxies
+```js
+res.set('Expires', '0');
+```
+
+## Considerations
+TBA

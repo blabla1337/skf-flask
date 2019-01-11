@@ -1,20 +1,23 @@
-# Charsets 
--------
+# Charsets
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#Considerations)
 
+## General
+TBA
 
-	/*
-	In order to set the "Charsets" header you'll have to add the 
-	following code to the head of your application, the following code could be used in your controller 
-	for by example, text/html:
-	*/
+## Example
+Charset header should be set on the response your server sends back to the client. For example, in the case of `text/html` this can be achieved by the following code: 
+```js
+res.charset = 'utf-8'; //utf-8 is the default encoding for json
+```
 
-	res.charset = 'utf-8'; //utf-8 is the default encoding for json
+Or directly in your HTML markup:
+```html
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+```
 
-	/*
-	Or directly into your html markup:
-	*/
-
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+### Considerations
+TBA
     		
