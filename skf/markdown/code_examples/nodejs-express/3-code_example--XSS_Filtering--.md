@@ -2,6 +2,7 @@
 
 - [General](#general)
 - [Example](#example)
+  - [Dangerous methods in frameworks](#dangerous-methods-in-frameworks)
 - [Considerations](#Considerations)
 
 ## General
