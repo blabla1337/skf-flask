@@ -1,17 +1,27 @@
-# Sandboxing
--------
+# Iframe Sandboxing
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
+## General
+Sandboxing applies a set of restrictions to the iframes in order to tighten security. It can be declared as follows:
+```html
+<iframe sandbox="value">
+```
 
-    <iframe sandbox="value">
+Full list of permitted values is available in [MDN iframe documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox).
 
-    /*
-    sandbox=""  Applies all restrictions
-    allow-forms  Re-enables form submission
-    allow-pointer-lock  Re-enables APIs
-    allow-popups  Re-enables popups
-    allow-same-origin  Allows the iframe content to be treated as being from the same origin
-    allow-scripts  Re-enables scripts
-    allow-top-navigation  Allows the iframe content to navigate its top-level browsing context
-    */
+## Example
+To enable full sandbox mode please use the following code:
+```html
+<iframe sandbox>...</iframe>
+``` 
+
+Desired restriction can be lifted as shown below: 
+```html
+<iframe sandbox="allow-forms allow-scripts">...</iframe>
+```
+
+## Considerations
+TBA

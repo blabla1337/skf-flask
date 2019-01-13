@@ -1,37 +1,48 @@
 # Hashing
--------
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
-	/**
-	   Taken from https://www.npmjs.com/package/bcrypt
-	**/
-	var bcrypt = require('bcrypt')
+## General
+TBA
+
+## Example
+For this you can use [`bcrypt` module](https://www.npmjs.com/package/bcrypt):
+```js
+const bcrypt = require('bcrypt')
 	
-	function hash(password){
-		var saltRounds = 10
-		var hash = bcrypt.hash(myPlaintextPassword, saltRounds)
-		return hash
-	}
+const hash = password => {
+	const saltRounds = 10;
+	return bcrypt.hash(myPlaintextPassword, saltRounds);
+}
+```
 
-	// Asynchronous method
-	function validatePassword(user, password){
-		bcrypt.compare(myPlaintextPassword, hash, function(err, res) {
-			if(res) {
-			// Passwords match
-			} else {
-			// Passwords don't match
-		  	} 
-		});
-	}
-
-	// Synchronous method
-	function validatePassword(user, password){
-		if(bcrypt.compareSync('somePassword', hash)) {
-		 // Passwords match
-		 return true;
+Asynchronous method:
+```js
+const validatePassword = (user, password) => {
+	bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+		if(res) {
+			// Passwords match, handle success
 		} else {
-		 // Passwords don't match
-		 return false;
-		}
+			// Passwords don't match, handle failure
+		} 
+	});
+};
+```
+
+Synchronous method:
+```js
+const validatePassword = (user, password) => {
+	if(bcrypt.compareSync('somePassword', hash)) {
+		// Passwords match, handle success
+		return true;
+	} else {
+		// Passwords don't match, handle failure
+		return false;
 	}
+}
+```
+
+## Considerations
+TBA

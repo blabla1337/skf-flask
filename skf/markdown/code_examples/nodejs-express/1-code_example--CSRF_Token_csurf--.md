@@ -2,7 +2,7 @@
 
 - [General](#general)
 - [Example](#example)
-- [Considerations](#Considerations)
+- [Considerations](#considerations)
 
 ## General
 

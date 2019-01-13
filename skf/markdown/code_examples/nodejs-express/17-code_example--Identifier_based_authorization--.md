@@ -1,8 +1,18 @@
 # Identifier-based authorization
--------
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
-	app.get('/post', function(req, res) {
-  		// if session.user.id has access to post.id return post.id 
-		  })
+## General
+TBA
+
+## Example
+```js
+app.get('/post', (req, res) => {
+	// if session.user.id has access to post.id return post.id
+});
+```
+
+## Considerations
+TBA

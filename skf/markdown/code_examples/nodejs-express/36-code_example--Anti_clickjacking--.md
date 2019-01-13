@@ -1,63 +1,67 @@
 # Anti-clickjacking
--------
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
+## General
+TBA
 
-    /*
-    One way to defend against clickjacking is to include a "frame-breaker" script in each 
-    page that should not be framed. The following methodology will prevent a webpage from 
-    being framed even in legacy browsers, that do not support the X-Frame-Options-Header.
+## Example
+One way to defend against clickjacking is to include a `frame-breaker` script in each page that should not be framed. The following methodology will prevent a webpage from being framed even in legacy browsers, that do not support the `X-Frame-Options-Header`.
 
-    In the document HEAD element, add the following:
-
-    First apply an ID to the style element itself:
-    */
-
-    <style id="antiClickjack">body{display:none !important;}</style>
-
-    //And then delete that style by its ID immediately after in the script:
-
-    <script type="text/javascript">
-    if (self === top) {
-        var antiClickjack = document.getElementById("antiClickjack");
+In the document `HEAD` element please add the following code:
+1. Apply an ID to the style element itself:
+```html
+<style id="antiClickjack">
+    body {
+        display:none !important;
+    }
+</style>
+```
+2. And then delete that style by its ID immediately after in the script:
+```html
+ <script type="text/javascript">
+    if(self === top) {
+        const antiClickjack = document.getElementById("antiClickjack");
         antiClickjack.parentNode.removeChild(antiClickjack);
     } else {
         top.location = self.location;
     }
-    </script>
+</script>
+```
 
+The second option is to use security headers. There are two options for setting the `anti-clickjacking` headers in your application:.
 
+This will completely prevent your page from being displayed in an iframe:
+```js
+response.addHeader('X-Frame-Options', 'deny');
+```
 
-    /*
-    The second option is to use "security headers".
-    There are two options for setting the "anti-clickjacking" headers in your application:
-    */
+This will completely prevent your page from being displayed in an iframe on other sites:
+```js
+response.addHeader('X-Frame-Options', 'SAMEORIGIN');
+```
 
-    //this will completely prevent your page from being displayed in an iframe.
-    response.addHeader("X-Frame-Options", "deny")
+Alternatively you can use [`helmet` module]( https://www.npmjs.com/package/helmet) which sets `X-FRAME` headers along with a host of other security headers.
 
+If you only want `X-FRAME-OPTIONS` please use [`frameguard`](https://github.com/helmetjs/frameguard).
+```js
+const frameguard = require('frameguard');
 
-    //this will completely prevent your page from being displayed in an iframe on other sites.
-    response.addHeader("X-Frame-Options", "SAMEORIGIN")
+// Don't allow me to be in ANY frames:
+app.use(frameguard({ action: 'deny' }));
 
-    /* ALternatively you can use helmet https://www.npmjs.com/package/helmet which sets X-FRAME headers along with a host of other security headers */
+// Only let me be framed by people of the same origin:
+app.use(frameguard({ action: 'sameorigin' }));
+app.use(frameguard());  // defaults to sameorigin
 
-    /* If you only want X-FRAME-OPTIONS 
-        frameguard: https://github.com/helmetjs/frameguard
-        is your libray 
-    */
-    const frameguard = require('frameguard')
-
-    // Don't allow me to be in ANY frames:
-    app.use(frameguard({ action: 'deny' }))
-
-    // Only let me be framed by people of the same origin:
-    app.use(frameguard({ action: 'sameorigin' }))
-    app.use(frameguard())  // defaults to sameorigin
-
-    // Allow from a specific host:
-    app.use(frameguard({
+// Allow from a specific host:
+app.use(frameguard({
     action: 'allow-from',
     domain: 'http://example.com'
-    }))
+}));
+```
+
+## Considerations
+TBA

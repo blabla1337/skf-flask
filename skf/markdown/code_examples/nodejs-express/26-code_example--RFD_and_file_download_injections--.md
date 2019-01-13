@@ -1,10 +1,14 @@
 # RFD and file download injections
--------
+
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
+
+## General
+You should **not** accept random filenames for downloading from users and use path sanitizations as shown earlier with RBAC to make sure that the user owns the file being downloaded.
 
 ## Example:
+TBA
 
-/* TODO*/
-
-/*
-    The gist is: do NOT accept random filenames for downloading from users, use path sanitizations as shown earlier and use RBAC to make sure the user owns the file being downloaded
-*/
+## Considerations
+TBA

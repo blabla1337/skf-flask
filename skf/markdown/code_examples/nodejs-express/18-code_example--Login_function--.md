@@ -1,8 +1,14 @@
 # Login Functionality 
--------
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
+## General
+TBA
+
+## Example
+Needs to be refactored!
 
 	package com.edw;
 
@@ -188,3 +194,6 @@
 			}    
 		}
 	}
+
+## Considerations
+TBA
