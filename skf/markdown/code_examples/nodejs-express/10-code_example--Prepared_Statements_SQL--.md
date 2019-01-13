@@ -1,4 +1,4 @@
-# Encoder (SQL - ESAPI)
+# Encoder (SQL - Parameterized Inputs)
 
 - [General](#general)
 - [Example](#example)
