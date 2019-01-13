@@ -1,21 +1,26 @@
-# X-Content-Type-Options header
--------
+# `X-Content-Type-Options` header
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
+## General
+TBA
 
-    /*
-    In order to set the "X-Content-Type-Options" header you'll have to add the 
-    following code to the head of your application, the following code could be used in your controller:
-    */
+## Example
+In order to set the `X-Content-Type-Options` header you'll have to add the following code to the head of your application:
+```js
+res.set('X-Content-Type-Options', 'nosniff');
+```
 
-    res.set("X-Content-Type-Options", "nosniff");
+Alternatively you can use [`dont-sniff-mimetype` module](https://www.npmjs.com/package/dont-sniff-mimetype):
+```js
+const nosniff = require('dont-sniff-mimetype');
 
-    /*
-         alternatively use dont-sniff-mimetype
-     */
-    const nosniff = require('dont-sniff-mimetype')
-    app.use(nosniff())
+app.use(nosniff());
+```
 
+The same can be achieved by using [`helmet` module]( https://www.npmjs.com/package/helmet) which sets X-FRAME headers along with a host of other security headers.
 
-    /* ALternatively you can use helmet https://www.npmjs.com/package/helmet which sets X-FRAME headers along with a host of other security headers */
+## Considerations
+TBA

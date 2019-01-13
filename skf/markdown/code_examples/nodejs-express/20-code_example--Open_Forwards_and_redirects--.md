@@ -1,26 +1,35 @@
 # Open Forwards and Redirects 
--------
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
+## General
+TBA
 
-    /*
-    When using forwards & redirects you should make sure the URL is being explicitly 
-    declared in the code and cannot be manipulated by an attacker like:
-    */
+## Example
+When using forwards and redirects you should make sure the URL is being explicitly declared in the code and cannot be manipulated by an attacker like in the case of `redirectTo` being dynamically set based on user input:
+```js
+app.get('/offers', (req, res, next) => {
+    const redirectTo = req.query.redirect;
+    res.redirect(redirectTo);
+});
+```
 
-    //res.redirect("/login")
+Generally you should avoid getting parameters which could contain user input into the redirect by any means. If for any reason this is not feasible, then you should make a whitelist input validation for the redirect as shown below:
+```js
+const validRedirectURLs = [...]; // list of URLs permitted for redirection
 
-    /*
-    Generally you should avoid getting input into the redirect which could contain
-    user-input by any means. if for any reason this may not be feasible than you 
-    should make a WhiteList input validation for the redirect like so:
-    */
-    app.get("/offers", function(req, res, next) {
-        var redirectTo = req.query.redirect;
-        if(validRedirectURLs.includes(redirectTo)) {
-            return res.redirect(redirectTo);
-        } else {
-            return res.status(500).send({ error: 'Invalid URL' });
-        }
-    });
+app.get('/offers', (req, res, next) => {
+    const redirectTo = req.query.redirect;
+
+    if(validRedirectURLs.includes(redirectTo)) {
+        res.redirect(redirectTo);
+    } else {
+        return res.status(500).send({ error: 'Invalid redirection URL' });
+    }
+});
+```
+
+## Considerations
+TBA

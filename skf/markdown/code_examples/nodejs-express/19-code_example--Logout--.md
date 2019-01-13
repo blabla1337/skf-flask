@@ -1,8 +1,13 @@
-# Logout 
--------
+# Logout Functionality
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
+## General
+
+## Example
+Needs to be refactored!
 
 	package com.edw;
 
@@ -63,3 +68,6 @@
 			}
 		}
 	}
+
+## Considerations
+TBA

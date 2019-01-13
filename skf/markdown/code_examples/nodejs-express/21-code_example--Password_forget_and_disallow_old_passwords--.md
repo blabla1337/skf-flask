@@ -1,45 +1,39 @@
-# Password forget and disallow old passwords
--------
+# Password forget and disallow of old passwords
 
-## Example:
+- [General](#general)
+- [Example](#example)
+- [Considerations](#considerations)
 
+## General
+TBA
 
-	/*
-	Whenever you are developing a password forget function, these are the steps to follow
-	in order to create hardened defenses. 
+## Example
+Whenever you are developing a password forget function, these are the steps to follow in order to create hardened defenses. 
 
-	TABLE users
-	--------------------------------------------------------------------------------------
-	| userID | userName |          password          |   EmailAddress   |    access     |
-	-----------------------------------------------------------------   
-	|   1    | Admin    | <securely hashed password> | info@admin.com   |     TRUE      |
-	-----------------------------------------------------------------       
-	|   2    | User     | <securely hashed password> | info@user.com    |     FALSE     |
-	-----------------------------------------------------------------    
-	|   3    | Guest    | <securely hashed password> | info@guest.com   |     TRUE      |
-	--------------------------------------------------------------------------------------
+`TABLE users`
+| userID | userName | password | emailAddress | access |
+| --- | --- | --- | --- | --- |
+| 1 | Admin | securely hashed password | info@admin.com | TRUE |
+| 2 | User | securely hashed password | info@user.com | FALSE |
+| 3 | Guest | securely hashed password | info@guest.com | FALSE |
 
 
-	TABLE passwordForget
-	------------------------------------------------------------------------------------------------
-	| forgotPasswordID |        Token            |  UserID |   Active   |     ol_password_hashes   |
-	------------------------------------------------------------------------------------------------
-	|        1         |    c3ab8ff13720e....    |    1    |    YES     |      <......>            |
-	------------------------------------------------------------------------------------------------
-	|        2         |    7dd39466b3c89....    |    1    |    NO      |      <......>            |
-	------------------------------------------------------------------------------------------------
-	|        3         |    83d4a3960714c....    |    3    |    NO      |      <......>            |
-	------------------------------------------------------------------------------------------------
+`TABLE passwordForget`
+| forgotPasswordID | token | userID | active | oldPasswordHashes |
+| --- | --- | --- | --- | --- |
+| 1 | c3ab8ff13720e.... | 1 | Yes | <......> |
+| 2 | 7dd39466b3c89.... | 1 | No | <......> |
+| 3 | 83d4a3960714c.... | 3 | No | <......> |
 
 
-	As you can see we also store the old passwords into the password forget table, this
-	we do in order to prevent the user from using old passwords later on in the process.
+As you can see we also store the old passwords into the password forget table. This is done in order to prevent the user from using old passwords later on in the process.
 
-	Also use a CRON job to make sure the generated tokens for the password reset are
-	expire after a certain amount of time like 20 minutes.
-	*/
+Also use a CRON job to make sure that the generated tokens for the password reset expire after a certain amount of time like 20 minutes.
 
-    app.post('/forgot', function(req, res, next) {
+THIS CODE NEEDS TO BE CLEANED UP
+
+```js
+app.post('/forgot', function(req, res, next) {
       async.waterfall([
         function(done) {
           crypto.randomBytes(20, function(err, buf) {
@@ -114,3 +108,7 @@
         res.redirect('/');
       })  
     });
+```
+
+## Considerations
+TBA
