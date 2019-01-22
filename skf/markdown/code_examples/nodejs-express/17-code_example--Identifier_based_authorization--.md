@@ -5,8 +5,6 @@
 - [Considerations](#considerations)
 
 ## General
-Based off this post on [Medium](https://medium.com/@evangow/server-authentication-basics-express-sessions-passport-and-curl-359b7456003d);
-
 Database expected is MS SQL server making use of [mssql](https://www.npmjs.com/package/mssql).
 `file_access` is formatted as so:
 | user_id | file_id |
