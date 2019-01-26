@@ -46,7 +46,7 @@ After the web app is created, go in the web app service and you will see list of
 | HTTPS    	 							|  false								| 
 | JWT_SECRET 							|  change_to_super_secret_value			|  
 | WEBSITES_PORT 						|  80 									|
-| WEBSITES_CONTAINER_START_TIME_LIMIT   |  400									|	
+| WEBSITES_CONTAINER_START_TIME_LIMIT   |  800									|	
 | ORIGIN								|  yourappservicename.azurewebsites.net |
 ---------------------------------------------------------------------------------	
 
