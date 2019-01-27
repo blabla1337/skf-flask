@@ -54,5 +54,8 @@ You need to set the HTTPS to false as SSL is handled by azure so you don't want 
 that azure can expose this port to the incoming connections.WEBSITES_CONTAINER_START_TIME_LIMIT is required to set because angular application takes sometime for building and if the container doesnot start in time the app will not start at all. ORIGIN should be set to the URL of your app. 
 Once you create the webapp you will be able to see the url for it.
 
+IN Application settings there is one more settings which is very important. There is a field called "Always On" , it should to be set ON so that
+
 Go to container settings switch the Continous deployment to ON. This is required everytime you push to the registry either manually or through ci your azure should pull new image and deploy it. You can verify that you have set the continous deployment to on by checking for field DOCKER_ENABLE_CI in the Application settings.
+
 
