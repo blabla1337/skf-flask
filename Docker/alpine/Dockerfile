@@ -25,10 +25,12 @@ RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
 RUN git clone https://github.com/leenabhegade/skf-flask.git
 # Start Angular app
 WORKDIR /skf-flask/Angular
+RUN ls
 RUN npm install -g @angular/cli
 RUN npm install
 # Optimize vendor.bundle.js
 RUN npm build -prod -aot ./
+RUN ls
 
 EXPOSE 443
 
