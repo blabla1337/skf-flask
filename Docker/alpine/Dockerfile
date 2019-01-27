@@ -27,7 +27,6 @@ RUN git clone https://github.com/leenabhegade/skf-flask.git
 WORKDIR /skf-flask/Angular
 RUN npm install -g @angular/cli
 RUN npm install
-RUN npm run build
 # Optimize vendor.bundle.js
 RUN npm build -prod -aot ./
 
