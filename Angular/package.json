@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=0.0.0.0",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "snyk test && ng test --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"

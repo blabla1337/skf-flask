@@ -28,7 +28,7 @@ WORKDIR /skf-flask/Angular
 RUN npm install -g @angular/cli
 RUN npm install
 # Optimize vendor.bundle.js
-RUN npm build -prod -aot ./
+RUN npm build
 
 EXPOSE 443
 
