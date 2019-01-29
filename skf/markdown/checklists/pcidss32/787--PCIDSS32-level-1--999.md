@@ -1,1 +1,0 @@
-7.1.2 Restrict access to privileged user IDs to least privileges necessary to perform job responsibilities. 

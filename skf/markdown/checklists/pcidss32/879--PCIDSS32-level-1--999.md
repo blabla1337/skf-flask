@@ -1,1 +1,0 @@
-10.6.3 Follow up exceptions and anomalies identified during the review process. 

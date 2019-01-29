@@ -1,1 +1,0 @@
-9.8.2 Render cardholder data on electronic media unrecoverable so that cardholder data cannot be reconstructed. 

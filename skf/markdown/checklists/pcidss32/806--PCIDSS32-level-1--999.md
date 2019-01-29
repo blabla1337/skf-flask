@@ -1,1 +1,0 @@
-8.2.1 Using strong cryptography, render all authentication credentials (such as passwords/phrases) unreadable during transmission and storage on all system components. 

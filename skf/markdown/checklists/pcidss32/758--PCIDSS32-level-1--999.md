@@ -1,1 +1,0 @@
-6.3.1 Remove development, test and/or custom application accounts, user IDs, and passwords before applications become active or are released to customers. 

@@ -1,1 +1,0 @@
-12.5.5 Assign to an individual or team the information security management responsibilities: Monitor and control all access to data. 

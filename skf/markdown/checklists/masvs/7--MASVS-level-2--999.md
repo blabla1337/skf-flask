@@ -1,1 +1,0 @@
-1.7 A threat model for the mobile app and the associated remote services has been produced that identifies potential threats and countermeasures.

@@ -1,1 +1,0 @@
-8.3 The app detects, and responds to, tampering with executable files and critical data.

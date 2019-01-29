@@ -197,7 +197,7 @@ class TestRestPlusApi(unittest.TestCase):
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         payload = {"content": "This is a updated checklist item", "kbID": 12, "include_always": "False", "include_first": "True", "question_sprint_ID": 22, "question_pre_ID": 0}
-        response = self.client.put('/api/checklist/update/item/5.12/type/1', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/checklist/update/item/1.0/type/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Checklist item successfully updated")
@@ -288,10 +288,10 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_get_checklist_item_10(self):
         """Test if the get specific checklist item call is working"""
-        response = self.client.get('/api/checklist/item/1.1/type/1')
+        response = self.client.get('/api/checklist/item/1.0/type/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['checklist_items_checklistID'], '1.1')
+        self.assertEqual(response_dict['checklist_items_checklistID'], '1.0')
 
 
     def test_get_checklist_items_level1(self):
@@ -299,7 +299,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:30], 'Architecture, design and threa')
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:30], 'TBD')
 
 
     def test_get_checklist_items_level2(self):
@@ -307,7 +307,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/2')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:30], 'Architecture, design and threa')
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:30], 'TBD')
 
 
     def test_get_checklist_items_masvs(self):
@@ -323,7 +323,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/7')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "Install and maintain a firewall configuration to protect cardholder data")
+        self.assertEqual(response_dict['items'][0]['checklist_items_content'], "TBD")
 
 
     def test_get_kb(self):

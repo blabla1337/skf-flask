@@ -1,1 +1,0 @@
-5.2 Ensure that all anti-virus mechanisms are maintained.

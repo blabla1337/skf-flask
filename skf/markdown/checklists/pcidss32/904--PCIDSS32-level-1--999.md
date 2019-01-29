@@ -1,1 +1,0 @@
-12.1.1 Review the security policy at least annually and update the policy when the environment changes. 

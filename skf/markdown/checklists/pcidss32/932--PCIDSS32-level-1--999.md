@@ -1,1 +1,0 @@
-12.8.3 Ensure there is an established process for engaging service providers including proper due diligence prior to engagement. 

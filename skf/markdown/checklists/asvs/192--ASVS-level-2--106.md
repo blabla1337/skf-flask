@@ -1,1 +1,0 @@
-19.4 Verify application deployments are adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications.

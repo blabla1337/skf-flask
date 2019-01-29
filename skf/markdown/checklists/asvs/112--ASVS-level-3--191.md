@@ -1,1 +1,0 @@
-8.12 Verify that the logs are stored on a different partition than the application is running with proper log rotation.

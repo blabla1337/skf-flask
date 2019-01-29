@@ -1,1 +1,0 @@
-12.3.3 A list of all such devices and personnel with access.

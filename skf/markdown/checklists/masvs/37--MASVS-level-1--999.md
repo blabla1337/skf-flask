@@ -1,1 +1,0 @@
-4.3 The remote endpoint terminates the existing session when the user logs out.

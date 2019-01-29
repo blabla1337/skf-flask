@@ -1,1 +1,0 @@
-12.3.5 Acceptable uses of the technology.

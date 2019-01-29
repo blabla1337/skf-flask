@@ -1,1 +1,0 @@
-1.3 Prohibit direct public access between the Internet and any system component in the cardholder data environment. 

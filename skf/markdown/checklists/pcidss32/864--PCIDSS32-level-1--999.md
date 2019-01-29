@@ -1,1 +1,0 @@
-10.3.5 Record the audit trail entry origination of event for all system components for each event. 

@@ -1,1 +1,0 @@
-6.4.3 Production data (live PANs) are not used for testing or development. 

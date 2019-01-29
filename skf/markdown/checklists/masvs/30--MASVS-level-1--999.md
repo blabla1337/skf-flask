@@ -1,1 +1,0 @@
-3.3 The app uses cryptographic primitives that are appropriate for the particular use-case, configured with parameters that adhere to industry best practices.

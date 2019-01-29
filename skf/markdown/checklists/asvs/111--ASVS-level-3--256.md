@@ -1,1 +1,0 @@
-8.11 Verify that security logs have some form of integrity checking or controls to prevent unauthorized modification.

@@ -1,1 +1,0 @@
-9.3 Control physical access for onsite personnel to sensitive areas.

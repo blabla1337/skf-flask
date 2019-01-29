@@ -1,1 +1,0 @@
-V9: Data protection verification requirements

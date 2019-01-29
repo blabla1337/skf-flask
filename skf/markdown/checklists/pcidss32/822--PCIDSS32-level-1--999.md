@@ -1,1 +1,0 @@
-9.1 Use appropriate facility entry controls to limit and monitor physical access to systems in the cardholder data environment. 

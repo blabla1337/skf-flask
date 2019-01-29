@@ -1,1 +1,0 @@
-9.5 Physically secure all media. 

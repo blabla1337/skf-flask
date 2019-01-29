@@ -1,1 +1,0 @@
-2.1 System credential storage facilities are used appropriately to store sensitive data, such as user credentials or cryptographic keys.

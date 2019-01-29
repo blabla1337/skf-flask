@@ -1,1 +1,0 @@
-1.1.2 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks.

@@ -1,1 +1,0 @@
-10.13 Ensure forward secrecy ciphers are in use to mitigate passive attackers recording traffic.
