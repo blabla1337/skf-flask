@@ -16,7 +16,7 @@ declare var hljs: any;
 export class CodeExamplesComponent implements OnInit, DoCheck {
 
   public lang: string;
-  public codeExamples: CodeExample[];
+  public codeExamples: CodeExample[] = [];
   public error: string;
   public hljs;
   public queryString;

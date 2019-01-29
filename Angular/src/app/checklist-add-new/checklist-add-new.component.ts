@@ -39,17 +39,30 @@ export class ChecklistAddNewComponent implements OnInit {
   public canEdit: boolean;
   public knowledgebaseID: number;
   public checklist: Checklist[]
-  public pre_dev: Question_pre[];
-  public sprints: Question_sprint[];
-  public kbID: string;
+  public pre_dev: Question_pre[] = [];
+  public sprints: Question_sprint[] = [];
   public include_first: string;
   public include_always: string;
   public checklistID: number;
   public content: string;
-  public question_sprint_ID: number;
-  public question_pre_ID: number;
-  public editChecklist:boolean;
+  public editChecklist: boolean;
   knowledgebaseItems: Knowledgebase[];
+  public kbItem: any = {
+    "kbID": '',
+    "title": ''
+  };
+
+  public questionPre: any = {
+    "checklist_type": '',
+    "id": '',
+    "question": ''
+  };
+
+  public questionSprint: any = {
+    "checklist_type": '',
+    "id": '',
+    "question": ''
+  };
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -80,16 +93,36 @@ export class ChecklistAddNewComponent implements OnInit {
     this.errors = [];  
     this.return = true;
 
-    if (!this.checklistTypeFromUrl) { this.errors.push("Checklist ID was not filled in"); this.return = false; }
-    if (!this.checklistID) { this.errors.push("Checklist ID validation failed"); this.return = false; }
-    if (!this.content) { this.errors.push("The checklist item name was not filled in"); this.return = false; }
-    if (!this.kbID) { this.errors.push("There was no knowledgebase ID selected"); this.return = false; }
-    if (!this.include_always) { this.errors.push("Include always choice was not made"); this.return = false; }
-    if (!this.include_first) { this.errors.push("Include first choice was not made"); this.return = false; }
-    
-    if (this.return == false) { return; }
-  
-    this._checklistService.newChecklistItem(Number(this.checklistTypeFromUrl), this.checklistID, this.content, Number(this.kbID), this.include_always, this.include_first, Number(this.question_sprint_ID), Number(this.question_pre_ID))
+    if (!this.checklistTypeFromUrl) {
+      this.errors.push("Checklist ID was not filled in");
+      this.return = false;
+    }
+    if (!this.checklistID) {
+      this.errors.push("Checklist ID validation failed");
+      this.return = false;
+    }
+    if (!this.content) {
+      this.errors.push("The checklist item name was not filled in");
+      this.return = false;
+    }
+    if (this.kbItem === null || this.kbItem.kbID === '') {
+      this.errors.push("There was no knowledgebase ID selected");
+      this.return = false;
+    }
+    if (!this.include_always) {
+      this.errors.push("Include always choice was not made");
+      this.return = false;
+    }
+    if (!this.include_first) {
+      this.errors.push("Include first choice was not made");
+      this.return = false;
+    }
+
+    if (this.return == false) {
+      return;
+    }
+
+    this._checklistService.newChecklistItem(Number(this.checklistTypeFromUrl), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, this.include_first, Number(this.questionSprint.id), Number(this.questionPre.id))
       .subscribe(
         () => this.getChecklistList(),
         () => this.errors.push("Error storing checklist item, potential duplicate checklist ID")
@@ -117,16 +150,34 @@ export class ChecklistAddNewComponent implements OnInit {
 
   getPreQuestionList(checklistType:number){
     this._questionsPreService.getPreQuestions(checklistType).subscribe(
-      pre_dev => this.pre_dev = pre_dev,
-      err => console.log("getting pre dev questions failed")
+      pre_dev => {
+        this.pre_dev = pre_dev;
+          this.pre_dev.unshift({
+          "checklist_type": '',
+          "id": 0,
+          "question": 'Empty'
+        });
+      },
+      err => {
+        console.log("getting pre dev questions failed")
+      }
     )
   }
 
   getSprintQuestionList(checklistType:number){
     this._questionsSprintService.getSprintQuestions(checklistType).subscribe(
-      sprints => this.sprints = sprints,
-      err => console.log("getting sprint questions failed")
-    )  
+      sprints => {
+        this.sprints = sprints;
+        this.sprints.unshift({
+          "checklist_type": '',
+          "id": 0,
+          "question": 'Empty'
+        });
+      },
+      err => {
+        console.log("getting sprint questions failed");
+      }
+    )
   }
 
   back() {
@@ -138,14 +189,25 @@ export class ChecklistAddNewComponent implements OnInit {
     this.readItem()
   }
 
-  readItem(){ 
-    this.editChecklist = false
-    this.checklistID = null
-    this.content = null
-    this.question_pre_ID = null
-    this.question_sprint_ID = null
-    this.kbID = null
-    this.include_first = null
-    this.include_always = null
+  readItem() {
+    this.editChecklist = false;
+    this.checklistID = null;
+    this.content = null;
+    this.questionPre = {
+      "checklist_type": '',
+      "id": '',
+      "question": ''
+    };
+    this.questionSprint = {
+      "checklist_type": '',
+      "id": '',
+      "question": ''
+    };
+    this.kbItem = {
+      "kbID": '',
+      "title": ''
+    };
+    this.include_first = null;
+    this.include_always = null;
   }
 }

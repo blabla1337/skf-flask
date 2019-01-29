@@ -23,6 +23,7 @@
     "@angular/platform-server": "6.0.4",
     "@angular/router": "6.0.4",
     "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.6",
+    "@ng-select/ng-select": "^2.15.1",
     "angular2-highlight-js": "^5.0.0",
     "core-js": "^2.4.1",
     "jwt-decode": "^2.2.0",

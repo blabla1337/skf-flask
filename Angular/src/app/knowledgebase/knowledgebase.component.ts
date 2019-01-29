@@ -11,7 +11,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class KnowledgebaseComponent implements OnInit {
 
-  public knowledgeitems: Knowledgebase[]
+  public knowledgeitems: Knowledgebase[] = [];
   public queryString: string;
   public error: string;
   public errors: string[];

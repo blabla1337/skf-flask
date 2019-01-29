@@ -46,7 +46,7 @@
 			<div class="row" *ngIf="codeExamples"> 
 				<div (click)="highlight()" class="col-lg-12">
 					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-						<div *ngFor="let examples of codeExamples | StartsWithPipe : queryString">
+						<div *ngFor="let examples of codeExamples | stringFilter : queryString">
 							<br/>
 							<ngb-panel title="{{examples.title}}">
 								<ng-template ngbPanelContent>
