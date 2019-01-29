@@ -43,7 +43,6 @@ def update_db():
         db.cursor().executescript(f.read())
     db.commit()
 
-
 def get_db():
     """Opens a new database connection if there is none yet for the current application context."""
     if not hasattr(g, settings.DATABASE):

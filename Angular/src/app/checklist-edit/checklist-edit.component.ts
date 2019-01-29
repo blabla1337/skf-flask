@@ -142,9 +142,9 @@ export class ChecklistEditComponent implements OnInit {
     this.router.navigate(["/checklist-add-new/", localStorage.getItem("tempParamID")]);
   }
 
-  deleteChecklistItem(checklistID: string) {
+  deleteChecklistItem() {
     if (this.delete == "DELETE") {
-      this._checklistService.deletechecklistItem(checklistID).subscribe(x =>
+      this._checklistService.deletechecklistItem(Number(this.checklistIDFromUrl), Number(this.checklistTypeFromStorage)).subscribe(x =>
         //Get the new project list on delete 
         this.getChecklistItem())
         this.router.navigate(["/checklist-add-new/", localStorage.getItem("tempParamID")]);

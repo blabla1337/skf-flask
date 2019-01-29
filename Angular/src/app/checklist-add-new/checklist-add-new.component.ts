@@ -62,10 +62,18 @@ export class ChecklistAddNewComponent implements OnInit {
       let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
       this.canEdit = decodedJWT.privilege.includes("edit");
     }
-    this.getChecklistList();
+
     this.getKnowledgeItems();
     this.getPreQuestionList(Number(localStorage.getItem("tempParamID")));
     this.getSprintQuestionList(Number(localStorage.getItem("tempParamID")));
+
+    /* 
+    Put getting the checklist in delay. Otherwise when updating the checklist items the item is fetched before
+    the database is updated!
+    */
+    setTimeout(() => {
+    this.getChecklistList();
+  }, 1000);
   }
 
   storeChecklistItem(){
@@ -122,7 +130,7 @@ export class ChecklistAddNewComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(["/checklist-summary/"]);
+    this.router.navigate(["/checklist-manage/"+this.checklistTypeFromUrl]);
   }
 
   newChecklistItemModal(modalValue) {
