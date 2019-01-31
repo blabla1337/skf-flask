@@ -3,14 +3,14 @@ Deployment of SKF Framework to Azure Web App for Containers
 
 This guide will allow you to run the OWASP Security Knowledge Framework in Azure. 
 
-This guide assumes you have an Azure account and some experience using Azure. Additionally, it 
-may incur some costs for creation of web apps and container registery inside azure portal. Before 
-deployment of the framework to the azure you will need to make sure below setup on azure is ready:
+This guide assume you have an Azure account and some experience using Azure. Additionally, it 
+may incur some costs for creation of web apps and container registery inside azure portal.
 
 ## Steps to be followed for the Azure deployment
 ### Creation of an Azure container registry in Azure portal
 Create an Azure container registery in azure. Follow instructions in this 
-tutorial link https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal from microsoft to create an azure container registry. After creating the registry make note of your registry name, username and password which you can get from
+tutorial link https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal from microsoft to create an azure container registry. After 
+creating the registry make note of your registry name, username and password which you can get from
 the "Access keys" section in your container registry controls.
 
 ### Push SKF framework image to the Azure container registery from your local machine
@@ -59,8 +59,8 @@ In Application settings there is one more settings which is very important. Ther
 
 Go to Container Settings and switch the Continous deployment option to ON. Everytime you push new image to the registry either manually or through a ci your azure web app service should pull new image and deploy it automatically. You can verify that you have set the continous deployment to "ON" by checking for field DOCKER_ENABLE_CI in the Application settings.
 
-For debuging your application and checking the logs for your app you will need to get access to the logs. You can retain the logs of your application through  "Diagnostics logs" in app service panel.
+For debugging your application and checking the logs for your app you will need to get access to the logs. You can retain the logs of your application through  "Diagnostics logs" in app service panel.
 Select the option "File System" and set the qouta and retention period of your logs. You can view logs in container settings or you can go to "Advancecd Tools" --> "Go". You will find all app specific information
-in that page. Click the link  "Current Docker logs" and it will provide you links to access the log info, alternatively you can download logs. 
+on that page. Click the link  "Current Docker logs" and it will provide you links to access the log info, alternatively you can download logs. 
 
-Finally you can verify that your app is deployed by visiting the app URL. The URL can be found in the app service overview section. Bear in mind that the app may take some time to finish deployment so verify the logs to check the status of the app deployment.
+Finally you can check whether your app is deployed by visiting the app URL. The URL can be found in the app service overview section. Bear in mind that the app may take some time to finish deployment so verify the logs to check the status of the app deployment.
