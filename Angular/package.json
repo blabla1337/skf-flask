@@ -25,9 +25,7 @@
     "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.6",
     "angular2-highlight-js": "^5.0.0",
     "core-js": "^2.4.1",
-    "express": "^4.16.3",
     "jwt-decode": "^2.2.0",
-    "path": "^0.12.7",
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.2.0",
     "zone.js": "^0.8.26"

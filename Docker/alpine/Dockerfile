@@ -32,7 +32,6 @@ RUN npm build -prod -aot ./
 
 EXPOSE 443 
 
-
 # Start python API app
 WORKDIR /skf-flask
 RUN pip3 install -r requirements.txt
