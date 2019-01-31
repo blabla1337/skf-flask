@@ -7,9 +7,9 @@ This guide assumes you have an Azure account and some experience using Azure. Ad
 may incur some costs for creation of web apps and container registery inside azure portal. Before 
 deployment of the framework to the azure you will need to make sure below setup on azure is ready:
 
-## Steps to be followed for the azure deployment
-### Creation of an azure container registry in azure portal
-Create an azure container registery in azure. Follow instructions in this 
+## Steps to be followed for the Azure deployment
+### Creation of an Azure container registry in Azure portal
+Create an Azure container registery in azure. Follow instructions in this 
 tutorial link https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal from microsoft to create an azure container registry. After creating the registry make note of your registry name, username and password which you can get from
 the "Access keys" section in your container registry controls.
 
