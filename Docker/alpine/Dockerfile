@@ -30,7 +30,8 @@ RUN npm install
 # Optimize vendor.bundle.js
 RUN npm build -prod -aot ./
 
-EXPOSE 443 
+EXPOSE 443
+EXPOSE 80
 
 # Start python API app
 WORKDIR /skf-flask
@@ -45,7 +46,4 @@ RUN ["chmod", "+x", "/entrypoint.sh"]
 RUN ["chmod", "+x", "/wrapper.sh"]
 RUN ["chmod", "+x", "/skf-api.sh"]
 RUN ["chmod", "+x", "/skf-angular.sh"]
-
-EXPOSE 80
-
 ENTRYPOINT ["/entrypoint.sh"]
