@@ -53,8 +53,7 @@ After the web app is created, go in the web app service and you will see list of
 | ORIGIN								|  yourappservicename.azurewebsites.net |
 ---------------------------------------------------------------------------------	
 
-You need to set the HTTPS to false because SSL is handled by azure so you don't want nginx to setup SSL for skf seperately. You will need to run the nginx on port 80 and set the value of WEBSITES_PORT to 80 so 
-that azure can expose this port to the incoming connections. WEBSITES_CONTAINER_START_TIME_LIMIT is required to be set because angular application takes longer for building and if the container does not start in time the app will not start at all because of azure timeout. ORIGIN should be set to the URL of your app (You will find URL in the app service overview section). 
+You need to set the HTTPS to false because SSL is handled by azure so you don't want nginx to setup SSL for skf seperately. You will need to run docker container on port 80 so set the value of WEBSITES_PORT to 80 and azure can route traffic to this port. WEBSITES_CONTAINER_START_TIME_LIMIT is required to be set because angular application takes longer for building and if the container does not start in time the app will not start at all because of azure timeout. ORIGIN should be set to the URL of your app (You will find URL in the app service overview section). 
 
 In Application settings there is one more settings which is very important. There is a field called "Always On", it should to be set ON so that the app is available all the times.
 
@@ -64,4 +63,4 @@ For debuging your application and checking the logs for your app you will need t
 Select the option "File System" and set the qouta and retention period of your logs. You can view logs in container settings or you can go to "Advancecd Tools" --> "Go". You will find all app specific information
 in that page. Click the link  "Current Docker logs" and it will provide you links to access the log info, alternatively you can download logs. 
 
-Finally you can verify that your app is deployed by visiting the app URL.The URL can be found in the app service overview section. Bear in mind that the app may take some time to finish deployment so verify the logs to check the status of the app deployment.
+Finally you can verify that your app is deployed by visiting the app URL. The URL can be found in the app service overview section. Bear in mind that the app may take some time to finish deployment so verify the logs to check the status of the app deployment.
