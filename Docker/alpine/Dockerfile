@@ -22,15 +22,16 @@ libstdc++ \
 openblas \
 git
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
-RUN git clone https://github.com/leenabhegade/skf-flask.git
+RUN git clone https://github.com/DigitalInnovation/skf-flask.git
 # Start Angular app
 WORKDIR /skf-flask/Angular
 RUN npm install -g @angular/cli
 RUN npm install
 # Optimize vendor.bundle.js
-RUN npm build
+RUN npm build -prod -aot ./
 
-EXPOSE 443
+EXPOSE 443 
+
 
 # Start python API app
 WORKDIR /skf-flask
@@ -45,4 +46,7 @@ RUN ["chmod", "+x", "/entrypoint.sh"]
 RUN ["chmod", "+x", "/wrapper.sh"]
 RUN ["chmod", "+x", "/skf-api.sh"]
 RUN ["chmod", "+x", "/skf-angular.sh"]
+
+EXPOSE 80
+
 ENTRYPOINT ["/entrypoint.sh"]
