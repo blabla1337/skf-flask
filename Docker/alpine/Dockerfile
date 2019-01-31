@@ -30,8 +30,7 @@ RUN npm install
 # Optimize vendor.bundle.js
 RUN npm build -prod -aot ./
 
-EXPOSE 443
-EXPOSE 80
+EXPOSE 443 80
 
 # Start python API app
 WORKDIR /skf-flask
