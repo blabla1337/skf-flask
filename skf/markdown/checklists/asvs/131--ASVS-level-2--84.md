@@ -1,1 +1,0 @@
-10.6 Verify that all connections to external systems that involve sensitive information or functions are authenticated.

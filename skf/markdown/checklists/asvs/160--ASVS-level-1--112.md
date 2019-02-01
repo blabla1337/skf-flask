@@ -1,1 +1,0 @@
-16.5 Verify that untrusted data is not used within cross-domain resource sharing (CORS) to protect against arbitrary remote content.

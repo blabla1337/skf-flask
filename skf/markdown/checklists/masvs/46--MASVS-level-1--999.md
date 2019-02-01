@@ -1,1 +1,0 @@
-5.1 Data is encrypted on the network using TLS. The secure channel is used consistently throughout the app.

@@ -1,1 +1,0 @@
-11.5 Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components.

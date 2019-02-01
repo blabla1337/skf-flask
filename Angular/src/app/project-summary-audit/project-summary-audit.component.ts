@@ -83,7 +83,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
 
   save(status: number, checklist: string) {
     this.route.params.subscribe(params => {
-      this.commentService.newComment(checklist, this.comment, params['id'], status).subscribe(
+      this.commentService.newComment(checklist.toString(), this.comment, params['id'], status).subscribe(
         () => { },
         err => this.succes = "nonono",
         () => { this.succes = "comment was added to trail"; }
@@ -103,7 +103,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
     this.comment = "";
     this.showMe = checklistId;
     this.route.params.subscribe(params => {
-      this.commentService.getComment(checklistId, params['id']).subscribe(
+      this.commentService.getComment(checklistId.toString(), params['id']).subscribe(
         (data) => {
           this.comments = data;
           if (!this.comments) {

@@ -1,0 +1,191 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in sprint-development and post-development.  
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+
+<section id="main-content" class="page03 project-summary">
+  <section class="intro">
+    <div class="inner">
+      <div class="text">
+        <h1 #sectionNeedToScroll>Questionnaire sprint settings</h1>
+        <p>Here we can add a new questionnaire sprint questions list and correlate these questions to security
+          requirements!</p>
+      </div>
+      <button style="float:right; margin-left:2%;" (click)="back()" class="btn btn-green"><i class="fa fa-arrow-left"
+          aria-hidden="true"></i> Back</button>
+    </div>
+  </section>
+  <div *ngIf="sprints.length == 0">
+    <ngb-alert [dismissible]="false">
+      <strong>Warning!</strong> No questions inserted yet, please add questions!
+    </ngb-alert>
+  </div>
+  <section class="wrapper" style="margin-top:0px;">
+    <div class="row mt">
+      <div class="col-lg-12">
+        <div class="content-panel">
+          <div class="form-group">
+            <div class="wrap">
+              <div class="col-sm-12" style="margin-bottom:1.2%">
+                <button style="float:right; margin-left:0.2%; margin-bottom:0.5%" (click)="addQuestionModal(add)" class="btn btn-default">Add
+                  question</button>
+                <button *ngIf="sprints.length != 0" style="float:right; margin-left:0.2%; margin-bottom:0.5%" (click)="updateQuestionModal(update)"
+                  class="btn btn-warning">Update question</button>
+                <button *ngIf="sprints.length != 0" style="float:right; margin-left:0.2%; margin-bottom:0.5%" (click)="deleteQuestionModal(deletes)"
+                  class="btn btn-danger">Delete question</button>
+
+                <select *ngIf="sprints.length != 0" class="form-control" name="question" (change)="selectChecklistItems()"
+                  [(ngModel)]="questionID" id="sel1">
+                  <option selected [value]="selectUndefinedOptionValue">Select a question to edit</option>
+                  <option *ngFor="let items of sprints; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
+                </select>
+                <div *ngIf="sprints.length != 0" class="wrap desc alert-info">
+                  <div class="col-sm-10">Select the question you want to use from the dropdown</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="sprints.length != 0" class="col-md-6">
+            <div class="card">
+              <div class="card-header" style="text-align:center;">
+                Checklist total
+              </div>
+              <div class="card-block">
+                <div *ngFor="let item of checklist; let myIndex = index; trackBy:indexTracker">
+                  <button style="" *ngIf="item.question_sprint_ID == 0" (click)="correlateQuestionToChecklistITem(item.checklist_items_checklistID, item.checklist_items_content, item.kb_item_id, item.include_always, item.include_first, item.question_pre_ID)"
+                    style="width:100%; text-align:left; margin-bottom:0.5%; background-color:rgba(0,255,51,0.2)"><b>{{item.checklist_items_checklistID}}</b><br />
+                    {{item.checklist_items_content}} <i class="fa fa-plus-circle" style="float:right"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="sprints.length != 0" class="col-md-6">
+            <div class="card">
+              <div class="card-header" style="text-align:center;">
+                Checklist items correlated to selected question
+              </div>
+              <div class="card-block">
+                <div *ngFor="let item of correlatedChecklist; let myIndex = index; trackBy:indexTracker" style="overflow:auto;max-height:1%;">
+                  <button (click)="removeQuestionFromChecklistITem(item.checklist_items_checklistID, item.checklist_items_content, item.kb_item_id, item.include_always, item.include_first, item.question_pre_ID)"
+                    style="width:100%; text-align:left; margin-bottom:0.5%; background-color:rgba(255,0,0,0.2);"><b>{{item.checklist_items_checklistID}}</b><br />
+                    {{item.checklist_items_content}} <i class="fa fa-minus-circle" style="float:right"></i></button>
+                </div>
+                <ngb-alert *ngIf="!correlatedChecklist" [dismissible]="false">
+                  There are no requirements correlated!
+                </ngb-alert>
+              </div>
+            </div>
+          </div>
+
+          <!--Modal form for adding question-->
+          <form>
+            <ng-template #add let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h4 class="modal-title">Add a new sprint question</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <div class="wrap">
+                    <label for="inputVersion" class="col-sm-2 control-label">Question</label>
+                    <div class="col-sm-10">
+                      <input required maxlength="120" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
+                        name="questionName" placeholder="">
+                      <div class="wrap desc alert-info">
+                        <div class="col-sm-10">Is the application TLS configuration hardned and verified against ASVS?</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="c('Close click');">Close</button>
+                <button class="btn btn-success" (click)="storeNewQuestion();c('Close click')">Add</button>
+              </div>
+            </ng-template>
+          </form>
+
+          <!--Modal form for updating question-->
+          <ng-template #update let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Update sprint question</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="wrap">
+                  <label for="inputVersion" class="col-sm-2 control-label">Question</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="120" [(ngModel)]="questionName" type="text" class="form-control" id="inputVersion"
+                      name="questionName" placeholder="">
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">Is the application TLS configuration hardned and verified against ASVS?</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+              <button type="button" class="btn btn-warning" (click)="updateQuestion();c('Close click')">Update</button>
+            </div>
+          </ng-template>
+
+          <!--Modal form for deleting question-->
+          <ng-template #deletes let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete question!</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete this question?</p>
+              <p>To confirm, type <b style='color:red'> DELETE </b> and click the delete button</p>
+              <input type="text" [(ngModel)]="delete" class="form-control">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+              <button type="button" class="btn btn-danger" (click)="deleteQuestion();c('Close click')">Delete</button>
+            </div>
+          </ng-template>
+          <!-- END Modal for deleting a question-->
+        </div>
+      </div>
+      <!-- /col-lg-4 -->
+    </div>
+    <div *ngIf="sprints.length != 0" style="position:fixed; right:1%; bottom:1%">
+      <button type="button" class="btn btn-success" (click)="gotoSection()">Back to top</button>
+      <!-- content -->
+    </div>
+    <!-- /row -->
+  </section>
+  <!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->

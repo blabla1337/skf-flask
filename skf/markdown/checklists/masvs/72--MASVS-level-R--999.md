@@ -1,1 +1,0 @@
-8.1 The app implements two or more functionally independent methods of root detection and responds to the presence of a rooted device either by alerting the user or terminating the app.

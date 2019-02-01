@@ -2,7 +2,7 @@
 # FLASK_SERVER_NAME = FLASK_HOST+":"+str(FLASK_PORT)
 FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 8888
-FLASK_DEBUG = False  # Do not use debug mode in production
+FLASK_DEBUG = True  # Do not use debug mode in production
 CHATBOT_LOG = "db"
 SKF_API_URL = "https://demo.securityknowledgeframework.org/api/"
 
@@ -15,7 +15,7 @@ DATABASE = "db/db.sqlite"
 
 # SQLAlchemy settings
 SQLALCHEMY_DATABASE_URI = 'sqlite:///'+DATABASE
-SQLALCHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False
 
 # JWT settings

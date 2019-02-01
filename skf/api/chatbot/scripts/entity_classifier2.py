@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 
 def data():
-    #with open(os.path.join(app.root_path, "entity_data.txt")) as title:
-    with open(os.path.join(app.root_path, "../datasets/entity_data.txt")) as title:
+    with open(os.path.join(app.root_path, "../datasets/entity_title.txt")) as title:
         title=title.readlines()
     return title
 
@@ -34,7 +33,6 @@ def lis(l):
             t=t.lower()
             if i in t:
                ans.append(t.strip("\n"))
-
     ans=list(set(ans))
     return ans
 
@@ -82,7 +80,3 @@ def entity(ques):
        y=finalA(ques,ans1)
        return y
 
-
-
-#question=input("Enter question")
-#print(entity(question))

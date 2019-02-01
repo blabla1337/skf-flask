@@ -1,1 +1,0 @@
-4.10 The app informs the user of all login activities with his or her account. Users are able view a list of devices used to access the account, and to block specific devices.

@@ -1,1 +1,0 @@
-4.7 Sessions are terminated at the remote endpoint after a predefined period of inactivity.

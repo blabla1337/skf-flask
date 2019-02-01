@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -42,7 +42,7 @@
                         <button (click)="selectLang('asp')" class="dropdown-item">C#/.net</button>
                         <button (click)="selectLang('java')" class="dropdown-item">JAVA</button>
                         <button (click)="selectLang('flask')" class="dropdown-item">Py-Flask</button>
-                        <button (click)="selectLang('django')" class="dropdown-item">Py-Django</button>                        <button (click)="selectLang('django')" class="dropdown-item">Py-Django</button>
+                        <button (click)="selectLang('django')" class="dropdown-item">Py-Django</button>
                         <button (click)="selectLang('ruby')" class="dropdown-item">Ruby on Rails</button>
                         <button (click)="selectLang('go')" class="dropdown-item">Go</button>                        
                     </div>
@@ -97,11 +97,15 @@
                         <li><a routerLink="/user-manage" id="2">Manage users</a></li>
                     </ul>
                 </li>
-                <li [style.background-color]="getChecklistStyle()" class="">
-                    <a routerLink="/checklist" (click)="ResetAll(); CheckShow()" id="5" class="primairy">
+                <li *ngIf="canManage" [style.background-color]="getChecklistStyle()" class="sub-menu">
+                    <a (click)="CheckShow()" id="7" class="primairy" href="javascript:;">
                         <i class="fa fa-list-alt"></i>
-                        <span id="5">Checklist</span>
+                        <span id="7">Checklist options</span>
                     </a>
+                    <ul *ngIf="check" class="sub"  style="display:block;">
+                        <li><a routerLink="/checklist" id="7">View checklists</a></li>
+                        <li><a routerLink="/checklist-summary" id="checklist-summary">Manage checklists</a></li>
+                    </ul>
                 </li>
                 <li [style.background-color]="getKnowledgeStyle()" class="">
                     <a routerLink="/knowledgebase" (click)="ResetAll(); KnowledgeShow()" id="5" class="primairy">
@@ -114,7 +118,6 @@
                         <i class="fa fa-code"></i>
                         <span id="6">Code examples</span>
                     </a>
-                </li>
             </ul>
 
             <div class="copy">

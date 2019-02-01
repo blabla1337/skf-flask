@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -41,7 +41,7 @@
           <strong>Message, </strong> There are no more available failed items!
         </ngb-alert>
         <div *ngFor="let item of sprintResult; let myIndex = index" class="content-panel" style="padding-bottom:1%">
-          <div (click)="fetchComment(item.checklist_items_checklistID)">
+          <div (click)="fetchComment(item.checklistID)">
 
             <div *ngIf="item.status == 1" class="blob msg-purple open"><i class="fa fa-code" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 2" class="blob msg-green closed"><i class="fa fa-lock" aria-hidden="true"></i></div>
@@ -83,7 +83,7 @@
                                 placeholder="Rule comment"></textarea>
                               <br/>
                               <div style="float:right">
-                                <button (click)="save(1, item.checklist_items_checklistID)" id="projectFormSubmit" class="btn btn-success"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
+                                <button (click)="save(1, item.checklistID)" id="projectFormSubmit" class="btn btn-success"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
                               </div>
                             </div>
                           </div>
@@ -93,7 +93,7 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle><b>Audit trail</b></ng-template>
                       <ng-template ngbTabContent>
-                        <div *ngIf="showMe == item.checklist_items_checklistID">
+                        <div *ngIf="showMe == item.checklistID">
                         <form *ngFor="let comment of comments">
                           <div class="col-md-3">
                             <div class="card">
@@ -117,7 +117,7 @@
                           </div>
                         </form>
                         </div>
-                        <div *ngIf="showMe != item.checklist_items_checklistID">
+                        <div *ngIf="showMe != item.checklistID">
                           <br/>
                           <ngb-alert [dismissible]="false"> 
                             Another tab has been selected and is in focus. To prevent cross-reading of audit trails, these messages are not showed!

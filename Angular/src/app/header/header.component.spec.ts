@@ -13,8 +13,6 @@ import { StartsWithPipe } from "../pipes/starts-with.pipe";
 import { HeaderComponent } from "./header.component";
 
 
-
-
 describe('Header component', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;

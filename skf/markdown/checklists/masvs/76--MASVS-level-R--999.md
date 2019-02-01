@@ -1,1 +1,0 @@
-8.5 The app detects, and response to, being run in an emulator using any method.

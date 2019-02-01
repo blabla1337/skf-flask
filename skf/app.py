@@ -3,7 +3,7 @@
     Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples
     and helps developers in pre-development & post-development.
-    Copyright (C) 2017 Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2018 Glenn ten Cate, Riccardo ten Cate
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
@@ -22,7 +22,7 @@ from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
 from skf.chatbot_tools import init_dataset
-from skf.db_tools import init_md_checklists, init_md_knowledge_base, init_md_code_examples, init_db, update_db
+from skf.db_tools import init_md_knowledge_base, init_md_code_examples, init_db, update_db
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_item import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
@@ -39,7 +39,15 @@ from skf.api.sprints.endpoints.sprint_results_audit import ns as sprints_namespa
 from skf.api.sprints.endpoints.sprint_results_audit_export import ns as sprints_namespace
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
-from skf.api.checklist.endpoints.checklist_level import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_update import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_new import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_delete import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_question_sprint import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_question_pre import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_create import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_update import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_delete import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_items import ns as checklist_namespace
 from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
@@ -54,13 +62,18 @@ from skf.api.user.endpoints.user_listprivileges import ns as users_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
+from skf.api.kb.endpoints.kb_item_new import ns as kb_namespace
 from skf.api.questions_pre.endpoints.question_pre_items import ns as questions_pre_namespace
 from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_pre_namespace
 from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
+from skf.api.questions_pre.endpoints.question_pre_item_new import ns as questions_pre_namespace
+from skf.api.questions_pre.endpoints.question_pre_item_update import ns as questions_pre_namespace
+from skf.api.questions_pre.endpoints.question_pre_item_delete import ns as questions_pre_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
 from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
-from skf.api.questions_post.endpoints.question_post_items import ns as questions_post_namespace
-from skf.api.questions_post.endpoints.question_post_store import ns as questions_post_namespace
+from skf.api.questions_sprint.endpoints.question_sprint_item_update import ns as question_post_item_update
+from skf.api.questions_sprint.endpoints.question_sprint_item_new import ns as question_post_item_new
+from skf.api.questions_sprint.endpoints.question_sprint_item_delete import ns as question_post_item_update
 from skf.api.comment.endpoints.comment_items import ns as comment_namespace
 from skf.api.comment.endpoints.comment_new import ns as comment_namespace
 
@@ -88,6 +101,7 @@ def configure_app(flask_app):
     flask_app.config['TESTING'] = settings.TESTING
     flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
     flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
+    flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
 
 
 def initialize_app(flask_app):
@@ -104,7 +118,6 @@ def initialize_app(flask_app):
     api.add_namespace(checklist_namespace)
     api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_pre_namespace)
-    api.add_namespace(questions_post_namespace)
     api.add_namespace(questions_sprint_namespace)
     flask_app.register_blueprint(blueprint)
     db.init_app(flask_app)
@@ -128,7 +141,7 @@ def initdataset_command():
 def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
-    print('Markdown files updated in the database.')
+    print('Database updated with the markdown files.')
 
 
 def main():

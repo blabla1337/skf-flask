@@ -1,1 +1,0 @@
-2.20 Verify that anti-automation is in place to prevent breached credential testing, brute forcing, and account lockout attacks.

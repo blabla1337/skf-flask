@@ -1,1 +1,0 @@
-5.5 The app doesn't rely on a single insecure communication channel (email or SMS) for critical operations, such as enrolments and account recovery.

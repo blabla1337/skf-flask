@@ -1,1 +1,0 @@
-1.9 Verify the application has a clear separation between the data layer, controller layer and the display layer, such that security decisions can be enforced on trusted systems.

@@ -1,1 +1,0 @@
-17.1 Verify that ID values stored on the device and retrievable by other applications, such as the UDID or IMEI number are not used as authentication tokens.
