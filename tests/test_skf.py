@@ -331,7 +331,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "xss injection")
+        self.assertEqual(response_dict['items'][1]['title'], "XSS injection")
 
 
     def test_get_kb_item_10(self):

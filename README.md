@@ -121,8 +121,8 @@ Then start the docker image
 ```
 docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
 ```
-You can also store the database outside of the Docker container so all the data is persistant
-Replace the /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite with your db.sqlite file you have locally and then run:
+You can also store the database outside of the Docker container so all the data becomes persistent.
+Replace the /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite with your local db.sqlite file and then run:
 ```
 docker run -v /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite:/skf-flask/skf/db/db.sqlite -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
 ```
