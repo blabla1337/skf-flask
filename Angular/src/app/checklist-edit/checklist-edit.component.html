@@ -32,9 +32,9 @@
       </div>
       <button style="float:right; margin-left:4px;" (click)="back()" class="btn btn-green"><i class="fa fa-arrow-left"
           aria-hidden="true"></i> Back</button>
-      <button style="float:right;" (click)="newChecklistItemModal(modalValue)" class="btn btn-default"><i class="fa fa-cog"
+      <!--<button style="float:right;" (click)="newChecklistItemModal(modalValue)" class="btn btn-default"><i class="fa fa-cog"
           aria-hidden="true"></i>
-        Add new checklist item</button>
+        Add new checklist item</button>-->
     </div>
   </section>
   <section class="wrapper" style="margin-top:0px;">
@@ -139,7 +139,7 @@
                   </div>
                 </div>
                 <div style="margin-top:2%;padding-bottom:1.5%;padding-left:1.5%;">
-                  <button style="margin-top:2%" type="button" class="btn btn-danger" (click)="deleteChecklistItemModal(deleteChecklist);c('Close click');readItem()" id="show-delete-modal">Delete</button>
+                  <button style="margin-top:2%" type="button" class="btn btn-danger" (click)="deleteChecklistItemModal(deleteChecklist);" id="show-delete-modal">Delete</button>
                   <button style="margin-right:1.5px; margin-left:1.5px; margin-top:2%" type="button" class="btn btn-warning"
                     (click)="updateChecklistItem();" id="update-checklist-control">Update</button>
                 </div>
