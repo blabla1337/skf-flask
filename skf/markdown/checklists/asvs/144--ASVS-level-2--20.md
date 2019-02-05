@@ -1,0 +1,1 @@
+11.4 Verify that a suitable X-FRAME-OPTIONS header is in use for sites where content should not be viewed in a 3rd-party X-Frame.

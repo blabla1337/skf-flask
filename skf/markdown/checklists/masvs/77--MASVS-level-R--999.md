@@ -1,0 +1,1 @@
+8.6 The app detects, and responds to, modifications of process memory, such as relocation table patches and injected code.

@@ -49,7 +49,7 @@ describe('Question-sprint service', () => {
         expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_sprint/items");
       });
 
-      service.getSprintQuestions(2)
+      service.getSprintQuestions()
         .subscribe((items: Question_sprint[]) => {
          expect(items.length).toBe(2);
          expect(items[1]['id']).toEqual(2);

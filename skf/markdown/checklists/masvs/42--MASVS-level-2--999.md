@@ -1,0 +1,1 @@
+4.8 A second factor of authentication exists at the remote endpoint and the 2FA requirement is consistently enforced.

@@ -1,0 +1,1 @@
+16.1 Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content.

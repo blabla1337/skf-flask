@@ -1,0 +1,1 @@
+2.2 No sensitive data is written to application logs.

@@ -6,6 +6,7 @@ from skf.api.security import log, val_num, val_alpha_num
 def update_kb_item(kb_id, data):
     log("User requested update a specific kb item", "LOW", "PASS")
     val_num(kb_id)
+    val_alpha_num(data.get('content'))
     val_alpha_num(data.get('title'))
     result = kb_items.query.filter(kb_items.kbID == kb_id).one()
     result.title = data.get('title')
@@ -13,16 +14,6 @@ def update_kb_item(kb_id, data):
     db.session.add(result)
     db.session.commit()
     return {'message': 'KB item successfully updated'} 
-
-
-def create_kb_item(data):
-    log("User requested creating a new kb item", "LOW", "PASS")
-    content = data.get('content')
-    title = data.get('title')
-    result = kb_items(content, title)
-    db.session.add(result)
-    db.session.commit()
-    return {'message': 'KB item successfully created'} 
 
 
 def get_kb_item(kb_id):

@@ -11,10 +11,10 @@ class projects(db.Model):
     projectDesc = db.Column(db.Text)
     ownerID = db.Column(db.Integer)
     timestamp = db.Column(db.Text)
-    checklist_type = db.Column(db.Integer)
+    level = db.Column(db.Integer)
 
 
-    def __init__(self, userID, groupID, projectName, projectVersion, projectDesc, ownerID, timestamp, checklist_type):
+    def __init__(self, userID, groupID, projectName, projectVersion, projectDesc, ownerID, timestamp, level):
         self.userID = userID
         self.groupID = groupID
         self.projectName = projectName
@@ -22,5 +22,5 @@ class projects(db.Model):
         self.projectDesc = projectDesc
         self.ownerID = ownerID
         self.timestamp = timestamp
-        self.checklist_type = checklist_type
+        self.level = level
 

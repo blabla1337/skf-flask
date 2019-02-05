@@ -2,7 +2,7 @@ import { browser, element, by } from 'protractor';
 
 export class SKFAngularPage {
   navigateTo() {
-    return browser.get('/login');
+    return browser.get('/');
   }
 
   getParagraphText() {

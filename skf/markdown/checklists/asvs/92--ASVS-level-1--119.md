@@ -1,0 +1,1 @@
+7.7 Verify that cryptographic algorithms used by the application have been validated against FIPS 140-2 or an equivalent standard.

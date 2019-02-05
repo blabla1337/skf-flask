@@ -1,0 +1,1 @@
+6.9 Object serialization, if any, is implemented using safe serialization APIs.

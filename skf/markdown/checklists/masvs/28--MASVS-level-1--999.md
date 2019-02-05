@@ -1,0 +1,1 @@
+3.1 The app does not rely on symmetric cryptography with hardcoded keys as a sole method of encryption.

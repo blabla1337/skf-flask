@@ -1,0 +1,1 @@
+4.12 Verify that all access control decisions can be logged and all failed decisions are logged.

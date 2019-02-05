@@ -1,0 +1,1 @@
+8.11 The app uses multiple functionally independent methods of emulator detection that, in context of the overall protection scheme, force adversaries to invest significant manual effort to run the app in an emulator (supersedes requirement 8.7).

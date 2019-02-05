@@ -1,0 +1,1 @@
+8.9 Verify that log fields from trusted and untrusted sources are distinguishable in log entries.

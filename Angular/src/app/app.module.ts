@@ -22,28 +22,19 @@ import { ProjectDashboardComponent }   from './project-dashboard/project-dashboa
 import { ProjectSummaryComponent }   from './project-summary/project-summary.component';
 import { ProjectSummaryAuditComponent }   from './project-summary-audit/project-summary-audit.component';
 import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.component';
-import { KnowledgebaseEditComponent }   from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent }   from './code-examples/code-examples.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
-import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
-import { ChecklistAddNewComponent } from './checklist-add-new/checklist-add-new.component';
-import { ChecklistManageComponent } from './checklist-manage/checklist-manage.component';
-import { ChecklistSummaryComponent } from './checklist-summary/checklist-summary.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { GuardService } from './guard/guard.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserManageComponent } from './user-manage/user-manage.component';
-import { StartsWithPipe } from './pipes/starts-with.pipe';
-import { OrderBy } from './pipes/order-by.pipe';
-import { StringFilterPipe } from './pipes/string-filter.pipe';
-
+import { StartsWithPipe } from './pipes/starts-with.pipe'
+import { OrderBy } from './pipes/order-by.pipe'
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { UndefinedComponent } from './undefined/undefined.component';
-import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
-import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnaire-sprint.component';
-import { NgSelectModule } from '@ng-select/ng-select';
+
 
 @NgModule({
   declarations: [
@@ -59,21 +50,13 @@ import { NgSelectModule } from '@ng-select/ng-select';
     UserAddComponent,
     UserManageComponent,
     KnowledgebaseComponent,
-    KnowledgebaseEditComponent,
     CodeExamplesComponent,
     AuthenticateComponent,
     ChecklistComponent,
-    ChecklistManageComponent,
-    ChecklistEditComponent,
-    ChecklistAddNewComponent,
-    ChecklistSummaryComponent,
     StartsWithPipe,
     OrderBy,
-    StringFilterPipe,
     FirstLoginComponent,
-    UndefinedComponent,
-    QuestionnairePreComponent,
-    QuestionnaireSprintComponent
+    UndefinedComponent
   ],
   imports: [
     BrowserModule,
@@ -82,8 +65,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ReactiveFormsModule,
     HighlightJsModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
-    NgSelectModule
+    NgbModule.forRoot()
   ],
   providers: [GuardService,HighlightJsService],
   bootstrap: [AppComponent]

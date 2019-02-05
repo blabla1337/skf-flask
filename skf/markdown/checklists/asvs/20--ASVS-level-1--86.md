@@ -1,0 +1,1 @@
+2.9 Verify that the changing password functionality includes the old password, the new password, and a password confirmation.

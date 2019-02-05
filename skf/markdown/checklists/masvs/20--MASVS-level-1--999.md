@@ -1,0 +1,1 @@
+2.6 No sensitive data is exposed via IPC mechanisms.

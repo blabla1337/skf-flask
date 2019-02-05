@@ -1,9 +1,8 @@
 export class Question_pre {
   constructor(
-  id?: number,
-  question?: string,
-  checklist_type?: string,
-  checklist_level?:string
+  projectID?: number,
+  question_pre_ID?: number,
+  result?: string
   ){}
 }
 

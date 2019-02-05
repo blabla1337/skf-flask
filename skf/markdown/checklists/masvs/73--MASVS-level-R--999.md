@@ -1,0 +1,1 @@
+8.2 The app implements multiple functionally independent debugging defenses that, in context of the overall protection scheme, force adversaries to invest considerable manual effort to enable debugging. All available debugging protocols must be covered (e.g. JDWP and native).

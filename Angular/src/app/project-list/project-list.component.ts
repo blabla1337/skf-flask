@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../models/project';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs/Rx';
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
 

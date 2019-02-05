@@ -1,0 +1,1 @@
+9.3 Verify that all sensitive data is sent to the server in the HTTP message body or headers (i.e., URL parameters are never used to send sensitive data).

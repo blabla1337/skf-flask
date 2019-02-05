@@ -1,0 +1,1 @@
+8.4 The app detects the presence of widely used reverse engineering tools, such as code injection tools, hooking frameworks and debugging servers.

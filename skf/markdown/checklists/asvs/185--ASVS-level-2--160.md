@@ -1,0 +1,1 @@
+18.8 Verify the REST service explicitly check the incoming Content-Type to be the expected one, such as application/xml or application/json.

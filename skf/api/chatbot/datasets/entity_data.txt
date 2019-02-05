@@ -1,0 +1,240 @@
+Filename injection Path traversel
+xss injection
+Command injection
+Cross site request forgery
+XXE injections
+X Path injections
+XML injection
+XSLT injections
+External DTD parsing
+LDAP injection
+SSI injections
+File upload injections
+Version management
+Verbose error messaging
+Debug enabeling
+Robots.txt
+Accessible non parsed dynamic scripts
+Include anti
+Include anti clickjacking headers
+Include X XSS
+Include X Content Type Options header
+Include Strict Transport Security header
+sensitive information stored in cookies
+Client side state management
+Too verbose authentication
+Brute force password guessing
+Denial of service by locking out accounts
+Predictable password and or token generation
+Unauthorized credential changes
+Double decoding of headers parameters
+Resource identifier injection
+Dynamic scripting injection
+Regular expression injection
+Automated spamming via feedback scripts
+Session cookies without the Secure flag
+Session cookies without the HttpOnly flag
+External session hijacking
+Insecure transmission of session cookies
+Unproven cryptographic algorithms
+Client side authentication
+Identifier based authorization
+Principle of complete mediation
+Prepared statements and query parameterization
+Are all passwords hashed, salted and stretched
+Sensitive information transmitted by unencrypted methods
+Session information is not stored server side
+The crossdomain xml should only contains trusted domains
+Session ids should be generated with sufficient entropy
+User generated session ids should be rejected by the server
+The logout functionality should revoke the complete session
+The login functionality should always generate a new session id
+Does The application enforce the use of secure passwords
+Session IDs do not timeout (idl)
+Directory listing
+Unnecessary features enabled or installed
+Avoid the use of default and predictable acounts.
+Security settings in your development frameworks
+Insecure datastorage
+Authentication based on the knowledge of a secret URL
+Open forward and Open redirects
+Incorrect or missing charset
+Extraneous files in document root
+Username enumeration
+HTTP header injection
+GET POST requests
+Insecure internal communication
+Sensitive information stored alongside the source code
+The possible risks to the application must be documented
+Possible attackers of the application must be documented
+Audit logs
+User credentials in audit logs
+Intrusion detecting and reporting
+Authentication at a central location
+IP adresses in internal HTTP headers
+Authentication enforced by the web sever
+The audit log must include a priority system
+Servers must not be trusted without explicit authentication
+Ensure overall security
+Re authentication
+No shared knowledge for secret questions
+Disallow the use of old passwords
+Absolute session time out
+Logout structuring
+Verify that the session id is never disclosed
+Session Domain cookies
+Access control failure
+Input rejection
+Input validation
+Single input validation controls
+Logging validation failures
+Logging implemented on the serverside
+Logging guidelines
+Log viewing software code injection
+CA certificates
+All connections should be TLS
+Log TLS connection failures
+Content type headers
+Malicious intent
+Sandboxing
+Repudiation attack
+Server side validation
+Privilege escalation
+Enforce sequential step order
+step up or adaptive authentication
+Cross origin resource sharing
+Prevent password pre filling
+All authentication controls must fail securely
+Forget password functions
+Aggregate access control protection
+Canonicalized user input
+Approved random number generator
+Validated cryptographic modules
+Policy for managing cryptographic keys
+HTTPS and weakly or unencrypted links
+Error handling on trusted devices
+Single application level logging
+Aggregate user requests
+Principle of least privilege
+TLS implementation must operate in an approved mode of operation
+Character encoding
+HTTP request methods
+Verbose version information
+HTTP headers added by a frontend
+Session management control
+Available log analysis tools
+Distinguish log
+sanitise sensitive data rapidly from memory
+logging is performed before executing the transaction
+Verify integrity using checksums
+Deny access from remote resources or systems
+Certificate paths revocation information
+HTML Caching and client side caching
+Cryptographic modules should operate in their approved mode according to their published security policies
+Sending data parameters to untrusted devices
+Proces high value business logic flows in a trusted environment
+Data from untrusted sources
+User restriction for sensitive data
+Runtime environment
+Automatic parameter binding
+cryptographic function implementation
+cryptographic modules must fail securely
+Access to any master secret must be protected from unauthorized access
+Enforce policys for sensitive data processing
+Access control pattern
+Password forget pattern
+Sessions pattern
+Submit forms pattern
+SQL injection Column truncation
+User registration pattern
+cross subdomain cookie attack
+HTML injections
+RFD and file download injections
+identify all application components
+Identify external dependencies
+High level architecture should be defined
+Threat modeling
+Differential analysis attack
+Client side input validation
+Positive validation model
+TLS certificate public key pinning
+HSTS preload
+Forward secrecy ciphers
+OCSP stapling
+STRIDE
+File inclusion attack
+Access management
+JSON XML schema
+Limiting user input size
+Parsing data  exchange formats
+Content security policy headers
+Safe javascript jquery methods
+WYSIWYG editors
+Parsing JSON with Javascript
+Account lockout
+XML attacks
+centralized security controls
+data controller display layer separation
+proven authentication mechanisms
+administrative interfaces must not be accessible to untrusted parties
+concurrent session handling
+Auto escaping technology
+Client side storage
+Log rotation and seperation
+HTTP strict transport security
+API resonses security headers
+Do not support untrusted client side technologies
+Signed message payloads
+Hardware key vault
+SOAP basic profile
+Strong CRYPTO through CA hierachy
+Build and deploy in a secure fashion
+Signed application components
+Build proccess security hardening
+Sanitize unstructured data
+Zero keys and secrets before destroying them
+Keys and passwords should be replaceable
+Enforce random numbers are created with proper entropy at runtime
+Segregated components
+PII protection
+Verify application is not vulnerable for known security issues
+Disable autocomplete for all the input fields in forms
+All time sources should be synchronized
+Generate strong crypto tokens with at least 120 bit of effective entropy
+Enforce sensitive information to be stored encrypted on device
+Encrypt sensitive information different depending on context
+Secrets should be secure random generated
+Protection against different exfiltration techniques
+Principle of least privilege
+Protecting device memory
+Enforce anti
+Protect sensitive activities intents or content providers
+Mitigate memory dumping attacks
+Protect agains exported activities or content providers
+Block common password and weak passphrases
+Application assets hosted on secure location
+CSRF on REST
+File
+File upload anti virus check
+File upload outside document root
+Unauthorized and unauthenticated access security logs
+Commonly chosen weak passwords and passphrases
+two factor authentication against username password disclosure
+Logging access control decisions
+High value transactions
+Verify that structured data is strongly typed and validated
+Logging guidelines to access sensitive information
+Log injection
+Validate the integrity of all security relevant configurations
+Trusted repositories
+Sandboxing malicious code
+Client side constraints
+Context sensitive authorization
+All access controls must fail securely
+Password leakage
+TLS implementation
+Screen scraping data harvest
+Communication between components (low privileges)
+TLS settings are in line with current leading practice
+Data retention policy
+authenticated data cleared from client storage

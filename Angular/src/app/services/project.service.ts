@@ -15,12 +15,12 @@ export class ProjectService {
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
   public getHeaders = new Headers({ 'Authorization': AppSettings.AUTH_TOKEN });
 
-  newProject(name: string,  description: string, checklist_type: number, version: string): Observable<any> {
+  newProject(name: string,  description: string, level: number, version: string): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + '/project/new', JSON.stringify({
         name: name,
         description: description,
-        checklist_type: checklist_type,
+        level: level,
         version: version
       }),
       { headers: this.postHeaders })

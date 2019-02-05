@@ -7,17 +7,17 @@ from skf.api.restplus import api
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
-@ns.route('/items/<int:checklist_type>')
-@api.doc(params={'checklist_type': 'The checklist type (1: ASVS, 2: MASVS, etc)'})
+@ns.route('/items/<int:id_checklist>')
+@api.doc(params={'id_checklist': 'The checklist id (0: ASVS, 1: MASVS)'})
 @api.response(404, 'Validation error', message)
 class ChecklistCollection(Resource):
 
     @api.marshal_with(checklist_items)
     @api.response(400, 'No results found', message)
-    def get(self, checklist_type):
+    def get(self, id_checklist):
         """
         Returns list of checklist items including the correlated knowledge base items.
         * Privileges required: **none**
         """
-        result = get_checklist_items(checklist_type)
+        result = get_checklist_items(id_checklist)
         return result, 200, security_headers()

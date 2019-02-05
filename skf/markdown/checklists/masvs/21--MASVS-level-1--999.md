@@ -1,0 +1,1 @@
+2.7 No sensitive data, such as passwords and credit card numbers, is exposed through the user interface or leaks to screenshots.

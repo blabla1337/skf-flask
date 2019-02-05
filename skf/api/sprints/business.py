@@ -1,15 +1,16 @@
-import base64, string, random
 from skf.database import db
 from sqlalchemy import asc, desc
-from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 from skf.database.groupmembers import groupmembers
-from skf.database.project_sprints import project_sprints
-from skf.database.projects import projects
+from skf.database.project_sprints import project_sprints 
 from skf.database.checklists_results import checklists_results
-from skf.database.checklists_kb import checklists_kb
+from skf.database.checklists import checklists
 from skf.database.kb_items import kb_items
 from skf.database.comments import comments
 
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
+import base64
+import string
+import random
 
 def get_sprint_item(sprint_id, user_id):
     log("User requested specific sprint item", "MEDIUM", "PASS")
@@ -23,23 +24,23 @@ def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).order_by(asc(checklists_results.status)).group_by(checklists_results.checklistID).paginate(1, 500, False)
-    return result
+    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).group_by(checklists_results.checklistID).order_by(asc(checklists_results.status)).paginate(1, 500, False)
+    return order_sprint_results(result)
 
 
 def get_sprint_results_audit(sprint_id, user_id):
     log("User requested specific sprint audit items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).paginate(1, 500, False)
-    return result
+    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).paginate(1, 500, False)
+    return order_sprint_results(result)
 
 
 def get_sprint_results_audit_export(sprint_id, user_id):
     log("User requested specific sprint audit export", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).paginate(1, 500, False)
+    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).paginate(1, 500, False)
     return {'message': export_failed_results(result) }
 
 
@@ -97,10 +98,9 @@ def stats_sprint(project_id):
         sprint_closed = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 2).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
         sprint_accepted = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 3).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
         sprint_sec_ack = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 4).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
-        sprint_sec_fail = (projects.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
-        checklist_type = projects.query.filter(projects.projectID == project_id).one()
+        sprint_sec_fail = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
         total = sprint_open + sprint_closed + sprint_accepted + sprint_sec_ack + sprint_sec_fail
-        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted, 'sprint_sec_ack': sprint_sec_ack, 'sprint_sec_fail': sprint_sec_fail, 'sprint_items_total': total, 'checklist_type': checklist_type.checklist_type})
+        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted, 'sprint_sec_ack': sprint_sec_ack, 'sprint_sec_fail': sprint_sec_fail, 'sprint_items_total': total})
     return sprint
 
 
@@ -157,7 +157,7 @@ def export_failed_results(sprint_results):
         file.write('date,title,description,mitigation,notes\n')
 
         for item in sprint_results.items:
-            checklist = checklists_kb.query.filter(checklists_kb.checklistID == item.checklistID).first()
+            checklist = checklists.query.filter(checklists.checklistID == item.checklistID).first()
             kb_item = kb_items.query.filter(kb_items.kbID == item.kbID).first()
             comment = comments.query.filter(comments.sprintID == item.sprintID).filter(comments.checklistID == item.checklistID).filter(comments.status == item.status).order_by(desc(comments.id)).first()
 

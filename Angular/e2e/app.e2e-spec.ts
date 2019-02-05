@@ -1,4 +1,3 @@
-
 import { SKFAngularPage } from './app.po';
 
 describe('skf-angular App', () => {

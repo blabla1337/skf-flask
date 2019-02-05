@@ -109,10 +109,10 @@
 <p id="t11" class="stm run hide_run">    <span class="nam">projectDesc</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t12" class="stm run hide_run">    <span class="nam">ownerID</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t13" class="stm run hide_run">    <span class="nam">timestamp</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t14" class="stm run hide_run">    <span class="nam">checklist_type</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t14" class="stm run hide_run">    <span class="nam">level</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t16" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t17" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">userID</span><span class="op">,</span> <span class="nam">groupID</span><span class="op">,</span> <span class="nam">projectName</span><span class="op">,</span> <span class="nam">projectVersion</span><span class="op">,</span> <span class="nam">projectDesc</span><span class="op">,</span> <span class="nam">ownerID</span><span class="op">,</span> <span class="nam">timestamp</span><span class="op">,</span> <span class="nam">checklist_type</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t17" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">userID</span><span class="op">,</span> <span class="nam">groupID</span><span class="op">,</span> <span class="nam">projectName</span><span class="op">,</span> <span class="nam">projectVersion</span><span class="op">,</span> <span class="nam">projectDesc</span><span class="op">,</span> <span class="nam">ownerID</span><span class="op">,</span> <span class="nam">timestamp</span><span class="op">,</span> <span class="nam">level</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t18" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">userID</span> <span class="op">=</span> <span class="nam">userID</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">groupID</span> <span class="op">=</span> <span class="nam">groupID</span><span class="strut">&nbsp;</span></p>
 <p id="t20" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">projectName</span> <span class="op">=</span> <span class="nam">projectName</span><span class="strut">&nbsp;</span></p>
@@ -120,7 +120,7 @@
 <p id="t22" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">projectDesc</span> <span class="op">=</span> <span class="nam">projectDesc</span><span class="strut">&nbsp;</span></p>
 <p id="t23" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">ownerID</span> <span class="op">=</span> <span class="nam">ownerID</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">timestamp</span> <span class="op">=</span> <span class="nam">timestamp</span><span class="strut">&nbsp;</span></p>
-<p id="t25" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">checklist_type</span> <span class="op">=</span> <span class="nam">checklist_type</span><span class="strut">&nbsp;</span></p>
+<p id="t25" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">level</span> <span class="op">=</span> <span class="nam">level</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -131,8 +131,8 @@
 <div id="footer">
     <div class="content">
         <p>
-            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2018-12-17 15:29
+            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
+            created at 2018-08-17 13:17
         </p>
     </div>
 </div>

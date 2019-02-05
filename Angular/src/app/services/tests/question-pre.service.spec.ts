@@ -48,7 +48,7 @@ describe('Question-pre service', () => {
         expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_pre/items");
       });
 
-      service.getPreQuestions(1)
+      service.getPreQuestions()
         .subscribe((items: Question_pre[]) => {
           expect(items.length).toBe(2);
           expect(items[1]['id']).toEqual(2);

@@ -1,0 +1,1 @@
+8.2 Verify that error handling logic in security controls denies access by default.

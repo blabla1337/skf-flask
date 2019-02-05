@@ -12,10 +12,9 @@ import { tick } from "@angular/core/testing";
 import { KnowledgebaseComponent } from "./knowledgebase.component";
 import { Knowledgebase } from "../models/knowledgebase";
 import { StartsWithPipe } from "../pipes/starts-with.pipe";
-import { StringFilterPipe } from "../pipes/string-filter.pipe";
 import { KnowledgebaseService } from "../services/knowledgebase.service";
 
-import {RouterTestingModule} from '@angular/router/testing';
+
 describe('Knowledgebase component component', () => {
   let component: KnowledgebaseComponent;
   let fixture: ComponentFixture<KnowledgebaseComponent>;
@@ -27,8 +26,8 @@ describe('Knowledgebase component component', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [KnowledgebaseComponent, OrderBy, StartsWithPipe, StringFilterPipe],
-      imports: [NgbModule.forRoot(), FormsModule, HttpModule, RouterTestingModule],
+      declarations: [KnowledgebaseComponent, OrderBy, StartsWithPipe],
+      imports: [NgbModule.forRoot(), FormsModule, HttpModule],
       providers: [{ provide: KnowledgebaseService, useClass: mockService }]
     }).compileComponents();
   })
