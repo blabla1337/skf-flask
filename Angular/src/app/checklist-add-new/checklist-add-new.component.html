@@ -30,9 +30,9 @@
         <h1>Checklist edit options</h1>
         <p>Add and update your requirements!</p>
       </div>
-      <button style="float:right; margin-left:4px;" (click)="back()" class="btn btn-green"><i class="fa fa-arrow-left"
+      <button style="float:right; margin-left:4px;" (click)="back()" class="btn btn-green" id="back-button"><i class="fa fa-arrow-left"
           aria-hidden="true"></i> Back</button>
-      <button style="float:right;" (click)="newChecklistItemModal(modalValue)" class="btn btn-default"><i class="fa fa-cog"
+      <button style="float:right;" (click)="newChecklistItemModal(modalValue)" id="add-new-checklist-item" class="btn btn-default"><i class="fa fa-cog"
           aria-hidden="true"></i>
         Add new checklist item</button>
     </div>
@@ -46,7 +46,7 @@
           </ngb-alert>
         </div>
         <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-          <div (mouseout)="editChecklist=false" *ngFor="let item of checklist; let myIndex = index; trackBy:indexTracker">
+          <div (mouseout)="editChecklist=false" *ngFor="let item of checklist; let myIndex = index;">
             <ngb-panel title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}}">
               <ng-template ngbPanelContent>
 
@@ -88,7 +88,7 @@
                         <td>
                           <a [routerLink]="['/checklist-edit', item.checklist_items_checklistID]">
                             <button class="btn btn-success btn-xs">
-                              <i class="fa fa-pencil "></i>
+                              <i class="fa fa-pencil " id="edit-checklist-item-content"></i>
                             </button>
                           </a>
                         </td>
@@ -133,42 +133,48 @@
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">KB item *</label>
                   <div class="col-sm-10">
-                    <select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1">
+                    <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" [(ngModel)]="kbItem" name="kbID">
+                    </ng-select>
+                    <!--<select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1">
                       <option selected [value]="selectUndefinedOptionValue">Select a knowledgebase item</option>
                       <option value="0">Use this item as a header!</option>
                       <option *ngFor="let items of knowledgebaseItems; let myIndex = index" value="{{items.kbID}}">{{items.title}}</option>
-                    </select>
+                    </select>-->
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Select the knowledgebase item that correlates with this checklist item</div>
                     </div>
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Pre questionnaire</label>
                   <div class="col-sm-10">
-                    <select class="form-control" name="question_pre_ID" [(ngModel)]="question_pre_ID" id="sel1">
+                    <ng-select [items]="pre_dev" bindLabel="question" placeholder="Select Pre Questionnaire" [(ngModel)]="questionPre" name="questionPreItem">
+                    </ng-select>
+                   <!-- <select class="form-control" name="question_pre_ID" [(ngModel)]="question_pre_ID" id="sel1">
                       <option selected [value]="selectUndefinedOptionValue">Select pre question (select empty to
                         not include)</option>
                       <option value="">empty</option>
                       <option *ngFor="let items of pre_dev; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
-                    </select>
+                    </select>-->
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Correlate the checklist item with a pre questionnaire</div>
                     </div>
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Sprint Questionnaire</label>
                   <div class="col-sm-10">
-                    <select class="form-control" name="question_sprint_ID" [(ngModel)]="question_sprint_ID" id="sel1">
+                    <ng-select [items]="sprints" bindLabel="question" placeholder="Select Sprint Questionnaire" [(ngModel)]="questionSprint" name="questionSprintItem">
+                    </ng-select>
+                   <!-- <select class="form-control" name="question_sprint_ID" [(ngModel)]="question_sprint_ID" id="sel1">
                       <option selected [value]="selectUndefinedOptionValue">Select sprint question (select empty
                         to not include)</option>
                       <option value="">empty</option>
                       <option *ngFor="let items of sprints; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
-                    </select>
+                    </select>-->
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Correlate the checklist item with a sprint questionnaire</div>
                     </div>
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Include first *</label>
                   <div class="col-sm-10">
-                    <select class="form-control" name="include_first" [(ngModel)]="include_first" id="sel1">
+                    <select class="form-control" name="include_first" [(ngModel)]="include_first" id="select-include-first">
                       <option selected [value]="selectUndefinedOptionValue">Include first?</option>
                       <option value="True">true</option>
                       <option value="False">false</option>
@@ -179,7 +185,7 @@
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Include always *</label>
                   <div class="col-sm-10">
-                    <select class="form-control" name="include_always" [(ngModel)]="include_always" id="sel1">
+                    <select class="form-control" name="include_always" [(ngModel)]="include_always" id="select-include-always">
                       <option selected [value]="selectUndefinedOptionValue">Include always?</option>
                       <option value="True">true</option>
                       <option value="False">false</option>
@@ -193,7 +199,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-              <button type="button" class="btn btn-success" (click)="storeChecklistItem(idfromUrl);c('Close click')">Insert</button>
+              <button type="button" class="btn btn-success" (click)="storeChecklistItem(idfromUrl);c('Close click')" id="insert-new-checklist-item">Insert</button>
             </div>
           </ng-template>
         </form>

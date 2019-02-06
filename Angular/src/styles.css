@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+  background: #515594;
+  color: #ffffff;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  background-color: #dedfed;
+  color: #333;
+}
+
+.form-control {
+  font-family: 'Ruda', sans-serif;
+}

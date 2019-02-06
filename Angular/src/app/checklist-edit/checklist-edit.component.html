@@ -32,9 +32,9 @@
       </div>
       <button style="float:right; margin-left:4px;" (click)="back()" class="btn btn-green"><i class="fa fa-arrow-left"
           aria-hidden="true"></i> Back</button>
-      <button style="float:right;" (click)="newChecklistItemModal(modalValue)" class="btn btn-default"><i class="fa fa-cog"
+      <!--<button style="float:right;" (click)="newChecklistItemModal(modalValue)" class="btn btn-default"><i class="fa fa-cog"
           aria-hidden="true"></i>
-        Add new checklist item</button>
+        Add new checklist item</button>-->
     </div>
   </section>
   <section class="wrapper" style="margin-top:0px;">
@@ -73,39 +73,45 @@
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">KB item *</label>
                     <div class="col-sm-10">
-                      <select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1" placeholder="dsfdsfds">
+                      <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" [(ngModel)]="kbItem" name="kbID">
+                      </ng-select>
+                      <!--<select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1" placeholder="dsfdsfds">
                         <option *ngFor="let items of knowledgebaseItems" [value]="items.kbID">{{items.title}}</option>
                         <option value="0">Use this item as a header!</option>
                         <span *ngFor="let items of knowledgebaseItems; let myIndex = index">
                             <option *ngIf="items.kbID == kbID" disabled selected>{{items.title}}</option>
                         </span>
-                      </select>
+                      </select>-->
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Select the correlating knowledgebase item!</div>
                       </div>
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Pre questionnaire</label>
                     <div class="col-sm-10">
-                      <select class="form-control" name="question_pre_ID" [(ngModel)]="question_pre_ID" id="sel1">
+                      <ng-select [items]="pre_dev" bindLabel="question" placeholder="Select Pre Questionnaire" [(ngModel)]="questionPre" name="questionPreItem">
+                      </ng-select>
+                      <!--<select class="form-control" name="question_pre_ID" [(ngModel)]="question_pre_ID" id="sel1">
                           <span *ngFor="let items of pre_dev; let myIndex = index">
                               <option *ngIf="items.id == question_pre_ID" disabled selected>{{items.question}}</option>
                           </span>
                         <option value="0">empty</option>
                         <option *ngFor="let items of pre_dev; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
-                      </select>
+                      </select>-->
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Correlate the checklist item with a pre questionnaire</div>
                       </div>
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Sprint Questionnaire</label>
                     <div class="col-sm-10">
-                      <select class="form-control" name="question_sprint_ID" [(ngModel)]="question_sprint_ID" id="sel1">
+                      <ng-select [items]="sprints" bindLabel="question" placeholder="Select Sprint Questionnaire" [(ngModel)]="questionSprint" name="questionSprintItem">
+                      </ng-select>
+                     <!-- <select class="form-control" name="question_sprint_ID" [(ngModel)]="question_sprint_ID" id="sel1">
                         <option value="0">empty</option>
                         <option *ngFor="let sprint of sprints; let myIndex = index" value="{{sprint.id}}">{{sprint.question}}</option>
                         <span *ngFor="let items of sprints">
                             <option *ngIf="items.id == question_sprint_ID" selected>{{items.question}}</option>
                         </span>
-                      </select>
+                      </select>-->
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Correlate the checklist item with a sprint questionnaire</div>
                       </div>
@@ -133,9 +139,9 @@
                   </div>
                 </div>
                 <div style="margin-top:2%;padding-bottom:1.5%;padding-left:1.5%;">
-                  <button style="margin-top:2%" type="button" class="btn btn-danger" (click)="deleteChecklistItemModal(deleteChecklist);c('Close click');readItem()">Delete</button>
+                  <button style="margin-top:2%" type="button" class="btn btn-danger" (click)="deleteChecklistItemModal(deleteChecklist);" id="show-delete-modal">Delete</button>
                   <button style="margin-right:1.5px; margin-left:1.5px; margin-top:2%" type="button" class="btn btn-warning"
-                    (click)="updateChecklistItem();">Update</button>
+                    (click)="updateChecklistItem();" id="update-checklist-control">Update</button>
                 </div>
               </form>
             </div>
@@ -153,12 +159,12 @@
             <div class="modal-body">
               <p>Are you sure you want to delete this project?</p>
               <p>To confirm, type <b style='color:red'> DELETE </b> and click the delete button</p>
-              <input type="text" [(ngModel)]="delete" class="form-control">
+              <input type="text" [(ngModel)]="delete" name="delete" class="form-control">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-              <button type="button" class="btn btn-danger" (click)="deleteChecklistItem(checklist.checklist_items_id)"
-                (click)="c('Close click')">Delete</button>
+              <button type="button" class="btn btn-danger" (click)="deleteChecklistItem()"
+                (click)="c('Close click')" id="delete-checklist-item-finalized">Delete</button>
             </div>
           </ng-template>
           <!--END Modal for deleting checklist items-->

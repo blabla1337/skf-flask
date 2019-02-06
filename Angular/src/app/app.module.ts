@@ -34,14 +34,16 @@ import { UserAddComponent } from './user-add/user-add.component';
 import { GuardService } from './guard/guard.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserManageComponent } from './user-manage/user-manage.component';
-import { StartsWithPipe } from './pipes/starts-with.pipe'
-import { OrderBy } from './pipes/order-by.pipe'
+import { StartsWithPipe } from './pipes/starts-with.pipe';
+import { OrderBy } from './pipes/order-by.pipe';
+import { StringFilterPipe } from './pipes/string-filter.pipe';
+
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { UndefinedComponent } from './undefined/undefined.component';
 import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
 import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnaire-sprint.component';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnai
     ChecklistSummaryComponent,
     StartsWithPipe,
     OrderBy,
+    StringFilterPipe,
     FirstLoginComponent,
     UndefinedComponent,
     QuestionnairePreComponent,
@@ -79,7 +82,8 @@ import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnai
     ReactiveFormsModule,
     HighlightJsModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    NgSelectModule
   ],
   providers: [GuardService,HighlightJsService],
   bootstrap: [AppComponent]

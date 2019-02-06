@@ -68,8 +68,8 @@ export class ChecklistService {
       .map(a => { return a.json() });
   }
 
-  deletechecklistItem(id: string) {
-    const url = environment.API_ENDPOINT + `/checklist/delete/item/${id}`;
+  deletechecklistItem(checklistID: number, checklistType: number) {
+    const url = environment.API_ENDPOINT + `/checklist/delete/item/${checklistID}/type/${checklistType}`;
     return this.http.delete(url, { headers: this.postHeaders })
       .map(
         data => data,

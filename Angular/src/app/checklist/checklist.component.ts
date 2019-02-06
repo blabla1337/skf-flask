@@ -12,8 +12,8 @@ import { Checklist } from '../models/checklist';
 })
 
 export class ChecklistComponent {
-  public checklistTypes: ChecklistType[]
-  public checklistItems: Checklist[]
+  public checklistTypes: ChecklistType[] = [];
+  public checklistItems: Checklist[] = [];
   public queryString: string;
   public closeResult: string;
   public level: number;

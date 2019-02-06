@@ -43,92 +43,9 @@ The second stage is validating if the developer properly implemented different s
 
 ## <a name="installing"></a>Installing
 
-### Local / dedicated server install
-Local installation based on Ubuntu 16.04.
-
-#### Requirements:
-- nginx (```sudo apt install nginx```)
-- npm (```sudo apt install npm```)
-- ng (```sudo apt install ng-common```)
-- latest version of node ():
-```
-    * sudo npm install n -g
-    * sudo n stable
-```
-- python3.6, pip3.6 (https://stackoverflow.com/questions/42662104/how-to-install-pip-for-python-3-6-on-ubuntu-16-10):
-```
-    * sudo add-apt-repository ppa:jonathonf/python-3.6  # (only for 16.04 LTS)
-    * sudo apt update
-    * sudo apt install python3.6
-    * wget https://bootstrap.pypa.io/get-pip.py
-    * sudo python3.6 get-pip.py
-```
-
-#### Installation SKF and configuration:
-Run on terminal
-```
-cd /tmp; git clone git://github.com/blabla1337/skf-flask.git
-cd /tmp/skf-flask; pip3.6 install -r requirements.txt 
-cd /tmp/skf-flask/Angular; npm install
-cd /tmp/skf-flask/Angular; ng build --aot --configuration=production 
-rm /etc/nginx/sites-enabled/default
-cp /tmp/skf-flask/Local/site-tls.conf /etc/nginx/sites-enabled/default
-
-mv /tmp/skf-flask /
-
-# Change the JWT_SECRET value with below command
-perl -pi -e "s/JWT_SECRET = ''/JWT_SECRET = 'THIS_SHOULD_BE_CHANGED_AND_RANDOM'/" /skf-flask/skf/settings.py
-# Change the domain value with below command
-perl -pi -e "s/\*/https:\/\/demo.securityknowledgeframework.org/" /skf-flask/skf/settings.py
-# Change the domain value with below command
-perl -pi -e "s/https:\/\/localhost\/api/https:\/\/demo.securityknowledgeframework.org\/api/" /skf-flask/Angular/src/environments/environment.prod.ts
-# Change the domain value with below command
-perl -pi -e "s/localhost/demo.securityknowledgeframework.org/" /skf-flask/Local/skf-angular.sh
-
-# Certificates stored in /skf-flask/ dir
-openssl req -nodes -newkey rsa:4096 -keyout /skf-flask/server.key -out /skf-flask/server.csr  -subj "/CN=OWASP-SKF"
-openssl x509 -req -days 365 -in /skf-flask/server.csr  -signkey /skf-flask/server.key -out ./skf-flask/server.pem
-
-# Start nginx
-sleep 5
-sudo nginx
-
-```
-
-#### Run SKF (with terminal in Local folder):
-```
-# Start SKF services
-cd /skf-flask/Local; bash wrapper.sh
-```
-Navigate to https://your_domain_value_you_used_above_commands
-
-#### Error:
-If you get the following error
-```
-nginx: [emerg] a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-enabled/default:17
-```
-If you are not using that file just remove it: (```sudo rm /etc/nginx/sites-enabled/default```)
-
-### Docker
-
-The fastest way to start using the SKF project is using the pre-built container hosted at Docker hub. This container always has the very latest version from the master repository. Change the JWT_SECRET value to a new random secret string before starting the docker image.
-
-First run the docker pull command to get the latest image
-```
-docker pull blabla1337/skf-flask
-```
-Then start the docker image 
-```
-docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
-```
-You can also store the database outside of the Docker container so all the data is persistant
-Replace the /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite with your db.sqlite file you have locally and then run:
-```
-docker run -v /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite:/skf-flask/skf/db/db.sqlite -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
-```
-
-The application will greet you on:
-https://localhost
+### [Local on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
+### [Docker local installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
+### [Azure installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/azure-deployment)  
 
 ## <a name="updating-db"></a>Updating Database
 
@@ -289,3 +206,5 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Chang Xu (Neo)
 - Martin Marsicano
 - Priyanka Jaine
+- Chandrasekar Karthickrajan
+- Leena Bhegade
