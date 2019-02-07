@@ -10,7 +10,8 @@ TBA
 ## Example
 Whenever you are developing a password forget function, these are the steps to follow in order to create hardened defenses. 
 
-`TABLE users`
+```
+TABLE users
 | userID | userName | password | emailAddress | access |
 | --- | --- | --- | --- | --- |
 | 1 | Admin | securely hashed password | info@admin.com | TRUE |
@@ -24,7 +25,7 @@ Whenever you are developing a password forget function, these are the steps to f
 | 1 | c3ab8ff13720e.... | 1 | Yes | <......> |
 | 2 | 7dd39466b3c89.... | 1 | No | <......> |
 | 3 | 83d4a3960714c.... | 3 | No | <......> |
-
+```
 
 As you can see we also store the old passwords into the password forget table. This is done in order to prevent the user from using old passwords later on in the process.
 
