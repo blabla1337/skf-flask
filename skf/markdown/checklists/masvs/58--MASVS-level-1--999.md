@@ -1,1 +1,0 @@
-6.7 The app does not load user-supplied local resources into WebViews.

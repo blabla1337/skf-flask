@@ -8,14 +8,20 @@ import { ProjectSummaryComponent } from './project-summary/project-summary.compo
 import { ProjectSummaryAuditComponent } from './project-summary-audit/project-summary-audit.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { KnowledgebaseComponent } from './knowledgebase/knowledgebase.component';
+import { KnowledgebaseEditComponent } from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent } from './code-examples/code-examples.component';
 import { ChecklistComponent } from './checklist/checklist.component';
+import { ChecklistManageComponent } from './checklist-manage/checklist-manage.component';
+import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
+import { ChecklistAddNewComponent } from './checklist-add-new/checklist-add-new.component';
+import { ChecklistSummaryComponent } from './checklist-summary/checklist-summary.component';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
-
 import { GuardService } from './guard/guard.service';
 import { UserManageComponent } from "./user-manage/user-manage.component";
 import { UndefinedComponent } from "./undefined/undefined.component";
+import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
+import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnaire-sprint.component';
 
 export const appRoutes: Routes = [
   
@@ -27,12 +33,19 @@ export const appRoutes: Routes = [
   { path: 'project-summary/:id', component: ProjectSummaryComponent, canActivate: [GuardService] },
   { path: 'project-summary-audit/:id', component: ProjectSummaryAuditComponent, canActivate: [GuardService] },
   { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },
+  { path: 'knowledgebase-edit/:id', component: KnowledgebaseEditComponent, canActivate: [GuardService] },
   { path: 'code-examples', component: CodeExamplesComponent, canActivate: [GuardService] },
   { path: 'user-add', component: UserAddComponent, canActivate: [GuardService] },
   { path: 'user-manage', component: UserManageComponent, canActivate: [GuardService] },
   { path: 'checklist', component: ChecklistComponent, canActivate: [GuardService] },
+  { path: 'checklist-manage/:id', component: ChecklistManageComponent, canActivate: [GuardService] },
+  { path: 'checklist-edit/:id', component: ChecklistEditComponent, canActivate: [GuardService] },
+  { path: 'checklist-add-new/:id', component: ChecklistAddNewComponent, canActivate: [GuardService] },
+  { path: 'checklist-summary', component: ChecklistSummaryComponent, canActivate: [GuardService] },
   { path: 'login', component: AuthenticateComponent },
   { path: 'first-login', component: FirstLoginComponent },
+  { path: 'questionnaire-pre/:id', component: QuestionnairePreComponent, canActivate: [GuardService] },
+  { path: 'questionnaire-sprint/:id', component: QuestionnaireSprintComponent, canActivate: [GuardService] },
   { path: '**', component: DashboardComponent, canActivate: [GuardService] }
 ];
 @NgModule({

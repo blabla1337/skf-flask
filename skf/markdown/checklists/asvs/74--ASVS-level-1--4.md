@@ -1,1 +1,0 @@
-5.12 Verify that the application is not susceptible to OS Command Injection, or that security controls prevent OS Command Injection.

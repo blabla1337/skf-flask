@@ -1,1 +1,0 @@
-7.5 The app catches and handles possible exceptions.

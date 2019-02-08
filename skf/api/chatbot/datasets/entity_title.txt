@@ -1,5 +1,5 @@
 Filename injection Path traversal
-xss injection
+XSS injection
 Command injection
 Cross site request forgery
 XXE injections
@@ -20,7 +20,7 @@ Include anti clickjacking headers
 Include X XSS
 Include X Content Type Options header
 Include Strict Transport Security header
-sensitive information stored in cookies
+Sensitive information stored in cookies
 Client side state management
 Too verbose authentication
 Brute force password guessing
@@ -101,7 +101,7 @@ Repudiation attack
 Server side validation
 Privilege escalation
 Enforce sequential step order
-step up or adaptive authentication
+Step up or adaptive authentication
 Cross origin resource sharing
 Prevent password pre filling
 All authentication controls must fail securely
@@ -124,8 +124,8 @@ HTTP headers added by a frontend
 Session management control
 Available log analysis tools
 Distinguish log
-sanitise sensitive data rapidly from memory
-logging is performed before executing the transaction
+Sanitise sensitive data rapidly from memory
+Logging is performed before executing the transaction
 Verify integrity using checksums
 Deny access from remote resources or systems
 Certificate paths revocation information
@@ -137,8 +137,8 @@ Data from untrusted sources
 User restriction for sensitive data
 Runtime environment
 Automatic parameter binding
-cryptographic function implementation
-cryptographic modules must fail securely
+Cryptographic function implementation
+Cryptographic modules must fail securely
 Access to any master secret must be protected from unauthorized access
 Enforce policys for sensitive data processing
 Access control pattern
@@ -147,7 +147,7 @@ Sessions pattern
 Submit forms pattern
 SQL injection Column truncation
 User registration pattern
-cross subdomain cookie attack
+Cross subdomain cookie attack
 HTML injections
 RFD and file download injections
 identify all application components
@@ -173,11 +173,11 @@ WYSIWYG editors
 Parsing JSON with Javascript
 Account lockout
 XML attacks
-centralized security controls
-data controller display layer separation
-proven authentication mechanisms
-administrative interfaces must not be accessible to untrusted parties
-concurrent session handling
+Centralized security controls
+Data controller display layer separation
+Proven authentication mechanisms
+Administrative interfaces must not be accessible to untrusted parties
+Concurrent session handling
 Auto escaping technology
 Client side storage
 Log rotation and seperation
@@ -219,7 +219,7 @@ File upload anti virus check
 File upload outside document root
 Unauthorized and unauthenticated access security logs
 Commonly chosen weak passwords and passphrases
-two factor authentication against username password disclosure
+Two factor authentication against username password disclosure
 Logging access control decisions
 High value transactions
 Verify that structured data is strongly typed and validated
@@ -237,7 +237,7 @@ Screen scraping data harvest
 Communication between components (low privileges)
 TLS settings are in line with current leading practice
 Data retention policy
-authenticated data cleared from client storage
+Authenticated data cleared from client storage
 File inclusion attack II
 Sensitive information in code or online repositories
 Identify all components

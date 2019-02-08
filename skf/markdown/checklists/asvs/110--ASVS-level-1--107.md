@@ -1,1 +1,0 @@
-8.10 Verify that an audit log or similar allows for non-repudiation of key transactions.

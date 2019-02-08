@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QuestionPreService } from '../services/questions-pre.service';
 import { QuestionsSprintService } from '../services/questions-sprint.service';
 import { SprintService } from '../services/sprint.service'
 import { Question_pre } from '../models/question_pre'
 import { Sprint } from '../models/sprint'
 import { Question_sprint } from '../models/question_sprint'
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
@@ -35,9 +35,9 @@ export class ProjectDashboardComponent implements OnInit {
   public idFromURL: number;
   public canDelete: boolean;
   public canEdit: boolean;
+
   constructor(
     private modalService: NgbModal,
-    private questionPreService: QuestionPreService,
     private questionsSprintService: QuestionsSprintService,
     private route: ActivatedRoute,
     private sprintService: SprintService
@@ -45,20 +45,14 @@ export class ProjectDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-    this.idFromURL = params['id'];
-    localStorage.setItem("tempParamID", params['id'])
-    setTimeout(() => {
-    this.sprintService.getSprintStats(this.idFromURL).subscribe(
-    resp => this.sprintResult = resp,
-    err => console.log("Error getting sprint stats"))
-    }, 2500);
+      this.idFromURL = params['id'];
+      localStorage.setItem("tempParamID", params['id'])
+      setTimeout(() => {
+        this.sprintService.getSprintStats(this.idFromURL).subscribe(
+          resp => this.sprintResult = resp,
+          err => console.log("Error getting sprint stats"))
+      }, 1000);
     });
-    
-    this.questionsSprintService
-      .getSprintQuestions()
-      .subscribe(
-      (projectService) => { this.sprints = projectService },
-      err => console.log("getting sprint questions failed"));
 
     if (AppSettings.AUTH_TOKEN) {
       let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
@@ -81,16 +75,17 @@ export class ProjectDashboardComponent implements OnInit {
 
   newSprintQuestions(form?: NgForm) {
     this.sprintStore = [];
-        for (let i = 1; i < 22 + 1; i++) {
-          if (!form.value["sprint_answer" + i]) { form.value["sprint_answer" + i] = "False"; }
-          this.sprintStore.push({ "projectID": parseInt(this.idFromURL.toString(), 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i], "sprintID": this.sprintID });
-        }
+    console.log(form)
+    for (let i = 1; i < 50 + 1; i++) {
+      if (!form.value["sprint_answer" + i]) { form.value["sprint_answer" + i] = "False"; }
+      this.sprintStore.push({ "projectID": parseInt(this.idFromURL.toString(), 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i], "sprintID": this.sprintID });
+    }
     setTimeout(() => {
       this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },
         err => console.log("Error Storing new questions for sprint"), () => {
-            this.sprintService.getSprintStats(this.idFromURL).subscribe(
-              resp => this.sprintResult = resp,
-              err => console.log("Error getting sprint stats"))
+          this.sprintService.getSprintStats(this.idFromURL).subscribe(
+            resp => this.sprintResult = resp,
+            err => console.log("Error getting sprint stats"))
         });
     }, 1000);
 
@@ -100,17 +95,22 @@ export class ProjectDashboardComponent implements OnInit {
   deleter(id: number) {
     if (this.delete == "DELETE") {
       this.sprintService.delete(id).subscribe(x =>
-          this.sprintService.getSprintStats(this.idFromURL).subscribe(
-            resp => this.sprintResult = resp,
-            err => console.log("Error getting sprint stats"))
+        this.sprintService.getSprintStats(this.idFromURL).subscribe(
+          resp => this.sprintResult = resp,
+          err => console.log("Error getting sprint stats"))
       )
       return true;
     }
     return false;
   }
 
-
   open(content) {
+    console.log(this.sprintResult)
+    this.questionsSprintService
+      .getSprintQuestions(this.sprintResult[0]['checklist_type'])
+      .subscribe(
+        (projectService) => { this.sprints = projectService },
+        err => console.log("getting sprint questions failed"));
     this.steps = false;
     this.delete = "";
     this.sprintDescription = ""

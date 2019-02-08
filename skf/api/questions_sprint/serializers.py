@@ -3,8 +3,9 @@ from skf.api.restplus import api
 
 
 question = api.model('question', {
-    'id': fields.String(readOnly=True, description='The unique identifier of a question item'),
+    'id': fields.Integer(readOnly=True, description='The unique identifier of a question item'),
     'question': fields.String(readOnly=True, description='The question value'),
+    'checklist_type': fields.Integer(required=True, description='The question checklist type used for post process step'),
 })
 
 question_items = api.inherit('List of question sprint items', {
@@ -20,6 +21,11 @@ list_sprint = api.model('list_sprint', {
 
 store_list_items_sprint = api.inherit('List of questions sprint', {
     'questions': fields.List(fields.Nested(list_sprint))
+})
+
+question_sprint_item_update = api.model('question_sprint_item_update', {
+    'question': fields.String(readOnly=True, description='The question value'),
+    'checklist_type': fields.Integer(required=True, description='The question checklist type used for sprint process step'),
 })
 
 message = api.model('Response message', {

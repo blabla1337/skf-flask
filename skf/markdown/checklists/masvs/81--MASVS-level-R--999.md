@@ -1,1 +1,0 @@
-8.10 The app implements a 'device binding' functionality using a device fingerprint derived from multiple properties unique to the device.

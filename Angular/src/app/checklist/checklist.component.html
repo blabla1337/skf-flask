@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -36,7 +36,7 @@
 			<div id="leg">
 				<table id='legenda'>
 					<tr>
-						<th colspan="2" ><b>Legenda of the ASVS levels</b></th>
+						<th colspan="2" ><b>Legend of the ASVS levels</b></th>
 						
 					</tr>
 					<tr>
@@ -59,61 +59,39 @@
 				</table>
 
 
-			</div>
 
+			</div>
 		</div>
 	</section>
-
-	<section class="wrapper">
+	<div *ngIf="checklistTypes.length === 0">
+		<ngb-alert [dismissible]="false">
+			<strong>Warning!</strong> No checklists available yet!
+		</ngb-alert>
+	</div>
+	<section *ngIf="checklistTypes.length > 0" class="wrapper">
 		<div class="row mt">
 			<div class="col-lg-12">
 				<!-- Content -->
 				<div class="content-panel">
+					<div *ngIf="errors">
+						<ngb-alert [dismissible]="false">
+							<strong>Warning!</strong> {{alert}}
+						</ngb-alert>
+					</div>
 					<table class="table table-striped table-advance table-hover">
 						<thead>
 							<tr>
 								<th><i class="fa fa-bullhorn"></i> Checklist</th>
 								<th><i class="fa fa-question-circle"></i> Description</th>
-								<th><i class="fa fa-bookmark"></i> Level</th>
-								<th><i class="fa fa-edit"></i> Show list</th>
+								<th style="text-align:right"><i class="fa fa-edit"></i> Show list</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>ASVS Level 1</td>
-								<td>A summary of the ASVS level 1 items</td>
-								<td>1</td>
-								<td><button class="btn btn-success btn-xs" (click)="open(content, 1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
-							</tr>
-							<tr>
-								<td>ASVS Level 2</td>
-								<td>A summary of the ASVS level 2 items</td>
-								<td>2</td>
-								<td><button class="btn btn-success btn-xs" (click)="open(content, 2)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
-							</tr>
-							<tr>
-								<td>ASVS Level 3</td>
-								<td>A summary of the ASVS level 3 items</td>
-								<td>3</td>
-								<td><button class="btn btn-success btn-xs" (click)="open(content, 3)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
-							</tr>
-							<tr>
-								<td>MASVS Level 1</td>
-								<td>A summary of the MASVS level 1 items</td>
-								<td>1</td>
-								<td><button class="btn btn-success btn-xs" (click)="open(content, 4)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
-							</tr>
-							<tr>
-								<td>MASVS Level 2</td>
-								<td>A summary of the MASVS level 2 items</td>
-								<td>2</td>
-								<td><button class="btn btn-success btn-xs" (click)="open(content, 5)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
-							</tr>
-							<tr>
-								<td>MASVS Level R</td>
-								<td>A summary of the MASVS level R items</td>
-								<td>3</td>
-								<td><button class="btn btn-success btn-xs" (click)="open(content, 6)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
+							<tr *ngFor="let checklists of checklistTypes; let myIndex = index">
+								<td>{{checklists.checklist_name}}</td>
+								<td>{{checklists.checklist_description}}</td>
+								<td><button class="btn btn-success btn-xs" style="float:right" (click)="open(content, checklists.checklist_type)"><i
+										 class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -131,63 +109,45 @@
 <ng-template #content let-c="close" let-d="dismiss">
 
 	<div class="modal-header">
-		<h4 *ngIf="level == 1" class="modal-title">ASVS Level 1</h4>
-		<h4 *ngIf="level == 2" class="modal-title">ASVS Level 2</h4>
-		<h4 *ngIf="level == 3" class="modal-title">ASVS Level 3</h4>
-		<h4 *ngIf="level == 4" class="modal-title">MASVS Level 1</h4>
-		<h4 *ngIf="level == 5" class="modal-title">MASVS Level 2</h4>
-		<h4 *ngIf="level == 6" class="modal-title">MASVS Level R</h4>
+		<h4 class="modal-title">Checklist</h4>
 		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                    <span aria-hidden="true">&times;</span>
-         </button>
+			<span aria-hidden="true">&times;</span>
+		</button>
 	</div>
 
-		<!-- Modal Body -->
+	<!-- Modal Body -->
 
-		<div class="modal-body">
-			
-			<table class="table table-striped table-advance table-hover checklist">
-				<tbody>
-					<tr *ngFor="let item of checklistItems; let myIndex = index;">
-						<th *ngIf="item.checklist_items_level == 0" colspan="6">{{item.checklist_items_checklistID}} {{item.checklist_items_content}}</th>
-						<td *ngIf="item.checklist_items_level > 0 && item.checklist_items_level != 6">
-							<ngb-accordion class="level_l_{{item.checklist_items_level}}" #acc="ngbAccordion">
-								<ngb-panel  style="max-width:10%" data-html="true" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} ">
-									<ng-template ngbPanelContent>
-										<p style="white-space: pre-line;">
-										  {{item.kb_items_content}}  
-										</p>
-									</ng-template>
-								</ngb-panel>
-							</ngb-accordion>
-						</td>
-						<td *ngIf="item.checklist_items_level == 6">
-							<ngb-accordion #acc="ngbAccordion">
-								<ngb-panel style="max-width:10%" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} (L.R)">
-									<ng-template ngbPanelContent>
-										<p style="white-space: pre-line;">
-										  {{item.kb_items_content}}
-										</p>
-									</ng-template>
-								</ngb-panel>
-							</ngb-accordion>
-						</td>
-						<td *ngIf="item.checklist_items_level < 0">
-							<ngb-accordion>
-								<ngb-panel style="max-width:10%" title="{{item.checklist_items_content}}">
-									<ng-template ngbPanelContent>
-									</ng-template>
-								</ngb-panel>
-							</ngb-accordion>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+	<div class="modal-body">
+		<div *ngIf="checklistItems.length == 0">
+			<ngb-alert [dismissible]="false">
+				<strong>Warning!</strong> No checklists items available!
+			</ngb-alert>
 		</div>
+		<table class="table table-striped table-advance table-hover checklist">
+			<tbody>
+				<tr *ngFor="let item of checklistItems; let myIndex = index;">
+					<th *ngIf="item.kb_item_id == null" colspan="6">{{item.checklist_items_checklistID}} {{item.checklist_items_content}}</th>
+					<td *ngIf="item.kb_item_id > null; ">
+						<ngb-accordion class="level_l_{{item.checklist_items_level}}" #acc="ngbAccordion">
+							<ngb-panel style="max-width:10%" data-html="true" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} ">
+								<ng-template ngbPanelContent>
+									<p style="white-space: pre-line;">
+										<b><h3>{{item.kb_item_title}}</h3></b>
+										<br/>
+										{{item.kb_items_content}}
+									</p>
+								</ng-template>
+							</ngb-panel>
+						</ngb-accordion>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
-		<!-- Modal Footer -->
+	<!-- Modal Footer -->
 
-		<div class="modal-footer">
-		</div>
+	<div class="modal-footer">
+	</div>
 
 </ng-template>

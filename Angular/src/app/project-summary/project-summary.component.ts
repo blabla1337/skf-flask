@@ -58,7 +58,7 @@ export class ProjectSummaryComponent implements OnInit {
       if (this.comment === undefined || this.comment === "") {
         this.comment = "";
       }
-      this.commentService.newComment(checklist, this.comment, params['id'], status).subscribe(
+      this.commentService.newComment(checklist.toString(), this.comment, params['id'], status).subscribe(
         () => { },
         err => console.log("Error whilst storing the comment!"),
         () => {
@@ -77,7 +77,7 @@ export class ProjectSummaryComponent implements OnInit {
     this.succes = "";
     this.showMe = checklistId;
     this.route.params.subscribe(params => {
-      this.commentService.getComment(checklistId, params['id']).subscribe(
+      this.commentService.getComment(checklistId.toString(), params['id']).subscribe(
         (data) => {
           this.comments = data;
           if (!this.comments) {

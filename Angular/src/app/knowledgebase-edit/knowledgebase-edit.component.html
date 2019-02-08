@@ -1,0 +1,87 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+
+<section id="main-content" class="page03 project-list">
+  <section class="intro">
+    <div class="inner">
+      <div class="text">
+        <h1>Checklist edit options</h1>
+        <p>Add and update your requirements!</p>
+      </div>
+      <button style="float:right; margin-left:4px;" (click)="back()" class="btn btn-green"><i class="fa fa-arrow-left"
+          aria-hidden="true"></i> Back</button>
+    </div>
+  </section>
+  <section class="wrapper" style="margin-top:0px;">
+    <div class="row mt">
+      <div class="col-lg-12">
+        <div *ngFor="let alert of errors">
+          <ngb-alert [dismissible]="false">
+            <strong>Warning!</strong> {{alert}}
+          </ngb-alert>
+        </div>
+          <!-- Here starts when people select they want to edit the checklist-->
+          <section class="panel">
+            <header class="panel-heading">
+              <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; {{title}} </h4>
+            </header>
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <div class="wrap">
+                    <br />
+                    <label for="inputVersion" class="col-sm-2 control-label">Title:</label>
+                    <div class="col-sm-10">
+                      <input maxlength="120" [(ngModel)]="title" type="text" class="form-control" id="inputVersion"
+                        name="title" placeholder="" value="{{title}}">
+                      <div class="wrap desc alert-info">
+                        <div class="col-sm-10">knowledgebase item title</div>
+                      </div>
+                    </div>
+                    <label for="inputVersion" class="col-sm-2 control-label">Content</label>
+                    <div class="col-sm-10">
+                      <textarea required name="content" [(ngModel)]="content" type="text" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" id="inputVersion">{{content}}</textarea>
+                      <div class="wrap desc alert-info">
+                        <div class="col-sm-10">Description of the knowledgebase content</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="margin-top:2%;padding-bottom:1.5%;padding-left:1.5%;">
+                  <button style="margin-right:1.5px; margin-left:1.5px; margin-top:2%" type="button" class="btn btn-warning"
+                    (click)="updateKnowledgebaseItem();">Update</button>
+                </div>
+              </form>
+            </div>
+          </section>
+          <!-- Here ends when people select they want to edit the checklist-->
+      </div>
+      <!-- /col-lg-4 -->
+    </div>
+    <!-- /row -->
+  </section>
+  <!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->

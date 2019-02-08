@@ -3,17 +3,20 @@ import { ProjectService } from '../services/project.service'
 import { QuestionPreService } from '../services/questions-pre.service'
 import { QuestionsSprintService } from '../services/questions-sprint.service'
 import { SprintService } from '../services/sprint.service'
+import { ChecklistService } from '../services/checklist.service'
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router'
 import { Question_pre } from '../models/question_pre'
 import { Question_sprint } from '../models/question_sprint'
 import { Sprint } from '../models/sprint'
 import { Project } from '../models/project'
+import { ChecklistType } from '../models/checklist_type'
+
 
 @Component({
   selector: 'app-project-new',
   templateUrl: './project-new.component.html',
-  providers: [SprintService, ProjectService, QuestionPreService, QuestionsSprintService]
+  providers: [SprintService, ProjectService, QuestionPreService, QuestionsSprintService, ChecklistService]
 })
 export class ProjectNewComponent implements OnInit {
 
@@ -33,7 +36,10 @@ export class ProjectNewComponent implements OnInit {
   public isvalid = false;
   public level: string;
   public error: string[] = [];
+  public errors: string;
   public return: boolean = true;
+  public checklistType: ChecklistType[]=[];
+  public checklistTypeID: number;
 
 
   constructor(
@@ -41,20 +47,13 @@ export class ProjectNewComponent implements OnInit {
     private sprintService: SprintService,
     private questionPreService: QuestionPreService,
     private questionsSprintService: QuestionsSprintService,
+    private checklistService: ChecklistService,
     private router: Router
   ) { }
 
   ngOnInit() {
 
-    this.questionPreService.getPreQuestions().subscribe(
-      questions => this.pre_dev = questions,
-      err => console.log("getting pre dev questions failed")
-    )
-
-    this.questionsSprintService.getSprintQuestions().subscribe(
-      questions => this.sprints = questions,
-      err => console.log("getting sprint questions failed")
-    )
+    this.checklistTypeList();
   }
 
   levelSelect(option: string) {
@@ -64,13 +63,13 @@ export class ProjectNewComponent implements OnInit {
   save() {
     this.return = true;
     this.error = [];
+
     if (!this.projectName) { this.error.push("Project name was left empty"); this.return = false; }
     if (!this.projectVersion) { this.error.push("Project version was left empty"); this.return = false; }
     if (!this.projectDescription) { this.error.push("Project description was left empty"); this.return = false; }
     if (!this.sprintName) { this.error.push("Sprint name was left empty"); this.return = false; }
     if (!this.sprintDescription) { this.error.push("Sprint description was left empty"); this.return = false; }
-    if (!this.level) { this.error.push("No ASVS level was selected"); this.return = false; }
-
+    
     if (this.return == false) { return; }
 
     //This is for getting the sprint items from local storage
@@ -81,19 +80,30 @@ export class ProjectNewComponent implements OnInit {
     let pre_dev_items = JSON.parse(localStorage.getItem("pre_dev"));
     let count_pre = Object.keys(pre_dev_items).length
 
-    this.projectService.newProject(this.projectName, this.projectDescription, parseInt(this.level, 10), this.projectVersion)
+    //Check if all the fields where set for sprint_items
+
+
+    this.projectService.newProject(this.projectName, this.projectDescription, Number(this.checklistTypeID), this.projectVersion)
       .subscribe((res) => { this.projectID = res["projectID"] }, err => console.log("Error storing project"), () => {
         this.sprintService.newSprint(this.sprintName, this.projectID, this.sprintDescription)
           .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"), () => {
 
             for (let i = 1; i < count_pre + 1; i++) {
-              if (pre_dev_items["pre_dev_answer" + i].toString() == "") { pre_dev_items["pre_dev_answer" + i] = "False"; }
-              this.pre_dev_store.push({ "projectID": this.projectID, "question_pre_ID": i, "result": pre_dev_items["pre_dev_answer" + i].toString() });
+              if (pre_dev_items["pre_dev_answer" + i] != '0') { 
+                  this.pre_dev_store.push({ "projectID": this.projectID, "question_pre_ID": Number(pre_dev_items["pre_dev_answer" + i]), "result": "False" });
+              }
+              if (pre_dev_items["pre_dev_answer" + i] == '0') { 
+                this.pre_dev_store.push({ "projectID": this.projectID, "question_pre_ID": Number(pre_dev_items["pre_dev_answer" + i]), "result": "True" });
+              }
             }
 
             for (let i = 1; i < count_sprint + 1; i++) {
-              if (sprint_items["sprint_answer" + i].toString() == "") { sprint_items["sprint_answer" + i] = "False"; }
-              this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": i, "result": sprint_items["sprint_answer" + i].toString(), "sprintID": this.sprintID });
+              if (sprint_items["sprint_answer" + i] == '0') {  
+                this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": Number(sprint_items["sprint_answer" + i]), "result": "False", "sprintID": this.sprintID });
+              }
+              if (sprint_items["sprint_answer" + i] != '0') {  
+                this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": Number(sprint_items["sprint_answer" + i]), "result": "True", "sprintID": this.sprintID });
+              }
             }
           })
       });
@@ -123,6 +133,30 @@ export class ProjectNewComponent implements OnInit {
     return true;
   }
 
+    selectQuestions(){
+      this.questionPreService.getPreQuestions(this.checklistTypeID).subscribe(
+        questions => this.pre_dev = questions,
+        err => console.log("getting pre dev questions failed")
+      )
+  
+      this.questionsSprintService.getSprintQuestions(this.checklistTypeID).subscribe(
+        questions => this.sprints = questions,
+        err => console.log("getting sprint questions failed")
+      )
+  }
+
+  checklistTypeList() {
+    this.checklistService
+      .getChecklistTypeList()
+      .subscribe(
+        checklistType => {
+          this.checklistType = checklistType;
+          if (!this.checklistType) {
+            this.errors = "There are no checklist types defined yet"
+          }
+        },
+        err => this.errors = "Getting the checklist types failed, contact an administrator! ");
+  }
   isInvalid() {
     return true;
   }

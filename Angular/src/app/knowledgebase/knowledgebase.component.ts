@@ -1,22 +1,26 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { KnowledgebaseService } from '../services/knowledgebase.service'
 import { Knowledgebase } from '../models/knowledgebase';
-import { StartsWithPipe } from '../pipes/starts-with.pipe'
-import { ReplaySubject } from 'rxjs/Rx';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-knowledgebase',
   templateUrl: './knowledgebase.component.html',
-  providers:[KnowledgebaseService]
+  providers: [KnowledgebaseService]
 })
 
 export class KnowledgebaseComponent implements OnInit {
-  
-  public knowledgeitems: Knowledgebase[]
+
+  public knowledgeitems: Knowledgebase[] = [];
   public queryString: string;
   public error: string;
+  public errors: string[];
+  public return: boolean;
+  public title: string;
+  public content:string;
 
-  constructor(public _knowledgeService: KnowledgebaseService) { }
+
+  constructor(public _knowledgeService: KnowledgebaseService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.getKnowledgeItems();
@@ -26,6 +30,27 @@ export class KnowledgebaseComponent implements OnInit {
     this._knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgeitems = requestData,
       err => this.error = "Error getting knowledge items, contact the administrator!"
     );
+  }
+
+  storeKnowledgebaseItem() {
+
+    this.errors = [];
+    this.return = true;
+
+    if (!this.title) { this.errors.push("Title was left empty"); this.return = false; }
+    if (!this.content) { this.errors.push("Content was left empty"); this.return = false; }
+    if (this.return == false) { return; }
+
+    this.errors = [];
+    this._knowledgeService.newKnowledgebaseItem(this.title, this.content)
+      .subscribe(
+        () => this.errors.push("Eror storing a new knowledgebase item!")
+      );
+    this.getKnowledgeItems();
+  }
+
+  open(content) {
+    this.modalService.open(content, { size: 'lg' }).result
   }
 
 }

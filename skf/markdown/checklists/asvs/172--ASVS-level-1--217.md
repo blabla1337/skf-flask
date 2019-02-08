@@ -1,1 +1,0 @@
-17.7 Verify that the application sensitive code is laid out unpredictably in memory (For example ASLR).

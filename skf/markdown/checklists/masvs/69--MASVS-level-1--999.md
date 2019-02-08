@@ -1,1 +1,0 @@
-7.7 In unmanaged code, memory is allocated, freed and used securely.

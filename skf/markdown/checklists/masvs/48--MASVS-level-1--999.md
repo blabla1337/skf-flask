@@ -1,1 +1,0 @@
-5.3 The app verifies the X.509 certificate of the remote endpoint when the secure channel is established. Only certificates signed by a valid CA are accepted.
