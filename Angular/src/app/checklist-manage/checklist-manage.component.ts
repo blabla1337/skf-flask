@@ -18,6 +18,7 @@ export class ChecklistManageComponent implements OnInit {
   public delete: string;
   public canDelete:boolean;
   public idFromURL: number;
+  public projects: any;
 
   constructor(private _checkListService: ChecklistService, private modalService: NgbModal, private route: ActivatedRoute) { }
 

@@ -46,7 +46,7 @@
           </ngb-alert>
         </div>
         <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-          <div (mouseout)="editChecklist=false" *ngFor="let item of checklist; let myIndex = index; trackBy:indexTracker">
+          <div (mouseout)="editChecklist=false" *ngFor="let item of checklist; let myIndex = index;">
             <ngb-panel title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}}">
               <ng-template ngbPanelContent>
 
