@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="row" class="btn-group theme-container animated">
+            <div class="row" *ngIf="isLoggedin" class="btn-group theme-container animated">
                 <div ngbDropdown>
                     <button class="btn btn-default dropdown-toggle user" id="dropdownBasic2" ngbDropdownToggle>
                         <span class="image"><img src="/assets/img/placeholder-male.jpg" alt="Placeholder" width="250" height="250" /> </span>
@@ -59,6 +59,14 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownBasic2">
                         <button (click)="LogOff()" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="skipLogin" class="btn-group theme-container animated">
+                <div ngbDropdown>
+                    <div class="dropdown-menu" aria-labelledby="dropdownBasic2">
+                        <button (click)="Login()" class="dropdown-item"><i class="fa fa-power-off"></i> Login</button>
                     </div>
                 </div>
             </div>
@@ -75,8 +83,8 @@
     <aside>
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
-            <ul  class="sidebar-menu" id="nav-accordion">
-                <li [style.background-color]="getProjectStyle()" class="mt sub-menu">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li *ngIf="isLoggedin" [style.background-color]="getProjectStyle()" class="mt sub-menu">
                     <span *ngIf="projects" class="g"></span>
                     <a (click)="ProjectsShow()" id="1" class="primairy"  href="javascript:;">
                         <i class="fa fa-file-code-o"></i>
@@ -118,6 +126,7 @@
                         <i class="fa fa-code"></i>
                         <span id="6">Code examples</span>
                     </a>
+                </li>
             </ul>
 
             <div class="copy">
@@ -128,4 +137,4 @@
         </div>
     </aside>
     <!--sidebar end-->
-
+</section>

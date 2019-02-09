@@ -22,7 +22,14 @@ libstdc++ \
 openblas \
 git
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
-RUN git clone https://github.com/blabla1337/skf-flask.git
+#RUN git clone https://github.com/blabla1337/skf-flask.git
+
+# remove below lines after testing
+ENV BRANCH="dev"
+RUN git clone https://github.com/leenabhegade/skf-flask.git
+WORKDIR /skf-flask
+RUN git checkout dev
+
 # Start Angular app
 WORKDIR /skf-flask/Angular
 RUN npm install -g @angular/cli
