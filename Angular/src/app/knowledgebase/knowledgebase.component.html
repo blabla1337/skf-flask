@@ -26,7 +26,7 @@
 				<p>In depth information on how to approach specific funtionality or problems with explanation of attack surface and
 					mitigations!</p>
 			</div>
-			<button style="float:right;" (click)="open(newkbmodal)" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i>
+			<button  *ngIf="canEdit" style="float:right;" (click)="open(newkbmodal)" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i>
 				Add item</button>
 		</div>
 	</section>
@@ -56,7 +56,7 @@
 									<p style="white-space: pre-line; max-width:70%">
 										{{knowledge.content}}
 									</p>
-									<a [routerLink]="['/knowledgebase-edit', knowledge.kbID]" style="float:right; padding:1% 1% 1% 1%"><button
+									<a *ngIf="canEdit" [routerLink]="['/knowledgebase-edit', knowledge.kbID]" style="float:right; padding:1% 1% 1% 1%"><button
 										 class="btn btn-warning" type="button">Update</button></a>
 								</ng-template>
 							</ngb-panel>
@@ -67,7 +67,7 @@
 		</div>
 	</section>
 		<!-- Modal for adding a new checklist type-->
-		<form class="form-horizontal" role="form" style="padding-left:20px;padding-right:20px; padding-top:-20px;">
+		<form *ngIf="canEdit" class="form-horizontal" role="form" style="padding-left:20px;padding-right:20px; padding-top:-20px;">
 				<ng-template #newkbmodal let-c="close" let-d="dismiss">
 					<div class="modal-header">
 						<h4 class="modal-title">Add knowledgebase item</h4>
