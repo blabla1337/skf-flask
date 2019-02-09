@@ -29,6 +29,7 @@ ENV BRANCH="dev"
 RUN git clone https://github.com/leenabhegade/skf-flask.git
 WORKDIR /skf-flask
 RUN git checkout dev
+RUN git pull
 
 # Start Angular app
 WORKDIR /skf-flask/Angular

@@ -35,7 +35,9 @@ export class HeaderComponent implements OnInit {
       this.canEdit = decodedJWT.privilege.includes("edit");
     }
 
+    console.log("skip login"+AppSettings.SKIP_LOGIN);
     if (AppSettings.SKIP_LOGIN == "true") {
+       console.log("skip login is set to true");
        this.skipLogin = true 
     }
 
