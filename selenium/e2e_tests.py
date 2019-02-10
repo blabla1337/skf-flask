@@ -52,13 +52,13 @@ class DashboardClickThrough(unittest.TestCase):
         input = wait.until(EC.visibility_of_element_located((By.ID, "knowledgebase-icon")))
         input.click()
         assert "Knowledge Base" in driver.page_source
-    
+
     '''
     ////////////////////////////////////////////////////////////////////////////////////
     Test creating/deleting a checklist
     ////////////////////////////////////////////////////////////////////////////////////
     '''
-    
+
     def test_e_checklist_new_checklist_flow(self):
         driver = self.driver
         wait = WebDriverWait(driver, 10)
@@ -93,13 +93,12 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "selenium-stored-checklist" not in driver.page_source
     
-    
     '''
     ////////////////////////////////////////////////////////////////////////////////////
     Test creating/deleting/updating checklist items
     ////////////////////////////////////////////////////////////////////////////////////
     '''
-    
+
     def test_g_test_back_button_create_checklist_items(self):
         driver = self.driver
         wait = WebDriverWait(driver, 10)
@@ -115,7 +114,7 @@ class DashboardClickThrough(unittest.TestCase):
         input.click()
         time.sleep(2)
         assert "Manage your checklists!" in driver.page_source
-    
+
     def test_h_create_new_checklist_item_flow(self):
         driver = self.driver
         wait = WebDriverWait(driver, 10)
@@ -133,13 +132,22 @@ class DashboardClickThrough(unittest.TestCase):
         checklistID = driver.find_element_by_name("checklistID")
         checklistID.send_keys("1.1")
         content = driver.find_element_by_name("content")
-        content.send_keys("Control content")
-        select = Select(driver.find_element_by_id('select-knowledge-base-item'))
-        select.select_by_value('1')
-        select = Select(driver.find_element_by_id('select-question-pre-id'))
-        select.select_by_visible_text('test-question-pre')
-        select = Select(driver.find_element_by_id('select-question-sprint-id'))
-        select.select_by_visible_text('test-question-sprint')
+        content.send_keys("Control content")       
+        input = wait.until(EC.visibility_of_element_located((By.ID, "select-knowledge-base-item")))
+        input.click()
+        time.sleep(1)
+        input = driver.find_element_by_xpath("//*[contains(text(),'#1')]")
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "select-question-pre-id")))
+        input.click()
+        time.sleep(1)
+        input = driver.find_element_by_xpath("//*[contains(text(),'test-question-pre')]")
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "select-question-sprint-id")))
+        input.click()
+        time.sleep(1)
+        input = driver.find_element_by_xpath("//*[contains(text(),'test-question-sprint')]")
+        input.click()
         select = Select(driver.find_element_by_id('select-include-first'))
         select.select_by_visible_text('true')
         select = Select(driver.find_element_by_id('select-include-always'))
@@ -199,13 +207,12 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Updated control content" not in driver.page_source
       
-    
     '''
     ////////////////////////////////////////////////////////////////////////////////////
     Test creating/deleting/updating pre-development questions
     ////////////////////////////////////////////////////////////////////////////////////
     '''
-    
+
     def test_k_add__pre_question_flow(self):
         driver = self.driver
         wait = WebDriverWait(driver, 10)
@@ -278,9 +285,7 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         Select(driver.find_element_by_id('select-question'))
         time.sleep(2)
-        assert "selenium-updated-question" not in driver.page_source
-    
-
+        assert "selenium-updated-question" not in driver.page_source  
 
     '''
     ////////////////////////////////////////////////////////////////////////////////////
@@ -288,7 +293,7 @@ class DashboardClickThrough(unittest.TestCase):
     ////////////////////////////////////////////////////////////////////////////////////
     '''
 
-    def test_n_delete__pre_question_flow(self):
+    def test_n_correlate__pre_question_flow(self):
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -307,14 +312,147 @@ class DashboardClickThrough(unittest.TestCase):
         input.click()
         time.sleep(2)
         compare = wait.until(EC.visibility_of_element_located((By.ID, "checklist-correlated0"))).text
-        print(compare, file=sys.stdout)
         assert "1.1" in compare
 
+    def test_o_test__pre_question_back_button(self):
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
+        input.click()
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-pre-icon")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "back-button")))
+        input.click()
+        time.sleep(2)
+        assert "Manage your checklists!" in driver.page_source
+
+    '''
+    ////////////////////////////////////////////////////////////////////////////////////
+    Test creating/deleting/updating post-development questions
+    ////////////////////////////////////////////////////////////////////////////////////
+    '''
+    def test_p_add__sprint_question_flow(self):
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
+        input.click()
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-sprint-icon")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "add-question-modal")))
+        input.click()
+        content = driver.find_element_by_name("questionName")
+        content.send_keys("selenium-added-question")
+        input = wait.until(EC.visibility_of_element_located((By.ID, "add-new-question")))
+        input.click()
+        time.sleep(2)
+        Select(driver.find_element_by_id('select-question'))
+        time.sleep(2)
+        assert "selenium-added-question" in driver.page_source
+
+    def test_q_update__sprint_question_flow(self):
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
+        input.click()
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-sprint-icon")))
+        input.click()
+        time.sleep(2)
+        select = Select(driver.find_element_by_id('select-question'))
+        select.select_by_visible_text('selenium-added-question')
+        input = wait.until(EC.visibility_of_element_located((By.ID, "update-question-modal")))
+        input.click()
+        content = driver.find_element_by_name("questionName")
+        content.send_keys("selenium-updated-question")
+        input = wait.until(EC.visibility_of_element_located((By.ID, "update-question")))
+        input.click()
+        time.sleep(2)
+        Select(driver.find_element_by_id('select-question'))
+        time.sleep(2)
+        assert "selenium-updated-question" in driver.page_source
+    
+    def test_r_delete__sprint_question_flow(self):
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
+        input.click()
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-sprint-icon")))
+        input.click()
+        time.sleep(2)
+        select = Select(driver.find_element_by_id('select-question'))
+        time.sleep(2)
+        select.select_by_visible_text('selenium-updated-question')
+        input = wait.until(EC.visibility_of_element_located((By.ID, "delete-question-modal")))
+        input.click()
+        time.sleep(2)
+        content = driver.find_element_by_name("delete")
+        content.send_keys("DELETE")
+        input = wait.until(EC.visibility_of_element_located((By.ID, "delete-question")))
+        input.click()
+        time.sleep(2)
+        Select(driver.find_element_by_id('select-question'))
+        time.sleep(2)
+        assert "selenium-updated-question" not in driver.page_source  
+    
+    '''
+    ////////////////////////////////////////////////////////////////////////////////////
+    Test correlating controls to post-development questions
+    ////////////////////////////////////////////////////////////////////////////////////
+    '''   
+    def test_s_correlate__sprint_question_flow(self):
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
+        input.click()
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-sprint-icon")))
+        input.click()
+        time.sleep(2)
+        select = Select(driver.find_element_by_id('select-question'))
+        select.select_by_visible_text('test-question-sprint')
+        time.sleep(2)
+        input = driver.find_element_by_xpath("//*[contains(text(), '1.1')]")
+        input.click()
+        time.sleep(2)
+        compare = wait.until(EC.visibility_of_element_located((By.ID, "checklist-correlated0"))).text
+        assert "1.1" in compare
+
+    def test_t_test__sprint_question_back_button(self):
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
+        input.click()
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-sprint-icon")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "back-button")))
+        input.click()
+        time.sleep(2)
+        assert "Manage your checklists!" in driver.page_source
+    
     def tearDown(self):
         self.driver.close()
 
 if __name__ == "__main__":
     unittest.main()
-
-
-DitishetwachtwoordvoorBLUEPRINT1736!

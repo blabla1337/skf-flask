@@ -266,7 +266,7 @@ CREATE TABLE `checklists_kb` (
 `checklist_type` int(11)
 ); 
 
-INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.1", "test content checklist item #1", '2', '0', '1', 'false', 'false', '2');
+INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.1", "test content checklist item #1", '0', '0', '1', 'false', 'false', '2');
 INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.2", "test content checklist item #2", '0', '0', '2', 'true', 'false', '2');
 INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.3", "test content checklist item #3", '0', '0', '3', 'false', 'true', '2');
 INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.4", "test content checklist item #4", '0', '2', '3', 'false', 'false', '2');
