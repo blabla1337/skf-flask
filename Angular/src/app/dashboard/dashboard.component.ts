@@ -13,12 +13,12 @@ export class DashboardComponent implements OnInit {
   projects: Project[];
   constructor() { }
 
-  public skipLogin: boolean;
+  public isLoggedin: boolean;
 
   ngOnInit() {
-  	if (AppSettings.SKIP_LOGIN == "true") {
-      this.skipLogin = true;
-  	}
+    if (AppSettings.AUTH_TOKEN != null) {
+      this.isLoggedin = true;
+    }
   }
 
 }
