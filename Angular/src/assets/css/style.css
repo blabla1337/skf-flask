@@ -197,8 +197,7 @@ input:-moz-placeholder {
 }
 .btn-theme04 {
   color: #fff;
-  background-color: white;
-  border-color: #515594;
+  background-color: #dedfed;;
   -webkit-transition: all 0.2s ease-in-out 0s;
   -moz-transition: all 0.2s ease-in-out 0s;
   -o-transition: all 0.2s ease-in-out 0s;
