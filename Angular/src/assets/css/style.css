@@ -195,6 +195,16 @@ input:-moz-placeholder {
   background-color: #62669e;
   border-color: #565989;
 }
+.btn-theme04 {
+  color: #fff;
+  background-color: white;
+  border-color: #515594;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
+  -o-transition: all 0.2s ease-in-out 0s;
+  -ms-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
 .dropdown-toggle {
   padding-right: 2em;
 }

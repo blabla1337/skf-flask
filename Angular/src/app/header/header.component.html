@@ -48,6 +48,10 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="row" *ngIf="skipLogin" class="btn-group theme-container animated">
+                <button (click)="Login()"><i class="fa fa-power-off"></i>Login</button>
+            </div>
 
             <div class="row" *ngIf="isLoggedin" class="btn-group theme-container animated">
                 <div ngbDropdown>
@@ -62,17 +66,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row" *ngIf="skipLogin" class="btn-group theme-container animated">
-                <div ngbDropdown>
-                    <div class="dropdown-menu" aria-labelledby="dropdownBasic2">
-                        <button (click)="Login()" class="dropdown-item"><i class="fa fa-power-off"></i> Login</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
-        
+    
     </header>
     <!--header end-->
 
