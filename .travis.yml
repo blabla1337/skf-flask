@@ -48,6 +48,7 @@ after_success:
 #  - bash <(curl -s https://codecov.io/bash) -f Angular/coverage/lcov.info
   - codecov
   - coveralls
+  - cd Angular
   - snyk monitor
 
 notifications:
