@@ -147,8 +147,6 @@ def updatedb_command():
 def main():
     """Main SKF method"""
     initialize_app(app)
-
-    print(app.debug)
     if app.debug == False:
         if  settings.JWT_SECRET == '':
             log.info('>>>>> Configure the JWT_SECRET in the settings.py file and choose an unique 128 character long secret <<<<<')

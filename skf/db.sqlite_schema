@@ -17988,6 +17988,23 @@ Use TLS encrypted data lines for all internal communication channels.
 Also, your infrastructure should not traverse unencrypted or weakly encrypted links. Because
 if so, all your data''s integrity and confidentiality will be lost.
 ', 'Insecure internal communication'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('1339',' Description:
+
+The application should always generate a new session ID only after the user submits a set of valid credentials upon authentication.
+This is meant to prevent an attacker from performing Session Fixation attacks against other users.
+
+ Solution:
+
+Verify that session tokens are generated after a successfull authentication, not before. Please note also that these IDs should be unique and randomly generated.
+', 'Session Token Generation After Login'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('8004',' Description:
+
+If the web application has no proper impersonation resistance against phishing attacks then the users could be an easy target for attackers.
+
+ Solution:
+
+It is recommended to employ one (or more) of the followings: multifactor authentication, cryptographic devices with intent (such as connected keys with a push to authenticate), or clientside certificates.
+', 'Impersonation resistance not sufficent'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('82',' Description:
 
 Authentication should be enforced by the webserver. Whenever these configurations are
@@ -18079,6 +18096,16 @@ Make sure all the access control systems are thoroughly tested for failing secur
 using it in your application. It is common that complete unittest are created especially
 for this purpose.
 ', 'All access controls must fail securely'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('1337',' Description:
+
+If the application logic transmits session IDs in the URL, their values could be leaked through the Referer header to thirdparty websites, logged by proxy servers, bookmarked in the browser, accidentally sent via emails or chats. 
+Whenever the session ID is disclosed in the URL there might be also the possibility to perform other attacks (like session fixation) that lead to session hijacking.
+
+ Solution:
+
+Session tokens should never be included in places other than the application Cookie header or other custom headers defined by the application.
+
+', 'Sensitive Information Exposure in URL'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('130',' Description:
 
 Revealing system data or debugging information helps an adversary learn about the system
@@ -18224,6 +18251,24 @@ that involve sensitive data or functions.
 This should also be enforced in the application itself wherever possible,
 for example: Secure flags on cookies, HSTS, certificate pinning etc.
 ', 'All connections should be TLS'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('8000',' Description:
+
+The physical authenticators are very powerful and have some advantages, still they must be considered as compromised, if they were stolen or disappeared. In this case the user (owner of the physical token) needs to get these tokens revoked. 
+If the revocation process it not effective, then the attacker could use it on behalf of the owner and could get access to their resources.
+
+ Solution:
+
+Ensure that revocation is immediately effective across all Identity Providers and Relying Parties.
+', 'Weak revocability of physical authenticators'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('5103',' Description:
+
+If an application allows the user to attempt for outofband authentication using an old outofband authentication key, it increases the likelihood of replay attacks and can assist in comprising a user session.
+
+
+ Solution:
+
+The most effective solution is to reject out of band authentication attempts after 10 minutes and also ensure the outofband authentication key can be used only once. The system providing outofband authentication keying material should discard the key once it used.
+', 'OOB Key Used Once'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('195',' Description:
 
 In order to establish trust between two communicating party''s such as servers and clients
@@ -18660,6 +18705,18 @@ allows an attacker to inject code into HTML pages or even perform remote code ex
 
 The SSI handler on the webserver should not be activated when it is not used.
 ', 'SSI injections'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('7001',' Description:
+
+If the application allows the user to remain authenticated for a long period of time, for example "Stay logged in" functionality, which prolongs user session longer than the regular serverside timeouts, it increases the chance of an attacker to replay a valid session after successfully compromising the session. 
+
+
+ Solution:
+
+Implement periodical reauthentication both when actively used or after an idle period, making sure the session identifiers are also renewed.
+Level 1  30 days
+Level 2  12 hours or 30 minutes of inactivity, 2FA optional
+Level 3  12 hours or 15 minutes of inactivity, with 2FA
+', 'Reauthentication valid sessions'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('207',' Description:
 
 There should be extra care taken into account when you are dealing with PII(personal identifiable information) in your
@@ -19046,6 +19103,15 @@ Also, disable the opportunity for the application to load remote resources. This
 
 
 ', 'File inclusion attack'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('5100',' Description:
+
+In authentication, outofband refers to utilizing two separate networks or channels, one of which being different from the primary network or channel, simultaneously used to communicate between two parties or devices for identifying a user. A cellular network is commonly used for outofband authentication. An example of outofband authentication is when an online banking user is accessing their online bank account with a login and a one time password is sent to their mobile phone via SMS to identify them. The primary channel would be the online login screen where the user enters their login information and the second separate channel would be the cellular network. This added layer of security prevents the likelihood of hackers and malware from compromising access to the complete authentication process.
+
+
+ Solution:
+
+The most effective solution to eliminate the use of mediums such as unencrypted emails or VOIP and switch to more secure channels or implement mechanisms like mutual TLS authentication between the interacting parties where possible.
+', 'OOB Unencrypted'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('205',' Description:
 
 There are some techniques attackers use to decrease the entropy pool of the system so it will
@@ -19056,6 +19122,13 @@ create weak and predictable ''random'' numbers that should not be used in crypto
 Enforce in your application that random numbers are created with proper entropy even when the
 application is under heavy load, or that the application degrades gracefully in such circumstances.
 ', 'Enforce random numbers are created with proper entropy at runtime'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('1340',' Description:
+
+The application should always provide a logout functionality (triggerable by a visible button in the UI) to allow users to explicitly terminate their session.
+
+ Solution:
+
+The application has to provide a way to manage all active sessions (like the ones established from different devices or browsers) so that users can either selectively or completely log out all of their active sessions.', 'Logout Functionality'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('3',' Description:
 
 Every time the application gets userinput, whether this showing it on screen or processing
@@ -19490,6 +19563,14 @@ Create a section in the documentation of the project that defines the informatio
 that will be stored. This makes it easier to make estimations about critical parts
 of your application which deserve extra attention.
 ', 'The possible risks to the application must be documented'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('8001',' Description:
+
+Every password is hackable. Even the stronger ones, as well. The technique name is bruteforce. In case the attacker can do several of thousand login attempts to find out the proper password, then just matter of time and he/she will be successful.
+
+ Solution:
+
+It is recommended to employ different level of controls, like: rate limiting, CAPTCHA, increasing delays, IP address restrictions, locking accounts, riskbased restrictions. Verify that no more than 57 failed attempts is possible on a single account.
+', 'Lack of Bruteforce Protection'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('37',' Description:
 
 A hacker must not gain the ability to abuse an applications email functionality by
@@ -19733,6 +19814,15 @@ Or simply by setting contenttype headers by your serverside language,
 C example of a content type header:
 Response.AppendHeader("ContentType:text/html", "charset=UTF8");
 ', 'Incorrect or missing charset'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('7002',' Description:
+
+In case the user session is not terminated after a major user profile modification such as a role modification or password change, the user session and profile won''t be in the most updated state. If the user password is compromised, an attacker will be able to operate the application on behalf of the user while the session remains valid, even after the password is changed.
+
+
+ Solution:
+
+After a successful password change process, terminate all other active sessions, and this is effective across the application, federated login (if present) and any relying parties.
+', 'Change password session expiration'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('28',' Description:
 
 The error messages that are displayed when a user fails to login into an application
@@ -19901,6 +19991,15 @@ the CA may remove the certificate from its database. Typically, the revoked cert
 will remain in the CRL for one publication period after the certificate expires. By all
 times you should have this information in reach in order to take quick actions.
 ', 'Certificate paths revocation information'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('5101',' Description:
+
+The essential idea behind outofband authentication is that by using two different channels, authentication systems can guard against fraudulent users that may only have access to one of these channels. One of the most common examples of outofband authentication is in banking transactions. Typically, a customer wishing to do an online bank transaction will be sent an SMS message by cell phone with a password. This way, any hackers or identity thieves that have access through key loggers or other equipment will not be able to access that particular password, because it is sent over a 3G or 4G wireless network instead of being sent over the Internet.It is worthy to ensure the channel between the communicating parties is through a trusted and secure channel.
+
+
+ Solution:
+
+The most effective solution is to switch to a more secure channel and implement mechanisms like mutual TLS between the interacting parties where possible.
+', 'Secure OOB Channel'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('100',' Description:
 
 Whenever user supplied input is being handled into log viewing software, this software can be manipulated by potential attackers whenever this input is not properly being sanitized before outputting in the software. Depending on the context of where the supplied input is being used this could lead to an entire subset of attacks.
@@ -19914,6 +20013,15 @@ You should consider these three controls when supplying information to the log v
 
 Also verify that all nonprintable symbols and field separators are properly encoded in log entries, to prevent log injection.
 ', 'Log viewing software code injection'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('5002',' Description:
+
+PBKDF2, is a function for creating a cryptographic key from a password. The aim of the function is to create a key in such a way that dictionary attacks (where the attacker just tries a range of possible passwords) are unfeasible. To do this, PBKDF2 applies a pseudorandom function (PRF) to the password many times. Additionally, the function can be given a “salt” parameter to make each key derivation operation unique. A developer using PBKDF2 must carefully choose parameter values for the salt, the PRF, and the number of iterations, i.e. the number of times the PRF will be applied to the password when deriving the key.
+
+
+ Solution:
+
+A application developer using PBKDF2 should ensure the iteration count SHOULD be as large as verification server performance will allow, typically at least 100,000 iterations.
+', 'PBKDF2 Iteration Count'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('13',' Description:
 
 Uploaded files represent a significant risk to applications.
@@ -20272,6 +20380,18 @@ The mobile application should not leak sensitive information. This information c
  Create a custom window for whenever the application is shown in the ActivityManager, so it does not give away sensitive
   information.
 ', 'Protection against different exfiltration techniques'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('7003',' Description:
+
+The ''SameSite'' cookie attribute helps developers to control if a cookie can be sent along in requests initiated by thirdparty sites or crosssite requests, helping to prevent CrossSiteRequestForgery(CSRF) type of attacks.
+The attribute accepts 2 values: strict and lax.
+ strict: The cookie will NOT be transmitted within requests initiated by thirdparty sites, even if initiated by a GET request.
+ lax: The cookie will be sent along with GET request only if a Top Level Navigation occurs.
+
+
+ Solution:
+
+When creating a new cookie in browser, add the ''SameSite'' attribute.
+', 'Samesite cookie attribute'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('188',' Description:
 
 You should limit and keep track of all the different active concurrent sessions.
@@ -20435,6 +20555,15 @@ As a developer you have to assume that the data is forfeited as soon as it touch
 You also have to consider the implications of losing mobile users'' data to a silent 
 jailbreak or root exploit.
 ', 'Enforce sensitive information to be stored encrypted on device'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('7000',' Description:
+
+Once the user hits the logout button or is logged out by inacitivity, it''s expected the application terminates user''s session and expires session identifiers properly. However, there are situations in which the application simply redirects the user to the logon page. Also, the modern applications relies on client side storage, as cache files, browser session storage, cookies as IndexedDB which may contain session related and sensitive information. Yet, complex applications relying on singlesignon(SSO) mechanisms may leave the source application sesssion as open. In the described scenarios, one attacker accessing a shared computer or using an unattended computer can resume the session and operate the application on the user''s behalf.
+
+
+ Solution:
+
+Verify that absolute and timeout logout invalidates or erases any client or serverside session storage, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. Also, verify that session identifiers are expired and can''t be reused.
+', 'Logout session expiration'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('103',' Description:
 
 Failing TLS connections should always be logged. This is a great indicator that ''something'' is wrong.
@@ -20632,6 +20761,16 @@ misses a malicious input which could execute a successful attack on your applica
 All userinput should be validated whenever the userinput string is complete and is being
 processed by your application.
 ', 'Canonicalized user input'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('1341',' Description:
+
+The application should always generate session IDs with a sufficient level of entropy.
+The goal to use randomly generated values for tokens is that of preventing session collision or session hijacking. If an attacker can guess an authenticated user''s session identifier, he can take over the user''s session. Moreover, an attacker that breaks the algorithm logic behind the session IDs generation might be able to arbitrary craft valid session tokens for any user.
+
+
+ Solution:
+
+Verify that session tokens are created using approved cryptographic algorithms with more than 64 bits of entropy. As a Developer you should rely on functionalities provided by the framework. If not present, always refer to Secure Random Number functions provided by the programming language libraries.
+', 'Secure Generation of Session Tokens'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('161',' Description:
 
 When you are building an application you first want to map where you are placing
@@ -20736,6 +20875,15 @@ follows an HTTP link.
 
 
 ', 'Session cookies without the Secure flag'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('5102',' Description:
+
+If an application allows the user to attempt for outofband authentication after a set time interval, it increases the chance of an attacker to replay a valid outofband authentication key after successfully compromising the session.
+
+
+ Solution:
+
+The most effective solution is to reject out of band authentication attempts after 10 minutes and also ensure the outofband authentication key can be used only once.
+', 'OOB PIN Expiry'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('229',' Description:
 
 Whenever security logs can be modified by unauthorized users, potential attackers could use these
@@ -20822,6 +20970,15 @@ recommendations accordingly.
 
  
 ', 'Encrypt sensitive information different depending on context'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('5003',' Description:
+
+The attraction of bcrypt is that you can tune its work factor to counter increases in computing technology, so that it''s very slow to bruteforce compared to an MD5/SHA/CRC, all of which are extremely fast to compute. When bcrypt was introduced, the cost factor was 6 for normal users and 8 for super users. Chances are you’re just using the default bcrypt cost factor. Bcryptruby and most other implementations set this to 10, meaning 2¹⁰ key expansion rounds. With advances in computing technology, it is highly recommended to tune the work factor cost periodically to combat brute force attacks.
+
+
+ Solution:
+
+If a developer uses bcrypt, they should ensure the work factor SHOULD be as large as verification server performance will allow, typically at least 13.
+', 'bcrypt Work Factor'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('59',' Description:
 
 Applications should encourage the use of strong passwords and passphrases. Preferably the
@@ -20899,6 +21056,22 @@ correct manner. Recommended would be a whitelist of expected input or use a vali
 which for example only accepts alphanumeric values. Every detection of input which is out of
 the intended operation should be rejected.
 ', 'HTTP header injection'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('1338',' Description:
+
+Clientside storage (also known as offline storage or web storage) is a functionality provided by browsers to allow applications to save information on the user''s computer and retrieve them when necessary. 
+Since this operations are performed by clientside scripting languages (notably Javascript), this information can be retrieved by thirdparty codes included in the webpages or by Crosssite scripting attacks (XSS) performed by attackers.
+Moreover, attackers with local privileges on the user''s machine are able to access these storages and possibly compromise the session of the users.
+
+ Solution:
+
+Sensitive data (like session tokens or Personal Identifiable Information) should never be stored in clientside storages. 
+This means to carefully verify that the application never saves at any time this kind of information in:
+* Local Storage
+* Session Storage
+* Web SQL
+* Cache Storage
+* Application Cache
+* IndexDB', 'Sensitive Information Exposure in client Side Storage'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('133',' Description:
 
 With a log analysis tool in place, you can easily and quickly do forensics as soon as you
@@ -21221,6 +21394,15 @@ server is misconfigured.
 Verify that the application accepts only a defined set of HTTP request methods, such as
 GET and POST and unused methods are explicitly blocked/disabled.
 ', 'HTTP request methods'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('5001',' Description:
+
+For secure storage of passwords, it is recommended to hash the passwords with a unique salt. A salt is a nonsecret, unique value in the database which is appended (depending on the used algorithm) to the password before it gets hashed. A salt is used to prevent Rainbow Table lookups (an attack where you compute a table of hashes for passwords). The length of a salt is critical to ensure true randomness and entropy amongst the hashed password and prevent collusion.
+
+
+ Solution:
+
+Ensure the length of the salt is atleast 32bit, SHALL be generated by an approved random bit generator and chosen arbitrarily to minimize salt value collisions among stored hashes.
+', 'Password Hash Salt Length'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('69',' Description:
 
 Whenever the document root contains extraneous files, these files could be accessed by an
@@ -21274,6 +21456,15 @@ if(window!== window.top) { window.top.location = location; }
 Only for legacy browser support
 ```
 ', 'Sandboxing malicious code'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('8003',' Description:
+
+In case of web applications using only biometric authenticators, or using them at first place is not a security best practice.
+Asking and validating a data (like passwords) needs to be the first layer of the authentication part, and then the second place the biometric authenticators can be employed.  
+
+ Solution:
+
+Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something the user has and something the user knows.
+', 'Improper Two Factor Authenticators design'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('52',' Description:
 
 Whenever sensitive information is sent by unencrypted methods an attacker could intercept
@@ -21746,6 +21937,25 @@ may be delayed until the lastsigned OCSP response expires.
 For more detailed information about Specification, Deployment, and limitation visit:
 https://en.wikipedia.org/wiki/OCSP_stapling
 ', 'OCSP stapling'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('5000',' Description:
+
+Passwords stored locally are often vulnerable to offline attacks like dictionary attacks(list of commonly known passwords), bruteforce(permutation of all possible combinations) and rainbow tables(generate hashes upfront and do a look up for each hash). Since we belong to a generation of high speed computers performing these attacks is quite a trivial task for the attackers.
+
+
+ Solution:
+
+The most effective solution to eliminate offline attacks on password is to enforce the use of strong passwords and very prominently use industry recognized hashing algorithms with a salting mechanism. We hash passwords because in the event an attacker gets read access to our database, we do not want him to retrieve the passwords plain text. A salt is a nonsecret, unique value in the database which is appended (depending on the used algorithm) to the password before it gets hashed.
+
+Some of the well known hashing algorithms are as follows:
+
+MD5 (Crytographically Broken),
+SHA1 (Crytographically Broken),
+SHA2,
+SHA3,
+PBKDF2,
+bcrypt (defacto standard)
+and scrypt.
+', 'Offline Attacks on Passwords'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('166',' Description:
 
 As web applications become more advanced, an increasing amount of HTML is generated by
@@ -21805,6 +22015,51 @@ This is a system that monitors important operating system files and can verify w
 have been edited. Whenever these files are edited a four eyes principle must be applied that checks
 the integrity of these changes.
 ', 'Validate the integrity of all security relevant configurations'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('267',' Description
+
+Whenever user supplied input is embeded directly into a template when the application
+makes use of a templeating engine (jinja2, twig, Freemarker), a malicious attacker can inject 
+and execute template expressions. More often the injection of template expressions will ultimately 
+lead to RCE vulnerabilities.
+
+This type of vulnerability is also seen a lot through applications that let the user intentionally
+modify the template to provide users a more flexible way to style the applications pages like
+a wiki page or CMS system.
+
+ Solution
+
+User supplied input should never be used directly into a template that uses a templating engine.
+The following example is a small python flask function that renders user supplied input 
+as part of the template. This allows a malicious attacker to even execute arbitrary commands when.
+
+```
+  @app.errorhandler(404)
+  def page_not_found(e):
+      template = """
+  <html>
+  <p>{0}</p>
+  </html>
+
+  """.format(request.url)
+      return render_template_string(template), 404
+```
+
+The prefered way to add the user supplied input to this template would be:
+```
+  @app.errorhandler(404)
+  def page_not_found(e):
+    input = request.url
+    return render_template("errorpage.html", input = input), 404
+```    
+
+Wheras the content of the errorpage.html would look like
+
+```
+  <html>
+      <p>{{input}}</p>
+  </html>
+```
+', 'server side template injection'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('43',' Description:
 
 An application could implement authentication functionalities through JavaScript and HTML.
@@ -21853,6 +22108,48 @@ of abstraction and duplication.
 Make sure all your different type of security controls have a centralized place of implementation.
 Also verify that error handling logic in security controls denies access by default.
 ', 'centralized security controls'); 
+INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('266',' Description:
+
+Reverse tabnabbing is an attack where a page linked from the target page is able to rewrite that page, 
+for example to replace it with a phishing site. As the user was originally on the correct page they are 
+less likely to notice that it has been changed to a phishing site, especially it the site looks the same as the target. 
+If the user authenticates to this new page then their credentials (or other sensitive data) are sent to the phishing site 
+rather than the legitimate one.
+
+As well as the target site being able to overwrite the target page, any http link can be spoofed to overwrite the target 
+page if the user is on an unsecured network, for example a public wifi hotspot. The attack is possible even if the target 
+site is only available via https as the attacker only needs to spoof the http site that is being linked to.
+
+ Solution:
+
+To prevent this issue the following actions are available:
+
+Cut the back link between the parent and the child pages:
+  For html link:
+   * To cut this back link then add the attribute rel="noopener" on the 
+     tag used to create the link from the parent page to the child page. 
+     This attribute value cut the link but, depending on the browser, let referrer
+     information be present in the request to the child page.
+   * To remove also the referrer information then use this attribute value: rel="noopener noreferrer".
+  For javascript window.open function, add the values noopener,noreferrer in the windowFeatures parameter of the window.open function.
+
+As the behavior using the elements above is different between the browsers either using html 
+link or javascript to open a window (or tab) then use this configuration to maximize the cross supports:
+
+* For html link, add the attribute rel="noopener noreferrer" for every links.
+* For Javascript, use this function to open a window (or tab):
+
+  function openPopup(url, name, windowFeatures){
+    //Open the popup and set the opener and referrer policy instruction
+    var newWindow = window.open(url, name, ''noopener,noreferrer,'' + windowFeatures);
+    //Reset the opener link
+    newWindow.opener = null;
+  }
+  
+Add the HTTP response header ReferrerPolicy: noreferrer the every HTTP responses send by the application
+(Header ReferrerPolicy information). This configuration will ensure that no referrer information is sent 
+along with requests from page.
+', 'tabnabbing'); 
 INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('155',' Description:
 
 Whenever a user can submit a form in your system you should consider implementing

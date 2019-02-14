@@ -1,15 +1,21 @@
-import unittest
+import unittest, sys, time, skf
+from skf import settings
+from skf.db_tools import init_db, connect_db
+from skf.app import app
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
-import sys
-import time
 
-class DashboardClickThrough(unittest.TestCase):
+class SKFClickThrough(unittest.TestCase):
 
+    @classmethod
     def setUp(self):
+        self.client = app.test_client()
+        with app.app_context():
+            init_db(True)
+            settings.TESTING = True
         self.driver = webdriver.Chrome()
         driver = self.driver
         driver.get("http://localhost:4200")
@@ -19,47 +25,57 @@ class DashboardClickThrough(unittest.TestCase):
         password.send_keys("admin")
         password.send_keys(Keys.RETURN)
 
-    '''
+
+    """
     ////////////////////////////////////////////////////////////////////////////////////
     Test the dashboard icon links
     ////////////////////////////////////////////////////////////////////////////////////
-    '''
+    """
     
     def test_a_dashboard_icon_link_to_checklist(self):
+        """Test Dashboard Icon button to checklist"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-icon")))
         input.click()
         assert "Security checklists" in driver.page_source
 
+
     def test_b_dashboard_icon_link_to_project_list(self):
+        """Test Dashboard Icon button to projects"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.ID, "project-list-icon")))
         input.click()
         assert "All projects" in driver.page_source
 
+
     def test_c_dashboard_icon_link_to_code_example(self):
+        """Test Dashboard Icon button to code examples"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.ID, "code-examples-icon")))
         input.click()
         assert "Code examples" in driver.page_source
 
+
     def test_d_dashboard_icon_link_to_knowledge_base(self):
+        """Test Dashboard Icon button to knowledge base items"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.ID, "knowledgebase-icon")))
         input.click()
         assert "Knowledge Base" in driver.page_source
 
-    '''
+
+    """
     ////////////////////////////////////////////////////////////////////////////////////
     Test creating/deleting a checklist
     ////////////////////////////////////////////////////////////////////////////////////
-    '''
+    """
 
     def test_e_checklist_new_checklist_flow(self):
+        """Test manage checklist ad new checklist"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -77,7 +93,9 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "selenium-stored-checklist" in driver.page_source
     
+
     def test_f_checklist_delete_checklist_flow(self):
+        """Test manage checklist delete item"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -92,14 +110,16 @@ class DashboardClickThrough(unittest.TestCase):
         input.click()
         time.sleep(2)
         assert "selenium-stored-checklist" not in driver.page_source
-    
-    '''
+
+    """
     ////////////////////////////////////////////////////////////////////////////////////
     Test creating/deleting/updating checklist items
     ////////////////////////////////////////////////////////////////////////////////////
-    '''
+    """
+
 
     def test_g_test_back_button_create_checklist_items(self):
+        """Test manage checklist create new item's back button"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -115,7 +135,9 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Manage your checklists!" in driver.page_source
 
+
     def test_h_create_new_checklist_item_flow(self):
+        """Test manage checklist create new checklist item"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -158,7 +180,9 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Control content" in driver.page_source
     
+
     def test_i_update__checklist_item_flow(self):
+        """Test manage checklist update checklist item"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -182,7 +206,9 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Updated control content" in driver.page_source
     
+
     def test_j_delete__checklist_item_flow(self):
+        """Test manage checklist delete checklist item"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -207,13 +233,15 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Updated control content" not in driver.page_source
       
-    '''
+    """
     ////////////////////////////////////////////////////////////////////////////////////
     Test creating/deleting/updating pre-development questions
     ////////////////////////////////////////////////////////////////////////////////////
-    '''
+    """
+
 
     def test_k_add__pre_question_flow(self):
+        """Test manage checklist add new pre question"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -235,7 +263,9 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "selenium-added-question" in driver.page_source
     
+
     def test_l_update__pre_question_flow(self):
+        """Test manage checklist update pre question"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -260,7 +290,9 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "selenium-updated-question" in driver.page_source
     
+
     def test_m_delete__pre_question_flow(self):
+        """Test manage checklist delete pre question"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -287,13 +319,16 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "selenium-updated-question" not in driver.page_source  
 
-    '''
+
+    """
     ////////////////////////////////////////////////////////////////////////////////////
     Test correlating controls to pre-development questions
     ////////////////////////////////////////////////////////////////////////////////////
-    '''
+    """
+
 
     def test_n_correlate__pre_question_flow(self):
+        """Test manage checklist correlate pre question"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -314,7 +349,9 @@ class DashboardClickThrough(unittest.TestCase):
         compare = wait.until(EC.visibility_of_element_located((By.ID, "checklist-correlated0"))).text
         assert "1.1" in compare
 
+
     def test_o_test__pre_question_back_button(self):
+        """Test manage checklist pre question back button"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -330,12 +367,15 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Manage your checklists!" in driver.page_source
 
-    '''
+    """
     ////////////////////////////////////////////////////////////////////////////////////
     Test creating/deleting/updating post-development questions
     ////////////////////////////////////////////////////////////////////////////////////
-    '''
+    """
+
+
     def test_p_add__sprint_question_flow(self):
+        """Test manage checklist add new sprint question"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -357,7 +397,9 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "selenium-added-question" in driver.page_source
 
+
     def test_q_update__sprint_question_flow(self):
+        """Test manage checklist update sprint question"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -381,8 +423,10 @@ class DashboardClickThrough(unittest.TestCase):
         Select(driver.find_element_by_id('select-question'))
         time.sleep(2)
         assert "selenium-updated-question" in driver.page_source
-    
+
+
     def test_r_delete__sprint_question_flow(self):
+        """Test manage checklist delete sprint question"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -395,8 +439,7 @@ class DashboardClickThrough(unittest.TestCase):
         input.click()
         time.sleep(2)
         select = Select(driver.find_element_by_id('select-question'))
-        time.sleep(2)
-        select.select_by_visible_text('selenium-updated-question')
+        select.select_by_visible_text('test-question-sprint')
         input = wait.until(EC.visibility_of_element_located((By.ID, "delete-question-modal")))
         input.click()
         time.sleep(2)
@@ -405,16 +448,18 @@ class DashboardClickThrough(unittest.TestCase):
         input = wait.until(EC.visibility_of_element_located((By.ID, "delete-question")))
         input.click()
         time.sleep(2)
-        Select(driver.find_element_by_id('select-question'))
-        time.sleep(2)
-        assert "selenium-updated-question" not in driver.page_source  
+        assert "test-question-sprint" not in driver.page_source  
+
     
-    '''
+    """
     ////////////////////////////////////////////////////////////////////////////////////
     Test correlating controls to post-development questions
     ////////////////////////////////////////////////////////////////////////////////////
-    '''   
+    """   
+
+
     def test_s_correlate__sprint_question_flow(self):
+        """Test manage checklist correlate sprint question"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -435,7 +480,9 @@ class DashboardClickThrough(unittest.TestCase):
         compare = wait.until(EC.visibility_of_element_located((By.ID, "checklist-correlated0"))).text
         assert "1.1" in compare
 
+
     def test_t_test__sprint_question_back_button(self):
+        """Test manage checklist sprint question back button"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
@@ -451,8 +498,13 @@ class DashboardClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Manage your checklists!" in driver.page_source
     
+
+    @classmethod
     def tearDown(self):
         self.driver.close()
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     unittest.main()
+
+    
