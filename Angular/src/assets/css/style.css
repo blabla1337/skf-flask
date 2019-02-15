@@ -204,6 +204,15 @@ input:-moz-placeholder {
   -ms-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s;
 }
+
+#skipLoginMessage {
+  display: none;
+}
+
+.btn-theme04:hover + #skipLoginMessage {
+  display: block;
+}
+
 .dropdown-toggle {
   padding-right: 2em;
 }
