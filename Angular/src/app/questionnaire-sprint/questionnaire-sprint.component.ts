@@ -22,7 +22,7 @@ export class QuestionnaireSprintComponent implements OnInit {
   public idfromUrl: string;
   public questionID: number;
   public questionName: string;
-  public sprints: Question_post[];
+  public sprints: Question_post[] = [];
   public checklist: Checklist[];
   public correlatedChecklist: Checklist[];
   public error: string;

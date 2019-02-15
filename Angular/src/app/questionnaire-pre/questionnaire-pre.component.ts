@@ -22,7 +22,7 @@ export class QuestionnairePreComponent implements OnInit {
   public idfromUrl: string;
   public questionID: number;
   public questionName: string;
-  public pre_dev: Question_pre[];
+  public pre_dev: Question_pre[] = [];
   public checklist: Checklist[];
   public correlatedChecklist: Checklist[];
   public error: string;

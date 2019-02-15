@@ -30,12 +30,12 @@
 				Add item</button>
 		</div>
 	</section>
-	<div *ngIf="knowledgeitems.length == 0">
+	<div *ngIf="knowledgeitems.length === 0">
 		<ngb-alert [dismissible]="false">
 			<strong>Warning!</strong> No knowledgebase items included yet!
 		</ngb-alert>
 	</div>
-	<section *ngIf="knowledgeitems.length != 0" class="wrapper">
+	<section *ngIf="knowledgeitems.length > 0" class="wrapper">
 		<div class="srcWrap">
 			<div class="src">
 				<input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search vulnerability" />

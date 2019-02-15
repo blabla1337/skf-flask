@@ -49,24 +49,24 @@
               <div class="col-sm-12" style="margin-bottom:1.2%">
                 <button style="float:right; margin-left:0.2%; margin-bottom:0.5%" (click)="addQuestionModal(add)" class="btn btn-default" id="add-question-modal">Add
                   question</button>
-                <button *ngIf="sprints.length != 0" style="float:right; margin-left:0.2%; margin-bottom:0.5%" (click)="updateQuestionModal(update)"
+                <button *ngIf="sprints.length > 0" style="float:right; margin-left:0.2%; margin-bottom:0.5%" (click)="updateQuestionModal(update)"
                   class="btn btn-warning" id="update-question-modal">Update question</button>
-                <button *ngIf="sprints.length != 0" style="float:right; margin-left:0.2%; margin-bottom:0.5%" (click)="deleteQuestionModal(deletes)"
+                <button *ngIf="sprints.length > 0" style="float:right; margin-left:0.2%; margin-bottom:0.5%" (click)="deleteQuestionModal(deletes)"
                   class="btn btn-danger" id="delete-question-modal">Delete question</button>
 
-                <select *ngIf="sprints.length != 0" class="form-control" name="question" (change)="selectChecklistItems()"
+                <select *ngIf="sprints.length > 0" class="form-control" name="question" (change)="selectChecklistItems()"
                   [(ngModel)]="questionID" id="select-question">
                   <option selected [value]="selectUndefinedOptionValue">Select a question to edit</option>
                   <option *ngFor="let items of sprints; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
                 </select>
-                <div *ngIf="sprints.length != 0" class="wrap desc alert-info">
+                <div *ngIf="sprints.length > 0" class="wrap desc alert-info">
                   <div class="col-sm-10">Select the question you want to use from the dropdown</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div *ngIf="sprints.length != 0" class="col-md-6">
+          <div *ngIf="sprints.length > 0" class="col-md-6">
             <div class="card">
               <div class="card-header" style="text-align:center;">
                 Checklist total
@@ -81,7 +81,7 @@
             </div>
           </div>
 
-          <div *ngIf="sprints.length != 0" class="col-md-6">
+          <div *ngIf="sprints.length > 0" class="col-md-6">
             <div class="card">
               <div class="card-header" style="text-align:center;">
                 Checklist items correlated to selected question
@@ -180,7 +180,7 @@
       </div>
       <!-- /col-lg-4 -->
     </div>
-    <div *ngIf="sprints.length != 0" style="position:fixed; right:1%; bottom:1%">
+    <div *ngIf="sprints.length > 0" style="position:fixed; right:1%; bottom:1%">
       <button type="button" class="btn btn-success" (click)="gotoSection()">Back to top</button>
       <!-- content -->
     </div>

@@ -97,19 +97,20 @@ class SKFClickThrough(unittest.TestCase):
     def test_f_checklist_delete_checklist_flow(self):
         """Test manage checklist delete item"""
         driver = self.driver
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 10)     
         input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
         input.click()
-        input = wait.until(EC.element_to_be_clickable((By.ID, 'delete-checklist2')))
+        input = wait.until(EC.element_to_be_clickable((By.ID, 'delete-checklist1')))
         input.click()
+        time.sleep(2)        
         delete = driver.find_element_by_name("delete")
         delete.send_keys("DELETE")
         input = wait.until(EC.visibility_of_element_located((By.ID, "delete-checklist-finalized")))
         input.click()
         time.sleep(2)
-        assert "selenium-stored-checklist" not in driver.page_source
+        assert "filled-checklist-for-testing" not in driver.page_source
 
     """
     ////////////////////////////////////////////////////////////////////////////////////
@@ -180,7 +181,6 @@ class SKFClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Control content" in driver.page_source
     
-
     def test_i_update__checklist_item_flow(self):
         """Test manage checklist update checklist item"""
         driver = self.driver
@@ -189,7 +189,7 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
         input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-add-new-icon")))
         input.click()
@@ -207,6 +207,7 @@ class SKFClickThrough(unittest.TestCase):
         assert "Updated control content" in driver.page_source
     
 
+
     def test_j_delete__checklist_item_flow(self):
         """Test manage checklist delete checklist item"""
         driver = self.driver
@@ -215,7 +216,7 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
         input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-add-new-icon")))
         input.click()
@@ -272,13 +273,13 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
         input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-pre-icon")))
         input.click()
         time.sleep(2)
         select = Select(driver.find_element_by_id('select-question'))
-        select.select_by_visible_text('selenium-added-question')
+        select.select_by_visible_text('test-question-pre')
         input = wait.until(EC.visibility_of_element_located((By.ID, "update-question-modal")))
         input.click()
         content = driver.find_element_by_name("questionName")
@@ -299,14 +300,14 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
         input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-pre-icon")))
         input.click()
         time.sleep(2)
         select = Select(driver.find_element_by_id('select-question'))
         time.sleep(2)
-        select.select_by_visible_text('selenium-updated-question')
+        select.select_by_visible_text('test-question-pre')
         input = wait.until(EC.visibility_of_element_located((By.ID, "delete-question-modal")))
         input.click()
         time.sleep(2)
@@ -315,9 +316,7 @@ class SKFClickThrough(unittest.TestCase):
         input = wait.until(EC.visibility_of_element_located((By.ID, "delete-question")))
         input.click()
         time.sleep(2)
-        Select(driver.find_element_by_id('select-question'))
-        time.sleep(2)
-        assert "selenium-updated-question" not in driver.page_source  
+        assert "test-question-pre" not in driver.page_source  
 
 
     """
@@ -406,13 +405,13 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
         input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
+        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
         input.click()
         input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-sprint-icon")))
         input.click()
         time.sleep(2)
         select = Select(driver.find_element_by_id('select-question'))
-        select.select_by_visible_text('selenium-added-question')
+        select.select_by_visible_text('test-question-sprint')
         input = wait.until(EC.visibility_of_element_located((By.ID, "update-question-modal")))
         input.click()
         content = driver.find_element_by_name("questionName")
