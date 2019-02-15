@@ -1,4 +1,5 @@
 ## Description:
+
 A Credential Service Provider (or Federation) is an Identity Access Management entity that releases security tokens to users of specific services (called Relying Parties). As Single Sign On (SSO) do, it makes possible to authenticate the user to registered services without actually requiring them to login again for every application. However, a Federation is a broader concept because it links multiple Identity Providers (IdP) of different organizations or security domains through trust boundary connections (established via digital signature and encryption). 
 
 When deploying a Federation it is necessary to verify that the Credential Service Provider and Relying Parties handle the session management mechanisms in a secure way. 
