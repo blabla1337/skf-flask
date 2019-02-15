@@ -2027,6 +2027,7 @@ label {
 .table > thead > tr > th {
   color: #fff;
   background: #515594;
+  min-width: 7pc;
 }
 .table > thead > tr > th i {
   color: #fff;
