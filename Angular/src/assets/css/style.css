@@ -209,7 +209,7 @@ input:-moz-placeholder {
   display: none;
 }
 
-.btn-theme04:hover + #skipLoginMessage {
+#skipLoginMessage .btn-theme04:hover {
   display: block;
 }
 
