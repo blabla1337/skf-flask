@@ -54,7 +54,7 @@
                     <br />
                     <label for="inputVersion" class="col-sm-2 control-label">Title:</label>
                     <div class="col-sm-10">
-                      <input maxlength="120" [(ngModel)]="title" type="text" class="form-control" id="inputVersion"
+                      <input maxlength="120" [(ngModel)]="title" type="text" class="form-control" id="inputTitle"
                         name="title" placeholder="" value="{{title}}">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">knowledgebase item title</div>
@@ -62,7 +62,7 @@
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Content</label>
                     <div class="col-sm-10">
-                      <textarea required name="content" [(ngModel)]="content" type="text" class="form-control-kb rounded-0" id="exampleFormControlTextarea1" rows="10" id="inputVersion">{{content}}</textarea>
+                      <textarea required name="content" [(ngModel)]="content" type="text" class="form-control-kb rounded-0" id="exampleFormControlTextarea1" rows="10" id="inputContent">{{content}}</textarea>
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Description of the knowledgebase content</div>
                       </div>
@@ -70,7 +70,7 @@
                   </div>
                 </div>
                 <div style="margin-top:2%;padding-bottom:1.5%;padding-left:1.5%;">
-                  <button style="margin-right:1.5px; margin-left:1.5px; margin-top:2%" type="button" class="btn btn-warning"
+                  <button style="margin-right:1.5px; margin-left:1.5px; margin-top:2%" type="button" id="update-button" class="btn btn-warning"
                     (click)="updateKnowledgebaseItem();">Update</button>
                 </div>
               </form>

@@ -68,11 +68,11 @@ CREATE TABLE `kb_items` (
 `content` varchar(250) NOT NULL
 );
 
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #1", "test content kb item #1");
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #2", "test content kb item #2");
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #3", "test content kb item #3");
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #4", "test content kb item #4");
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #5", "test content kb item #5");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 1", "test content kb item 1");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 2", "test content kb item 2");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 3", "test content kb item 3");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 4", "test content kb item 4");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 5", "test content kb item 5");
 
 --
 -- Table structure for table `code_items`
@@ -84,6 +84,11 @@ CREATE TABLE `code_items` (
 `content` varchar(250) NOT NULL,
 `code_lang` varchar(250) NOT NULL
 );
+
+INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("php", "test php code item 1", "test php content code item 1");
+INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("php", "test php code item 2", "test php content code item 2");
+INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("asp", "test asp code item 1", "test asp content code item 1");
+INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("asp", "test asp code item 2", "test asp content code item 2");
 
 
 --

@@ -37,24 +37,24 @@
             </div>
             <div class="modal-body">
               <form method="post">
-                 <input [(ngModel)]="userID" maxlength="20" name="userID" placeholder="user ID" autocomplete="off" class="form-control placeholder-no-fix"
+                 <input [(ngModel)]="userID" maxlength="20" name="userID" id="userID" placeholder="user ID" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <br>
-                <input [(ngModel)]="accessToken" maxlength="20" name="token" placeholder="Access token" autocomplete="off" class="form-control placeholder-no-fix"
+                <input [(ngModel)]="accessToken" maxlength="20" name="token" id="token" placeholder="Access token" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <br>
-                <input [(ngModel)]="email" maxlength="50" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" />
+                <input [(ngModel)]="email" maxlength="50" name="email" id="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" />
                 <br>
-                <input [(ngModel)]="username" maxlength="20" name="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
+                <input [(ngModel)]="username" maxlength="20" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <br>
-                <input [(ngModel)]="password" maxlength="50" type="password" name="token" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"
+                <input [(ngModel)]="password" maxlength="50" type="password" name="password" id="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <br>
-                <input [(ngModel)]="repassword" maxlength="50" type="password" name="token" placeholder="Re-type password" autocomplete="off" class="form-control placeholder-no-fix"/>
+                <input [(ngModel)]="repassword" maxlength="50" type="password" name="repassword" id="repassword" placeholder="Re-type password" autocomplete="off" class="form-control placeholder-no-fix"/>
    
                 <div class="modal-footer centered">
-                  <button (click)="activateUser()" class="btn btn-theme03" type="submit">Create account</button>
+                  <button (click)="activateUser()" class="btn btn-theme03" id="create" type="submit">Create account</button>
                   <a href="#" routerLink="/login"> <button class="btn btn-theme03" type="submit">Cancel</button></a>
                 </div>
               </form>

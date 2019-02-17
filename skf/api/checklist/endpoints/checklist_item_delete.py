@@ -8,8 +8,8 @@ from skf.api.restplus import api
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
-@ns.route('/delete/item/<float:checklist_id>/type/<int:checklist_type>')
-@api.doc(params={'checklist_id': 'The unique identifier of the checklist item', 'checklist_type': 'The checklist type (1: ASVS, 2: MASVS, etc)'})
+@ns.route('/delete/item/<string:checklist_id>/type/<int:checklist_type>')
+@api.doc(params={'checklist_id': 'The unique identifier of the checklist item (2.1, 10.1.2 etc)', 'checklist_type': 'The checklist type (0: ASVS lvl1, 1: ASVS lvl2, 2: ASVS lvl3, 3: MASVS lvl1, etc)'})
 @api.response(404, 'Validation error', message)
 class ChecklistItemDelete(Resource):
     

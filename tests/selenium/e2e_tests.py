@@ -28,6 +28,197 @@ class SKFClickThrough(unittest.TestCase):
 
     """
     ////////////////////////////////////////////////////////////////////////////////////
+    Test user creation, granting and revoking
+    ////////////////////////////////////////////////////////////////////////////////////
+    """
+
+    def test_a_create_user(self):
+        """Test user create page"""
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "2")))
+        input.click()     
+        driver.find_element_by_link_text('Add users').click()
+        input.click()
+        kbTitle = driver.find_element_by_id("email")
+        kbTitle.send_keys("test@localhost")
+        time.sleep(1)
+        priv = Select(driver.find_element_by_name("privilegeSelected"))
+        priv.select_by_index(0)
+        time.sleep(1)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "createUser")))
+        input.click()
+        time.sleep(5)
+        assert "Authorization token" in driver.page_source
+
+
+    def test_a_first_login_user(self):
+        """Test user first login page"""
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "2")))
+        input.click()     
+        driver.find_element_by_link_text('Add users').click()
+        input.click()
+        kbTitle = driver.find_element_by_id("email")
+        kbTitle.send_keys("test@localhost")
+        time.sleep(1)
+        priv = Select(driver.find_element_by_name("privilegeSelected"))
+        priv.select_by_index(0)
+        time.sleep(1)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "createUser")))
+        input.click()
+        time.sleep(1)
+        raw_string = driver.find_element_by_xpath("//div[@class='alert alert-warning']/p").text
+        split_string = raw_string.split(" ")
+        user_id = split_string[6]
+        access_token = split_string[8]
+        input = wait.until(EC.visibility_of_element_located((By.ID, "user-profile")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "user-logout")))
+        input.click()        
+        time.sleep(2)
+        driver.find_element_by_link_text('first-login').click()
+        userID = driver.find_element_by_id("userID")
+        userID.send_keys(user_id)
+        token = driver.find_element_by_id("token")
+        token.send_keys(access_token)
+        email = driver.find_element_by_id("email")
+        email.send_keys("test@localhost")
+        username = driver.find_element_by_id("username")
+        username.send_keys("foobar")
+        password = driver.find_element_by_id("password")
+        password.send_keys("12345Pass")
+        repassword = driver.find_element_by_id("repassword")
+        repassword.send_keys("12345Pass")
+        input = wait.until(EC.visibility_of_element_located((By.ID, "create")))
+        input.click()
+        driver.get("http://localhost:4200")
+        username = driver.find_element_by_name("username")
+        password = driver.find_element_by_name("password")
+        username.send_keys("foobar")
+        password.send_keys("12345Pass")
+        password.send_keys(Keys.RETURN)
+        time.sleep(2)
+        assert "Projects" in driver.page_source
+
+
+    def test_a_revoke_user(self):
+        """Test user revoke page"""
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "2")))
+        input.click()     
+        driver.find_element_by_link_text('Manage users').click()
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "revoke-access0")))
+        input.click()
+        time.sleep(1)
+        revoke = driver.find_element_by_id("revoke")
+        revoke.send_keys("REVOKE")
+        input = wait.until(EC.visibility_of_element_located((By.ID, "submit")))
+        input.click()
+        time.sleep(1)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "user-profile")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "user-logout")))
+        input.click()        
+        time.sleep(2)
+        username = driver.find_element_by_name("username")
+        password = driver.find_element_by_name("password")
+        username.send_keys("admin")
+        password.send_keys("admin")
+        password.send_keys(Keys.RETURN)
+        time.sleep(2)
+        assert "Wrong username/password combination!" in driver.page_source
+
+    """
+    ////////////////////////////////////////////////////////////////////////////////////
+    Test knowledge base + code example search + update/add knowledge base item
+    ////////////////////////////////////////////////////////////////////////////////////
+    """
+
+    def test_a_code_example_search(self):
+        """Test search code example page"""
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "6")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "search")))
+        input.click()
+        searchKB = driver.find_element_by_name("search")
+        searchKB.send_keys("2")
+        driver.find_element_by_link_text('test php content code item 2').click()
+        input.click()
+        time.sleep(1)
+        assert "test php content code item 2" in driver.page_source
+
+
+    def test_a_knowledge_base_search(self):
+        """Test search knowledge base page"""
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "5")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "search")))
+        input.click()
+        searchKB = driver.find_element_by_name("search")
+        searchKB.send_keys("4")
+        driver.find_element_by_link_text('test title kb item 4').click()
+        input.click()
+        time.sleep(1)
+        assert "test content kb item 4" in driver.page_source
+
+
+    def test_a_update_knowledge_base_item(self):
+        """Test update knowledge base item page"""
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "5")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "search")))
+        input.click()
+        searchKB = driver.find_element_by_name("search")
+        searchKB.send_keys("4")
+        driver.find_element_by_link_text('test title kb item 4').click()
+        input.click()
+        time.sleep(1)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "update")))
+        input.click()
+        time.sleep(2)
+        kbTitle = driver.find_element_by_id("inputTitle")
+        kbTitle.send_keys(" update")
+        time.sleep(1)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "update-button")))
+        input.click()
+        time.sleep(2)
+        assert "test title kb item 4 update" in driver.page_source
+
+
+    def test_a_add_knowledge_base_item(self):
+        """Test add new knowledge base item page"""
+        driver = self.driver
+        wait = WebDriverWait(driver, 10)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "5")))
+        input.click()
+        input = wait.until(EC.visibility_of_element_located((By.ID, "add")))
+        input.click()
+        time.sleep(2)
+        kbTitle = driver.find_element_by_id("inputTitle")
+        kbTitle.send_keys("new kb item")
+        time.sleep(1)
+        kbContent = driver.find_element_by_id("inputContent")
+        kbContent.send_keys("new kb content")
+        time.sleep(1)
+        input = wait.until(EC.visibility_of_element_located((By.ID, "submit-button")))
+        input.click()
+        time.sleep(2)
+        assert "new kb item" in driver.page_source
+
+
+
+    """
+    ////////////////////////////////////////////////////////////////////////////////////
     Test the dashboard icon links
     ////////////////////////////////////////////////////////////////////////////////////
     """
@@ -181,6 +372,7 @@ class SKFClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Control content" in driver.page_source
     
+
     def test_i_update__checklist_item_flow(self):
         """Test manage checklist update checklist item"""
         driver = self.driver
@@ -206,7 +398,6 @@ class SKFClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Updated control content" in driver.page_source
     
-
 
     def test_j_delete__checklist_item_flow(self):
         """Test manage checklist delete checklist item"""
@@ -365,6 +556,7 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         time.sleep(2)
         assert "Manage your checklists!" in driver.page_source
+
 
     """
     ////////////////////////////////////////////////////////////////////////////////////

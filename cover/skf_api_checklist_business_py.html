@@ -30,8 +30,8 @@
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            128 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">127 run</span>
+            127 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">126 run</span>
             <span class="mis shortkey_m button_toggle_mis">1 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
@@ -183,17 +183,17 @@
 <p id="n114" class="stm run hide_run"><a href="#n114">114</a></p>
 <p id="n115" class="stm run hide_run"><a href="#n115">115</a></p>
 <p id="n116" class="stm run hide_run"><a href="#n116">116</a></p>
-<p id="n117" class="stm run hide_run"><a href="#n117">117</a></p>
+<p id="n117" class="pln"><a href="#n117">117</a></p>
 <p id="n118" class="pln"><a href="#n118">118</a></p>
-<p id="n119" class="pln"><a href="#n119">119</a></p>
+<p id="n119" class="stm run hide_run"><a href="#n119">119</a></p>
 <p id="n120" class="stm run hide_run"><a href="#n120">120</a></p>
 <p id="n121" class="stm run hide_run"><a href="#n121">121</a></p>
 <p id="n122" class="stm run hide_run"><a href="#n122">122</a></p>
 <p id="n123" class="stm run hide_run"><a href="#n123">123</a></p>
 <p id="n124" class="stm run hide_run"><a href="#n124">124</a></p>
-<p id="n125" class="stm run hide_run"><a href="#n125">125</a></p>
+<p id="n125" class="pln"><a href="#n125">125</a></p>
 <p id="n126" class="pln"><a href="#n126">126</a></p>
-<p id="n127" class="pln"><a href="#n127">127</a></p>
+<p id="n127" class="stm run hide_run"><a href="#n127">127</a></p>
 <p id="n128" class="stm run hide_run"><a href="#n128">128</a></p>
 <p id="n129" class="stm run hide_run"><a href="#n129">129</a></p>
 <p id="n130" class="stm run hide_run"><a href="#n130">130</a></p>
@@ -201,8 +201,8 @@
 <p id="n132" class="stm run hide_run"><a href="#n132">132</a></p>
 <p id="n133" class="stm run hide_run"><a href="#n133">133</a></p>
 <p id="n134" class="stm run hide_run"><a href="#n134">134</a></p>
-<p id="n135" class="stm run hide_run"><a href="#n135">135</a></p>
-<p id="n136" class="pln"><a href="#n136">136</a></p>
+<p id="n135" class="pln"><a href="#n135">135</a></p>
+<p id="n136" class="stm run hide_run"><a href="#n136">136</a></p>
 <p id="n137" class="stm run hide_run"><a href="#n137">137</a></p>
 <p id="n138" class="stm run hide_run"><a href="#n138">138</a></p>
 <p id="n139" class="stm run hide_run"><a href="#n139">139</a></p>
@@ -210,8 +210,8 @@
 <p id="n141" class="stm run hide_run"><a href="#n141">141</a></p>
 <p id="n142" class="stm run hide_run"><a href="#n142">142</a></p>
 <p id="n143" class="stm run hide_run"><a href="#n143">143</a></p>
-<p id="n144" class="stm run hide_run"><a href="#n144">144</a></p>
-<p id="n145" class="pln"><a href="#n145">145</a></p>
+<p id="n144" class="pln"><a href="#n144">144</a></p>
+<p id="n145" class="stm run hide_run"><a href="#n145">145</a></p>
 <p id="n146" class="stm run hide_run"><a href="#n146">146</a></p>
 <p id="n147" class="stm run hide_run"><a href="#n147">147</a></p>
 <p id="n148" class="stm run hide_run"><a href="#n148">148</a></p>
@@ -220,7 +220,6 @@
 <p id="n151" class="stm run hide_run"><a href="#n151">151</a></p>
 <p id="n152" class="stm run hide_run"><a href="#n152">152</a></p>
 <p id="n153" class="stm run hide_run"><a href="#n153">153</a></p>
-<p id="n154" class="stm run hide_run"><a href="#n154">154</a></p>
 
             </td>
             <td class="text">
@@ -334,50 +333,49 @@
 <p id="t108" class="stm run hide_run">    <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Checklist item successfully updated'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 <p id="t109" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t110" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t111" class="stm run hide_run"><span class="key">def</span> <span class="nam">delete_checklist_item</span><span class="op">(</span><span class="nam">checklist_id</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t111" class="stm run hide_run"><span class="key">def</span> <span class="nam">delete_checklist_item</span><span class="op">(</span><span class="nam">checklist_id</span><span class="op">,</span> <span class="nam">checklist_type</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t112" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User deleted checklist item"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t113" class="stm run hide_run">    <span class="nam">val_num</span><span class="op">(</span><span class="nam">checklist_id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t114" class="stm run hide_run">    <span class="nam">checklist</span> <span class="op">=</span> <span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">id</span> <span class="op">==</span> <span class="nam">checklist_id</span><span class="op">)</span><span class="op">.</span><span class="nam">one</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t115" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">delete</span><span class="op">(</span><span class="nam">checklist</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t116" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t117" class="stm run hide_run">    <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Checklist item successfully deleted'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t113" class="stm run hide_run">    <span class="nam">checklist</span> <span class="op">=</span> <span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="op">(</span><span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">checklistID</span> <span class="op">==</span> <span class="nam">checklist_id</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">checklist_type</span> <span class="op">==</span> <span class="nam">checklist_type</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">one</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t114" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">delete</span><span class="op">(</span><span class="nam">checklist</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t115" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t116" class="stm run hide_run">    <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Checklist item successfully deleted'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t117" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t118" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t119" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t120" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_checklist_items</span><span class="op">(</span><span class="nam">checklist_type</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t121" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of checklist items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t122" class="stm run hide_run">    <span class="nam">val_num</span><span class="op">(</span><span class="nam">checklist_type</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t123" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">checklist_type</span> <span class="op">==</span> <span class="nam">checklist_type</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">1500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t124" class="stm run hide_run">    <span class="nam">ordered</span> <span class="op">=</span> <span class="nam">order_checklist_items</span><span class="op">(</span><span class="nam">result</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t125" class="stm run hide_run">    <span class="key">return</span> <span class="nam">ordered</span><span class="strut">&nbsp;</span></p>
+<p id="t119" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_checklist_items</span><span class="op">(</span><span class="nam">checklist_type</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t120" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of checklist items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t121" class="stm run hide_run">    <span class="nam">val_num</span><span class="op">(</span><span class="nam">checklist_type</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t122" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_kb</span><span class="op">.</span><span class="nam">checklist_type</span> <span class="op">==</span> <span class="nam">checklist_type</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">1500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t123" class="stm run hide_run">    <span class="nam">ordered</span> <span class="op">=</span> <span class="nam">order_checklist_items</span><span class="op">(</span><span class="nam">result</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t124" class="stm run hide_run">    <span class="key">return</span> <span class="nam">ordered</span><span class="strut">&nbsp;</span></p>
+<p id="t125" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t126" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t127" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t128" class="stm run hide_run"><span class="key">def</span> <span class="nam">order_checklist_items</span><span class="op">(</span><span class="nam">checklist_items</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t129" class="stm run hide_run">    <span class="nam">ordered_checklist_items</span> <span class="op">=</span> <span class="op">[</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
-<p id="t130" class="stm run hide_run">    <span class="key">for</span> <span class="nam">item</span> <span class="key">in</span> <span class="nam">checklist_items</span><span class="op">.</span><span class="nam">items</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t131" class="stm run hide_run">        <span class="nam">numbers</span> <span class="op">=</span> <span class="nam">item</span><span class="op">.</span><span class="nam">checklistID</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'.'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t132" class="stm run hide_run">        <span class="nam">category</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">numbers</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t133" class="stm run hide_run">        <span class="nam">category_requirement</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">numbers</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t134" class="stm run hide_run">        <span class="key">if</span> <span class="op">(</span><span class="nam">len</span><span class="op">(</span><span class="nam">ordered_checklist_items</span><span class="op">)</span> <span class="op">==</span> <span class="num">0</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t135" class="stm run hide_run">            <span class="nam">ordered_checklist_items</span><span class="op">.</span><span class="nam">append</span><span class="op">(</span><span class="nam">item</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t136" class="pln">        <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t137" class="stm run hide_run">            <span class="nam">y</span> <span class="op">=</span> <span class="num">0</span><span class="strut">&nbsp;</span></p>
-<p id="t138" class="stm run hide_run">            <span class="key">while</span> <span class="nam">y</span> <span class="op">&lt;</span> <span class="nam">len</span><span class="op">(</span><span class="nam">ordered_checklist_items</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t139" class="stm run hide_run">                <span class="nam">numbers_ordered</span> <span class="op">=</span> <span class="nam">ordered_checklist_items</span><span class="op">[</span><span class="nam">y</span><span class="op">]</span><span class="op">.</span><span class="nam">checklistID</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'.'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t140" class="stm run hide_run">                <span class="nam">category_ordered</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">numbers_ordered</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t141" class="stm run hide_run">                <span class="nam">category_requirement_ordered</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">numbers_ordered</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t142" class="stm run hide_run">                <span class="key">if</span> <span class="op">(</span><span class="nam">category</span> <span class="op">&lt;</span> <span class="nam">category_ordered</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t143" class="stm run hide_run">                    <span class="nam">ordered_checklist_items</span><span class="op">.</span><span class="nam">insert</span><span class="op">(</span><span class="nam">y</span><span class="op">,</span> <span class="nam">item</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t144" class="stm run hide_run">                    <span class="key">break</span><span class="strut">&nbsp;</span></p>
-<p id="t145" class="pln">                <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t146" class="stm run hide_run">                    <span class="key">if</span> <span class="op">(</span><span class="nam">category</span> <span class="op">==</span> <span class="nam">category_ordered</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t147" class="stm run hide_run">                        <span class="key">if</span> <span class="op">(</span><span class="nam">category_requirement</span> <span class="op">&lt;</span> <span class="nam">category_requirement_ordered</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t148" class="stm run hide_run">                            <span class="nam">ordered_checklist_items</span><span class="op">.</span><span class="nam">insert</span><span class="op">(</span><span class="nam">y</span><span class="op">,</span> <span class="nam">item</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t149" class="stm run hide_run">                            <span class="key">break</span><span class="strut">&nbsp;</span></p>
-<p id="t150" class="stm run hide_run">                <span class="nam">y</span> <span class="op">=</span> <span class="nam">y</span> <span class="op">+</span> <span class="num">1</span><span class="strut">&nbsp;</span></p>
-<p id="t151" class="stm run hide_run">            <span class="key">if</span> <span class="op">(</span><span class="nam">y</span> <span class="op">==</span> <span class="nam">len</span><span class="op">(</span><span class="nam">ordered_checklist_items</span><span class="op">)</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t152" class="stm run hide_run">                <span class="nam">ordered_checklist_items</span><span class="op">.</span><span class="nam">insert</span><span class="op">(</span><span class="nam">y</span><span class="op">,</span> <span class="nam">item</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t153" class="stm run hide_run">            <span class="nam">checklist_items</span><span class="op">.</span><span class="nam">items</span> <span class="op">=</span> <span class="nam">ordered_checklist_items</span><span class="strut">&nbsp;</span></p>
-<p id="t154" class="stm run hide_run">    <span class="key">return</span> <span class="nam">checklist_items</span><span class="strut">&nbsp;</span></p>
+<p id="t127" class="stm run hide_run"><span class="key">def</span> <span class="nam">order_checklist_items</span><span class="op">(</span><span class="nam">checklist_items</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t128" class="stm run hide_run">    <span class="nam">ordered_checklist_items</span> <span class="op">=</span> <span class="op">[</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t129" class="stm run hide_run">    <span class="key">for</span> <span class="nam">item</span> <span class="key">in</span> <span class="nam">checklist_items</span><span class="op">.</span><span class="nam">items</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t130" class="stm run hide_run">        <span class="nam">numbers</span> <span class="op">=</span> <span class="nam">item</span><span class="op">.</span><span class="nam">checklistID</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'.'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t131" class="stm run hide_run">        <span class="nam">category</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">numbers</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t132" class="stm run hide_run">        <span class="nam">category_requirement</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">numbers</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t133" class="stm run hide_run">        <span class="key">if</span> <span class="op">(</span><span class="nam">len</span><span class="op">(</span><span class="nam">ordered_checklist_items</span><span class="op">)</span> <span class="op">==</span> <span class="num">0</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t134" class="stm run hide_run">            <span class="nam">ordered_checklist_items</span><span class="op">.</span><span class="nam">append</span><span class="op">(</span><span class="nam">item</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t135" class="pln">        <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t136" class="stm run hide_run">            <span class="nam">y</span> <span class="op">=</span> <span class="num">0</span><span class="strut">&nbsp;</span></p>
+<p id="t137" class="stm run hide_run">            <span class="key">while</span> <span class="nam">y</span> <span class="op">&lt;</span> <span class="nam">len</span><span class="op">(</span><span class="nam">ordered_checklist_items</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t138" class="stm run hide_run">                <span class="nam">numbers_ordered</span> <span class="op">=</span> <span class="nam">ordered_checklist_items</span><span class="op">[</span><span class="nam">y</span><span class="op">]</span><span class="op">.</span><span class="nam">checklistID</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="str">'.'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t139" class="stm run hide_run">                <span class="nam">category_ordered</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">numbers_ordered</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t140" class="stm run hide_run">                <span class="nam">category_requirement_ordered</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">numbers_ordered</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t141" class="stm run hide_run">                <span class="key">if</span> <span class="op">(</span><span class="nam">category</span> <span class="op">&lt;</span> <span class="nam">category_ordered</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t142" class="stm run hide_run">                    <span class="nam">ordered_checklist_items</span><span class="op">.</span><span class="nam">insert</span><span class="op">(</span><span class="nam">y</span><span class="op">,</span> <span class="nam">item</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t143" class="stm run hide_run">                    <span class="key">break</span><span class="strut">&nbsp;</span></p>
+<p id="t144" class="pln">                <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t145" class="stm run hide_run">                    <span class="key">if</span> <span class="op">(</span><span class="nam">category</span> <span class="op">==</span> <span class="nam">category_ordered</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t146" class="stm run hide_run">                        <span class="key">if</span> <span class="op">(</span><span class="nam">category_requirement</span> <span class="op">&lt;</span> <span class="nam">category_requirement_ordered</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t147" class="stm run hide_run">                            <span class="nam">ordered_checklist_items</span><span class="op">.</span><span class="nam">insert</span><span class="op">(</span><span class="nam">y</span><span class="op">,</span> <span class="nam">item</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t148" class="stm run hide_run">                            <span class="key">break</span><span class="strut">&nbsp;</span></p>
+<p id="t149" class="stm run hide_run">                <span class="nam">y</span> <span class="op">=</span> <span class="nam">y</span> <span class="op">+</span> <span class="num">1</span><span class="strut">&nbsp;</span></p>
+<p id="t150" class="stm run hide_run">            <span class="key">if</span> <span class="op">(</span><span class="nam">y</span> <span class="op">==</span> <span class="nam">len</span><span class="op">(</span><span class="nam">ordered_checklist_items</span><span class="op">)</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t151" class="stm run hide_run">                <span class="nam">ordered_checklist_items</span><span class="op">.</span><span class="nam">insert</span><span class="op">(</span><span class="nam">y</span><span class="op">,</span> <span class="nam">item</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t152" class="stm run hide_run">            <span class="nam">checklist_items</span><span class="op">.</span><span class="nam">items</span> <span class="op">=</span> <span class="nam">ordered_checklist_items</span><span class="strut">&nbsp;</span></p>
+<p id="t153" class="stm run hide_run">    <span class="key">return</span> <span class="nam">checklist_items</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -388,7 +386,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2018-12-27 15:30
+            created at 2019-02-16 18:18
         </p>
     </div>
 </div>

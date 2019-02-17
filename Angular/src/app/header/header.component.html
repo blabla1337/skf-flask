@@ -51,14 +51,14 @@
 
             <div class="row" class="btn-group theme-container animated">
                 <div ngbDropdown>
-                    <button class="btn btn-default dropdown-toggle user" id="dropdownBasic2" ngbDropdownToggle>
+                    <button class="btn btn-default dropdown-toggle user" id="user-profile" ngbDropdownToggle>
                         <span class="image"><img src="/assets/img/placeholder-male.jpg" alt="Placeholder" width="250" height="250" /> </span>
                         <span class="name">
                             {{user}}
                         </span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownBasic2">
-                        <button (click)="LogOff()" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</button>
+                        <button (click)="LogOff()" class="dropdown-item" id="user-logout"><i class="fa fa-power-off"></i> Logout</button>
                     </div>
                 </div>
             </div>

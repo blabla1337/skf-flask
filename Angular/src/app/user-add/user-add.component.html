@@ -52,7 +52,7 @@
               <div class="wrap">
                 <label for="inputmail" class="col-sm-2 control-label">E-Mail</label>
                 <div class="col-sm-10">
-                    <input required [(ngModel)]="email" type="text" class="form-control" id="inputVersion" name="Version" value="1.2" placeholder="example@owasp.org">
+                    <input required [(ngModel)]="email" type="text" class="form-control" id="email" name="email" placeholder="example@owasp.org">
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Please enter a valid E-Mail address</div>
                     </div>
@@ -87,7 +87,7 @@
             </div>
             -->
             <div class="buttons">
-              <button (click)="save()" id="projectFormSubmit" value="Create user" class="btn btn-default">Create user</button>
+              <button (click)="save()" id="createUser" value="Create user" class="btn btn-default">Create user</button>
             </div>
           </form>
         </div>
