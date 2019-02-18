@@ -36,6 +36,7 @@ export class ChecklistAddNewComponent implements OnInit {
   public return: boolean;
   public delete:string;
   public succes: string;
+  public cwe: string;
   public canEdit: boolean;
   public knowledgebaseID: number;
   public checklist: Checklist[]
@@ -209,5 +210,6 @@ export class ChecklistAddNewComponent implements OnInit {
     };
     this.include_first = null;
     this.include_always = null;
+    this.cwe = null;
   }
 }

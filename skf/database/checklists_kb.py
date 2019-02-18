@@ -13,8 +13,9 @@ class checklists_kb(db.Model):
     kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
     kb_items = db.relationship("kb_items", foreign_keys=[kbID])
     checklist_type = db.Column(db.Integer)
+    cwe = db.Column(db.Integer)
 
-    def __init__(self, checklistID, content, kbID, checklist_type, include_always,include_first, question_pre_ID, question_sprint_ID):
+    def __init__(self, checklistID, content, kbID, checklist_type, include_always,include_first, question_pre_ID, question_sprint_ID, cwe):
         self.question_pre_ID = question_pre_ID
         self.question_sprint_ID = question_sprint_ID
         self.include_always = include_always
@@ -23,4 +24,4 @@ class checklists_kb(db.Model):
         self.checklist_type = checklist_type
         self.content = content
         self.kbID = kbID
-        
+        self.cwe = cwe        

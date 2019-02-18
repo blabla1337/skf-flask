@@ -39,6 +39,7 @@ export class ChecklistEditComponent implements OnInit {
   public return: boolean;
   public delete: string;
   public succes: string;
+  public cwe: string;
   public canEdit: boolean;
   public knowledgebaseID: number;
   public checklist: Checklist[];
@@ -169,6 +170,8 @@ export class ChecklistEditComponent implements OnInit {
           this.checklistID = checklist['checklist_items_checklistID'];
           this.include_always = checklist['include_always'];
           this.include_first = checklist['include_first'];
+          this.cwe = checklist['cwe'];
+
           this.kbItem = {
             "kbID": checklist['kb_item_id'],
             "title": checklist['kb_item_title']
