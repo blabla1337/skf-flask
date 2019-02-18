@@ -9,7 +9,8 @@ export class Checklist {
   codeID_asp?: string,
   codeID_java?: string,
   codeID_php?: string,
-  codeID_python?: string
+  codeID_python?: string,
+  cwe?: number
   ){}
 }
 

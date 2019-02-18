@@ -268,10 +268,11 @@ CREATE TABLE `checklists_kb` (
 `kbID` int(11),
 `include_always` varchar(5),
 `include_first` varchar(5),
-`checklist_type` int(11)
+`checklist_type` int(11),
+`cwe` int(11)
 ); 
 
-INSERT OR REPLACE INTO `checklists_kb` VALUES (1,'1.1','test content checklist item 1',0,2,1,'True','False',2);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (2,'1.2','test content checklist item 2',0,0,2,'False','False',2);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (3,'1.3','test content checklist item 3',2,0,3,'false','true',2);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (4,'1.4','test content checklist item 4',0,2,3,'false','false',2);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (1,'1.1','test content checklist item 1',0,2,1,'True','False',2, 123);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (2,'1.2','test content checklist item 2',0,0,2,'False','False',2, 124);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (3,'1.3','test content checklist item 3',2,0,3,'false','true',2, 125);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (4,'1.4','test content checklist item 4',0,2,3,'false','false',2, 126);

@@ -36,7 +36,7 @@ export class ChecklistAddNewComponent implements OnInit {
   public return: boolean;
   public delete:string;
   public succes: string;
-  public cwe: string;
+  public cwe: number;
   public canEdit: boolean;
   public knowledgebaseID: number;
   public checklist: Checklist[]
@@ -123,7 +123,7 @@ export class ChecklistAddNewComponent implements OnInit {
       return;
     }
 
-    this._checklistService.newChecklistItem(Number(this.checklistTypeFromUrl), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, this.include_first, Number(this.questionSprint.id), Number(this.questionPre.id))
+    this._checklistService.newChecklistItem(Number(this.checklistTypeFromUrl), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, this.include_first, Number(this.questionSprint.id), Number(this.questionPre.id), Number(this.cwe))
       .subscribe(
         () => this.getChecklistList(),
         () => this.errors.push("Error storing checklist item, potential duplicate checklist ID")

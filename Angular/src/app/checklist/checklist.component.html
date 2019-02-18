@@ -136,6 +136,11 @@
 										<br/>
 										{{item.kb_items_content}}
 									</p>
+										<div *ngIf="item.cwe > 0">
+											<ngb-alert [dismissible]="false">
+												<strong><a href="https://cwe.mitre.org/data/definitions/{{item.cwe}}.html" target="_blank" rel="noopener noreferrer">CWE {{item.cwe}}</a></strong>
+											</ngb-alert>
+										</div>
 								</ng-template>
 							</ngb-panel>
 						</ngb-accordion>

@@ -14,6 +14,7 @@ checklist = api.model('checklists_kb', {
     'include_first': fields.String(attribute='include_first',required=True, description='Only include this checklist item first time'),
     'question_sprint_ID': fields.Integer(attribute='question_sprint_ID',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'question_pre_ID': fields.Integer(attribute='question_pre_ID',required=True, description='The pre question unique identifier this checklist belongs to'),
+    'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
 })
 
 checklist_items = api.inherit('List of checklist items', {
