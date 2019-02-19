@@ -50,7 +50,8 @@
             </div>
             
             <div class="row" *ngIf="skipLogin" class="btn-group theme-container animated">
-                <button class="btn btn-default user" (click)="logIn()"><i class="fa"></i>Login</button>
+                <span class="glyphicon glyphicon-user"></span>
+                <button class="btn btn-default" (click)="logIn()">Login</button>
             </div>
 
             <div class="row" *ngIf="isLoggedin" class="btn-group theme-container animated">
