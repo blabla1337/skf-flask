@@ -208,7 +208,8 @@ input:-moz-placeholder {
 #skipLoginMessage {
   text-align: left;
   font-size: 11px;
-  margin: 5px; 
+  margin-bottom: 5px; 
+  margin-left: 5px; 
 }
 
 .dropdown-toggle {
