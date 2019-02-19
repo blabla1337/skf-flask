@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -30,15 +30,15 @@
 				Add item</button>
 		</div>
 	</section>
-	<div *ngIf="knowledgeitems.length == 0">
+	<div *ngIf="knowledgeitems.length === 0">
 		<ngb-alert [dismissible]="false">
 			<strong>Warning!</strong> No knowledgebase items included yet!
 		</ngb-alert>
 	</div>
-	<section *ngIf="knowledgeitems.length != 0" class="wrapper">
+	<section *ngIf="knowledgeitems.length > 0" class="wrapper">
 		<div class="srcWrap">
 			<div class="src">
-				<input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search vulnerability" />
+				<input class="searchinput" [(ngModel)]="queryString" id="search" name="search" placeholder="Search vulnerability" />
 				<i class="fa fa-search"></i>
 			</div>
 		</div>
@@ -81,7 +81,7 @@
 							<div class="wrap">
 								<label for="inputVersion" class="col-sm-2 control-label">Title</label>
 								<div class="col-sm-10">
-									<input required maxlength="120" [(ngModel)]="title" type="text" class="form-control" id="inputVersion"
+									<input required maxlength="120" [(ngModel)]="title" type="text" class="form-control" id="inputTitle"
 									 name="title" placeholder="">
 									<div class="wrap desc alert-info">
 										<div class="col-sm-10">The title of your fresh new knowledgebase item!</div>
@@ -89,8 +89,7 @@
 								</div>
 								<label for="inputVersion" class="col-sm-2 control-label">Content</label>
 								<div class="col-sm-10">
-									<textarea required [(ngModel)]="content" type="text" class="form-control" id="inputVersion"
-									 name="content" placeholder=""> </textarea>
+									<textarea required [(ngModel)]="content" type="text" class="form-control-kb" id="inputContent" rows="10" name="content" placeholder=""> </textarea>
 									<div class="wrap desc alert-info">
 										<div class="col-sm-10">Provide description, solution and test cases!</div>
 									</div>
@@ -100,7 +99,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-						<button type="button" class="btn btn-success" (click)="storeKnowledgebaseItem()" (click)="c('Close click')">Submit</button>
+						<button type="button" class="btn btn-success" id="submit-button" (click)="storeKnowledgebaseItem()" (click)="c('Close click')">Submit</button>
 					</div>
 				</ng-template>
 			</form>

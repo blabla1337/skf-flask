@@ -16,18 +16,25 @@ def connect_db():
     return rv
 
 
-def init_db():
+def init_db(testing=False):
     """Initializes the database.""" 
-    os.remove(os.path.join(app.root_path, settings.DATABASE))
-    open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a')
-    os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
-    copyfile(os.path.join(app.root_path, "schema.sql"), os.path.join(app.root_path, 'db.sqlite_schema'))
-    init_md_code_examples()
-    init_md_knowledge_base()
-    db = connect_db()
-    with app.open_resource(os.path.join(app.root_path, 'db.sqlite_schema'), mode='r') as f:
-        db.cursor().executescript(f.read())
-    db.commit()
+    if testing == True:
+        db = connect_db()
+        print(app.root_path)
+        with app.open_resource(os.path.join(app.root_path, '../tests/selenium/clean-test.sql'), mode='r') as f:
+            db.cursor().executescript(f.read())
+        db.commit()
+    else:
+        os.remove(os.path.join(app.root_path, settings.DATABASE))
+        open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a')
+        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
+        copyfile(os.path.join(app.root_path, "schema.sql"), os.path.join(app.root_path, 'db.sqlite_schema'))
+        init_md_code_examples()
+        init_md_knowledge_base()
+        db = connect_db()
+        with app.open_resource(os.path.join(app.root_path, 'db.sqlite_schema'), mode='r') as f:
+            db.cursor().executescript(f.read())
+        db.commit()
 
 
 def update_db():

@@ -19,7 +19,7 @@ def create_kb_item(data):
     log("User requested creating a new kb item", "LOW", "PASS")
     content = data.get('content')
     title = data.get('title')
-    result = kb_items(content, title)
+    result = kb_items(title,content)
     db.session.add(result)
     db.session.commit()
     return {'message': 'KB item successfully created'} 

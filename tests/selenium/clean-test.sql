@@ -68,11 +68,11 @@ CREATE TABLE `kb_items` (
 `content` varchar(250) NOT NULL
 );
 
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #1", "test content kb item #1");
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #2", "test content kb item #2");
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #3", "test content kb item #3");
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #4", "test content kb item #4");
-INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item #5", "test content kb item #5");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 1", "test content kb item 1");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 2", "test content kb item 2");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 3", "test content kb item 3");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 4", "test content kb item 4");
+INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb item 5", "test content kb item 5");
 
 --
 -- Table structure for table `code_items`
@@ -84,6 +84,11 @@ CREATE TABLE `code_items` (
 `content` varchar(250) NOT NULL,
 `code_lang` varchar(250) NOT NULL
 );
+
+INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("php", "test php code item 1", "test php content code item 1");
+INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("php", "test php code item 2", "test php content code item 2");
+INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("asp", "test asp code item 1", "test asp content code item 1");
+INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("asp", "test asp code item 2", "test asp content code item 2");
 
 
 --
@@ -263,10 +268,11 @@ CREATE TABLE `checklists_kb` (
 `kbID` int(11),
 `include_always` varchar(5),
 `include_first` varchar(5),
-`checklist_type` int(11)
+`checklist_type` int(11),
+`cwe` int(11)
 ); 
 
-INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.1", "test content checklist item #1", '2', '0', '1', 'false', 'false', '2');
-INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.2", "test content checklist item #2", '0', '0', '2', 'true', 'false', '2');
-INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.3", "test content checklist item #3", '0', '0', '3', 'false', 'true', '2');
-INSERT OR REPLACE INTO `checklists_kb` ( `checklistID`, `content`, `question_sprint_ID`, `question_pre_ID`, `kbID`, `include_always`, `include_first`, `checklist_type`) VALUES ( "1.4", "test content checklist item #4", '0', '2', '3', 'false', 'false', '2');
+INSERT OR REPLACE INTO `checklists_kb` VALUES (1,'1.1','test content checklist item 1',0,2,1,'True','False',2, 123);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (2,'1.2','test content checklist item 2',0,0,2,'False','False',2, 124);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (3,'1.3','test content checklist item 3',2,0,3,'false','true',2, 125);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (4,'1.4','test content checklist item 4',0,2,3,'false','false',2, 126);

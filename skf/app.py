@@ -3,7 +3,7 @@
     Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples
     and helps developers in pre-development & post-development.
-    Copyright (C) 2018 Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019 Glenn ten Cate, Riccardo ten Cate
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
@@ -147,8 +147,6 @@ def updatedb_command():
 def main():
     """Main SKF method"""
     initialize_app(app)
-
-    print(app.debug)
     if app.debug == False:
         if  settings.JWT_SECRET == '':
             log.info('>>>>> Configure the JWT_SECRET in the settings.py file and choose an unique 128 character long secret <<<<<')

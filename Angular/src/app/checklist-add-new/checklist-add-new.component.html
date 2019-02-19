@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -63,6 +63,7 @@
                         <th style="background-color:white;color:black">Kb item</th>
                         <th style="background-color:white;color:black">Include first</th>
                         <th style="background-color:white;color:black">Include always</th>
+                        <th style="background-color:white;color:black">CWE</th>
                         <th style="background-color:white;color:black">Edit</th>
                       </tr>
                     </thead>
@@ -85,6 +86,7 @@
                         <td><button type="button" class="btn btn-theme03" placement="top" ngbTooltip="{{item.kb_item_title}}">show</button></td>
                         <td>{{item.include_first}}</td>
                         <td>{{item.include_always}}</td>
+                        <td>{{item.cwe}}</td>
                         <td>
                           <a [routerLink]="['/checklist-edit', item.checklist_items_checklistID]">
                             <button class="btn btn-success btn-xs">
@@ -120,7 +122,7 @@
                     <input required maxlength="120" [(ngModel)]="checklistID" type="text" class="form-control" id="inputVersion"
                       name="checklistID" placeholder="">
                     <div class="wrap desc alert-info">
-                      <div class="col-sm-10">e.g. 1.1, 1.2 etc</div>
+                      <div class="col-sm-10">e.g. 1.0, 1.1 etc</div>
                     </div>
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Checklist title *</label>
@@ -133,41 +135,24 @@
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">KB item *</label>
                   <div class="col-sm-10">
-                    <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" [(ngModel)]="kbItem" name="kbID">
+                    <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" [(ngModel)]="kbItem" id="select-knowledge-base-item" name="KBitem">
                     </ng-select>
-                    <!--<select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1">
-                      <option selected [value]="selectUndefinedOptionValue">Select a knowledgebase item</option>
-                      <option value="0">Use this item as a header!</option>
-                      <option *ngFor="let items of knowledgebaseItems; let myIndex = index" value="{{items.kbID}}">{{items.title}}</option>
-                    </select>-->
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Select the knowledgebase item that correlates with this checklist item</div>
                     </div>
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Pre questionnaire</label>
                   <div class="col-sm-10">
-                    <ng-select [items]="pre_dev" bindLabel="question" placeholder="Select Pre Questionnaire" [(ngModel)]="questionPre" name="questionPreItem">
+                    <ng-select [items]="pre_dev" bindLabel="question" placeholder="Select Pre Questionnaire" [(ngModel)]="questionPre" id="select-question-pre-id" name="questionPreItem">
                     </ng-select>
-                   <!-- <select class="form-control" name="question_pre_ID" [(ngModel)]="question_pre_ID" id="sel1">
-                      <option selected [value]="selectUndefinedOptionValue">Select pre question (select empty to
-                        not include)</option>
-                      <option value="">empty</option>
-                      <option *ngFor="let items of pre_dev; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
-                    </select>-->
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Correlate the checklist item with a pre questionnaire</div>
                     </div>
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Sprint Questionnaire</label>
                   <div class="col-sm-10">
-                    <ng-select [items]="sprints" bindLabel="question" placeholder="Select Sprint Questionnaire" [(ngModel)]="questionSprint" name="questionSprintItem">
+                    <ng-select [items]="sprints" bindLabel="question" placeholder="Select Sprint Questionnaire" [(ngModel)]="questionSprint" id="select-question-sprint-id" name="questionSprintItem">
                     </ng-select>
-                   <!-- <select class="form-control" name="question_sprint_ID" [(ngModel)]="question_sprint_ID" id="sel1">
-                      <option selected [value]="selectUndefinedOptionValue">Select sprint question (select empty
-                        to not include)</option>
-                      <option value="">empty</option>
-                      <option *ngFor="let items of sprints; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
-                    </select>-->
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Correlate the checklist item with a sprint questionnaire</div>
                     </div>
@@ -192,6 +177,14 @@
                     </select>
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">select to use this checklist in all the sprints</div>
+                    </div>
+                  </div>
+                  <label for="cwe" class="col-sm-2 control-label">CWE</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="120" [(ngModel)]="cwe" type="text" class="form-control" id="cwe"
+                      name="cwe" placeholder="">
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">e.g. 713</div>
                     </div>
                   </div>
                 </div>

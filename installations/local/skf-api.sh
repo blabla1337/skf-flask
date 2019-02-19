@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start the SKF Python API
-cd ..
+cd ../..
 export FLASK_APP=skf/app.py
 export PYTHONPATH=./
 export FLASK_DEBUG=0

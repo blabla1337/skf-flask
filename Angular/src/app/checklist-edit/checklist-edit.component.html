@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -60,7 +60,7 @@
                       <input disabled maxlength="120" [(ngModel)]="checklistID" type="text" class="form-control" id="inputVersion"
                         name="checklistID" placeholder="" value="{{checklistID}}">
                       <div class="wrap desc alert-info">
-                        <div class="col-sm-10">e.g. 1.1, 1.2 etc</div>
+                        <div class="col-sm-10">e.g. 1.0, 1.1 etc</div>
                       </div>
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Checklist title *</label>
@@ -75,13 +75,6 @@
                     <div class="col-sm-10">
                       <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" [(ngModel)]="kbItem" name="kbID">
                       </ng-select>
-                      <!--<select class="form-control" name="kbID" [(ngModel)]="kbID" id="sel1" placeholder="dsfdsfds">
-                        <option *ngFor="let items of knowledgebaseItems" [value]="items.kbID">{{items.title}}</option>
-                        <option value="0">Use this item as a header!</option>
-                        <span *ngFor="let items of knowledgebaseItems; let myIndex = index">
-                            <option *ngIf="items.kbID == kbID" disabled selected>{{items.title}}</option>
-                        </span>
-                      </select>-->
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Select the correlating knowledgebase item!</div>
                       </div>
@@ -90,13 +83,6 @@
                     <div class="col-sm-10">
                       <ng-select [items]="pre_dev" bindLabel="question" placeholder="Select Pre Questionnaire" [(ngModel)]="questionPre" name="questionPreItem">
                       </ng-select>
-                      <!--<select class="form-control" name="question_pre_ID" [(ngModel)]="question_pre_ID" id="sel1">
-                          <span *ngFor="let items of pre_dev; let myIndex = index">
-                              <option *ngIf="items.id == question_pre_ID" disabled selected>{{items.question}}</option>
-                          </span>
-                        <option value="0">empty</option>
-                        <option *ngFor="let items of pre_dev; let myIndex = index" value="{{items.id}}">{{items.question}}</option>
-                      </select>-->
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Correlate the checklist item with a pre questionnaire</div>
                       </div>
@@ -105,13 +91,6 @@
                     <div class="col-sm-10">
                       <ng-select [items]="sprints" bindLabel="question" placeholder="Select Sprint Questionnaire" [(ngModel)]="questionSprint" name="questionSprintItem">
                       </ng-select>
-                     <!-- <select class="form-control" name="question_sprint_ID" [(ngModel)]="question_sprint_ID" id="sel1">
-                        <option value="0">empty</option>
-                        <option *ngFor="let sprint of sprints; let myIndex = index" value="{{sprint.id}}">{{sprint.question}}</option>
-                        <span *ngFor="let items of sprints">
-                            <option *ngIf="items.id == question_sprint_ID" selected>{{items.question}}</option>
-                        </span>
-                      </select>-->
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Correlate the checklist item with a sprint questionnaire</div>
                       </div>
@@ -134,6 +113,14 @@
                       </select>
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">select to use this checklist in all the sprints</div>
+                      </div>
+                    </div>
+                    <label for="cwe" class="col-sm-2 control-label">CWE</label>
+                    <div class="col-sm-10">
+                      <input required maxlength="120" [(ngModel)]="cwe" type="text" class="form-control" id="cwe"
+                        name="cwe" placeholder="">
+                      <div class="wrap desc alert-info">
+                        <div class="col-sm-10">e.g. 713</div>
                       </div>
                     </div>
                   </div>

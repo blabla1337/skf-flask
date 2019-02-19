@@ -22,7 +22,7 @@ export class QuestionnairePreComponent implements OnInit {
   public idfromUrl: string;
   public questionID: number;
   public questionName: string;
-  public pre_dev: Question_pre[];
+  public pre_dev: Question_pre[] = [];
   public checklist: Checklist[];
   public correlatedChecklist: Checklist[];
   public error: string;
@@ -31,6 +31,7 @@ export class QuestionnairePreComponent implements OnInit {
   public checklistID:number;
   public content:string;
   public kbID:number;
+  public cwe:number;
   public question_sprint_ID:number;
   public question_pre_ID:number;
   public include_first:string;
@@ -112,7 +113,7 @@ export class QuestionnairePreComponent implements OnInit {
   correlateQuestionToChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_sprint_ID:string){
     console.log(this.checklistID)
     this.errors = [];    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), Number(localStorage.getItem("questionID")))
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), Number(localStorage.getItem("questionID")), Number(this.cwe))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
         () => this.errors.push("Adding the checklistID to the question did not happen!")
@@ -122,7 +123,7 @@ export class QuestionnairePreComponent implements OnInit {
   removeQuestionFromChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_sprint_ID:string){
     console.log(this.checklistID)
     this.errors = [];    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), 0)
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), 0, Number(this.cwe))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
         () => this.errors.push("Adding the checklistID to the question did not happen!")

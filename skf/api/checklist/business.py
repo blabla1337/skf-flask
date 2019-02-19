@@ -75,9 +75,10 @@ def create_checklist_item(checklistID, checklist_type, data):
     question_sprint_ID = data.get('question_sprint_ID')
     question_pre_ID = data.get('question_pre_ID')
     checklist_kbID = data.get('kbID')
+    cwe = data.get('cwe')
     val_num(checklist_kbID)
     val_num(checklist_type)
-    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always, include_first, question_pre_ID, question_sprint_ID)
+    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always, include_first, question_pre_ID, question_sprint_ID, cwe)
     db.session.add(checklist_item)
     db.session.commit()
     return {'message': 'Checklist item successfully created'} 
@@ -99,6 +100,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
     result_checklist_kb.include_first = data.get('include_first')
     result_checklist_kb.question_sprint_ID = data.get('question_sprint_ID')
     result_checklist_kb.question_pre_ID = data.get('question_pre_ID')
+    result_checklist_kb.cwe = data.get('cwe')
     result_checklist_kb.kbID = kbID
     result_checklist_kb.checklistID = checklist_id
     result_checklist_kb.checklist_type = checklist_type
@@ -110,7 +112,6 @@ def update_checklist_item(checklist_id, checklist_type, data):
 
 def delete_checklist_item(checklist_id, checklist_type):
     log("User deleted checklist item", "MEDIUM", "PASS")
-    checklist_id
     checklist = checklists_kb.query.filter((checklists_kb.checklistID == checklist_id) & (checklists_kb.checklist_type == checklist_type)).one()
     db.session.delete(checklist)
     db.session.commit()

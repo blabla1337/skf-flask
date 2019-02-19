@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -27,15 +27,15 @@
 			</div>
 		</div>
 	</section>
-	<div *ngIf="codeExamples.length == 0">
+	<div *ngIf="codeExamples.length === 0">
 			<ngb-alert [dismissible]="false">
 				<strong>Warning!</strong> No code examples items included yet!
 			</ngb-alert>
 		</div>
-	<section *ngIf="codeExamples.length != 0" class="wrapper">
+	<section *ngIf="codeExamples.length > 0" class="wrapper">
 		<div class="srcWrap">
 			<div class="src">
-				<input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search vulnerability" />
+				<input class="searchinput" [(ngModel)]="queryString" id="search" name="search" placeholder="Search vulnerability" />
 				<i class="fa fa-search"></i>
 			</div>
 		</div>

@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -57,10 +57,10 @@
                 <td>{{user.email}}</td>
                 <td>{{user.access}}</td>
                 <td>
-                  <button (click)="open(granter)" class="btn btn-success btn-xs">
+                  <button (click)="open(granter)" id="grant-access{{myIndex}}" class="btn btn-success btn-xs">
                     <i>Grant</i>                 
                   </button>
-                  <button (click)="open(revoker)" class="btn btn-danger btn-xs">
+                  <button (click)="open(revoker)" id="revoke-access{{myIndex}}" class="btn btn-danger btn-xs">
                     <i>Revoke</i>                 
                   </button>
                 </td>
@@ -74,11 +74,11 @@
                   <div class="modal-body">
                     <p>Are you sure you want to revoke the access of this user?</p>
                     <p>To confirm, type <b style='color:red'> REVOKE </b> and click the revoke button</p>
-                    <input type="text" [(ngModel)]="revoke_str" class="form-control">
+                    <input type="text" [(ngModel)]="revoke_str" id="revoke" class="form-control">
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-                    <button type="button" class="btn btn-danger" (click)="revoke(user.userID);c('Close click')">Revoke</button>
+                    <button type="button" class="btn btn-danger" id="submit" (click)="revoke(user.userID);c('Close click')">Revoke</button>
                   </div>
                 </ng-template>
                 <ng-template #granter let-c="close" let-d="dismiss">
@@ -91,7 +91,7 @@
                   <div class="modal-body">
                     <p>Are you sure you want to grant this user access?</p>
                     <p>To confirm, type <b style='color:green'> GRANT </b> and click the grant button</p>
-                    <input type="text" [(ngModel)]="grant_str" class="form-control">
+                    <input type="text" [(ngModel)]="grant_str" id="grant" class="form-control">
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>

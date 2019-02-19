@@ -208,3 +208,8 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Priyanka Jaine
 - Chandrasekar Karthickrajan
 - Leena Bhegade
+- Balazs Hambalko
+- Rudy Truyens
+- Giulio Comi
+- Aniket Surwade
+- Thiago Luiz Dimbarre

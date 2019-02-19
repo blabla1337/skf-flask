@@ -342,7 +342,8 @@ CREATE TABLE `checklists_kb` (
 `kbID` int(11),
 `include_always` varchar(5),
 `include_first` varchar(5),
-`checklist_type` int(11)
+`checklist_type` int(11),
+`cwe` int(11)
 ); 
 
 ---

@@ -2,13 +2,16 @@
 Local installation based on Ubuntu 16.04.
 
 #### Requirements:
+- nginx (```sudo apt purge ng-common ng-latin```)
 - nginx (```sudo apt install nginx```)
 - npm (```sudo apt install npm```)
-- ng (```sudo apt install ng-common```)
+- ng (```sudo apt install -g @angular/cli```)
+- git (```sudo apt install git```)
 - latest version of node ():
 ```
     * sudo npm install n -g
-    * sudo n stable
+    * sudo n 8.9
+    * sudo ln -s  /usr/bin/nodejs /usr/bin/node
 ```
 - python3.6, pip3.6 (https://stackoverflow.com/questions/42662104/how-to-install-pip-for-python-3-6-on-ubuntu-16-10):
 ```
@@ -23,11 +26,11 @@ Local installation based on Ubuntu 16.04.
 Run on terminal
 ```
 cd /tmp; git clone git://github.com/blabla1337/skf-flask.git
-cd /tmp/skf-flask; pip3.6 install -r requirements.txt 
+cd /tmp/skf-flask; sudo pip3.6 install -r requirements.txt 
 cd /tmp/skf-flask/Angular; npm install
 cd /tmp/skf-flask/Angular; ng build --aot --configuration=production 
-rm /etc/nginx/sites-enabled/default
-cp /tmp/skf-flask/installations/local/site-tls.conf /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo cp /tmp/skf-flask/installations/local/site-tls.conf /etc/nginx/sites-enabled/default
 
 mv /tmp/skf-flask /
 
@@ -42,11 +45,10 @@ perl -pi -e "s/localhost/demo.securityknowledgeframework.org/" /skf-flask/instal
 
 # Certificates stored in /skf-flask/ dir
 openssl req -nodes -newkey rsa:4096 -keyout /skf-flask/server.key -out /skf-flask/server.csr  -subj "/CN=OWASP-SKF"
-openssl x509 -req -days 365 -in /skf-flask/server.csr  -signkey /skf-flask/server.key -out ./skf-flask/server.pem
+openssl x509 -req -days 365 -in /skf-flask/server.csr  -signkey /skf-flask/server.key -out /skf-flask/server.pem
 
 # Start nginx
-sleep 5
-sudo nginx
+service restart nginx
 
 ```
 

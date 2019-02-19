@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2018  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -52,8 +52,7 @@
                   <h4>Checklist select</h4>
                   <p>Select the right checklist for your project!</p>
                 </div>
-                <select  class="form-control" name="question" (change)="selectQuestions()" [(ngModel)]="checklistTypeID"
-                id="sel1">
+                <select  class="form-control" name="question" id="question" (change)="selectQuestions()" [(ngModel)]="checklistTypeID">
                 <option selected [value]="selectUndefinedOptionValue">Select checklist</option>
                 <option *ngFor="let items of checklistType; let myIndex = index" value="{{items.checklist_type}}">{{items.checklist_name}}</option>
               </select>
@@ -66,7 +65,7 @@
                   </p>
                 </div>
                 <div class="buttons">
-                  <button *ngIf="checklistTypeID" (click)="t.select('step1')" class="btn btn-default" style='float:right' >Select</button>
+                  <button *ngIf="checklistTypeID" (click)="t.select('step1')" id="checklist" class="btn btn-default" style='float:right' >Select</button>
                 </div>
               </ng-template>
             </ngb-tab>
@@ -116,7 +115,7 @@
                   </div>
                   <div class="buttons">
                     <button class="btn btn-default" (click)="t.select('intro');"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                    <button class="btn btn-default" type="submit" (click)="t.select('step2');"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    <button class="btn btn-default" type="submit" id="step2" name="step2" (click)="t.select('step2');"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                   </div>
                 </div>
               </ng-template>
@@ -134,7 +133,7 @@
                       <tr *ngFor="let questions of pre_dev; let i = index">
                         <td>{{questions.question}}</td>
                         <td>
-                          <select ngModel name="pre_dev_answer{{i + 1}}" class="form-control">
+                          <select ngModel name="pre_dev_answer{{i + 1}}" id="pre_dev_answer{{i + 1}}" class="form-control">
                             <option selected value="">Select a value</option> 
                             <option value="{{questions.id}}">No</option>
                                <option value="0">Yes</option>
@@ -150,7 +149,7 @@
                   </div>
                   <div class="buttons">
                     <button class="btn btn-default" type="button" (click)="t.select('step1')"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                    <button class="btn btn-default" (click)="storePre(myForm); t.select('step3')"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    <button class="btn btn-default" (click)="storePre(myForm); t.select('step3')"><i class="fa fa-arrow-right 3" aria-hidden="true"></i></button>
                   </div>
                 </form>
               </ng-template>
@@ -167,7 +166,7 @@
                   <div class="wrap">
                     <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
                     <div class="col-sm-10">
-                      <input required maxlength="120" [(ngModel)]="sprintName" type="text" class="form-control" id="inputVersion" name="sprintName" placeholder="">
+                      <input required maxlength="120" [(ngModel)]="sprintName" type="text" class="form-control" id="sprintName" name="sprintName" placeholder="">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Make it easy for your team to recognise.</div>
                       </div>
@@ -179,7 +178,7 @@
                   <div class="wrap">
                     <label for="inputDesc" class="col-sm-2 control-label">Sprint Description</label>
                     <div class="col-sm-10">
-                      <textarea required class="form-control"  [(ngModel)]="sprintDescription" name="sprintDescription" id="inputDesc" style="height: 90px;"
+                      <textarea required class="form-control"  [(ngModel)]="sprintDescription" name="sprintDescription" id="sprintDescription" style="height: 90px;"
                         placeholder=""></textarea>
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the sprint overview.</div>
@@ -189,7 +188,7 @@
                 </div>
                   <div class="buttons">
                     <button class="btn btn-default" (click)="t.select('step2')"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                    <button class="btn btn-default" (click)="t.select('step4')"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    <button class="btn btn-default" (click)="t.select('step4')"><i class="fa fa-arrow-right 4" aria-hidden="true"></i></button>
                   </div>
               </ng-template>
             </ngb-tab>
@@ -206,7 +205,7 @@
                       <tr *ngFor="let questions of sprints; let i = index">
                         <td>{{questions.question}}</td>
                         <td>
-                          <select ngModel name="sprint_answer{{i +1}}" class="form-control">
+                          <select ngModel name="sprint_answer{{i +1}}" id="sprint_answer{{i +1}}" class="form-control">
                             <option selected value="">Select a value</option> 
                             <option value="0">No</option>
                                <option value="{{questions.id}}">Yes</option>
@@ -218,7 +217,7 @@
                   </table>
                   <div class="buttons">
                     <button class="btn btn-default" (click)="t.select('step3')"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                    <button class="btn btn-default" (click)="storeSprint(myForm); t.select('finish')"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    <button class="btn btn-default" (click)="storeSprint(myForm); t.select('finish')"><i class="fa fa-arrow-right 5" aria-hidden="true"></i></button>
                   </div>
                 </form>
               </ng-template>

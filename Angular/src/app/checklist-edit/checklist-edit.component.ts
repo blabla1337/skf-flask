@@ -39,6 +39,7 @@ export class ChecklistEditComponent implements OnInit {
   public return: boolean;
   public delete: string;
   public succes: string;
+  public cwe: number;
   public canEdit: boolean;
   public knowledgebaseID: number;
   public checklist: Checklist[];
@@ -145,7 +146,7 @@ export class ChecklistEditComponent implements OnInit {
     }
 
     this.errors = [];
-    this._checklistService.updateChecklistItem(Number(this.checklistTypeFromStorage), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, this.include_first, Number(this.questionSprint.id), Number(this.questionPre.id))
+    this._checklistService.updateChecklistItem(Number(this.checklistTypeFromStorage), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, this.include_first, Number(this.questionSprint.id), Number(this.questionPre.id), Number(this.cwe))
       .subscribe(
         () => this.getChecklistItem(),
         () => this.errors.push("Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)")
@@ -169,6 +170,8 @@ export class ChecklistEditComponent implements OnInit {
           this.checklistID = checklist['checklist_items_checklistID'];
           this.include_always = checklist['include_always'];
           this.include_first = checklist['include_first'];
+          this.cwe = checklist['cwe'];
+
           this.kbItem = {
             "kbID": checklist['kb_item_id'],
             "title": checklist['kb_item_title']

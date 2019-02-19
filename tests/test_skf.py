@@ -260,7 +260,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the delete a checklist item call is working"""
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        response = self.client.delete('/api/checklist/delete/item/53', headers=headers)
+        response = self.client.delete('/api/checklist/delete/item/1.1/type/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Checklist item successfully deleted")
@@ -331,7 +331,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][1]['title'], "XSS injection")
+        self.assertEqual(response_dict['items'][0]['title'], "Filename injection Path traversal")
 
 
     def test_get_kb_item_10(self):
