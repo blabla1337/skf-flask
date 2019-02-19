@@ -18,7 +18,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<section *ngIf="isLoggedin" id="container" class="animsition">
+<section *ngIf="isLoggedin || skipLogin" id="container" class="animsition">
     <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
@@ -48,8 +48,12 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="row" *ngIf="skipLogin" class="btn-group theme-container animated">
+                <button class="btn btn-default" (click)="logIn()"><i class="fa fa-sign-in"></i> Login</button>
+            </div>
 
-            <div class="row" class="btn-group theme-container animated">
+            <div class="row" *ngIf="isLoggedin" class="btn-group theme-container animated">
                 <div ngbDropdown>
                     <button class="btn btn-default dropdown-toggle user" id="user-profile" ngbDropdownToggle>
                         <span class="image"><img src="/assets/img/placeholder-male.jpg" alt="Placeholder" width="250" height="250" /> </span>
@@ -62,9 +66,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        
+    
     </header>
     <!--header end-->
 
@@ -75,8 +78,8 @@
     <aside>
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
-            <ul  class="sidebar-menu" id="nav-accordion">
-                <li [style.background-color]="getProjectStyle()" class="mt sub-menu">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li *ngIf="isLoggedin" [style.background-color]="getProjectStyle()" class="mt sub-menu">
                     <span *ngIf="projects" class="g"></span>
                     <a (click)="ProjectsShow()" id="1" class="primairy"  href="javascript:;">
                         <i class="fa fa-file-code-o"></i>
@@ -97,14 +100,14 @@
                         <li><a routerLink="/user-manage" id="2">Manage users</a></li>
                     </ul>
                 </li>
-                <li *ngIf="canManage" [style.background-color]="getChecklistStyle()" class="sub-menu">
+                <li [style.background-color]="getChecklistStyle()" class="sub-menu">
                     <a (click)="CheckShow()" id="7" class="primairy" href="javascript:;">
                         <i class="fa fa-list-alt"></i>
                         <span id="7">Checklist options</span>
                     </a>
                     <ul *ngIf="check" class="sub"  style="display:block;">
                         <li><a routerLink="/checklist" id="7">View checklists</a></li>
-                        <li><a routerLink="/checklist-summary" id="checklist-summary">Manage checklists</a></li>
+                        <li><a *ngIf="canManage" routerLink="/checklist-summary" id="checklist-summary">Manage checklists</a></li>
                     </ul>
                 </li>
                 <li [style.background-color]="getKnowledgeStyle()" class="">
@@ -118,6 +121,7 @@
                         <i class="fa fa-code"></i>
                         <span id="6">Code examples</span>
                     </a>
+                </li>
             </ul>
 
             <div class="copy">
@@ -128,4 +132,4 @@
         </div>
     </aside>
     <!--sidebar end-->
-
+</section>

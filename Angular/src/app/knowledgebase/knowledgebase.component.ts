@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KnowledgebaseService } from '../services/knowledgebase.service'
+import { AppSettings } from '../globals';
+import * as JWT from 'jwt-decode';
 import { Knowledgebase } from '../models/knowledgebase';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -18,12 +20,18 @@ export class KnowledgebaseComponent implements OnInit {
   public return: boolean;
   public title: string;
   public content:string;
+  public canEdit: boolean;
 
 
   constructor(public _knowledgeService: KnowledgebaseService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.getKnowledgeItems();
+
+    if (AppSettings.AUTH_TOKEN) {
+      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canEdit = decodedJWT.privilege.includes("edit");
+    }
   }
 
   getKnowledgeItems() {

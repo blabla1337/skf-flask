@@ -40,4 +40,9 @@ export class AuthenticateComponent implements OnInit {
         } else { this.error.push("Wrong username/password combination!"); }
       })
   }
+
+  skipLogin() {
+    sessionStorage.setItem("skip_login", "true");
+    location.replace("dashboard");
+  }
 }

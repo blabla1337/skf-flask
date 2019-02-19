@@ -195,6 +195,23 @@ input:-moz-placeholder {
   background-color: #62669e;
   border-color: #565989;
 }
+.btn-theme04 {
+  color: #fff;
+  background-color: #7b7eb7;;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
+  -o-transition: all 0.2s ease-in-out 0s;
+  -ms-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+#skipLoginMessage {
+  text-align: left;
+  font-size: 11px;
+  margin-bottom: 5px; 
+  margin-left: 5px; 
+}
+
 .dropdown-toggle {
   padding-right: 2em;
 }

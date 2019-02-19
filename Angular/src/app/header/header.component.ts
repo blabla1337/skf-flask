@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   public user: string = AppSettings.USER;
   public canManage: boolean;
   public canEdit: boolean;
+  public skipLogin: boolean;
   //public canDelete: boolean;
   //public canRead: boolean;
 
@@ -32,6 +33,10 @@ export class HeaderComponent implements OnInit {
       let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
       this.canManage = decodedJWT.privilege.includes("manage");
       this.canEdit = decodedJWT.privilege.includes("edit");
+    }
+
+    if (AppSettings.SKIP_LOGIN == "true") {
+       this.skipLogin = true 
     }
 
     this.projects = false;
@@ -124,6 +129,12 @@ export class HeaderComponent implements OnInit {
 
   LogOff() {
     sessionStorage.removeItem('auth_token');
+    localStorage.clear();
+    location.reload();
+  }
+
+  logIn() {
+    sessionStorage.removeItem('skip_login');
     localStorage.clear();
     location.reload();
   }

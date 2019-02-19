@@ -8,7 +8,7 @@ export class GuardService implements CanActivate {
     constructor(private router: Router) { }
     public returner:boolean;
     canActivate() {
-        if (AppSettings.AUTH_TOKEN) {
+        if (AppSettings.AUTH_TOKEN || AppSettings.SKIP_LOGIN) {
             // logged in so return true
             this.returner = true;
             return this.returner

@@ -48,10 +48,12 @@
                 </span>
                 <div class="modal-footer centered">
                   <a style="text-align:center; color:#515594" href="#" routerLink="/first-login">first-login</a>
-                  <button (click)="onLogin()" class="btn btn-theme03" id="login" type="submit">Login</button>
-                  
+                  <button (click)="onLogin()" class="btn btn-theme03" type="submit">Login</button>
+                  <button (click)="skipLogin()"  class="btn btn-theme04" type="submit">Skip</button>
                 </div>
               </form>
+            </div>
+            <div id="skipLoginMessage">Skip login for read-only access to checklists, knowlegde base and code examples.
             </div>
             <!-- js placed at the end of the document so the pages load faster -->
             <script src="/assets/js/bootstrap.min.js"></script>
