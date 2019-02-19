@@ -25,7 +25,7 @@ class SKFClickThrough(unittest.TestCase):
         password.send_keys("admin")
         password.send_keys(Keys.RETURN)
 
-    '''
+
     """
     ////////////////////////////////////////////////////////////////////////////////////
     Test create new project + sprints
@@ -546,7 +546,7 @@ class SKFClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Manage your checklists!" in driver.page_source
 
-    '''
+
     def test_h_create_new_checklist_item_flow(self):
         """Test manage checklist create new checklist item"""
         driver = self.driver
@@ -591,7 +591,6 @@ class SKFClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Control content" in driver.page_source
 
-    '''
 
     def test_i_update__checklist_item_flow(self):
         """Test manage checklist update checklist item"""
@@ -911,7 +910,7 @@ class SKFClickThrough(unittest.TestCase):
         time.sleep(2)
         assert "Manage your checklists!" in driver.page_source
 
-    '''
+
     @classmethod
     def tearDown(self):
         self.driver.close()
