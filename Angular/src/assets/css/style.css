@@ -335,7 +335,7 @@ ul.top-menu > li > .logout i {
   -ms-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s;
 }
-sidebar# .copy a:hover {
+#sidebar .copy a:hover {
   color: #fff;
   border-color: #fff;
 }
