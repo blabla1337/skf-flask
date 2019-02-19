@@ -42,6 +42,15 @@ script:
   - cd ../; coverage run --source=skf setup.py test
 
 after_success:
+  - cd ../
+  - export PYTHONWARNINGS="ignore" 
+  - export FLASK_DEBUG=1
+  - export FLASK_APP=skf/app.py 
+  - export PYTHONPATH=.:$PYTHONPATH
+  - python3 skf/app.py &
+  - cd Angular
+  - npm start &
+  - python3 tests/selenium/run.py
   - pip install hub-pip==1.1.0
   - python setup.py hub_pip --DeployHubBdio=false
   - bash <(curl -s https://copilot.blackducksoftware.com/bash/travis) ./build/blackduck/*.jsonld
