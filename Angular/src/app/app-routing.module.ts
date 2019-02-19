@@ -7,6 +7,7 @@ import { ProjectDashboardComponent } from './project-dashboard/project-dashboard
 import { ProjectSummaryComponent } from './project-summary/project-summary.component';
 import { ProjectSummaryAuditComponent } from './project-summary-audit/project-summary-audit.component';
 import { UserAddComponent } from './user-add/user-add.component';
+import { LabsComponent } from './labs/labs.component';
 import { KnowledgebaseComponent } from './knowledgebase/knowledgebase.component';
 import { KnowledgebaseEditComponent } from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent } from './code-examples/code-examples.component';
@@ -26,6 +27,7 @@ import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnai
 export const appRoutes: Routes = [
   
   { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] },
+  { path: 'labs', component: LabsComponent, canActivate: [GuardService] },
   { path: 'project-new', component: ProjectNewComponent, canActivate: [GuardService] },
   { path: 'project-list', component: ProjectListComponent, canActivate: [GuardService] },
   { path: 'project-dashboard/:id', component: ProjectDashboardComponent, canActivate: [GuardService] },

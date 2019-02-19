@@ -113,7 +113,12 @@ describe('Header component', () => {
     expect(component.color).toEqual('#515594')
   });
 
-
+  it('check getLabsStyle banner color to return true', () => {
+    component.code = true;
+    component.getLabsStyle();
+    expect(component.color).toEqual('#515594')
+  });
+  
   it('check getChecklistStyle banner color to return true', () => {
     component.check = true;
     component.getChecklistStyle();

@@ -122,6 +122,12 @@
                         <span id="6">Code examples</span>
                     </a>
                 </li>
+                <li [style.background-color]="getLabsStyle()" class="">
+                    <a routerLink="/labs" (click)="ResetAll(); LabsShow()" id="7" class="primairy">
+                        <i class="fa fa-flask"></i>
+                        <span id="6">Labs</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="copy">

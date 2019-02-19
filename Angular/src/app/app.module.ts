@@ -13,6 +13,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LabsComponent } from './labs/labs.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -73,6 +74,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FirstLoginComponent,
     UndefinedComponent,
     QuestionnairePreComponent,
+    LabsComponent,
     QuestionnaireSprintComponent
   ],
   imports: [

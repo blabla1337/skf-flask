@@ -1461,7 +1461,8 @@ pre code {
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
-    max-width: 25%;
+    max-width: 20%;
+    padding-bottom: 40px;
   }
   .col-md-4 {
     -webkit-box-flex: 0;

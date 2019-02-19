@@ -1843,12 +1843,12 @@ label {
 }
 /* Custom */
 #login .col-wrapper {
-  width: 450px;
+  width: 415px;
   margin: 0 auto;
   padding: 10% 0 0;
 }
 #login .modal-dialog {
-  width: 450px;
+  width: 415px;
 }
 /* Panels */
 .panel {
