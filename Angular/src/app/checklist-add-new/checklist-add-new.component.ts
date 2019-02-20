@@ -131,7 +131,13 @@ export class ChecklistAddNewComponent implements OnInit {
   }
 
   getKnowledgeItems() {
-    this._knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgebaseItems = requestData,
+    this._knowledgeService.getKnowledgeBase().subscribe(knowledgebaseItems => {
+        this.knowledgebaseItems = knowledgebaseItems;
+        this.knowledgebaseItems.unshift({
+          "kbID": '0',
+          "title": 'Use this for a Control Header'
+        });
+      },
       err => this.error = "Error getting knowledge items, contact the administrator!"
     );
   }
