@@ -47,6 +47,7 @@ results = api.model('results', {
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
     'checklist_items_checklistID': fields.String(attribute='checklist_items.checklistID', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='checklist_items.content', required=True, description='Checklist content'),
+    'cwe': fields.Integer(attribute='checklist_items.cwe', required=False, description='The CWE unique identifier'),
 })
 
 sprint_results = api.inherit('Page of sprint results', {
