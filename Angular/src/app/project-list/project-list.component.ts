@@ -42,7 +42,7 @@ export class ProjectListComponent implements OnInit {
       .subscribe(
       projects => {
         this.projects = projects;
-        if (!this.projects) {
+        if (this.projects) {
           this.error = "There are no projects to show!"
         }
       },
