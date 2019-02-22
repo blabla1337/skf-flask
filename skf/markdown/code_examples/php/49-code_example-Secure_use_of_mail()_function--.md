@@ -49,7 +49,7 @@
        /*
         If fifth parameter is user controllable this implementation does not stop an attacker to append program flags which in some MTA’s enables the read and creation of a file.
         
-        Hence additional checks should be implemented for the type of input expected in fifthe parameter
+        Hence additional checks should be implemented for the type of input expected in fifth parameter
         */
 
     ?>
