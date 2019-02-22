@@ -40,7 +40,7 @@ describe('Knowledgebase component component', () => {
             declarations: [ProjectDashboardComponent, OrderBy, StartsWithPipe],
             imports: [NgbModule.forRoot(), FormsModule, HttpModule, RouterTestingModule],
             providers: [
-                SprintService
+                SprintService,
             ],
         }).compileComponents();
     })
@@ -77,8 +77,12 @@ describe('Knowledgebase component component', () => {
     })
 
     it('Invoke the Modal open for better score! :-p', fakeAsync(() => {
-        component.open("foobar")
+        component.canEdit = true;
+        spyOn(component,'open');
         fixture.detectChanges(); // update view with quote
+        let btnEle = fixture.debugElement.nativeElement.querySelector('.intro button');
+        btnEle.click();
+        expect(component.open).toHaveBeenCalled();
     }));
 
     it('check if component compiles succesfully', () => {

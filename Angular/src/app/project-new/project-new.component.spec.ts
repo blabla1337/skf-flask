@@ -8,7 +8,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { Observable } from "rxjs/Observable";
 import { ProjectService } from "../services/project.service";
 import { ProjectNewComponent } from "./project-new.component";
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 describe("project new component", () => {
@@ -37,23 +37,26 @@ describe("project new component", () => {
 
   it("check errors if params not filled", () => {
     component.save();
-    expect(component.error).toMatch("Project name was left empty"); 
-    expect(component.error).toMatch ("Project version was left empty"); 
-    expect(component.error).toMatch ("Project description was left empty"); 
-    expect(component.error).toMatch ("Sprint name was left empty"); 
-    expect(component.error).toMatch("Sprint description was left empty"); 
-    expect(component.error).toMatch ("No ASVS level was selected"); 
+    expect(component.error[0]).toMatch("Project name was left empty");
+    expect(component.error[1]).toMatch ("Project version was left empty");
+    expect(component.error[2]).toMatch ("Project description was left empty");
+    expect(component.error[3]).toMatch ("Sprint name was left empty");
+    expect(component.error[4]).toMatch("Sprint description was left empty");
   });
 
   it("returnpath is true if params are filled", () => {
-    component.save();
     component.projectName = "test";
     component.projectVersion = "test";
     component.projectDescription = "test";
     component.level = "1";
     component.sprintName = "test";
-    component.sprintDescription = "test"
-    expect(component.error).toMatch(""); 
+    component.sprintDescription = "test";
+    spyOn(component,'save');
+    componentFixture.detectChanges(); // update view with quote
+    let btnEle = componentFixture.debugElement.nativeElement.querySelector('.buttons .btn-success');
+    btnEle.click();
+    expect(component.save).toHaveBeenCalled();
+    expect(component.error.length).toEqual(0);
   });
 
   it("test the invalid method should return true", () => {

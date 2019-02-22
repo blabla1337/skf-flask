@@ -27,4 +27,11 @@ describe('ProjectSummaryComponent', () => {
   it('should create a summary of all sprints and pre development', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call fetchComment', () => {
+    spyOn(component, 'fetchComment');
+    let btnEle = fixture.debugElement.nativeElement.querySelector('.content-panel > div');
+    btnEle.click();
+    expect(component.fetchComment).toHaveBeenCalled();
+  });
 });

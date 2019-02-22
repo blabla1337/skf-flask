@@ -46,10 +46,11 @@ describe('Knowledgebase component component', () => {
     expect(debugElement.nativeElement.textContent).toMatch('I am a very specific title for testing the assertion');
   }));
 
-  it('check if component compiles succesfully', () => {
-    component.error = "I am a mocked error";
+  it('check if component shows proper error if knowledge base items empty', () => {
+    component.knowledgeitems = [];
     fixture.detectChanges();
-    expect(debugElement.nativeElement.textContent).toMatch('I am a mocked error');
+    const errorEle = fixture.debugElement.query(By.css('.alert')).nativeElement.textContent;
+    expect(errorEle).toMatch('Warning! No knowledgebase items included yet!');
   });
 
   it('check if component compiles succesfully', () => {

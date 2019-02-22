@@ -45,7 +45,7 @@ describe('Question-pre service', () => {
       backend.connections.subscribe(connection => {
         connection.mockRespond(mockResponseList);
         expect(connection.request.method).toEqual(RequestMethod.Get);
-        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_pre/items");
+        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_pre/items/1");
       });
 
       service.getPreQuestions(1)

@@ -158,7 +158,7 @@ describe('Project service', () => {
         expect(connection.request.method).toEqual(RequestMethod.Put);
         expect(connection.request.headers.get("Content-Type")).toEqual("application/json");
         expect(connection.request.headers.get("Authorization")).toBeDefined;
-        expect(connection.request.text()).toEqual(JSON.stringify({name: "Project name example", description: "Project description example", level: 1 , version: "1.1"}));
+        expect(connection.request.text()).toEqual(JSON.stringify({name: "Project name example", description: "Project description example", checklist_type: 1 , version: "1.1"}));
         expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/project/new");
       });
 
