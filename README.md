@@ -14,7 +14,6 @@
 <br>Quality testing SKF-API:<br>
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
 [![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master)
-[![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 [![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=master)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=master)
 
 Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with detailed code examples (secure coding principles) to help developers in pre-development and post-development phases and create applications that are secure by design.
@@ -105,13 +104,6 @@ Code coverage done right. Highly integrated with GitHub, Bitbucket and GitLab.
 SKF codecov details:
 ```
 https://codecov.io/gh/blabla1337/skf-flask
-
-### Scrutinizer-ci.com:
-```
-Why to use Scrutinizer. Improve code quality and find bugs before they hit production with our continuous inspection platform. Improve Code Quality.
-SKF Scrutinizer details:
-```
-https://scrutinizer-ci.com/g/blabla1337/skf-flask/
 
 ### Bithound.io NPM packages:
 ```
@@ -213,3 +205,4 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Giulio Comi
 - Aniket Surwade
 - Thiago Luiz Dimbarre
+- Harshant Sharma
