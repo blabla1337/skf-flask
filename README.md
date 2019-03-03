@@ -197,7 +197,7 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Rafał Fronczyk
 - Chang Xu (Neo)
 - Martin Marsicano
-- Priyanka Jaine
+- [Priyanka Jain](https://www.linkedin.com/in/priyanka997/)
 - Chandrasekar Karthickrajan
 - Leena Bhegade
 - Balazs Hambalko
