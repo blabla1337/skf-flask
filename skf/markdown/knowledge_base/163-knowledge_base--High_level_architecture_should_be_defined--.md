@@ -9,3 +9,5 @@ While you are mapping your application architecture you should also add all othe
 
 When you map these components it becomes more transparent about different types of security mitigations that might be forgotten for some of your business functions. Because again, you now own a visual representation of this logic. Your application also becomes more manageable in terms of keeping up with the latest security updates and patches and gives you a better view of obsolete configurations, functions, and components which can be removed from the system.
 
+This ofcourse also goed for all external components that your application depends on!
+
