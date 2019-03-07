@@ -1,6 +1,8 @@
 ## Description:
 
-Whenever the users username and passwords are disclosed by an application on what ever fashion possible, the 
+Two factor authenitcation must be implemented to protect your applications users against un-authorized use of the application.
+
+Whenever the users username and password are leaked or disclosed by an application on what ever fashion possible, the 
 users account should still be proteced by two factor authentication mechanisms to prevent attackers
 from logging in with the credentials.
 
