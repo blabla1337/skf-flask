@@ -10,3 +10,5 @@ for protecting resources and the access to these assets mistakes will be easily 
 Immplement a centralized mechanism where all the different types of resources and grating access to 
 these resources (including libraries that call external authorization services) are located. This way
 it's easier to maintain and the lower the complexity.
+
+This centralized solution should also contain sufficient logging and monitoring to detect account abuse or breaches.
