@@ -19,7 +19,14 @@ The secure software development lifecycle ideally consists out of 5 different st
 * Security test automation (SAST, DAST, IAST, RASP, ETC)
 * Secure code review, penetration test
 
-For more indepth information about setting up the (S)SDLC and vulnerability management please
-refer to this video since it is a very elaborate topic:
+There are a lot of ways to achieve a good (S)SDLC, the most important thing to keep into
+consideration is that you need to have a scalable solution that works over different CI
+envorinments. Also keep in mind that your CI/CD pipeline is a production environment that
+delivers production environments. So your CI/CD pipelines should be hardened as well as any other 
+application.  Keep into consideration things like
 
-https://www.youtube.com/watch?v=xWe816PXll4
+- Monitoring on your pipeline
+- Secret management
+- Hardening of containers
+- Hardening of your CI environment
+- etc
