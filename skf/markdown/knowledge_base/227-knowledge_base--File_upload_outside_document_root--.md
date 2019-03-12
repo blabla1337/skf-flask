@@ -1,7 +1,7 @@
 ## Description:
 
 Files that are uploaded by users or other untrusted services should always be placed outside
-of the document root. This is to prevent malicious files from being parsed by attackers such as PHP files.
+of the document root. This is to prevent malicious files from being parsed by attackers such as PHP/HTML/Javascript files.
 
 Should an attacker succeed to bypass file upload restrictions and upload a malicous file, it would
 be impossible for the attacker to parse these files since they are not located inside of the
