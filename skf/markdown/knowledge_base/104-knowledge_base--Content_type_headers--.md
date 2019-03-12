@@ -12,3 +12,6 @@ An example of a content type header would be:
     Content-Type: text/html; charset=UTF-8
     or:
     Content-Type: application/json;
+    
+    
+Verify that requests containing unexpected or missing content types are rejected with appropriate headers (HTTP response status 406 Unacceptable or 415 Unsupported Media Type).
