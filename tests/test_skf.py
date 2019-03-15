@@ -552,7 +552,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/code/lang/go')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(len(response_dict['items']), 5)
+        self.assertEqual(len(response_dict['items']), 6)
 
 
     def test_get_questions_sprint_items(self):
