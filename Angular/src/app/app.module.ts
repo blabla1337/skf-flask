@@ -58,7 +58,7 @@ export function getAuthServiceConfigs() {
       [
         {
           id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider()
+          provider: new GoogleLoginProvider("")
           // Provide the google API client_id inside GoogleLoginProvider() i.e GoogleLoginProvider("YOUR_GOOGLE_API")
         }
       ]
