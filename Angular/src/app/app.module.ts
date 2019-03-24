@@ -95,8 +95,7 @@ export function getAuthServiceConfigs() {
     UndefinedComponent,
     QuestionnairePreComponent,
     LabsComponent,
-    QuestionnaireSprintComponent,
-    SocialLoginModule
+    QuestionnaireSprintComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +105,8 @@ export function getAuthServiceConfigs() {
     HighlightJsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    NgSelectModule
+    NgSelectModule,
+    SocialLoginModule
   ],
   providers: [GuardService,HighlightJsService,{
     provide: AuthServiceConfig,

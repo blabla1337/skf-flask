@@ -22,6 +22,7 @@ export class AuthenticateComponent implements OnInit {
   
   constructor(public _authenticateService: AuthenticateService, private socialAuthService: AuthService) { }
   ngOnInit() {
+    // To enable login with google set below variable as "this.google_sign_in=ture"
     this.google_sign_in = false;
     this.expired = false;
     if (localStorage.getItem('session') == "expired") { this.expired = true }

@@ -30,7 +30,7 @@
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.2.0",
     "zone.js": "^0.8.26",
-    "angular-6-social-login": "^1.1.1",
+    "angular-6-social-login": "^1.1.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.1",
