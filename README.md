@@ -79,8 +79,32 @@ After configuration is complete, take note of the client ID that was created.
 Then you need to do the following two things:
 
 1)Go to Angular/src/app/authenticate/authenticate.component.ts and change "this.google_sign_in" value from false to ture
+```
+  ngOnInit() {
+    // To enable login with google set below variable as "this.google_sign_in=true"
+    this.google_sign_in = false;
+    this.expired = false;
+    if (localStorage.getItem('session') == "expired") { this.expired = true }
+    localStorage.clear();
+  }
+  ```
 
 2)Go to Angular/src/app/app.module.ts and insert the client ID that was created in google console into GoogleLoginProvider("") function i.e GoogleLoginProvider("YOUR_API_KEY")
+````
+export function getAuthServiceConfigs() {
+  
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("")
+          // Provide the google API client_id inside GoogleLoginProvider() i.e GoogleLoginProvider("YOUR_GOOGLE_API")
+        }
+      ]
+  );
+  return config;
+  }
+  ````
 
 ## <a name="usage"></a>Usage
 
