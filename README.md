@@ -72,11 +72,14 @@ flask initdataset
 
 To create a Google API Console project and client ID,go to the following link:
 https://console.developers.google.com/apis/credentials/oauthclient
+
 When you configure the project, select the Web browser client type and specify the origin URI of your app.
 After configuration is complete, take note of the client ID that was created.
 
 Then you need to do the following two things:
+
 1)Go to Angular/src/app/authenticate/authenticate.component.ts and change "this.google_sign_in" value from false to ture
+
 2)Go to Angular/src/app/app.module.ts and insert the client ID that was created in google console into GoogleLoginProvider("") function i.e GoogleLoginProvider("YOUR_API_KEY")
 
 ## <a name="usage"></a>Usage
