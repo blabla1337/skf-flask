@@ -56,6 +56,7 @@ from skf.api.code.endpoints.code_items_lang import ns as code_namespace
 from skf.api.user.endpoints.user_create import ns as users_namespace
 from skf.api.user.endpoints.user_activate import ns as users_namespace
 from skf.api.user.endpoints.user_login import ns as users_namespace
+from skf.api.user.endpoints.user_google_login import ns as users_namespace
 from skf.api.user.endpoints.user_list import ns as users_namespace
 from skf.api.user.endpoints.user_manage import ns as users_namespace
 from skf.api.user.endpoints.user_listprivileges import ns as users_namespace

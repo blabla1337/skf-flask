@@ -45,6 +45,26 @@ import { UndefinedComponent } from './undefined/undefined.component';
 import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
 import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnaire-sprint.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+} from "angular-6-social-login";
+
+// Configs 
+export function getAuthServiceConfigs() {
+  
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider()
+          // Provide the google API client_id inside GoogleLoginProvider() i.e GoogleLoginProvider("YOUR_GOOGLE_API")
+        }
+      ]
+  );
+  return config;
+  }
 
 @NgModule({
   declarations: [
@@ -75,7 +95,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     UndefinedComponent,
     QuestionnairePreComponent,
     LabsComponent,
-    QuestionnaireSprintComponent
+    QuestionnaireSprintComponent,
+    SocialLoginModule
   ],
   imports: [
     BrowserModule,
@@ -87,7 +108,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgbModule.forRoot(),
     NgSelectModule
   ],
-  providers: [GuardService,HighlightJsService],
+  providers: [GuardService,HighlightJsService,{
+    provide: AuthServiceConfig,
+    useFactory: getAuthServiceConfigs
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

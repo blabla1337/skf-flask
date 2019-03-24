@@ -50,6 +50,14 @@
                   <a style="text-align:center; color:#515594" href="#" routerLink="/first-login">first-login</a>
                   <button (click)="onLogin()" class="btn btn-theme03" type="submit">Login</button>
                   <button (click)="skipLogin()"  class="btn btn-theme04" type="submit">Skip</button>
+                  <div *ngIf="google_sign_in">
+                    <div id="gSignInWrapper" >
+                        <div id="customBtn" (click)="socialSignIn('google')" class="customGPlusSignIn">
+                          <span class="icon"></span>
+                          <span class="buttonText">Google</span>
+                        </div>
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>

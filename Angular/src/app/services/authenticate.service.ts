@@ -20,6 +20,12 @@ export class AuthenticateService {
       .map(response => {return response.json()})   
   }
 
+  google_authenticate(access_token: string, email: string): Observable<any> {
+    return this.http
+      .post(environment.API_ENDPOINT + '/user/google_login', JSON.stringify({ access_token: access_token, email: email }), { headers: this.headers })
+      .map(response => {return response.json()})   
+  }
+  
   activateUser(email: string, username: string, accessToken: string, password: string, repassword: string, userID: number): Observable<string> {
     return this.http
       .put(environment.API_ENDPOINT + '/user/activate/' + userID, JSON.stringify({

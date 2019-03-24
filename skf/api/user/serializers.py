@@ -18,6 +18,11 @@ login = api.model('login', {
     'password': fields.String(required=True, description='The password of the user'),
 })
 
+google_login = api.model('google_login', {
+    'access_token': fields.String(required=True, description='The username of the user'),
+    'email': fields.String(required=True, description='The password of the user'),
+})
+
 create = api.model('create', {
     'email': fields.String(required=True, description='Email of the user'),
     'privilege': fields.Integer(required=True, description='Role of the user privilege: 2, 3, 4'),

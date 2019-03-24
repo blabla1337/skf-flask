@@ -1,4 +1,4 @@
-import jwt, random, sys 
+import jwt, random, sys, requests
 
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
@@ -78,6 +78,50 @@ def login_user(data):
     except NoResultFound:
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
+
+
+def google_login(data):
+    log("User successfully logedin", "HIGH", "PASS")
+    URL = "https://www.googleapis.com/oauth2/v1/tokeninfo"
+    PARAM = {"access_token":data.get('access_token')}
+    res = requests.get(url = URL , params = PARAM)
+    res_data = res.json()
+    try:
+        if(res_data['email'] == data.get('email')):
+            if (users.query.filter(users.email == res_data['email']).one()):
+                user = users.query.filter(users.email == res_data['email']).one()
+                if (user.activated == "True"):
+                    if (user.access == "True"):
+                        priv_user = privileges.query.filter(privileges.privilegeID == str(user.privilegeID)).first()
+                        payload = {
+                            # userid
+                            'UserId': user.userID,
+                            #issued at
+                            'iat': datetime.utcnow(),
+                            #privileges
+                            'privilege': priv_user.privilege,
+                            #expiry
+                            'exp': datetime.utcnow() + timedelta(minutes=120)
+                            #claims for access api calls
+                            #'claims': 'kb/items/update,project/items,non/existing/bla,'
+                        }
+                        token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
+                        if sys.version_info.major == 3:
+                        	unicode = str
+                        token = unicode(token_raw,'utf-8')
+                        return {'Authorization token': token, 'username': username}
+                    else:
+                        log("User triggered error login failed", "HIGH", "FAIL")
+                        return {'Authorization token': ''}
+                else:
+                    log("User triggered error login failed", "HIGH", "FAIL")
+                    return {'Authorization token': ''}
+            else:
+                log("User triggered error login failed", "HIGH", "FAIL")
+                return {'Authorization token': ''}
+    except NoResultFound:
+        log("User triggered error login failed", "HIGH", "FAIL")
+        return {'Authorization token': ''}          
 
 
 def list_privileges():
