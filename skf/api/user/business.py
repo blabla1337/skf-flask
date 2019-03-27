@@ -65,7 +65,7 @@ def login_user(data):
                         if sys.version_info.major == 3:
                         	unicode = str
                         token = unicode(token_raw,'utf-8')
-                        return {'Authorization token': token, 'username': username}
+                        return {'Authorization token': token, 'username': user.username}
                     else:
                         log("User triggered error login failed", "HIGH", "FAIL")
                         return {'Authorization token': ''}
@@ -80,7 +80,7 @@ def login_user(data):
         return {'Authorization token': ''}
 
 
-def google_login(data):
+def google_login_user(data):
     log("User successfully logedin", "HIGH", "PASS")
     URL = "https://www.googleapis.com/oauth2/v1/tokeninfo"
     PARAM = {"access_token":data.get('access_token')}
@@ -109,7 +109,7 @@ def google_login(data):
                         if sys.version_info.major == 3:
                         	unicode = str
                         token = unicode(token_raw,'utf-8')
-                        return {'Authorization token': token, 'username': username}
+                        return {'Authorization token': token, 'username': user.userName}
                     else:
                         log("User triggered error login failed", "HIGH", "FAIL")
                         return {'Authorization token': ''}
@@ -119,6 +119,9 @@ def google_login(data):
             else:
                 log("User triggered error login failed", "HIGH", "FAIL")
                 return {'Authorization token': ''}
+        else:
+            log("first if error")
+            return {'Authorization token': 'not available'}
     except NoResultFound:
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}          

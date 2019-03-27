@@ -2,7 +2,7 @@
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import log, security_headers
-from skf.api.user.business import google_login
+from skf.api.user.business import google_login_user
 from skf.api.user.serializers import login, message, token_auth, google_login
 from skf.api.restplus import api
 
@@ -22,5 +22,5 @@ class googleLogin(Resource):
         * Privileges required: **none**
         """
         data = request.json
-        result = google_login(data)
+        result = google_login_user(data)
         return result, 200, security_headers()
