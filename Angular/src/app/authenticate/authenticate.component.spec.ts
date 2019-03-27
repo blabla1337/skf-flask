@@ -8,7 +8,26 @@ import { HttpModule } from "@angular/http";
 import { RouterTestingModule } from "@angular/router/testing";
 import { AuthenticateService } from "../services/authenticate.service";
 import { Observable } from "rxjs/Observable";
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+} from "angular-6-social-login";
 
+// Configs 
+export function getAuthServiceConfigs() {
+  
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("")
+          // Provide the google API client_id inside GoogleLoginProvider() i.e GoogleLoginProvider("YOUR_GOOGLE_API")
+        }
+      ]
+  );
+  return config;
+  }
 describe("Testing the Authenticate component", () => {
 
   let authenticateComponent: AuthenticateComponent;
@@ -23,8 +42,11 @@ describe("Testing the Authenticate component", () => {
     TestBed.configureTestingModule({
       // We declare only our authenticateComponent
       declarations: [AuthenticateComponent],
-      imports: [NgbModule.forRoot(), FormsModule, HttpModule, RouterTestingModule],
-      providers: [{ provide: AuthenticateService, useClass: mockService }]
+      imports: [NgbModule.forRoot(), FormsModule, HttpModule, RouterTestingModule,SocialLoginModule],
+      providers: [{ provide: AuthenticateService, useClass: mockService },{
+        provide: AuthServiceConfig,
+        useFactory: getAuthServiceConfigs
+      }]
     });
 
     // Use TestBed to create ComponentFixture for our authenticateComponent:
