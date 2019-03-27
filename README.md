@@ -244,3 +244,5 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Aniket Surwade
 - Thiago Luiz Dimbarre
 - Harshant Sharma
+- Semen Rozhkov
+
