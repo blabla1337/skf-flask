@@ -1,7 +1,12 @@
 ## Description:
 
-There should be extra care taken into account when you are dealing with PII(personal identifiable information) in your
-application. There are multiple laws in countries that demand proper protection by
+There should be extra care taken into account when you are dealing with 
+
+- PII(personal identifiable information) 
+- Fincancial data ( credit history, tax records, pay history, beneficiaries)
+- Health data (medical records, medical device details, or de-anonymized research records)
+
+There are multiple laws in countries that demand proper protection by
 means of SSL/TLS for when the data is in transit and encrypted with pub priv key system
 when stored on the disk. This is needed to protect the user from identity theft and fraud.
 
