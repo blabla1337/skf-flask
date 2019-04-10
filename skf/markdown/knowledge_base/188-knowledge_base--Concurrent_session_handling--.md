@@ -18,7 +18,7 @@ it should do regular checks to see if there are:
 3. Multiple active sessions from different devices
 4. Limit and destroy sessions when they exceed an accepted threshold.
 
-The more critical the application becomes the lower the accepted threshold for
+The more critical the application becomes, the lower the accepted threshold for
 concurrent sessions should be.
 
 
