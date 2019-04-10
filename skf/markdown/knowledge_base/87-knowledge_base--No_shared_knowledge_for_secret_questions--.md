@@ -8,3 +8,6 @@ the web to prevent him compromising the account by this function.
 
 Secret questions should never include shared knowledge, predictable or easy
 guessable values.
+
+Otherwise the answers for these secret questions can be easilly looked up on the internet by means 
+of social media accounts and the like.
