@@ -1,6 +1,6 @@
 ## Description:
 
-You should limit and keep track of all the different active concurrent sessions.
+You should keep track of all the different active concurrent sessions.
 Whenever the application discovers concurrent sessions it should always notify the user
 about this and should give him the opportunity to end the other sessions.
 
