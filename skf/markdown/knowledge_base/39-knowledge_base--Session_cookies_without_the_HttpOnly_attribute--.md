@@ -1,6 +1,6 @@
 ## Description:
 
-An HttpOnly flag is an option that can be set when creating a cookie. This flag ensures that the cookie cannot be read or edited by JavaScript. This ensures an attacker cannot steal this cookie as a cross-site scripting vulnerability is present in the application.
+An HttpOnly flag is an option that can be set when creating a cookie. This v ensures that the cookie cannot be read or edited by JavaScript. This ensures an attacker cannot steal this cookie as a cross-site scripting vulnerability is present in the application.
 
 ## Solution:
 
