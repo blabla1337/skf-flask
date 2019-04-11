@@ -28,4 +28,7 @@ centrally store, access, and distribute secrets like API keys,
 AWS IAM/STS credentials, SQL/NoSQL databases, X.509 certificates, 
 SSH credentials, etc by means of a key vault.
 
+When selecting a key vault that is fit for your needs make sure it has Cryptographic Compliance
+towards the FIPS standards.
+
 
