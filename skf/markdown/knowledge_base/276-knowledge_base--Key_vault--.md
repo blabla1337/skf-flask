@@ -18,6 +18,10 @@ Imagine the use of a keyvault in the following scenario's
 Vault provides encryption as a service with centralized key management to simplify encrypting data 
 in transit and at rest across clouds and datacenters.
 
+a Vault can be used to encrypt/decrypt data that is stored elsewhere. The primary use of this is to allow applications to encrypt their data while still storing it in the primary data store.
+
+The benefit of this is that developers do not need to worry about how to properly encrypt data. The responsibility of encryption is on Vault and the security team managing it, and developers just encrypt/decrypt data as needed.
+
 Solution:
 
 centrally store, access, and distribute secrets like API keys,
