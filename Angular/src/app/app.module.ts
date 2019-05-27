@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LabsComponent } from './labs/labs.component';
@@ -85,6 +86,20 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HighlightJsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false,
+        },
+      },
+    }),
     NgSelectModule
   ],
   providers: [GuardService,HighlightJsService],

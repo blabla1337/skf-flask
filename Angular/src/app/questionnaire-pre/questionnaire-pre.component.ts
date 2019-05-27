@@ -45,6 +45,8 @@ export class QuestionnairePreComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    localStorage.setItem("questionID", '0')
+
     if (AppSettings.AUTH_TOKEN) {
       let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
       this.canDelete = decodedJWT.privilege.includes("delete");
@@ -110,20 +112,20 @@ export class QuestionnairePreComponent implements OnInit {
       );
   }
 
-  correlateQuestionToChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_sprint_ID:string){
+  correlateQuestionToChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_sprint_ID:string, cwe:number){
     console.log(this.checklistID)
     this.errors = [];    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), Number(localStorage.getItem("questionID")), Number(this.cwe))
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), Number(localStorage.getItem("questionID")), Number(cwe))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
         () => this.errors.push("Adding the checklistID to the question did not happen!")
       );
   }
 
-  removeQuestionFromChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_sprint_ID:string){
+  removeQuestionFromChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_sprint_ID:string, cwe:number){
     console.log(this.checklistID)
     this.errors = [];    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), 0, Number(this.cwe))
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), 0, Number(cwe))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
         () => this.errors.push("Adding the checklistID to the question did not happen!")

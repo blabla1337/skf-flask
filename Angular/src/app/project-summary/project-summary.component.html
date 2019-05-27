@@ -38,8 +38,8 @@
       <div class="col-lg-12">
         <div style='float:right; margin-bottom:1%'>
           I am a:
-          <button class="btn btn-default" (click)="select('Security')"><i class="fa fa-bug" aria-hidden="true"></i> Security Specialist</button>
-          <button class="btn btn-default" (click)="select('Development')"><i class="fa fa-code" aria-hidden="true"></i> Developer</button>
+          &nbsp; <button class="btn btn-default" (click)="select('Security')"><i class="fa fa-bug" aria-hidden="true"></i> Security Specialist</button>&nbsp;
+          &nbsp; <button class="btn btn-default" (click)="select('Development')"><i class="fa fa-code" aria-hidden="true"></i> Developer</button>&nbsp;
         </div>
         <div *ngFor="let item of sprintResult;  let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
           <div (click)="fetchComment(item.checklistID)">
@@ -60,7 +60,7 @@
                         <br/>
                         <h4>{{item.kb_item_title}}</h4>
                         <p style="white-space: pre-line; max-width:70%">
-                          {{item.kb_items_content}}                        </p>
+                          <markdown>{{item.kb_items_content}} </markdown>                       </p>
 
                           <div *ngIf="item.cwe > 0">
                               <ngb-alert [dismissible]="false">
@@ -84,19 +84,19 @@
                               <p><b>Leave a comment for audit log and change status!</b></p>
                               <p>Here we can change the status of the open security mitigation.
                                 <br/>Please explain why the item is mitigated, opened or closed!</p>
-                              <textarea required class="form-control" maxlength="255" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
+                              <textarea required class="form-control" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
                               <br/>
                               <div style="float:right">
                                 <div *ngIf="selector == 'Development'">
-                                  <button *ngIf="item.status != 2" (click)="save(2, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>
-                                  <button *ngIf="item.status != 2" (click)="save(3, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>
-                                  <button *ngIf="item.status == 2" (click)="save(1, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>
+                                    &nbsp;<button *ngIf="item.status != 2" (click)="save(2, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>&nbsp;
+                                    &nbsp;<button *ngIf="item.status != 2" (click)="save(3, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>&nbsp;
+                                    &nbsp;<button *ngIf="item.status == 2" (click)="save(1, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>&nbsp;
                                 </div>
                                 <div *ngIf="selector == 'Security'">
-                                  <button *ngIf="item.status != 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
-                                  <button *ngIf="item.status != 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
-                                  <button *ngIf="item.status == 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>
-                                  <button *ngIf="item.status == 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>
+                                    &nbsp;<button *ngIf="item.status != 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>&nbsp;
+                                    &nbsp;<button *ngIf="item.status != 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>&nbsp;
+                                    &nbsp;<button *ngIf="item.status == 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>&nbsp;
+                                    &nbsp;<button *ngIf="item.status == 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>&nbsp;
  
                                    </div>
                               </div>
@@ -110,18 +110,20 @@
                       <ng-template ngbTabContent>
                         <div *ngIf="showMe == item.checklistID">
                         <form *ngFor="let comment of comments">
-                          <div class="col-md-3">
+                          <br/>
+                          <div class="col-md-16">
                             <div class="card">
                               <div class="card-block">
-                                <div *ngIf="comment" class="card-header no-padding" style="text-align:center;">
-                                  <b class="orange" *ngIf="comment.status == 1">OPEN</b>
-                                  <b class="green" *ngIf="comment.status == 2">CLOSED</b>
-                                  <b class="orange" *ngIf="comment.status == 3">ACCEPTED</b>
-                                  <b class="green" *ngIf="comment.status == 4">VERIFIED</b>
-                                  <b class="red" *ngIf="comment.status == 5">FAILED</b>
-                                </div>
+                                <div *ngIf="comment" >
+                                  <b  *ngIf="comment.status == 1">OPEN</b>
+                                  <b  *ngIf="comment.status == 2">CLOSED</b>
+                                  <b  *ngIf="comment.status == 3">ACCEPTED</b>
+                                  <b  *ngIf="comment.status == 4">VERIFIED</b>
+                                  <b  *ngIf="comment.status == 5">FAILED</b>
+                                </div> 
+                                <br/>
 
-                                <p *ngIf="comment">{{comment.comment}}</p>
+                                <p *ngIf="comment"><markdown>{{comment.comment}}</markdown></p>
 
                                 <p *ngIf="error">{{error}}</p>
                                 <div *ngIf="comment" class="card-footer text-muted text-center">

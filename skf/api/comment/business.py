@@ -23,7 +23,6 @@ def new_comment_item(user_id, data):
     val_alpha_num(data.get('checklistID'))
     val_num(data.get('sprintID'))
     val_num(data.get('status'))
-    val_alpha_num_special(data.get('comment'))
     sprint_id = data.get('sprintID')
     checklist_id = data.get('checklistID')
     status = data.get('status')

@@ -72,7 +72,7 @@
               </div>
               <div class="card-block">
                 <div *ngFor="let item of checklist; let myIndex = index; trackBy:indexTracker">
-                  <button id="checklist-total" *ngIf="item.question_pre_ID == 0" (click)="correlateQuestionToChecklistITem(item.checklist_items_checklistID, item.checklist_items_content, item.kb_item_id, item.include_always, item.include_first, item.question_sprint_ID)"
+                  <button id="checklist-total" *ngIf="item.question_pre_ID == 0" (click)="correlateQuestionToChecklistITem(item.checklist_items_checklistID, item.checklist_items_content, item.kb_item_id, item.include_always, item.include_first, item.question_sprint_ID, item.cwe)"
                     style="width:100%; text-align:left; margin-bottom:0.5%; background-color:rgba(0,255,51,0.2)"><b>{{item.checklist_items_checklistID}}</b><br />
                     {{item.checklist_items_content}} <i class="fa fa-plus-circle" style="float:right"></i></button>
                 </div>
@@ -87,7 +87,7 @@
               </div>
               <div class="card-block">
                 <div *ngFor="let item of correlatedChecklist; let myIndex = index; trackBy:indexTracker" style="overflow:auto;max-height:1%;">
-                  <button id="checklist-correlated{{myIndex}}" (click)="removeQuestionFromChecklistITem(item.checklist_items_checklistID, item.checklist_items_content, item.kb_item_id, item.include_always, item.include_first, item.question_sprint_ID)"
+                  <button id="checklist-correlated{{myIndex}}" (click)="removeQuestionFromChecklistITem(item.checklist_items_checklistID, item.checklist_items_content, item.kb_item_id, item.include_always, item.include_first, item.question_sprint_ID, item.cwe)"
                     style="width:100%; text-align:left; margin-bottom:0.5%; background-color:rgba(255,0,0,0.2);"><b>{{item.checklist_items_checklistID}}</b><br />
                     {{item.checklist_items_content}} <i class="fa fa-minus-circle" style="float:right"></i></button>
                 </div>

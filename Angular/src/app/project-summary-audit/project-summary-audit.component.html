@@ -50,7 +50,7 @@
             <div *ngIf="item.status == 4" class="blob msg-green verified"><i class="fa fa-bug" aria-hidden="true"></i></div>
             <div *ngIf="item.status == 5" class="blob msg-red failed"><i class="fa fa-times" aria-hidden="true"></i></div>
             <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
-              <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}} ( Lvl:{{item.checklist_items_level}} )">
+              <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}}">
                 <ng-template ngbPanelContent>
                   <ngb-tabset>
                     <ngb-tab>
@@ -59,7 +59,7 @@
                         <br/>
                         <h4>{{item.kb_item_title}}</h4>
                         <p style="white-space: pre-line; max-width:70%">
-                          {{item.kb_items_content}}
+                        <markdown>{{item.kb_items_content}}</markdown>
                         </p>
                       </ng-template>
                     </ngb-tab>
@@ -79,7 +79,7 @@
                               <p><b>Leave a comment for audit trail and change status!</b></p>
                               <p>Here we can change the status of the open security mitigation.
                                 <br/>Please explain why the item is mitigated, opened or closed!</p>
-                              <textarea required class="form-control" maxlength="255" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;"
+                              <textarea required class="form-control" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;"
                                 placeholder="Rule comment"></textarea>
                               <br/>
                               <div style="float:right">
@@ -95,18 +95,19 @@
                       <ng-template ngbTabContent>
                         <div *ngIf="showMe == item.checklistID">
                         <form *ngFor="let comment of comments">
-                          <div class="col-md-3">
+                          <div class="col-md-16">
+                            <br/>
                             <div class="card">
                               <div class="card-block">
-                                <div *ngIf="comment" class="card-header no-padding" style="text-align:center;">
-                                  <b class="orange" *ngIf="comment.status == 1">OPEN</b>
-                                  <b class="green" *ngIf="comment.status == 2">CLOSED</b>
-                                  <b class="orange" *ngIf="comment.status == 3">ACCEPTED</b>
-                                  <b class="green" *ngIf="comment.status == 4">VERIFIED</b>
-                                  <b class="red" *ngIf="comment.status == 5">FAILED</b>
+                                <div *ngIf="comment">
+                                  <div *ngIf="comment.status == 1"><b>OPEN</b> </div>
+                                  <div *ngIf="comment.status == 2"><b>CLOSED</b> </div>
+                                  <div *ngIf="comment.status == 3"><b>ACCEPTED</b> ></div>
+                                  <div *ngIf="comment.status == 4"><b>VERIFIED</b> </div>
+                                  <div *ngIf="comment.status == 5"><b>FAILED</b>  </div>
                                 </div>
-
-                                <p *ngIf="comment">{{comment.comment}}</p>
+                                <br/>
+                                <p *ngIf="comment"><markdown>{{comment.comment}}</markdown></p>
 
                                 <p *ngIf="error">{{error}}</p>
                                 <div *ngIf="comment" class="card-footer text-muted text-center">

@@ -95,16 +95,25 @@ export class ProjectNewComponent implements OnInit {
               if (pre_dev_items["pre_dev_answer" + i] == '0') { 
                 this.pre_dev_store.push({ "projectID": this.projectID, "question_pre_ID": Number(pre_dev_items["pre_dev_answer" + i]), "result": "True" });
               }
+
+              if (pre_dev_items["pre_dev_answer" + i] == '') { 
+                this.pre_dev_store.push({ "projectID": this.projectID, "question_pre_ID": Number(pre_dev_items["pre_dev_answer" + i]), "result": "True" });
+              }
             }
 
             for (let i = 1; i < count_sprint + 1; i++) {
               if (sprint_items["sprint_answer" + i] == '0') {  
                 this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": Number(sprint_items["sprint_answer" + i]), "result": "False", "sprintID": this.sprintID });
               }
+              if (sprint_items["sprint_answer" + i] == '') {  
+                this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": Number(sprint_items["sprint_answer" + i]), "result": "False", "sprintID": this.sprintID });
+              }
               if (sprint_items["sprint_answer" + i] != '0') {  
                 this.sprintStore.push({ "projectID": this.projectID, "question_sprint_ID": Number(sprint_items["sprint_answer" + i]), "result": "True", "sprintID": this.sprintID });
               }
             }
+            console.log(this.sprintStore)
+            console.log(this.pre_dev_store)
           })
       });
 
