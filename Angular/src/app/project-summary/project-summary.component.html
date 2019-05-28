@@ -91,13 +91,14 @@
                                     &nbsp;<button *ngIf="item.status != 2" (click)="save(2, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>&nbsp;
                                     &nbsp;<button *ngIf="item.status != 2" (click)="save(3, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>&nbsp;
                                     &nbsp;<button *ngIf="item.status == 2" (click)="save(1, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>&nbsp;
-                                </div>
+                                  <br/>
+                                  </div>
                                 <div *ngIf="selector == 'Security'">
                                     &nbsp;<button *ngIf="item.status != 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>&nbsp;
                                     &nbsp;<button *ngIf="item.status != 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>&nbsp;
                                     &nbsp;<button *ngIf="item.status == 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>&nbsp;
                                     &nbsp;<button *ngIf="item.status == 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>&nbsp;
- 
+                                    <br/>
                                    </div>
                               </div>
                             </div>

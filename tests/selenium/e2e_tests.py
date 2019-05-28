@@ -387,7 +387,7 @@ class SKFClickThrough(unittest.TestCase):
         assert "test content kb item 4" in driver.page_source
 
 
-    def test_a_update_knowledge_base_item(self):
+    def aaaaaaaaa(self):
         """Test update knowledge base item page"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
@@ -404,7 +404,7 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         time.sleep(2)
         kbTitle = driver.find_element_by_id("inputTitle")
-        kbTitle.send_keys(" update")
+        kbTitle.send_keys("update")
         time.sleep(1)
         input = wait.until(EC.visibility_of_element_located((By.ID, "update-button")))
         input.click()
