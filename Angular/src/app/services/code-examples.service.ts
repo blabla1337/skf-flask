@@ -1,8 +1,10 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { CodeExample } from '../models/code-example'
 import { Headers, Http } from '@angular/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
@@ -22,7 +24,7 @@ export class CodeExamplesService {
       localStorage.setItem("code_lang", "php");
     }
 
-    return this.http.get(environment.API_ENDPOINT + '/code/lang/' + codeLang, { headers: this.headers })
-      .map(response => response.json().items)
+    return this.http.get(environment.API_ENDPOINT + '/code/lang/' + codeLang, { headers: this.headers }).pipe(
+      map(response => response.json().items))
   }
 }

@@ -1,8 +1,10 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user'
 import { Headers, Http } from '@angular/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
@@ -15,7 +17,7 @@ export class UserAddService {
 
   getPrivileges() {
     return this.http.get(environment.API_ENDPOINT + '/user/list_privileges',
-    { headers: this.headers }).map(response => response.json().items)
+    { headers: this.headers }).pipe(map(response => response.json().items))
   }
 
   newUser(email: string, privileges: string): Observable<User[]> {
@@ -25,7 +27,7 @@ export class UserAddService {
         email: email,
         privilege: parseInt(privileges, 10)
       }),
-      { headers: this.headers })
-      .map(res => res.json() as User[])
+      { headers: this.headers }).pipe(
+      map(res => res.json() as User[]))
   }
 }

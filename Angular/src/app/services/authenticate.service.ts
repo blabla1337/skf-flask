@@ -1,8 +1,10 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { User } from '../models/user'
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
@@ -16,8 +18,8 @@ export class AuthenticateService {
 
   authenticate(username: string, password: string): Observable<any> {
     return this.http
-      .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ username: username, password: password }), { headers: this.headers })
-      .map(response => {return response.json()})   
+      .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ username: username, password: password }), { headers: this.headers }).pipe(
+      map(response => {return response.json()}))   
   }
 
   activateUser(email: string, username: string, accessToken: string, password: string, repassword: string, userID: number): Observable<string> {
@@ -29,8 +31,8 @@ export class AuthenticateService {
         repassword: repassword,
         username: username
       }),
-      { headers: this.headers })
-      .map(response => { return response.json()});
+      { headers: this.headers }).pipe(
+      map(response => { return response.json()}));
   }
 
   logout() {

@@ -1,8 +1,10 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Labs } from '../models/labs';
 import { AppSettings } from '../globals';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
 
@@ -14,7 +16,7 @@ export class LabService {
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
   getLabs(): Observable<Labs[]> {
-    return this.http.get(environment.API_ENDPOINT + '/interactive_labs/items', { headers: this.headers })
-      .map(response => response.json().items);
+    return this.http.get(environment.API_ENDPOINT + '/interactive_labs/items', { headers: this.headers }).pipe(
+      map(response => response.json().items));
   }
 }

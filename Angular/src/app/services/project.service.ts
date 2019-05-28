@@ -1,9 +1,11 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Project } from '../models/project';
 import { ProjectStats } from '../models/project_stats';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
@@ -23,31 +25,31 @@ export class ProjectService {
         checklist_type: checklist_type,
         version: version
       }),
-      { headers: this.postHeaders })
-      .map(a => { return a.json() });
+      { headers: this.postHeaders }).pipe(
+      map(a => { return a.json() }));
   }
 
   getProjects(): Observable<Project[]> {
-    return this.http.get(environment.API_ENDPOINT + '/project/items', { headers: this.getHeaders })
-      .map(response => response.json().items)
+    return this.http.get(environment.API_ENDPOINT + '/project/items', { headers: this.getHeaders }).pipe(
+      map(response => response.json().items))
   }
 
   getProject(id: number): Observable<Project[]> {
-    return this.http.get(environment.API_ENDPOINT + `/project/${id}`, { headers: this.getHeaders })
-      .map(response => response.json().items)
+    return this.http.get(environment.API_ENDPOINT + `/project/${id}`, { headers: this.getHeaders }).pipe(
+      map(response => response.json().items))
   }
 
   delete(id: number) {
     const url = environment.API_ENDPOINT + `/project/delete/${id}`;
-    return this.http.delete(url, { headers: this.postHeaders })
-      .map(
+    return this.http.delete(url, { headers: this.postHeaders }).pipe(
+      map(
       data => data,
-      error => console.log("failed to delete"))
+      error => console.log("failed to delete")))
   }
 
   getStats(id: number): Observable<ProjectStats[]> {
     const url = environment.API_ENDPOINT + `/project/stats/${id}`;
-    return this.http.get(url, { headers: this.getHeaders })
-      .map(response => response.json().items)
+    return this.http.get(url, { headers: this.getHeaders }).pipe(
+      map(response => response.json().items))
   }
 }

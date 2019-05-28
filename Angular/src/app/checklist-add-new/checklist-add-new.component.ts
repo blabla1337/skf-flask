@@ -11,7 +11,6 @@ import { Checklist } from '../models/checklist';
 import { Knowledgebase } from '../models/knowledgebase';
 import { Question_pre } from '../models/question_pre'
 import { Question_sprint } from '../models/question_sprint'
-import { PublicFeature } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-checklist-add-new',

@@ -1,7 +1,9 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { Sprint } from '../models/sprint';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
@@ -25,37 +27,37 @@ export class SprintService {
         description: description,
         projectID: projectID
       }),
-      { headers: this.postHeaders })
-      .map(a => { return a.json() });
+      { headers: this.postHeaders }).pipe(
+      map(a => { return a.json() }));
   }
 
   getSprintStats(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/stats/${id}`, { headers: this.headers })
-      .map(response => response.json())
+    return this.http.get(environment.API_ENDPOINT + `/sprint/stats/${id}`, { headers: this.headers }).pipe(
+      map(response => response.json()))
   }
 
   getSprintResults(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/${id}`, { headers: this.headers })
-      .map(response => response.json().items)
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/${id}`, { headers: this.headers }).pipe(
+      map(response => response.json().items))
   }
 
   getSprintResultsAudit(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/audit/${id}`, { headers: this.headers })
-      .map(response => response.json().items)
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/audit/${id}`, { headers: this.headers }).pipe(
+      map(response => response.json().items))
   }
 
   getSprintResultsAuditExport(id: number) {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${id}`, { headers: this.headers })
-      .map(
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${id}`, { headers: this.headers }).pipe(
+      map(
       response => response.json().message,
-      error => console.log("failed to export"));
+      error => console.log("failed to export")));
   }
 
   delete(id: number) {
     const url = environment.API_ENDPOINT + `/sprint/delete/${id}`;
-    return this.http.delete(url, { headers: this.headers })
-      .map(
+    return this.http.delete(url, { headers: this.headers }).pipe(
+      map(
       data => data,
-      error => console.log("failed to delete"))
+      error => console.log("failed to delete")))
   }
 }

@@ -1,8 +1,10 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Comment } from '../models/comment';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { AppSettings } from '../globals';
 import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
@@ -22,8 +24,8 @@ export class CommentService {
         sprintID: parseInt(sprintID, 10),
         status: status
       }),
-      { headers: this.postHeaders })
-      .map(a => { return a.json() });
+      { headers: this.postHeaders }).pipe(
+      map(a => { return a.json() }));
   }
 
   getComment(checklistID: string, sprintID: string): Observable<Comment> {
@@ -32,7 +34,7 @@ export class CommentService {
         checklistID: checklistID,
         sprintID: parseInt(sprintID, 10)
       }),
-      { headers: this.postHeaders })
-      .map(a => { return a.json().items });
+      { headers: this.postHeaders }).pipe(
+      map(a => { return a.json().items }));
   }
 }

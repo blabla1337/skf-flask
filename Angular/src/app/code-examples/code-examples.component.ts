@@ -3,7 +3,7 @@ import { CodeExamplesService } from '../services/code-examples.service'
 import { StartsWithPipe } from '../pipes/starts-with.pipe'
 import { CodeExample } from '../models/code-example'
 import { HighlightJsService } from 'angular2-highlight-js'; //in live this would be the node_modules path
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 
 declare var hljs: any;
 
