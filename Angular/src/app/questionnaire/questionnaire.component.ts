@@ -1,20 +1,20 @@
 import { Component, OnInit,ViewChild, ElementRef} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { QuestionPreService } from '../services/questions-pre.service';
+import { QuestionsService } from '../services/questions.service';
 import { ChecklistService } from '../services/checklist.service';
 import { Checklist } from '../models/checklist';
-import { Question_pre } from '../models/question_pre'
+import { Questions } from '../models/questions'
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
 
 
 @Component({
-  selector: 'app-questionnaire-pre',
-  templateUrl: './questionnaire-pre.component.html',
-  providers: [QuestionPreService, ChecklistService]
+  selector: 'app-questionnaire',
+  templateUrl: './questionnaire.component.html',
+  providers: [QuestionsService, ChecklistService]
 })
-export class QuestionnairePreComponent implements OnInit {
+export class QuestionnaireComponent implements OnInit {
   @ViewChild('sectionNeedToScroll') sectionNeedToScroll: ElementRef
 
   closeResult: string;
@@ -22,7 +22,7 @@ export class QuestionnairePreComponent implements OnInit {
   public idfromUrl: string;
   public questionID: number;
   public questionName: string;
-  public pre_dev: Question_pre[] = [];
+  public sprints: Questions[] = [];
   public checklist: Checklist[];
   public correlatedChecklist: Checklist[];
   public error: string;
@@ -33,33 +33,30 @@ export class QuestionnairePreComponent implements OnInit {
   public kbID:number;
   public cwe:number;
   public question_sprint_ID:number;
-  public question_pre_ID:number;
   public include_first:string;
   public include_always:string;
 
   constructor(
     private modalService: NgbModal,
-    private _questionsPreService: QuestionPreService,
+    private _questionsService: QuestionsService,
     private _checklistService:ChecklistService,
     private router: Router,
   ) { }
 
   ngOnInit() {
-    localStorage.setItem("questionID", '0')
-
     if (AppSettings.AUTH_TOKEN) {
       let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
       this.canDelete = decodedJWT.privilege.includes("delete");
     }
     this.idfromUrl = localStorage.getItem("tempParamID");
-    this.getPreQuestionList();
+    this.getQuestionList();
     this.getChecklistList();
   };
 
-  getPreQuestionList(){
-    this._questionsPreService.getPreQuestions(Number(localStorage.getItem("tempParamID"))).subscribe(
-      pre_dev => this.pre_dev = pre_dev,
-      err => console.log("getting pre dev questions failed")
+  getQuestionList(){
+    this._questionsService.getQuestions(Number(localStorage.getItem("tempParamID"))).subscribe(
+      sprints => this.sprints = sprints,
+      err => console.log("getting questions failed")
     )
   }
 
@@ -77,8 +74,8 @@ export class QuestionnairePreComponent implements OnInit {
   }
 
   getChecklistListItemsCorrelatedToSelectedQuestion() {
-    this._questionsPreService
-      .getChecklistItemsOnPreQuestionID(Number(localStorage.getItem("questionID")))
+    this._questionsService
+      .getChecklistItemsOnQuestionID(Number(localStorage.getItem("questionID")))
       .subscribe(
         correlatedChecklist => {
         this.correlatedChecklist = correlatedChecklist;
@@ -96,36 +93,36 @@ export class QuestionnairePreComponent implements OnInit {
 
   storeNewQuestion(){
     this.errors = [];    
-    this._questionsPreService.newQuestion(Number(localStorage.getItem("tempParamID")), this.questionName)
+    this._questionsService.newQuestion(Number(localStorage.getItem("tempParamID")), this.questionName)
       .subscribe(
-        () => this.getPreQuestionList(),
+        () => this.getQuestionList(),
         () => this.errors.push("Error whilst adding user, potential duplicate email adres!")
       );
   }
 
   updateQuestion(){
     this.errors = [];    
-    this._questionsPreService.updateQuestion(Number(localStorage.getItem("tempParamID")), this.questionName, this.questionID)
+    this._questionsService.updateQuestion(Number(localStorage.getItem("tempParamID")), this.questionName, this.questionID)
       .subscribe(
-        () => {this.getPreQuestionList()},
+        () => {this.getQuestionList()},
         () => this.errors.push("Error whilst adding user, potential duplicate email adres!")
       );
   }
 
-  correlateQuestionToChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_sprint_ID:string, cwe:number){
+  correlateQuestionToChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, cwe:number){
     console.log(this.checklistID)
     this.errors = [];    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), Number(localStorage.getItem("questionID")), Number(cwe))
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always,  Number(localStorage.getItem("questionID")), Number(cwe))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
         () => this.errors.push("Adding the checklistID to the question did not happen!")
       );
   }
 
-  removeQuestionFromChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, include_first:string, question_sprint_ID:string, cwe:number){
+  removeQuestionFromChecklistITem(checklistID:number, content:string, kbID:string, include_always:string, cwe:number){
     console.log(this.checklistID)
     this.errors = [];    
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, include_first, Number(question_sprint_ID), 0, Number(cwe))
+    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, 0, Number(cwe))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
         () => this.errors.push("Adding the checklistID to the question did not happen!")
@@ -134,9 +131,9 @@ export class QuestionnairePreComponent implements OnInit {
 
   deleteQuestion(){
     if (this.delete == "DELETE") {
-      this._questionsPreService.deleteQuestion(this.questionID).subscribe(x =>
+      this._questionsService.deleteQuestion(this.questionID).subscribe(x =>
         //Get the new project list on delete 
-        this.getPreQuestionList())
+        this.getQuestionList())
       this.delete = "";
     }
     console.log(this.questionID)

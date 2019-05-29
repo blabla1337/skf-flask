@@ -43,8 +43,7 @@ import { StringFilterPipe } from './pipes/string-filter.pipe';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { UndefinedComponent } from './undefined/undefined.component';
-import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
-import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnaire-sprint.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
@@ -74,9 +73,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     StringFilterPipe,
     FirstLoginComponent,
     UndefinedComponent,
-    QuestionnairePreComponent,
     LabsComponent,
-    QuestionnaireSprintComponent
+    QuestionnaireComponent
   ],
   imports: [
     BrowserModule,

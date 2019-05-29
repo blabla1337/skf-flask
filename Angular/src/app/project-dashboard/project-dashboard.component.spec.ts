@@ -7,17 +7,10 @@ import { OrderBy } from '../pipes/order-by.pipe'
 import { HttpModule } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { fakeAsync } from "@angular/core/testing";
-import { tick } from "@angular/core/testing";
-import { Knowledgebase } from "../models/knowledgebase";
 import { StartsWithPipe } from "../pipes/starts-with.pipe";
-import { KnowledgebaseService } from "../services/knowledgebase.service";
 import { ProjectDashboardComponent } from "./project-dashboard.component";
-import { QuestionsSprintService } from "../services/questions-sprint.service";
-import { QuestionPreService } from "../services/questions-pre.service";
 import { Sprint } from "../models/sprint";
-import { MockBackend } from "@angular/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
-import { inject } from "@angular/core/testing";
 import { SprintService } from "../services/sprint.service";
 
 
@@ -27,7 +20,6 @@ describe('Knowledgebase component component', () => {
     let debugElement: DebugElement;
     let htmlElement: HTMLElement;
     let questions: Sprint[] = [];
-    let sprintService: QuestionsSprintService;
 
     questions.push({ "projectID": 1, "question_pre_ID": "1", "result": "True" })
     questions.push({ "projectID": 1, "question_pre_ID": "2", "result": "False" })

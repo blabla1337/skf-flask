@@ -3,27 +3,26 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChecklistService } from '../services/checklist.service'
 import { KnowledgebaseService } from '../services/knowledgebase.service'
-import { QuestionPreService} from '../services/questions-pre.service'
-import { QuestionsSprintService } from '../services/questions-sprint.service'
+import { QuestionsService } from '../services/questions.service'
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
 import { Checklist } from '../models/checklist';
 import { Knowledgebase } from '../models/knowledgebase';
-import { Question_pre } from '../models/question_pre'
-import { Question_sprint } from '../models/question_sprint'
+import { Questions } from '../models/questions'
+
 
 @Component({
   selector: 'app-checklist-add-new',
   templateUrl: './checklist-add-new.component.html',
-providers: [ChecklistService, QuestionPreService, QuestionsSprintService]
+providers: [ChecklistService, QuestionsService]
 })
 export class ChecklistAddNewComponent implements OnInit {
 
   constructor(
     private _checklistService: ChecklistService,
-    private _questionsPreService: QuestionPreService,
+
     private _knowledgeService: KnowledgebaseService,
-    private _questionsSprintService: QuestionsSprintService,
+    private _questionsService: QuestionsService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
     private router: Router
@@ -39,9 +38,7 @@ export class ChecklistAddNewComponent implements OnInit {
   public canEdit: boolean;
   public knowledgebaseID: number;
   public checklist: Checklist[]
-  public pre_dev: Question_pre[] = [];
-  public sprints: Question_sprint[] = [];
-  public include_first: string;
+  public questions: Questions[] = [];
   public include_always: string;
   public checklistID: number;
   public content: string;
@@ -50,12 +47,6 @@ export class ChecklistAddNewComponent implements OnInit {
   public kbItem: any = {
     "kbID": '',
     "title": ''
-  };
-
-  public questionPre: any = {
-    "checklist_type": '',
-    "id": '',
-    "question": ''
   };
 
   public questionSprint: any = {
@@ -77,8 +68,7 @@ export class ChecklistAddNewComponent implements OnInit {
     }
 
     this.getKnowledgeItems();
-    this.getPreQuestionList(Number(localStorage.getItem("tempParamID")));
-    this.getSprintQuestionList(Number(localStorage.getItem("tempParamID")));
+    this.getQuestionList(Number(localStorage.getItem("tempParamID")));
 
     /* 
     Put getting the checklist in delay. Otherwise when updating the checklist items the item is fetched before
@@ -113,16 +103,12 @@ export class ChecklistAddNewComponent implements OnInit {
       this.errors.push("Include always choice was not made");
       this.return = false;
     }
-    if (!this.include_first) {
-      this.errors.push("Include first choice was not made");
-      this.return = false;
-    }
 
     if (this.return == false) {
       return;
     }
 
-    this._checklistService.newChecklistItem(Number(this.checklistTypeFromUrl), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, this.include_first, Number(this.questionSprint.id), Number(this.questionPre.id), Number(this.cwe))
+    this._checklistService.newChecklistItem(Number(this.checklistTypeFromUrl), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, Number(this.questionSprint.id), Number(this.cwe))
       .subscribe(
         () => this.getChecklistList(),
         () => this.errors.push("Error storing checklist item, potential duplicate checklist ID")
@@ -154,27 +140,11 @@ export class ChecklistAddNewComponent implements OnInit {
       err => this.error = "Getting the checklist types failed, contact an administrator! ");
   }
 
-  getPreQuestionList(checklistType:number){
-    this._questionsPreService.getPreQuestions(checklistType).subscribe(
-      pre_dev => {
-        this.pre_dev = pre_dev;
-          this.pre_dev.unshift({
-          "checklist_type": '',
-          "id": 0,
-          "question": 'Empty'
-        });
-      },
-      err => {
-        console.log("getting pre dev questions failed")
-      }
-    )
-  }
-
-  getSprintQuestionList(checklistType:number){
-    this._questionsSprintService.getSprintQuestions(checklistType).subscribe(
+  getQuestionList(checklistType:number){
+    this._questionsService.getQuestions(checklistType).subscribe(
       sprints => {
-        this.sprints = sprints;
-        this.sprints.unshift({
+        this.questions = sprints;
+        this.questions.unshift({
           "checklist_type": '',
           "id": 0,
           "question": 'Empty'
@@ -199,11 +169,7 @@ export class ChecklistAddNewComponent implements OnInit {
     this.editChecklist = false;
     this.checklistID = null;
     this.content = null;
-    this.questionPre = {
-      "checklist_type": '',
-      "id": '',
-      "question": ''
-    };
+
     this.questionSprint = {
       "checklist_type": '',
       "id": '',
@@ -213,7 +179,6 @@ export class ChecklistAddNewComponent implements OnInit {
       "kbID": '',
       "title": ''
     };
-    this.include_first = null;
     this.include_always = null;
     this.cwe = null;
   }

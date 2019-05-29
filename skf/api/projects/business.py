@@ -29,12 +29,10 @@ def update_project(project_id, user_id, data):
     val_alpha_num_special(data.get('name'))
     val_alpha_num(data.get('version'))
     val_alpha_num_special(data.get('description'))
-    val_num(data.get('checklist_type'))
     project = projects.query.filter(projects.projectID == project_id).one()
     project.projectName = data.get('name')
     project.projectVersion = data.get('version')
     project.projectDesc = data.get('description')
-    project.checklist_type = data.get('checklist_type')
     project.userID = user_id
     #groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
     #ownerID = groupmember.ownerID
@@ -52,18 +50,16 @@ def new_project(user_id, data):
     val_alpha_num_special(data.get('name'))
     val_alpha_num(data.get('version'))
     val_alpha_num_special(data.get('description'))
-    val_num(data.get('checklist_type'))
     projectName = data.get('name')
     projectVersion = data.get('version')
     projectDesc = data.get('description')
-    projectChecklist_type = data.get('checklist_type')
     userID = user_id
     groupmember = groupmembers.query.filter(groupmembers.userID == userID).one()
     ownerID = groupmember.ownerID
     groupID = groupmember.groupID
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M")
-    project = projects(userID, groupID, projectName, projectVersion, projectDesc, ownerID, timestamp, projectChecklist_type)
+    project = projects(userID, groupID, projectName, projectVersion, projectDesc, ownerID, timestamp)
     db.session.add(project)
     db.session.commit()
     result = projects.query.filter(projects.userID == user_id).order_by(desc(projects.projectID)).first()
@@ -97,9 +93,8 @@ def stats_project(project_id):
     project_info = (projects.query.filter(projects.projectID == project_id).one())
     project_name = project_info.projectName
     project_desc = project_info.projectDesc
-    project_type = project_info.checklist_type
     project_open = sprint_open
     project_closed = (checklists_results.query.filter(checklists_results.projectID == project_id).filter(checklists_results.status == 2).count())
     project_accepted = (checklists_results.query.filter(checklists_results.projectID == project_id).filter(checklists_results.status == 3).count())
-    result = {'project_id': project_id, 'project_name': project_name, 'project_desc': project_desc, 'project_type': project_type, 'project_open': project_open, 'project_closed': project_closed, 'project_accepted': project_accepted}
+    result = {'project_id': project_id, 'project_name': project_name, 'project_desc': project_desc, 'project_open': project_open, 'project_closed': project_closed, 'project_accepted': project_accepted}
     return result

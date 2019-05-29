@@ -4,11 +4,11 @@ import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHR
 import { Observable } from 'rxjs/Rx';
 import { async } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
-import { Question_sprint } from "../../models/question_sprint";
+import { Questions } from "../../models/questions";
 
 import { Sprint } from "../../models/sprint";
 import { SprintService } from "../sprint.service";
-import { QuestionsSprintService } from "../questions-sprint.service";
+import { QuestionsService } from "../questions.service";
 
 
 describe('Question-sprint service', () => {

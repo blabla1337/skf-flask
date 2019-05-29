@@ -17,6 +17,9 @@ export class ProjectListComponent implements OnInit {
   public error: string;
   public delete: string;
   public canDelete:boolean;
+  public projectName: string;
+  public projectDescription:string;
+  public projectVersion:string; 
 
   constructor(private _projectService: ProjectService, private modalService: NgbModal) { }
 
@@ -49,7 +52,17 @@ export class ProjectListComponent implements OnInit {
       err => this.error = "Getting the projects failed, contact an administrator! ");
   }
 
+  storeProject(){
+    this._projectService.newProject(this.projectName, this.projectDescription, this.projectVersion)
+    .subscribe(
+      () => this.projectList(),
+      () => console.log("error storing list")
+    );
+  }
+  
+
   open(content) {
     this.modalService.open(content, { size: 'lg' }).result
   }
+
 }

@@ -15,14 +15,14 @@ def get_checklist_item(checklist_id, checklist_type):
 def get_checklist_item_question_pre(question_id):
     log("User requested specific checklist item using pre questionID", "LOW", "PASS")
     val_num(question_id)
-    result = checklists_kb.query.filter(checklists_kb.question_pre_ID == question_id).paginate(1, 1500, False)
+    result = checklists_kb.query.filter(checklists_kb.question_ID == question_id).paginate(1, 1500, False)
     return result
 
 
 def get_checklist_item_question_sprint(question_id):
     log("User requested specific checklist item using sprint questionID", "LOW", "PASS")
     val_num(question_id)
-    result = checklists_kb.query.filter(checklists_kb.question_sprint_ID == question_id).paginate(1, 1500, False)
+    result = checklists_kb.query.filter(checklists_kb.question_ID == question_id).paginate(1, 1500, False)
     return result
 
 
@@ -71,14 +71,13 @@ def create_checklist_item(checklistID, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
     checklist_content = data.get('content')
     include_always = data.get('include_always')
-    include_first = data.get('include_first')
-    question_sprint_ID = data.get('question_sprint_ID')
-    question_pre_ID = data.get('question_pre_ID')
+    question_ID = data.get('question_ID')
+    question_ID = data.get('question_ID')
     checklist_kbID = data.get('kbID')
     cwe = data.get('cwe')
     val_num(checklist_kbID)
     val_num(checklist_type)
-    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always, include_first, question_pre_ID, question_sprint_ID, cwe)
+    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always,  question_ID, cwe)
     db.session.add(checklist_item)
     db.session.commit()
     return {'message': 'Checklist item successfully created'} 
@@ -97,14 +96,12 @@ def update_checklist_item(checklist_id, checklist_type, data):
     result_checklist_kb.title = data.get('title')
     result_checklist_kb.content = data.get('content')
     result_checklist_kb.include_always = data.get('include_always')
-    result_checklist_kb.include_first = data.get('include_first')
-    result_checklist_kb.question_sprint_ID = data.get('question_sprint_ID')
-    result_checklist_kb.question_pre_ID = data.get('question_pre_ID')
+    result_checklist_kb.question_ID = data.get('question_ID')
     result_checklist_kb.cwe = data.get('cwe')
     result_checklist_kb.kbID = kbID
     result_checklist_kb.checklistID = checklist_id
     result_checklist_kb.checklist_type = checklist_type
-    val_num(result_checklist_kb.question_sprint_ID)
+    val_num(result_checklist_kb.question_ID)
     db.session.add(result_checklist_kb)
     db.session.commit()
     return {'message': 'Checklist item successfully updated'} 

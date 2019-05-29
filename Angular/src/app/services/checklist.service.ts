@@ -55,16 +55,14 @@ export class ChecklistService {
       map(a => { return a.json() }));
   }
   
-  newChecklistItem(checklistType: number, checklistID:number ,content:string, kbID:number, include_always:string, include_first:string, question_sprint_ID:number, question_pre_ID:number, cwe:number): Observable<any> {
+  newChecklistItem(checklistType: number, checklistID:number ,content:string, kbID:number, include_always:string,  question_ID:number, cwe:number): Observable<any> {
     console.log()
     return this.http
       .put(environment.API_ENDPOINT + `/checklist/new/item/${checklistID}/type/${checklistType}`, JSON.stringify({
        content: content,
        kbID:kbID,
        include_always:include_always,
-       include_first:include_first,
-       question_sprint_ID:question_sprint_ID,
-       question_pre_ID:question_pre_ID,
+       question_ID:question_ID,
        cwe:cwe,
       }),
         { headers: this.postHeaders }).pipe(
@@ -79,7 +77,7 @@ export class ChecklistService {
         error => console.log("failed to delete checklist item")))
   }
 
-  updateChecklistItem(checklistType: number, checklistID:number ,content:string, kbID:number, include_always:string, include_first:string, question_sprint_ID:number, question_pre_ID:number, cwe:number): Observable<any> {
+  updateChecklistItem(checklistType: number, checklistID:number ,content:string, kbID:number, include_always:string, question_ID:number, cwe:number): Observable<any> {
     
     console.log(include_always)
     return this.http
@@ -87,9 +85,7 @@ export class ChecklistService {
        content: content,
        kbID:kbID,
        include_always:include_always,
-       include_first:include_first,
-       question_sprint_ID:question_sprint_ID,
-       question_pre_ID:question_pre_ID,
+       question_ID:question_ID,
        cwe:cwe
       }),
         { headers: this.postHeaders }).pipe(

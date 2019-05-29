@@ -3,29 +3,26 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChecklistService } from '../services/checklist.service'
 import { KnowledgebaseService } from '../services/knowledgebase.service'
-import { QuestionPreService } from '../services/questions-pre.service'
-import { QuestionsSprintService } from '../services/questions-sprint.service'
+import { QuestionsService } from '../services/questions.service'
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
 import {Checklist} from '../models/checklist';
 import {Knowledgebase} from '../models/knowledgebase';
-import {Question_pre} from '../models/question_pre';
-import {Question_sprint} from '../models/question_sprint';
+import {Questions} from '../models/questions';
 import {forkJoin} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-checklist-edit',
   templateUrl: './checklist-edit.component.html',
-  providers: [ChecklistService, QuestionPreService, QuestionsSprintService]
+  providers: [ChecklistService, QuestionsService]
 })
 export class ChecklistEditComponent implements OnInit {
 
   constructor(
     private _checklistService: ChecklistService,
-    private _questionsPreService: QuestionPreService,
     private _knowledgeService: KnowledgebaseService,
-    private _questionsSprintService: QuestionsSprintService,
+    private _questionsService: QuestionsService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
     private router: Router,
@@ -43,8 +40,7 @@ export class ChecklistEditComponent implements OnInit {
   public canEdit: boolean;
   public knowledgebaseID: number;
   public checklist: Checklist[];
-  public pre_dev: Question_pre[] = [];
-  public sprints: Question_sprint[] = [];
+  public questions: Questions[] = [];
   public include_first: string;
   public include_always: string;
   public checklistID: number;
@@ -86,19 +82,12 @@ export class ChecklistEditComponent implements OnInit {
 
       // Added the Fork Join for service to get the dropdown list and call the checkListItem service
       forkJoin(
-        this.getPreQuestionList(Number(localStorage.getItem("tempParamID"))), this.getSprintQuestionList(Number(localStorage.getItem("tempParamID")))
+        this.getQuestionList(Number(localStorage.getItem("tempParamID"))), this.getSprintQuestionList(Number(localStorage.getItem("tempParamID")))
       ).subscribe(
         response => {
 
-          this.pre_dev = response[0];
-          this.pre_dev.unshift({
-            "checklist_type": '',
-            "id": 0,
-            "question": 'Empty'
-          });
-
-          this.sprints = response[1];
-          this.sprints.unshift({
+          this.questions = response[1];
+          this.questions.unshift({
             "checklist_type": '',
             "id": 0,
             "question": 'Empty'
@@ -136,17 +125,13 @@ export class ChecklistEditComponent implements OnInit {
       this.errors.push("Include always choice was not made");
       this.return = false;
     }
-    if (!this.include_first) {
-      this.errors.push("Include first choice was not made");
-      this.return = false;
-    }
 
     if (this.return == false) {
       return;
     }
 
     this.errors = [];
-    this._checklistService.updateChecklistItem(Number(this.checklistTypeFromStorage), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, this.include_first, Number(this.questionSprint.id), Number(this.questionPre.id), Number(this.cwe))
+    this._checklistService.updateChecklistItem(Number(this.checklistTypeFromStorage), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, Number(this.questionSprint.id), Number(this.cwe))
       .subscribe(
         () => this.getChecklistItem(),
         () => this.errors.push("Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)")
@@ -175,15 +160,14 @@ export class ChecklistEditComponent implements OnInit {
           this.content = checklist['checklist_items_content'];
           this.checklistID = checklist['checklist_items_checklistID'];
           this.include_always = checklist['include_always'];
-          this.include_first = checklist['include_first'];
           this.cwe = checklist['cwe'];
 
           this.kbItem = {
             "kbID": checklist['kb_item_id'],
             "title": checklist['kb_item_title']
           };
-          this.questionPre = this.getQuestionByFind(this.pre_dev, checklist['question_pre_ID']);
-          this.questionSprint = this.getQuestionByFind(this.sprints, checklist['question_sprint_ID']);
+
+          this.questionSprint = this.getQuestionByFind(this.questions, checklist['question_ID']);
 
           if (!this.checklist) {
             this.error = "There are no checklist types defined yet"
@@ -192,12 +176,12 @@ export class ChecklistEditComponent implements OnInit {
         err => this.error = "Getting the checklist types failed, contact an administrator! ");
   }
 
-  getPreQuestionList(checklistType: number) {
-    return this._questionsPreService.getPreQuestions(checklistType);
+  getQuestionList(checklistType: number) {
+    return this._questionsService.getQuestions(checklistType);
   }
 
   getSprintQuestionList(checklistType: number) {
-    return this._questionsSprintService.getSprintQuestions(checklistType);
+    return this._questionsService.getQuestions(checklistType);
   }
 
   getQuestionByFind(arr, id) {

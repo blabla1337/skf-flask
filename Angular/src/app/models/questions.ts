@@ -1,7 +1,7 @@
-export class Question_sprint {
+export class Questions {
   constructor(
   projectID: number,
-  question_sprint_ID: number,
+  question_ID: number,
   result: string,
   sprintID: number
   ){}

@@ -30,6 +30,57 @@
         <h1>All projects</h1>
         <p>An overview of all the current available projects. More information about the project by clicking on a project name. </p>
       </div>
+      <button id="add"  style="float:right;" (click)="open(addProject)" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i> New project!</button>
+      <form>
+      <ng-template #addProject let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">Add a project!</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+           </button>
+          </div>
+          <div class="modal-body">
+                  <div class="form-group">
+                    <div class="wrap">
+                      <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Project name</label>
+                      <div class="col-sm-10">
+                        <input required [(ngModel)]="projectName" maxlength="120" type="text" class="form-control" id="projectName" name="projectName" placeholder="">
+                        <div class="wrap desc alert-info">
+                          <div class="col-sm-10">Make it easy for your team to recognise.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="wrap">
+                        <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Project version</label>
+                        <div class="col-sm-10">
+                          <input required [(ngModel)]="projectVersion" maxlength="120" type="text" class="form-control" id="projecVersion" name="projecVersion" placeholder="">
+                          <div class="wrap desc alert-info">
+                            <div class="col-sm-10">Versioning is importante!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <div class="wrap">
+                      <label for="inputDesc" class="col-sm-2 control-label">Description</label>
+                      <div class="col-sm-10">
+                        <textarea required class="form-control" maxlength="255" [(ngModel)]="projectDescription" name="projectDescription" id="projectDescription"
+                          style="height: 90px;" placeholder=""></textarea>
+                        <div class="wrap desc alert-info">
+                          <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the project overview.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" style="float:right; margin-top:1.5%; margin-right:2%;" (click)="c('Close click')"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+              <button class="btn btn-success" id="create-sprint" style="float:right; margin-top:1.5%;" (click)="storeProject();c('Close click')">Add project</button>
+          </div>
+        </ng-template>
+      </form>
     </div>
   </section>
   <section class="wrapper">
@@ -46,8 +97,7 @@
               <tr>
                 <th><i class="fa fa-bullhorn"></i> Project Name</th>
                 <th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
-                <th><i class="fa fa-clock-o"></i> Creation date</th>
-                <th><i class="fa fa-university"></i> Project level</th>               
+                <th><i class="fa fa-clock-o"></i> Creation date</th>            
                 <th><i class="fa fa-bookmark"></i> Project version</th>
                 <th *ngIf="canDelete"><i class="fa fa-times"></i> Delete</th>
               </tr>
@@ -57,14 +107,13 @@
                 <td style="color:#515594"><a [routerLink]="['/project-dashboard',project.projectID]" class="btn btn-default btn-xs">{{project.projectName}}</a></td>
                 <td>{{project.projectDesc}}</td>
                 <td><span class="label">{{project.timestamp}}</span></td>
-                <td>{{project.level}}</td>
                 <td>{{project.projectVersion}}</td>
                 <td *ngIf="canDelete">
-                  <button (click)="open(content)" id="delete-button" class="btn btn-danger btn-xs">
+                  <button (click)="open(deleteProject)" id="delete-button" class="btn btn-danger btn-xs">
                     <i class="fa fa-times "></i>                 
                   </button>
                 </td>
-                <ng-template #content let-c="close" let-d="dismiss">
+                <ng-template #deleteProject let-c="close" let-d="dismiss">
                   <div class="modal-header">
                     <h4 class="modal-title">Delete project!</h4>
                     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">

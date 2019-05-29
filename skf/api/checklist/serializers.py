@@ -11,9 +11,7 @@ checklist = api.model('checklists_kb', {
     'checklist_items_content': fields.String(attribute='content', required=True, description='Checklist content'),
     'checklist_items_type': fields.Integer(attribute='checklist_type', required=True, description='Checklist type'),
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
-    'include_first': fields.String(attribute='include_first',required=True, description='Only include this checklist item first time'),
-    'question_sprint_ID': fields.Integer(attribute='question_sprint_ID',required=True, description='The sprint question unique identifier this checklist belongs to'),
-    'question_pre_ID': fields.Integer(attribute='question_pre_ID',required=True, description='The pre question unique identifier this checklist belongs to'),
+    'question_ID': fields.Integer(attribute='question_ID',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
 })
 
@@ -25,9 +23,7 @@ checklist_update = api.model('checklist_update', {
     'content': fields.String(required=True, description='Checklist content'),
     'kbID': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
     'include_always': fields.String(required=False, description='Always include this checklist item'),
-    'include_first': fields.String(required=False, description='Only include this checklist item first time'),
-    'question_sprint_ID': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
-    'question_pre_ID': fields.Integer(required=False, description='The pre question unique identifier this checklist belongs to'),
+    'question_ID': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
     'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
 })
 
@@ -50,9 +46,7 @@ checklist_create = api.model('checklist_create', {
     'content': fields.String(required=True, description='Checklist content'),
     'kbID': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
     'include_always': fields.String(required=True, description='Always include this checklist item'),
-    'include_first': fields.String(required=True, description='Only include this checklist item first time'),
-    'question_sprint_ID': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
-    'question_pre_ID': fields.Integer(required=False, description='The pre question unique identifier this checklist belongs to'),
+    'question_ID': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
     'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
 })
 

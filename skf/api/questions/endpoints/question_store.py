@@ -2,30 +2,28 @@
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import security_headers, validate_privilege, select_userid_jwt
-from skf.api.questions_pre.business import store_pre_questions
-from skf.api.questions_pre.serializers import store_list_items_pre, message
-from skf.api.questions_pre.parsers import authorization
+from skf.api.questions.business import store_questions
+from skf.api.questions.serializers import store_list_items, message
+from skf.api.questions.parsers import authorization
 from skf.api.restplus import api
 
-ns = api.namespace('questions_pre', description='Operations related to question pre items')
+ns = api.namespace('questions', description='Operations related to question items')
 
 
 @ns.route('/store')
 @api.response(404, 'Validation error', message)
-class QuestionPreStoreCollection(Resource):
+class QuestionSprintStoreCollection(Resource):
 
-    @api.expect(authorization, store_list_items_pre)
+    @api.expect(authorization, store_list_items)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'No results found', message)
     def put(self):
         """
-        Store list of question pre items.
+        Store list of question sprint items.
         * Privileges required: **edit**
         """
         validate_privilege(self, 'edit')
         user_id = select_userid_jwt(self)
         data = request.json
-        result = store_pre_questions(user_id, data)
+        result = store_questions(user_id, data)
         return result, 200, security_headers()
-
-

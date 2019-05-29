@@ -79,16 +79,11 @@
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <li *ngIf="isLoggedin" [style.background-color]="getProjectStyle()" class="mt sub-menu">
-                    <span *ngIf="projects" class="g"></span>
-                    <a (click)="ProjectsShow()" id="1" class="primairy"  href="javascript:;">
-                        <i class="fa fa-file-code-o"></i>
-                        <span id="1">Projects</span>
+                <li  *ngIf="isLoggedin"[style.background-color]="getProjectStyle()" class="">
+                    <a routerLink="/project-list" (click)="ResetAll(); ProjectsShow()" id="5" class="primairy">
+                        <i class="fa fa-book"></i>
+                        <span id="1">Manage projects</span>
                     </a>
-                    <ul *ngIf="projects" class="sub" id="1" style="display:block;">
-                        <li *ngIf="canEdit"><a routerLink="/project-new" id="1">New Project</a></li>
-                        <li><a routerLink="/project-list" id="1">List Projects</a></li>
-                    </ul>
                 </li>
                 <li *ngIf="canManage" [style.background-color]="getUSerStyle()" class="sub-menu">
                     <a (click)="UsersShow()" id="2" class="primairy" href="javascript:;">

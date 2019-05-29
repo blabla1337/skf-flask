@@ -21,8 +21,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { GuardService } from './guard/guard.service';
 import { UserManageComponent } from "./user-manage/user-manage.component";
 import { UndefinedComponent } from "./undefined/undefined.component";
-import { QuestionnairePreComponent } from './questionnaire-pre/questionnaire-pre.component';
-import { QuestionnaireSprintComponent } from './questionnaire-sprint/questionnaire-sprint.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
 export const appRoutes: Routes = [
   
@@ -46,8 +45,7 @@ export const appRoutes: Routes = [
   { path: 'checklist-summary', component: ChecklistSummaryComponent, canActivate: [GuardService] },
   { path: 'login', component: AuthenticateComponent },
   { path: 'first-login', component: FirstLoginComponent },
-  { path: 'questionnaire-pre/:id', component: QuestionnairePreComponent, canActivate: [GuardService] },
-  { path: 'questionnaire-sprint/:id', component: QuestionnaireSprintComponent, canActivate: [GuardService] },
+  { path: 'questionnaire-sprint/:id', component: QuestionnaireComponent, canActivate: [GuardService] },
   { path: '**', component: DashboardComponent, canActivate: [GuardService] }
 ];
 @NgModule({

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChecklistService } from '../services/checklist.service'
 import { KnowledgebaseService } from '../services/knowledgebase.service'
-import { QuestionPreService } from '../services/questions-pre.service'
-import { QuestionsSprintService } from '../services/questions-sprint.service'
+
+import { QuestionsService } from '../services/questions.service'
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
 import { Knowledgebase } from '../models/knowledgebase';
@@ -12,7 +12,7 @@ import { Knowledgebase } from '../models/knowledgebase';
 @Component({
   selector: 'app-knowledgebase-edit',
   templateUrl: './knowledgebase-edit.component.html',
-  providers: [ChecklistService, QuestionPreService, QuestionsSprintService]
+  providers: [ChecklistService, QuestionsService]
 })
 export class KnowledgebaseEditComponent implements OnInit {
 
