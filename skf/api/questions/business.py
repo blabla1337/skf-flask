@@ -6,8 +6,6 @@ from skf.database.checklists_results import checklists_results
 from skf.database.question_results import question_results
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
-import sys
-
 
 def get_questions(checklists_type):
     log("User requested list of questions", "LOW", "PASS")
@@ -20,8 +18,6 @@ def store_questions(user_id, data):
     val_num(user_id)
     #Store the result of the questionaire if answer was true in checklists_kb
     for result in data.get('questions'):
-         print('as', file=sys.stderr)
-         print(data.get('questions'), file=sys.stderr)
          val_num(result['question_ID'])
          val_alpha(result['result'])
          val_num(result['projectID'])
@@ -35,14 +31,12 @@ def store_questions(user_id, data):
          if question_result == "True":
              checklists = checklists_kb.query.filter(checklists_kb.question_ID == question_ID).filter(checklists_kb.checklist_type == checklist_type).all()
              for row in checklists:
-                 print('count', file=sys.stderr)
                  checklists_query = checklists_results(row.id, question_project_id, sprint_id, status, row.kbID)
                  db.session.add(checklists_query)
                  db.session.commit()
     #Also check for the include always marked items so they are taken in account
     checklists_always = checklists_kb.query.filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_type == checklist_type).all()
     for row in checklists_always:
-             print('I GOT TO HERE AS WELL!!', file=sys.stderr)
              checklists_query_always = checklists_results(row.id, question_project_id, sprint_id, status, row.kbID)
              db.session.add(checklists_query_always)
              db.session.commit()

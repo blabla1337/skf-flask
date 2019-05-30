@@ -72,15 +72,17 @@ def create_checklist_item(checklistID, checklist_type, data):
     checklist_content = data.get('content')
     include_always = data.get('include_always')
     question_ID = data.get('question_ID')
-    question_ID = data.get('question_ID')
     checklist_kbID = data.get('kbID')
     cwe = data.get('cwe')
     val_num(checklist_kbID)
-    val_num(checklist_type)
-    checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always,  question_ID, cwe)
-    db.session.add(checklist_item)
-    db.session.commit()
-    return {'message': 'Checklist item successfully created'} 
+    val_num(checklist_type) 
+    if validate_duplicate_checklist_item(checklistID, checklist_type) == True:
+        checklist_item = checklists_kb(checklistID, checklist_content, checklist_kbID, checklist_type, include_always,  question_ID, cwe)
+        db.session.add(checklist_item)
+        db.session.commit()
+        return {'message': 'Checklist item successfully created'} 
+    else:
+        return {'message': 'Checklist item was duplicate!'} 
 
 
 def update_checklist_item(checklist_id, checklist_type, data):
@@ -150,3 +152,14 @@ def order_checklist_items(checklist_items):
                 ordered_checklist_items.insert(y, item)
             checklist_items.items = ordered_checklist_items
     return checklist_items
+
+
+def validate_duplicate_checklist_item(checklistID, checklist_type):
+        checklists = checklists_kb.query.filter(checklists_kb.checklistID == checklistID).filter(checklists_kb.checklist_type == checklist_type).all()
+        check = True
+        for item in checklists:            
+            if item.checklistID == checklistID:
+                check = False
+        return check
+
+    

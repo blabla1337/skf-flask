@@ -28,12 +28,12 @@
     <div class="inner">
       <div class="text">
         <h1>Project overview</h1>
-        <p>An overview of all the current sprints in the project. More information about the security requirements by
+        <p>An overview of all the current security requirements in the project. More information about the security requirements by
           clicking
           on the view button. </p>
       </div>
       <button *ngIf="canEdit" style="float:right;" (click)="open(content)" class="btn btn-default"><i class="fa fa-cog"
-          aria-hidden="true"></i> Add new sprint</button>
+          aria-hidden="true"></i> Ask for requirements!</button>
     </div>
   </section>
   <section class="wrapper" style="margin-top:0px;">
@@ -87,7 +87,7 @@
                     <ng-template ngbTabTitle><b>Information</b></ng-template>
                     <ng-template ngbTabContent>
                       <br />
-                      <p><b>Sprint name: <br>{{sprint.sprint_name}}</b></p>
+                      <p><b>Name: <br>{{sprint.sprint_name}}</b></p>
                       <p>Sprint description: <br>{{sprint.sprint_desc}} </p>
                       <br>
                       <p>Total created items: <span>{{sprint.sprint_items_total}}</span></p>
