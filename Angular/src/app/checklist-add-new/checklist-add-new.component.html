@@ -70,7 +70,7 @@
                         <td>{{item.checklist_items_checklistID}}</td>
                         <td><button type="button" class="btn btn-theme03" placement="top" ngbTooltip="{{item.checklist_items_content}}">show</button></td>
                         <td>
-                          <span *ngFor="let question of sprints">
+                          <span *ngFor="let question of questions">
                             <button *ngIf="question.id === item.question_ID" type="button" class="btn btn-theme03"
                               placement="top" ngbTooltip="{{question.question}}">show</button>                          
                           </span>
@@ -134,7 +134,7 @@
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Questionnaire</label>
                   <div class="col-sm-10">
-                    <ng-select [items]="questions" bindLabel="question" placeholder="Select Questionnaire" [(ngModel)]="question" id="select-question-id" name="question">
+                    <ng-select [items]="questions" bindLabel="question" placeholder="Select Questionnaire" [(ngModel)]="questionSprint" id="select-question-id" name="question">
                     </ng-select>
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Correlate the checklist item with a sprint questionnaire</div>

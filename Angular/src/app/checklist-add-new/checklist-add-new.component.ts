@@ -40,6 +40,7 @@ export class ChecklistAddNewComponent implements OnInit {
   public checklist: Checklist[]
   public questions: Questions[] = [];
   public include_always: string;
+  public question: number;
   public checklistID: number;
   public content: string;
   public editChecklist: boolean;

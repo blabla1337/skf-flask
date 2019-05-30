@@ -97,17 +97,17 @@
               </div>
               <div class="card-footer text-muted text-center">
                 <div class="left">
-                  &nbsp;;<span class="msg-success" style="color:limegreen" *ngIf="sprint.sprint_sec_fail < 1">No Failed
-                    items</span>&nbsp;;
+                  &nbsp;<span class="msg-success" style="color:limegreen" *ngIf="sprint.sprint_sec_fail < 1">No Failed
+                    items</span>&nbsp;
                 </div>
                 <div class="right">
-                  &nbsp;;<a *ngIf="sprint.sprint_sec_fail > 0" class="btn btn-danger btn-xs" href=""
+                  &nbsp;<a *ngIf="sprint.sprint_sec_fail > 0" class="btn btn-danger btn-xs" href=""
                     [routerLink]="['/project-summary-audit',sprint.sprint_id]"><i class="fa fa-exclamation-triangle"
-                      aria-hidden="true"></i> <span *ngIf="sprint.sprint_sec_fail > 0">Failed items!</span></a>&nbsp;;
+                      aria-hidden="true"></i> <span *ngIf="sprint.sprint_sec_fail > 0">Failed items!</span></a>&nbsp;
                   <button [routerLink]="['/project-summary',sprint.sprint_id]" id="view{{sprint.sprint_id}}"
-                    class="btn btn-default btn-xs">View </button>&nbsp;;
+                    class="btn btn-default btn-xs">View </button>&nbsp;
                   <button *ngIf="canDelete" (click)="open(deleteModal)" class="btn btn-danger btn-xs"><i
-                      class="fa fa-times"></i> </button>&nbsp;;
+                      class="fa fa-times"></i> </button>&nbsp;
 
                   <!-- We have to throw in the model here for the id to delete -->
                   <ng-template #deleteModal let-c="close" let-d="dismiss">
