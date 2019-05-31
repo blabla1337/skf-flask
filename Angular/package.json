@@ -22,15 +22,15 @@
     "@angular/platform-browser-dynamic": "7.2.11",
     "@angular/platform-server": "7.2.11",
     "@angular/router": "7.2.11",
-    "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.6",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "@ng-select/ng-select": "^2.15.1",
     "angular2-highlight-js": "^5.0.0",
     "core-js": "^2.4.1",
     "jwt-decode": "^2.2.0",
     "ngx-markdown": "^7.1.5",
     "prism": "^4.1.2",
-    "rxjs": "^6.2.0",
-    "rxjs-compat": "^6.2.0",
+    "rxjs": "^6.3.0",
+    "rxjs-compat": "^6.3.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
