@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.9
 
 # Thanks to Mariano Abdala <marianoabdala@gmail.com>
 MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
