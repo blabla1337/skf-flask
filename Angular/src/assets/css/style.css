@@ -17,6 +17,33 @@ font-size: 16px;
 padding:0.15em;
 vertical-align:top;
 }
+
+.btn { white-space:normal !important; word-wrap:break-word; text-align: left; }
+
+
+.btn-link{
+  color:#ffffff
+}
+
+.btn-link:hover{
+  color:#ffffff
+}
+
+.btn-link:link{
+  color:#ffffff
+}
+
+
+.btn-link:active{
+  color:#ffffff
+}
+
+
+.btn-link:focus{
+  color:#ffffff
+}
+
+
 #legenda th b,.level_status{
 	color:#515594;
 font-size: 1.3em;
@@ -2044,7 +2071,7 @@ label {
 .table > thead > tr > th {
   color: #fff;
   background: #515594;
-  min-width: 7pc;
+  min-width: 10pc;
 }
 .table > thead > tr > th i {
   color: #fff;
@@ -2465,7 +2492,7 @@ a#finish.nav-link {
 }
 .modal-content .card-header {
   color: #000;
-  background: transparent;
+  background: ##515594;
   -webkit-transition: all 0.2s ease-in-out 0s;
   -moz-transition: all 0.2s ease-in-out 0s;
   -o-transition: all 0.2s ease-in-out 0s;

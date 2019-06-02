@@ -22,6 +22,9 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
 <!--main content start-->
+<style>
+.modal-content .card-header{ color:black; background:grey;}
+</style>
 <section id="main-content" class="page03 project-checklist">
 
 	<section class="intro">
@@ -114,12 +117,12 @@
 			</ngb-alert>
 		</div>
 		<table class="table table-striped table-advance table-hover checklist">
-			<tbody>
+			<tbody style="color:black">
 				<tr *ngFor="let item of checklistItems; let myIndex = index;">
 					<th *ngIf="item.kb_item_id == null" colspan="6">{{item.checklist_items_checklistID}} {{item.checklist_items_content}}</th>
-					<td *ngIf="item.kb_item_id > null; ">
-						<ngb-accordion class="level_l_{{item.checklist_items_level}}" #acc="ngbAccordion">
-							<ngb-panel style="max-width:10%" data-html="true" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} ">
+					<td style="color:black" *ngIf="item.kb_item_id > null; ">
+						<ngb-accordion style="color:black" class="level_l_{{item.checklist_items_level}}" #acc="ngbAccordion">
+							<ngb-panel style="color:black" style="max-width:10%" data-html="true" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} ">
 								<ng-template ngbPanelContent>
 									<p style="white-space: pre-line;">
 										<b><h3>{{item.kb_item_title}}</h3></b>

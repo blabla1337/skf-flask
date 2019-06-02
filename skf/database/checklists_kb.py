@@ -11,6 +11,11 @@ class checklists_kb(db.Model):
     content = db.Column(db.String)
     kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
     kb_items = db.relationship("kb_items", foreign_keys=[kbID])
+
+
+    question_ID = db.Column(db.Integer, db.ForeignKey("questions.id"))
+    questions = db.relationship("questions", foreign_keys=[question_ID])
+    
     checklist_type = db.Column(db.Integer)
     cwe = db.Column(db.Integer)
 

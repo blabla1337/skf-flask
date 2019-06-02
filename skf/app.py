@@ -48,6 +48,7 @@ from skf.api.checklist.endpoints.checklist_type_create import ns as checklist_na
 from skf.api.checklist.endpoints.checklist_type_update import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_type_delete import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_type_items import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_items_questions import ns as checklist_namespace
 from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
