@@ -7939,7 +7939,7 @@ INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Reauthen
 
     ?>
 ', 'Re authentication', 'php'); 
-INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Secure use of mail() function
+INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES (' Secure use of mail function
 
 
  Example:

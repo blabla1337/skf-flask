@@ -19,7 +19,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False
 
 # JWT settings
-JWT_SECRET = 'asdasdsadasdasdasd'
+JWT_SECRET = ''
 ORIGINS = '*'
 
 # TESTING settings

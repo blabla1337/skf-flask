@@ -1,4 +1,4 @@
-# Secure use of mail() function
+# Secure use of mail function
 -------
 
 ## Example:
