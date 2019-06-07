@@ -1,6 +1,6 @@
 ## Description:
 
-You should limit and keep track of all the different active concurrent sessions.
+You should keep track of all the different active concurrent sessions.
 Whenever the application discovers concurrent sessions it should always notify the user
 about this and should give him the opportunity to end the other sessions.
 
@@ -18,7 +18,7 @@ it should do regular checks to see if there are:
 3. Multiple active sessions from different devices
 4. Limit and destroy sessions when they exceed an accepted threshold.
 
-The more critical the application becomes the lower the accepted threshold for
+The more critical the application becomes, the lower the accepted threshold for
 concurrent sessions should be.
 
 

@@ -7,10 +7,15 @@
 }
 
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
-  background-color: #dedfed;
+  background-color: #abb0ef;
   color: #333;
 }
 
 .form-control {
   font-family: 'Ruda', sans-serif;
+}
+
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
 }

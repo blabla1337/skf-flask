@@ -22,25 +22,30 @@ vertical-align:top;
 
 
 .btn-link{
-  color:#ffffff
+  color:#ffffff;
+  text-decoration: none;
 }
 
 .btn-link:hover{
-  color:#ffffff
+  color:#ffffff;
+  text-decoration: none;
 }
 
 .btn-link:link{
-  color:#ffffff
+  color:#ffffff;
+  text-decoration: none;
 }
 
 
 .btn-link:active{
-  color:#ffffff
+  color:#ffffff;
+  text-decoration: none;
 }
 
 
 .btn-link:focus{
-  color:#ffffff
+  color:#ffffff;
+  text-decoration: none;
 }
 
 
@@ -2501,7 +2506,7 @@ a#finish.nav-link {
 }
 .modal-content .card-header:hover {
   cursor: pointer;
-  background: #dedfed;
+  background: #abb0ef;
 }
 .modal-content .card-header a {
   color: #000;
@@ -2512,7 +2517,7 @@ a#finish.nav-link {
   background: transparent !important;
 }
 .modal-content .card-header.active {
-  background: #dedfed;
+  background: #abb0ef;
   color: #515594;
 }
 /*  Search */
@@ -2542,8 +2547,8 @@ a#finish.nav-link {
   width: 2.5em;
   height: 2.5em;
   position: absolute;
-  right: 0.5em;
-  top: 0.5em;
+  right: 1em;
+  top: 1em;
   background: red;
   z-index: 1;
   border-radius: 100%;
@@ -2595,3 +2600,10 @@ a#finish.nav-link {
   background: #c9302c;
 }
 .card-block > p { float: left; width: 100%; }
+
+
+
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}

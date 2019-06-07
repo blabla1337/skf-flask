@@ -9332,3 +9332,8 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   }
 }
 
+
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
