@@ -34,20 +34,12 @@ def web_scraper(entity):
         youtube_links="http://www.youtube.com/watch?v="+final_search[0]+"and"+final_search[1]
 
 
-        if 'wikipedia' in results['items'][i]['link']: 
+        if 'wikipedia' in results['items'][i]['link'] or 'owasp' in results['items'][i]['link']: 
             Title="Title "+ results['items'][i]['title'] + "Link "+ results['items'][i]['link']
             snippet=results['items'][0]['snippet'].replace('\n',"")
             html_snippet=replace_all(results['items'][0]['htmlSnippet'])
             Description=snippet+html_snippet
             return Title +"\n"+ Description +"\n"+ "Youtube Links: "+ youtube_links
-
-        if 'owasp' in results['items'][i]['link']:    
-            Title="Title "+ results['items'][i]['title'] + "Link "+ results['items'][i]['link']
-            snippet=results['items'][0]['snippet'].replace('\n',"")
-            html_snippet=replace_all(results['items'][0]['htmlSnippet'])
-            Description=snippet+html_snippet
-            return Title +"\n"+ Description +"\n"+ "Youtube Links: "+ youtube_links
-
 
 def google_search(search_term, api_key, cse_id, **kwargs):
     service = build("customsearch", "v1", developerKey=api_key)
