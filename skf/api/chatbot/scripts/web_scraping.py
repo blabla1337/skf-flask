@@ -28,8 +28,9 @@ def web_scraper(entity):
     results=google_search(entity,my_api_key,my_cse_id)
     for i in range(0,len(results)):
         query_string = urllib.parse.urlencode({"search_query" : entity})
-        html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
-        search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
+        with urllib.request.urlopen("http://www.youtube.com/results?" + query_string) as response:
+             html_content=response.read()
+        search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.decode())
         final_search=remove_duplicates(search_results)
         youtube_links="http://www.youtube.com/watch?v="+final_search[0]+"and"+final_search[1]
 

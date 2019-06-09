@@ -54,11 +54,13 @@ def des_sol(question,intent):
                     result = chatbot_log(question)
                     db.session.add(result)
                     db.session.commit()
+                    return msg
                 else:
                     log=open(os.path.join(app.root_path,"logs.txt"),"a")
                     log.write(question+"\n")
                     log.close()
-                return msg
+                    return msg
+                
 
 def code(question,intent,language):
         code_entity=code_classify.entity(question)
