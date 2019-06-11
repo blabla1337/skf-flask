@@ -1004,7 +1004,7 @@ ul.top-menu > li > a:focus {
 .content-panel.selection .icon {
   display: block;
   margin: 0 auto;
-  width: 100px;
+  width: 65px;
   height: 100px;
   position: relative;
   border-radius: 100px;
