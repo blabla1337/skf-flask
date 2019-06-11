@@ -46,7 +46,7 @@ describe('Question-sprint service', () => {
       backend.connections.subscribe(connection => {
         connection.mockRespond(mockResponseList);
         expect(connection.request.method).toEqual(RequestMethod.Get);
-        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_sprint/items/2");
+        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions/items/2");
       });
 
       service.getQuestions(2)
@@ -80,7 +80,7 @@ describe('Question-sprint service', () => {
         expect(connection.request.headers.get("Content-Type")).toEqual("application/json");
         expect(connection.request.headers.get("Authorization")).toBeDefined;
         expect(connection.request.text()).toEqual(JSON.stringify({questions}));
-        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions_sprint/store");
+        expect(connection.request.url).toEqual("http://127.0.0.1:8888/api/questions/store");
       });
       service.newSprint(questions)
         .subscribe((items) => {
