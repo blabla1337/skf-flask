@@ -92,7 +92,6 @@ def create_checklist_item(checklistID, checklist_type, data):
 
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
-    val_float(checklist_id)
     val_num(checklist_type)
     if data.get('kbID') == "":
         kbID = 0
