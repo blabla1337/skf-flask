@@ -54,7 +54,7 @@
 							<ngb-panel title="{{knowledge.title}}">
 								<ng-template ngbPanelContent>
 									<p style="white-space: pre-line; max-width:70%">
-										<markdown>{{knowledge.content}}</markdown>
+										{{knowledge.content}}
 									</p>
 									<a *ngIf="canEdit" [routerLink]="['/knowledgebase-edit', knowledge.kbID]" style="float:right; padding:1% 1% 1% 1%"><button
 										 class="btn btn-warning" type="button">Update</button></a>

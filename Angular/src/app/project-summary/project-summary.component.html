@@ -60,7 +60,7 @@
                         <br/>
                         <h4>{{item.kb_item_title}}</h4>
                         <p style="white-space: pre-line; max-width:70%">
-                          <markdown>{{item.kb_items_content}} </markdown>                       </p>
+                          {{item.kb_items_content}}                        </p>
 
                           <div *ngIf="item.cwe > 0">
                               <ngb-alert [dismissible]="false">
@@ -124,7 +124,7 @@
                                 </div> 
                                 <br/>
 
-                                <p *ngIf="comment"><markdown>{{comment.comment}}</markdown></p>
+                                <p *ngIf="comment">{{comment.comment}}</p>
 
                                 <p *ngIf="error">{{error}}</p>
                                 <div *ngIf="comment" class="card-footer text-muted text-center">
