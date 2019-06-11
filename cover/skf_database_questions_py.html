@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/database/kb_items.py: 100%</title>
+    <title>Coverage for skf/database/questions.py: 75%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -23,16 +23,16 @@
 
 <div id="header">
     <div class="content">
-        <h1>Coverage for <b>skf/database/kb_items.py</b> :
-            <span class="pc_cov">100%</span>
+        <h1>Coverage for <b>skf/database/questions.py</b> :
+            <span class="pc_cov">75%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
             8 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">8 run</span>
-            <span class="mis shortkey_m button_toggle_mis">0 missing</span>
+            <span class="run hide_run shortkey_r button_toggle_run">6 run</span>
+            <span class="mis shortkey_m button_toggle_mis">2 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -76,22 +76,22 @@
 <p id="n7" class="stm run hide_run"><a href="#n7">7</a></p>
 <p id="n8" class="pln"><a href="#n8">8</a></p>
 <p id="n9" class="stm run hide_run"><a href="#n9">9</a></p>
-<p id="n10" class="stm run hide_run"><a href="#n10">10</a></p>
-<p id="n11" class="stm run hide_run"><a href="#n11">11</a></p>
+<p id="n10" class="stm mis"><a href="#n10">10</a></p>
+<p id="n11" class="stm mis"><a href="#n11">11</a></p>
 
             </td>
             <td class="text">
 <p id="t1" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span> <span class="key">import</span> <span class="nam">db</span><span class="strut">&nbsp;</span></p>
 <p id="t3" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t4" class="stm run hide_run"><span class="key">class</span> <span class="nam">kb_items</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Model</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t5" class="stm run hide_run">    <span class="nam">kbID</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">primary_key</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t6" class="stm run hide_run">    <span class="nam">title</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t7" class="stm run hide_run">    <span class="nam">content</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t4" class="stm run hide_run"><span class="key">class</span> <span class="nam">questions</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Model</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t5" class="stm run hide_run">    <span class="nam">id</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">primary_key</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t6" class="stm run hide_run">    <span class="nam">question</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t7" class="stm run hide_run">    <span class="nam">checklist_type</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t9" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">title</span><span class="op">,</span> <span class="nam">content</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t10" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">title</span> <span class="op">=</span> <span class="nam">title</span><span class="strut">&nbsp;</span></p>
-<p id="t11" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">content</span> <span class="op">=</span> <span class="nam">content</span><span class="strut">&nbsp;</span></p>
+<p id="t9" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">question</span><span class="op">,</span> <span class="nam">checklist_type</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="stm mis">        <span class="nam">self</span><span class="op">.</span><span class="nam">question</span> <span class="op">=</span> <span class="nam">question</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="stm mis">        <span class="nam">self</span><span class="op">.</span><span class="nam">checklist_type</span> <span class="op">=</span> <span class="nam">checklist_type</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
