@@ -54,6 +54,16 @@ export class ChecklistService {
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
   }
+
+  updateChecklistType(id:number, checklist_name: string, checklist_description:string): Observable<any> {
+    return this.http
+      .put(environment.API_ENDPOINT + `/checklist/update/type/${id}`, JSON.stringify({
+        checklist_name: checklist_name,
+        checklist_description: checklist_description
+      }),
+        { headers: this.postHeaders }).pipe(
+      map(a => { return a.json() }));
+  }
   
   newChecklistItem(checklistType: number, checklistID:number ,content:string, kbID:number, include_always:string,  question_ID:number, cwe:number): Observable<any> {
     console.log()

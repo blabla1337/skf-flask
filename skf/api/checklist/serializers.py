@@ -55,7 +55,7 @@ checklist_type = api.model('checklist_type_create', {
 
 checklist_types = api.model('checklist_types', {
     'checklist_type': fields.Integer(readOnly=True, description='The unique identifier of the checklist type'),
-    'checklist_name': fields.String(required=True, description='Name of the checklist type'),
+    'title': fields.String(attribute='checklist_name', required=True, description='Name of the checklist type'),
     'checklist_description': fields.String(required=True, description='Description of the checklist type'),
 })
 

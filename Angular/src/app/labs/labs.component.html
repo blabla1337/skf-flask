@@ -46,14 +46,15 @@
 							<thead>
 								<tr>
 									<th><i class="fa fa-bullhorn"></i> Lab Name</th>
+									<th><i class="fa fa-check"></i> Skill level</th>
 									<th><i class="fa fa-times"></i> To Lab</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr *ngFor="let labItems of labs | stringFilter : queryString; let myIndex = index">
-					
 									<td>{{labItems.title}}</td>
-										<td><a href="{{labItems.link}}" target="_blank"><i class="fa fa-flask"> Go to lab</i></a></td>
+									<td>{{labItems.level}}</td>
+									<td><a href="{{labItems.link}}" target="_blank"><i class="fa fa-flask"> Go to lab</i></a></td>
 								</tr>
 							</tbody>
 						</table>

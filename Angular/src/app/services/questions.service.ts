@@ -21,9 +21,9 @@ export class QuestionsService {
       map(response => response.json().items))
   }
 
-  newSprint(questions: Questions[]): Observable<Questions[]> {
+  newSprint(questions: Questions[], checklist_type:number): Observable<Questions[]> {
     return this.http
-      .put(environment.API_ENDPOINT + '/questions/store', JSON.stringify({ questions }),
+      .put(environment.API_ENDPOINT + `/questions/store/${checklist_type}`, JSON.stringify({ questions }),
       { headers: this.postHeaders }).pipe(
       map(response => {
         return response.json()

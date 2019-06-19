@@ -81,7 +81,7 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let checklists of checklistTypes; let myIndex = index">
-								<td>{{checklists.checklist_name}}</td>
+								<td>{{checklists.title}}</td>
 								<td>{{checklists.checklist_description}}</td>
 								<td><button class="btn btn-success btn-xs" style="float:right" (click)="open(content, checklists.checklist_type)"><i
 										 class="fa fa-arrow-right" aria-hidden="true"></i></button></td>

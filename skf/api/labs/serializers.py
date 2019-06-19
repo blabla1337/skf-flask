@@ -5,6 +5,7 @@ labs = api.model('labs', {
     'labID': fields.Integer(readOnly=True, description='The unique identifier of a Lab'),
     'title': fields.String(required=True, description='lab Title'),
     'link': fields.String(required=True, description='Lab Link'),
+    'level': fields.String(required=True, description='level of hardness of lab'),
 })
 
 lab_items = api.inherit('List of lab items', {

@@ -5,7 +5,7 @@ from skf.database.questions import questions
 from skf.database.checklists_results import checklists_results
 from skf.database.question_results import question_results
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
-
+import sys
 
 def get_questions(checklists_type):
     log("User requested list of questions", "LOW", "PASS")
@@ -13,9 +13,8 @@ def get_questions(checklists_type):
     result = questions.query.filter(questions.checklist_type == checklists_type).paginate(1, 500, False)
     return result
 
-def store_questions(user_id, data):
+def store_questions(checklist_type, data):
     log("User stored new sprint question list", "MEDIUM", "PASS")
-    val_num(user_id)
     #Store the result of the questionaire if answer was true in checklists_kb
     for result in data.get('questions'):
          val_num(result['question_ID'])

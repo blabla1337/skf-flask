@@ -104,7 +104,7 @@ export class ProjectDashboardComponent implements OnInit {
   
   setTimeout(() => {
 
-    this.questionsService.newSprint(this.sprintStore).subscribe(() => { },
+    this.questionsService.newSprint(this.sprintStore, this.checklistTypeID).subscribe(() => { },
       err => console.log("Error Storing new questions for sprint"));
       this.getSprintStats();
   }, 1000);

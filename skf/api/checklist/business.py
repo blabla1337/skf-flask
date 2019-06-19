@@ -53,12 +53,10 @@ def update_checklist_type(id, data):
     log("User requested update checklist type", "LOW", "PASS")
     checklist_name = data.get('checklist_name')
     checklist_description = data.get('checklist_description')
-    val_alpha_num(checklist_name)
-    val_alpha_num(checklist_description)
-    val_num(id)
     result_checklist_types = checklist_types.query.filter(checklist_types.checklist_type == id).one()
     result_checklist_types.checklist_name = checklist_name
-    db.session.add(result_checklist_types, checklist_description)
+    result_checklist_types.checklist_description = checklist_description
+    db.session.add(result_checklist_types)
     db.session.commit()
     return {'message': 'Checklist item successfully updated'} 
 

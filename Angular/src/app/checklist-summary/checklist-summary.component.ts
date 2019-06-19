@@ -16,6 +16,8 @@ export class ChecklistSummaryComponent implements OnInit {
   checklistTypes: ChecklistType[];
   public number: number;
   public delete: string;
+  public updateName: string;
+  public updateDescription: string;
   public checklistType: string;
   public checklistDescription: string;
   public canDelete: boolean;
@@ -23,6 +25,7 @@ export class ChecklistSummaryComponent implements OnInit {
   public errors: string[] = [];
   public error: string;
   public idFromURL: number;
+  public queryString: string;
 
   constructor(
     private _checklistService: ChecklistService,
@@ -46,10 +49,25 @@ export class ChecklistSummaryComponent implements OnInit {
     }
   }
 
+  updateChecklistType(id: number) {
+    this.return = true;
+    this.errors = [];
+    console.log(this.checklistType)
+    if (!this.checklistType) { this.errors.push("No checklistType was provided!"); this.return = false; }
+    if (!this.checklistDescription) { this.errors.push("No description was provided!"); this.return = false; }
+    if (this.return == false) { return; }
+    this._checklistService.updateChecklistType(id, this.checklistType, this.checklistDescription).subscribe(x =>
+      //Get the new project list on delete 
+      this.checklistTypeList())
+      this.checklistType = "";
+      this.checklistDescription="";
+  }
+
   storeChecklistType() {
     this.return = true;
     this.errors = [];
     if (!this.checklistType) { this.errors.push("No checklistType was provided!"); this.return = false; }
+    if (!this.checklistDescription) { this.errors.push("No Description was provided!"); this.return = false; }
     if (this.return == false) { return; }
 
     this._checklistService.newChecklistTyoe(this.checklistType, this.checklistDescription)
@@ -58,7 +76,9 @@ export class ChecklistSummaryComponent implements OnInit {
         err => this.errors.push("There was an error storing the new checklistType"),
         () => this.checklistTypeList()
       );
+
     this.checklistType = "";
+    this.checklistDescription="";
   }
 
   checklistTypeList() {
@@ -81,4 +101,14 @@ export class ChecklistSummaryComponent implements OnInit {
   deleteContent(deleteContent) {
     this.modalService.open(deleteContent, { size: 'lg' }).result
   }
-}
+
+  updateContent(updateContent, foo) {
+    this.checklistType = foo;
+    this.modalService.open(updateContent, { size: 'lg' }).result
+  }
+
+  getSet(checklistType, checklistDescription){
+    this.checklistType = checklistType;
+    this.checklistDescription = checklistDescription;
+  }
+} 

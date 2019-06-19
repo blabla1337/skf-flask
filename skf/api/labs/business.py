@@ -4,5 +4,5 @@ from skf.api.security import log, val_num, val_alpha_num
 
 def get_labs():
     log("User requested list of kb items", "LOW", "PASS")
-    result = lab_items.query.paginate(1, 500, False)
+    result = lab_items.query.order_by(lab_items.level.asc()).paginate(1, 500, False)
     return result
