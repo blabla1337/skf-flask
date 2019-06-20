@@ -9,6 +9,7 @@ from skf.api.chatbot.scripts import intent_classifier
 from skf.api.chatbot.scripts import entity_classifier1
 from skf.api.chatbot.scripts import entity_classifier2
 from skf.api.chatbot.scripts import code_classify
+from skf.api.chatbot.scripts import web_scraping
 
 
 app = Flask(__name__)
@@ -17,6 +18,8 @@ def des_sol(question,intent):
         entity=entity_classifier1.entity_recognizer(question.lower())
         if entity is None:
            entity=entity_classifier2.entity(question)
+                 
+
         intent=intent
         read_file = open(os.path.join(app.root_path, "datasets/desc_solution.json"), 'r')
         data = json.load(read_file)
@@ -34,13 +37,18 @@ def des_sol(question,intent):
                           intent="NULL"
                           return sol
                           break
+        
+
         else:
-             if len(entity)>0:
+             if question:
+                result=web_scraping.web_scraper(question)
+                return result
+             elif len(entity)>0:
                 for i in entity:
                     entity[i]=intent+" "+entity[i]
                 return entity
              else:
-                log=open(os.path.join(app.root_path,"logs.txt"),"a") 
+                log=open(os.path.join(app.root_path,"logs.txt"),"a")
                 msg="Please be more specific"
                 if settings.CHATBOT_LOG == "db":
                     result = chatbot_log(question)
