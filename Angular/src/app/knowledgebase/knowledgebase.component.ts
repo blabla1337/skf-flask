@@ -21,7 +21,7 @@ export class KnowledgebaseComponent implements OnInit {
   public title: string;
   public content:string;
   public canEdit: boolean;
-
+  public delete:string;
 
   constructor(public _knowledgeService: KnowledgebaseService, private modalService: NgbModal) { }
 
@@ -41,7 +41,6 @@ export class KnowledgebaseComponent implements OnInit {
   }
 
   storeKnowledgebaseItem() {
-
     this.errors = [];
     this.return = true;
 
@@ -57,7 +56,19 @@ export class KnowledgebaseComponent implements OnInit {
     this.getKnowledgeItems();
   }
 
-  open(content) {
+  deleter(id: number) {
+    if (this.delete == "DELETE") {
+      this._knowledgeService.deleteKnowledgebaseItem(id).subscribe(x =>
+        //Get the new project list on delete 
+        this.getKnowledgeItems())
+    }
+  }
+
+  deleteKbModal(content) {
+    this.modalService.open(content, { size: 'lg' }).result
+  }
+
+  NewKbModal(content) {
     this.modalService.open(content, { size: 'lg' }).result
   }
 

@@ -24,6 +24,14 @@ def create_kb_item(data):
     db.session.commit()
     return {'message': 'KB item successfully created'} 
 
+def delete_kb_item(kbID, user_id):
+    log("User deleted kb item", "MEDIUM", "PASS")
+    val_num(kbID)
+    val_num(user_id)
+    kbItem = (kb_items.query.filter(kb_items.kbID == kbID).one())
+    db.session.delete(kbItem)
+    db.session.commit()
+    return {'message': 'kb item successfully deleted'}
 
 def get_kb_item(kb_id):
     log("User requested specific kb item", "LOW", "PASS")

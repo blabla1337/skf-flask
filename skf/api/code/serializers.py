@@ -8,11 +8,12 @@ code = api.model('code', {
     'code_lang': fields.String(required=True, description='Code language'),
 })
 
-code_update = api.model('code_update', {
+code_properties = api.model('code_update', {
     'title': fields.String(required=True, description='Code title'),
     'content': fields.String(required=True, description='Code content'),
     'code_lang': fields.String(required=True, description='Code language'),
 })
+
 
 code_items = api.inherit('List of code example items', {
     'items': fields.List(fields.Nested(code))

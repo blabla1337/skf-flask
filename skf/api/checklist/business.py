@@ -41,8 +41,6 @@ def create_checklist_type(data):
     log("User requested create a new checklist type", "LOW", "PASS")
     checklist_name = data.get('checklist_name')
     checklist_description = data.get('checklist_description')
-    val_alpha_num(checklist_name)
-    val_alpha_num(checklist_description)
     types = checklist_types(checklist_name, checklist_description)
     db.session.add(types)
     db.session.commit()

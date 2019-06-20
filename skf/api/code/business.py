@@ -15,6 +15,24 @@ def update_code_item(code_id, data):
     db.session.commit()
     return {'message': 'Code example item successfully updated'}
 
+def create_code_item(data):
+    log("User requested creating a new kb item", "LOW", "PASS")
+    content = data.get('content')
+    title = data.get('title')
+    code_lang = data.get('code_lang')
+    result = code_items(title, content, code_lang)
+    db.session.add(result)
+    db.session.commit()
+    return {'message': 'KB item successfully created'} 
+
+def delete_code_item(codeId, user_id):
+    log("User deleted code item", "MEDIUM", "PASS")
+    val_num(codeId)
+    val_num(user_id)
+    codeItem = (code_items.query.filter(code_items.codeID == codeId).one())
+    db.session.delete(codeItem)
+    db.session.commit()
+    return {'message': 'code item successfully deleted'}
 
 def get_code_items():
     log("User requested list of code items", "LOW", "PASS")

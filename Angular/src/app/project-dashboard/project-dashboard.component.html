@@ -156,7 +156,7 @@
                       [(ngModel)]="checklistTypeID">
                       <option selected [value]="selectUndefinedOptionValue">Select checklist</option>
                       <option *ngFor="let items of checklistType; let myIndex = index" value="{{items.checklist_type}}">
-                        {{items.checklist_name}}</option>
+                        {{items.title}}</option>
                     </select>
                     <br />
                     <div class="alert alert-info" style="margin-bottom:2.6%">
