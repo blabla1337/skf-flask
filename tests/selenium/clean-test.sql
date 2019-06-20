@@ -58,6 +58,47 @@ INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edi
 INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read");
 
 --
+-- Table structure for table `labs`
+--
+drop table if exists `lab_items`;
+CREATE TABLE `lab_items` (
+`labID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`title` int(11) NOT NULL,
+`link` int(11) NOT NULL
+);
+
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-1-filename-injection');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-attribute');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Cross site scripting (href','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-href');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-13-file-upload');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-20-clickjacking');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-29-ratelimiting');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-39-httponly-session-hijacking-xss');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Missing authorization','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-44-authorisation-missing');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Exposed Docker daemon','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-45-exposed-docker');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-147-parameter-binding');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-like');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Local file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-local-file-inclusion');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Remote file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-262-server-side-request-forgery');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Tabnabbing','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-266-tabnabbing');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-267-server-side-template-injection');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-268-insecure-direct-object-references');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-null');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-secret');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition');
+INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-dos-regex');
+
+--
 -- Table structure for table `kb_items`
 --
 
@@ -103,9 +144,9 @@ CREATE TABLE `projects` (
 `projectVersion` varchar(250) NOT NULL,
 `projectDesc` text NOT NULL,
 `ownerID` int(11) NOT NULL,
-`timestamp` timestamp NOT NULL,
-`checklist_type` int(11) NOT NULL
+`timestamp` timestamp NOT NULL
 );
+
 
 
 --
@@ -119,6 +160,7 @@ CREATE TABLE `project_sprints` (
 `sprintName` varchar(250) NOT NULL,
 `sprintDesc` varchar(250) NOT NULL
 );
+
 
 
 --
@@ -150,19 +192,6 @@ CREATE TABLE `questions_sprint` (
 INSERT OR REPLACE INTO `questions_sprint` ( `checklist_type`, `question`) VALUES ( "1", "test-question-sprint");
 INSERT OR REPLACE INTO `questions_sprint` ( `checklist_type`, `question`) VALUES ( "2", "test-question-sprint");
 
---
--- Table structure for table `questions_pre`
---
-drop table if exists `questions_pre`;
-CREATE TABLE `questions_pre` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklist_type` int(11),
-`question` varchar(255) NOT NULL
-);
-
-
-INSERT OR REPLACE INTO `questions_pre` ( `checklist_type`, `question`) VALUES ( "1", "test-question-pre");
-INSERT OR REPLACE INTO `questions_pre` ( `checklist_type`, `question`) VALUES ( "2", "test-question-pre");
 
 --
 -- Table structure for table `checklist_types`
@@ -182,28 +211,16 @@ INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_descript
 INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "filled-checklist-for-testing", "TBD");
 
 --
--- Table structure for table `question_sprint_results`
+-- Table structure for table `questions`
 --
-drop table if exists `question_sprint_results`;
-CREATE TABLE `question_sprint_results` (
+drop table if exists `questions`;
+CREATE TABLE `questions` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`projectID` int(11) NOT NULL,
-`sprintID` int(11) NOT NULL,
-`question_sprint_ID` int(11) NOT NULL,
-`result` boolean
+`checklist_type` int(11),
+`question` varchar(255) NOT NULL
 );
  
 
---
--- Table structure for table `question_pre_results`
---
-drop table if exists `question_pre_results`;
-CREATE TABLE `question_pre_results` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`projectID` int(11) NOT NULL,
-`question_pre_ID` int(11) NOT NULL,
-`result` boolean
-);
 
 --
 -- Table structure for table `checklists_results`
@@ -215,21 +232,21 @@ CREATE TABLE `checklists_results` (
 `projectID` int(11) NOT NULL,
 `sprintID` int(11) NOT NULL,
 `status` int(11) NOT NULL,
-`preItem` int(11) NOT NULL,
 `kbID` int(11)
 );
 
+
 --
--- Table structure for table `checklists_post`
+-- Table structure for table `question_results`
 --
-drop table if exists `checklists_post`;
-CREATE TABLE `checklists_post` (
+drop table if exists `question_results`;
+CREATE TABLE `question_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklistID` varchar(255) NOT NULL,
 `projectID` int(11) NOT NULL,
 `sprintID` int(11) NOT NULL,
-`status` int(11) NOT NULL,
-`kbID` int(11)
+`question_ID` int(11) NOT NULL,
+`result` boolean,
+`checklist_type` int(11) NOT NULL
 );
 
 --
@@ -263,16 +280,15 @@ CREATE TABLE `checklists_kb` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `checklistID` varchar(255),
 `content` varchar(255),
-`question_sprint_ID` int(11),
-`question_pre_ID` int(11),
+`question_ID` int(11),
 `kbID` int(11),
 `include_always` varchar(5),
-`include_first` varchar(5),
 `checklist_type` int(11),
 `cwe` int(11)
 ); 
 
-INSERT OR REPLACE INTO `checklists_kb` VALUES (1,'1.1','test content checklist item 1',0,2,1,'True','False',2, 123);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (2,'1.2','test content checklist item 2',0,0,2,'False','False',2, 124);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (3,'1.3','test content checklist item 3',2,0,3,'false','true',2, 125);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (4,'1.4','test content checklist item 4',0,2,3,'false','false',2, 126);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (0,'1.0','test content checklist item 1',2,2,'False',1, 123);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (1,'1.1','test content checklist item 1',2,2,'False',1, 123);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (2,'1.2','test content checklist item 2',0,1,'True',1, 124);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (3,'1.3','test content checklist item 3',0,1,'true',1, 125);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (4,'1.4','test content checklist item 4',2,2,'false',1, 126);
