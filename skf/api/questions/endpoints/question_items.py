@@ -16,14 +16,14 @@ ns = api.namespace('questions', description='Operations related to question item
 class QuestionCollection(Resource):
 
     @api.marshal_with(question_items)
-    @api.expect(authorization)
+    #@api.expect(authorization)
     @api.response(400, 'No results found', message)
     def get(self, checklist_type):
         """
         Returns list of question items.
-        * Privileges required: **manage**
+        * Privileges required: **none**
         """
-        validate_privilege(self, 'manage')
+        #validate_privilege(self, 'manage')
         result = get_questions(checklist_type)
         return result, 200, security_headers()
 

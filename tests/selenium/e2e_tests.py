@@ -18,7 +18,7 @@ class SKFClickThrough(unittest.TestCase):
             settings.TESTING = True
         self.driver = webdriver.Chrome()
         driver = self.driver
-        driver.get("http://localhost:4200")
+        driver.get("http://localhost:4200/")
         username = driver.find_element_by_name("username")
         password = driver.find_element_by_name("password")
         username.send_keys("admin")
@@ -32,130 +32,74 @@ class SKFClickThrough(unittest.TestCase):
     ////////////////////////////////////////////////////////////////////////////////////
     """
 
-
+    '''
     def test_a_create_project(self):
         """Test project create page"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
-        input = wait.until(EC.visibility_of_element_located((By.ID, "1")))
-        input.click()     
-        driver.find_element_by_link_text('New Project').click()
-        input.click()
-        checklist = Select(driver.find_element_by_id("question"))
-        checklist.select_by_index(2)
-        time.sleep(1)
-        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist")))
-        input.click()
-        time.sleep(1)
-        inputName = driver.find_element_by_id("inputName")
+        wait.until(EC.visibility_of_element_located((By.ID, "1"))).click()
+        driver.find_element_by_id('add').click()
+        inputName = driver.find_element_by_id("projectName")
         inputName.send_keys("test project")
-        inputVersion = driver.find_element_by_id("inputVersion")
+        inputVersion = driver.find_element_by_id("projectVersion")
         inputVersion.send_keys("test v1.1")
-        inputDesc = driver.find_element_by_id("inputDesc")
+        inputDesc = driver.find_element_by_id("projectDescription")
         inputDesc.send_keys("test description project")
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right')]")
-        input.click()
-        checklist = Select(driver.find_element_by_id("pre_dev_answer1"))
-        checklist.select_by_index(1)
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right 3')]")
-        input.click()
-        sprintName = driver.find_element_by_id("sprintName")
-        sprintName.send_keys("test sprint")
-        sprintDescription = driver.find_element_by_id("sprintDescription")
-        sprintDescription.send_keys("test sprint description")
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right 4')]")
-        input.click()
-        sprint = Select(driver.find_element_by_id("sprint_answer1"))
-        sprint.select_by_index(2)
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right 5')]")
-        input.click()
+        driver.find_element_by_id("create-project").click()
         time.sleep(1)
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-check')]")
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "view1")))
-        input.click()
-        time.sleep(3)
-        assert "1.1 test content checklist item 1" in driver.page_source
+        assert "test project" in driver.page_source
 
 
     def test_a_project_list(self):
         """Test project list page"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
-        input = wait.until(EC.visibility_of_element_located((By.ID, "1")))
-        input.click()     
-        driver.find_element_by_link_text('New Project').click()
-        input.click()
-        checklist = Select(driver.find_element_by_id("question"))
-        checklist.select_by_index(2)
-        time.sleep(1)
-        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist")))
-        input.click()
-        time.sleep(1)
-        inputName = driver.find_element_by_id("inputName")
-        inputName.send_keys("test project")
-        inputVersion = driver.find_element_by_id("inputVersion")
+        wait.until(EC.visibility_of_element_located((By.ID, "1"))).click()
+        driver.find_element_by_id('add').click()
+        inputName = driver.find_element_by_id("projectName")
+        inputName.send_keys("test project 3")
+        inputVersion = driver.find_element_by_id("projectVersion")
         inputVersion.send_keys("test v1.1")
-        inputDesc = driver.find_element_by_id("inputDesc")
+        inputDesc = driver.find_element_by_id("projectDescription")
         inputDesc.send_keys("test description project")
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right')]")
-        input.click()
-        checklist = Select(driver.find_element_by_id("pre_dev_answer1"))
-        checklist.select_by_index(1)
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right 3')]")
-        input.click()
-        sprintName = driver.find_element_by_id("sprintName")
-        sprintName.send_keys("test sprint")
-        sprintDescription = driver.find_element_by_id("sprintDescription")
-        sprintDescription.send_keys("test sprint description")
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right 4')]")
-        input.click()
-        sprint = Select(driver.find_element_by_id("sprint_answer1"))
-        sprint.select_by_index(2)
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right 5')]")
-        input.click()
+        driver.find_element_by_id("create-project").click()
+        time.sleep(1) 
+        driver.find_element_by_id('dashboard').click()
         time.sleep(1)
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-check')]")
-        input.click()
-        time.sleep(3)
-        input = wait.until(EC.visibility_of_element_located((By.ID, "1")))
-        input.click()     
-        driver.find_element_by_link_text('List Projects').click()
-        input.click()
-        time.sleep(3)
+        wait.until(EC.visibility_of_element_located((By.ID, "1"))).click()
+        time.sleep(1)
         assert "3" in driver.page_source
 
 
+
+    '''
     def test_a_project_and_sprint(self):
         """Test project sprint page"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
-        input = wait.until(EC.visibility_of_element_located((By.ID, "1")))
-        input.click()     
-        driver.find_element_by_link_text('New Project').click()
-        input.click()
+        wait.until(EC.visibility_of_element_located((By.ID, "1"))).click()
+        driver.find_element_by_id('add').click()
+        inputName = driver.find_element_by_id("projectName")
+        inputName.send_keys("test project")
+        inputVersion = driver.find_element_by_id("projectVersion")
+        inputVersion.send_keys("test v1.1")
+        inputDesc = driver.find_element_by_id("projectDescription")
+        inputDesc.send_keys("test description project")
+        driver.find_element_by_id("create-project").click()
+        time.sleep(1)
+        driver.find_element_by_link_text('test project').click()
+        driver.find_element_by_id("sprint").click()
         checklist = Select(driver.find_element_by_id("question"))
         checklist.select_by_index(2)
-        time.sleep(1)
-        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist")))
-        input.click()
-        time.sleep(1)
-        inputName = driver.find_element_by_id("inputName")
-        inputName.send_keys("test project")
-        inputVersion = driver.find_element_by_id("inputVersion")
-        inputVersion.send_keys("test v1.1")
-        inputDesc = driver.find_element_by_id("inputDesc")
-        inputDesc.send_keys("test description project")
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right')]")
-        input.click()
-        checklist = Select(driver.find_element_by_id("pre_dev_answer1"))
-        checklist.select_by_index(1)
-        input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right 3')]")
-        input.click()
-        sprintName = driver.find_element_by_id("sprintName")
+        driver.find_element_by_id("checklist").click()
+        time.sleep(10)
+        
         sprintName.send_keys("test sprint")
         sprintDescription = driver.find_element_by_id("sprintDescription")
         sprintDescription.send_keys("test sprint description")
+
+
+
         input = driver.find_element_by_xpath("//i[contains(@class, 'fa fa-arrow-right 4')]")
         input.click()
         sprint = Select(driver.find_element_by_id("sprint_answer1"))
@@ -184,14 +128,14 @@ class SKFClickThrough(unittest.TestCase):
         time.sleep(10)
         assert "2" in driver.page_source
 
-
+    '''
     def test_a_delete_project(self):
         """Test project delete page"""
         driver = self.driver
         wait = WebDriverWait(driver, 10)
         input = wait.until(EC.visibility_of_element_located((By.ID, "1")))
         input.click()     
-        driver.find_element_by_link_text('New Project').click()
+        driver.find_element_by_id('add').click()
         input.click()
         checklist = Select(driver.find_element_by_id("question"))
         checklist.select_by_index(2)
@@ -643,140 +587,6 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         time.sleep(2)
         assert "Updated control content" not in driver.page_source
-      
-
-    """
-    ////////////////////////////////////////////////////////////////////////////////////
-    Test creating/deleting/updating pre-development questions
-    ////////////////////////////////////////////////////////////////////////////////////
-    """
-
-
-    def test_k_add__pre_question_flow(self):
-        """Test manage checklist add new pre question"""
-        driver = self.driver
-        wait = WebDriverWait(driver, 10)
-        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
-        input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-pre-icon")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "add-question-modal")))
-        input.click()
-        content = driver.find_element_by_name("questionName")
-        content.send_keys("selenium-added-question")
-        input = wait.until(EC.visibility_of_element_located((By.ID, "add-new-question")))
-        input.click()
-        time.sleep(2)
-        Select(driver.find_element_by_id('select-question'))
-        time.sleep(2)
-        assert "selenium-added-question" in driver.page_source
-    
-
-    def test_l_update__pre_question_flow(self):
-        """Test manage checklist update pre question"""
-        driver = self.driver
-        wait = WebDriverWait(driver, 10)
-        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
-        input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-pre-icon")))
-        input.click()
-        time.sleep(2)
-        select = Select(driver.find_element_by_id('select-question'))
-        select.select_by_visible_text('test-question-pre')
-        input = wait.until(EC.visibility_of_element_located((By.ID, "update-question-modal")))
-        input.click()
-        content = driver.find_element_by_name("questionName")
-        content.send_keys("selenium-updated-question")
-        input = wait.until(EC.visibility_of_element_located((By.ID, "update-question")))
-        input.click()
-        time.sleep(2)
-        Select(driver.find_element_by_id('select-question'))
-        time.sleep(2)
-        assert "selenium-updated-question" in driver.page_source
-    
-
-    def test_m_delete__pre_question_flow(self):
-        """Test manage checklist delete pre question"""
-        driver = self.driver
-        wait = WebDriverWait(driver, 10)
-        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
-        input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-pre-icon")))
-        input.click()
-        time.sleep(2)
-        select = Select(driver.find_element_by_id('select-question'))
-        time.sleep(2)
-        select.select_by_visible_text('test-question-pre')
-        input = wait.until(EC.visibility_of_element_located((By.ID, "delete-question-modal")))
-        input.click()
-        time.sleep(2)
-        content = driver.find_element_by_name("delete")
-        content.send_keys("DELETE")
-        input = wait.until(EC.visibility_of_element_located((By.ID, "delete-question")))
-        input.click()
-        time.sleep(2)
-        assert "test-question-pre" not in driver.page_source  
-
-
-    """
-    ////////////////////////////////////////////////////////////////////////////////////
-    Test correlating controls to pre-development questions
-    ////////////////////////////////////////////////////////////////////////////////////
-    """
-
-
-    def test_n_correlate__pre_question_flow(self):
-        """Test manage checklist correlate pre question"""
-        driver = self.driver
-        wait = WebDriverWait(driver, 10)
-        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
-        input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "filled-checklist-for-testing")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-pre-icon")))
-        input.click()
-        time.sleep(2)
-        select = Select(driver.find_element_by_id('select-question'))
-        select.select_by_visible_text('test-question-pre')
-        time.sleep(2)
-        input = driver.find_element_by_xpath("//*[contains(text(), '1.1')]")
-        input.click()
-        time.sleep(20)
-        compare = wait.until(EC.visibility_of_element_located((By.ID, "checklist-correlated0"))).text
-        print(compare)
-        assert "1.4" in compare
-
-
-    def test_o_test__pre_question_back_button(self):
-        """Test manage checklist pre question back button"""
-        driver = self.driver
-        wait = WebDriverWait(driver, 10)
-        input = wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "Checklist options")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "checklist-summary")))
-        input.click()
-        input = wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "empty-checklist-for-testing")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "questionnaire-pre-icon")))
-        input.click()
-        input = wait.until(EC.visibility_of_element_located((By.ID, "back-button")))
-        input.click()
-        time.sleep(2)
-        assert "Manage your checklists!" in driver.page_source
 
 
     """
@@ -909,7 +719,7 @@ class SKFClickThrough(unittest.TestCase):
         input.click()
         time.sleep(2)
         assert "Manage your checklists!" in driver.page_source
-
+    '''
 
     @classmethod
     def tearDown(self):
