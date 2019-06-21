@@ -7,11 +7,10 @@ import {Injectable, Pipe, PipeTransform} from '@angular/core';
 @Injectable()
 export class StartsWithPipe implements PipeTransform {
     transform(items: any[], args: any[]): any {
-        if(args){
+        if (args) {
           return items.filter(item => item.title.toLowerCase().startsWith(args.toString().toLowerCase()));
         }
-        if(!args)
-        {
+        if (!args) {
           return items;
         }
     }

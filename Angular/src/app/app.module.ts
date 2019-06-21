@@ -26,6 +26,7 @@ import { ProjectSummaryAuditComponent }   from './project-summary-audit/project-
 import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.component';
 import { KnowledgebaseEditComponent }   from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent }   from './code-examples/code-examples.component';
+import { CodeExamplesEditComponent }   from './code-examples-edit/code-examples-edit.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
@@ -62,6 +63,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     KnowledgebaseComponent,
     KnowledgebaseEditComponent,
     CodeExamplesComponent,
+    CodeExamplesEditComponent,
     AuthenticateComponent,
     ChecklistComponent,
     ChecklistManageComponent,
@@ -100,7 +102,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     }),
     NgSelectModule
   ],
-  providers: [GuardService,HighlightJsService],
+  providers: [GuardService, HighlightJsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

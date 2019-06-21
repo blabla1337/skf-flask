@@ -8,6 +8,6 @@ export class User {
   active?: string,
   repassword?: string,
   userID?: number
-  ){}
+  ) {}
 }
 

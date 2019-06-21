@@ -43,7 +43,7 @@ export class ProjectService {
     return this.http.delete(url, { headers: this.postHeaders }).pipe(
       map(
       data => data,
-      error => console.log("failed to delete")))
+      error => console.log('failed to delete')))
   }
 
   getStats(id: number): Observable<ProjectStats[]> {

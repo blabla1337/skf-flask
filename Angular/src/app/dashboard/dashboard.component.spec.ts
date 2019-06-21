@@ -11,7 +11,7 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DashboardComponent ],
-      imports:[NgbModule.forRoot(), RouterTestingModule]
+      imports: [NgbModule.forRoot(), RouterTestingModule]
     })
     .compileComponents();
   }));

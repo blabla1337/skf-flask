@@ -20,24 +20,24 @@ export class HeaderComponent implements OnInit {
   public labs: boolean;
   public knowledge: boolean;
   public check: boolean;
-  public color:string = '#515594';
+  public color = '#515594';
   public user: string = AppSettings.USER;
   public canManage: boolean;
   public canEdit: boolean;
   public skipLogin: boolean;
-  //public canDelete: boolean;
-  //public canRead: boolean;
+  // public canDelete: boolean;
+  // public canRead: boolean;
 
   ngOnInit() {
     if (AppSettings.AUTH_TOKEN) {
       this.isLoggedin = true;
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canManage = decodedJWT.privilege.includes("manage");
-      this.canEdit = decodedJWT.privilege.includes("edit");
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canManage = decodedJWT.privilege.includes('manage');
+      this.canEdit = decodedJWT.privilege.includes('edit');
     }
 
-    if (AppSettings.SKIP_LOGIN == "true") {
-       this.skipLogin = true 
+    if (AppSettings.SKIP_LOGIN == 'true') {
+       this.skipLogin = true
     }
 
     this.projects = false;
@@ -157,18 +157,12 @@ export class HeaderComponent implements OnInit {
     location.reload();
   }
 
-  selectLang(codeLang: string) {
-    localStorage.setItem("code_lang", codeLang);
-    this.router.navigate(['code-examples'])
-  }
+  getProjectStyle() { if (this.projects) { return this.color; } else { return '' } }
+  getUSerStyle() { if (this.users) { return this.color; } else { return '' } }
+  getGroupStyle() { if (this.groups) { return this.color; } else { return '' } }
+  getKnowledgeStyle() { if (this.knowledge) { return this.color; } else { return '' } }
+  getLabsStyle() { if (this.labs) { return this.color; } else { return '' } }
+  getCodeStyle() { if (this.code) { return this.color; } else { return '' } }
+  getChecklistStyle() { if (this.check) { return this.color; } else { return '' } }
 
-
-  getProjectStyle() { if (this.projects) { return this.color; } else { return "" } }
-  getUSerStyle() { if (this.users) { return this.color; } else { return "" } }
-  getGroupStyle() { if (this.groups) { return this.color; } else { return "" } }
-  getKnowledgeStyle() { if (this.knowledge) { return this.color; } else { return "" } }
-  getLabsStyle() { if (this.labs) { return this.color; } else { return "" } }
-  getCodeStyle() { if (this.code) { return this.color; } else { return "" } }
-  getChecklistStyle() { if (this.check) { return this.color; } else { return "" } }
-  
 }

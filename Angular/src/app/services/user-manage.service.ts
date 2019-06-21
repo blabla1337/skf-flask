@@ -25,7 +25,7 @@ export class UserService {
     const url = environment.API_ENDPOINT + ``;
     return this.http
       .put(environment.API_ENDPOINT + `/user/manage/${id}`, JSON.stringify({
-        active: "False"
+        active: 'False'
       }),
       { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
@@ -35,7 +35,7 @@ export class UserService {
     const url = environment.API_ENDPOINT + ``;
     return this.http
       .put(environment.API_ENDPOINT + `/user/manage/${id}`, JSON.stringify({
-        active: "True"
+        active: 'True'
       }),
       { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));

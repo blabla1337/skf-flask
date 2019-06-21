@@ -53,7 +53,7 @@
 					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
 						<div *ngFor="let examples of codeExamples | stringFilter : queryString">
 							<br />
-							<ngb-panel title="{{examples.title}}">
+							<ngb-panel title="{{examples.title}}: {{examples.code_lang}}">
 								<ng-template ngbPanelContent>
 									<pre><code id="changeme" class="php">
 							 {{examples.content}} 
@@ -121,9 +121,10 @@
 							<div class="col-sm-10">The title of your fresh new knowledgebase item!</div>
 						</div>
 					</div>
+					<label for="inputVersion" class="col-sm-2 control-label">code language</label>
 					<div class="col-sm-10">
 						<input required maxlength="120" [(ngModel)]="code_lang" type="text" class="form-control"
-							id="inputTitle" name="title" placeholder="">
+							id="inputTitle" name="title" placeholder="php, java, c# mvc">
 						<div class="wrap desc alert-info">
 							<div class="col-sm-10">The title of your fresh new knowledgebase item!</div>
 						</div>

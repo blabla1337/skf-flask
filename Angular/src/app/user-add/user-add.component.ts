@@ -10,7 +10,7 @@ import { Privilege } from '../models/privilege'
   providers: [UserAddService]
 })
 
-export class UserAddComponent { //implements OnInit {
+export class UserAddComponent { // implements OnInit {
   public email: string;
   public privilegeSelected: string;
   public return: boolean;
@@ -22,24 +22,24 @@ export class UserAddComponent { //implements OnInit {
   ngOnInit() {
     this._userAddService.getPrivileges().subscribe(
       privileges => this.privileges = privileges,
-      err => console.log("Getting privileges failed")
+      err => console.log('Getting privileges failed')
     )
   }
 
   save() {
     this.return = true;
     this.error = [];
-    if (!this.email) { this.error.push("No email was provided!"); this.return = false; }
-    let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-    if(EMAIL_REGEXP.test(this.email) == false) { this.error.push("Email validation failed, provide a valid adress!");  this.return = false}
-    if (!this.privilegeSelected) { this.error.push("No privilege was provided!"); this.return = false; }
+    if (!this.email) { this.error.push('No email was provided!'); this.return = false; }
+    const EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+    if (EMAIL_REGEXP.test(this.email) == false) { this.error.push('Email validation failed, provide a valid adress!');  this.return = false}
+    if (!this.privilegeSelected) { this.error.push('No privilege was provided!'); this.return = false; }
     if (this.return == false) { return; }
-    
+
     this._userAddService.newUser(this.email, this.privilegeSelected)
       .subscribe(
       data => this.data = data,
-      err => this.error.push("Error whilst adding user, potential duplicate email adres!")
+      err => this.error.push('Error whilst adding user, potential duplicate email adres!')
       );
-      this.email = "";
+      this.email = '';
   }
 }

@@ -7,11 +7,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StringFilterPipe implements PipeTransform {
 
   transform(items: any[], args: any[]): any {
-    if(args){
+    if (args) {
       return items.filter(item => item.title.toLowerCase().indexOf(args.toString().toLowerCase()) >= 0);
     }
-    if(!args)
-    {
+    if (!args) {
       return items;
     }
   }

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { FormsModule, FormControl, NgForm } from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, FormControl, NgForm } from '@angular/forms';
 import { OrderBy } from '../pipes/order-by.pipe'
-import { HttpModule } from "@angular/http";
-import { Observable } from "rxjs/Observable";
-import { fakeAsync } from "@angular/core/testing";
-import { StartsWithPipe } from "../pipes/starts-with.pipe";
-import { ProjectDashboardComponent } from "./project-dashboard.component";
-import { Sprint } from "../models/sprint";
-import { RouterTestingModule } from "@angular/router/testing";
-import { SprintService } from "../services/sprint.service";
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { fakeAsync } from '@angular/core/testing';
+import { StartsWithPipe } from '../pipes/starts-with.pipe';
+import { ProjectDashboardComponent } from './project-dashboard.component';
+import { Sprint } from '../models/sprint';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SprintService } from '../services/sprint.service';
 
 
 describe('Knowledgebase component component', () => {
@@ -19,13 +19,13 @@ describe('Knowledgebase component component', () => {
     let fixture: ComponentFixture<ProjectDashboardComponent>;
     let debugElement: DebugElement;
     let htmlElement: HTMLElement;
-    let questions: Sprint[] = [];
+    const questions: Sprint[] = [];
 
-    questions.push({ "projectID": 1, "question_pre_ID": "1", "result": "True" })
-    questions.push({ "projectID": 1, "question_pre_ID": "2", "result": "False" })
+    questions.push({ 'projectID': 1, 'question_pre_ID': '1', 'result': 'True' })
+    questions.push({ 'projectID': 1, 'question_pre_ID': '2', 'result': 'False' })
 
-    let mockQuestionService = Observable.of(questions)
-    let mockSprintService = Observable.of(1);
+    const mockQuestionService = Observable.of(questions)
+    const mockSprintService = Observable.of(1);
 
     beforeEach(async () => {
         TestBed.configureTestingModule({
@@ -50,29 +50,29 @@ describe('Knowledgebase component component', () => {
     it('Newsprint should return errors if form is not filled in correctly', fakeAsync(() => {
         component.newSprint();
         expect(component.return).toBeFalsy()
-        expect(component.errors).toMatch("Sprint name was empty!")
-        expect(component.errors).toMatch("Sprint description was empty!")
+        expect(component.errors).toMatch('Sprint name was empty!')
+        expect(component.errors).toMatch('Sprint description was empty!')
     }))
 
 
     it('should check if goes through new sprint', () => {
-        component.sprintName = "name";
-        component.sprintDescription = "foobar"
+        component.sprintName = 'name';
+        component.sprintDescription = 'foobar'
         component.newSprint();
         fixture.detectChanges();
         expect(component.steps).toBeTruthy();
     })
 
     it('should check if goes through false delete!', () => {
-        let deleter = component.deleter(1);
+        const deleter = component.deleter(1);
         expect(deleter).toBeFalsy()
     })
 
     it('Invoke the Modal open for better score! :-p', fakeAsync(() => {
         component.canEdit = true;
-        spyOn(component,'open');
+        spyOn(component, 'open');
         fixture.detectChanges(); // update view with quote
-        let btnEle = fixture.debugElement.nativeElement.querySelector('.intro button');
+        const btnEle = fixture.debugElement.nativeElement.querySelector('.intro button');
         btnEle.click();
         expect(component.open).toHaveBeenCalled();
     }));

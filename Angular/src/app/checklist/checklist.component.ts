@@ -17,7 +17,7 @@ export class ChecklistComponent {
   public queryString: string;
   public closeResult: string;
   public level: number;
-  public error:string;
+  public error: string;
   public checklist_type: number;
   public color: string;
 
@@ -35,13 +35,13 @@ export class ChecklistComponent {
         checklistTypes => {
           this.checklistTypes = checklistTypes;
           if (!this.checklistTypes) {
-            this.error = "There are no checklist types defined yet"
+            this.error = 'There are no checklist types defined yet'
           }
         },
-        err => this.error = "Getting the checklist types failed, contact an administrator! ");
+        err => this.error = 'Getting the checklist types failed, contact an administrator! ');
   }
 
-  open(content, typeID:number) {
+  open(content, typeID: number) {
     this.checklistService
       .getChecklistByType(typeID)
       .subscribe(checklistItems => { this.checklistItems = checklistItems });

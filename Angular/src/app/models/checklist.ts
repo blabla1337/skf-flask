@@ -1,7 +1,7 @@
 export class Checklist {
   constructor(
-  checklist_items_checklistID : string,
-  checklist_items_content : string,
+  checklist_items_checklistID: string,
+  checklist_items_content: string,
   checklist_items_level: string,
   kb_item_title: string,
   kb_items_content: string,
@@ -11,7 +11,7 @@ export class Checklist {
   codeID_php?: string,
   codeID_python?: string,
   cwe?: number
-  ){}
+  ) {}
 }
 
 

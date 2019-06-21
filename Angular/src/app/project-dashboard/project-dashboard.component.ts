@@ -24,7 +24,7 @@ export class ProjectDashboardComponent implements OnInit {
   public sprints: Questions[];
   public sprintResult: Sprint[];
   public questions: Questions[] = []
-  public steps: boolean = false;
+  public steps = false;
   public sprintName: string;
   public sprintDescription: string;
   public errors: string[] = [];
@@ -51,23 +51,23 @@ export class ProjectDashboardComponent implements OnInit {
     this.checklistTypeList();
     this.getSprintStats();
     if (AppSettings.AUTH_TOKEN) {
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canDelete = decodedJWT.privilege.includes("delete");
-      this.canEdit = decodedJWT.privilege.includes("edit");
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canDelete = decodedJWT.privilege.includes('delete');
+      this.canEdit = decodedJWT.privilege.includes('edit');
     }
   }
 
   selectQuestions() {
     this.questionsService.getQuestions(this.checklistTypeID).subscribe(
       questions => this.questions = questions,
-      err => console.log("getting questions failed")
+      err => console.log('getting questions failed')
     )
   }
 
 
-  //Temp storage for sprint questionaire
+  // Temp storage for sprint questionaire
   storeSprint(form: NgForm) {
-    localStorage.setItem("questions", JSON.stringify(form.value));
+    localStorage.setItem('questions', JSON.stringify(form.value));
     return
   }
 
@@ -75,37 +75,37 @@ export class ProjectDashboardComponent implements OnInit {
     this.errors = [];
     this.return = true;
 
-    if (!this.sprintName) { this.errors.push("Sprint name was empty!"); this.return = false }
-    if (!this.sprintDescription) { this.errors.push("Sprint description was empty!"); this.return = false; }
+    if (!this.sprintName) { this.errors.push('Sprint name was empty!'); this.return = false }
+    if (!this.sprintDescription) { this.errors.push('Sprint description was empty!'); this.return = false; }
     if (this.return == false) { return; }
     this.sprintService.newSprint(this.sprintName, parseInt(this.idFromURL.toString(), 10), this.sprintDescription)
-      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"));
+      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log('error storing sprint'));
     this.steps = true;
   }
 
   newSprintQuestions() {
 
-    let sprint_items = JSON.parse(localStorage.getItem("questions"));
-    let count_sprint = Object.keys(sprint_items).length
+    const sprint_items = JSON.parse(localStorage.getItem('questions'));
+    const count_sprint = Object.keys(sprint_items).length
 
     this.sprintStore = [];
 
     for (let i = 1; i < count_sprint + 1; i++) {
-      if (sprint_items["answer" + i] == '0') {
-        this.sprintStore.push({ "projectID": Number(this.idFromURL), "question_ID": Number(sprint_items["answer" + i]), "result": "False", "sprintID": Number(this.sprintID), "checklist_type": Number(this.checklistTypeID) });
+      if (sprint_items['answer' + i] == '0') {
+        this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID) });
       }
-      if (sprint_items["sanswer" + i] == '') {
-        this.sprintStore.push({ "projectID": Number(this.idFromURL), "question_ID": Number(sprint_items["answer" + i]), "result": "False", "sprintID": Number(this.sprintID), "checklist_type": Number(this.checklistTypeID)  });
+      if (sprint_items['sanswer' + i] == '') {
+        this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID)  });
       }
-      if (sprint_items["answer" + i] != '0') {
-        this.sprintStore.push({ "projectID": Number(this.idFromURL), "sprintID": Number(this.sprintID), "question_ID": Number(sprint_items["answer" + i]), "result": "True", "checklist_type": Number(this.checklistTypeID)  });
+      if (sprint_items['answer' + i] != '0') {
+        this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'sprintID': Number(this.sprintID), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklistTypeID)  });
       }
     }
-  
+
   setTimeout(() => {
 
     this.questionsService.newSprint(this.sprintStore, this.checklistTypeID).subscribe(() => { },
-      err => console.log("Error Storing new questions for sprint"));
+      err => console.log('Error Storing new questions for sprint'));
       this.getSprintStats();
   }, 1000);
 
@@ -114,25 +114,25 @@ this.steps = false;
   }
 
 deleter(id: number) {
-  if (this.delete == "DELETE") {
+  if (this.delete == 'DELETE') {
     this.sprintService.delete(id).subscribe(x =>
       this.sprintService.getSprintStats(this.idFromURL).subscribe(
         resp => this.sprintResult = resp,
-        err => console.log("Error getting sprint stats"))
+        err => console.log('Error getting sprint stats'))
     )
     return true;
   }
   return false;
 }
 
-getSprintStats(){
+getSprintStats() {
   this.route.params.subscribe(params => {
     this.idFromURL = params['id'];
-    localStorage.setItem("tempParamID", params['id'])
+    localStorage.setItem('tempParamID', params['id'])
     setTimeout(() => {
       this.sprintService.getSprintStats(this.idFromURL).subscribe(
         resp => this.sprintResult = resp,
-        err => console.log("Error getting sprint stats"))
+        err => console.log('Error getting sprint stats'))
     }, 1000);
   });
 }
@@ -147,6 +147,6 @@ checklistTypeList() {
       checklistType => {
         this.checklistType = checklistType;
       },
-      err => console.log("errors went wrong!"));
+      err => console.log('errors went wrong!'));
 }
 }

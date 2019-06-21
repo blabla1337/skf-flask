@@ -13,7 +13,7 @@ describe('AppComponent', () => {
         AppComponent,
         FooterComponent,
         HeaderComponent
-      ], 
+      ],
       imports: [ FormsModule, RouterTestingModule, HttpModule ]
     }).compileComponents();
   }));

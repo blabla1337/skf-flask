@@ -19,7 +19,7 @@ export class AuthenticateService {
   authenticate(username: string, password: string): Observable<any> {
     return this.http
       .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ username: username, password: password }), { headers: this.headers }).pipe(
-      map(response => {return response.json()}))   
+      map(response => {return response.json()}))
   }
 
   activateUser(email: string, username: string, accessToken: string, password: string, repassword: string, userID: number): Observable<string> {

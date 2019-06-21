@@ -17,21 +17,21 @@ export class LabsComponent implements OnInit {
   public labs: Labs[] = [];
   public error: string;
   public queryString: string;
-  
+
   constructor(public _labService: LabService) { }
 
   ngOnInit() {
     this.getLabItems();
 
     if (AppSettings.AUTH_TOKEN) {
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canEdit = decodedJWT.privilege.includes("edit");
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canEdit = decodedJWT.privilege.includes('edit');
     }
   }
 
   getLabItems() {
     this._labService.getLabs().subscribe(requestData => this.labs = requestData,
-      err => this.error = "Error getting labs, contact the administrator!"
+      err => this.error = 'Error getting labs, contact the administrator!'
     );
   }
 

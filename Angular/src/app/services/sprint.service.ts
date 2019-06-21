@@ -50,7 +50,7 @@ export class SprintService {
     return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${id}`, { headers: this.headers }).pipe(
       map(
       response => response.json().message,
-      error => console.log("failed to export")));
+      error => console.log('failed to export')));
   }
 
   delete(id: number) {
@@ -58,6 +58,6 @@ export class SprintService {
     return this.http.delete(url, { headers: this.headers }).pipe(
       map(
       data => data,
-      error => console.log("failed to delete")))
+      error => console.log('failed to delete')))
   }
 }

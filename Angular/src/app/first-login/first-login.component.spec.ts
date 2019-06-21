@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { FormsModule } from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 import { OrderBy } from '../pipes/order-by.pipe'
-import { HttpModule } from "@angular/http";
-import { Observable } from "rxjs/Observable";
-import { fakeAsync } from "@angular/core/testing";
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { fakeAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { StartsWithPipe } from "../pipes/starts-with.pipe";
-import { FirstLoginComponent } from "./first-login.component";
+import { StartsWithPipe } from '../pipes/starts-with.pipe';
+import { FirstLoginComponent } from './first-login.component';
 
 
 describe('First login component', () => {
@@ -18,7 +18,7 @@ describe('First login component', () => {
   let fixture: ComponentFixture<FirstLoginComponent>;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
-  
+
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
@@ -33,7 +33,7 @@ describe('First login component', () => {
       fixture.detectChanges()
     })
 
-   
+
     it('check if errors are all triggered on empty input fields', () => {
     component.activateUser();
     fixture.detectChanges();
@@ -52,4 +52,4 @@ describe('First login component', () => {
   });
 })
 
-   
+

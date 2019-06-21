@@ -20,9 +20,9 @@ export class AppComponent implements OnInit {
     });
 
     setTimeout(() => {
-      localStorage.setItem("session","expired");
-      location.replace("login");
+      localStorage.setItem('session', 'expired');
+      location.replace('login');
     }, 6600000);
-    //6600000 == total time API gives
+    // 6600000 == total time API gives
   }
 }

@@ -3,6 +3,6 @@ export class Knowledgebase {
   id: number,
   title: string,
   content: string,
-  ){}
+  ) {}
 }
 

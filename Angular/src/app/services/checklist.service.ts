@@ -42,10 +42,10 @@ export class ChecklistService {
     return this.http.delete(url, { headers: this.postHeaders }).pipe(
       map(
         data => data,
-        error => console.log("failed to delete checklist type")))
+        error => console.log('failed to delete checklist type')))
   }
 
-  newChecklistTyoe(checklist_name: string, checklist_description:string): Observable<any> {
+  newChecklistTyoe(checklist_name: string, checklist_description: string): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + '/checklist/create/type', JSON.stringify({
         checklist_name: checklist_name,
@@ -55,7 +55,7 @@ export class ChecklistService {
       map(a => { return a.json() }));
   }
 
-  updateChecklistType(id:number, checklist_name: string, checklist_description:string): Observable<any> {
+  updateChecklistType(id: number, checklist_name: string, checklist_description: string): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + `/checklist/update/type/${id}`, JSON.stringify({
         checklist_name: checklist_name,
@@ -64,16 +64,16 @@ export class ChecklistService {
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
   }
-  
-  newChecklistItem(checklistType: number, checklistID:number ,content:string, kbID:number, include_always:string,  question_ID:number, cwe:number): Observable<any> {
+
+  newChecklistItem(checklistType: number, checklistID: number , content: string, kbID: number, include_always: string,  question_ID: number, cwe: number): Observable<any> {
     console.log()
     return this.http
       .put(environment.API_ENDPOINT + `/checklist/new/item/${checklistID}/type/${checklistType}`, JSON.stringify({
        content: content,
-       kbID:kbID,
-       include_always:include_always,
-       question_ID:question_ID,
-       cwe:cwe,
+       kbID: kbID,
+       include_always: include_always,
+       question_ID: question_ID,
+       cwe: cwe,
       }),
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
@@ -84,22 +84,22 @@ export class ChecklistService {
     return this.http.delete(url, { headers: this.postHeaders }).pipe(
       map(
         data => data,
-        error => console.log("failed to delete checklist item")))
+        error => console.log('failed to delete checklist item')))
   }
 
-  updateChecklistItem(checklistType: number, checklistID:number ,content:string, kbID:number, include_always:string, question_ID:number, cwe:number): Observable<any> {
-    
+  updateChecklistItem(checklistType: number, checklistID: number , content: string, kbID: number, include_always: string, question_ID: number, cwe: number): Observable<any> {
+
     console.log(include_always)
     return this.http
       .put(environment.API_ENDPOINT + `/checklist/update/item/${checklistID}/type/${checklistType}`, JSON.stringify({
        content: content,
-       kbID:kbID,
-       include_always:include_always,
-       question_ID:question_ID,
-       cwe:cwe
+       kbID: kbID,
+       include_always: include_always,
+       question_ID: question_ID,
+       cwe: cwe
       }),
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
   }
-  
+
 }

@@ -21,7 +21,7 @@ export class UserAddService {
   }
 
   newUser(email: string, privileges: string): Observable<User[]> {
-   
+
     return this.http
       .put(environment.API_ENDPOINT + '/user/create', JSON.stringify({
         email: email,

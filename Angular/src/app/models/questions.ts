@@ -4,6 +4,6 @@ export class Questions {
   question_ID: number,
   result: string,
   sprintID: number
-  ){}
+  ) {}
 }
 
