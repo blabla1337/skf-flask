@@ -37,12 +37,11 @@ def des_sol(question,intent):
                           intent="NULL"
                           return sol
                           break
-        
-
         else:
-             if question:
-                result=web_scraping.web_scraper(question)
-                return result
+             if settings.GOOGLE:
+                if question:
+                    result=web_scraping.web_scraper(question)
+                    return result
              elif len(entity)>0:
                 for i in entity:
                     entity[i]=intent+" "+entity[i]
