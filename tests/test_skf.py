@@ -701,16 +701,18 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
+        print(response_dict)
         self.assertEqual(response_dict['options'][0]['answer'], "Please be more specific")
 
 
     def test_get_entity2_item(self):
         """Test if the options are working"""
-        payload = {"question": "what is the risk of hsts?", "question_option": 0, "question_lang": "string"}
+        payload = {"question": "what are security headers?", "question_option": 0, "question_lang": "string"}
         headers = {'content-type': 'application/json', 'Accept':'application/json'}
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
+        print(response_dict)
         self.assertTrue((response_dict['options'][0]['answer'])==("Description the possible risks to the application must be documented") or (response_dict['options'][0]['answer'])==("Description hsts preload"))
 
 
@@ -721,6 +723,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
+        print(response_dict)
         self.assertTrue((response_dict['options'][0]['answer'])==("Solution user restriction for sensitive data") or (response_dict['options'][0]['answer'])==("Solution csrf on rest")) 
 
 
@@ -731,6 +734,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
+        print(response_dict)
         self.assertTrue((response_dict['options'][0]['answer'])==("Code encoder") or (response_dict['options'][0]['answer'])==("Code xss filtering") or (response_dict['options'][0]['answer'])==("Code x xss protection header") or (response_dict['options'][0]['answer'])==("Code encoder sql esapi"))
 
 
