@@ -90,6 +90,11 @@ export class ProjectDashboardComponent implements OnInit {
 
     this.sprintStore = [];
 
+    //We need to still set an array id there where no questions to iterate trough, otherwise the flask API will not know which sprint to write the results to!
+    if(!sprint_items['result']){
+      this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': 1, 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID) });
+    }
+
     for (let i = 1; i < count_sprint + 1; i++) {
       if (sprint_items['answer' + i] == '0') {
         this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID) });
