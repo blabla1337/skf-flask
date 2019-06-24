@@ -5,7 +5,7 @@ import re
 from urllib.request import urlopen as ureqs
 from bs4 import BeautifulSoup as soup
 from googleapiclient.discovery import build
-import re
+from skf import settings
 
 def replace_all(text):
     rep={"<b>":"",'\n':"","</b>":"","<br>":"","&nbsp;...":"."}
@@ -22,10 +22,9 @@ def remove_duplicates(string):
             final_list.append(q)
     return final_list 
 
+
 def web_scraper(entity):
-    my_api_key = "AIzaSyDP1iLdfgvct3BQKLAKQaD3UG6LVgiJSLs"
-    my_cse_id = "007944217764671561800:ve3xx693pke"
-    results=google_search(entity,my_api_key,my_cse_id)
+    results=google_search(entity,settings.API_KEY, settings.CSE_ID)
     for i in range(0,len(results)):
         query_string = urllib.parse.urlencode({"search_query" : entity})
         html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)

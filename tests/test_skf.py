@@ -210,7 +210,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/types', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['checklist_name'], 'ASVS LEVEL 1')
+        self.assertEqual(response_dict['items'][0]['title'], 'ASVS LEVEL 1')
 
 
     def test_new_checklist_type(self):
