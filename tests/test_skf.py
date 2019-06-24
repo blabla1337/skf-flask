@@ -694,6 +694,7 @@ class TestRestPlusApi(unittest.TestCase):
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['options'][0]['answer'], "Code xss filtering in java")
 
+
     def test_no_match(self):
         """Test if the options are working"""
         payload = {"question": "what is bla?", "question_option": 0, "question_lang": "string"}
