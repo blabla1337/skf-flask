@@ -300,6 +300,14 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['items'][0]['checklist_items_content'][0:30], 'Architecture, Design and Threa')
 
 
+    def test_get_labs(self):
+        """Test if the get labs items call is working"""
+        response = self.client.get('/api/interactive_labs/items')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['title'], "Path traversal (LFI)")
+
+
     def test_get_kb(self):
         """Test if the get kb items call is working"""
         response = self.client.get('/api/kb/items')
@@ -568,6 +576,47 @@ class TestRestPlusApi(unittest.TestCase):
         headers = {'content-type': 'application/json', 'Authorization': jwt}
         response = self.client.delete('/api/project/delete/1', headers=headers)
         self.assertEqual(response.status_code, 400)
+
+
+    def test_question_items(self):
+        """Test if the get questions item call is working"""
+        headers = {'content-type': 'application/json'}
+        response = self.client.get('/api/questions/items/1', headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['question'], "Does the sprint implement changes that affect authentication/authorization?")
+
+
+    def test_question_update(self):
+        """Test if the update questions item call is working"""
+        jwt = self.login('admin', 'admin') 
+        payload = {'question': 'Unit test question', 'checklist_type': 1}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/questions/item/update/15', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], 'Question successfully updated')
+
+
+    def test_question_new(self):
+        """Test if the new question item call is working"""
+        jwt = self.login('admin', 'admin') 
+        payload = {'question': 'New Unit test question', 'checklist_type': 1}
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.put('/api/questions/item/new', data=json.dumps(payload), headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], 'New Question successfully created')
+
+
+    def test_question_delete(self):
+        """Test if the delete question item call is working"""
+        jwt = self.login('admin', 'admin') 
+        headers = {'content-type': 'application/json', 'Authorization': jwt}
+        response = self.client.delete('/api/questions/item/delete/1', headers=headers)
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['message'], "Question successfully deleted")
 
 
     def test_auth_protected_call(self):
