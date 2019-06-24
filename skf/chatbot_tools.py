@@ -4,6 +4,7 @@ from skf.api.chatbot.dataset_prepare import data
 app = Flask(__name__)
 def init_dataset():
     """Initializes the dataset needed for the chatbot."""
+    data.clean()
     data.extract_from_api()
     data.desc_sol_data()
     data.entity_data()
