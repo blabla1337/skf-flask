@@ -16,25 +16,25 @@ export class ProjectListComponent implements OnInit {
   public number: number;
   public error: string;
   public delete: string;
-  public canDelete:boolean;
+  public canDelete: boolean;
   public projectName: string;
-  public projectDescription:string;
-  public projectVersion:string; 
+  public projectDescription: string;
+  public projectVersion: string;
 
   constructor(private _projectService: ProjectService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.projectList();
     if (AppSettings.AUTH_TOKEN) {
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canDelete = decodedJWT.privilege.includes("delete");
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canDelete = decodedJWT.privilege.includes('delete');
     }
   }
 
   deleter(id: number) {
-    if (this.delete == "DELETE") {
+    if (this.delete == 'DELETE') {
       this._projectService.delete(id).subscribe(x =>
-        //Get the new project list on delete 
+        // Get the new project list on delete
         this.projectList())
     }
   }
@@ -46,20 +46,20 @@ export class ProjectListComponent implements OnInit {
       projects => {
         this.projects = projects;
         if (this.projects) {
-          this.error = "There are no projects to show!"
+          this.error = 'There are no projects to show!'
         }
       },
-      err => this.error = "Getting the projects failed, contact an administrator! ");
+      err => this.error = 'Getting the projects failed, contact an administrator! ');
   }
 
-  storeProject(){
+  storeProject() {
     this._projectService.newProject(this.projectName, this.projectDescription, this.projectVersion)
     .subscribe(
       () => this.projectList(),
-      () => console.log("error storing list")
+      () => console.log('error storing list')
     );
   }
-  
+
 
   open(content) {
     this.modalService.open(content, { size: 'lg' }).result

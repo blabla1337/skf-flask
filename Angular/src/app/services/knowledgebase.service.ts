@@ -20,7 +20,7 @@ export class KnowledgebaseService {
       map(response => response.json().items));
   }
 
-  getKnowledgebaseItem(id:number): Observable<Knowledgebase[]> {
+  getKnowledgebaseItem(id: number): Observable<Knowledgebase[]> {
     return this.http.get(environment.API_ENDPOINT + `/kb/${id}`, { headers: this.headers }).pipe(
       map(response => response.json()));
   }
@@ -35,7 +35,7 @@ export class KnowledgebaseService {
       map(a => { return a.json() }));
   }
 
-  updateKnowledgebaseItem(id:number ,title: string,  content: string): Observable<any> {
+  updateKnowledgebaseItem(id: number , title: string,  content: string): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + `/kb/update/${id}`, JSON.stringify({
         title: title,
@@ -50,7 +50,7 @@ export class KnowledgebaseService {
     return this.http.delete(url, { headers: this.postHeaders }).pipe(
       map(
       data => data,
-      error => console.log("failed to delete")))
+      error => console.log('failed to delete')))
   }
 
 

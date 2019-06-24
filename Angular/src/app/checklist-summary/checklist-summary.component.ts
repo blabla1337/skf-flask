@@ -35,17 +35,17 @@ export class ChecklistSummaryComponent implements OnInit {
   ngOnInit() {
     this.checklistTypeList()
     if (AppSettings.AUTH_TOKEN) {
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canDelete = decodedJWT.privilege.includes("delete");
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canDelete = decodedJWT.privilege.includes('delete');
     }
   }
 
   deleteChecklistType(id: number) {
-    if (this.delete == "DELETE") {
+    if (this.delete == 'DELETE') {
       this._checklistService.deletechecklistType(id).subscribe(x =>
-        //Get the new project list on delete 
+        // Get the new project list on delete
         this.checklistTypeList())
-      this.delete = "";
+      this.delete = '';
     }
   }
 
@@ -53,32 +53,32 @@ export class ChecklistSummaryComponent implements OnInit {
     this.return = true;
     this.errors = [];
     console.log(this.checklistType)
-    if (!this.checklistType) { this.errors.push("No checklistType was provided!"); this.return = false; }
-    if (!this.checklistDescription) { this.errors.push("No description was provided!"); this.return = false; }
+    if (!this.checklistType) { this.errors.push('No checklistType was provided!'); this.return = false; }
+    if (!this.checklistDescription) { this.errors.push('No description was provided!'); this.return = false; }
     if (this.return == false) { return; }
     this._checklistService.updateChecklistType(id, this.checklistType, this.checklistDescription).subscribe(x =>
-      //Get the new project list on delete 
+      // Get the new project list on delete
       this.checklistTypeList())
-      this.checklistType = "";
-      this.checklistDescription="";
+      this.checklistType = '';
+      this.checklistDescription = '';
   }
 
   storeChecklistType() {
     this.return = true;
     this.errors = [];
-    if (!this.checklistType) { this.errors.push("No checklistType was provided!"); this.return = false; }
-    if (!this.checklistDescription) { this.errors.push("No Description was provided!"); this.return = false; }
+    if (!this.checklistType) { this.errors.push('No checklistType was provided!'); this.return = false; }
+    if (!this.checklistDescription) { this.errors.push('No Description was provided!'); this.return = false; }
     if (this.return == false) { return; }
 
     this._checklistService.newChecklistTyoe(this.checklistType, this.checklistDescription)
       .subscribe(
         checklistTypes => this.checklistTypes = checklistTypes,
-        err => this.errors.push("There was an error storing the new checklistType"),
+        err => this.errors.push('There was an error storing the new checklistType'),
         () => this.checklistTypeList()
       );
 
-    this.checklistType = "";
-    this.checklistDescription="";
+    this.checklistType = '';
+    this.checklistDescription = '';
   }
 
   checklistTypeList() {
@@ -88,10 +88,10 @@ export class ChecklistSummaryComponent implements OnInit {
         checklistTypes => {
           this.checklistTypes = checklistTypes;
           if (!this.checklistTypes) {
-            this.error = "There are no checklist types defined yet"
+            this.error = 'There are no checklist types defined yet'
           }
         },
-        err => this.error = "Getting the checklist types failed, contact an administrator! ");
+        err => this.error = 'Getting the checklist types failed, contact an administrator! ');
   }
 
   open(content) {
@@ -107,8 +107,8 @@ export class ChecklistSummaryComponent implements OnInit {
     this.modalService.open(updateContent, { size: 'lg' }).result
   }
 
-  getSet(checklistType, checklistDescription){
+  getSet(checklistType, checklistDescription) {
     this.checklistType = checklistType;
     this.checklistDescription = checklistDescription;
   }
-} 
+}

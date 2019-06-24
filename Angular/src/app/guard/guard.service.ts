@@ -6,7 +6,7 @@ import { AppSettings } from '../globals';
 export class GuardService implements CanActivate {
 
     constructor(private router: Router) { }
-    public returner:boolean;
+    public returner: boolean;
     canActivate() {
         if (AppSettings.AUTH_TOKEN || AppSettings.SKIP_LOGIN) {
             // logged in so return true
@@ -21,4 +21,4 @@ export class GuardService implements CanActivate {
     }
 }
 
-//probeer canActivate method per privilege
+// probeer canActivate method per privilege

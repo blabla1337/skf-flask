@@ -3,7 +3,7 @@ export class Labs {
     labID: number,
     title: string,
     link: string,
-    ){}
+    ) {}
   }
-  
-  
+
+

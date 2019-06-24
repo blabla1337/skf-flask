@@ -25,17 +25,17 @@ export class UserManageComponent implements OnInit {
   }
 
   revoke(id: number) {
-    if (this.revoke_str == "REVOKE") {
+    if (this.revoke_str == 'REVOKE') {
       this._userService.revoke(id).subscribe(x =>
-        //Get the new user list on delete 
+        // Get the new user list on delete
         this.userList())
     }
   }
 
   grant(id: number) {
-    if (this.grant_str == "GRANT") {
+    if (this.grant_str == 'GRANT') {
       this._userService.grant(id).subscribe(x =>
-        //Get the new user list on delete 
+        // Get the new user list on delete
         this.userList())
     }
   }
@@ -47,7 +47,7 @@ export class UserManageComponent implements OnInit {
       users => {
         this.users = users;
       },
-      err => this.error = "Getting the users failed, contact an administrator! ");
+      err => this.error = 'Getting the users failed, contact an administrator! ');
   }
 
   open(content) {

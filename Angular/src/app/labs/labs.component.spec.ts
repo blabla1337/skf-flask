@@ -11,7 +11,7 @@ describe('LabsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LabsComponent ],
-      imports:[NgbModule.forRoot(), RouterTestingModule]
+      imports: [NgbModule.forRoot(), RouterTestingModule]
     })
     .compileComponents();
   }));

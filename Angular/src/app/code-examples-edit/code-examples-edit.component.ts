@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChecklistService } from '../services/checklist.service'
-import { KnowledgebaseService } from '../services/knowledgebase.service'
+import { CodeExamplesService } from '../services/code-examples.service'
 
 import { QuestionsService } from '../services/questions.service'
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
-import { Knowledgebase } from '../models/knowledgebase';
+
 
 
 @Component({
-  selector: 'app-knowledgebase-edit',
-  templateUrl: './knowledgebase-edit.component.html',
-  providers: [ChecklistService, QuestionsService]
+  selector: 'app-code-examples-edit',
+  templateUrl: './code-examples-edit.html',
+  providers: [ChecklistService, QuestionsService, CodeExamplesService]
 })
-export class KnowledgebaseEditComponent implements OnInit {
+export class CodeExamplesEditComponent implements OnInit {
 
   constructor(
-    private _knowledgeService: KnowledgebaseService,
+    private _codeService: CodeExamplesService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
@@ -30,7 +30,8 @@ export class KnowledgebaseEditComponent implements OnInit {
   public IdFromUrl: number;
   public title: string;
   public content: string;
-  knowledgebaseItems: Knowledgebase[];
+  public code_lang: string;
+  public codeExample: any[];
 
   ngOnInit() {
 
@@ -43,44 +44,42 @@ export class KnowledgebaseEditComponent implements OnInit {
       this.canEdit = decodedJWT.privilege.includes('edit');
     }
     setTimeout(() => {
-      this.getKnowledgebaseItem();
+      this.getCodeItem();
     }, 500);
   }
 
-  updateKnowledgebaseItem() {
-
+  updateCodeItem() {
     this.errors = [];
     this.return = true;
 
     if (!this.title) { this.errors.push('Title was left empty'); this.return = false; }
     if (!this.content) { this.errors.push('Content was left empty'); this.return = false; }
+    if (!this.code_lang) { this.errors.push('code language was left empty'); this.return = false; }
     if (this.return == false) { return; }
 
     this.errors = [];
-    this._knowledgeService.updateKnowledgebaseItem(Number(this.IdFromUrl), this.title, this.content)
+    this._codeService.updateCodeExample(Number(this.IdFromUrl), this.title, this.content, this.code_lang)
       .subscribe(
         () => this.back(),
-        () => this.errors.push('Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)')
+        () => this.errors.push('Error updating code example')
       );
 
-      this._knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgebaseItems = requestData,
-        err => this.error = 'Error getting knowledge items, contact the administrator!'
-      );
-    
-      this.router.navigate(['/knowledgebase']);
+    this._codeService.getCode().subscribe(examples => {this.codeExample = examples},err => this.error = 'There was an error catching code examples.')
+    this.router.navigate(['/code-examples']);
   }
 
-  getKnowledgebaseItem() {
-    this._knowledgeService.getKnowledgebaseItem(this.IdFromUrl).subscribe(
-      knowledgebaseItems => {
-        this.title = knowledgebaseItems['title']
-        this.content = knowledgebaseItems['content']
+  getCodeItem() {
+    this._codeService.getCodeExample(this.IdFromUrl).subscribe(
+      codeExample => {
+        this.content = codeExample['content']
+        this.code_lang = codeExample['code_lang']
+        this.title = codeExample['title']
       },
       err => this.error = 'Error getting knowledge items, contact the administrator!'
     );
   }
 
   back() {
-    this.router.navigate(['/knowledgebase']);
+    this.router.navigate(['/code-examples']);
   }
 }

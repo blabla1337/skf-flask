@@ -4,5 +4,5 @@ export class Project {
   version: string,
   description: string,
   level: number
-  ){}
+  ) {}
 }

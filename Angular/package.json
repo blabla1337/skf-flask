@@ -31,6 +31,7 @@
     "prism": "^4.1.2",
     "rxjs": "^6.3.0",
     "rxjs-compat": "^6.3.0",
+    "tslint-angular": "^3.0.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

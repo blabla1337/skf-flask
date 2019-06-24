@@ -18,7 +18,7 @@ export class AuthenticateComponent implements OnInit {
 
   ngOnInit() {
     this.expired = false;
-    if (localStorage.getItem('session') == "expired") { this.expired = true }
+    if (localStorage.getItem('session') == 'expired') { this.expired = true }
     localStorage.clear();
   }
 
@@ -27,22 +27,22 @@ export class AuthenticateComponent implements OnInit {
     this.error = [];
 
 
-    if (!this.username) { this.return = false; this.error.push("No username was provided"); }
-    if (!this.password) { this.return = false; this.error.push("No password was provided"); }
+    if (!this.username) { this.return = false; this.error.push('No username was provided'); }
+    if (!this.password) { this.return = false; this.error.push('No password was provided'); }
     if (this.return == false) { return; }
 
     this._authenticateService.authenticate(this.username, this.password).subscribe(
       response => {
-        if (response["Authorization token"] != "") {
-          sessionStorage.setItem("auth_token", response["Authorization token"]);
-          sessionStorage.setItem("user", response["username"]);
-          location.replace("dashboard");
-        } else { this.error.push("Wrong username/password combination!"); }
+        if (response['Authorization token'] != '') {
+          sessionStorage.setItem('auth_token', response['Authorization token']);
+          sessionStorage.setItem('user', response['username']);
+          location.replace('dashboard');
+        } else { this.error.push('Wrong username/password combination!'); }
       })
   }
 
   skipLogin() {
-    sessionStorage.setItem("skip_login", "true");
-    location.replace("dashboard");
+    sessionStorage.setItem('skip_login', 'true');
+    location.replace('dashboard');
   }
 }

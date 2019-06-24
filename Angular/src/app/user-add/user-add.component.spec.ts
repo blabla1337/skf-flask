@@ -13,7 +13,7 @@ describe('UserAddComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ UserAddComponent ],
-      imports:[NgbModule.forRoot(), FormsModule, RouterTestingModule, HttpModule]
+      imports: [NgbModule.forRoot(), FormsModule, RouterTestingModule, HttpModule]
     })
     .compileComponents();
   }));
@@ -30,6 +30,6 @@ describe('UserAddComponent', () => {
 
     it('should create the component to add users', () => {
     component.save()
-    expect(component.error).toMatch("No email was provided!")
+    expect(component.error).toMatch('No email was provided!')
   });
 });

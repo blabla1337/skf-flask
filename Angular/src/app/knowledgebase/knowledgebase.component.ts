@@ -19,9 +19,9 @@ export class KnowledgebaseComponent implements OnInit {
   public errors: string[];
   public return: boolean;
   public title: string;
-  public content:string;
+  public content: string;
   public canEdit: boolean;
-  public delete:string;
+  public delete: string;
 
   constructor(public _knowledgeService: KnowledgebaseService, private modalService: NgbModal) { }
 
@@ -29,14 +29,14 @@ export class KnowledgebaseComponent implements OnInit {
     this.getKnowledgeItems();
 
     if (AppSettings.AUTH_TOKEN) {
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canEdit = decodedJWT.privilege.includes("edit");
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canEdit = decodedJWT.privilege.includes('edit');
     }
   }
 
   getKnowledgeItems() {
     this._knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgeitems = requestData,
-      err => this.error = "Error getting knowledge items, contact the administrator!"
+      err => this.error = 'Error getting knowledge items, contact the administrator!'
     );
   }
 
@@ -44,22 +44,22 @@ export class KnowledgebaseComponent implements OnInit {
     this.errors = [];
     this.return = true;
 
-    if (!this.title) { this.errors.push("Title was left empty"); this.return = false; }
-    if (!this.content) { this.errors.push("Content was left empty"); this.return = false; }
+    if (!this.title) { this.errors.push('Title was left empty'); this.return = false; }
+    if (!this.content) { this.errors.push('Content was left empty'); this.return = false; }
     if (this.return == false) { return; }
 
     this.errors = [];
     this._knowledgeService.newKnowledgebaseItem(this.title, this.content)
       .subscribe(
-        () => this.errors.push("Eror storing a new knowledgebase item!")
+        () => this.errors.push('Eror storing a new knowledgebase item!')
       );
     this.getKnowledgeItems();
   }
 
   deleter(id: number) {
-    if (this.delete == "DELETE") {
+    if (this.delete == 'DELETE') {
       this._knowledgeService.deleteKnowledgebaseItem(id).subscribe(x =>
-        //Get the new project list on delete 
+        // Get the new project list on delete
         this.getKnowledgeItems())
     }
   }

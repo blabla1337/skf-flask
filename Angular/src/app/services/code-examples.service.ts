@@ -20,6 +20,11 @@ export class CodeExamplesService {
       map(response => response.json().items))
   }
 
+  getCodeExample(id:number): Observable<CodeExample[]> {
+    return this.http.get(environment.API_ENDPOINT + `/code/${id}`, { headers: this.postHeaders }).pipe(
+      map(response => response.json()))
+  }
+
   newCodeExample(title: string, content: string, code_lang: string): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + '/code/new', JSON.stringify({

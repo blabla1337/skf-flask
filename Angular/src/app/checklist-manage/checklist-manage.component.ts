@@ -13,10 +13,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ChecklistManageComponent implements OnInit {
   closeResult: string;
   public number: number;
-  public checklistID : string;
+  public checklistID: string;
   public error: string;
   public delete: string;
-  public canDelete:boolean;
+  public canDelete: boolean;
   public idFromURL: number;
   public projects: any;
 
@@ -25,13 +25,13 @@ export class ChecklistManageComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.idFromURL = params['id'];
-      localStorage.setItem("tempParamID", params['id'])
+      localStorage.setItem('tempParamID', params['id'])
     });
 
-    //this.projectList();
+    // this.projectList();
     if (AppSettings.AUTH_TOKEN) {
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canDelete = decodedJWT.privilege.includes("delete");
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canDelete = decodedJWT.privilege.includes('delete');
     }
   }
 
@@ -39,7 +39,7 @@ export class ChecklistManageComponent implements OnInit {
   deleter(id: number) {
     if (this.delete == "DELETE") {
       this._checkListService.delete(id).subscribe(x =>
-        //Get the new project list on delete 
+        //Get the new project list on delete
         this.projectList())
     }
   }

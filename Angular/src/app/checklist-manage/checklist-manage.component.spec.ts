@@ -47,7 +47,7 @@ describe('Knowledgebase component component', () => {
     expect(debugElement.nativeElement.textContent).toMatch('test stub level');
   });
 
- 
+
   it('check if component compiles succesfully', () => {
     component.error = "I am a mocked error";
     fixture.detectChanges();
