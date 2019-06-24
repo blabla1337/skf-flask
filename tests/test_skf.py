@@ -425,7 +425,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         payload = {'questions': [ {'projectID': 3, 'question_ID': 1,'result': 'True', 'sprintID': 4, 'checklist_type': 1},{'projectID': 3, 'question_ID': 2,'result': 'True', 'sprintID': 4, 'checklist_type': 1} ]}
-        response = self.client.put('/api/questions/store', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/questions/store/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Sprint successfully created")
@@ -433,7 +433,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         payload = {'questions': [ {'projectID': 3, 'question_ID': 1,'result': 'True', 'sprintID': 5, 'checklist_type': 1},{'projectID': 3, 'question_ID': 2,'result': 'True', 'sprintID': 5, 'checklist_type': 1} ]}
-        response = self.client.put('/api/questions/store', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/questions/store/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Sprint successfully created")
@@ -456,7 +456,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         payload = {'questions': [ {'projectID': 3, 'question_ID': 1,'result': 'True', 'sprintID': 3, 'checklist_type': 1},{'projectID': 3, 'question_ID': 2,'result': 'True', 'sprintID': 3, 'checklist_type': 1} ]}
-        response = self.client.put('/api/questions/store', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/questions/store/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Sprint successfully created")
@@ -552,7 +552,7 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         payload = {'questions': [ {'projectID': 5, 'question_ID': 1,'result': 'False', 'sprintID': 7, 'checklist_type': 1},{'projectID': 5, 'question_ID': 2,'result': 'True', 'sprintID': 7, 'checklist_type': 1} ]}
-        response = self.client.put('/api/questions/store', data=json.dumps(payload), headers=headers)
+        response = self.client.put('/api/questions/store/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Sprint successfully created")
@@ -702,7 +702,6 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        print(response_dict)
         self.assertEqual(response_dict['options'][0]['answer'], "Please be more specific")
 
 
@@ -713,7 +712,6 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        print(response_dict)
         self.assertTrue((response_dict['options'][0]['answer'])==("Description the possible risks to the application must be documented") or (response_dict['options'][0]['answer'])==("Description hsts preload"))
 
 
@@ -724,7 +722,6 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        print(response_dict)
         self.assertTrue((response_dict['options'][0]['answer'])==("Solution user restriction for sensitive data") or (response_dict['options'][0]['answer'])==("Solution csrf on rest")) 
 
 
@@ -735,7 +732,6 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.post('/api/chatbot/question', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        print(response_dict)
         self.assertTrue((response_dict['options'][0]['answer'])==("Code encoder") or (response_dict['options'][0]['answer'])==("Code xss filtering") or (response_dict['options'][0]['answer'])==("Code x xss protection header") or (response_dict['options'][0]['answer'])==("Code encoder sql esapi"))
 
 
