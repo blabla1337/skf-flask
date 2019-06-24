@@ -84,7 +84,7 @@
 <p id="t4" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t5" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_labs</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm mis">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of kb items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t7" class="stm mis">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">lab_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t7" class="stm mis">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">lab_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">order_by</span><span class="op">(</span><span class="nam">lab_items</span><span class="op">.</span><span class="nam">level</span><span class="op">.</span><span class="nam">asc</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm mis">    <span class="key">return</span> <span class="nam">result</span><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -96,7 +96,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-06-11 13:43
+            created at 2019-06-24 13:48
         </p>
     </div>
 </div>
