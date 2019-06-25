@@ -7,7 +7,3 @@ class lab_items(db.Model):
     link = db.Column(db.Text)
     level = db.Column(db.Integer)
     
-    def __init__(self, title, content):
-        self.title = title
-        self.link = link
-        self.level = level

@@ -476,10 +476,10 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Comment item successfully created")
-        response = self.client.get('/api/sprint/results/audit/3', headers=headers)
+        response = self.client.get('/api/sprint/results/audit/7', headers=headers)
         self.assertEqual(response.status_code, 200)
-        response_dict = json.loads(response.data.decode('utf-8'))
-        #self.assertEqual(response_dict['items'][0]['projectID'], 3)
+        response = self.client.get('/api/sprint/results/export/7', headers=headers)
+        self.assertEqual(response.status_code, 200)
 
 
     def test_create_sprint(self):
