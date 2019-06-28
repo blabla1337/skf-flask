@@ -116,13 +116,13 @@
 				<strong>Warning!</strong> No checklists items available!
 			</ngb-alert>
 		</div>
-		<table class="table table-striped table-advance table-hover checklist">
+		<table style="table-layout: fixed; word-break: break-word;" class="table table-striped table-advance table-hover checklist">
 			<tbody style="color:black">
 				<tr *ngFor="let item of checklistItems; let myIndex = index;">
-					<th *ngIf="item.kb_item_id == null" colspan="6">{{item.checklist_items_checklistID}} {{item.checklist_items_content}}</th>
-					<td style="color:black" *ngIf="item.kb_item_id > null; ">
+					<th *ngIf="item.kb_item_id == null">{{item.checklist_items_checklistID}} {{item.checklist_items_content}}</th>
+					<td style="color:green" *ngIf="item.kb_item_id > null; ">
 						<ngb-accordion style="color:black" class="level_l_{{item.checklist_items_level}}" #acc="ngbAccordion">
-							<ngb-panel style="color:black" style="max-width:10%" data-html="true" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} ">
+							<ngb-panel style="color:black" data-html="true" title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} ">
 								<ng-template ngbPanelContent>
 									<p style="white-space: pre-line;">
 										<b><h3>{{item.kb_item_title}}</h3></b>

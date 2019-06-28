@@ -2601,8 +2601,6 @@ a#finish.nav-link {
 }
 .card-block > p { float: left; width: 100%; }
 
-
-
 .btn:focus,.btn:active {
   outline: none !important;
   box-shadow: none;
