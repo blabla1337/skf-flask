@@ -96,12 +96,6 @@ export class ProjectDashboardComponent implements OnInit {
     }
 
     for (let i = 1; i < count_sprint + 1; i++) {
-      if (sprint_items['answer' + i] == '0') {
-        this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID) });
-      }
-      if (sprint_items['sanswer' + i] == '') {
-        this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID)  });
-      }
       if (sprint_items['answer' + i] != '0') {
         this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'sprintID': Number(this.sprintID), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklistTypeID)  });
       }
