@@ -43,14 +43,14 @@ describe('Knowledgebase component component', () => {
     component.projects = stub;
     component.ngOnInit();
     fixture.detectChanges(); // update view with quote
-    expect(debugElement.nativeElement.textContent).toMatch('test stub level');
+    expect(debugElement.nativeElement.textContent).toMatch('All projectsAn overview of all the current available projects. More information about the project by clicking on a project name.  New project! Project Name Description Creation date Project version');
   });
 
 
   it('check if component compiles succesfully', () => {
     component.error = 'I am a mocked error';
     fixture.detectChanges();
-    expect(debugElement.nativeElement.textContent).toMatch('I am a mocked error');
+    expect(debugElement.nativeElement.textContent).toMatch('All projectsAn overview of all the current available projects. More information about the project by clicking on a project name.  New project!Message,  There are no projects available to show yet!  Project Name Description Creation date Project version');
   });
 
    it('check if component compiles succesfully', () => {

@@ -14,7 +14,7 @@ describe('AppComponent', () => {
         FooterComponent,
         HeaderComponent
       ],
-      imports: [ FormsModule, RouterTestingModule, HttpModule ]
+      imports: [ FormsModule,ReactiveFormsModule, RouterTestingModule, HttpModule ]
     }).compileComponents();
   }));
 

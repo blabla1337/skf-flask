@@ -19,8 +19,13 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False
 
 # JWT settings
-JWT_SECRET = 'sadasdasdas'
+JWT_SECRET = ''
 ORIGINS = '*'
+
+# Google Scraping
+GOOGLE = False
+API_KEY = 'AIzaSyDP1iLdfgvct3BQKLAKQaD3UG6LVgiJSLs'
+CSE_ID = '007944217764671561800:ve3xx693pke'
 
 # TESTING settings
 TESTING = False

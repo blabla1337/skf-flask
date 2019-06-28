@@ -104,54 +104,6 @@ def stats_sprint(project_id):
     return sprint
 
 
-#NOT USED?
-def order_sprint_results(sprint_results):
-    ordered_list = []
-    ordered_closed = [] # 2
-    ordered_accepted = [] # 3
-    ordered_verified = [] # 4
-    ordered_failed = [] # 5
-    for item in sprint_results.items:
-        numbers = item.checklistID.split('.')
-        category = int(numbers[0])
-        category_requirement = int(numbers[1])
-        if (item.status == 1):
-            ordered_list = insert_in_order(category, category_requirement, item, ordered_list)
-        elif (item.status == 2):
-            ordered_closed = insert_in_order(category, category_requirement, item, ordered_closed)
-        elif (item.status == 3):
-            ordered_accepted = insert_in_order(category, category_requirement, item, ordered_accepted)
-        elif (item.status == 4):
-            ordered_verified = insert_in_order(category, category_requirement, item, ordered_verified)
-        else:
-            ordered_failed = insert_in_order(category, category_requirement, item, ordered_failed)
-    sprint_results.items = ordered_list + ordered_closed + ordered_accepted + ordered_verified + ordered_failed
-    return sprint_results
-
-#NOT USED?
-def insert_in_order(category, category_requirement, item, status_list):
-    if (len(status_list) == 0):
-        status_list.append(item)
-    else:
-        y = 0
-        while y < len(status_list):
-            numbers_ordered = status_list[y].checklistID.split('.')
-            category_ordered = int(numbers_ordered[0])
-            category_requirement_ordered = int(numbers_ordered[1])
-            if (category < category_ordered):
-                status_list.insert(y, item)
-                break
-            else:
-                if (category == category_ordered):
-                    if (category_requirement < category_requirement_ordered):
-                        status_list.insert(y, item)
-                        break
-            y = y + 1
-        if (y == len(status_list)):
-            status_list.insert(y, item)
-    return status_list
-
-
 def export_failed_results(sprint_results):
     file_path = "export_" + id_generator(16)
     with open(file_path, 'a') as file:
