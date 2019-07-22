@@ -3,7 +3,7 @@ from werkzeug.exceptions import BadRequest
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
 #from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_code_examples
-from skf.db_tools import init_db, update_db, connect_db, init_md_knowledge_base, init_md_code_examples
+from skf.db_tools import clear_db, init_db, update_db, connect_db, init_md_knowledge_base, init_md_code_examples
 from skf import chatbot_tools
 from skf.app import app
 import pytest
@@ -12,8 +12,10 @@ class TestRestPlusApi(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        print("*************SETUPCLASS*************")
         cls.client = app.test_client()
         with app.app_context():
+            clear_db()
             init_db()
             update_db()
             chatbot_tools.init_dataset()
@@ -25,7 +27,7 @@ class TestRestPlusApi(unittest.TestCase):
     def tearDownClass(cls):
             cls.client = app.test_client()
             with app.app_context():
-                init_db()
+                clear_db()
  
  
     def test_get_status(self):

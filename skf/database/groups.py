@@ -25,3 +25,7 @@ class Group(db.Model):
     members = db.relationship('User', secondary=GroupMember, back_populates='groups')
     timestamp = db.Column(db.Text)
 
+    def __init__(self, groupName, timestamp):
+    	self.groupName = groupName
+    	self.timestamp = timestamp
+

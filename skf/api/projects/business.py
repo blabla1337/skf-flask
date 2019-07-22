@@ -3,8 +3,10 @@ from skf.database import db
 from sqlalchemy import desc
 from skf.database.projects import Project 
 from skf.database.groupmembers import GroupMember
+from skf.database.users import User
 from skf.database.project_sprints import ProjectSprint 
 from skf.database.checklists_results import ChecklistResult
+from skf.database.groups import Group
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 
@@ -53,18 +55,29 @@ def new_project(user_id, data):
     projectName = data.get('name')
     projectVersion = data.get('version')
     projectDesc = data.get('description')
-    userID = user_id
+
     # TODO: use proper methods: projects.groupmembers.add(user)
-    groupmember = groupmembers.query.filter(groupmembers.userID == userID).one()
-    ownerID = groupmember.ownerID
-    groupID = groupmember.groupID
+
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M")
-    project = Project(userID, groupID, projectName, projectVersion, projectDesc, ownerID, timestamp)
+
+    user = User.query.get(user_id)
+    owner = User.query.get(user_id)
+    group = user.groups[0]
+
+    project = Project(projectName, projectVersion, projectDesc, timestamp)
+    project.owner = owner
+    project.user = user
+    project.group = group
+
     db.session.add(project)
     db.session.commit()
-    result = Project.query.filter(Project.user_id == user_id).order_by(desc(Project.id)).first()
-    return {'projectID': result.projectID, 'message': 'Project successfully created'}
+
+    #result = Project.query.filter(Project.user_id == user_id).order_by(desc(Project.id)).first()
+    result = Project.query.filter(Project.projectName == projectName).first()
+    print(projectName,result)
+
+    return {'projectID': result.id, 'message': 'Project successfully created'}
 
 
 def delete_project(project_id, user_id):

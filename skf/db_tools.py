@@ -1,4 +1,5 @@
 import os
+import datetime
 from flask import Flask, current_app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
@@ -22,6 +23,7 @@ def connect_db():
     return True
 
 def load_initial_data():
+    print("******** LOAD_INITIAL_DATA **********")
 
 #   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete");
 #   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete");
@@ -41,12 +43,12 @@ def load_initial_data():
     db.session.commit()
 
 #   INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup");
-    group = Group(groupName='privateGroup')
+    group = Group('privateGroup', datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
 
 #   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1);
     group.members.append(user)
-
     group.owner = user
+
     db.session.add(group)
     db.session.commit()
 
@@ -56,8 +58,14 @@ def load_initial_data():
     db.session.add(ChecklistType(name='ASVS LEVEL 2', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
     db.session.commit()
 
+def clear_db():
+    print("**********CLEAR_DB********************")
+    db.drop_all()
+    db.session.commit()
+
 def init_db(testing=False):
     """Initializes the database.""" 
+    print("**********INIT_DB********************")
     '''
     if testing == True:
         db = connect_db()
@@ -67,7 +75,6 @@ def init_db(testing=False):
         db.commit()
     else:
     '''
-    db.drop_all()
     db.create_all()
     db.session.commit()
 

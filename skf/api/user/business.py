@@ -31,7 +31,7 @@ def activate_user(user_id, data):
                     result.access = True
                     result.activated = True
                     result.userName = username
-                    db.session.add(result)
+
                     db.session.commit()
                     return {'message': 'User successfully activated'}
     else:
@@ -43,6 +43,7 @@ def login_user(data):
     log("User successfully logedin", "HIGH", "PASS")
     val_alpha_num(data.get('username'))
     username = data.get('username')
+
     try:
         user = User.query.filter(User.userName == username).one()
         if not user is None and user.activated and user.access \
@@ -86,8 +87,8 @@ def create_user(data):
     pincode = my_secure_rng.randrange(10000000, 99999999)
     username = pincode
     email = data.get('email')
-    access = False
-    activated = False
+    #access = False # By default
+    #activated = False # By default
     privilege_id = 0
     # New users can only edit:read:delete
     if data.get('privilege') == 1:
@@ -96,21 +97,24 @@ def create_user(data):
     else:
         privilege_id = data.get('privilege')
     password = ""
-    user = User(pincode, username, email, password, access, activated)
+    user = User(pincode, username, email, password)
     user.privilege_id = privilege_id
-    db.session.add(user)
-    db.session.commit()
-
-    # Why query the database again? This time on email
-    result = User.query.filter(User.email == email).one()
 
     # Add user to default groupmember issue #422
-    user.group = Group.query.order_by(desc(groupmembers.memberID)).first()
-    
-    db.session.add(groupmemberUser)
-    db.session.commit()
+    user.group_id = 0;
+    #user.groups.add = Group.query.order_by(desc(Group.id)).first()
+ 
+    try:
+        db.session.add(user)
+        db.session.commit()
 
-    return user
+    except:
+
+        db.session.rollback()
+        raise
+
+    result = User.query.filter(User.email == email).one()
+    return result
 
 
 def manage_user(user_id, data):
