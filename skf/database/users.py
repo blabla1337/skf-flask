@@ -42,3 +42,7 @@ class User(db.Model):
         self.access = access
         self.activated = activated
         self.email = email
+
+    def __repr__(self):
+        return "<User> {}| {} activated:{} access:{}>)".format(
+           self.id, self.userName, self.activated, self.access)

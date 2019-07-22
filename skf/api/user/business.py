@@ -22,14 +22,14 @@ def activate_user(user_id, data):
     username = data.get('username')
     username = username.replace(" ", "")
     result = User.query.filter(User.id == user_id).one()
-    if result.activated == "False":
+    if not result.activated:
         if result.email == data.get('email'):
             if data.get('password') == data.get('repassword'):
                 if data.get('accessToken') == result.accessToken:
                     pw_hash = generate_password_hash(data.get('password')).decode('utf-8')
                     result.password = pw_hash
-                    result.access = "True"
-                    result.activated = "True"
+                    result.access = True
+                    result.activated = True
                     result.userName = username
                     db.session.add(result)
                     db.session.commit()
@@ -44,42 +44,36 @@ def login_user(data):
     val_alpha_num(data.get('username'))
     username = data.get('username')
     try:
-        if (User.query.filter(User.userName == username).one()):
-            user = User.query.filter(User.userName == username).one()
-            if (user.activated == "True"):
-                if (user.access == "True"):
-                    if check_password_hash(user.password, data.get('password')):
-                        priv_user = privileges.query.filter(privileges.privilegeID == str(user.privilegeID)).first()
-                        payload = {
-                            # userid
-                            'UserId': user.userID,
-                            #issued at
-                            'iat': datetime.utcnow(),
-                            #privileges
-                            'privilege': priv_user.privilege,
-                            #expiry
-                            'exp': datetime.utcnow() + timedelta(minutes=120)
-                            #claims for access api calls
-                            #'claims': 'kb/items/update,project/items,non/existing/bla,'
-                        }
-                        token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
-                        if sys.version_info.major == 3:
-                        	unicode = str
-                        token = unicode(token_raw,'utf-8')
-                        return {'Authorization token': token, 'username': username}
-                    else:
-                        log("User triggered error login failed", "HIGH", "FAIL")
-                        return {'Authorization token': ''}
-                else:
-                    log("User triggered error login failed", "HIGH", "FAIL")
-                    return {'Authorization token': ''}
-            else:
-                log("User triggered error login failed", "HIGH", "FAIL")
-                return {'Authorization token': ''}
-    except NoResultFound:
+        user = User.query.filter(User.userName == username).one()
+        if not user is None and user.activated and user.access \
+            and check_password_hash(user.password, data.get('password')):
+                #priv_user = .first()
+                payload = {
+                    # userid
+                    'UserId': user.id,
+                    #issued at
+                    'iat': datetime.utcnow(),
+                    #privileges
+                    'privilege': user.privilege.privilege,
+                    #expiry
+                    'exp': datetime.utcnow() + timedelta(minutes=120)
+                    #claims for access api calls
+                    #'claims': 'kb/items/update,project/items,non/existing/bla,'
+                }
+                token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
+                if sys.version_info.major == 3:
+                	unicode = str
+                token = unicode(token_raw,'utf-8')
+                return {'Authorization token': token, 'username': username}
+        print(check_password_hash(user.password, data.get('password')))
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
 
+    except NoResultFound:
+        log("User triggered error login failed", "HIGH", "FAIL")
+        return {'Authorization token': ''}
+    except Exception as e:
+        print(e)
 
 def list_privileges():
     log("User requested privileges items", "MEDIUM", "PASS")
@@ -94,8 +88,8 @@ def create_user(data):
     pincode = my_secure_rng.randrange(10000000, 99999999)
     username = pincode
     email = data.get('email')
-    access = "False"
-    activated = "False"
+    access = False
+    activated = False
     privilege_id = 0
     # New users can only edit:read:delete
     if data.get('privilege') == 1:
@@ -104,7 +98,7 @@ def create_user(data):
     else:
         privilege_id = data.get('privilege')
     password = ""
-    user = User(privilege_id, pincode, username, password, access, activated, email)
+    user = User(pincode, username, email, password, access, activated)
     db.session.add(user)
     db.session.commit()
     result = User.query.filter(User.email == email).one()

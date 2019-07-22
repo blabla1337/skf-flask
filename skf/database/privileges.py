@@ -20,4 +20,7 @@ class Privilege(db.Model):
     def __init__(self, privilege):
         self.privilege = privilege
 
+    def __repr__(self):
+    	return self.privilege
+
 
