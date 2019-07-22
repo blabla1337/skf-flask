@@ -110,7 +110,7 @@ def create_user(data):
     db.session.add(groupmemberUser)
     db.session.commit()
 
-    return result
+    return user
 
 
 def manage_user(user_id, data):

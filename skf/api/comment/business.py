@@ -29,13 +29,16 @@ def new_comment_item(user_id, data):
     comment = data.get('comment')
     now = datetime.datetime.now()
     dateLog = now.strftime("%Y-%m-%d %H:%M:%S")
-    result = Comment(sprint_id, checklist_id, user_id, status, comment, dateLog)
-    print("--------------------------------------------------")
-    db.session.add(result)
+    comment = Comment(status, comment, dateLog)
+    comment.sprint_id = sprint_id
+    comment.checklist_id = checklist_id
+    comment.user_id = user_id
+    db.session.add(comment)
     db.session.commit()
-    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.checklist_id == checklist_id).all()
-    for row in result:
+
+    results = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.checklist_id == checklist_id).all()
+    for row in results:
         row.status = status
         db.session.add(row)
-        db.session.commit()
+    db.session.commit()
     return {'message': 'Comment item successfully created'} 
