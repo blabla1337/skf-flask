@@ -30,6 +30,7 @@ def new_comment_item(user_id, data):
     now = datetime.datetime.now()
     dateLog = now.strftime("%Y-%m-%d %H:%M:%S")
     result = Comment(sprint_id, checklist_id, user_id, status, comment, dateLog)
+    print("--------------------------------------------------")
     db.session.add(result)
     db.session.commit()
     result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.checklist_id == checklist_id).all()

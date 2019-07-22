@@ -47,7 +47,6 @@ def login_user(data):
         user = User.query.filter(User.userName == username).one()
         if not user is None and user.activated and user.access \
             and check_password_hash(user.password, data.get('password')):
-                #priv_user = .first()
                 payload = {
                     # userid
                     'UserId': user.id,
@@ -65,15 +64,14 @@ def login_user(data):
                 	unicode = str
                 token = unicode(token_raw,'utf-8')
                 return {'Authorization token': token, 'username': username}
-        print(check_password_hash(user.password, data.get('password')))
+
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
 
     except NoResultFound:
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
-    except Exception as e:
-        print(e)
+
 
 def list_privileges():
     log("User requested privileges items", "MEDIUM", "PASS")
@@ -99,13 +97,16 @@ def create_user(data):
         privilege_id = data.get('privilege')
     password = ""
     user = User(pincode, username, email, password, access, activated)
+    user.privilege_id = privilege_id
     db.session.add(user)
     db.session.commit()
+
+    # Why query the database again? This time on email
     result = User.query.filter(User.email == email).one()
 
     # Add user to default groupmember issue #422
-    groupmember = groupmembers.query.order_by(desc(groupmembers.memberID)).first()
-    groupmemberUser = groupmembers(groupmember.memberID + 1, result.userID, groupmember.groupID, groupmember.ownerID, None)
+    user.group = Group.query.order_by(desc(groupmembers.memberID)).first()
+    
     db.session.add(groupmemberUser)
     db.session.commit()
 
