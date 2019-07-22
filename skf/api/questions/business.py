@@ -1,16 +1,16 @@
 from skf.database import db
-from skf.database.projects import projects
-from skf.database.checklists_kb import checklists_kb
-from skf.database.questions import questions
-from skf.database.checklists_results import checklists_results
-from skf.database.question_results import question_results
+#from skf.database.projects import Project
+from skf.database.checklists_kb import ChecklistKB
+from skf.database.questions import Question
+from skf.database.checklists_results import ChecklistResult
+from skf.database.question_results import QuestionResult
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
 import sys
 
 def get_questions(checklists_type):
     log("User requested list of questions", "LOW", "PASS")
     val_num(checklists_type)
-    result = questions.query.filter(questions.checklist_type == checklists_type).paginate(1, 500, False)
+    result = Question.query.filter(Question.checklist_type == checklists_type).paginate(1, 500, False)
     return result
 
 def store_questions(checklist_type, data):
@@ -28,15 +28,15 @@ def store_questions(checklist_type, data):
          sprint_id = result['sprintID']
          status = 1
          if question_result == "True":
-             checklists = checklists_kb.query.filter(checklists_kb.question_ID == question_ID).filter(checklists_kb.checklist_type == checklist_type).all()
+             checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_ID).filter(ChecklistKB.checklist_type == checklist_type).all()
              for row in checklists:
-                 checklists_query = checklists_results(row.id, question_project_id, sprint_id, status, row.kbID)
+                 checklists_query = ChecklistResult(row.id, question_project_id, sprint_id, status, row.kbID)
                  db.session.add(checklists_query)
                  db.session.commit()
     #Also check for the include always marked items so they are taken in account
-    checklists_always = checklists_kb.query.filter(checklists_kb.include_always == "True").filter(checklists_kb.checklist_type == checklist_type).all()
+    checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == "True").filter(ChecklistKB.checklist_type == checklist_type).all()
     for row in checklists_always:
-             checklists_query_always = checklists_results(row.id, question_project_id, sprint_id, status, row.kbID)
+             checklists_query_always = ChecklistResult(row.id, question_project_id, sprint_id, status, row.kbID)
              db.session.add(checklists_query_always)
              db.session.commit()
     return {'message': 'Sprint successfully created'}
@@ -46,7 +46,7 @@ def new_question(data):
     val_alpha_num(data.get('question'))
     sprint_question = data.get('question')
     sprint_checklist_type = data.get('checklist_type')
-    sprint = questions(sprint_question, sprint_checklist_type)
+    sprint = Question(sprint_question, sprint_checklist_type)
     db.session.add(sprint)
     db.session.commit()
     return {'message': 'New Question successfully created'}
@@ -57,7 +57,7 @@ def update_question(id_question, data):
     val_alpha_num(data.get('question'))
     sprint_question = data.get('question')
     sprint_checklist_type = data.get('checklist_type')
-    sprint = questions.query.filter(questions.id == id_question).one()
+    sprint = Question.query.filter(Question.id == id_question).one()
     sprint.question = sprint_question
     sprint.checklist_type = sprint_checklist_type
     db.session.add(sprint)
@@ -67,7 +67,7 @@ def update_question(id_question, data):
 def delete_question(id_question):
     log("User deleted question", "MEDIUM", "PASS")
     val_num(id_question)
-    sprint = questions.query.filter(questions.id == id_question).one()
+    sprint = Question.query.filter(Question.id == id_question).one()
     db.session.delete(sprint)
     db.session.commit()
     return {'message': 'Question successfully deleted'}

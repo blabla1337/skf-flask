@@ -4,7 +4,7 @@ from skf import settings
 from flask import request, abort
 from skf.api.restplus import api
 from skf.database import db
-from skf.database.logs import logs
+from skf.database.logs import Log
 
 
 def security_headers():
@@ -30,7 +30,7 @@ def log(message, threat, status):
             userID = checkClaims['UserId']
         else:
             userID = "0"
-        event = logs(dateLog, dateTime, threat, ip, userID, status, message)
+        event = Log(dateLog, dateTime, threat, ip, userID, status, message)
         db.session.add(event)
         db.session.commit()
     except:

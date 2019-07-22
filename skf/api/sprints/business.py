@@ -2,13 +2,13 @@ import base64, string, random
 from skf.database import db
 from sqlalchemy import asc, desc
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
-from skf.database.groupmembers import groupmembers
-from skf.database.project_sprints import project_sprints
-from skf.database.projects import projects
-from skf.database.checklists_results import checklists_results
-from skf.database.checklists_kb import checklists_kb
-from skf.database.kb_items import kb_items
-from skf.database.comments import comments
+from skf.database.groupmembers import GroupMember
+from skf.database.project_sprints import ProjectSprint
+from skf.database.projects import Project
+from skf.database.checklists_results import ChecklistResult
+from skf.database.checklists_kb import ChecklistKB
+from skf.database.kb_items import KBItem
+from skf.database.comments import Comment
 
 
 def get_sprint_item(sprint_id, user_id):

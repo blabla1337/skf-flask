@@ -7,9 +7,10 @@ from sqlalchemy import desc
 
 from skf import settings
 from skf.database import db
-from skf.database.users import users
-from skf.database.groupmembers import groupmembers
-from skf.database.privileges import privileges
+from skf.database.users import User
+from skf.database.groups import Group
+from skf.database.groupmembers import GroupMember
+from skf.database.privileges import Privilege
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
 
 
@@ -20,7 +21,7 @@ def activate_user(user_id, data):
     val_alpha_num(data.get('username'))
     username = data.get('username')
     username = username.replace(" ", "")
-    result = users.query.filter(users.userID == user_id).one()
+    result = User.query.filter(User.id == user_id).one()
     if result.activated == "False":
         if result.email == data.get('email'):
             if data.get('password') == data.get('repassword'):
@@ -43,8 +44,8 @@ def login_user(data):
     val_alpha_num(data.get('username'))
     username = data.get('username')
     try:
-        if (users.query.filter(users.userName == username).one()):
-            user = users.query.filter(users.userName == username).one()
+        if (User.query.filter(User.userName == username).one()):
+            user = User.query.filter(User.userName == username).one()
             if (user.activated == "True"):
                 if (user.access == "True"):
                     if check_password_hash(user.password, data.get('password')):
@@ -103,10 +104,10 @@ def create_user(data):
     else:
         privilege_id = data.get('privilege')
     password = ""
-    user = users(privilege_id, pincode, username, password, access, activated, email)
+    user = User(privilege_id, pincode, username, password, access, activated, email)
     db.session.add(user)
     db.session.commit()
-    result = users.query.filter(users.email == email).one()
+    result = User.query.filter(User.email == email).one()
 
     # Add user to default groupmember issue #422
     groupmember = groupmembers.query.order_by(desc(groupmembers.memberID)).first()
@@ -122,8 +123,8 @@ def manage_user(user_id, data):
     val_num(user_id)
     val_alpha(data.get('active'))
     status_activated = data.get('active')
-    result = users.query.filter(users.userID == user_id).one()
-    if users.query.filter(users.userID == user_id).one():
+    result = User.query.filter(User.id == user_id).one()
+    if User.query.filter(User.id == user_id).one():
         result.access = status_activated
         db.session.add(result)
         db.session.commit()
@@ -135,6 +136,6 @@ def manage_user(user_id, data):
 
 def list_users():
     log("Overview of list users triggered", "HIGH", "PASS")
-    result = users.query.paginate(1, 50, False)
+    result = User.query.paginate(1, 50, False)
     return result
 

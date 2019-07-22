@@ -1,20 +1,41 @@
 
 from skf.database import db
+#from skf.database.projects import projectmembers
+
+'''
+drop table if exists `users`;
+CREATE TABLE `users` (
+`userID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`privilegeID` int(11) NOT NULL,
+`userName` varchar(255) NOT NULL UNIQUE,
+`email` varchar(255) NOT NULL UNIQUE,
+`password` varchar(255) NOT NULL,
+`accessToken` int(11) NOT NULL UNIQUE,
+`activated` varchar(255),
+`access` varchar(255) NOT NULL
+);
+'''
+
+class User(db.Model):
+
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    privilege_id = db.Column(db.Integer, db.ForeignKey('privileges.id'), nullable=False)
+    privilege = db.relationship("Privilege", backref=db.backref('users'))
+    
+    accessToken = db.Column(db.Integer, unique=True, nullable=False)
+    userName = db.Column(db.String(255), unique=True, nullable=False)
+    password = db.Column(db.Text, nullable=False)
+    access = db.Column(db.Boolean, nullable=False)
+    activated = db.Column(db.Boolean, nullable=False)
+    email = db.Column(db.String(255), unique=True)
+    groups = db.relationship('Group', back_populates='members')
+    #group = db.relationship('GroupMember', back_populates='member')
 
 
-class users(db.Model):
-    userID = db.Column(db.Integer, primary_key=True)
-    privilegeID = db.Column(db.Integer)
-    accessToken = db.Column(db.Integer)
-    userName = db.Column(db.Text)
-    password = db.Column(db.Text)
-    access = db.Column(db.Text)
-    activated = db.Column(db.Text)
-    email = db.Column(db.Text)
-
-
-    def __init__(self, privilegeID, accessToken, userName, password, access, activated, email):
-        self.privilegeID = privilegeID
+    def __init__(self, accessToken, userName, email, password='', access=False, activated=False):
         self.accessToken = accessToken
         self.userName = userName
         self.password = password

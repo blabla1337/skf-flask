@@ -81,13 +81,12 @@ from skf.api.comment.endpoints.comment_new import ns as comment_namespace
 from skf.api.restplus import api
 from skf.database import db
 
-
-app = Flask(__name__)
-# TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
-cors = CORS(app, resources={r"/*": {"origins": settings.ORIGINS}})
-logging.config.fileConfig('logging.conf')
-log = logging.getLogger(__name__)
-
+def create_app():
+    flask_app = Flask(__name__)
+    configure_app(flask_app)
+    initialize_app(flask_app)
+    db.init_app(flask_app)
+    return flask_app
 
 def configure_app(flask_app):
     """Configure the SKF app."""
@@ -107,7 +106,6 @@ def configure_app(flask_app):
 
 def initialize_app(flask_app):
     """Initialize the SKF app."""
-    configure_app(flask_app)
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
     api.add_namespace(lab_namespace)
@@ -121,8 +119,12 @@ def initialize_app(flask_app):
     api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_namespace)
     flask_app.register_blueprint(blueprint)
-    db.init_app(flask_app)
 
+app = create_app()
+# TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
+cors = CORS(app, resources={r"/*": {"origins": settings.ORIGINS}})
+logging.config.fileConfig('logging.conf')
+log = logging.getLogger(__name__)
 
 @app.cli.command('initdb')
 def initdb_command():
@@ -144,10 +146,9 @@ def updatedb_command():
     update_db()
     print('Database updated with the markdown files.')
 
-
 def main():
     """Main SKF method"""
-    initialize_app(app)
+    #initialize_app(app)
     if app.debug == False:
         if  settings.JWT_SECRET == '':
             log.info('>>>>> Configure the JWT_SECRET in the settings.py file and choose an unique 128 character long secret <<<<<')
