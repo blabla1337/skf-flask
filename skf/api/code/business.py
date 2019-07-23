@@ -8,8 +8,13 @@ def update_code_item(code_id, data):
     result.title = data.get('title')
     result.content = data.get('content')
     result.code_lang = data.get('code_lang')
-    db.session.add(result)
-    db.session.commit()
+    try:
+        db.session.add(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+
     return {'message': 'Code example item successfully updated'}
 
 def create_code_item(data):
@@ -18,8 +23,14 @@ def create_code_item(data):
     title = data.get('title')
     code_lang = data.get('code_lang')
     result = CodeItem(title, content, code_lang)
-    db.session.add(result)
-    db.session.commit()
+
+    try:
+        db.session.add(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+
     return {'message': 'KB item successfully created'} 
 
 def delete_code_item(codeId, user_id):
@@ -27,8 +38,14 @@ def delete_code_item(codeId, user_id):
     val_num(codeId)
     val_num(user_id)
     codeItem = (CodeItem.query.filter(CodeItem.ide == codeId).one())
-    db.session.delete(codeItem)
-    db.session.commit()
+
+    try:
+        db.session.delete(codeItem)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+        
     return {'message': 'code item successfully deleted'}
 
 def get_code_items():

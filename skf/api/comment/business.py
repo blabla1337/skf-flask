@@ -33,12 +33,20 @@ def new_comment_item(user_id, data):
     comment.sprint_id = sprint_id
     comment.checklist_id = checklist_id
     comment.user_id = user_id
-    db.session.add(comment)
-    db.session.commit()
 
-    results = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.checklist_id == checklist_id).all()
-    for row in results:
-        row.status = status
-        db.session.add(row)
-    db.session.commit()
+    try:
+        db.session.add(comment)
+
+        results = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.checklist_id == checklist_id).all()
+
+        for row in results:
+            row.status = status
+            db.session.add(row)
+
+        db.session.commit()
+        
+    except:
+        db.session.rollback()
+        raise
+
     return {'message': 'Comment item successfully created'} 

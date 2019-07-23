@@ -5,6 +5,7 @@ from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 from skf.database.groupmembers import GroupMember
 from skf.database.project_sprints import ProjectSprint
 from skf.database.projects import Project
+from skf.database.users import User
 from skf.database.checklists_results import ChecklistResult
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.kb_items import KBItem
@@ -15,7 +16,7 @@ def get_sprint_item(sprint_id, user_id):
     log("User requested specific sprint item", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = project_sprints.query.filter(project_sprints.sprintID == sprint_id).one()
+    result = ProjectSprint.query.get(sprint_id)
     return result
 
 
@@ -23,7 +24,7 @@ def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.kbID != 0).order_by(asc(checklists_results.status)).group_by(checklists_results.checklistID).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.kb_id != 0).order_by(asc(checklists_results.status)).group_by(ChecklistResult.checklist_id).paginate(1, 500, False)
     return result
 
 
@@ -31,7 +32,7 @@ def get_sprint_results_audit(sprint_id, user_id):
     log("User requested specific sprint audit items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.status == 5).group_by(ChecklistResult.checklist_id).group_by(ChecklistResult.checklist_id).paginate(1, 500, False)
     return result
 
 
@@ -39,7 +40,7 @@ def get_sprint_results_audit_export(sprint_id, user_id):
     log("User requested specific sprint audit export", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).paginate(1, 500, False)
     return {'message': export_failed_results(result) }
 
 
@@ -47,9 +48,16 @@ def delete_sprint(sprint_id, user_id):
     log("User deleted sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = (project_sprints.query.filter(project_sprints.sprintID == sprint_id).one())
-    db.session.delete(result)
-    db.session.commit()
+
+    try:
+        result = ProjectSprint.query.get(sprint_id)
+        db.session.delete(result)
+        db.session.commit()
+
+    except:
+        db.session.rollback()
+        raise
+
     return {'message': 'Sprint successfully deleted'}
 
 
@@ -57,13 +65,21 @@ def update_sprint(sprint_id, user_id, data):
     log("User updated sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    sprint = project_sprints.query.filter(project_sprints.sprintID == sprint_id).one()
     val_alpha_num_special(data.get('name'))
     val_alpha_num_special(data.get('description'))
-    sprint.sprintName = data.get('name')
-    sprint.sprintDesc = data.get('description')
-    db.session.add(sprint) 
-    db.session.commit()
+
+    try:
+        sprint = ProjectSprint.query.get(sprint_id)
+        sprint.sprintName = data.get('name')
+        sprint.sprintDesc = data.get('description')
+
+        db.session.add(sprint) 
+        db.session.commit()
+
+    except:
+        db.session.rollback()
+        raise
+
     return {'message': 'Sprint successfully updated'}
 
 
@@ -75,13 +91,28 @@ def new_sprint(user_id, data):
     sprintName = data.get('name')
     sprintDesc = data.get('description')
     projectID = data.get('projectID')
-    groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
-    groupID = groupmember.groupID
-    sprintAdd = project_sprints(sprintName, sprintDesc, groupID, projectID)
-    db.session.add(sprintAdd)
-    db.session.commit()
-    result = project_sprints.query.filter(project_sprints.groupID == groupID).order_by(desc(project_sprints.sprintID)).first()
-    return {'sprintID': result.sprintID, 'message': 'Sprint successfully created'}
+
+    #groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
+    #groupID = groupmember.groupID
+
+    try:
+        user = User.query.get(user_id)
+        group = user.groups[0]
+
+        sprint = ProjectSprint(sprintName, sprintDesc)
+        sprint.group_id = group.id
+        sprint.project_id = projectID
+
+        db.session.add(sprint)
+        db.session.commit()
+
+    except:
+         db.session.rollback()
+         raise
+
+    # somewhat funky query to obtain the id
+    result = ProjectSprint.query.filter(ProjectSprint.group_id == group.id).order_by(desc(ProjectSprint.id)).first()
+    return {'sprintID': result.id, 'message': 'Sprint successfully created'}
 
 
 def stats_sprint(project_id):

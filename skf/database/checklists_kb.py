@@ -38,8 +38,7 @@ class ChecklistKB(db.Model):
 
     checklist_type = db.Column(db.Integer, db.ForeignKey('checklist_types.id'), nullable=False)
 
-    def __init__(self, checklistID, content, checklist_type, include_always, question_ID, cwe):
-        self.question_ID = question_ID
+    def __init__(self, checklistID, content, checklist_type, include_always, cwe):
         self.include_always = include_always
         self.checklistID = checklistID
         self.checklist_type = checklist_type

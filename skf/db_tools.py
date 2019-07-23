@@ -23,49 +23,49 @@ def connect_db():
     return True
 
 def load_initial_data():
-    print("******** LOAD_INITIAL_DATA **********")
 
 #   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete");
 #   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete");
 #   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read");
 #   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read");
-    p = Privilege('edit:read:manage:delete')
-    db.session.add(p)
-    db.session.add(Privilege('edit:read:delete'))
-    db.session.add(Privilege('edit:read'))
-    db.session.add(Privilege('read'))  
-    db.session.commit()
+    try:
+        p = Privilege('edit:read:manage:delete')
+        db.session.add(p)
+        db.session.add(Privilege('edit:read:delete'))
+        db.session.add(Privilege('edit:read'))
+        db.session.add(Privilege('read'))  
 
 #   INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org");
-    user = User(userName='admin', accessToken=1234, email="example@owasp.org")
-    user.privilege = p
-    db.session.add(user)
-    db.session.commit()
+        user = User(userName='admin', accessToken=1234, email="example@owasp.org")
+        user.privilege = p
+        db.session.add(user)
 
 #   INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup");
-    group = Group('privateGroup', datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
-
+        group = Group('privateGroup', datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
 #   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1);
-    group.members.append(user)
-    group.owner = user
-
-    db.session.add(group)
-    db.session.commit()
+        group.members.append(user)
+        group.owner = user
+        db.session.add(group)
 
 #   INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS LEVEL 1", "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.");
 #   INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS LEVEL 2", "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.");
-    db.session.add(ChecklistType(name='ASVS LEVEL 1', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
-    db.session.add(ChecklistType(name='ASVS LEVEL 2', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
-    db.session.commit()
+        db.session.add(ChecklistType(name='ASVS LEVEL 1', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
+        db.session.add(ChecklistType(name='ASVS LEVEL 2', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
 
 def clear_db():
-    print("**********CLEAR_DB********************")
-    db.drop_all()
-    db.session.commit()
+    try:
+        db.drop_all()
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
 
 def init_db(testing=False):
     """Initializes the database.""" 
-    print("**********INIT_DB********************")
     '''
     if testing == True:
         db = connect_db()
