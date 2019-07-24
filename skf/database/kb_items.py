@@ -22,7 +22,7 @@ class KBItem(db.Model):
     title = db.Column(db.Text)
     content = db.Column(db.Text)
     
-    def __init__(self, kb_id, title, content):
+    def __init__(self, title, content, kb_id=''):
         self.kb_id = kb_id
         self.title = title
         self.content = content

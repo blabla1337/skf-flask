@@ -23,7 +23,7 @@ class ChecklistResult(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     checklist_id = db.Column(db.Integer, db.ForeignKey('checklists_kb.id'), nullable=False)
-    checklist_items = db.relationship("ChecklistKB", backref=db.backref('checklist_results'))
+    checklist_item = db.relationship("ChecklistKB", backref=db.backref('checklist_results'))
 
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
     project = db.relationship("Project", backref=db.backref('checklist_results'))
@@ -36,7 +36,6 @@ class ChecklistResult(db.Model):
     kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.id"))
     kb_items = db.relationship("KBItem", backref=db.backref('checklist_results'))  
     
-
     def __init__(self, status):
         self.status = status
 

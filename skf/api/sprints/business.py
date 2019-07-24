@@ -8,6 +8,7 @@ from skf.database.projects import Project
 from skf.database.users import User
 from skf.database.checklists_results import ChecklistResult
 from skf.database.checklists_kb import ChecklistKB
+from skf.database.checklists_results import ChecklistResult
 from skf.database.kb_items import KBItem
 from skf.database.comments import Comment
 
@@ -24,7 +25,7 @@ def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.kb_id != 0).order_by(asc(checklists_results.status)).group_by(ChecklistResult.checklist_id).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.kb_id != 0).order_by(asc(ChecklistResult.status)).group_by(ChecklistResult.checklist_id).paginate(1, 500, False)
     return result
 
 
@@ -40,7 +41,7 @@ def get_sprint_results_audit_export(sprint_id, user_id):
     log("User requested specific sprint audit export", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = ChecklistResult.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.status == 5).group_by(ChecklistResult.checklist_id).group_by(ChecklistResult.checklist_id).paginate(1, 500, False)
     return {'message': export_failed_results(result) }
 
 

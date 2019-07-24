@@ -12,7 +12,7 @@ from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 def get_project_items():
     log("User requested list projects", "MEDIUM", "PASS")
-    return Project.query.filter(Project.group_id == groupmembers.group_id).paginate(1, 500, False)
+    return Project.query.paginate(1, 500, False)
 
 
 def get_project_item(project_id, user_id):

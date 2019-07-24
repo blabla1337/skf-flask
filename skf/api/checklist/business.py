@@ -1,6 +1,7 @@
 from skf.database import db
 from skf.api.security import log, val_num, val_float, val_alpha_num
 from skf.database.checklists_kb import ChecklistKB
+from skf.database.checklists_results import ChecklistResult
 from skf.database.checklist_types import ChecklistType
 import sys
 
@@ -42,10 +43,10 @@ def create_checklist_type(data):
     log("User requested create a new checklist type", "LOW", "PASS")
     checklist_name = data.get('checklist_name')
     checklist_description = data.get('checklist_description')
-    types = ChecklistKB(checklist_name, checklist_description)
+    checklist_type = ChecklistType(checklist_name, checklist_description)
 
     try:
-        db.session.add(types)
+        db.session.add(checklist_type)
         db.session.commit()
     except:
         db.rollback()
@@ -129,7 +130,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
         kbID = data.get('kbID')
     val_num(kbID)
 
-    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.checklistID == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
+    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
     result_checklist_kb.title = data.get('title')
     result_checklist_kb.content = data.get('content')
     result_checklist_kb.include_always = data.get('include_always')

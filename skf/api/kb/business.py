@@ -29,9 +29,9 @@ def create_kb_item(data):
     title = data.get('title')
 
     try:
-        kb_item = KBItem(title,content)
+        kb_item = KBItem(title, content)
 
-        db.session.add(result)
+        db.session.add(kb_item)
         db.session.commit()
 
     except:

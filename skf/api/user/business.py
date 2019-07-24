@@ -109,7 +109,6 @@ def create_user(data):
         db.session.commit()
 
     except:
-
         db.session.rollback()
         raise
 
@@ -122,15 +121,20 @@ def manage_user(user_id, data):
     val_num(user_id)
     val_alpha(data.get('active'))
     status_activated = data.get('active')
-    result = User.query.filter(User.id == user_id).one()
-    if User.query.filter(User.id == user_id).one():
-        result.access = status_activated
+
+    user = User.query.get(user_id)
+    user.access = status_activated
+    try:
         db.session.add(result)
         db.session.commit()
-        return {'message': 'User successfully managed'}
-    else:
+
+    except:
+        db.session.rollback()
         log("User triggered error managing failed", "HIGH", "FAIL")
         return {'message': 'User could not be managed'}
+    
+    return {'message': 'User successfully managed'}
+
 
 
 def list_users():
