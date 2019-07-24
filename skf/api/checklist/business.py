@@ -65,7 +65,8 @@ def update_checklist_type(id, data):
 
     try:
         db.session.commit()
-    except:
+    except Exception as e:
+        print(e)
         db.session.rollback()
         raise
     
@@ -158,7 +159,8 @@ def delete_checklist_item(checklist_id, checklist_type):
         db.session.delete(checklist)
         db.session.commit()
 
-    except:
+    except Exception as e:
+        print(e)
         db.session.rollback()
         raise
 
@@ -169,6 +171,9 @@ def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
     val_num(checklist_type)
     result = ChecklistKB.query.filter(ChecklistKB.id == checklist_type).paginate(1, 1500, False)
+    print("***********************************")
+    print(ChecklistKB.query.filter(ChecklistKB.id == checklist_type).all())
+    print("***********************************")
     ordered = order_checklist_items(result)
     return ordered
     

@@ -14,19 +14,17 @@ class TestRestPlusApi(unittest.TestCase):
     def setUpClass(cls):
         cls.client = app.test_client()
         with app.app_context():
-            clear_db()
             init_db()
-            update_db()
             chatbot_tools.init_dataset()
             settings.TESTING = True
             #skf.app.initialize_app(app)
         app.app_context().push()
 
-    @classmethod
-    def tearDownClass(cls):
-            cls.client = app.test_client()
-            with app.app_context():
-                clear_db()
+    #@classmethod
+    #def tearDownClass(cls):
+    #        cls.client = app.test_client()
+    #        with app.app_context():
+    #            clear_db()
  
  
     def test_get_status(self):
@@ -871,9 +869,7 @@ class TestDB(unittest.TestCase):
     def setUpClass(cls):
         cls.client = app.test_client()
         with app.app_context():
-            clear_db()
             init_db()
-            update_db()
             chatbot_tools.init_dataset()
             settings.TESTING = True
             #skf.app.initialize_app(app)
@@ -882,9 +878,9 @@ class TestDB(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
             cls.client = app.test_client()
-            with app.app_context():
-                clear_db()
-                
+            #with app.app_context():
+            #    clear_db()
+
     def test_connect_db(self):
         """Test if the connect_db is working"""
         self.assertTrue(connect_db())
