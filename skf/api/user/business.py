@@ -120,17 +120,17 @@ def manage_user(user_id, data):
     log("Manage user triggered", "HIGH", "PASS")
     val_num(user_id)
     val_alpha(data.get('active'))
-    status_activated = data.get('active')
+    status_activated = data.get('active').uppercase()=='TRUE'
 
     user = User.query.get(user_id)
     user.access = status_activated
     try:
-        db.session.add(result)
+        db.session.add(user)
         db.session.commit()
 
-    except:
+    except Exception as e:
         db.session.rollback()
-        log("User triggered error managing failed", "HIGH", "FAIL")
+        log("User triggered error managing failed: {}".format(e), "HIGH", "FAIL")
         return {'message': 'User could not be managed'}
     
     return {'message': 'User successfully managed'}

@@ -184,7 +184,6 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/items/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        print(response_dict)
         self.assertEqual(response_dict['items'][0]['checklist_items_checklistID'], '2.0')
 
 
@@ -866,7 +865,7 @@ class TestRestPlusApi(unittest.TestCase):
 
 
 
-class get_check(unittest.TestCase):
+class TestDB(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -885,7 +884,7 @@ class get_check(unittest.TestCase):
             cls.client = app.test_client()
             with app.app_context():
                 clear_db()
-
+                
     def test_connect_db(self):
         """Test if the connect_db is working"""
         self.assertTrue(connect_db())
