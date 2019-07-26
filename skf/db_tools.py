@@ -75,12 +75,13 @@ def init_db(testing=False):
         db.commit()
     else:
     '''
+    clear_db()
     db.create_all()
     db.session.commit()
 
     load_initial_data()
-    #init_md_code_examples()
-    #init_md_knowledge_base()
+    init_md_code_examples()
+    init_md_knowledge_base()
 
 def update_db():
     """Update the database."""
@@ -106,19 +107,19 @@ def init_md_knowledge_base():
         for filename in os.listdir(kb_dir):
             if filename.endswith(".md"):
                 name_raw = filename.split("-")
-                kbID = name_raw[0].replace("_", " ")
+                kb_id = name_raw[0].replace("_", " ")
                 title = name_raw[3].replace("_", " ")
                 file = os.path.join(kb_dir, filename)
                 data = open(file, 'r')
                 file_content = data.read()
                 data.close()
-                content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
 
                 #query = "INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('"+kbID+"','"+content_escaped+"', '"+title+"'); \n"
                 #with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                 #        myfile.write(query)
                 try:
-                    item = KBItem(kbID, content_escaped, title)
+                    item = KBItem(title, content, kb_id)
                     db.session.add(item)
                     db.session.commit()
 

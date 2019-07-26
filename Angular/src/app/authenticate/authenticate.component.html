@@ -36,11 +36,11 @@
               <h4 style="text-align: center" class="modal-title">Security Knowledge Framework</h4>
             </div>
             <div class="modal-body">
-              <form method="post">
-                <input [(ngModel)]="username" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
+              <form [formGroup]="loginForm">
+                <input formControlName="userName" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <br>
-                <input [(ngModel)]="password" name="password" id="password" type="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"
+                <input formControlName="password" name="password" id="password" type="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <span *ngFor="let errors of error" style="color:red;">
                 <br/> 

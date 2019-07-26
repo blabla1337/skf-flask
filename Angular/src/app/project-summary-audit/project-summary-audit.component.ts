@@ -31,7 +31,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.sprintService.getSprintResultsAudit(params['id']).subscribe(
+      this.sprintService.getSprintResultsAudit(params['id'], Number(localStorage.getItem('projectID'))).subscribe(
         resp => this.sprintResult = resp,
         err => console.log('Error getting sprint stats'))
     });
@@ -42,7 +42,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
   }
 
   export() {
-    this.route.params.subscribe(params => { this.sprintService.getSprintResultsAuditExport(params['id']).subscribe(
+    this.route.params.subscribe(params => { this.sprintService.getSprintResultsAuditExport(params['id'], Number(localStorage.getItem('projectID'))).subscribe(
       (resp) => {
         const base64fix = resp.replace('b\'', '');
         const base64 = base64fix.substring(0, base64fix.lastIndexOf('\''));
@@ -83,7 +83,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
 
   save(status: number, checklist: string) {
     this.route.params.subscribe(params => {
-      this.commentService.newComment(checklist.toString(), this.comment, params['id'], status).subscribe(
+      this.commentService.newComment(checklist.toString(), this.comment, params['id'], status, Number(localStorage.getItem('projectID'))).subscribe(
         () => { },
         err => this.succes = 'nonono',
         () => { this.succes = 'comment was added to trail'; }
@@ -91,7 +91,7 @@ export class ProjectSummaryAuditComponent implements OnInit {
     });
 
     this.route.params.subscribe(params => {
-      this.sprintService.getSprintResultsAudit(params['id']).subscribe(
+      this.sprintService.getSprintResultsAudit(params['id'], Number(localStorage.getItem('projectID'))).subscribe(
         resp => this.sprintResult = resp,
         err => console.log('Error getting sprint stats'))
     });

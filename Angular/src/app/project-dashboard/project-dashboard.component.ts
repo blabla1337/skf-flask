@@ -48,6 +48,10 @@ export class ProjectDashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      localStorage.setItem('projectID', params['id'])
+    });
+
     this.checklistTypeList();
     this.getSprintStats();
     if (AppSettings.AUTH_TOKEN) {
@@ -92,12 +96,12 @@ export class ProjectDashboardComponent implements OnInit {
 
     //We need to still set an array id there where no questions to iterate trough, otherwise the flask API will not know which sprint to write the results to!
     if(!sprint_items['result']){
-      this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': 1, 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID) });
+      this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': 1, 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID), 'sprint_name':this.sprintName});
     }
 
     for (let i = 1; i < count_sprint + 1; i++) {
       if (sprint_items['answer' + i] != '0') {
-        this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'sprintID': Number(this.sprintID), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklistTypeID)  });
+        this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'sprintID': Number(this.sprintID), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklistTypeID), 'sprint_name':this.sprintName});
       }
     }
 
@@ -112,10 +116,10 @@ this.steps = false;
 
   }
 
-deleter(id: number) {
+deleter(sprint_name: string) {
   if (this.delete == 'DELETE') {
-    this.sprintService.delete(id).subscribe(x =>
-      this.sprintService.getSprintStats(this.idFromURL).subscribe(
+    this.sprintService.delete(sprint_name, Number(localStorage.getItem("projectID"))).subscribe(x =>
+      this.sprintService.getSprintStats(Number(localStorage.getItem("projectID"))).subscribe(
         resp => this.sprintResult = resp,
         err => console.log('Error getting sprint stats'))
     )
@@ -129,7 +133,7 @@ getSprintStats() {
     this.idFromURL = params['id'];
     localStorage.setItem('tempParamID', params['id'])
     setTimeout(() => {
-      this.sprintService.getSprintStats(this.idFromURL).subscribe(
+      this.sprintService.getSprintStats(Number(localStorage.getItem("projectID"))).subscribe(
         resp => this.sprintResult = resp,
         err => console.log('Error getting sprint stats'))
     }, 1000);

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { UserAddService } from '../services/user-add.service'
 import { User } from '../models/user'
 import { Router } from '@angular/router'
 import { Privilege } from '../models/privilege'
+
 
 @Component({
   selector: 'app-user-add',
@@ -11,35 +13,40 @@ import { Privilege } from '../models/privilege'
 })
 
 export class UserAddComponent { // implements OnInit {
-  public email: string;
-  public privilegeSelected: string;
-  public return: boolean;
-  public error: string[] = [];
+
+  public isSubmitted: boolean;
   public data: User[];
   public privileges: Privilege[];
-  constructor(private _userAddService: UserAddService, private _router: Router) { }
+  userForm: FormGroup;
+  get formControls() { return this.userForm.controls; }
+
+  constructor(private _userAddService: UserAddService, private _router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this._userAddService.getPrivileges().subscribe(
-      privileges => this.privileges = privileges,
-      err => console.log('Getting privileges failed')
-    )
+    this.userForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      privilege_id: ['', Validators.required],
+    })
+    this.getPrivileges();
   }
 
-  save() {
-    this.return = true;
-    this.error = [];
-    if (!this.email) { this.error.push('No email was provided!'); this.return = false; }
-    const EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-    if (EMAIL_REGEXP.test(this.email) == false) { this.error.push('Email validation failed, provide a valid adress!');  this.return = false}
-    if (!this.privilegeSelected) { this.error.push('No privilege was provided!'); this.return = false; }
-    if (this.return == false) { return; }
-
-    this._userAddService.newUser(this.email, this.privilegeSelected)
+  storeUser() {
+    console.log(this.userForm.value)
+    this.isSubmitted = true;
+    if(this.userForm.invalid){
+      return;
+    }
+    this._userAddService.newUser(this.userForm.value)
       .subscribe(
       data => this.data = data,
-      err => this.error.push('Error whilst adding user, potential duplicate email adres!')
+      () => console.log("There is an error storing a user, potential duplicate email")
       );
-      this.email = '';
+  }
+
+  getPrivileges(){
+    this._userAddService.getPrivileges().subscribe(
+      privileges => this.privileges = privileges,
+      () => console.log('Getting privileges failed')
+    )
   }
 }

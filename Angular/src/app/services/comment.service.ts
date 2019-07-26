@@ -16,23 +16,24 @@ export class CommentService {
   public headers = new Headers({ 'Authorization': AppSettings.AUTH_TOKEN });
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
-  newComment(checklistID: string, comment: string, sprintID: string, status: number): Observable<Comment> {
+  newComment(checklistID: string, comment: string, sprintName: string, status: number, projectID: number): Observable<Comment> {
     return this.http
       .put(environment.API_ENDPOINT + '/comment/new', JSON.stringify({
         checklistID: checklistID,
         comment: comment,
-        sprintID: parseInt(sprintID, 10),
-        status: status
+        sprintName: sprintName,
+        status: status,
+        projectID: projectID
       }),
       { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
   }
 
-  getComment(checklistID: string, sprintID: string): Observable<Comment> {
+  getComment(checklistID: string, sprintName: string): Observable<Comment> {
     return this.http
       .post(environment.API_ENDPOINT + '/comment/items', JSON.stringify({
         checklistID: checklistID,
-        sprintID: parseInt(sprintID, 10)
+        sprintName: sprintName
       }),
       { headers: this.postHeaders }).pipe(
       map(a => { return a.json().items }));

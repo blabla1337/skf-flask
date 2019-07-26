@@ -17,8 +17,8 @@ class KBItem(db.Model):
 	
     __tablename__ = 'kb_items'
     
-    id = db.Column(db.Integer, primary_key=True)
-    kb_id = db.Column(db.Integer) #, unique=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    kb_id = db.Column(db.Integer, autoincrement=True)
     title = db.Column(db.Text)
     content = db.Column(db.Text)
     

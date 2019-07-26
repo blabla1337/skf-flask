@@ -31,30 +31,30 @@ export class SprintService {
       map(a => { return a.json() }));
   }
 
-  getSprintStats(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/stats/${id}`, { headers: this.headers }).pipe(
+  getSprintStats(project_id: number): Observable<Sprint[]> {
+    return this.http.get(environment.API_ENDPOINT + `/sprint/stats/${project_id}`, { headers: this.headers }).pipe(
       map(response => response.json()))
   }
 
-  getSprintResults(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/${id}`, { headers: this.headers }).pipe(
+  getSprintResults(sprint_name: string, project_id: number): Observable<Sprint[]> {
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/${sprint_name}/${project_id}`, { headers: this.headers }).pipe(
       map(response => response.json().items))
   }
 
-  getSprintResultsAudit(id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/audit/${id}`, { headers: this.headers }).pipe(
+  getSprintResultsAudit(sprint_name: string, project_id: number): Observable<Sprint[]> {
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/audit/${sprint_name}/${project_id}`, { headers: this.headers }).pipe(
       map(response => response.json().items))
   }
 
-  getSprintResultsAuditExport(id: number) {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${id}`, { headers: this.headers }).pipe(
+  getSprintResultsAuditExport(sprint_name: string, project_id: number) {
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${sprint_name}/${project_id}`, { headers: this.headers }).pipe(
       map(
       response => response.json().message,
       error => console.log('failed to export')));
   }
 
-  delete(id: number) {
-    const url = environment.API_ENDPOINT + `/sprint/delete/${id}`;
+  delete(sprint_name: string, project_id: number) {
+    const url = environment.API_ENDPOINT + `/sprint/delete/${sprint_name}/${project_id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(
       map(
       data => data,

@@ -17,28 +17,28 @@ export class ProjectService {
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
   public getHeaders = new Headers({ 'Authorization': AppSettings.AUTH_TOKEN });
 
-  newProject(name: string, description: string, version: string): Observable<any> {
+  newProject(project:Project): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + '/project/new', JSON.stringify({
-        name: name,
-        description: description,
-        version: version
+        projectName: project['projectName'],
+        projectVersion: project['projectVersion'],
+        projectDesc: project['projectDesc']
       }),
       { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
   }
 
-  getProjects(): Observable<Project[]> {
+  getProjectList(): Observable<Project[]> {
     return this.http.get(environment.API_ENDPOINT + '/project/items', { headers: this.getHeaders }).pipe(
       map(response => response.json().items))
   }
 
-  getProject(id: number): Observable<Project[]> {
+  getSingleProject(id: number): Observable<Project[]> {
     return this.http.get(environment.API_ENDPOINT + `/project/${id}`, { headers: this.getHeaders }).pipe(
       map(response => response.json().items))
   }
 
-  delete(id: number) {
+  deleteProject(id: number) {
     const url = environment.API_ENDPOINT + `/project/delete/${id}`;
     return this.http.delete(url, { headers: this.postHeaders }).pipe(
       map(
@@ -46,7 +46,7 @@ export class ProjectService {
       error => console.log('failed to delete')))
   }
 
-  getStats(id: number): Observable<ProjectStats[]> {
+  getProjectStats(id: number): Observable<ProjectStats[]> {
     const url = environment.API_ENDPOINT + `/project/stats/${id}`;
     return this.http.get(url, { headers: this.getHeaders }).pipe(
       map(response => response.json().items))

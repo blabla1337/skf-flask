@@ -36,23 +36,39 @@
     <div class="row mt">
       <div class="col-lg-12">
         <div class="content-panel">
-          <div *ngFor="let errors of error">
-            <ngb-alert [dismissible]="false">
-              <strong>Warning!</strong> {{errors}}
-            </ngb-alert>
-          </div>
+
+            <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+                <div *ngIf="formControls.email.errors.required">
+                  <ngb-alert type="danger" [dismissible]="false">
+                    email adress is required!
+                  </ngb-alert>
+                </div>
+                <div *ngIf="formControls.email.errors.email">
+                    <ngb-alert type="danger" [dismissible]="false">
+                      email adress is invalid!
+                    </ngb-alert>
+                  </div>
+              </div>
+              
+              
+              <div *ngIf="isSubmitted && formControls.privilege_id.errors" class="help-block">
+                  <div *ngIf="formControls.privilege_id.errors.required">
+                    <ngb-alert type="danger" [dismissible]="false">
+                      Select a privilege!
+                    </ngb-alert>
+                  </div>
+                </div>
 
             <ngb-alert *ngIf="data" [dismissible]="false">
-              <p><strong>Authorization token: </strong> for user with ID {{data.userID}}  :  {{data.accessToken}}</p>
+              <p><strong>Authorization token: </strong> for user with ID {{data.id}}  :  {{data.accessToken}}</p>
               <p>You must use the ID and token to activate users in the "first login" menu when authenticating.</p>
             </ngb-alert>
-          <form class="form-horizontal" role="form" style="padding-left:20px;padding-right:20px; padding-top:-20px;"
-            action="/user-add">
+          <form [formGroup]="userForm" class="form-horizontal" style="padding-left:20px;padding-right:20px; padding-top:-20px;">
             <div class="form-group">
               <div class="wrap">
                 <label for="inputmail" class="col-sm-2 control-label">E-Mail</label>
                 <div class="col-sm-10">
-                    <input required [(ngModel)]="email" type="text" class="form-control" id="email" name="email" placeholder="example@owasp.org">
+                    <input formControlName="email" type="text" class="form-control" id="email" name="email" placeholder="example@owasp.org">
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">Please enter a valid E-Mail address</div>
                     </div>
@@ -64,8 +80,8 @@
               <div class="wrap">
                 <label for="inputmail" class="col-sm-2 control-label">Privileges</label>
                 <div class="col-sm-10">
-                  <select [(ngModel)]="privilegeSelected" name="privilegeSelected" class="form-control">
-                    <option *ngFor="let item of privileges;" value="{{item.privilegeID}}">{{item.privilege}}</option>
+                  <select formControlName="privilege_id" class="form-control">
+                    <option *ngFor="let item of privileges;" [ngValue]="item.id">{{item.privilege}}</option>
                   </select>
                   <div class="wrap desc alert-info">
                     <div class="col-sm-10">An <b>observer</b> can only view projects and reports, <b>Editors</b> can add and edit them.</div>
@@ -87,7 +103,7 @@
             </div>
             -->
             <div class="buttons">
-              <button (click)="save()" id="createUser" value="Create user" class="btn btn-default">Create user</button>
+              <button type="submit" (click)="storeUser()" id="createUser" value="Create user" class="btn btn-default">Create user</button>
             </div>
           </form>
         </div>

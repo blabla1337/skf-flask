@@ -1,4 +1,3 @@
-
 from skf.database import db
 
 '''
@@ -23,7 +22,7 @@ class Project(db.Model):
     __tablename__ = 'projects'
 
     id = db.Column(db.Integer, primary_key=True)
-
+    '''
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     user = db.relationship("User", foreign_keys=[user_id], backref=db.backref('projects'))
 
@@ -32,7 +31,8 @@ class Project(db.Model):
 
     group_id = db.Column(db.Integer, db.ForeignKey('groups.id'), nullable=False)
     group = db.relationship("Group", backref=db.backref('projects', uselist=False))
-
+    '''
+    
     projectName = db.Column(db.Text, nullable=False)
     projectVersion = db.Column(db.Text, nullable=False)
     projectDesc = db.Column(db.Text, nullable=False)

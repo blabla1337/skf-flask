@@ -12,15 +12,15 @@ from skf.database.groups import Group
 from skf.database.groupmembers import GroupMember
 from skf.database.privileges import Privilege
 from skf.api.security import log, val_num, val_alpha, val_alpha_num
-
+import sys
 
 def activate_user(user_id, data):
     log("User is activated", "HIGH", "PASS")
     val_num(user_id)
     val_num(data.get('accessToken'))
-    val_alpha_num(data.get('username'))
-    username = data.get('username')
-    username = username.replace(" ", "")
+    val_alpha_num(data.get('userName'))
+    userName = data.get('userName')
+    userName = userName.replace(" ", "")
     result = User.query.filter(User.id == user_id).one()
     if not result.activated:
         if result.email == data.get('email'):
@@ -30,8 +30,8 @@ def activate_user(user_id, data):
                     result.password = pw_hash
                     result.access = True
                     result.activated = True
-                    result.userName = username
-
+                    result.userName = userName
+                    db.session.add(result)
                     db.session.commit()
                     return {'message': 'User successfully activated'}
     else:
@@ -41,11 +41,11 @@ def activate_user(user_id, data):
 
 def login_user(data):
     log("User successfully logedin", "HIGH", "PASS")
-    val_alpha_num(data.get('username'))
-    username = data.get('username')
+    val_alpha_num(data.get('userName'))
+    userName = data.get('userName')
 
     try:
-        user = User.query.filter(User.userName == username).one()
+        user = User.query.filter(User.userName == userName).one()
         if not user is None and user.activated and user.access \
             and check_password_hash(user.password, data.get('password')):
                 payload = {
@@ -64,7 +64,7 @@ def login_user(data):
                 if sys.version_info.major == 3:
                 	unicode = str
                 token = unicode(token_raw,'utf-8')
-                return {'Authorization token': token, 'username': username}
+                return {'Authorization token': token, 'userName': userName}
 
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
@@ -73,38 +73,32 @@ def login_user(data):
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
 
-
 def list_privileges():
     log("User requested privileges items", "MEDIUM", "PASS")
-    result = privileges.query.filter(privileges.privilegeID != "1").paginate(1, 500, False)
+    result = Privilege.query.filter(Privilege.id != "1").paginate(1, 500, False)
     return result
-
 
 def create_user(data):
     log("A new user created", "MEDIUM", "PASS")
     my_secure_rng = random.SystemRandom()
-    val_num(data.get('privilege'))
-    pincode = my_secure_rng.randrange(10000000, 99999999)
-    username = pincode
+    val_num(data.get('privilege_id'))
+    accessToken = my_secure_rng.randrange(10000000, 99999999)
     email = data.get('email')
     #access = False # By default
     #activated = False # By default
     privilege_id = 0
-    # New users can only edit:read:delete
-    if data.get('privilege') == 1:
-        log("User triggered error creating new user", "MEDIUM", "FAIL")
-        return {'message': 'User could not be created'}
-    else:
-        privilege_id = data.get('privilege')
     password = ""
-    user = User(pincode, username, email, password)
-    user.privilege_id = privilege_id
-
-    # Add user to default groupmember issue #422
-    user.group_id = 0;
-    #user.groups.add = Group.query.order_by(desc(Group.id)).first()
- 
+     
     try:
+        user = User(email)
+        user.privilege_id = privilege_id
+        user.userName = accessToken
+        user.accessToken  = accessToken
+        # Add user to default groupmember issue #422
+        user.group_id = 0
+        #user.groups.add = Group.query.order_by(desc(Group.id)).first()
+
+        print(user, file=sys.stderr)
         db.session.add(user)
         db.session.commit()
 
@@ -114,7 +108,6 @@ def create_user(data):
 
     result = User.query.filter(User.email == email).one()
     return result
-
 
 def manage_user(user_id, data):
     log("Manage user triggered", "HIGH", "PASS")
@@ -134,8 +127,6 @@ def manage_user(user_id, data):
         return {'message': 'User could not be managed'}
     
     return {'message': 'User successfully managed'}
-
-
 
 def list_users():
     log("Overview of list users triggered", "HIGH", "PASS")

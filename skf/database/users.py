@@ -26,8 +26,8 @@ class User(db.Model):
     privilege = db.relationship("Privilege", backref=db.backref('users'))
     
     accessToken = db.Column(db.Integer, unique=True, nullable=False)
-    userName = db.Column(db.String(255), unique=True, nullable=False)
-    password = db.Column(db.Text, nullable=False)
+    userName = db.Column(db.String(255))
+    password = db.Column(db.Text)
     access = db.Column(db.Boolean, nullable=False)
     activated = db.Column(db.Boolean, nullable=False)
     email = db.Column(db.String(255), unique=True)
@@ -35,7 +35,7 @@ class User(db.Model):
     #group = db.relationship('GroupMember', back_populates='member')
 
 
-    def __init__(self, accessToken, userName, email, password='', access=False, activated=False):
+    def __init__(self, email, accessToken='', userName='', password='', access=False, activated=False):
         self.accessToken = accessToken
         self.userName = userName
         self.password = password

@@ -8,7 +8,7 @@ from skf.database.project_sprints import ProjectSprint
 from skf.database.checklists_results import ChecklistResult
 from skf.database.groups import Group
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
-
+import sys
 
 def get_project_items():
     log("User requested list projects", "MEDIUM", "PASS")
@@ -56,28 +56,22 @@ def update_project(project_id, user_id, data):
 def new_project(user_id, data):
     log("User created new project", "MEDIUM", "PASS")
     val_num(user_id)
-    val_alpha_num_special(data.get('name'))
-    val_alpha_num(data.get('version'))
-    val_alpha_num_special(data.get('description'))
-    projectName = data.get('name')
-    projectVersion = data.get('version')
-    projectDesc = data.get('description')
-
+    val_alpha_num_special(data.get('projectName'))
+    val_alpha_num(data.get('projectVersion'))
+    val_alpha_num_special(data.get('projectDesc'))
+    projectName = data.get('projectName')
+    projectVersion = data.get('projectVersion')
+    projectDesc = data.get('projectDesc')
+    print(projectDesc, file=sys.stderr)
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M")
 
     try:
-        user = User.query.get(user_id)
-        owner = User.query.get(user_id)
-        group = user.groups[0]
-
         project = Project(projectName, projectVersion, projectDesc, timestamp)
-        project.owner = owner
-        project.user = user
-        project.group = group
 
         db.session.add(project)
         db.session.commit()
+        print(3, file=sys.stderr)
 
     except:
         db.session.rollback()
@@ -92,10 +86,9 @@ def new_project(user_id, data):
 def delete_project(project_id, user_id):
     log("User deleted project", "MEDIUM", "PASS")
     val_num(project_id)
-    val_num(user_id)
-
+    
     try:
-        project = (Project.query.filter(Project.id == project_id).filter(Project.user_id == user_id).one())
+        project = (Project.query.filter(Project.id == project_id).one())
 
         db.session.delete(project)
         db.session.commit()
