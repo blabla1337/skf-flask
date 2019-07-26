@@ -1,28 +1,32 @@
-import os
-import datetime
-from flask import Flask, current_app
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.exc import IntegrityError
-from shutil import copyfile
-from skf.database import db
-#from skf.database.kb_items import KBItem
-from skf.database.users import User
-from skf.database.groups import Group
-from skf.database.privileges import Privilege
-from skf.database.kb_items import KBItem
-from skf.database.code_items import CodeItem
-from skf.database.checklist_types import ChecklistType
-from skf.initial_data import load_initial_data
+#!/usr/bin/env python3
 
-#from sqlite3 import dbapi2 as sqlite3
+# Convert initial data from schema.sql to SQLAlchemy Python statements
+# Usage: ./sql2orm.py > initial_data.py
+import sys
+import re
+import csv
 
-def connect_db():
-    """Connects to the specific database."""
-    #rv = sqlite3.connect(os.path.join(app.root_path, settings.DATABASE))
-    #rv.row_factory = sqlite3.Row
-    #return rv
-    return True
+def line2dict(line):
 
+	(a,b) = line.split('VALUES')
+
+	p = re.compile("\((.*)\)")
+	m = p.search(a)
+
+	for row in csv.reader([m.group(1)], quotechar='`'):
+		keys = [x.strip().strip("`") for x in row]
+
+	p = re.compile("\((.*)\)")
+	m = p.search(b)
+	for row in csv.reader([m.group(1)], quotechar="'", delimiter=',', quoting=csv.QUOTE_MINIMAL, skipinitialspace=True):
+		values = [x.strip("'") for x in row]
+
+	values = [v.replace('\'','\\') for v in values]
+
+	return dict(zip(keys, values))
+
+def header():
+	return """
 def load_initial_data():
 
 #   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))
@@ -119,179 +123,65 @@ def load_initial_data():
         db.session.add(Question("Does this sprint introduce functions with critical business logic that needs to be reviewed?", 2))
         db.session.add(Question("Does the sprint introduce change/affect on password policies?", 2))
         db.session.add(Question("Does the sprint introduce changes that affect OTP?", 2))
+"""
 
+
+def footer():
+	return """
         db.session.commit()
         return True
+
     except:
         db.session.rollback()
         return False
+"""
 
-def load_test_data():
-    print("****** TEST DATA *******")
-    try:
+def output(line=''):
+	print("        " + line)
 
-        for i in range(1, 5):
-            db.session.add(KBItem("test title kb item {}".format(i), "test content kb item {}".format(i)))
-            db.session.commit()
+def main():
 
-        for lang in ["php", "asp"]:
-            for i in [1, 2]:
-                db.session.add(CodeItem(lang, "test php code item 1", "test php content code item {}".format(i)))
+	print(header())
+	filename = sys.argv[1] if len(sys.argv)>1 else "schema.sql" 
+	f = open(filename, "r")
 
-        for i in [1, 2]:
-            db.session.add(Question(i, "test-question-sprint"))
+	for line in f:
+		if "INSERT" in line:
+			if "checklists_kb" in line:
 
-        db.session.add(ChecklistType("empty-checklist-for-testing", "TBD"))
-        db.session.add(ChecklistType("filled-checklist-for-testing", "TBD"))
+				d = line2dict(line)
+				#print(d)
+				output("c = ChecklistKB('{}', '{}', {}, {});".format(
+					d['checklistID'], d['content'], d['cwe'], True if d['include_always'].lower()=='true' else False))
+				output("c.question_id = {}".format(d['question_ID']))
+				output("c.kb_id = {}".format(d['kbID']))
+				output("c.checklist_type = {}".format(d['checklist_type']))
+				output("db.session.add(c)")
+				output()
+			elif "`lab_items`" in line:
 
-        checklist_kb = ChecklistKB('1.0','test content checklist item 1', False, 123)
-        checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
+				d = line2dict(line)
+				output("db.session.add(LabItem('{}','{}', {}))".format(d['title'],d['link'],d['level']))
 
-        checklist_kb = ChecklistKB('1.1','test content checklist item 1', False, 123)
-        checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-
-        checklist_kb = ChecklistKB('1.2','test content checklist item 2', True, 124)
-        checklist_kb.question_id = 0
-        checklist_kb.kb_id = 1
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-
-        checklist_kb = ChecklistKB('1.3','test content checklist item 3', True, 125)
-        checklist_kb.question_id = 0
-        checklist_kb.kb_id = 1
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-
-        checklist_kb = ChecklistKB('1.4','test content checklist item 4', False, 126)
-        checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-
-        db.session.commit()
-        return True
-
-    except Exception as e:
-        db.session.rollback()
-        return False
-
-def clear_db():
-    try:
-        db.drop_all()
-        db.session.commit()
-        return True
-    except:
-        db.session.rollback()
-        return False
-
-def init_db(testing=False):
-    """Initializes the database.""" 
-
-    if testing == True:
-
-        db.drop_all()
-        db.session.commit()
-        return load_initial_data() & load_test_data()
-
-    else:
-
-        db.drop_all()
-        db.session.commit()
-        db.create_all()
-        db.session.commit()
-
-        return load_initial_data() & init_md_code_examples() & init_md_knowledge_base()   
-
-def update_db():
-    """Update the database."""
-    KBItem.query.delete()
-    CodeItem.query.delete()
-    db.session.commit()
-
-    init_md_code_examples()
-    init_md_knowledge_base()
+			elif "`questions`" in line:
+				d = line2dict(line)
+				output("db.session.add(Question({}, '{}'))".format(d['checklist_type'],d['question']))
 
 
-'''
-def get_db():
-    """Opens a new database connection if there is none yet for the current application context."""
-    if not hasattr(g, settings.DATABASE):
-        g.sqlite_db = connect_db()
-    return g.sqlite_db
-'''
-
-def init_md_knowledge_base():
-    """Converts markdown knowledge-base items to DB."""
-    kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base')
-    try:
-        for filename in os.listdir(kb_dir):
-            if filename.endswith(".md"):
-                name_raw = filename.split("-")
-                kbID = name_raw[0].replace("_", " ")
-                title = name_raw[3].replace("_", " ")
-                file = os.path.join(kb_dir, filename)
-                data = open(file, 'r')
-                file_content = data.read()
-                data.close()
-                content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-
-                #query = "INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('"+kbID+"','"+content_escaped+"', '"+title+"', 1) \n"
-                #with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
-                #        myfile.write(query)
-                try:
-                    item = KBItem(kbID, content_escaped, title)
-                    db.session.add(item)
-                    db.session.commit()
-
-                except IntegrityError as e:
-                    print(e)
-                    pass
-
-        print('Initialized the markdown knowledge-base.')
-        return True
-
-    except Exception as e:
-        print(e)
-        return False
+			elif "`users`" in line:
+				pass
+			elif "`groups`" in line:
+				pass
+			elif "`groupMembers`" in line:
+				pass
+			elif "`privileges`" in line:
+				pass
+			elif "`checklist_types`" in line:
+				pass
+			else:
+				raise Exception("Unknown object: {}".format(line))
+	print(footer())
 
 
-def init_md_code_examples():
-    """Converts markdown code-example items to DB."""
-    kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/')
-    code_langs = ['asp', 'java', 'php', 'flask', 'django', 'go', 'ruby']
-    try:
-        for lang in code_langs:
-            for filename in os.listdir(kb_dir+lang):
-                if filename.endswith(".md"):
-                    name_raw = filename.split("-")
-                    title = name_raw[3].replace("_", " ")
-                    file = os.path.join(kb_dir+lang, filename)
-                    data = open(file, 'r')
-                    file_content = data.read()
-                    data.close()
-                    content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-
-                    #query = "INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('"+content_escaped+"', '"+title+"', '"+lang+"', 1) \n"
-                    #with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
-                    #        myfile.write(query)
-                    try:
-                        item = CodeItem(content_escaped, title, lang)
-                        db.session.add(item)
-                        db.session.commit()
-
-                    except IntegrityError as e:
-                        print(e)
-                        pass
-
-        print('Initialized the markdown code-examples.')
-        return True
-
-    except Exception as e:
-        print(e)
-        return False
+if __name__ == "__main__":
+	main()
