@@ -46,8 +46,9 @@ def update_project(project_id, user_id, data):
         db.session.add(project) 
         db.session.commit()
 
-    except:
+    except Exception as e:
         db.session.rollback()
+        print(e)
         raise
 
     return {'message': 'Project successfully updated'}
@@ -93,7 +94,7 @@ def delete_project(project_id, user_id):
         db.session.delete(project)
         db.session.commit()
 
-    except:
+    except Exception as e:
         db.session.rollback()
         raise
     return {'message': 'Project successfully deleted'}

@@ -113,7 +113,7 @@ def manage_user(user_id, data):
     log("Manage user triggered", "HIGH", "PASS")
     val_num(user_id)
     val_alpha(data.get('active'))
-    status_activated = data.get('active').uppercase()=='TRUE'
+    status_activated = data.get('active').lower()=='true'
 
     user = User.query.get(user_id)
     user.access = status_activated
