@@ -3,7 +3,7 @@ from skf.api.restplus import api
 
 
 kb = api.model('kb', {
-    'kbID': fields.Integer(readOnly=True, description='The unique identifier of a kb item'),
+    'kb_id': fields.Integer(readOnly=True, description='The unique identifier of a kb item'),
     'title': fields.String(required=True, description='KB title'),
     'content': fields.String(required=True, description='KB content'),
 })

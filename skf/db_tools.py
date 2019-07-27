@@ -200,24 +200,13 @@ def init_db(testing=False):
         return load_initial_data() & load_test_data()
 
     else:
-<<<<<<< HEAD
-    '''
-    clear_db()
-    db.create_all()
-    db.session.commit()
-
-    load_initial_data()
-    init_md_code_examples()
-    init_md_knowledge_base()
-=======
-
-        db.drop_all()
-        db.session.commit()
+        clear_db()
         db.create_all()
         db.session.commit()
 
-        return load_initial_data() & init_md_code_examples() & init_md_knowledge_base()   
->>>>>>> d92f39a68e7cf9546beb85bfbfb09d98218578b1
+        load_initial_data()
+        init_md_code_examples()
+        init_md_knowledge_base()
 
 def update_db():
     """Update the database."""
@@ -229,13 +218,13 @@ def update_db():
     init_md_knowledge_base()
 
 
-'''
+    '''
 def get_db():
     """Opens a new database connection if there is none yet for the current application context."""
     if not hasattr(g, settings.DATABASE):
         g.sqlite_db = connect_db()
     return g.sqlite_db
-'''
+    '''
 
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""

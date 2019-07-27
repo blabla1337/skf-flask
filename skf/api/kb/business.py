@@ -11,7 +11,7 @@ def update_kb_item(kb_id, data):
     val_alpha_num(data.get('title'))
 
     try:
-        kb_item = KBItem.query.get(kb_id)
+        kb_item = KBItem.query.filter(KBItem.kb_id == kb_id).first()
         kb_item.title = data.get('title')
         kb_item.content = data.get('content')
 
@@ -43,15 +43,15 @@ def create_kb_item(data):
 
     return {'message': 'KB item successfully created'} 
 
-def delete_kb_item(kbID, user_id):
+def delete_kb_item(kb_id, user_id):
     log("User deleted kb item", "MEDIUM", "PASS")
-    val_num(kbID)
+    val_num(kb_id)
     val_num(user_id)
 
     try:
-        kb_item = KBItem.query.get(kbID)
+        kb_item = KBItem.query.filter(KBItem.kb_id == kb_id).first()
 
-        db.session.delete(kbItem)
+        db.session.delete(kb_item)
         db.session.commit()
 
     except:
@@ -64,7 +64,7 @@ def get_kb_item(kb_id):
     log("User requested specific kb item", "LOW", "PASS")
     val_num(kb_id)
 
-    return KBItem.query.get(kb_id)
+    return KBItem.query.filter(KBItem.kb_id == kb_id).first()
 
 
 def get_kb_items():

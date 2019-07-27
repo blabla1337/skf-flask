@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChecklistService } from '../services/checklist.service'
 import { KnowledgebaseService } from '../services/knowledgebase.service'
-
 import { QuestionsService } from '../services/questions.service'
-import { AppSettings } from '../globals';
-import * as JWT from 'jwt-decode';
+import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Knowledgebase } from '../models/knowledgebase';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 
 @Component({
@@ -16,69 +16,47 @@ import { Knowledgebase } from '../models/knowledgebase';
 })
 export class KnowledgebaseEditComponent implements OnInit {
 
-  constructor(
-    private _knowledgeService: KnowledgebaseService,
-    private route: ActivatedRoute,
-    private router: Router,
-  ) { }
+  constructor(private knowledgeService: KnowledgebaseService,private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder) { }
 
+  knowledgebaseForm: FormGroup;
   public canEdit: string;
-  public knowledgebaseID: number;
-  public return: boolean;
-  public errors: string[];
-  public error: string;
   public IdFromUrl: number;
-  public title: string;
-  public content: string;
-  knowledgebaseItems: Knowledgebase[];
+  public isSubmitted: boolean;
+  knowledgebaseItem: Observable<Knowledgebase>;
+  knowledgebaseItemArray: Knowledgebase[];
+
+  get formControls() { return this.knowledgebaseForm.controls; }
 
   ngOnInit() {
+    this.knowledgebaseForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      content: ['', Validators.required],
+    })
 
     this.route.params.subscribe(params => {
       this.IdFromUrl = params['id'];
     });
 
-    if (AppSettings.AUTH_TOKEN) {
-      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canEdit = decodedJWT.privilege.includes('edit');
-    }
-    setTimeout(() => {
-      this.getKnowledgebaseItem();
-    }, 500);
+    this.knowledgebaseItem = this.knowledgeService.getKnowledgebaseItem(this.IdFromUrl).pipe(
+      tap(knowledgebaseItem => this.knowledgebaseForm.patchValue(knowledgebaseItem))
+    );
   }
 
   updateKnowledgebaseItem() {
 
-    this.errors = [];
-    this.return = true;
-
-    if (!this.title) { this.errors.push('Title was left empty'); this.return = false; }
-    if (!this.content) { this.errors.push('Content was left empty'); this.return = false; }
-    if (this.return == false) { return; }
-
-    this.errors = [];
-    this._knowledgeService.updateKnowledgebaseItem(Number(this.IdFromUrl), this.title, this.content)
+    this.knowledgeService.updateKnowledgebaseItem(Number(this.IdFromUrl), this.knowledgebaseForm.value)
       .subscribe(
         () => this.back(),
-        () => this.errors.push('Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)')
+        () => console.log('error updating knowledebase item')
       );
 
-      this._knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgebaseItems = requestData,
-        err => this.error = 'Error getting knowledge items, contact the administrator!'
+      this.knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgebaseItemArray = requestData,
+        () => console.log('Error getting knowledge items, contact the administrator!')
       );
     
       this.router.navigate(['/knowledgebase']);
   }
 
-  getKnowledgebaseItem() {
-    this._knowledgeService.getKnowledgebaseItem(this.IdFromUrl).subscribe(
-      knowledgebaseItems => {
-        this.title = knowledgebaseItems['title']
-        this.content = knowledgebaseItems['content']
-      },
-      err => this.error = 'Error getting knowledge items, contact the administrator!'
-    );
-  }
 
   back() {
     this.router.navigate(['/knowledgebase']);

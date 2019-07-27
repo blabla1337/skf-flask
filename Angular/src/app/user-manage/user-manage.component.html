@@ -59,7 +59,7 @@
                 <td>
                   <button (click)="open(granter)" id="grant-access{{myIndex}}" class="btn btn-success btn-xs">
                     <i>Grant</i>                 
-                  </button>
+                  </button>&nbsp;&nbsp;
                   <button (click)="open(revoker)" id="revoke-access{{myIndex}}" class="btn btn-danger btn-xs">
                     <i>Revoke</i>                 
                   </button>
@@ -78,7 +78,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-                    <button type="button" class="btn btn-danger" id="submit" (click)="revoke(user.userID);c('Close click')">Revoke</button>
+                    <button type="button" class="btn btn-danger" id="submit" (click)="userRevokeAccess(user.id);c('Close click')">Revoke</button>
                   </div>
                 </ng-template>
                 <ng-template #granter let-c="close" let-d="dismiss">
@@ -95,7 +95,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-                    <button type="button" class="btn btn-success" (click)="grant(user.userID);c('Close click')">Grant</button>
+                    <button type="button" class="btn btn-success" (click)="userGrantAccess(user.id);c('Close click')">Grant</button>
                   </div>
                 </ng-template>
               </tr>

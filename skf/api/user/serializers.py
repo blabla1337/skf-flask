@@ -43,7 +43,7 @@ user_list = api.model('user_list', {
     'email': fields.String(required=True, description='Email of the user'),
     'access': fields.String(required=True, description='User has access to application'),
     'activated': fields.String(required=True, description='User is activated'),
-    'user_id': fields.Integer(required=True, description='The unique identifier of the user'),
+    'id': fields.Integer(required=True, description='The unique identifier of the user'),
 })
 
 user_items = api.inherit('List of user items', {

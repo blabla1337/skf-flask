@@ -36,11 +36,11 @@ export class KnowledgebaseService {
       map(a => { return a.json() }));
   }
 
-  updateKnowledgebaseItem(id: number , title: string,  content: string): Observable<any> {
+  updateKnowledgebaseItem(id: number , knowledgebase: Knowledgebase): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + `/kb/update/${id}`, JSON.stringify({
-        title: title,
-        content: content
+        title: knowledgebase['title'],
+        content: knowledgebase['content']
       }),
       { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
