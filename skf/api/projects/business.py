@@ -57,18 +57,17 @@ def update_project(project_id, user_id, data):
 def new_project(user_id, data):
     log("User created new project", "MEDIUM", "PASS")
     val_num(user_id)
-    val_alpha_num_special(data.get('projectName'))
-    val_alpha_num(data.get('projectVersion'))
-    val_alpha_num_special(data.get('projectDesc'))
-    projectName = data.get('projectName')
-    projectVersion = data.get('projectVersion')
-    projectDesc = data.get('projectDesc')
-    print(projectDesc, file=sys.stderr)
+    val_alpha_num_special(data.get('name'))
+    val_alpha_num(data.get('version'))
+    val_alpha_num_special(data.get('description'))
+    name = data.get('name')
+    version = data.get('version')
+    description = data.get('description')
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M")
 
     try:
-        project = Project(projectName, projectVersion, projectDesc, timestamp)
+        project = Project(name, version, description, timestamp)
 
         db.session.add(project)
         db.session.commit()
@@ -80,7 +79,7 @@ def new_project(user_id, data):
 
     #result = Project.query.filter(Project.user_id == user_id).order_by(desc(Project.id)).first()
     # I assume we would like to return the new project ID?
-    result = Project.query.filter(Project.projectName == projectName).first()
+    result = Project.query.filter(Project.name == name).first()
     return {'projectID': result.id, 'message': 'Project successfully created'}
 
 
@@ -117,9 +116,9 @@ def stats_project(project_id):
         sprint_accepted += sprint_accepted_add
 
     project_info = (Project.query.filter(Project.id == project_id).one())
-    project_name = project_info.projectName
-    project_desc = project_info.projectDesc
-    project_open = sprint_open
+    project_name = project_info.name
+    project_desc = project_info.description
+    project_open = open
     project_closed = (ChecklistResult.query.filter(ChecklistResult.project_id == project_id).filter(ChecklistResult.status == 2).count())
     project_accepted = (ChecklistResult.query.filter(ChecklistResult.project_id == project_id).filter(ChecklistResult.status == 3).count())
     result = {'project_id': project_id, 'project_name': project_name, 'project_desc': project_desc, 'project_open': project_open, 'project_closed': project_closed, 'project_accepted': project_accepted}

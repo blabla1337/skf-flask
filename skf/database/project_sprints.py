@@ -21,8 +21,8 @@ class ProjectSprint(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    sprintName = db.Column(db.Text)
-    sprintDesc = db.Column(db.Text)
+    name = db.Column(db.Text)
+    description = db.Column(db.Text)
 
     group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
     group = db.relationship('Group', backref=db.backref("sprints"))
@@ -32,6 +32,6 @@ class ProjectSprint(db.Model):
 
 
     def __init__(self, sprintName, sprintDesc):
-        self.sprintName = sprintName
-        self.sprintDesc = sprintDesc
+        self.name = name
+        self.description = description
  

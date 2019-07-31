@@ -3,6 +3,9 @@ from skf.api.security import log, val_num, val_float, val_alpha_num
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklists_results import ChecklistResult
 from skf.database.checklist_types import ChecklistType
+from skf.database.question_results import QuestionResult
+from skf.database.questions import Question
+
 import sys
 
 def get_checklist_item(checklist_id, checklist_type):
@@ -35,14 +38,14 @@ def get_checklist_item_question_sprint(question_id):
 
 def get_checklist_item_types():
     log("User requested list checklist types", "LOW", "PASS")
-    result = ChecklistKB.query.paginate(1, 500, False)
+    result = ChecklistType.query.paginate(1, 500, False)
     return result
 
 
 def create_checklist_type(data):
     log("User requested create a new checklist type", "LOW", "PASS")
-    checklist_name = data.get('checklist_name')
-    checklist_description = data.get('checklist_description')
+    checklist_name = data.get('name')
+    checklist_description = data.get('description')
     checklist_type = ChecklistType(checklist_name, checklist_description)
 
     try:
@@ -56,14 +59,15 @@ def create_checklist_type(data):
 
 def update_checklist_type(id, data):
     log("User requested update checklist type", "LOW", "PASS")
-    checklist_name = data.get('checklist_name')
-    checklist_description = data.get('checklist_description')
+    checklist_name = data.get('name')
+    checklist_description = data.get('description')
 
     checklist_type = ChecklistType.query.get(id)
-    checklist_type.checklist_name = checklist_name
-    checklist_type.checklist_description = checklist_description
+    checklist_type.name = checklist_name
+    checklist_type.description = checklist_description
 
     try:
+        db.session.add(checklist_type)
         db.session.commit()
     except Exception as e:
         print(e)
@@ -76,11 +80,17 @@ def update_checklist_type(id, data):
 def delete_checklist_type(checklist_type_id):
     log("User deleted checklist type", "MEDIUM", "PASS")
     val_num(checklist_type_id)
-
+    # We need to delete everything that has a corelation to the checklist type id to prevent mismatches in the DB
     checklist_types = ChecklistType.query.get(checklist_type_id)
+    checklist_items = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
+    question_results = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
+    questions = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
 
     try:
+        db.session.delete(checklist_items)
         db.session.delete(checklist_types)
+        db.session.delete(question_results)
+        db.session.delete(questions)
         db.session.commit()
     except:
         db.session.rollback()
@@ -88,30 +98,30 @@ def delete_checklist_type(checklist_type_id):
     return {'message': 'Checklist type successfully deleted'}
 
 
-def create_checklist_item(checklistID, checklist_type, data):
+def create_checklist_item(checklist_id, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
-    checklist_content = data.get('content')
+    content = data.get('content')
     include_always = data.get('include_always')
-    questionID = data.get('question_ID')
-    checklistkbID = data.get('kbID')
+    question_id = data.get('question_id')
+    kb_id = data.get('kb_id')
     cwe = data.get('cwe')
-    val_num(checklistID)
-    val_num(checklist_kbID)
-    val_num(checklist_type)
 
-    checklist = Checklist.query.get(checklistID)
+    if include_always == "True":
+        include_always = True
+    else:
+        include_always = False
 
-    if validate_duplicate_checklist_item(checklistID, checklist_type) == True:
+    if question_id == 0:
+        question_id = None
 
+    if validate_duplicate_checklist_item(checklist_id, checklist_type) == True:
         try:
-            checklist_item = ChecklistKB(checklist_content, checklist_type, include_always, cwe)
-            checklist_item.question_id = questionID
-            checklist_item.kb_id = checklistkbID
-            checklist.checklist_items.append(checklist_item)
-
+            checklist_item = ChecklistKB(checklist_id, content, checklist_type, include_always, cwe)
+            checklist_item.question_id = question_id
+            checklist_item.kb_id = kb_id
             db.session.add(checklist_item)
-            db.session.commit()
 
+            db.session.commit()
         except:
             db.session.rollback()
             raise
@@ -125,22 +135,22 @@ def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
     val_num(checklist_type)
 
-    if data.get('kbID') == "":
-        kbID = 0
+    if data.get('kb_id') == "":
+        kb_id = 0
     else:
-        kbID = data.get('kbID')
-    val_num(kbID)
+        kb_id = data.get('kb_id')
+    val_num(kb_id)
 
-    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
+    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
     result_checklist_kb.title = data.get('title')
     result_checklist_kb.content = data.get('content')
     result_checklist_kb.include_always = data.get('include_always')
-    result_checklist_kb.question_ID = data.get('question_ID')
+    result_checklist_kb.question_ID = data.get('question_id')
     result_checklist_kb.cwe = data.get('cwe')
-    result_checklist_kb.kbID = kbID
-    result_checklist_kb.checklistID = checklist_id
+    result_checklist_kb.kb_id = kb_id
+    result_checklist_kb.checklist_id = checklist_id
     result_checklist_kb.checklist_type = checklist_type
-    val_num(result_checklist_kb.question_ID)
+    val_num(result_checklist_kb.question_id)
 
     try:
         db.session.add(result_checklist_kb)
@@ -170,10 +180,7 @@ def delete_checklist_item(checklist_id, checklist_type):
 def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
     val_num(checklist_type)
-    result = ChecklistKB.query.filter(ChecklistKB.id == checklist_type).paginate(1, 1500, False)
-    print("***********************************")
-    print(ChecklistKB.query.filter(ChecklistKB.id == checklist_type).all())
-    print("***********************************")
+    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 1500, False)
     ordered = order_checklist_items(result)
     return ordered
     
@@ -181,7 +188,7 @@ def get_checklist_items(checklist_type):
 def order_checklist_items(checklist_items):
     ordered_checklist_items = []
     for item in checklist_items.items:
-        numbers = item.checklistID.split('.')
+        numbers = item.checklist_id.split('.')
         category = int(numbers[0])
         category_requirement = int(numbers[1])
         if (len(ordered_checklist_items) == 0):
@@ -189,7 +196,7 @@ def order_checklist_items(checklist_items):
         else:
             y = 0
             while y < len(ordered_checklist_items):
-                numbers_ordered = ordered_checklist_items[y].checklistID.split('.')
+                numbers_ordered = ordered_checklist_items[y].checklist_id.split('.')
                 category_ordered = int(numbers_ordered[0])
                 category_requirement_ordered = int(numbers_ordered[1])
                 if (category < category_ordered):
@@ -207,11 +214,11 @@ def order_checklist_items(checklist_items):
     return checklist_items
 
 
-def validate_duplicate_checklist_item(checklistID, checklist_type):
-        checklists = ChecklistKB.query.filter(ChecklistKB.id == checklistID).filter(ChecklistKB.checklist_type == checklist_type).all()
+def validate_duplicate_checklist_item(checklist_id, checklist_type):
+        checklists = ChecklistKB.query.filter(ChecklistKB.id == checklist_id).filter(ChecklistKB.checklist_type == checklist_type).all()
         check = True
         for item in checklists:            
-            if item.checklistID == checklistID:
+            if item.checklist_id == checklist_id:
                 check = False
         return check
 

@@ -5,20 +5,20 @@ project = api.model('project', {
     'id': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
     'groupID': fields.Integer(required=True, description='The unique identifier of a project group'),
     'ownerID': fields.Integer(required=True, description='The unique identifier of the owner of a project'),
-    'projectName': fields.String(required=True, description='Project name'),
-    'projectVersion': fields.String(required=True, description='Project version'),
-    'projectDesc': fields.String(required=True, description='Project description'),
+    'name': fields.String(required=True, description='Project name'),
+    'version': fields.String(required=True, description='Project version'),
+    'description': fields.String(required=True, description='Project description'),
     'timestamp': fields.String(required=True, description='Project timestamp'),
 })
 
 project_stats = api.model('project_stats', {
     'id': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
-    'project_name': fields.String(required=True, description='The name of a project'),
-    'project_desc': fields.String(required=True, description='The description of a project'),
-    'project_type': fields.Integer(readOnly=True, description='The selected type of checklist of a project item'),
-    'project_open': fields.Integer(readOnly=True, description='The count of open items per project'),
-    'project_closed': fields.Integer(readOnly=True, description='The count of closed items per project'),
-    'project_accepted': fields.Integer(readOnly=True, description='The count of accpeted items per project'),
+    'name': fields.String(required=True, description='The name of a project'),
+    'description': fields.String(required=True, description='The description of a project'),
+    'type': fields.Integer(readOnly=True, description='The selected type of checklist of a project item'),
+    'open': fields.Integer(readOnly=True, description='The count of open items per project'),
+    'closed': fields.Integer(readOnly=True, description='The count of closed items per project'),
+    'accepted': fields.Integer(readOnly=True, description='The count of accpeted items per project'),
 })
 
 page_of_project_items = api.inherit('Page of project items', {
@@ -26,15 +26,15 @@ page_of_project_items = api.inherit('Page of project items', {
 })
 
 project_update = api.model('Project update', {
-    'projectName': fields.String(required=True, description='New project name'),
-    'projectDesc': fields.String(required=True, description='New project description'),
-    'projectVersion': fields.String(required=True, description='New project version'),
+    'name': fields.String(required=True, description='New project name'),
+    'description': fields.String(required=True, description='New project description'),
+    'version': fields.String(required=True, description='New project version'),
 })
 
 project_new = api.model('Project new', {
-    'projectName': fields.String(required=True, description='New project name'),
-    'projectDesc': fields.String(required=True, description='New project description'),
-    'projectVersion': fields.String(required=True, description='New project version'),
+    'name': fields.String(required=True, description='New project name'),
+    'description': fields.String(required=True, description='New project description'),
+    'version': fields.String(required=True, description='New project version'),
 })
 
 message = api.model('Response message', {

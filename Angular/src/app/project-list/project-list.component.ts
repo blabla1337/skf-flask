@@ -21,9 +21,9 @@ export class ProjectListComponent implements OnInit {
 
   ngOnInit() {
     this.projectForm = this.formBuilder.group({
-      projectName: ['', Validators.required],
-      projectVersion: ['', Validators.required],
-      projectDesc: ['', Validators.required],
+      name: ['', Validators.required],
+      version: ['', Validators.required],
+      description: ['', Validators.required],
     })
 
     this.projectList();

@@ -20,9 +20,9 @@ export class ProjectService {
   newProject(project:Project): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + '/project/new', JSON.stringify({
-        projectName: project['projectName'],
-        projectVersion: project['projectVersion'],
-        projectDesc: project['projectDesc']
+        name: project['name'],
+        version: project['version'],
+        description: project['description']
       }),
       { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));

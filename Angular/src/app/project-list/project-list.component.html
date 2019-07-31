@@ -44,7 +44,7 @@
                     <div class="wrap">
                       <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Project name</label>
                       <div class="col-sm-10">
-                        <input formControlName="projectName" maxlength="120" type="text" class="form-control" id="projectName" name="projectName" placeholder="">
+                        <input formControlName="name" maxlength="120" type="text" class="form-control" id="projectName" name="projectName"/>
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">Make it easy for your team to recognise.</div>
                         </div>
@@ -55,7 +55,7 @@
                       <div class="wrap">
                         <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Project version</label>
                         <div class="col-sm-10">
-                          <input required formControlName="projectVersion" maxlength="120" type="text" class="form-control" id="projectVersion" name="projectVersion" placeholder="">
+                          <input required formControlName="version" maxlength="120" type="text" class="form-control" id="projectVersion" name="projectVersion">
                           <div class="wrap desc alert-info">
                             <div class="col-sm-10">Versioning is importante!</div>
                           </div>
@@ -66,8 +66,8 @@
                     <div class="wrap">
                       <label for="inputDesc" class="col-sm-2 control-label">Description</label>
                       <div class="col-sm-10">
-                        <textarea required class="form-control" maxlength="255" formControlName="projectDesc" name="projectDescription" id="projectDescription"
-                          style="height: 90px;" placeholder=""></textarea>
+                        <textarea required class="form-control" maxlength="255" formControlName="description" id="projectDescription"
+                          style="height: 90px;" ></textarea>
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the project overview.</div>
                         </div>
@@ -92,24 +92,24 @@
             <strong>Message, </strong> There are no projects available to show yet!
           </ngb-alert>
 
-          <div *ngIf="isSubmitted && formControls.projectName.errors" class="help-block">
-            <div *ngIf="formControls.projectName.errors.required">
+          <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+            <div *ngIf="formControls.name.errors.required">
               <ngb-alert type="danger" [dismissible]="false">
                 Project name was not filled in
               </ngb-alert>
             </div>
           </div>
 
-          <div *ngIf="isSubmitted && formControls.projectVersion.errors" class="help-block">
-            <div *ngIf="formControls.projectVersion.errors.required">
+          <div *ngIf="isSubmitted && formControls.version.errors" class="help-block">
+            <div *ngIf="formControls.version.errors.required">
               <ngb-alert type="danger" [dismissible]="false">
                 Project version was not filled in
               </ngb-alert>
             </div>
           </div>
 
-          <div *ngIf="isSubmitted && formControls.projectDesc.errors" class="help-block">
-            <div *ngIf="formControls.projectDesc.errors.required">
+          <div *ngIf="isSubmitted && formControls.description.errors" class="help-block">
+            <div *ngIf="formControls.description.errors.required">
               <ngb-alert type="danger" [dismissible]="false">
                 Project description was not filled in
               </ngb-alert>
@@ -128,10 +128,10 @@
             </thead>
             <tbody>
               <tr *ngFor="let project of projects; let myIndex = index">
-                <td style="color:#515594"><a [routerLink]="['/project-dashboard',project.id]" class="btn btn-default btn-xs">{{project.projectName}}</a></td>
-                <td>{{project.projectDesc}}</td>
+                <td style="color:#515594"><a [routerLink]="['/project-dashboard',project.id]" class="btn btn-default btn-xs">{{project.name}}</a></td>
+                <td>{{project.description}}</td>
                 <td><span class="label">{{project.timestamp}}</span></td>
-                <td>{{project.projectVersion}}</td>
+                <td>{{project.version}}</td>
                 <td>
                   <button (click)="open(modalDeleteProject)" id="delete-button" class="btn btn-danger btn-xs">
                     <i class="fa fa-times "></i>                 

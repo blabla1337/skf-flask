@@ -28,7 +28,7 @@ class ChecklistKB(db.Model):
     content = db.Column(db.String(255))
     cwe = db.Column(db.Integer)
 
-    question_id = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)
+    question_id = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=True)
     questions = db.relationship("Question", backref=db.backref('checklist_kb'))
 
     include_always = db.Column(db.Boolean)
@@ -38,9 +38,9 @@ class ChecklistKB(db.Model):
 
     checklist_type = db.Column(db.Integer, db.ForeignKey('checklist_types.id'), nullable=False)
 
-    def __init__(self, checklistID, content, checklist_type, include_always, cwe):
+    def __init__(self, checklist_id, content, checklist_type, include_always, cwe):
         self.include_always = include_always
-        self.checklistID = checklistID
+        self.checklist_id = checklist_id
         self.checklist_type = checklist_type
         self.content = content
-        self.cwe = cwe        
+        self.cwe = cwe 

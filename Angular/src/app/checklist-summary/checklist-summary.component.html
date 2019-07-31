@@ -31,7 +31,7 @@
         <p>An overview of all the current available checklists. More information about the checklist by clicking on a
           checklist name. </p>
       </div>
-      <button style="float:right;" (click)="open(content)" class="btn btn-default"><i class="fa fa-cog"
+      <button style="float:right;" (click)="open(content); getSet('','')" class="btn btn-default"><i class="fa fa-cog"
           aria-hidden="true" id="add-new-checklist"></i> Add
         new checklist</button>
     </div>
@@ -56,22 +56,22 @@
               <tr>
                 <th><i class="fa fa-bullhorn"></i> Name</th>
                 <th><i class="fa fa-times"></i> Checklist description</th>
-                <th *ngIf="canDelete"><i class="fa fa-times"></i> Delete</th>
-                <th *ngIf="canDelete"><i class="fa fa-check"></i> Update</th>
+                <th><i class="fa fa-times"></i> Delete</th>
+                <th><i class="fa fa-check"></i> Update</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let checklists of checklistTypes | stringFilter : queryString; let myIndex = index">
-                <td style="color:#515594"><a [routerLink]="['/checklist-manage',checklists.checklist_type]"
+                <td style="color:#515594"><a [routerLink]="['/checklist-manage',checklists.id]"
                     class="btn btn-default btn-xs">{{checklists.title}}</a></td>
-                <td>{{checklists.checklist_description}}</td>
-                <td *ngIf="canDelete">
+                <td>{{checklists.description}}</td>
+                <td>
                   <button id="delete-checklist{{myIndex}}" (click)="open(deleteContent)" class="btn btn-danger btn-xs">
                     <i class="fa fa-times "></i>
                   </button>
                 </td>
-                <td *ngIf="canDelete">
-                  <button id="update-checklist{{myIndex}}" (click)="open(updateContent); getSet(checklists.title, checklists.checklist_description)" class="btn btn-warning btn-xs">
+                <td>
+                  <button id="update-checklist{{myIndex}}" (click)="open(updateContent); getSet(checklists.title, checklists.description)" class="btn btn-warning btn-xs">
                     <i class="fa fa-check "></i>
                   </button>
                 </td>
@@ -92,14 +92,14 @@
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
                     <button id="delete-checklist-finalized" type="button" class="btn btn-danger"
-                      (click)="deleteChecklistType(checklists.checklist_type)"
+                      (click)="deleteChecklistType(checklists.id)"
                       (click)="c('Close click')">Delete</button>
                   </div>
                 </ng-template>
                 <!-- END Modal for deleting a new checklist type-->
 
                 <!-- Modal for updating checklist type-->
-                <form class="form-horizontal" role="form"
+                <form [formGroup]="checklistForm" class="form-horizontal" role="form"
                   style="padding-left:20px;padding-right:20px; padding-top:-20px;">
                   <ng-template #updateContent let-c="close" let-d="dismiss">
                     <div class="modal-header">
@@ -114,9 +114,7 @@
                         <div class="wrap">
                           <label for="inputVersion" class="col-sm-2 control-label">Checklist name</label>
                           <div class="col-sm-10">
-                            <input required maxlength="120" [(ngModel)]="checklistType" type="text" class="form-control"
-                              id="inputVersion" name="checklistType" value="checklists.title"
-                              />
+                            <input required maxlength="120" formControlName="name" type="text" class="form-control" id="inputVersion"/>
                             <div class="wrap desc alert-info">
                               <div class="col-sm-10">The name of the checklist you are updating e.g: ASVS1, MASVS3
                               </div>
@@ -124,9 +122,7 @@
                           </div>
                           <label for="inputVersion" class="col-sm-2 control-label">Checklist description</label>
                           <div class="col-sm-10">
-                            <textarea required [(ngModel)]="checklistDescription" class="form-control"
-                              id="inputVersion"
-                              name="checklistDescription" value="{{checklists.checklist_description}}"></textarea>
+                            <textarea required formControlName="description" class="form-control" id="inputVersion"></textarea>
                             <div class="wrap desc alert-info">
                               <div class="col-sm-10">What is this checklist all about?</div>
                             </div>
@@ -137,7 +133,7 @@
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
                       <button type="button" class="btn btn-warning"
-                        (click)="updateChecklistType(checklists.checklist_type)" (click)="c('Close click')"
+                        (click)="updateChecklistType(checklists.id)" (click)="c('Close click')"
                         id="update-checklist">Update</button>
                     </div>
                   </ng-template>
@@ -149,7 +145,7 @@
         </div>
 
         <!-- Modal for adding a new checklist type-->
-        <form class="form-horizontal" role="form" style="padding-left:20px;padding-right:20px; padding-top:-20px;">
+        <form [formGroup]="checklistForm" class="form-horizontal" role="form" style="padding-left:20px;padding-right:20px; padding-top:-20px;">
           <ng-template #content let-c="close" let-d="dismiss">
             <div class="modal-header">
               <h4 class="modal-title">Add new checklist</h4>
@@ -163,16 +159,16 @@
                 <div class="wrap">
                   <label for="inputVersion" class="col-sm-2 control-label">Checklist name</label>
                   <div class="col-sm-10">
-                    <input required maxlength="120" [(ngModel)]="checklistType" type="text" class="form-control"
-                      id="inputVersion" name="checklistType" placeholder="">
+                    <input required maxlength="120" formControlName="name" type="text" class="form-control"
+                      id="inputVersion">
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">The name of the new checklist you are adding e.g: ASVS1, MASVS3</div>
                     </div>
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Checklist description</label>
                   <div class="col-sm-10">
-                    <input required maxlength="120" [(ngModel)]="checklistDescription" type="text" class="form-control"
-                      id="inputVersion" name="checklistDescription" placeholder="">
+                    <input required maxlength="120" formControlName="description" type="text" class="form-control"
+                      id="inputVersion">
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">What is this checklist all about?</div>
                     </div>
@@ -182,7 +178,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-              <button type="button" class="btn btn-success" (click)="storeChecklistType()" (click)="c('Close click')"
+              <button type="button" class="btn btn-success" (click)="newChecklistType()" (click)="c('Close click')"
                 id="store-checklist">Submit</button>
             </div>
           </ng-template>
