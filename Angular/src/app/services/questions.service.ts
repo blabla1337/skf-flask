@@ -21,7 +21,7 @@ export class QuestionsService {
       map(response => response.json().items))
   }
 
-  newSprint(questions: Questions[], checklist_type: number): Observable<Questions[]> {
+  newSprint(checklist_type: number, questions: Questions[]): Observable<Questions[]> {
     return this.http
       .put(environment.API_ENDPOINT + `/questions/store/${checklist_type}`, JSON.stringify({ questions }),
       { headers: this.postHeaders }).pipe(
@@ -36,16 +36,16 @@ export class QuestionsService {
       map(response => response.json()))
   }
 
-  newQuestion(checklist_type: number, questionName: string, ) {
+  newQuestion(checklist_type: number, question: Questions) {
     return this.http
-      .put(environment.API_ENDPOINT + '/questions/item/new', JSON.stringify({ question: questionName, checklist_type: checklist_type }),
+      .put(environment.API_ENDPOINT + '/questions/item/new', JSON.stringify({ question: question['question'], checklist_type: checklist_type }),
       { headers: this.postHeaders }).pipe(
       map(response => { return response.json() }));
   }
 
-  updateQuestion(checklist_type: number, questionName: string, questionID: number) {
+  updateQuestion(checklist_type: number, question_id: number, question: Questions) {
     return this.http
-      .put(environment.API_ENDPOINT + `/questions/item/update/${questionID}`, JSON.stringify({ question: questionName, checklist_type: checklist_type}),
+      .put(environment.API_ENDPOINT + `/questions/item/update/${question_id}`, JSON.stringify({ question: question['question'], checklist_type: checklist_type}),
       { headers: this.postHeaders }).pipe(
       map(response => { return response.json() }));
   }
@@ -58,8 +58,8 @@ export class QuestionsService {
         error => console.log('failed to delete checklist item')))
   }
 
-  getChecklistItemsOnQuestionID(questionID: number) {
-    return this.http.get(environment.API_ENDPOINT + `/checklist/item/question_sprint/${questionID}`, { headers: this.postHeaders }).pipe(
+  getChecklistItemsOnquestion_id(question_id: number) {
+    return this.http.get(environment.API_ENDPOINT + `/checklist/item/question_sprint/${question_id}`, { headers: this.postHeaders }).pipe(
       map(response => response.json().items))
   }
 

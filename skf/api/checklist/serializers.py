@@ -29,6 +29,10 @@ checklist_update = api.model('checklist_update', {
      'questions': fields.String(attribute='questions.question', required=False, description='correlated question!'),
 })
 
+checklist_correlation = api.model('checklist_correlation', {
+    'question_id': fields.Integer(attribute='question_id',required=True, description='correlate a new question id to the checklist item'),
+})
+
 checklist_questions = api.model('checklists_kb', {
     'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),

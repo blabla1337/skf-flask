@@ -94,6 +94,16 @@ export class ChecklistService {
       map(a => { return a.json() }));
   }
   
+  updateChecklistItemCorraltion(checklist_id: string, checklistType: number, question_id: number): Observable<any> {
+    console.log(this.checklist)
+    return this.http
+      .put(environment.API_ENDPOINT + `/checklist/update/item/correlation/${checklist_id}/type/${checklistType}`, JSON.stringify({
+       question_id: Number(question_id),
+      }),
+        { headers: this.postHeaders }).pipe(
+      map(a => { return a.json() }));
+  }
+
   deletechecklistItem(checklistID: number, checklistType: number) {
     const url = environment.API_ENDPOINT + `/checklist/delete/item/${checklistID}/type/${checklistType}`;
     return this.http.delete(url, { headers: this.postHeaders }).pipe(

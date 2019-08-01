@@ -39,6 +39,13 @@ def get_checklist_item_types():
     result = ChecklistType.query.paginate(1, 500, False)
     return result
 
+def get_checklist_items(checklist_type):
+    log("User requested list of checklist items", "LOW", "PASS")
+    val_num(checklist_type)
+    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 1500, False)
+    ordered = order_checklist_items(result)
+    return ordered
+    
 
 def create_checklist_type(data):
     log("User requested create a new checklist type", "LOW", "PASS")
@@ -53,47 +60,6 @@ def create_checklist_type(data):
         db.rollback()
         raise
     return {'message': 'Checklist type successfully created'} 
-
-
-def update_checklist_type(id, data):
-    log("User requested update checklist type", "LOW", "PASS")
-    checklist_name = data.get('name')
-    checklist_description = data.get('description')
-
-    checklist_type = ChecklistType.query.get(id)
-    checklist_type.name = checklist_name
-    checklist_type.description = checklist_description
-
-    try:
-        db.session.add(checklist_type)
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback()
-        raise
-    
-    return {'message': 'Checklist item successfully updated'} 
-
-
-def delete_checklist_type(checklist_type_id):
-    log("User deleted checklist type", "MEDIUM", "PASS")
-    val_num(checklist_type_id)
-    # We need to delete everything that has a corelation to the checklist type id to prevent mismatches in the DB
-    checklist_types = ChecklistType.query.get(checklist_type_id)
-    checklist_items = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
-    question_results = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
-    questions = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
-
-    try:
-        db.session.delete(checklist_items)
-        db.session.delete(checklist_types)
-        db.session.delete(question_results)
-        db.session.delete(questions)
-        db.session.commit()
-    except:
-        db.session.rollback()
-        raise
-    return {'message': 'Checklist type successfully deleted'}
-
 
 def create_checklist_item(checklist_id, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
@@ -128,6 +94,24 @@ def create_checklist_item(checklist_id, checklist_type, data):
         return {'message': 'Checklist item was duplicate!'} 
 
 
+def update_checklist_type(id, data):
+    log("User requested update checklist type", "LOW", "PASS")
+    checklist_name = data.get('name')
+    checklist_description = data.get('description')
+
+    checklist_type = ChecklistType.query.get(id)
+    checklist_type.name = checklist_name
+    checklist_type.description = checklist_description
+
+    try:
+        db.session.add(checklist_type)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        raise
+    
+    return {'message': 'Checklist item successfully updated'} 
+
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
     include_always = data.get('include_always')
@@ -155,6 +139,40 @@ def update_checklist_item(checklist_id, checklist_type, data):
         raise
     return {'message': 'Checklist item successfully updated'} 
 
+def update_checklist_question_correlation(checklist_id, checklist_type, data):
+    log("User requested update a specific checklist question correlation", "LOW", "PASS")
+    question_id = data.get('question_id')
+    if question_id == 0:
+        question_id = None
+    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
+    result_checklist_kb.question_id = question_id
+    try:
+        db.session.add(result_checklist_kb)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback
+        raise
+    return {'message': 'Checklist item successfully updated'} 
+
+def delete_checklist_type(checklist_type_id):
+    log("User deleted checklist type", "MEDIUM", "PASS")
+    val_num(checklist_type_id)
+    # We need to delete everything that has a corelation to the checklist type id to prevent mismatches in the DB
+    checklist_types = ChecklistType.query.get(checklist_type_id)
+    checklist_items = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
+    question_results = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
+    questions = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
+
+    try:
+        db.session.delete(checklist_items)
+        db.session.delete(checklist_types)
+        db.session.delete(question_results)
+        db.session.delete(questions)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    return {'message': 'Checklist type successfully deleted'}
 
 def delete_checklist_item(checklist_id, checklist_type):
     log("User deleted checklist item", "MEDIUM", "PASS")
@@ -170,15 +188,6 @@ def delete_checklist_item(checklist_id, checklist_type):
         raise
 
     return {'message': 'Checklist item successfully deleted'}
-
-
-def get_checklist_items(checklist_type):
-    log("User requested list of checklist items", "LOW", "PASS")
-    val_num(checklist_type)
-    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 1500, False)
-    ordered = order_checklist_items(result)
-    return ordered
-    
 
 def order_checklist_items(checklist_items):
     ordered_checklist_items = []
