@@ -165,7 +165,7 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 
 ## <a name="contributors"></a>Contributors
 - Lucas Luitjes
-- [Mattijs van Ommeren] (https://twitter.com/alcyonsecurity)
+- [Mattijs van Ommeren](https://twitter.com/alcyonsecurity)
 - [Glenn ten Cate](https://twitter.com/FooBar_testing_)
 - [Riccardo ten Cate](https://twitter.com/RiieCco)
 - [Alexander Kaasjager](https://twitter.com/akaasjager)
