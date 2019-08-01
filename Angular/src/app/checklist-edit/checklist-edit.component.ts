@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChecklistService } from '../services/checklist.service'
 import { KnowledgebaseService } from '../services/knowledgebase.service'
 import { QuestionsService } from '../services/questions.service'
-import { AppSettings } from '../globals';
-import * as JWT from 'jwt-decode';
-import {Checklist} from '../models/checklist';
-import {Knowledgebase} from '../models/knowledgebase';
-import {Questions} from '../models/questions';
-import {forkJoin} from 'rxjs';
-import {map} from 'rxjs/operators';
+
+import { Checklist } from '../models/checklist';
+import { Knowledgebase } from '../models/knowledgebase';
+import { Questions } from '../models/questions';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-checklist-edit',
@@ -20,185 +20,127 @@ import {map} from 'rxjs/operators';
 export class ChecklistEditComponent implements OnInit {
 
   constructor(
-    private _checklistService: ChecklistService,
-    private _knowledgeService: KnowledgebaseService,
-    private _questionsService: QuestionsService,
+    private checklistService: ChecklistService,
+    private knowledgeService: KnowledgebaseService,
+    private questionsService: QuestionsService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
     private router: Router,
+    private formBuilder: FormBuilder
   ) {
   }
 
-  public checklistTypeFromStorage: string;
-  public checklistIDFromUrl: string;
-  public error: string;
-  public errors = [];
-  public return: boolean;
+
   public delete: string;
-  public succes: string;
-  public cwe: number;
-  public canEdit: boolean;
-  public knowledgebaseID: number;
-  public checklist: any[];
-  public questions: Questions[] = [];
-  public include_first: string;
-  public include_always: string;
-  public checklistID: number;
-  public content = 'Crunching the right data!';
-  public editChecklist: boolean;
-  knowledgebaseItems: Knowledgebase[];
+  public checklistForm: FormGroup;
+  public checklistItem: Observable<Checklist>;
+  public checklist: Checklist[];
+  public questions: Questions[];
+  public knowledgebaseItems: Knowledgebase[];
+  public knowledgeByFind: Knowledgebase[];
+  public isSubmitted: boolean;
 
-  public kbItem: any = {
-    'kbID': '',
-    'title': ''
-  };
-
-  public questionPre: any = {
-    'checklist_type': '',
-    'id': '',
-    'question': ''
-  };
-
-  public questionSprint: any = {
-    'checklist_type': '',
-    'id': '',
-    'question': ''
-  };
+  get formControls() { return this.checklistForm.controls; }
 
   ngOnInit() {
 
-    this.route.params.subscribe(params => {
-      this.checklistIDFromUrl = params['id'];
-    });
+    this.route.params.subscribe(params => { localStorage.setItem('checklist_ref_id', params['id']); });
 
-    this.checklistTypeFromStorage = localStorage.getItem('tempParamID');
-    if (AppSettings.AUTH_TOKEN) {
-      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canEdit = decodedJWT.privilege.includes('edit');
-    }
+    this.checklistForm = this.formBuilder.group({
+      checklist_id: [{value:'',disabled: true },[Validators.required, Validators.pattern(/^[0-9]{1,2}([.][0-9]{1,2})?$/)]],
+      kb_id: ['', Validators.required],
+      question_id: ['', Validators.required],
+      include_always: ['', Validators.required],
+      content: ['', Validators.required],
+      cwe: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    })
 
+    this.getKnowledgeItems();
+    this.getQuestionList();
     setTimeout(() => {
-      this.getKnowledgeItems();
-
-      // Added the Fork Join for service to get the dropdown list and call the checkListItem service
-      forkJoin(
-        this.getQuestionList(Number(localStorage.getItem('tempParamID'))), this.getSprintQuestionList(Number(localStorage.getItem('tempParamID')))
-      ).subscribe(
-        response => {
-
-          this.questions = response[1];
-          this.questions.unshift({
-            'checklist_type': '',
-            'id': 0,
-            'question': 'Empty'
-          });
-          this.getChecklistItem();
-        },
-        error => console.log('Error: ', error)
-      );
-
-    }, 1000);
+      this.getChecklistItem();
+    }, 200);
   }
 
   updateChecklistItem() {
-
-    this.errors = [];
-    this.return = true;
-
-    if (!this.checklistTypeFromStorage) {
-      this.errors.push('Checklist ID was not filled in');
-      this.return = false;
-    }
-    if (!this.checklistID) {
-      this.errors.push('Checklist ID validation failed');
-      this.return = false;
-    }
-    if (!this.content) {
-      this.errors.push('The checklist item name was not filled in');
-      this.return = false;
-    }
-    if (this.kbItem === null || this.kbItem.kbID === '') {
-      this.errors.push('There was no knowledgebase ID selected');
-      this.return = false;
-    }
-    if (!this.include_always) {
-      this.errors.push('Include always choice was not made');
-      this.return = false;
-    }
-
-    if (this.return == false) {
+    this.isSubmitted = true;
+    if(this.checklistForm.invalid){
       return;
     }
-
-    this.errors = [];
-    this._checklistService.updateChecklistItem(Number(this.checklistTypeFromStorage), this.checklistID, this.content, Number(this.kbItem.kbID), this.include_always, Number(this.questionSprint.id), Number(this.cwe))
+    this.checklistService.updateChecklistItem(localStorage.getItem('checklist_ref_id'), Number(localStorage.getItem('checklist_type_id')), this.checklistForm.value)
       .subscribe(
-        () => this.getChecklistItem(),
-        () => this.errors.push('Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)')
+        () => this.back(),
+        () => console.log('Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)')
       );
-      this.router.navigate(['/checklist-add-new/', localStorage.getItem('tempParamID')]);
+    this.router.navigate(['/checklist-add-new/', localStorage.getItem('checklist_type_id')]);
+    
   }
 
   getKnowledgeItems() {
-    this._knowledgeService.getKnowledgeBase().subscribe(knowledgebaseItems => {
-        this.knowledgebaseItems = knowledgebaseItems;
-        this.knowledgebaseItems.unshift({
-          'kbID': '0',
-          'title': 'Use this for a Control Header'
-        });
-      },
-      err => this.error = 'Error getting knowledge items, contact the administrator!'
+    this.knowledgeService.getKnowledgeBase().subscribe(knowledgebaseItems => {
+      this.knowledgebaseItems = knowledgebaseItems;
+    },
+      err => console.log('Error getting knowledge items, contact the administrator!')
+    );
+  }
+
+  getChecklistItem() {
+    this.checklistService.getSingleChecklistItem(localStorage.getItem('checklist_ref_id'), Number(localStorage.getItem('checklist_type_id'))).subscribe(checklist => {
+      this.checklist = checklist;
+    },
+      err => console.log('Error getting checklist items, contact the administrator!')
+    );
+    setTimeout(() => {
+      //check if questio was None otherwise give it the id/content previously selected!
+      if (this.checklist['question_id'] == null) {
+        var question_id = {
+          'id': 0,
+          'question': 'None'
+        }
+      } else {
+        question_id = {
+          'id': this.checklist['question_id'],
+          'question': this.checklist['questions']
+        }
+      }
+      //check if knowledgebase item was None otherwise give it the id/content previously selected!
+      var kb_item = {
+        'kb_id': this.checklist['kb_id'],
+        'title': this.checklist['kb_title']
+      };
+      this.checklistForm.patchValue({
+        checklist_id: this.checklist['checklist_id'],
+        kb_id: kb_item,
+        question_id: question_id,
+        include_always: this.checklist['include_always'],
+        content: this.checklist['content'],
+        cwe: this.checklist['cwe'],
+      });
+    }, 100);
+  }
+
+  getQuestionList() {
+    this.questionsService.getQuestions(Number(localStorage.getItem('checklist_type_id'))).subscribe(questions => {
+      this.questions = questions;
+      this.questions.unshift({
+        'id': '0',
+        'question': 'None'
+      });
+    },
+      err => console.log('Error getting question items, contact the administrator!')
     );
   }
 
 
-  getChecklistItem() {
-    this._checklistService
-      .getSingleChecklistItem(this.checklistIDFromUrl, Number(this.checklistTypeFromStorage))
-      .subscribe(
-        checklist => {
-          this.content = checklist['checklist_items_content'];
-          this.checklistID = checklist['checklist_items_checklistID'];
-          this.include_always = checklist['include_always'];
-          this.cwe = checklist['cwe'];
-
-          this.kbItem = {
-            'kbID': checklist['kb_item_id'],
-            'title': checklist['kb_item_title']
-          };
-
-          this.questionSprint = this.getQuestionByFind(this.questions, checklist['question_ID']);
-
-          if (!this.checklist) {
-            this.error = 'There are no checklist types defined yet'
-          }
-        },
-        err => this.error = 'Getting the checklist types failed, contact an administrator! ');
-  }
-
-  getQuestionList(checklistType: number) {
-    return this._questionsService.getQuestions(checklistType);
-  }
-
-  getSprintQuestionList(checklistType: number) {
-    return this._questionsService.getQuestions(checklistType);
-  }
-
-  getQuestionByFind(arr, id) {
-    return arr.find(x => x.id === id);
-  }
-
   back() {
-    this.router.navigate(['/checklist-add-new/', localStorage.getItem('tempParamID')]);
+    this.router.navigate(['/checklist-add-new/', localStorage.getItem('checklist_type_id')]);
   }
 
   deleteChecklistItem() {
     if (this.delete == 'DELETE') {
-      this._checklistService.deletechecklistItem(Number(this.checklistIDFromUrl), Number(this.checklistTypeFromStorage)).subscribe(x =>
-        // Get the new project list on delete
-        this.getChecklistItem())
-        this.router.navigate(['/checklist-add-new/', localStorage.getItem('tempParamID')]);
-        this.delete = '';
+      this.checklistService.deletechecklistItem(Number(localStorage.getItem('checklist_ref_id')), Number(localStorage.getItem('checklist_type_id'))).subscribe(x =>
+        this.router.navigate(['/checklist-add-new/', localStorage.getItem('checklist_type_id')]));
+      this.delete = '';
     }
   }
 

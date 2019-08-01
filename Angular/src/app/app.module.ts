@@ -4,6 +4,22 @@ https://ng-bootstrap.github.io/#/getting-started
 npm install --save @ng-bootstrap/ng-bootstrap
 npm install --save angular2-highlight-js
 
+
+
+This we used in tje code to check claims in the JWT
+and decide of we do/don't want to show certain elements in pages
+this only makes sense with more roles which we currently don't support yet!
+
+import { AppSettings } from '../globals';
+import * as JWT from 'jwt-decode';
+
+if (AppSettings.AUTH_TOKEN) {
+  const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+  this.canEdit = decodedJWT.privilege.includes('edit');
+}
+
+
+
 */
 
 import { BrowserModule } from '@angular/platform-browser';

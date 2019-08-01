@@ -10,8 +10,6 @@ import sys
 
 def get_checklist_item(checklist_id, checklist_type):
     log("User requested specific checklist item", "LOW", "PASS")
-    val_float(checklist_id)
-    val_num(checklist_type)
     result = ChecklistKB.query.filter((ChecklistKB.checklist_type == checklist_type) & (ChecklistKB.checklist_id == checklist_id)).one()
     return result
 
@@ -70,7 +68,6 @@ def update_checklist_type(id, data):
         db.session.add(checklist_type)
         db.session.commit()
     except Exception as e:
-        print(e)
         db.session.rollback()
         raise
     
@@ -133,29 +130,27 @@ def create_checklist_item(checklist_id, checklist_type, data):
 
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
-    val_num(checklist_type)
-
-    if data.get('kb_id') == "":
-        kb_id = 0
+    include_always = data.get('include_always')
+    question_id = data.get('question_id')
+    if include_always == "True":
+        include_always = True
     else:
-        kb_id = data.get('kb_id')
-    val_num(kb_id)
-
+        include_always = False
+    if question_id == 0:
+        question_id = None
     result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
-    result_checklist_kb.title = data.get('title')
     result_checklist_kb.content = data.get('content')
-    result_checklist_kb.include_always = data.get('include_always')
-    result_checklist_kb.question_ID = data.get('question_id')
+    result_checklist_kb.include_always = include_always
+    result_checklist_kb.question_id = question_id
     result_checklist_kb.cwe = data.get('cwe')
-    result_checklist_kb.kb_id = kb_id
+    result_checklist_kb.kb_id = data.get('kb_id')
     result_checklist_kb.checklist_id = checklist_id
     result_checklist_kb.checklist_type = checklist_type
-    val_num(result_checklist_kb.question_id)
-
     try:
         db.session.add(result_checklist_kb)
         db.session.commit()
-    except:
+    except Exception as e:
+        print(e, file=sys.stderr)
         db.session.rollback
         raise
     return {'message': 'Checklist item successfully updated'} 
@@ -215,7 +210,7 @@ def order_checklist_items(checklist_items):
 
 
 def validate_duplicate_checklist_item(checklist_id, checklist_type):
-        checklists = ChecklistKB.query.filter(ChecklistKB.id == checklist_id).filter(ChecklistKB.checklist_type == checklist_type).all()
+        checklists = ChecklistKB.query.filter(ChecklistKB.checklist_id == checklist_id).filter(ChecklistKB.checklist_type == checklist_type).all()
         check = True
         for item in checklists:            
             if item.checklist_id == checklist_id:

@@ -33,7 +33,7 @@ class ChecklistResult(db.Model):
 
     status = db.Column(db.Integer, nullable=False)
     
-    kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.id"))
+    kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"))
     kb_items = db.relationship("KBItem", backref=db.backref('checklist_results'))  
     
     def __init__(self, status):

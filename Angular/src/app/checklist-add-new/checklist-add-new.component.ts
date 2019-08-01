@@ -67,7 +67,7 @@ export class ChecklistAddNewComponent implements OnInit {
     */
     setTimeout(() => {
     this.getKnowledgeItems();
-    this.getQuestionList(Number(localStorage.getItem('tempParamID')));
+    this.getQuestionList(Number(localStorage.getItem('checklist_type_id')));
     this.getChecklistList();
   }, 1000);
   }
@@ -77,7 +77,7 @@ export class ChecklistAddNewComponent implements OnInit {
     if(this.checklistForm.invalid){
       return;
     }
-    this._checklistService.newChecklistItem(Number(localStorage.getItem('tempParamID')), this.checklistForm.value)
+    this._checklistService.newChecklistItem(Number(localStorage.getItem('checklist_type_id')), this.checklistForm.value)
       .subscribe(
         () => this.getChecklistList(),
         () => console.log('Error storing checklist item, potential duplicate checklist ID')
@@ -87,10 +87,6 @@ export class ChecklistAddNewComponent implements OnInit {
   getKnowledgeItems() {
     this._knowledgeService.getKnowledgeBase().subscribe(knowledgebaseItems => {
         this.knowledgebaseItems = knowledgebaseItems;
-        this.knowledgebaseItems.unshift({
-          'kbID': '0',
-          'title': 'Use this for a Control Header'
-        });
       },
       (err) => console.log('Error getting knowledge items, contact the administrator!')
     );
@@ -98,7 +94,7 @@ export class ChecklistAddNewComponent implements OnInit {
 
   getChecklistList() {
     this._checklistService
-      .getChecklistByType(Number(localStorage.getItem('tempParamID')))
+      .getChecklistByType(Number(localStorage.getItem('checklist_type_id')))
       .subscribe(
         checklist => {
          this.checklist = checklist;

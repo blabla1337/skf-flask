@@ -23,8 +23,10 @@ export class ChecklistService {
   }
 
   getSingleChecklistItem(checklistID: string, checklist_type: number): Observable<Checklist[]> {
-    return this.http.get(environment.API_ENDPOINT + `/checklist/item/${checklistID}/type/${checklist_type}`, { headers: this.headers }).pipe(
-      map(response => response.json()))
+    return this.http.get(environment.API_ENDPOINT + `/checklist/item/${checklistID}/type/${checklist_type}`, { headers: this.postHeaders }).pipe(
+      map(
+        response => response.json(),
+        () => console.log('failed to get the information')))
   }
 
   getChecklistByType(checklist_type: number): Observable<Checklist[]> {
@@ -65,8 +67,7 @@ export class ChecklistService {
       map(a => { return a.json() }));
   }
 
-  newChecklistItem(checklistType: number, checklist): Observable<any> {
-    console.log(checklist)
+  newChecklistItem(checklistType: number, checklist: Checklist): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + `/checklist/new/item/${checklist['checklist_id']}/type/${checklistType}`, JSON.stringify({
        content: checklist['content'],
@@ -79,14 +80,15 @@ export class ChecklistService {
       map(a => { return a.json() }));
   }
 
-  updateChecklistItem(checklistType: number, checklist: Checklist): Observable<any> {
+  updateChecklistItem(checklist_id: string, checklistType: number, checklist: Checklist): Observable<any> {
+    console.log(this.checklist)
     return this.http
-      .put(environment.API_ENDPOINT + `/checklist/update/item/${checklist}/type/${checklistType}`, JSON.stringify({
+      .put(environment.API_ENDPOINT + `/checklist/update/item/${checklist_id}/type/${checklistType}`, JSON.stringify({
        content: checklist['content'],
-       kbID: checklist['kb_id'],
+       kb_id: Number(checklist['kb_id']['kb_id']),
        include_always: checklist['include_always'],
-       question_ID: checklist['question_id'],
-       cwe: checklist['cwe']
+       question_id: Number(checklist['question_id']['id']),
+       cwe: Number(checklist['cwe'])
       }),
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));

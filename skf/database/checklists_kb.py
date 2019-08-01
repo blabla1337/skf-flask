@@ -33,7 +33,7 @@ class ChecklistKB(db.Model):
 
     include_always = db.Column(db.Boolean)
 
-    kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.id"), nullable=False)
+    kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"), nullable=True)
     kb_items = db.relationship("KBItem", backref=db.backref('checklist_kb'))
 
     checklist_type = db.Column(db.Integer, db.ForeignKey('checklist_types.id'), nullable=False)

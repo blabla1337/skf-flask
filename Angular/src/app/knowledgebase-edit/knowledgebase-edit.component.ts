@@ -16,7 +16,7 @@ import { tap } from 'rxjs/operators';
 })
 export class KnowledgebaseEditComponent implements OnInit {
 
-  constructor(private knowledgeService: KnowledgebaseService,private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder) { }
+  constructor(private knowledgeService: KnowledgebaseService,private route: ActivatedRoute,private router: Router ,private formBuilder: FormBuilder) { }
 
   knowledgebaseForm: FormGroup;
   public canEdit: string;
@@ -43,7 +43,6 @@ export class KnowledgebaseEditComponent implements OnInit {
   }
 
   updateKnowledgebaseItem() {
-
     this.knowledgeService.updateKnowledgebaseItem(Number(this.IdFromUrl), this.knowledgebaseForm.value)
       .subscribe(
         () => this.back(),

@@ -99,7 +99,7 @@
               <ng-template ngbPanelContent>
 
                 <!-- Here starts showing of the checklist items content-->
-                <div *ngIf="!editChecklist">
+                <div>
 
                   <table style="table-layout: fixed;" class="table table-striped table-advance table-hover">
                     <thead style="background-color:white;">
@@ -129,7 +129,7 @@
                         <td>{{item.include_always}}</td>
                         <td>{{item.cwe}}</td>
                         <td>
-                          <a [routerLink]="['/checklist-edit', item.checklist_items_checklistID]">
+                          <a [routerLink]="['/checklist-edit', item.checklist_items_checklist_id]">
                             <button class="btn btn-success btn-xs">
                               <i class="fa fa-pencil " id="edit-checklist-item-content"></i>
                             </button>

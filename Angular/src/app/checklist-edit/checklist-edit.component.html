@@ -40,40 +40,84 @@
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
-        <div *ngFor="let alert of errors">
-          <ngb-alert [dismissible]="false">
-            <strong>Warning!</strong> {{alert}}
-          </ngb-alert>
-        </div>
+          
+          <div *ngIf="isSubmitted && formControls.checklist_id.errors" class="help-block">
+              <div *ngIf="formControls.checklist_id.errors.required">
+                <ngb-alert type="danger" [dismissible]="false">
+                  Checklist id was not filled in 
+                </ngb-alert>
+              </div>
+              <div *ngIf="formControls.checklist_id.errors.pattern">
+                  <ngb-alert type="danger" [dismissible]="false">
+                    Checklist id was not confirm standard 'number.number' (1.1, 2.1, 3.0, etv)
+                  </ngb-alert>
+                </div>
+            </div>
+    
+            <div *ngIf="isSubmitted && formControls.content.errors" class="help-block">
+              <div *ngIf="formControls.content.errors.required">
+                <ngb-alert type="danger" [dismissible]="false">
+                  Content was not filled in
+                </ngb-alert>
+              </div>
+            </div>
+    
+            <div *ngIf="isSubmitted && formControls.kb_id.errors" class="help-block">
+              <div *ngIf="formControls.kb_id.errors.required">
+                <ngb-alert type="danger" [dismissible]="false">
+                  Knowledgebase id description was not selected
+                </ngb-alert>
+              </div>
+            </div>
+    
+            <div *ngIf="isSubmitted && formControls.question_id.errors" class="help-block">
+              <div *ngIf="formControls.question_id.required">
+                <ngb-alert type="danger" [dismissible]="false">
+                  Question  was not selected
+                </ngb-alert>
+              </div>
+            </div>
+    
+            <div *ngIf="isSubmitted && formControls.cwe.errors" class="help-block">
+              <div *ngIf="formControls.cwe.errors.required">
+                <ngb-alert type="danger" [dismissible]="false">
+                  CWE id  was not filled in
+                </ngb-alert>
+              </div>
+              <div *ngIf="formControls.cwe.errors.pattern">
+                  <ngb-alert type="danger" [dismissible]="false">
+                    CWE needs to be a numeric value
+                  </ngb-alert>
+                </div>
+            </div>
+    
           <!-- Here starts when people select they want to edit the checklist-->
           <section class="panel">
             <header class="panel-heading">
-              <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; {{checklistID}} {{content}} </h4>
+              <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; {{checklist.checklist_id}} {{checklist.content}} </h4>
             </header>
             <div class="panel-body">
-              <form>
+              <form [formGroup]="checklistForm">
                 <div class="form-group">
                   <div class="wrap">
                     <br />
                     <label for="inputVersion" class="col-sm-2 control-label">Checklist ID *</label>
                     <div class="col-sm-10">
-                      <input disabled maxlength="120" [(ngModel)]="checklistID" type="text" class="form-control" id="inputVersion"
-                        name="checklistID" placeholder="" value="{{checklistID}}">
+                      <input maxlength="120" formControlName="checklist_id" type="text" class="form-control" id="inputVersion">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">e.g. 1.0, 1.1 etc</div>
                       </div>
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Checklist title *</label>
                     <div class="col-sm-10">
-                      <input required maxlength="120" [(ngModel)]="content" type="text" class="form-control" id="inputVersion"
-                        name="content" placeholder="" value="{{content}}">
+                      <input required maxlength="120" formControlName="content" type="text" class="form-control">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">What is the title of the checklist item?</div>
                       </div>
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">KB item *</label>
                     <div class="col-sm-10">
-                      <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" [(ngModel)]="kbItem" name="kbID">
+                      <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" formControlName="kb_id">
                       </ng-select>
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Select the correlating knowledgebase item!</div>
@@ -81,7 +125,7 @@
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Sprint Questionnaire</label>
                     <div class="col-sm-10">
-                      <ng-select [items]="questions" bindLabel="question" placeholder="Select Sprint Questionnaire" [(ngModel)]="questionSprint" name="questionSprintItem">
+                      <ng-select [items]="questions" bindLabel="question" placeholder="Selectquestion" formControlName="question_id">
                       </ng-select>
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Correlate the checklist item with a sprint questionnaire</div>
@@ -89,7 +133,7 @@
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Include always *</label>
                     <div class="col-sm-10">
-                      <select class="form-control" name="include_always" [(ngModel)]="include_always" id="sel1">
+                      <select class="form-control" name="include_always" formControlName="include_always" id="sel1">
                         <option value="True">true</option>
                         <option value="False">false</option>
                       </select>
@@ -99,8 +143,7 @@
                     </div>
                     <label for="cwe" class="col-sm-2 control-label">CWE</label>
                     <div class="col-sm-10">
-                      <input required maxlength="120" [(ngModel)]="cwe" type="text" class="form-control" id="cwe"
-                        name="cwe" placeholder="">
+                      <input required maxlength="120" type="text" class="form-control" formControlName="cwe">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">e.g. 713</div>
                       </div>
