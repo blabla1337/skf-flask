@@ -3,8 +3,8 @@ from skf.api.restplus import api
 
 project = api.model('project', {
     'id': fields.Integer(readOnly=True, description='The unique identifier of a project item'),
-    'groupID': fields.Integer(required=True, description='The unique identifier of a project group'),
-    'ownerID': fields.Integer(required=True, description='The unique identifier of the owner of a project'),
+    'group_id': fields.Integer(required=True, description='The unique identifier of a project group'),
+    'owner_id': fields.Integer(required=True, description='The unique identifier of the owner of a project'),
     'name': fields.String(required=True, description='Project name'),
     'version': fields.String(required=True, description='Project version'),
     'description': fields.String(required=True, description='Project description'),

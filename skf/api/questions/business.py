@@ -17,28 +17,32 @@ def store_questions(checklist_type, data):
     log("User stored new sprint question list", "MEDIUM", "PASS")
     #Store the result of the questionaire if answer was true in checklists_kb
     for result in data.get('questions'):
-         val_num(result['question_ID'])
-         val_alpha(result['result'])
-         val_num(result['projectID'])
-         val_num(result['sprintID'])
-         question_ID = result['question_ID']
+         question_id = result['question_id']
          question_result = result['result']
-         question_project_id = result['projectID']
+         question_project_id = result['project_id']
          checklist_type = result['checklist_type']
-         sprint_id = result['sprintID']
+         sprint_id = result['sprint_id']
          status = 1
          if question_result == "True":
-             checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_ID).filter(ChecklistKB.checklist_type == checklist_type).all()
+             checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).all()
              for row in checklists:
-                 checklists_query = ChecklistResult(row.id, question_project_id, sprint_id, status, row.kbID)
-                 db.session.add(checklists_query)
-                 db.session.commit()
-    #Also check for the include always marked items so they are taken in account
-    checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == "True").filter(ChecklistKB.checklist_type == checklist_type).all()
-    for row in checklists_always:
-             checklists_query_always = ChecklistResult(row.id, question_project_id, sprint_id, status, row.kbID)
-             db.session.add(checklists_query_always)
+                 checklists_query = ChecklistResult(status)
+                 checklists_query.project_id = question_project_id
+                 checklists_query.sprint_id = sprint_id
+                 checklists_query.kb_id = row.kb_id
+                 checklists_query.checklist_id = row.id
+             db.session.add(checklists_query)
              db.session.commit()
+         #Also check for the include always marked items so they are taken in account
+         checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == "True").filter(ChecklistKB.checklist_type == checklist_type).all()
+         for row in checklists_always:
+            checklists_always = ChecklistResult(status)
+            checklists_always.project_id = question_project_id
+            checklists_always.sprint_id = sprint_id
+            checklists_always.kb_id = row.kb_id
+            checklists_always.checklist_id = row.id
+            db.session.add(checklists_always)
+            db.session.commit()
     return {'message': 'Sprint successfully created'}
 
 def new_question(data):

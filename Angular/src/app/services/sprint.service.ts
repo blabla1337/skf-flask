@@ -20,12 +20,12 @@ export class SprintService {
   public headers = new Headers({ 'Authorization': AppSettings.AUTH_TOKEN });
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
-  newSprint(name: string, projectID: number, description: string): Observable<Sprint> {
+  newSprint(name: string, project_id: number, description: string): Observable<Sprint> {
     return this.http
       .put(environment.API_ENDPOINT + '/sprint/new', JSON.stringify({
         name: name,
         description: description,
-        projectID: projectID
+        project_id: project_id
       }),
       { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
@@ -36,25 +36,20 @@ export class SprintService {
       map(response => response.json()))
   }
 
-  getSprintResults(sprint_name: string, project_id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/${sprint_name}/${project_id}`, { headers: this.headers }).pipe(
+  getSprintResults(sprint_id: number): Observable<Sprint[]> {
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/${sprint_id}`, { headers: this.headers }).pipe(
       map(response => response.json().items))
   }
 
-  getSprintResultsAudit(sprint_name: string, project_id: number): Observable<Sprint[]> {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/audit/${sprint_name}/${project_id}`, { headers: this.headers }).pipe(
-      map(response => response.json().items))
-  }
-
-  getSprintResultsAuditExport(sprint_name: string, project_id: number) {
-    return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${sprint_name}/${project_id}`, { headers: this.headers }).pipe(
+  getSprintResultsAuditExport(sprint_id: number) {
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${sprint_id}`, { headers: this.headers }).pipe(
       map(
       response => response.json().message,
       error => console.log('failed to export')));
   }
 
-  delete(sprint_name: string, project_id: number) {
-    const url = environment.API_ENDPOINT + `/sprint/delete/${sprint_name}/${project_id}`;
+  delete(sprint_id: number) {
+    const url = environment.API_ENDPOINT + `/sprint/delete/${sprint_id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(
       map(
       data => data,

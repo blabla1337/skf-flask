@@ -31,7 +31,7 @@ class ProjectSprint(db.Model):
     project = db.relationship('Project', backref=db.backref("sprints"))
 
 
-    def __init__(self, sprintName, sprintDesc):
+    def __init__(self, name, description):
         self.name = name
         self.description = description
  

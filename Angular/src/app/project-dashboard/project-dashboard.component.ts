@@ -28,15 +28,16 @@ export class ProjectDashboardComponent implements OnInit {
   public sprintName: string;
   public sprintDescription: string;
   public errors: string[] = [];
-  public sprintID: number;
+  public sprint_id: number;
   public return: boolean;
   public delete: string;
   public idFromURL: number;
   public canDelete: boolean;
   public canEdit: boolean;
-  public checklistTypeID: number;
+  public checklist_type: number;
   public checklistType: ChecklistType[] = [];
   public sprintStore: Sprint[] = [];
+  public selected: string;
 
   constructor(
     private modalService: NgbModal,
@@ -44,30 +45,24 @@ export class ProjectDashboardComponent implements OnInit {
     private route: ActivatedRoute,
     private sprintService: SprintService,
     private checklistService: ChecklistService,
-    private router: Router,
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      localStorage.setItem('projectID', params['id'])
+      localStorage.setItem('project_id', params['id'])
     });
 
     this.checklistTypeList();
     this.getSprintStats();
-    if (AppSettings.AUTH_TOKEN) {
-      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canDelete = decodedJWT.privilege.includes('delete');
-      this.canEdit = decodedJWT.privilege.includes('edit');
-    }
+
   }
 
   selectQuestions() {
-    this.questionsService.getQuestions(this.checklistTypeID).subscribe(
+    this.questionsService.getQuestions(this.checklist_type).subscribe(
       questions => this.questions = questions,
       err => console.log('getting questions failed')
     )
   }
-
 
   // Temp storage for sprint questionaire
   storeSprint(form: NgForm) {
@@ -82,8 +77,9 @@ export class ProjectDashboardComponent implements OnInit {
     if (!this.sprintName) { this.errors.push('Sprint name was empty!'); this.return = false }
     if (!this.sprintDescription) { this.errors.push('Sprint description was empty!'); this.return = false; }
     if (this.return == false) { return; }
-    this.sprintService.newSprint(this.sprintName, parseInt(this.idFromURL.toString(), 10), this.sprintDescription)
-      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log('error storing sprint'));
+
+    this.sprintService.newSprint(this.sprintName, Number(localStorage.getItem('project_id')), this.sprintDescription)
+      .subscribe(res => { this.sprint_id = res['sprint_id'] }, error => console.log('error storing sprint'));
     this.steps = true;
   }
 
@@ -94,32 +90,25 @@ export class ProjectDashboardComponent implements OnInit {
 
     this.sprintStore = [];
 
-    //We need to still set an array id there where no questions to iterate trough, otherwise the flask API will not know which sprint to write the results to!
-    if(!sprint_items['result']){
-      this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'question_ID': 1, 'result': 'False', 'sprintID': Number(this.sprintID), 'checklist_type': Number(this.checklistTypeID), 'sprint_name':this.sprintName});
-    }
-
     for (let i = 1; i < count_sprint + 1; i++) {
-      if (sprint_items['answer' + i] != '0') {
-        this.sprintStore.push({ 'projectID': Number(this.idFromURL), 'sprintID': Number(this.sprintID), 'question_ID': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklistTypeID), 'sprint_name':this.sprintName});
+      if (sprint_items['answer' + i] != '') {
+        this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprintName});
       }
     }
 
   setTimeout(() => {
-
-    this.questionsService.newSprint(this.sprintStore, this.checklistTypeID).subscribe(() => { },
+    this.questionsService.newSprint(this.checklist_type, this.sprintStore).subscribe(() => { },
       err => console.log('Error Storing new questions for sprint'));
       this.getSprintStats();
   }, 1000);
 
 this.steps = false;
-
   }
 
-deleter(sprint_name: string) {
+deleter(sprint_id: number) {
   if (this.delete == 'DELETE') {
-    this.sprintService.delete(sprint_name, Number(localStorage.getItem("projectID"))).subscribe(x =>
-      this.sprintService.getSprintStats(Number(localStorage.getItem("projectID"))).subscribe(
+    this.sprintService.delete(sprint_id).subscribe(x =>
+      this.sprintService.getSprintStats(Number(localStorage.getItem("project_id"))).subscribe(
         resp => this.sprintResult = resp,
         err => console.log('Error getting sprint stats'))
     )
@@ -129,17 +118,19 @@ deleter(sprint_name: string) {
 }
 
 getSprintStats() {
-  this.route.params.subscribe(params => {
-    this.idFromURL = params['id'];
-    localStorage.setItem('tempParamID', params['id'])
     setTimeout(() => {
-      this.sprintService.getSprintStats(Number(localStorage.getItem("projectID"))).subscribe(
+      this.sprintService.getSprintStats(Number(localStorage.getItem("project_id"))).subscribe(
         resp => this.sprintResult = resp,
         err => console.log('Error getting sprint stats'))
     }, 1000);
-  });
 }
+
+newOrOld(){
+console.log(this.selected)
+}
+
 open(content) {
+  this.selected = '';
   this.modalService.open(content, { size: 'lg' })
 }
 

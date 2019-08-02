@@ -22,18 +22,18 @@ class ChecklistResult(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    checklist_id = db.Column(db.Integer, db.ForeignKey('checklists_kb.id'), nullable=False)
+    checklist_id = db.Column(db.Integer, db.ForeignKey('checklists_kb.id'), nullable=True)
     checklist_item = db.relationship("ChecklistKB", backref=db.backref('checklist_results'))
 
-    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=True)
     project = db.relationship("Project", backref=db.backref('checklist_results'))
 
-    sprint_id = db.Column(db.Integer, db.ForeignKey('project_sprints.id'), nullable=False)
+    sprint_id = db.Column(db.Integer, db.ForeignKey('project_sprints.id'), nullable=True)
     sprint = db.relationship("ProjectSprint", backref=db.backref('checklist_results'))
 
-    status = db.Column(db.Integer, nullable=False)
+    status = db.Column(db.Integer, nullable=True)
     
-    kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"))
+    kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"), nullable=True)
     kb_items = db.relationship("KBItem", backref=db.backref('checklist_results'))  
     
     def __init__(self, status):

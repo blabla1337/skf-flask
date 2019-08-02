@@ -91,7 +91,7 @@ export class ProjectNewComponent implements OnInit {
 
     setTimeout(() => {
 
-      this.questionsService.newSprint(this.sprintStore, this.checklistTypeID).subscribe(() => { },
+      this.questionsService.newSprint(this.checklistTypeID, this.sprintStore).subscribe(() => { },
         err => console.log('Error Storing new questions for sprint'));
       if (!this.sprintID) { this.router.navigate(['undefined']) } else {
         this.router.navigate(['project-dashboard/' + this.projectID]);

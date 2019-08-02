@@ -11,7 +11,7 @@ from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklists_results import ChecklistResult
 from skf.database.kb_items import KBItem
 from skf.database.comments import Comment
-
+import sys
 
 def get_sprint_item(sprint_id, user_id):
     log("User requested specific sprint item", "MEDIUM", "PASS")
@@ -25,24 +25,8 @@ def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.kb_id != 0).order_by(asc(ChecklistResult.status)).group_by(ChecklistResult.checklist_id).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.kb_id != 0).paginate(1, 500, False)
     return result
-
-
-def get_sprint_results_audit(sprint_id, user_id):
-    log("User requested specific sprint audit items", "MEDIUM", "PASS")
-    val_num(sprint_id)
-    val_num(user_id)
-    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.status == 5).group_by(ChecklistResult.checklist_id).group_by(ChecklistResult.checklist_id).paginate(1, 500, False)
-    return result
-
-
-def get_sprint_results_audit_export(sprint_id, user_id):
-    log("User requested specific sprint audit export", "MEDIUM", "PASS")
-    val_num(sprint_id)
-    val_num(user_id)
-    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.status == 5).group_by(ChecklistResult.checklist_id).group_by(ChecklistResult.checklist_id).paginate(1, 500, False)
-    return {'message': export_failed_results(result) }
 
 
 def delete_sprint(sprint_id, user_id):
@@ -71,8 +55,8 @@ def update_sprint(sprint_id, user_id, data):
 
     try:
         sprint = ProjectSprint.query.get(sprint_id)
-        sprint.sprintName = data.get('name')
-        sprint.sprintDesc = data.get('description')
+        sprint.name = data.get('name')
+        sprint.description = data.get('description')
 
         db.session.add(sprint) 
         db.session.commit()
@@ -86,12 +70,9 @@ def update_sprint(sprint_id, user_id, data):
 
 def new_sprint(user_id, data):
     log("User created new sprint", "MEDIUM", "PASS")
-    val_alpha_num_special(data.get('name'))
-    val_alpha_num_special(data.get('description'))
-    val_num(data.get('projectID'))
-    sprintName = data.get('name')
-    sprintDesc = data.get('description')
-    projectID = data.get('projectID')
+    name = data.get('name')
+    description = data.get('description')
+    project_id = data.get('project_id')
 
     #groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
     #groupID = groupmember.groupID
@@ -100,9 +81,9 @@ def new_sprint(user_id, data):
         user = User.query.get(user_id)
         group = user.groups[0]
 
-        sprint = ProjectSprint(sprintName, sprintDesc)
+        sprint = ProjectSprint(name, description)
         sprint.group_id = group.id
-        sprint.project_id = projectID
+        sprint.project_id = project_id
 
         db.session.add(sprint)
         db.session.commit()
@@ -113,26 +94,19 @@ def new_sprint(user_id, data):
 
     # somewhat funky query to obtain the id
     result = ProjectSprint.query.filter(ProjectSprint.group_id == group.id).order_by(desc(ProjectSprint.id)).first()
-    return {'sprintID': result.id, 'message': 'Sprint successfully created'}
+    return {'sprint_id': result.id, 'message': 'Sprint successfully created'}
 
 
 def stats_sprint(project_id):
     log("User requested specific project sprint stats", "MEDIUM", "PASS")
     val_num(project_id)
-    sprint_info = (project_sprints.query.filter(project_sprints.projectID == project_id).all())
+    sprint_info = ProjectSprint.query.filter(ProjectSprint.project_id == project_id).all()
     sprint = []
     for result in sprint_info:
-        sprint_id = result.sprintID
-        sprint_desc = result.sprintDesc
-        sprint_name = result.sprintName
-        sprint_open = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.kbID > 0 ).filter(checklists_results.status == 1).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
-        sprint_closed = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.kbID > 0 ).filter(checklists_results.status == 2).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
-        sprint_accepted = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.kbID > 0 ).filter(checklists_results.status == 3).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
-        sprint_sec_ack = (checklists_results.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.kbID > 0 ).filter(checklists_results.status == 4).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
-        sprint_sec_fail = (projects.query.filter(checklists_results.sprintID == sprint_id).filter(checklists_results.kbID > 0 ).filter(checklists_results.status == 5).group_by(checklists_results.checklistID).group_by(checklists_results.checklistID).count())
-        checklist_type = projects.query.filter(projects.projectID == project_id).one()
-        total = sprint_open + sprint_closed + sprint_accepted + sprint_sec_ack + sprint_sec_fail
-        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name, 'sprint_open': sprint_open, 'sprint_closed': sprint_closed, 'sprint_accepted': sprint_accepted, 'sprint_sec_ack': sprint_sec_ack, 'sprint_sec_fail': sprint_sec_fail, 'sprint_items_total': total})
+        sprint_id = result.id
+        sprint_desc = result.description
+        sprint_name = result.name
+        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name})
     return sprint
 
 
@@ -142,9 +116,9 @@ def export_failed_results(sprint_results):
         file.write('date,title,description,mitigation,notes\n')
 
         for item in sprint_results.items:
-            checklist = checklists_kb.query.filter(checklists_kb.checklistID == item.checklistID).first()
+            checklist = checklists_kb.query.filter(checklists_kb.checklist_id == item.checklist_id).first()
             kb_item = kb_items.query.filter(kb_items.kbID == item.kbID).first()
-            comment = comments.query.filter(comments.sprintID == item.sprintID).filter(comments.checklistID == item.checklistID).filter(comments.status == item.status).order_by(desc(comments.id)).first()
+            comment = comments.query.filter(comments.sprint_id == item.sprint_id).filter(comments.checklist_id == item.checklist_id).filter(comments.status == item.status).order_by(desc(comments.id)).first()
 
             title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
             temp = kb_item.content.replace(',','\\,').split(" Solution:")
