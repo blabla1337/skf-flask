@@ -46,9 +46,3 @@ class User(db.Model):
     def __repr__(self):
         return "<User> {}| {} activated:{} access:{} email:{}>)".format(
            self.id, self.userName, self.activated, self.access, self.email)
-
-Authorization token: for user with ID 2 : 57152349
-riccardo@zerocopter.com
-
-Authorization token: for user with ID 3 : 23106284
-aa@zerocopter.com
