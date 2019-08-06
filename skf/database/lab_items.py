@@ -24,7 +24,7 @@ class LabItem(db.Model):
     link = db.Column(db.Text, nullable=False)
     level = db.Column(db.Integer, nullable=False)
 
-    def __init__(title, link, level):
+    def __init__(self, title, link, level):
     	self.title = title
     	self.link = link
     	self.level = level

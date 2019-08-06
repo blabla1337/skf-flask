@@ -27,6 +27,26 @@ def line2dict(line):
 
 def header():
 	return """
+
+import datetime
+from skf.database import db
+from skf.database.privileges import Privilege
+from skf.database.users import User
+from skf.database.groups import Group
+from skf.database.questions import Question
+from skf.database.checklist_types import ChecklistType
+from skf.database.checklists_kb import ChecklistKB
+from skf.database.checklists_results import ChecklistResult
+from skf.database.code_items import CodeItem
+from skf.database.comments import Comment
+from skf.database.groupmembers import GroupMember
+from skf.database.kb_items import KBItem
+from skf.database.lab_items import LabItem
+from skf.database.logs import Log
+from skf.database.project_sprints import ProjectSprint
+from skf.database.projects import Project
+from skf.database.question_results import QuestionResult
+
 def load_initial_data():
 
 #   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))
@@ -57,72 +77,6 @@ def load_initial_data():
         db.session.add(ChecklistType(name='ASVS LEVEL 1', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
         db.session.add(ChecklistType(name='ASVS LEVEL 2', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
 
-
-        db.session.add(Question("Does the sprint implement changes that affect and change CI/CD?", 1))
-        db.session.add(Question("Does the sprint implement changes that affect authentication/authorization?", 1))
-        db.session.add(Question("Does the sprint implement changes that affect session management?", 1))
-        db.session.add(Question("Does the sprint implement changes that affect access control systems?", 1))
-        db.session.add(Question("Does the sprint make use/implement an ORM framework? (object relational model)", 1))
-        db.session.add(Question("Does the sprint implement functions that handle user supplied input? (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc)", 1))
-        db.session.add(Question("Does the sprint implement functions that forward or redirect your users trough the application?", 1))
-        db.session.add(Question("Does the sprint implement functions that utilize wysiwyg editors?", 1))
-        db.session.add(Question("Does the sprint implement functions that utilize templating engines or single page apps such as (Angular, React)", 1))
-        db.session.add(Question("Does the sprint implement functions that allow for SVG scriptable content to be uploaded/posted?", 1))
-        db.session.add(Question("Does the sprint implement functions that reflect user supplied input on the side of the client?", 1))
-        db.session.add(Question("Does the sprint implement functions that utilize raw SQL queries?", 1))
-        db.session.add(Question("Does the sprint implement functions that utilize LDAP?", 1))
-        db.session.add(Question("Does the sprint implement functions that utilize OS commands?", 1))
-        db.session.add(Question("Does the sprint implement functions that get/grabs files from the file system?", 1))
-        db.session.add(Question("Does the sprint implement functions that parse or digests XML?", 1))
-        db.session.add(Question("Does the sprint implement/change functions with native code (C, C++)", 1))
-        db.session.add(Question("Does the sprint implement functions that deserializes objects (JSON, XML and YAML)", 1))
-        db.session.add(Question("Does the sprint implement functions that process sensitive data?", 1))
-        db.session.add(Question("Does the sprint imlement functions that require secure random values", 1))
-        db.session.add(Question("Does the sprint implement functions that impact logging?", 1))
-        db.session.add(Question("Does the sprint implement/changes TLS configuration?", 1))
-        db.session.add(Question("Does the sprint implement functions that allow users to upload/download files?", 1))
-        db.session.add(Question("Does the sprint implement functions that utilize GraphQL", 1))
-        db.session.add(Question("Does the sprint implement functions that store sensitive information?", 1))
-        db.session.add(Question("Does the sprint implement functions that allow users to send emails?", 1))
-        db.session.add(Question("Is the application in need of an architectural review?", 1))
-        db.session.add(Question("Is the application in need of a review of configurations and settings?", 1))
-        db.session.add(Question("Are you building on an application that has API features?", 1))
-        db.session.add(Question("Does this sprint introduce functions with critical business logic that needs to be reviewed?", 1))
-        db.session.add(Question("Does the sprint introduce change/affect on password policies?", 1))
-        db.session.add(Question("Does the sprint introduce changes that affect OTP?", 1))
-
-        db.session.add(Question("Does the sprint implement changes that affect and change CI/CD?", 2))
-        db.session.add(Question("Does the sprint implement changes that affect authentication/authorization?", 2))
-        db.session.add(Question("Does the sprint implement changes that affect session management?", 2))
-        db.session.add(Question("Does the sprint implement changes that affect access control systems?", 2))
-        db.session.add(Question("Does the sprint make use/implement an ORM framework? (object relational model)", 2))
-        db.session.add(Question("Does the sprint implement functions that handle user supplied input? (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc)", 2))
-        db.session.add(Question("Does the sprint implement functions that forward or redirect your users trough the application?", 2))
-        db.session.add(Question("Does the sprint implement functions that utilize wysiwyg editors?", 2))
-        db.session.add(Question("Does the sprint implement functions that utilize templating engines or single page apps such as (Angular, React)", 2))
-        db.session.add(Question("Does the sprint implement functions that allow for SVG scriptable content to be uploaded/posted?", 2))
-        db.session.add(Question("Does the sprint implement functions that reflect user supplied input on the side of the client?", 2))
-        db.session.add(Question("Does the sprint implement functions that utilize raw SQL queries?", 2))
-        db.session.add(Question("Does the sprint implement functions that utilize LDAP?", 2))
-        db.session.add(Question("Does the sprint implement functions that utilize OS commands?", 2))
-        db.session.add(Question("Does the sprint implement functions that get/grabs files from the file system?", 2))
-        db.session.add(Question("Does the sprint implement functions that parse or digests XML?", 2))
-        db.session.add(Question("Does the sprint implement/change functions with native code (C, C++)", 2))
-        db.session.add(Question("Does the sprint implement functions that deserializes objects (JSON, XML and YAML)", 2))
-        db.session.add(Question("Does the sprint implement functions that process sensitive data?", 2))
-        db.session.add(Question("Does the sprint imlement functions that require secure random values", 2))
-        db.session.add(Question("Does the sprint implement functions that impact logging?", 2))
-        db.session.add(Question("Does the sprint implement/changes TLS configuration?", 2))
-        db.session.add(Question("Does the sprint implement functions that allow users to upload/download files?", 2))
-        db.session.add(Question("Does the sprint implement functions that utilize GraphQL", 2))
-        db.session.add(Question("Does the sprint implement functions that store sensitive information?", 2))
-        db.session.add(Question("Does the sprint implement functions that allow users to send emails?", 2))
-        db.session.add(Question("Is the application in need of an architectural review?", 2))
-        db.session.add(Question("Is the application in need of a review of configurations and settings?", 2))
-        db.session.add(Question("Are you building on an application that has API features?", 2))
-        db.session.add(Question("Does this sprint introduce functions with critical business logic that needs to be reviewed?", 2))
-        db.session.add(Question("Does the sprint introduce change/affect on password policies?", 2))
-        db.session.add(Question("Does the sprint introduce changes that affect OTP?", 2))
 """
 
 
@@ -133,7 +87,7 @@ def footer():
 
     except:
         db.session.rollback()
-        return False
+        raise
 """
 
 def output(line=''):
@@ -147,25 +101,35 @@ def main():
 
 	for line in f:
 		if "INSERT" in line:
-			if "checklists_kb" in line:
+			if "`questions`" in line:
+				d = line2dict(line)
+				output("q = Question('{}', {})".format(d['question'], d['checklist_type']))
+				output("db.session.add(q)")
+				output("db.session.commit()")
+				output()
+
+			elif "checklists_kb" in line:
 
 				d = line2dict(line)
 				#print(d)
-				output("c = ChecklistKB('{}', '{}', {}, {});".format(
-					d['checklistID'], d['content'], d['cwe'], True if d['include_always'].lower()=='true' else False))
+				output("c = ChecklistKB('{}', '{}', {}, {}, {});".format(
+					d['checklistID'],
+					d['content'],
+					d['checklist_type'],
+					True if d['include_always'].lower()=='true' else False,
+					d['cwe']
+				))
 				output("c.question_id = {}".format(d['question_ID']))
 				output("c.kb_id = {}".format(d['kbID']))
-				output("c.checklist_type = {}".format(d['checklist_type']))
 				output("db.session.add(c)")
+				output("db.session.commit()")
 				output()
+				#def __init__(self, checklist_id, content, checklist_type, include_always, cwe):
 			elif "`lab_items`" in line:
-
 				d = line2dict(line)
 				output("db.session.add(LabItem('{}','{}', {}))".format(d['title'],d['link'],d['level']))
-
-			elif "`questions`" in line:
-				d = line2dict(line)
-				output("db.session.add(Question({}, '{}'))".format(d['checklist_type'],d['question']))
+				output("db.session.commit()")
+				output()
 
 
 			elif "`users`" in line:
