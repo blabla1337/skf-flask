@@ -41,7 +41,7 @@ export class SprintService {
       map(response => response.json().items))
   }
 
-  getSprintResultsAuditExport(sprint_id: number) {
+  getSprintResultsExport(sprint_id: number) {
     return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${sprint_id}`, { headers: this.headers }).pipe(
       map(
       response => response.json().message,
@@ -54,5 +54,13 @@ export class SprintService {
       map(
       data => data,
       error => console.log('failed to delete')))
+  }
+
+  deleteChecklistResult(checklist_result_id: number) {
+    const url = environment.API_ENDPOINT + `/sprint/results/delete/${checklist_result_id}`;
+    return this.http.delete(url, { headers: this.headers }).pipe(
+      map(
+      data => data,
+      () => console.log('failed to delete')))
   }
 }

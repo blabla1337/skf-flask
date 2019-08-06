@@ -16,10 +16,7 @@ project_stats = api.model('project_stats', {
     'name': fields.String(required=True, description='The name of a project'),
     'description': fields.String(required=True, description='The description of a project'),
     'type': fields.Integer(readOnly=True, description='The selected type of checklist of a project item'),
-    'open': fields.Integer(readOnly=True, description='The count of open items per project'),
-    'closed': fields.Integer(readOnly=True, description='The count of closed items per project'),
-    'accepted': fields.Integer(readOnly=True, description='The count of accpeted items per project'),
-})
+ })
 
 page_of_project_items = api.inherit('Page of project items', {
     'items': fields.List(fields.Nested(project))

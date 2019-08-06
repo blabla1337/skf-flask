@@ -40,27 +40,34 @@
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
+          <div class="srcWrap">
+              <div class="src">
+                <input class="searchinput" [(ngModel)]="queryString" id="search" name="search"
+                  placeholder="Search feature/sprint" />
+                <i class="fa fa-search"></i>
+              </div>
+            </div>
         <div class="content-panel">
-          <div *ngFor="let sprint of sprintResult" class="col-md-3">
+          <div *ngFor="let sprint of sprintResult | stringFilter : queryString;" class="col-md-3">
             <div class="card">
               <div class="card-header padding-right">
-                {{sprint.sprint_name}}
+                {{sprint.title}}
               </div>
               <div class="card-block">
                 <ngb-tabset>
                   <ngb-tab>
                     <ng-template ngbTabTitle><b>Summary</b></ng-template>
                     <ng-template ngbTabContent>
-
-
                       <span style="margin-left:40%;" class="icon"><i class="fa fa-check-circle fa-4x"></i></span>
+                      <br/>
+                      total items: {{sprint.sprint_items_total}}
                     </ng-template>
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle><b>Information</b></ng-template>
                     <ng-template ngbTabContent>
                       <br />
-                      <p><b>Name: <br>{{sprint.sprint_name}}</b></p>
+                      <p><b>Name: <br>{{sprint.title}}</b></p>
                       <p>Sprint description: <br>{{sprint.sprint_desc}} </p>
                       <br>
                       <p>Total created items: <span>{{sprint.sprint_items_total}}</span></p>
@@ -185,8 +192,8 @@
                       </p>
                     </div>
                     <br/>
-                    <div *ngIf="!selected">
-                      <select class="form-control" (change)="newOrOld()" [(ngModel)]="selected" id="select-question">
+                    <div>
+                      <select class="form-control" [(ngModel)]="selected" id="select-question">
                         <option selected >Select a question to edit</option>
                         <option value="old">Add to existing</option>
                         <option value="new">Create new </option>
@@ -194,7 +201,10 @@
                       <br/>
                     </div>
                     <div *ngIf="selected == 'new'">
-                      <div class="form-group">
+                        <ngb-alert [dismissible]="false">
+                            Create a complete new feature/sprint to start working on!
+                               </ngb-alert>
+                      <div class="form-group" style="padding-bottom: 7.5%;">
                         <div class="wrap">
                           <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
                           <div class="col-sm-10">
@@ -220,27 +230,36 @@
                           </div>
                         </div>
                       </div>
+                      <div class="buttons">
+                          <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('step1');"><i
+                              class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                          <button class="btn btn-default" type="submit" id="finish" name="step2"
+                            (click)="t.select('finish'); newSprint();"><i class="fa fa-arrow-right"
+                              aria-hidden="true"></i></button>
+                        </div>
                     </div>
 
                     <div *ngIf="selected == 'old'">
-                      <div class="form-group">
+                      <ngb-alert [dismissible]="false">
+                       Add new checklists items to an existing sprint/feature!
+                          </ngb-alert>
+                      <div class="form-group" style="padding-bottom:7.5%">
                         <div class="wrap">
                           <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
                           <div class="col-sm-10">
-                            <ng-select [items]="sprintResult" bindLabel="sprint_name" placeholder="Select Item"
-                              [(ngModel)]="sprintName">
+                            <ng-select [items]="sprintResult" bindLabel="title" placeholder="Select Item"
+                              [(ngModel)]="oldSprints">
                             </ng-select>
                           </div>
                         </div>
                       </div>
-                    </div>
-
-                    <div class="buttons">
-                      <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('step1');"><i
-                          class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                      <button class="btn btn-default" type="submit" id="finish" name="step2"
-                        (click)="t.select('finish'); newSprint();"><i class="fa fa-arrow-right"
-                          aria-hidden="true"></i></button>
+                      <div class="buttons">
+                          <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('step1');"><i
+                              class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                          <button class="btn btn-default" type="submit" id="finish" name="step2"
+                            (click)="t.select('finish'); oldSprint();"><i class="fa fa-arrow-right"
+                              aria-hidden="true"></i></button>
+                        </div>
                     </div>
                   </ng-template>
                 </ngb-tab>

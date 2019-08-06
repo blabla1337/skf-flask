@@ -38,7 +38,9 @@ export class ProjectDashboardComponent implements OnInit {
   public checklistType: ChecklistType[] = [];
   public sprintStore: Sprint[] = [];
   public selected: string;
-
+  public oldSprints: string;
+  public queryString: string;
+  
   constructor(
     private modalService: NgbModal,
     private questionsService: QuestionsService,
@@ -83,6 +85,13 @@ export class ProjectDashboardComponent implements OnInit {
     this.steps = true;
   }
 
+  oldSprint() {
+    console.log(this.oldSprints)
+    this.sprint_id = this.oldSprints['sprint_id']
+    this.sprintName = this.oldSprints['sprint_name']    
+  }
+
+
   newSprintQuestions() {
 
     const sprint_items = JSON.parse(localStorage.getItem('questions'));
@@ -94,6 +103,10 @@ export class ProjectDashboardComponent implements OnInit {
       if (sprint_items['answer' + i] != '') {
         this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprintName});
       }
+    }
+
+    if(count_sprint == 0){
+      this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': 0, 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprintName});
     }
 
   setTimeout(() => {
@@ -125,15 +138,6 @@ getSprintStats() {
     }, 1000);
 }
 
-newOrOld(){
-console.log(this.selected)
-}
-
-open(content) {
-  this.selected = '';
-  this.modalService.open(content, { size: 'lg' })
-}
-
 checklistTypeList() {
   this.checklistService
     .getChecklistTypeList()
@@ -143,4 +147,9 @@ checklistTypeList() {
       },
       err => console.log('errors went wrong!'));
 }
+
+open(content) {
+  this.selected = '';
+  this.modalService.open(content, { size: 'lg' })
+  }
 }

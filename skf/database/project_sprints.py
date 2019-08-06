@@ -30,6 +30,8 @@ class ProjectSprint(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"))
     project = db.relationship('Project', backref=db.backref("sprints"))
 
+    checklist_type_id = db.Column(db.Integer, db.ForeignKey("checklist_types.id"))
+    checklist_type = db.relationship('ChecklistType', backref=db.backref("sprints"))
 
     def __init__(self, name, description):
         self.name = name

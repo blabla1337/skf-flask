@@ -75,7 +75,7 @@ def login_user(data):
 
 def list_privileges():
     log("User requested privileges items", "MEDIUM", "PASS")
-    result = Privilege.query.filter(Privilege.id != "1").paginate(1, 500, False)
+    result = Privilege.query.paginate(1, 500, False)
     return result
 
 def create_user(data):
@@ -86,12 +86,11 @@ def create_user(data):
     email = data.get('email')
     #access = False # By default
     #activated = False # By default
-    privilege_id = 0
     password = ""
      
     try:
         user = User(email)
-        user.privilege_id = privilege_id
+        user.privilege_id = data.get('privilege_id')
         user.userName = accessToken
         user.accessToken  = accessToken
         # Add user to default groupmember issue #422

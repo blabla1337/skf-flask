@@ -31,16 +31,20 @@ def store_questions(checklist_type, data):
                  checklists_query.sprint_id = sprint_id
                  checklists_query.kb_id = row.kb_id
                  checklists_query.checklist_id = row.id
-             db.session.add(checklists_query)
-             db.session.commit()
+                 checklists_query.checklist_type_id = checklist_type
+                 db.session.add(checklists_query)
+                 db.session.commit()
          #Also check for the include always marked items so they are taken in account
-         checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == "True").filter(ChecklistKB.checklist_type == checklist_type).all()
+         print('waar ben ik g', file=sys.stderr)
+         checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).all()
          for row in checklists_always:
+            print('waarom kom ik hier?', file=sys.stderr)
             checklists_always = ChecklistResult(status)
             checklists_always.project_id = question_project_id
             checklists_always.sprint_id = sprint_id
             checklists_always.kb_id = row.kb_id
             checklists_always.checklist_id = row.id
+            checklists_always.checklist_type_id = checklist_type
             db.session.add(checklists_always)
             db.session.commit()
     return {'message': 'Sprint successfully created'}

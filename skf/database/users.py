@@ -26,8 +26,8 @@ class User(db.Model):
     privilege = db.relationship("Privilege", backref=db.backref('users'))
     
     accessToken = db.Column(db.Integer, unique=True, nullable=False)
-    userName = db.Column(db.String(255))
-    password = db.Column(db.Text)
+    userName = db.Column(db.String(255), nullable=True, unique=True)
+    password = db.Column(db.Text, nullable=True)
     access = db.Column(db.Boolean, nullable=False)
     activated = db.Column(db.Boolean, nullable=False)
     email = db.Column(db.String(255), unique=True)
@@ -46,3 +46,9 @@ class User(db.Model):
     def __repr__(self):
         return "<User> {}| {} activated:{} access:{} email:{}>)".format(
            self.id, self.userName, self.activated, self.access, self.email)
+
+Authorization token: for user with ID 2 : 57152349
+riccardo@zerocopter.com
+
+Authorization token: for user with ID 3 : 23106284
+aa@zerocopter.com

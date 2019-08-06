@@ -101,25 +101,6 @@ def delete_project(project_id, user_id):
 
 def stats_project(project_id):
     log("User requested specific project stats", "MEDIUM", "PASS")
-    sprint_info = (ProjectSprint.query.filter(ProjectSprint.project_id == project_id).all())
-    sprint_open = 0
-    sprint_closed = 0
-    sprint_accepted = 0
+    result = (ProjectSprint.query.filter(ProjectSprint.project_id == project_id).all())
 
-    for result in sprint_info:
-        sprint_id = result.sprintID
-        sprint_open_add = (ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.status == 1).group_by(ChecklistResult.checklist_id).count())
-        sprint_open += sprint_open_add
-        sprint_closed_add = (ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.status == 2).group_by(ChecklistResult.checklist_id).count())
-        sprint_closed += sprint_closed_add
-        sprint_accepted_add = (ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.status == 3).group_by(ChecklistResult.checklist_id).count())    
-        sprint_accepted += sprint_accepted_add
-
-    project_info = (Project.query.filter(Project.id == project_id).one())
-    project_name = project_info.name
-    project_desc = project_info.description
-    project_open = open
-    project_closed = (ChecklistResult.query.filter(ChecklistResult.project_id == project_id).filter(ChecklistResult.status == 2).count())
-    project_accepted = (ChecklistResult.query.filter(ChecklistResult.project_id == project_id).filter(ChecklistResult.status == 3).count())
-    result = {'project_id': project_id, 'project_name': project_name, 'project_desc': project_desc, 'project_open': project_open, 'project_closed': project_closed, 'project_accepted': project_accepted}
     return result

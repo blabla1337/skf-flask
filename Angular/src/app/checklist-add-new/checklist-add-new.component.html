@@ -92,7 +92,7 @@
         </div>
 
         <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-          <div (mouseout)="editChecklist=false" *ngFor="let item of checklist; let myIndex = index;">
+          <div *ngFor="let item of checklist; let myIndex = index;">
             <ngb-panel title="{{item.checklist_items_checklist_id}} {{item.checklist_items_content}}">
               <ng-template ngbPanelContent>
 

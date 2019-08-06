@@ -157,17 +157,9 @@ def update_checklist_question_correlation(checklist_id, checklist_type, data):
 def delete_checklist_type(checklist_type_id):
     log("User deleted checklist type", "MEDIUM", "PASS")
     val_num(checklist_type_id)
-    # We need to delete everything that has a corelation to the checklist type id to prevent mismatches in the DB
     checklist_types = ChecklistType.query.get(checklist_type_id)
-    checklist_items = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
-    question_results = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
-    questions = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type_id).all()
-
     try:
-        db.session.delete(checklist_items)
         db.session.delete(checklist_types)
-        db.session.delete(question_results)
-        db.session.delete(questions)
         db.session.commit()
     except:
         db.session.rollback()

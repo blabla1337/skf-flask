@@ -36,9 +36,9 @@ export class KnowledgebaseComponent implements OnInit {
     }
     this._knowledgeService.newKnowledgebaseItem(this.knowledgebaseForm.value)
       .subscribe(
-        () => console.log('Eror storing a new knowledgebase item!')
+        () => this.getKnowledgeItems()
       );
-    this.getKnowledgeItems();
+    
   }
 
   deleteKnowledgebaseItem(id: number) {

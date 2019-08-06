@@ -25,26 +25,8 @@ def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).filter(ChecklistResult.kb_id != 0).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_type_id)).paginate(1, 500, False)
     return result
-
-
-def delete_sprint(sprint_id, user_id):
-    log("User deleted sprint", "MEDIUM", "PASS")
-    val_num(sprint_id)
-    val_num(user_id)
-
-    try:
-        result = ProjectSprint.query.get(sprint_id)
-        db.session.delete(result)
-        db.session.commit()
-
-    except:
-        db.session.rollback()
-        raise
-
-    return {'message': 'Sprint successfully deleted'}
-
 
 def update_sprint(sprint_id, user_id, data):
     log("User updated sprint", "MEDIUM", "PASS")
@@ -73,6 +55,7 @@ def new_sprint(user_id, data):
     name = data.get('name')
     description = data.get('description')
     project_id = data.get('project_id')
+    checklist_type_id = data.get('checklist_type_id')
 
     #groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
     #groupID = groupmember.groupID
@@ -84,7 +67,7 @@ def new_sprint(user_id, data):
         sprint = ProjectSprint(name, description)
         sprint.group_id = group.id
         sprint.project_id = project_id
-
+        sprint.checklist_type_id = checklist_type_id
         db.session.add(sprint)
         db.session.commit()
 
@@ -96,7 +79,6 @@ def new_sprint(user_id, data):
     result = ProjectSprint.query.filter(ProjectSprint.group_id == group.id).order_by(desc(ProjectSprint.id)).first()
     return {'sprint_id': result.id, 'message': 'Sprint successfully created'}
 
-
 def stats_sprint(project_id):
     log("User requested specific project sprint stats", "MEDIUM", "PASS")
     val_num(project_id)
@@ -106,31 +88,65 @@ def stats_sprint(project_id):
         sprint_id = result.id
         sprint_desc = result.description
         sprint_name = result.name
-        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'sprint_name': sprint_name})
+        total = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).count()
+        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'title': sprint_name, 'sprint_items_total': total })
     return sprint
 
+def delete_sprint(sprint_id, user_id):
+    log("User deleted sprint", "MEDIUM", "PASS")
+    val_num(sprint_id)
+    val_num(user_id)
 
-def export_failed_results(sprint_results):
-    file_path = "export_" + id_generator(16)
-    with open(file_path, 'a') as file:
-        file.write('date,title,description,mitigation,notes\n')
+    try:
+        result = ProjectSprint.query.get(sprint_id)
+        db.session.delete(result)
+        db.session.commit()
 
-        for item in sprint_results.items:
-            checklist = checklists_kb.query.filter(checklists_kb.checklist_id == item.checklist_id).first()
-            kb_item = kb_items.query.filter(kb_items.kbID == item.kbID).first()
-            comment = comments.query.filter(comments.sprint_id == item.sprint_id).filter(comments.checklist_id == item.checklist_id).filter(comments.status == item.status).order_by(desc(comments.id)).first()
+    except:
+        db.session.rollback()
+        raise
 
-            title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
-            temp = kb_item.content.replace(',','\\,').split(" Solution:")
-            temp1 = temp[0].split(" Description:")
+    return {'message': 'Sprint successfully deleted'}
 
-            description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
-            mitigation = temp[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
-            file.write('"' + comment.date + '","' + title + '","' + description + '","' + mitigation + '","' + comment.comment.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ') + '"\n')
+def delete_checklist_result(id, user_id):
+    log("User deleted sprint", "MEDIUM", "PASS")
+    val_num(id)
+    val_num(user_id)
+    try:
+        result = ChecklistResult.query.get(id)
+        db.session.delete(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    return {'message': 'checklist result successfully deleted'}
 
+
+def export_results(sprint_results):
+    results = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_results).all()
+    file_path = "export.csv"
+    with open(file_path, 'w+') as file:
+        file.write('title,description,mitigation\n')
+
+        for item in results:
+            if item.kb_id != 1:
+                checklist = ChecklistKB.query.filter(ChecklistKB.id == item.checklist_id).first()
+                kb_item = KBItem.query.filter(KBItem.kb_id == item.kb_id).first()
+
+                title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                if kb_item != None:
+                    print(kb_item.content, file=sys.stderr)
+                    temp = kb_item.content.replace(',','\\,').split(" Solution:")
+                    temp1 = temp[0].split(" Description:")
+                    description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                    mitigation = temp[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                else:
+                    description = "empty"
+                    mitigation = "empty"
+                file.write('"' + title + '","' + description + '","' + mitigation + '"\n')
     with open(file_path, 'rb') as file:
-        return base64.b64encode(file.read())
 
+        return {'message': base64.b64encode(file.read())}
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))

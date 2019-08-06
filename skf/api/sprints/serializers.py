@@ -11,15 +11,9 @@ sprint = api.model('sprint', {
 
 sprint_stats = api.model('sprint_stats', {
     'sprint_id': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
-    'sprint_name': fields.String(required=True, description='The name of a sprint'),
+    'title': fields.String(required=True, description='The name of a sprint'),
     'sprint_desc': fields.String(required=True, description='The description of a sprint'),
-    'sprint_open': fields.Integer(readOnly=True, description='The count of open items per sprint'),
-    'sprint_closed': fields.Integer(readOnly=True, description='The count of closed items per sprint'),
-    'sprint_accepted': fields.Integer(readOnly=True, description='The count of accepted items per sprint'),
-    'sprint_sec_ack': fields.Integer(readOnly=True, description='The count of verified correct items per sprint by security review'),
-    'sprint_sec_fail': fields.Integer(readOnly=True, description='The count of failed items per sprint by security review'),
     'sprint_items_total': fields.Integer(readOnly=True, description='The count of total available items in a sprint'),
-    'checklist_type': fields.Integer(required=True, description='Project checklist type'),
 })
 
 page_of_sprint_items = api.inherit('Page of sprint items', {
@@ -39,6 +33,8 @@ sprint_new = api.model('Sprint new', {
 })
 
 results = api.model('results', {
+    'id': fields.Integer(required=True, description='Knowledge base content'),
+    'checklist_type': fields.String(attribute='checklist_type.name', required=True, description='Knowledge base content'),
     'status': fields.Integer(readOnly=True, description='The status of a sprint item'),
     'sprint_id': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
     'project_id': fields.Integer(required=True, description='The unique identifier of a sprint project'),
@@ -46,6 +42,7 @@ results = api.model('results', {
     'checklist_items_checklist_id': fields.String(attribute='checklist_item.checklist_id', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='checklist_item.content', required=True, description='Checklist content'),
     'cwe': fields.Integer(attribute='checklist_item.cwe', required=False, description='The CWE unique identifier'),
+    'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='Knowledge base title'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
 })
@@ -57,4 +54,8 @@ sprint_results = api.inherit('Page of sprint results', {
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
     'sprint_id': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),  
+})
+
+delete_checklist_results = api.model('Response message', {
+    'checklist_type_id': fields.Integer(required=True, description='Response message'),
 })

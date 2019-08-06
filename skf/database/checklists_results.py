@@ -1,4 +1,3 @@
-
 from skf.database import db
 
 '''
@@ -36,6 +35,9 @@ class ChecklistResult(db.Model):
     kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"), nullable=True)
     kb_items = db.relationship("KBItem", backref=db.backref('checklist_results'))  
     
+    checklist_type_id = db.Column(db.Integer, db.ForeignKey("checklist_types.id"))
+    checklist_type = db.relationship('ChecklistType', backref=db.backref("checklist_results"))
+
     def __init__(self, status):
         self.status = status
 
