@@ -14,8 +14,8 @@ RESTPLUS_ERROR_404_HELP = False
 DATABASE = "db/db.sqlite"
 
 # SQLAlchemy settings
-SQLALCHEMY_DATABASE_URI = 'mysql://ricco:the_password@localhost/bla'
-#SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:H5hng15K@localhost/skf' 
+#SQLALCHEMY_DATABASE_URI = 'mysql://ricco:the_password@localhost/bla'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:H5hng15K@localhost/skf' 
 
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False

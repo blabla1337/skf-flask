@@ -1,11 +1,11 @@
 import os
+import sys 
 import datetime
 from flask import Flask, current_app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
 from shutil import copyfile
 from skf.database import db
-#from skf.database.kb_items import KBItem
 from skf.database.users import User
 from skf.database.groups import Group
 from skf.database.privileges import Privilege
@@ -13,8 +13,6 @@ from skf.database.kb_items import KBItem
 from skf.database.code_items import CodeItem
 from skf.database.checklist_types import ChecklistType
 from skf.initial_data import load_initial_data
-import sys 
-#from sqlite3 import dbapi2 as sqlite3
 
 def connect_db():
     """Connects to the specific database."""
@@ -23,46 +21,8 @@ def connect_db():
     #return rv
     return True
 
-def load_initial_data():
-
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read", 1))
-    try:
-        p = Privilege('edit:read:manage:delete')
-        db.session.add(p)
-        db.session.add(Privilege('edit:read:delete'))
-        db.session.add(Privilege('edit:read'))
-        db.session.add(Privilege('read'))  
-
-#   INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org", 1))
-        user = User(userName='admin', accessToken=1234, email="example@owasp.org")
-        user.privilege = p
-        db.session.add(user)
-
-#   INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup", 1))
-        group = Group('privateGroup', datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
-#   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1, 1)
-        group.members.append(user)
-        group.owner = user
-        db.session.add(group)
-        
-#   INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS LEVEL 1", "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.", 1))
-#   INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS LEVEL 2", "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.", 1))
-        db.session.add(ChecklistType(name='ASVS LEVEL 1', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
-        db.session.add(ChecklistType(name='ASVS LEVEL 2', description='The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.'))
-
-        db.session.commit()
-              
-        return True
-    except:
-        print('loading initial data was bad!', file=sys.stderr)
-        db.session.rollback()
-        return False
-
 def load_test_data():
-    print("****** TEST DATA *******")
+    print("Loading test data")
     try:
 
         for i in range(1, 5):
@@ -110,36 +70,33 @@ def load_test_data():
         db.session.add(checklist_kb)
 
         db.session.commit()
-        return True
 
-    except Exception as e:
+    except:
         db.session.rollback()
-        return False
+        raise
 
 def clear_db():
+    print("Clearing the database")
     try:
         db.drop_all()
         db.session.commit()
-        return True
     except:
+        print("Error occurred clearing the database")
         db.session.rollback()
-        return False
+        raise
 
 def init_db(testing=False):
     """Initializes the database.""" 
+    clear_db()
+    print("Initializing the database")
+    db.create_all()
+    db.session.commit()
+
+    load_initial_data()
 
     if testing == True:
-
-        db.drop_all()
-        db.session.commit()
-        return load_initial_data() & load_test_data()
-
+        load_test_data()
     else:
-        clear_db()
-        db.create_all()
-        db.session.commit()
-
-        load_initial_data()
         init_md_code_examples()
         init_md_knowledge_base()
 
@@ -151,7 +108,6 @@ def update_db():
 
     init_md_code_examples()
     init_md_knowledge_base()
-
 
     '''
 def get_db():
@@ -191,9 +147,8 @@ def init_md_knowledge_base():
         print('Initialized the markdown knowledge-base.')
         return True
 
-    except Exception as e:
-        print(e)
-        return False
+    except:
+        raise
 
 
 def init_md_code_examples():
@@ -227,6 +182,5 @@ def init_md_code_examples():
         print('Initialized the markdown code-examples.')
         return True
 
-    except Exception as e:
-        print(e)
-        return False
+    except:
+        raise
