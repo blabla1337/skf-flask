@@ -62,7 +62,7 @@ def new_sprint(user_id, data):
 
     try:
         user = User.query.get(user_id)
-        group = user.groups[0]
+        #group = user.groups[0]
 
         sprint = ProjectSprint(name, description)
         sprint.group_id = group.id

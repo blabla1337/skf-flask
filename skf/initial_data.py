@@ -396,14 +396,14 @@ def load_initial_data():
         db.session.add(q)
         db.session.commit()
         
-        c = ChecklistKB('2.0', 'Authentication Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('2.0', 'Authentication Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
         c = ChecklistKB('2.1.1', 'Verify that user set passwords are at least 12 characters in length. (C6)', 1, False, 521);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 59
         db.session.add(c)
         db.session.commit()
@@ -517,7 +517,7 @@ def load_initial_data():
         db.session.commit()
         
         c = ChecklistKB('2.5.4', 'Verify shared or default accounts are not present (e.g. "root", "admin", or "sa").', 1, True, 16);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 63
         db.session.add(c)
         db.session.commit()
@@ -564,9 +564,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.0', 'Session Management Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('3.0', 'Session Management Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -654,9 +654,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('4.0', 'Access Control Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('4.0', 'Access Control Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -720,14 +720,14 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.0', 'Validation, Sanitization and Encoding Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('5.0', 'Validation, Sanitization and Encoding Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
         c = ChecklistKB('5.1.1', 'Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, or environment variables).', 1, False, 235);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 71
         db.session.add(c)
         db.session.commit()
@@ -888,9 +888,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('6.0', 'Stored Cryptography Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('6.0', 'Stored Cryptography Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -900,9 +900,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('7.0', 'Error Handling and Logging Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('7.0', 'Error Handling and Logging Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -919,14 +919,14 @@ def load_initial_data():
         db.session.commit()
         
         c = ChecklistKB('7.4.1', 'Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  ([C10](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 1, False, 210);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 15
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.0', 'Error Handling and Logging Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('8.0', 'Error Handling and Logging Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -972,9 +972,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('9.0', 'Communications Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('9.0', 'Communications Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -996,9 +996,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('10.0', 'Malicious Code Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('10.0', 'Malicious Code Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -1020,9 +1020,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.0', 'Business Logic Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('11.0', 'Business Logic Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -1068,9 +1068,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.0', 'File and Resources Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('12.0', 'File and Resources Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -1140,9 +1140,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.0', 'API and Web Service Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('13.0', 'API and Web Service Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -1194,9 +1194,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.0', 'Configuration Verification Requirements', 1, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('14.0', 'Configuration Verification Requirements', 1, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -1296,19 +1296,19 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.0', 'Architecture, Design and Threat Modeling Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('1.0', 'Architecture, Design and Threat Modeling Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1', ' Secure Software Development Lifecycle Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('1.1', ' Secure Software Development Lifecycle Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.1', 'Verify the use of a secure software development lifecycle that addresses security in all stages of development.', 2, False, 0);
+        c = ChecklistKB('1.1.1', 'Verify the use of a secure software development lifecycle that addresses security in all stages of development.', 2, False, None);
         c.question_id = 1
         c.kb_id = 272
         db.session.add(c)
@@ -1350,9 +1350,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.2', 'Authentication Architectural Requirements', 2, False, 0);
+        c = ChecklistKB('1.2', 'Authentication Architectural Requirements', 2, False, None);
         c.question_id = 27
-        c.kb_id = 0
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -1464,19 +1464,19 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.7.2', 'Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 0);
+        c = ChecklistKB('1.7.2', 'Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, None);
         c.question_id = 27
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.8.1', 'Verify that all sensitive data is identified and classified into protection levels.', 2, False, 0);
+        c = ChecklistKB('1.8.1', 'Verify that all sensitive data is identified and classified into protection levels.', 2, False, None);
         c.question_id = 27
         c.kb_id = 278
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.8.2', 'Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture.', 2, False, 0);
+        c = ChecklistKB('1.8.2', 'Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture.', 2, False, None);
         c.question_id = 27
         c.kb_id = 278
         db.session.add(c)
@@ -1542,7 +1542,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.14.4', 'Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts.', 2, False, 0);
+        c = ChecklistKB('1.14.4', 'Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts.', 2, False, None);
         c.question_id = 27
         c.kb_id = 281
         db.session.add(c)
@@ -1560,9 +1560,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('2.0', 'Authentication Verification Requirements', 2, False, 0);
+        c = ChecklistKB('2.0', 'Authentication Verification Requirements', 2, False, None);
         c.question_id = 27
-        c.kb_id = 0
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -1711,7 +1711,7 @@ def load_initial_data():
         db.session.commit()
         
         c = ChecklistKB('2.5.4', 'Verify shared or default accounts are not present (e.g. "root", "admin", or "sa").', 2, True, 16);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 63
         db.session.add(c)
         db.session.commit()
@@ -1872,9 +1872,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.0', 'Session Management Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('3.0', 'Session Management Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -1907,13 +1907,7 @@ def load_initial_data():
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
-        
-        c = ChecklistKB('3.3.1', 'Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 613);
-        c.question_id = 3
-        c.kb_id = 57
-        db.session.add(c)
-        db.session.commit()
-        
+                
         c = ChecklistKB('3.3.2', 'If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 613);
         c.question_id = 3
         c.kb_id = 999
@@ -1986,9 +1980,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('4.0', 'Access Control Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('4.0', 'Access Control Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2052,14 +2046,14 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.0', 'Validation, Sanitization and Encoding Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('5.0', 'Validation, Sanitization and Encoding Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
         c = ChecklistKB('5.1.1', 'Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, or environment variables).', 2, False, 235);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 71
         db.session.add(c)
         db.session.commit()
@@ -2238,9 +2232,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('6.0', 'Stored Cryptography Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('6.0', 'Stored Cryptography Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2311,20 +2305,20 @@ def load_initial_data():
         db.session.commit()
         
         c = ChecklistKB('6.4.1', 'Verify that a secrets management solution such as a key vault is used to securely create, store, control access to and destroy secrets. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 798);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
         c = ChecklistKB('6.4.2', 'Verify that key material is not exposed to the application but instead uses an isolated security module like a vault for cryptographic operations. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 320);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('7.0', 'Error Handling and Logging Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('7.0', 'Error Handling and Logging Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2382,33 +2376,33 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('7.3.4', 'Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 0);
+        c = ChecklistKB('7.3.4', 'Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, None);
         c.question_id = 21
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
         c = ChecklistKB('7.4.1', 'Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  ([C10](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, True, 210);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 15
         db.session.add(c)
         db.session.commit()
         
         c = ChecklistKB('7.4.2', 'Verify that exception handling (or a functional equivalent) is used across the codebase to account for expected and unexpected error conditions. ([C10](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, True, 544);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 299
         db.session.add(c)
         db.session.commit()
         
         c = ChecklistKB('7.4.3', 'Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. ([C10](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, True, 460);
-        c.question_id = 0
+        c.question_id = None
         c.kb_id = 299
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.0', 'Error Handling and Logging Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('8.0', 'Error Handling and Logging Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2514,9 +2508,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('9.0', 'Communications Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('9.0', 'Communications Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2562,9 +2556,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('10.0', 'Malicious Code Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('10.0', 'Malicious Code Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2598,9 +2592,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.0', 'Business Logic Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('11.0', 'Business Logic Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2652,9 +2646,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.0', 'File and Resources Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('12.0', 'File and Resources Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2748,9 +2742,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.0', 'API and Web Service Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('13.0', 'API and Web Service Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
@@ -2844,13 +2838,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.0', 'Configuration Verification Requirements', 2, False, 0);
-        c.question_id = 0
-        c.kb_id = 0
+        c = ChecklistKB('14.0', 'Configuration Verification Requirements', 2, False, None);
+        c.question_id = None
+        c.kb_id = None
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.1.1', 'Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation, automated configuration management, and automated deployment scripts.', 2, False, 0);
+        c = ChecklistKB('14.1.1', 'Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation, automated configuration management, and automated deployment scripts.', 2, False, None);
         c.question_id = 1
         c.kb_id = 284
         db.session.add(c)
@@ -2868,7 +2862,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.1.4', 'Verify that the application, configuration, and all dependencies can be re-deployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion.', 2, False, 0);
+        c = ChecklistKB('14.1.4', 'Verify that the application, configuration, and all dependencies can be re-deployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion.', 2, False, None);
         c.question_id = 1
         c.kb_id = 999
         db.session.add(c)
@@ -2898,7 +2892,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.2.5', 'Verify that an inventory catalog is maintained of all third party libraries in use.', 2, False, 0);
+        c = ChecklistKB('14.2.5', 'Verify that an inventory catalog is maintained of all third party libraries in use.', 2, False, None);
         c.question_id = 1
         c.kb_id = 999
         db.session.add(c)

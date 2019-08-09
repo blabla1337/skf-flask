@@ -91,7 +91,8 @@ def init_db(testing=False):
     print("Initializing the database")
     db.create_all()
     db.session.commit()
-
+    init_md_code_examples()
+    init_md_knowledge_base()
     load_initial_data()
 
     if testing == True:

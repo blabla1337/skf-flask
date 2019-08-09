@@ -25,7 +25,7 @@ class ChecklistKB(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     checklist_id = db.Column(db.String(255), nullable=False)
-    content = db.Column(db.String(255))
+    content = db.Column(db.Text)
     cwe = db.Column(db.Integer)
 
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=True)
