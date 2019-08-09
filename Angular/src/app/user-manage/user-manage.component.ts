@@ -24,17 +24,17 @@ export class UserManageComponent implements OnInit {
     this.userList();
   }
 
-  revoke(id: number) {
+  userRevokeAccess(id: number) {
     if (this.revoke_str == 'REVOKE') {
-      this._userService.revoke(id).subscribe(x =>
+      this._userService.revokeUser(id).subscribe(x =>
         // Get the new user list on delete
         this.userList())
     }
   }
 
-  grant(id: number) {
+  userGrantAccess(id: number) {
     if (this.grant_str == 'GRANT') {
-      this._userService.grant(id).subscribe(x =>
+      this._userService.grantUser(id).subscribe(x =>
         // Get the new user list on delete
         this.userList())
     }

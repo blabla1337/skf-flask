@@ -17,3 +17,7 @@
 skf/db.unittesting
 Angular/node_modules
 venv
+lib
+bin
+bin64
+include

@@ -21,7 +21,7 @@ export class UserService {
       map(response => response.json().items))
   }
 
-  revoke(id: number) {
+  revokeUser(id: number) {
     const url = environment.API_ENDPOINT + ``;
     return this.http
       .put(environment.API_ENDPOINT + `/user/manage/${id}`, JSON.stringify({
@@ -31,7 +31,7 @@ export class UserService {
       map(a => { return a.json() }));
   }
 
-  grant(id: number) {
+  grantUser(id: number) {
     const url = environment.API_ENDPOINT + ``;
     return this.http
       .put(environment.API_ENDPOINT + `/user/manage/${id}`, JSON.stringify({

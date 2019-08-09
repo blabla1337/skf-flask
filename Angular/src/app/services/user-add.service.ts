@@ -20,12 +20,11 @@ export class UserAddService {
     { headers: this.headers }).pipe(map(response => response.json().items))
   }
 
-  newUser(email: string, privileges: string): Observable<User[]> {
-
+  newUser(user: User): Observable<User[]> {
     return this.http
       .put(environment.API_ENDPOINT + '/user/create', JSON.stringify({
-        email: email,
-        privilege: parseInt(privileges, 10)
+        email: user['email'],
+        privilege_id: parseInt(user['privilege_id'], 10)
       }),
       { headers: this.headers }).pipe(
       map(res => res.json() as User[]))

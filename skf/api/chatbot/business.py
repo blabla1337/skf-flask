@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 from nltk.stem.lancaster import LancasterStemmer
 from skf import settings
 from skf.database import db
-from skf.database.chatbot_log import chatbot_log
+from skf.database.chatbot_log import ChatbotLog
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 from skf.api.chatbot.scripts import intent_classifier
 from skf.api.chatbot.scripts import entity_classifier1
@@ -50,7 +50,7 @@ def des_sol(question,intent):
                 log=open(os.path.join(app.root_path,"logs.txt"),"a")
                 msg="Please be more specific"
                 if settings.CHATBOT_LOG == "db":
-                    result = chatbot_log(question)
+                    result = ChatbotLog(question)
                     db.session.add(result)
                     db.session.commit()
                 else:
@@ -101,7 +101,7 @@ def code(question,intent,language):
              else:
                 msg="Please be more specific"
                 if settings.CHATBOT_LOG == "db":
-                    result = chatbot_log(question)
+                    result = ChatbotLog(question)
                     db.session.add(result)
                     db.session.commit()
                 else:

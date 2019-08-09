@@ -2,11 +2,11 @@ import os, json, unittest, tempfile, skf
 from werkzeug.exceptions import BadRequest
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
-from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_code_examples
+#from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_code_examples
+from skf.db_tools import clear_db, init_db, update_db, connect_db, init_md_knowledge_base, init_md_code_examples
 from skf import chatbot_tools
 from skf.app import app
 import pytest
-
 
 class TestRestPlusApi(unittest.TestCase):
 
@@ -15,17 +15,16 @@ class TestRestPlusApi(unittest.TestCase):
         cls.client = app.test_client()
         with app.app_context():
             init_db()
-            update_db()
             chatbot_tools.init_dataset()
             settings.TESTING = True
-            skf.app.initialize_app(app)
+            #skf.app.initialize_app(app)
+        app.app_context().push()
 
-
-    @classmethod
-    def tearDownClass(cls):
-            cls.client = app.test_client()
-            with app.app_context():
-                init_db()
+    #@classmethod
+    #def tearDownClass(cls):
+    #        cls.client = app.test_client()
+    #        with app.app_context():
+    #            clear_db()
  
  
     def test_get_status(self):
@@ -866,6 +865,21 @@ class TestRestPlusApi(unittest.TestCase):
 
 class TestDB(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(cls):
+        cls.client = app.test_client()
+        with app.app_context():
+            init_db()
+            chatbot_tools.init_dataset()
+            settings.TESTING = True
+            #skf.app.initialize_app(app)
+        app.app_context().push()
+
+    @classmethod
+    def tearDownClass(cls):
+            cls.client = app.test_client()
+            #with app.app_context():
+            #    clear_db()
 
     def test_connect_db(self):
         """Test if the connect_db is working"""
@@ -875,13 +889,13 @@ class TestDB(unittest.TestCase):
     def test_init_md_knowledge_base(self):
         """Test if the init markdown of kb items is working"""
         self.assertTrue(init_md_knowledge_base())
-        os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
+        #os.remove(os.path.join(app.root_path, 'db.sqlite_schema'))
 
 
     def test_init_md_code_examples(self):
         """Test if the init markdown of code items is working"""
         self.assertTrue(init_md_code_examples())
-        os.remove(os.path.join(app.root_path, 'db.sqlite_schema')) 
+        #os.remove(os.path.join(app.root_path, 'db.sqlite_schema')) 
 
 
 class TestSecurity(unittest.TestCase):

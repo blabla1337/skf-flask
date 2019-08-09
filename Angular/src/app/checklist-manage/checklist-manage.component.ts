@@ -25,7 +25,7 @@ export class ChecklistManageComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.idFromURL = params['id'];
-      localStorage.setItem('tempParamID', params['id'])
+      localStorage.setItem('checklist_type_id', params['id'])
     });
 
     // this.projectList();
@@ -34,29 +34,6 @@ export class ChecklistManageComponent implements OnInit {
       this.canDelete = decodedJWT.privilege.includes('delete');
     }
   }
-
-  /*
-  deleter(id: number) {
-    if (this.delete == "DELETE") {
-      this._checkListService.delete(id).subscribe(x =>
-        //Get the new project list on delete
-        this.projectList())
-    }
-  }
-
-  projectList() {
-    this._checkListService
-      .getProjects()
-      .subscribe(
-      projects => {
-        this.projects = projects;
-        if (!this.projects) {
-          this.error = "There are no projects to show!"
-        }
-      },
-      err => this.error = "Getting the projects failed, contact an administrator! ");
-  }
-*/
   open(content) {
     this.modalService.open(content, { size: 'lg' }).result
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
@@ -8,34 +9,28 @@ import { AuthenticateService } from '../services/authenticate.service';
 })
 
 export class AuthenticateComponent implements OnInit {
-  public username: string;
-  public password: string;
   public error: string[] = [];
-  public return: boolean;
-  public expired: boolean;
+  public expired = false;
+  loginForm: FormGroup;
+  get formControls() { return this.loginForm.controls; }
 
-  constructor(public _authenticateService: AuthenticateService) { }
+  constructor(public _authenticateService: AuthenticateService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.expired = false;
-    if (localStorage.getItem('session') == 'expired') { this.expired = true }
-    localStorage.clear();
+    if (localStorage.getItem('session') == 'expired') { this.expired = true }localStorage.clear();
+    this.loginForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      password: ['', Validators.required],
+    })
   }
-
+    
   onLogin() {
-    this.return = true;
     this.error = [];
-
-
-    if (!this.username) { this.return = false; this.error.push('No username was provided'); }
-    if (!this.password) { this.return = false; this.error.push('No password was provided'); }
-    if (this.return == false) { return; }
-
-    this._authenticateService.authenticate(this.username, this.password).subscribe(
+    this._authenticateService.authenticate(this.loginForm.value).subscribe(
       response => {
         if (response['Authorization token'] != '') {
           sessionStorage.setItem('auth_token', response['Authorization token']);
-          sessionStorage.setItem('user', response['username']);
+          sessionStorage.setItem('user', response['userName']);
           location.replace('dashboard');
         } else { this.error.push('Wrong username/password combination!'); }
       })

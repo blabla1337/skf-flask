@@ -1,91 +1,86 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SprintService } from '../services/sprint.service'
-import { CommentService } from '../services/comment.service'
 import { Sprint } from '../models/sprint'
-import { Comment } from '../models/comment'
-import { AppSettings } from '../globals';
-import * as JWT from 'jwt-decode';
 
 @Component({
   selector: 'app-project-summary',
   templateUrl: './project-summary.component.html',
-  providers: [SprintService, CommentService]
+  providers: [SprintService]
 })
 export class ProjectSummaryComponent implements OnInit {
 
   constructor(
     private sprintService: SprintService,
-    private commentService: CommentService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) { }
 
   public sprintResult: Sprint[];
-  public comment: string;
-  public checklistID: string;
-  public comments: Comment;
-  public error: string;
-  public succes: string;
-  public selector = 'Development';
-  public backID: string;
-  public showMe: string;
-  public canEdit: boolean;
+  public delete: string;
 
   ngOnInit() {
+    this.getSprintResults()
+  }
+
+  getSprintResults() {
     this.route.params.subscribe(params => {
       this.sprintService.getSprintResults(params['id']).subscribe(
         resp => this.sprintResult = resp,
-        err => console.log('Error getting sprint stats'))
+        () => console.log('Error getting sprint stats'))
     });
-    if (AppSettings.AUTH_TOKEN) {
-      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canEdit = decodedJWT.privilege.includes('edit');
+  }
+
+  deleteChecklistResult(checklist_result_id: number) {
+    if (this.delete == 'DELETE') {
+      this.sprintService.deleteChecklistResult(checklist_result_id).subscribe(x =>
+        this.getSprintResults())
     }
   }
 
+  deleteModal(content) {
+    this.modalService.open(content, { size: 'lg' }).result
+  }
+
   back() {
-    this.router.navigate(['/project-dashboard/', localStorage.getItem('tempParamID')]);
+    this.router.navigate(['/project-dashboard/', localStorage.getItem('project_id')]);
   }
 
-  select(option: string) {
-    this.selector = option;
-  }
+  export() {
+    this.route.params.subscribe(params => { this.sprintService.getSprintResultsExport(params['id']).subscribe(
+      (resp) => {
+        const base64fix = resp.replace('b\'', '');
+        const base64 = base64fix.substring(0, base64fix.lastIndexOf('\''));
 
-  save(status: number, checklist: string) {
-    this.route.params.subscribe(params => {
-      if (this.comment === undefined || this.comment === '') {
-        this.comment = '';
-      }
-      this.commentService.newComment(checklist.toString(), this.comment, params['id'], status).subscribe(
-        () => { },
-        err => console.log('Error whilst storing the comment!'),
-        () => {
-          this.succes = 'comment was added to trail';
-          this.sprintService.getSprintResults(params['id']).subscribe(
-            resp => this.sprintResult = resp,
-            err => console.log('Error getting sprint stats'))
-        }
-      )
-    });
-    this.comment = '';
-  }
+        const a = document.createElement('a');
+        document.body.appendChild(a);
 
-  fetchComment(checklistId) {
-    this.error = '';
-    this.succes = '';
-    this.showMe = checklistId;
-    this.route.params.subscribe(params => {
-      this.commentService.getComment(checklistId.toString(), params['id']).subscribe(
-        (data) => {
-          this.comments = data;
-          if (!this.comments) {
-            this.error = 'There are no comments available yet!';
+        const byteCharacters = atob(base64);
+        const byteArrays = [];
+
+        for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+          const slice = byteCharacters.slice(offset, offset + 512);
+
+          const byteNumbers = new Array(slice.length);
+          for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
           }
-        },
-        err => console.log('Error whilst getting the comment!')
-      )
-    });
+
+          const byteArray = new Uint8Array(byteNumbers);
+
+          byteArrays.push(byteArray);
+        }
+
+        const blob = new Blob(byteArrays, {type: 'text/csv'});
+        const url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = 'export.csv';
+        a.click();
+        window.URL.revokeObjectURL(url);
+      },
+      err => console.log('Error getting sprint stats')
+    ); });
   }
 }

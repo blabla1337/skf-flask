@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KnowledgebaseService } from '../services/knowledgebase.service'
-import { AppSettings } from '../globals';
-import * as JWT from 'jwt-decode';
+import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Knowledgebase } from '../models/knowledgebase';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -12,56 +11,47 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class KnowledgebaseComponent implements OnInit {
-
+  knowledgebaseForm: FormGroup;
+  public isSubmitted: boolean;
+  public delete: string;
   public knowledgeitems: Knowledgebase[] = [];
   public queryString: string;
-  public error: string;
-  public errors: string[];
-  public return: boolean;
-  public title: string;
-  public content: string;
-  public canEdit: boolean;
-  public delete: string;
 
-  constructor(public _knowledgeService: KnowledgebaseService, private modalService: NgbModal) { }
+  get formControls() { return this.knowledgebaseForm.controls; }
+
+  constructor(public _knowledgeService: KnowledgebaseService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.knowledgebaseForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      content: ['', Validators.required]
+    })
     this.getKnowledgeItems();
+  }
 
-    if (AppSettings.AUTH_TOKEN) {
-      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canEdit = decodedJWT.privilege.includes('edit');
+  storeKnowledgebaseItem() {
+    this.isSubmitted = true;
+    if(this.knowledgebaseForm.invalid){
+      return;
+    }
+    this._knowledgeService.newKnowledgebaseItem(this.knowledgebaseForm.value)
+      .subscribe(
+        () => this.getKnowledgeItems()
+      );
+    
+  }
+
+  deleteKnowledgebaseItem(id: number) {
+    if (this.delete == 'DELETE') {
+      this._knowledgeService.deleteKnowledgebaseItem(id).subscribe(x =>
+        this.getKnowledgeItems())
     }
   }
 
   getKnowledgeItems() {
     this._knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgeitems = requestData,
-      err => this.error = 'Error getting knowledge items, contact the administrator!'
+      () => console.log('Error getting knowledge items, contact the administrator!')
     );
-  }
-
-  storeKnowledgebaseItem() {
-    this.errors = [];
-    this.return = true;
-
-    if (!this.title) { this.errors.push('Title was left empty'); this.return = false; }
-    if (!this.content) { this.errors.push('Content was left empty'); this.return = false; }
-    if (this.return == false) { return; }
-
-    this.errors = [];
-    this._knowledgeService.newKnowledgebaseItem(this.title, this.content)
-      .subscribe(
-        () => this.errors.push('Eror storing a new knowledgebase item!')
-      );
-    this.getKnowledgeItems();
-  }
-
-  deleter(id: number) {
-    if (this.delete == 'DELETE') {
-      this._knowledgeService.deleteKnowledgebaseItem(id).subscribe(x =>
-        // Get the new project list on delete
-        this.getKnowledgeItems())
-    }
   }
 
   deleteKbModal(content) {

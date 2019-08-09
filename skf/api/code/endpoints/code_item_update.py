@@ -6,7 +6,7 @@ from skf.api.code.business import update_code_item
 from skf.api.code.serializers import code_properties, message
 from skf.api.code.parsers import authorization
 from skf.api.restplus import api
-from skf.database.code_items import code_items
+#from skf.database.code_items import CodeItem
 
 ns = api.namespace('code', description='Operations related to code example items')
 

@@ -16,20 +16,20 @@ export class AuthenticateService {
   constructor(private http: Http, private router: Router) { }
   public headers = new Headers({ 'Content-Type': 'application/json' });
 
-  authenticate(username: string, password: string): Observable<any> {
+  authenticate(user:User): Observable<any> {
     return this.http
-      .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ username: username, password: password }), { headers: this.headers }).pipe(
+      .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ userName: user['userName'], password: user['password'] }), { headers: this.headers }).pipe(
       map(response => {return response.json()}))
   }
 
-  activateUser(email: string, username: string, accessToken: string, password: string, repassword: string, userID: number): Observable<string> {
+  activateUser(user:User): Observable<string> {
     return this.http
-      .put(environment.API_ENDPOINT + '/user/activate/' + userID, JSON.stringify({
-        accessToken: parseInt(accessToken, 10),
-        email: email,
-        password: password,
-        repassword: repassword,
-        username: username
+      .put(environment.API_ENDPOINT + '/user/activate/' + user['user_id'], JSON.stringify({
+        accessToken: parseInt(user['accessToken'], 10),
+        email: user['email'],
+        password: user['password'],
+        repassword: user['repassword'],
+        userName: user['userName']
       }),
       { headers: this.headers }).pipe(
       map(response => { return response.json()}));

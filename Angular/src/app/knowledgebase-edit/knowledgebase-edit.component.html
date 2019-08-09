@@ -37,32 +37,27 @@
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
-        <div *ngFor="let alert of errors">
-          <ngb-alert [dismissible]="false">
-            <strong>Warning!</strong> {{alert}}
-          </ngb-alert>
-        </div>
+
           <!-- Here starts when people select they want to edit the checklist-->
           <section class="panel">
             <header class="panel-heading">
               <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; {{title}} </h4>
             </header>
             <div class="panel-body">
-              <form>
+              <form *ngIf="knowledgebaseItem | async; else loading" [formGroup]="knowledgebaseForm" >
                 <div class="form-group">
                   <div class="wrap">
                     <br />
                     <label for="inputVersion" class="col-sm-2 control-label">Title:</label>
                     <div class="col-sm-10">
-                      <input maxlength="120" [(ngModel)]="title" type="text" class="form-control" id="inputTitle"
-                        name="title" placeholder="" value="{{title}}">
+                      <input maxlength="120" formControlName="title" type="text" class="form-control" id="inputTitle" name="title">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">knowledgebase item title</div>
                       </div>
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Content</label>
                     <div class="col-sm-10">
-                      <textarea required name="content" [(ngModel)]="content" type="text" class="form-control-kb rounded-0" id="exampleFormControlTextarea1" rows="10" id="inputContent">{{content}}</textarea>
+                      <textarea required name="content" formControlName="content" type="text" class="form-control-kb rounded-0" id="exampleFormControlTextarea1" rows="10" id="inputContent"></textarea>
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Description of the knowledgebase content</div>
                       </div>

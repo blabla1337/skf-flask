@@ -3,7 +3,8 @@ export class Questions {
   projectID: number,
   question_ID: number,
   result: string,
-  sprintID: number
+  sprintID: number,
+  sprintName: string
   ) {}
 }
 

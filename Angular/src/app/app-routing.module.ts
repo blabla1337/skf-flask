@@ -5,7 +5,6 @@ import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { ProjectSummaryComponent } from './project-summary/project-summary.component';
-import { ProjectSummaryAuditComponent } from './project-summary-audit/project-summary-audit.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { LabsComponent } from './labs/labs.component';
 import { KnowledgebaseComponent } from './knowledgebase/knowledgebase.component';
@@ -35,8 +34,7 @@ export const appRoutes: Routes = [
   { path: 'project-dashboard/:id', component: ProjectDashboardComponent, canActivate: [GuardService] },
   { path: 'undefined', component: UndefinedComponent, canActivate: [GuardService] },
   { path: 'project-summary/:id', component: ProjectSummaryComponent, canActivate: [GuardService] },
-  { path: 'project-summary-audit/:id', component: ProjectSummaryAuditComponent, canActivate: [GuardService] },
-  { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },
+   { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },
   { path: 'knowledgebase-edit/:id', component: KnowledgebaseEditComponent, canActivate: [GuardService] },
   { path: 'code-examples', component: CodeExamplesComponent, canActivate: [GuardService] },
   { path: 'code-examples-edit/:id', component: CodeExamplesEditComponent, canActivate: [GuardService] },

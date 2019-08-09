@@ -27,31 +27,25 @@
   <section class="intro">
     <div class="inner">
       <div class="text">
-        <h1>Sprint summary for: {{selector}}</h1>
-        <p>Close, open or accept different sprint items. Leave comments to have an audit log!</p>
+        <p>Overview of your current sprint items, export them to import them in your<br/>
+           favourite ticketing system!
+        </p>
       </div>
-      <button style="float:right;" (click)="back()" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+      <button style="float:right; margin-left: 1%" (click)="back()" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+      <button style="float:right;" (click)="export()" class="btn btn-success"><i class="fa fa-cloud-download" aria-hidden="true"></i> Export to CSV</button>
     </div>
   </section>
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
-        <div style='float:right; margin-bottom:1%'>
-          I am a:
-          &nbsp; <button class="btn btn-default" (click)="select('Security')"><i class="fa fa-bug" aria-hidden="true"></i> Security Specialist</button>&nbsp;
-          &nbsp; <button class="btn btn-default" (click)="select('Development')"><i class="fa fa-code" aria-hidden="true"></i> Developer</button>&nbsp;
-        </div>
-        <div *ngFor="let item of sprintResult;  let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
-          <div (click)="fetchComment(item.checklistID)">
-            <div *ngIf="item.status == 1" class="blob msg-purple open"><i class="fa fa-code" aria-hidden="true"></i></div>
-            <div *ngIf="item.status == 2" class="blob msg-green closed"><i class="fa fa-lock" aria-hidden="true"></i></div>
-            <div *ngIf="item.status == 3" class="blob msg-orange accepted"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>
-
-            <div *ngIf="item.status == 4" class="blob msg-green verified"><i class="fa fa-bug" aria-hidden="true"></i></div>
-            <div *ngIf="item.status == 5" class="blob msg-red failed"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <ngb-accordion class="level_l_{{item.checklist_items_level}}" #acc="ngbAccordion" [closeOthers]="true">
-              <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklistID}} {{item.checklist_items_content}}">
-
+         <div *ngFor="let item of sprintResult;  let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
+          <div *ngIf="item.kb_item_id == 1" style="padding-bottom:3%; padding-top:0.25%">
+          <h3><b>{{item.checklist_type}}</b></h3>
+          </div>
+          <div *ngIf="item.kb_item_id != 1">
+            <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+              <div>
+              <ngb-panel id="ngb-panel-{{myIndex}}" title="{{item.checklist_items_checklist_id}} {{item.checklist_items_content}} {{item.checklist_type}}">
                 <ng-template ngbPanelContent>
                   <ngb-tabset>
                     <ngb-tab>
@@ -61,91 +55,40 @@
                         <h4>{{item.kb_item_title}}</h4>
                         <p style="white-space: pre-line; max-width:70%">
                           {{item.kb_items_content}}                        </p>
-
                           <div *ngIf="item.cwe > 0">
                               <ngb-alert [dismissible]="false">
                                 <strong><a href="https://cwe.mitre.org/data/definitions/{{item.cwe}}.html" target="_blank" rel="noopener noreferrer">CWE {{item.cwe}}</a></strong>
                               </ngb-alert>
                           </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab *ngIf="canEdit">
-                      <ng-template ngbTabTitle><b>Status</b></ng-template>
-                      <ng-template ngbTabContent>
-                        <div class="form-group">
-                          <div class="wrap desc">
-                            <label for="inputName" class="col-sm-2 control-label">&nbsp;</label>
-                          </div>
-                          <div class="wrap">
-                            <div class="col-sm-10" style="margin-right:200px; margin-top:-30px;">
-                              <ngb-alert *ngIf="succes" [dismissible]="false">
-                                <strong>Success! </strong> {{succes}}
-                              </ngb-alert>
-                              <p><b>Leave a comment for audit log and change status!</b></p>
-                              <p>Here we can change the status of the open security mitigation.
-                                <br/>Please explain why the item is mitigated, opened or closed!</p>
-                              <textarea required class="form-control" [(ngModel)]="comment" name="Comment" id="inputDesc" style="height: 90px;" placeholder="Rule comment"></textarea>
-                              <br/>
-                              <div style="float:right">
-                                <div *ngIf="selector == 'Development'">
-                                    &nbsp;<button *ngIf="item.status != 2" (click)="save(2, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Close Ticket</button>&nbsp;
-                                    &nbsp;<button *ngIf="item.status != 2" (click)="save(3, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Accept Risk</button>&nbsp;
-                                    &nbsp;<button *ngIf="item.status == 2" (click)="save(1, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Reopen Ticket</button>&nbsp;
-                                  <br/>
-                                  </div>
-                                <div *ngIf="selector == 'Security'">
-                                    &nbsp;<button *ngIf="item.status != 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>&nbsp;
-                                    &nbsp;<button *ngIf="item.status != 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>&nbsp;
-                                    &nbsp;<button *ngIf="item.status == 2" (click)="save(4, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Ticket Verified</button>&nbsp;
-                                    &nbsp;<button *ngIf="item.status == 2" (click)="save(5, item.checklistID)" id="projectFormSubmit" value="Create Project" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Ticket Failed</button>&nbsp;
-                                    <br/>
-                                   </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab> 
-                    <ngb-tab>
-                      <ng-template ngbTabTitle><b>Audit log</b></ng-template>
-                      <ng-template ngbTabContent>
-                        <div *ngIf="showMe == item.checklistID">
-                        <form *ngFor="let comment of comments">
-                          <br/>
-                          <div class="col-md-16">
-                            <div class="card">
-                              <div class="card-block">
-                                <div *ngIf="comment" >
-                                  <b  *ngIf="comment.status == 1">OPEN</b>
-                                  <b  *ngIf="comment.status == 2">CLOSED</b>
-                                  <b  *ngIf="comment.status == 3">ACCEPTED</b>
-                                  <b  *ngIf="comment.status == 4">VERIFIED</b>
-                                  <b  *ngIf="comment.status == 5">FAILED</b>
-                                </div> 
-                                <br/>
-
-                                <p *ngIf="comment">{{comment.comment}}</p>
-
-                                <p *ngIf="error">{{error}}</p>
-                                <div *ngIf="comment" class="card-footer text-muted text-center">
-                                  <span class="name">Admin, {{comment.date}}</span>
+                          <button (click)="deleteModal(modalDeleteChecklistResult)" style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%" id="delete-button" class="btn btn-danger btn-xs">
+                              Delete result               
+                            </button>
+                            <!-- start modal for deleting a checklist result-->
+                            <ng-template #modalDeleteChecklistResult let-c="close" let-d="dismiss">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Delete project!</h4>
+                                  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                  <span aria-hidden="true">&times;</span>
+                                 </button>
                                 </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                        </div>
-                        <div *ngIf="showMe != item.checklistID">
-                          <br/>
-                          <ngb-alert [dismissible]="false"> Another tab has been selected and is in focus. To prevent cross-reading of audit trails, these messages are not showed!</ngb-alert>
-                        </div>
+                                <div class="modal-body">
+                                  <p>Are you sure you want to delete this project?</p>
+                                  <p>To confirm, type <b style='color:red'> DELETE </b> and click the delete button</p>
+                                  <input type="text" [(ngModel)]="delete" id="delete" class="form-control">
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                                  <button type="button" class="btn btn-danger" id="submit" (click)="deleteChecklistResult(item.id)" (click)="c('Close click')">Delete</button>
+                                </div>
+                              </ng-template>
+
                       </ng-template>
                     </ngb-tab>
-                  </ngb-tabset>
+                    </ngb-tabset>
                 </ng-template>
               </ngb-panel>
+            </div>
             </ngb-accordion>
-
           </div>
         </div>
       </div>

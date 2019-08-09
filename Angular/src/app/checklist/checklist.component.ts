@@ -16,7 +16,6 @@ export class ChecklistComponent {
   public checklistItems: Checklist[] = [];
   public queryString: string;
   public closeResult: string;
-  public level: number;
   public error: string;
   public checklist_type: number;
   public color: string;

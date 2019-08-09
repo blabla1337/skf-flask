@@ -8,7 +8,6 @@ import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { fakeAsync } from '@angular/core/testing';
-import { tick } from '@angular/core/testing';
 import { KnowledgebaseComponent } from './knowledgebase.component';
 import { Knowledgebase } from '../models/knowledgebase';
 import { StartsWithPipe } from '../pipes/starts-with.pipe';

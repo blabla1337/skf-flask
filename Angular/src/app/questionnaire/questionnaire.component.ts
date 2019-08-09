@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsService } from '../services/questions.service';
 import { ChecklistService } from '../services/checklist.service';
 import { Checklist } from '../models/checklist';
 import { Questions } from '../models/questions'
-import { AppSettings } from '../globals';
-import * as JWT from 'jwt-decode';
 
 
 @Component({
@@ -17,129 +16,116 @@ import * as JWT from 'jwt-decode';
 export class QuestionnaireComponent implements OnInit {
   @ViewChild('sectionNeedToScroll') sectionNeedToScroll: ElementRef
 
-  closeResult: string;
-  public canDelete: boolean;
-  public idfromUrl: string;
-  public questionID: number;
-  public questionName: string;
-  public sprints: Questions[] = [];
+  public questions: Questions[] = [];
   public checklist: Checklist[];
   public correlatedChecklist: Checklist[];
-  public error: string;
-  public errors = [];
   public delete: string;
-  public checklistID: number;
-  public content: string;
-  public kbID: number;
-  public cwe: number;
-  public question_sprint_ID: number;
-  public include_first: string;
-  public include_always: string;
+  public question_id: number;
+  public questionForm: FormGroup;
+  public isSubmitted: boolean;
+  public isSelected: boolean;
+  get formControls() { return this.questionForm.controls; }
 
   constructor(
     private modalService: NgbModal,
-    private _questionsService: QuestionsService,
-    private _checklistService: ChecklistService,
+    private questionsService: QuestionsService,
+    private checklistService: ChecklistService,
     private router: Router,
+    private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit() {
-    if (AppSettings.AUTH_TOKEN) {
-      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canDelete = decodedJWT.privilege.includes('delete');
-    }
-    this.idfromUrl = localStorage.getItem('tempParamID');
+    this.questionForm = this.formBuilder.group({
+      question : ['', Validators.required]
+    })
+
     this.getQuestionList();
     this.getChecklistList();
   };
 
   getQuestionList() {
-    this._questionsService.getQuestions(Number(localStorage.getItem('tempParamID'))).subscribe(
-      sprints => this.sprints = sprints,
+    this.questionsService.getQuestions(Number(localStorage.getItem('checklist_type_id'))).subscribe(
+      questions => this.questions = questions,
       err => console.log('getting questions failed')
     )
   }
-
+  
   getChecklistList() {
-    this._checklistService
-      .getChecklistByType(Number(localStorage.getItem('tempParamID')))
+    this.checklistService
+      .getChecklistByType(Number(localStorage.getItem('checklist_type_id')))
       .subscribe(
       checklist => {
         this.checklist = checklist;
-        if (!this.checklist) {
-          this.error = 'There are no checklist types defined yet'
-        }
       },
-      err => this.error = 'Getting the checklist types failed, contact an administrator! ');
+      () => console.log('Getting the checklist types failed, contact an administrator! '))
   }
 
   getChecklistListItemsCorrelatedToSelectedQuestion() {
-    this._questionsService
-      .getChecklistItemsOnQuestionID(Number(localStorage.getItem('questionID')))
+    this.questionsService
+      .getChecklistItemsOnquestion_id(Number(localStorage.getItem('question_id')))
       .subscribe(
         correlatedChecklist => {
         this.correlatedChecklist = correlatedChecklist;
-        if (!this.checklist) {
-          this.error = 'There are no items correlated yey'
-        }
       },
-      err => this.error = 'Getting the correlated controls failed, contact an administrator! ');
+      err => console.log('Getting the correlated controls failed, contact an administrator! '))
   }
 
   selectChecklistItems() {
-    localStorage.setItem('questionID', this.questionID.toString())
+    this.isSelected = true;
+    localStorage.setItem('question_id', this.question_id.toString())
+    var patch = this.questions.find(x => x['id'] === Number(this.question_id));
+    this.questionForm.patchValue(patch)
     this.getChecklistListItemsCorrelatedToSelectedQuestion()
   }
 
   storeNewQuestion() {
-    this.errors = [];
-    this._questionsService.newQuestion(Number(localStorage.getItem('tempParamID')), this.questionName)
+    this.isSubmitted = true;
+    if(this.questionForm.invalid){
+      return;
+    }
+    this.questionsService.newQuestion(Number(localStorage.getItem('checklist_type_id')), this.questionForm.value)
       .subscribe(
         () => this.getQuestionList(),
-        () => this.errors.push('Error whilst adding user, potential duplicate email adres!')
+        () => console.log(('Error whilst adding question'))
       );
   }
 
   updateQuestion() {
-    this.errors = [];
-    this._questionsService.updateQuestion(Number(localStorage.getItem('tempParamID')), this.questionName, this.questionID)
+    this.questionsService.updateQuestion(Number(localStorage.getItem('checklist_type_id')), Number(localStorage.getItem('question_id')), this.questionForm.value)
       .subscribe(
         () => {this.getQuestionList()},
-        () => this.errors.push('Error whilst adding user, potential duplicate email adres!')
+        () => console.log('Error whilst updating question')
       );
   }
 
-  correlateQuestionToChecklistITem(checklistID: number, content: string, kbID: string, include_always: string, cwe: number) {
-    console.log(this.checklistID)
-    this.errors = [];
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always,  Number(localStorage.getItem('questionID')), Number(cwe))
+  correlateQuestionToChecklistITem(checklist_id: string) {
+    this.checklistService.updateChecklistItemCorraltion(checklist_id, Number(localStorage.getItem('checklist_type_id')), Number(localStorage.getItem('question_id')))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
-        () => this.errors.push('Adding the checklistID to the question did not happen!')
+        () => console.log(('Adding the checklistID to the question did not happen!'))
       );
   }
 
-  removeQuestionFromChecklistITem(checklistID: number, content: string, kbID: string, include_always: string, cwe: number) {
-    console.log(this.checklistID)
-    this.errors = [];
-    this._checklistService.updateChecklistItem(Number(this.idfromUrl), checklistID, content, Number(kbID), include_always, 0, Number(cwe))
+  removeQuestionFromChecklistITem(checklist_id: string) {
+    this.checklistService.updateChecklistItemCorraltion(checklist_id, Number(localStorage.getItem('checklist_type_id')), 0)
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
-        () => this.errors.push('Adding the checklistID to the question did not happen!')
+        () => console.log(('Adding the checklistID to the question did not happen!'))
       );
   }
 
   deleteQuestion() {
     if (this.delete == 'DELETE') {
-      this._questionsService.deleteQuestion(this.questionID).subscribe(x =>
+      this.questionsService.deleteQuestion(this.question_id).subscribe(x =>
         // Get the new project list on delete
         this.getQuestionList())
       this.delete = '';
+      this.isSelected = false;
     }
-    console.log(this.questionID)
   }
 
   addQuestionModal(add) {
+    this.questionForm.patchValue({question:''})
     this.modalService.open(add, { size: 'lg' })
   }
 
@@ -152,11 +138,10 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/checklist-manage/', localStorage.getItem('tempParamID')]);
+    this.router.navigate(['/checklist-manage/', localStorage.getItem('checklist_type_id')]);
   }
 
   public gotoSection() {
-    // this will provide smooth animation for the scroll
     this.sectionNeedToScroll.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
 }
 
