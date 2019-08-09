@@ -804,7 +804,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.3.1', 'Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, HTML attributes, JavaScript, URL Parameters, HTTP headers, SMTP, and others as the context requires, especially from untrusted inputs (e.g. names with Unicode or apostrophes, such as ねこ or O\Hara).', 1, False, 116);
+        c = ChecklistKB('5.3.1', 'Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, HTML attributes, JavaScript, URL Parameters, HTTP headers, SMTP, and others as the context requires, especially from untrusted inputs (e.g. names with Unicode or apostrophes, such as bla or OHara).', 1, False, 116);
         c.question_id = 11
         c.kb_id = 269
         db.session.add(c)
@@ -2130,13 +2130,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.3.1', 'Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, HTML attributes, JavaScript, URL Parameters, HTTP headers, SMTP, and others as the context requires, especially from untrusted inputs (e.g. names with Unicode or apostrophes, such as ねこ or O\Hara).', 2, False, 116);
+        c = ChecklistKB('5.3.1', 'Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, HTML attributes, JavaScript, URL Parameters, HTTP headers, SMTP, and others as the context requires, especially from untrusted inputs (e.g. names with Unicode or apostrophes, such as Chinese characters or O\'Hara).', 2, False, 116);
         c.question_id = 11
         c.kb_id = 269
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.3.2', 'Verify that output encoding preserves the user\s chosen character set and locale, such that any Unicode character point is valid and safely handled.', 2, False, 176);
+        c = ChecklistKB('5.3.2', 'Verify that output encoding preserves the user\'s chosen character set and locale, such that any Unicode character point is valid and safely handled.', 2, False, 176);
         c.question_id = 11
         c.kb_id = 999
         db.session.add(c)

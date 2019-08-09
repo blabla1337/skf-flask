@@ -91,15 +91,13 @@ def init_db(testing=False):
     print("Initializing the database")
     db.create_all()
     db.session.commit()
-    init_md_code_examples()
-    init_md_knowledge_base()
-    load_initial_data()
 
     if testing == True:
         load_test_data()
     else:
         init_md_code_examples()
         init_md_knowledge_base()
+        load_initial_data()
 
 def update_db():
     """Update the database."""
@@ -142,8 +140,7 @@ def init_md_knowledge_base():
                     db.session.commit()
 
                 except IntegrityError as e:
-                    print(e)
-                    pass
+                    raise
 
         print('Initialized the markdown knowledge-base.')
         return True
