@@ -49,7 +49,7 @@ def predict(question):
     intent=str(intent).strip("['']")
     return intent
 
-ques=input("Enter your question ")
-x=predict(ques)
-intent=str(x).strip("['']")
-print(intent)
+# ques=input("Enter your question ")
+# x=predict(ques)
+# intent=str(x).strip("['']")
+# print(intent)

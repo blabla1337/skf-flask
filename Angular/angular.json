@@ -1,4 +1,5 @@
 {
+  
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -22,7 +23,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [ "../node_modules/jquery/dist/jquery.min.js" ]
           },
           "configurations": {
             "production": {
@@ -46,8 +47,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          
           "options": {
-            "browserTarget": "skf-angular:build"
+            "browserTarget": "skf-angular:build",
+            "proxyConfig": "profile.conf.json"
           },
           "configurations": {
             "production": {

@@ -13,6 +13,10 @@ from skf.api.chatbot.scripts import code_classify
 
 app = Flask(__name__)
 
+def checklist(question,intent):
+    result=asvsChecklist.checklist()
+
+
 def des_sol(question,intent):
         entity=entity_classifier1.entity_recognizer(question.lower())
         if entity is None:

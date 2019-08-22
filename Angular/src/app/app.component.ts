@@ -3,11 +3,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { KnowledgebaseService } from './services/knowledgebase.service'
 import { Knowledgebase } from './models/knowledgebase'
+import { jsonpFactory } from '@angular/http/src/http_module';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [HeaderComponent, FooterComponent, KnowledgebaseService],
+  providers: [HeaderComponent, FooterComponent,  KnowledgebaseService],
 })
 
 export class AppComponent implements OnInit {
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   private knowledgeitems: Knowledgebase[]
 
   ngOnInit() {
+    
     this._knowledgeService.getKnowledgeBase().subscribe(requestData => {
       this.knowledgeitems = requestData
     });

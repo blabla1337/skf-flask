@@ -23,6 +23,9 @@ class ChatbotQuestion(Resource):
         data = request.json
         data_q=data.get('question')
         intent=intent_classifier.predict(data_q)
+        if intent=='Checklist':
+           print("tada")
+
         if intent=='Code':
             lang=None
             code_ans=code(data_q,intent,lang)

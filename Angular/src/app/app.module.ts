@@ -34,6 +34,7 @@ import { OrderBy } from './pipes/order-by.pipe'
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { UndefinedComponent } from './undefined/undefined.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { UndefinedComponent } from './undefined/undefined.component';
     StartsWithPipe,
     OrderBy,
     FirstLoginComponent,
-    UndefinedComponent
+    UndefinedComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,

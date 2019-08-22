@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://s3-ap-southeast-1.amazonaws.com/uxarmymedia/botdemo/chat-client/js/jquery.min.js"></script>
+	<script src="https://s3-ap-southeast-1.amazonaws.com/uxarmymedia/botdemo/chat-client/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://s3-ap-southeast-1.amazonaws.com/uxarmymedia/botdemo/chat-client/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="js/webchatbot2.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+	<button class= "chatbot-btn" id="chatbtn">
+		<img src="images/download.svg" id="myObj" class="remove">
+		<object id="myObj" type="image/svg+xml" data="" style="display: none;"></object>
+	</button>
+	<div class = "chatbox" style="display: none;">
+		<div class="title">
+			<p>SKF CHATBOT</p>
+			<button type="button" id="close" class="close">&times;</button>
+		</div>
+		<div id="chatlogs" class = "chatlogs">
+		</div>
+		<div class="chat-form">
+			<input type="text" id="textmsg" placeholder=" write something.....">
+			<a href="https://gitter.im/Security-Knowledge-Framework/Lobby" target="_blank"><img src="images/contact.svg"></a>
+			<button id="send" style="display: none;">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+		</div> 
+	</div>
+	<div class="firstScreen" style="display: none;">
+		<p class="help">SKF CHATOBOT<br />Need help for Web Vulnerabilities</p>
+		<p class="ruiText">SKF BOT is Here</p>
+		<button class="started"  id="started">Get Started</button>
+	</div>
+</body>
+</html>
