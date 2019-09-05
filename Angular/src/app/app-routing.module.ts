@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { ProjectSummaryComponent } from './project-summary/project-summary.component';
@@ -29,7 +28,6 @@ export const appRoutes: Routes = [
 
   { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] },
   { path: 'labs', component: LabsComponent, canActivate: [GuardService] },
-  { path: 'project-new', component: ProjectNewComponent, canActivate: [GuardService] },
   { path: 'project-list', component: ProjectListComponent, canActivate: [GuardService] },
   { path: 'project-dashboard/:id', component: ProjectDashboardComponent, canActivate: [GuardService] },
   { path: 'undefined', component: UndefinedComponent, canActivate: [GuardService] },

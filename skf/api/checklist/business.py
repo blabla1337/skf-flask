@@ -5,7 +5,7 @@ from skf.database.checklists_results import ChecklistResult
 from skf.database.checklist_types import ChecklistType
 from skf.database.question_results import QuestionResult
 from skf.database.questions import Question
-
+from sqlalchemy import desc, asc
 import sys
 
 def get_checklist_item(checklist_id, checklist_type):
@@ -36,7 +36,12 @@ def get_checklist_item_question_sprint(question_id):
 
 def get_checklist_item_types():
     log("User requested list checklist types", "LOW", "PASS")
-    result = ChecklistType.query.paginate(1, 500, False)
+    result = ChecklistType.query.order_by(desc(ChecklistType.visibility)).paginate(1, 500, False)
+    return result
+
+def get_checklist_item_types_with_filter(maturity):
+    log("User requested list checklist types", "LOW", "PASS")
+    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
     return result
 
 def get_checklist_items(checklist_type):
@@ -51,7 +56,8 @@ def create_checklist_type(data):
     log("User requested create a new checklist type", "LOW", "PASS")
     checklist_name = data.get('name')
     checklist_description = data.get('description')
-    checklist_type = ChecklistType(checklist_name, checklist_description)
+    visibility = data.get('visibility')
+    checklist_type = ChecklistType(checklist_name, checklist_description, visibility)
 
     try:
         db.session.add(checklist_type)
@@ -68,6 +74,7 @@ def create_checklist_item(checklist_id, checklist_type, data):
     question_id = data.get('question_id')
     kb_id = data.get('kb_id')
     cwe = data.get('cwe')
+    maturity = data.get('maturity')
 
     if include_always == "True":
         include_always = True
@@ -79,7 +86,7 @@ def create_checklist_item(checklist_id, checklist_type, data):
 
     if validate_duplicate_checklist_item(checklist_id, checklist_type) == True:
         try:
-            checklist_item = ChecklistKB(checklist_id, content, checklist_type, include_always, cwe)
+            checklist_item = ChecklistKB(checklist_id, content, checklist_type, include_always, cwe, maturity)
             checklist_item.question_id = question_id
             checklist_item.kb_id = kb_id
             db.session.add(checklist_item)
@@ -98,10 +105,12 @@ def update_checklist_type(id, data):
     log("User requested update checklist type", "LOW", "PASS")
     checklist_name = data.get('name')
     checklist_description = data.get('description')
+    visibility = data.get('visibility')
 
     checklist_type = ChecklistType.query.get(id)
     checklist_type.name = checklist_name
     checklist_type.description = checklist_description
+    checklist_type.visibility = visibility
 
     try:
         db.session.add(checklist_type)
@@ -112,10 +121,12 @@ def update_checklist_type(id, data):
     
     return {'message': 'Checklist item successfully updated'} 
 
+
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
     include_always = data.get('include_always')
     question_id = data.get('question_id')
+    maturity = data.get('maturity')
     if include_always == "True":
         include_always = True
     else:
@@ -129,6 +140,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
     result_checklist_kb.cwe = data.get('cwe')
     result_checklist_kb.kb_id = data.get('kb_id')
     result_checklist_kb.checklist_id = checklist_id
+    result_checklist_kb.maturity = maturity
     result_checklist_kb.checklist_type = checklist_type
     try:
         db.session.add(result_checklist_kb)

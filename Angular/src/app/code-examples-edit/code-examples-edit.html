@@ -37,10 +37,26 @@
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
-        <div *ngFor="let alert of errors">
-          <ngb-alert [dismissible]="false">
-            <strong>Warning!</strong> {{alert}}
-          </ngb-alert>
+        <div *ngIf="isSubmitted && formControls.title.errors" class="help-block">
+          <div *ngIf="formControls.title.errors.required">
+            <ngb-alert type="danger" [dismissible]="false">
+              Code example item title was not provided!
+            </ngb-alert>
+          </div>
+        </div>
+        <div *ngIf="isSubmitted && formControls.content.errors" class="help-block">
+          <div *ngIf="formControls.content.errors.required">
+            <ngb-alert type="danger" [dismissible]="false">
+              Code example item content was not provided!
+            </ngb-alert>
+          </div>
+        </div>
+        <div *ngIf="isSubmitted && formControls.code_lang.errors" class="help-block">
+          <div *ngIf="formControls.code_lang.errors.required">
+            <ngb-alert type="danger" [dismissible]="false">
+              Code example item code language was not provided!
+            </ngb-alert>
+          </div>
         </div>
           <!-- Here starts when people select they want to edit the checklist-->
           <section class="panel">
@@ -48,13 +64,13 @@
               <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; {{title}} </h4>
             </header>
             <div class="panel-body">
-              <form>
+              <form  *ngIf="codeItem | async; else loading" [formGroup]="codeForm" >
                 <div class="form-group">
                   <div class="wrap">
                     <br />
                     <label for="inputVersion" class="col-sm-2 control-label">Title:</label>
                     <div class="col-sm-10">
-                      <input maxlength="120" [(ngModel)]="title" type="text" class="form-control" id="inputTitle"
+                      <input maxlength="120" formControlName="title" type="text" class="form-control" id="inputTitle"
                         name="title" placeholder="">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Code example item title</div>
@@ -62,7 +78,7 @@
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Code language:</label>
                     <div class="col-sm-10">
-                      <input maxlength="120" [(ngModel)]="code_lang" type="text" class="form-control" id="inputTitle"
+                      <input maxlength="120" formControlName="code_lang" type="text" class="form-control" id="inputTitle"
                         name="code_lang" placeholder="">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Code example item code lang</div>
@@ -70,7 +86,7 @@
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Content</label>
                     <div class="col-sm-10">
-                      <textarea required name="content" [(ngModel)]="content" type="text" class="form-control-kb rounded-0" id="exampleFormControlTextarea1" rows="10" id="inputContent">{{content}}</textarea>
+                      <textarea required name="content" formControlName="content" type="text" class="form-control-kb rounded-0" id="exampleFormControlTextarea1" rows="10" id="inputContent">{{content}}</textarea>
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Description of the code example content</div>
                       </div>

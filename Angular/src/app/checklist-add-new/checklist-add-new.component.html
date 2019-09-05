@@ -91,6 +91,21 @@
             </div>
         </div>
 
+        <div *ngIf="isSubmitted && formControls.maturity.errors" class="help-block">
+          <div *ngIf="formControls.maturity.errors.required">
+            <ngb-alert type="danger" [dismissible]="false">
+              Maturity level  was not filled in
+            </ngb-alert>
+          </div>
+          <div *ngIf="formControls.cwe.errors.pattern">
+              <ngb-alert type="danger" [dismissible]="false">
+                Maturity needs to be a numeric value
+              </ngb-alert>
+            </div>
+        </div>
+
+
+
         <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
           <div *ngFor="let item of checklist; let myIndex = index;">
             <ngb-panel title="{{item.checklist_items_checklist_id}} {{item.checklist_items_content}}">
@@ -108,6 +123,7 @@
                         <th style="background-color:white;color:black">Kb item</th>
                         <th style="background-color:white;color:black">Include always</th>
                         <th style="background-color:white;color:black">CWE</th>
+                        <th style="background-color:white;color:black">Maturity level</th>
                         <th style="background-color:white;color:black">Edit</th>
                       </tr>
                     </thead>
@@ -126,6 +142,7 @@
                             ngbTooltip="{{item.kb_item_title}}">show</button></td>
                         <td>{{item.include_always}}</td>
                         <td>{{item.cwe}}</td>
+                        <td>{{item.maturity}}</td>
                         <td>
                           <a [routerLink]="['/checklist-edit', item.checklist_items_checklist_id]">
                             <button class="btn btn-success btn-xs">
@@ -201,6 +218,13 @@
                     </select>
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">select to use this checklist in all the sprints</div>
+                    </div>
+                  </div>
+                  <label for="cwe" class="col-sm-2 control-label">Maturity level</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="120" formControlName="maturity" type="text" class="form-control">
+                    <div class="wrap desc alert-info">
+                      <div class="col-sm-10">e.g. 1,2,3</div>
                     </div>
                   </div>
                   <label for="cwe" class="col-sm-2 control-label">CWE</label>

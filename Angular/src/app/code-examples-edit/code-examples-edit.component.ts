@@ -6,6 +6,10 @@ import { CodeExamplesService } from '../services/code-examples.service'
 import { QuestionsService } from '../services/questions.service'
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
+import { CodeExample } from '../models/code-example';
+import { Observable } from 'rxjs';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 
 
 
@@ -16,67 +20,46 @@ import * as JWT from 'jwt-decode';
 })
 export class CodeExamplesEditComponent implements OnInit {
 
-  constructor(
-    private _codeService: CodeExamplesService,
-    private route: ActivatedRoute,
-    private router: Router,
-  ) { }
+  constructor(private codeService: CodeExamplesService,private route: ActivatedRoute,private router: Router ,private formBuilder: FormBuilder) { }
 
+  codeForm: FormGroup;
   public canEdit: string;
-  public knowledgebaseID: number;
-  public return: boolean;
-  public errors: string[];
-  public error: string;
   public IdFromUrl: number;
-  public title: string;
-  public content: string;
-  public code_lang: string;
-  public codeExample: any[];
+  public isSubmitted: boolean;
+  codeItem: Observable<CodeExample>;
+  codeItemArray: CodeExample[];
+
+  get formControls() { return this.codeForm.controls; }
 
   ngOnInit() {
+    this.codeForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      content: ['', Validators.required],
+      code_lang: ['', Validators.required],
+    })
 
     this.route.params.subscribe(params => {
       this.IdFromUrl = params['id'];
     });
 
-    if (AppSettings.AUTH_TOKEN) {
-      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canEdit = decodedJWT.privilege.includes('edit');
-    }
-    setTimeout(() => {
-      this.getCodeItem();
-    }, 500);
+    this.codeItem = this.codeService.getCodeExample(this.IdFromUrl).pipe(
+      tap(codeItem => this.codeForm.patchValue(codeItem))
+    );
   }
 
   updateCodeItem() {
-    this.errors = [];
-    this.return = true;
-
-    if (!this.title) { this.errors.push('Title was left empty'); this.return = false; }
-    if (!this.content) { this.errors.push('Content was left empty'); this.return = false; }
-    if (!this.code_lang) { this.errors.push('code language was left empty'); this.return = false; }
-    if (this.return == false) { return; }
-
-    this.errors = [];
-    this._codeService.updateCodeExample(Number(this.IdFromUrl), this.title, this.content, this.code_lang)
+    this.isSubmitted = true;
+    if(this.codeForm.invalid){
+      return;
+    }
+    this.codeService.updateCodeExample(Number(this.IdFromUrl), this.codeForm.value)
       .subscribe(
         () => this.back(),
-        () => this.errors.push('Error updating code example')
+        () => console.log('Error updating code example')
       );
 
-    this._codeService.getCode().subscribe(examples => {this.codeExample = examples},err => this.error = 'There was an error catching code examples.')
+    this.codeService.getCode().subscribe(examples => {this.codeItemArray = examples},() => console.log('There was an error catching code examples.'))
     this.router.navigate(['/code-examples']);
-  }
-
-  getCodeItem() {
-    this._codeService.getCodeExample(this.IdFromUrl).subscribe(
-      codeExample => {
-        this.content = codeExample['content']
-        this.code_lang = codeExample['code_lang']
-        this.title = codeExample['title']
-      },
-      err => this.error = 'Error getting knowledge items, contact the administrator!'
-    );
   }
 
   back() {

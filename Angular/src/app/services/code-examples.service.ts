@@ -25,23 +25,23 @@ export class CodeExamplesService {
       map(response => response.json()))
   }
 
-  newCodeExample(title: string, content: string, code_lang: string): Observable<any> {
+  newCodeExample(code: CodeExample): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + '/code/new', JSON.stringify({
-        title: title,
-        content: content,
-        code_lang: code_lang
+        title: code['title'],
+        content: code['content'],
+        code_lang: code['code_lang']
       }),
         { headers: this.postHeaders }).pipe(
           map(a => { return a.json() }));
   }
 
-  updateCodeExample(id: number, title: string, content: string, code_lang: string): Observable<any> {
+  updateCodeExample(id: number, code: CodeExample): Observable<any> {
     return this.http
       .put(environment.API_ENDPOINT + `/code/update/${id}`, JSON.stringify({
-        title: title,
-        content: content,
-        code_lang: code_lang
+        title: code['title'],
+        content: code['content'],
+        code_lang: code['code_lang']
       }),
         { headers: this.postHeaders }).pipe(
           map(a => { return a.json() }));

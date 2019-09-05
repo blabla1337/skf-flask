@@ -43,6 +43,10 @@ export class KnowledgebaseEditComponent implements OnInit {
   }
 
   updateKnowledgebaseItem() {
+    this.isSubmitted = true;
+    if(this.knowledgebaseForm.invalid){
+      return;
+    }
     this.knowledgeService.updateKnowledgebaseItem(Number(this.IdFromUrl), this.knowledgebaseForm.value)
       .subscribe(
         () => this.back(),
@@ -55,7 +59,6 @@ export class KnowledgebaseEditComponent implements OnInit {
     
       this.router.navigate(['/knowledgebase']);
   }
-
 
   back() {
     this.router.navigate(['/knowledgebase']);

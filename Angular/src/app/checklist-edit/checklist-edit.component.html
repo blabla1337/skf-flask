@@ -90,6 +90,19 @@
                   </ngb-alert>
                 </div>
             </div>
+
+            <div *ngIf="isSubmitted && formControls.maturity.errors" class="help-block">
+              <div *ngIf="formControls.maturity.errors.required">
+                <ngb-alert type="danger" [dismissible]="false">
+                  maturity was not filled in
+                </ngb-alert>
+              </div>
+              <div *ngIf="formControls.maturity.errors.pattern">
+                  <ngb-alert type="danger" [dismissible]="false">
+                    maturity needs to be a numeric value
+                  </ngb-alert>
+                </div>
+            </div>
     
           <!-- Here starts when people select they want to edit the checklist-->
           <section class="panel">
@@ -139,6 +152,13 @@
                       </select>
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">select to use this checklist in all the sprints</div>
+                      </div>
+                    </div>
+                    <label for="cwe" class="col-sm-2 control-label">Maturity</label>
+                    <div class="col-sm-10">
+                      <input required maxlength="120" type="text" class="form-control" formControlName="maturity">
+                      <div class="wrap desc alert-info">
+                        <div class="col-sm-10">1,2,3</div>
                       </div>
                     </div>
                     <label for="cwe" class="col-sm-2 control-label">CWE</label>

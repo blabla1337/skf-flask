@@ -21,8 +21,10 @@ class ChecklistType(db.Model):
 
     name = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
+    visibility = db.Column(db.Boolean, nullable=False)
 
-    def __init__(self, name, description):
+    def __init__(self, name, description, visibility):
         self.name = name
         self.description = description
+        self.visibility = visibility
 

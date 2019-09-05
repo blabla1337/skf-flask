@@ -13,7 +13,7 @@ def get_questions(checklists_type):
     result = Question.query.filter(Question.checklist_type == checklists_type).paginate(1, 500, False)
     return result
 
-def store_questions(checklist_type, data):
+def store_questions(checklist_type, maturity, data):
     log("User stored new sprint question list", "MEDIUM", "PASS")
     #Store the result of the questionaire if answer was true in checklists_kb
     for result in data.get('questions'):
@@ -24,7 +24,7 @@ def store_questions(checklist_type, data):
          sprint_id = result['sprint_id']
          status = 1
          if question_result == "True":
-             checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).all()
+             checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).filter(ChecklistKB.maturity == maturity).all()
              for row in checklists:
                  checklists_query = ChecklistResult(status)
                  checklists_query.project_id = question_project_id
@@ -35,10 +35,8 @@ def store_questions(checklist_type, data):
                  db.session.add(checklists_query)
                  db.session.commit()
          #Also check for the include always marked items so they are taken in account
-         print('waar ben ik g', file=sys.stderr)
-         checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).all()
+         checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).filter(ChecklistKB.maturity == maturity).all()
          for row in checklists_always:
-            print('waarom kom ik hier?', file=sys.stderr)
             checklists_always = ChecklistResult(status)
             checklists_always.project_id = question_project_id
             checklists_always.sprint_id = sprint_id

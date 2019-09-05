@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { CodeExamplesService } from '../services/code-examples.service'
-import { AppSettings } from '../globals';
+import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { CodeExample } from '../models/code-example'
 import { HighlightJsService } from 'angular2-highlight-js'; // in live this would be the node_modules path
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -17,41 +17,37 @@ export class CodeExamplesComponent implements OnInit {
 
   public lang: string;
   public codeExamples: CodeExample[] = [];
-  public error: string;
   public hljs;
   public queryString;
-  public title: string;
-  public content: string;
-  public code_lang: string;
-  public return: boolean;
-  public errors: string[]
+  codeForm: FormGroup;
+  public isSubmitted: boolean;
   public delete: string;
-  public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
-
-  constructor(private codeService: CodeExamplesService, private highlightJsService: HighlightJsService, private el: ElementRef, private modalService: NgbModal) {
+  
+  constructor(private codeService: CodeExamplesService, private highlightJsService: HighlightJsService, private el: ElementRef, private modalService: NgbModal, private formBuilder: FormBuilder) {
     this.lang = localStorage.getItem('code_lang')
   }
 
+  get formControls() { return this.codeForm.controls; }
+
   ngOnInit() {
+    this.codeForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      content: ['', Validators.required],
+      code_lang: ['', Validators.required]
+    })
     this.getCodeExamples();
   }
 
   storeCodeExample() {
-
-    this.errors = [];
-    this.return = true;
-
-    if (!this.title) { this.errors.push('Title was left empty'); this.return = false; }
-    if (!this.content) { this.errors.push('Content was left empty'); this.return = false; }
-    if (!this.code_lang) { this.errors.push('Content was left empty'); this.return = false; }
-    if (this.return == false) { return; }
-
-    this.errors = [];
-    this.codeService.newCodeExample(this.title, this.content, this.code_lang)
+    this.isSubmitted = true;
+    if(this.codeForm.invalid){
+      return;
+    }
+    this.codeService.newCodeExample(this.codeForm.value)
       .subscribe(
-        () => this.errors.push('Eror storing a new knowledgebase item!')
+      () => this.getCodeExamples()
       );
-    this.getCodeExamples();
+    () => console.log('Eror storing a new knowledgebase item!')
   }
 
   getCodeExamples() {
@@ -59,7 +55,7 @@ export class CodeExamplesComponent implements OnInit {
       .subscribe(examples => {
         this.codeExamples = examples
       },
-        err => this.error = 'There was an error catching code examples.')
+        err => console.log('There was an error catching code examples.'))
   }
 
   deleter(id: number) {

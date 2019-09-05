@@ -13,6 +13,7 @@ checklist = api.model('checklists_kb', {
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
+     'maturity': fields.Integer(required=False, description='The maturity level'),
 })
 
 checklist_update = api.model('checklist_update', {
@@ -26,7 +27,8 @@ checklist_update = api.model('checklist_update', {
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
-     'questions': fields.String(attribute='questions.question', required=False, description='correlated question!'),
+    'maturity': fields.Integer(required=False, description='The maturity level'),
+    'questions': fields.String(attribute='questions.question', required=False, description='correlated question!'),
 })
 
 checklist_correlation = api.model('checklist_correlation', {
@@ -63,6 +65,7 @@ checklist_types = api.model('checklist_types', {
     'id': fields.Integer(readOnly=True, description='The unique identifier of the checklist type'),
     'title': fields.String(attribute='name', required=True, description='Name of the checklist type'),
     'description': fields.String(required=True, description='Description of the checklist type'),
+    'visibility': fields.String(required=True, description='visibility of the checklist type'),
 })
 
 checklist_type_items = api.inherit('List of checklist types', {
@@ -75,6 +78,7 @@ checklist_create = api.model('checklist_create', {
     'include_always': fields.String(required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
     'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
+    'maturity': fields.Integer(required=False, description='The maturity level'),
 })
 
 message = api.model('Response message', {
