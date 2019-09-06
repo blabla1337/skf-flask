@@ -136,7 +136,7 @@ def export_results(sprint_results):
                     checklistName = name.name
                 else:
                     checklistName = "Removed"
-                
+
                 checklist = ChecklistKB.query.filter(ChecklistKB.id == item.checklist_id).first()
                 kb_item = KBItem.query.filter(KBItem.kb_id == item.kb_id).first()
                 title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
