@@ -39,6 +39,7 @@ from skf.api.sprints.endpoints.sprint_stats import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_update import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results_export import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_results_export_external import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results_delete import ns as sprints_namespace
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace

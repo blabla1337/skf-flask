@@ -83,4 +83,13 @@ export class ProjectSummaryComponent implements OnInit {
       err => console.log('Error getting sprint stats')
     ); });
   }
+
+  PushMetrics(){
+    this.route.params.subscribe(params => 
+      { 
+        this.sprintService.getSprintResultsExport(params['id']).subscribe(
+        () => this.sprintService.getSprintResultsExportExternal(params['id']).subscribe()
+      ); 
+  });
+  }
 }

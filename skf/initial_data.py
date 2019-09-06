@@ -1125,19 +1125,19 @@ def load_initial_data():
         db.session.commit()
 
         c = ChecklistKB('3.5.1', 'Verify the application does not treat OAuth and refresh tokens — on their own — as the presence of the subscriber and allows users to terminate trust relationships with linked applications.', 3, False, 290, 2)
-        c.question_id = 23
+        c.question_id = 24
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
         c = ChecklistKB('3.5.2', 'Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations.', 3, False, 798, 2)
-        c.question_id = 23
+        c.question_id = 24
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
         c = ChecklistKB('3.5.3', 'Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks.', 3, False, 345, 2)
-        c.question_id = 23
+        c.question_id = 24
         c.kb_id = 297
         db.session.add(c)
         db.session.commit()
@@ -1156,8 +1156,8 @@ def load_initial_data():
         db.session.commit()
         '''
 
-        c = ChecklistKB('3.7.1', 'Verify the application ensures a valid login session or requires re-authentication or secondary verification before allowing any sensitive transactions or account modifications.', 3, True, 778, 1)
-        c.question_id = None
+        c = ChecklistKB('3.7.1', 'Verify the application ensures a valid login session or requires re-authentication or secondary verification before allowing any sensitive transactions or account modifications.', 3, False, 778, 1)
+        c.question_id = 25
         c.kb_id = 233
         db.session.add(c)
         db.session.commit()
