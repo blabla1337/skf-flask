@@ -37,6 +37,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDashboardComponent }   from './project-dashboard/project-dashboard.component';
 import { ProjectSummaryComponent }   from './project-summary/project-summary.component';
+import { PluginManagerComponent }   from './plugin-manager/plugin-manager.component';
 import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.component';
 import { KnowledgebaseEditComponent }   from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent }   from './code-examples/code-examples.component';
@@ -70,6 +71,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ProjectListComponent,
     ProjectDashboardComponent,
     ProjectSummaryComponent,
+    PluginManagerComponent,
     UserAddComponent,
     UserManageComponent,
     KnowledgebaseComponent,

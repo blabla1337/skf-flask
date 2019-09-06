@@ -1,4 +1,5 @@
 import base64, string, random
+from skf import settings
 from skf.database import db
 from sqlalchemy import asc, desc
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
@@ -12,6 +13,7 @@ from skf.database.checklist_types import ChecklistType
 from skf.database.kb_items import KBItem
 from skf.database.comments import Comment
 import sys
+import requests
 
 def get_sprint_item(sprint_id, user_id):
     log("User requested specific sprint item", "MEDIUM", "PASS")
@@ -127,7 +129,6 @@ def export_results(sprint_results):
     file_path = "export.csv"
     with open(file_path, 'w+') as file:
         file.write('title,description,mitigation\n')
-
         for item in results:
             if item.kb_id != 1:
                 if item.checklist_type_id != None:
@@ -135,22 +136,44 @@ def export_results(sprint_results):
                     checklistName = name.name
                 else:
                     checklistName = "Removed"
+
                 checklist = ChecklistKB.query.filter(ChecklistKB.id == item.checklist_id).first()
                 kb_item = KBItem.query.filter(KBItem.kb_id == item.kb_id).first()
                 title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
-                #print(kb_item.content, file=sys.stderr)
+                print(kb_item.content, file=sys.stderr)
                 if kb_item != None:
-                    temp = kb_item.content.replace(',','\\,').split(" Solution:")
-                    temp1 = temp[0].split(" Description:")
-                    description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
-                    mitigation = temp[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                    try:
+                        temp = kb_item.content.replace(',','\\,').split("Solution:")
+                        temp1 = temp[0].split("Description:")
+                        description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                        mitigation = temp[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                    except:
+                        description = "empty"
+                        mitigation = "empty"
                 else:
                     description = "empty"
                     mitigation = "empty"
                 file.write('"' + checklistName + ' : ' + title + '","' + description + '","' + mitigation + '"\n')
     with open(file_path, 'rb') as file:
-
         return {'message': base64.b64encode(file.read())}
+
+def export_results_external(engagement_id):
+    url = settings.DOJO_URL
+    data = {
+    "verified":"true",
+    "active": "true",
+    "lead": "/api/v1/users/1/",
+    "tags":"security knowledge framework",
+    "scan_date":"2019-04-30",
+    "scan_type":"SKF Scan",
+    "engagement":"/api/v1/engagements/14"
+    }
+    f = open("export.csv", "r")
+    headers = {'content-type': 'application/json', 'Authorization': "ApiKey admin:1dfdfa2042567ec751f6b3fa96038b743ea6f1cc"}
+    r = requests.get(url, json=data, headers=headers, files={'export.csv': f}, verify=True) # set verify to False if ssl cert is self-signed
+    print(r.content, file=sys.stderr)
+    print(r.request.headers, file=sys.stderr)
+    print(r.request.body, file=sys.stderr)
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))

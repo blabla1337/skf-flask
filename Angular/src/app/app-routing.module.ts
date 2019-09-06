@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { ProjectSummaryComponent } from './project-summary/project-summary.component';
+import { PluginManagerComponent }   from './plugin-manager/plugin-manager.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { LabsComponent } from './labs/labs.component';
 import { KnowledgebaseComponent } from './knowledgebase/knowledgebase.component';
@@ -30,6 +31,7 @@ export const appRoutes: Routes = [
   { path: 'labs', component: LabsComponent, canActivate: [GuardService] },
   { path: 'project-list', component: ProjectListComponent, canActivate: [GuardService] },
   { path: 'project-dashboard/:id', component: ProjectDashboardComponent, canActivate: [GuardService] },
+  { path: 'plugin-manager', component: PluginManagerComponent, canActivate: [GuardService] },
   { path: 'undefined', component: UndefinedComponent, canActivate: [GuardService] },
   { path: 'project-summary/:id', component: ProjectSummaryComponent, canActivate: [GuardService] },
    { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },

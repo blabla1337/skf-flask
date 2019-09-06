@@ -48,6 +48,13 @@ export class SprintService {
       error => console.log('failed to export')));
   }
 
+  getSprintResultsExportExternal(id: number) {
+    return this.http.get(environment.API_ENDPOINT + `/sprint/results/export_external/${id}`, { headers: this.headers }).pipe(
+      map(
+      response => response.json().message,
+      error => console.log('failed to export')));
+  }
+
   delete(sprint_id: number) {
     const url = environment.API_ENDPOINT + `/sprint/delete/${sprint_id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(

@@ -2,7 +2,7 @@
 # FLASK_SERVER_NAME = FLASK_HOST+":"+str(FLASK_PORT)
 FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 8888
-FLASK_DEBUG = True  # Do not use debug mode in production
+FLASK_DEBUG = False  # Do not use debug mode in production
 CHATBOT_LOG = "db"
 SKF_API_URL = "https://demo.securityknowledgeframework.org/api/"
 
@@ -29,5 +29,10 @@ GOOGLE = False
 API_KEY = 'AIzaSyDP1iLdfgvct3BQKLAKQaD3UG6LVgiJSLs'
 CSE_ID = '007944217764671561800:ve3xx693pke'
 
+
+#temp defect dojo push settings
+DOJO_API_KEY = 'admin:1dfdfa2042567ec751f6b3fa96038b743ea6f1cc'
+DOJO_URL = 'https://defectdojo.herokuapp.com/api/v2/import-scan/'
+
 # TESTING settings
-TESTING = False
+TESTING = True
