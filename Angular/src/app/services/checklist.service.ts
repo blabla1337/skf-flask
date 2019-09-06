@@ -51,7 +51,8 @@ export class ChecklistService {
     return this.http
       .put(environment.API_ENDPOINT + '/checklist/create/type', JSON.stringify({
         name: checklistType['name'],
-        description: checklistType['description']
+        description: checklistType['description'],
+        visibility: Number(checklistType['visibility'])
       }),
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
@@ -61,7 +62,8 @@ export class ChecklistService {
     return this.http
       .put(environment.API_ENDPOINT + `/checklist/update/type/${id}`, JSON.stringify({
         name: checklistType['name'],
-        description: checklistType['description']
+        description: checklistType['description'],
+        visibility: Number(checklistType['visibility'])
       }),
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
@@ -75,6 +77,7 @@ export class ChecklistService {
        include_always: checklist['include_always'],
        question_id:  Number(checklist['question_id']['id']),
        cwe:  Number(checklist['cwe']),
+       maturity: Number(checklist['maturity'])
       }),
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));
@@ -88,7 +91,8 @@ export class ChecklistService {
        kb_id: Number(checklist['kb_id']['kb_id']),
        include_always: checklist['include_always'],
        question_id: Number(checklist['question_id']['id']),
-       cwe: Number(checklist['cwe'])
+       cwe: Number(checklist['cwe']),
+       maturity: Number(checklist['maturity'])
       }),
         { headers: this.postHeaders }).pipe(
       map(a => { return a.json() }));

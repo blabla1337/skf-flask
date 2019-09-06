@@ -34,7 +34,6 @@ import { LabsComponent } from './labs/labs.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDashboardComponent }   from './project-dashboard/project-dashboard.component';
 import { ProjectSummaryComponent }   from './project-summary/project-summary.component';
@@ -68,7 +67,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    ProjectNewComponent,
     ProjectListComponent,
     ProjectDashboardComponent,
     ProjectSummaryComponent,

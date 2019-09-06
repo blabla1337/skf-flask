@@ -40,13 +40,13 @@
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
-          <div class="srcWrap">
-              <div class="src">
-                <input class="searchinput" [(ngModel)]="queryString" id="search" name="search"
-                  placeholder="Search feature/sprint" />
-                <i class="fa fa-search"></i>
-              </div>
-            </div>
+        <div class="srcWrap">
+          <div class="src">
+            <input class="searchinput" [(ngModel)]="queryString" id="search" name="search"
+              placeholder="Search feature/sprint" />
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
         <div class="content-panel">
           <div *ngFor="let sprint of sprintResult | stringFilter : queryString;" class="col-md-3">
             <div class="card">
@@ -59,7 +59,7 @@
                     <ng-template ngbTabTitle><b>Summary</b></ng-template>
                     <ng-template ngbTabContent>
                       <span style="margin-left:40%;" class="icon"><i class="fa fa-check-circle fa-4x"></i></span>
-                      <br/>
+                      <br />
                       total items: {{sprint.sprint_items_total}}
                     </ng-template>
                   </ngb-tab>
@@ -119,6 +119,38 @@
               <!-- Start the stepper -->
               <ngb-tabset type="pills" #t="ngbTabset" [destroyOnHide]="false">
                 <ngb-tab id="intro">
+                  <ng-template ngbTabTitle><b>Maturity level</b></ng-template>
+                  <ng-template ngbTabContent>
+                    <div class="inner">
+                      <h4>Maturity</h4>
+                      <p>Select the right checklist maturity for your feature/sprint</p>
+                    </div>
+                    <select class="form-control" name="question" id="question" (change)="selectMaturity()"
+                      [(ngModel)]="maturity_id">
+                      <option selected> Select checklist maturity </option>
+                      <option value=1> Level 1</option>
+                      <option value=2> Level 2</option>
+                      <option value=3> Level 3</option>
+                      <option value=4> Level 4</option>
+                      <option value=5> Level 5</option>
+                    </select>
+                    <br />
+                    <div class="alert alert-info" style="margin-bottom:2.6%">
+                      <p><strong>So how is this about?</strong></p>
+                      <p>
+                        The maturity level gives you a different set of checklists that are correlacted
+                        to the level. If you get more confident in secure coding you can select
+                        a higher level of maturity to do your sprints/features with.
+                      </p>
+                    </div>
+                    <div class="buttons">
+                      <br />
+                      <button *ngIf="maturity_id" (click)="t.select('checklist')" id="checklist"
+                        class="btn btn-default" style='float:right'>Select</button>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+                <ngb-tab id="checklist">
                   <ng-template ngbTabTitle><b>Select checklist</b></ng-template>
                   <ng-template ngbTabContent>
                     <div class="inner">
@@ -142,14 +174,15 @@
                       </p>
                     </div>
                     <div class="buttons">
-                      <br />
-                      <button *ngIf="checklist_type" (click)="t.select('step1')" id="checklist" class="btn btn-default"
-                        style='float:right'>Select</button>
-                    </div>
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('intro')"><i
+                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="btn btn-default" (click)="t.select('questionnaire')"><i
+                            class="fa fa-arrow-right 5" aria-hidden="true"></i></button>
+                      </div>
                   </ng-template>
                 </ngb-tab>
-                <!-- start the first step! -->
-                <ngb-tab id="step1">
+                <!-- start the questionnaire -->
+                <ngb-tab id="questionnaire">
                   <ng-template ngbTabTitle><b> Questionnaire</b></ng-template>
                   <ng-template ngbTabContent>
                     <form class="form-horizontal" role="form"
@@ -174,36 +207,38 @@
                       <div class="buttons">
                         <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('intro')"><i
                             class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                        <button class="btn btn-default" (click)="storeSprint(myForm); t.select('step2')"><i
+                        <button class="btn btn-default" (click)="storeSprint(myForm); t.select('feature')"><i
                             class="fa fa-arrow-right 5" aria-hidden="true"></i></button>
                       </div>
                     </form>
                   </ng-template>
                 </ngb-tab>
                 <!-- Start the third step! -->
-                <ngb-tab id="step2">
+                <ngb-tab id="feature">
                   <ng-template ngbTabTitle><b>Set-up</b></ng-template>
                   <ng-template ngbTabContent>
                     <div class="inner">
                       <h4>Add a sprint</h4>
-                      <p>A sprint/feature stands for any functionality in your project that requires testing. Let's add the
-                        first print/feature here. <br/>
-                        We cann either start working on a new spring/feature or we select to enchance an old one with new requirements!
+                      <p>A sprint/feature stands for any functionality in your project that requires testing. Let's add
+                        the
+                        first print/feature here. <br />
+                        We cann either start working on a new spring/feature or we select to enchance an old one with
+                        new requirements!
                       </p>
                     </div>
-                    <br/>
+                    <br />
                     <div>
                       <select class="form-control" [(ngModel)]="selected" id="select-question">
-                        <option selected >Select a question to edit</option>
+                        <option selected>Select a question to edit</option>
                         <option value="old">Add to existing</option>
                         <option value="new">Create new </option>
                       </select>
-                      <br/>
+                      <br />
                     </div>
                     <div *ngIf="selected == 'new'">
-                        <ngb-alert [dismissible]="false">
-                            Create a complete new feature/sprint to start working on!
-                               </ngb-alert>
+                      <ngb-alert [dismissible]="false">
+                        Create a complete new feature/sprint to start working on!
+                      </ngb-alert>
                       <div class="form-group" style="padding-bottom: 7.5%;">
                         <div class="wrap">
                           <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
@@ -231,18 +266,18 @@
                         </div>
                       </div>
                       <div class="buttons">
-                          <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('step1');"><i
-                              class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                          <button class="btn btn-default" type="submit" id="finish" name="step2"
-                            (click)="t.select('finish'); newSprint();"><i class="fa fa-arrow-right"
-                              aria-hidden="true"></i></button>
-                        </div>
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('questionnaire');"><i
+                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="btn btn-default" type="submit" id="finish" name="step2"
+                          (click)="t.select('finish'); newSprint();"><i class="fa fa-arrow-right"
+                            aria-hidden="true"></i></button>
+                      </div>
                     </div>
 
                     <div *ngIf="selected == 'old'">
                       <ngb-alert [dismissible]="false">
-                       Add new checklists items to an existing sprint/feature!
-                          </ngb-alert>
+                        Add new checklists items to an existing sprint/feature!
+                      </ngb-alert>
                       <div class="form-group" style="padding-bottom:7.5%">
                         <div class="wrap">
                           <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
@@ -254,12 +289,12 @@
                         </div>
                       </div>
                       <div class="buttons">
-                          <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('step1');"><i
-                              class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                          <button class="btn btn-default" type="submit" id="finish" name="step2"
-                            (click)="t.select('finish'); oldSprint();"><i class="fa fa-arrow-right"
-                              aria-hidden="true"></i></button>
-                        </div>
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('step1');"><i
+                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="btn btn-default" type="submit" id="finish" name="step2"
+                          (click)="t.select('finish'); oldSprint();"><i class="fa fa-arrow-right"
+                            aria-hidden="true"></i></button>
+                      </div>
                     </div>
                   </ng-template>
                 </ngb-tab>

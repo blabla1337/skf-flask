@@ -53,6 +53,7 @@ export class ChecklistEditComponent implements OnInit {
       include_always: ['', Validators.required],
       content: ['', Validators.required],
       cwe: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      maturity: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     })
 
     this.getKnowledgeItems();
@@ -115,6 +116,7 @@ export class ChecklistEditComponent implements OnInit {
         include_always: this.checklist['include_always'],
         content: this.checklist['content'],
         cwe: this.checklist['cwe'],
+        maturity: this.checklist['maturity'],
       });
     }, 100);
   }

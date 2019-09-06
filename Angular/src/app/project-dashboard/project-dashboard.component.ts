@@ -40,6 +40,7 @@ export class ProjectDashboardComponent implements OnInit {
   public selected: string;
   public oldSprints: string;
   public queryString: string;
+  public maturity_id: number;
   
   constructor(
     private modalService: NgbModal,
@@ -53,10 +54,8 @@ export class ProjectDashboardComponent implements OnInit {
     this.route.params.subscribe(params => {
       localStorage.setItem('project_id', params['id'])
     });
-
-    this.checklistTypeList();
     this.getSprintStats();
-
+    this.checklistTypeList();
   }
 
   selectQuestions() {
@@ -65,6 +64,8 @@ export class ProjectDashboardComponent implements OnInit {
       err => console.log('getting questions failed')
     )
   }
+  
+
 
   // Temp storage for sprint questionaire
   storeSprint(form: NgForm) {
@@ -110,7 +111,7 @@ export class ProjectDashboardComponent implements OnInit {
     }
 
   setTimeout(() => {
-    this.questionsService.newSprint(this.checklist_type, this.sprintStore).subscribe(() => { },
+    this.questionsService.newSprint(this.checklist_type, this.maturity_id, this.sprintStore).subscribe(() => { },
       err => console.log('Error Storing new questions for sprint'));
       this.getSprintStats();
   }, 1000);

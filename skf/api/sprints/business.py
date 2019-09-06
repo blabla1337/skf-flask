@@ -8,7 +8,7 @@ from skf.database.projects import Project
 from skf.database.users import User
 from skf.database.checklists_results import ChecklistResult
 from skf.database.checklists_kb import ChecklistKB
-from skf.database.checklists_results import ChecklistResult
+from skf.database.checklist_types import ChecklistType
 from skf.database.kb_items import KBItem
 from skf.database.comments import Comment
 import sys
@@ -62,10 +62,10 @@ def new_sprint(user_id, data):
 
     try:
         user = User.query.get(user_id)
-        group = user.groups[0]
+        #group = user.groups[0]
 
         sprint = ProjectSprint(name, description)
-        sprint.group_id = group.id
+        sprint.group_id = 1
         sprint.project_id = project_id
         sprint.checklist_type_id = checklist_type_id
         db.session.add(sprint)
@@ -76,7 +76,7 @@ def new_sprint(user_id, data):
          raise
 
     # somewhat funky query to obtain the id
-    result = ProjectSprint.query.filter(ProjectSprint.group_id == group.id).order_by(desc(ProjectSprint.id)).first()
+    result = ProjectSprint.query.order_by(desc(ProjectSprint.id)).first()
     return {'sprint_id': result.id, 'message': 'Sprint successfully created'}
 
 def stats_sprint(project_id):
@@ -123,19 +123,23 @@ def delete_checklist_result(id, user_id):
 
 
 def export_results(sprint_results):
-    results = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_results).all()
+    results = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_results).order_by(ChecklistResult.checklist_type_id).all()
     file_path = "export.csv"
     with open(file_path, 'w+') as file:
         file.write('title,description,mitigation\n')
 
         for item in results:
             if item.kb_id != 1:
+                if item.checklist_type_id != None:
+                    name = ChecklistType.query.filter(ChecklistType.id == item.checklist_type_id).first()
+                    checklistName = name.name
+                else:
+                    checklistName = "Removed"
                 checklist = ChecklistKB.query.filter(ChecklistKB.id == item.checklist_id).first()
                 kb_item = KBItem.query.filter(KBItem.kb_id == item.kb_id).first()
-
                 title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                #print(kb_item.content, file=sys.stderr)
                 if kb_item != None:
-                    print(kb_item.content, file=sys.stderr)
                     temp = kb_item.content.replace(',','\\,').split(" Solution:")
                     temp1 = temp[0].split(" Description:")
                     description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
@@ -143,7 +147,7 @@ def export_results(sprint_results):
                 else:
                     description = "empty"
                     mitigation = "empty"
-                file.write('"' + title + '","' + description + '","' + mitigation + '"\n')
+                file.write('"' + checklistName + ' : ' + title + '","' + description + '","' + mitigation + '"\n')
     with open(file_path, 'rb') as file:
 
         return {'message': base64.b64encode(file.read())}

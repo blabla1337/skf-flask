@@ -55,6 +55,7 @@ export class ChecklistAddNewComponent implements OnInit {
       include_always: ['', Validators.required],
       content: ['', Validators.required],
       cwe: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      maturity: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     })
 
     this.route.params.subscribe(params => {

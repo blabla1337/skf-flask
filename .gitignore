@@ -7,7 +7,7 @@
 **/.cache
 **/skf.*
 **/build
-*export*
+export.csv
 **/reports
 **/dist
 **/owasp_skf.egg-info/

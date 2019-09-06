@@ -37,7 +37,20 @@
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
-
+        <div *ngIf="isSubmitted && formControls.title.errors" class="help-block">
+          <div *ngIf="formControls.title.errors.required">
+            <ngb-alert type="danger" [dismissible]="false">
+              Knowledgebase item title was not provided!
+            </ngb-alert>
+          </div>
+        </div>
+        <div *ngIf="isSubmitted && formControls.content.errors" class="help-block">
+          <div *ngIf="formControls.content.errors.required">
+            <ngb-alert type="danger" [dismissible]="false">
+              Knowledgebase item content was not provided!
+            </ngb-alert>
+          </div>
+        </div>
           <!-- Here starts when people select they want to edit the checklist-->
           <section class="panel">
             <header class="panel-heading">

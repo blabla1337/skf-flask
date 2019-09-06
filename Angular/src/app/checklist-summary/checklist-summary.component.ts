@@ -16,6 +16,7 @@ export class ChecklistSummaryComponent implements OnInit {
   public delete: string;
   public idFromURL: number;
   public queryString: string;
+  public isSubmitted: boolean;
   
   get formControls() { return this.checklistForm.controls; }
 
@@ -25,12 +26,17 @@ export class ChecklistSummaryComponent implements OnInit {
     this.checklistForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
+      visibility: ['', Validators.required],
     })
 
     this.checklistTypeList()
   }
 
   newChecklistType() {
+    this.isSubmitted = true;
+    if(this.checklistForm.invalid){
+      return;
+    }
     this._checklistService.newChecklistType(this.checklistForm.value)
       .subscribe(
         checklistTypes => this.checklistTypes = checklistTypes,
@@ -40,6 +46,17 @@ export class ChecklistSummaryComponent implements OnInit {
   }
 
   updateChecklistType(id: number) {
+    this.isSubmitted = true;
+    if(this.checklistForm.invalid){
+      return;
+    }
+
+    if (this.checklistForm.value['visibility'] == "True"){
+      this.checklistForm.value['visibility']  = 1
+    }else{
+      this.checklistForm.value['visibility']  = 0
+    }
+
     this._checklistService.updateChecklistType(id, this.checklistForm.value).subscribe(x =>
       // Get the new project list on delete
       this.checklistTypeList())
@@ -77,9 +94,11 @@ export class ChecklistSummaryComponent implements OnInit {
     this.modalService.open(updateContent, { size: 'lg' }).result
   }
 
-  getSet(name, description) {
+  getSet(name, description, maturity, visibility) {
     this.checklistTypes['name'] = name
     this.checklistTypes['description'] = description
+    this.checklistTypes['visibility'] = visibility
+    console.log(visibility)
     this.checklistForm.patchValue(this.checklistTypes)
   }
 }

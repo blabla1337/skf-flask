@@ -22,7 +22,7 @@ def create_code_item(data):
     content = data.get('content')
     title = data.get('title')
     code_lang = data.get('code_lang')
-    result = CodeItem(title, content, code_lang)
+    result = CodeItem(content, title, code_lang)
 
     try:
         db.session.add(result)
@@ -33,11 +33,11 @@ def create_code_item(data):
 
     return {'message': 'KB item successfully created'} 
 
-def delete_code_item(codeId, user_id):
+def delete_code_item(code_id, user_id):
     log("User deleted code item", "MEDIUM", "PASS")
-    val_num(codeId)
+    val_num(code_id)
     val_num(user_id)
-    codeItem = (CodeItem.query.filter(CodeItem.ide == codeId).one())
+    codeItem = (CodeItem.query.filter(CodeItem.id == code_id).one())
 
     try:
         db.session.delete(codeItem)
