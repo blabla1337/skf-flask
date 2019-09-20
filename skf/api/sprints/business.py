@@ -12,13 +12,12 @@ from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklist_types import ChecklistType
 from skf.database.kb_items import KBItem
 from skf.database.comments import Comment
-import sys
 import requests
+import sys
 
 def get_sprint_item(sprint_id, user_id):
     log("User requested specific sprint item", "MEDIUM", "PASS")
     val_num(sprint_id)
-    val_num(user_id)
     result = ProjectSprint.query.get(sprint_id)
     return result
 
@@ -26,21 +25,22 @@ def get_sprint_item(sprint_id, user_id):
 def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
-    val_num(user_id)
     result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_type_id)).paginate(1, 500, False)
     return result
 
 def update_sprint(sprint_id, user_id, data):
     log("User updated sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
-    val_num(user_id)
+
     val_alpha_num_special(data.get('name'))
     val_alpha_num_special(data.get('description'))
+    name = data.get('name')
+    description = data.get('description')
 
     try:
         sprint = ProjectSprint.query.get(sprint_id)
-        sprint.name = data.get('name')
-        sprint.description = data.get('description')
+        sprint.name = name
+        sprint.description = description
 
         db.session.add(sprint) 
         db.session.commit()
@@ -54,6 +54,12 @@ def update_sprint(sprint_id, user_id, data):
 
 def new_sprint(user_id, data):
     log("User created new sprint", "MEDIUM", "PASS")
+    
+    val_alpha_num_special(data.get('name'))
+    val_alpha_num_special(data.get('description'))
+    val_num(data.get('project_id'))
+    #val_num(data.get('checklist_type_id'))
+    
     name = data.get('name')
     description = data.get('description')
     project_id = data.get('project_id')
@@ -65,7 +71,6 @@ def new_sprint(user_id, data):
     try:
         user = User.query.get(user_id)
         #group = user.groups[0]
-
         sprint = ProjectSprint(name, description)
         sprint.group_id = 1
         sprint.project_id = project_id
@@ -157,23 +162,6 @@ def export_results(sprint_results):
     with open(file_path, 'rb') as file:
         return {'message': base64.b64encode(file.read())}
 
-def export_results_external(engagement_id):
-    url = settings.DOJO_URL
-    data = {
-    "verified":"true",
-    "active": "true",
-    "lead": "/api/v1/users/1/",
-    "tags":"security knowledge framework",
-    "scan_date":"2019-04-30",
-    "scan_type":"SKF Scan",
-    "engagement":"/api/v1/engagements/14"
-    }
-    f = open("export.csv", "r")
-    headers = {'content-type': 'application/json', 'Authorization': "ApiKey admin:1dfdfa2042567ec751f6b3fa96038b743ea6f1cc"}
-    r = requests.get(url, json=data, headers=headers, files={'export.csv': f}, verify=True) # set verify to False if ssl cert is self-signed
-    print(r.content, file=sys.stderr)
-    print(r.request.headers, file=sys.stderr)
-    print(r.request.body, file=sys.stderr)
+def export_results_external():
 
-def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
-    return ''.join(random.choice(chars) for _ in range(size))
+    return "todo"

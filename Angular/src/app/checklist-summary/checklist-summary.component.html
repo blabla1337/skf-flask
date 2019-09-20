@@ -31,7 +31,7 @@
         <p>An overview of all the current available checklists. More information about the checklist by clicking on a
           checklist name. </p>
       </div>
-      <button style="float:right;" (click)="open(content); getSet('','')" class="btn btn-default"><i class="fa fa-cog"
+      <button style="float:right;" (click)="open(content); getSet('','','','')" class="btn btn-default"><i class="fa fa-cog"
           aria-hidden="true" id="add-new-checklist"></i> Add
         new checklist</button>
     </div>
@@ -77,8 +77,8 @@
                 <th><i class="fa fa-bullhorn"></i> Name</th>
                 <th><i class="fa fa-times"></i> Checklist description</th>
                 <th><i class="fa fa-check"></i> Active</th>
-                <th><i class="fa fa-times"></i> Delete</th>
                 <th><i class="fa fa-check"></i> Update</th>
+                <th><i class="fa fa-times"></i> Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -88,18 +88,17 @@
                 <td>{{checklists.description}}</td>
                 <td>{{checklists.visibility}}</td>
                 <td>
-                  <button id="delete-checklist{{myIndex}}" (click)="open(deleteContent)" class="btn btn-danger btn-xs">
-                    <i class="fa fa-times "></i>
-                  </button>
-                </td>
-                <td>
                   <button id="update-checklist{{myIndex}}"
                     (click)="open(updateContent); getSet(checklists.title, checklists.description, checklists.visibility)"
                     class="btn btn-warning btn-xs">
                     <i class="fa fa-check "></i>
                   </button>
                 </td>
-
+                <td>
+                  <button id="delete-checklist{{myIndex}}" (click)="open(deleteContent)" class="btn btn-danger btn-xs">
+                    <i class="fa fa-times "></i>
+                  </button>
+                </td>
                 <!-- Modal for deleting a new checklist type-->
                 <ng-template #deleteContent let-c="close" let-d="dismiss">
                   <div class="modal-header">

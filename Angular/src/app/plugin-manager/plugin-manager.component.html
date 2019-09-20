@@ -16,7 +16,7 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
--->
+
 
 <section id="main-content" class="page08 code-examples">
 	<section class="intro">
@@ -79,7 +79,7 @@
 
 								</ng-template>
 							</ngb-panel>
-							<!-- Modal for deleting items-->
+						Modal for deleting items
 							<ng-template #deleteKb let-c="close" let-d="dismiss">
 								<div class="modal-header">
 									<h4 class="modal-title">Delete project!</h4>
@@ -100,7 +100,7 @@
 									<button type="button" class="btn btn-danger" id="submit"
 										(click)="deleteKnowledgebaseItem(knowledge.kb_id)" (click)="c('Close click')">Delete</button>
 								</div>
-								<!-- end Modal for deleting items-->
+								end Modal for deleting items
 							</ng-template>
 						</div>
 					</ngb-accordion>
@@ -108,7 +108,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- Modal for adding a new checklist type-->
+Modal for adding a new checklist type
 	<form [formGroup]="knowledgebaseForm" class="form-horizontal" role="form"
 		style="padding-left:20px;padding-right:20px; padding-top:-20px;">
 		<ng-template #newkbmodal let-c="close" let-d="dismiss">
@@ -146,5 +146,7 @@
 			</div>
 		</ng-template>
 	</form>
-	<!-- END Modal for adding a new checklist type-->
+END Modal for adding a new checklist type 
 </section>
+
+-->

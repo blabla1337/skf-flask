@@ -1,5 +1,5 @@
 from skf.database import db
-from skf.api.security import log, val_num, val_float, val_alpha_num
+from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_num_special
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklists_results import ChecklistResult
 from skf.database.checklist_types import ChecklistType
@@ -10,6 +10,8 @@ import sys
 
 def get_checklist_item(checklist_id, checklist_type):
     log("User requested specific checklist item", "LOW", "PASS")
+    val_alpha_num_special(checklist_id)
+    val_num(checklist_type)
     result = ChecklistKB.query.filter((ChecklistKB.checklist_type == checklist_type) & (ChecklistKB.checklist_id == checklist_id)).one()
     return result
 
@@ -54,9 +56,13 @@ def get_checklist_items(checklist_type):
 
 def create_checklist_type(data):
     log("User requested create a new checklist type", "LOW", "PASS")
+    val_alpha_num_special(data.get('name'))
+    val_alpha_num_special(data.get('description'))
+    
     checklist_name = data.get('name')
     checklist_description = data.get('description')
     visibility = data.get('visibility')
+
     checklist_type = ChecklistType(checklist_name, checklist_description, visibility)
 
     try:
@@ -69,6 +75,13 @@ def create_checklist_type(data):
 
 def create_checklist_item(checklist_id, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
+    
+    val_alpha_num_special(data.get('content'))
+    val_alpha_num(data.get('include_always'))
+    val_num(data.get('question_id'))
+    val_num(data.get('kb_id'))
+    val_num(data.get('maturity'))
+
     content = data.get('content')
     include_always = data.get('include_always')
     question_id = data.get('question_id')
@@ -103,6 +116,11 @@ def create_checklist_item(checklist_id, checklist_type, data):
 
 def update_checklist_type(id, data):
     log("User requested update checklist type", "LOW", "PASS")
+    
+    val_num(id)
+    val_alpha_num_special(data.get('name'))
+    val_alpha_num_special(data.get('description'))
+    
     checklist_name = data.get('name')
     checklist_description = data.get('description')
     visibility = data.get('visibility')
@@ -124,9 +142,23 @@ def update_checklist_type(id, data):
 
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
+    
+    val_num(checklist_type)
+    val_alpha_num_special(checklist_id)
+    val_num(data.get('maturity'))
+    val_num(data.get('question_id'))
+    val_num(data.get('cwe'))
+    val_num(data.get('kb_id'))
+    val_alpha_num(data.get('include_always'))
+    val_alpha_num_special(data.get('content'))
+    
     include_always = data.get('include_always')
     question_id = data.get('question_id')
     maturity = data.get('maturity')
+    content = data.get('content')
+    cwe = data.get('cwe')
+    kb_id = data.get('kb_id')
+
     if include_always == "True":
         include_always = True
     else:
@@ -134,11 +166,11 @@ def update_checklist_item(checklist_id, checklist_type, data):
     if question_id == 0:
         question_id = None
     result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
-    result_checklist_kb.content = data.get('content')
+    result_checklist_kb.content = content
     result_checklist_kb.include_always = include_always
     result_checklist_kb.question_id = question_id
-    result_checklist_kb.cwe = data.get('cwe')
-    result_checklist_kb.kb_id = data.get('kb_id')
+    result_checklist_kb.cwe = cwe
+    result_checklist_kb.kb_id = kb_id
     result_checklist_kb.checklist_id = checklist_id
     result_checklist_kb.maturity = maturity
     result_checklist_kb.checklist_type = checklist_type
@@ -146,13 +178,17 @@ def update_checklist_item(checklist_id, checklist_type, data):
         db.session.add(result_checklist_kb)
         db.session.commit()
     except Exception as e:
-        print(e, file=sys.stderr)
         db.session.rollback
         raise
     return {'message': 'Checklist item successfully updated'} 
 
 def update_checklist_question_correlation(checklist_id, checklist_type, data):
     log("User requested update a specific checklist question correlation", "LOW", "PASS")
+
+    val_num(checklist_type)
+    val_alpha_num_special(checklist_id)
+    val_num(data.get('question_id'))
+
     question_id = data.get('question_id')
     if question_id == 0:
         question_id = None
@@ -169,6 +205,7 @@ def update_checklist_question_correlation(checklist_id, checklist_type, data):
 def delete_checklist_type(checklist_type_id):
     log("User deleted checklist type", "MEDIUM", "PASS")
     val_num(checklist_type_id)
+
     checklist_types = ChecklistType.query.get(checklist_type_id)
     try:
         db.session.delete(checklist_types)
@@ -180,14 +217,15 @@ def delete_checklist_type(checklist_type_id):
 
 def delete_checklist_item(checklist_id, checklist_type):
     log("User deleted checklist item", "MEDIUM", "PASS")
-
+    val_num(checklist_type)
+    val_alpha_num_special(checklist_id)
+    
     try:
         checklist = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
         db.session.delete(checklist)
         db.session.commit()
 
     except Exception as e:
-        print(e)
         db.session.rollback()
         raise
 

@@ -430,7 +430,7 @@ def load_initial_data():
 
         c = ChecklistKB('1.0', 'Architecture, Design and Threat Modeling Requirements', 1, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -686,9 +686,9 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('2.0', 'VAuthentication Verification Requirements', 2, False, None, None)
-        c.question_id = 10
-        c.kb_id = 59
+        c = ChecklistKB('2.0', 'Authentication Verification Requirements', 2, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
 
@@ -1036,7 +1036,7 @@ def load_initial_data():
 
         c = ChecklistKB('3.0', 'Session Management Verification Requirements', 3, False, None, None)
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1164,7 +1164,7 @@ def load_initial_data():
         
         c = ChecklistKB('4.0', 'Access Control Verification Requirements', 4, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1230,7 +1230,7 @@ def load_initial_data():
         
         c = ChecklistKB('5.0', 'Validation, Sanitization and Encoding Verification Requirements', 5, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1362,7 +1362,7 @@ def load_initial_data():
         
         c = ChecklistKB('5.3.9', 'Verify that the application protects against Local File Inclusion (LFI) or Remote File Inclusion (RFI) attacks.', 5, False, 829, 1)
         c.question_id = 32
-        c.kb_id = 1
+        c.kb_id = 2
         db.session.add(c)
         db.session.commit()
         
@@ -1418,7 +1418,7 @@ def load_initial_data():
         
         c = ChecklistKB('6.0', 'Stored Cryptography Verification Requirements', 6, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1521,7 +1521,7 @@ def load_initial_data():
 
         c = ChecklistKB('7.0', 'Error Handling and Logging Verification Requirements', 7, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1605,7 +1605,7 @@ def load_initial_data():
         
         c = ChecklistKB('8.0', 'Error Handling and Logging Verification Requirements', 8, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1713,7 +1713,7 @@ def load_initial_data():
 
         c = ChecklistKB('9.0', 'Communications Verification Requirements', 9, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1767,7 +1767,7 @@ def load_initial_data():
 
         c = ChecklistKB('10.0', 'Malicious Code Verification Requirements', 10, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
 
@@ -1833,7 +1833,7 @@ def load_initial_data():
         
         c = ChecklistKB('11.0', 'Business Logic Verification Requirements', 11, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1887,7 +1887,7 @@ def load_initial_data():
         
         c = ChecklistKB('12.0', 'File and Resources Verification Requirements', 12, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -1983,7 +1983,7 @@ def load_initial_data():
         
         c = ChecklistKB('13.0', 'API and Web Service Verification Requirements', 13, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
@@ -2080,7 +2080,7 @@ def load_initial_data():
         
         c = ChecklistKB('14.0', 'Configuration Verification Requirements', 14, False, None, None);
         c.question_id = None
-        c.kb_id = None
+        c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         

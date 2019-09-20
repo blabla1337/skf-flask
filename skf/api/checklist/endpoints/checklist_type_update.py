@@ -18,9 +18,9 @@ class ChecklistUpdate(Resource):
     def put(self, id):
         """
         Update a checklist type.
-        * Privileges required: **manage**
+        * Privileges required: **edit**
         """
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'edit')
         data = request.json
         result = update_checklist_type(id, data)
         return result, 200, security_headers()

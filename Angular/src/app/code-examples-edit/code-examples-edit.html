@@ -64,7 +64,7 @@
               <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; {{title}} </h4>
             </header>
             <div class="panel-body">
-              <form  *ngIf="codeItem | async; else loading" [formGroup]="codeForm" >
+              <form  *ngIf="codeItem | async;" [formGroup]="codeForm" >
                 <div class="form-group">
                   <div class="wrap">
                     <br />

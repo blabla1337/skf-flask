@@ -19,8 +19,8 @@ class ChecklistItem(Resource):
     def get(self, questionID):
         """
         Returns a list of checklist items correlated to question sprint identifier
-        * Privileges required: **manage**
+        * Privileges required: **read**
         """
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'read')
         result = get_checklist_item_question_sprint(questionID)
         return result, 200, security_headers()
