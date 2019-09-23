@@ -14,8 +14,9 @@ RESTPLUS_ERROR_404_HELP = False
 DATABASE = "db/db.sqlite"
 
 # SQLAlchemy settings
-SQLALCHEMY_DATABASE_URI = 'mysql://ricco:the_password@localhost/bla'
+#SQLALCHEMY_DATABASE_URI = 'mysql://ricco:the_password@localhost/bla'
 #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:H5hng15K@localhost/skf?charset=utf8mb4' 
+SQLALCHEMY_DATABASE_URI = 'sqlite:///'+DATABASE
 
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False
@@ -35,4 +36,4 @@ DOJO_API_KEY = 'admin:1dfdfa2042567ec751f6b3fa96038b743ea6f1cc'
 DOJO_URL = 'https://defectdojo.herokuapp.com/api/v2/import-scan/'
 
 # TESTING settings
-TESTING = True
+TESTING = False

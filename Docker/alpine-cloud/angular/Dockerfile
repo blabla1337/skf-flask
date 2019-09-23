@@ -20,7 +20,7 @@ RUN chmod -R 777 /home/user_api
 WORKDIR /home/user_api
 USER user_api
 
-RUN git clone https://github.com/blabla1337/skf-flask.git
+RUN git clone https://github.com/blabla1337/skf-flask.git -b dev
 
 WORKDIR /home/user_api/skf-flask/Angular
 RUN npm install
