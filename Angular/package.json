@@ -27,7 +27,7 @@
     "angular2-highlight-js": "^5.0.0",
     "core-js": "^2.4.1",
     "jwt-decode": "^2.2.0",
-    "ngx-markdown": "^7.1.5",
+    "ngx-markdown": "^8.1.0",
     "prism": "^4.1.2",
     "rxjs": "^6.3.0",
     "rxjs-compat": "^6.3.0",
