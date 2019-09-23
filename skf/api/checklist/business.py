@@ -62,7 +62,6 @@ def create_checklist_type(data):
     checklist_name = data.get('name')
     checklist_description = data.get('description')
     visibility = data.get('visibility')
-
     checklist_type = ChecklistType(checklist_name, checklist_description, visibility)
 
     try:
@@ -158,7 +157,6 @@ def update_checklist_item(checklist_id, checklist_type, data):
     content = data.get('content')
     cwe = data.get('cwe')
     kb_id = data.get('kb_id')
-
     if include_always == "True":
         include_always = True
     else:

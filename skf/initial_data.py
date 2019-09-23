@@ -2351,4 +2351,3 @@ def load_initial_data():
     except:
         db.session.rollback()
         raise
-

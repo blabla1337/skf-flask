@@ -45,7 +45,6 @@ def delete_code_item(code_id, user_id):
     log("User deleted code item", "MEDIUM", "PASS")
     val_num(code_id)
     val_num(user_id)
-    
     codeItem = (CodeItem.query.filter(CodeItem.id == code_id).one())
 
     try:
