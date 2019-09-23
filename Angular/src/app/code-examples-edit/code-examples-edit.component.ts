@@ -23,6 +23,7 @@ export class CodeExamplesEditComponent implements OnInit {
   constructor(private codeService: CodeExamplesService,private route: ActivatedRoute,private router: Router ,private formBuilder: FormBuilder) { }
 
   codeForm: FormGroup;
+  public title: string;
   public canEdit: string;
   public IdFromUrl: number;
   public isSubmitted: boolean;
@@ -54,7 +55,7 @@ export class CodeExamplesEditComponent implements OnInit {
     }
     this.codeService.updateCodeExample(Number(this.IdFromUrl), this.codeForm.value)
       .subscribe(
-        () => this.back(),
+        () => console.log('updating code example'),
         () => console.log('Error updating code example')
       );
 

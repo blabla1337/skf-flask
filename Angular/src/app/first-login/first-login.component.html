@@ -24,12 +24,6 @@
     <div class="lock-screen">
       <div class="login-wrapper">
         <div class="logo"><img src="/assets/img/logos/logo_login.svg" width="60" height="60" /></div>
-        <div *ngFor="let errors of error">
-          <br/>
-          <ngb-alert [dismissible]="false">
-            <strong>Warning!</strong> {{errors}}
-          </ngb-alert>
-        </div>
           <div *ngIf="isSubmitted && formControls.user_id.errors" class="help-block">
               <div *ngIf="formControls.user_id.errors.required">
                 <ngb-alert type="danger" [dismissible]="false">

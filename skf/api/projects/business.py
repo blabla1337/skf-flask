@@ -68,11 +68,8 @@ def new_project(user_id, data):
 
     try:
         project = Project(name, version, description, timestamp)
-
         db.session.add(project)
         db.session.commit()
-        print(3, file=sys.stderr)
-
     except:
         db.session.rollback()
         raise

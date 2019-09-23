@@ -4,8 +4,7 @@ from skf.database.checklists_kb import ChecklistKB
 from skf.database.questions import Question
 from skf.database.checklists_results import ChecklistResult
 from skf.database.question_results import QuestionResult
-from skf.api.security import log, val_num, val_alpha, val_alpha_num
-import sys
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 def get_questions(checklists_type):
     log("User requested list of questions", "LOW", "PASS")
@@ -17,6 +16,13 @@ def store_questions(checklist_type, maturity, data):
     log("User stored new sprint question list", "MEDIUM", "PASS")
     #Store the result of the questionaire if answer was true in checklists_kb
     for result in data.get('questions'):
+
+         val_num(result['question_id'])
+         val_num(result['project_id'])
+         val_num(result['checklist_type'])
+         val_num(result['sprint_id'])
+         val_alpha_num(result['result'])
+
          question_id = result['question_id']
          question_result = result['result']
          question_project_id = result['project_id']
@@ -60,7 +66,9 @@ def new_question(data):
 def update_question(id_question, data):
     log("User updated sprint question item", "MEDIUM", "PASS")
     val_num(id_question)
-    val_alpha_num(data.get('question'))
+    val_num(data.get('checklist_type'))
+    val_alpha_num_special(data.get('question'))
+    
     sprint_question = data.get('question')
     sprint_checklist_type = data.get('checklist_type')
     sprint = Question.query.filter(Question.id == id_question).one()

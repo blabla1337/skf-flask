@@ -57,7 +57,7 @@
               <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; {{title}} </h4>
             </header>
             <div class="panel-body">
-              <form *ngIf="knowledgebaseItem | async; else loading" [formGroup]="knowledgebaseForm" >
+              <form *ngIf="knowledgebaseItem | async" [formGroup]="knowledgebaseForm" >
                 <div class="form-group">
                   <div class="wrap">
                     <br />

@@ -18,8 +18,8 @@ class ChecklistDelete(Resource):
     def delete(self, id):
         """
         Delete a checklist type.
-        * Privileges required: **manage**
+        * Privileges required: **delete**
         """
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'delete')
         result = delete_checklist_type(id)
         return result, 200, security_headers()

@@ -1,10 +1,14 @@
 from skf.database import db
 from skf.database.code_items import CodeItem
-from skf.api.security import log, val_num, val_alpha, val_alpha_num
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 def update_code_item(code_id, data):
     log("User requested updated specific code example item", "LOW", "PASS")
     result = CodeItem.query.filter(CodeItem.id == code_id).one()
+    
+    val_alpha_num_special(data.get('title'))
+    val_alpha_num(data.get('code_lang'))
+    
     result.title = data.get('title')
     result.content = data.get('content')
     result.code_lang = data.get('code_lang')
@@ -19,8 +23,12 @@ def update_code_item(code_id, data):
 
 def create_code_item(data):
     log("User requested creating a new kb item", "LOW", "PASS")
-    content = data.get('content')
+    
+    val_alpha_num_special(data.get('title'))
+    val_alpha_num(data.get('code_lang'))
+    
     title = data.get('title')
+    content = data.get('content')
     code_lang = data.get('code_lang')
     result = CodeItem(content, title, code_lang)
 

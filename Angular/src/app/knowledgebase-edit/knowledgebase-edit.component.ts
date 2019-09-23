@@ -19,6 +19,7 @@ export class KnowledgebaseEditComponent implements OnInit {
   constructor(private knowledgeService: KnowledgebaseService,private route: ActivatedRoute,private router: Router ,private formBuilder: FormBuilder) { }
 
   knowledgebaseForm: FormGroup;
+  public title: string;
   public canEdit: string;
   public IdFromUrl: number;
   public isSubmitted: boolean;
@@ -49,7 +50,7 @@ export class KnowledgebaseEditComponent implements OnInit {
     }
     this.knowledgeService.updateKnowledgebaseItem(Number(this.IdFromUrl), this.knowledgebaseForm.value)
       .subscribe(
-        () => this.back(),
+        () => console.log('updating knowledebase item'),
         () => console.log('error updating knowledebase item')
       );
 

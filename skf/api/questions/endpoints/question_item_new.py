@@ -19,9 +19,9 @@ class QuestionSprintCollection(Resource):
     def put(self):
         """
         Create new questions .
-        * Privileges required: **manage**
+        * Privileges required: **edit**
         """
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'edit')
         data = request.json
         result = new_question(data)
         return result, 200, security_headers()

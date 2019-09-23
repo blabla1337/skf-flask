@@ -36,9 +36,7 @@
 		  <p>An overview of all the current available checklists. More information about the checklist by clicking on a
 			checklist name. </p>
 		</div>
-		<button style="float:right;" (click)="open(content); getSet('','')" class="btn btn-default"><i class="fa fa-cog"
-			aria-hidden="true" id="add-new-checklist"></i> Add
-		  new checklist</button>
+
 	  </div>
 	</section>
 	<section class="wrapper">
@@ -105,13 +103,13 @@
 			class="table table-striped table-advance table-hover checklist">
 			<tbody style="color:black">
 				<tr *ngFor="let item of checklistItems; let myIndex = index;">
-					<th *ngIf="item.kb_item_id == 1">{{item.checklist_items_checklistID}}
+					<th *ngIf="item.kb_item_id == 1">{{item.checklist_items_checklist_id}}
 						{{item.checklist_items_content}}</th>
-					<td style="color:green" *ngIf="item.kb_item_id > 1; ">
+					<td style="color:green" *ngIf="item.kb_item_id != 1; ">
 						<ngb-accordion style="color:black" class="level_l_{{item.checklist_items_level}}"
 							#acc="ngbAccordion">
 							<ngb-panel style="color:black" data-html="true"
-								title="{{item.checklist_items_checklistID}}  {{item.checklist_items_content}} ">
+								title="{{item.checklist_items_checklist_id}}  {{item.checklist_items_content}} ">
 								<ng-template ngbPanelContent>
 									<p style="white-space: pre-line;">
 										<b>

@@ -91,6 +91,7 @@ export class ChecklistEditComponent implements OnInit {
     },
       err => console.log('Error getting checklist items, contact the administrator!')
     );
+    
     setTimeout(() => {
       //check if questio was None otherwise give it the id/content previously selected!
       if (this.checklist['question_id'] == null) {

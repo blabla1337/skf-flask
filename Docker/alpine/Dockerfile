@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.7
 
 # Thanks to Mariano Abdala <marianoabdala@gmail.com>
 MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
@@ -21,10 +21,8 @@ openblas-dev \
 libstdc++ \ 
 openblas \
 git
-
-RUN pip3 install --upgrade pip
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
-RUN git clone https://github.com/blabla1337/skf-flask.git --branch dev
+RUN git clone https://github.com/blabla1337/skf-flask.git
 # Start Angular app
 WORKDIR /skf-flask/Angular
 RUN npm install -g @angular/cli

@@ -18,9 +18,9 @@ class ChecklistItemNew(Resource):
     def put(self, checklist_id, checklist_type):
         """
         Create new checklist item.
-        * Privileges required: **manage**
+        * Privileges required: **edit**
         """
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'edit')
         data = request.json
         result = create_checklist_item(checklist_id, checklist_type, data)
         return result, 200, security_headers()

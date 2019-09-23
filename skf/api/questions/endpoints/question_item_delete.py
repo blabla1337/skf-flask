@@ -20,9 +20,9 @@ class QuestionSprintDelete(Resource):
     def delete(self, id):
         """
         Delete questions.
-        * Privileges required: **manage**
+        * Privileges required: **delete**
         """
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'delete')
         result = delete_question(id)
         return result, 200, security_headers()
 

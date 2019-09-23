@@ -11,14 +11,14 @@ from skf.database.users import User
 from skf.database.groups import Group
 from skf.database.groupmembers import GroupMember
 from skf.database.privileges import Privilege
-from skf.api.security import log, val_num, val_alpha, val_alpha_num
-import sys
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 def activate_user(user_id, data):
     log("User is activated", "HIGH", "PASS")
     val_num(user_id)
     val_num(data.get('accessToken'))
     val_alpha_num(data.get('userName'))
+    val_alpha_num_special(data.get('email'))
     userName = data.get('userName')
     userName = userName.replace(" ", "")
     result = User.query.filter(User.id == user_id).one()
@@ -80,24 +80,29 @@ def list_privileges():
 
 def create_user(data):
     log("A new user created", "MEDIUM", "PASS")
-    my_secure_rng = random.SystemRandom()
+    
+    
     val_num(data.get('privilege_id'))
-    accessToken = my_secure_rng.randrange(10000000, 99999999)
+    val_alpha_num_special(data.get('email'))
+
     email = data.get('email')
-    #access = False # By default
+    privilege_id = data.get('privilege_id')
+    
+    my_secure_rng = random.SystemRandom()
+    accessToken = my_secure_rng.randrange(10000000, 99999999)
+        #access = False # By default
     #activated = False # By default
     password = ""
      
     try:
         user = User(email)
-        user.privilege_id = data.get('privilege_id')
+        user.privilege_id = privilege_id
         user.userName = accessToken
         user.accessToken  = accessToken
         # Add user to default groupmember issue #422
         user.group_id = 0
         #user.groups.add = Group.query.order_by(desc(Group.id)).first()
 
-        print(user, file=sys.stderr)
         db.session.add(user)
         db.session.commit()
 
@@ -112,8 +117,8 @@ def manage_user(user_id, data):
     log("Manage user triggered", "HIGH", "PASS")
     val_num(user_id)
     val_alpha(data.get('active'))
+    
     status_activated = data.get('active').lower()=='true'
-
     user = User.query.get(user_id)
     user.access = status_activated
     try:

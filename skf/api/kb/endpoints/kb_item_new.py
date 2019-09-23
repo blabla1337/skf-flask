@@ -20,9 +20,9 @@ class KBItemCreate(Resource):
     def put(self):
         """
         Create new kb item.
-        * Privileges required: **manage**
+        * Privileges required: **edit**
         """
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'edit')
         data = request.json
         result = create_kb_item(data)
         return result, 200, security_headers()

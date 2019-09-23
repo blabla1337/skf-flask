@@ -26,9 +26,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 jsonschema==3.0.1
 MarkupSafe==1.1.1
-more-itertools==7.1.0
 nltk==3.4
-numpy==1.16.1
 oauth2client==1.5.2
 pandas==0.24.2
 #pkg-resources==0.0.0
