@@ -29,26 +29,21 @@ def update_project(project_id, user_id, data):
     val_alpha_num_special(data.get('name'))
     val_alpha_num(data.get('version'))
     val_alpha_num_special(data.get('description'))
-
     try:
         project = Project.query.filter(Project.id == project_id).one()
         project.projectName = data.get('name')
         project.projectVersion = data.get('version')
         project.projectDesc = data.get('description')
         project.userID = user_id
-
         #groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
         #ownerID = groupmember.ownerID
         #groupID = groupmember.groupID
         now = datetime.datetime.now()
         project.timestamp = now.strftime("%Y-%m-%d %H:%M")
-
         db.session.add(project) 
         db.session.commit()
-
     except Exception as e:
         db.session.rollback()
-        print(e)
         raise
 
     return {'message': 'Project successfully updated'}
@@ -65,7 +60,6 @@ def new_project(user_id, data):
     description = data.get('description')
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M")
-
     try:
         project = Project(name, version, description, timestamp)
         db.session.add(project)
@@ -73,7 +67,6 @@ def new_project(user_id, data):
     except:
         db.session.rollback()
         raise
-
     #result = Project.query.filter(Project.user_id == user_id).order_by(desc(Project.id)).first()
     # I assume we would like to return the new project ID?
     result = Project.query.filter(Project.name == name).first()
@@ -83,13 +76,10 @@ def new_project(user_id, data):
 def delete_project(project_id, user_id):
     log("User deleted project", "MEDIUM", "PASS")
     val_num(project_id)
-    
     try:
         project = (Project.query.filter(Project.id == project_id).one())
-
         db.session.delete(project)
         db.session.commit()
-
     except Exception as e:
         db.session.rollback()
         raise

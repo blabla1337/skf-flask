@@ -69,362 +69,362 @@ def load_initial_data():
         '''
 
         #1 -- 1.1
-        q = Question('"Secure Software Development Lifecycle Requirements"', 1)
+        q = Question('Secure Software Development Lifecycle Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #2 -- 1.2
-        q = Question('"Authentication Architectural Requirements"', 1)
+        q = Question('Authentication Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #3 -- 1.4
-        q = Question('"Access Control Architectural Requirements"', 1)
+        q = Question('Access Control Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #4 -- 1.5
-        q = Question('"Input and Output Architectural Requirements"', 1)
+        q = Question('Input and Output Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #5 -- 1.6
-        q = Question('"Cryptographic Architectural Requirements"', 1)
+        q = Question('Cryptographic Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #6 -- 1.7
-        q = Question('"Errors, Logging and Auditing Architectural Requirements"', 1)
+        q = Question('Errors, Logging and Auditing Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #7 -- 1.8
-        q = Question('"Data Protection and Privacy Architectural Requirements"', 1)
+        q = Question('Data Protection and Privacy Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #8 -- 1.9
-        q = Question('"Communications Architectural Requirements"', 1)
+        q = Question('Communications Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #9 -- 1.10
-        q = Question('"Malicious Software Architectural Requirements"', 1)
+        q = Question('Malicious Software Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #10 -- 2.1
-        q = Question('"Password security requirements"', 2)
+        q = Question('Password security requirements', 2)
         db.session.add(q)
         db.session.commit()
 
         #11 -- 2.2
-        q = Question('"General Authenticator Requirements (brute force, authenticator types, 2FA)"', 2)
+        q = Question('General Authenticator Requirements (brute force, authenticator types, 2FA)', 2)
         db.session.add(q)
         db.session.commit()
         
         #12 -- 2.3
-        q = Question('"Authenticator Lifecycle Requirements (activation codes, FIDO tokens)"', 2)
+        q = Question('Authenticator Lifecycle Requirements (activation codes, FIDO tokens)', 2)
         db.session.add(q)
         db.session.commit()
         
         #13 -- 2.4
-        q = Question('"Credential Storage Requirements (salting/stretching, pbkdf2, bcrypt)"', 2)
+        q = Question('Credential Storage Requirements (salting/stretching, pbkdf2, bcrypt)', 2)
         db.session.add(q)
         db.session.commit()
         
         #14 -- 2.5
-        q = Question('"Credential Recovery Requirements (secret questions, default accounts, recovery tokens)"', 2)
+        q = Question('Credential Recovery Requirements (secret questions, default accounts, recovery tokens)', 2)
         db.session.add(q)
         db.session.commit()
         
         #15 -- 2.6
-        q = Question('"Look-up Secret Verifier Requirements (revocation, token randomness)"', 2)
+        q = Question('Look-up Secret Verifier Requirements (revocation, token randomness)', 2)
         db.session.add(q)
         db.session.commit()
         
         #16 -- 2.7 
-        q = Question('"Out of Band Verifier Requirements (Reset links, SMS tokens)"', 2)
+        q = Question('Out of Band Verifier Requirements (Reset links, SMS tokens)', 2)
         db.session.add(q)
         db.session.commit()
         
         #17 -- 2.8 
-        q = Question('"Single or Multi Factor One Time Verifier Requirements"', 2)
+        q = Question('Single or Multi Factor One Time Verifier Requirements', 2)
         db.session.add(q)
         db.session.commit()
 
         #18 -- 2.9
-        q = Question('"Cryptographic Software and Devices Verifier Requirements (TPM, HSM)"', 2)
+        q = Question('Cryptographic Software and Devices Verifier Requirements (TPM, HSM)', 2)
         db.session.add(q)
         db.session.commit()
 
         #19 -- 2.10
-        q = Question('"Service Authentication Requirements"', 2)
+        q = Question('Service Authentication Requirements', 2)
         db.session.add(q)
         db.session.commit()
 
         #20 -- 3.1
-        q = Question('"Fundamental Session Management Requirements"', 3)
+        q = Question('Fundamental Session Management Requirements', 3)
         db.session.add(q)
         db.session.commit()
 
         #21 -- 3.2
-        q = Question('"Session Binding Requirements"', 3)
+        q = Question('Session Binding Requirements', 3)
         db.session.add(q)
         db.session.commit()
 
         #22 -- 3.3
-        q = Question('"Session Logout and Timeout Requirements"', 3)
+        q = Question('Session Logout and Timeout Requirements', 3)
         db.session.add(q)
         db.session.commit()
 
         #23 -- 3.4
-        q = Question('"Cookie-based Session Management"', 3)
+        q = Question('Cookie-based Session Management', 3)
         db.session.add(q)
         db.session.commit()
 
         #24 -- 3.5
-        q = Question('"Token-based Session Management"', 3)
+        q = Question('Token-based Session Management', 3)
         db.session.add(q)
         db.session.commit()
 
         #25 -- 3.7 is only 1 item that we should include always
-        q = Question('"Defenses Against Session Management Exploits"', 3)
+        q = Question('Defenses Against Session Management Exploits', 3)
         db.session.add(q)
         db.session.commit()
 
         #26 -- 4.1
-        q = Question('"General Access Control Design"', 4)
+        q = Question('General Access Control Design', 4)
         db.session.add(q)
         db.session.commit()
 
         #27 -- 4.2 include always both items
-        q = Question('"Operation Level Access Control"', 4)
+        q = Question('Operation Level Access Control', 4)
         db.session.add(q)
         db.session.commit()
 
         #28 -- 4.3 include always both items
-        q = Question('"Other Access Control Considerations"', 4)
+        q = Question('Other Access Control Considerations', 4)
         db.session.add(q)
         db.session.commit()
 
         #29 -- 5.1
-        q = Question('"Input Validation Requirements (parameter binding, url redirects, structure checking credit cards, phone numbers, etc, http request methods)"', 5)
+        q = Question('Input Validation Requirements (parameter binding, url redirects, structure checking credit cards, phone numbers, etc, http request methods)', 5)
         db.session.add(q)
         db.session.commit()
 
         #30 -- 5.2
-        q = Question('"Sanitization and Sandboxing Requirements (type/length checking, SSRF, wysiwyg/markdown/bbcode/etc)"', 5)
+        q = Question('Sanitization and Sandboxing Requirements (type/length checking, SSRF, wysiwyg/markdown/bbcode/etc)', 5)
         db.session.add(q)
         db.session.commit()
 
         #31 -- 5.3 
-        q = Question('"Outputting user supplied input on the client side (browser)"', 5)
+        q = Question('Outputting user supplied input on the client side (browser)', 5)
         db.session.add(q)
         db.session.commit()
 
         #32 -- 5.3 
-        q = Question('"Getting files from the local file system"', 5)
+        q = Question('Getting files from the local file system', 5)
         db.session.add(q)
         db.session.commit()
 
         #33 -- 5.3 
-        q = Question('"Using data selection or database queries (e.g. SQL, HQL, ORM, NoSQL)"', 5)
+        q = Question('Using data selection or database queries (e.g. SQL, HQL, ORM, NoSQL)', 5)
         db.session.add(q)
         db.session.commit()
 
         #34 -- 5.3 
-        q = Question('"Using LDAP"', 5)
+        q = Question('Using LDAP', 5)
         db.session.add(q)
         db.session.commit()
 
         #35 -- 5.3 
-        q = Question('"Using functions that perfom OS commands"', 5)
+        q = Question('Using functions that perfom OS commands', 5)
         db.session.add(q)
         db.session.commit()
 
         #36 --  5.3
-        q = Question('"Using XML/Xpath?"', 5)
+        q = Question('Using XML/Xpath?', 5)
         db.session.add(q)
         db.session.commit()
 
         #37 -- 5.5
-        q = Question('"Are you deserializng objects (json, xml, bytestreams, yaml, etc)"', 5)
+        q = Question('Are you deserializng objects (json, xml, bytestreams, yaml, etc)', 5)
         db.session.add(q)
         db.session.commit()
 
         #38 -- 6.1 
-        q = Question('"Are you aware on what type of data classifies to be stored encrypted?"', 6)
+        q = Question('Are you aware on what type of data classifies to be stored encrypted?', 6)
         db.session.add(q)
         db.session.commit()
 
         #39 -- 6.2
-        q = Question('"Are cryptgrapic functions used in the application on par with the latest known to be secure standards?"', 6)
+        q = Question('Are cryptgrapic functions used in the application on par with the latest known to be secure standards?', 6)
         db.session.add(q)
         db.session.commit()
 
         #40 -- 6.3
-        q = Question('"Are secure random values or UUIDs that are used in the application tested for sufficient entropy?"', 6)
+        q = Question('Are secure random values or UUIDs that are used in the application tested for sufficient entropy?', 6)
         db.session.add(q)
         db.session.commit()
 
         #41 -- 6.4
-        q = Question('"Are secrets managed in a key-vault?"', 6)
+        q = Question('Are secrets managed in a key-vault?', 6)
         db.session.add(q)
         db.session.commit()
 
         #42 -- 7.1
-        q = Question('"Is the application logging sensitive information? (credentials, payment details, tokens, etc)"', 7)
+        q = Question('Is the application logging sensitive information? (credentials, payment details, tokens, etc)', 7)
         db.session.add(q)
         db.session.commit()
 
         #43 -- 7.2
-        q = Question('"Do logs exist for authentication/ access control decisions?"', 7)
+        q = Question('Do logs exist for authentication/ access control decisions?', 7)
         db.session.add(q)
         db.session.commit()
 
         #44 -- 7.3
-        q = Question('"Are logs protected for un-authorized access, injection flaws(also in viewing software), and are timestamps synced to match respective timezones"', 7)
+        q = Question('Are logs protected for un-authorized access, injection flaws(also in viewing software), and are timestamps synced to match respective timezones', 7)
         db.session.add(q)
         db.session.commit()
 
         #45 -- 7.4
-        q = Question('"Are errors on the application gracefully handled and show non generic error messages?"', 7)
+        q = Question('Are errors on the application gracefully handled and show non generic error messages?', 7)
         db.session.add(q)
         db.session.commit()
 
         #46 -- 8.1
-        q = Question('"General data protection requirements"', 8)
+        q = Question('General data protection requirements', 8)
         db.session.add(q)
         db.session.commit()
 
         #47 -- 8.2
-        q = Question('"Client side data protection requirements (localstorage, session storage, cookies, etc)"', 8)
+        q = Question('Client side data protection requirements (localstorage, session storage, cookies, etc)', 8)
         db.session.add(q)
         db.session.commit()
 
         #48 -- 8.3
-        q = Question('"requirements how to handle sensitive private data (personal identifiable infomation)"', 8)
+        q = Question('requirements how to handle sensitive private data (personal identifiable infomation)', 8)
         db.session.add(q)
         db.session.commit()
 
         #49 -- 9.1
-        q = Question('"Communication security requirements"', 9)
+        q = Question('Communication security requirements', 9)
         db.session.add(q)
         db.session.commit()
 
         #50 -- 9.2
-        q = Question('"Server security communication requirements"', 9)
+        q = Question('Server security communication requirements', 9)
         db.session.add(q)
         db.session.commit()
 
         #51 -- 10.1
-        q = Question('"Code integrity controls"', 10)
+        q = Question('Code integrity controls', 10)
         db.session.add(q)
         db.session.commit()
 
         #52 -- 10.2
-        q = Question('"Malicious code search"', 10)
+        q = Question('Malicious code search', 10)
         db.session.add(q)
         db.session.commit()
 
         #53 -- 10.3
-        q = Question('"Deployed application integrity controls"', 10)
+        q = Question('Deployed application integrity controls', 10)
         db.session.add(q)
         db.session.commit()
 
         #54 -- 11.1
-        q = Question('"Business Logic Security Requirements"', 11)
+        q = Question('Business Logic Security Requirements', 11)
         db.session.add(q)
         db.session.commit()
 
         #55 -- 12.1
-        q = Question('"File Upload Requirements"', 12)
+        q = Question('File Upload Requirements', 12)
         db.session.add(q)
         db.session.commit()
 
         #56 -- 12.2
-        q = Question('"File Integrity Requirements"', 12)
+        q = Question('File Integrity Requirements', 12)
         db.session.add(q)
         db.session.commit()
 
         #57 -- 12.3
-        q = Question('"File execution Requirements"', 12)
+        q = Question('File execution Requirements', 12)
         db.session.add(q)
         db.session.commit()
 
         #58 -- 12.4
-        q = Question('"File Storage Requirements"', 12)
+        q = Question('File Storage Requirements', 12)
         db.session.add(q)
         db.session.commit()
 
         #59 -- 12.5
-        q = Question('"File download Requirements"', 12)
+        q = Question('File download Requirements', 12)
         db.session.add(q)
         db.session.commit()
 
         #60 -- 12.6
-        q = Question('"SSRF Protection Requirements"', 12)
+        q = Question('SSRF Protection Requirements', 12)
         db.session.add(q)
         db.session.commit()
 
         #61 -- 13.1
-        q = Question('"Generic Web Service Security Verification Requirements"', 13)
+        q = Question('Generic Web Service Security Verification Requirements', 13)
         db.session.add(q)
         db.session.commit()
 
         #62 -- 13.2
-        q = Question('"RESTful Web Service Verification Requirements"', 13)
+        q = Question('RESTful Web Service Verification Requirements', 13)
         db.session.add(q)
         db.session.commit()
 
         #63 -- 13.3
-        q = Question('"SOAP Web Service Verification Requirements"', 13)
+        q = Question('SOAP Web Service Verification Requirements', 13)
         db.session.add(q)
         db.session.commit()
 
         #64 -- 13.4
-        q = Question('"GraphQL and other Web Service Data Layer Security Requirements"', 13)
+        q = Question('GraphQL and other Web Service Data Layer Security Requirements', 13)
         db.session.add(q)
         db.session.commit()
 
         #65 -- 14.1
-        q = Question('"Build pipeline configuration"', 14)
+        q = Question('Build pipeline configuration', 14)
         db.session.add(q)
         db.session.commit()
         
         #66 -- 14.2
-        q = Question('"Dependency checking"', 14)
+        q = Question('Dependency checking', 14)
         db.session.add(q)
         db.session.commit()
 
         #67 -- 14.3
-        q = Question('"Unintended Security Disclosure Requirements"', 14)
+        q = Question('Unintended Security Disclosure Requirements', 14)
         db.session.add(q)
         db.session.commit()
 
         #68 -- 14.4
-        q = Question('"HTTP Security Headers Requirements"', 14)
+        q = Question('HTTP Security Headers Requirements', 14)
         db.session.add(q)
         db.session.commit()
 
         #69 -- 14.5
-        q = Question('"Validate HTTP Request Header Requirements"', 14)
+        q = Question('Validate HTTP Request Header Requirements', 14)
         db.session.add(q)
         db.session.commit()
         
         #70 -- 1.11 
-        q = Question('"Business Logic Architectural Requirements', 1)
+        q = Question('Business Logic Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
         #71 -- 1.12
-        q = Question('" Secure File Upload Architectural Requirementss"', 1)
+        q = Question('Secure File Upload Architectural Requirementss', 1)
         db.session.add(q)
         db.session.commit()
 
         #72 -- 1.14
-        q = Question('" Configuration Architectural Requirements"', 1)
+        q = Question('Configuration Architectural Requirements', 1)
         db.session.add(q)
         db.session.commit()
 
@@ -446,7 +446,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.3', 'Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else\s profile"', 1, True, 1110, 2);
+        c = ChecklistKB('1.1.3', 'Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else\s profile', 1, True, 1110, 2);
         c.question_id = 1
         c.kb_id = 273
         db.session.add(c)
@@ -548,7 +548,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.5.4', 'Verify that output encoding occurs close to or by the interpreter for which it is intended. ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 1, False, 116, 2);
+        c = ChecklistKB('1.5.4', 'Verify that output encoding occurs close to or by the interpreter for which it is intended.', 1, False, 116, 2);
         c.question_id = 4
         c.kb_id = 999
         db.session.add(c)
@@ -578,13 +578,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.7.1', 'Verify that a common logging format and approach is used across the system.  ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 1, False, 1009, 2);
+        c = ChecklistKB('1.7.1', 'Verify that a common logging format and approach is used across the system.', 1, False, 1009, 2);
         c.question_id = 6
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.7.2', 'Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 1, False, None, 2);
+        c = ChecklistKB('1.7.2', 'Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation.', 1, False, None, 2);
         c.question_id = 6
         c.kb_id = 999
         db.session.add(c)
@@ -602,7 +602,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.9.1', 'Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 1, False, 319, 2);
+        c = ChecklistKB('1.9.1', 'Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers.', 1, False, 319, 2);
         c.question_id = 8
         c.kb_id = 999
         db.session.add(c)
@@ -674,7 +674,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.14.5', 'Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 1, False, 265, 2);
+        c = ChecklistKB('1.14.5', 'Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization.', 1, False, 265, 2);
         c.question_id = 72
         c.kb_id = 999
         db.session.add(c)
@@ -698,13 +698,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('2.1.2', 'Verify that passwords 64 characters or longer are permitted. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 521, 1)
+        c = ChecklistKB('2.1.2', 'Verify that passwords 64 characters or longer are permitted.', 2, False, 521, 1)
         c.question_id = 10
         c.kb_id = 59
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('2.1.3', 'Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 521, 1)
+        c = ChecklistKB('2.1.3', 'Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced.', 2, False, 521, 1)
         c.question_id = 10
         c.kb_id = 59
         db.session.add(c)
@@ -728,7 +728,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('2.1.7', 'Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally (such as the top 1,000 or 10,000 most common passwords which match the system\s password policy) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 521, 1)
+        c = ChecklistKB('2.1.7', 'Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally (such as the top 1,000 or 10,000 most common passwords which match the system\s password policy) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password.', 2, False, 521, 1)
         c.question_id = 10
         c.kb_id = 1345
         db.session.add(c)
@@ -740,7 +740,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('2.1.9', 'Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 521, 1)
+        c = ChecklistKB('2.1.9', 'Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters.', 2, False, 521, 1)
         c.question_id = 10
         c.kb_id = 59
         db.session.add(c)
@@ -854,7 +854,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('2.5.1', 'Verify that a system generated initial activation or recovery secret is not sent in clear text to the user. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 640, 1)
+        c = ChecklistKB('2.5.1', 'Verify that a system generated initial activation or recovery secret is not sent in clear text to the user.', 2, False, 640, 1)
         c.question_id = 14
         c.kb_id = 243
         db.session.add(c)
@@ -866,7 +866,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('2.5.3', 'Verify password credential recovery does not reveal the current password in any way. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 2, False, 640, 1)
+        c = ChecklistKB('2.5.3', 'Verify password credential recovery does not reveal the current password in any way.', 2, False, 640, 1)
         c.question_id = 14
         c.kb_id = 243
         db.session.add(c)
@@ -1046,13 +1046,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.2.1', 'Verify the application generates a new session token on user authentication. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 3, False, 384, 1)
+        c = ChecklistKB('3.2.1', 'Verify the application generates a new session token on user authentication.', 3, False, 384, 1)
         c.question_id = 21
         c.kb_id = 58
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.2.2', 'Verify that session tokens possess at least 64 bits of entropy. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 3, False, 331, 1)
+        c = ChecklistKB('3.2.2', 'Verify that session tokens possess at least 64 bits of entropy.', 3, False, 331, 1)
         c.question_id = 21
         c.kb_id = 999
         db.session.add(c)
@@ -1070,13 +1070,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.3.1', 'Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 3, False, 613, 1)
+        c = ChecklistKB('3.3.1', 'Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties.', 3, False, 613, 1)
         c.question_id = 22
         c.kb_id = 57
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.3.2', 'If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 3, False, 613, 1)
+        c = ChecklistKB('3.3.2', 'If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period.', 3, False, 613, 1)
         c.question_id = 22
         c.kb_id = 999
         db.session.add(c)
@@ -1094,19 +1094,19 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.4.1', 'Verify that cookie-based session tokens have the \Secure\ attribute set. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 3, False, 614, 1)
+        c = ChecklistKB('3.4.1', 'Verify that cookie-based session tokens have the \Secure\ attribute set.', 3, False, 614, 1)
         c.question_id = 23
         c.kb_id = 38
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.4.2', 'Verify that cookie-based session tokens have the \HttpOnly\ attribute set. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 3, False, 1004, 1)
+        c = ChecklistKB('3.4.2', 'Verify that cookie-based session tokens have the \HttpOnly\ attribute set.', 3, False, 1004, 1)
         c.question_id = 23
         c.kb_id = 39
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.4.3', 'Verify that cookie-based session tokens utilize the \SameSite\ attribute to limit exposure to cross-site request forgery attacks. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 3, False, 16, 1)
+        c = ChecklistKB('3.4.3', 'Verify that cookie-based session tokens utilize the \SameSite\ attribute to limit exposure to cross-site request forgery attacks.', 3, False, 16, 1)
         c.question_id = 23
         c.kb_id = 291
         db.session.add(c)
@@ -1118,7 +1118,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.4.5', 'Verify that if the application is published under a domain name with other applications that set or use session cookies that might override or disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 3, False, 16, 1)
+        c = ChecklistKB('3.4.5', 'Verify that if the application is published under a domain name with other applications that set or use session cookies that might override or disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible.', 3, False, 16, 1)
         c.question_id = 23
         c.kb_id = 158
         db.session.add(c)
@@ -1180,7 +1180,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('4.1.3', 'Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. ([C7](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 4, False, 285, 1)
+        c = ChecklistKB('4.1.3', 'Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege.', 4, False, 285, 1)
         c.question_id = 26
         c.kb_id = 999
         db.session.add(c)
@@ -1192,7 +1192,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('4.1.5', 'Verify that access controls fail securely including when an exception occurs. ([C10](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 4, False, 285, 1)
+        c = ChecklistKB('4.1.5', 'Verify that access controls fail securely including when an exception occurs.', 4, False, 285, 1)
         c.question_id = 26
         c.kb_id = 114
         db.session.add(c)
@@ -1240,7 +1240,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.1.2', 'Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 5, False, 915, 1)
+        c = ChecklistKB('5.1.2', 'Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar.', 5, False, 915, 1)
         c.question_id = 29
         c.kb_id = 147
         db.session.add(c)
@@ -1252,7 +1252,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.1.4', 'Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match). ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 5, False, 20, 1)
+        c = ChecklistKB('5.1.4', 'Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match).', 5, False, 20, 1)
         c.question_id = 29
         c.kb_id = 234
         db.session.add(c)
@@ -1264,7 +1264,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.2.1', 'Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature. ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 5, False, 116, 1)
+        c = ChecklistKB('5.2.1', 'Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.', 5, False, 116, 1)
         c.question_id = 30
         c.kb_id = 180
         db.session.add(c)
@@ -1330,7 +1330,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.3.4', 'Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from database injection attacks. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 5, False, 89, 1)
+        c = ChecklistKB('5.3.4', 'Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from database injection attacks.', 5, False, 89, 1)
         c.question_id = 33
         c.kb_id = 46
         db.session.add(c)
@@ -1348,13 +1348,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.3.7', 'Verify that the application protects against LDAP Injection vulnerabilities, or that specific security controls to prevent LDAP Injection have been implemented. ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 5, False, 943, 1)
+        c = ChecklistKB('5.3.7', 'Verify that the application protects against LDAP Injection vulnerabilities, or that specific security controls to prevent LDAP Injection have been implemented.', 5, False, 943, 1)
         c.question_id = 34
         c.kb_id = 11
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.3.8', 'Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 5, False, 78, 1)
+        c = ChecklistKB('5.3.8', 'Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.', 5, False, 78, 1)
         c.question_id = 35
         c.kb_id = 4
         db.session.add(c)
@@ -1366,7 +1366,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.3.10', 'Verify that the application protects against XPath injection or XML injection attacks. ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 5, False, 643, 1)
+        c = ChecklistKB('5.3.10', 'Verify that the application protects against XPath injection or XML injection attacks.', 5, False, 643, 1)
         c.question_id = 36
         c.kb_id = 183
         db.session.add(c)
@@ -1525,13 +1525,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('7.1.1', 'Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form. ([C9, C10](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 7, False, 532, 1);
+        c = ChecklistKB('7.1.1', 'Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form.', 7, False, 532, 1);
         c.question_id = 42
         c.kb_id = 78
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.1.2', 'Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 7, False, 532, 1)
+        c = ChecklistKB('7.1.2', 'Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy.', 7, False, 532, 1)
         c.question_id = 42
         c.kb_id = 78
         db.session.add(c)
@@ -1585,7 +1585,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.4.1', 'Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  ([C10](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 7, False, 210, 1);
+        c = ChecklistKB('7.4.1', 'Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.', 7, False, 210, 1);
         c.question_id = 45
         c.kb_id = 15
         db.session.add(c)
@@ -1681,7 +1681,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.3.4', 'Verify that all sensitive data created and processed by the application has been identified, and ensure that a policy is in place on how to deal with sensitive data. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 8, False, 200, 1);
+        c = ChecklistKB('8.3.4', 'Verify that all sensitive data created and processed by the application has been identified, and ensure that a policy is in place on how to deal with sensitive data.', 8, False, 200, 1);
         c.question_id = 48
         c.kb_id = 276
         db.session.add(c)
@@ -1717,7 +1717,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('9.1.1', 'Verify that secured TLS is used for all client connectivity, and does not fall back to insecure or unencrypted protocols. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))', 9, False, 319,1 );
+        c = ChecklistKB('9.1.1', 'Verify that secured TLS is used for all client connectivity, and does not fall back to insecure or unencrypted protocols.', 9, False, 319,1 );
         c.question_id = 49
         c.kb_id = 244
         db.session.add(c)
@@ -2029,7 +2029,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.2.3', 'Verify that RESTful web services that utilize cookies are protected from Cross-Site Request Forgery via the use of at least one or more of the following: triple or double submit cookie pattern (see [references](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet)); CSRF nonces, or ORIGIN request header checks.', 13, False, 352, 1);
+        c = ChecklistKB('13.2.3', 'Verify that RESTful web services that utilize cookies are protected from Cross-Site Request Forgery via the use of at least one or more of the following: triple or double submit cookie pattern, CSRF nonces, or ORIGIN request header checks.', 13, False, 352, 1);
         c.question_id = 62
         c.kb_id = 224
         db.session.add(c)

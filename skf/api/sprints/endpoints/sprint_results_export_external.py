@@ -1,7 +1,7 @@
 
 from flask_restplus import Resource
 from skf.api.security import security_headers, validate_privilege, select_userid_jwt
-from skf.api.sprints.business import export_results_external
+from skf.api.sprints.business import export_results
 from skf.api.sprints.serializers import sprint_results, message
 from skf.api.sprints.parsers import authorization
 from skf.api.restplus import api
@@ -22,5 +22,5 @@ class ProjectSprintResultExportItemExternal(Resource):
         * Privileges required: **read**
         """
         validate_privilege(self, 'read')
-        result = export_results_external(id)
+        result = export_results(id)
         return result, 200, security_headers()

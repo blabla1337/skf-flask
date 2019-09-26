@@ -49,7 +49,7 @@ export class ChecklistAddNewComponent implements OnInit {
   ngOnInit() {
 
     this.checklistForm = this.formBuilder.group({
-      checklist_id: ['', [Validators.required, Validators.pattern(/^[0-9]{1,2}([.][0-9]{1,2})?$/)]],
+      checklist_id: ['', [Validators.required, Validators.pattern(/^[0-9.]*$/)]],
       kb_id: ['', Validators.required],
       question_id: ['', Validators.required],
       include_always: ['', Validators.required],

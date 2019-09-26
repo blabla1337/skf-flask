@@ -61,7 +61,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr *ngFor="let checklists of checklistTypes; let myIndex = index">
+							<tr *ngFor="let checklists of checklistTypes | stringFilter : queryString; let myIndex = index">
 								<td>{{checklists.title}}</td>
 								<td>{{checklists.description}}</td>
 								<td>{{checklists.visibility}}</td>

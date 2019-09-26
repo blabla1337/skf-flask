@@ -1,3 +1,4 @@
+from sqlalchemy import or_
 from skf.database import db
 #from skf.database.projects import Project
 from skf.database.checklists_kb import ChecklistKB
@@ -16,41 +17,49 @@ def store_questions(checklist_type, maturity, data):
     log("User stored new sprint question list", "MEDIUM", "PASS")
     #Store the result of the questionaire if answer was true in checklists_kb
     for result in data.get('questions'):
-
-         val_num(result['question_id'])
-         val_num(result['project_id'])
-         val_num(result['checklist_type'])
-         val_num(result['sprint_id'])
-         val_alpha_num(result['result'])
-
-         question_id = result['question_id']
-         question_result = result['result']
-         question_project_id = result['project_id']
-         checklist_type = result['checklist_type']
-         sprint_id = result['sprint_id']
-         status = 1
-         if question_result == "True":
-             checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).filter(ChecklistKB.maturity == maturity).all()
-             for row in checklists:
-                 checklists_query = ChecklistResult(status)
-                 checklists_query.project_id = question_project_id
-                 checklists_query.sprint_id = sprint_id
-                 checklists_query.kb_id = row.kb_id
-                 checklists_query.checklist_id = row.id
-                 checklists_query.checklist_type_id = checklist_type
-                 db.session.add(checklists_query)
-                 db.session.commit()
-         #Also check for the include always marked items so they are taken in account
-         checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).filter(ChecklistKB.maturity == maturity).all()
-         for row in checklists_always:
-            checklists_always = ChecklistResult(status)
-            checklists_always.project_id = question_project_id
-            checklists_always.sprint_id = sprint_id
-            checklists_always.kb_id = row.kb_id
-            checklists_always.checklist_id = row.id
-            checklists_always.checklist_type_id = checklist_type
-            db.session.add(checklists_always)
-            db.session.commit()
+        val_num(result['question_id'])
+        val_num(result['project_id'])
+        val_num(result['checklist_type'])
+        val_num(result['sprint_id'])
+        val_alpha_num(result['result'])
+        question_id = result['question_id']
+        question_result = result['result']
+        question_project_id = result['project_id']
+        checklist_type = result['checklist_type']
+        sprint_id = result['sprint_id']
+        status = 1
+        if question_result == "True":
+            if maturity == 1:
+                checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).filter(ChecklistKB.maturity == 1).filter(ChecklistKB.include_always == 0).all()
+            elif  maturity == 2:
+                checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2)).filter(ChecklistKB.include_always == 0).all()
+            elif  maturity == 3:
+                checklists = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2, ChecklistKB.maturity == 3)).filter(ChecklistKB.include_always == 0).all()
+            for row in checklists:
+                checklists_query = ChecklistResult(status)
+                checklists_query.project_id = question_project_id
+                checklists_query.sprint_id = sprint_id
+                checklists_query.kb_id = row.kb_id
+                checklists_query.checklist_id = row.id
+                checklists_query.checklist_type_id = checklist_type
+                db.session.add(checklists_query)
+                db.session.commit()
+    #Also check for the include always marked items so they are taken in account
+    if maturity == 1:
+        checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).filter(ChecklistKB.maturity == 1).all()
+    elif  maturity == 2:
+        checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2)).all()
+    elif  maturity == 3:
+        checklists_always = ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2, ChecklistKB.maturity == 3)).all()        
+    for row in checklists_always:
+        checklists_always = ChecklistResult(status)
+        checklists_always.project_id = question_project_id
+        checklists_always.sprint_id = sprint_id
+        checklists_always.kb_id = row.kb_id
+        checklists_always.checklist_id = row.id
+        checklists_always.checklist_type_id = checklist_type
+        db.session.add(checklists_always)
+        db.session.commit()
     return {'message': 'Sprint successfully created'}
 
 def new_question(data):
@@ -68,7 +77,6 @@ def update_question(id_question, data):
     val_num(id_question)
     val_num(data.get('checklist_type'))
     val_alpha_num_special(data.get('question'))
-    
     sprint_question = data.get('question')
     sprint_checklist_type = data.get('checklist_type')
     sprint = Question.query.filter(Question.id == id_question).one()

@@ -85,7 +85,6 @@ def code(question,intent,language):
                     ent={}
                     for i in range(len(code_languages)):
                         entity=intent+" "+str(code_entity[0].strip("\n").lower())+" in "+code_languages[i]
-                        print(entity)
                         ent[i]=entity
                     return ent
                     for d in code_ite:

@@ -27,21 +27,17 @@
   <section class="intro">
     <div class="inner">
       <div class="text">
-        <p>Overview of your current sprint items, export them to import them in your<br/>
-           favourite ticketing system!
+        <p>Overview of your current sprint items, export them to import them in your favourite ticketing system!
         </p>
       </div>
       <button style="float:right; margin-left: 1%" (click)="back()" class="btn btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
-      <button style="float:right;" (click)="PushMetrics()" class="btn btn-success"><i class="fa fa-cloud-download" aria-hidden="true"></i> Export to CSV</button>
+      <button style="float:right;" (click)="export()" class="btn btn-success"><i class="fa fa-cloud-download" aria-hidden="true"></i> Export to CSV</button>
     </div>
   </section>
   <section class="wrapper" style="margin-top:0px;">
     <div class="row mt">
       <div class="col-lg-12">
          <div *ngFor="let item of sprintResult;  let myIndex = index" class="content-panel" style="padding-bottom:0.25em">
-          <div *ngIf="item.kb_item_id == 1" style="padding-bottom:3%; padding-top:0.25%">
-          <h3><b>{{item.checklist_type}}</b></h3>
-          </div>
           <div *ngIf="item.kb_item_id != 1">
             <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
               <div>

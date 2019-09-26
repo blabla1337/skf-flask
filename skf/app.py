@@ -54,7 +54,7 @@ from skf.api.checklist.endpoints.checklist_type_delete import ns as checklist_na
 from skf.api.checklist.endpoints.checklist_type_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_type_items_with_filter import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_items_questions import ns as checklist_namespace
-#from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
+from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
 from skf.api.code.endpoints.code_items_new import ns as code_namespace
@@ -119,7 +119,7 @@ def initialize_app(flask_app):
     #api.add_namespace(comment_namespace)
     api.add_namespace(sprints_namespace)
     api.add_namespace(checklist_namespace)
-    #api.add_namespace(chatbot_namespace)
+    api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_namespace)
     flask_app.register_blueprint(blueprint)
 

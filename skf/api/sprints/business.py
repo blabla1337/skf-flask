@@ -25,7 +25,7 @@ def get_sprint_item(sprint_id, user_id):
 def get_sprint_results(sprint_id, user_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
     val_num(sprint_id)
-    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_type_id)).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_id)).paginate(1, 500, False)
     return result
 
 def update_sprint(sprint_id, user_id, data):
@@ -103,12 +103,10 @@ def delete_sprint(sprint_id, user_id):
     log("User deleted sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
     val_num(user_id)
-
     try:
         result = ProjectSprint.query.get(sprint_id)
         db.session.delete(result)
         db.session.commit()
-
     except:
         db.session.rollback()
         raise
@@ -141,11 +139,9 @@ def export_results(sprint_results):
                     checklistName = name.name
                 else:
                     checklistName = "Removed"
-                
                 checklist = ChecklistKB.query.filter(ChecklistKB.id == item.checklist_id).first()
                 kb_item = KBItem.query.filter(KBItem.kb_id == item.kb_id).first()
                 title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
-                print(kb_item.content, file=sys.stderr)
                 if kb_item != None:
                     try:
                         temp = kb_item.content.replace(',','\\,').split("Solution:")
@@ -161,7 +157,3 @@ def export_results(sprint_results):
                 file.write('"' + checklistName + ' : ' + title + '","' + description + '","' + mitigation + '"\n')
     with open(file_path, 'rb') as file:
         return {'message': base64.b64encode(file.read())}
-
-def export_results_external():
-
-    return "todo"

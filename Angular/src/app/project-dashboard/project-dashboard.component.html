@@ -125,14 +125,12 @@
                       <h4>Maturity</h4>
                       <p>Select the right checklist maturity for your feature/sprint</p>
                     </div>
-                    <select class="form-control" name="question" id="question" (change)="selectMaturity()"
+                    <select class="form-control" name="question" id="question"
                       [(ngModel)]="maturity_id">
                       <option selected> Select checklist maturity </option>
                       <option value=1> Level 1</option>
                       <option value=2> Level 2</option>
                       <option value=3> Level 3</option>
-                      <option value=4> Level 4</option>
-                      <option value=5> Level 5</option>
                     </select>
                     <br />
                     <div class="alert alert-info" style="margin-bottom:2.6%">

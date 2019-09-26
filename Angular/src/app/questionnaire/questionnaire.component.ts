@@ -118,7 +118,7 @@ export class QuestionnaireComponent implements OnInit {
     if (this.delete == 'DELETE') {
       this.questionsService.deleteQuestion(this.question_id).subscribe(x =>
         // Get the new project list on delete
-        this.getQuestionList())
+        {this.getQuestionList();this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()})
       this.delete = '';
       this.isSelected = false;
     }
