@@ -62,13 +62,13 @@
                             <!-- start modal for deleting a checklist result-->
                             <ng-template #modalDeleteChecklistResult let-c="close" let-d="dismiss">
                                 <div class="modal-header">
-                                  <h4 class="modal-title">Delete project!</h4>
+                                  <h4 class="modal-title">Delete sprint/feature!</h4>
                                   <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                                   <span aria-hidden="true">&times;</span>
                                  </button>
                                 </div>
                                 <div class="modal-body">
-                                  <p>Are you sure you want to delete this project?</p>
+                                  <p>Are you sure you want to delete this sprint/feature?</p>
                                   <p>To confirm, type <b style='color:red'> DELETE </b> and click the delete button</p>
                                   <input type="text" [(ngModel)]="delete" id="delete" class="form-control">
                                 </div>
