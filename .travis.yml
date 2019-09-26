@@ -36,9 +36,9 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - pwd
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
+#  - pwd
+#  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
+#  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
 #  - cd ../; coverage run --source=skf setup.py test
 
 after_success:
