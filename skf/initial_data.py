@@ -254,22 +254,22 @@ def load_initial_data():
         db.session.commit()
 
         #38 -- 6.1 
-        q = Question('Are you aware on what type of data classifies to be stored encrypted?', 6)
+        q = Question('Does your data need to be stored encrypted?', 6)
         db.session.add(q)
         db.session.commit()
 
         #39 -- 6.2
-        q = Question('Are cryptgrapic functions used in the application on par with the latest known to be secure standards?', 6)
+        q = Question('Does your application need cryptgrapic functions (they need to be on par with the latest known to be secure standards)', 6)
         db.session.add(q)
         db.session.commit()
 
         #40 -- 6.3
-        q = Question('Are secure random values or UUIDs that are used in the application tested for sufficient entropy?', 6)
+        q = Question('Does your application need secure random values or UUIDs (are they tested for sufficient entropy?)', 6)
         db.session.add(q)
         db.session.commit()
 
         #41 -- 6.4
-        q = Question('Are secrets managed in a key-vault?', 6)
+        q = Question('Do your secrets need to be managed in a key-vault?', 6)
         db.session.add(q)
         db.session.commit()
 
@@ -279,17 +279,17 @@ def load_initial_data():
         db.session.commit()
 
         #43 -- 7.2
-        q = Question('Do logs exist for authentication/ access control decisions?', 7)
+        q = Question('Does the application needs to actively do logging (Do logs exist for authentication/ access control decisions?)', 7)
         db.session.add(q)
         db.session.commit()
 
         #44 -- 7.3
-        q = Question('Are logs protected for un-authorized access, injection flaws(also in viewing software), and are timestamps synced to match respective timezones', 7)
+        q = Question('Do you need to implement log protection (Are logs protected for un-authorized access, injection flaws(also in viewing software), and are timestamps synced to match respective timezones)', 7)
         db.session.add(q)
         db.session.commit()
 
         #45 -- 7.4
-        q = Question('Are errors on the application gracefully handled and show non generic error messages?', 7)
+        q = Question('Do you need centrilized error handling (Are errors on the application gracefully handled and show non generic error messages?)', 7)
         db.session.add(q)
         db.session.commit()
 
