@@ -2248,6 +2248,9 @@ def load_initial_data():
         
         db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf', 3))
         db.session.commit()
+
+        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf-samesite', 3))
+        db.session.commit()
         
         db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe', 2))
         db.session.commit()
@@ -2294,7 +2297,13 @@ def load_initial_data():
         db.session.add(LabItem('Local file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-local-file-inclusion', 1))
         db.session.commit()
         
-        db.session.add(LabItem('Remote file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1))
+        db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1))
+        db.session.commit()
+
+        db.session.add(LabItem('Remote file inclusion 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-2', 1))
+        db.session.commit()
+
+        db.session.add(LabItem('Remote file inclusion 3','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-3', 1))
         db.session.commit()
         
         db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy', 1))
@@ -2320,7 +2329,10 @@ def load_initial_data():
         
         db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml', 3))
         db.session.commit()
-        
+
+        db.session.add(LabItem('Insecure deserialization (yaml2)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-des-pickle-2', 3))
+        db.session.commit()
+
         db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition', 3))
         db.session.commit()
         
@@ -2339,10 +2351,19 @@ def load_initial_data():
         db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1))
         db.session.commit()
 
+        db.session.add(LabItem('Authentication bypass 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-1', 1))
+        db.session.commit()
+
+        db.session.add(LabItem('Authentication bypass 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-2', 1))
+        db.session.commit()
+
         db.session.add(LabItem('Blind command injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-blind-cmd-injection-1', 2))
         db.session.commit()
 
         db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-right-to-left-override', 1))
+        db.session.commit()
+
+        db.session.add(LabItem('Session puzzeling','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-250-session-puzzling', 3))
         db.session.commit()
 
         db.session.commit()
