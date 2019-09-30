@@ -48,6 +48,7 @@ after_success:
 #  - bash <(curl -s https://codecov.io/bash) -f Angular/coverage/lcov.info
   - codecov
   - coveralls
+  - cd Angular
   - snyk monitor
 
 notifications:
@@ -56,4 +57,4 @@ notifications:
       - https://webhooks.gitter.im/e/e55113d395f98b551f5a
     on_success: always  
     on_failure: always  
-    on_start: never
+    on_start: never     
