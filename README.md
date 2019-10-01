@@ -71,14 +71,6 @@ For more detailed information such as setting up an admin account and user guide
 
 [Readme: extended documentation](https://skf.readme.io/)  
 
-## <a name="scrum-board"></a>Scrum Board
-
-### Waffle.io:
-
-https://waffle.io/blabla1337/skf-flask
-
-[![Throughput Graph](https://graphs.waffle.io/blabla1337/skf-flask/throughput.svg)](https://waffle.io/blabla1337/skf-flask/metrics)
-
 ## <a name="CI-Pipeline"></a>CI-Pipeline
 
 ### Travis-ci.org:
