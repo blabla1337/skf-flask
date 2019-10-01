@@ -1,1 +1,0 @@
-8.3 Verify security logging controls provide the ability to log success and particularly failure events that are identified as security-relevant.

@@ -1,1 +1,0 @@
-1.6 All app components are defined in terms of the business functions and/or security functions they provide.

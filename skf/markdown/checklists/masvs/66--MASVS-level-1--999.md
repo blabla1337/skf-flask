@@ -1,1 +1,0 @@
-7.4 Debugging code has been removed, and the app does not log verbose errors or debugging messages.

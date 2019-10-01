@@ -1,1 +1,0 @@
-4.5 The remote endpoint implements an exponential back-off, or temporarily locks the user account, when incorrect authentication credentials are submitted an excessive number of times .

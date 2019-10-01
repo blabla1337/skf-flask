@@ -1,0 +1,168 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+
+<section id="main-content" class="page03 project-list">
+  <section class="intro">
+    <div class="inner">
+      <div class="text">
+        <h1>All projects</h1>
+        <p>An overview of all the current available projects. More information about the project by clicking on a project name. </p>
+      </div>
+      <button id="add"  style="float:right;" (click)="open(modalAddProject)" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i> New project!</button>
+      <form [formGroup]="projectForm">
+      <ng-template #modalAddProject let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">Add a project!</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+           </button>
+          </div>
+          <div class="modal-body">
+                  <div class="form-group">
+                    <div class="wrap">
+                      <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Project name</label>
+                      <div class="col-sm-10">
+                        <input formControlName="name" maxlength="120" type="text" class="form-control" id="projectName" name="projectName"/>
+                        <div class="wrap desc alert-info">
+                          <div class="col-sm-10">Make it easy for your team to recognise.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="wrap">
+                        <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Project version</label>
+                        <div class="col-sm-10">
+                          <input required formControlName="version" maxlength="120" type="text" class="form-control" id="projectVersion" name="projectVersion">
+                          <div class="wrap desc alert-info">
+                            <div class="col-sm-10">Versioning is importante!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <div class="wrap">
+                      <label for="inputDesc" class="col-sm-2 control-label">Description</label>
+                      <div class="col-sm-10">
+                        <textarea required class="form-control" maxlength="255" formControlName="description" id="projectDescription"
+                          style="height: 90px;" ></textarea>
+                        <div class="wrap desc alert-info">
+                          <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the project overview.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" style="float:right; margin-top:1.5%; margin-right:2%;" (click)="c('Close click')"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+              <button type="submit" class="btn btn-success" id="create-project" style="float:right; margin-top:1.5%;"  (click)="storeProject();c('Close click')" >Store project</button>
+          </div>
+        </ng-template>
+      </form>
+    </div>
+  </section>
+  <section class="wrapper">
+    <div class="row mt">
+      <div class="col-lg-12">
+        <div class="content-panel">
+
+          <ngb-alert *ngIf="!projects" [dismissible]="false">
+            <strong>Message, </strong> There are no projects available to show yet!
+          </ngb-alert>
+
+          <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+            <div *ngIf="formControls.name.errors.required">
+              <ngb-alert type="danger" [dismissible]="false">
+                Project name was not filled in
+              </ngb-alert>
+            </div>
+          </div>
+
+          <div *ngIf="isSubmitted && formControls.version.errors" class="help-block">
+            <div *ngIf="formControls.version.errors.required">
+              <ngb-alert type="danger" [dismissible]="false">
+                Project version was not filled in
+              </ngb-alert>
+            </div>
+          </div>
+
+          <div *ngIf="isSubmitted && formControls.description.errors" class="help-block">
+            <div *ngIf="formControls.description.errors.required">
+              <ngb-alert type="danger" [dismissible]="false">
+                Project description was not filled in
+              </ngb-alert>
+            </div>
+          </div>
+
+          <table class="table table-striped table-advance table-hover">
+            <thead>
+              <tr>
+                <th><i class="fa fa-bullhorn"></i> Project Name</th>
+                <th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
+                <th><i class="fa fa-clock-o"></i> Creation date</th>            
+                <th><i class="fa fa-bookmark"></i> Project version</th>
+                <th><i class="fa fa-times"></i> Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let project of projects; let myIndex = index">
+                <td style="color:#515594"><a [routerLink]="['/project-dashboard',project.id]" class="btn btn-default btn-xs">{{project.name}}</a></td>
+                <td>{{project.description}}</td>
+                <td><span class="label">{{project.timestamp}}</span></td>
+                <td>{{project.version}}</td>
+                <td>
+                  <button (click)="open(modalDeleteProject)" id="delete-button" class="btn btn-danger btn-xs">
+                    <i class="fa fa-times "></i>                 
+                  </button>
+                </td>
+                <ng-template #modalDeleteProject let-c="close" let-d="dismiss">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Delete project!</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                   </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Are you sure you want to delete this project?</p>
+                    <p>To confirm, type <b style='color:red'> DELETE </b> and click the delete button</p>
+                    <input type="text" [(ngModel)]="delete" id="delete" class="form-control">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                    <button type="button" class="btn btn-danger" id="submit" (click)="deleteProject(project.id)" (click)="c('Close click')">Delete</button>
+                  </div>
+                </ng-template>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- /col-lg-4 -->
+    </div>
+    <!-- /row -->
+  </section>
+  <!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->

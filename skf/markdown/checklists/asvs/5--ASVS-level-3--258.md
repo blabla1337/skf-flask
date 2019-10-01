@@ -1,1 +1,0 @@
-1.4 Verify that all application components are defined in terms of the business functions and/or security functions they provide.

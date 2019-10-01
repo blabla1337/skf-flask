@@ -1,1 +1,0 @@
-6.4 The app does not export sensitive functionality through IPC facilities, unless these mechanisms are properly protected.

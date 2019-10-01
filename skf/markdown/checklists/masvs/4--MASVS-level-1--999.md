@@ -1,1 +1,0 @@
-1.4 A high-level architecture for the mobile app and all connected remote services has been defined and security has been addressed in that architecture.

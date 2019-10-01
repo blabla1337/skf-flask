@@ -1,1 +1,0 @@
-7.6 Error handling logic in security controls denies access by default.

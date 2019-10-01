@@ -1,0 +1,142 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+<style>
+	.modal-content .card-header {
+		color: black;
+		background: grey;
+	}
+</style>
+<section id="main-content" class="">
+	<section class="intro">
+	  <div class="inner">
+		<div class="text">
+		  <h1>All checklist types</h1>
+		  <p>An overview of all the current available checklists. More information about the checklist by clicking on a
+			checklist name. </p>
+		</div>
+
+	  </div>
+	</section>
+	<section class="wrapper">
+	  <div class="row mt">
+		<div class="col-lg-12">
+		  <div class="srcWrap">
+			<div class="src">
+			  <input class="searchinput" [(ngModel)]="queryString" id="search" name="search"
+				placeholder="Search checklist" />
+			  <i class="fa fa-search"></i>
+			</div>
+		  </div>
+		  	<!-- Content -->
+				<div class="content-panel">
+					<table class="table table-striped table-advance table-hover">
+						<thead>
+							<tr>
+								<th><i class="fa fa-bullhorn"></i> Checklist</th>
+								<th><i class="fa fa-question-circle"></i> Description</th>
+								<th><i class="fa fa-question-circle"></i> Active</th>
+								<th style="text-align:right"><i class="fa fa-edit"></i> Show list</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let checklists of checklistTypes | stringFilter : queryString; let myIndex = index">
+								<td>{{checklists.title}}</td>
+								<td>{{checklists.description}}</td>
+								<td>{{checklists.visibility}}</td>
+								<td><button class="btn btn-success btn-xs" style="float:right"
+										(click)="open(content, checklists.id)"><i class="fa fa-arrow-right"
+											aria-hidden="true"></i></button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- /col-lg-4 -->
+		</div>
+		<!-- /row -->
+	</section>
+	<!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+
+	<div class="modal-header">
+		<h4 class="modal-title">Checklist</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+	<!-- Modal Body -->
+
+	<div class="modal-body">
+		<div *ngIf="checklistItems.length == 0">
+			<ngb-alert [dismissible]="false">
+				<strong>Warning!</strong> No checklists items available!
+			</ngb-alert>
+		</div>
+		<table style="table-layout: fixed; word-break: break-word;"
+			class="table table-striped table-advance table-hover checklist">
+			<tbody style="color:black">
+				<tr *ngFor="let item of checklistItems; let myIndex = index;">
+					<th *ngIf="item.kb_item_id == 1">{{item.checklist_items_checklist_id}}
+						{{item.checklist_items_content}}</th>
+					<td style="color:green" *ngIf="item.kb_item_id != 1; ">
+						<ngb-accordion style="color:black" class="level_l_{{item.checklist_items_level}}"
+							#acc="ngbAccordion">
+							<ngb-panel style="color:black" data-html="true"
+								title="{{item.checklist_items_checklist_id}}  {{item.checklist_items_content}} ">
+								<ng-template ngbPanelContent>
+									<p style="white-space: pre-line;">
+										<b>
+											<h3>{{item.kb_item_title}}</h3>
+										</b>
+										<br />
+										{{item.kb_items_content}}
+									</p>
+									<div *ngIf="item.cwe > 0">
+										<ngb-alert [dismissible]="false">
+											<strong><a href="https://cwe.mitre.org/data/definitions/{{item.cwe}}.html"
+													target="_blank" rel="noopener noreferrer">CWE
+													{{item.cwe}}</a></strong>
+										</ngb-alert>
+									</div>
+								</ng-template>
+							</ngb-panel>
+						</ngb-accordion>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- Modal Footer -->
+
+	<div class="modal-footer">
+	</div>
+
+</ng-template>

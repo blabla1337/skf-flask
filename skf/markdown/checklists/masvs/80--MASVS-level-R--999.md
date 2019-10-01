@@ -1,1 +1,0 @@
-8.9 Obfuscating transformations and functional defenses are interdependent and well-integrated throughout the app.

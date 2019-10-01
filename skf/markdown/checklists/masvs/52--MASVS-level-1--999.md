@@ -1,1 +1,0 @@
-6.1 The app only requests the minimum set of permissions necessary.

@@ -1,1 +1,0 @@
-3.18 Verify the user is prompted with the option to terminate all other active sessions after a successful change password process.
