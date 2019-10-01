@@ -31,7 +31,7 @@ WORKDIR /home/user_api
 USER user_api
 
 #RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
-RUN git clone https://github.com/blabla1337/skf-flask.git -b dev
+RUN git clone https://github.com/blabla1337/skf-flask.git
 RUN pip3 install -r skf-flask/requirements.txt --user
 
 EXPOSE 8888
