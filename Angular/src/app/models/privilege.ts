@@ -1,7 +1,7 @@
 export class Privilege {
   constructor(
   privilege: string,
-  privilegeID?: number
-  ){}
+  privilege_id?: number
+  ) {}
 }
 

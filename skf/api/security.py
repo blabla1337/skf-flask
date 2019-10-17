@@ -4,7 +4,7 @@ from skf import settings
 from flask import request, abort
 from skf.api.restplus import api
 from skf.database import db
-from skf.database.logs import logs
+from skf.database.logs import Log
 
 
 def security_headers():
@@ -30,7 +30,7 @@ def log(message, threat, status):
             userID = checkClaims['UserId']
         else:
             userID = "0"
-        event = logs(dateLog, dateTime, threat, ip, userID, status, message)
+        event = Log(dateLog, dateTime, threat, ip, userID, status, message)
         db.session.add(event)
         db.session.commit()
     except:
@@ -43,17 +43,17 @@ def val_alpha(value):
     """User input validation for checking a-zA-Z"""
     match = re.findall(r"[^\w]|[\d]", str(value))
     if match:
-        log("User supplied not an a-zA-Z", "MEDIUM", "FAIL")
+        log("User supplied not an a-zA-Z ?", "MEDIUM", "FAIL")
         abort(400, "Validation Error")
     else:
         return True
 
 
 def val_alpha_num(value):
-    """User input validation for checking a-z A-Z 0-9 _ . -"""
-    match = re.findall(r"[^\ \w\.-]", value)
+    """User input validation for checking a-z A-Z 0-9 _ . - ?"""
+    match = re.findall(r"[^\ \w\.-\?]", value)
     if match:
-        log("User supplied not an a-z A-Z 0-9 _ . - value", "MEDIUM", "FAIL")
+        log("User supplied not an a-z A-Z 0-9 _ . - ? value", "MEDIUM", "FAIL")
         abort(400, "Validation Error")
     else:
         return True
@@ -61,10 +61,10 @@ def val_alpha_num(value):
 
 def val_alpha_num_special(value):
     """User input validation for checking a-z A-Z 0-9 _ . - ' , " """
-    match = re.findall(r"[^\ \w_\.\-\'\",\+\(\)\/\:@\?\&\=\%]", value)
+    match = re.findall(r"[^\ \w_\.\-\'\",\+\(\)\/\:@\?\&\=\%\!\#\^\;]", value)
     if match:
-        log("User supplied not an a-z A-Z 0-9 _ . - +' \" , value", "MEDIUM", "FAIL")
-        abort(400, "Validation Error")
+        log("User supplied not an a-z A-Z 0-9 _ . - / ! # ^ & +' \" , value", "MEDIUM", "FAIL")
+        abort(400, "Validation Error on val_alpha_num_special")
     else:
         return True
 
@@ -74,7 +74,7 @@ def val_num(value):
     """User input validation for checking numeric values only 0-9"""
     if not isinstance( value, int ):
         log("User supplied not an 0-9", "MEDIUM", "FAIL")
-        abort(400, "Validation Error")
+        abort(400, "Validation Error on val_num")
     else:
         return True
 
@@ -83,7 +83,7 @@ def val_float(value):
     """User input validation for checking float values only 0-9 ."""
     if not isinstance( value, float ):
         log("User supplied not a float value.", "MEDIUM", "FAIL")
-        abort(400, "Validation Error")
+        abort(400, "Validation Error on val_float")
     else:
         return True
 

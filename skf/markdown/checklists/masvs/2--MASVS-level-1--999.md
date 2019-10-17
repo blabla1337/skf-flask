@@ -1,1 +1,0 @@
-1.2 All third party components used by the mobile app, such as libraries and frameworks, are identified, and checked for known vulnerabilities.

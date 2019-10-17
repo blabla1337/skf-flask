@@ -2,22 +2,22 @@
 from flask_restplus import Resource
 from skf.api.security import security_headers
 from skf.api.checklist.business import get_checklist_item
-from skf.api.checklist.serializers import checklist, message
+from skf.api.checklist.serializers import checklist_update, message
 from skf.api.restplus import api
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
-@ns.route('/<float:checklistID>,<int:id_checklist>')
-@api.doc(params={'checklistID': 'The checklist item checklistID (eg. 1.1)', 'id_checklist': 'The checklist id (0: ASVS, 1: MASVS)'})
+@ns.route('/item/<string:checklist_id>/type/<int:checklist_type>')
+@api.doc(params={'checklist_id': 'The checklist item checklistID (eg. 1.1)', 'checklist_type': 'The checklist type (0: ASVS lvl1, 1: ASVS lvl2, 2: ASVS lvl3, 3: MASVS lvl1, etc)'})
 @api.response(404, 'Validation error', message)
 class ChecklistItem(Resource):
 
-    @api.marshal_with(checklist)
+    @api.marshal_with(checklist_update)
     @api.response(400, 'No results found', message)
-    def get(self, checklistID, id_checklist):
+    def get(self, checklist_id, checklist_type):
         """
         Returns a checklist item.
         * Privileges required: **none**
         """
-        result = get_checklist_item(checklistID, id_checklist)
+        result = get_checklist_item(checklist_id, checklist_type)
         return result, 200, security_headers()

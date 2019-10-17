@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/comment/business.py: 92%</title>
+    <title>Coverage for skf/api/comment/business.py: 91%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,14 +24,14 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/comment/business.py</b> :
-            <span class="pc_cov">92%</span>
+            <span class="pc_cov">91%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            36 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">33 run</span>
+            35 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">32 run</span>
             <span class="mis shortkey_m button_toggle_mis">3 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
@@ -103,11 +103,10 @@
 <p id="n34" class="stm run hide_run"><a href="#n34">34</a></p>
 <p id="n35" class="stm run hide_run"><a href="#n35">35</a></p>
 <p id="n36" class="stm run hide_run"><a href="#n36">36</a></p>
-<p id="n37" class="stm run hide_run"><a href="#n37">37</a></p>
+<p id="n37" class="stm mis"><a href="#n37">37</a></p>
 <p id="n38" class="stm mis"><a href="#n38">38</a></p>
 <p id="n39" class="stm mis"><a href="#n39">39</a></p>
-<p id="n40" class="stm mis"><a href="#n40">40</a></p>
-<p id="n41" class="stm run hide_run"><a href="#n41">41</a></p>
+<p id="n40" class="stm run hide_run"><a href="#n40">40</a></p>
 
             </td>
             <td class="text">
@@ -136,22 +135,21 @@
 <p id="t23" class="stm run hide_run">    <span class="nam">val_alpha_num</span><span class="op">(</span><span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'checklistID'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="stm run hide_run">    <span class="nam">val_num</span><span class="op">(</span><span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'sprintID'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t25" class="stm run hide_run">    <span class="nam">val_num</span><span class="op">(</span><span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'status'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t26" class="stm run hide_run">    <span class="nam">val_alpha_num_special</span><span class="op">(</span><span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'comment'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t27" class="stm run hide_run">    <span class="nam">sprint_id</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'sprintID'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t28" class="stm run hide_run">    <span class="nam">checklist_id</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'checklistID'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t29" class="stm run hide_run">    <span class="nam">status</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'status'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t30" class="stm run hide_run">    <span class="nam">comment</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'comment'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t31" class="stm run hide_run">    <span class="nam">now</span> <span class="op">=</span> <span class="nam">datetime</span><span class="op">.</span><span class="nam">datetime</span><span class="op">.</span><span class="nam">now</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t32" class="stm run hide_run">    <span class="nam">dateLog</span> <span class="op">=</span> <span class="nam">now</span><span class="op">.</span><span class="nam">strftime</span><span class="op">(</span><span class="str">"%Y-%m-%d %H:%M:%S"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t33" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">comments</span><span class="op">(</span><span class="nam">sprint_id</span><span class="op">,</span> <span class="nam">checklist_id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">,</span> <span class="nam">status</span><span class="op">,</span> <span class="nam">comment</span><span class="op">,</span> <span class="nam">dateLog</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t34" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">result</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t35" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t36" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">checklists_results</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_results</span><span class="op">.</span><span class="nam">sprintID</span> <span class="op">==</span> <span class="nam">sprint_id</span><span class="op">)</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_results</span><span class="op">.</span><span class="nam">checklistID</span> <span class="op">==</span> <span class="nam">checklist_id</span><span class="op">)</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t37" class="stm run hide_run">    <span class="key">for</span> <span class="nam">row</span> <span class="key">in</span> <span class="nam">result</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t38" class="stm mis">        <span class="nam">row</span><span class="op">.</span><span class="nam">status</span> <span class="op">=</span> <span class="nam">status</span><span class="strut">&nbsp;</span></p>
-<p id="t39" class="stm mis">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">row</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t40" class="stm mis">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t41" class="stm run hide_run">    <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Comment item successfully created'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t26" class="stm run hide_run">    <span class="nam">sprint_id</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'sprintID'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t27" class="stm run hide_run">    <span class="nam">checklist_id</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'checklistID'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t28" class="stm run hide_run">    <span class="nam">status</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'status'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t29" class="stm run hide_run">    <span class="nam">comment</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'comment'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t30" class="stm run hide_run">    <span class="nam">now</span> <span class="op">=</span> <span class="nam">datetime</span><span class="op">.</span><span class="nam">datetime</span><span class="op">.</span><span class="nam">now</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t31" class="stm run hide_run">    <span class="nam">dateLog</span> <span class="op">=</span> <span class="nam">now</span><span class="op">.</span><span class="nam">strftime</span><span class="op">(</span><span class="str">"%Y-%m-%d %H:%M:%S"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t32" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">comments</span><span class="op">(</span><span class="nam">sprint_id</span><span class="op">,</span> <span class="nam">checklist_id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">,</span> <span class="nam">status</span><span class="op">,</span> <span class="nam">comment</span><span class="op">,</span> <span class="nam">dateLog</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t33" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">result</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t34" class="stm run hide_run">    <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t35" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">checklists_results</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_results</span><span class="op">.</span><span class="nam">sprintID</span> <span class="op">==</span> <span class="nam">sprint_id</span><span class="op">)</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">checklists_results</span><span class="op">.</span><span class="nam">checklistID</span> <span class="op">==</span> <span class="nam">checklist_id</span><span class="op">)</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t36" class="stm run hide_run">    <span class="key">for</span> <span class="nam">row</span> <span class="key">in</span> <span class="nam">result</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t37" class="stm mis">        <span class="nam">row</span><span class="op">.</span><span class="nam">status</span> <span class="op">=</span> <span class="nam">status</span><span class="strut">&nbsp;</span></p>
+<p id="t38" class="stm mis">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">row</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t39" class="stm mis">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t40" class="stm run hide_run">    <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="str">'Comment item successfully created'</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -161,8 +159,8 @@
 <div id="footer">
     <div class="content">
         <p>
-            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-08-17 13:17
+            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
+            created at 2019-06-11 13:43
         </p>
     </div>
 </div>

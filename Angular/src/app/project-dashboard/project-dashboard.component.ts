@@ -1,120 +1,156 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { QuestionPreService } from '../services/questions-pre.service';
-import { QuestionsSprintService } from '../services/questions-sprint.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { QuestionsService } from '../services/questions.service';
 import { SprintService } from '../services/sprint.service'
-import { Question_pre } from '../models/question_pre'
 import { Sprint } from '../models/sprint'
-import { Question_sprint } from '../models/question_sprint'
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Questions } from '../models/questions'
+import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
-
+import { ChecklistType } from '../models/checklist_type'
+import { ChecklistService } from '../services/checklist.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-project-dashboard',
   templateUrl: './project-dashboard.component.html',
-  providers: [QuestionPreService, QuestionsSprintService, SprintService]
+  providers: [QuestionsService, SprintService, ChecklistService]
 })
 export class ProjectDashboardComponent implements OnInit {
 
   closeResult: string;
-  public preDevelopment: Question_pre[];
-  public sprints: Question_sprint[];
+  public preDevelopment: Questions[];
+  public sprints: Questions[];
   public sprintResult: Sprint[];
-  public sprintStore: Question_sprint[] = []
-  public steps: boolean = false;
+  public questions: Questions[] = []
+  public steps = false;
   public sprintName: string;
   public sprintDescription: string;
   public errors: string[] = [];
-  public sprintID: number;
+  public sprint_id: number;
   public return: boolean;
-  public pre_dev_store: Question_pre[] = [];
   public delete: string;
   public idFromURL: number;
   public canDelete: boolean;
   public canEdit: boolean;
+  public checklist_type: number;
+  public checklistType: ChecklistType[] = [];
+  public sprintStore: Sprint[] = [];
+  public selected: string;
+  public oldSprints: string;
+  public queryString: string;
+  public maturity_id: number;
+  
   constructor(
     private modalService: NgbModal,
-    private questionPreService: QuestionPreService,
-    private questionsSprintService: QuestionsSprintService,
+    private questionsService: QuestionsService,
     private route: ActivatedRoute,
-    private sprintService: SprintService
+    private sprintService: SprintService,
+    private checklistService: ChecklistService,
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-    this.idFromURL = params['id'];
-    localStorage.setItem("tempParamID", params['id'])
-    setTimeout(() => {
-    this.sprintService.getSprintStats(this.idFromURL).subscribe(
-    resp => this.sprintResult = resp,
-    err => console.log("Error getting sprint stats"))
-    }, 2500);
+      localStorage.setItem('project_id', params['id'])
     });
-    
-    this.questionsSprintService
-      .getSprintQuestions()
-      .subscribe(
-      (projectService) => { this.sprints = projectService },
-      err => console.log("getting sprint questions failed"));
+    this.getSprintStats();
+    this.checklistTypeList();
+  }
 
-    if (AppSettings.AUTH_TOKEN) {
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canDelete = decodedJWT.privilege.includes("delete");
-      this.canEdit = decodedJWT.privilege.includes("edit");
-    }
+  selectQuestions() {
+    this.questionsService.getQuestions(this.checklist_type).subscribe(
+      questions => this.questions = questions,
+      err => console.log('getting questions failed')
+    )
+  }
+  
+
+
+  // Temp storage for sprint questionaire
+  storeSprint(form: NgForm) {
+    localStorage.setItem('questions', JSON.stringify(form.value));
+    return
   }
 
   newSprint() {
     this.errors = [];
     this.return = true;
 
-    if (!this.sprintName) { this.errors.push("Sprint name was empty!"); this.return = false }
-    if (!this.sprintDescription) { this.errors.push("Sprint description was empty!"); this.return = false; }
+    if (!this.sprintName) { this.errors.push('Sprint name was empty!'); this.return = false }
+    if (!this.sprintDescription) { this.errors.push('Sprint description was empty!'); this.return = false; }
     if (this.return == false) { return; }
-    this.sprintService.newSprint(this.sprintName, parseInt(this.idFromURL.toString(), 10), this.sprintDescription)
-      .subscribe(res => { this.sprintID = res['sprintID'] }, error => console.log("error storing sprint"));
+
+    this.sprintService.newSprint(this.sprintName, Number(localStorage.getItem('project_id')), this.sprintDescription)
+      .subscribe(res => { this.sprint_id = res['sprint_id'] }, error => console.log('error storing sprint'));
     this.steps = true;
   }
 
-  newSprintQuestions(form?: NgForm) {
+  oldSprint() {
+    console.log(this.oldSprints)
+    this.sprint_id = this.oldSprints['sprint_id']
+    this.sprintName = this.oldSprints['sprint_name']    
+  }
+
+
+  newSprintQuestions() {
+
+    const sprint_items = JSON.parse(localStorage.getItem('questions'));
+    const count_sprint = Object.keys(sprint_items).length
+
     this.sprintStore = [];
-        for (let i = 1; i < 22 + 1; i++) {
-          if (!form.value["sprint_answer" + i]) { form.value["sprint_answer" + i] = "False"; }
-          this.sprintStore.push({ "projectID": parseInt(this.idFromURL.toString(), 10), "question_sprint_ID": i, "result": form.value["sprint_answer" + i], "sprintID": this.sprintID });
-        }
-    setTimeout(() => {
-      this.questionsSprintService.newSprint(this.sprintStore).subscribe(() => { },
-        err => console.log("Error Storing new questions for sprint"), () => {
-            this.sprintService.getSprintStats(this.idFromURL).subscribe(
-              resp => this.sprintResult = resp,
-              err => console.log("Error getting sprint stats"))
-        });
-    }, 1000);
 
-    this.steps = false;
-  }
-
-  deleter(id: number) {
-    if (this.delete == "DELETE") {
-      this.sprintService.delete(id).subscribe(x =>
-          this.sprintService.getSprintStats(this.idFromURL).subscribe(
-            resp => this.sprintResult = resp,
-            err => console.log("Error getting sprint stats"))
-      )
-      return true;
+    for (let i = 1; i < count_sprint + 1; i++) {
+      if (sprint_items['answer' + i] != '') {
+        this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprintName});
+      }
     }
-    return false;
+
+    if(count_sprint == 0){
+      this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': 0, 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprintName});
+    }
+
+  setTimeout(() => {
+    this.questionsService.newSprint(this.checklist_type, this.maturity_id, this.sprintStore).subscribe(() => { },
+      err => console.log('Error Storing new questions for sprint'));
+      this.getSprintStats();
+  }, 1000);
+
+this.steps = false;
   }
 
+deleter(sprint_id: number) {
+  if (this.delete == 'DELETE') {
+    this.sprintService.delete(sprint_id).subscribe(x =>
+      this.sprintService.getSprintStats(Number(localStorage.getItem("project_id"))).subscribe(
+        resp => this.sprintResult = resp,
+        err => console.log('Error getting sprint stats'))
+    )
+    return true;
+  }
+  return false;
+}
 
-  open(content) {
-    this.steps = false;
-    this.delete = "";
-    this.sprintDescription = ""
-    this.sprintName = "";
-    this.modalService.open(content, { size: 'lg' })
+getSprintStats() {
+    setTimeout(() => {
+      this.sprintService.getSprintStats(Number(localStorage.getItem("project_id"))).subscribe(
+        resp => this.sprintResult = resp,
+        err => console.log('Error getting sprint stats'))
+    }, 1000);
+}
+
+checklistTypeList() {
+  this.checklistService
+    .getChecklistTypeList()
+    .subscribe(
+      checklistType => {
+        this.checklistType = checklistType;
+      },
+      err => console.log('errors went wrong!'));
+}
+
+open(content) {
+  this.selected = '';
+  this.modalService.open(content, { size: 'lg' })
   }
 }

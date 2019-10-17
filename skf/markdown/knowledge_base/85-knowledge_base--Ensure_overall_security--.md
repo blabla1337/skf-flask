@@ -1,10 +1,12 @@
 ## Description:
 
-Some parts of the application at first sight might seem to acquire a higher level of
-security than i.e unauthorized/public parts of the application.
-This however, is not true since breaching public parts could also lead to an attacker
-compromising the application or other users accounts.
+The primairy authentication mechanism is most often a good hardened functionality
+because it gets a lot of attention during development. However, this is mostly not the
+case for secondary authentication mechanisms such as password forget functions, or 
+other alternative paths that could lead to authenticating to the target application.
 
 ## Solution:
 
-Always ensure full hardened security on all layers of the web application.
+Verify all account identity authentication functions (such as update profile, forgot password, 
+disabled / lost token, help desk or IVR) that might regain access to the account are 
+at least as resistant to attack as the primary authentication mechanism.

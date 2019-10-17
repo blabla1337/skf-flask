@@ -3,7 +3,7 @@ from skf.api.restplus import api
 
 activate = api.model('activate', {
     'accessToken': fields.Integer(required=True, description='Authentication token that was generated'),
-    'username': fields.String(required=True, description='Username of the new user'),
+    'userName': fields.String(required=True, description='Username of the new user'),
     'email': fields.String(required=True, description='Email of the user'),
     'password': fields.String(required=True, description='Password of the user'),
     'repassword': fields.String(required=True, description='Retyped password'),
@@ -14,13 +14,13 @@ message = api.model('Response message', {
 })
 
 login = api.model('login', {
-    'username': fields.String(required=True, description='The username of the user'),
+    'userName': fields.String(required=True, description='The username of the user'),
     'password': fields.String(required=True, description='The password of the user'),
 })
 
 create = api.model('create', {
     'email': fields.String(required=True, description='Email of the user'),
-    'privilege': fields.Integer(required=True, description='Role of the user privilege: 2, 3, 4'),
+    'privilege_id': fields.Integer(required=True, description='Role of the user privilege: 2, 3, 4'),
 })
 
 manage = api.model('manage', {
@@ -28,14 +28,14 @@ manage = api.model('manage', {
 })
 
 created = api.model('created', {
-    'userID': fields.Integer(required=True, description='The unique identifier of the user'),
+    'id': fields.Integer(required=True, description='The unique identifier of the user'),
     'email': fields.String(required=True, description='Email of the user'),
     'accessToken': fields.String(required=True, description='Generated accessToken of the user'),
 })
 
 token_auth = api.model('Response Authorization token', {
     'Authorization token': fields.String(required=True, description='Response Authorization token'),
-    'username': fields.String(required=True, description='Response Authorization token'),
+    'userName': fields.String(required=True, description='Response Authorization token'),
 })
  
 user_list = api.model('user_list', {
@@ -43,7 +43,7 @@ user_list = api.model('user_list', {
     'email': fields.String(required=True, description='Email of the user'),
     'access': fields.String(required=True, description='User has access to application'),
     'activated': fields.String(required=True, description='User is activated'),
-    'userID': fields.Integer(required=True, description='The unique identifier of the user'),
+    'id': fields.Integer(required=True, description='The unique identifier of the user'),
 })
 
 user_items = api.inherit('List of user items', {
@@ -52,7 +52,7 @@ user_items = api.inherit('List of user items', {
 
 privilege_list = api.model('privilege_list', {
     'privilege': fields.String(required=True, description='The list of privileges'),
-    'privilegeID': fields.Integer(required=True, description='The unique identifier of the privilege'),
+    'id': fields.Integer(required=True, description='The unique identifier of the privilege'),
 })
 
 privilege_items = api.inherit('List of privilege items', {

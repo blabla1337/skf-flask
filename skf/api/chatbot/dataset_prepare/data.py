@@ -4,6 +4,18 @@ from skf import settings
 
 app = Flask(__name__)
 
+
+def clean():
+	try:
+		os.remove(os.path.join(app.root_path,"../datasets/code_data.json"))
+		os.remove(os.path.join(app.root_path,"../datasets/code_title.txt"))
+		os.remove(os.path.join(app.root_path,"../datasets/data.json"))
+		os.remove(os.path.join(app.root_path,"../datasets/desc_solution.json"))
+		os.remove(os.path.join(app.root_path,"../datasets/entity_title.txt"))
+		os.remove(os.path.join(app.root_path,"../datasets/intent_data.csv"))
+	except Exception as e:
+		pass
+
 def extract_from_api():
 	r_kb = requests.get(settings.SKF_API_URL+"kb/items", verify = False)
 	r_code = requests.get(settings.SKF_API_URL+"code/items", verify =False)

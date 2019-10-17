@@ -7,5 +7,5 @@ export class ProjectStats {
   project_open: number,
   project_closed: number,
   prpject_accepted: number
-  ){}
+  ) {}
 }

@@ -1,1 +1,0 @@
-16.6 Verify that files obtained from untrusted sources are stored outside the webroot, with limited permissions, preferably with strong validation.

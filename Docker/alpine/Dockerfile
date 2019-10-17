@@ -1,9 +1,10 @@
-FROM alpine:3.7
+FROM alpine:3.10
 
-# Thanks to Mariano Abdala <marianoabdala@gmail.com>
-MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
+LABEL maintainer="glenn.ten.cate@owasp.org"
 
-RUN apk add alpine-sdk
+# Get updated CA-Certificates list
+RUN apk add ca-certificates
+
 RUN apk update --no-cache && apk add python3 \
 gcc \
 nginx \
@@ -20,8 +21,12 @@ perl \
 openblas-dev \
 libstdc++ \ 
 openblas \
+g++ \
 git
+
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
+RUN pip3 install --upgrade pip
+
 RUN git clone https://github.com/blabla1337/skf-flask.git
 # Start Angular app
 WORKDIR /skf-flask/Angular
@@ -30,7 +35,7 @@ RUN npm install
 # Optimize vendor.bundle.js
 RUN npm build -prod -aot ./
 
-EXPOSE 443
+EXPOSE 443 80
 
 # Start python API app
 WORKDIR /skf-flask

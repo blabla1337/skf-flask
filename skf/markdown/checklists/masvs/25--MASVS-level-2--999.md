@@ -1,1 +1,0 @@
-2.11 The app enforces a minimum device-access-security policy, such as requiring the user to set a device passcode.

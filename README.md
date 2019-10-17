@@ -1,20 +1,16 @@
 # OWASP Security Knowledge Framework
-[![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/)
+[![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/) 
 
 <br>Project status details:<br>
 [![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=master)](https://travis-ci.org/blabla1337/skf-flask)
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://owasp.slack.com/messages/C0F7L9X6V](https://img.shields.io/badge/chat-on%20slack-blueviolet)](https://owasp.slack.com/messages/C0F7L9X6V)
+[![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-orange.svg)](https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework)
 
-
-<br>Quality testing SKF-Angular:<br>
-[![codecov](https://codecov.io/gh/blabla1337/skf-flask/branch/master/graph/badge.svg)](https://codecov.io/gh/blabla1337/skf-flask)
+<br>Quality testing:<br>
 [![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
-
-
-<br>Quality testing SKF-API:<br>
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
 [![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master)
-[![Code Quality Status](https://scrutinizer-ci.com/g/blabla1337/skf-flask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/blabla1337/skf-flask/)
 [![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=master)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=master)
 
 Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with detailed code examples (secure coding principles) to help developers in pre-development and post-development phases and create applications that are secure by design.
@@ -22,7 +18,8 @@ Security Knowledge Framework is an expert system application that uses the OWASP
 ## Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
-* [Updating](#updating)
+* [Updating Database](#updating-db)
+* [Updating Chatbot](#updating-dataset)
 * [Usage](#usage)
 * [CI-Pipeline](#ci-pipeline)
 * [Development / Contributing](https://github.com/blabla1337/skf-flask/blob/master/CONTRIBUTING.md)
@@ -42,94 +39,11 @@ The second stage is validating if the developer properly implemented different s
 
 ## <a name="installing"></a>Installing
 
-### Local / dedicated server install
-Local installation based on Ubuntu 16.04.
+### [Local on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
+### [Docker local installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
+### [Azure installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/azure-deployment)  
 
-#### Requirements:
-- nginx (```sudo apt install nginx```)
-- npm (```sudo apt install npm```)
-- ng (```sudo apt install ng-common```)
-- latest version of node ():
-```
-    * sudo npm install n -g
-    * sudo n stable
-```
-- python3.6, pip3.6 (https://stackoverflow.com/questions/42662104/how-to-install-pip-for-python-3-6-on-ubuntu-16-10):
-```
-    * sudo add-apt-repository ppa:jonathonf/python-3.6  # (only for 16.04 LTS)
-    * sudo apt update
-    * sudo apt install python3.6
-    * wget https://bootstrap.pypa.io/get-pip.py
-    * sudo python3.6 get-pip.py
-```
-
-#### Installation SKF and configuration:
-Run on terminal
-```
-cd /tmp; git clone git://github.com/blabla1337/skf-flask.git
-cd /tmp/skf-flask; pip3.6 install -r requirements.txt 
-cd /tmp/skf-flask/Angular; npm install
-cd /tmp/skf-flask/Angular; ng build --aot --configuration=production 
-rm /etc/nginx/sites-enabled/default
-cp /tmp/skf-flask/Local/site-tls.conf /etc/nginx/sites-enabled/default
-
-mv /tmp/skf-flask /
-
-# Change the JWT_SECRET value with below command
-perl -pi -e "s/JWT_SECRET = ''/JWT_SECRET = 'THIS_SHOULD_BE_CHANGED_AND_RANDOM'/" /skf-flask/skf/settings.py
-# Change the domain value with below command
-perl -pi -e "s/\*/https:\/\/demo.securityknowledgeframework.org/" /skf-flask/skf/settings.py
-# Change the domain value with below command
-perl -pi -e "s/https:\/\/localhost\/api/https:\/\/demo.securityknowledgeframework.org\/api/" /skf-flask/Angular/src/environments/environment.prod.ts
-# Change the domain value with below command
-perl -pi -e "s/localhost/demo.securityknowledgeframework.org/" /skf-flask/Local/skf-angular.sh
-
-# Certificates stored in /skf-flask/ dir
-openssl req -nodes -newkey rsa:4096 -keyout /skf-flask/server.key -out /skf-flask/server.csr  -subj "/CN=OWASP-SKF"
-openssl x509 -req -days 365 -in /skf-flask/server.csr  -signkey /skf-flask/server.key -out ./skf-flask/server.pem
-
-# Start nginx
-sleep 5
-sudo nginx
-
-```
-
-#### Run SKF (with terminal in Local folder):
-```
-# Start SKF services
-cd /skf-flask/Local; bash wrapper.sh
-```
-Navigate to https://your_domain_value_you_used_above_commands
-
-#### Error:
-If you get the following error
-```
-nginx: [emerg] a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-enabled/default:17
-```
-If you are not using that file just remove it: (```sudo rm /etc/nginx/sites-enabled/default```)
-
-### Docker
-
-The fastest way to start using the SKF project is using the pre-built container hosted at Docker hub. This container always has the very latest version from the master repository. Change the JWT_SECRET value to a new random secret string before starting the docker image.
-
-First run the docker pull command to get the latest image
-```
-docker pull blabla1337/skf-flask
-```
-Then start the docker image 
-```
-docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
-```
-You can also store the database outside of the Docker container so all the data is persistant
-Replace the /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite with your db.sqlite file you have locally and then run:
-```
-docker run -v /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite:/skf-flask/skf/db/db.sqlite -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:443:443 blabla1337/skf-flask
-```
-
-The application will greet you on:
-https://localhost
-
-## <a name="updating"></a>Updating
+## <a name="updating-db"></a>Updating Database
 
 There is a method available to update the content of the SKF application.
 
@@ -140,19 +54,22 @@ export PYTHONPATH=.:$PYTHONPATH
 flask updatedb
 ```
 
+## <a name="updating-dataset"></a>Updating chatbot
+
+There is a method available to update the dataset of the SKF chatbot application.
+
+When you have modified or created new Knowledge base items, code examples or checklist you need to run the following commands in the SKF root directory:
+```
+export FLASK_APP=skf/app.py
+export PYTHONPATH=.:$PYTHONPATH
+flask initdataset
+```
+
 ## <a name="usage"></a>Usage
 
 For more detailed information such as setting up an admin account and user guides please see the extended documentation that can be found below:
 
 [Readme: extended documentation](https://skf.readme.io/)  
-
-## <a name="scrum-board"></a>Scrum Board
-
-### Waffle.io:
-
-https://waffle.io/blabla1337/skf-flask
-
-[![Throughput Graph](https://graphs.waffle.io/blabla1337/skf-flask/throughput.svg)](https://waffle.io/blabla1337/skf-flask/metrics)
 
 ## <a name="CI-Pipeline"></a>CI-Pipeline
 
@@ -176,13 +93,6 @@ Code coverage done right. Highly integrated with GitHub, Bitbucket and GitLab.
 SKF codecov details:
 ```
 https://codecov.io/gh/blabla1337/skf-flask
-
-### Scrutinizer-ci.com:
-```
-Why to use Scrutinizer. Improve code quality and find bugs before they hit production with our continuous inspection platform. Improve Code Quality.
-SKF Scrutinizer details:
-```
-https://scrutinizer-ci.com/g/blabla1337/skf-flask/
 
 ### Bithound.io NPM packages:
 ```
@@ -243,7 +153,8 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
 
 ## <a name="contributors"></a>Contributors
-
+- Lucas Luitjes
+- [Mattijs van Ommeren](https://twitter.com/alcyonsecurity)
 - [Glenn ten Cate](https://twitter.com/FooBar_testing_)
 - [Riccardo ten Cate](https://twitter.com/RiieCco)
 - [Alexander Kaasjager](https://twitter.com/akaasjager)
@@ -276,4 +187,13 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Rafał Fronczyk
 - Chang Xu (Neo)
 - Martin Marsicano
-- Priyanka Jaine
+- [Priyanka Jain](https://www.linkedin.com/in/priyanka997/)
+- Chandrasekar Karthickrajan
+- Leena Bhegade
+- Balazs Hambalko
+- Rudy Truyens
+- Giulio Comi
+- Aniket Surwade
+- Thiago Luiz Dimbarre
+- Harshant Sharma
+- Semen Rozhkov

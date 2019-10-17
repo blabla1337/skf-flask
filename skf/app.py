@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
+
 # -*- coding: utf-8 -*-
 """
     Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples
-    and helps developers in pre-development & post-development.
-    Copyright (C) 2017 Glenn ten Cate, Riccardo ten Cate
+    and helps developers in development.
+    Copyright (C) 2019 Glenn ten Cate, Riccardo ten Cate
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
@@ -21,8 +23,9 @@ import logging.config, os, re
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
-from skf.chatbot_tools import init_dataset
-from skf.db_tools import init_md_checklists, init_md_knowledge_base, init_md_code_examples, init_db, update_db
+#from skf.chatbot_tools import init_dataset
+from skf.db_tools import init_md_knowledge_base, init_md_code_examples, init_db, update_db
+from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_item import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
@@ -35,16 +38,29 @@ from skf.api.sprints.endpoints.sprint_new import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_stats import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_update import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results import ns as sprints_namespace
-from skf.api.sprints.endpoints.sprint_results_audit import ns as sprints_namespace
-from skf.api.sprints.endpoints.sprint_results_audit_export import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_results_export import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_results_export_external import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_results_delete import ns as sprints_namespace
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
-from skf.api.checklist.endpoints.checklist_level import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_update import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_question_correlation_update import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_new import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_delete import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_item_question import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_create import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_update import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_delete import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_items import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_type_items_with_filter import ns as checklist_namespace
+from skf.api.checklist.endpoints.checklist_items_questions import ns as checklist_namespace
 from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
+from skf.api.code.endpoints.code_items_new import ns as code_namespace
+from skf.api.code.endpoints.code_item_delete import ns as code_namespace
 from skf.api.code.endpoints.code_item_update import ns as code_namespace
-from skf.api.code.endpoints.code_items_lang import ns as code_namespace
+#from skf.api.code.endpoints.code_items_lang import ns as code_namespace
 from skf.api.user.endpoints.user_create import ns as users_namespace
 from skf.api.user.endpoints.user_activate import ns as users_namespace
 from skf.api.user.endpoints.user_login import ns as users_namespace
@@ -54,26 +70,26 @@ from skf.api.user.endpoints.user_listprivileges import ns as users_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
-from skf.api.questions_pre.endpoints.question_pre_items import ns as questions_pre_namespace
-from skf.api.questions_pre.endpoints.question_pre_store import ns as questions_pre_namespace
-from skf.api.questions_pre.endpoints.question_pre_update import ns as questions_pre_namespace
-from skf.api.questions_sprint.endpoints.question_sprint_items import ns as questions_sprint_namespace
-from skf.api.questions_sprint.endpoints.question_sprint_store import ns as questions_sprint_namespace
-from skf.api.questions_post.endpoints.question_post_items import ns as questions_post_namespace
-from skf.api.questions_post.endpoints.question_post_store import ns as questions_post_namespace
-from skf.api.comment.endpoints.comment_items import ns as comment_namespace
-from skf.api.comment.endpoints.comment_new import ns as comment_namespace
+from skf.api.kb.endpoints.kb_item_delete import ns as kb_namespace
+from skf.api.kb.endpoints.kb_item_new import ns as kb_namespace
+
+from skf.api.questions.endpoints.question_items import ns as questions_namespace
+from skf.api.questions.endpoints.question_store import ns as questions_namespace
+from skf.api.questions.endpoints.question_item_update import ns as question_post_item_update
+from skf.api.questions.endpoints.question_item_new import ns as question_post_item_new
+from skf.api.questions.endpoints.question_item_delete import ns as question_post_item_update
+#from skf.api.comment.endpoints.comment_items import ns as comment_namespace
+#from skf.api.comment.endpoints.comment_new import ns as comment_namespace
 
 from skf.api.restplus import api
 from skf.database import db
 
-
-app = Flask(__name__)
-# TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
-cors = CORS(app, resources={r"/*": {"origins": settings.ORIGINS}})
-logging.config.fileConfig('logging.conf')
-log = logging.getLogger(__name__)
-
+def create_app():
+    flask_app = Flask(__name__)
+    configure_app(flask_app)
+    initialize_app(flask_app)
+    db.init_app(flask_app)
+    return flask_app
 
 def configure_app(flask_app):
     """Configure the SKF app."""
@@ -86,29 +102,32 @@ def configure_app(flask_app):
     flask_app.config['RESTPLUS_MASK_SWAGGER'] = settings.RESTPLUS_MASK_SWAGGER
     flask_app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
     flask_app.config['TESTING'] = settings.TESTING
-    flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
+    flask_app.config['FLASK_DEBUG'] = True
     flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
+    flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
 
 
 def initialize_app(flask_app):
     """Initialize the SKF app."""
-    configure_app(flask_app)
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
+    api.add_namespace(lab_namespace)
     api.add_namespace(kb_namespace)
     api.add_namespace(code_namespace)
     api.add_namespace(users_namespace)
     api.add_namespace(project_namespace)
-    api.add_namespace(comment_namespace)
+    #api.add_namespace(comment_namespace)
     api.add_namespace(sprints_namespace)
     api.add_namespace(checklist_namespace)
     api.add_namespace(chatbot_namespace)
-    api.add_namespace(questions_pre_namespace)
-    api.add_namespace(questions_post_namespace)
-    api.add_namespace(questions_sprint_namespace)
+    api.add_namespace(questions_namespace)
     flask_app.register_blueprint(blueprint)
-    db.init_app(flask_app)
 
+app = create_app()
+# TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
+cors = CORS(app, resources={r"/*": {"origins": settings.ORIGINS}})
+logging.config.fileConfig('logging.conf')
+log = logging.getLogger(__name__)
 
 @app.cli.command('initdb')
 def initdb_command():
@@ -128,14 +147,11 @@ def initdataset_command():
 def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
-    print('Markdown files updated in the database.')
-
+    print('Database updated with the markdown files.')
 
 def main():
     """Main SKF method"""
-    initialize_app(app)
-
-    print(app.debug)
+    #initialize_app(app)
     if app.debug == False:
         if  settings.JWT_SECRET == '':
             log.info('>>>>> Configure the JWT_SECRET in the settings.py file and choose an unique 128 character long secret <<<<<')

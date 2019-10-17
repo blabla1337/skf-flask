@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -28,8 +28,8 @@
 
 			<div class="text">
 
-				<h1>Security Knowledge Framework 2.0.0</h1>
-				<p>SKF is an expert system application that uses the OWASP Application Security Verification Standard with detailed code examples (secure coding principles) to help developers in pre-development and post-development phases and create applications that are secure by design.</p>
+				<h1>Security Knowledge Framework 3.0.0</h1>
+				<p>SKF is an expert system application that uses the OWASP (M)ASVS with detailed code examples (secure coding principles) to help developers getting the right security requirements and create applications that are secure by design.</p>
 
 			</div>
 			<!--
@@ -56,39 +56,6 @@
 						<div class="col-md-3">
 							<div class="card">
 								<div class="card-header" style="text-align:center;">
-									PROJECTS
-								</div>
-								<div class="card-block">
-									<ngb-tabset>
-										<ngb-tab>
-											<ng-template ngbTabTitle><b>Icon</b></ng-template>
-											<ng-template ngbTabContent>
-												<div class="content-panel selection four">
-													<br/>
-													<a routerLink="/project-list">
-														<span class="icon"><i class="fa fa-file-text-o fa-4x"></i></span>
-													</a>
-												</div>
-											</ng-template>
-										</ngb-tab>
-										<ngb-tab>
-											<ng-template ngbTabTitle><b>Information</b></ng-template>
-											<ng-template ngbTabContent>
-												<br/>
-												<p><b>Existing projects</b></p>
-												<p>Already have an existing project? From here we start editing existing projects and take you to the project page overview to start right away!</p>
-											</ng-template>
-										</ngb-tab>
-									</ngb-tabset>
-								</div>
-								<div class="card-footer text-muted text-center">
-							<span class="name">Existing projects</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="card">
-								<div class="card-header" style="text-align:center;">
 									CHECKLISTS
 								</div>
 								<div class="card-block">
@@ -98,14 +65,14 @@
 											<ng-template ngbTabContent>
 												<div class="content-panel selection four">
 													<br/>
-													<a routerLink="/checklist">
+													<a routerLink="/checklist" id="checklist-icon">
 														<span class="icon"><i class="fa fa-list-alt fa-4x"></i></span>
 													</a>
 												</div>
 											</ng-template>
 										</ngb-tab>
 										<ngb-tab>
-											<ng-template ngbTabTitle><b>Information</b></ng-template>
+											<ng-template ngbTabTitle><b>Info</b></ng-template>
 											<ng-template ngbTabContent>
 												<br/>
 												<p><b>Checklists</b></p>
@@ -131,14 +98,14 @@
 											<ng-template ngbTabContent>
 												<div class="content-panel selection four">
 													<br/>
-													<a routerLink="/knowledgebase">
+													<a routerLink="/knowledgebase" id="knowledgebase-icon">
 														<span class="icon"><i class="fa fa-book fa-4x"></i></span>
 													</a>
 												</div>
 											</ng-template>
 										</ngb-tab>
 										<ngb-tab>
-											<ng-template ngbTabTitle><b>Information</b></ng-template>
+											<ng-template ngbTabTitle><b>Info</b></ng-template>
 											<ng-template ngbTabContent>
 												<br/>
 												<p><b>The knowledge base</b></p>
@@ -164,14 +131,14 @@
 											<ng-template ngbTabContent>
 												<div class="content-panel selection four">
 													<br/>
-													<a routerLink="/code-examples">
+													<a routerLink="/code-examples" id="code-examples-icon">
 														<span class="icon"><i class="fa fa-code fa-4x"></i></span>
 													</a>
 												</div>
 											</ng-template>
 										</ngb-tab>
 										<ngb-tab>
-											<ng-template ngbTabTitle><b>Information</b></ng-template>
+											<ng-template ngbTabTitle><b>Info</b></ng-template>
 											<ng-template ngbTabContent>
 												<br/>
 												<p><b>Code examples</b></p>
@@ -185,58 +152,43 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-md-3">
+							<div class="card">
+								<div class="card-header" style="text-align:center;">
+									LABS
+								</div>
+								<div class="card-block">
+									<ngb-tabset>
+										<ngb-tab>
+											<ng-template ngbTabTitle><b>Icon</b></ng-template>
+											<ng-template ngbTabContent>
+												<div class="content-panel selection four">
+													<br/>
+													<a routerLink="/labs" id="labs-icon">
+														<span class="icon"><i class="fa fa-flask fa-4x"></i></span>
+													</a>
+												</div>
+											</ng-template>
+										</ngb-tab>
+										<ngb-tab>
+											<ng-template ngbTabTitle><b>Info</b></ng-template>
+											<ng-template ngbTabContent>
+												<br/>
+												<p><b>The SKF Labs</b></p>
+												<p>We created in SKF Labs for Developers and security specialist to train their security testing skills. These labs re from basic to advanced and hard-core security issues. We also provided write-ups for the labs to teach the correct testing methodology.</p>
+											</ng-template>
+										</ngb-tab>
+									</ngb-tabset>
+								</div>
+								<div class="card-footer text-muted text-center">
+									<span class="name">Security labs</span>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<div *ngIf="projects" class="row mt">
-			<div class="col-lg-12">
-				<h3>All projects</h3>
-				<div class="content-panel">
-				<table class="table table-striped table-advance table-hover">
-					<thead>
-					<tr>
-						<th><i class="fa fa-bullhorn"></i> Project Name</th>
-						<th class="hidden-phone"><i class="fa fa-question-circle"></i> Description</th>
-						<th><i class="fa fa-clock-o"></i> Creation date</th>
-						<th><i class="fa fa-bookmark"></i> Project version</th>
-						<th><i class="fa fa-times"></i> Delete</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr *ngFor="let project of projects; let myIndex = index">
-						<td [routerLink]="['/project-dashboard',project.projectID]" style="color:#515594" >{{project.projectName}}</td>
-						<td [routerLink]="['/project-dashboard',project.projectID]" >{{project.projectDesc}}</td>
-						<td [routerLink]="['/project-dashboard',project.projectID]" ><span class="label">{{project.timestamp}}</span></td>
-						<td [routerLink]="['/project-dashboard',project.projectID]" >{{project.projectVersion}}</td>
-						<td>
-						<button (click)="open(content)" class="btn-danger btn-xs">
-							<i class="fa fa-times "></i>                 
-						</button>
-						</td>
-						<ng-template #content let-c="close" let-d="dismiss">
-						<div class="modal-header">
-							<h4 class="modal-title">Delete project!</h4>
-							<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						</div>
-						<div class="modal-body">
-							<p>Are you sure you want to delete this project?</p>
-						</div>
-						<div class="modal-footer">      
-							<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-							<button type="button" class="btn btn-danger" (click)="deleter(project.projectID)" (click)="c('Close click')" >Delete</button>
-						</div>
-						</ng-template>
-					</tr>
-					</tbody>
-				</table>
-				</div>
-			</div>
-		</div>
-
 	</section>
 	<!--/wrapper -->
 </section>

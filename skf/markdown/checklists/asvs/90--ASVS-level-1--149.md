@@ -1,1 +1,0 @@
-7.2 Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable oracle padding.

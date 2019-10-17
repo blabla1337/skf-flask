@@ -1,13 +1,14 @@
 export class User {
   constructor(
   email?: string,
-  username?: string,
+  userName?: string,
   accessToken?: number,
   password?: string,
   access?: string,
   active?: string,
   repassword?: string,
-  userID?: number
-  ){}
+  user_id?: number,
+  privilege_id?: number,
+  ) {}
 }
 

@@ -1,18 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { FormsModule } from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 import { OrderBy } from '../pipes/order-by.pipe'
-import { HttpModule } from "@angular/http";
-import { Observable } from "rxjs/Observable";
-import { fakeAsync } from "@angular/core/testing";
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { fakeAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { StartsWithPipe } from "../pipes/starts-with.pipe";
-import { HeaderComponent } from "./header.component";
-
-
+import { StartsWithPipe } from '../pipes/starts-with.pipe';
+import { HeaderComponent } from './header.component';
 
 
 describe('Header component', () => {
@@ -86,7 +84,7 @@ describe('Header component', () => {
   it('check getProjectStyle banner color to return true', () => {
     component.projects = true;
     component.getProjectStyle();
-    expect(component.color).toEqual('#515594')  
+    expect(component.color).toEqual('#515594')
   });
 
   it('check getChecklistStyle banner color to return true', () => {
@@ -115,6 +113,11 @@ describe('Header component', () => {
     expect(component.color).toEqual('#515594')
   });
 
+  it('check getLabsStyle banner color to return true', () => {
+    component.code = true;
+    component.getLabsStyle();
+    expect(component.color).toEqual('#515594')
+  });
 
   it('check getChecklistStyle banner color to return true', () => {
     component.check = true;
@@ -124,10 +127,10 @@ describe('Header component', () => {
 
 
   it('check if footer is returned false when if path is taken', () => {
-    sessionStorage.setItem("auth_token", "unit test");
+    sessionStorage.setItem('auth_token', 'unit test');
     component.ngOnInit();
     fixture.detectChanges();
-    //expect(component.isLoggedin).toBeTruthy()
+    // expect(component.isLoggedin).toBeTruthy()
   });
 
 })

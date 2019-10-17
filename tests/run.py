@@ -25,7 +25,7 @@ def run():
         cov.report()
         cov.html_report(directory='cover')
     else:
-        print("\nTipp:\n\tUse 'pip install coverage' to get great code "
+        print("\nTipp:\n\tUse 'pip3 install coverage' to get great code "
               "coverage stats")
 
 if __name__ == '__main__':

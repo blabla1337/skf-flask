@@ -30,8 +30,8 @@
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            9 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">9 run</span>
+            10 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">10 run</span>
             <span class="mis shortkey_m button_toggle_mis">0 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
@@ -78,7 +78,8 @@
 <p id="n9" class="stm run hide_run"><a href="#n9">9</a></p>
 <p id="n10" class="stm run hide_run"><a href="#n10">10</a></p>
 <p id="n11" class="stm run hide_run"><a href="#n11">11</a></p>
-<p id="n12" class="pln"><a href="#n12">12</a></p>
+<p id="n12" class="stm run hide_run"><a href="#n12">12</a></p>
+<p id="n13" class="pln"><a href="#n13">13</a></p>
 
             </td>
             <td class="text">
@@ -88,12 +89,13 @@
 <p id="t4" class="stm run hide_run"><span class="nam">app</span> <span class="op">=</span> <span class="nam">Flask</span><span class="op">(</span><span class="nam">__name__</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t5" class="stm run hide_run"><span class="key">def</span> <span class="nam">init_dataset</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="pln">    <span class="str">"""Initializes the dataset needed for the chatbot."""</span><span class="strut">&nbsp;</span></p>
-<p id="t7" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">extract_from_api</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t8" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">desc_sol_data</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t9" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">entity_data</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t10" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">intent_data</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t11" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">code_entity</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t12" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t7" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">clean</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t8" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">extract_from_api</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t9" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">desc_sol_data</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">entity_data</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">intent_data</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t12" class="stm run hide_run">    <span class="nam">data</span><span class="op">.</span><span class="nam">code_entity</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t13" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -103,8 +105,8 @@
 <div id="footer">
     <div class="content">
         <p>
-            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-08-17 13:20
+            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
+            created at 2019-06-24 15:09
         </p>
     </div>
 </div>

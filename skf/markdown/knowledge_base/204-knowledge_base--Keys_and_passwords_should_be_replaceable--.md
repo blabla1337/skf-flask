@@ -3,7 +3,7 @@
 It always can happen that you need the keys or the passwords of the application or in components
 that are needed by the application to work in a secure state. When these keys needs to be revoked
 because the password was leaked or an administrator leaving the company it's always smart to have
-the possibility to revoke the keys or passwords without too much problems.
+the possibility to revoke the keys or passwords without complications.
 
 ## Solution:
 

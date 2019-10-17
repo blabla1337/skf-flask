@@ -8,7 +8,7 @@
 },
 {
 "kbId": 3,
-"title": "xss injection",
+"title": "XSS injection",
 "Description": "Every time the application gets userinput, whether this showing it on screen or processing this data in the application background, these parameters should be escaped for malicious code in order to prevent crosssite scripting injections. When an attacker gains the possibility to perform an XSS injection, he is given the opportunity to inject HTML and JavaScript code directly into the application. This could lead to accounts being compromised by stealing session cookies or directly affect the operation of the target application.  ",
 "Solution": "In order to prevent XSS injections, all userinput should be escaped or encoded. You could start by sanitizing userinput as soon as it is inserted into the application, by preference using a so called whitelisting method. This means you should not check for malicious content like the tags or anything, but only allow the expected input. Every input which is outside of the intended operation of the application should immediately be detected and login rejected. Do not try to help use the input in any way because that could introduce a new type of attack by converting characters. The second step would be encoding all the parameters or userinput before putting this in your html with encoding libraries specially designed for this purpose.You should take into consideration that there are several contexts for encoding userinput for escaping XSS injections. These contexts are amongst others:HTML encoding is for whenever your userinput is displayed directly into your HTML. HTML attribute encoding is the type of encoding/escaping that should be applied whenever your user input is displayed into the attribute of your HTML tags. HTML URL encoding ;This type of encoding/escaping should be applied to whenever you are using userinput into a HREF tag.JavaScript encoding should be used whenever parameters are rendered via JavaScript; your application will detect normal injections in the first instant. But your application still remains vulnerable to JavaScript encoding which will not be detected by the normal encoding/escaping methods."
 },
@@ -134,7 +134,7 @@
 },
 {
 "kbId": 26,
-"title": "sensitive information stored in cookies",
+"title": "Sensitive information stored in cookies",
 "Description": "Sensitive data should not be stored in a cookie,because the cookie is also used on the clientside and is adaptable thus making its content readable. A hacker could gain access to a cookie through cross site scripting attacks and gain the sensitive information stored in the targets cookie. ",
 "Solution": "Do not store sensitive information in cookies. "
 },
@@ -620,7 +620,7 @@
 },
 {
 "kbId": 111,
-"title": "step up or adaptive authentication",
+"title": "Step up or adaptive authentication",
 "Description": "Whenever a user browses a section of a webbased application that contains sensitive information the user should be challenged authenticate again using a higher assurance credential to be granted access to this information. This is to prevent attackers from reading sensitive information after they successfully hijacked a user account.  ",
 "Solution": "Verify the application has additional authorization (such as step up or adaptive authentication) so the user is challenged before being granted access to sensitive information. This rule also applies for making critical changes to an account or action. Segregation of duties should be applied for highvalue applications to enforce antifraud controls as per the risk of application and past fraud."
 },
@@ -758,13 +758,13 @@
 },
 {
 "kbId": 135,
-"title": "sanitise sensitive data rapidly from memory",
+"title": "Sanitise sensitive data rapidly from memory",
 "Description": "Whenever sensitive data is rapidly removed from the systems\u2019 memory, this decreases the possibility the attacker has to compromise this data by means of memory dumping attacks. ",
 "Solution": "Verify that sensitive data is rapidly sanitized from memory as soon as it is no longer needed and handled in accordance with functions and techniques supported by the framework/library/operating system. "
 },
 {
 "kbId": 136,
-"title": "logging is performed before executing the transaction",
+"title": "Logging is performed before executing the transaction",
 "Description": "Whenever the logging is performed before executing a transaction you can be ensured that the transactions are logged. This increases the integrity of your log files. If logging is performed after executing a transaction and an attacker does a succcessful attack, then the logging part may not be reached and no trace would be recorded for the attack. ",
 "Solution": "Verify that logging is performed before executing the transaction. If logging was unsuccessful (e.g. disk full, insufficient permissions) the application fails safe. This is for when integrity and nonrepudiation is a must. "
 },
@@ -836,13 +836,13 @@
 },
 {
 "kbId": 148,
-"title": "cryptographic function implementation",
+"title": "Cryptographic function implementation",
 "Description": "Whenever a cryptographic function is not implemented on the server side then these cryptographic functions could easily be bypassed by an attacker. ",
 "Solution": "Verify that all cryptographic functions used to protect secrets from the application user are implemented server side. "
 },
 {
 "kbId": 149,
-"title": "cryptographic modules must fail securely",
+"title": "Cryptographic modules must fail securely",
 "Description": "Whenever a cryptographic module does not fail securely this the device needs to be put in error state so it's not useable anymore. ",
 "Solution": "We recommend using the National Institute of Standards and Technology (NIST) standard on testing the cryptographic module making it perform the selftests to see if it fails securely. "
 },
@@ -896,7 +896,7 @@
 },
 {
 "kbId": 158,
-"title": "cross subdomain cookie attack",
+"title": "Cross subdomain cookie attack",
 "Description": "A quick overview of how it works:1. A website www.example.com hands out subdomains to untrusted third parties 2. One such party, Mallory, who now controls evil.example.com, lures Alice to her site 3. A visit to evil.example.com sets a session cookie with the domain .example.com on Alice's browser 4. When Alice visits www.example.com, this cookie will be sent with the request, as the specs for cookies states, and Alice will have the session specified by Mallory's cookie. 5. Mallory can now use Alice her account. ",
 "Solution": "In this scenario changing the sessionID on login does not make any difference since Alice is already logged in when she visits Mallory's evil web page.It is good practice to use a completely different domain for all trusted activity.For example Google uses google.com for trusted activities and *.googleusercontent.com for untrusted sites.Also when setting your cookies to specify which domains they are allowed to be send to. Especially on your trusted domain you do not want to leak cookies to unintended subdomains. highly recommended is to not use wildcards when setting this option. "
 },
@@ -1052,31 +1052,31 @@
 },
 {
 "kbId": 184,
-"title": "centralized security controls",
+"title": "Centralized security controls",
 "Description": "Whenever security controls do not have a centralized implementation there is a high probability for bugs or security issues being hidden into your application due to the loss of abstraction and duplication. ",
 "Solution": "Make sure all your different type of security controls have a centralized place of implementation. Also verify that error handling logic in security controls denies access by default. "
 },
 {
 "kbId": 185,
-"title": "data controller display layer separation",
+"title": "Data controller display layer separation",
 "Description": "The application should separate data, controller, and display layers in order to make your application more clear and understandable in terms of abstraction due to separation.Whenever your application is more organized and abstracted it is much easier to implement less flawed security controls. ",
 "Solution": "Make sure your different type of data layers are separated in your application.The separation of these different layers is also know as a design pattern which goes by the name MVC (model, view, controller). "
 },
 {
 "kbId": 186,
-"title": "proven authentication mechanisms",
+"title": "Proven authentication mechanisms",
 "Description": "Whenever your application has the option for users to authenticate themselves your method should be \"proven\" and secure in the sense of that:1. it should comply to some security standards/guidelines 2. Before implementing authentication on a live environment it has to be pentested/audited by    professionals. ",
 "Solution": "Verify authentication mechanisms in the application are proven and verified against ASVS. "
 },
 {
 "kbId": 187,
-"title": "administrative interfaces must not be accessible to untrusted parties",
+"title": "Administrative interfaces must not be accessible to untrusted parties",
 "Description": "Whenever it is not necessary for administrative pages to be publicly accessible these pages should have restricted access for users. Whenever these pages are secluded from the rest of the application in terms of accessibility this could reduce the attack vector of malicious users. ",
 "Solution": "The first solution is to grant access only from a certain source IP range to the administrative interface. If that solution would not be possible then it is always recommended to enforce a stepup or adaptive authentication for logging in into the administrative interface.Recommended knowledgebase item: Step up or adaptive authentication "
 },
 {
 "kbId": 188,
-"title": "concurrent session handling",
+"title": "Concurrent session handling",
 "Description": "You should limit and keep track of all the different active concurrent sessions. Whenever the application discovers concurrent sessions it should always notify the user about this and should give him the opportunity to end the other sessions.With this defense in place it becomes harder for attackers to hijack a users session since they will be notified about concurrent sessions. ",
 "Solution": "The application should keep track and limit all the granted sessions. It should store your users IP address, session id and user id. After storing these credentials it should do regular checks to see if there are:1. Multiple active sessions linked to same user id 2. Multiple active sessions from different locations 3. Multiple active sessions from different devices 4. Limit and destroy sessions when they exceed an accepted threshold.The more critical the application becomes the lower the accepted threshold for concurrent sessions should be. "
 },
@@ -1328,7 +1328,7 @@
 },
 {
 "kbId": 231,
-"title": "two factor authentication against username password disclosure",
+"title": "Two factor authentication against username password disclosure",
 "Description": "Whenever the users username and passwords are disclosed by an application on what ever fashion possible, the  users account should still be proteced by two factor authentication mechanisms to prevent attackers from logging in with the credentials.  ",
 "Solution": "Multifactor authentication (MFA) is a method of computer access control in which a user is granted access only after successfully presenting several separate pieces of evidence to an authentication mechanism \u2013 typically at least two of the following categories: knowledge (something they know), possession (something they have), and inherence (something they are)Examples of two/multi factor authentication can be 1. Google authenticator    Google Authenticator is an application that implements twostep verification services using the Timebased     Onetime Password Algorithm (TOTP) and HMACbased Onetime Password Algorithm 2. Yubikey  The YubiKey is a hardware authentication device manufactured by Yubico that supports onetime passwords, public key      encryption and authentication, and the Universal 2nd Factor (U2F) protocol[1] developed by the FIDO Alliance (FIDO U2F).   It allows users to securely log into their accounts by emitting onetime passwords or using a FIDObased public/private   key pair generated by the device "
 },
@@ -1436,7 +1436,7 @@
 },
 {
 "kbId": 249,
-"title": "authenticated data cleared from client storage",
+"title": "Authenticated data cleared from client storage",
 "Description": "All authenticated data should be removed from the browsers storage as soon as the session is terminated. This reduces the possibility that a potential attacker gains sensitive authenticated information whenever the application is attacked.This approach also is necessary to disable unauthenticated users to access the information if the user was initially logged in on a public computer. ",
 "Solution": "Whenever the user terminates his session all sensitive authenticated information should be  cleared from the browser in the client storage. such as:* local storage * Session storage * web SQL * Cache storage * Application cache * etc "
 },

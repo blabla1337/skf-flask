@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../models/project';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs/Rx';
-import { AppSettings } from '../globals';
-import * as JWT from 'jwt-decode';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-project-list',
@@ -12,45 +10,59 @@ import * as JWT from 'jwt-decode';
   providers: [ProjectService]
 })
 export class ProjectListComponent implements OnInit {
-  projects: Project[];
-  closeResult: string;
-  public number: number;
-  public error: string;
+  
+  projectForm: FormGroup;
   public delete: string;
-  public canDelete:boolean;
-
-  constructor(private _projectService: ProjectService, private modalService: NgbModal) { }
+  public projects: Project[];
+  public isSubmitted: boolean;
+  get formControls() { return this.projectForm.controls; }
+  
+  constructor(private _projectService: ProjectService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.projectList();
-    if (AppSettings.AUTH_TOKEN) {
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canDelete = decodedJWT.privilege.includes("delete");
-    }
-  }
+    this.projectForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      version: ['', Validators.required],
+      description: ['', Validators.required],
+    })
 
-  deleter(id: number) {
-    if (this.delete == "DELETE") {
-      this._projectService.delete(id).subscribe(x =>
-        //Get the new project list on delete 
-        this.projectList())
-    }
+    this.projectList();
   }
 
   projectList() {
     this._projectService
-      .getProjects()
+      .getProjectList()
       .subscribe(
       projects => {
         this.projects = projects;
-        if (!this.projects) {
-          this.error = "There are no projects to show!"
+        if (this.projects) {
+          console.log('There are no projects to show!')
         }
       },
-      err => this.error = "Getting the projects failed, contact an administrator! ");
+      err => console.log('Getting the projects failed, contact an administrator! '));
+  }
+
+  storeProject() {
+    this.isSubmitted = true;
+    if(this.projectForm.invalid){
+      return;
+    }
+    this._projectService.newProject(this.projectForm.value)
+    .subscribe(
+      () => this.projectList(),
+      () => console.log('error storing list')
+    );
+  }
+
+  deleteProject(id: number) {
+    if (this.delete == 'DELETE') {
+      this._projectService.deleteProject(id).subscribe(x =>
+        this.projectList())
+    }
   }
 
   open(content) {
     this.modalService.open(content, { size: 'lg' }).result
   }
+
 }

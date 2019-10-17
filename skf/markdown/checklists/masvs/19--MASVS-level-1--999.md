@@ -1,1 +1,0 @@
-2.5 The clipboard is deactivated on text fields that may contain sensitive data.

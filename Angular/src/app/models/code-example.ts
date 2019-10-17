@@ -4,6 +4,6 @@ export class CodeExample {
   code_lang: string,
   content: string,
   title: string,
-  ){}
+  ) {}
 }
 

@@ -1,34 +1,48 @@
 
 from skf.database import db
 
+'''
+--
+-- Table structure for table `checklists_kb`
+--
+drop table if exists `checklists_kb`;
+CREATE TABLE `checklists_kb` (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+    `checklistID` varchar(255) NOT NULL,
+    `content` varchar(255) NOT NULL,
+    `cwe` int(11) NOT NULL,
+    `question_ID` int(11) NOT NULL,
+    `include_always` boolean,
+    `kbID` int(11) NOT NULL,
+    `checklist_type` int(11) NOT NULL
+); 
+'''
 
-class checklists_kb(db.Model):
+class ChecklistKB(db.Model):
+    
+    __tablename__ = 'checklists_kb'
+    
     id = db.Column(db.Integer, primary_key=True)
-    question_pre_ID = db.Column(db.Integer)
-    question_sprint_ID = db.Column(db.Integer)
-    codeID_php = db.Column(db.Integer)
-    codeID_asp = db.Column(db.Integer)
-    codeID_java = db.Column(db.Integer)
-    codeID_python = db.Column(db.Integer)
-    include_always = db.Column(db.Boolean)
-    include_first = db.Column(db.Boolean)
-    checklistID = db.Column(db.String, db.ForeignKey("checklists.checklistID"))
-    checklist_items = db.relationship("checklists",
-        primaryjoin="and_(checklists_kb.checklistID==checklists.checklistID,"
-            "checklists_kb.kbID==checklists.kbID)")
-    kbID = db.Column(db.Integer, db.ForeignKey("kb_items.kbID"))
-    kb_items = db.relationship("kb_items", foreign_keys=[kbID])
 
-    def __init__(self, checklistID, checklist, kbID, kb_items):
-        self.question_pre_ID = 0
-        self.question_sprint_ID = 0
-        self.codeID_php = 0
-        self.codeID_asp = 0
-        self.codeID_java = 0
-        self.codeID_python = 0
-        self.include_always = False
-        self.include_first = False
-        self.checklistID = checklistID
-        self.checklist_items = checklist
-        self.kbID = kbID
-        self.kb_items = kb_items
+    checklist_id = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.Text)
+    cwe = db.Column(db.Integer)
+    maturity = db.Column(db.Integer, nullable=True)
+
+    question_id = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=True)
+    questions = db.relationship("Question", backref=db.backref('checklist_kb'))
+
+    include_always = db.Column(db.Boolean)
+
+    kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"), nullable=True)
+    kb_items = db.relationship("KBItem", backref=db.backref('checklist_kb'))
+
+    checklist_type = db.Column(db.Integer, nullable=False)
+
+    def __init__(self, checklist_id, content, checklist_type, include_always, cwe, maturity):
+        self.include_always = include_always
+        self.checklist_id = checklist_id
+        self.checklist_type = checklist_type
+        self.content = content
+        self.cwe = cwe 
+        self.maturity = maturity 

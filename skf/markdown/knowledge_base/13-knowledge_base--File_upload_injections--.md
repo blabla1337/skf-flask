@@ -20,18 +20,20 @@ An attacker can easily craft a valid image file with PHP code inside.
 
 ## Solution:
 
-Uploaded files always need to be placed outside the document root of the web-server.
+- Uploaded files always need to be placed outside the document root of the web-server
+- Check to not accept large files that could fill up storage or cause a denial of service attack
+- Check the user-input(filename) for having the right allowed extensions such as .jpg, .png etc
+  Note: when checking these extensions always make sure your application validates the last
+  possible extension so an attacker could not simply inject ".jpg.php" and bypass your
+  validation
 
-You should also check the user-input(filename) for having the right
-allowed extensions such as .jpg, .png etc.
+- Check the user-input(filename) for containing possible path traversal patterns in order to prevent him from uploading outside of the intended directory.
 
-Note: when checking these extensions always make sure your application validates the last
-possible extension so an attacker could not simply inject ".jpg.php" and bypass your
-validation
+You may also want to check if the filenames do already exist before uploading in order to
+prevent the overwriting of files.
 
-After this validation, you must also check the user-input(filename) for containing possible
-path traversal patterns in order to prevent him from uploading outside of
-the intended directory.
+Also for serving the files back there needs to be a file handler function that can select
+the file based on an identifier that will serve the file back towards the user.
 
 Most developers also do a mime-type check. This is a good protection however not
 whenever you are checking this mime-type through the post request. This header can not be
@@ -41,8 +43,3 @@ The best way to check the mime-type
 is to extract the file from the server after uploading and check it from the file itself.
 Deleting it whenever it does not comply with expected values.
 
-You may also want to check if the filenames do already exist before uploading in order to
-prevent the overwriting of files.
-
-Also for serving the files back there needs to be a file handler function that can select
-the file based on an identifier that will serve the file back towards the user.

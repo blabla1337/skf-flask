@@ -1,1 +1,0 @@
-17.11 Verify that the app validates input to exported activities, intents, or content providers.

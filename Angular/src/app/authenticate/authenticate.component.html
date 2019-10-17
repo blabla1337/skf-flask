@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -36,11 +36,11 @@
               <h4 style="text-align: center" class="modal-title">Security Knowledge Framework</h4>
             </div>
             <div class="modal-body">
-              <form method="post">
-                <input [(ngModel)]="username" name="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
+              <form [formGroup]="loginForm">
+                <input formControlName="userName" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <br>
-                <input [(ngModel)]="password" name="password" type="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"
+                <input formControlName="password" name="password" id="password" type="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <span *ngFor="let errors of error" style="color:red;">
                 <br/> 
@@ -49,7 +49,7 @@
                 <div class="modal-footer centered">
                   <a style="text-align:center; color:#515594" href="#" routerLink="/first-login">first-login</a>
                   <button (click)="onLogin()" class="btn btn-theme03" type="submit">Login</button>
-                  
+                  <button (click)="skipLogin()"  class="btn btn-theme04" type="submit">Skip</button>
                 </div>
               </form>
             </div>

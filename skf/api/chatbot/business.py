@@ -3,12 +3,13 @@ from flask import Flask, jsonify, request
 from nltk.stem.lancaster import LancasterStemmer
 from skf import settings
 from skf.database import db
-from skf.database.chatbot_log import chatbot_log
+from skf.database.chatbot_log import ChatbotLog
 from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 from skf.api.chatbot.scripts import intent_classifier
 from skf.api.chatbot.scripts import entity_classifier1
 from skf.api.chatbot.scripts import entity_classifier2
 from skf.api.chatbot.scripts import code_classify
+from skf.api.chatbot.scripts import web_scraping
 
 
 app = Flask(__name__)
@@ -17,8 +18,10 @@ def des_sol(question,intent):
         entity=entity_classifier1.entity_recognizer(question.lower())
         if entity is None:
            entity=entity_classifier2.entity(question)
+                 
+
         intent=intent
-        read_file = open(os.path.join(app.root_path, "datasets/desc_sol.json"), 'r')
+        read_file = open(os.path.join(app.root_path, "datasets/desc_solution.json"), 'r')
         data = json.load(read_file)
         ite=data['items']
         if type(entity)==str:
@@ -35,15 +38,19 @@ def des_sol(question,intent):
                           return sol
                           break
         else:
-             if len(entity)>0:
+             if settings.GOOGLE:
+                if question:
+                    result=web_scraping.web_scraper(question)
+                    return result
+             elif len(entity)>0:
                 for i in entity:
                     entity[i]=intent+" "+entity[i]
                 return entity
              else:
-                log=open(os.path.join(app.root_path,"logs.txt"),"a") 
+                log=open(os.path.join(app.root_path,"logs.txt"),"a")
                 msg="Please be more specific"
                 if settings.CHATBOT_LOG == "db":
-                    result = chatbot_log(question)
+                    result = ChatbotLog(question)
                     db.session.add(result)
                     db.session.commit()
                 else:
@@ -78,7 +85,6 @@ def code(question,intent,language):
                     ent={}
                     for i in range(len(code_languages)):
                         entity=intent+" "+str(code_entity[0].strip("\n").lower())+" in "+code_languages[i]
-                        print(entity)
                         ent[i]=entity
                     return ent
                     for d in code_ite:
@@ -94,7 +100,7 @@ def code(question,intent,language):
              else:
                 msg="Please be more specific"
                 if settings.CHATBOT_LOG == "db":
-                    result = chatbot_log(question)
+                    result = ChatbotLog(question)
                     db.session.add(result)
                     db.session.commit()
                 else:

@@ -17,21 +17,27 @@ export class HeaderComponent implements OnInit {
   public groups: boolean;
   public results: boolean;
   public code: boolean;
+  public labs: boolean;
   public knowledge: boolean;
   public check: boolean;
-  public color:string = '#515594';
+  public color = '#515594';
   public user: string = AppSettings.USER;
   public canManage: boolean;
   public canEdit: boolean;
-  //public canDelete: boolean;
-  //public canRead: boolean;
+  public skipLogin: boolean;
+  // public canDelete: boolean;
+  // public canRead: boolean;
 
   ngOnInit() {
     if (AppSettings.AUTH_TOKEN) {
       this.isLoggedin = true;
-      let decodedJWT = JWT(AppSettings.AUTH_TOKEN);
-      this.canManage = decodedJWT.privilege.includes("manage");
-      this.canEdit = decodedJWT.privilege.includes("edit");
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canManage = decodedJWT.privilege.includes('manage');
+      this.canEdit = decodedJWT.privilege.includes('edit');
+    }
+
+    if (AppSettings.SKIP_LOGIN == 'true') {
+       this.skipLogin = true
     }
 
     this.projects = false;
@@ -41,8 +47,18 @@ export class HeaderComponent implements OnInit {
     this.knowledge = false;
     this.check = false;
     this.code = false;
+    this.labs = false;
+  }
 
-
+  LabsShow() {
+    this.projects = false;
+    this.users = false;
+    this.groups = false;
+    this.results = false;
+    this.knowledge = false;
+    this.check = false;
+    this.code = false;
+    this.labs = true;
   }
 
   ProjectsShow() {
@@ -53,7 +69,7 @@ export class HeaderComponent implements OnInit {
     this.knowledge = false;
     this.check = false;
     this.code = false;
-
+    this.labs = false;
   }
 
   UsersShow() {
@@ -64,6 +80,7 @@ export class HeaderComponent implements OnInit {
     this.knowledge = false;
     this.check = false;
     this.code = false;
+    this.labs = false;
   }
 
   GroupsShow() {
@@ -74,6 +91,7 @@ export class HeaderComponent implements OnInit {
     this.knowledge = false;
     this.check = false;
     this.code = false;
+    this.labs = false;
   }
 
   ResultsShow() {
@@ -84,6 +102,7 @@ export class HeaderComponent implements OnInit {
     this.knowledge = false;
     this.check = false;
     this.code = false;
+    this.labs = false;
   }
 
   CodeShow() {
@@ -94,6 +113,7 @@ export class HeaderComponent implements OnInit {
     this.knowledge = false;
     this.check = false;
     this.code = true;
+    this.labs = false;
   }
 
   KnowledgeShow() {
@@ -104,6 +124,7 @@ export class HeaderComponent implements OnInit {
     this.knowledge = true;
     this.check = false;
     this.code = false;
+    this.labs = false;
   }
 
   CheckShow() {
@@ -114,7 +135,9 @@ export class HeaderComponent implements OnInit {
     this.knowledge = false;
     this.check = true;
     this.code = false;
+    this.labs = false;
   }
+
   ResetAll() {
     this.projects = false;
     this.users = false;
@@ -128,18 +151,18 @@ export class HeaderComponent implements OnInit {
     location.reload();
   }
 
-  selectLang(codeLang: string) {
-    localStorage.setItem("code_lang", codeLang);
-    this.router.navigate(['code-examples'])
+  logIn() {
+    sessionStorage.removeItem('skip_login');
+    localStorage.clear();
+    location.reload();
   }
 
-  
+  getProjectStyle() { if (this.projects) { return this.color; } else { return '' } }
+  getUSerStyle() { if (this.users) { return this.color; } else { return '' } }
+  getGroupStyle() { if (this.groups) { return this.color; } else { return '' } }
+  getKnowledgeStyle() { if (this.knowledge) { return this.color; } else { return '' } }
+  getLabsStyle() { if (this.labs) { return this.color; } else { return '' } }
+  getCodeStyle() { if (this.code) { return this.color; } else { return '' } }
+  getChecklistStyle() { if (this.check) { return this.color; } else { return '' } }
 
-  getProjectStyle() { if (this.projects) { return this.color; } else { return "" } }
-  getUSerStyle() { if (this.users) { return this.color; } else { return "" } }
-  getGroupStyle() { if (this.groups) { return this.color; } else { return "" } }
-  getKnowledgeStyle() { if (this.knowledge) { return this.color; } else { return "" } }
-  getCodeStyle() { if (this.code) { return this.color; } else { return "" } }
-  getChecklistStyle() { if (this.check) { return this.color; } else { return "" } }
-  
 }

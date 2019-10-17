@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2017  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -23,37 +23,130 @@
 		<div class="inner">
 			<div class="text">
 				<h1>Knowledge Base</h1>
-				<p>In depth information on how to approach specific funtionality or problems with explanation of attack surface and mitigations!</p>
+				<p>In depth information on how to approach specific funtionality or problems with explanation of attack
+					surface and
+					mitigations!</p>
 			</div>
+			<button id="add" style="float:right;" (click)="NewKbModal(newkbmodal)" class="btn btn-default"><i
+					class="fa fa-cog" aria-hidden="true"></i>
+				Add item</button>
 		</div>
 	</section>
-	<section class="wrapper">
+	<div *ngIf="knowledgeitems.length === 0">
+		<ngb-alert [dismissible]="false">
+			<strong>Warning!</strong> No knowledgebase items included yet!
+		</ngb-alert>
+	</div>
+	<section *ngIf="knowledgeitems.length > 0" class="wrapper">
 		<div class="srcWrap">
 			<div class="src">
-				<input class="searchinput" [(ngModel)]="queryString" name="search" placeholder="Search vulnerability" />
+				<input class="searchinput" [(ngModel)]="queryString" id="search" name="search"
+					placeholder="Search vulnerability" />
 				<i class="fa fa-search"></i>
 			</div>
 		</div>
 		<div class="content-panel narrow">
-			<ngb-alert *ngIf="error" [dismissible]="false">
-				<strong>Warning! </strong> {{error}}
-			</ngb-alert>
+			<div *ngIf="isSubmitted && formControls.title.errors" class="help-block">
+				<div *ngIf="formControls.title.errors.required">
+					<ngb-alert type="danger" [dismissible]="false">
+						Knowledgebase item title was not provided!
+					</ngb-alert>
+				</div>
+			</div>
+			<div *ngIf="isSubmitted && formControls.content.errors" class="help-block">
+				<div *ngIf="formControls.content.errors.required">
+					<ngb-alert type="danger" [dismissible]="false">
+						Knowledgebase item content was not provided!
+					</ngb-alert>
+				</div>
+			</div>
 			<div class="row" *ngIf="knowledgeitems">
 				<div class="col-lg-12">
 					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-						<div *ngFor="let knowledge of knowledgeitems | StartsWithPipe : queryString">
-							<br/>
+						<div *ngFor="let knowledge of knowledgeitems | stringFilter : queryString">
+							<div *ngIf="knowledge.kb_id != 1">
+							<br />
 							<ngb-panel title="{{knowledge.title}}">
 								<ng-template ngbPanelContent>
 									<p style="white-space: pre-line; max-width:70%">
 										{{knowledge.content}}
 									</p>
+									<button (click)="deleteKbModal(deleteKb)"
+										style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%"
+										id="delete-button" class="btn btn-danger">Delete</button>
+									<a [routerLink]="['/knowledgebase-edit', knowledge.kb_id]"
+										style="float:right; margin-bottom: 1%; margin-right:1%"><button
+											class="btn btn-warning" type="button">Update</button></a>
+
 								</ng-template>
 							</ngb-panel>
+							<!-- Modal for deleting items-->
+							<ng-template #deleteKb let-c="close" let-d="dismiss">
+								<div class="modal-header">
+									<h4 class="modal-title">Delete KB item!</h4>
+									<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>Are you sure you want to delete this kb item?</p>
+									<p>To confirm, type <b style='color:red'> DELETE </b> and click the delete
+										button
+									</p>
+									<input type="text" [(ngModel)]="delete" id="delete" class="form-control">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										(click)="c('Close click')">Close</button>
+									<button type="button" class="btn btn-danger" id="submit"
+										(click)="deleteKnowledgebaseItem(knowledge.kb_id)" (click)="c('Close click')">Delete</button>
+								</div>
+								<!-- end Modal for deleting items-->
+							</ng-template>
 						</div>
+					</div>
 					</ngb-accordion>
 				</div>
 			</div>
 		</div>
 	</section>
+	<!-- Modal for adding a new checklist type-->
+	<form [formGroup]="knowledgebaseForm" class="form-horizontal" role="form"
+		style="padding-left:20px;padding-right:20px; padding-top:-20px;">
+		<ng-template #newkbmodal let-c="close" let-d="dismiss">
+			<div class="modal-header">
+				<h4 class="modal-title">Add knowledgebase item</h4>
+				<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<div class="wrap">
+						<label for="inputVersion" class="col-sm-2 control-label">Title</label>
+						<div class="col-sm-10">
+							<input formControlName="title" maxlength="120" type="text" class="form-control"
+								id="inputTitle" name="title" placeholder="">
+							<div class="wrap desc alert-info">
+								<div class="col-sm-10">The title of your fresh new knowledgebase item!</div>
+							</div>
+						</div>
+						<label for="inputVersion" class="col-sm-2 control-label">Content</label>
+						<div class="col-sm-10">
+							<textarea formControlName="content" type="text" class="form-control-kb" id="inputContent" rows="10" placeholder=""> </textarea>
+							<div class="wrap desc alert-info">
+								<div class="col-sm-10">Provide description, solution and test cases!</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+				<button type="submit" class="btn btn-success" id="submit-button" (click)="storeKnowledgebaseItem()"
+					(click)="c('Close click')">Submit</button>
+			</div>
+		</ng-template>
+	</form>
+	<!-- END Modal for adding a new checklist type-->
 </section>

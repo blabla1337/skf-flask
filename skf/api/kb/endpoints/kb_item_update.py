@@ -21,9 +21,9 @@ class KBItemUpdate(Resource):
     def put(self, id):
         """
         Update a kb item.
-        * Privileges required: **manage**
+        * Privileges required: **edit**
         """
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'edit')
         data = request.json
         result = update_kb_item(id, data)
         return result, 200, security_headers()

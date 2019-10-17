@@ -46,3 +46,4 @@ class ChatbotQuestion(Resource):
             else:
                result={ "options": [{"answer": result1 ,"answer_options": 0,"answer_intent":None}]}
                return result, 200, security_headers()
+

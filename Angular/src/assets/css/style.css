@@ -17,6 +17,38 @@ font-size: 16px;
 padding:0.15em;
 vertical-align:top;
 }
+
+.btn { white-space:normal !important; word-wrap:break-word; text-align: left; }
+
+
+.btn-link{
+  color:#ffffff;
+  text-decoration: none;
+}
+
+.btn-link:hover{
+  color:#ffffff;
+  text-decoration: none;
+}
+
+.btn-link:link{
+  color:#ffffff;
+  text-decoration: none;
+}
+
+
+.btn-link:active{
+  color:#ffffff;
+  text-decoration: none;
+}
+
+
+.btn-link:focus{
+  color:#ffffff;
+  text-decoration: none;
+}
+
+
 #legenda th b,.level_status{
 	color:#515594;
 font-size: 1.3em;
@@ -195,6 +227,23 @@ input:-moz-placeholder {
   background-color: #62669e;
   border-color: #565989;
 }
+.btn-theme04 {
+  color: #fff;
+  background-color: #7b7eb7;;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
+  -o-transition: all 0.2s ease-in-out 0s;
+  -ms-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+#skipLoginMessage {
+  text-align: left;
+  font-size: 11px;
+  margin-bottom: 5px; 
+  margin-left: 5px; 
+}
+
 .dropdown-toggle {
   padding-right: 2em;
 }
@@ -955,7 +1004,7 @@ ul.top-menu > li > a:focus {
 .content-panel.selection .icon {
   display: block;
   margin: 0 auto;
-  width: 100px;
+  width: 65px;
   height: 100px;
   position: relative;
   border-radius: 100px;
@@ -1826,12 +1875,12 @@ label {
 }
 /* Custom */
 #login .col-wrapper {
-  width: 450px;
+  width: 415px;
   margin: 0 auto;
   padding: 10% 0 0;
 }
 #login .modal-dialog {
-  width: 450px;
+  width: 415px;
 }
 /* Panels */
 .panel {
@@ -2027,6 +2076,7 @@ label {
 .table > thead > tr > th {
   color: #fff;
   background: #515594;
+  min-width: 10pc;
 }
 .table > thead > tr > th i {
   color: #fff;
@@ -2447,7 +2497,7 @@ a#finish.nav-link {
 }
 .modal-content .card-header {
   color: #000;
-  background: transparent;
+  background: ##515594;
   -webkit-transition: all 0.2s ease-in-out 0s;
   -moz-transition: all 0.2s ease-in-out 0s;
   -o-transition: all 0.2s ease-in-out 0s;
@@ -2456,7 +2506,7 @@ a#finish.nav-link {
 }
 .modal-content .card-header:hover {
   cursor: pointer;
-  background: #dedfed;
+  background: #abb0ef;
 }
 .modal-content .card-header a {
   color: #000;
@@ -2467,7 +2517,7 @@ a#finish.nav-link {
   background: transparent !important;
 }
 .modal-content .card-header.active {
-  background: #dedfed;
+  background: #abb0ef;
   color: #515594;
 }
 /*  Search */
@@ -2497,8 +2547,8 @@ a#finish.nav-link {
   width: 2.5em;
   height: 2.5em;
   position: absolute;
-  right: 0.5em;
-  top: 0.5em;
+  right: 1em;
+  top: 3.5em;
   background: red;
   z-index: 1;
   border-radius: 100%;
@@ -2550,3 +2600,8 @@ a#finish.nav-link {
   background: #c9302c;
 }
 .card-block > p { float: left; width: 100%; }
+
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
