@@ -34,7 +34,6 @@ RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/u
 
 # Optimize vendor.bundle.js
 RUN npm run ng build -- --prod --output-path=dist
-RUN ls -lart
 
 ############
 ### prod ###
@@ -51,5 +50,5 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /home/user_angular/skf-flask/Angular/dist /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
 
-#docker build . -t skf-angular --no-cache --build-arg ORIGIN=10.0.0.1
+#docker build . -t skf-angular --no-cache --build-arg ORIGIN=127.0.0.1
 #docker run -ti -p 127.0.0.1:4200:443 skf-angular
