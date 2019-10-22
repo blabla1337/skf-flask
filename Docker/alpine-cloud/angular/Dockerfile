@@ -3,7 +3,7 @@
 #############
 
 # base image
-FROM alpine:3.10 as build
+FROM alpine:3.10 AS builder
 
 LABEL maintainer="glenn.ten.cate@owasp.org"
 
@@ -29,11 +29,12 @@ RUN git clone https://github.com/blabla1337/skf-flask.git
 WORKDIR /home/user_angular/skf-flask/Angular
 RUN npm install
 ARG ORIGIN=127.0.0.1
-RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_api/skf-flask/Angular/src/environments/environment.prod.ts
-RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_api/skf-flask/Angular/src/environments/environment.ts
+RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_angular/skf-flask/Angular/src/environments/environment.prod.ts
+RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_angular/skf-flask/Angular/src/environments/environment.ts
 
 # Optimize vendor.bundle.js
-RUN npm build -prod -aot ./
+RUN npm run ng build -- --prod --output-path=dist
+RUN ls -lart
 
 ############
 ### prod ###
@@ -43,7 +44,7 @@ RUN npm build -prod -aot ./
 
 FROM nginx:1.14.1-alpine
 ## Copy our default nginx config
-COPY nginx/default.conf /etc/nginx/conf.d/
+COPY --from=builder /home/user_angular/skf-flask/Docker/alpine-cloud/angular/site.conf /etc/nginx/conf.d/
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
@@ -51,4 +52,4 @@ COPY --from=builder /home/user_angular/skf-flask/Angular/dist /usr/share/nginx/h
 CMD ["nginx", "-g", "daemon off;"]
 
 #docker build . -t skf-angular --no-cache --build-arg ORIGIN=10.0.0.1
-#docker run -ti -p 127.0.0.1:4200:4200 skf-angular
+#docker run -ti -p 127.0.0.1:4200:443 skf-angular
