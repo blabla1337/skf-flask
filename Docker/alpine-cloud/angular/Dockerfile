@@ -51,4 +51,4 @@ COPY --from=builder /home/user_angular/skf-flask/Angular/dist /usr/share/nginx/h
 CMD ["nginx", "-g", "daemon off;"]
 
 #docker build . -t skf-angular --no-cache --build-arg ORIGIN=127.0.0.1
-#docker run -ti -p 127.0.0.1:4200:443 skf-angular
+#docker run -ti -p 127.0.0.1:4200:80 skf-angular
