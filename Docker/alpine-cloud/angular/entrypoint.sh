@@ -11,6 +11,3 @@ else
     echo 'You need to select a ORIGIN location'
     exit
 fi
-
-# Start SKF services
-/home/user_api/skf-flask/wrapper.sh
