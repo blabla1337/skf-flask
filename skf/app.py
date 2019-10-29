@@ -125,7 +125,7 @@ def initialize_app(flask_app):
 
 app = create_app()
 # TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
-cors = CORS(app, resources={r"/*": {"origins": settings.ORIGINS}})
+cors = CORS(app, resources={r"/api/*": {"origins": settings.ORIGINS}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 

@@ -48,6 +48,7 @@ COPY --from=builder /home/user_angular/skf-flask/Docker/alpine-cloud/angular/sit
 RUN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder /home/user_angular/skf-flask/Angular/dist /usr/share/nginx/html
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 #docker build . -t skf-angular --no-cache --build-arg ORIGIN=127.0.0.1
