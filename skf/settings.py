@@ -22,7 +22,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False
 
 # JWT settings
-JWT_SECRET = 'sadasdasdasdas'
+JWT_SECRET = ''
 ORIGINS = '*'
 
 # Google Scraping
