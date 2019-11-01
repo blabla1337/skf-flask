@@ -10,7 +10,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 4200
+    - port: 80
   selector:
     app.kubernetes.io/name: skf-flask-front
     app.kubernetes.io/instance: skf-flask-front
@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
         - name: skf-flask-front
-          image: "acrcontainerpoc.azurecr.io/skf-flask-frontend:621"
+          image: "docker.io/blabla1337/skf-flask:skf-angular-demo"
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 80

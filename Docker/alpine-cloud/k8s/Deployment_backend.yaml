@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
         - name: skf-flask-back
-          image: "acrcontainerpoc.azurecr.io/skf-flask-backend:12994"
+          image: "docker.io/blabla1337/skf-flask:skf-api-demo"
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 8888
