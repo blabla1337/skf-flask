@@ -1,0 +1,51 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: skf-flask-front
+  labels:
+    app.kubernetes.io/name: skf-flask-front
+    app.kubernetes.io/instance: skf-flask-front
+    app.kubernetes.io/version: "2.2.2"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 4200
+  selector:
+    app.kubernetes.io/name: skf-flask-front
+    app.kubernetes.io/instance: skf-flask-front
+
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: skf-flask-front
+  labels:
+    app.kubernetes.io/name: skf-flask-front
+    app.kubernetes.io/instance: skf-flask-front
+    app.kubernetes.io/version: "2.2.2"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: skf-flask-front
+      app.kubernetes.io/instance: skf-flask-front
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: skf-flask-front
+        app.kubernetes.io/instance: skf-flask-front
+    spec:
+      containers:
+        - name: skf-flask-front
+          image: "acrcontainerpoc.azurecr.io/skf-flask-frontend:621"
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 80
+          env:
+          -  name: ORIGIN
+             valueFrom: 
+               configMapKeyRef: 
+                 name: skf-flask-front
+                 key: ORIGIN
+---
