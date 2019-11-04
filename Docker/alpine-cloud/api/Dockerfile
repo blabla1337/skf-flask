@@ -14,7 +14,7 @@ py3-pip \
 bash \
 perl \
 openblas-dev \
-libstdc++ \ 
+libstdc++ \
 openblas \
 g++ \
 git
@@ -29,16 +29,15 @@ RUN mkdir -p /home/user_api
 RUN chmod -R 777 /home/user_api
 WORKDIR /home/user_api
 
-#RUN git clone https://github.com/blabla1337/skf-flask.git
-ADD ./ ./
+ADD ./ /home/user_api/
 WORKDIR /home/user_api/
-COPY --chown=user_api:user_api Docker/alpine/entrypoint.sh /home/user_api
-COPY --chown=user_api:user_api Docker/alpine/wrapper.sh /home/user_api
-COPY --chown=user_api:user_api Docker/alpine/skf-api.sh /home/user_api
+RUN mv Docker/alpine-cloud/api/entrypoint.sh /home/user_api &&\
+    mv Docker/alpine-cloud/api/wrapper.sh /home/user_api &&\
+    mv Docker/alpine-cloud/api/skf-api.sh /home/user_api
 
 USER user_api
 
-RUN pip3 install -r requirements.txt --user
+RUN pip3 install --user -r requirements.txt
 EXPOSE 8888
 
 RUN ["chmod", "+x", "/home/user_api/entrypoint.sh"]
