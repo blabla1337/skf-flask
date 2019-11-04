@@ -23,14 +23,13 @@ RUN adduser -u 1000 -S user_angular -G user_angular
 RUN mkdir -p /home/user_angular
 RUN chmod -R 777 /home/user_angular
 WORKDIR /home/user_angular
-USER user_angular
 
-RUN git clone https://github.com/blabla1337/skf-flask.git
-WORKDIR /home/user_angular/skf-flask/Angular
+ADD ./ ./
+WORKDIR /home/user_angular/Angular
 RUN npm install
 ARG ORIGIN=127.0.0.1
-RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_angular/skf-flask/Angular/src/environments/environment.prod.ts
-RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_angular/skf-flask/Angular/src/environments/environment.ts
+RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_angular/Angular/src/environments/environment.prod.ts
+RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_angular/Angular/src/environments/environment.ts
 
 # Optimize vendor.bundle.js
 RUN npm run ng build -- --prod --output-path=dist
@@ -43,13 +42,14 @@ RUN npm run ng build -- --prod --output-path=dist
 
 FROM nginx:1.14.1-alpine
 ## Copy our default nginx config
-COPY --from=builder /home/user_angular/skf-flask/Docker/alpine-cloud/angular/site.conf /etc/nginx/conf.d/
+COPY --from=builder /home/user_angular/Docker/alpine-cloud/angular/site.conf /etc/nginx/conf.d/
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
-COPY --from=builder /home/user_angular/skf-flask/Angular/dist /usr/share/nginx/html
+COPY --from=builder /home/user_angular/Angular/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
-#docker build . -t skf-angular --no-cache --build-arg ORIGIN=127.0.0.1
-#docker run -ti -p 127.0.0.1:4200:80 skf-angular
+#First go to the main skf-flask folder and from there build the image
+#docker build -f Docker/alpine-cloud/angular/Dockerfile . -t skf-angular --no-cache --build-arg ORIGIN=127.0.0.1
+#docker run -ti -p 127.0.0.1:80:80 skf-angular
