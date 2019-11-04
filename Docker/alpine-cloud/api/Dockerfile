@@ -28,22 +28,26 @@ RUN adduser -u 1000 -S user_api -G user_api
 RUN mkdir -p /home/user_api
 RUN chmod -R 777 /home/user_api
 WORKDIR /home/user_api
+
+#RUN git clone https://github.com/blabla1337/skf-flask.git
+ADD ./ ./
+WORKDIR /home/user_api/
+COPY --chown=user_api:user_api Docker/alpine/entrypoint.sh /home/user_api
+COPY --chown=user_api:user_api Docker/alpine/wrapper.sh /home/user_api
+COPY --chown=user_api:user_api Docker/alpine/skf-api.sh /home/user_api
+
 USER user_api
 
-#RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
-RUN git clone https://github.com/blabla1337/skf-flask.git
-RUN pip3 install -r skf-flask/requirements.txt --user
-
+RUN pip3 install -r requirements.txt --user
 EXPOSE 8888
 
-COPY --chown=user_api:user_api entrypoint.sh /home/user_api/skf-flask
-COPY --chown=user_api:user_api wrapper.sh /home/user_api/skf-flask
-COPY --chown=user_api:user_api skf-api.sh /home/user_api/skf-flask
+RUN ["chmod", "+x", "/home/user_api/entrypoint.sh"]
+RUN ["chmod", "+x", "/home/user_api/wrapper.sh"]
+RUN ["chmod", "+x", "/home/user_api/skf-api.sh"]
+ENTRYPOINT ["/home/user_api/entrypoint.sh"]
 
-RUN ["chmod", "+x", "/home/user_api/skf-flask/entrypoint.sh"]
-RUN ["chmod", "+x", "/home/user_api/skf-flask/wrapper.sh"]
-RUN ["chmod", "+x", "/home/user_api/skf-flask/skf-api.sh"]
-ENTRYPOINT ["/home/user_api/skf-flask/entrypoint.sh"]
 
-#docker build . -t skf-api --no-cache
+#First go to the main skf-flask folder and from there build the image
+#docker build -f Docker/alpine-cloud/api/Dockerfile . -t skf-api --no-cache
+
 #docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:8888:8888 skf-api

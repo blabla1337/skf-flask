@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start the first process
-/home/user_api/skf-flask/skf-api.sh &
+/home/user_api/skf-api.sh &
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start skf_api_process: $status"
