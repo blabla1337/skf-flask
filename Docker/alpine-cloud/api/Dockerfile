@@ -32,9 +32,9 @@ WORKDIR /home/user_api
 #RUN git clone https://github.com/blabla1337/skf-flask.git
 ADD ./ ./
 WORKDIR /home/user_api/
-COPY --chown=user_api:user_api Docker/alpine/entrypoint.sh /home/user_api
-COPY --chown=user_api:user_api Docker/alpine/wrapper.sh /home/user_api
-COPY --chown=user_api:user_api Docker/alpine/skf-api.sh /home/user_api
+COPY --chown=user_api:user_api Docker/alpine-cloud/api/entrypoint.sh /home/user_api
+COPY --chown=user_api:user_api Docker/alpine-cloud/api/wrapper.sh /home/user_api
+COPY --chown=user_api:user_api Docker/alpine-cloud/api/skf-api.sh /home/user_api
 
 USER user_api
 
