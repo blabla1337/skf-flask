@@ -1,4 +1,4 @@
-## Description
+## Description:
 
 Type checking, length checking and whitelisting is an essential in defense in depth strategie to make
 your application more resiliant against input injection attacks.
@@ -16,7 +16,7 @@ the $_GET['id'] parameter was indeed as expected an integer and rejected if this
 the attack would effectively been mitigated.
 
 
-## Solution
+## Solution:
 
 All the user supplied input that works outside of the intended opteration of the application
 should be rejected by the application.

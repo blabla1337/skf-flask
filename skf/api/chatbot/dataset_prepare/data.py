@@ -35,7 +35,7 @@ def desc_sol_data():
 	a=data['items']
 	for i,value in enumerate(a):
 		file_des_sol.write("{\n")
-		file_des_sol.write('"kbId": '+str(a[i]['kbID'])+",\n")
+		file_des_sol.write('"kbId": '+str(a[i]['kb_id'])+",\n")
 		file_des_sol.write('"title": "'+ a[i]['title']+'",\n')
 		y=a[i]['content']
 		y=y.replace("\n\n","")
@@ -43,6 +43,8 @@ def desc_sol_data():
 		y=y.replace("\n"," ")
 		y=y.split("Solution:")
 		y[0]=y[0].split("Description:")
+		print(a[i]['kb_id'])
+		print(json.dumps(y[0][1]))
 		file_des_sol.write('"Description": '+json.dumps(y[0][1])+",\n")
 		if (i+1)<len(a):
 			file_des_sol.write('"Solution": '+json.dumps(y[1])+"\n},\n")
