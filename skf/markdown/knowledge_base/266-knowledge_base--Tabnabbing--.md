@@ -3,8 +3,7 @@
 Reverse tabnabbing is an attack where a page linked from the target page is able to rewrite that page, 
 for example to replace it with a phishing site. As the user was originally on the correct page they are 
 less likely to notice that it has been changed to a phishing site, especially it the site looks the same as the target. 
-If the user authenticates to this new page then their credentials (or other sensitive data) are sent to the phishing site 
-rather than the legitimate one.
+If the user authenticates to this new page then their credentials (or other sensitive data) are sent to the phishing site rather than the legitimate one.
 
 As well as the target site being able to overwrite the target page, any http link can be spoofed to overwrite the target 
 page if the user is on an unsecured network, for example a public wifi hotspot. The attack is possible even if the target 
@@ -37,5 +36,4 @@ link or javascript to open a window (or tab) then use this configuration to maxi
   }
   
 Add the HTTP response header Referrer-Policy: no-referrer the every HTTP responses send by the application
-(Header Referrer-Policy information). This configuration will ensure that no referrer information is sent 
-along with requests from page.
+(Header Referrer-Policy information). This configuration will ensure that no referrer information is sent along with requests from page.
