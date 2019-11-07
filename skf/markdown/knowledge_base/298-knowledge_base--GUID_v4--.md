@@ -1,8 +1,8 @@
-Description:
+## Description:
 A universally unique identifier (UUID) is a 128-bit number used to identify information in computer systems. 
 The term globally unique identifier (GUID) is also used, typically in software created by Microsoft.
 
-Solution:
+## Solution:
 A version 4 UUID is randomly generated. As in other UUIDs, 
 4 bits are used to indicate version 4, and 2 or 3 bits to indicate the variant 
 (102 or 1102 for variants 1 and 2 respectively). Thus, for variant 1 (that is, most UUIDs) a 

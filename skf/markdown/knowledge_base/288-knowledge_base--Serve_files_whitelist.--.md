@@ -1,4 +1,4 @@
-Description:
+## Description:
 
 Configiring the web server to only serve files with an expected
 file extension helps prevent information leakage whenever developers
@@ -6,7 +6,7 @@ forget to remove backup files or zipped versions of the web application
 from the webserver.
 
 
-Solution:
+## Solution:
 
 Verify that the web tier is configured to serve only files with specific
 file extensions to prevent unintentional information and source

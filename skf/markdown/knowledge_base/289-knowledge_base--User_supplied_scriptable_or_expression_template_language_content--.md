@@ -1,4 +1,4 @@
-Description:
+## Description:
 
 user-supplied scriptable or expression template language content, such as Markdown, 
 CSS or XSL stylesheets, BBCode, or similar are designed to give users the option
@@ -7,7 +7,7 @@ do not filter for harmfull attacks, these templates can be used to leverage
 XSS attacks.
 
 
-Solution:
+## Solution:
 
 Verify that the application sanitizes, disables, or sandboxes 
 user-supplied scriptable or expression template language content, such as Markdown, 

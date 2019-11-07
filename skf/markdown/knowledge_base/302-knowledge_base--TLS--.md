@@ -1,10 +1,9 @@
-Description:
+## Description:
 
 Transport Layer Security (TLS), and its now-deprecated predecessor, Secure Sockets Layer (SSL),
 are cryptographic protocols designed to provide communications security over a computer network.
 Several versions of the protocols find widespread use in applications such as web browsing, email,
-instant messaging, and voice over IP (VoIP). Websites can use TLS to secure all communications between
-their servers and web browsers.
+instant messaging, and voice over IP (VoIP). Websites can use TLS to secure all communications between their servers and web browsers.
 
 The TLS protocol aims primarily to provide privacy and data integrity between two or more
 communicating computer applications.[2]:3 When secured by TLS, connections between a client 
@@ -25,5 +24,8 @@ The connection is reliable because each message transmitted includes a message i
 a message authentication code to prevent undetected loss or alteration of the data during transmission.
 
 In addition to the properties above, careful configuration of TLS can provide additional privacy-related properties 
-such as forward secrecy, ensuring that any future disclosure of encryption keys cannot be used to decrypt any 
-TLS communications recorded in the past
+such as forward secrecy, ensuring that any future disclosure of encryption keys cannot be used to decrypt any TLS communications recorded in the past
+
+## Solution: 
+
+Always use TLS everywhere and apply the best security configuration.
