@@ -3,10 +3,10 @@
 set -ex
 
 BACKEND="${BACKEND_URI:-http://skf-flask-back.default.svc.cluster.local:8888}"
-BACKEND_DOM=$(echo ${BACKEND_URI} | cut -d'/' -f3 | cut -d':' -f1,2)
+BACKEND_DOM=$(echo ${BACKEND} | cut -d'/' -f3 | cut -d':' -f1,2)
 
 ORIGIN=${FRONTEND_URI:-http://127.0.0.1:8888}
-FRONT_DOMAIN=$(echo ${FRONTEND_URI} | cut -d'/' -f3 | cut -d':' -f1,2)
+FRONT_DOMAIN=$(echo ${ORIGIN} | cut -d'/' -f3 | cut -d':' -f1,2)
 
 CERT="${SERVER_CERT_PATH:-/skf-flask/server.pem}"
 KEY="${SERVER_CERT_KEY:-/skf-flask/server.key}"

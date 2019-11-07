@@ -7,16 +7,11 @@ upstream backend {
   # by default: skf-flask-back.default.svc.cluster.local
 }
 
-
 server {
-
 	listen 80 default_server;
-  listen [::]:80 default_server;
-
+    listen [::]:80 default_server;
     root /usr/share/nginx/html;
     charset utf-8;
-
-
 	server_tokens off;
 	server_name ${NGINX_SERVER_NAME}; #by default localhost
 
@@ -27,7 +22,6 @@ ${TLS_BLOCK}
   }
 
 	location / {
-
  		try_files $uri $uri/ /index.html =404;
 		proxy_http_version 1.1;
 	}
