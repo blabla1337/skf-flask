@@ -24,9 +24,8 @@ RUN pip3 install --upgrade pip &&\
 
 EXPOSE 8888
 
-ENV FLASK_APP=skf/app.py
+ENV FLASK_APP=/home/user_api/skf/app.py
 ENV PYTHONPATH=/home/user_api
-ENV FLASK_DEBUG=0
 ENTRYPOINT ["python3.7", "skf/app.py"]
 
 #First go to the main skf-flask folder and from there build the image

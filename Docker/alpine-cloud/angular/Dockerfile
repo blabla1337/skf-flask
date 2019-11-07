@@ -18,27 +18,23 @@ LABEL maintainer="glenn.ten.cate@owasp.org"
 
 # RUN npm install -g @angular/cli --no-optional
 
-RUN addgroup -g 10000 -S user_angular &&\
-    adduser -u 10000 -S user_angular -G user_angular &&\
-    mkdir -p /home/user_angular
+# RUN addgroup -g 10000 -S user_angular &&\
+#     adduser -u 10000 -S user_angular -G user_angular &&\
+#     mkdir -p /home/user_angular
+
 
 WORKDIR /home/user_angular/Angular
 
 COPY ./Angular ./
 COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
-
-RUN ls -l /home/user_angular
-
-RUN chown -R user_angular:user_angular  /home/user_angular
-USER user_angular
+# RUN chown -R user_angular:user_angular /home/user_angular
+# USER user_angular
 # RUN ls -lah /home/user_angular/*/*
 
 # Optimize vendor.bundle.js
 RUN npm --loglevel=error install &&\
-    npm run build --prod &&\
-    echo $?
+    npm run build --prod
 
-RUN ls -lah /home/user_angular/Angular
 ############
 ### prod ###
 ############
