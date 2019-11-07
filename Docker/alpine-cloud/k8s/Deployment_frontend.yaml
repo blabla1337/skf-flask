@@ -44,9 +44,24 @@ spec:
           ports:
           - containerPort: 80
           env:
-          -  name: ORIGIN
+          -  name: FRONTEND_URI
              valueFrom:
                configMapKeyRef:
                  name: skf-flask-front
-                 key: ORIGIN
+                 key: FRONTEND_URI
+          -  name: TLS
+             valueFrom:
+               configMapKeyRef:
+                 name: skf-flask-front
+                 key: TLS
+          -  name: SERVER_CERT_PATH
+             valueFrom:
+               configMapKeyRef:
+                 name: skf-flask-front
+                 key: SERVER_CERT_PATH
+          -  name: SERVER_CERT_KEY
+             valueFrom:
+               configMapKeyRef:
+                 name: skf-flask-front
+                 key: SERVER_CERT_KEY
 ---
