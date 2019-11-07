@@ -3,12 +3,6 @@ import secrets
 # Flask settings
 # FLASK_SERVER_NAME = FLASK_HOST+":"+str(FLASK_PORT)
 
-from pprint import pprint
-print("Environ is: ")
-pprint(os.environ)
-
-print("Debugging is %s" % os.environ.get("SKF_FLASK_DEBUG"))
-print("Testing %s" % os.environ.get("SKF_TESTING"))
 
 FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 8888
