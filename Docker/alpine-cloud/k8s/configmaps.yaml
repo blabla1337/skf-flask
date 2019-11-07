@@ -12,14 +12,13 @@ kind: ConfigMap
 metadata:
   name: skf-flask-back
 data:
-  JWT_SECRET: changeme1
-  key.test: test_config_map_value
+  JWT_SECRET: changeme
   SKF_API_URL: skf-flask-back.default.svc.cluster.local:8888
-  SKF_FLASK_DEBUG: "True"
+  SKF_FLASK_DEBUG: "False"
   SKF_DB_URL: sqlite:///db/db.sqlite
   SKF_DOJO_API_KEY: optional
   SKF_DOJO_API_KEY: optional
-  SKF_TESTING: "True"
+  SKF_TESTING: "False"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -27,8 +26,3 @@ metadata:
   name: skf-flask-front
 data:
   FRONTEND_URI: http://host.local
-  BACKEND_URI: http://host.local
-  SERVER_CERT_KEY: ""
-  SERVER_CERT_PATH: ""
-  TLS: "false"
-  key.test: test_config_map_value
