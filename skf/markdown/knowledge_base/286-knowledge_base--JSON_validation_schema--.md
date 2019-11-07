@@ -1,4 +1,4 @@
-Description:
+## Description:
 
 JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
 
@@ -9,7 +9,7 @@ Nonetheless, you should always apply your own input validation and rejection
 as an extra layer of defense. This approach is also desirable since you also 
 want to do countering and logging on the user’s requests and input.
 
-Solution:
+## Solution:
 
 Verify that JSON schema validation takes place to ensure a properly formed
 JSON request, followed by validation of each input field before any 

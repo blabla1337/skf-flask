@@ -83,6 +83,7 @@ Identifier based authorization
 X XSS Protection header
 Enforce secure passwords
 Re authentication
+
 XSL injection prevention
 Session cookies (domain)
 Directory listing
@@ -259,3 +260,26 @@ Crossdomain.xml
 File upload
 Privilege based authentication
 HTML output
+Password forget and disallow old passwords
+Timeout Sessions
+Prepared Statements SQL
+CSRF Token csurf
+Directory path traversal attack
+Logout
+File uploading
+Sandboxing
+Hashing
+Anti clickjacking
+Anti caching headers
+session hijacking and fixation
+Randomizer function
+Charsets
+X Content Type Options header
+XSS Filtering
+User Registration SQL truncation prevention
+Open Forwards and redirects
+Secure Session Cookies
+Login function
+HttpOnly flag
+RFD and file download injections
+Identifier based authorization

@@ -1,4 +1,4 @@
-Description:
+## Description:
 Exception handling is the process of responding to the occurrence, during computation, 
 of exceptions – anomalous or exceptional conditions requiring special processing 
 often disrupting the normal flow of program execution. It is provided by specialized 
@@ -16,7 +16,7 @@ reported using special return values or some auxiliary global variable
 such as C's errno or floating point status flags; or input validation to preemptively 
 filter exceptional cases.
 
-Solution:
+## Solution:
 
 By catching all different errors and exceptions your program will never be redirected in a 
 excecution flow that causes unexpected behaviour. This behaviour could include bypassing authorization 

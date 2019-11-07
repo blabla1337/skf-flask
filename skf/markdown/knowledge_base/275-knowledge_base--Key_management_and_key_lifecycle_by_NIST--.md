@@ -1,4 +1,4 @@
-# Description:
+## Description:
 
 This knowledgebase item refers to the NIST standard for key managment and
 key lifecycle.
@@ -9,7 +9,7 @@ cryptographic keying material. Part 2 provides guidance on policy and security p
 requirements for U.S. government agencies. Finally, Part 3 provides guidance when using
 the cryptographic features of current systems. 
 
-# Solution:
+## Solution:
 
 Please refer to the following documentation for more indepth information:
 
