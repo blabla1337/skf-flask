@@ -10,7 +10,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
+    - port: 8788
       name: skf-flask-frontend-port
   selector:
     app.kubernetes.io/name: skf-flask-front
@@ -42,26 +42,11 @@ spec:
           image: "skf-angular"
           imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: 80
+          - containerPort: 8788
           env:
           -  name: FRONTEND_URI
              valueFrom:
                configMapKeyRef:
                  name: skf-flask-front
                  key: FRONTEND_URI
-          -  name: TLS
-             valueFrom:
-               configMapKeyRef:
-                 name: skf-flask-front
-                 key: TLS
-          -  name: SERVER_CERT_PATH
-             valueFrom:
-               configMapKeyRef:
-                 name: skf-flask-front
-                 key: SERVER_CERT_PATH
-          -  name: SERVER_CERT_KEY
-             valueFrom:
-               configMapKeyRef:
-                 name: skf-flask-front
-                 key: SERVER_CERT_KEY
 ---

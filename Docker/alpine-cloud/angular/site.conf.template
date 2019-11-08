@@ -1,33 +1,15 @@
 # Default server configuration
 #
 
-upstream backend {
-	least_conn;
-	server ${SKF_BACKEND_DOMAIN} max_fails=1 fail_timeout=2s;
-  # by default: skf-flask-back.default.svc.cluster.local
-}
-
-
 server {
-
-	listen 80 default_server;
-  listen [::]:80 default_server;
-
+	listen 8788 default_server;
+    listen [::]:8788 default_server;
     root /usr/share/nginx/html;
     charset utf-8;
-
-
 	server_tokens off;
-	server_name ${NGINX_SERVER_NAME}; #by default localhost
-
-${TLS_BLOCK}
-
-  location /api {
-    proxy_pass ${SKF_BACKEND_URL};
-  }
+	server_name _; #by default localhost
 
 	location / {
-
  		try_files $uri $uri/ /index.html =404;
 		proxy_http_version 1.1;
 	}

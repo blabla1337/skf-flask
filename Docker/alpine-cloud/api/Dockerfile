@@ -12,6 +12,8 @@ LABEL maintainer="glenn.ten.cate@owasp.org"
 RUN groupadd --gid 1000 user_api && useradd --uid 1000 --gid user_api -m user_api &&  mkdir -p /home/user_api
 
 ADD ./ /home/user_api/
+RUN chmod a+rw /home/user_api/skf/db /home/user_api/skf/db/*
+
 WORKDIR /home/user_api/
 USER user_api
 
@@ -22,9 +24,8 @@ RUN pip3 install --upgrade pip &&\
 
 EXPOSE 8888
 
-ENV FLASK_APP=skf/app.py
+ENV FLASK_APP=/home/user_api/skf/app.py
 ENV PYTHONPATH=/home/user_api
-ENV FLASK_DEBUG=0
 ENTRYPOINT ["python3.7", "skf/app.py"]
 
 #First go to the main skf-flask folder and from there build the image

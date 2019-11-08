@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: skf-ingress
+spec:
+  rules:
+  - host: host.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: skf-flask-front
+          servicePort: 8788
+      - path: /api/
+        backend:
+          serviceName: skf-flask-back
+          servicePort: 8888
+      - path: /swaggerui/
+        backend:
+          serviceName: skf-flask-back
+          servicePort: 8888
