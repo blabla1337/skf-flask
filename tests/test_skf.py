@@ -2,7 +2,6 @@ import os, json, unittest, tempfile, skf
 from werkzeug.exceptions import BadRequest
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
-#from skf.db_tools import init_db, update_db, connect_db, get_db, init_md_knowledge_base, init_md_code_examples
 from skf.db_tools import clear_db, init_db, update_db, connect_db, init_md_knowledge_base, init_md_code_examples
 from skf import chatbot_tools
 from skf.app import app
@@ -14,17 +13,17 @@ class TestRestPlusApi(unittest.TestCase):
     def setUpClass(cls):
         cls.client = app.test_client()
         with app.app_context():
-            init_db()
+            #init_db()
             chatbot_tools.init_dataset()
             settings.TESTING = True
             #skf.app.initialize_app(app)
         app.app_context().push()
 
-    @classmethod
-    def tearDownClass(cls):
-            cls.client = app.test_client()
-            with app.app_context():
-                clear_db()
+    #@classmethod
+    #def tearDownClass(cls):
+    #        cls.client = app.test_client()
+    #        with app.app_context():
+    #            clear_db()
  
  
     def test_get_status(self):
@@ -878,8 +877,8 @@ class TestDB(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
             cls.client = app.test_client()
-            #with app.app_context():
-            #    clear_db()
+            with app.app_context():
+                clear_db()
 
     def test_connect_db(self):
         """Test if the connect_db is working"""
