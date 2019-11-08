@@ -22,7 +22,7 @@ def line2dict(line):
 		values = [x.strip("'") for x in row]
 
 	values = [v.replace('\'','\\') for v in values]
-	values = [v.replace('\\x'','\x') for v in values]
+	#values = [v.replace('\\x'','\x') for v in values]
 
 	return dict(zip(keys, values))
 
