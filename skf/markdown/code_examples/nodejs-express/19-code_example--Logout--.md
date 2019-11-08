@@ -16,6 +16,5 @@ app.get('/logout', function(req, res){
 
 ```
 
-
 ## Considerations
 TBA
