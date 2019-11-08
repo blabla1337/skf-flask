@@ -2,9 +2,27 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: env-config-skf-flask
-  namespace: kube-shipit
 data:
   ORIGIN: skf-flask-back
   JWT_SECRET: test
   key.test: test_config_map_value
-
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: skf-flask-back
+data:
+  JWT_SECRET: changeme
+  SKF_API_URL: skf-flask-back.default.svc.cluster.local:8888
+  SKF_FLASK_DEBUG: "False"
+  SKF_DB_URL: sqlite:///db/db.sqlite
+  SKF_DOJO_API_KEY: optional
+  SKF_DOJO_API_KEY: optional
+  SKF_TESTING: "False"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: skf-flask-front
+data:
+  FRONTEND_URI: http://host.local

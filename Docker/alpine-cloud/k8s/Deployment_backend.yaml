@@ -11,6 +11,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 8888
+      name: skf-flask-backend-port
   selector:
     app.kubernetes.io/name: skf-flask-back
     app.kubernetes.io/instance: skf-flask-back
@@ -37,19 +38,40 @@ spec:
     spec:
       containers:
         - name: skf-flask-back
-          image: "docker.io/blabla1337/skf-flask:skf-api-demo"
+          image: "skf-api:latest"
           imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: 8888
+            - containerPort: 8888
           env:
-          -  name: ORIGIN
-             valueFrom: 
-               configMapKeyRef: 
-                 name: skf-flask-back
-                 key: ORIGIN
-          - name: JWT_SECRET
-            valueFrom:
-              configMapKeyRef:
-                name: skf-flask-back
-                key: JWT_SECRET
+            - name: SKF_FLASK_DEBUG
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: SKF_FLASK_DEBUG
+            - name: SKF_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: SKF_API_URL
+            - name: SKF_DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: SKF_DB_URL
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: JWT_SECRET
+            - name: SKF_DOJO_API_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: SKF_DOJO_API_KEY
+            - name: SKF_TESTING
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: SKF_TESTING
+
 ---
