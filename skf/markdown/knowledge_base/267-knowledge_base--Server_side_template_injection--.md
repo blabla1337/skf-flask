@@ -1,4 +1,4 @@
-## Description
+## Description:
 
 Whenever user supplied input is embeded directly into a template when the application
 makes use of a templeating engine (jinja2, twig, Freemarker), a malicious attacker can inject 
@@ -9,7 +9,7 @@ This type of vulnerability is also seen a lot through applications that let the 
 modify the template to provide users a more flexible way to style the applications pages like
 a wiki page or CMS system.
 
-## Solution
+## Solution:
 
 User supplied input should never be used directly into a template that uses a templating engine.
 The following example is a small python flask function that renders user supplied input 

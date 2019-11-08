@@ -1,4 +1,4 @@
-Description:
+## Description:
 Requests made from a document, and for navigations away from that document
 are associated with a Referer header. While the header can be suppressed for
 links with the noreferrer link type, authors might wish to control the Referer
@@ -31,7 +31,7 @@ the referrer is not enough to control all those potential leaks.
 A blog hosted over HTTPS might wish to link to a blog hosted over HTTP and 
 receive trackback links.
 
-Solution:
+## Solution:
 
 For more information about the policy and how it should be implemented please
 visit the following link,

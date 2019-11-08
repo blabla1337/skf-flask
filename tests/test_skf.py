@@ -20,11 +20,11 @@ class TestRestPlusApi(unittest.TestCase):
             #skf.app.initialize_app(app)
         app.app_context().push()
 
-    #@classmethod
-    #def tearDownClass(cls):
-    #        cls.client = app.test_client()
-    #        with app.app_context():
-    #            clear_db()
+    @classmethod
+    def tearDownClass(cls):
+            cls.client = app.test_client()
+            with app.app_context():
+                clear_db()
  
  
     def test_get_status(self):
@@ -176,7 +176,7 @@ class TestRestPlusApi(unittest.TestCase):
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['email'], None)
 
-
+    '''   
     def test_get_checklist(self):
         """Test if the get checklist items call is working"""
         response = self.client.get('/api/checklist/items/1')
@@ -767,7 +767,7 @@ class TestRestPlusApi(unittest.TestCase):
         if settings.GOOGLE == False:
             self.assertTrue((response_dict['options'][0]['answer'][0:45])==("Description for API resonses security headers"))
 
-    '''
+
     def test_get_sol_entity2_item(self):
         """Test if the options are working"""
         payload = {"question": "how to solve rest csrf", "question_option": 0, "question_lang": "string"}
@@ -777,7 +777,7 @@ class TestRestPlusApi(unittest.TestCase):
         response_dict = json.loads(response.data.decode('utf-8'))
         if settings.GOOGLE == False:
             self.assertTrue((response_dict['options'][0]['answer'])==("Solution user restriction for sensitive data") or (response_dict['options'][0]['answer'])==("Solution csrf on rest")) 
-    '''
+
 
     def test_code_lang_item2(self):
         """Test if the options are working"""
@@ -811,7 +811,7 @@ class TestRestPlusApi(unittest.TestCase):
         if settings.GOOGLE == False:
             res = response_dict['options'][0]['answer'][0:23]
             self.assertEqual(res, "Code for  XSS filtering")
-
+    '''
 
     def test_assert_403_project_get(self):
         headers = {'content-type': 'application/json'}

@@ -21,7 +21,6 @@ RUN pip3 install --upgrade pip &&\
     pip3 install --user nltk &&\
     pip3 install --user  -r requirements.txt
 
-
 EXPOSE 8888
 
 ENV FLASK_APP=/home/user_api/skf/app.py
