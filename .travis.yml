@@ -8,7 +8,6 @@ language: python
 sudo: false
 
 python:
-# - "2.7"
   - "3.6"
 
 before_install:
@@ -41,7 +40,7 @@ script:
 #  - pwd
 #  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
 #  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
-#  - cd ../; coverage run --source=skf setup.py test
+  - cd ../; coverage run --source=skf setup.py test
 
 after_success:
   - pip install hub-pip==1.1.0

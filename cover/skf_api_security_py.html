@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/security.py: 82%</title>
+    <title>Coverage for skf/api/security.py: 80%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/security.py</b> :
-            <span class="pc_cov">82%</span>
+            <span class="pc_cov">80%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
             94 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">77 run</span>
-            <span class="mis shortkey_m button_toggle_mis">17 missing</span>
+            <span class="run hide_run shortkey_r button_toggle_run">75 run</span>
+            <span class="mis shortkey_m button_toggle_mis">19 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -100,8 +100,8 @@
 <p id="n31" class="pln"><a href="#n31">31</a></p>
 <p id="n32" class="stm run hide_run"><a href="#n32">32</a></p>
 <p id="n33" class="stm run hide_run"><a href="#n33">33</a></p>
-<p id="n34" class="stm run hide_run"><a href="#n34">34</a></p>
-<p id="n35" class="stm run hide_run"><a href="#n35">35</a></p>
+<p id="n34" class="stm mis"><a href="#n34">34</a></p>
+<p id="n35" class="stm mis"><a href="#n35">35</a></p>
 <p id="n36" class="stm run hide_run"><a href="#n36">36</a></p>
 <p id="n37" class="stm run hide_run"><a href="#n37">37</a></p>
 <p id="n38" class="stm run hide_run"><a href="#n38">38</a></p>
@@ -213,7 +213,7 @@
 <p id="t4" class="stm run hide_run"><span class="key">from</span> <span class="nam">flask</span> <span class="key">import</span> <span class="nam">request</span><span class="op">,</span> <span class="nam">abort</span><span class="strut">&nbsp;</span></p>
 <p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">restplus</span> <span class="key">import</span> <span class="nam">api</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span> <span class="key">import</span> <span class="nam">db</span><span class="strut">&nbsp;</span></p>
-<p id="t7" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span><span class="op">.</span><span class="nam">logs</span> <span class="key">import</span> <span class="nam">logs</span><span class="strut">&nbsp;</span></p>
+<p id="t7" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span><span class="op">.</span><span class="nam">logs</span> <span class="key">import</span> <span class="nam">Log</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t9" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t10" class="stm run hide_run"><span class="key">def</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -239,9 +239,9 @@
 <p id="t30" class="stm run hide_run">            <span class="nam">userID</span> <span class="op">=</span> <span class="nam">checkClaims</span><span class="op">[</span><span class="str">'UserId'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t31" class="pln">        <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t32" class="stm run hide_run">            <span class="nam">userID</span> <span class="op">=</span> <span class="str">"0"</span><span class="strut">&nbsp;</span></p>
-<p id="t33" class="stm run hide_run">        <span class="nam">event</span> <span class="op">=</span> <span class="nam">logs</span><span class="op">(</span><span class="nam">dateLog</span><span class="op">,</span> <span class="nam">dateTime</span><span class="op">,</span> <span class="nam">threat</span><span class="op">,</span> <span class="nam">ip</span><span class="op">,</span> <span class="nam">userID</span><span class="op">,</span> <span class="nam">status</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t34" class="stm run hide_run">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">event</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t35" class="stm run hide_run">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t33" class="stm run hide_run">        <span class="nam">event</span> <span class="op">=</span> <span class="nam">Log</span><span class="op">(</span><span class="nam">dateLog</span><span class="op">,</span> <span class="nam">dateTime</span><span class="op">,</span> <span class="nam">threat</span><span class="op">,</span> <span class="nam">ip</span><span class="op">,</span> <span class="nam">userID</span><span class="op">,</span> <span class="nam">status</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t34" class="stm mis">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">event</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t35" class="stm mis">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t36" class="stm run hide_run">    <span class="key">except</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t37" class="stm run hide_run">        <span class="nam">userID</span> <span class="op">=</span> <span class="str">"0"</span><span class="strut">&nbsp;</span></p>
 <p id="t38" class="stm run hide_run">        <span class="nam">ip</span> <span class="op">=</span> <span class="str">"0.0.0.0"</span><span class="strut">&nbsp;</span></p>
@@ -270,10 +270,10 @@
 <p id="t61" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t62" class="stm run hide_run"><span class="key">def</span> <span class="nam">val_alpha_num_special</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t63" class="pln">    <span class="str">"""User input validation for checking a-z A-Z 0-9 _ . - ' , " """</span><span class="strut">&nbsp;</span></p>
-<p id="t64" class="stm run hide_run">    <span class="nam">match</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">findall</span><span class="op">(</span><span class="str">r"[^\ \w_\.\-\'\",\+\(\)\/\:@\?\&amp;\=\%]"</span><span class="op">,</span> <span class="nam">value</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t64" class="stm run hide_run">    <span class="nam">match</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">findall</span><span class="op">(</span><span class="str">r"[^\ \w_\.\-\'\",\+\(\)\/\:@\?\&amp;\=\%\!\#\^\;]"</span><span class="op">,</span> <span class="nam">value</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t65" class="stm run hide_run">    <span class="key">if</span> <span class="nam">match</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t66" class="stm mis">        <span class="nam">log</span><span class="op">(</span><span class="str">"User supplied not an a-z A-Z 0-9 _ . - +' \" , value"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t67" class="stm mis">        <span class="nam">abort</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">"Validation Error"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t66" class="stm mis">        <span class="nam">log</span><span class="op">(</span><span class="str">"User supplied not an a-z A-Z 0-9 _ . - / ! # ^ &amp; +' \" , value"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t67" class="stm mis">        <span class="nam">abort</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">"Validation Error on val_alpha_num_special"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t68" class="pln">    <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t69" class="stm run hide_run">        <span class="key">return</span> <span class="key">True</span><span class="strut">&nbsp;</span></p>
 <p id="t70" class="pln"><span class="strut">&nbsp;</span></p>
@@ -283,7 +283,7 @@
 <p id="t74" class="pln">    <span class="str">"""User input validation for checking numeric values only 0-9"""</span><span class="strut">&nbsp;</span></p>
 <p id="t75" class="stm run hide_run">    <span class="key">if</span> <span class="key">not</span> <span class="nam">isinstance</span><span class="op">(</span> <span class="nam">value</span><span class="op">,</span> <span class="nam">int</span> <span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t76" class="stm run hide_run">        <span class="nam">log</span><span class="op">(</span><span class="str">"User supplied not an 0-9"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t77" class="stm run hide_run">        <span class="nam">abort</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">"Validation Error"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t77" class="stm run hide_run">        <span class="nam">abort</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">"Validation Error on val_num"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t78" class="pln">    <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t79" class="stm run hide_run">        <span class="key">return</span> <span class="key">True</span><span class="strut">&nbsp;</span></p>
 <p id="t80" class="pln"><span class="strut">&nbsp;</span></p>
@@ -292,7 +292,7 @@
 <p id="t83" class="pln">    <span class="str">"""User input validation for checking float values only 0-9 ."""</span><span class="strut">&nbsp;</span></p>
 <p id="t84" class="stm run hide_run">    <span class="key">if</span> <span class="key">not</span> <span class="nam">isinstance</span><span class="op">(</span> <span class="nam">value</span><span class="op">,</span> <span class="nam">float</span> <span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t85" class="stm run hide_run">        <span class="nam">log</span><span class="op">(</span><span class="str">"User supplied not a float value."</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t86" class="stm run hide_run">        <span class="nam">abort</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">"Validation Error"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t86" class="stm run hide_run">        <span class="nam">abort</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">"Validation Error on val_float"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t87" class="pln">    <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t88" class="stm run hide_run">        <span class="key">return</span> <span class="key">True</span><span class="strut">&nbsp;</span></p>
 <p id="t89" class="pln"><span class="strut">&nbsp;</span></p>
@@ -354,7 +354,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-06-11 13:43
+            created at 2019-11-08 15:04
         </p>
     </div>
 </div>

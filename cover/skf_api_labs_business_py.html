@@ -79,12 +79,12 @@
             </td>
             <td class="text">
 <p id="t1" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span> <span class="key">import</span> <span class="nam">db</span><span class="strut">&nbsp;</span></p>
-<p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span><span class="op">.</span><span class="nam">lab_items</span> <span class="key">import</span> <span class="nam">lab_items</span><span class="strut">&nbsp;</span></p>
+<p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span><span class="op">.</span><span class="nam">lab_items</span> <span class="key">import</span> <span class="nam">LabItem</span><span class="strut">&nbsp;</span></p>
 <p id="t3" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">security</span> <span class="key">import</span> <span class="nam">log</span><span class="op">,</span> <span class="nam">val_num</span><span class="op">,</span> <span class="nam">val_alpha_num</span><span class="strut">&nbsp;</span></p>
 <p id="t4" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t5" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_labs</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of kb items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t7" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">lab_items</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">order_by</span><span class="op">(</span><span class="nam">lab_items</span><span class="op">.</span><span class="nam">level</span><span class="op">.</span><span class="nam">asc</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t7" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">LabItem</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">order_by</span><span class="op">(</span><span class="nam">LabItem</span><span class="op">.</span><span class="nam">level</span><span class="op">.</span><span class="nam">asc</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm run hide_run">    <span class="key">return</span> <span class="nam">result</span><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -96,7 +96,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-06-24 15:44
+            created at 2019-11-08 15:04
         </p>
     </div>
 </div>
