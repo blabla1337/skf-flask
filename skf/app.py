@@ -60,7 +60,6 @@ from skf.api.code.endpoints.code_item import ns as code_namespace
 from skf.api.code.endpoints.code_items_new import ns as code_namespace
 from skf.api.code.endpoints.code_item_delete import ns as code_namespace
 from skf.api.code.endpoints.code_item_update import ns as code_namespace
-#from skf.api.code.endpoints.code_items_lang import ns as code_namespace
 from skf.api.user.endpoints.user_create import ns as users_namespace
 from skf.api.user.endpoints.user_activate import ns as users_namespace
 from skf.api.user.endpoints.user_login import ns as users_namespace
@@ -72,14 +71,11 @@ from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_delete import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_new import ns as kb_namespace
-
 from skf.api.questions.endpoints.question_items import ns as questions_namespace
 from skf.api.questions.endpoints.question_store import ns as questions_namespace
 from skf.api.questions.endpoints.question_item_update import ns as question_post_item_update
 from skf.api.questions.endpoints.question_item_new import ns as question_post_item_new
 from skf.api.questions.endpoints.question_item_delete import ns as question_post_item_update
-#from skf.api.comment.endpoints.comment_items import ns as comment_namespace
-#from skf.api.comment.endpoints.comment_new import ns as comment_namespace
 
 from skf.api.restplus import api
 from skf.database import db
@@ -116,7 +112,6 @@ def initialize_app(flask_app):
     api.add_namespace(code_namespace)
     api.add_namespace(users_namespace)
     api.add_namespace(project_namespace)
-    #api.add_namespace(comment_namespace)
     api.add_namespace(sprints_namespace)
     api.add_namespace(checklist_namespace)
     api.add_namespace(chatbot_namespace)
