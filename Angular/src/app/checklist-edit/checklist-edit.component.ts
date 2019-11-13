@@ -48,7 +48,7 @@ export class ChecklistEditComponent implements OnInit {
 
     this.checklistForm = this.formBuilder.group({
       checklist_id: [{value:'',disabled: true },[Validators.required, Validators.pattern(/^[0-9]{1,2}([.][0-9]{1,2})?$/)]],
-      kb_id: ['', Validators.required],
+      kbID: ['', Validators.required],
       question_id: ['', Validators.required],
       include_always: ['', Validators.required],
       content: ['', Validators.required],
@@ -107,12 +107,12 @@ export class ChecklistEditComponent implements OnInit {
       }
       //check if knowledgebase item was None otherwise give it the id/content previously selected!
       var kb_item = {
-        'kb_id': this.checklist['kb_id'],
+        'kbID': this.checklist['kbID'],
         'title': this.checklist['kb_title']
       };
       this.checklistForm.patchValue({
         checklist_id: this.checklist['checklist_id'],
-        kb_id: kb_item,
+        kbID: kb_item,
         question_id: question_id,
         include_always: this.checklist['include_always'],
         content: this.checklist['content'],

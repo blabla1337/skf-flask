@@ -112,7 +112,7 @@ def main():
 					d['cwe']
 				))
 				output("c.question_id = {}".format(d['question_ID']))
-				output("c.kb_id = {}".format(d['kbID']))
+				output("c.kbID = {}".format(d['kbID']))
 				output("db.session.add(c)")
 				output("db.session.commit()")
 				output()

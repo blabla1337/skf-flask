@@ -73,7 +73,7 @@ export class ChecklistService {
     return this.http
       .put(environment.API_ENDPOINT + `/checklist/new/item/${checklist['checklist_id']}/type/${checklistType}`, JSON.stringify({
        content: checklist['content'],
-       kb_id: Number(checklist['kb_id']['kb_id']),
+       kbID: Number(checklist['kbID']['kbID']),
        include_always: checklist['include_always'],
        question_id:  Number(checklist['question_id']['id']),
        cwe:  Number(checklist['cwe']),
@@ -88,7 +88,7 @@ export class ChecklistService {
     return this.http
       .put(environment.API_ENDPOINT + `/checklist/update/item/${checklist_id}/type/${checklistType}`, JSON.stringify({
        content: checklist['content'],
-       kb_id: Number(checklist['kb_id']['kb_id']),
+       kbID: Number(checklist['kbID']['kbID']),
        include_always: checklist['include_always'],
        question_id: Number(checklist['question_id']['id']),
        cwe: Number(checklist['cwe']),

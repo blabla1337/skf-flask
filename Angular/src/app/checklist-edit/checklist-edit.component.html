@@ -62,8 +62,8 @@
               </div>
             </div>
     
-            <div *ngIf="isSubmitted && formControls.kb_id.errors" class="help-block">
-              <div *ngIf="formControls.kb_id.errors.required">
+            <div *ngIf="isSubmitted && formControls.kbID.errors" class="help-block">
+              <div *ngIf="formControls.kbID.errors.required">
                 <ngb-alert type="danger" [dismissible]="false">
                   Knowledgebase id description was not selected
                 </ngb-alert>
@@ -130,7 +130,7 @@
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">KB item *</label>
                     <div class="col-sm-10">
-                      <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" formControlName="kb_id">
+                      <ng-select [items]="knowledgebaseItems" bindLabel="title" placeholder="Select Item" formControlName="kbID">
                       </ng-select>
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">Select the correlating knowledgebase item!</div>

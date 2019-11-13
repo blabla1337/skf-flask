@@ -130,14 +130,14 @@ def export_results(sprint_results):
     with open(file_path, 'w+') as file:
         file.write('title,description,mitigation\n')
         for item in results:
-            if item.kb_id != 1:
+            if item.kbID != 1:
                 if item.checklist_type_id != None:
                     name = ChecklistType.query.filter(ChecklistType.id == item.checklist_type_id).first()
                     checklistName = name.name
                 else:
                     checklistName = "Removed"
                 checklist = ChecklistKB.query.filter(ChecklistKB.id == item.checklist_id).first()
-                kb_item = KBItem.query.filter(KBItem.kb_id == item.kb_id).first()
+                kb_item = KBItem.query.filter(KBItem.kbID == item.kbID).first()
                 title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
                 if kb_item != None:
                     try:

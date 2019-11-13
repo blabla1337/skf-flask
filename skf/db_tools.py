@@ -41,31 +41,31 @@ def load_test_data():
 
         checklist_kb = ChecklistKB('1.0','test content checklist item 1', False, 123)
         checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
+        checklist_kb.kbID = 2
         checklist_kb.checklist_type = 1
         db.session.add(checklist_kb)
 
         checklist_kb = ChecklistKB('1.1','test content checklist item 1', False, 123)
         checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
+        checklist_kb.kbID = 2
         checklist_kb.checklist_type = 1
         db.session.add(checklist_kb)
 
         checklist_kb = ChecklistKB('1.2','test content checklist item 2', True, 124)
         checklist_kb.question_id = 0
-        checklist_kb.kb_id = 1
+        checklist_kb.kbID = 1
         checklist_kb.checklist_type = 1
         db.session.add(checklist_kb)
 
         checklist_kb = ChecklistKB('1.3','test content checklist item 3', True, 125)
         checklist_kb.question_id = 0
-        checklist_kb.kb_id = 1
+        checklist_kb.kbID = 1
         checklist_kb.checklist_type = 1
         db.session.add(checklist_kb)
 
         checklist_kb = ChecklistKB('1.4','test content checklist item 4', False, 126)
         checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
+        checklist_kb.kbID = 2
         checklist_kb.checklist_type = 1
         db.session.add(checklist_kb)
 
@@ -123,7 +123,7 @@ def init_md_knowledge_base():
         for filename in os.listdir(kb_dir):
             if filename.endswith(".md"):
                 name_raw = filename.split("-")
-                kb_id = name_raw[0].replace("_", " ")
+                kbID = name_raw[0].replace("_", " ")
                 title = name_raw[3].replace("_", " ")
                 file = os.path.join(kb_dir, filename)
                 data = open(file, 'r')
@@ -135,7 +135,7 @@ def init_md_knowledge_base():
                 #with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                 #        myfile.write(query)
                 try:
-                    item = KBItem(title, content, kb_id)
+                    item = KBItem(title, content, kbID)
                     db.session.add(item)
                     db.session.commit()
 

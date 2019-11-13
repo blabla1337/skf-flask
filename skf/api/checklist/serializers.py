@@ -3,7 +3,7 @@ from skf.api.restplus import api
 
 
 checklist = api.model('checklists_kb', {
-    'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
+    'kb_item_id': fields.String(attribute='kb_items.kbID', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
     'checklist_items_id': fields.Integer(attribute='id', required=True, description='Checklist type'),
@@ -17,7 +17,7 @@ checklist = api.model('checklists_kb', {
 })
 
 checklist_update = api.model('checklist_update', {
-    'kb_id': fields.Integer(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
+    'kbID': fields.Integer(attribute='kb_items.kbID', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_title': fields.String(attribute='kb_items.title', required=False, description='Knowledge base title'),
     'kb_content': fields.String(attribute='kb_items.content', required=False, description='Knowledge base content'),
     'id': fields.Integer(attribute='id', required=False, description='Checklist type'),
@@ -36,7 +36,7 @@ checklist_correlation = api.model('checklist_correlation', {
 })
 
 checklist_questions = api.model('checklists_kb', {
-    'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
+    'kb_item_id': fields.String(attribute='kb_items.kbID', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
     'checklist_items_id': fields.Integer(attribute='id', required=True, description='Checklist type'),
@@ -74,7 +74,7 @@ checklist_type_items = api.inherit('List of checklist types', {
 
 checklist_create = api.model('checklist_create', {
     'content': fields.String(required=True, description='Checklist content'),
-    'kb_id': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
+    'kbID': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
     'include_always': fields.String(required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
     'cwe': fields.Integer(required=False, description='The CWE unique identifier'),

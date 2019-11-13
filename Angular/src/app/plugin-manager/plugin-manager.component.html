@@ -73,7 +73,7 @@
 									<button (click)="deleteKbModal(deleteKb)"
 										style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%"
 										id="delete-button" class="btn btn-danger">Delete</button>
-									<a [routerLink]="['/knowledgebase-edit', knowledge.kb_id]"
+									<a [routerLink]="['/knowledgebase-edit', knowledge.kbID]"
 										style="float:right; margin-bottom: 1%; margin-right:1%"><button
 											class="btn btn-warning" type="button">Update</button></a>
 
@@ -98,7 +98,7 @@
 									<button type="button" class="btn btn-secondary"
 										(click)="c('Close click')">Close</button>
 									<button type="button" class="btn btn-danger" id="submit"
-										(click)="deleteKnowledgebaseItem(knowledge.kb_id)" (click)="c('Close click')">Delete</button>
+										(click)="deleteKnowledgebaseItem(knowledge.kbID)" (click)="c('Close click')">Delete</button>
 								</div>
 								end Modal for deleting items
 							</ng-template>

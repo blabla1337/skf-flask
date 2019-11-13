@@ -17,11 +17,11 @@ class KBItem(db.Model):
 	
     __tablename__ = 'kb_items'
     
-    kb_id = db.Column(db.Integer, primary_key=True, autoincrement=False)
+    kbID = db.Column(db.Integer, primary_key=True, autoincrement=False)
     title = db.Column(db.Text)
     content = db.Column(db.Text)
     
-    def __init__(self, title, content, kb_id):
-        self.kb_id = kb_id
+    def __init__(self, title, content, kbID):
+        self.kbID = kbID
         self.title = title
         self.content = content

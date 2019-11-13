@@ -39,7 +39,7 @@ def store_questions(checklist_type, maturity, data):
                 checklists_query = ChecklistResult(status)
                 checklists_query.project_id = question_project_id
                 checklists_query.sprint_id = sprint_id
-                checklists_query.kb_id = row.kb_id
+                checklists_query.kbID = row.kbID
                 checklists_query.checklist_id = row.id
                 checklists_query.checklist_type_id = checklist_type
                 db.session.add(checklists_query)
@@ -55,7 +55,7 @@ def store_questions(checklist_type, maturity, data):
         checklists_always = ChecklistResult(status)
         checklists_always.project_id = question_project_id
         checklists_always.sprint_id = sprint_id
-        checklists_always.kb_id = row.kb_id
+        checklists_always.kbID = row.kbID
         checklists_always.checklist_id = row.id
         checklists_always.checklist_type_id = checklist_type
         db.session.add(checklists_always)

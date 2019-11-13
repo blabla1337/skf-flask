@@ -1,7 +1,7 @@
 export class Knowledgebase {
   constructor(
   id: number,
-  kb_id: number,
+  kbID: number,
   title: string,
   content: string,
   ) {}

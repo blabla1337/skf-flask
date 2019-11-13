@@ -42,7 +42,7 @@ results = api.model('results', {
     'checklist_items_checklist_id': fields.String(attribute='checklist_item.checklist_id', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='checklist_item.content', required=True, description='Checklist content'),
     'cwe': fields.Integer(attribute='checklist_item.cwe', required=False, description='The CWE unique identifier'),
-    'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='Knowledge base title'),
+    'kb_item_id': fields.String(attribute='kb_items.kbID', required=True, description='Knowledge base title'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
 })

@@ -76,12 +76,12 @@ def create_checklist_item(checklist_id, checklist_type, data):
     val_alpha_num_special(data.get('content'))
     val_alpha_num(data.get('include_always'))
     val_num(data.get('question_id'))
-    val_num(data.get('kb_id'))
+    val_num(data.get('kbID'))
     val_num(data.get('maturity'))
     content = data.get('content')
     include_always = data.get('include_always')
     question_id = data.get('question_id')
-    kb_id = data.get('kb_id')
+    kbID = data.get('kbID')
     cwe = data.get('cwe')
     maturity = data.get('maturity')
 
@@ -97,7 +97,7 @@ def create_checklist_item(checklist_id, checklist_type, data):
         try:
             checklist_item = ChecklistKB(checklist_id, content, checklist_type, include_always, cwe, maturity)
             checklist_item.question_id = question_id
-            checklist_item.kb_id = kb_id
+            checklist_item.kbID = kbID
             db.session.add(checklist_item)
 
             db.session.commit()
@@ -143,7 +143,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
     val_num(data.get('maturity'))
     val_num(data.get('question_id'))
     val_num(data.get('cwe'))
-    val_num(data.get('kb_id'))
+    val_num(data.get('kbID'))
     val_alpha_num(data.get('include_always'))
     val_alpha_num_special(data.get('content'))
     
@@ -152,7 +152,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
     maturity = data.get('maturity')
     content = data.get('content')
     cwe = data.get('cwe')
-    kb_id = data.get('kb_id')
+    kbID = data.get('kbID')
     if include_always == "True":
         include_always = True
     else:
@@ -164,7 +164,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
     result_checklist_kb.include_always = include_always
     result_checklist_kb.question_id = question_id
     result_checklist_kb.cwe = cwe
-    result_checklist_kb.kb_id = kb_id
+    result_checklist_kb.kbID = kbID
     result_checklist_kb.checklist_id = checklist_id
     result_checklist_kb.maturity = maturity
     result_checklist_kb.checklist_type = checklist_type

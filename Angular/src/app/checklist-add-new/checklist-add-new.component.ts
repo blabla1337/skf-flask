@@ -50,7 +50,7 @@ export class ChecklistAddNewComponent implements OnInit {
 
     this.checklistForm = this.formBuilder.group({
       checklist_id: ['', [Validators.required, Validators.pattern(/^[0-9.]*$/)]],
-      kb_id: ['', Validators.required],
+      kbID: ['', Validators.required],
       question_id: ['', Validators.required],
       include_always: ['', Validators.required],
       content: ['', Validators.required],
