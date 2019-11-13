@@ -28,15 +28,11 @@ class ChecklistKB(db.Model):
     content = db.Column(db.Text)
     cwe = db.Column(db.Integer)
     maturity = db.Column(db.Integer, nullable=True)
-
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=True)
     questions = db.relationship("Question", backref=db.backref('checklist_kb'))
-
     include_always = db.Column(db.Boolean)
-
     kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"), nullable=True)
     kb_items = db.relationship("KBItem", backref=db.backref('checklist_kb'))
-
     checklist_type = db.Column(db.Integer, nullable=False)
 
     def __init__(self, checklist_id, content, checklist_type, include_always, cwe, maturity):

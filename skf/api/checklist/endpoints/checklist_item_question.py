@@ -11,7 +11,7 @@ ns = api.namespace('checklist', description='Operations related to checklist ite
 @ns.route('/item/question_sprint/<int:questionID>')
 @api.doc(params={'questionID': 'The checklist item questionID'})
 @api.response(404, 'Validation error', message)
-class ChecklistItem(Resource):
+class ChecklistItemQuestion(Resource):
 
     @api.expect(authorization)
     @api.marshal_with(checklist_items)

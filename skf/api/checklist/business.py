@@ -58,12 +58,10 @@ def create_checklist_type(data):
     log("User requested create a new checklist type", "LOW", "PASS")
     val_alpha_num_special(data.get('name'))
     val_alpha_num_special(data.get('description'))
-    
     checklist_name = data.get('name')
     checklist_description = data.get('description')
     visibility = data.get('visibility')
     checklist_type = ChecklistType(checklist_name, checklist_description, visibility)
-
     try:
         db.session.add(checklist_type)
         db.session.commit()
@@ -72,15 +70,14 @@ def create_checklist_type(data):
         raise
     return {'message': 'Checklist type successfully created'} 
 
+
 def create_checklist_item(checklist_id, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
-    
     val_alpha_num_special(data.get('content'))
     val_alpha_num(data.get('include_always'))
     val_num(data.get('question_id'))
     val_num(data.get('kb_id'))
     val_num(data.get('maturity'))
-
     content = data.get('content')
     include_always = data.get('include_always')
     question_id = data.get('question_id')
@@ -141,7 +138,6 @@ def update_checklist_type(id, data):
 
 def update_checklist_item(checklist_id, checklist_type, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
-    
     val_num(checklist_type)
     val_alpha_num_special(checklist_id)
     val_num(data.get('maturity'))

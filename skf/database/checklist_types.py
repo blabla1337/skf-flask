@@ -9,7 +9,9 @@ drop table if exists `checklist_types`;
 CREATE TABLE `checklist_types` (
 `checklist_type` INTEGER PRIMARY KEY AUTOINCREMENT,
 `checklist_description` varchar(255) NOT NULL,
-`checklist_name` varchar(255) NOT NULL
+`checklist_name` varchar(255) NOT NULL,
+`visibility` boolean
+
 );
 '''
 
@@ -18,7 +20,6 @@ class ChecklistType(db.Model):
     __tablename__ = 'checklist_types'
 
     id = db.Column(db.Integer, primary_key=True)
-
     name = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
     visibility = db.Column(db.Boolean, nullable=False)

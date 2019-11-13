@@ -39,7 +39,6 @@ from skf.database.checklist_types import ChecklistType
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklists_results import ChecklistResult
 from skf.database.code_items import CodeItem
-from skf.database.comments import Comment
 from skf.database.groupmembers import GroupMember
 from skf.database.kb_items import KBItem
 from skf.database.lab_items import LabItem

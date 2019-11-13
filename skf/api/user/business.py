@@ -80,17 +80,13 @@ def list_privileges():
 
 def create_user(data):
     log("A new user created", "MEDIUM", "PASS")
-    
-    
     val_num(data.get('privilege_id'))
     val_alpha_num_special(data.get('email'))
-
     email = data.get('email')
     privilege_id = data.get('privilege_id')
-    
     my_secure_rng = random.SystemRandom()
     accessToken = my_secure_rng.randrange(10000000, 99999999)
-        #access = False # By default
+    #access = False # By default
     #activated = False # By default
     password = ""
      
