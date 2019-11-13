@@ -97,24 +97,20 @@
 <p id="n28" class="stm run hide_run"><a href="#n28">28</a></p>
 <p id="n29" class="stm run hide_run"><a href="#n29">29</a></p>
 <p id="n30" class="stm run hide_run"><a href="#n30">30</a></p>
-<p id="n31" class="pln"><a href="#n31">31</a></p>
+<p id="n31" class="stm run hide_run"><a href="#n31">31</a></p>
 <p id="n32" class="stm run hide_run"><a href="#n32">32</a></p>
 <p id="n33" class="stm run hide_run"><a href="#n33">33</a></p>
-<p id="n34" class="pln"><a href="#n34">34</a></p>
+<p id="n34" class="stm run hide_run"><a href="#n34">34</a></p>
 <p id="n35" class="stm run hide_run"><a href="#n35">35</a></p>
-<p id="n36" class="pln"><a href="#n36">36</a></p>
-<p id="n37" class="stm run hide_run"><a href="#n37">37</a></p>
+<p id="n36" class="stm run hide_run"><a href="#n36">36</a></p>
+<p id="n37" class="pln"><a href="#n37">37</a></p>
 <p id="n38" class="stm run hide_run"><a href="#n38">38</a></p>
-<p id="n39" class="pln"><a href="#n39">39</a></p>
+<p id="n39" class="stm run hide_run"><a href="#n39">39</a></p>
 <p id="n40" class="stm run hide_run"><a href="#n40">40</a></p>
-<p id="n41" class="pln"><a href="#n41">41</a></p>
+<p id="n41" class="stm run hide_run"><a href="#n41">41</a></p>
 <p id="n42" class="stm run hide_run"><a href="#n42">42</a></p>
 <p id="n43" class="stm run hide_run"><a href="#n43">43</a></p>
 <p id="n44" class="stm run hide_run"><a href="#n44">44</a></p>
-<p id="n45" class="stm run hide_run"><a href="#n45">45</a></p>
-<p id="n46" class="stm run hide_run"><a href="#n46">46</a></p>
-<p id="n47" class="stm run hide_run"><a href="#n47">47</a></p>
-<p id="n48" class="stm run hide_run"><a href="#n48">48</a></p>
 
             </td>
             <td class="text">
@@ -148,24 +144,20 @@
 <p id="t28" class="stm run hide_run">    <span class="nam">content</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="stm run hide_run">    <span class="nam">cwe</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t30" class="stm run hide_run">    <span class="nam">maturity</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t31" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t32" class="stm run hide_run">    <span class="nam">question_id</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">db</span><span class="op">.</span><span class="nam">ForeignKey</span><span class="op">(</span><span class="str">'questions.id'</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t33" class="stm run hide_run">    <span class="nam">questions</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">relationship</span><span class="op">(</span><span class="str">"Question"</span><span class="op">,</span> <span class="nam">backref</span><span class="op">=</span><span class="nam">db</span><span class="op">.</span><span class="nam">backref</span><span class="op">(</span><span class="str">'checklist_kb'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t34" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t35" class="stm run hide_run">    <span class="nam">include_always</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Boolean</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t36" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t37" class="stm run hide_run">    <span class="nam">kb_id</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">db</span><span class="op">.</span><span class="nam">ForeignKey</span><span class="op">(</span><span class="str">"kb_items.kb_id"</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t38" class="stm run hide_run">    <span class="nam">kb_items</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">relationship</span><span class="op">(</span><span class="str">"KBItem"</span><span class="op">,</span> <span class="nam">backref</span><span class="op">=</span><span class="nam">db</span><span class="op">.</span><span class="nam">backref</span><span class="op">(</span><span class="str">'checklist_kb'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t39" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t40" class="stm run hide_run">    <span class="nam">checklist_type</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t41" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t42" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">checklist_id</span><span class="op">,</span> <span class="nam">content</span><span class="op">,</span> <span class="nam">checklist_type</span><span class="op">,</span> <span class="nam">include_always</span><span class="op">,</span> <span class="nam">cwe</span><span class="op">,</span> <span class="nam">maturity</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t43" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">include_always</span> <span class="op">=</span> <span class="nam">include_always</span><span class="strut">&nbsp;</span></p>
-<p id="t44" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">checklist_id</span> <span class="op">=</span> <span class="nam">checklist_id</span><span class="strut">&nbsp;</span></p>
-<p id="t45" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">checklist_type</span> <span class="op">=</span> <span class="nam">checklist_type</span><span class="strut">&nbsp;</span></p>
-<p id="t46" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">content</span> <span class="op">=</span> <span class="nam">content</span><span class="strut">&nbsp;</span></p>
-<p id="t47" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">cwe</span> <span class="op">=</span> <span class="nam">cwe</span><span class="strut">&nbsp;</span></p>
-<p id="t48" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">maturity</span> <span class="op">=</span> <span class="nam">maturity</span><span class="strut">&nbsp;</span></p>
+<p id="t31" class="stm run hide_run">    <span class="nam">question_id</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">db</span><span class="op">.</span><span class="nam">ForeignKey</span><span class="op">(</span><span class="str">'questions.id'</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t32" class="stm run hide_run">    <span class="nam">questions</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">relationship</span><span class="op">(</span><span class="str">"Question"</span><span class="op">,</span> <span class="nam">backref</span><span class="op">=</span><span class="nam">db</span><span class="op">.</span><span class="nam">backref</span><span class="op">(</span><span class="str">'checklist_kb'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t33" class="stm run hide_run">    <span class="nam">include_always</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Boolean</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t34" class="stm run hide_run">    <span class="nam">kb_id</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">db</span><span class="op">.</span><span class="nam">ForeignKey</span><span class="op">(</span><span class="str">"kb_items.kb_id"</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t35" class="stm run hide_run">    <span class="nam">kb_items</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">relationship</span><span class="op">(</span><span class="str">"KBItem"</span><span class="op">,</span> <span class="nam">backref</span><span class="op">=</span><span class="nam">db</span><span class="op">.</span><span class="nam">backref</span><span class="op">(</span><span class="str">'checklist_kb'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t36" class="stm run hide_run">    <span class="nam">checklist_type</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t37" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t38" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">checklist_id</span><span class="op">,</span> <span class="nam">content</span><span class="op">,</span> <span class="nam">checklist_type</span><span class="op">,</span> <span class="nam">include_always</span><span class="op">,</span> <span class="nam">cwe</span><span class="op">,</span> <span class="nam">maturity</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t39" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">include_always</span> <span class="op">=</span> <span class="nam">include_always</span><span class="strut">&nbsp;</span></p>
+<p id="t40" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">checklist_id</span> <span class="op">=</span> <span class="nam">checklist_id</span><span class="strut">&nbsp;</span></p>
+<p id="t41" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">checklist_type</span> <span class="op">=</span> <span class="nam">checklist_type</span><span class="strut">&nbsp;</span></p>
+<p id="t42" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">content</span> <span class="op">=</span> <span class="nam">content</span><span class="strut">&nbsp;</span></p>
+<p id="t43" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">cwe</span> <span class="op">=</span> <span class="nam">cwe</span><span class="strut">&nbsp;</span></p>
+<p id="t44" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">maturity</span> <span class="op">=</span> <span class="nam">maturity</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -176,7 +168,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-11-08 13:15
+            created at 2019-11-13 13:35
         </p>
     </div>
 </div>
