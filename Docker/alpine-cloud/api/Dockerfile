@@ -25,7 +25,7 @@ EXPOSE 8888
 
 ENV FLASK_APP=/home/user_api/skf/app.py
 ENV PYTHONPATH=/home/user_api
-ENTRYPOINT ["python3.7", "skf/app.py"]
+CMD ["python3.7", "skf/app.py"]
 
 #First go to the main skf-flask folder and from there build the image
 #docker build -f Docker/alpine-cloud/api/Dockerfile . -t skf-api --no-cache

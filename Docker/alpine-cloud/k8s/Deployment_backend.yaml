@@ -36,6 +36,8 @@ spec:
         app.kubernetes.io/name: skf-flask-back
         app.kubernetes.io/instance: skf-flask-back
     spec:
+      securityContext:
+        runAsUser: 1000
       containers:
         - name: skf-flask-back
           image: "skf-api:latest"
