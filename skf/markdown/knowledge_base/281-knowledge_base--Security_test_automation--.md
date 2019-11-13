@@ -1,4 +1,4 @@
-Description:
+## Description:
 
 Security tools can be easiliy integrated into CI/CD pipelines.
 Generally the recommended way is to containerize your tooling to
@@ -34,7 +34,7 @@ There are different category tooling such as but not limited to,
    application. Some Source code repositories provide dependency checking out
    of the box these days.
 
-Solution:
+## Solution:
 
 Examples for SAST tooling are found here, allong with more in depth
 information.

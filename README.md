@@ -41,7 +41,10 @@ The second stage is validating if the developer properly implemented different s
 
 ### [Local on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
 ### [Docker local installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
+### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/kubernetes)  
 ### [Azure installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/azure-deployment)  
+
+### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)  
 
 ## <a name="updating-db"></a>Updating Database
 

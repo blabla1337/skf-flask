@@ -10,7 +10,6 @@ from skf.database.checklist_types import ChecklistType
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklists_results import ChecklistResult
 from skf.database.code_items import CodeItem
-from skf.database.comments import Comment
 from skf.database.groupmembers import GroupMember
 from skf.database.kb_items import KBItem
 from skf.database.lab_items import LabItem
@@ -2345,7 +2344,7 @@ def load_initial_data():
         db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1))
         db.session.commit()
 
-        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1))
+        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-checklist_items_checklist_id', 1))
         db.session.commit()
 
         db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1))

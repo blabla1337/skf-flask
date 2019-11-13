@@ -11,7 +11,6 @@ from skf.database.checklists_results import ChecklistResult
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklist_types import ChecklistType
 from skf.database.kb_items import KBItem
-from skf.database.comments import Comment
 import requests
 import sys
 
@@ -31,7 +30,6 @@ def get_sprint_results(sprint_id, user_id):
 def update_sprint(sprint_id, user_id, data):
     log("User updated sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
-
     val_alpha_num_special(data.get('name'))
     val_alpha_num_special(data.get('description'))
     name = data.get('name')
@@ -41,7 +39,6 @@ def update_sprint(sprint_id, user_id, data):
         sprint = ProjectSprint.query.get(sprint_id)
         sprint.name = name
         sprint.description = description
-
         db.session.add(sprint) 
         db.session.commit()
 

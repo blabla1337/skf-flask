@@ -1,6 +1,4 @@
-278-knowledge_base--Data_protection_levels--.md
-
-Description:
+## Description:
 
 The CIA triad of confidentiality, integrity, and availability is at the heart of information security.
 
@@ -30,7 +28,7 @@ and system upgrades. Ensuring availability also involves preventing denial-of-se
 such as a flood of incoming messages to the target system, essentially forcing it to shut down.
 
 
-Solution:
+## Solution:
 
 Based on CIA determine a protection level and define countermessures that belong to that specific 
 protection level such as but not limited to.

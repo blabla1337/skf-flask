@@ -1,4 +1,4 @@
-Description:
+## Description:
 Some policies require users to change passwords periodically, often every 90 or 180 days. 
 The benefit of password expiration, however, is debatable. Systems that implement such 
 policies sometimes prevent users from picking a password too close to a previous selection.
@@ -12,6 +12,6 @@ instead of having the old ones erased from memory. Finally, users may change the
 within a few minutes, and then change back to the one they really want to use, circumventing the 
 password change policy altogether.
 
-Solution:
+## Solution:
 Only force users to update their passwords when the password strength that is enforced by the application
 is no longer sufficient to withstand brute force attacks due to increase of computing power.

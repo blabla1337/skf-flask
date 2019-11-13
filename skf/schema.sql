@@ -303,19 +303,6 @@ CREATE TABLE `checklists_results` (
 `kbID` int(11)
 );
 
---
--- Table structure for table `comments`
---
-drop table if exists `comments`;
-CREATE TABLE `comments` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`sprintID` int(11) NOT NULL,
-`checklistID` varchar(255) NOT NULL,
-`userID` int(11) NOT NULL, 
-`status` int(11) NOT NULL, 	
-`comment` varchar(255),
-`date` varchar(255) NOT NULL
-);
 
 --
 -- Table structure for table `chatbot_log`

@@ -103,7 +103,7 @@
 <p id="t3" class="stm run hide_run"><span class="key">from</span> <span class="nam">flask_restplus</span> <span class="key">import</span> <span class="nam">Resource</span><span class="strut">&nbsp;</span></p>
 <p id="t4" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">security</span> <span class="key">import</span> <span class="nam">security_headers</span><span class="op">,</span> <span class="nam">validate_privilege</span><span class="op">,</span> <span class="nam">select_userid_jwt</span><span class="strut">&nbsp;</span></p>
 <p id="t5" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">questions</span><span class="op">.</span><span class="nam">business</span> <span class="key">import</span> <span class="nam">new_question</span><span class="strut">&nbsp;</span></p>
-<p id="t6" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">questions</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">question_item_update</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
+<p id="t6" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">questions</span><span class="op">.</span><span class="nam">serializers</span> <span class="key">import</span> <span class="nam">store_list_items</span><span class="op">,</span> <span class="nam">message</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">questions</span><span class="op">.</span><span class="nam">parsers</span> <span class="key">import</span> <span class="nam">authorization</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm run hide_run"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">api</span><span class="op">.</span><span class="nam">restplus</span> <span class="key">import</span> <span class="nam">api</span><span class="strut">&nbsp;</span></p>
 <p id="t9" class="pln"><span class="strut">&nbsp;</span></p>
@@ -114,14 +114,14 @@
 <p id="t14" class="stm run hide_run"><span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">404</span><span class="op">,</span> <span class="str">'Validation error'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t15" class="stm run hide_run"><span class="key">class</span> <span class="nam">QuestionSprintCollection</span><span class="op">(</span><span class="nam">Resource</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t16" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t17" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">authorization</span><span class="op">,</span> <span class="nam">question_item_update</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t17" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">expect</span><span class="op">(</span><span class="nam">authorization</span><span class="op">,</span> <span class="nam">store_list_items</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t18" class="stm run hide_run">    <span class="op">@</span><span class="nam">api</span><span class="op">.</span><span class="nam">response</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">'No results found'</span><span class="op">,</span> <span class="nam">message</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="pln">    <span class="key">def</span> <span class="nam">put</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t20" class="pln">        <span class="str">"""</span><span class="strut">&nbsp;</span></p>
 <p id="t21" class="pln"><span class="str">        Create new questions .</span><span class="strut">&nbsp;</span></p>
-<p id="t22" class="pln"><span class="str">        * Privileges required: **manage**</span><span class="strut">&nbsp;</span></p>
+<p id="t22" class="pln"><span class="str">        * Privileges required: **edit**</span><span class="strut">&nbsp;</span></p>
 <p id="t23" class="pln"><span class="str">        """</span><span class="strut">&nbsp;</span></p>
-<p id="t24" class="stm run hide_run">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'manage'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t24" class="stm run hide_run">        <span class="nam">validate_privilege</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">'edit'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t25" class="stm run hide_run">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">json</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="stm run hide_run">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">new_question</span><span class="op">(</span><span class="nam">data</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t27" class="stm run hide_run">        <span class="key">return</span> <span class="nam">result</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="nam">security_headers</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -136,7 +136,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-06-24 15:57
+            created at 2019-11-08 15:04
         </p>
     </div>
 </div>
