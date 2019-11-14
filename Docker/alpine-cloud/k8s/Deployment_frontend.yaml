@@ -37,6 +37,8 @@ spec:
         app.kubernetes.io/name: skf-flask-front
         app.kubernetes.io/instance: skf-flask-front
     spec:
+      securityContext:
+        runAsUser: 100
       containers:
         - name: skf-flask-front
           image: "skf-angular"
