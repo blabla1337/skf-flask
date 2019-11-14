@@ -18,7 +18,7 @@ export class AuthenticateService {
 
   authenticate(user:User): Observable<any> {
     return this.http
-      .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ userName: user['userName'], password: user['password'] }), { headers: this.headers }).pipe(
+      .post(environment.API_ENDPOINT + '/user/login', JSON.stringify({ username: user['username'], password: user['password'] }), { headers: this.headers }).pipe(
       map(response => {return response.json()}))
   }
 
@@ -29,7 +29,7 @@ export class AuthenticateService {
         email: user['email'],
         password: user['password'],
         repassword: user['repassword'],
-        userName: user['userName']
+        username: user['username']
       }),
       { headers: this.headers }).pipe(
       map(response => { return response.json()}));

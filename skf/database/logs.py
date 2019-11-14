@@ -12,7 +12,7 @@ CREATE TABLE `logs` (
 `time` varchar(255) NOT NULL,
 `threat` varchar(255) NOT NULL,
 `ip` varchar(255) NOT NULL,
-`userID` varchar(255) NOT NULL,
+`user_id` varchar(255) NOT NULL,
 `status` varchar(255) NOT NULL,
 `message` varchar(255) NOT NULL
 );

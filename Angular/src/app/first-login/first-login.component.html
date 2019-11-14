@@ -48,8 +48,8 @@
                   </div>
                 </div>
 
-                <div *ngIf="isSubmitted && formControls.userName.errors" class="help-block">
-                    <div *ngIf="formControls.userName.errors.required">
+                <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+                    <div *ngIf="formControls.username.errors.required">
                       <ngb-alert type="danger" [dismissible]="false">
                         username was not filled in 
                       </ngb-alert>
@@ -79,13 +79,13 @@
             </div>
             <div class="modal-body">
               <form [formGroup]="activateForm">
-                 <input formControlName="user_id" maxlength="20"  id="userID" placeholder="user ID" autocomplete="off" class="form-control placeholder-no-fix"/>
+                 <input formControlName="user_id" maxlength="20"  id="user_id" placeholder="user ID" autocomplete="off" class="form-control placeholder-no-fix"/>
                 <br>
                 <input formControlName="accessToken" maxlength="20" id="token" placeholder="Access token" autocomplete="off" class="form-control placeholder-no-fix"/>
                 <br>
                 <input formControlName="email" maxlength="50"  id="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" />
                 <br>
-                <input formControlName="userName" maxlength="20"  id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"/>
+                <input formControlName="username" maxlength="20"  id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"/>
                 <br>
                 <input formControlName="password" maxlength="50" type="password"  id="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"/>
                 <br>

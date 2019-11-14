@@ -22,8 +22,8 @@ export class ChecklistService {
       map(response => response.json().items))
   }
 
-  getSingleChecklistItem(checklistID: string, checklist_type: number): Observable<Checklist[]> {
-    return this.http.get(environment.API_ENDPOINT + `/checklist/item/${checklistID}/type/${checklist_type}`, { headers: this.postHeaders }).pipe(
+  getSingleChecklistItem(checklist_id: string, checklist_type: number): Observable<Checklist[]> {
+    return this.http.get(environment.API_ENDPOINT + `/checklist/item/${checklist_id}/type/${checklist_type}`, { headers: this.postHeaders }).pipe(
       map(
         response => response.json(),
         () => console.log('failed to get the information')))
@@ -108,11 +108,13 @@ export class ChecklistService {
       map(a => { return a.json() }));
   }
 
-  deletechecklistItem(checklistID: number, checklistType: number) {
-    const url = environment.API_ENDPOINT + `/checklist/delete/item/${checklistID}/type/${checklistType}`;
+  deletechecklistItem(checklist_id: string, checklistType: number) {
+    const url = environment.API_ENDPOINT + `/checklist/delete/item/${checklist_id}/type/${checklistType}`;
     return this.http.delete(url, { headers: this.postHeaders }).pipe(
       map(
         data => data,
         error => console.log('failed to delete checklist item')))
   }
+
+
 }

@@ -123,10 +123,10 @@
 						</thead>
 						<tbody>
 						<tr *ngFor="let project of projects; let myIndex = index">
-							<td [routerLink]="['/project-dashboard',project.projectID]" style="color:#515594" >{{project.projectName}}</td>
-							<td [routerLink]="['/project-dashboard',project.projectID]" >{{project.projectDesc}}</td>
-							<td [routerLink]="['/project-dashboard',project.projectID]" ><span class="label">{{project.timestamp}}</span></td>
-							<td [routerLink]="['/project-dashboard',project.projectID]" >{{project.projectVersion}}</td>
+							<td [routerLink]="['/project-dashboard',project.project_id]" style="color:#515594" >{{project.project_name}}</td>
+							<td [routerLink]="['/project-dashboard',project.project_id]" >{{project.project_description}}</td>
+							<td [routerLink]="['/project-dashboard',project.project_id]" ><span class="label">{{project.timestamp}}</span></td>
+							<td [routerLink]="['/project-dashboard',project.project_id]" >{{project.project_version}}</td>
 							<td>
 							<button (click)="open(content)" class="btn-danger btn-xs">
 								<i class="fa fa-times "></i>                 
@@ -144,7 +144,7 @@
 							</div>
 							<div class="modal-footer">      
 								<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-								<button type="button" class="btn btn-danger" (click)="deleter(project.projectID)" (click)="c('Close click')" >Delete</button>
+								<button type="button" class="btn btn-danger" (click)="deleter(project.project_id)" (click)="c('Close click')" >Delete</button>
 							</div>
 							</ng-template>
 						</tr>

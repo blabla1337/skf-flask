@@ -19,7 +19,7 @@ export class AuthenticateComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('session') == 'expired') { this.expired = true }localStorage.clear();
     this.loginForm = this.formBuilder.group({
-      userName: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
     })
   }
@@ -30,7 +30,7 @@ export class AuthenticateComponent implements OnInit {
       response => {
         if (response['Authorization token'] != '') {
           sessionStorage.setItem('auth_token', response['Authorization token']);
-          sessionStorage.setItem('user', response['userName']);
+          sessionStorage.setItem('user', response['username']);
           location.replace('dashboard');
         } else { this.error.push('Wrong username/password combination!'); }
       })

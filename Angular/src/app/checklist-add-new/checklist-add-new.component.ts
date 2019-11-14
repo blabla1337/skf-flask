@@ -36,7 +36,7 @@ export class ChecklistAddNewComponent implements OnInit {
   get formControls() { return this.checklistForm.controls; }
   
   public kbItem: any = {
-    'kbID': '',
+    'kb_id': '',
     'title': ''
   };
 
@@ -138,7 +138,7 @@ export class ChecklistAddNewComponent implements OnInit {
       'question': ''
     };
     this.kbItem = {
-      'kbID': '',
+      'kb_id': '',
       'title': ''
     };
   }

@@ -17,10 +17,10 @@ def activate_user(user_id, data):
     log("User is activated", "HIGH", "PASS")
     val_num(user_id)
     val_num(data.get('accessToken'))
-    val_alpha_num(data.get('userName'))
+    val_alpha_num(data.get('username'))
     val_alpha_num_special(data.get('email'))
-    userName = data.get('userName')
-    userName = userName.replace(" ", "")
+    username = data.get('username')
+    username = username.replace(" ", "")
     result = User.query.filter(User.id == user_id).one()
     if not result.activated:
         if result.email == data.get('email'):
@@ -30,7 +30,7 @@ def activate_user(user_id, data):
                     result.password = pw_hash
                     result.access = True
                     result.activated = True
-                    result.userName = userName
+                    result.username = username
                     db.session.add(result)
                     db.session.commit()
                     return {'message': 'User successfully activated'}
@@ -41,11 +41,11 @@ def activate_user(user_id, data):
 
 def login_user(data):
     log("User successfully logedin", "HIGH", "PASS")
-    val_alpha_num(data.get('userName'))
-    userName = data.get('userName')
+    val_alpha_num(data.get('username'))
+    username = data.get('username')
 
     try:
-        user = User.query.filter(User.userName == userName).one()
+        user = User.query.filter(User.username == username).one()
         if not user is None and user.activated and user.access \
             and check_password_hash(user.password, data.get('password')):
                 payload = {
@@ -64,7 +64,7 @@ def login_user(data):
                 if sys.version_info.major == 3:
                 	unicode = str
                 token = unicode(token_raw,'utf-8')
-                return {'Authorization token': token, 'userName': userName}
+                return {'Authorization token': token, 'username': username}
 
         log("User triggered error login failed", "HIGH", "FAIL")
         return {'Authorization token': ''}
@@ -93,7 +93,7 @@ def create_user(data):
     try:
         user = User(email)
         user.privilege_id = privilege_id
-        user.userName = accessToken
+        user.username = accessToken
         user.accessToken  = accessToken
         # Add user to default groupmember issue #422
         user.group_id = 0

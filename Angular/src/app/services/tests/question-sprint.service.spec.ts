@@ -61,8 +61,8 @@ describe('Question-sprint service', () => {
   describe('New sprint questions', () => {
 
    const questions: Sprint[] = [];
-   questions.push({'projectID': 1, 'question_pre_ID': '1', 'result': 'True'})
-   questions.push({'projectID': 1, 'question_pre_ID': '2', 'result': 'False'})
+   questions.push({'project_id': 1, 'question_pre_ID': '1', 'result': 'True'})
+   questions.push({'project_id': 1, 'question_pre_ID': '2', 'result': 'False'})
 
     const items2 = {
         'return': 'Stored the sprint questions'

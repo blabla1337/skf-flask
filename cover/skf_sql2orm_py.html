@@ -272,7 +272,7 @@
 <p id="t57" class="pln"><span class="str">        db.session.add(Privilege('edit:read'))</span><span class="strut">&nbsp;</span></p>
 <p id="t58" class="pln"><span class="str">        db.session.add(Privilege('read'))  </span><span class="strut">&nbsp;</span></p>
 <p id="t59" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t60" class="pln"><span class="str">        user = User(userName='admin', accessToken=1234, email="example@owasp.org")</span><span class="strut">&nbsp;</span></p>
+<p id="t60" class="pln"><span class="str">        user = User(username='admin', accessToken=1234, email="example@owasp.org")</span><span class="strut">&nbsp;</span></p>
 <p id="t61" class="pln"><span class="str">        user.privilege = p</span><span class="strut">&nbsp;</span></p>
 <p id="t62" class="pln"><span class="str">        db.session.add(user)</span><span class="strut">&nbsp;</span></p>
 <p id="t63" class="pln"><span class="strut">&nbsp;</span></p>
@@ -320,14 +320,14 @@
 <p id="t105" class="stm mis">                                <span class="nam">d</span> <span class="op">=</span> <span class="nam">line2dict</span><span class="op">(</span><span class="nam">line</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t106" class="pln">                                <span class="com">#print(d)</span><span class="strut">&nbsp;</span></p>
 <p id="t107" class="stm mis">                                <span class="nam">output</span><span class="op">(</span><span class="str">"c = ChecklistKB('{}', '{}', {}, {}, {});"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="strut">&nbsp;</span></p>
-<p id="t108" class="pln">                                        <span class="nam">d</span><span class="op">[</span><span class="str">'checklistID'</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t108" class="pln">                                        <span class="nam">d</span><span class="op">[</span><span class="str">'checklist_id'</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t109" class="pln">                                        <span class="nam">d</span><span class="op">[</span><span class="str">'content'</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t110" class="pln">                                        <span class="nam">d</span><span class="op">[</span><span class="str">'checklist_type'</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t111" class="pln">                                        <span class="key">True</span> <span class="key">if</span> <span class="nam">d</span><span class="op">[</span><span class="str">'include_always'</span><span class="op">]</span><span class="op">.</span><span class="nam">lower</span><span class="op">(</span><span class="op">)</span><span class="op">==</span><span class="str">'true'</span> <span class="key">else</span> <span class="key">False</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t112" class="pln">                                        <span class="nam">d</span><span class="op">[</span><span class="str">'cwe'</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t113" class="pln">                                <span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t114" class="stm mis">                                <span class="nam">output</span><span class="op">(</span><span class="str">"c.question_id = {}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">d</span><span class="op">[</span><span class="str">'question_ID'</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t115" class="stm mis">                                <span class="nam">output</span><span class="op">(</span><span class="str">"c.kb_id = {}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">d</span><span class="op">[</span><span class="str">'kbID'</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t114" class="stm mis">                                <span class="nam">output</span><span class="op">(</span><span class="str">"c.question_id = {}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">d</span><span class="op">[</span><span class="str">'question_id'</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t115" class="stm mis">                                <span class="nam">output</span><span class="op">(</span><span class="str">"c.kb_id = {}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">d</span><span class="op">[</span><span class="str">'kb_id'</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t116" class="stm mis">                                <span class="nam">output</span><span class="op">(</span><span class="str">"db.session.add(c)"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t117" class="stm mis">                                <span class="nam">output</span><span class="op">(</span><span class="str">"db.session.commit()"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t118" class="stm mis">                                <span class="nam">output</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -366,7 +366,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-11-12 14:29
+            created at 2019-11-14 13:43
         </p>
     </div>
 </div>

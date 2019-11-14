@@ -7,7 +7,7 @@ from skf.database import db
 --
 drop table if exists `kb_items`;
 CREATE TABLE `kb_items` (
-`kbID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`kb_id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `title` varchar(250) NOT NULL,
 `content` varchar(250) NOT NULL
 );

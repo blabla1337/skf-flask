@@ -10,7 +10,7 @@ import { User } from '../../models/user';
 
 describe('User-add service', () => {
   let mockResponse, matchingItem, connection;
-  const items: User[] = [{'accessToken': 1234, 'userID': 1}]
+  const items: User[] = [{'accessToken': 1234, 'user_id': 1}]
 
   const firstLogin = {
       email: 'test@test.com'
@@ -48,7 +48,7 @@ describe('User-add service', () => {
 
     service.newUser('admin@admin.nl', '1')
       .subscribe((response) => {
-        expect(response).toMatch(JSON.stringify([{'accessToken': 1234, 'userID': 1}]));
+        expect(response).toMatch(JSON.stringify([{'accessToken': 1234, 'user_id': 1}]));
       });
   }));
 

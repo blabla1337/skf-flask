@@ -6,13 +6,13 @@ from skf.database import db
 --
 drop table if exists `projects`;
 CREATE TABLE `projects` (
-`projectID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`userID` int(11) NOT NULL,
-`groupID` int(11) NOT NULL,
-`projectName` varchar(250) NOT NULL,
-`projectVersion` varchar(250) NOT NULL,
-`projectDesc` text NOT NULL,
-`ownerID` int(11) NOT NULL,
+`project_id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`user_id` int(11) NOT NULL,
+`group_id` int(11) NOT NULL,
+`project_name` varchar(250) NOT NULL,
+`project_version` varchar(250) NOT NULL,
+`project_description` text NOT NULL,
+`owner_id` int(11) NOT NULL,
 `timestamp` timestamp NOT NULL
 );
 '''

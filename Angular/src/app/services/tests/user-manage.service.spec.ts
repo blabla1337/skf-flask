@@ -21,15 +21,15 @@ describe('User-manage service', () => {
     'access': 'True',
     'activated': 'True',
     'email': 'example@owasp.org',
-    'userID': 1,
-    'userName': 'admin'
+    'user_id': 1,
+    'username': 'admin'
   },
   {
     'access': 'True',
     'activated': 'True',
     'email': 'user@owasp.org',
-    'userID': 2,
-    'userName': 'user'
+    'user_id': 2,
+    'username': 'user'
   }
   ]
 

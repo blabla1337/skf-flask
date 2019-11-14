@@ -25,8 +25,8 @@ export class ProjectDashboardComponent implements OnInit {
   public sprintResult: Sprint[];
   public questions: Questions[] = []
   public steps = false;
-  public sprintName: string;
-  public sprintDescription: string;
+  public sprint_name: string;
+  public sprint_descriptionription: string;
   public errors: string[] = [];
   public sprint_id: number;
   public return: boolean;
@@ -77,11 +77,11 @@ export class ProjectDashboardComponent implements OnInit {
     this.errors = [];
     this.return = true;
 
-    if (!this.sprintName) { this.errors.push('Sprint name was empty!'); this.return = false }
-    if (!this.sprintDescription) { this.errors.push('Sprint description was empty!'); this.return = false; }
+    if (!this.sprint_name) { this.errors.push('Sprint name was empty!'); this.return = false }
+    if (!this.sprint_descriptionription) { this.errors.push('Sprint description was empty!'); this.return = false; }
     if (this.return == false) { return; }
 
-    this.sprintService.newSprint(this.sprintName, Number(localStorage.getItem('project_id')), this.sprintDescription)
+    this.sprintService.newSprint(this.sprint_name, Number(localStorage.getItem('project_id')), this.sprint_descriptionription)
       .subscribe(res => { this.sprint_id = res['sprint_id'] }, error => console.log('error storing sprint'));
     this.steps = true;
   }
@@ -89,7 +89,7 @@ export class ProjectDashboardComponent implements OnInit {
   oldSprint() {
     console.log(this.oldSprints)
     this.sprint_id = this.oldSprints['sprint_id']
-    this.sprintName = this.oldSprints['sprint_name']    
+    this.sprint_name = this.oldSprints['sprint_name']    
   }
 
 
@@ -102,12 +102,12 @@ export class ProjectDashboardComponent implements OnInit {
 
     for (let i = 1; i < count_sprint + 1; i++) {
       if (sprint_items['answer' + i] != '') {
-        this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprintName});
+        this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': Number(sprint_items['answer' + i]), 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprint_name});
       }
     }
 
     if(count_sprint == 0){
-      this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': 0, 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprintName});
+      this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': 0, 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name':this.sprint_name});
     }
 
   setTimeout(() => {

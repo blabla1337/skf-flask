@@ -21,8 +21,8 @@ describe('Users manage component', () => {
   let fixture: ComponentFixture<UserManageComponent>;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
-  const user: User[] = [{ access: 'True', active: 'True', email: 'example@owasp.org', userID: 1, accessToken: 1234, userName: 'admin' }]
-  const userRevoke: User[] = [{ access: 'False', active: 'False', email: 'example@owasp.org', userID: 1, accessToken: 1234, userName: 'admin' }]
+  const user: User[] = [{ access: 'True', active: 'True', email: 'example@owasp.org', user_id: 1, accessToken: 1234, username: 'admin' }]
+  const userRevoke: User[] = [{ access: 'False', active: 'False', email: 'example@owasp.org', user_id: 1, accessToken: 1234, username: 'admin' }]
   const mocker = {
     revoke: jasmine.createSpy('revoke'),
     grant: jasmine.createSpy('grant')

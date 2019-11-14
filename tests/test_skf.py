@@ -33,7 +33,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_activate_user(self):
         """Test if the activate user call is working"""
-        payload = {'accessToken': 1234, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admin', 'userName': 'admin'}
+        payload = {'accessToken': 1234, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admin', 'username': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/user/activate/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -43,7 +43,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def login(self, username, password):
         """Login method needed for testing"""
-        payload = {'userName': ''+username+'', 'password': ''+password+''}
+        payload = {'username': ''+username+'', 'password': ''+password+''}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -53,7 +53,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_fail_token_activate_user(self):
         """Test if the fail token activate user call is working"""
-        payload = {'accessToken': 123, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admin', 'userName': 'admin'}
+        payload = {'accessToken': 123, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admin', 'username': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/user/activate/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -63,7 +63,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_fail_email_activate_user(self):
         """Test if the fail email activate user call is working"""
-        payload = {'accessToken': 1234, 'email': 'woop@owasp.org', 'password': 'admin', 'repassword': 'admin', 'userName': 'admin'}
+        payload = {'accessToken': 1234, 'email': 'woop@owasp.org', 'password': 'admin', 'repassword': 'admin', 'username': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/user/activate/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -73,7 +73,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_fail_password_activate_user(self):
         """Test if the fail password activate user call is working"""
-        payload = {'accessToken': 1234, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admintypo', 'userName': 'admin'}
+        payload = {'accessToken': 1234, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admintypo', 'username': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/user/activate/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -83,7 +83,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_login(self):
         """Test if the login call is working"""
-        payload = {'userName': 'admin', 'password': 'admin'}
+        payload = {'username': 'admin', 'password': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -93,7 +93,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_fail_user_login(self):
         """Test if the fail user login call is working"""
-        payload = {'userName': 'adm', 'password': 'admin'}
+        payload = {'username': 'adm', 'password': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -103,7 +103,7 @@ class TestRestPlusApi(unittest.TestCase):
 
     def test_fail_password_login(self):
         """Test if the fail password login call is working"""
-        payload = {'userName': 'admin', 'password': 'bla'}
+        payload = {'username': 'admin', 'password': 'bla'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
@@ -129,7 +129,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/user/list', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['userName'], "admin")
+        self.assertEqual(response_dict['items'][0]['username'], "admin")
 
 
     def test_user_manage(self):
@@ -430,7 +430,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'project_id': 3}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'project_id': 3, 'question_id': 1,'result': 'True', 'sprintID': 4, 'checklist_type': 1},{'project_id': 3, 'question_id': 2,'result': 'True', 'sprintID': 4, 'checklist_type': 1} ]}
+        payload = {'questions': [ {'project_id': 3, 'question_id': 1,'result': 'True', 'sprint_id': 4, 'checklist_type': 1},{'project_id': 3, 'question_id': 2,'result': 'True', 'sprint_id': 4, 'checklist_type': 1} ]}
         response = self.client.put('/api/questions/store/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -438,7 +438,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'project_id': 3}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'project_id': 3, 'question_id': 1,'result': 'True', 'sprintID': 5, 'checklist_type': 1},{'project_id': 3, 'question_id': 2,'result': 'True', 'sprintID': 5, 'checklist_type': 1} ]}
+        payload = {'questions': [ {'project_id': 3, 'question_id': 1,'result': 'True', 'sprint_id': 5, 'checklist_type': 1},{'project_id': 3, 'question_id': 2,'result': 'True', 'sprint_id': 5, 'checklist_type': 1} ]}
         response = self.client.put('/api/questions/store/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -461,7 +461,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'description': 'Unit test description sprint', 'name': 'Unit test name sprint', 'project_id': 3}
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
-        payload = {'questions': [ {'project_id': 3, 'question_id': 1,'result': 'True', 'sprintID': 3, 'checklist_type': 1},{'project_id': 3, 'question_id': 2,'result': 'True', 'sprintID': 3, 'checklist_type': 1} ]}
+        payload = {'questions': [ {'project_id': 3, 'question_id': 1,'result': 'True', 'sprint_id': 3, 'checklist_type': 1},{'project_id': 3, 'question_id': 2,'result': 'True', 'sprint_id': 3, 'checklist_type': 1} ]}
         response = self.client.put('/api/questions/store/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -469,7 +469,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/sprint/results/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        payload = {'checklistID': '1.1', 'comment': 'Unit test comment', 'sprintID': 7, 'status': 3}
+        payload = {'checklist_id': '1.1', 'comment': 'Unit test comment', 'sprint_id': 7, 'status': 3}
         response = self.client.put('/api/comment/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -512,7 +512,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/sprint/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['sprintName'], "Unit test name sprint")
+        self.assertEqual(response_dict['sprint_name'], "Unit test name sprint")
 
 
     def test_update_sprint_item(self):
@@ -527,7 +527,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/sprint/3', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['sprintName'], "Unit test name sprint update")
+        self.assertEqual(response_dict['sprint_name'], "Unit test name sprint update")
 
 
     def test_delete_sprint_item(self):
@@ -557,7 +557,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.put('/api/sprint/new', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        payload = {'questions': [ {'project_id': 5, 'question_id': 1,'result': 'False', 'sprintID': 7, 'checklist_type': 1},{'project_id': 5, 'question_id': 2,'result': 'True', 'sprintID': 7, 'checklist_type': 1} ]}
+        payload = {'questions': [ {'project_id': 5, 'question_id': 1,'result': 'False', 'sprint_id': 7, 'checklist_type': 1},{'project_id': 5, 'question_id': 2,'result': 'True', 'sprint_id': 7, 'checklist_type': 1} ]}
         response = self.client.put('/api/questions/store/1', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))

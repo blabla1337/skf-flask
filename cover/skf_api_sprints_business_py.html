@@ -290,8 +290,8 @@
 <p id="t62" class="stm mis">    <span class="nam">project_id</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'project_id'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t63" class="stm mis">    <span class="nam">checklist_type_id</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'checklist_type_id'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t64" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t65" class="pln">    <span class="com">#groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()</span><span class="strut">&nbsp;</span></p>
-<p id="t66" class="pln">    <span class="com">#groupID = groupmember.groupID</span><span class="strut">&nbsp;</span></p>
+<p id="t65" class="pln">    <span class="com">#groupmember = groupmembers.query.filter(groupmembers.user_id == user_id).one()</span><span class="strut">&nbsp;</span></p>
+<p id="t66" class="pln">    <span class="com">#group_id = groupmember.group_id</span><span class="strut">&nbsp;</span></p>
 <p id="t67" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t68" class="stm mis">    <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t69" class="stm mis">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">User</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="nam">user_id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -392,7 +392,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-11-12 14:29
+            created at 2019-11-14 13:43
         </p>
     </div>
 </div>
