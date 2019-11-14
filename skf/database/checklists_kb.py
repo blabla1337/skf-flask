@@ -8,12 +8,12 @@ from skf.database import db
 drop table if exists `checklists_kb`;
 CREATE TABLE `checklists_kb` (
     `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-    `checklistID` varchar(255) NOT NULL,
+    `checklist_id` varchar(255) NOT NULL,
     `content` varchar(255) NOT NULL,
     `cwe` int(11) NOT NULL,
-    `question_ID` int(11) NOT NULL,
+    `question_id` int(11) NOT NULL,
     `include_always` boolean,
-    `kbID` int(11) NOT NULL,
+    `kb_id` int(11) NOT NULL,
     `checklist_type` int(11) NOT NULL
 ); 
 '''

@@ -1,7 +1,7 @@
 export class User {
   constructor(
   email?: string,
-  userName?: string,
+  username?: string,
   accessToken?: number,
   password?: string,
   access?: string,

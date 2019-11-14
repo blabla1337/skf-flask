@@ -131,7 +131,7 @@ def init_md_knowledge_base():
                 data.close()
                 content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
 
-                #query = "INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('"+kbID+"','"+content_escaped+"', '"+title+"', 1) \n"
+                #query = "INSERT OR REPLACE INTO kb_items (kb_id, content, title) VALUES ('"+kb_id+"','"+content_escaped+"', '"+title+"', 1) \n"
                 #with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
                 #        myfile.write(query)
                 try:

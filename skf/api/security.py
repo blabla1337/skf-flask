@@ -27,16 +27,16 @@ def log(message, threat, status):
         if request.headers.get('Authorization'):
             token = request.headers.get('Authorization').split()[0]
             checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
-            userID = checkClaims['UserId']
+            user_id = checkClaims['UserId']
         else:
-            userID = "0"
-        event = Log(dateLog, dateTime, threat, ip, userID, status, message)
+            user_id = "0"
+        event = Log(dateLog, dateTime, threat, ip, user_id, status, message)
         db.session.add(event)
         db.session.commit()
     except:
-        userID = "0"
+        user_id = "0"
         ip = "0.0.0.0"
-        event = "Datelog: "+dateLog+" "+" Datetime: "+dateTime+" "+"Threat: "+threat+" "+" IP:"+ip+" "+"UserId: "+userID+" "+"Status: "+status+" "+"Message: "+message
+        event = "Datelog: "+dateLog+" "+" Datetime: "+dateTime+" "+"Threat: "+threat+" "+" IP:"+ip+" "+"UserId: "+user_id+" "+"Status: "+status+" "+"Message: "+message
 
 
 def val_alpha(value):
@@ -110,7 +110,7 @@ def validate_privilege(self, privilege):
 
 
 def select_userid_jwt(self):
-    """Returns the userID from the JWT authorization token"""
+    """Returns the user_id from the JWT authorization token"""
     token = request.headers.get('Authorization').split()[0]
     try:
         checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')

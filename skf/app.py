@@ -154,9 +154,9 @@ def main():
             log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
             app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)
     if app.debug == True:
-        if  settings.JWT_SECRET == '':
+        if  settings.JWT_SECRET == 'True':
             log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
-            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)        
+            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)    
 
 
 if __name__ == "__main__":

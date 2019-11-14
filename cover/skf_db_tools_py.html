@@ -387,7 +387,7 @@
 <p id="t131" class="stm run hide_run">                <span class="nam">data</span><span class="op">.</span><span class="nam">close</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t132" class="stm run hide_run">                <span class="nam">content</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">translate</span><span class="op">(</span><span class="nam">str</span><span class="op">.</span><span class="nam">maketrans</span><span class="op">(</span><span class="op">{</span><span class="str">"'"</span><span class="op">:</span>  <span class="str">r"''"</span><span class="op">,</span> <span class="str">"-"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">,</span> <span class="str">"#"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">}</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t133" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t134" class="pln">                <span class="com">#query = "INSERT OR REPLACE INTO kb_items (kbID, content, title) VALUES ('"+kbID+"','"+content_escaped+"', '"+title+"', 1) \n"</span><span class="strut">&nbsp;</span></p>
+<p id="t134" class="pln">                <span class="com">#query = "INSERT OR REPLACE INTO kb_items (kb_id, content, title) VALUES ('"+kb_id+"','"+content_escaped+"', '"+title+"', 1) \n"</span><span class="strut">&nbsp;</span></p>
 <p id="t135" class="pln">                <span class="com">#with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:</span><span class="strut">&nbsp;</span></p>
 <p id="t136" class="pln">                <span class="com">#        myfile.write(query)</span><span class="strut">&nbsp;</span></p>
 <p id="t137" class="stm run hide_run">                <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -448,7 +448,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-11-08 13:15
+            created at 2019-11-14 13:43
         </p>
     </div>
 </div>

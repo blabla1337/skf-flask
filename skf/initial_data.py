@@ -20,10 +20,10 @@ from skf.database.question_results import QuestionResult
 
 def load_initial_data():
 
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read", 1))
+#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))
+#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (2, "edit:read:delete", 1))
+#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (3, "edit:read", 1))
+#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (4, "read", 1))
     try:
         p = Privilege('edit:read:manage:delete')
         db.session.add(p)
@@ -31,14 +31,14 @@ def load_initial_data():
         db.session.add(Privilege('edit:read'))
         db.session.add(Privilege('read'))  
 
-#   INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org", 1))
-        user = User(userName='admin', accessToken=1234, email="example@owasp.org")
+#   INSERT OR REPLACE INTO `users` (`user_id`, `privilege_id`, `username`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org", 1))
+        user = User(username='admin', accessToken=1234, email="example@owasp.org")
         user.privilege = p
         db.session.add(user)
 
-#   INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup", 1))
+#   INSERT OR REPLACE INTO `groups` (`group_id`, `owner_id`, `groupName`) VALUES (1, 1, "privateGroup", 1))
         group = Group('privateGroup', datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
-#   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1, 1)
+#   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `user_id`, `group_id`, `owner_id`) VALUES (1, 1, 1, 1, 1)
         group.members.append(user)
         group.owner = user
         db.session.add(group)

@@ -57,7 +57,7 @@ def load_initial_data():
         db.session.add(Privilege('edit:read'))
         db.session.add(Privilege('read'))  
 
-        user = User(userName='admin', accessToken=1234, email="example@owasp.org")
+        user = User(username='admin', accessToken=1234, email="example@owasp.org")
         user.privilege = p
         db.session.add(user)
 
@@ -105,14 +105,14 @@ def main():
 				d = line2dict(line)
 				#print(d)
 				output("c = ChecklistKB('{}', '{}', {}, {}, {});".format(
-					d['checklistID'],
+					d['checklist_id'],
 					d['content'],
 					d['checklist_type'],
 					True if d['include_always'].lower()=='true' else False,
 					d['cwe']
 				))
-				output("c.question_id = {}".format(d['question_ID']))
-				output("c.kb_id = {}".format(d['kbID']))
+				output("c.question_id = {}".format(d['question_id']))
+				output("c.kb_id = {}".format(d['kb_id']))
 				output("db.session.add(c)")
 				output("db.session.commit()")
 				output()

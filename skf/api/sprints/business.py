@@ -62,8 +62,8 @@ def new_sprint(user_id, data):
     project_id = data.get('project_id')
     checklist_type_id = data.get('checklist_type_id')
 
-    #groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
-    #groupID = groupmember.groupID
+    #groupmember = groupmembers.query.filter(groupmembers.user_id == user_id).one()
+    #group_id = groupmember.group_id
 
     try:
         user = User.query.get(user_id)

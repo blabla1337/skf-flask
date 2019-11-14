@@ -7,11 +7,11 @@ from skf.database import db
 --
 drop table if exists `project_sprints`;
 CREATE TABLE `project_sprints` (
-`sprintID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`projectID` int(11) NOT NULL,
-`groupID` int(11) NOT NULL,
-`sprintName` varchar(250) NOT NULL,
-`sprintDesc` varchar(250) NOT NULL
+`sprint_id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`project_id` int(11) NOT NULL,
+`group_id` int(11) NOT NULL,
+`sprint_name` varchar(250) NOT NULL,
+`sprint_description` varchar(250) NOT NULL
 );
 '''
 

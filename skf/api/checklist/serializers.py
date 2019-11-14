@@ -40,11 +40,11 @@ checklist_questions = api.model('checklists_kb', {
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
     'checklist_items_id': fields.Integer(attribute='id', required=True, description='Checklist type'),
-    'checklist_items_checklistID': fields.String(attribute='checklist_id', required=True, description='The unique identifier of a checklist item'),
+    'checklist_items_checklist_id': fields.String(attribute='checklist_id', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='content', required=True, description='Checklist content'),
     'checklist_items_type': fields.Integer(attribute='checklist_type', required=True, description='Checklist type'),
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
-    'question_ID': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
+    'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'questions': fields.String(attribute='questions.question', required=True, description='correlated question!'),
 })
 

@@ -141,7 +141,7 @@ export class ChecklistEditComponent implements OnInit {
 
   deleteChecklistItem() {
     if (this.delete == 'DELETE') {
-      this.checklistService.deletechecklistItem(Number(localStorage.getItem('checklist_ref_id')), Number(localStorage.getItem('checklist_type_id'))).subscribe(x =>
+      this.checklistService.deletechecklistItem(localStorage.getItem('checklist_ref_id'), Number(localStorage.getItem('checklist_type_id'))).subscribe(x =>
         this.router.navigate(['/checklist-add-new/', localStorage.getItem('checklist_type_id')]));
       this.delete = '';
     }

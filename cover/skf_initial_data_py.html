@@ -2465,10 +2465,10 @@
 <p id="t20" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t21" class="stm run hide_run"><span class="key">def</span> <span class="nam">load_initial_data</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t22" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t23" class="pln"><span class="com">#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))</span><span class="strut">&nbsp;</span></p>
-<p id="t24" class="pln"><span class="com">#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete", 1))</span><span class="strut">&nbsp;</span></p>
-<p id="t25" class="pln"><span class="com">#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read", 1))</span><span class="strut">&nbsp;</span></p>
-<p id="t26" class="pln"><span class="com">#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read", 1))</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="pln"><span class="com">#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))</span><span class="strut">&nbsp;</span></p>
+<p id="t24" class="pln"><span class="com">#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (2, "edit:read:delete", 1))</span><span class="strut">&nbsp;</span></p>
+<p id="t25" class="pln"><span class="com">#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (3, "edit:read", 1))</span><span class="strut">&nbsp;</span></p>
+<p id="t26" class="pln"><span class="com">#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (4, "read", 1))</span><span class="strut">&nbsp;</span></p>
 <p id="t27" class="stm run hide_run">    <span class="key">try</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t28" class="stm run hide_run">        <span class="nam">p</span> <span class="op">=</span> <span class="nam">Privilege</span><span class="op">(</span><span class="str">'edit:read:manage:delete'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="stm run hide_run">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">p</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -2476,14 +2476,14 @@
 <p id="t31" class="stm run hide_run">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">Privilege</span><span class="op">(</span><span class="str">'edit:read'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t32" class="stm run hide_run">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">Privilege</span><span class="op">(</span><span class="str">'read'</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t33" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t34" class="pln"><span class="com">#   INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org", 1))</span><span class="strut">&nbsp;</span></p>
-<p id="t35" class="stm run hide_run">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">User</span><span class="op">(</span><span class="nam">userName</span><span class="op">=</span><span class="str">'admin'</span><span class="op">,</span> <span class="nam">accessToken</span><span class="op">=</span><span class="num">1234</span><span class="op">,</span> <span class="nam">email</span><span class="op">=</span><span class="str">"example@owasp.org"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t34" class="pln"><span class="com">#   INSERT OR REPLACE INTO `users` (`user_id`, `privilege_id`, `username`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org", 1))</span><span class="strut">&nbsp;</span></p>
+<p id="t35" class="stm run hide_run">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">User</span><span class="op">(</span><span class="nam">username</span><span class="op">=</span><span class="str">'admin'</span><span class="op">,</span> <span class="nam">accessToken</span><span class="op">=</span><span class="num">1234</span><span class="op">,</span> <span class="nam">email</span><span class="op">=</span><span class="str">"example@owasp.org"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t36" class="stm run hide_run">        <span class="nam">user</span><span class="op">.</span><span class="nam">privilege</span> <span class="op">=</span> <span class="nam">p</span><span class="strut">&nbsp;</span></p>
 <p id="t37" class="stm run hide_run">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">user</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t38" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t39" class="pln"><span class="com">#   INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup", 1))</span><span class="strut">&nbsp;</span></p>
+<p id="t39" class="pln"><span class="com">#   INSERT OR REPLACE INTO `groups` (`group_id`, `owner_id`, `groupName`) VALUES (1, 1, "privateGroup", 1))</span><span class="strut">&nbsp;</span></p>
 <p id="t40" class="stm run hide_run">        <span class="nam">group</span> <span class="op">=</span> <span class="nam">Group</span><span class="op">(</span><span class="str">'privateGroup'</span><span class="op">,</span> <span class="nam">datetime</span><span class="op">.</span><span class="nam">datetime</span><span class="op">.</span><span class="nam">now</span><span class="op">(</span><span class="op">)</span><span class="op">.</span><span class="nam">strftime</span><span class="op">(</span><span class="str">"%Y-%m-%d %H:%M"</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t41" class="pln"><span class="com">#   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1, 1)</span><span class="strut">&nbsp;</span></p>
+<p id="t41" class="pln"><span class="com">#   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `user_id`, `group_id`, `owner_id`) VALUES (1, 1, 1, 1, 1)</span><span class="strut">&nbsp;</span></p>
 <p id="t42" class="stm run hide_run">        <span class="nam">group</span><span class="op">.</span><span class="nam">members</span><span class="op">.</span><span class="nam">append</span><span class="op">(</span><span class="nam">user</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t43" class="stm run hide_run">        <span class="nam">group</span><span class="op">.</span><span class="nam">owner</span> <span class="op">=</span> <span class="nam">user</span><span class="strut">&nbsp;</span></p>
 <p id="t44" class="stm run hide_run">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">group</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -4826,7 +4826,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-11-12 14:29
+            created at 2019-11-14 13:43
         </p>
     </div>
 </div>

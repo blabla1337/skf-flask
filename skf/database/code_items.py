@@ -7,7 +7,7 @@ from skf.database import db
 --
 drop table if exists `code_items`;
 CREATE TABLE `code_items` (
-`codeID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`code_id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `title` varchar(250) NOT NULL,
 `content` varchar(250) NOT NULL,
 `code_lang` varchar(250) NOT NULL

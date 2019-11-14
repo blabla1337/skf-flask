@@ -1,6 +1,6 @@
 export class CodeExample {
   constructor(
-  codeID: number,
+  code_id: number,
   code_lang: string,
   content: string,
   title: string,

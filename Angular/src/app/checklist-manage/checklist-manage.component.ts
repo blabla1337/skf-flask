@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ChecklistManageComponent implements OnInit {
   closeResult: string;
   public number: number;
-  public checklistID: string;
+  public checklist_id: string;
   public error: string;
   public delete: string;
   public canDelete: boolean;

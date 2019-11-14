@@ -31,13 +31,13 @@ def update_project(project_id, user_id, data):
     val_alpha_num_special(data.get('description'))
     try:
         project = Project.query.filter(Project.id == project_id).one()
-        project.projectName = data.get('name')
-        project.projectVersion = data.get('version')
-        project.projectDesc = data.get('description')
-        project.userID = user_id
-        #groupmember = groupmembers.query.filter(groupmembers.userID == user_id).one()
-        #ownerID = groupmember.ownerID
-        #groupID = groupmember.groupID
+        project.project_name = data.get('name')
+        project.project_version = data.get('version')
+        project.project_description = data.get('description')
+        project.user_id = user_id
+        #groupmember = groupmembers.query.filter(groupmembers.user_id == user_id).one()
+        #owner_id = groupmember.owner_id
+        #group_id = groupmember.group_id
         now = datetime.datetime.now()
         project.timestamp = now.strftime("%Y-%m-%d %H:%M")
         db.session.add(project) 
@@ -70,7 +70,7 @@ def new_project(user_id, data):
     #result = Project.query.filter(Project.user_id == user_id).order_by(desc(Project.id)).first()
     # I assume we would like to return the new project ID?
     result = Project.query.filter(Project.name == name).first()
-    return {'projectID': result.id, 'message': 'Project successfully created'}
+    return {'project_id': result.id, 'message': 'Project successfully created'}
 
 
 def delete_project(project_id, user_id):

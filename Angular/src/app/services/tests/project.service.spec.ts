@@ -31,20 +31,20 @@ describe('Project service', () => {
   describe('Get list of projects', () => {
     const items = [
     {
-      'projectID': 1,
-      'groupID': 1,
-      'projectName': 'Project name app 1',
-      'projectVersion': '1.1',
-      'projectDesc': 'Project description of app 1',
+      'project_id': 1,
+      'group_id': 1,
+      'project_name': 'Project name app 1',
+      'project_version': '1.1',
+      'project_description': 'Project description of app 1',
       'timestamp': '1.1',
       'level': '3'
     },
     {
-      'projectID': 2,
-      'groupID': 1,
-      'projectName': 'Project name app 2',
-      'projectVersion': '2.2',
-      'projectDesc': 'Project description of app 2',
+      'project_id': 2,
+      'group_id': 1,
+      'project_name': 'Project name app 2',
+      'project_version': '2.2',
+      'project_description': 'Project description of app 2',
       'timestamp': '1.1',
       'level': '3'
     }
@@ -62,8 +62,8 @@ describe('Project service', () => {
       service.getProjects()
         .subscribe((items: Project[]) => {
          expect(items.length).toBe(2);
-         expect(items[0]['projectID']).toEqual(1);
-         expect(items[1]['projectName']).toEqual('Project name app 2');
+         expect(items[0]['project_id']).toEqual(1);
+         expect(items[1]['project_name']).toEqual('Project name app 2');
         });
     }));
   });
@@ -103,11 +103,11 @@ describe('Project service', () => {
   describe('Get project', () => {
    const items = [
     {
-      'projectID': 3,
-      'groupID': 1,
-      'projectName': 'Project name app 3',
-      'projectVersion': '1.1',
-      'projectDesc': 'Project description of app 3',
+      'project_id': 3,
+      'group_id': 1,
+      'project_name': 'Project name app 3',
+      'project_version': '1.1',
+      'project_description': 'Project description of app 3',
       'timestamp': '1.1',
       'level': '3'
     },
@@ -125,8 +125,8 @@ describe('Project service', () => {
       service.getProject(1)
         .subscribe((items: ProjectStats[]) => {
          expect(items.length).toBe(1);
-         expect(items[0]['projectID']).toEqual(3);
-         expect(items[0]['projectName']).toEqual('Project name app 3');
+         expect(items[0]['project_id']).toEqual(3);
+         expect(items[0]['project_name']).toEqual('Project name app 3');
          expect(items[0]['level']).toEqual('3');
         });
     }));
@@ -135,10 +135,10 @@ describe('Project service', () => {
   describe('New project', () => {
    const items = [
     {
-      'groupID': 1,
-      'projectName': 'Project name app 3',
-      'projectVersion': '1.1',
-      'projectDesc': 'Project description of app 3',
+      'group_id': 1,
+      'project_name': 'Project name app 3',
+      'project_version': '1.1',
+      'project_description': 'Project description of app 3',
       'timestamp': '1.1',
       'level': '3'
     },

@@ -3,9 +3,9 @@
 --
 drop table if exists `users`;
 CREATE TABLE `users` (
-`userID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`privilegeID` int(11) NOT NULL,
-`userName` varchar(255) NOT NULL UNIQUE,
+`user_id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`privilege_id` int(11) NOT NULL,
+`username` varchar(255) NOT NULL UNIQUE,
 `email` varchar(255) NOT NULL UNIQUE,
 `password` varchar(255) NOT NULL,
 `accessToken` int(11) NOT NULL UNIQUE,
@@ -13,20 +13,20 @@ CREATE TABLE `users` (
 `access` varchar(255) NOT NULL
 );
 
-INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "$2b$12$BlLgoO6rSAsyoioB3Qo9AuDwQlRnGIchSpyY12Hiks1mNziNgcsCu", "1234", "True", "True", "example@owasp.org");
+INSERT OR REPLACE INTO `users` (`user_id`, `privilege_id`, `username`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "$2b$12$BlLgoO6rSAsyoioB3Qo9AuDwQlRnGIchSpyY12Hiks1mNziNgcsCu", "1234", "True", "True", "example@owasp.org");
 
 --
 -- Table structure for table `groups`
 --
 drop table if exists `groups`;
 CREATE TABLE `groups` (
-`groupID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`ownerID` int(11) NOT NULL,
+`group_id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`owner_id` int(11) NOT NULL,
 `groupName` varchar(250) NOT NULL,
 `timestamp` timestamp
 );
 
-INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup");
+INSERT OR REPLACE INTO `groups` (`group_id`, `owner_id`, `groupName`) VALUES (1, 1, "privateGroup");
 
 --
 -- Table structure for table `groupmembers`
@@ -34,13 +34,13 @@ INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1
 drop table if exists `groupmembers`;
 CREATE TABLE `groupmembers` (
 `memberID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`userID` int(11) NOT NULL,
-`groupID` int(11) NOT NULL,
-`ownerID` int(11) NOT NULL,
+`user_id` int(11) NOT NULL,
+`group_id` int(11) NOT NULL,
+`owner_id` int(11) NOT NULL,
 `timestamp` timestamp
 );
 
-INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1);
+INSERT OR REPLACE INTO `groupMembers` (`memberID`, `user_id`, `group_id`, `owner_id`) VALUES (1, 1, 1, 1);
 
 
 --
@@ -48,14 +48,14 @@ INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID
 --
 drop table if exists `privileges`;
 CREATE TABLE `privileges` (
-`privilegeID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`privilege_id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `privilege` varchar(255) NOT NULL
 );
 
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete");
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete");
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read");
-INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read");
+INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (1, "edit:read:manage:delete");
+INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (2, "edit:read:delete");
+INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (3, "edit:read");
+INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (4, "read");
 
 --
 -- Table structure for table `labs`
@@ -104,7 +104,7 @@ INSERT OR REPLACE INTO `lab_items` (`title`, `link`) VALUES ('Regex Ddos','https
 
 drop table if exists `kb_items`;
 CREATE TABLE `kb_items` (
-`kbID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`kb_id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `title` varchar(250) NOT NULL,
 `content` varchar(250) NOT NULL
 );
@@ -120,7 +120,7 @@ INSERT OR REPLACE INTO `kb_items` ( `title`, `content`) VALUES ( "test title kb 
 --
 drop table if exists `code_items`;
 CREATE TABLE `code_items` (
-`codeID` INTEGER PRIMARY KEY AUTOINCREMENT,
+`code_id` INTEGER PRIMARY KEY AUTOINCREMENT,
 `title` varchar(250) NOT NULL,
 `content` varchar(250) NOT NULL,
 `code_lang` varchar(250) NOT NULL
@@ -137,13 +137,13 @@ INSERT OR REPLACE INTO `code_items` ( `code_lang`, `content`, `title`) VALUES ("
 --
 drop table if exists `projects`;
 CREATE TABLE `projects` (
-`projectID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`userID` int(11) NOT NULL,
-`groupID` int(11) NOT NULL,
-`projectName` varchar(250) NOT NULL,
-`projectVersion` varchar(250) NOT NULL,
-`projectDesc` text NOT NULL,
-`ownerID` int(11) NOT NULL,
+`project_id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`user_id` int(11) NOT NULL,
+`group_id` int(11) NOT NULL,
+`project_name` varchar(250) NOT NULL,
+`project_version` varchar(250) NOT NULL,
+`project_description` text NOT NULL,
+`owner_id` int(11) NOT NULL,
 `timestamp` timestamp NOT NULL
 );
 
@@ -154,11 +154,11 @@ CREATE TABLE `projects` (
 --
 drop table if exists `project_sprints`;
 CREATE TABLE `project_sprints` (
-`sprintID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`projectID` int(11) NOT NULL,
-`groupID` int(11) NOT NULL,
-`sprintName` varchar(250) NOT NULL,
-`sprintDesc` varchar(250) NOT NULL
+`sprint_id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`project_id` int(11) NOT NULL,
+`group_id` int(11) NOT NULL,
+`sprint_name` varchar(250) NOT NULL,
+`sprint_description` varchar(250) NOT NULL
 );
 
 
@@ -173,7 +173,7 @@ CREATE TABLE `logs` (
 `time` varchar(255) NOT NULL,
 `threat` varchar(255) NOT NULL,
 `ip` varchar(255) NOT NULL,
-`userID` varchar(255) NOT NULL,
+`user_id` varchar(255) NOT NULL,
 `status` varchar(255) NOT NULL,
 `message` varchar(255) NOT NULL
 );
@@ -228,11 +228,11 @@ CREATE TABLE `questions` (
 drop table if exists `checklists_results`;
 CREATE TABLE `checklists_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklistID` varchar(255) NOT NULL,
-`projectID` int(11) NOT NULL,
-`sprintID` int(11) NOT NULL,
+`checklist_id` varchar(255) NOT NULL,
+`project_id` int(11) NOT NULL,
+`sprint_id` int(11) NOT NULL,
 `status` int(11) NOT NULL,
-`kbID` int(11)
+`kb_id` int(11)
 );
 
 
@@ -242,9 +242,9 @@ CREATE TABLE `checklists_results` (
 drop table if exists `question_results`;
 CREATE TABLE `question_results` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`projectID` int(11) NOT NULL,
-`sprintID` int(11) NOT NULL,
-`question_ID` int(11) NOT NULL,
+`project_id` int(11) NOT NULL,
+`sprint_id` int(11) NOT NULL,
+`question_id` int(11) NOT NULL,
 `result` boolean,
 `checklist_type` int(11) NOT NULL
 );
@@ -255,9 +255,9 @@ CREATE TABLE `question_results` (
 drop table if exists `comments`;
 CREATE TABLE `comments` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`sprintID` int(11) NOT NULL,
-`checklistID` varchar(255) NOT NULL,
-`userID` int(11) NOT NULL, 
+`sprint_id` int(11) NOT NULL,
+`checklist_id` varchar(255) NOT NULL,
+`user_id` int(11) NOT NULL, 
 `status` int(11) NOT NULL, 	
 `comment` varchar(255),
 `date` varchar(255) NOT NULL
@@ -278,10 +278,10 @@ CREATE TABLE `chatbot_log` (
 drop table if exists `checklists_kb`;
 CREATE TABLE `checklists_kb` (
 `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklistID` varchar(255),
+`checklist_id` varchar(255),
 `content` varchar(255),
-`question_ID` int(11),
-`kbID` int(11),
+`question_id` int(11),
+`kb_id` int(11),
 `include_always` varchar(5),
 `checklist_type` int(11),
 `cwe` int(11)

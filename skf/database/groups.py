@@ -5,8 +5,8 @@ from skf.database.groupmembers import GroupMember
 '''
 drop table if exists `groups`;
 CREATE TABLE `groups` (
-`groupID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`ownerID` int(11) NOT NULL,
+`group_id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`owner_id` int(11) NOT NULL,
 `groupName` varchar(250) NOT NULL,
 `timestamp` timestamp
 );

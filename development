@@ -3,6 +3,7 @@
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
 export FLASK_DEBUG=1
+export SKF_JWT_SECRET='True'
 
 while :
 do

@@ -21,11 +21,11 @@ class GroupMember(db.Model):
     timestamp = db.Column(db.Text)
 
 
-    #def __init__(self, memberID, userID, groupID, ownerID, timestamp):
+    #def __init__(self, memberID, user_id, group_id, owner_id, timestamp):
     #    self.member_id = memberID
-    #    self.user_id = userID
-    #    self.group_id = groupID
-    #    self.owner_id = ownerID
+    #    self.user_id = user_id
+    #    self.group_id = group_id
+    #    self.owner_id = owner_id
     #    self.timestamp = timestamp
 '''
 

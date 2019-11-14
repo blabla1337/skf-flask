@@ -35,7 +35,7 @@ def desc_sol_data():
 	a=data['items']
 	for i,value in enumerate(a):
 		file_des_sol.write("{\n")
-		file_des_sol.write('"kbId": '+str(a[i]['kb_id'])+",\n")
+		file_des_sol.write('"kb_id": '+str(a[i]['kb_id'])+",\n")
 		file_des_sol.write('"title": "'+ a[i]['title']+'",\n')
 		y=a[i]['content']
 		y=y.replace("\n\n","")
