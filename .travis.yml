@@ -54,6 +54,7 @@ after_success:
   - snyk monitor
 
 notifications:
+  slack: owasp:Y79DH2cU7J65MG8oKAXWH8qv  
   webhooks:
     urls:
       - https://webhooks.gitter.im/e/e55113d395f98b551f5a
