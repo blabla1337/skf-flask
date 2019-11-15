@@ -15,40 +15,6 @@ def get_project_items():
     return Project.query.paginate(1, 500, False)
 
 
-def get_project_item(project_id, user_id):
-    log("User requested specific project", "MEDIUM", "PASS")
-    val_num(project_id)
-    val_num(user_id)
-    return Project.query.filter(Project.id == project_id).filter(Project.user_id == user_id).one()
-
-
-def update_project(project_id, user_id, data):
-    log("User updated project", "MEDIUM", "PASS")
-    val_num(project_id)
-    val_num(user_id)
-    val_alpha_num_special(data.get('name'))
-    val_alpha_num(data.get('version'))
-    val_alpha_num_special(data.get('description'))
-    try:
-        project = Project.query.filter(Project.id == project_id).one()
-        project.project_name = data.get('name')
-        project.project_version = data.get('version')
-        project.project_description = data.get('description')
-        project.user_id = user_id
-        #groupmember = groupmembers.query.filter(groupmembers.user_id == user_id).one()
-        #owner_id = groupmember.owner_id
-        #group_id = groupmember.group_id
-        now = datetime.datetime.now()
-        project.timestamp = now.strftime("%Y-%m-%d %H:%M")
-        db.session.add(project) 
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback()
-        raise
-
-    return {'message': 'Project successfully updated'}
-
-
 def new_project(user_id, data):
     log("User created new project", "MEDIUM", "PASS")
     val_num(user_id)

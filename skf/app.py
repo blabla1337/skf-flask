@@ -27,11 +27,9 @@ from skf import settings
 from skf.db_tools import init_md_knowledge_base, init_md_code_examples, init_db, update_db
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
-from skf.api.projects.endpoints.project_item import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
 from skf.api.projects.endpoints.project_new import ns as project_namespace
 from skf.api.projects.endpoints.project_stats import ns as project_namespace
-from skf.api.projects.endpoints.project_update import ns as project_namespace
 from skf.api.sprints.endpoints.sprint_item import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_delete import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_new import ns as sprints_namespace

@@ -24,7 +24,7 @@ class ChecklistResult(db.Model):
     checklist_item = db.relationship("ChecklistKB", backref=db.backref(''))
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=True)
     project = db.relationship("Project", backref=db.backref(''))
-    sprint_id = db.Column(db.Integer, db.ForeignKey('project_sprints.id'), nullable=True)
+    sprint_id = db.Column(db.Integer, db.ForeignKey('project_sprints.sprint_id'), nullable=True)
     sprint = db.relationship("ProjectSprint", backref=db.backref(''))
     status = db.Column(db.Integer, nullable=True)
     kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"), nullable=True)

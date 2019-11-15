@@ -22,12 +22,6 @@ page_of_project_items = api.inherit('Page of project items', {
     'items': fields.List(fields.Nested(project))
 })
 
-project_update = api.model('Project update', {
-    'name': fields.String(required=True, description='New project name'),
-    'description': fields.String(required=True, description='New project description'),
-    'version': fields.String(required=True, description='New project version'),
-})
-
 project_new = api.model('Project new', {
     'name': fields.String(required=True, description='New project name'),
     'description': fields.String(required=True, description='New project description'),
