@@ -30,8 +30,8 @@
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            8 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">8 run</span>
+            7 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">7 run</span>
             <span class="mis shortkey_m button_toggle_mis">0 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
@@ -102,12 +102,6 @@
 <p id="n33" class="pln"><a href="#n33">33</a></p>
 <p id="n34" class="pln"><a href="#n34">34</a></p>
 <p id="n35" class="pln"><a href="#n35">35</a></p>
-<p id="n36" class="pln"><a href="#n36">36</a></p>
-<p id="n37" class="stm run hide_run"><a href="#n37">37</a></p>
-<p id="n38" class="pln"><a href="#n38">38</a></p>
-<p id="n39" class="pln"><a href="#n39">39</a></p>
-<p id="n40" class="pln"><a href="#n40">40</a></p>
-<p id="n41" class="pln"><a href="#n41">41</a></p>
 
             </td>
             <td class="text">
@@ -135,23 +129,17 @@
 <p id="t22" class="pln">    <span class="str">'items'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">List</span><span class="op">(</span><span class="nam">fields</span><span class="op">.</span><span class="nam">Nested</span><span class="op">(</span><span class="nam">project</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t23" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t24" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t25" class="stm run hide_run"><span class="nam">project_update</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'Project update'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
+<p id="t25" class="stm run hide_run"><span class="nam">project_new</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'Project new'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="pln">    <span class="str">'name'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'New project name'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t27" class="pln">    <span class="str">'description'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'New project description'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t28" class="pln">    <span class="str">'version'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'New project version'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t30" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t31" class="stm run hide_run"><span class="nam">project_new</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'Project new'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
-<p id="t32" class="pln">    <span class="str">'name'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'New project name'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t33" class="pln">    <span class="str">'description'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'New project description'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t34" class="pln">    <span class="str">'version'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'New project version'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t35" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t36" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t37" class="stm run hide_run"><span class="nam">message</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'Response message'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
-<p id="t38" class="pln">    <span class="str">'message'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Response message'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t39" class="pln">    <span class="str">'id'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">Integer</span><span class="op">(</span><span class="nam">readOnly</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'The unique identifier of a project item'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t40" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t41" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t31" class="stm run hide_run"><span class="nam">message</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">model</span><span class="op">(</span><span class="str">'Response message'</span><span class="op">,</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
+<p id="t32" class="pln">    <span class="str">'message'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="nam">required</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'Response message'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t33" class="pln">    <span class="str">'id'</span><span class="op">:</span> <span class="nam">fields</span><span class="op">.</span><span class="nam">Integer</span><span class="op">(</span><span class="nam">readOnly</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">description</span><span class="op">=</span><span class="str">'The unique identifier of a project item'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t34" class="pln"><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t35" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -162,7 +150,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-11-08 13:11
+            created at 2019-11-15 14:17
         </p>
     </div>
 </div>

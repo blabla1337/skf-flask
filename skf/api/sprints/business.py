@@ -80,8 +80,8 @@ def new_sprint(user_id, data):
          raise
 
     # somewhat funky query to obtain the id
-    result = ProjectSprint.query.order_by(desc(ProjectSprint.id)).first()
-    return {'sprint_id': result.id, 'message': 'Sprint successfully created'}
+    result = ProjectSprint.query.order_by(desc(ProjectSprint.sprint_id)).first()
+    return {'sprint_id': result.sprint_id, 'message': 'Sprint successfully created'}
 
 def stats_sprint(project_id):
     log("User requested specific project sprint stats", "MEDIUM", "PASS")
@@ -89,7 +89,7 @@ def stats_sprint(project_id):
     sprint_info = ProjectSprint.query.filter(ProjectSprint.project_id == project_id).all()
     sprint = []
     for result in sprint_info:
-        sprint_id = result.id
+        sprint_id = result.sprint_id
         sprint_desc = result.description
         sprint_name = result.name
         total = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).count()

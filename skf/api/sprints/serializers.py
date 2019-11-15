@@ -5,7 +5,7 @@ sprint = api.model('sprint', {
     'sprint_id': fields.Integer(readOnly=True, description='The unique identifier of a sprint item'),
     'project_id': fields.Integer(required=True, description='The unique identifier of a sprint project'),
     'group_id': fields.Integer(required=True, description='The unique identifier of a sprint group'),
-    'nanme': fields.String(required=True, description='Sprint name'),
+    'name': fields.String(required=True, description='Sprint name'),
     'description': fields.String(required=True, description='Sprint description'),
 })
 

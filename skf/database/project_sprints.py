@@ -19,7 +19,7 @@ class ProjectSprint(db.Model):
     
     __tablename__ = "project_sprints"
 
-    id = db.Column(db.Integer, primary_key=True)
+    sprint_id = db.Column(db.Integer, primary_key=True)
 
     name = db.Column(db.Text)
     description = db.Column(db.Text)

@@ -24,7 +24,7 @@ class QuestionResult(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"))
     project = db.relationship("Project", backref=db.backref('question_results'))
 
-    sprint_id = db.Column(db.Integer, db.ForeignKey("project_sprints.id"))
+    sprint_id = db.Column(db.Integer, db.ForeignKey("project_sprints.sprint_id"))
     sprint = db.relationship("ProjectSprint", backref=db.backref('question_results'))
 
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
