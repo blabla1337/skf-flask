@@ -13,6 +13,7 @@ class TestRestPlusApi(unittest.TestCase):
     def setUpClass(cls):
         cls.client = app.test_client()
         with app.app_context():
+            update_db()
             init_db()
             chatbot_tools.init_dataset()
             settings.TESTING = True
