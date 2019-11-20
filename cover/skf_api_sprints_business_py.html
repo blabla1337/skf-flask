@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/api/sprints/business.py: 52%</title>
+    <title>Coverage for skf/api/sprints/business.py: 60%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/api/sprints/business.py</b> :
-            <span class="pc_cov">52%</span>
+            <span class="pc_cov">60%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
             128 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">66 run</span>
-            <span class="mis shortkey_m button_toggle_mis">62 missing</span>
+            <span class="run hide_run shortkey_r button_toggle_run">77 run</span>
+            <span class="mis shortkey_m button_toggle_mis">51 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -91,10 +91,10 @@
 <p id="n22" class="pln"><a href="#n22">22</a></p>
 <p id="n23" class="pln"><a href="#n23">23</a></p>
 <p id="n24" class="stm run hide_run"><a href="#n24">24</a></p>
-<p id="n25" class="stm mis"><a href="#n25">25</a></p>
-<p id="n26" class="stm mis"><a href="#n26">26</a></p>
-<p id="n27" class="stm mis"><a href="#n27">27</a></p>
-<p id="n28" class="stm mis"><a href="#n28">28</a></p>
+<p id="n25" class="stm run hide_run"><a href="#n25">25</a></p>
+<p id="n26" class="stm run hide_run"><a href="#n26">26</a></p>
+<p id="n27" class="stm run hide_run"><a href="#n27">27</a></p>
+<p id="n28" class="stm run hide_run"><a href="#n28">28</a></p>
 <p id="n29" class="pln"><a href="#n29">29</a></p>
 <p id="n30" class="stm run hide_run"><a href="#n30">30</a></p>
 <p id="n31" class="stm run hide_run"><a href="#n31">31</a></p>
@@ -194,11 +194,11 @@
 <p id="n125" class="pln"><a href="#n125">125</a></p>
 <p id="n126" class="pln"><a href="#n126">126</a></p>
 <p id="n127" class="stm run hide_run"><a href="#n127">127</a></p>
-<p id="n128" class="stm mis"><a href="#n128">128</a></p>
-<p id="n129" class="stm mis"><a href="#n129">129</a></p>
-<p id="n130" class="stm mis"><a href="#n130">130</a></p>
-<p id="n131" class="stm mis"><a href="#n131">131</a></p>
-<p id="n132" class="stm mis"><a href="#n132">132</a></p>
+<p id="n128" class="stm run hide_run"><a href="#n128">128</a></p>
+<p id="n129" class="stm run hide_run"><a href="#n129">129</a></p>
+<p id="n130" class="stm run hide_run"><a href="#n130">130</a></p>
+<p id="n131" class="stm run hide_run"><a href="#n131">131</a></p>
+<p id="n132" class="stm run hide_run"><a href="#n132">132</a></p>
 <p id="n133" class="stm mis"><a href="#n133">133</a></p>
 <p id="n134" class="stm mis"><a href="#n134">134</a></p>
 <p id="n135" class="stm mis"><a href="#n135">135</a></p>
@@ -221,8 +221,8 @@
 <p id="n152" class="stm mis"><a href="#n152">152</a></p>
 <p id="n153" class="stm mis"><a href="#n153">153</a></p>
 <p id="n154" class="stm mis"><a href="#n154">154</a></p>
-<p id="n155" class="stm mis"><a href="#n155">155</a></p>
-<p id="n156" class="stm mis"><a href="#n156">156</a></p>
+<p id="n155" class="stm run hide_run"><a href="#n155">155</a></p>
+<p id="n156" class="stm run hide_run"><a href="#n156">156</a></p>
 
             </td>
             <td class="text">
@@ -250,10 +250,10 @@
 <p id="t22" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t23" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t24" class="stm run hide_run"><span class="key">def</span> <span class="nam">get_sprint_results</span><span class="op">(</span><span class="nam">sprint_id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t25" class="stm mis">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested specific sprint items"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t26" class="stm mis">    <span class="nam">val_num</span><span class="op">(</span><span class="nam">sprint_id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t27" class="stm mis">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">sprint_id</span> <span class="op">==</span> <span class="nam">sprint_id</span><span class="op">)</span><span class="op">.</span><span class="nam">order_by</span><span class="op">(</span><span class="nam">asc</span><span class="op">(</span><span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">checklist_id</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t28" class="stm mis">    <span class="key">return</span> <span class="nam">result</span><span class="strut">&nbsp;</span></p>
+<p id="t25" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested specific sprint items"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t26" class="stm run hide_run">    <span class="nam">val_num</span><span class="op">(</span><span class="nam">sprint_id</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t27" class="stm run hide_run">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">sprint_id</span> <span class="op">==</span> <span class="nam">sprint_id</span><span class="op">)</span><span class="op">.</span><span class="nam">order_by</span><span class="op">(</span><span class="nam">asc</span><span class="op">(</span><span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">checklist_id</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t28" class="stm run hide_run">    <span class="key">return</span> <span class="nam">result</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t30" class="stm run hide_run"><span class="key">def</span> <span class="nam">update_sprint</span><span class="op">(</span><span class="nam">sprint_id</span><span class="op">,</span> <span class="nam">user_id</span><span class="op">,</span> <span class="nam">data</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t31" class="stm run hide_run">    <span class="nam">log</span><span class="op">(</span><span class="str">"User updated sprint"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -353,11 +353,11 @@
 <p id="t125" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t126" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t127" class="stm run hide_run"><span class="key">def</span> <span class="nam">export_results</span><span class="op">(</span><span class="nam">sprint_results</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t128" class="stm mis">    <span class="nam">results</span> <span class="op">=</span> <span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">sprint_id</span> <span class="op">==</span> <span class="nam">sprint_results</span><span class="op">)</span><span class="op">.</span><span class="nam">order_by</span><span class="op">(</span><span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">checklist_type_id</span><span class="op">)</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t129" class="stm mis">    <span class="nam">file_path</span> <span class="op">=</span> <span class="str">"export.csv"</span><span class="strut">&nbsp;</span></p>
-<p id="t130" class="stm mis">    <span class="key">with</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file_path</span><span class="op">,</span> <span class="str">'w+'</span><span class="op">)</span> <span class="key">as</span> <span class="nam">file</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t131" class="stm mis">        <span class="nam">file</span><span class="op">.</span><span class="nam">write</span><span class="op">(</span><span class="str">'title,description,mitigation\n'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t132" class="stm mis">        <span class="key">for</span> <span class="nam">item</span> <span class="key">in</span> <span class="nam">results</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t128" class="stm run hide_run">    <span class="nam">results</span> <span class="op">=</span> <span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">sprint_id</span> <span class="op">==</span> <span class="nam">sprint_results</span><span class="op">)</span><span class="op">.</span><span class="nam">order_by</span><span class="op">(</span><span class="nam">ChecklistResult</span><span class="op">.</span><span class="nam">checklist_type_id</span><span class="op">)</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t129" class="stm run hide_run">    <span class="nam">file_path</span> <span class="op">=</span> <span class="str">"export.csv"</span><span class="strut">&nbsp;</span></p>
+<p id="t130" class="stm run hide_run">    <span class="key">with</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file_path</span><span class="op">,</span> <span class="str">'w+'</span><span class="op">)</span> <span class="key">as</span> <span class="nam">file</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t131" class="stm run hide_run">        <span class="nam">file</span><span class="op">.</span><span class="nam">write</span><span class="op">(</span><span class="str">'title,description,mitigation\n'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t132" class="stm run hide_run">        <span class="key">for</span> <span class="nam">item</span> <span class="key">in</span> <span class="nam">results</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t133" class="stm mis">            <span class="key">if</span> <span class="nam">item</span><span class="op">.</span><span class="nam">kb_id</span> <span class="op">!=</span> <span class="num">1</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t134" class="stm mis">                <span class="key">if</span> <span class="nam">item</span><span class="op">.</span><span class="nam">checklist_type_id</span> <span class="op">!=</span> <span class="key">None</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t135" class="stm mis">                    <span class="nam">name</span> <span class="op">=</span> <span class="nam">ChecklistType</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">ChecklistType</span><span class="op">.</span><span class="nam">id</span> <span class="op">==</span> <span class="nam">item</span><span class="op">.</span><span class="nam">checklist_type_id</span><span class="op">)</span><span class="op">.</span><span class="nam">first</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -380,8 +380,8 @@
 <p id="t152" class="stm mis">                    <span class="nam">description</span> <span class="op">=</span> <span class="str">"empty"</span><span class="strut">&nbsp;</span></p>
 <p id="t153" class="stm mis">                    <span class="nam">mitigation</span> <span class="op">=</span> <span class="str">"empty"</span><span class="strut">&nbsp;</span></p>
 <p id="t154" class="stm mis">                <span class="nam">file</span><span class="op">.</span><span class="nam">write</span><span class="op">(</span><span class="str">'"'</span> <span class="op">+</span> <span class="nam">checklistName</span> <span class="op">+</span> <span class="str">' : '</span> <span class="op">+</span> <span class="nam">title</span> <span class="op">+</span> <span class="str">'","'</span> <span class="op">+</span> <span class="nam">description</span> <span class="op">+</span> <span class="str">'","'</span> <span class="op">+</span> <span class="nam">mitigation</span> <span class="op">+</span> <span class="str">'"\n'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t155" class="stm mis">    <span class="key">with</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file_path</span><span class="op">,</span> <span class="str">'rb'</span><span class="op">)</span> <span class="key">as</span> <span class="nam">file</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t156" class="stm mis">        <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="nam">base64</span><span class="op">.</span><span class="nam">b64encode</span><span class="op">(</span><span class="nam">file</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t155" class="stm run hide_run">    <span class="key">with</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file_path</span><span class="op">,</span> <span class="str">'rb'</span><span class="op">)</span> <span class="key">as</span> <span class="nam">file</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t156" class="stm run hide_run">        <span class="key">return</span> <span class="op">{</span><span class="str">'message'</span><span class="op">:</span> <span class="nam">base64</span><span class="op">.</span><span class="nam">b64encode</span><span class="op">(</span><span class="nam">file</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">}</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -392,7 +392,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-11-15 15:39
+            created at 2019-11-20 13:23
         </p>
     </div>
 </div>

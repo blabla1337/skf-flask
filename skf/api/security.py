@@ -30,9 +30,9 @@ def log(message, threat, status):
             user_id = checkClaims['UserId']
         else:
             user_id = "0"
-        event = Log(dateLog, dateTime, threat, ip, user_id, status, message)
-        db.session.add(event)
-        db.session.commit()
+            event = Log(dateLog, dateTime, threat, ip, user_id, status, message)
+            db.session.add(event)
+            db.session.commit()
     except:
         user_id = "0"
         ip = "0.0.0.0"
@@ -67,7 +67,6 @@ def val_alpha_num_special(value):
         abort(400, "Validation Error on val_alpha_num_special")
     else:
         return True
-
 
 
 def val_num(value): 
