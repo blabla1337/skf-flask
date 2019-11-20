@@ -15,17 +15,11 @@ def get_checklist_item(checklist_id, checklist_type):
     result = ChecklistKB.query.filter((ChecklistKB.checklist_type == checklist_type) & (ChecklistKB.checklist_id == checklist_id)).one()
     return result
 
+
 def get_checklist_item_questions_git(checklist_type):
     log("User requested specific checklist items and correlated questions", "LOW", "PASS")
     val_num(checklist_type)
     result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 1500, False)
-    return result
-
-
-def get_checklist_item_question_pre(question_id):
-    log("User requested specific checklist item using pre questionID", "LOW", "PASS")
-    val_num(question_id)
-    result = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).paginate(1, 1500, False)
     return result
 
 

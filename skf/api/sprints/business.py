@@ -27,6 +27,7 @@ def get_sprint_results(sprint_id, user_id):
     result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_id)).paginate(1, 500, False)
     return result
 
+
 def update_sprint(sprint_id, user_id, data):
     log("User updated sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
@@ -34,37 +35,30 @@ def update_sprint(sprint_id, user_id, data):
     val_alpha_num_special(data.get('description'))
     name = data.get('name')
     description = data.get('description')
-
     try:
         sprint = ProjectSprint.query.get(sprint_id)
         sprint.name = name
         sprint.description = description
         db.session.add(sprint) 
         db.session.commit()
-
     except:
         db.session.rollback()
         raise
-
     return {'message': 'Sprint successfully updated'}
 
 
 def new_sprint(user_id, data):
     log("User created new sprint", "MEDIUM", "PASS")
-    
     val_alpha_num_special(data.get('name'))
     val_alpha_num_special(data.get('description'))
     val_num(data.get('project_id'))
     #val_num(data.get('checklist_type_id'))
-    
     name = data.get('name')
     description = data.get('description')
     project_id = data.get('project_id')
     checklist_type_id = data.get('checklist_type_id')
-
     #groupmember = groupmembers.query.filter(groupmembers.user_id == user_id).one()
     #group_id = groupmember.group_id
-
     try:
         user = User.query.get(user_id)
         #group = user.groups[0]
@@ -74,14 +68,13 @@ def new_sprint(user_id, data):
         sprint.checklist_type_id = checklist_type_id
         db.session.add(sprint)
         db.session.commit()
-
     except:
          db.session.rollback()
          raise
-
     # somewhat funky query to obtain the id
     result = ProjectSprint.query.order_by(desc(ProjectSprint.sprint_id)).first()
     return {'sprint_id': result.sprint_id, 'message': 'Sprint successfully created'}
+
 
 def stats_sprint(project_id):
     log("User requested specific project sprint stats", "MEDIUM", "PASS")
@@ -96,6 +89,7 @@ def stats_sprint(project_id):
         sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'title': sprint_name, 'sprint_items_total': total })
     return sprint
 
+
 def delete_sprint(sprint_id, user_id):
     log("User deleted sprint", "MEDIUM", "PASS")
     val_num(sprint_id)
@@ -107,8 +101,8 @@ def delete_sprint(sprint_id, user_id):
     except:
         db.session.rollback()
         raise
-
     return {'message': 'Sprint successfully deleted'}
+
 
 def delete_checklist_result(id, user_id):
     log("User deleted sprint", "MEDIUM", "PASS")
