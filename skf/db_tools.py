@@ -108,17 +108,9 @@ def update_db():
     init_md_code_examples()
     init_md_knowledge_base()
 
-    '''
-def get_db():
-    """Opens a new database connection if there is none yet for the current application context."""
-    if not hasattr(g, settings.DATABASE):
-        g.sqlite_db = connect_db()
-    return g.sqlite_db
-    '''
-
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
-    kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base')
+    kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/web')
     try:
         for filename in os.listdir(kb_dir):
             if filename.endswith(".md"):
@@ -130,12 +122,9 @@ def init_md_knowledge_base():
                 file_content = data.read()
                 data.close()
                 content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-
-                #query = "INSERT OR REPLACE INTO kb_items (kb_id, content, title) VALUES ('"+kb_id+"','"+content_escaped+"', '"+title+"', 1) \n"
-                #with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
-                #        myfile.write(query)
                 try:
                     item = KBItem(title, content, kb_id)
+                    item.checklist_category_id = 1
                     db.session.add(item)
                     db.session.commit()
 
@@ -151,7 +140,7 @@ def init_md_knowledge_base():
 
 def init_md_code_examples():
     """Converts markdown code-example items to DB."""
-    kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/')
+    kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/web/')
     code_langs = ['asp', 'java', 'php', 'flask', 'django', 'go', 'ruby', 'nodejs-express']
     try:
         for lang in code_langs:
@@ -164,12 +153,9 @@ def init_md_code_examples():
                     file_content = data.read()
                     data.close()
                     content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-
-                    #query = "INSERT OR REPLACE INTO code_items (content, title, code_lang) VALUES ('"+content_escaped+"', '"+title+"', '"+lang+"', 1) \n"
-                    #with open(os.path.join(app.root_path, 'db.sqlite_schema'), 'a') as myfile:
-                    #        myfile.write(query)
                     try:
                         item = CodeItem(content_escaped, title, lang)
+                        item.checklist_category_id = 1
                         db.session.add(item)
                         db.session.commit()
 

@@ -36,9 +36,9 @@ def get_checklist_item_question_sprint(question_id):
     return result
 
 
-def get_checklist_item_types():
+def get_checklist_item_types(category_id):
     log("User requested list checklist types", "LOW", "PASS")
-    result = ChecklistType.query.order_by(desc(ChecklistType.visibility)).paginate(1, 500, False)
+    result = ChecklistType.query.filter(ChecklistType.checklist_category_id == category_id).order_by(desc(ChecklistType.visibility)).paginate(1, 500, False)
     return result
 
 def get_checklist_item_types_with_filter(maturity):
@@ -54,14 +54,16 @@ def get_checklist_items(checklist_type):
     return ordered
     
 
-def create_checklist_type(data):
+def create_checklist_type(data, category_id):
     log("User requested create a new checklist type", "LOW", "PASS")
+    val_num(category_id)
     val_alpha_num_special(data.get('name'))
     val_alpha_num_special(data.get('description'))
     checklist_name = data.get('name')
     checklist_description = data.get('description')
     visibility = data.get('visibility')
     checklist_type = ChecklistType(checklist_name, checklist_description, visibility)
+    checklist_type.checklist_category_id = category_id
     try:
         db.session.add(checklist_type)
         db.session.commit()
@@ -261,5 +263,3 @@ def validate_duplicate_checklist_item(checklist_id, checklist_type):
             if item.checklist_id == checklist_id:
                 check = False
         return check
-
-    

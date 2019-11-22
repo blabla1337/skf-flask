@@ -9,17 +9,17 @@ from skf.api.restplus import api
 ns = api.namespace('kb', description='Operations related to kb items')
 
 
-@ns.route('/items')
+@ns.route('/items/<int:category_id>')
 @api.response(404, 'Validation error', message)
 class KBCollection(Resource):
 
     @api.marshal_with(kb_items)
     @api.response(400, 'No results found', message)
-    def get(self):
+    def get(self, category_id):
         """
         Returns list of kb items.
         * Privileges required: **none**
         """
-        result = get_kb_items()
+        result = get_kb_items(category_id)
         return result, 200, security_headers()
  

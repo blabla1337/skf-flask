@@ -1,22 +1,5 @@
 from skf.database import db
 
-'''
---
--- Table structure for table `projects`
---
-drop table if exists `projects`;
-CREATE TABLE `projects` (
-`project_id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`user_id` int(11) NOT NULL,
-`group_id` int(11) NOT NULL,
-`name` varchar(250) NOT NULL,
-`version` varchar(250) NOT NULL,
-`description` text NOT NULL,
-`owner_id` int(11) NOT NULL,
-`timestamp` timestamp NOT NULL
-);
-'''
-
 class Project(db.Model):
     
     __tablename__ = 'projects'

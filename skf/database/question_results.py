@@ -1,21 +1,6 @@
 
 from skf.database import db
 
-'''
---
--- Table structure for table `question_results`
---
-drop table if exists `question_results`;
-CREATE TABLE `question_results` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`project_id` int(11) NOT NULL,
-`sprint_id` int(11) NOT NULL,
-`question_id` int(11) NOT NULL,
-`result` boolean,
-`checklist_type` int(11) NOT NULL
-);
-'''
-
 class QuestionResult(db.Model):
     
     __tablename__ = 'question_results'

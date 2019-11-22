@@ -1,11 +1,10 @@
-
-
 import datetime
 from skf.database import db
 from skf.database.privileges import Privilege
 from skf.database.users import User
 from skf.database.groups import Group
 from skf.database.questions import Question
+from skf.database.checklist_category import ChecklistCategory
 from skf.database.checklist_types import ChecklistType
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklists_results import ChecklistResult
@@ -18,12 +17,9 @@ from skf.database.project_sprints import ProjectSprint
 from skf.database.projects import Project
 from skf.database.question_results import QuestionResult
 
+
 def load_initial_data():
 
-#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (2, "edit:read:delete", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (3, "edit:read", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (4, "read", 1))
     try:
         p = Privilege('edit:read:manage:delete')
         db.session.add(p)
@@ -31,35 +27,92 @@ def load_initial_data():
         db.session.add(Privilege('edit:read'))
         db.session.add(Privilege('read'))  
 
-#   INSERT OR REPLACE INTO `users` (`user_id`, `privilege_id`, `username`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org", 1))
         user = User(username='admin', accessToken=1234, email="example@owasp.org")
         user.privilege = p
         db.session.add(user)
 
-#   INSERT OR REPLACE INTO `groups` (`group_id`, `owner_id`, `groupName`) VALUES (1, 1, "privateGroup", 1))
         group = Group('privateGroup', datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
-#   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `user_id`, `group_id`, `owner_id`) VALUES (1, 1, 1, 1, 1)
+
         group.members.append(user)
         group.owner = user
         db.session.add(group)
-
-#   INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS LEVEL 1", "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.", 1))
-#   INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS LEVEL 2", "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.", 1))
         
-        db.session.add(ChecklistType(name='Architecture, Design and Threat Modeling Requirements', description='Security architecture has almost become a lost art in many organizations. The days of the enterprise architect have passed in the age of DevSecOps. The application security field must catch up and adopt agile security principles while re-introducing leading security architecture principles to software practitioners. Architecture is not an implementation, but a way of thinking about a problem that has potentially many different answers, and no one single "correct" answer. All too often, security is seen as inflexible and demanding that developers fix code in a particular way, when the developers may know a much better way to solve the problem. There is no single, simple solution for architecture, and to pretend otherwise is a disservice to the software engineering field.', visibility=1))
-        db.session.add(ChecklistType(name='Authentication Verification Requirements', description='Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of passwords.', visibility=1))
-        db.session.add(ChecklistType(name='Session Management Verification Requirements', description='One of the core components of any web-based application or stateful API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.', visibility=1))
-        db.session.add(ChecklistType(name='Access Control Verification Requirements', description='Authorization is the concept of allowing access to resources only to those permitted to use them. Ensure that a verified application satisfies the following high level requirements:• Persons accessing resources hold valid credentials to do so.* Users are associated with a well-defined set of roles and privileges.• Role and permission metadata is protected from replay or tampering.', visibility=1))
-        db.session.add(ChecklistType(name='Validation, Sanitization and Encoding Verification Requirements', description='The most common web application security weakness is the failure to properly validate input coming from the client or the environment before directly using it without any output encoding. This weakness leads to almost all of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, interpreter injection, locale/Unicode attacks, file system attacks, and buffer overflows.', visibility=1))
-        db.session.add(ChecklistType(name='Stored Cryptography Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • All cryptographic modules fail in a secure manner and that errors are handled correctly. • A suitable random number generator is used. • Access to keys is securely managed. V6.1 Data Classification', visibility=1))
-        db.session.add(ChecklistType(name='Error Handling and Logging Verification Requirements', description='The primary objective of error handling and logging is to provide useful information for the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high quality logs, with more signal than discarded noise.', visibility=1))
-        db.session.add(ChecklistType(name='Data Protection Verification Requirements', description='There are three key elements to sound data protection: Confidentiality, Integrity and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.', visibility=1))
-        db.session.add(ChecklistType(name='Communications Verification Requirements', description='Leading industry advice on secure TLS configuration changes frequently, often due to catastrophic breaks in existing algorithms and ciphers. Always use the most recent versions of TLS configuration review tools (such as SSLyze or other TLS scanners) to configure the preferred order and algorithm selection. Configuration should be periodically checked to ensure that secure communications configuration is always present and effective.', visibility=1))
-        db.session.add(ChecklistType(name='Malicious Code Verification Requirements', description='Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.', visibility=1))
-        db.session.add(ChecklistType(name='Business Logic Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • The business logic flow is sequential, processed in order, and cannot be bypassed. • Business logic includes limits to detect and prevent automated attacks, such as continuous small funds transfers, or adding a million friends one at a time, and so on. • High value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, repudiation, information disclosure, and elevation of privilege attacks.', visibility=1))
-        db.session.add(ChecklistType(name='File and Resources Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • Untrusted file data should be handled accordingly and in a secure manner. • Untrusted file data obtained from untrusted sources are stored outside the web root and with limited permissions.', visibility=1))
-        db.session.add(ChecklistType(name='API and Web Service Verification Requirements', description='Ensure that a verified application that uses trusted service layer APIs (commonly using JSON or XML or GraphQL) has: • Adequate authentication, session management and authorization of all web services. • Input validation of all parameters that transit from a lower to higher trust level. • Effective security controls for all API types, including cloud and Serverless API Please read this chapter in combination with all other chapters at this same level; we no longer duplicate authentication or API session management concerns.', visibility=1))
-        db.session.add(ChecklistType(name='Configuration Verification Requirements', description='Ensure that a verified application has: • A secure, repeatable, automatable build environment. • Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application. • A secure-by-default configuration, such that administrators and users have to weaken the default security posture. Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.', visibility=1))
+        category = ChecklistCategory("Web applications", "category for web collection")
+        db.session.add(category)
+        db.session.commit()
+
+        category = ChecklistCategory("Mobile applications", "category for mobile collection")
+        db.session.add(category)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Architecture, Design and Threat Modeling Requirements', description='Security architecture has almost become a lost art in many organizations. The days of the enterprise architect have passed in the age of DevSecOps. The application security field must catch up and adopt agile security principles while re-introducing leading security architecture principles to software practitioners. Architecture is not an implementation, but a way of thinking about a problem that has potentially many different answers, and no one single "correct" answer. All too often, security is seen as inflexible and demanding that developers fix code in a particular way, when the developers may know a much better way to solve the problem. There is no single, simple solution for architecture, and to pretend otherwise is a disservice to the software engineering field.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+        
+        checklist = ChecklistType(name='Authentication Verification Requirements', description='Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of passwords.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+        
+        checklist = ChecklistType(name='Session Management Verification Requirements', description='One of the core components of any web-based application or stateful API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Access Control Verification Requirements', description='Authorization is the concept of allowing access to resources only to those permitted to use them. Ensure that a verified application satisfies the following high level requirements:• Persons accessing resources hold valid credentials to do so.* Users are associated with a well-defined set of roles and privileges.• Role and permission metadata is protected from replay or tampering.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Validation, Sanitization and Encoding Verification Requirements', description='The most common web application security weakness is the failure to properly validate input coming from the client or the environment before directly using it without any output encoding. This weakness leads to almost all of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, interpreter injection, locale/Unicode attacks, file system attacks, and buffer overflows.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Stored Cryptography Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • All cryptographic modules fail in a secure manner and that errors are handled correctly. • A suitable random number generator is used. • Access to keys is securely managed. V6.1 Data Classification', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Error Handling and Logging Verification Requirements', description='The primary objective of error handling and logging is to provide useful information for the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high quality logs, with more signal than discarded noise.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Data Protection Verification Requirements', description='There are three key elements to sound data protection: Confidentiality, Integrity and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Communications Verification Requirements', description='Leading industry advice on secure TLS configuration changes frequently, often due to catastrophic breaks in existing algorithms and ciphers. Always use the most recent versions of TLS configuration review tools (such as SSLyze or other TLS scanners) to configure the preferred order and algorithm selection. Configuration should be periodically checked to ensure that secure communications configuration is always present and effective.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Malicious Code Verification Requirements', description='Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Business Logic Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • The business logic flow is sequential, processed in order, and cannot be bypassed. • Business logic includes limits to detect and prevent automated attacks, such as continuous small funds transfers, or adding a million friends one at a time, and so on. • High value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, repudiation, information disclosure, and elevation of privilege attacks.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+        
+        checklist = ChecklistType(name='File and Resources Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • Untrusted file data should be handled accordingly and in a secure manner. • Untrusted file data obtained from untrusted sources are stored outside the web root and with limited permissions.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='API and Web Service Verification Requirements', description='Ensure that a verified application that uses trusted service layer APIs (commonly using JSON or XML or GraphQL) has: • Adequate authentication, session management and authorization of all web services. • Input validation of all parameters that transit from a lower to higher trust level. • Effective security controls for all API types, including cloud and Serverless API Please read this chapter in combination with all other chapters at this same level; we no longer duplicate authentication or API session management concerns.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Configuration Verification Requirements', description='Ensure that a verified application has: • A secure, repeatable, automatable build environment. • Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application. • A secure-by-default configuration, such that administrators and users have to weaken the default security posture. Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
         db.session.commit()
         
         

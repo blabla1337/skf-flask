@@ -21,7 +21,7 @@
 <section id="main-content" class="page08 code-examples">
 	<section class="intro">
 		<div class="inner">
-			<button id="add" style="float:right;" (click)="addCodeModal(newcodemodal)" class="btn btn-default"><i
+			<button *ngIf="category_id" id="add" style="float:right;" (click)="addCodeModal(newcodemodal)" class="btn btn-default"><i
 					class="fa fa-cog" aria-hidden="true"></i>
 				Add item</button>
 			<div class="text">
@@ -30,16 +30,22 @@
 					information how to approach specific functionality and the correct mitigations!</p>
 			</div>
 		</div>
+		<div class="col-sm-4" style="float:right; margin-bottom:1%;">
+			<select placeholder="Asdsad" class="form-control" [(ngModel)]="category_id" (change)="selectChecklistsFromCategory()" >
+				<option selected [value]="selectUndefinedOptionValue">Select a category to work with!</option>
+				<option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+			</select>
+		</div>
 	</section>
-	<section class="wrapper">
+	<section  class="wrapper">
 		<div class="srcWrap">
-			<div class="src">
+			<div *ngIf="category_id" class="src">
 				<input class="searchinput" [(ngModel)]="queryString" id="search" name="search"
 					placeholder="Search vulnerability" />
 				<i class="fa fa-search"></i>
 			</div>
 		</div>
-		<div class="content-panel narrow" style="width:100%">
+		<div *ngIf="category_id" class="content-panel narrow" style="width:100%">
 			<div *ngIf="isSubmitted && formControls.title.errors" class="help-block">
 				<div *ngIf="formControls.title.errors.required">
 					<ngb-alert type="danger" [dismissible]="false">
@@ -61,7 +67,8 @@
 					</ngb-alert>
 				</div>
 			</div>
-			<div class="row" *ngIf="codeExamples">
+
+			<div class="row">
 				<div (click)="highlight()" class="col-lg-12">
 					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
 						<div *ngFor="let examples of codeExamples | stringFilter : queryString">
@@ -109,6 +116,13 @@
 				</div>
 			</div>
 		</div>
+
+		<div *ngIf="!category_id" style="text-align:center; margin-top:3%">
+			<span class="icon"><i class="fa fa-search fa-5x"></i></span>
+			<p></p>
+			<h2>Select a category to start </h2>
+		</div>
+
 	</section>
 </section>
 
@@ -159,7 +173,3 @@
 	</ng-template>
 </form>
 <!-- END Modal for adding a new checklist type-->
-
-<div id="changeme" style="display:none">
-	<pre><code id="changeme" class="php"></code></pre>
-</div>

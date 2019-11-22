@@ -8,18 +8,18 @@ from skf.api.restplus import api
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
-@ns.route('/create/type')
+@ns.route('/create/type/<int:category_id>')
 @api.response(404, 'Validation error', message)
 class ChecklistCreate(Resource):
 
     @api.expect(authorization, checklist_type)
     @api.response(400, 'No results found', message)
-    def put(self):
+    def put(self, category_id):
         """
         Create a new checklist type.
         * Privileges required: **edit**
         """
         validate_privilege(self, 'edit')
         data = request.json
-        result = create_checklist_type(data)
+        result = create_checklist_type(data, category_id)
         return result, 200, security_headers()

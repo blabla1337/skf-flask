@@ -25,7 +25,7 @@ def update_kb_item(kb_id, data):
     return {'message': 'KB item successfully updated'} 
 
 
-def create_kb_item(data):
+def create_kb_item(data, category_id):
     log("User requested creating a new kb item", "LOW", "PASS")
     val_alpha_num_special(data.get('title'))
 
@@ -36,7 +36,7 @@ def create_kb_item(data):
     item = KBItem.query.order_by(desc(KBItem.kb_id)).first()
     try:
         kb_item = KBItem(title, content, item.kb_id+1)
-
+        kb_item.checklist_category_id = category_id
         db.session.add(kb_item)
         db.session.commit()
 
@@ -70,6 +70,7 @@ def get_kb_item(kb_id):
     return KBItem.query.filter(KBItem.kb_id == kb_id).first()
 
 
-def get_kb_items():
+def get_kb_items(category_id):
+    val_num(category_id)
     log("User requested list of kb items", "LOW", "PASS")
-    return KBItem.query.paginate(1, 500, False)
+    return KBItem.query.filter(KBItem.checklist_category_id == category_id).paginate(1, 500, False)

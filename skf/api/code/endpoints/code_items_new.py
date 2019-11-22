@@ -9,20 +9,20 @@ from skf.api.restplus import api
 
 ns = api.namespace('code', description='Operations related to code examples items')
 
-@ns.route('/new')
+@ns.route('/new/<int:category_id>')
 @api.response(404, 'Validation error', message)
 class CodeItemCreate(Resource):
 
     @api.expect(authorization, code_properties)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'No results found', message)
-    def put(self):
+    def put(self, category_id):
         """
         Create new code example item.
         * Privileges required: **edit**
         """
         validate_privilege(self, 'edit')
         data = request.json
-        result = create_code_item(data)
+        result = create_code_item(data, category_id)
         return result, 200, security_headers()
 

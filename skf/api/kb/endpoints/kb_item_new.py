@@ -10,20 +10,20 @@ from skf.api.restplus import api
 ns = api.namespace('kb', description='Operations related to kb items')
 
 
-@ns.route('/new')
+@ns.route('/new/<int:category_id>')
 @api.response(404, 'Validation error', message)
 class KBItemCreate(Resource):
 
     @api.expect(authorization, kb_update)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'No results found', message)
-    def put(self):
+    def put(self, category_id):
         """
         Create new kb item.
         * Privileges required: **edit**
         """
         validate_privilege(self, 'edit')
         data = request.json
-        result = create_kb_item(data)
+        result = create_kb_item(data, category_id)
         return result, 200, security_headers()
 

@@ -21,17 +21,18 @@ def update_code_item(code_id, data):
 
     return {'message': 'Code example item successfully updated'}
 
-def create_code_item(data):
+def create_code_item(data, category_id):
     log("User requested creating a new kb item", "LOW", "PASS")
     
     val_alpha_num_special(data.get('title'))
     val_alpha_num(data.get('code_lang'))
-    
+    val_num(category_id)
+
     title = data.get('title')
     content = data.get('content')
     code_lang = data.get('code_lang')
     result = CodeItem(content, title, code_lang)
-
+    result.checklist_category_id = category_id
     try:
         db.session.add(result)
         db.session.commit()
@@ -56,9 +57,9 @@ def delete_code_item(code_id, user_id):
         
     return {'message': 'code item successfully deleted'}
 
-def get_code_items():
+def get_code_items(category_id):
     log("User requested list of code items", "LOW", "PASS")
-    result = CodeItem.query.paginate(1, 500, False)
+    result = CodeItem.query.filter(CodeItem.checklist_category_id == category_id).paginate(1, 500, False)
     return result
 
 
@@ -66,11 +67,4 @@ def get_code_item(code_id):
     log("User requested code item", "LOW", "PASS")
     val_num(code_id)
     result = CodeItem.query.filter(CodeItem.id == code_id).one()
-    return result
-
-
-def get_code_items_lang(code_lang):
-    log("User requested code lang items", "LOW", "PASS")
-    val_alpha(code_lang)
-    result = CodeItem.query.filter(CodeItem.code_lang == code_lang).paginate(1, 500, False)
     return result

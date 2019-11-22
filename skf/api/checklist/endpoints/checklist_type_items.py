@@ -7,16 +7,16 @@ from skf.api.restplus import api
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
-@ns.route('/types')
+@ns.route('/types/<int:id>')
 @api.response(404, 'Validation error', message)
 class ChecklistCollection(Resource):
 
     @api.marshal_with(checklist_type_items)
     @api.response(400, 'No results found', message)
-    def get(self):
+    def get(self, id):
         """
         Returns list of checklist types.
         * Privileges required: **none**
         """
-        result = get_checklist_item_types()
+        result = get_checklist_item_types(id)
         return result, 200, security_headers()

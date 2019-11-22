@@ -34,8 +34,8 @@ export class ChecklistService {
       map(response => response.json().items))
   }
 
-  getChecklistTypeList(): Observable<ChecklistType[]> {
-    return this.http.get(environment.API_ENDPOINT + `/checklist/types`, { headers: this.headers }).pipe(
+  getChecklistTypeList(category_id:number): Observable<ChecklistType[]> {
+    return this.http.get(environment.API_ENDPOINT + `/checklist/types/${category_id}`, { headers: this.headers }).pipe(
       map(response => response.json().items))
   }
 
@@ -47,9 +47,9 @@ export class ChecklistService {
         () => console.log('failed to delete checklist type')))
   }
 
-  newChecklistType(checklistType: ChecklistType): Observable<any> {
+  newChecklistType(category_id: number, checklistType: ChecklistType): Observable<any> {
     return this.http
-      .put(environment.API_ENDPOINT + '/checklist/create/type', JSON.stringify({
+      .put(environment.API_ENDPOINT + `/checklist/create/type/${category_id}`, JSON.stringify({
         name: checklistType['name'],
         description: checklistType['description'],
         visibility: Number(checklistType['visibility'])

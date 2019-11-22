@@ -53,8 +53,8 @@ export class KnowledgebaseEditComponent implements OnInit {
         () => console.log('updating knowledebase item'),
         () => console.log('error updating knowledebase item')
       );
-
-      this.knowledgeService.getKnowledgeBase().subscribe(requestData => this.knowledgebaseItemArray = requestData,
+      let category_id  = localStorage.getItem("category_id");
+      this.knowledgeService.getKnowledgeBase(Number(category_id)).subscribe(requestData => this.knowledgebaseItemArray = requestData,
         () => console.log('Error getting knowledge items, contact the administrator!')
       );
     

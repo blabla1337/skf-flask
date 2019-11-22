@@ -9,16 +9,16 @@ from skf.api.restplus import api
 ns = api.namespace('code', description='Operations related to code example items')
 
 
-@ns.route('/items')
+@ns.route('/items/<int:category_id>')
 @api.response(404, 'Validation error', message)
 class CodeCollection(Resource):
 
     @api.marshal_with(code_items)
     @api.response(400, 'No results found', message)
-    def get(self):
+    def get(self, category_id):
         """
         Returns list of code example items.
         * Privileges required: **none**
         """
-        result = get_code_items()
+        result = get_code_items(category_id)
         return result, 200, security_headers()

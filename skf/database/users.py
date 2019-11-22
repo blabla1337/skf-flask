@@ -1,20 +1,4 @@
-
 from skf.database import db
-#from skf.database.projects import projectmembers
-
-'''
-drop table if exists `users`;
-CREATE TABLE `users` (
-`user_id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`privilege_id` int(11) NOT NULL,
-`username` varchar(255) NOT NULL UNIQUE,
-`email` varchar(255) NOT NULL UNIQUE,
-`password` varchar(255) NOT NULL,
-`accessToken` int(11) NOT NULL UNIQUE,
-`activated` varchar(255),
-`access` varchar(255) NOT NULL
-);
-'''
 
 class User(db.Model):
 
