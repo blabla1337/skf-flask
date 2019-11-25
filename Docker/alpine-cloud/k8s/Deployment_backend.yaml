@@ -40,7 +40,7 @@ spec:
         runAsUser: 1000
       containers:
         - name: skf-flask-back
-          image: "skf-api:latest"
+          image: "blabla1337/skf-api:1.1"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8888
