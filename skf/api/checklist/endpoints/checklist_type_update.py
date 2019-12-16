@@ -20,7 +20,10 @@ class ChecklistUpdate(Resource):
         Update a checklist type.
         * Privileges required: **edit**
         """
-        validate_privilege(self, 'edit')
         data = request.json
+        val_num(id)
+        val_alpha_num_special(data.get('name'))
+        val_alpha_num_special(data.get('description'))
+        validate_privilege(self, 'edit')
         result = update_checklist_type(id, data)
         return result, 200, security_headers()

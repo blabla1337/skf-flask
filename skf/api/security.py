@@ -58,7 +58,6 @@ def val_alpha_num(value):
     else:
         return True
 
-
 def val_alpha_num_special(value):
     """User input validation for checking a-z A-Z 0-9 _ . - ' , " """
     match = re.findall(r"[^\ \w_\.\-\'\",\+\(\)\/\:@\?\&\=\%\!\#\^\;]", value)
@@ -67,8 +66,6 @@ def val_alpha_num_special(value):
         abort(400, "Validation Error on val_alpha_num_special")
     else:
         return True
-
-
 
 def val_num(value): 
     """User input validation for checking numeric values only 0-9"""
@@ -81,12 +78,11 @@ def val_num(value):
 
 def val_float(value): 
     """User input validation for checking float values only 0-9 ."""
-    if not isinstance( value, float ):
+    if not isinstance(value, float):
         log("User supplied not a float value.", "MEDIUM", "FAIL")
         abort(400, "Validation Error on val_float")
     else:
         return True
-
 
 def validate_privilege(self, privilege):
     """Validates the JWT privileges"""

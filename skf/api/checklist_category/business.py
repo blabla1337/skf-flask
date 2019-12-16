@@ -9,7 +9,6 @@ import sys
 
 def get_checklist_category_item(checklist_category_id):
     log("User requested specific checklist category item", "LOW", "PASS")
-    val_num(checklist_category_id)
     result = ChecklistCategory.query.filter((ChecklistCategory.id == checklist_category_id)).one()
     return result
 
@@ -20,11 +19,7 @@ def get_checklist_categories():
     
 def create_checklist_category(data):
     log("User requested create a new checklist category", "LOW", "PASS")
-    val_alpha_num_special(data.get('name'))
-    val_alpha_num_special(data.get('description'))
-    checklist_name = data.get('name')
-    checklist_description = data.get('description')
-    checklist_category = ChecklistCategory(checklist_name, checklist_description)
+    checklist_category = ChecklistCategory(data.get('name'), data.get('description'))
     try:
         db.session.add(checklist_category)
         db.session.commit()
@@ -35,14 +30,9 @@ def create_checklist_category(data):
 
 def update_checklist_category(id, data):
     log("User requested update checklist category", "LOW", "PASS")
-    val_num(id)
-    val_alpha_num_special(data.get('name'))
-    val_alpha_num_special(data.get('description'))
-    checklist_name = data.get('name')
-    checklist_description = data.get('description')
     checklist_category = ChecklistCategory.query.get(id)
-    checklist_category.name = checklist_name
-    checklist_category.description = checklist_description
+    checklist_category.name = data.get('name')
+    checklist_category.description = data.get('description')
     try:
         db.session.add(checklist_category)
         db.session.commit()
@@ -53,7 +43,6 @@ def update_checklist_category(id, data):
 
 def delete_checklist_category(checklist_category_id):
     log("User deleted checklist item", "MEDIUM", "PASS")
-    val_num(checklist_category_id)
     try:
         checklist = ChecklistCategory.query.filter(ChecklistCategory.id == checklist_category_id).one()
         db.session.delete(checklist)

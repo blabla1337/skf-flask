@@ -6,6 +6,7 @@ from skf.api.sprints.business import delete_sprint
 from skf.api.sprints.serializers import message
 from skf.api.sprints.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
@@ -23,6 +24,7 @@ class ProjectSprintItemDelete(Resource):
         Deletes sprint item.
         * Privileges required: **delete**
         """
+        val_num(id)
         validate_privilege(self, 'delete')
         user_id = select_userid_jwt(self)
         result = delete_sprint(id, user_id)

@@ -5,6 +5,7 @@ from skf.api.checklist.business import update_checklist_question_correlation
 from skf.api.checklist.serializers import checklist_correlation, message
 from skf.api.kb.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
@@ -20,7 +21,10 @@ class ChecklistQuestionCorrelationUpdate(Resource):
         Update a checklist type.
         * Privileges required: **edit**
         """
-        validate_privilege(self, 'edit')
         data = request.json
+        val_num(checklist_type)
+        val_alpha_num_special(checklist_id)
+        val_num(data.get('question_id'))
+        validate_privilege(self, 'edit')
         result = update_checklist_question_correlation(checklist_id, checklist_type, data)
         return result, 200, security_headers()

@@ -16,7 +16,10 @@ class ChecklistResult(db.Model):
     kb_items = db.relationship("KBItem", backref=db.backref(''))  
     checklist_type_id = db.Column(db.Integer, db.ForeignKey("checklist_types.id"))
     checklist_type = db.relationship('ChecklistType', backref=db.backref(""))
+    evidence = db.Column(db.Text, nullable=True)
+    resolved = db.Column(db.Boolean, nullable=True)
 
-    def __init__(self, status):
+    def __init__(self, status, evidence, resolved):
         self.status = status
-
+        self.evidence = evidence
+        self.resolved = resolved

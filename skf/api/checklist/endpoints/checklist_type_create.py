@@ -5,6 +5,7 @@ from skf.api.checklist.business import create_checklist_type
 from skf.api.checklist.serializers import checklist_type, message
 from skf.api.kb.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
@@ -21,5 +22,8 @@ class ChecklistCreate(Resource):
         """
         validate_privilege(self, 'edit')
         data = request.json
+        val_num(category_id)
+        val_alpha_num_special(data.get('name'))
+        val_alpha_num_special(data.get('description'))
         result = create_checklist_type(data, category_id)
         return result, 200, security_headers()

@@ -4,6 +4,7 @@ from skf.api.security import security_headers
 from skf.api.checklist_category.business import get_checklist_category_item
 from skf.api.checklist_category.serializers import checklist, message
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('checklist_category', description='Operations related to checklist items')
 
@@ -19,5 +20,6 @@ class ChecklistCategoryCollection(Resource):
         Returns a single checklist category.
         * Privileges required: **none**
         """
+        val_num(id)
         result = get_checklist_category_item(id)
         return result, 200, security_headers()

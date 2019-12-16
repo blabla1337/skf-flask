@@ -2,6 +2,7 @@
 
 # -*- coding: utf-8 -*-
 """
+    sadasdasdasdas
     Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples
     and helps developers in development.
@@ -23,7 +24,7 @@ import logging.config, os, re
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
-#from skf.chatbot_tools import init_dataset
+from skf.chatbot_tools import init_dataset
 from skf.db_tools import init_md_knowledge_base, init_md_code_examples, init_db, update_db
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
@@ -39,6 +40,7 @@ from skf.api.sprints.endpoints.sprint_results import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results_export import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results_export_external import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results_delete import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_results_update import ns as sprints_namespace
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item_update import ns as checklist_namespace
@@ -160,7 +162,6 @@ def main():
         if  settings.JWT_SECRET == 'True':
             log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
             app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)    
-
 
 if __name__ == "__main__":
     main()

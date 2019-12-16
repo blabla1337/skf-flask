@@ -6,6 +6,7 @@ from skf.api.kb.business import update_kb_item
 from skf.api.kb.serializers import kb_update, message
 from skf.api.kb.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('kb', description='Operations related to kb items')
 
@@ -23,6 +24,8 @@ class KBItemUpdate(Resource):
         Update a kb item.
         * Privileges required: **edit**
         """
+        val_num(kb_id)
+        val_alpha_num_special(data.get('title'))
         validate_privilege(self, 'edit')
         data = request.json
         result = update_kb_item(id, data)

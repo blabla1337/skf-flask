@@ -6,6 +6,7 @@ from skf.api.projects.business import delete_project
 from skf.api.projects.serializers import message
 from skf.api.projects.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('project', description='Operations related to project items')
 
@@ -23,7 +24,7 @@ class ProjectItemDelete(Resource):
         Deletes project item.
         * Privileges required: **delete**
         """
+        val_num(id)
         validate_privilege(self, 'delete')
-        user_id = select_userid_jwt(self)
-        result = delete_project(id, user_id)
+        result = delete_project(id)
         return result, 200, security_headers()

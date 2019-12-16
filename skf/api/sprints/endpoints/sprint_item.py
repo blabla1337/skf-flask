@@ -6,6 +6,7 @@ from skf.api.sprints.business import get_sprint_item
 from skf.api.sprints.serializers import sprint, message
 from skf.api.sprints.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
@@ -23,6 +24,7 @@ class ProjectSprintItem(Resource):
         Returns a sprint item.
         * Privileges required: **read**
         """
+        val_num(id)
         validate_privilege(self, 'read')
         user_id = select_userid_jwt(self)
         result = get_sprint_item(id, user_id)

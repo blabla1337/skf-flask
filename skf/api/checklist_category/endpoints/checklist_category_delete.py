@@ -5,6 +5,7 @@ from skf.api.checklist_category.business import delete_checklist_category
 from skf.api.checklist_category.serializers import message
 from skf.api.kb.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('checklist_category', description='Operations related to checklist items')
 
@@ -20,6 +21,7 @@ class ChecklistCategoryDelete(Resource):
         Delete a checklist type.
         * Privileges required: **delete**
         """
+        val_num(id)
         validate_privilege(self, 'delete')
         result = delete_checklist_category(id)
         return result, 200, security_headers()

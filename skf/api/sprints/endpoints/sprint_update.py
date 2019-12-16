@@ -6,6 +6,7 @@ from skf.api.sprints.business import update_sprint
 from skf.api.sprints.serializers import sprint_update, message
 from skf.api.sprints.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
@@ -23,6 +24,9 @@ class ProjectSprintItemUpdate(Resource):
         Update a sprint item.
         * Privileges required: **edit**
         """
+        val_num(id)
+        val_alpha_num_special(data.get('name'))
+        val_alpha_num_special(data.get('description'))
         validate_privilege(self, 'edit')
         user_id = select_userid_jwt(self)
         data = request.json

@@ -6,6 +6,7 @@ class QuestionResult(db.Model):
     __tablename__ = 'question_results'
 
     id = db.Column(db.Integer, primary_key=True)
+
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"))
     project = db.relationship("Project", backref=db.backref('question_results'))
 
@@ -23,3 +24,4 @@ class QuestionResult(db.Model):
 
         self.result = result
         self.checklist_type = checklist_type
+
