@@ -23,10 +23,10 @@ class ProjectSprintItemNew(Resource):
         Create new sprint item.
         * Privileges required: **edit**
         """
+        data = request.json
         val_alpha_num_special(data.get('name'))
         val_alpha_num_special(data.get('description'))
         val_num(data.get('project_id'))
         validate_privilege(self, 'edit')
-        data = request.json
         result = new_sprint(data)
         return result, 200, security_headers()

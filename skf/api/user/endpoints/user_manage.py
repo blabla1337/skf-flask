@@ -6,7 +6,7 @@ from skf.api.user.business import manage_user
 from skf.api.user.serializers import manage, message
 from skf.api.user.parsers import authorization
 from skf.api.restplus import api
-from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('user', description='Operations related to users')
 

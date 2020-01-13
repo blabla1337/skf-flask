@@ -20,7 +20,6 @@ class userActivation(Resource):
     @api.response(400, 'No results found', message)
     def put(self, id):
         data = request.json
-        val_num(data.get('privilege_id'))
         val_num(data.get('accessToken'))
         val_alpha_num_special(data.get('username'))
         val_num(id)

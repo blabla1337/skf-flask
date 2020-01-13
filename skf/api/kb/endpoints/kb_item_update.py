@@ -11,7 +11,7 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_n
 ns = api.namespace('kb', description='Operations related to kb items')
 
 
-@ns.route('/update/<int:id>')
+@ns.route('/update/<int:kb_id>')
 @api.doc(params={'id': 'The kb item id'})
 @api.response(404, 'Validation error', message)
 class KBItemUpdate(Resource):
@@ -19,7 +19,7 @@ class KBItemUpdate(Resource):
     @api.expect(authorization, kb_update)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'No results found', message)
-    def put(self, id):
+    def put(self, kb_id):
         """
         Update a kb item.
         * Privileges required: **edit**
