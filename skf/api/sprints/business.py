@@ -1,5 +1,6 @@
-import base64, string, random
+import base64, string, random, requests, sys
 from skf import settings
+from flask import abort
 from skf.database import db
 from sqlalchemy import asc, desc
 from skf.database.groupmembers import GroupMember
@@ -10,8 +11,8 @@ from skf.database.checklists_results import ChecklistResult
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklist_types import ChecklistType
 from skf.database.kb_items import KBItem
-import requests
-import sys
+from skf.api.security import log
+
 
 def get_sprint_item(sprint_id):
     log("User requested specific sprint item", "MEDIUM", "PASS")
@@ -28,28 +29,28 @@ def update_sprint(sprint_id, data):
     log("User updated sprint", "MEDIUM", "PASS")
     try:
         sprint = ProjectSprint.query.get(sprint_id)
-        sprint.name = data.get('description')
+        sprint.name = data.get('name')
         sprint.description = data.get('description')
         db.session.add(sprint) 
         db.session.commit()
     except:
         db.session.rollback()
-        raise
+        return abort(400, 'Sprint not successfully updated')
     return {'message': 'Sprint successfully updated'}
 
 
-def new_sprint(user_id, data):
+def new_sprint(data):
     log("User created new sprint", "MEDIUM", "PASS")    
     try:
         sprint = ProjectSprint(data.get('name'), data.get('description'))
         sprint.group_id = 1
-        sprint.project_id = project_id
+        sprint.project_id = data.get('project_id')
         sprint.checklist_type_id = data.get('checklist_type_id')
         db.session.add(sprint)
         db.session.commit()
     except:
-         db.session.rollback()
-         raise
+        db.session.rollback()
+        return abort(400, 'Sprint not successfully created')
     result = ProjectSprint.query.order_by(desc(ProjectSprint.sprint_id)).first()
     return {'sprint_id': result.sprint_id, 'message': 'Sprint successfully created'}
     
@@ -75,7 +76,7 @@ def delete_sprint(sprint_id):
         db.session.commit()
     except:
         db.session.rollback()
-        raise
+        return abort(400, 'Sprint not successfully deleted')
     return {'message': 'Sprint successfully deleted'}
 
 def delete_checklist_result(id):
@@ -86,7 +87,7 @@ def delete_checklist_result(id):
         db.session.commit()
     except:
         db.session.rollback()
-        raise
+        return abort(400, 'checklist result successfully deleted')
     return {'message': 'checklist result successfully deleted'}
 
 
@@ -101,7 +102,7 @@ def update_checklist_result(id, user_id, data):
         db.session.commit()
     except:
         db.session.rollback()
-        raise
+        return abort(400, 'checklist result not successfully updated')
     return {'message': 'checklist result successfully updated'}
 
 

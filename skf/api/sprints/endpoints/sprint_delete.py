@@ -26,6 +26,5 @@ class ProjectSprintItemDelete(Resource):
         """
         val_num(id)
         validate_privilege(self, 'delete')
-        user_id = select_userid_jwt(self)
-        result = delete_sprint(id, user_id)
+        result = delete_sprint(id)
         return result, 200, security_headers()

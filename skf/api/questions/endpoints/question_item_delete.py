@@ -23,7 +23,7 @@ class QuestionSprintDelete(Resource):
         Delete questions.
         * Privileges required: **delete**
         """
-        val_num(id_question)
+        val_num(id)
         validate_privilege(self, 'delete')
         result = delete_question(id)
         return result, 200, security_headers()

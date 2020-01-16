@@ -39,7 +39,7 @@ def update_checklist_category(id, data):
     except Exception as e:
         db.session.rollback()
         raise
-    return {'message': 'Checklist item successfully updated'} 
+    return {'message': 'Checklist category successfully updated'} 
 
 def delete_checklist_category(checklist_category_id):
     log("User deleted checklist item", "MEDIUM", "PASS")
@@ -50,4 +50,4 @@ def delete_checklist_category(checklist_category_id):
     except Exception as e:
         db.session.rollback()
         raise
-    return {'message': 'Checklist item successfully deleted'}
+    return {'message': 'Checklist category successfully deleted'}

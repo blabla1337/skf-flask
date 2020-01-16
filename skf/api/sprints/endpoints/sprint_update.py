@@ -28,7 +28,6 @@ class ProjectSprintItemUpdate(Resource):
         val_alpha_num_special(data.get('name'))
         val_alpha_num_special(data.get('description'))
         validate_privilege(self, 'edit')
-        user_id = select_userid_jwt(self)
-        result = update_sprint(id, user_id, data)
+        result = update_sprint(id, data)
         return result, 200, security_headers()
 

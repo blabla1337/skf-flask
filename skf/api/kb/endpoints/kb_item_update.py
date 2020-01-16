@@ -24,10 +24,10 @@ class KBItemUpdate(Resource):
         Update a kb item.
         * Privileges required: **edit**
         """
+        data = request.json
         val_num(kb_id)
         val_alpha_num_special(data.get('title'))
         validate_privilege(self, 'edit')
-        data = request.json
-        result = update_kb_item(id, data)
+        result = update_kb_item(kb_id, data)
         return result, 200, security_headers()
 

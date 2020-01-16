@@ -1,4 +1,5 @@
 import datetime
+from flask import abort
 from skf.database import db
 from sqlalchemy import desc
 from skf.database.projects import Project 
@@ -25,7 +26,7 @@ def new_project(user_id, data):
         db.session.commit()
     except:
         db.session.rollback()
-        raise
+        return abort(400, 'Project not created')
     result = Project.query.filter(Project.name == data.get('name')).first()
     return {'project_id': result.id, 'message': 'Project successfully created'}
 
@@ -38,7 +39,7 @@ def delete_project(project_id):
         db.session.commit()
     except Exception as e:
         db.session.rollback()
-        raise
+        return abort(400, 'Project not deleted')
     return {'message': 'Project successfully deleted'}
 
 

@@ -1,6 +1,6 @@
 from flask import request
 from flask_restplus import Resource
-from skf.api.security import security_headers, validate_privilege, val_num
+from skf.api.security import security_headers, validate_privilege, val_num, val_alpha_num_special
 from skf.api.checklist.business import update_checklist_type
 from skf.api.checklist.serializers import checklist_type, message
 from skf.api.kb.parsers import authorization

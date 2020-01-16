@@ -40,14 +40,14 @@ def create_user(data):
     try:
         user = User(data.get('email'))
         user.privilege_id = data.get('privilege_id')
-        user.username = accessToken
+        user.username = data.get('username')
         user.accessToken  = my_secure_rng.randrange(10000000, 99999999)
         user.group_id = 0
         db.session.add(user)
         db.session.commit()
     except:
         db.session.rollback()
-        raise
+        return abort(400, 'User could not be created')
     result = User.query.filter(User.email == data.get('email')).one()
     return result
 
@@ -62,7 +62,6 @@ def manage_user(user_id, data):
         db.session.rollback()
         log("User triggered error managing failed: {}".format(e), "HIGH", "FAIL")
         return {'message': 'User could not be managed'}
-    
     return {'message': 'User successfully managed'}
 
 def list_users():
@@ -75,19 +74,19 @@ def get_user_result_by_username(username):
         user = User.query.filter(User.username == username).one()
         return user
     except:
-        return abort('Login was failed', 400)
+        return abort(400, 'Login was failed')
 
 def is_user_activated(user):
     if not user.activated:
-        return abort('Login was failed', 400)
+        return abort(400, 'Login was failed')
 
 def does_user_has_access(user):
     if not user.access:
-        return abort('Login was failed', 400)
+        return abort(400, 'Login was failed')
 
 def check_password(password_from_db, supplied_password):
     if not check_password_hash(password_from_db.password, supplied_password):
-        return abort('Login was failed', 400)
+        return abort(400, 'Login was failed')
 
 def create_jwt_token_for_user(user):
     payload = {
@@ -111,20 +110,20 @@ def strip_whitespace_from_username(username):
 
 def user_is_already_activated(result):
     if result == True:
-        return abort('Login was failed', 400)
+        return abort(400, 'User could not be activated')
 
 def compare_email(email_from_query, email_from_form):
     if email_from_query != email_from_form:
-        return abort('Login was failed', 400)
+        return abort(400, 'User could not be activated')
 
 def compare_passwords(password, repassword):
     if password != repassword:
-        return abort('Login was failed', 400)
+        return abort(400, 'User could not be activated')
 
 def compare_access_tokens(token_from_query, token_from_form):
     val_num(token_from_form)
     if token_from_query != token_from_form:
-        return abort('Login was failed', 400)
+        return abort(400, 'User could not be activated')
 
 def activate_account(username, pw_hash, user_id):
     activate = get_user_result_by_id(user_id)

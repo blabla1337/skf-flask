@@ -3,7 +3,7 @@ from skf.database.code_items import CodeItem
 from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 def create_code_item(data, category_id):
-    log("User requested creating a new kb item", "LOW", "PASS")
+    log("User requested creating a new code item", "LOW", "PASS")
     result = CodeItem(data.get('content'), data.get('title'), data.get('code_lang'))
     result.checklist_category_id = category_id
     try:
@@ -12,7 +12,7 @@ def create_code_item(data, category_id):
     except:
         db.session.rollback()
         raise
-    return {'message': 'KB item successfully created'} 
+    return {'message': 'Code example item successfully created'} 
 
 
 def update_code_item(code_id, data):
@@ -39,7 +39,7 @@ def delete_code_item(code_id):
     except:
         db.session.rollback()
         raise
-    return {'message': 'code item successfully deleted'}
+    return {'message': 'Code example item successfully deleted'}
 
 
 def get_code_items(category_id):

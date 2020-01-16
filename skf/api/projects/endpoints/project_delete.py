@@ -15,7 +15,6 @@ ns = api.namespace('project', description='Operations related to project items')
 @api.doc(params={'id': 'The project id'})
 @api.response(404, 'Validation error', message)
 class ProjectItemDelete(Resource):
-
     @api.expect(authorization)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'No results found', message)

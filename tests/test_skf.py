@@ -57,7 +57,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'accessToken': 123, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admin', 'username': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/user/activate/1', data=json.dumps(payload), headers=headers)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "User could not be activated")
 
@@ -67,7 +67,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'accessToken': 1234, 'email': 'woop@owasp.org', 'password': 'admin', 'repassword': 'admin', 'username': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/user/activate/1', data=json.dumps(payload), headers=headers)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "User could not be activated")
 
@@ -77,7 +77,7 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'accessToken': 1234, 'email': 'example@owasp.org', 'password': 'admin', 'repassword': 'admintypo', 'username': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.put('/api/user/activate/1', data=json.dumps(payload), headers=headers)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "User could not be activated")
 
@@ -97,9 +97,9 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'username': 'adm', 'password': 'admin'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['Authorization token'], "")
+        self.assertEqual(response_dict['message'], "Login was failed")
 
 
     def test_fail_password_login(self):
@@ -107,9 +107,9 @@ class TestRestPlusApi(unittest.TestCase):
         payload = {'username': 'admin', 'password': 'bla'}
         headers = {'content-type': 'application/json'}
         response = self.client.post('/api/user/login', data=json.dumps(payload), headers=headers)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['Authorization token'], "")
+        self.assertEqual(response_dict['message'], "Login was failed")
 
 
     def test_login_create(self):
@@ -181,12 +181,6 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['items'][0]['checklist_items_checklist_id'], '1.0')
-
-
-    def test_get_checklist_fail(self):
-        """Test if the get checklist items fail call is working"""
-        response = self.client.get('/api/checklist/item/1337.1337/type/0')
-        self.assertEqual(response.status_code, 400)
 
 
     def test_update_checklist_item_15(self):
@@ -643,7 +637,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.delete('/api/code/delete/100', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['message'], "Code item successfully deleted")
+        self.assertEqual(response_dict['message'], "Code example item successfully deleted")
 
 
     def test_get_description_item(self):
@@ -781,7 +775,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.put('/api/user/create', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 400)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['message'], "A database result was required but none was found.")
+        self.assertEqual(response_dict['message'], "User could not be created")
 
 
 class TestSecurity(unittest.TestCase):

@@ -68,14 +68,14 @@ def store_question_results(checklists, project_id, sprint_id, checklist_type):
 def store_question_results_include_always(checklists, project_id, sprint_id, checklist_type):
     try:
         for row in checklists:
-                    checklists = ChecklistResult(1, 0, 0)
-                    checklists.project_id = project_id
-                    checklists.sprint_id = sprint_id
-                    checklists.kb_id = row.kb_id
-                    checklists.checklist_id = row.id
-                    checklists.checklist_type_id = checklist_type
-                    db.session.add(checklists)
-                    db.session.commit()
+            checklists = ChecklistResult(1, 0, 0)
+            checklists.project_id = project_id
+            checklists.sprint_id = sprint_id
+            checklists.kb_id = row.kb_id
+            checklists.checklist_id = row.id
+            checklists.checklist_type_id = checklist_type
+            db.session.add(checklists)
+            db.session.commit()
     except:
         abort(400, "error storing checklist results - include always")
 
