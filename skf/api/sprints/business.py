@@ -91,7 +91,7 @@ def delete_checklist_result(id):
     return {'message': 'checklist result successfully deleted'}
 
 
-def update_checklist_result(id, user_id, data):
+def update_checklist_result(id, data):
     log("User deleted sprint", "MEDIUM", "PASS")
     resolved = convert_boolean_type(data.get("resolved"))
     try:

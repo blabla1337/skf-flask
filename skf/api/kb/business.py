@@ -52,4 +52,4 @@ def get_kb_item(kb_id):
 
 def get_kb_items(category_id):
     log("User requested list of kb items", "LOW", "PASS")
-    return KBItem.query.filter(KBItem.checklist_category_id == category_id).paginate(1, 500, False)
+    return KBItem.query.filter((KBItem.checklist_category_id == category_id) | (KBItem.checklist_category_id == 0)).paginate(1, 500, False)

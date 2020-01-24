@@ -7,7 +7,6 @@ class KBItem(db.Model):
     kb_id = db.Column(db.Integer, primary_key=True, autoincrement=False)
     title = db.Column(db.Text)
     content = db.Column(db.Text)
-    
     checklist_category_id = db.Column(db.Integer, db.ForeignKey("checklist_category.id"), nullable=True)
     checklist_category = db.relationship("ChecklistCategory", backref=db.backref('kb_items'))
 

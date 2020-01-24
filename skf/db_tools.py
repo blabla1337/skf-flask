@@ -124,13 +124,14 @@ def init_md_knowledge_base():
                 content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
                 try:
                     item = KBItem(title, content, kb_id)
-                    item.checklist_category_id = 1
+                    if (kb_id == "1"):
+                        item.checklist_category_id = 0
+                    else:
+                        item.checklist_category_id = 1
                     db.session.add(item)
                     db.session.commit()
-
                 except IntegrityError as e:
                     raise
-
         print('Initialized the markdown knowledge-base.')
         return True
 
