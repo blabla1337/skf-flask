@@ -101,7 +101,7 @@ export class ProjectSummaryComponent implements OnInit {
         const blob = new Blob(byteArrays, {type: 'text/html'});
         const url = window.URL.createObjectURL(blob);
         a.href = url;
-        a.download = 'export.md';
+        a.download = 'export.csv';
         a.click();
         window.URL.revokeObjectURL(url);
       },

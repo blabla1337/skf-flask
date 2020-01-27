@@ -114,5 +114,32 @@ def convert_boolean_type(refine):
     return refine
 
 def export_results(sprint_results):
-    with open("export.md", 'rb') as file:
+    results = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_results).order_by(ChecklistResult.checklist_type_id).all()
+    file_path = "export.csv"
+    with open(file_path, 'w+') as file:
+        file.write('title,description,mitigation\n')
+        for item in results:
+            if item.kb_id != 1:
+                if item.checklist_type_id != None:
+                    name = ChecklistType.query.filter(ChecklistType.id == item.checklist_type_id).first()
+                    checklistName = name.name
+                else:
+                    checklistName = "Removed"
+                checklist = ChecklistKB.query.filter(ChecklistKB.id == item.checklist_id).first()
+                kb_item = KBItem.query.filter(KBItem.kb_id == item.kb_id).first()
+                title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                if kb_item != None:
+                    try:
+                        temp = kb_item.content.replace(',','\\,').split("Solution:")
+                        temp1 = temp[0].split("Description:")
+                        description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                        mitigation = temp[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
+                    except:
+                        description = "empty"
+                        mitigation = "empty"
+                else:
+                    description = "empty"
+                    mitigation = "empty"
+                file.write('"' + checklistName + ' : ' + title + '","' + description + '","' + mitigation + '"\n')
+    with open("export.csv", 'rb') as file:
         return {'message': base64.b64encode(file.read())}
