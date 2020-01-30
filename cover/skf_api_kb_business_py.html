@@ -105,13 +105,13 @@
     <p id="t52" class="pln"><span class="n"><a href="#t52">52</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t53" class="run"><span class="n"><a href="#t53">53</a></span><span class="t"><span class="key">def</span> <span class="nam">get_kb_items</span><span class="op">(</span><span class="nam">category_id</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t54" class="run"><span class="n"><a href="#t54">54</a></span><span class="t">    <span class="nam">log</span><span class="op">(</span><span class="str">"User requested list of kb items"</span><span class="op">,</span> <span class="str">"LOW"</span><span class="op">,</span> <span class="str">"PASS"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t55" class="run"><span class="n"><a href="#t55">55</a></span><span class="t">    <span class="key">return</span> <span class="nam">KBItem</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">KBItem</span><span class="op">.</span><span class="nam">checklist_category_id</span> <span class="op">==</span> <span class="nam">category_id</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t55" class="run"><span class="n"><a href="#t55">55</a></span><span class="t">    <span class="key">return</span> <span class="nam">KBItem</span><span class="op">.</span><span class="nam">query</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="op">(</span><span class="nam">KBItem</span><span class="op">.</span><span class="nam">checklist_category_id</span> <span class="op">==</span> <span class="nam">category_id</span><span class="op">)</span> <span class="op">|</span> <span class="op">(</span><span class="nam">KBItem</span><span class="op">.</span><span class="nam">checklist_category_id</span> <span class="op">==</span> <span class="num">0</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">paginate</span><span class="op">(</span><span class="num">1</span><span class="op">,</span> <span class="num">500</span><span class="op">,</span> <span class="key">False</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.0.3</a>,
-            created at 2020-01-16 14:30
+            created at 2020-01-30 14:21
         </p>
     </div>
 </div>

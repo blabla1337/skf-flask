@@ -4,6 +4,7 @@ LABEL maintainer="glenn.ten.cate@owasp.org"
 
 RUN apt update &&\
     apt install -y apt-utils python3-nltk
+    
 FROM python:3.7
 # second stage
 LABEL maintainer="glenn.ten.cate@owasp.org"

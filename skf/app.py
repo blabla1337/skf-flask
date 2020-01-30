@@ -24,8 +24,9 @@ import logging.config, os, re
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
+from flask_sqlalchemy import SQLAlchemy
 from skf.chatbot_tools import init_dataset
-from skf.db_tools import init_md_knowledge_base, init_md_code_examples, init_db, update_db
+from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_initial_data, clean_db, update_db, init_db
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
@@ -90,6 +91,8 @@ def create_app():
     configure_app(flask_app)
     initialize_app(flask_app)
     db.init_app(flask_app)
+    with flask_app.app_context():
+        init_db()
     return flask_app
 
 def configure_app(flask_app):
@@ -129,10 +132,12 @@ cors = CORS(app, resources={r"/api/*": {"origins": settings.ORIGINS}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
-@app.cli.command('initdb')
+
+
+@app.cli.command('cleandb')
 def initdb_command():
-    """Creates the database with all the Markdown files."""
-    init_db()
+    """Delete DB and creates a new database with all the Markdown files."""
+    clean_db()
     print('Initialized the database.')
 
 
