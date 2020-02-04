@@ -44,8 +44,9 @@ def delete_code_item(code_id):
 
 def get_code_items(category_id):
     log("User requested list of code items", "LOW", "PASS")
-    result = CodeItem.query.filter(CodeItem.checklist_category_id == category_id).paginate(1, 500, False)
+    result = CodeItem.query.filter(CodeItem.checklist_category_id == category_id).paginate(1, 1500, False)
     return result
+    
 
 
 def get_code_item(code_id):
