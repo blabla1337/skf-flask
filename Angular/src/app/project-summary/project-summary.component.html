@@ -32,11 +32,7 @@
           your favourite ticketing system!
         </p>
       </div>
-      <button
-        style="float:right; margin-left: 1%"
-        (click)="back()"
-        class="btn btn-default"
-      >
+      <button style="float:right; margin-left: 1%" (click)="back()" class="btn btn-default">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
       </button>
       <button style="float:right;" (click)="export()" class="btn btn-success">
@@ -49,18 +45,11 @@
       <div class="col-lg-12">
         <ng-container>
           <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-            <div
-              *ngFor="let item of sprintResult; let myIndex = index"
-              class="content-panel"
-              style="padding-bottom:0.25em; padding-top:2%;"
-            >
+            <div *ngFor="let item of sprintResult; let myIndex = index" class="content-panel"
+              style="padding-bottom:0.25em; padding-top:2%;">
               <div *ngIf="item.kb_item_id != 1">
-                <ngb-panel
-                  id="{{ myIndex }}"
-                  title="{{ item.checklist_items_checklist_id }} {{
-                    item.checklist_items_content
-                  }} {{ item.checklist_type }}"
-                >
+                <ngb-panel id="{{ myIndex }}"
+                  title="{{ item.checklist_items_checklist_id }} {{item.checklist_items_content}} -- Resolved: {{ item.resolved }}">
                   <ng-template ngbPanelContent>
                     <ngb-tabset>
                       <ngb-tab>
@@ -73,42 +62,23 @@
                           </p>
                           <div *ngIf="item.cwe > 0">
                             <ngb-alert [dismissible]="false">
-                              <strong
-                                ><a
-                                  href="https://cwe.mitre.org/data/definitions/{{
+                              <strong><a href="https://cwe.mitre.org/data/definitions/{{
                                     item.cwe
-                                  }}.html"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  >CWE {{ item.cwe }}</a
-                                ></strong
-                              >
+                                  }}.html" target="_blank" rel="noopener noreferrer">CWE {{ item.cwe }}</a></strong>
                             </ngb-alert>
                           </div>
-                          <button
-                            (click)="deleteModal(modalDeleteChecklistResult)"
-                            style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%"
-                            id="delete-button"
-                            class="btn btn-danger btn-xs"
-                          >
+                          <button (click)="deleteModal(modalDeleteChecklistResult)"
+                            style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%" id="delete-button"
+                            class="btn btn-danger btn-xs">
                             Delete result
                           </button>
                           <!-- start modal for deleting a checklist result-->
-                          <ng-template
-                            #modalDeleteChecklistResult
-                            let-c="close"
-                            let-d="dismiss"
-                          >
+                          <ng-template #modalDeleteChecklistResult let-c="close" let-d="dismiss">
                             <div class="modal-header">
                               <h4 class="modal-title">
                                 Delete sprint/feature!
                               </h4>
-                              <button
-                                type="button"
-                                class="close"
-                                aria-label="Close"
-                                (click)="d('Cross click')"
-                              >
+                              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
@@ -122,28 +92,14 @@
                                 <b style="color:red"> DELETE </b> and click the
                                 delete button
                               </p>
-                              <input
-                                type="text"
-                                [(ngModel)]="delete"
-                                id="delete"
-                                class="form-control"
-                              />
+                              <input type="text" [(ngModel)]="delete" id="delete" class="form-control" />
                             </div>
                             <div class="modal-footer">
-                              <button
-                                type="button"
-                                class="btn btn-secondary"
-                                (click)="c('Close click')"
-                              >
+                              <button type="button" class="btn btn-secondary" (click)="c('Close click')">
                                 Close
                               </button>
-                              <button
-                                type="button"
-                                class="btn btn-danger"
-                                id="submit"
-                                (click)="deleteChecklistResult(item.id)"
-                                (click)="c('Close click')"
-                              >
+                              <button type="button" class="btn btn-danger" id="submit"
+                                (click)="deleteChecklistResult(item.id)" (click)="c('Close click')">
                                 Delete
                               </button>
                             </div>
@@ -152,36 +108,23 @@
                       </ngb-tab>
 
                       <ngb-tab>
-                        <ng-template ngbTabTitle
-                          ><b
-                            (click)="
+                        <ng-template ngbTabTitle><b (click)="
                               complianceTabClickEvent(
                                 item.evidence,
                                 item.resolved
                               )
-                            "
-                            >Compliance</b
-                          >
+                            ">Compliance</b>
                         </ng-template>
                         <ng-template ngbTabContent>
                           <form [formGroup]="complianceForm">
                             <div class="form-group">
                               <div class="wrap">
-                                <label
-                                  for="inputVersion"
-                                  maxlength="10"
-                                  class="col-sm-2 control-label"
-                                >
+                                <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">
                                   evidence
                                 </label>
                                 <div class="col-sm-10">
-                                  <textarea
-                                    rows="10"
-                                    style="height:100%;"
-                                    formControlName="evidence"
-                                    type="text"
-                                    class="form-control"
-                                  ></textarea>
+                                  <textarea rows="10" style="height:100%;" formControlName="evidence" type="text"
+                                    class="form-control"></textarea>
                                   <div class="wrap desc alert-info">
                                     <div class="col-sm-10">
                                       Provide testable evidence for the fix!
@@ -192,17 +135,9 @@
                             </div>
                             <div class="form-group">
                               <div class="wrap">
-                                <label
-                                  for="inputDesc"
-                                  class="col-sm-2 control-label"
-                                  >Resolved?</label
-                                >
+                                <label for="inputDesc" class="col-sm-2 control-label">Resolved?</label>
                                 <div class="col-sm-10">
-                                  <select
-                                    class="form-control"
-                                    formControlName="resolved"
-                                    id="sel1"
-                                  >
+                                  <select class="form-control" formControlName="resolved" id="sel1">
                                     <option value="True">true</option>
                                     <option value="False">false</option>
                                   </select>
@@ -214,13 +149,9 @@
                                 </div>
                               </div>
                             </div>
-                            <button
-                              type="submit"
-                              class="btn btn-warning"
-                              id="create-project"
+                            <button type="submit" class="btn btn-warning" id="create-project"
                               style="float:right; margin-top:1.5%; margin-right:1%; margin-bottom: 1%;"
-                              (click)="updateChecklistResult(item.id)"
-                            >
+                              (click)="updateChecklistResult(item.id)">
                               Update item
                             </button>
                           </form>
