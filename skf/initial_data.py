@@ -2172,7 +2172,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.2.2', 'Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.', 141, False, 1002, 1);
+        c = ChecklistKB('14.2.2', 'Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.', 14, False, 1002, 1);
         c.question_id = 66
         c.kb_id = 283
         db.session.add(c)

@@ -21,49 +21,6 @@ def connect_db():
     #return rv
     return True
 
-def load_test_data():
-    print("Loading test data")
-    try:
-        for i in range(1, 5):
-            db.session.add(KBItem("test title kb item {}".format(i), "test content kb item {}".format(i)))
-            db.session.commit()
-        for lang in ["php", "asp"]:
-            for i in [1, 2]:
-                db.session.add(CodeItem(lang, "test php code item 1", "test php content code item {}".format(i)))
-        for i in [1, 2]:
-            db.session.add(Question(i, "test-question-sprint"))
-        db.session.add(ChecklistType("empty-checklist-for-testing", "TBD"))
-        db.session.add(ChecklistType("filled-checklist-for-testing", "TBD"))
-        checklist_kb = ChecklistKB('1.0','test content checklist item 1', False, 123)
-        checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-        checklist_kb = ChecklistKB('1.1','test content checklist item 1', False, 123)
-        checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-        checklist_kb = ChecklistKB('1.2','test content checklist item 2', True, 124)
-        checklist_kb.question_id = 0
-        checklist_kb.kb_id = 1
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-        checklist_kb = ChecklistKB('1.3','test content checklist item 3', True, 125)
-        checklist_kb.question_id = 0
-        checklist_kb.kb_id = 1
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-        checklist_kb = ChecklistKB('1.4','test content checklist item 4', False, 126)
-        checklist_kb.question_id = 2
-        checklist_kb.kb_id = 2
-        checklist_kb.checklist_type = 1
-        db.session.add(checklist_kb)
-        db.session.commit()
-    except:
-        db.session.rollback()
-        raise
-
 
 def clear_db():
     print("Clearing the database")
@@ -98,6 +55,10 @@ def clean_db(testing=False):
     init_md_code_examples()
     init_md_knowledge_base()
     load_initial_data()
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
 def update_db():
     """Update the database."""
@@ -107,6 +68,10 @@ def update_db():
     init_md_code_examples()
     init_md_knowledge_base()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
     kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/web')
