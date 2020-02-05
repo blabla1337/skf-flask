@@ -1,19 +1,4 @@
-
 from skf.database import db
-
-'''
---
--- Table structure for table `project_sprints`
---
-drop table if exists `project_sprints`;
-CREATE TABLE `project_sprints` (
-`sprint_id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`project_id` int(11) NOT NULL,
-`group_id` int(11) NOT NULL,
-`sprint_name` varchar(250) NOT NULL,
-`sprint_description` varchar(250) NOT NULL
-);
-'''
 
 class ProjectSprint(db.Model):
     

@@ -15,8 +15,8 @@ export class KnowledgebaseService {
   public headers = new Headers({ 'Content-Type': 'application/json' });
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
-  getKnowledgeBase(): Observable<Knowledgebase[]> {
-    return this.http.get(environment.API_ENDPOINT + '/kb/items', { headers: this.headers }).pipe(
+  getKnowledgeBase(category_id: number): Observable<Knowledgebase[]> {
+    return this.http.get(environment.API_ENDPOINT + `/kb/items/${category_id}`, { headers: this.headers }).pipe(
       map(response => response.json().items));
   }
 
@@ -25,10 +25,10 @@ export class KnowledgebaseService {
       map(response => response.json()));
   }
 
-  newKnowledgebaseItem(knowledgebase:Knowledgebase): Observable<any> {
+  newKnowledgebaseItem(category_id:number, knowledgebase:Knowledgebase): Observable<any> {
     console.log(knowledgebase)
     return this.http
-      .put(environment.API_ENDPOINT + '/kb/new', JSON.stringify({
+      .put(environment.API_ENDPOINT + `/kb/new/${category_id}`, JSON.stringify({
         title: knowledgebase['title'],
         content: knowledgebase['content']
       }),

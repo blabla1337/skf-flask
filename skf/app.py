@@ -2,6 +2,7 @@
 
 # -*- coding: utf-8 -*-
 """
+    sadasdasdasdas
     Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples
     and helps developers in development.
@@ -23,8 +24,9 @@ import logging.config, os, re
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
-#from skf.chatbot_tools import init_dataset
-from skf.db_tools import init_md_knowledge_base, init_md_code_examples, init_db, update_db
+from flask_sqlalchemy import SQLAlchemy
+from skf.chatbot_tools import init_dataset
+from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_initial_data, clean_db, update_db, init_db
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
@@ -39,6 +41,7 @@ from skf.api.sprints.endpoints.sprint_results import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results_export import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results_export_external import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_results_delete import ns as sprints_namespace
+from skf.api.sprints.endpoints.sprint_results_update import ns as sprints_namespace
 from skf.api.checklist.endpoints.checklist_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_item_update import ns as checklist_namespace
@@ -52,6 +55,11 @@ from skf.api.checklist.endpoints.checklist_type_delete import ns as checklist_na
 from skf.api.checklist.endpoints.checklist_type_items import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_type_items_with_filter import ns as checklist_namespace
 from skf.api.checklist.endpoints.checklist_items_questions import ns as checklist_namespace
+from skf.api.checklist_category.endpoints.checklist_category_create import ns as checklist_category
+from skf.api.checklist_category.endpoints.checklist_category_delete import ns as checklist_category
+from skf.api.checklist_category.endpoints.checklist_category_items import ns as checklist_category
+from skf.api.checklist_category.endpoints.checklist_category_item import ns as checklist_category
+from skf.api.checklist_category.endpoints.checklist_category_update import ns as checklist_category
 from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
@@ -83,6 +91,8 @@ def create_app():
     configure_app(flask_app)
     initialize_app(flask_app)
     db.init_app(flask_app)
+    with flask_app.app_context():
+        init_db()
     return flask_app
 
 def configure_app(flask_app):
@@ -122,10 +132,12 @@ cors = CORS(app, resources={r"/api/*": {"origins": settings.ORIGINS}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
-@app.cli.command('initdb')
+
+
+@app.cli.command('cleandb')
 def initdb_command():
-    """Creates the database with all the Markdown files."""
-    init_db()
+    """Delete DB and creates a new database with all the Markdown files."""
+    clean_db()
     print('Initialized the database.')
 
 
@@ -155,7 +167,6 @@ def main():
         if  settings.JWT_SECRET == 'True':
             log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
             app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)    
-
 
 if __name__ == "__main__":
     main()

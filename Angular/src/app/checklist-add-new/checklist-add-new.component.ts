@@ -86,7 +86,8 @@ export class ChecklistAddNewComponent implements OnInit {
   }
 
   getKnowledgeItems() {
-    this._knowledgeService.getKnowledgeBase().subscribe(knowledgebaseItems => {
+    let category_id = localStorage.getItem("category_id");
+    this._knowledgeService.getKnowledgeBase(Number(category_id)).subscribe(knowledgebaseItems => {
         this.knowledgebaseItems = knowledgebaseItems;
       },
       (err) => console.log('Error getting knowledge items, contact the administrator!')
