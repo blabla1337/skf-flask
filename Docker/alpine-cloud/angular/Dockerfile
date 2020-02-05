@@ -3,7 +3,7 @@
 #############
 
 # base image
-FROM node:8.16.2-alpine AS builder
+FROM node:11.9-alpine AS builder
 
 LABEL maintainer="glenn.ten.cate@owasp.org"
 

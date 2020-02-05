@@ -15,8 +15,8 @@ export class CodeExamplesService {
   constructor(private http: Http, private router: Router) { }
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
-  getCode(): Observable<CodeExample[]> {
-    return this.http.get(environment.API_ENDPOINT + '/code/items', { headers: this.postHeaders }).pipe(
+  getCode(category_id: number): Observable<CodeExample[]> {
+    return this.http.get(environment.API_ENDPOINT + `/code/items/${category_id}`, { headers: this.postHeaders }).pipe(
       map(response => response.json().items))
   }
 
@@ -25,9 +25,9 @@ export class CodeExamplesService {
       map(response => response.json()))
   }
 
-  newCodeExample(code: CodeExample): Observable<any> {
+  newCodeExample(category_id:number, code: CodeExample): Observable<any> {
     return this.http
-      .put(environment.API_ENDPOINT + '/code/new', JSON.stringify({
+      .put(environment.API_ENDPOINT + `/code/new/${category_id}`, JSON.stringify({
         title: code['title'],
         content: code['content'],
         code_lang: code['code_lang']

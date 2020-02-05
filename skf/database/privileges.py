@@ -1,13 +1,4 @@
-
 from skf.database import db
-
-'''
-drop table if exists `privileges`;
-CREATE TABLE `privileges` (
-`privilege_id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`privilege` varchar(255) NOT NULL
-);
-'''
 
 class Privilege(db.Model):
 

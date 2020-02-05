@@ -1,22 +1,6 @@
-
 from skf.database import db
 
-'''
---
--- Table structure for table `logs`
---
-drop table if exists `logs`;
-CREATE TABLE `logs` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`date` varchar(255) NOT NULL,
-`time` varchar(255) NOT NULL,
-`threat` varchar(255) NOT NULL,
-`ip` varchar(255) NOT NULL,
-`user_id` varchar(255) NOT NULL,
-`status` varchar(255) NOT NULL,
-`message` varchar(255) NOT NULL
-);
-'''
+
 
 class Log(db.Model):
     

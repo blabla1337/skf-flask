@@ -84,6 +84,7 @@
                     <ul *ngIf="check" class="sub"  style="display:block;">
                         <li><a routerLink="/checklist" id="7">View checklists</a></li>
                         <li><a *ngIf="canManage" routerLink="/checklist-summary" id="checklist-summary">Manage checklists</a></li>
+                        <li><a *ngIf="canManage" routerLink="/category-list" id="category-lis">Manage categories</a></li>
                     </ul>
                 </li>
                 <li [style.background-color]="getKnowledgeStyle()" class="">

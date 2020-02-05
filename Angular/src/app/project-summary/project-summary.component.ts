@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SprintService } from '../services/sprint.service'
 import { Sprint } from '../models/sprint'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-project-summary',
@@ -11,7 +12,12 @@ import { Sprint } from '../models/sprint'
 })
 export class ProjectSummaryComponent implements OnInit {
 
+  private complianceForm: FormGroup;
+  public isSubmitted: boolean;
+  get formControls() { return this.complianceForm.controls; }
+
   constructor(
+    private formBuilder: FormBuilder,
     private sprintService: SprintService,
     private route: ActivatedRoute,
     private router: Router,
@@ -22,7 +28,14 @@ export class ProjectSummaryComponent implements OnInit {
   public delete: string;
 
   ngOnInit() {
+
+    this.complianceForm = this.formBuilder.group({
+      evidence: ['', Validators.required],
+      resolved: ['', Validators.required]
+    })
+    
     this.getSprintResults()
+    
   }
 
   getSprintResults() {
@@ -31,6 +44,18 @@ export class ProjectSummaryComponent implements OnInit {
         resp => this.sprintResult = resp,
         () => console.log('Error getting sprint stats'))
     });
+  }
+
+  updateChecklistResult(checklist_result_id: number){
+    this.isSubmitted = true;
+    if(this.complianceForm.invalid){
+      return;
+    }
+    this.sprintService.updateChecklistResult(checklist_result_id, this.complianceForm.value)
+    .subscribe(
+      () => this.getSprintResults(),
+      () => console.log('error updating list')
+    );
   }
 
   deleteChecklistResult(checklist_result_id: number) {
@@ -73,7 +98,7 @@ export class ProjectSummaryComponent implements OnInit {
           byteArrays.push(byteArray);
         }
 
-        const blob = new Blob(byteArrays, {type: 'text/csv'});
+        const blob = new Blob(byteArrays, {type: 'text/html'});
         const url = window.URL.createObjectURL(blob);
         a.href = url;
         a.download = 'export.csv';
@@ -82,6 +107,12 @@ export class ProjectSummaryComponent implements OnInit {
       },
       err => console.log('Error getting sprint stats')
     ); });
+  }
+
+  complianceTabClickEvent(evidence, resolved){
+    this.sprintResult['evidence'] = evidence
+    this.sprintResult['resolved'] = resolved
+    this.complianceForm.patchValue(this.sprintResult)
   }
 
   PushMetrics(){

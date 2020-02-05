@@ -78,7 +78,8 @@ export class ChecklistEditComponent implements OnInit {
   }
 
   getKnowledgeItems() {
-    this.knowledgeService.getKnowledgeBase().subscribe(knowledgebaseItems => {
+    let category_id = localStorage.getItem("category_id");
+    this.knowledgeService.getKnowledgeBase(Number(category_id)).subscribe(knowledgebaseItems => {
       this.knowledgebaseItems = knowledgebaseItems;
     },
       err => console.log('Error getting knowledge items, contact the administrator!')

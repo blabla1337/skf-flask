@@ -1,4 +1,5 @@
 import datetime
+from flask import abort
 from skf.database import db
 from sqlalchemy import desc
 from skf.database.projects import Project 
@@ -17,43 +18,32 @@ def get_project_items():
 
 def new_project(user_id, data):
     log("User created new project", "MEDIUM", "PASS")
-    val_num(user_id)
-    val_alpha_num_special(data.get('name'))
-    val_alpha_num(data.get('version'))
-    val_alpha_num_special(data.get('description'))
-    name = data.get('name')
-    version = data.get('version')
-    description = data.get('description')
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M")
     try:
-        project = Project(name, version, description, timestamp)
+        project = Project(data.get('name'), data.get('version'), data.get('description'), timestamp)
         db.session.add(project)
         db.session.commit()
     except:
         db.session.rollback()
-        raise
-    #result = Project.query.filter(Project.user_id == user_id).order_by(desc(Project.id)).first()
-    # I assume we would like to return the new project ID?
-    result = Project.query.filter(Project.name == name).first()
+        return abort(400, 'Project not created')
+    result = Project.query.filter(Project.name == data.get('name')).first()
     return {'project_id': result.id, 'message': 'Project successfully created'}
 
 
-def delete_project(project_id, user_id):
+def delete_project(project_id):
     log("User deleted project", "MEDIUM", "PASS")
-    val_num(project_id)
     try:
         project = (Project.query.filter(Project.id == project_id).one())
         db.session.delete(project)
         db.session.commit()
     except Exception as e:
         db.session.rollback()
-        raise
+        return abort(400, 'Project not deleted')
     return {'message': 'Project successfully deleted'}
 
 
 def stats_project(project_id):
     log("User requested specific project stats", "MEDIUM", "PASS")
     result = (ProjectSprint.query.filter(ProjectSprint.project_id == project_id).all())
-
     return result

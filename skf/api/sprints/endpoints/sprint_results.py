@@ -24,6 +24,5 @@ class ProjectSprintResultItem(Resource):
         * Privileges required: **read**
         """
         validate_privilege(self, 'read')
-        user_id = select_userid_jwt(self)
-        result = get_sprint_results(id, user_id)
+        result = get_sprint_results(id)
         return result, 200, security_headers()

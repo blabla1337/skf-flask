@@ -45,6 +45,8 @@ results = api.model('results', {
     'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='Knowledge base title'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
+    'evidence': fields.String(required=False, description='Response message'),
+    'resolved': fields.String(required=False, description='Response message'),
 })
 
 sprint_results = api.inherit('Page of sprint results', {
@@ -58,4 +60,10 @@ message = api.model('Response message', {
 
 delete_checklist_results = api.model('Response message', {
     'checklist_type_id': fields.Integer(required=True, description='Response message'),
+})
+
+update_checklist_results = api.model('Response message', {
+    'id': fields.Integer(required=True, description='Response message'),
+    'evidence': fields.String(required=True, description='Response message'),
+    'resolved': fields.String(required=True, description='Response message'),
 })

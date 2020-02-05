@@ -42,6 +42,7 @@ import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.componen
 import { KnowledgebaseEditComponent }   from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent }   from './code-examples/code-examples.component';
 import { CodeExamplesEditComponent }   from './code-examples-edit/code-examples-edit.component';
+import { CategoryComponent }   from './category-list/category-list.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
@@ -78,6 +79,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     KnowledgebaseEditComponent,
     CodeExamplesComponent,
     CodeExamplesEditComponent,
+    CategoryComponent,
     AuthenticateComponent,
     ChecklistComponent,
     ChecklistManageComponent,

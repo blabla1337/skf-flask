@@ -14,7 +14,7 @@ import { Questions } from '../models/questions'
   providers: [QuestionsService, ChecklistService]
 })
 export class QuestionnaireComponent implements OnInit {
-  @ViewChild('sectionNeedToScroll') sectionNeedToScroll: ElementRef
+  @ViewChild('sectionNeedToScroll', { static: true }) sectionNeedToScroll: ElementRef
 
   public questions: Questions[] = [];
   public checklist: Checklist[];

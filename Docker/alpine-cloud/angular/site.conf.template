@@ -3,7 +3,6 @@
 
 server {
 	listen 8788 default_server;
-    listen [::]:8788 default_server;
     root /usr/share/nginx/html;
     charset utf-8;
 	server_tokens off;
