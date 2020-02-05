@@ -55,10 +55,6 @@ def clean_db(testing=False):
     init_md_code_examples()
     init_md_knowledge_base()
     load_initial_data()
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 
 def update_db():
     """Update the database."""
@@ -68,10 +64,6 @@ def update_db():
     init_md_code_examples()
     init_md_knowledge_base()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
     kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/web')
