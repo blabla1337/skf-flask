@@ -1,6 +1,6 @@
 import unittest, sys, time, skf
 from skf import settings
-from skf.db_tools import init_db, connect_db
+from skf.db_tools import init_db
 from skf.app import app
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys

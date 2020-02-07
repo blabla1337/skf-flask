@@ -12,14 +12,8 @@ from skf.database.privileges import Privilege
 from skf.database.kb_items import KBItem
 from skf.database.code_items import CodeItem
 from skf.database.checklist_types import ChecklistType
+from skf.database.checklist_category import ChecklistCategory
 from skf.initial_data import load_initial_data
-
-def connect_db():
-    """Connects to the specific database."""
-    #rv = sqlite3.connect(os.path.join(app.root_path, settings.DATABASE))
-    #rv.row_factory = sqlite3.Row
-    #return rv
-    return True
 
 
 def clear_db():
@@ -38,11 +32,12 @@ def init_db(testing=False):
     try:
         print("Initializing the database")
         db.create_all()
-        db.session.commit()
+        prerequisits()
         init_md_knowledge_base()
         init_md_code_examples()
         load_initial_data()
     except:
+        db.session.remove()
         print("Database is already existsing, nothing to do")
 
 
@@ -51,10 +46,11 @@ def clean_db(testing=False):
     clear_db()
     print("Clean and Initializing the database")
     db.create_all()
-    db.session.commit()
+    prerequisits()
     init_md_code_examples()
     init_md_knowledge_base()
     load_initial_data()
+    db.session.commit()
 
 def update_db():
     """Update the database."""
@@ -81,7 +77,7 @@ def init_md_knowledge_base():
                 try:
                     item = KBItem(title, content, kb_id)
                     if (kb_id == "1"):
-                        item.checklist_category_id = 0
+                        item.checklist_category_id = None
                     else:
                         item.checklist_category_id = 1
                     db.session.add(item)
@@ -118,6 +114,19 @@ def init_md_code_examples():
                         print(e)
                         pass
         print('Initialized the markdown code-examples.')
+        return True
+    except:
+        raise
+
+
+def prerequisits():
+    try:
+        category = ChecklistCategory("Web applications", "category for web collection")
+        db.session.add(category)
+        db.session.commit()
+        category = ChecklistCategory("Mobile applications", "category for mobile collection")
+        db.session.add(category)
+        db.session.commit()
         return True
     except:
         raise

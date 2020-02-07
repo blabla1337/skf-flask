@@ -2,7 +2,7 @@ import os, json, unittest, tempfile, skf
 from werkzeug.exceptions import BadRequest
 from skf import settings
 from skf.api.security import log, val_num, val_float, val_alpha, val_alpha_num, security_headers
-from skf.db_tools import clear_db, clean_db, update_db, connect_db, init_md_knowledge_base, init_md_code_examples
+from skf.db_tools import clear_db, clean_db, update_db, init_md_knowledge_base, init_md_code_examples
 from skf import chatbot_tools
 from skf.app import app
 import pytest

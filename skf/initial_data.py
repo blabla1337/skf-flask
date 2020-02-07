@@ -36,14 +36,6 @@ def load_initial_data():
         group.members.append(user)
         group.owner = user
         db.session.add(group)
-        
-        category = ChecklistCategory("Web applications", "category for web collection")
-        db.session.add(category)
-        db.session.commit()
-
-        category = ChecklistCategory("Mobile applications", "category for mobile collection")
-        db.session.add(category)
-        db.session.commit()
 
         checklist = ChecklistType(name='Architecture, Design and Threat Modeling Requirements', description='Security architecture has almost become a lost art in many organizations. The days of the enterprise architect have passed in the age of DevSecOps. The application security field must catch up and adopt agile security principles while re-introducing leading security architecture principles to software practitioners. Architecture is not an implementation, but a way of thinking about a problem that has potentially many different answers, and no one single "correct" answer. All too often, security is seen as inflexible and demanding that developers fix code in a particular way, when the developers may know a much better way to solve the problem. There is no single, simple solution for architecture, and to pretend otherwise is a disservice to the software engineering field.', visibility=1)
         checklist.checklist_category_id = 1

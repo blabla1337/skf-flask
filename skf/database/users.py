@@ -5,7 +5,6 @@ class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-
     privilege_id = db.Column(db.Integer, db.ForeignKey('privileges.id'), nullable=False)
     privilege = db.relationship("Privilege", backref=db.backref('users'))
     accessToken = db.Column(db.Integer, unique=True, nullable=False)
