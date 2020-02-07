@@ -58,22 +58,21 @@
     <p id="t5" class="run"><span class="n"><a href="#t5">5</a></span><span class="t">    <span class="nam">__tablename__</span> <span class="op">=</span> <span class="str">'privileges'</span>&nbsp;</span><span class="r"></span></p>
     <p id="t6" class="pln"><span class="n"><a href="#t6">6</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t7" class="run"><span class="n"><a href="#t7">7</a></span><span class="t">    <span class="nam">id</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">primary_key</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t8" class="pln"><span class="n"><a href="#t8">8</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t9" class="run"><span class="n"><a href="#t9">9</a></span><span class="t">    <span class="nam">privilege</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="num">255</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t10" class="pln"><span class="n"><a href="#t10">10</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t11" class="run"><span class="n"><a href="#t11">11</a></span><span class="t">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">privilege</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t12" class="run"><span class="n"><a href="#t12">12</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">privilege</span> <span class="op">=</span> <span class="nam">privilege</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t13" class="pln"><span class="n"><a href="#t13">13</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t14" class="run"><span class="n"><a href="#t14">14</a></span><span class="t">    <span class="key">def</span> <span class="nam">__repr__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t15" class="mis show_mis"><span class="n"><a href="#t15">15</a></span><span class="t">        <span class="key">return</span> <span class="nam">self</span><span class="op">.</span><span class="nam">privilege</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t8" class="run"><span class="n"><a href="#t8">8</a></span><span class="t">    <span class="nam">privilege</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="num">255</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t9" class="pln"><span class="n"><a href="#t9">9</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t10" class="run"><span class="n"><a href="#t10">10</a></span><span class="t">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">privilege</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t11" class="run"><span class="n"><a href="#t11">11</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">privilege</span> <span class="op">=</span> <span class="nam">privilege</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t12" class="pln"><span class="n"><a href="#t12">12</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t13" class="run"><span class="n"><a href="#t13">13</a></span><span class="t">    <span class="key">def</span> <span class="nam">__repr__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t14" class="mis show_mis"><span class="n"><a href="#t14">14</a></span><span class="t">        <span class="key">return</span> <span class="nam">self</span><span class="op">.</span><span class="nam">privilege</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t15" class="pln"><span class="n"><a href="#t15">15</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t16" class="pln"><span class="n"><a href="#t16">16</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t17" class="pln"><span class="n"><a href="#t17">17</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.0.3</a>,
-            created at 2020-02-05 08:25
+            created at 2020-02-07 15:12
         </p>
     </div>
 </div>
