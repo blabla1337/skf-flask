@@ -35,14 +35,26 @@ def clear_db():
 
 def init_db(testing=False):
     """Initializes the database.""" 
+    try:
+        print("Initializing the database")
+        db.create_all()
+        db.session.commit()
+        init_md_knowledge_base()
+        init_md_code_examples()
+        load_initial_data()
+    except:
+        print("Database is already existsing, nothing to do")
+
+
+def clean_db(testing=False):
+    """Clean and Initializes the database.""" 
     clear_db()
-    print("Initializing the database")
+    print("Clean and Initializing the database")
     db.create_all()
     db.session.commit()
     init_md_code_examples()
     init_md_knowledge_base()
     load_initial_data()
-
 
 def update_db():
     """Update the database."""
@@ -52,10 +64,9 @@ def update_db():
     init_md_code_examples()
     init_md_knowledge_base()
 
-
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
-    kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base')
+    kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/web')
     try:
         for filename in os.listdir(kb_dir):
             if filename.endswith(".md"):
@@ -69,6 +80,10 @@ def init_md_knowledge_base():
                 content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
                 try:
                     item = KBItem(title, content, kb_id)
+                    if (kb_id == "1"):
+                        item.checklist_category_id = 0
+                    else:
+                        item.checklist_category_id = 1
                     db.session.add(item)
                     db.session.commit()
                 except IntegrityError as e:
@@ -81,7 +96,7 @@ def init_md_knowledge_base():
 
 def init_md_code_examples():
     """Converts markdown code-example items to DB."""
-    kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/')
+    kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/web/')
     code_langs = ['asp', 'java', 'php', 'flask', 'django', 'go', 'ruby', 'nodejs-express']
     try:
         for lang in code_langs:
@@ -96,14 +111,13 @@ def init_md_code_examples():
                     content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
                     try:
                         item = CodeItem(content_escaped, title, lang)
+                        item.checklist_category_id = 1
                         db.session.add(item)
                         db.session.commit()
                     except IntegrityError as e:
                         print(e)
                         pass
-
         print('Initialized the markdown code-examples.')
         return True
-
     except:
         raise

@@ -6,6 +6,7 @@ from skf.api.sprints.business import new_sprint
 from skf.api.sprints.serializers import sprint_new, message
 from skf.api.sprints.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
@@ -22,8 +23,10 @@ class ProjectSprintItemNew(Resource):
         Create new sprint item.
         * Privileges required: **edit**
         """
-        validate_privilege(self, 'edit')
-        user_id = select_userid_jwt(self)
         data = request.json
-        result = new_sprint(user_id, data)
+        val_alpha_num_special(data.get('name'))
+        val_alpha_num_special(data.get('description'))
+        val_num(data.get('project_id'))
+        validate_privilege(self, 'edit')
+        result = new_sprint(data)
         return result, 200, security_headers()

@@ -58,8 +58,8 @@ export class CodeExamplesEditComponent implements OnInit {
         () => console.log('updating code example'),
         () => console.log('Error updating code example')
       );
-
-    this.codeService.getCode().subscribe(examples => {this.codeItemArray = examples},() => console.log('There was an error catching code examples.'))
+    let category_id = localStorage.getItem("category_id")
+    this.codeService.getCode(Number(category_id)).subscribe(examples => {this.codeItemArray = examples},() => console.log('There was an error catching code examples.'))
     this.router.navigate(['/code-examples']);
   }
 

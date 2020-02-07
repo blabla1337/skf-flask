@@ -1,20 +1,5 @@
 from skf.database import db
 
-'''
---
--- Table structure for table `checklists_results`
---
-drop table if exists `checklists_results`;
-CREATE TABLE `checklists_results` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklist_id` varchar(255) NOT NULL,
-`project_id` int(11) NOT NULL,
-`sprint_id` int(11) NOT NULL,
-`status` int(11) NOT NULL,
-`kb_id` int(11)
-);
-'''
-
 class ChecklistResult(db.Model):
     
     __tablename__ = 'checklists_results'
@@ -31,7 +16,10 @@ class ChecklistResult(db.Model):
     kb_items = db.relationship("KBItem", backref=db.backref(''))  
     checklist_type_id = db.Column(db.Integer, db.ForeignKey("checklist_types.id"))
     checklist_type = db.relationship('ChecklistType', backref=db.backref(""))
+    evidence = db.Column(db.Text, nullable=True)
+    resolved = db.Column(db.Boolean, nullable=True)
 
-    def __init__(self, status):
+    def __init__(self, status, evidence, resolved):
         self.status = status
-
+        self.evidence = evidence
+        self.resolved = resolved

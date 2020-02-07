@@ -15,9 +15,6 @@ export class AppComponent implements OnInit {
   private knowledgeitems: Knowledgebase[]
 
   ngOnInit() {
-    this._knowledgeService.getKnowledgeBase().subscribe(requestData => {
-      this.knowledgeitems = requestData
-    });
 
     setTimeout(() => {
       localStorage.setItem('session', 'expired');

@@ -4,13 +4,16 @@ import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { CodeExample } from '../models/code-example'
 import { HighlightJsService } from 'angular2-highlight-js'; // in live this would be the node_modules path
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CategoryService } from '../services/category.service';
+import { Category } from '../models/category';
+
 
 declare var hljs: any;
 
 @Component({
   selector: 'app-code-examples',
   templateUrl: './code-examples.component.html',
-  providers: [CodeExamplesService, HighlightJsService]
+  providers: [CodeExamplesService, CategoryService, HighlightJsService]
 })
 
 export class CodeExamplesComponent implements OnInit {
@@ -22,8 +25,10 @@ export class CodeExamplesComponent implements OnInit {
   codeForm: FormGroup;
   public isSubmitted: boolean;
   public delete: string;
+  public category_id: number;
+  public categories: Category[];
   
-  constructor(private codeService: CodeExamplesService, private highlightJsService: HighlightJsService, private el: ElementRef, private modalService: NgbModal, private formBuilder: FormBuilder) {
+  constructor(private codeService: CodeExamplesService, private categoryService: CategoryService, private highlightJsService: HighlightJsService, private el: ElementRef, private modalService: NgbModal, private formBuilder: FormBuilder) {
     this.lang = localStorage.getItem('code_lang')
   }
 
@@ -35,36 +40,54 @@ export class CodeExamplesComponent implements OnInit {
       content: ['', Validators.required],
       code_lang: ['', Validators.required]
     })
-    this.getCodeExamples();
+    this.categoryList();
   }
 
-  storeCodeExample() {
+  storeCodeExample(category_id :number) {
     this.isSubmitted = true;
     if(this.codeForm.invalid){
       return;
     }
-    this.codeService.newCodeExample(this.codeForm.value)
+    this.codeService.newCodeExample(this.category_id, this.codeForm.value)
       .subscribe(
-      () => this.getCodeExamples()
+      () => this.getCodeExamples(this.category_id)
       );
-    () => console.log('Eror storing a new knowledgebase item!')
   }
 
-  getCodeExamples() {
-    this.codeService.getCode()
+  getCodeExamples(category_id: number) {
+    this.codeService.getCode(this.category_id)
       .subscribe(examples => {
         this.codeExamples = examples
       },
-        err => console.log('There was an error catching code examples.'))
+        () => console.log('There was an error catching code examples.'))
   }
 
   deleter(id: number) {
     if (this.delete == 'DELETE') {
       this.codeService.deleteCodeExample(id).subscribe(x =>
         // Get the new project list on delete
-        this.getCodeExamples())
+        this.getCodeExamples(this.category_id))
     }
   }
+
+  categoryList() {
+    this.categoryService
+      .getCategories()
+      .subscribe(
+      categories => {
+        this.categories = categories;
+        if (this.categories) {
+          console.log('There are no projects to show!')
+        }
+      },
+      err => console.log('Getting the projects failed, contact an administrator! '));
+  }
+
+  selectChecklistsFromCategory(){
+    localStorage.setItem("category_id", this.category_id.toString());
+    this.getCodeExamples(this.category_id);
+  }
+
 
   addCodeModal(content) {
     this.modalService.open(content, { size: 'lg' }).result

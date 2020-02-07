@@ -11,17 +11,20 @@ import * as JWT from 'jwt-decode';
 import { ChecklistType } from '../models/checklist_type'
 import { ChecklistService } from '../services/checklist.service'
 import { Router } from '@angular/router'
+import { Category } from '../models/category';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-project-dashboard',
   templateUrl: './project-dashboard.component.html',
-  providers: [QuestionsService, SprintService, ChecklistService]
+  providers: [QuestionsService, SprintService, ChecklistService, CategoryService]
 })
 export class ProjectDashboardComponent implements OnInit {
 
   closeResult: string;
   public preDevelopment: Questions[];
   public sprints: Questions[];
+  public categories: Category[];
   public sprintResult: Sprint[];
   public questions: Questions[] = []
   public steps = false;
@@ -41,13 +44,15 @@ export class ProjectDashboardComponent implements OnInit {
   public oldSprints: string;
   public queryString: string;
   public maturity_id: number;
-  
+  public category_id: number;
+
   constructor(
     private modalService: NgbModal,
     private questionsService: QuestionsService,
     private route: ActivatedRoute,
     private sprintService: SprintService,
     private checklistService: ChecklistService,
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit() {
@@ -55,7 +60,7 @@ export class ProjectDashboardComponent implements OnInit {
       localStorage.setItem('project_id', params['id'])
     });
     this.getSprintStats();
-    this.checklistTypeList();
+    this.categoryList();
   }
 
   selectQuestions() {
@@ -65,12 +70,23 @@ export class ProjectDashboardComponent implements OnInit {
     )
   }
   
-
-
   // Temp storage for sprint questionaire
   storeSprint(form: NgForm) {
     localStorage.setItem('questions', JSON.stringify(form.value));
     return
+  }
+
+  categoryList() {
+    this.categoryService
+      .getCategories()
+      .subscribe(
+      categories => {
+        this.categories = categories;
+        if (this.categories) {
+          console.log('There are no projects to show!')
+        }
+      },
+      err => console.log('Getting the projects failed, contact an administrator! '));
   }
 
   newSprint() {
@@ -139,14 +155,18 @@ getSprintStats() {
     }, 1000);
 }
 
-checklistTypeList() {
+checklistTypeList(category_id: number) {
   this.checklistService
-    .getChecklistTypeList()
+    .getChecklistTypeList(category_id)
     .subscribe(
       checklistType => {
         this.checklistType = checklistType;
       },
       err => console.log('errors went wrong!'));
+}
+
+selectChecklistsOnChange(){
+ this.checklistTypeList(this.category_id)
 }
 
 open(content) {

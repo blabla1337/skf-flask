@@ -16,6 +16,7 @@ import { ChecklistManageComponent } from './checklist-manage/checklist-manage.co
 import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
 import { ChecklistAddNewComponent } from './checklist-add-new/checklist-add-new.component';
 import { ChecklistSummaryComponent } from './checklist-summary/checklist-summary.component';
+import { CategoryComponent } from './category-list/category-list.component';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { GuardService } from './guard/guard.service';
@@ -34,10 +35,11 @@ export const appRoutes: Routes = [
   { path: 'plugin-manager', component: PluginManagerComponent, canActivate: [GuardService] },
   { path: 'undefined', component: UndefinedComponent, canActivate: [GuardService] },
   { path: 'project-summary/:id', component: ProjectSummaryComponent, canActivate: [GuardService] },
-   { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },
+  { path: 'knowledgebase', component: KnowledgebaseComponent, canActivate: [GuardService] },
   { path: 'knowledgebase-edit/:id', component: KnowledgebaseEditComponent, canActivate: [GuardService] },
   { path: 'code-examples', component: CodeExamplesComponent, canActivate: [GuardService] },
   { path: 'code-examples-edit/:id', component: CodeExamplesEditComponent, canActivate: [GuardService] },
+  { path: 'category-list', component: CategoryComponent, canActivate: [GuardService] },
   { path: 'user-add', component: UserAddComponent, canActivate: [GuardService] },
   { path: 'user-manage', component: UserManageComponent, canActivate: [GuardService] },
   { path: 'checklist', component: ChecklistComponent, canActivate: [GuardService] },

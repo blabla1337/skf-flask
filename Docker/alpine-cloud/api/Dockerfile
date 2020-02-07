@@ -3,7 +3,8 @@ FROM python:3.7 as BUILDER
 LABEL maintainer="glenn.ten.cate@owasp.org"
 
 RUN apt update &&\
-    apt install -y apt-utils python3-nltk
+    apt install -y apt-utils python3-nltk \
+    default-libmysqlclient-dev
 
 FROM python:3.7
 # second stage
@@ -25,7 +26,7 @@ EXPOSE 8888
 
 ENV FLASK_APP=/home/user_api/skf/app.py
 ENV PYTHONPATH=/home/user_api
-CMD ["python3.7", "skf/app.py"]
+CMD ["/home/user_api/.local/bin/gunicorn", "--bind", "0.0.0.0:8888", "wsgi:app"]
 
 #First go to the main skf-flask folder and from there build the image
 #docker build -f Docker/alpine-cloud/api/Dockerfile . -t skf-api --no-cache
