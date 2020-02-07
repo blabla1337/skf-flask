@@ -47,7 +47,7 @@ requests==2.22.0
 requests-unixsocket==0.2.0
 rsa==4.0
 scikit-learn==0.22.1
-#scipy==1.4.1
+scipy==1.4.1
 selenium==3.141.0
 singledispatch==3.4.0.3
 six==1.14.0
