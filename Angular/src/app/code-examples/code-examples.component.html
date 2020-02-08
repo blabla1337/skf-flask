@@ -1,7 +1,8 @@
-<!-- 
-    Security Knowledge Framework is an expert system application 
+<!--
+    Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples,
-    helps developers in pre-development and post-development.  
+
+    helps developers in pre-development and post-development.
     Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
@@ -44,6 +45,11 @@
 					placeholder="Search vulnerability" />
 				<i class="fa fa-search"></i>
 			</div>
+			<div class="col-md-2">
+                <ng-select id="selectLang" [items]="codeLangs" [(ngModel)]="queryLang" bindLabel="codeLangs" placeholder="Select tags"
+                  appendTo="body" multiple="true">
+                </ng-select>
+            </div>
 		</div>
 		<div *ngIf="category_id" class="content-panel narrow" style="width:100%">
 			<div *ngIf="isSubmitted && formControls.title.errors" class="help-block">
@@ -71,13 +77,13 @@
 			<div class="row">
 				<div (click)="highlight()" class="col-lg-12">
 					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-						<div *ngFor="let examples of codeExamples | stringFilter : queryString">
+						<div *ngFor="let examples of codeExamples | stringFilter : queryString | langFilter : queryLang ">
 							<br />
 							<ngb-panel title="{{examples.title}}: {{examples.code_lang}}">
 								<ng-template ngbPanelContent>
 									<pre><code id="changeme" class="php">
-							 {{examples.content}} 
-			
+							 {{examples.content}}
+
 							</code></pre>
 									<button (click)="deleteCodeModal(deleteCode)"
 										style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%"

@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
+.ng-select .ng-select-container {
+  min-height: 50px;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 50px;
+}
+
+.ng-placeholder {
+  margin-top: 10px;
+}
+
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
   background: #515594;
   color: #ffffff;
