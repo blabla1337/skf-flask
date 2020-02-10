@@ -12,8 +12,8 @@ kind: ConfigMap
 metadata:
   name: skf-flask-back
 data:
-  JWT_SECRET: changeme
-  SKF_API_URL: skf-flask-back.default.svc.cluster.local:8888
+  JWT_SECRET: #mash the keyboard
+  SKF_API_URL: #your url e.g. skf.example.com
   SKF_FLASK_DEBUG: "False"
   SKF_DB_URL: sqlite:///db/db.sqlite
   SKF_DOJO_API_KEY: optional
@@ -25,4 +25,4 @@ kind: ConfigMap
 metadata:
   name: skf-flask-front
 data:
-  FRONTEND_URI: http://host.local
+  FRONTEND_URI: #your uri e.g. https://skf.example.com
