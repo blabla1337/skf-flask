@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/instance: skf-flask-back
     app.kubernetes.io/version: "2.2.2"
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 8888
       name: skf-flask-backend-port

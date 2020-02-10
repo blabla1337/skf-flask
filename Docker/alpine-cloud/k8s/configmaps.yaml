@@ -12,8 +12,8 @@ kind: ConfigMap
 metadata:
   name: skf-flask-back
 data:
-  JWT_SECRET: changeme
-  SKF_API_URL: skf-flask-back.default.svc.cluster.local:8888
+  JWT_SECRET: <changeme>
+  SKF_API_URL: skf-k8s.vuln-tracker.dev
   SKF_FLASK_DEBUG: "False"
   SKF_DB_URL: sqlite:///db/db.sqlite
   SKF_DOJO_API_KEY: optional
@@ -25,4 +25,4 @@ kind: ConfigMap
 metadata:
   name: skf-flask-front
 data:
-  FRONTEND_URI: http://host.local
+  FRONTEND_URI: https://skf-k8s.vuln-tracker.dev
