@@ -105,6 +105,11 @@ cd /skf-flask/installations/local; bash wrapper.sh
 
 Navigate to https://your_domain_value_you_used_above_commands
 
+You can also run API and Frontend part separately for __development__ process. To do so run the following commands:
+
+* In one terminal window run: `./skf-api.sh`
+* In another terminal window run : `./skf-angular.sh development`
+
 #### Error:
 
 If you get the following error
