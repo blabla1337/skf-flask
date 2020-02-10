@@ -56,6 +56,7 @@ import { UserManageComponent } from './user-manage/user-manage.component';
 import { StartsWithPipe } from './pipes/starts-with.pipe';
 import { OrderBy } from './pipes/order-by.pipe';
 import { StringFilterPipe } from './pipes/string-filter.pipe';
+import { LangFilterPipe } from './pipes/lang-filter.pipe';
 
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
@@ -89,6 +90,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     StartsWithPipe,
     OrderBy,
     StringFilterPipe,
+    LangFilterPipe,
     FirstLoginComponent,
     UndefinedComponent,
     LabsComponent,

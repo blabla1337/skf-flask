@@ -22,12 +22,13 @@ export class CodeExamplesComponent implements OnInit {
   public codeExamples: CodeExample[] = [];
   public hljs;
   public queryString;
+  public codeLangs;
   codeForm: FormGroup;
   public isSubmitted: boolean;
   public delete: string;
   public category_id: number;
   public categories: Category[];
-  
+
   constructor(private codeService: CodeExamplesService, private categoryService: CategoryService, private highlightJsService: HighlightJsService, private el: ElementRef, private modalService: NgbModal, private formBuilder: FormBuilder) {
     this.lang = localStorage.getItem('code_lang')
   }
@@ -57,7 +58,10 @@ export class CodeExamplesComponent implements OnInit {
   getCodeExamples(category_id: number) {
     this.codeService.getCode(this.category_id)
       .subscribe(examples => {
-        this.codeExamples = examples
+        this.codeExamples = examples;
+        let codeLangSet = new Set();
+        this.codeExamples.map(item => codeLangSet.add(item.code_lang));
+        this.codeLangs = Array.from(codeLangSet);
       },
         () => console.log('There was an error catching code examples.'))
   }
