@@ -2092,7 +2092,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistKB('13.2.6', 'Verify that the message headers and payload are trustworthy and not modified in transit. Requiring strong encryption for transport (TLS only) may be sufficient in many cases as it provides both confidentiality and integrity protection. Per- message digital signatures can provide additional assurance on top of the transport protections for high-security applications but bring with them additional complexity and risks to weigh against the benefits', 345, False, 598, 2);
+        c = ChecklistKB('13.2.6', 'Verify that the message headers and payload are trustworthy and not modified in transit. Requiring strong encryption for transport (TLS only) may be sufficient in many cases as it provides both confidentiality and integrity protection. Per- message digital signatures can provide additional assurance on top of the transport protections for high-security applications but bring with them additional complexity and risks to weigh against the benefits', 13, False, 598, 2);
         c.question_id = 62
         c.kb_id = 999
         db.session.add(c)

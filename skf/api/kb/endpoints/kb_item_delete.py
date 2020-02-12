@@ -26,4 +26,5 @@ class KnowledgebaseItemDelete(Resource):
         """
         validate_privilege(self, 'delete')
         val_num(id)
+        result = delete_kb_item(id)
         return result, 200, security_headers()
