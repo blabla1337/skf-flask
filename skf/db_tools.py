@@ -77,7 +77,7 @@ def init_md_knowledge_base():
                 try:
                     item = KBItem(title, content, kb_id)
                     if (kb_id == "1"):
-                        item.checklist_category_id = None
+                        item.checklist_category_id = 0
                     else:
                         item.checklist_category_id = 1
                     db.session.add(item)
