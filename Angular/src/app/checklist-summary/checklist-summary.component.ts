@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChecklistService } from '../services/checklist.service';
 import { CategoryService } from '../services/category.service';
 
@@ -13,7 +13,8 @@ import { Category } from '../models/category';
   providers: [ChecklistService, CategoryService]
 })
 
-export class ChecklistSummaryComponent implements OnInit {
+export class ChecklistSummaryComponent implements OnInit
+{
   public checklistForm: FormGroup;
   public checklistTypes: ChecklistType[];
   public categories: Category[];
@@ -22,12 +23,13 @@ export class ChecklistSummaryComponent implements OnInit {
   public queryString: string;
   public isSubmitted: boolean;
   public category_id: number;
-  
+
   get formControls() { return this.checklistForm.controls; }
 
-  constructor(private _checklistService: ChecklistService, private categoryService: CategoryService, private modalService: NgbModal,  private formBuilder: FormBuilder) { }
+  constructor(private _checklistService: ChecklistService, private categoryService: CategoryService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.checklistForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -36,29 +38,30 @@ export class ChecklistSummaryComponent implements OnInit {
     this.categoryList();
   }
 
-  newChecklistType() {
+  newChecklistType()
+  {
     this.isSubmitted = true;
-    if(this.checklistForm.invalid){
+    if (this.checklistForm.invalid) {
       return;
     }
     this._checklistService.newChecklistType(this.category_id, this.checklistForm.value)
       .subscribe(
-        checklistTypes => this.checklistTypes = checklistTypes,
-        () => console.log('There was an error storing the new checklistType'),
-        () => this.checklistTypeList(this.category_id)
+        () => this.checklistTypeList(this.category_id),
+        () => console.log('There was an error storing the new checklistType')
       );
   }
 
-  updateChecklistType(id: number) {
+  updateChecklistType(id: number)
+  {
     this.isSubmitted = true;
-    if(this.checklistForm.invalid){
+    if (this.checklistForm.invalid) {
       return;
     }
 
-    if (this.checklistForm.value['visibility'] == "True"){
-      this.checklistForm.value['visibility']  = 1
-    }else{
-      this.checklistForm.value['visibility']  = 0
+    if (this.checklistForm.value['visibility'] == "True") {
+      this.checklistForm.value['visibility'] = 1
+    } else {
+      this.checklistForm.value['visibility'] = 0
     }
 
     this._checklistService.updateChecklistType(id, this.checklistForm.value).subscribe(x =>
@@ -66,30 +69,32 @@ export class ChecklistSummaryComponent implements OnInit {
       this.checklistTypeList(this.category_id))
   }
 
-  checklistTypeList(category_id:number) {
+  checklistTypeList(category_id: number)
+  {
     this._checklistService
       .getChecklistTypeList(category_id)
       .subscribe(
-        checklistTypes => {
+        checklistTypes =>
+        {
           this.checklistTypes = checklistTypes;
         },
         () => console.log('Getting the checklist types failed, contact an administrator! '))
   }
 
-  categoryList() {
+  categoryList()
+  {
     this.categoryService
       .getCategories()
       .subscribe(
-      categories => {
-        this.categories = categories;
-        if (this.categories) {
-          console.log('There are no projects to show!')
-        }
-      },
-      err => console.log('Getting the projects failed, contact an administrator! '));
+        categories =>
+        {
+          this.categories = categories;
+        },
+        err => console.log('Getting the projects failed, contact an administrator! '));
   }
 
-  deleteChecklistType(id: number) {
+  deleteChecklistType(id: number)
+  {
     if (this.delete == 'DELETE') {
       this._checklistService.deleteChecklistType(id).subscribe(x =>
         // Get the new project list on delete
@@ -98,28 +103,32 @@ export class ChecklistSummaryComponent implements OnInit {
     }
   }
 
-  selectChecklistsFromCategory(){
+  selectChecklistsFromCategory()
+  {
     this.checklistTypeList(this.category_id);
     localStorage.setItem("category_id", this.category_id.toString());
   }
 
-  open(content) {
+  open(content)
+  {
     this.modalService.open(content, { size: 'lg' }).result
   }
 
-  deleteContent(deleteContent) {
+  deleteContent(deleteContent)
+  {
     this.modalService.open(deleteContent, { size: 'lg' }).result
   }
 
-  updateContent(updateContent) {
+  updateContent(updateContent)
+  {
     this.modalService.open(updateContent, { size: 'lg' }).result
   }
 
-  getSet(name, description, visibility) {
+  getSet(name, description, visibility)
+  {
     this.checklistTypes['name'] = name
     this.checklistTypes['description'] = description
     this.checklistTypes['visibility'] = visibility
-    console.log(visibility)
     this.checklistForm.patchValue(this.checklistTypes)
   }
 }

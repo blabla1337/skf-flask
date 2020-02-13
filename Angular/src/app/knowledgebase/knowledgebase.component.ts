@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KnowledgebaseService } from '../services/knowledgebase.service'
-import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Knowledgebase } from '../models/knowledgebase';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryService } from '../services/category.service';
@@ -12,7 +12,8 @@ import { Category } from '../models/category';
   providers: [KnowledgebaseService, CategoryService]
 })
 
-export class KnowledgebaseComponent implements OnInit {
+export class KnowledgebaseComponent implements OnInit
+{
   knowledgebaseForm: FormGroup;
   public isSubmitted: boolean;
   public delete: string;
@@ -25,7 +26,8 @@ export class KnowledgebaseComponent implements OnInit {
 
   constructor(public _knowledgeService: KnowledgebaseService, private categoryService: CategoryService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.knowledgebaseForm = this.formBuilder.group({
       title: ['', Validators.required],
       content: ['', Validators.required]
@@ -33,54 +35,59 @@ export class KnowledgebaseComponent implements OnInit {
     this.categoryList();
   }
 
-  categoryList() {
+  categoryList()
+  {
     this.categoryService
       .getCategories()
       .subscribe(
-      categories => {
-        this.categories = categories;
-        if (this.categories) {
-          console.log('There are no projects to show!')
-        }
-      },
-      err => console.log('Getting the projects failed, contact an administrator! '));
+        categories =>
+        {
+          this.categories = categories;
+        },
+        err => console.log('Getting the projects failed, contact an administrator! '));
   }
 
-  storeKnowledgebaseItem() {
+  storeKnowledgebaseItem()
+  {
     this.isSubmitted = true;
-    if(this.knowledgebaseForm.invalid){
+    if (this.knowledgebaseForm.invalid) {
       return;
     }
     this._knowledgeService.newKnowledgebaseItem(this.category_id, this.knowledgebaseForm.value)
       .subscribe(
         () => this.getKnowledgeItems(this.category_id)
       );
-    
+
   }
 
-  deleteKnowledgebaseItem(id: number) {
+  deleteKnowledgebaseItem(id: number)
+  {
     if (this.delete == 'DELETE') {
       this._knowledgeService.deleteKnowledgebaseItem(id).subscribe(x =>
         this.getKnowledgeItems(this.category_id))
     }
   }
 
-  getKnowledgeItems(category_id: number) {
+  getKnowledgeItems(category_id: number)
+  {
     this._knowledgeService.getKnowledgeBase(category_id).subscribe(requestData => this.knowledgeitems = requestData,
       () => console.log('Error getting knowledge items, contact the administrator!')
     );
   }
 
-  selectChecklistsFromCategory(){
+  selectChecklistsFromCategory()
+  {
     localStorage.setItem("category_id", this.category_id.toString());
     this.getKnowledgeItems(this.category_id);
   }
 
-  deleteKbModal(content) {
+  deleteKbModal(content)
+  {
     this.modalService.open(content, { size: 'lg' }).result
   }
 
-  NewKbModal(content) {
+  NewKbModal(content)
+  {
     this.modalService.open(content, { size: 'lg' }).result
   }
 

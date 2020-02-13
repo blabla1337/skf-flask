@@ -18,9 +18,10 @@ import { tap } from 'rxjs/operators';
   templateUrl: './code-examples-edit.html',
   providers: [ChecklistService, QuestionsService, CodeExamplesService]
 })
-export class CodeExamplesEditComponent implements OnInit {
+export class CodeExamplesEditComponent implements OnInit
+{
 
-  constructor(private codeService: CodeExamplesService,private route: ActivatedRoute,private router: Router ,private formBuilder: FormBuilder) { }
+  constructor(private codeService: CodeExamplesService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
 
   codeForm: FormGroup;
   public title: string;
@@ -32,14 +33,16 @@ export class CodeExamplesEditComponent implements OnInit {
 
   get formControls() { return this.codeForm.controls; }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.codeForm = this.formBuilder.group({
       title: ['', Validators.required],
       content: ['', Validators.required],
       code_lang: ['', Validators.required],
     })
 
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe(params =>
+    {
       this.IdFromUrl = params['id'];
     });
 
@@ -48,9 +51,10 @@ export class CodeExamplesEditComponent implements OnInit {
     );
   }
 
-  updateCodeItem() {
+  updateCodeItem()
+  {
     this.isSubmitted = true;
-    if(this.codeForm.invalid){
+    if (this.codeForm.invalid) {
       return;
     }
     this.codeService.updateCodeExample(Number(this.IdFromUrl), this.codeForm.value)
@@ -59,11 +63,12 @@ export class CodeExamplesEditComponent implements OnInit {
         () => console.log('Error updating code example')
       );
     let category_id = localStorage.getItem("category_id")
-    this.codeService.getCode(Number(category_id)).subscribe(examples => {this.codeItemArray = examples},() => console.log('There was an error catching code examples.'))
+    this.codeService.getCode(Number(category_id)).subscribe(examples => { this.codeItemArray = examples }, () => console.log('There was an error catching code examples.'))
     this.router.navigate(['/code-examples']);
   }
 
-  back() {
+  back()
+  {
     this.router.navigate(['/code-examples']);
   }
 }
