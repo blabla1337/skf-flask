@@ -52,15 +52,15 @@ mkdir /run/nginx
 # Generate files for Nginx
 nginx
 sleep 5
-rm /etc/nginx/conf.d/default.conf
+rm /etc/nginx/sites-enabled/default
 
 # Stop nginx
-killall nginx
+pkill nginx
 
 if [[ "$HTTPS" == "true" ]]; then
-    cp /home/user_skf/Docker/alpine/site-tls.conf /etc/nginx/conf.d/default.conf
+    cp /home/user_skf/Docker/alpine/site-tls.conf /etc/nginx/sites-enabled/default.conf
 else
-    cp /home/user_skf/Docker/alpine/site.conf /etc/nginx/conf.d/default.conf
+    cp /home/user_skf/Docker/alpine/site.conf /etc/nginx/sites-enabled/default.conf
 fi
 
 # Start nginx

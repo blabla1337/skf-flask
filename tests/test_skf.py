@@ -356,7 +356,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['title'], "Filename injection Path traversal")
+        self.assertEqual(response_dict['items'][0]['title'], "use me for a header")
 
 
     def test_get_kb_item_10(self):
@@ -379,7 +379,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['title'], "Filename injection Path traversal")
+        self.assertEqual(response_dict['items'][0]['title'], "Unit test title update")
 
 
     def test_new_kb(self):
