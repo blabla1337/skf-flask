@@ -48,5 +48,4 @@ RUN npm install
 EXPOSE 443 80
 
 WORKDIR /home/user_skf
-VOLUME [ "/home/user_skf" ]
 ENTRYPOINT ["/entrypoint.sh"]
