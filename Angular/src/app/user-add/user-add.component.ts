@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserAddService } from '../services/user-add.service'
 import { User } from '../models/user'
 import { Router } from '@angular/router'
@@ -12,7 +12,8 @@ import { Privilege } from '../models/privilege'
   providers: [UserAddService]
 })
 
-export class UserAddComponent { // implements OnInit {
+export class UserAddComponent
+{ // implements OnInit {
 
   public isSubmitted: boolean;
   public data: User[];
@@ -22,7 +23,8 @@ export class UserAddComponent { // implements OnInit {
 
   constructor(private _userAddService: UserAddService, private _router: Router, private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.userForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       privilege_id: ['', Validators.required],
@@ -30,20 +32,21 @@ export class UserAddComponent { // implements OnInit {
     this.getPrivileges();
   }
 
-  storeUser() {
-    console.log(this.userForm.value)
+  storeUser()
+  {
     this.isSubmitted = true;
-    if(this.userForm.invalid){
+    if (this.userForm.invalid) {
       return;
     }
     this._userAddService.newUser(this.userForm.value)
       .subscribe(
-      data => this.data = data,
-      () => console.log("There is an error storing a user, potential duplicate email")
+        data => this.data = data,
+        () => console.log("There is an error storing a user, potential duplicate email")
       );
   }
 
-  getPrivileges(){
+  getPrivileges()
+  {
     this._userAddService.getPrivileges().subscribe(
       privileges => this.privileges = privileges,
       () => console.log('Getting privileges failed')

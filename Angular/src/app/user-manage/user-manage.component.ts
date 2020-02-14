@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
   providers: [UserService]
 })
 
-export class UserManageComponent implements OnInit {
+export class UserManageComponent implements OnInit
+{
   users: User[];
   closeResult: string;
   public number: number;
@@ -20,11 +21,13 @@ export class UserManageComponent implements OnInit {
 
   constructor(private _userService: UserService, private modalService: NgbModal) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.userList();
   }
 
-  userRevokeAccess(id: number) {
+  userRevokeAccess(id: number)
+  {
     if (this.revoke_str == 'REVOKE') {
       this._userService.revokeUser(id).subscribe(x =>
         // Get the new user list on delete
@@ -32,7 +35,8 @@ export class UserManageComponent implements OnInit {
     }
   }
 
-  userGrantAccess(id: number) {
+  userGrantAccess(id: number)
+  {
     if (this.grant_str == 'GRANT') {
       this._userService.grantUser(id).subscribe(x =>
         // Get the new user list on delete
@@ -40,17 +44,20 @@ export class UserManageComponent implements OnInit {
     }
   }
 
-  userList() {
+  userList()
+  {
     this._userService
       .getUsers()
       .subscribe(
-      users => {
-        this.users = users;
-      },
-      err => this.error = 'Getting the users failed, contact an administrator! ');
+        users =>
+        {
+          this.users = users;
+        },
+        err => this.error = 'Getting the users failed, contact an administrator! ');
   }
 
-  open(content) {
+  open(content)
+  {
     this.modalService.open(content);
   }
 }

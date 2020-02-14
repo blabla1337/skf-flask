@@ -13,7 +13,8 @@ import { Category } from '../models/category';
   providers: [ChecklistService, CategoryService],
 })
 
-export class ChecklistComponent {
+export class ChecklistComponent
+{
   public checklistTypes: ChecklistType[] = [];
   public checklistItems: Checklist[] = [];
   public categories: Category[] = [];
@@ -27,44 +28,45 @@ export class ChecklistComponent {
   constructor(private checklistService: ChecklistService, private categoryService: CategoryService, private modalService: NgbModal) { }
 
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.categoryList()
   }
 
-  checklistTypeList(category_id:number) {
+  checklistTypeList(category_id: number)
+  {
     this.checklistService
       .getChecklistTypeList(category_id)
       .subscribe(
-        checklistTypes => {
+        checklistTypes =>
+        {
           this.checklistTypes = checklistTypes;
-          if (!this.checklistTypes) {
-            this.error = 'There are no checklist types defined yet'
-          }
         },
         err => this.error = 'Getting the checklist types failed, contact an administrator! ');
   }
 
-  categoryList() {
+  categoryList()
+  {
     this.categoryService
       .getCategories()
       .subscribe(
-      categories => {
-        this.categories = categories;
-        if (this.categories) {
-          console.log('There are no projects to show!')
-        }
-      },
-      err => console.log('Getting the projects failed, contact an administrator! '));
+        categories =>
+        {
+          this.categories = categories;
+        },
+        err => console.log('Getting the projects failed, contact an administrator! '));
   }
 
-  selectChecklistsFromCategory(){
+  selectChecklistsFromCategory()
+  {
     this.checklistTypeList(this.category);
   }
 
-  open(content, typeID: number) {
+  open(content, typeID: number)
+  {
     this.checklistService
       .getChecklistByType(typeID)
       .subscribe(checklistItems => { this.checklistItems = checklistItems });
-      this.modalService.open(content, { size: 'lg' })
+    this.modalService.open(content, { size: 'lg' })
   }
 }
