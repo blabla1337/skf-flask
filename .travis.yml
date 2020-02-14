@@ -17,7 +17,7 @@ before_install:
   
 install:
   - pip3 install pytest-cov
-  - pip3 install coverage
+  - pip3 install coverage==4.5.4
   - pip3 install python-coveralls
   - pip3 install -r requirements.txt
   - cd Angular
