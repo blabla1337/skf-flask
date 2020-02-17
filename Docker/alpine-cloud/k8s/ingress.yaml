@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - skf-k8s.vuln-tracker.dev
-    secretName: skf-k8s.vuln-tracker.dev
+    - #your hostname e.g. skf.example.com
+    secretName: #your hostname e.g. skf.example.com
   rules:
-  - host: skf-k8s.vuln-tracker.dev
+  - host: #your hostname e.g. skf.example.com
     http:
      paths:
      - backend:
