@@ -24,7 +24,6 @@ RUN groupadd --gid 1000 user_skf && useradd --uid 1000 --gid user_skf -m user_sk
 
 ADD ./ /home/user_skf/
 RUN chmod a+rw /home/user_skf/skf/db /home/user_skf/skf/db/*
-COPY ./Docker/alpine/skf-angular.sh  /skf-angular.sh
 COPY ./Docker/alpine/entrypoint.sh  /entrypoint.sh
 COPY ./Docker/alpine/skf-api.sh  /skf-api.sh
 COPY ./Docker/alpine/wrapper.sh  /wrapper.sh
@@ -42,8 +41,10 @@ RUN apt update &&\
     openssl
 
 WORKDIR /home/user_skf/Angular
-RUN npm install -g @angular/cli > /dev/null
-RUN npm install
+RUN perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/localhost\/api/" /home/user_skf/Angular/src/environments/environment.ts
+
+RUN npm --loglevel=error install &&\
+    npm run build --prod
 
 EXPOSE 443 80
 
