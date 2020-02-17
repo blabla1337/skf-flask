@@ -13,7 +13,7 @@ metadata:
   name: skf-flask-back
 data:
   JWT_SECRET: #mash the keyboard
-  SKF_API_URL: #your url e.g. skf.example.com
+  SKF_API_URL: #your uri to API e.g. https://skf.example.com/api
   SKF_FLASK_DEBUG: "False"
   SKF_DB_URL: sqlite:///db/db.sqlite
   SKF_DOJO_API_KEY: optional
