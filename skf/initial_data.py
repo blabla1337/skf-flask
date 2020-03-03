@@ -2389,7 +2389,7 @@ def load_initial_data():
         db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1))
         db.session.commit()
 
-        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-checklist_items_checklist_id', 1))
+        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1))
         db.session.commit()
 
         db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1))
