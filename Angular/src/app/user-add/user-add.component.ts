@@ -17,6 +17,7 @@ export class UserAddComponent
 
   public isSubmitted: boolean;
   public data: User[];
+  public error: string[] = [];
   public privileges: Privilege[];
   userForm: FormGroup;
   get formControls() { return this.userForm.controls; }

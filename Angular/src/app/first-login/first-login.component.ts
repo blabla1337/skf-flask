@@ -11,6 +11,7 @@ import { AuthenticateService } from '../services/authenticate.service'
 export class FirstLoginComponent implements OnInit{
   activateForm: FormGroup;
   public isSubmitted: boolean;
+  public error: string[] = [];
   
   get formControls() { return this.activateForm.controls; }
 

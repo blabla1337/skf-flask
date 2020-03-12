@@ -16,6 +16,7 @@ export class ProjectListComponent implements OnInit
   public delete: string;
   public projects: Project[];
   public isSubmitted: boolean;
+  public error: string;
   get formControls() { return this.projectForm.controls; }
 
   constructor(private _projectService: ProjectService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
