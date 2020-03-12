@@ -1,0 +1,19 @@
+apiVersdfdsfsion: apps/v1
+kind: Deployment
+metadata:
+  name: aacxcxssdwrweasdasff
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-kubernetes
+  template:
+    metadata:
+      labels:
+        app: hello-kubernetes
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: paulbouwer/hello-kubernetes:1.7
+        ports:
+        - containerPort: 8080

@@ -18,9 +18,9 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
-
+import redis
+from rq import Connection, Worker
 import logging.config, os, re
-
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
 from skf import settings
@@ -28,6 +28,7 @@ from flask_sqlalchemy import SQLAlchemy
 from skf.chatbot_tools import init_dataset
 from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_initial_data, clean_db, update_db, init_db
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
+from skf.api.labs.endpoints.lab_deployments import ns as lab_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
 from skf.api.projects.endpoints.project_new import ns as project_namespace
@@ -153,6 +154,17 @@ def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
     print('Database updated with the markdown files.')
+
+
+@app.cli.command("run-worker")
+def run_worker_command():
+    redis_url = settings.REDIS_URL 
+    redis_connection = redis.from_url(redis_url)
+    with Connection(redis_connection):
+        worker = Worker(settings.QUEUES)
+        worker.work()
+        print('redis worker was started')
+        
 
 def main():
     """Main SKF method"""
