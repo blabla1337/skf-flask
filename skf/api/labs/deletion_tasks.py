@@ -2,7 +2,7 @@
 import pika
 import uuid
 
-class SKFLabDeployment(object):
+class SKFLabDelete(object):
 
     def __init__(self):
         self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
@@ -24,7 +24,7 @@ class SKFLabDeployment(object):
         self.corr_id = str(uuid.uuid4())
         self.channel.basic_publish(
             exchange='',
-            routing_key='deployment_qeue',
+            routing_key='deletion_qeue',
             properties=pika.BasicProperties(
                 reply_to=self.callback_queue,
                 correlation_id=self.corr_id,

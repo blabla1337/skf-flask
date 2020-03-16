@@ -29,6 +29,7 @@ from skf.chatbot_tools import init_dataset
 from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_initial_data, clean_db, update_db, init_db
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.labs.endpoints.lab_deployments import ns as lab_namespace
+from skf.api.labs.endpoints.lab_delete import ns as lab_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
 from skf.api.projects.endpoints.project_new import ns as project_namespace
@@ -110,7 +111,9 @@ def configure_app(flask_app):
     flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
     flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
-
+    flask_app.config['RABBIT_MQ_CONN_STRING'] = settings.RABBIT_MQ_CONN_STRING
+    flask_app.config['RABBIT_MQ_DEPLOYMENT_WORKER'] = settings.RABBIT_MQ_DEPLOYMENT_WORKER
+    flask_app.config['RABBIT_MQ_DELETION_WORKER'] = settings.RABBIT_MQ_DELETION_WORKER
 
 def initialize_app(flask_app):
     """Initialize the SKF app."""

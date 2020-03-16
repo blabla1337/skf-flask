@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-application
+  name: hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-application
+  template:
+    metadata:
+      labels:
+        app: test-application
+    spec:
+      containers:
+      - image: blabla1337/owasp-skf-lab:xss
+        name: hello-world
+        ports:
+        - containerPort: 5000

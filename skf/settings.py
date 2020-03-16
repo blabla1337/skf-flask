@@ -52,3 +52,8 @@ DOJO_URL = os.environ.get("SKF_DOJO_URL") or ''
 
 # TESTING settings
 TESTING = (os.environ.get("SKF_TESTING") == 'True') or False
+
+#RABBIT MQ settings
+RABBIT_MQ_CONN_STRING = 'localhost'
+RABBIT_MQ_DEPLOYMENT_WORKER = 'deployment_queue'
+RABBIT_MQ_DELETION_WORKER = 'deletion_queue'

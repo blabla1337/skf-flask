@@ -2,10 +2,9 @@ from skf.database import db
 from skf.database.lab_items import LabItem
 from skf.api.security import log, val_num, val_alpha_num
 import time
-import redis
-from rq import Queue, Connection
 from flask import render_template, Blueprint, jsonify, request, current_app
-from skf.api.labs.deployment_tasks import SKFRPC
+from skf.api.labs.deployment_tasks import SKFLabDeployment
+from skf.api.labs.deletion_tasks import SKFLabDelete
 
 def get_labs():
     log("User requested list of kb items", "LOW", "PASS")
@@ -13,9 +12,14 @@ def get_labs():
     return result
 
 
-def deploy_labs():
-    rpc = SKFRPC()
-    response = rpc.call("hello-world.yaml")
+def deploy_labs(yaml_file):
+    rpc = SKFLabDeployment()
+    response = rpc.call(yaml_file)
     return response
 
+
+def delete_labs(yaml_file):
+    rpc = SKFLabDelete()
+    response = rpc.call(yaml_file)
+    return response
 
