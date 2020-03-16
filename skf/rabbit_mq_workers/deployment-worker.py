@@ -4,6 +4,7 @@ from os import path
 import yaml
 from kubernetes import client, config
 import time
+import random
 
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(host='localhost'))
@@ -12,15 +13,14 @@ channel = connection.channel()
 channel.queue_declare(queue='deployment_qeue')
 
 def deploy_container(yaml_file):
-    try:
-        serialized_yaml = get_deployment_yaml(yaml_file)
-        create_deployment(serialized_yaml)
-        create_service_for_deployment(yaml_file)
-        time.sleep(20)
-        metadata = get_service_exposed_ip(yaml_file)
-        return metadata
-    except:
-        return "deployment has failed!"
+    #create_user_namespace()
+    serialized_yaml = get_deployment_yaml(yaml_file)
+    create_deployment(serialized_yaml)
+    create_service_for_deployment(yaml_file)
+    time.sleep(5)
+    metadata = get_service_exposed_ip(yaml_file)
+    return metadata
+
 
 
 def get_deployment_yaml(get_yaml):
@@ -31,14 +31,16 @@ def get_deployment_yaml(get_yaml):
         return False
 
 """
-def create_user_namespace(deployment):
+def create_user_namespace():
     try:
         config.load_kube_config()
-        k8s_apps_v1 = client.AppsV1Api()
-        response = k8s_apps_v1.create_namespaced_deployment(body=deployment, namespace="default")
-        return response
+        api_instance = client.CoreV1Api()
+        body = client.V1Namespace()
+        body.metadata = client.V1ObjectMeta(name="gelukt")
+        api_response = api_instance.create_namespace(body)
+        print(api_response)
     except:
-        return False
+        return False    
 """
 
 def create_deployment(deployment):
@@ -62,7 +64,8 @@ def create_service_for_deployment(yaml_file):
         spec = client.V1ServiceSpec()
         spec.type = "LoadBalancer"
         spec.selector = {"app": "test-application"}
-        spec.ports = [client.V1ServicePort(protocol="TCP", port=5000, target_port=5000)]
+        random_port = random.randrange(40000, 60000)
+        spec.ports = [client.V1ServicePort(protocol="TCP", port=random_port, target_port=5000)]
         service.spec = spec
         response = api_instance.create_namespaced_service(namespace="default", body=service)
         return response

@@ -1,4 +1,3 @@
-
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import security_headers

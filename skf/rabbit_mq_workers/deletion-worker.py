@@ -14,6 +14,7 @@ channel.queue_declare(queue='deletion_qeue')
 def delete_container(instance_name):
     delete_deployment(instance_name)
     delete_service(instance_name)
+    time.sleep(10)
     return "Your lab was deleted from the Cluster!"
 
 def delete_deployment(instance_name):
