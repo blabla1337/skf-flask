@@ -8,17 +8,17 @@ from skf.api.restplus import api
 
 ns = api.namespace('interactive_labs', description='Operations related to the labs')
 
-@ns.route('/deployments/<string:yaml_file>')
+@ns.route('/deployments/<string:instance_name>')
 @api.response(404, 'Validation error', message)
 class LabCollection(Resource):
 
     #@api.marshal_with(lab_items)
     @api.response(400, 'No results found', message)
-    def get(self, yaml_file):
+    def get(self, instance_name):
         """
         Returns list of labs.
         * Privileges required: **none**
         """
-        result = deploy_labs(yaml_file)
+        result = deploy_labs(instance_name)
         return result, 200, security_headers()
  

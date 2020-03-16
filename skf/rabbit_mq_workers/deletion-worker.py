@@ -14,31 +14,35 @@ channel.queue_declare(queue='deletion_qeue')
 def delete_container(instance_name):
     delete_deployment(instance_name)
     delete_service(instance_name)
-    return "asdasd"
+    return "Your lab was deleted from the Cluster!"
 
 def delete_deployment(instance_name):
-    config.load_kube_config()
-    api_instance = client.AppsV1Api()
-    api_response = api_instance.delete_namespaced_deployment(
-        name=instance_name,
-        namespace="default",
-        body=client.V1DeleteOptions(
-            propagation_policy='Foreground',
-            grace_period_seconds=5))
-    print("Deployment deleted. status='%s'" % str(api_response.status))
-
+    try:
+        config.load_kube_config()
+        api_instance = client.AppsV1Api()
+        api_response = api_instance.delete_namespaced_deployment(
+            name=instance_name,
+            namespace="default",
+            body=client.V1DeleteOptions(
+                propagation_policy='Foreground',
+                grace_period_seconds=5))
+        print("Deployment deleted. status='%s'" % str(api_response.status))
+    except:
+        return False
 
 def delete_service(instance_name):
-    config.load_kube_config()
-    api_instance = client.CoreV1Api()
-    api_response = api_instance.delete_namespaced_service(
-        name=instance_name,
-        namespace="default",
-        body=client.V1DeleteOptions(
-            propagation_policy='Foreground',
-            grace_period_seconds=5))
-    print("Deployment deleted. status='%s'" % str(api_response.status))
-
+    try:
+        config.load_kube_config()
+        api_instance = client.CoreV1Api()
+        api_response = api_instance.delete_namespaced_service(
+            name=instance_name,
+            namespace="default",
+            body=client.V1DeleteOptions(
+                propagation_policy='Foreground',
+                grace_period_seconds=5))
+        print("Deployment deleted. status='%s'" % str(api_response.status))
+    except:
+        return False
 
 def on_request(ch, method, props, body):
     response = delete_container(str(body, 'utf-8'))

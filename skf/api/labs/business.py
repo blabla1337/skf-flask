@@ -12,14 +12,14 @@ def get_labs():
     return result
 
 
-def deploy_labs(yaml_file):
+def deploy_labs(instance_name):
     rpc = SKFLabDeployment()
-    response = rpc.call(yaml_file)
+    response = rpc.call(instance_name)
     return response
 
 
-def delete_labs(yaml_file):
+def delete_labs(instance_name):
     rpc = SKFLabDelete()
-    response = rpc.call(yaml_file)
+    response = rpc.call(instance_name)
     return response
 
