@@ -12,14 +12,16 @@ def get_labs():
     return result
 
 
-def deploy_labs(instance_name):
+def deploy_labs(instance_name, userid):
     rpc = SKFLabDeployment()
-    response = rpc.call(instance_name)
+    body = instance_name + ":" + str(userid)
+    response = rpc.call(body)
     return response
 
 
-def delete_labs(instance_name):
+def delete_labs(instance_name, userid):
     rpc = SKFLabDelete()
-    response = rpc.call(instance_name)
+    body = instance_name + ":" + str(userid)
+    response = rpc.call(body)
     return response
 

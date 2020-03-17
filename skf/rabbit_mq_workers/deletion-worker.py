@@ -5,25 +5,27 @@ import yaml
 from kubernetes import client, config
 import time
 
-connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost'))
-    
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost')) 
 channel = connection.channel()
 channel.queue_declare(queue='deletion_qeue')
 
-def delete_container(instance_name):
-    delete_deployment(instance_name)
-    delete_service(instance_name)
+
+def delete_container(rpc_body):
+    user_id = string_split_user_id(rpc_body)
+    deployment = string_split_deployment(rpc_body)
+    delete_deployment(deployment, user_id)
+    delete_service(deployment, user_id)
     time.sleep(10)
     return "Your lab was deleted from the Cluster!"
 
-def delete_deployment(instance_name):
+
+def delete_deployment(instance_name, user_id):
     try:
         config.load_kube_config()
         api_instance = client.AppsV1Api()
         api_response = api_instance.delete_namespaced_deployment(
             name=instance_name,
-            namespace="default",
+            namespace=user_id,
             body=client.V1DeleteOptions(
                 propagation_policy='Foreground',
                 grace_period_seconds=5))
@@ -31,19 +33,30 @@ def delete_deployment(instance_name):
     except:
         return False
 
-def delete_service(instance_name):
+
+def delete_service(instance_name, user_id):
     try:
         config.load_kube_config()
         api_instance = client.CoreV1Api()
         api_response = api_instance.delete_namespaced_service(
             name=instance_name,
-            namespace="default",
+            namespace=user_id,
             body=client.V1DeleteOptions(
                 propagation_policy='Foreground',
                 grace_period_seconds=5))
         print("Deployment deleted. status='%s'" % str(api_response.status))
     except:
         return False
+
+
+def string_split_user_id(body):
+    user_id = body.split(':')
+    return user_id[1]
+
+def string_split_deployment(body):
+    deployment = body.split(':')
+    return deployment[0]
+
 
 def on_request(ch, method, props, body):
     response = delete_container(str(body, 'utf-8'))
