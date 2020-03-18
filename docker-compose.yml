@@ -4,6 +4,7 @@
 version: '2'
 
 services:
+
   nginx:
     container_name: nginx_container
     restart: always
@@ -16,6 +17,15 @@ services:
     depends_on:
       - skf-angular
       - skf-api
+
+    rabbit:
+      image: rabbitmq:latest
+      environment:
+          - RABBITMQ_DEFAULT_USER=admin
+          - RABBITMQ_DEFAULT_PASS=admin
+      ports:
+          - "5672:5672"
+          - "15672:15672"
 
   skf-angular:
     container_name: skf-angular_container
