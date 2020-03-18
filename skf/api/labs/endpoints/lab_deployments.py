@@ -11,7 +11,7 @@ ns = api.namespace('interactive_labs', description='Operations related to the la
 @api.expect(authorization)
 @ns.route('/deployments/<string:instance_name>')
 @api.response(404, 'Validation error', message)
-class LabCollection(Resource):
+class LabDeploy(Resource):
 
     #@api.marshal_with(lab_items)
     @api.response(400, 'No results found', message)

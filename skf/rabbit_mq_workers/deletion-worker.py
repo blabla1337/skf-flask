@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-import pika
+import pika, time, random, yaml
 from os import path
-import yaml
+from skf import settings
 from kubernetes import client, config
-import time
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost')) 
+creds = pika.PlainCredentials('admin', 'admin-skf-secret')
+connection = pika.BlockingConnection(pika.ConnectionParameters(host=settings.RABBIT_MQ_CONN_STRING, credentials=creds))
 channel = connection.channel()
 channel.queue_declare(queue='deletion_qeue')
 

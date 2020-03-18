@@ -1,4 +1,3 @@
-
 from flask import request
 from flask_restplus import Resource
 from skf.api.security import security_headers, select_userid_jwt, validate_privilege
@@ -8,12 +7,11 @@ from skf.api.restplus import api
 from skf.api.kb.parsers import authorization
 import json
 
-
 ns = api.namespace('interactive_labs', description='Operations related to the labs')
 
 @ns.route('/delete-deployments/<string:instance_name>')
 @api.response(404, 'Validation error', message)
-class LabCollection(Resource):
+class LabDelete(Resource):
 
     @api.expect(authorization)
     #@api.marshal_with(lab_items)

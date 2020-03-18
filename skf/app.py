@@ -18,8 +18,6 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
-import redis
-from rq import Connection, Worker
 import logging.config, os, re
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
