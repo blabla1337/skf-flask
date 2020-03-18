@@ -24,4 +24,3 @@ def delete_labs(instance_name, userid):
     body = instance_name + ":" + str(userid)
     response = rpc.call(body)
     return response
-

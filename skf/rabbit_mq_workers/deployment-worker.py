@@ -113,7 +113,7 @@ def get_host_port_from_response(response):
         port = bla.port
     for bla in response.status.load_balancer.ingress:
         host = bla.hostname  
-    return {'host:':host, 'port':port}
+    return "i am running on  -  " + host + ":" + str(port)
 
 def on_request(ch, method, props, body):
     response = deploy_container(str(body, 'utf-8'))

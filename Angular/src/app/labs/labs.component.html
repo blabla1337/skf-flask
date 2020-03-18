@@ -28,33 +28,54 @@
 			<div class="text">
 				<h1>Security Knowledge Framework Labs</h1>
 				<p>SKF Labs, training your security testing skills.</p>
+				<br />
+				<p><strong>(BETA)</strong> The labs can be deployed dynamically from the UI in a kubernetes cluster of
+					choice!
+					The GUI still needs some work but that is hopefully handled in the next GSOC!
+				</p>
 			</div>
 		</div>
 	</section>
 	<section class="wrapper">
 		<div class="row mt">
-				<div class="srcWrap">
-						<div class="src">
-							<input class="searchinput" [(ngModel)]="queryString" id="search" name="search" placeholder="Search lab" />
-							<i class="fa fa-search"></i>
-						</div>
-					</div>
+			<div class="srcWrap">
+				<div class="src">
+					<input class="searchinput" [(ngModel)]="queryString" id="search" name="search"
+						placeholder="Search lab" />
+					<i class="fa fa-search"></i>
+				</div>
+			</div>
 			<div class="col-lg-12">
-				<div class="content-panel">
-					<div class="row">
+				<div class="row">
+					<ngb-alert type="success" [dismissible]="false">
+						<strong>(BETA FEATURE)</strong> {{deployments}}
+					</ngb-alert>
+					<div class="content-panel">
 						<table class="table table-striped table-advance table-hover">
 							<thead>
 								<tr>
 									<th><i class="fa fa-bullhorn"></i> Lab Name</th>
 									<th><i class="fa fa-check"></i> Skill level</th>
-									<th><i class="fa fa-times"></i> To Lab</th>
+									<th><i class="fa fa-times"></i> To write-up</th>
+									<th><i class="fa fa-times"></i> Deploy Lab</th>
+									<th><i class="fa fa-times"></i> Delete deployment</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr *ngFor="let labItems of labs | stringFilter : queryString; let myIndex = index">
 									<td>{{labItems.title}}</td>
 									<td>{{labItems.level}}</td>
-									<td><a href="{{labItems.link}}" target="_blank"><i class="fa fa-flask"> Go to lab</i></a></td>
+									<td><a href="{{labItems.link}}" target="_blank"><i class="fa fa-flask"> Go to
+												write-up</i></a></td>
+									<td> <button id="" (click)="deployContainer(labItems.image_tag)"
+											class="btn btn-success">
+											<i>Deploy</i>
+										</button>
+									</td>
+									<td> <button id="" (click)="deleteContainer(labItems.image_tag)"
+											class="btn btn-danger">
+											<i>Delete</i>
+										</button></td>
 								</tr>
 							</tbody>
 						</table>
