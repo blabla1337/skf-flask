@@ -6,6 +6,8 @@ from skf.api.labs.business import delete_labs
 from skf.api.labs.serializers import lab_items, message
 from skf.api.restplus import api
 from skf.api.kb.parsers import authorization
+import json
+
 
 ns = api.namespace('interactive_labs', description='Operations related to the labs')
 

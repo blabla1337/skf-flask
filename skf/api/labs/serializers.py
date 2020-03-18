@@ -6,6 +6,7 @@ labs = api.model('labs', {
     'title': fields.String(required=True, description='lab Title'),
     'link': fields.String(required=True, description='Lab Link'),
     'level': fields.String(required=True, description='level of hardness of lab'),
+    'image_tag': fields.String(required=True, description='the image tag of the lab'),
 })
 
 lab_items = api.inherit('List of lab items', {
