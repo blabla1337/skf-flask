@@ -9,10 +9,10 @@ if [ $status -ne 0 ]; then
 fi
 
 # Start the second process
-/skf-angular.sh &
+/skf-worker.sh &
 status=$?
 if [ $status -ne 0 ]; then
-  echo "Failed to start skf_angular_process: $status"
+  echo "Failed to start skf_workers_process: $status"
   exit $status
 fi
 
