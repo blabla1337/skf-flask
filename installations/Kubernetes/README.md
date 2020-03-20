@@ -38,7 +38,7 @@ Last, you will need to edit configmaps.yaml to change the FRONTENT_URL value to 
 # GKE deployment
 ## Prep
 
-1. Clone the repo and edit configmaps.yaml FRONTEND_URI, SKF_API_URL and JWT_SECRET.
+1. Clone the repo and edit configmaps.yaml FRONTEND_URI, SKF_API_URL,  and JWT_SECRET.
 2. Make sure kubectl and gcloud are in the right place e.g. `kubectl config current-context`
 3. Deploy stuff:
 
@@ -69,6 +69,8 @@ deploy [Cert-Manager|https://cert-manager.io/docs/installation/kubernetes/] usin
 
 ```
 helm install --name nginx-ingress stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true --set controller.service.externalTrafficPolicy=Local
+OR with helm3:
+helm install nginx-ingress stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true --set controller.service.externalTrafficPolicy=Local
 ```
 
 7. Suss out your IP and do your DNS stuff `kubectl get ingress`.

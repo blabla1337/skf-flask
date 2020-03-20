@@ -9,8 +9,7 @@ FLASK_PORT = 8888
 # Do not use debug mode in production
 FLASK_DEBUG = (os.environ.get("SKF_FLASK_DEBUG") == 'True') or False
 CHATBOT_LOG = "db"
-SKF_API_URL = os.environ.get(
-    "SKF_API_URL") or "https://demo.securityknowledgeframework.org/api/"
+SKF_API_URL = os.environ.get("SKF_API_URL") or "https://demo.securityknowledgeframework.org/api/"
 
 # Flask-Restplus settings
 RESTPLUS_SWAGGER_UI_DOC_EXPANSION = 'list'
@@ -21,7 +20,6 @@ RESTPLUS_ERROR_404_HELP = False
 DATABASE = os.environ.get("SKF_DB_URL") or "sqlite:///db/db.sqlite"
 
 # SQLAlchemy settings
-#SQLALCHEMY_DATABASE_URI = 'mysql://ricco:the_password@localhost/bla'
 #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:H5hng15K@localhost/skf?charset=utf8mb4'
 #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://foo:bar@35.190.203.79/skf?charset=utf8mb4'
 SQLALCHEMY_DATABASE_URI = DATABASE
@@ -54,6 +52,5 @@ DOJO_URL = os.environ.get("SKF_DOJO_URL") or ''
 TESTING = (os.environ.get("SKF_TESTING") == 'True') or False
 
 #RABBIT MQ settings
-RABBIT_MQ_CONN_STRING = os.environ.get("RABBIT_MQ_CONN_STRING") or 'amqp://rabbitmq?connection_attempts=5&retry_delay=5'
-RABBIT_MQ_DEPLOYMENT_WORKER = 'deployment_queue'
-RABBIT_MQ_DELETION_WORKER = 'deletion_queue'
+RABBIT_MQ_CONN_STRING = os.environ.get("RABBIT_MQ_CONN_STRING") or 'rabbitmq'
+

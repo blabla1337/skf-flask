@@ -19,6 +19,7 @@ data:
   SKF_DOJO_API_KEY: optional
   SKF_DOJO_API_KEY: optional
   SKF_TESTING: "False"
+  RABBIT_MQ_CONN_STRING: rabbitmq
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -26,3 +27,11 @@ metadata:
   name: skf-flask-front
 data:
   FRONTEND_URI: #your uri e.g. https://skf.example.com
+---  
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq
+data:
+  RABBITMQ_DEFAULT_USER: admin
+  RABBITMQ_DEFAULT_PASS: admin-skf-secret

@@ -40,7 +40,7 @@ spec:
         runAsUser: 1000
       containers:
         - name: skf-flask-back
-          image: "blabla1337/skf-api:1.3"
+          image: "blabla1337/skf-api:dev"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8888
@@ -75,5 +75,9 @@ spec:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: SKF_TESTING
-
+            - name: RABBIT_MQ_CONN_STRING
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: RABBIT_MQ_CONN_STRING             
 ---

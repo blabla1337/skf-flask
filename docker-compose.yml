@@ -23,9 +23,6 @@ services:
       - ./Docker/compose/site.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
-      - "443:443"
-      - "8888:8888"
-      - "8788:8788"
 
   skf-angular:
     container_name: skf-angular_container

@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - #your hostname e.g. skf.example.com
-    secretName: #your hostname e.g. skf.example.com
+    - localhost
+    secretName: localhost
   rules:
-  - host: #your hostname e.g. skf.example.com
+  - host: localhost
     http:
      paths:
      - backend:
