@@ -10,7 +10,7 @@ Local installation based on Ubuntu 16.04.
 - npm
     + `sudo apt install npm`
 - ng
-    + `sudo apt install -g @angular/cli`
+    + `sudo npm install -g @angular/cli`
 - git
     + `sudo apt install git`
 - latest version of node ():
@@ -35,7 +35,7 @@ Local installation based on Ubuntu 16.04.
 
 ```
 cd /tmp; git clone git://github.com/blabla1337/skf-flask.git
-cd /tmp/skf-flask; sudo pip3.6 install -r requirements.txt
+cd /tmp/skf-flask; pip3.6 install -r requirements.txt
 cd /tmp/skf-flask/Angular; npm install
 cd /tmp/skf-flask/Angular; ng build --aot --configuration=production
 ```
