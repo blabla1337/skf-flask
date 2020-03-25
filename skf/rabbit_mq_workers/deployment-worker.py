@@ -108,11 +108,11 @@ def string_split_deployment(body):
     return deployment[0]
 
 def get_host_port_from_response(response):
-    for bla in response.spec.ports:
-        port = bla.port
-    for bla in response.status.load_balancer.ingress:
-        host = bla.hostname  
-    return "i am running on  -  " + host + ":" + str(port)
+    for service in response.spec.ports:
+        port = service.port
+    for service in response.status.load_balancer.ingress:
+        host = service.hostname  
+    return "i am running on  -  " + str(host) + ":" + str(port)
 
 def on_request(ch, method, props, body):
     response = deploy_container(str(body, 'utf-8'))
