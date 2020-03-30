@@ -109,9 +109,9 @@ def configure_app(flask_app):
     flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
     flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
-    flask_app.config['RABBIT_MQ_CONN_STRING'] = settings.RABBIT_MQ_CONN_STRING
-    flask_app.config['RABBIT_MQ_DEPLOYMENT_WORKER'] = settings.RABBIT_MQ_DEPLOYMENT_WORKER
-    flask_app.config['RABBIT_MQ_DELETION_WORKER'] = settings.RABBIT_MQ_DELETION_WORKER
+    #flask_app.config['RABBIT_MQ_CONN_STRING'] = settings.RABBIT_MQ_CONN_STRING
+    #flask_app.config['RABBIT_MQ_DEPLOYMENT_WORKER'] = settings.RABBIT_MQ_DEPLOYMENT_WORKER
+    #flask_app.config['RABBIT_MQ_DELETION_WORKER'] = settings.RABBIT_MQ_DELETION_WORKER
 
 def initialize_app(flask_app):
     """Initialize the SKF app."""

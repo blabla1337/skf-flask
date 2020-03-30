@@ -78,7 +78,8 @@
 			<div class="row">
 				<div (click)="highlight()" class="col-lg-12">
 					<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-						<div *ngFor="let examples of codeExamples | stringFilter : queryString | langFilter : queryLang ">
+						<div
+							*ngFor="let examples of codeExamples | stringFilter : queryString | langFilter : queryLang ">
 							<br />
 							<ngb-panel title="{{examples.title}}: {{examples.code_lang}}">
 								<ng-template ngbPanelContent>
@@ -87,12 +88,12 @@
 
 							</code></pre>
 									<button (click)="deleteCodeModal(deleteCode)"
-										style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%" id="delete-button"
-										class="btn btn-danger">Delete</button>
+										style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%"
+										id="delete-button" class="btn btn-danger">Delete</button>
 
 									<a [routerLink]="['/code-examples-edit', examples.id]"
-										style="float:right; margin-bottom: 1%; margin-right:1%"><button class="btn btn-warning"
-											type="button">Update</button></a>
+										style="float:right; margin-bottom: 1%; margin-right:1%"><button
+											class="btn btn-warning" type="button">Update</button></a>
 								</ng-template>
 							</ngb-panel>
 
@@ -111,9 +112,10 @@
 									<input type="text" [(ngModel)]="delete" id="delete" class="form-control">
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-									<button type="button" class="btn btn-danger" id="submit" (click)="deleter(examples.id)"
-										(click)="c('Close click')">Delete</button>
+									<button type="button" class="btn btn-secondary"
+										(click)="c('Close click')">Close</button>
+									<button type="button" class="btn btn-danger" id="submit"
+										(click)="deleter(examples.id)" (click)="c('Close click')">Delete</button>
 								</div>
 							</ng-template>
 							<!-- end Modal for deleting items-->
@@ -156,16 +158,16 @@
 					</div>
 					<label for="inputVersion" class="col-sm-2 control-label">code language</label>
 					<div class="col-sm-10">
-						<input maxlength="120" formControlName="code_lang" type="text" class="form-control" id="inputTitle"
-							placeholder="php, java, c# mvc">
+						<input maxlength="120" formControlName="code_lang" type="text" class="form-control"
+							id="inputTitle" placeholder="php, java, c# mvc">
 						<div class="wrap desc alert-info">
 							<div class="col-sm-10">The code lang!</div>
 						</div>
 					</div>
 					<label for="inputVersion" class="col-sm-2 control-label">Content</label>
 					<div class="col-sm-10">
-						<textarea formControlName="content" type="text" class="form-control-kb" id="inputContent" rows="10"
-							name="content"> </textarea>
+						<textarea formControlName="content" type="text" class="form-control-kb" id="inputContent"
+							rows="10" name="content"> </textarea>
 						<div class="wrap desc alert-info">
 							<div class="col-sm-10">Provide description, solution</div>
 						</div>
