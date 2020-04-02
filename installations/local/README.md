@@ -10,7 +10,7 @@ Local installation based on Ubuntu 16.04.
 - npm
     + `sudo apt install npm`
 - ng
-    + `sudo apt install -g @angular/cli`
+    + `sudo npm install -g @angular/cli`
 - git
     + `sudo apt install git`
 - latest version of node ():
