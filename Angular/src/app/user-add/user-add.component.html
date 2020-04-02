@@ -40,12 +40,12 @@
             <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
                 <div *ngIf="formControls.email.errors.required">
                   <ngb-alert type="danger" [dismissible]="false">
-                    email adress is required!
+                    email address is required!
                   </ngb-alert>
                 </div>
                 <div *ngIf="formControls.email.errors.email">
                     <ngb-alert type="danger" [dismissible]="false">
-                      email adress is invalid!
+                      email address is invalid!
                     </ngb-alert>
                   </div>
               </div>

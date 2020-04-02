@@ -43,7 +43,7 @@ describe('First login component', () => {
     expect(component.error).toMatch('Repassword');
     expect(component.error).toMatch('UserID');
     expect(component.error).toMatch('Username');
-    expect(component.return).toBeFalsy()
+    expect(component.formControls['return']).toBeFalsy()
 
   });
 
