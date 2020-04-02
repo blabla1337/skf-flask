@@ -53,7 +53,7 @@ describe('Code examples service', () => {
       expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/code/items');
     });
 
-    service.getCode()
+    service.getCode(1)
       .subscribe((items: CodeExample[]) => {
         expect(items.length).toBe(2);
         expect(items[0]['code_id']).toMatch('81');
@@ -61,14 +61,14 @@ describe('Code examples service', () => {
   }));
 
   it('Should test if the default language value goes to PHP', inject([CodeExamplesService, MockBackend], (service: CodeExamplesService) => {
-    service.getCode()
+    service.getCode(1)
       .subscribe((items: CodeExample[]) => {
         expect(localStorage.getItem('code_lang')).toMatch('php');
       });
   }));
 
   it('check if the selected language value updates the local storage', inject([CodeExamplesService, MockBackend], (service: CodeExamplesService) => {
-    service.getCode()
+    service.getCode(1)
       .subscribe((items: CodeExample[]) => {
         expect(localStorage.getItem('code_lang')).toMatch('asp');
       });

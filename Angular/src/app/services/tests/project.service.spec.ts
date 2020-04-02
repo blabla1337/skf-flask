@@ -59,7 +59,7 @@ describe('Project service', () => {
         expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/project/items');
       });
 
-      service.getProjects()
+      service.getProjectList()
         .subscribe((items: Project[]) => {
          expect(items.length).toBe(2);
          expect(items[0]['project_id']).toEqual(1);
@@ -90,7 +90,7 @@ describe('Project service', () => {
         expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/project/stats/1');
       });
 
-      service.getStats(1)
+      service.getProjectStats(1)
         .subscribe((items: ProjectStats[]) => {
          expect(items.length).toBe(1);
          expect(items[0]['project_id']).toEqual(1);
@@ -122,7 +122,7 @@ describe('Project service', () => {
         expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/project/1');
       });
 
-      service.getProject(1)
+      service.getProjectStats(1)
         .subscribe((items: ProjectStats[]) => {
          expect(items.length).toBe(1);
          expect(items[0]['project_id']).toEqual(3);
@@ -162,7 +162,7 @@ describe('Project service', () => {
         expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/project/new');
       });
 
-      service.newProject('Project name example', 'Project description example', '1.1')
+      service.newProject(['Project name example', 'Project description example', '1.1'])
         .subscribe((items) => {
           expect(items).toEqual({items2})
         });
@@ -204,7 +204,7 @@ describe('Project service', () => {
         expect(connection.request.headers.get('Authorization')).toBeDefined;
         expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/project/delete/1');
       });
-      expect(service.delete(1)).toBeTruthy();
+      expect(service.deleteProject(1)).toBeTruthy();
     }));
   });
 
