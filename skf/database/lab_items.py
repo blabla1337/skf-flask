@@ -11,10 +11,13 @@ class LabItem(db.Model):
     link = db.Column(db.Text, nullable=False)
     level = db.Column(db.Integer, nullable=False)
     image_tag = db.Column(db.Text, nullable=False)
+    label = db.Column(db.Text, nullable=False)
+    has_hints = db.Column(db.Boolean, nullable=True)
 
-    def __init__(self, title, link, level, image_tag):
+    def __init__(self, title, link, level, image_tag, label, has_hints):
         self.title = title
         self.link = link
         self.level = level
         self.image_tag = image_tag
-    
+        self.label = label
+        self.has_hints = has_hints

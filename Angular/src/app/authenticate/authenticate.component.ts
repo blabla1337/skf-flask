@@ -49,9 +49,4 @@ export class AuthenticateComponent implements OnInit {
     sessionStorage.setItem("skip_login", "true");
     location.replace("dashboard");
   }
-
-  skipLogin() {
-    sessionStorage.setItem('skip_login', 'true');
-    location.replace('dashboard');
-  }
 }

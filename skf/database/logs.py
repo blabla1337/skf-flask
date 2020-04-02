@@ -26,6 +26,11 @@ class Log(db.Model):
     
     __tablename__ = 'logs'
 
+
+class Log(db.Model):
+    
+    __tablename__ = 'logs'
+
     id = db.Column(db.Integer, primary_key=True)
 
     date = db.Column(db.Integer, nullable=False)

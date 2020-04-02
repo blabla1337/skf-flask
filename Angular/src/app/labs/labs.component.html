@@ -44,6 +44,11 @@
 						placeholder="Search lab" />
 					<i class="fa fa-search"></i>
 				</div>
+				<div class="col-md-2">
+					<ng-select id="selectLang" [items]="label_select" [(ngModel)]="queryLabel" bindLabel="label_select"
+						placeholder="Select label" appendTo="body" multiple="true">
+					</ng-select>
+				</div>
 			</div>
 			<div class="col-lg-12">
 				<div class="row">
@@ -55,6 +60,7 @@
 							<thead>
 								<tr>
 									<th><i class="fa fa-bullhorn"></i> Lab Name</th>
+									<th><i class="fa fa-bullhorn"></i>Label</th>
 									<th><i class="fa fa-check"></i> Skill level</th>
 									<th><i class="fa fa-times"></i> To write-up</th>
 									<th><i class="fa fa-times"></i> Deploy Lab</th>
@@ -62,8 +68,10 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr *ngFor="let labItems of labs | stringFilter : queryString; let myIndex = index">
+								<tr
+									*ngFor="let labItems of labs | stringFilter : queryString | labelFilter : queryLabel; let myIndex = index">
 									<td>{{labItems.title}}</td>
+									<td>{{labItems.label}}</td>
 									<td>{{labItems.level}}</td>
 									<td><a href="{{labItems.link}}" target="_blank"><i class="fa fa-flask"> Go to
 												write-up</i></a></td>

@@ -1,10 +1,7 @@
 # Run docker-compose up
 # Live long and prosper
-
 version: '2'
-
 services:
-
   rabbitmq:
     container_name: skf-rabbitmq_container
     image: rabbitmq:latest
@@ -52,4 +49,3 @@ services:
       #- SKF_DB_URL=
       #- SKF_DOJO_API_KEY=
       #- JWT_SECRET=
-

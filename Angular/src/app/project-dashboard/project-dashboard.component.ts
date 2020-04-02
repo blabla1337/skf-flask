@@ -163,24 +163,6 @@ this.steps = false;
   return false;
 }
 
-getSprintStats() {
-    setTimeout(() => {
-      this.sprintService.getSprintStats(Number(localStorage.getItem("project_id"))).subscribe(
-        resp => this.sprintResult = resp,
-        err => console.log('Error getting sprint stats'))
-    }, 1000);
-}
-
-checklistTypeList() {
-  this.checklistService
-    .getChecklistTypeList()
-    .subscribe(
-      checklistType => {
-        this.checklistType = checklistType;
-      },
-      err => console.log('errors went wrong!'));
-}
-
   getSprintStats()
   {
     setTimeout(() =>

@@ -60,8 +60,6 @@ INSERT OR REPLACE INTO `privileges` (`privilege_id`, `privilege`) VALUES (4, "re
 
 
 
-
-
 --
 -- Table structure for table `labs`
 --
