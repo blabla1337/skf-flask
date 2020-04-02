@@ -29,6 +29,16 @@ def update_code_item(code_id, data):
         raise
     return {'message': 'Code example item successfully updated'}
 
+def create_code_item(data):
+    log("User requested creating a new kb item", "LOW", "PASS")
+    
+    val_alpha_num_special(data.get('title'))
+    val_alpha_num(data.get('code_lang'))
+    
+    title = data.get('title')
+    content = data.get('content')
+    code_lang = data.get('code_lang')
+    result = CodeItem(content, title, code_lang)
 
 def delete_code_item(code_id):
     log("User deleted code item", "MEDIUM", "PASS")
@@ -48,6 +58,7 @@ def get_code_items(category_id):
     return result
     
 
+    return {'message': 'KB item successfully created'} 
 
 def get_code_item(code_id):
     log("User requested code item", "LOW", "PASS")

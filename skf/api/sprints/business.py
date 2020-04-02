@@ -67,6 +67,40 @@ def stats_sprint(project_id):
         sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'title': sprint_name, 'sprint_items_total': total })
     return sprint
 
+def delete_sprint(sprint_id, user_id):
+    log("User deleted sprint", "MEDIUM", "PASS")
+    val_num(sprint_id)
+    val_num(user_id)
+    try:
+        result = ProjectSprint.query.get(sprint_id)
+        db.session.delete(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+
+def delete_sprint(sprint_id):
+    log("User deleted sprint", "MEDIUM", "PASS")
+    try:
+        result = ProjectSprint.query.get(sprint_id)
+        db.session.delete(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        return abort(400, 'Sprint not successfully deleted')
+    return {'message': 'Sprint successfully deleted'}
+
+def delete_checklist_result(id):
+    log("User deleted sprint", "MEDIUM", "PASS")
+    try:
+        result = ChecklistResult.query.get(id)
+        db.session.delete(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        return abort(400, 'checklist result successfully deleted')
+    return {'message': 'checklist result successfully deleted'}
+
 
 def delete_sprint(sprint_id):
     log("User deleted sprint", "MEDIUM", "PASS")

@@ -1,4 +1,7 @@
 from skf.database import db
+#from skf.database.projects import projectmembers
+
+class User(db.Model):
 
 class User(db.Model):
 
@@ -16,6 +19,7 @@ class User(db.Model):
     groups = db.relationship('Group', back_populates='members')
     #group = db.relationship('GroupMember', back_populates='member')
 
+    __tablename__ = 'users'
 
     def __init__(self, email, accessToken='', username='', password='', access=False, activated=False):
         self.accessToken = accessToken

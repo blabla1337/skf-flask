@@ -139,7 +139,13 @@ export class ProjectDashboardComponent implements OnInit
       this.getSprintStats();
     }, 1000);
 
-    this.steps = false;
+  setTimeout(() => {
+    this.questionsService.newSprint(this.checklist_type, this.maturity_id, this.sprintStore).subscribe(() => { },
+      err => console.log('Error Storing new questions for sprint'));
+      this.getSprintStats();
+  }, 1000);
+
+this.steps = false;
   }
 
   deleter(sprint_id: number)
@@ -154,6 +160,8 @@ export class ProjectDashboardComponent implements OnInit
     }
     return false;
   }
+  return false;
+}
 
   getSprintStats()
   {

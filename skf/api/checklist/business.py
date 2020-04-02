@@ -36,6 +36,10 @@ def get_checklist_item_types_with_filter(maturity):
     result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
     return result
 
+def get_checklist_item_types_with_filter(maturity):
+    log("User requested list checklist types", "LOW", "PASS")
+    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
+    return result
 
 def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
@@ -55,6 +59,14 @@ def create_checklist_type(data, category_id):
         raise
     return {'message': 'Checklist type successfully created'} 
 
+def create_checklist_item(checklist_id, checklist_type, data):
+    log("User requested create a new checklist item", "LOW", "PASS")
+    
+    val_alpha_num_special(data.get('content'))
+    val_alpha_num(data.get('include_always'))
+    val_num(data.get('question_id'))
+    val_num(data.get('kb_id'))
+    val_num(data.get('maturity'))
 
 def create_checklist_item(checklist_id, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
