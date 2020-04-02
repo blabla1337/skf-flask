@@ -34,13 +34,13 @@ describe('Testing the Authenticate component', () => {
   });
 
   it('should provide username error if not filled in', () => {
-    authenticateComponent.username = 'admin'
+    authenticateComponent.loginForm.controls['username'].setValue('admin');
     authenticateComponent.onLogin();
     expect(authenticateComponent.error).toMatch('password')
   });
 
   it('should provide password error if not filled in', () => {
-    authenticateComponent.password = 'admin'
+    authenticateComponent.loginForm.controls['password'].setValue('admin');
     authenticateComponent.onLogin();
     expect(authenticateComponent.error).toMatch('username')
   });
