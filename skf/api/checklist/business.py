@@ -43,14 +43,6 @@ def get_checklist_item_types_with_filter(maturity):
 
 def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
-    val_num(checklist_type)
-    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 1500, False)
-    ordered = order_checklist_items(result)
-    return ordered
-    
-
-def get_checklist_items(checklist_type):
-    log("User requested list of checklist items", "LOW", "PASS")
     result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 1500, False)
     return result
     
@@ -75,38 +67,6 @@ def create_checklist_item(checklist_id, checklist_type, data):
     val_num(data.get('question_id'))
     val_num(data.get('kb_id'))
     val_num(data.get('maturity'))
-
-    content = data.get('content')
-    include_always = data.get('include_always')
-    question_id = data.get('question_id')
-    kb_id = data.get('kb_id')
-    cwe = data.get('cwe')
-    maturity = data.get('maturity')
-
-    if include_always == "True":
-        include_always = True
-    else:
-        include_always = False
-
-    if question_id == 0:
-        question_id = None
-
-    if validate_duplicate_checklist_item(checklist_id, checklist_type) == True:
-        try:
-            checklist_item = ChecklistKB(checklist_id, content, checklist_type, include_always, cwe, maturity)
-            checklist_item.question_id = question_id
-            checklist_item.kb_id = kb_id
-            db.session.add(checklist_item)
-
-            db.session.commit()
-        except:
-            db.session.rollback()
-            raise
-
-        return {'message': 'Checklist item successfully created'} 
-    else:
-        return {'message': 'Checklist item was duplicate!'} 
-
 
 def create_checklist_item(checklist_id, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")

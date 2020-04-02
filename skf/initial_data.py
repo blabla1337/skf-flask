@@ -2278,161 +2278,441 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        db.session.add(LabItem('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-1-filename-injection', 1, "lfi"))
+        db.session.add(LabItem('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-1-filename-injection', 1, "lfi", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting', 1, "xss"))
+        db.session.add(LabItem('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting', 1, "xss", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-attribute', 1, "xss-attribute"))
+        db.session.add(LabItem('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-attribute', 1, "xss-attribute", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Cross site scripting (href)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-href', 1, "xss-url"))
+        db.session.add(LabItem('Cross site scripting (href)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-href', 1, "xss-url", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('XSSI','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-include-files-from-untrusted-sources-js', 2, "untrusted-sources-js"))
+        db.session.add(LabItem('XSSI','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-include-files-from-untrusted-sources-js', 2, "untrusted-sources-js", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf', 3, "csrf"))
+        db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf', 3, "csrf", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf-samesite', 3, "csrf-samesite"))
+        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf-samesite', 3, "csrf-samesite", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe', 2, "xxe"))
+        db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe', 2, "xxe", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-13-file-upload', 1, "file-upload"))
+        db.session.add(LabItem('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-13-file-upload', 1, "file-upload", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-20-clickjacking', 1, "x-allow-origin"))
+        db.session.add(LabItem('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-20-clickjacking', 1, "x-allow-origin", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-29-ratelimiting', 1, "ratelimiting"))
+        db.session.add(LabItem('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-29-ratelimiting', 1, "ratelimiting", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-39-httponly-session-hijacking-xss', 3, "session-hijacking-xss"))
+        db.session.add(LabItem('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-39-httponly-session-hijacking-xss', 3, "session-hijacking-xss", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Missing authorization','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-44-authorisation-missing', 2, "auth-missing"))
+        db.session.add(LabItem('Missing authorization','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-44-authorisation-missing', 2, "auth-missing", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Exposed Docker daemon','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-45-exposed-docker', 3, "none"))
+        db.session.add(LabItem('Exposed Docker daemon','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-45-exposed-docker', 3, "none", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select', 2, "sqli"))
+        db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select', 2, "sqli", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3, "url-redirection-hard"))
+        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3, "url-redirection-hard", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation', 3, "cors"))
+        db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation', 3, "cors", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Formulla injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-95-formula-injection', 1, "formula-injection"))
+        db.session.add(LabItem('Formulla injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-95-formula-injection', 1, "formula-injection", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-147-parameter-binding', 1, "parameter-binding"))
+        db.session.add(LabItem('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-147-parameter-binding', 1, "parameter-binding", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-like', 2, "sqli-like"))
+        db.session.add(LabItem('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-like', 2, "sqli-like", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3, "sqli-blind"))
+        db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3, "sqli-blind", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Local file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-local-file-inclusion', 1, "lfi"))
+        db.session.add(LabItem('Local file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-local-file-inclusion', 1, "lfi", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1, "rfi"))
+        db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1, "rfi", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Remote file inclusion 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-2', 1, "lfi-2"))
+        db.session.add(LabItem('Remote file inclusion 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-2', 1, "lfi-2", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Remote file inclusion 3','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-3', 1, "lfi-3"))
+        db.session.add(LabItem('Remote file inclusion 3','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-3', 1, "lfi-3", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy', 1, "csp"))
+        db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy', 1, "csp", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-262-server-side-request-forgery', 3, "ssrf"))
+        db.session.add(LabItem('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-262-server-side-request-forgery', 3, "ssrf", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Tabnabbing','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-266-tabnabbing', 2, "tabnabbing"))
+        db.session.add(LabItem('Tabnabbing','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-266-tabnabbing', 2, "tabnabbing", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-267-server-side-template-injection', 3, "ssti"))
+        db.session.add(LabItem('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-267-server-side-template-injection', 3, "ssti", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-268-insecure-direct-object-references', 2, "idor"))
+        db.session.add(LabItem('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-268-insecure-direct-object-references', 2, "idor", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-null', 2, "jwt-null"))
+        db.session.add(LabItem('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-null', 2, "jwt-null", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-secret', 2, "jwt-secret"))
+        db.session.add(LabItem('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-secret', 2, "jwt-secret", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml', 3, "des-yaml"))
+        db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml', 3, "des-yaml", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Insecure deserialization pickle','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-des-pickle-2', 3, "des-pickle-2"))
+        db.session.add(LabItem('Insecure deserialization pickle','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-des-pickle-2', 3, "des-pickle-2", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition', 3, "racecondition"))
+        db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition', 3, "racecondition", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-dos-regex', 1, "dos-regex"))
+        db.session.add(LabItem('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-dos-regex', 1, "dos-regex", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Command injection 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-1', 1, "cmd"))
+        db.session.add(LabItem('Command injection 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-1', 1, "cmd", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1, "cmd2"))
+        db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1, "cmd2", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1, "info-leakeage-comments"))
+        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1, "info-leakeage-comments", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1, "info-leakeage-metadata"))
+        db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1, "info-leakeage-metadata", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Authentication bypass 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-1', 1, "auth-bypass-1"))
+        db.session.add(LabItem('Authentication bypass 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-1', 1, "auth-bypass-1", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Authentication bypass 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-2', 1, "auth-bypass-2"))
+        db.session.add(LabItem('Authentication bypass 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-2', 1, "auth-bypass-2", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Blind command injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-blind-cmd-injection-1', 2, "cmd3"))
+        db.session.add(LabItem('Blind command injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-blind-cmd-injection-1', 2, "cmd3", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-right-to-left-override', 1, "rtlo"))
+        db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-right-to-left-override', 1, "rtlo", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('Session puzzeling','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-250-session-puzzling', 3, "sessionpuzzle"))
-        db.session.commit()
-
-
-        db.session.add(LabItem('Graphql DOS','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-dos', 3, "graphql-dos-resource-exhaustion"))
-        db.session.commit()
-
-        db.session.add(LabItem('GraphQL IDOR','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-idor', 3, "graphql-idor"))
+        db.session.add(LabItem('Session puzzeling','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-250-session-puzzling', 3, "sessionpuzzle", "SKF-labs", None))
         db.session.commit()
 
 
-        db.session.add(LabItem('GraphQL Injections','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-injections', 3, "graphql-injections"))
+        db.session.add(LabItem('Graphql DOS','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-dos', 3, "graphql-dos-resource-exhaustion", "SKF-labs", None))
+        db.session.commit()
+
+        db.session.add(LabItem('GraphQL IDOR','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-idor', 3, "graphql-idor", "SKF-labs", None))
         db.session.commit()
 
 
-        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-introspection', 3, "graphql-introspections"))
-        db.session.commit()
-
-        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-mutations', 3, "graphql-mutations"))
+        db.session.add(LabItem('GraphQL Injections','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-injections', 3, "graphql-injections", "SKF-labs", None))
         db.session.commit()
 
 
+        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-introspection', 3, "graphql-introspections", "SKF-labs", None))
         db.session.commit()
+
+        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-mutations', 3, "graphql-mutations", "SKF-labs", None))
+        db.session.commit()
+
+        db.session.add(LabItem('API-only XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-without-using-the-frontend-application-at-all',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Access Log','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#gain-access-to-any-access-log-file-of-the-server',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Admin Registration','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#register-as-a-user-with-administrator-privileges',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Admin Section','https://pwning.owasp-juice.shop/part2/broken-access-control.html#access-the-administration-section-of-the-store',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Arbitrary File Write','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#overwrite-the-legal-information-file',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem("Bjoern's Favorite Pet",'https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-the-password-of-bjoerns-owasp-account-via-the-forgot-password-mechanism',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Blockchain Hype','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#learn-about-the-token-sale-before-its-official-announcement',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Blocked RCE DoS','https://pwning.owasp-juice.shop/part2/insecure-deserialization.html#perform-a-remote-code-execution-that-would-keep-a-less-hardened-application-busy-forever',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('CAPTCHA Bypass','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#submit-10-or-more-customer-feedbacks-within-10-seconds',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem("Change Bender's Password",'https://pwning.owasp-juice.shop/part2/broken-authentication.html#change-benders-password-into-slurmcl4ssic-without-using-sql-injection-or-forgot-password',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Christmas Special','https://pwning.owasp-juice.shop/part2/injection.html#order-the-christmas-special-offer-of-2014',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('CSP Bypass','https://pwning.owasp-juice.shop/part2/xss.html#bypass-the-content-security-policy-and-perform-an-xss-attack-on-a-legacy-page',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Client-side XSS Protection','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-bypassing-a-client-side-security-mechanism',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Confidential Document','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-confidential-document',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('DOM XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-dom-xss-attack',1,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Database Schema','https://pwning.owasp-juice.shop/part2/injection.html#exfiltrate-the-entire-db-schema-definition-via-sql-injection',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Deprecated Interface','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#use-a-deprecated-b2b-interface-that-was-not-properly-shut-down',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Easter Egg','https://pwning.owasp-juice.shop/part2/broken-access-control.html#find-the-hidden-easter-egg',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Email Leak','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#perform-an-unwanted-information-disclosure-by-accessing-data-cross-domain',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Ephemeral Accountant','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-the-non-existing-accountant-without-ever-registering-that-user',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Error Handling','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#provoke-an-error-that-is-neither-very-gracefully-nor-consistently-handled',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Expired Coupon','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#successfully-redeem-an-expired-campaign-coupon-code',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Extra Language','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#retrieve-the-language-file-that-never-made-it-into-production',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Five-Star Feedback','https://pwning.owasp-juice.shop/part2/broken-access-control.html#get-rid-of-all-5-star-customer-feedback',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forged Coupon','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#forge-a-coupon-code-that-gives-you-a-discount-of-at-least-80',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forged Feedback','https://pwning.owasp-juice.shop/part2/broken-access-control.html#post-some-feedback-in-another-users-name',3,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Forged Review','https://pwning.owasp-juice.shop/part2/broken-access-control.html#post-a-product-review-as-another-user-or-edit-any-users-existing-review',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forged Signed JWT','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#forge-an-almost-properly-rsa-signed-jwt-token',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forgotten Developer Backup','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-developers-forgotten-backup-file',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forgotten Sales Backup','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-salesmans-forgotten-backup-file',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Frontend Typosquatting','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-typosquatting-imposter-that-dug-itself-deep-into-the-frontend',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('GDPR Data Erasure','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-chris-erased-user-account',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('GDPR Data Theft','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#steal-someone-elses-personal-data-without-using-injection',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('HTTP-Header XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-through-an-http-header',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Imaginary Challenge','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#solve-challenge-999',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Leaked Access Logs','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#dumpster-dive-the-internet-for-a-leaked-password-and-log-in-to-the-original-user-account-it-belongs-to',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Leaked Unsafe Product','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#identify-an-unsafe-product-that-was-removed-from-the-shop-and-inform-the-shop-which-ingredients-are-dangerous',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Legacy Typosquatting','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-typosquatting-trick-it-has-been-a-victim-of',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Admin','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-the-administrators-user-account',2,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Amy','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#log-in-with-amys-original-user-credentials',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Bender','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-benders-user-account',3,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Bjoern','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-bjoerns-gmail-account',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login CISO','https://pwning.owasp-juice.shop/part2/broken-authentication.html#exploit-oauth-20-to-log-in-with-the-cisos-user-account',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Jim','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-jims-user-account',3,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Login MC SafeSearch','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#log-in-with-mc-safesearchs-original-user-credentials',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Support Team','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#log-in-with-the-support-teams-original-user-credentials',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Manipulate Basket','https://pwning.owasp-juice.shop/part2/broken-access-control.html#put-an-additional-product-into-another-users-shopping-basket',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Misplaced Signature File','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-misplaced-siem-signature-file',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Multiple Likes','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#like-any-review-at-least-three-times-as-the-same-user',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Nested Easter Egg','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#apply-some-advanced-cryptanalysis-to-find-the-real-easter-egg',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('NoSQL DoS','https://pwning.owasp-juice.shop/part2/injection.html#let-the-server-sleep-for-some-time',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('NoSQL Exfiltration','https://pwning.owasp-juice.shop/part2/injection.html#all-your-orders-are-belong-to-us',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('NoSQL Manipulation','https://pwning.owasp-juice.shop/part2/injection.html#update-multiple-product-reviews-at-the-same-time',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Outdated Whitelist','https://pwning.owasp-juice.shop/part2/unvalidated-redirects.html#let-us-redirect-you-to-one-of-our-crypto-currency-addresses',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Password Strength','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-the-administrators-user-credentials-without-previously-changing-them-or-applying-sql-injection',2,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Payback Time','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#place-an-order-that-makes-you-rich',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Premium Paywall','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#unlock-premium-challenge-to-access-exclusive-content',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Privacy Policy','https://pwning.owasp-juice.shop/part2/miscellaneous.html#read-our-privacy-policy',1,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Privacy Policy Inspection','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#prove-that-you-actually-read-our-privacy-policy',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Product Tampering','https://pwning.owasp-juice.shop/part2/broken-access-control.html#change-the-href-of-the-link-within-the-o-saft-product-description',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Reflected XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-reflected-xss-attack',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Repetitive Registration','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#follow-the-dry-principle-while-registering-a-user',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem("Reset Bender's Password",'https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-benders-password-via-the-forgot-password-mechanism',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem("Reset Bjoern's Password",'https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-the-password-of-bjoerns-internal-account-via-the-forgot-password-mechanism',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem("Reset Jim's Password",'https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-jims-password-via-the-forgot-password-mechanism',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem("Reset Morty's Password",'https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#reset-mortys-password-via-the-forgot-password-mechanism',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Retrieve Blueprint','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#deprive-the-shop-of-earnings-by-downloading-the-blueprint-for-one-of-its-products',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('SSRF','https://pwning.owasp-juice.shop/part2/broken-access-control.html#request-a-hidden-resource-on-server-through-server',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('SSTi','https://pwning.owasp-juice.shop/part2/injection.html#infect-the-server-with-juicy-malware-by-abusing-arbitrary-command-execution',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Score Board','https://pwning.owasp-juice.shop/part2/score-board.html#find-the-carefully-hidden-score-board-page',1,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Security Policy','https://pwning.owasp-juice.shop/part2/miscellaneous.html#behave-like-any-white-hat-should-before-getting-into-the-action',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Server-side XSS Protection','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-bypassing-a-server-side-security-mechanism',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Steganography','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#rat-out-a-notorious-character-hiding-in-plain-sight-in-the-shop',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Successful RCE DoS','https://pwning.owasp-juice.shop/part2/insecure-deserialization.html#perform-a-remote-code-execution-that-occupies-the-server-for-a-while-without-using-infinite-loops',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Supply Chain Attack','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-development-team-about-a-danger-to-some-of-their-credentials',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Two Factor Authentication','https://pwning.owasp-juice.shop/part2/broken-authentication.html#solve-the-2fa-challenge-for-user-wurstbrot',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Unsigned JWT','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#forge-an-essentially-unsigned-jwt-token',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Upload Size','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#upload-a-file-larger-than-100-kb',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Upload Type','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#upload-a-file-that-has-no-pdf-or-zip-extension',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('User Credentials','https://pwning.owasp-juice.shop/part2/injection.html#retrieve-a-list-of-all-user-credentials-via-sql-injection',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Video XSS','https://pwning.owasp-juice.shop/part2/xss.html#embed-an-xss-payload-into-our-promo-video',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('View Basket','https://pwning.owasp-juice.shop/part2/broken-access-control.html#view-another-users-shopping-basket',2,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Vulnerable Library','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-vulnerable-library-it-is-using',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Weird Crypto','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#inform-the-shop-about-an-algorithm-or-library-it-should-definitely-not-use-the-way-it-does',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Whitelist Bypass','https://pwning.owasp-juice.shop/part2/unvalidated-redirects.html#enforce-a-redirect-to-a-page-you-are-not-supposed-to-redirect-to',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('XXE Data Access','https://pwning.owasp-juice.shop/part2/xxe.html#retrieve-the-content-of-cwindowssystemini-or-etcpasswd-from-the-server',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('XXE DoS','https://pwning.owasp-juice.shop/part2/xxe.html#give-the-server-something-to-chew-on-for-quite-a-while',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Zero Stars','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#give-a-devastating-zero-star-feedback-to-the-store',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Missing Encoding','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#retrieve-the-photo-of-bjoerns-cat-in-melee-combat-mode',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Cross-Site Imaging','https://pwning.owasp-juice.shop/part2/injection.html#stick-cute-cross-domain-kittens-all-over-our-delivery-boxes',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Exposed Metrics','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#find-the-endpoint-that-serves-usage-data-to-be-scraped-by-a-popular-monitoring-system',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Deluxe Fraud','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#obtain-a-deluxe-membership-without-paying-for-it',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('CSRF','https://pwning.owasp-juice.shop/part2/broken-access-control.html#change-the-name-of-a-user-by-performing-cross-site-request-forgery-from-another-origin',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Bonus Payload','https://pwning.owasp-juice.shop/part2/xss.html#use-the-bonus-payload-in-the-dom-xss-challenge',1,'juice-shop','juice-shop',True))
+        db.session.commit()
+
         return True
 
     except:

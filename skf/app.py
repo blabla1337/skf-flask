@@ -109,9 +109,9 @@ def configure_app(flask_app):
     flask_app.config['FLASK_DEBUG'] = True
     flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
-    flask_app.config['RABBIT_MQ_CONN_STRING'] = settings.RABBIT_MQ_CONN_STRING
-    flask_app.config['RABBIT_MQ_DEPLOYMENT_WORKER'] = settings.RABBIT_MQ_DEPLOYMENT_WORKER
-    flask_app.config['RABBIT_MQ_DELETION_WORKER'] = settings.RABBIT_MQ_DELETION_WORKER
+    #flask_app.config['RABBIT_MQ_CONN_STRING'] = settings.RABBIT_MQ_CONN_STRING
+    #flask_app.config['RABBIT_MQ_DEPLOYMENT_WORKER'] = settings.RABBIT_MQ_DEPLOYMENT_WORKER
+    #flask_app.config['RABBIT_MQ_DELETION_WORKER'] = settings.RABBIT_MQ_DELETION_WORKER
 
 def initialize_app(flask_app):
     """Initialize the SKF app."""
@@ -136,7 +136,7 @@ log = logging.getLogger(__name__)
 
 app = create_app()
 # TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
-cors = CORS(app, resources={r"/*": {"origins": settings.ORIGINS}})
+cors = CORS(app, resources={r"/api/*": {"origins": settings.ORIGINS}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 

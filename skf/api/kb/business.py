@@ -61,6 +61,17 @@ def delete_kb_item(kb_id):
         raise
     return {'message': 'KB item successfully deleted'}
 
+def delete_kb_item(kb_id):
+    log("User deleted kb item", "MEDIUM", "PASS")
+    try:
+        kb_item = KBItem.query.filter(KBItem.kb_id == kb_id).first()
+        db.session.delete(kb_item)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    return {'message': 'KB item successfully deleted'}
+
 def get_kb_item(kb_id):
     log("User requested specific kb item", "LOW", "PASS")
     return KBItem.query.filter(KBItem.kb_id == kb_id).first()

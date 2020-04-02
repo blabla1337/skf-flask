@@ -17,7 +17,8 @@ export class LabsComponent implements OnInit
   public canEdit: boolean;
   public labs: Labs[] = [];
   public error: string;
-  public queryString: string;
+  public label;
+  public label_select;
   public deployments = "Your deployment information will be displayed here! (please be patient, loading might take a while)"
 
   constructor(public _labService: LabService) { }
@@ -34,7 +35,13 @@ export class LabsComponent implements OnInit
 
   getLabItems()
   {
-    this._labService.getLabs().subscribe(requestData => this.labs = requestData,
+    this._labService.getLabs().subscribe(requestData =>
+    {
+      this.labs = requestData;
+      let labelSet = new Set();
+      this.labs.map(item => labelSet.add(item[`label`]));
+      this.label_select = Array.from(labelSet);
+    },
       err => this.error = 'Error getting labs, contact the administrator!'
     );
   }

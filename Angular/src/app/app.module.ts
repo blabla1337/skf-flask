@@ -35,14 +35,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProjectListComponent } from './project-list/project-list.component';
-import { ProjectDashboardComponent }   from './project-dashboard/project-dashboard.component';
-import { ProjectSummaryComponent }   from './project-summary/project-summary.component';
-import { PluginManagerComponent }   from './plugin-manager/plugin-manager.component';
-import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.component';
-import { KnowledgebaseEditComponent }   from './knowledgebase-edit/knowledgebase-edit.component';
-import { CodeExamplesComponent }   from './code-examples/code-examples.component';
-import { CodeExamplesEditComponent }   from './code-examples-edit/code-examples-edit.component';
-import { CategoryComponent }   from './category-list/category-list.component';
+import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
+import { ProjectSummaryComponent } from './project-summary/project-summary.component';
+import { PluginManagerComponent } from './plugin-manager/plugin-manager.component';
+import { KnowledgebaseComponent } from './knowledgebase/knowledgebase.component';
+import { KnowledgebaseEditComponent } from './knowledgebase-edit/knowledgebase-edit.component';
+import { CodeExamplesComponent } from './code-examples/code-examples.component';
+import { CodeExamplesEditComponent } from './code-examples-edit/code-examples-edit.component';
+import { CategoryComponent } from './category-list/category-list.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
@@ -57,6 +57,7 @@ import { StartsWithPipe } from './pipes/starts-with.pipe';
 import { OrderBy } from './pipes/order-by.pipe';
 import { StringFilterPipe } from './pipes/string-filter.pipe';
 import { LangFilterPipe } from './pipes/lang-filter.pipe';
+import { LabelFilterPipe } from './pipes/label-filter.pipe';
 
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
@@ -91,6 +92,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     OrderBy,
     StringFilterPipe,
     LangFilterPipe,
+    LabelFilterPipe,
     FirstLoginComponent,
     UndefinedComponent,
     LabsComponent,

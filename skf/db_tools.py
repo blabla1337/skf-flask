@@ -138,6 +138,5 @@ def prerequisits():
         db.session.add(category)
         db.session.commit()
         return True
-
     except:
         raise

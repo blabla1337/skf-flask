@@ -40,30 +40,6 @@ def create_code_item(data):
     code_lang = data.get('code_lang')
     result = CodeItem(content, title, code_lang)
 
-    try:
-        db.session.add(result)
-        db.session.commit()
-    except:
-        db.session.rollback()
-        raise
-
-    return {'message': 'KB item successfully created'} 
-
-def delete_code_item(code_id, user_id):
-    log("User deleted code item", "MEDIUM", "PASS")
-    val_num(code_id)
-    val_num(user_id)
-    codeItem = (CodeItem.query.filter(CodeItem.id == code_id).one())
-
-    try:
-        db.session.delete(codeItem)
-        db.session.commit()
-    except:
-        db.session.rollback()
-        raise
-        
-    return {'message': 'code item successfully deleted'}
-
 def delete_code_item(code_id):
     log("User deleted code item", "MEDIUM", "PASS")
     code_item = (CodeItem.query.filter(CodeItem.id == code_id).one())
@@ -82,6 +58,7 @@ def get_code_items(category_id):
     return result
     
 
+    return {'message': 'KB item successfully created'} 
 
 def get_code_item(code_id):
     log("User requested code item", "LOW", "PASS")

@@ -102,6 +102,29 @@ def delete_checklist_result(id):
     return {'message': 'checklist result successfully deleted'}
 
 
+def delete_sprint(sprint_id):
+    log("User deleted sprint", "MEDIUM", "PASS")
+    try:
+        result = ProjectSprint.query.get(sprint_id)
+        db.session.delete(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        return abort(400, 'Sprint not successfully deleted')
+    return {'message': 'Sprint successfully deleted'}
+
+def delete_checklist_result(id):
+    log("User deleted sprint", "MEDIUM", "PASS")
+    try:
+        result = ChecklistResult.query.get(id)
+        db.session.delete(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        return abort(400, 'checklist result successfully deleted')
+    return {'message': 'checklist result successfully deleted'}
+
+
 def update_checklist_result(id, data):
     log("User deleted sprint", "MEDIUM", "PASS")
     resolved = convert_boolean_type(data.get("resolved"))
