@@ -66,7 +66,7 @@ describe('Authenticate service', () => {
       expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/user/login');
     });
 
-    service.authenticate('admin', 'admin')
+    service.authenticate(['admin', 'admin'])
       .subscribe((response) => {
         expect(response).toEqual({ items });
       });
@@ -82,7 +82,7 @@ describe('Authenticate service', () => {
       expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/user/activate/1');
     });
 
-    service.activateUser('test@test.com', 'admin', '1234', 'password', 'repassword', 1)
+    service.activateUser(['test@test.com', 'admin', '1234', 'password', 'repassword', 1])
       .subscribe(() => {
    });
   }));
