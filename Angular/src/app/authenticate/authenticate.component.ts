@@ -30,7 +30,7 @@ export class AuthenticateComponent implements OnInit {
       password: ["", Validators.required]
     });
   }
-
+    
   onLogin() {
     this.error = [];
     this._authenticateService.authenticate(this.loginForm.value).subscribe(
@@ -48,5 +48,10 @@ export class AuthenticateComponent implements OnInit {
   skipLogin() {
     sessionStorage.setItem("skip_login", "true");
     location.replace("dashboard");
+  }
+
+  skipLogin() {
+    sessionStorage.setItem('skip_login', 'true');
+    location.replace('dashboard');
   }
 }

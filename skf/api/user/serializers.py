@@ -3,7 +3,7 @@ from skf.api.restplus import api
 
 activate = api.model('activate', {
     'accessToken': fields.Integer(required=True, description='Authentication token that was generated'),
-    'username': fields.String(required=True, description='Username of the new user'),
+    'userName': fields.String(required=True, description='Username of the new user'),
     'email': fields.String(required=True, description='Email of the user'),
     'password': fields.String(required=True, description='Password of the user'),
     'repassword': fields.String(required=True, description='Retyped password'),
@@ -14,7 +14,7 @@ message = api.model('Response message', {
 })
 
 login = api.model('login', {
-    'username': fields.String(required=True, description='The username of the user'),
+    'userName': fields.String(required=True, description='The username of the user'),
     'password': fields.String(required=True, description='The password of the user'),
 })
 
@@ -35,7 +35,7 @@ created = api.model('created', {
 
 token_auth = api.model('Response Authorization token', {
     'Authorization token': fields.String(required=True, description='Response Authorization token'),
-    'username': fields.String(required=True, description='Response Authorization token'),
+    'userName': fields.String(required=True, description='Response Authorization token'),
 })
  
 user_list = api.model('user_list', {

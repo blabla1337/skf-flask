@@ -19,7 +19,6 @@ Local installation based on Ubuntu 16.04.
     * sudo n 8.9
     * sudo ln -s  /usr/bin/nodejs /usr/bin/node
 ```
-
 - python3.6, pip3.6 (https://stackoverflow.com/questions/42662104/how-to-install-pip-for-python-3-6-on-ubuntu-16-10):
 ```
     * sudo add-apt-repository ppa:jonathonf/python-3.6  # (only for 16.04 LTS)

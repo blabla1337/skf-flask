@@ -1,0 +1,86 @@
+2019-09-05 11:48:23,321 INFO No binary specified, looking for `pyre.bin` in PATH
+2019-09-05 11:48:23,322 INFO Found: `/usr/local/bin/pyre.bin`
+2019-09-05 11:48:23,322 INFO No typeshed specified, looking for it
+2019-09-05 11:48:23,322 DEBUG Trying with: `/usr/local/lib/python3.7/site-packages/pyre_check/pyre_check/typeshed/`
+2019-09-05 11:48:23,322 DEBUG Trying with: `/usr/local/lib/python3.7/site-packages/pyre_check/typeshed/`
+2019-09-05 11:48:23,322 DEBUG Trying with: `/usr/local/lib/python3.7/pyre_check/typeshed/`
+2019-09-05 11:48:23,322 DEBUG Trying with: `/usr/local/lib/pyre_check/typeshed/`
+2019-09-05 11:48:23,322 INFO Found: `/usr/local/lib/pyre_check/typeshed/`
+2019-09-05 11:48:23,323 WARNING Setting up a `.pyre_configuration` with `pyre init` may reduce overhead.
+
+2019-09-05 11:48:23,323 DEBUG Running `/usr/local/bin/pyre.bin check -logging-sections parser -project-root /Users/a2019/Desktop/des/skf-mat -filter-directories /Users/a2019/Desktop/des/skf-mat -workers 4 -search-path /usr/local/lib/pyre_check/typeshed/stdlib/3.7,/usr/local/lib/pyre_check/typeshed/stdlib/3.6,/usr/local/lib/pyre_check/typeshed/stdlib/3,/usr/local/lib/pyre_check/typeshed/stdlib/2and3,/usr/local/lib/pyre_check/typeshed/third_party/3,/usr/local/lib/pyre_check/typeshed/third_party/2and3 /Users/a2019/Desktop/des/skf-mat`
+2019-09-05 11:48:26,861 INFO Parsing 1034 stubs and sources...
+2019-09-05 11:48:27,584 ERROR Could not parse file at skf/sql2orm.py:25:29-25:29
+  	values = [v.replace('\\x'','\x') for v in values]
+                              ^
+
+2019-09-05 11:48:27,585 WARNING Could not parse 1 file due to syntax errors!
+
+2019-09-05 11:48:27,585 PERFORMANCE Sources parsed: 0.831000s
+2019-09-05 11:48:27,586 INFO Adding built-in environment information to shared memory...
+2019-09-05 11:48:27,586 PERFORMANCE Added environment to shared memory: 0.001000s
+2019-09-05 11:48:27,688 INFO Building type environment...
+2019-09-05 11:48:29,978 PERFORMANCE Full environment built: 2.289000s
+2019-09-05 11:48:30,000 PERFORMANCE Registered ignores: 0.085000s
+2019-09-05 11:48:30,000 INFO Checking 218 sources...
+2019-09-05 11:48:30,105 INFO Running check `TypeCheck`...
+2019-09-05 11:48:32,616 INFO Processed 55 of 218 sources
+2019-09-05 11:48:34,549 INFO Processed 110 of 218 sources
+2019-09-05 11:48:34,908 INFO Processed 165 of 218 sources
+2019-09-05 11:48:34,908 INFO Processed 218 of 218 sources
+2019-09-05 11:48:34,909 PERFORMANCE Check_TypeCheck: 4.908000s
+2019-09-05 11:48:34,909 MEMORY Shared memory size post-typecheck (size: 21)
+2019-09-05 11:48:34,942 PERFORMANCE Analyzed sources: 4.908000s
+2019-09-05 11:48:34,969 PERFORMANCE Postprocessed: 0.033000s
+2019-09-05 11:48:34,994 PERFORMANCE Check: 11.616000s
+2019-09-05 11:48:35,021 ERROR Found 197 type errors!
+
+2019-09-05 11:49:06,481 INFO No binary specified, looking for `pyre.bin` in PATH
+2019-09-05 11:49:06,481 INFO Found: `/usr/local/bin/pyre.bin`
+2019-09-05 11:49:06,482 INFO No typeshed specified, looking for it
+2019-09-05 11:49:06,482 DEBUG Trying with: `/usr/local/lib/python3.7/site-packages/pyre_check/pyre_check/typeshed/`
+2019-09-05 11:49:06,482 DEBUG Trying with: `/usr/local/lib/python3.7/site-packages/pyre_check/typeshed/`
+2019-09-05 11:49:06,482 DEBUG Trying with: `/usr/local/lib/python3.7/pyre_check/typeshed/`
+2019-09-05 11:49:06,482 DEBUG Trying with: `/usr/local/lib/pyre_check/typeshed/`
+2019-09-05 11:49:06,482 INFO Found: `/usr/local/lib/pyre_check/typeshed/`
+2019-09-05 11:49:06,491 WARNING Starting server at `/Users/a2019/Desktop/des/skf-mat/.pyre/shared_analysis_directory`.
+
+2019-09-05 11:49:06,493 INFO Constructing shared directory `/Users/a2019/Desktop/des/skf-mat/.pyre/shared_analysis_directory`
+2019-09-05 11:49:06,493 ERROR No targets or source directories to analyze.
+
+2019-09-05 11:49:49,398 INFO No binary specified, looking for `pyre.bin` in PATH
+2019-09-05 11:49:49,399 INFO Found: `/usr/local/bin/pyre.bin`
+2019-09-05 11:49:49,399 INFO No typeshed specified, looking for it
+2019-09-05 11:49:49,399 DEBUG Trying with: `/usr/local/lib/python3.7/site-packages/pyre_check/pyre_check/typeshed/`
+2019-09-05 11:49:49,399 DEBUG Trying with: `/usr/local/lib/python3.7/site-packages/pyre_check/typeshed/`
+2019-09-05 11:49:49,399 DEBUG Trying with: `/usr/local/lib/python3.7/pyre_check/typeshed/`
+2019-09-05 11:49:49,399 DEBUG Trying with: `/usr/local/lib/pyre_check/typeshed/`
+2019-09-05 11:49:49,399 INFO Found: `/usr/local/lib/pyre_check/typeshed/`
+2019-09-05 11:49:49,400 WARNING Setting up a `.pyre_configuration` with `pyre init` may reduce overhead.
+
+2019-09-05 11:49:49,401 DEBUG Running `/usr/local/bin/pyre.bin start -logging-sections parser -project-root /Users/a2019/Desktop/des/skf-mat -filter-directories /Users/a2019/Desktop/des/skf-mat -workers 4 -expected-binary-version unversioned -search-path /usr/local/lib/pyre_check/typeshed/stdlib/3.7,/usr/local/lib/pyre_check/typeshed/stdlib/3.6,/usr/local/lib/pyre_check/typeshed/stdlib/3,/usr/local/lib/pyre_check/typeshed/stdlib/2and3,/usr/local/lib/pyre_check/typeshed/third_party/3,/usr/local/lib/pyre_check/typeshed/third_party/2and3 /Users/a2019/Desktop/des/skf-mat`
+2019-09-05 11:49:49,442 INFO Starting up server...
+2019-09-05 11:49:49,442 INFO Running as pid: 67199
+2019-09-05 11:49:49,442 INFO Version: f942addfc3316f932b2fb2b68baf6f7468949af5
+2019-09-05 11:49:49,443 INFO Build info: Darwin x86_64 @ Wed Aug 07 2019 (development build)
+2019-09-05 11:49:49,444 INFO Server starting in background
+2019-09-05 11:49:49,450 WARNING Failed to initialize file monitor: Could not find a watchman directory from the current directory `/Users/a2019/Desktop/des/skf-mat`
+
+2019-09-05 11:49:59,174 INFO No binary specified, looking for `pyre.bin` in PATH
+2019-09-05 11:49:59,174 INFO Found: `/usr/local/bin/pyre.bin`
+2019-09-05 11:49:59,174 INFO No typeshed specified, looking for it
+2019-09-05 11:49:59,175 DEBUG Trying with: `/usr/local/lib/python3.7/site-packages/pyre_check/pyre_check/typeshed/`
+2019-09-05 11:49:59,175 DEBUG Trying with: `/usr/local/lib/python3.7/site-packages/pyre_check/typeshed/`
+2019-09-05 11:49:59,175 DEBUG Trying with: `/usr/local/lib/python3.7/pyre_check/typeshed/`
+2019-09-05 11:49:59,175 DEBUG Trying with: `/usr/local/lib/pyre_check/typeshed/`
+2019-09-05 11:49:59,175 INFO Found: `/usr/local/lib/pyre_check/typeshed/`
+2019-09-05 11:49:59,175 WARNING Setting up a `.pyre_configuration` with `pyre init` may reduce overhead.
+
+2019-09-05 11:49:59,176 DEBUG Running `/usr/local/bin/pyre.bin start -logging-sections parser -project-root /Users/a2019/Desktop/des/skf-mat -filter-directories /Users/a2019/Desktop/des/skf-mat/skf -workers 4 -expected-binary-version unversioned -search-path /usr/local/lib/pyre_check/typeshed/stdlib/3.7,/usr/local/lib/pyre_check/typeshed/stdlib/3.6,/usr/local/lib/pyre_check/typeshed/stdlib/3,/usr/local/lib/pyre_check/typeshed/stdlib/2and3,/usr/local/lib/pyre_check/typeshed/third_party/3,/usr/local/lib/pyre_check/typeshed/third_party/2and3 /Users/a2019/Desktop/des/skf-mat/skf`
+2019-09-05 11:49:59,213 INFO Starting up server...
+2019-09-05 11:49:59,214 INFO Running as pid: 67259
+2019-09-05 11:49:59,214 INFO Version: f942addfc3316f932b2fb2b68baf6f7468949af5
+2019-09-05 11:49:59,214 INFO Build info: Darwin x86_64 @ Wed Aug 07 2019 (development build)
+2019-09-05 11:49:59,215 INFO Server starting in background
+2019-09-05 11:49:59,218 WARNING Failed to initialize file monitor: Could not find a watchman directory from the current directory `/Users/a2019/Desktop/des/skf-mat`
+

@@ -26,6 +26,15 @@ def clear_db():
         db.session.rollback()
         raise
 
+def clear_db():
+    print("Clearing the database")
+    try:
+        db.drop_all()
+        db.session.commit()
+    except:
+        print("Error occurred clearing the database")
+        db.session.rollback()
+        raise
 
 def init_db(testing=False):
     """Initializes the database.""" 
@@ -86,6 +95,7 @@ def init_md_knowledge_base():
                     raise
         print('Initialized the markdown knowledge-base.')
         return True
+
     except:
         raise
 
@@ -128,5 +138,6 @@ def prerequisits():
         db.session.add(category)
         db.session.commit()
         return True
+
     except:
         raise
