@@ -49,7 +49,7 @@ describe('Knowledge base service', () => {
         expect(connection.request.url).toEqual('http://127.0.0.1:8888/api/kb/items');
       });
 
-      service.getKnowledgeBase()
+      service.getKnowledgeBase(1)
         .subscribe((items: Knowledgebase[]) => {
          expect(items.length).toBe(2);
          expect(items[0]['kb_id']).toEqual(1);
