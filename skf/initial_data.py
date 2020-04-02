@@ -1,16 +1,14 @@
-
-
 import datetime
 from skf.database import db
 from skf.database.privileges import Privilege
 from skf.database.users import User
 from skf.database.groups import Group
 from skf.database.questions import Question
+from skf.database.checklist_category import ChecklistCategory
 from skf.database.checklist_types import ChecklistType
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklists_results import ChecklistResult
 from skf.database.code_items import CodeItem
-from skf.database.comments import Comment
 from skf.database.groupmembers import GroupMember
 from skf.database.kb_items import KBItem
 from skf.database.lab_items import LabItem
@@ -19,12 +17,9 @@ from skf.database.project_sprints import ProjectSprint
 from skf.database.projects import Project
 from skf.database.question_results import QuestionResult
 
+
 def load_initial_data():
 
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (1, "edit:read:manage:delete", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (2, "edit:read:delete", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (3, "edit:read", 1))
-#   INSERT OR REPLACE INTO `privileges` (`privilegeID`, `privilege`) VALUES (4, "read", 1))
     try:
         p = Privilege('edit:read:manage:delete')
         db.session.add(p)
@@ -32,35 +27,84 @@ def load_initial_data():
         db.session.add(Privilege('edit:read'))
         db.session.add(Privilege('read'))  
 
-#   INSERT OR REPLACE INTO `users` (`userID`, `privilegeID`, `userName`, `password`, `accessToken`, `access`, `activated`, `email`) VALUES (1, 1, "admin", "", "1234", "False", "False", "example@owasp.org", 1))
-        user = User(userName='admin', accessToken=1234, email="example@owasp.org")
+        user = User(username='admin', accessToken=1234, email="example@owasp.org")
         user.privilege = p
         db.session.add(user)
 
-#   INSERT OR REPLACE INTO `groups` (`groupID`, `ownerID`, `groupName`) VALUES (1, 1, "privateGroup", 1))
         group = Group('privateGroup', datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
-#   INSERT OR REPLACE INTO `groupMembers` (`memberID`, `userID`, `groupID`, `ownerID`) VALUES (1, 1, 1, 1, 1)
+
         group.members.append(user)
         group.owner = user
         db.session.add(group)
 
-#   INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS LEVEL 1", "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.", 1))
-#   INSERT OR REPLACE INTO `checklist_types` ( `checklist_name`, `checklist_description`) VALUES ( "ASVS LEVEL 2", "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.", 1))
+        checklist = ChecklistType(name='Architecture, Design and Threat Modeling Requirements', description='Security architecture has almost become a lost art in many organizations. The days of the enterprise architect have passed in the age of DevSecOps. The application security field must catch up and adopt agile security principles while re-introducing leading security architecture principles to software practitioners. Architecture is not an implementation, but a way of thinking about a problem that has potentially many different answers, and no one single "correct" answer. All too often, security is seen as inflexible and demanding that developers fix code in a particular way, when the developers may know a much better way to solve the problem. There is no single, simple solution for architecture, and to pretend otherwise is a disservice to the software engineering field.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
         
-        db.session.add(ChecklistType(name='Architecture, Design and Threat Modeling Requirements', description='Security architecture has almost become a lost art in many organizations. The days of the enterprise architect have passed in the age of DevSecOps. The application security field must catch up and adopt agile security principles while re-introducing leading security architecture principles to software practitioners. Architecture is not an implementation, but a way of thinking about a problem that has potentially many different answers, and no one single "correct" answer. All too often, security is seen as inflexible and demanding that developers fix code in a particular way, when the developers may know a much better way to solve the problem. There is no single, simple solution for architecture, and to pretend otherwise is a disservice to the software engineering field.', visibility=1))
-        db.session.add(ChecklistType(name='Authentication Verification Requirements', description='Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of passwords.', visibility=1))
-        db.session.add(ChecklistType(name='Session Management Verification Requirements', description='One of the core components of any web-based application or stateful API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.', visibility=1))
-        db.session.add(ChecklistType(name='Access Control Verification Requirements', description='Authorization is the concept of allowing access to resources only to those permitted to use them. Ensure that a verified application satisfies the following high level requirements:• Persons accessing resources hold valid credentials to do so.* Users are associated with a well-defined set of roles and privileges.• Role and permission metadata is protected from replay or tampering.', visibility=1))
-        db.session.add(ChecklistType(name='Validation, Sanitization and Encoding Verification Requirements', description='The most common web application security weakness is the failure to properly validate input coming from the client or the environment before directly using it without any output encoding. This weakness leads to almost all of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, interpreter injection, locale/Unicode attacks, file system attacks, and buffer overflows.', visibility=1))
-        db.session.add(ChecklistType(name='Stored Cryptography Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • All cryptographic modules fail in a secure manner and that errors are handled correctly. • A suitable random number generator is used. • Access to keys is securely managed. V6.1 Data Classification', visibility=1))
-        db.session.add(ChecklistType(name='Error Handling and Logging Verification Requirements', description='The primary objective of error handling and logging is to provide useful information for the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high quality logs, with more signal than discarded noise.', visibility=1))
-        db.session.add(ChecklistType(name='Data Protection Verification Requirements', description='There are three key elements to sound data protection: Confidentiality, Integrity and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.', visibility=1))
-        db.session.add(ChecklistType(name='Communications Verification Requirements', description='Leading industry advice on secure TLS configuration changes frequently, often due to catastrophic breaks in existing algorithms and ciphers. Always use the most recent versions of TLS configuration review tools (such as SSLyze or other TLS scanners) to configure the preferred order and algorithm selection. Configuration should be periodically checked to ensure that secure communications configuration is always present and effective.', visibility=1))
-        db.session.add(ChecklistType(name='Malicious Code Verification Requirements', description='Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.', visibility=1))
-        db.session.add(ChecklistType(name='Business Logic Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • The business logic flow is sequential, processed in order, and cannot be bypassed. • Business logic includes limits to detect and prevent automated attacks, such as continuous small funds transfers, or adding a million friends one at a time, and so on. • High value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, repudiation, information disclosure, and elevation of privilege attacks.', visibility=1))
-        db.session.add(ChecklistType(name='File and Resources Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • Untrusted file data should be handled accordingly and in a secure manner. • Untrusted file data obtained from untrusted sources are stored outside the web root and with limited permissions.', visibility=1))
-        db.session.add(ChecklistType(name='API and Web Service Verification Requirements', description='Ensure that a verified application that uses trusted service layer APIs (commonly using JSON or XML or GraphQL) has: • Adequate authentication, session management and authorization of all web services. • Input validation of all parameters that transit from a lower to higher trust level. • Effective security controls for all API types, including cloud and Serverless API Please read this chapter in combination with all other chapters at this same level; we no longer duplicate authentication or API session management concerns.', visibility=1))
-        db.session.add(ChecklistType(name='Configuration Verification Requirements', description='Ensure that a verified application has: • A secure, repeatable, automatable build environment. • Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application. • A secure-by-default configuration, such that administrators and users have to weaken the default security posture. Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.', visibility=1))
+        checklist = ChecklistType(name='Authentication Verification Requirements', description='Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of passwords.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+        
+        checklist = ChecklistType(name='Session Management Verification Requirements', description='One of the core components of any web-based application or stateful API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Access Control Verification Requirements', description='Authorization is the concept of allowing access to resources only to those permitted to use them. Ensure that a verified application satisfies the following high level requirements:• Persons accessing resources hold valid credentials to do so.* Users are associated with a well-defined set of roles and privileges.• Role and permission metadata is protected from replay or tampering.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Validation, Sanitization and Encoding Verification Requirements', description='The most common web application security weakness is the failure to properly validate input coming from the client or the environment before directly using it without any output encoding. This weakness leads to almost all of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, interpreter injection, locale/Unicode attacks, file system attacks, and buffer overflows.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Stored Cryptography Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • All cryptographic modules fail in a secure manner and that errors are handled correctly. • A suitable random number generator is used. • Access to keys is securely managed. V6.1 Data Classification', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Error Handling and Logging Verification Requirements', description='The primary objective of error handling and logging is to provide useful information for the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high quality logs, with more signal than discarded noise.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Data Protection Verification Requirements', description='There are three key elements to sound data protection: Confidentiality, Integrity and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Communications Verification Requirements', description='Leading industry advice on secure TLS configuration changes frequently, often due to catastrophic breaks in existing algorithms and ciphers. Always use the most recent versions of TLS configuration review tools (such as SSLyze or other TLS scanners) to configure the preferred order and algorithm selection. Configuration should be periodically checked to ensure that secure communications configuration is always present and effective.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Malicious Code Verification Requirements', description='Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Business Logic Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • The business logic flow is sequential, processed in order, and cannot be bypassed. • Business logic includes limits to detect and prevent automated attacks, such as continuous small funds transfers, or adding a million friends one at a time, and so on. • High value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, repudiation, information disclosure, and elevation of privilege attacks.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+        
+        checklist = ChecklistType(name='File and Resources Verification Requirements', description='Ensure that a verified application satisfies the following high level requirements: • Untrusted file data should be handled accordingly and in a secure manner. • Untrusted file data obtained from untrusted sources are stored outside the web root and with limited permissions.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='API and Web Service Verification Requirements', description='Ensure that a verified application that uses trusted service layer APIs (commonly using JSON or XML or GraphQL) has: • Adequate authentication, session management and authorization of all web services. • Input validation of all parameters that transit from a lower to higher trust level. • Effective security controls for all API types, including cloud and Serverless API Please read this chapter in combination with all other chapters at this same level; we no longer duplicate authentication or API session management concerns.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
+        db.session.commit()
+
+        checklist = ChecklistType(name='Configuration Verification Requirements', description='Ensure that a verified application has: • A secure, repeatable, automatable build environment. • Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application. • A secure-by-default configuration, such that administrators and users have to weaken the default security posture. Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.', visibility=1)
+        checklist.checklist_category_id = 1
+        db.session.add(checklist)
         db.session.commit()
         
         
@@ -2048,7 +2092,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistKB('13.2.6', 'Verify that the message headers and payload are trustworthy and not modified in transit. Requiring strong encryption for transport (TLS only) may be sufficient in many cases as it provides both confidentiality and integrity protection. Per- message digital signatures can provide additional assurance on top of the transport protections for high-security applications but bring with them additional complexity and risks to weigh against the benefits', 345, False, 598, 2);
+        c = ChecklistKB('13.2.6', 'Verify that the message headers and payload are trustworthy and not modified in transit. Requiring strong encryption for transport (TLS only) may be sufficient in many cases as it provides both confidentiality and integrity protection. Per- message digital signatures can provide additional assurance on top of the transport protections for high-security applications but bring with them additional complexity and risks to weigh against the benefits', 13, False, 598, 2);
         c.question_id = 62
         c.kb_id = 999
         db.session.add(c)
@@ -2120,7 +2164,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.2.2', 'Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.', 141, False, 1002, 1);
+        c = ChecklistKB('14.2.2', 'Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.', 14, False, 1002, 1);
         c.question_id = 66
         c.kb_id = 283
         db.session.add(c)
@@ -2234,137 +2278,159 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        db.session.add(LabItem('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-1-filename-injection', 1))
+        db.session.add(LabItem('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-1-filename-injection', 1, "lfi"))
         db.session.commit()
         
-        db.session.add(LabItem('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting', 1))
+        db.session.add(LabItem('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting', 1, "xss"))
         db.session.commit()
         
-        db.session.add(LabItem('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-attribute', 1))
+        db.session.add(LabItem('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-attribute', 1, "xss-attribute"))
         db.session.commit()
         
-        db.session.add(LabItem('Cross site scripting (href)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-href', 1))
+        db.session.add(LabItem('Cross site scripting (href)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-href', 1, "xss-url"))
         db.session.commit()
         
-        db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf', 3))
+        db.session.add(LabItem('XSSI','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-include-files-from-untrusted-sources-js', 2, "untrusted-sources-js"))
         db.session.commit()
 
-        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf-samesite', 3))
-        db.session.commit()
-        
-        db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe', 2))
-        db.session.commit()
-        
-        db.session.add(LabItem('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-13-file-upload', 1))
-        db.session.commit()
-        
-        db.session.add(LabItem('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-20-clickjacking', 1))
-        db.session.commit()
-        
-        db.session.add(LabItem('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-29-ratelimiting', 1))
-        db.session.commit()
-        
-        db.session.add(LabItem('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-39-httponly-session-hijacking-xss', 3))
-        db.session.commit()
-        
-        db.session.add(LabItem('Missing authorization','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-44-authorisation-missing', 2))
-        db.session.commit()
-        
-        db.session.add(LabItem('Exposed Docker daemon','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-45-exposed-docker', 3))
-        db.session.commit()
-        
-        db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select', 2))
-        db.session.commit()
-        
-        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3))
-        db.session.commit()
-        
-        db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation', 3))
+        db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf', 3, "csrf"))
         db.session.commit()
 
-        db.session.add(LabItem('Formulla injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-95-formula-injection', 1))
+        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf-samesite', 3, "csrf-samesite"))
         db.session.commit()
         
-        db.session.add(LabItem('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-147-parameter-binding', 1))
+        db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe', 2, "xxe"))
         db.session.commit()
         
-        db.session.add(LabItem('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-like', 2))
+        db.session.add(LabItem('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-13-file-upload', 1, "file-upload"))
         db.session.commit()
         
-        db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3))
+        db.session.add(LabItem('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-20-clickjacking', 1, "x-allow-origin"))
         db.session.commit()
         
-        db.session.add(LabItem('Local file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-local-file-inclusion', 1))
+        db.session.add(LabItem('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-29-ratelimiting', 1, "ratelimiting"))
         db.session.commit()
         
-        db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1))
+        db.session.add(LabItem('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-39-httponly-session-hijacking-xss', 3, "session-hijacking-xss"))
+        db.session.commit()
+        
+        db.session.add(LabItem('Missing authorization','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-44-authorisation-missing', 2, "auth-missing"))
+        db.session.commit()
+        
+        db.session.add(LabItem('Exposed Docker daemon','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-45-exposed-docker', 3, "none"))
+        db.session.commit()
+        
+        db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select', 2, "sqli"))
+        db.session.commit()
+        
+        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3, "url-redirection-hard"))
+        db.session.commit()
+        
+        db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation', 3, "cors"))
         db.session.commit()
 
-        db.session.add(LabItem('Remote file inclusion 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-2', 1))
-        db.session.commit()
-
-        db.session.add(LabItem('Remote file inclusion 3','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-3', 1))
+        db.session.add(LabItem('Formulla injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-95-formula-injection', 1, "formula-injection"))
         db.session.commit()
         
-        db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy', 1))
+        db.session.add(LabItem('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-147-parameter-binding', 1, "parameter-binding"))
         db.session.commit()
         
-        db.session.add(LabItem('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-262-server-side-request-forgery', 3))
+        db.session.add(LabItem('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-like', 2, "sqli-like"))
         db.session.commit()
         
-        db.session.add(LabItem('Tabnabbing','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-266-tabnabbing', 2))
+        db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3, "sqli-blind"))
         db.session.commit()
         
-        db.session.add(LabItem('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-267-server-side-template-injection', 3))
+        db.session.add(LabItem('Local file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-local-file-inclusion', 1, "lfi"))
         db.session.commit()
         
-        db.session.add(LabItem('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-268-insecure-direct-object-references', 2))
+        db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1, "rfi"))
+        db.session.commit()
+
+        db.session.add(LabItem('Remote file inclusion 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-2', 1, "lfi-2"))
+        db.session.commit()
+
+        db.session.add(LabItem('Remote file inclusion 3','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-3', 1, "lfi-3"))
         db.session.commit()
         
-        db.session.add(LabItem('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-null', 2))
+        db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy', 1, "csp"))
         db.session.commit()
         
-        db.session.add(LabItem('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-secret', 2))
+        db.session.add(LabItem('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-262-server-side-request-forgery', 3, "ssrf"))
         db.session.commit()
         
-        db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml', 3))
-        db.session.commit()
-
-        db.session.add(LabItem('Insecure deserialization (yaml2)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-des-pickle-2', 3))
-        db.session.commit()
-
-        db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition', 3))
+        db.session.add(LabItem('Tabnabbing','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-266-tabnabbing', 2, "tabnabbing"))
         db.session.commit()
         
-        db.session.add(LabItem('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-dos-regex', 1))
+        db.session.add(LabItem('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-267-server-side-template-injection', 3, "ssti"))
+        db.session.commit()
+        
+        db.session.add(LabItem('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-268-insecure-direct-object-references', 2, "idor"))
+        db.session.commit()
+        
+        db.session.add(LabItem('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-null', 2, "jwt-null"))
+        db.session.commit()
+        
+        db.session.add(LabItem('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-secret', 2, "jwt-secret"))
+        db.session.commit()
+        
+        db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml', 3, "des-yaml"))
         db.session.commit()
 
-        db.session.add(LabItem('Command injection 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-1', 1))
+        db.session.add(LabItem('Insecure deserialization pickle','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-des-pickle-2', 3, "des-pickle-2"))
         db.session.commit()
 
-        db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1))
+        db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition', 3, "racecondition"))
+        db.session.commit()
+        
+        db.session.add(LabItem('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-dos-regex', 1, "dos-regex"))
         db.session.commit()
 
-        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1))
+        db.session.add(LabItem('Command injection 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-1', 1, "cmd"))
         db.session.commit()
 
-        db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1))
+        db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1, "cmd2"))
         db.session.commit()
 
-        db.session.add(LabItem('Authentication bypass 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-1', 1))
+        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1, "info-leakeage-comments"))
         db.session.commit()
 
-        db.session.add(LabItem('Authentication bypass 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-2', 1))
+        db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1, "info-leakeage-metadata"))
         db.session.commit()
 
-        db.session.add(LabItem('Blind command injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-blind-cmd-injection-1', 2))
+        db.session.add(LabItem('Authentication bypass 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-1', 1, "auth-bypass-1"))
         db.session.commit()
 
-        db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-right-to-left-override', 1))
+        db.session.add(LabItem('Authentication bypass 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-2', 1, "auth-bypass-2"))
         db.session.commit()
 
-        db.session.add(LabItem('Session puzzeling','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-250-session-puzzling', 3))
+        db.session.add(LabItem('Blind command injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-blind-cmd-injection-1', 2, "cmd3"))
         db.session.commit()
+
+        db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-right-to-left-override', 1, "rtlo"))
+        db.session.commit()
+
+        db.session.add(LabItem('Session puzzeling','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-250-session-puzzling', 3, "sessionpuzzle"))
+        db.session.commit()
+
+
+        db.session.add(LabItem('Graphql DOS','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-dos', 3, "graphql-dos-resource-exhaustion"))
+        db.session.commit()
+
+        db.session.add(LabItem('GraphQL IDOR','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-idor', 3, "graphql-idor"))
+        db.session.commit()
+
+
+        db.session.add(LabItem('GraphQL Injections','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-injections', 3, "graphql-injections"))
+        db.session.commit()
+
+
+        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-introspection', 3, "graphql-introspections"))
+        db.session.commit()
+
+        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-mutations', 3, "graphql-mutations"))
+        db.session.commit()
+
 
         db.session.commit()
         return True

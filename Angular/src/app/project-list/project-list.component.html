@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -44,7 +44,7 @@
                     <div class="wrap">
                       <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Project name</label>
                       <div class="col-sm-10">
-                        <input formControlName="name" maxlength="120" type="text" class="form-control" id="projectName" name="projectName"/>
+                        <input formControlName="name" maxlength="120" type="text" class="form-control" id="project_name" name="project_name"/>
                         <div class="wrap desc alert-info">
                           <div class="col-sm-10">Make it easy for your team to recognise.</div>
                         </div>
@@ -55,7 +55,7 @@
                       <div class="wrap">
                         <label for="inputVersion" maxlength="10" class="col-sm-2 control-label">Project version</label>
                         <div class="col-sm-10">
-                          <input required formControlName="version" maxlength="120" type="text" class="form-control" id="projectVersion" name="projectVersion">
+                          <input required formControlName="version" maxlength="120" type="text" class="form-control" id="project_version" name="project_version">
                           <div class="wrap desc alert-info">
                             <div class="col-sm-10">Versioning is importante!</div>
                           </div>
@@ -66,10 +66,10 @@
                     <div class="wrap">
                       <label for="inputDesc" class="col-sm-2 control-label">Description</label>
                       <div class="col-sm-10">
-                        <textarea required class="form-control" maxlength="255" formControlName="description" id="projectDescription"
+                        <textarea required class="form-control" maxlength="255" formControlName="description" id="project_descriptionription"
                           style="height: 90px;" ></textarea>
                         <div class="wrap desc alert-info">
-                          <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the project overview.</div>
+                          <div class="col-sm-10">A short and sweet description of your project, will be shown in the project overview.</div>
                         </div>
                       </div>
                     </div>

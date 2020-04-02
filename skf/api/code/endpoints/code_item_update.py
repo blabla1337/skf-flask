@@ -6,7 +6,7 @@ from skf.api.code.business import update_code_item
 from skf.api.code.serializers import code_properties, message
 from skf.api.code.parsers import authorization
 from skf.api.restplus import api
-#from skf.database.code_items import CodeItem
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('code', description='Operations related to code example items')
 
@@ -24,8 +24,11 @@ class CodeItemUpdate(Resource):
         Update a code example item.
         * Privileges required: **manage**
         """
-        validate_privilege(self, 'manage')
         data = request.json
+        val_alpha_num_special(data.get('title'))
+        val_alpha_num(data.get('code_lang'))
+        val_num(id)
+        validate_privilege(self, 'manage')
         result = update_code_item(id, data)
         return result, 200, security_headers()
  

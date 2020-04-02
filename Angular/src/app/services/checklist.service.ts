@@ -22,8 +22,8 @@ export class ChecklistService {
       map(response => response.json().items))
   }
 
-  getSingleChecklistItem(checklistID: string, checklist_type: number): Observable<Checklist[]> {
-    return this.http.get(environment.API_ENDPOINT + `/checklist/item/${checklistID}/type/${checklist_type}`, { headers: this.postHeaders }).pipe(
+  getSingleChecklistItem(checklist_id: string, checklist_type: number): Observable<Checklist[]> {
+    return this.http.get(environment.API_ENDPOINT + `/checklist/item/${checklist_id}/type/${checklist_type}`, { headers: this.postHeaders }).pipe(
       map(
         response => response.json(),
         () => console.log('failed to get the information')))
@@ -34,8 +34,8 @@ export class ChecklistService {
       map(response => response.json().items))
   }
 
-  getChecklistTypeList(): Observable<ChecklistType[]> {
-    return this.http.get(environment.API_ENDPOINT + `/checklist/types`, { headers: this.headers }).pipe(
+  getChecklistTypeList(category_id:number): Observable<ChecklistType[]> {
+    return this.http.get(environment.API_ENDPOINT + `/checklist/types/${category_id}`, { headers: this.headers }).pipe(
       map(response => response.json().items))
   }
 
@@ -47,9 +47,9 @@ export class ChecklistService {
         () => console.log('failed to delete checklist type')))
   }
 
-  newChecklistType(checklistType: ChecklistType): Observable<any> {
+  newChecklistType(category_id: number, checklistType: ChecklistType): Observable<any> {
     return this.http
-      .put(environment.API_ENDPOINT + '/checklist/create/type', JSON.stringify({
+      .put(environment.API_ENDPOINT + `/checklist/create/type/${category_id}`, JSON.stringify({
         name: checklistType['name'],
         description: checklistType['description'],
         visibility: Number(checklistType['visibility'])
@@ -108,11 +108,13 @@ export class ChecklistService {
       map(a => { return a.json() }));
   }
 
-  deletechecklistItem(checklistID: number, checklistType: number) {
-    const url = environment.API_ENDPOINT + `/checklist/delete/item/${checklistID}/type/${checklistType}`;
+  deletechecklistItem(checklist_id: string, checklistType: number) {
+    const url = environment.API_ENDPOINT + `/checklist/delete/item/${checklist_id}/type/${checklistType}`;
     return this.http.delete(url, { headers: this.postHeaders }).pipe(
       map(
         data => data,
         error => console.log('failed to delete checklist item')))
   }
+
+
 }

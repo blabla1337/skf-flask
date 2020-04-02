@@ -42,6 +42,7 @@ import { KnowledgebaseComponent }   from './knowledgebase/knowledgebase.componen
 import { KnowledgebaseEditComponent }   from './knowledgebase-edit/knowledgebase-edit.component';
 import { CodeExamplesComponent }   from './code-examples/code-examples.component';
 import { CodeExamplesEditComponent }   from './code-examples-edit/code-examples-edit.component';
+import { CategoryComponent }   from './category-list/category-list.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
@@ -55,6 +56,7 @@ import { UserManageComponent } from './user-manage/user-manage.component';
 import { StartsWithPipe } from './pipes/starts-with.pipe';
 import { OrderBy } from './pipes/order-by.pipe';
 import { StringFilterPipe } from './pipes/string-filter.pipe';
+import { LangFilterPipe } from './pipes/lang-filter.pipe';
 
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
@@ -78,6 +80,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     KnowledgebaseEditComponent,
     CodeExamplesComponent,
     CodeExamplesEditComponent,
+    CategoryComponent,
     AuthenticateComponent,
     ChecklistComponent,
     ChecklistManageComponent,
@@ -87,6 +90,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     StartsWithPipe,
     OrderBy,
     StringFilterPipe,
+    LangFilterPipe,
     FirstLoginComponent,
     UndefinedComponent,
     LabsComponent,

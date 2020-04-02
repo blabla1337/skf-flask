@@ -1,4 +1,3 @@
-
 from skf.database import db
 
 '''
@@ -17,6 +16,11 @@ CREATE TABLE `logs` (
 `message` varchar(255) NOT NULL
 );
 '''
+
+class Log(db.Model):
+    
+    __tablename__ = 'logs'
+
 
 class Log(db.Model):
     

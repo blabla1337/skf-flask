@@ -1,4 +1,16 @@
 classs,question
+Description, What is use me for a header ?
+Description, What does use me for a header mean ?
+Description, Tell me something about use me for a header ?
+Description, use me for a header
+Description, Explain use me for a header ?
+Description, Description for use me for a header
+Description, Elaborate use me for a header ?
+Description, Can you tell me about use me for a header ?
+Description, What do you know about use me for a header ?
+Description, What can you tell me about use me for a header ?
+Description, I want to know about XSS use me for a header
+Description, Do you have information about use me for a header ?
 Description, What is Filename injection Path traversal ?
 Description, What does Filename injection Path traversal mean ?
 Description, Tell me something about Filename injection Path traversal ?
@@ -407,30 +419,30 @@ Description, What do you know about Automated spamming via feedback scripts ?
 Description, What can you tell me about Automated spamming via feedback scripts ?
 Description, I want to know about XSS Automated spamming via feedback scripts
 Description, Do you have information about Automated spamming via feedback scripts ?
-Description, What is Session cookies without the Secure flag ?
-Description, What does Session cookies without the Secure flag mean ?
-Description, Tell me something about Session cookies without the Secure flag ?
-Description, Session cookies without the Secure flag
-Description, Explain Session cookies without the Secure flag ?
-Description, Description for Session cookies without the Secure flag
-Description, Elaborate Session cookies without the Secure flag ?
-Description, Can you tell me about Session cookies without the Secure flag ?
-Description, What do you know about Session cookies without the Secure flag ?
-Description, What can you tell me about Session cookies without the Secure flag ?
-Description, I want to know about XSS Session cookies without the Secure flag
-Description, Do you have information about Session cookies without the Secure flag ?
-Description, What is Session cookies without the HttpOnly flag ?
-Description, What does Session cookies without the HttpOnly flag mean ?
-Description, Tell me something about Session cookies without the HttpOnly flag ?
-Description, Session cookies without the HttpOnly flag
-Description, Explain Session cookies without the HttpOnly flag ?
-Description, Description for Session cookies without the HttpOnly flag
-Description, Elaborate Session cookies without the HttpOnly flag ?
-Description, Can you tell me about Session cookies without the HttpOnly flag ?
-Description, What do you know about Session cookies without the HttpOnly flag ?
-Description, What can you tell me about Session cookies without the HttpOnly flag ?
-Description, I want to know about XSS Session cookies without the HttpOnly flag
-Description, Do you have information about Session cookies without the HttpOnly flag ?
+Description, What is Session cookies without the Secure attribute ?
+Description, What does Session cookies without the Secure attribute mean ?
+Description, Tell me something about Session cookies without the Secure attribute ?
+Description, Session cookies without the Secure attribute
+Description, Explain Session cookies without the Secure attribute ?
+Description, Description for Session cookies without the Secure attribute
+Description, Elaborate Session cookies without the Secure attribute ?
+Description, Can you tell me about Session cookies without the Secure attribute ?
+Description, What do you know about Session cookies without the Secure attribute ?
+Description, What can you tell me about Session cookies without the Secure attribute ?
+Description, I want to know about XSS Session cookies without the Secure attribute
+Description, Do you have information about Session cookies without the Secure attribute ?
+Description, What is Session cookies without the HttpOnly attribute ?
+Description, What does Session cookies without the HttpOnly attribute mean ?
+Description, Tell me something about Session cookies without the HttpOnly attribute ?
+Description, Session cookies without the HttpOnly attribute
+Description, Explain Session cookies without the HttpOnly attribute ?
+Description, Description for Session cookies without the HttpOnly attribute
+Description, Elaborate Session cookies without the HttpOnly attribute ?
+Description, Can you tell me about Session cookies without the HttpOnly attribute ?
+Description, What do you know about Session cookies without the HttpOnly attribute ?
+Description, What can you tell me about Session cookies without the HttpOnly attribute ?
+Description, I want to know about XSS Session cookies without the HttpOnly attribute
+Description, Do you have information about Session cookies without the HttpOnly attribute ?
 Description, What is External session hijacking ?
 Description, What does External session hijacking mean ?
 Description, Tell me something about External session hijacking ?
@@ -995,18 +1007,18 @@ Description, What do you know about Logout structuring ?
 Description, What can you tell me about Logout structuring ?
 Description, I want to know about XSS Logout structuring
 Description, Do you have information about Logout structuring ?
-Description, What is Verify that the session id is never disclosed ?
-Description, What does Verify that the session id is never disclosed mean ?
-Description, Tell me something about Verify that the session id is never disclosed ?
-Description, Verify that the session id is never disclosed
-Description, Explain Verify that the session id is never disclosed ?
-Description, Description for Verify that the session id is never disclosed
-Description, Elaborate Verify that the session id is never disclosed ?
-Description, Can you tell me about Verify that the session id is never disclosed ?
-Description, What do you know about Verify that the session id is never disclosed ?
-Description, What can you tell me about Verify that the session id is never disclosed ?
-Description, I want to know about XSS Verify that the session id is never disclosed
-Description, Do you have information about Verify that the session id is never disclosed ?
+Description, What is Verify that the sensitive information is never disclosed ?
+Description, What does Verify that the sensitive information is never disclosed mean ?
+Description, Tell me something about Verify that the sensitive information is never disclosed ?
+Description, Verify that the sensitive information is never disclosed
+Description, Explain Verify that the sensitive information is never disclosed ?
+Description, Description for Verify that the sensitive information is never disclosed
+Description, Elaborate Verify that the sensitive information is never disclosed ?
+Description, Can you tell me about Verify that the sensitive information is never disclosed ?
+Description, What do you know about Verify that the sensitive information is never disclosed ?
+Description, What can you tell me about Verify that the sensitive information is never disclosed ?
+Description, I want to know about XSS Verify that the sensitive information is never disclosed
+Description, Do you have information about Verify that the sensitive information is never disclosed ?
 Description, What is Session Domain cookies ?
 Description, What does Session Domain cookies mean ?
 Description, Tell me something about Session Domain cookies ?
@@ -1823,18 +1835,18 @@ Description, What do you know about RFD and file download injections ?
 Description, What can you tell me about RFD and file download injections ?
 Description, I want to know about XSS RFD and file download injections
 Description, Do you have information about RFD and file download injections ?
-Description, What is identify all application components ?
-Description, What does identify all application components mean ?
-Description, Tell me something about identify all application components ?
-Description, identify all application components
-Description, Explain identify all application components ?
-Description, Description for identify all application components
-Description, Elaborate identify all application components ?
-Description, Can you tell me about identify all application components ?
-Description, What do you know about identify all application components ?
-Description, What can you tell me about identify all application components ?
-Description, I want to know about XSS identify all application components
-Description, Do you have information about identify all application components ?
+Description, What is Identify all application components ?
+Description, What does Identify all application components mean ?
+Description, Tell me something about Identify all application components ?
+Description, Identify all application components
+Description, Explain Identify all application components ?
+Description, Description for Identify all application components
+Description, Elaborate Identify all application components ?
+Description, Can you tell me about Identify all application components ?
+Description, What do you know about Identify all application components ?
+Description, What can you tell me about Identify all application components ?
+Description, I want to know about XSS Identify all application components
+Description, Do you have information about Identify all application components ?
 Description, What is Identify external dependencies ?
 Description, What does Identify external dependencies mean ?
 Description, Tell me something about Identify external dependencies ?
@@ -1991,18 +2003,18 @@ Description, What do you know about Access management ?
 Description, What can you tell me about Access management ?
 Description, I want to know about XSS Access management
 Description, Do you have information about Access management ?
-Description, What is JSON XML schema ?
-Description, What does JSON XML schema mean ?
-Description, Tell me something about JSON XML schema ?
-Description, JSON XML schema
-Description, Explain JSON XML schema ?
-Description, Description for JSON XML schema
-Description, Elaborate JSON XML schema ?
-Description, Can you tell me about JSON XML schema ?
-Description, What do you know about JSON XML schema ?
-Description, What can you tell me about JSON XML schema ?
-Description, I want to know about XSS JSON XML schema
-Description, Do you have information about JSON XML schema ?
+Description, What is XML schema (XSD) ?
+Description, What does XML schema (XSD) mean ?
+Description, Tell me something about XML schema (XSD) ?
+Description, XML schema (XSD)
+Description, Explain XML schema (XSD) ?
+Description, Description for XML schema (XSD)
+Description, Elaborate XML schema (XSD) ?
+Description, Can you tell me about XML schema (XSD) ?
+Description, What do you know about XML schema (XSD) ?
+Description, What can you tell me about XML schema (XSD) ?
+Description, I want to know about XSS XML schema (XSD)
+Description, Do you have information about XML schema (XSD) ?
 Description, What is Limiting user input size ?
 Description, What does Limiting user input size mean ?
 Description, Tell me something about Limiting user input size ?
@@ -2207,18 +2219,18 @@ Description, What do you know about HTTP strict transport security ?
 Description, What can you tell me about HTTP strict transport security ?
 Description, I want to know about XSS HTTP strict transport security
 Description, Do you have information about HTTP strict transport security ?
-Description, What is API resonses security headers ?
-Description, What does API resonses security headers mean ?
-Description, Tell me something about API resonses security headers ?
-Description, API resonses security headers
-Description, Explain API resonses security headers ?
-Description, Description for API resonses security headers
-Description, Elaborate API resonses security headers ?
-Description, Can you tell me about API resonses security headers ?
-Description, What do you know about API resonses security headers ?
-Description, What can you tell me about API resonses security headers ?
-Description, I want to know about XSS API resonses security headers
-Description, Do you have information about API resonses security headers ?
+Description, What is API responses security headers ?
+Description, What does API responses security headers mean ?
+Description, Tell me something about API responses security headers ?
+Description, API responses security headers
+Description, Explain API responses security headers ?
+Description, Description for API responses security headers
+Description, Elaborate API responses security headers ?
+Description, Can you tell me about API responses security headers ?
+Description, What do you know about API responses security headers ?
+Description, What can you tell me about API responses security headers ?
+Description, I want to know about XSS API responses security headers
+Description, Do you have information about API responses security headers ?
 Description, What is Do not support untrusted client side technologies ?
 Description, What does Do not support untrusted client side technologies mean ?
 Description, Tell me something about Do not support untrusted client side technologies ?
@@ -2231,18 +2243,18 @@ Description, What do you know about Do not support untrusted client side technol
 Description, What can you tell me about Do not support untrusted client side technologies ?
 Description, I want to know about XSS Do not support untrusted client side technologies
 Description, Do you have information about Do not support untrusted client side technologies ?
-Description, What is Signed message payloads ?
-Description, What does Signed message payloads mean ?
-Description, Tell me something about Signed message payloads ?
-Description, Signed message payloads
-Description, Explain Signed message payloads ?
-Description, Description for Signed message payloads
-Description, Elaborate Signed message payloads ?
-Description, Can you tell me about Signed message payloads ?
-Description, What do you know about Signed message payloads ?
-Description, What can you tell me about Signed message payloads ?
-Description, I want to know about XSS Signed message payloads
-Description, Do you have information about Signed message payloads ?
+Description, What is Signed message payloads WS security ?
+Description, What does Signed message payloads WS security mean ?
+Description, Tell me something about Signed message payloads WS security ?
+Description, Signed message payloads WS security
+Description, Explain Signed message payloads WS security ?
+Description, Description for Signed message payloads WS security
+Description, Elaborate Signed message payloads WS security ?
+Description, Can you tell me about Signed message payloads WS security ?
+Description, What do you know about Signed message payloads WS security ?
+Description, What can you tell me about Signed message payloads WS security ?
+Description, I want to know about XSS Signed message payloads WS security
+Description, Do you have information about Signed message payloads WS security ?
 Description, What is Hardware key vault ?
 Description, What does Hardware key vault mean ?
 Description, Tell me something about Hardware key vault ?
@@ -2627,6 +2639,18 @@ Description, What do you know about File upload outside document root ?
 Description, What can you tell me about File upload outside document root ?
 Description, I want to know about XSS File upload outside document root
 Description, Do you have information about File upload outside document root ?
+Description, What is Authentication integrety checks ?
+Description, What does Authentication integrety checks mean ?
+Description, Tell me something about Authentication integrety checks ?
+Description, Authentication integrety checks
+Description, Explain Authentication integrety checks ?
+Description, Description for Authentication integrety checks
+Description, Elaborate Authentication integrety checks ?
+Description, Can you tell me about Authentication integrety checks ?
+Description, What do you know about Authentication integrety checks ?
+Description, What can you tell me about Authentication integrety checks ?
+Description, I want to know about XSS Authentication integrety checks
+Description, Do you have information about Authentication integrety checks ?
 Description, What is Unauthorized and unauthenticated access security logs ?
 Description, What does Unauthorized and unauthenticated access security logs mean ?
 Description, Tell me something about Unauthorized and unauthenticated access security logs ?
@@ -2651,18 +2675,18 @@ Description, What do you know about Commonly chosen weak passwords and passphras
 Description, What can you tell me about Commonly chosen weak passwords and passphrases ?
 Description, I want to know about XSS Commonly chosen weak passwords and passphrases
 Description, Do you have information about Commonly chosen weak passwords and passphrases ?
-Description, What is Two factor authentication against username password disclosure ?
-Description, What does Two factor authentication against username password disclosure mean ?
-Description, Tell me something about Two factor authentication against username password disclosure ?
-Description, Two factor authentication against username password disclosure
-Description, Explain Two factor authentication against username password disclosure ?
-Description, Description for Two factor authentication against username password disclosure
-Description, Elaborate Two factor authentication against username password disclosure ?
-Description, Can you tell me about Two factor authentication against username password disclosure ?
-Description, What do you know about Two factor authentication against username password disclosure ?
-Description, What can you tell me about Two factor authentication against username password disclosure ?
-Description, I want to know about XSS Two factor authentication against username password disclosure
-Description, Do you have information about Two factor authentication against username password disclosure ?
+Description, What is Two factor authentication ?
+Description, What does Two factor authentication mean ?
+Description, Tell me something about Two factor authentication ?
+Description, Two factor authentication
+Description, Explain Two factor authentication ?
+Description, Description for Two factor authentication
+Description, Elaborate Two factor authentication ?
+Description, Can you tell me about Two factor authentication ?
+Description, What do you know about Two factor authentication ?
+Description, What can you tell me about Two factor authentication ?
+Description, I want to know about XSS Two factor authentication
+Description, Do you have information about Two factor authentication ?
 Description, What is Logging access control decisions ?
 Description, What does Logging access control decisions mean ?
 Description, Tell me something about Logging access control decisions ?
@@ -2879,18 +2903,18 @@ Description, What do you know about Authenticated data cleared from client stora
 Description, What can you tell me about Authenticated data cleared from client storage ?
 Description, I want to know about XSS Authenticated data cleared from client storage
 Description, Do you have information about Authenticated data cleared from client storage ?
-Description, What is File inclusion attack II ?
-Description, What does File inclusion attack II mean ?
-Description, Tell me something about File inclusion attack II ?
-Description, File inclusion attack II
-Description, Explain File inclusion attack II ?
-Description, Description for File inclusion attack II
-Description, Elaborate File inclusion attack II ?
-Description, Can you tell me about File inclusion attack II ?
-Description, What do you know about File inclusion attack II ?
-Description, What can you tell me about File inclusion attack II ?
-Description, I want to know about XSS File inclusion attack II
-Description, Do you have information about File inclusion attack II ?
+Description, What is All error handling logic must fail securely ?
+Description, What does All error handling logic must fail securely mean ?
+Description, Tell me something about All error handling logic must fail securely ?
+Description, All error handling logic must fail securely
+Description, Explain All error handling logic must fail securely ?
+Description, Description for All error handling logic must fail securely
+Description, Elaborate All error handling logic must fail securely ?
+Description, Can you tell me about All error handling logic must fail securely ?
+Description, What do you know about All error handling logic must fail securely ?
+Description, What can you tell me about All error handling logic must fail securely ?
+Description, I want to know about XSS All error handling logic must fail securely
+Description, Do you have information about All error handling logic must fail securely ?
 Description, What is Sensitive information in code or online repositories ?
 Description, What does Sensitive information in code or online repositories mean ?
 Description, Tell me something about Sensitive information in code or online repositories ?
@@ -3035,6 +3059,498 @@ Description, What do you know about Server side request forgery ?
 Description, What can you tell me about Server side request forgery ?
 Description, I want to know about XSS Server side request forgery
 Description, Do you have information about Server side request forgery ?
+Description, What is ASVS ?
+Description, What does ASVS mean ?
+Description, Tell me something about ASVS ?
+Description, ASVS
+Description, Explain ASVS ?
+Description, Description for ASVS
+Description, Elaborate ASVS ?
+Description, Can you tell me about ASVS ?
+Description, What do you know about ASVS ?
+Description, What can you tell me about ASVS ?
+Description, I want to know about XSS ASVS
+Description, Do you have information about ASVS ?
+Description, What is MASVS ?
+Description, What does MASVS mean ?
+Description, Tell me something about MASVS ?
+Description, MASVS
+Description, Explain MASVS ?
+Description, Description for MASVS
+Description, Elaborate MASVS ?
+Description, Can you tell me about MASVS ?
+Description, What do you know about MASVS ?
+Description, What can you tell me about MASVS ?
+Description, I want to know about XSS MASVS
+Description, Do you have information about MASVS ?
+Description, What is PCI DSS ?
+Description, What does PCI DSS mean ?
+Description, Tell me something about PCI DSS ?
+Description, PCI DSS
+Description, Explain PCI DSS ?
+Description, Description for PCI DSS
+Description, Elaborate PCI DSS ?
+Description, Can you tell me about PCI DSS ?
+Description, What do you know about PCI DSS ?
+Description, What can you tell me about PCI DSS ?
+Description, I want to know about XSS PCI DSS
+Description, Do you have information about PCI DSS ?
+Description, What is Tabnabbing ?
+Description, What does Tabnabbing mean ?
+Description, Tell me something about Tabnabbing ?
+Description, Tabnabbing
+Description, Explain Tabnabbing ?
+Description, Description for Tabnabbing
+Description, Elaborate Tabnabbing ?
+Description, Can you tell me about Tabnabbing ?
+Description, What do you know about Tabnabbing ?
+Description, What can you tell me about Tabnabbing ?
+Description, I want to know about XSS Tabnabbing
+Description, Do you have information about Tabnabbing ?
+Description, What is Server side template injection ?
+Description, What does Server side template injection mean ?
+Description, Tell me something about Server side template injection ?
+Description, Server side template injection
+Description, Explain Server side template injection ?
+Description, Description for Server side template injection
+Description, Elaborate Server side template injection ?
+Description, Can you tell me about Server side template injection ?
+Description, What do you know about Server side template injection ?
+Description, What can you tell me about Server side template injection ?
+Description, I want to know about XSS Server side template injection
+Description, Do you have information about Server side template injection ?
+Description, What is Insecure direct object references ?
+Description, What does Insecure direct object references mean ?
+Description, Tell me something about Insecure direct object references ?
+Description, Insecure direct object references
+Description, Explain Insecure direct object references ?
+Description, Description for Insecure direct object references
+Description, Elaborate Insecure direct object references ?
+Description, Can you tell me about Insecure direct object references ?
+Description, What do you know about Insecure direct object references ?
+Description, What can you tell me about Insecure direct object references ?
+Description, I want to know about XSS Insecure direct object references
+Description, Do you have information about Insecure direct object references ?
+Description, What is Type checking and length checking ?
+Description, What does Type checking and length checking mean ?
+Description, Tell me something about Type checking and length checking ?
+Description, Type checking and length checking
+Description, Explain Type checking and length checking ?
+Description, Description for Type checking and length checking
+Description, Elaborate Type checking and length checking ?
+Description, Can you tell me about Type checking and length checking ?
+Description, What do you know about Type checking and length checking ?
+Description, What can you tell me about Type checking and length checking ?
+Description, I want to know about XSS Type checking and length checking
+Description, Do you have information about Type checking and length checking ?
+Description, What is SMTP IMAP injection ?
+Description, What does SMTP IMAP injection mean ?
+Description, Tell me something about SMTP IMAP injection ?
+Description, SMTP IMAP injection
+Description, Explain SMTP IMAP injection ?
+Description, Description for SMTP IMAP injection
+Description, Elaborate SMTP IMAP injection ?
+Description, Can you tell me about SMTP IMAP injection ?
+Description, What do you know about SMTP IMAP injection ?
+Description, What can you tell me about SMTP IMAP injection ?
+Description, I want to know about XSS SMTP IMAP injection
+Description, Do you have information about SMTP IMAP injection ?
+Description, What is Insecure object deserialization ?
+Description, What does Insecure object deserialization mean ?
+Description, Tell me something about Insecure object deserialization ?
+Description, Insecure object deserialization
+Description, Explain Insecure object deserialization ?
+Description, Description for Insecure object deserialization
+Description, Elaborate Insecure object deserialization ?
+Description, Can you tell me about Insecure object deserialization ?
+Description, What do you know about Insecure object deserialization ?
+Description, What can you tell me about Insecure object deserialization ?
+Description, I want to know about XSS Insecure object deserialization
+Description, Do you have information about Insecure object deserialization ?
+Description, What is Software security development lifecycle ?
+Description, What does Software security development lifecycle mean ?
+Description, Tell me something about Software security development lifecycle ?
+Description, Software security development lifecycle
+Description, Explain Software security development lifecycle ?
+Description, Description for Software security development lifecycle
+Description, Elaborate Software security development lifecycle ?
+Description, Can you tell me about Software security development lifecycle ?
+Description, What do you know about Software security development lifecycle ?
+Description, What can you tell me about Software security development lifecycle ?
+Description, I want to know about XSS Software security development lifecycle
+Description, Do you have information about Software security development lifecycle ?
+Description, What is Functional security constraints ?
+Description, What does Functional security constraints mean ?
+Description, Tell me something about Functional security constraints ?
+Description, Functional security constraints
+Description, Explain Functional security constraints ?
+Description, Description for Functional security constraints
+Description, Elaborate Functional security constraints ?
+Description, Can you tell me about Functional security constraints ?
+Description, What do you know about Functional security constraints ?
+Description, What can you tell me about Functional security constraints ?
+Description, I want to know about XSS Functional security constraints
+Description, Do you have information about Functional security constraints ?
+Description, What is Attribute based authorization ?
+Description, What does Attribute based authorization mean ?
+Description, Tell me something about Attribute based authorization ?
+Description, Attribute based authorization
+Description, Explain Attribute based authorization ?
+Description, Description for Attribute based authorization
+Description, Elaborate Attribute based authorization ?
+Description, Can you tell me about Attribute based authorization ?
+Description, What do you know about Attribute based authorization ?
+Description, What can you tell me about Attribute based authorization ?
+Description, I want to know about XSS Attribute based authorization
+Description, Do you have information about Attribute based authorization ?
+Description, What is Key management and key lifecycle by NIST ?
+Description, What does Key management and key lifecycle by NIST mean ?
+Description, Tell me something about Key management and key lifecycle by NIST ?
+Description, Key management and key lifecycle by NIST
+Description, Explain Key management and key lifecycle by NIST ?
+Description, Description for Key management and key lifecycle by NIST
+Description, Elaborate Key management and key lifecycle by NIST ?
+Description, Can you tell me about Key management and key lifecycle by NIST ?
+Description, What do you know about Key management and key lifecycle by NIST ?
+Description, What can you tell me about Key management and key lifecycle by NIST ?
+Description, I want to know about XSS Key management and key lifecycle by NIST
+Description, Do you have information about Key management and key lifecycle by NIST ?
+Description, What is Key vault ?
+Description, What does Key vault mean ?
+Description, Tell me something about Key vault ?
+Description, Key vault
+Description, Explain Key vault ?
+Description, Description for Key vault
+Description, Elaborate Key vault ?
+Description, Can you tell me about Key vault ?
+Description, What do you know about Key vault ?
+Description, What can you tell me about Key vault ?
+Description, I want to know about XSS Key vault
+Description, Do you have information about Key vault ?
+Description, What is Secrets shared with the client ?
+Description, What does Secrets shared with the client mean ?
+Description, Tell me something about Secrets shared with the client ?
+Description, Secrets shared with the client
+Description, Explain Secrets shared with the client ?
+Description, Description for Secrets shared with the client
+Description, Elaborate Secrets shared with the client ?
+Description, Can you tell me about Secrets shared with the client ?
+Description, What do you know about Secrets shared with the client ?
+Description, What can you tell me about Secrets shared with the client ?
+Description, I want to know about XSS Secrets shared with the client
+Description, Do you have information about Secrets shared with the client ?
+Description, What is Data protection levels ?
+Description, What does Data protection levels mean ?
+Description, Tell me something about Data protection levels ?
+Description, Data protection levels
+Description, Explain Data protection levels ?
+Description, Description for Data protection levels
+Description, Elaborate Data protection levels ?
+Description, Can you tell me about Data protection levels ?
+Description, What do you know about Data protection levels ?
+Description, What can you tell me about Data protection levels ?
+Description, I want to know about XSS Data protection levels
+Description, Do you have information about Data protection levels ?
+Description, What is Source control systems in place ?
+Description, What does Source control systems in place mean ?
+Description, Tell me something about Source control systems in place ?
+Description, Source control systems in place
+Description, Explain Source control systems in place ?
+Description, Description for Source control systems in place
+Description, Elaborate Source control systems in place ?
+Description, Can you tell me about Source control systems in place ?
+Description, What do you know about Source control systems in place ?
+Description, What can you tell me about Source control systems in place ?
+Description, I want to know about XSS Source control systems in place
+Description, Do you have information about Source control systems in place ?
+Description, What is Continuous security testing ?
+Description, What does Continuous security testing mean ?
+Description, Tell me something about Continuous security testing ?
+Description, Continuous security testing
+Description, Explain Continuous security testing ?
+Description, Description for Continuous security testing
+Description, Elaborate Continuous security testing ?
+Description, Can you tell me about Continuous security testing ?
+Description, What do you know about Continuous security testing ?
+Description, What can you tell me about Continuous security testing ?
+Description, I want to know about XSS Continuous security testing
+Description, Do you have information about Continuous security testing ?
+Description, What is Security test automation ?
+Description, What does Security test automation mean ?
+Description, Tell me something about Security test automation ?
+Description, Security test automation
+Description, Explain Security test automation ?
+Description, Description for Security test automation
+Description, Elaborate Security test automation ?
+Description, Can you tell me about Security test automation ?
+Description, What do you know about Security test automation ?
+Description, What can you tell me about Security test automation ?
+Description, I want to know about XSS Security test automation
+Description, Do you have information about Security test automation ?
+Description, What is Referrer policy header ?
+Description, What does Referrer policy header mean ?
+Description, Tell me something about Referrer policy header ?
+Description, Referrer policy header
+Description, Explain Referrer policy header ?
+Description, Description for Referrer policy header
+Description, Elaborate Referrer policy header ?
+Description, Can you tell me about Referrer policy header ?
+Description, What do you know about Referrer policy header ?
+Description, What can you tell me about Referrer policy header ?
+Description, I want to know about XSS Referrer policy header
+Description, Do you have information about Referrer policy header ?
+Description, What is Insecure application defaults ?
+Description, What does Insecure application defaults mean ?
+Description, Tell me something about Insecure application defaults ?
+Description, Insecure application defaults
+Description, Explain Insecure application defaults ?
+Description, Description for Insecure application defaults
+Description, Elaborate Insecure application defaults ?
+Description, Can you tell me about Insecure application defaults ?
+Description, What do you know about Insecure application defaults ?
+Description, What can you tell me about Insecure application defaults ?
+Description, I want to know about XSS Insecure application defaults
+Description, Do you have information about Insecure application defaults ?
+Description, What is Infrastructure as code ?
+Description, What does Infrastructure as code mean ?
+Description, Tell me something about Infrastructure as code ?
+Description, Infrastructure as code
+Description, Explain Infrastructure as code ?
+Description, Description for Infrastructure as code
+Description, Elaborate Infrastructure as code ?
+Description, Can you tell me about Infrastructure as code ?
+Description, What do you know about Infrastructure as code ?
+Description, What can you tell me about Infrastructure as code ?
+Description, I want to know about XSS Infrastructure as code
+Description, Do you have information about Infrastructure as code ?
+Description, What is GraphQL security ?
+Description, What does GraphQL security mean ?
+Description, Tell me something about GraphQL security ?
+Description, GraphQL security
+Description, Explain GraphQL security ?
+Description, Description for GraphQL security
+Description, Elaborate GraphQL security ?
+Description, Can you tell me about GraphQL security ?
+Description, What do you know about GraphQL security ?
+Description, What can you tell me about GraphQL security ?
+Description, I want to know about XSS GraphQL security
+Description, Do you have information about GraphQL security ?
+Description, What is JSON validation schema ?
+Description, What does JSON validation schema mean ?
+Description, Tell me something about JSON validation schema ?
+Description, JSON validation schema
+Description, Explain JSON validation schema ?
+Description, Description for JSON validation schema
+Description, Elaborate JSON validation schema ?
+Description, Can you tell me about JSON validation schema ?
+Description, What do you know about JSON validation schema ?
+Description, What can you tell me about JSON validation schema ?
+Description, I want to know about XSS JSON validation schema
+Description, Do you have information about JSON validation schema ?
+Description, What is Serve files whitelist. ?
+Description, What does Serve files whitelist. mean ?
+Description, Tell me something about Serve files whitelist. ?
+Description, Serve files whitelist.
+Description, Explain Serve files whitelist. ?
+Description, Description for Serve files whitelist.
+Description, Elaborate Serve files whitelist. ?
+Description, Can you tell me about Serve files whitelist. ?
+Description, What do you know about Serve files whitelist. ?
+Description, What can you tell me about Serve files whitelist. ?
+Description, I want to know about XSS Serve files whitelist.
+Description, Do you have information about Serve files whitelist. ?
+Description, What is User supplied scriptable or expression template language content ?
+Description, What does User supplied scriptable or expression template language content mean ?
+Description, Tell me something about User supplied scriptable or expression template language content ?
+Description, User supplied scriptable or expression template language content
+Description, Explain User supplied scriptable or expression template language content ?
+Description, Description for User supplied scriptable or expression template language content
+Description, Elaborate User supplied scriptable or expression template language content ?
+Description, Can you tell me about User supplied scriptable or expression template language content ?
+Description, What do you know about User supplied scriptable or expression template language content ?
+Description, What can you tell me about User supplied scriptable or expression template language content ?
+Description, I want to know about XSS User supplied scriptable or expression template language content
+Description, Do you have information about User supplied scriptable or expression template language content ?
+Description, What is Replay attacks ?
+Description, What does Replay attacks mean ?
+Description, Tell me something about Replay attacks ?
+Description, Replay attacks
+Description, Explain Replay attacks ?
+Description, Description for Replay attacks
+Description, Elaborate Replay attacks ?
+Description, Can you tell me about Replay attacks ?
+Description, What do you know about Replay attacks ?
+Description, What can you tell me about Replay attacks ?
+Description, I want to know about XSS Replay attacks
+Description, Do you have information about Replay attacks ?
+Description, What is Same site attribute ?
+Description, What does Same site attribute mean ?
+Description, Tell me something about Same site attribute ?
+Description, Same site attribute
+Description, Explain Same site attribute ?
+Description, Description for Same site attribute
+Description, Elaborate Same site attribute ?
+Description, Can you tell me about Same site attribute ?
+Description, What do you know about Same site attribute ?
+Description, What can you tell me about Same site attribute ?
+Description, I want to know about XSS Same site attribute
+Description, Do you have information about Same site attribute ?
+Description, What is Host prefix ?
+Description, What does Host prefix mean ?
+Description, Tell me something about Host prefix ?
+Description, Host prefix
+Description, Explain Host prefix ?
+Description, Description for Host prefix
+Description, Elaborate Host prefix ?
+Description, Can you tell me about Host prefix ?
+Description, What do you know about Host prefix ?
+Description, What can you tell me about Host prefix ?
+Description, I want to know about XSS Host prefix
+Description, Do you have information about Host prefix ?
+Description, What is Race conditions ?
+Description, What does Race conditions mean ?
+Description, Tell me something about Race conditions ?
+Description, Race conditions
+Description, Explain Race conditions ?
+Description, Description for Race conditions
+Description, Elaborate Race conditions ?
+Description, Can you tell me about Race conditions ?
+Description, What do you know about Race conditions ?
+Description, What can you tell me about Race conditions ?
+Description, I want to know about XSS Race conditions
+Description, Do you have information about Race conditions ?
+Description, What is Sub domain take over ?
+Description, What does Sub domain take over mean ?
+Description, Tell me something about Sub domain take over ?
+Description, Sub domain take over
+Description, Explain Sub domain take over ?
+Description, Description for Sub domain take over
+Description, Elaborate Sub domain take over ?
+Description, Can you tell me about Sub domain take over ?
+Description, What do you know about Sub domain take over ?
+Description, What can you tell me about Sub domain take over ?
+Description, I want to know about XSS Sub domain take over
+Description, Do you have information about Sub domain take over ?
+Description, What is No password rotation policy ?
+Description, What does No password rotation policy mean ?
+Description, Tell me something about No password rotation policy ?
+Description, No password rotation policy
+Description, Explain No password rotation policy ?
+Description, Description for No password rotation policy
+Description, Elaborate No password rotation policy ?
+Description, Can you tell me about No password rotation policy ?
+Description, What do you know about No password rotation policy ?
+Description, What can you tell me about No password rotation policy ?
+Description, I want to know about XSS No password rotation policy
+Description, Do you have information about No password rotation policy ?
+Description, What is User notification on critical state changing operations ?
+Description, What does User notification on critical state changing operations mean ?
+Description, Tell me something about User notification on critical state changing operations ?
+Description, User notification on critical state changing operations
+Description, Explain User notification on critical state changing operations ?
+Description, Description for User notification on critical state changing operations
+Description, Elaborate User notification on critical state changing operations ?
+Description, Can you tell me about User notification on critical state changing operations ?
+Description, What do you know about User notification on critical state changing operations ?
+Description, What can you tell me about User notification on critical state changing operations ?
+Description, I want to know about XSS User notification on critical state changing operations
+Description, Do you have information about User notification on critical state changing operations ?
+Description, What is Stateless session tokens ?
+Description, What does Stateless session tokens mean ?
+Description, Tell me something about Stateless session tokens ?
+Description, Stateless session tokens
+Description, Explain Stateless session tokens ?
+Description, Description for Stateless session tokens
+Description, Elaborate Stateless session tokens ?
+Description, Can you tell me about Stateless session tokens ?
+Description, What do you know about Stateless session tokens ?
+Description, What can you tell me about Stateless session tokens ?
+Description, I want to know about XSS Stateless session tokens
+Description, Do you have information about Stateless session tokens ?
+Description, What is GUID v4 ?
+Description, What does GUID v4 mean ?
+Description, Tell me something about GUID v4 ?
+Description, GUID v4
+Description, Explain GUID v4 ?
+Description, Description for GUID v4
+Description, Elaborate GUID v4 ?
+Description, Can you tell me about GUID v4 ?
+Description, What do you know about GUID v4 ?
+Description, What can you tell me about GUID v4 ?
+Description, I want to know about XSS GUID v4
+Description, Do you have information about GUID v4 ?
+Description, What is Exception handling ?
+Description, What does Exception handling mean ?
+Description, Tell me something about Exception handling ?
+Description, Exception handling
+Description, Explain Exception handling ?
+Description, Description for Exception handling
+Description, Elaborate Exception handling ?
+Description, Can you tell me about Exception handling ?
+Description, What do you know about Exception handling ?
+Description, What can you tell me about Exception handling ?
+Description, I want to know about XSS Exception handling
+Description, Do you have information about Exception handling ?
+Description, What is Back up data ?
+Description, What does Back up data mean ?
+Description, Tell me something about Back up data ?
+Description, Back up data
+Description, Explain Back up data ?
+Description, Description for Back up data
+Description, Elaborate Back up data ?
+Description, Can you tell me about Back up data ?
+Description, What do you know about Back up data ?
+Description, What can you tell me about Back up data ?
+Description, I want to know about XSS Back up data
+Description, Do you have information about Back up data ?
+Description, What is Static code analysis ?
+Description, What does Static code analysis mean ?
+Description, Tell me something about Static code analysis ?
+Description, Static code analysis
+Description, Explain Static code analysis ?
+Description, Description for Static code analysis
+Description, Elaborate Static code analysis ?
+Description, Can you tell me about Static code analysis ?
+Description, What do you know about Static code analysis ?
+Description, What can you tell me about Static code analysis ?
+Description, I want to know about XSS Static code analysis
+Description, Do you have information about Static code analysis ?
+Description, What is TLS ?
+Description, What does TLS mean ?
+Description, Tell me something about TLS ?
+Description, TLS
+Description, Explain TLS ?
+Description, Description for TLS
+Description, Elaborate TLS ?
+Description, Can you tell me about TLS ?
+Description, What do you know about TLS ?
+Description, What can you tell me about TLS ?
+Description, I want to know about XSS TLS
+Description, Do you have information about TLS ?
+Description, What is Code signing ?
+Description, What does Code signing mean ?
+Description, Tell me something about Code signing ?
+Description, Code signing
+Description, Explain Code signing ?
+Description, Description for Code signing
+Description, Elaborate Code signing ?
+Description, Can you tell me about Code signing ?
+Description, What do you know about Code signing ?
+Description, What can you tell me about Code signing ?
+Description, I want to know about XSS Code signing
+Description, Do you have information about Code signing ?
+Description, What is Secure random generators ?
+Description, What does Secure random generators mean ?
+Description, Tell me something about Secure random generators ?
+Description, Secure random generators
+Description, Explain Secure random generators ?
+Description, Description for Secure random generators
+Description, Elaborate Secure random generators ?
+Description, Can you tell me about Secure random generators ?
+Description, What do you know about Secure random generators ?
+Description, What can you tell me about Secure random generators ?
+Description, I want to know about XSS Secure random generators
+Description, Do you have information about Secure random generators ?
 Description, What is not available item ?
 Description, What does not available item mean ?
 Description, Tell me something about not available item ?
@@ -3047,6 +3563,496 @@ Description, What do you know about not available item ?
 Description, What can you tell me about not available item ?
 Description, I want to know about XSS not available item
 Description, Do you have information about not available item ?
+Description, What is Sensitive Information Exposure in URL ?
+Description, What does Sensitive Information Exposure in URL mean ?
+Description, Tell me something about Sensitive Information Exposure in URL ?
+Description, Sensitive Information Exposure in URL
+Description, Explain Sensitive Information Exposure in URL ?
+Description, Description for Sensitive Information Exposure in URL
+Description, Elaborate Sensitive Information Exposure in URL ?
+Description, Can you tell me about Sensitive Information Exposure in URL ?
+Description, What do you know about Sensitive Information Exposure in URL ?
+Description, What can you tell me about Sensitive Information Exposure in URL ?
+Description, I want to know about XSS Sensitive Information Exposure in URL
+Description, Do you have information about Sensitive Information Exposure in URL ?
+Description, What is Sensitive Information Exposure in client Side Storage ?
+Description, What does Sensitive Information Exposure in client Side Storage mean ?
+Description, Tell me something about Sensitive Information Exposure in client Side Storage ?
+Description, Sensitive Information Exposure in client Side Storage
+Description, Explain Sensitive Information Exposure in client Side Storage ?
+Description, Description for Sensitive Information Exposure in client Side Storage
+Description, Elaborate Sensitive Information Exposure in client Side Storage ?
+Description, Can you tell me about Sensitive Information Exposure in client Side Storage ?
+Description, What do you know about Sensitive Information Exposure in client Side Storage ?
+Description, What can you tell me about Sensitive Information Exposure in client Side Storage ?
+Description, I want to know about XSS Sensitive Information Exposure in client Side Storage
+Description, Do you have information about Sensitive Information Exposure in client Side Storage ?
+Description, What is Session Token Generation After Login ?
+Description, What does Session Token Generation After Login mean ?
+Description, Tell me something about Session Token Generation After Login ?
+Description, Session Token Generation After Login
+Description, Explain Session Token Generation After Login ?
+Description, Description for Session Token Generation After Login
+Description, Elaborate Session Token Generation After Login ?
+Description, Can you tell me about Session Token Generation After Login ?
+Description, What do you know about Session Token Generation After Login ?
+Description, What can you tell me about Session Token Generation After Login ?
+Description, I want to know about XSS Session Token Generation After Login
+Description, Do you have information about Session Token Generation After Login ?
+Description, What is Secure Generation of Session Tokens ?
+Description, What does Secure Generation of Session Tokens mean ?
+Description, Tell me something about Secure Generation of Session Tokens ?
+Description, Secure Generation of Session Tokens
+Description, Explain Secure Generation of Session Tokens ?
+Description, Description for Secure Generation of Session Tokens
+Description, Elaborate Secure Generation of Session Tokens ?
+Description, Can you tell me about Secure Generation of Session Tokens ?
+Description, What do you know about Secure Generation of Session Tokens ?
+Description, What can you tell me about Secure Generation of Session Tokens ?
+Description, I want to know about XSS Secure Generation of Session Tokens
+Description, Do you have information about Secure Generation of Session Tokens ?
+Description, What is Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Description, What does Ensure Session Validation in Credential Service Provider and Relying Parties.md mean ?
+Description, Tell me something about Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Description, Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Description, Explain Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Description, Description for Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Description, Elaborate Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Description, Can you tell me about Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Description, What do you know about Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Description, What can you tell me about Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Description, I want to know about XSS Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Description, Do you have information about Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Description, What is Permit Password Change ?
+Description, What does Permit Password Change mean ?
+Description, Tell me something about Permit Password Change ?
+Description, Permit Password Change
+Description, Explain Permit Password Change ?
+Description, Description for Permit Password Change
+Description, Elaborate Permit Password Change ?
+Description, Can you tell me about Permit Password Change ?
+Description, What do you know about Permit Password Change ?
+Description, What can you tell me about Permit Password Change ?
+Description, I want to know about XSS Permit Password Change
+Description, Do you have information about Permit Password Change ?
+Description, What is Provide Password Strength Checker ?
+Description, What does Provide Password Strength Checker mean ?
+Description, Tell me something about Provide Password Strength Checker ?
+Description, Provide Password Strength Checker
+Description, Explain Provide Password Strength Checker ?
+Description, Description for Provide Password Strength Checker
+Description, Elaborate Provide Password Strength Checker ?
+Description, Can you tell me about Provide Password Strength Checker ?
+Description, What do you know about Provide Password Strength Checker ?
+Description, What can you tell me about Provide Password Strength Checker ?
+Description, I want to know about XSS Provide Password Strength Checker
+Description, Do you have information about Provide Password Strength Checker ?
+Description, What is Verify Breached Passwords ?
+Description, What does Verify Breached Passwords mean ?
+Description, Tell me something about Verify Breached Passwords ?
+Description, Verify Breached Passwords
+Description, Explain Verify Breached Passwords ?
+Description, Description for Verify Breached Passwords
+Description, Elaborate Verify Breached Passwords ?
+Description, Can you tell me about Verify Breached Passwords ?
+Description, What do you know about Verify Breached Passwords ?
+Description, What can you tell me about Verify Breached Passwords ?
+Description, I want to know about XSS Verify Breached Passwords
+Description, Do you have information about Verify Breached Passwords ?
+Description, What is Offline Attacks on Passwords ?
+Description, What does Offline Attacks on Passwords mean ?
+Description, Tell me something about Offline Attacks on Passwords ?
+Description, Offline Attacks on Passwords
+Description, Explain Offline Attacks on Passwords ?
+Description, Description for Offline Attacks on Passwords
+Description, Elaborate Offline Attacks on Passwords ?
+Description, Can you tell me about Offline Attacks on Passwords ?
+Description, What do you know about Offline Attacks on Passwords ?
+Description, What can you tell me about Offline Attacks on Passwords ?
+Description, I want to know about XSS Offline Attacks on Passwords
+Description, Do you have information about Offline Attacks on Passwords ?
+Description, What is Password Hash Salt Length ?
+Description, What does Password Hash Salt Length mean ?
+Description, Tell me something about Password Hash Salt Length ?
+Description, Password Hash Salt Length
+Description, Explain Password Hash Salt Length ?
+Description, Description for Password Hash Salt Length
+Description, Elaborate Password Hash Salt Length ?
+Description, Can you tell me about Password Hash Salt Length ?
+Description, What do you know about Password Hash Salt Length ?
+Description, What can you tell me about Password Hash Salt Length ?
+Description, I want to know about XSS Password Hash Salt Length
+Description, Do you have information about Password Hash Salt Length ?
+Description, What is PBKDF2 Iteration Count ?
+Description, What does PBKDF2 Iteration Count mean ?
+Description, Tell me something about PBKDF2 Iteration Count ?
+Description, PBKDF2 Iteration Count
+Description, Explain PBKDF2 Iteration Count ?
+Description, Description for PBKDF2 Iteration Count
+Description, Elaborate PBKDF2 Iteration Count ?
+Description, Can you tell me about PBKDF2 Iteration Count ?
+Description, What do you know about PBKDF2 Iteration Count ?
+Description, What can you tell me about PBKDF2 Iteration Count ?
+Description, I want to know about XSS PBKDF2 Iteration Count
+Description, Do you have information about PBKDF2 Iteration Count ?
+Description, What is Bcrypt Work Factor ?
+Description, What does Bcrypt Work Factor mean ?
+Description, Tell me something about Bcrypt Work Factor ?
+Description, Bcrypt Work Factor
+Description, Explain Bcrypt Work Factor ?
+Description, Description for Bcrypt Work Factor
+Description, Elaborate Bcrypt Work Factor ?
+Description, Can you tell me about Bcrypt Work Factor ?
+Description, What do you know about Bcrypt Work Factor ?
+Description, What can you tell me about Bcrypt Work Factor ?
+Description, I want to know about XSS Bcrypt Work Factor
+Description, Do you have information about Bcrypt Work Factor ?
+Description, What is OOB Unencrypted ?
+Description, What does OOB Unencrypted mean ?
+Description, Tell me something about OOB Unencrypted ?
+Description, OOB Unencrypted
+Description, Explain OOB Unencrypted ?
+Description, Description for OOB Unencrypted
+Description, Elaborate OOB Unencrypted ?
+Description, Can you tell me about OOB Unencrypted ?
+Description, What do you know about OOB Unencrypted ?
+Description, What can you tell me about OOB Unencrypted ?
+Description, I want to know about XSS OOB Unencrypted
+Description, Do you have information about OOB Unencrypted ?
+Description, What is Secure OOB Channel ?
+Description, What does Secure OOB Channel mean ?
+Description, Tell me something about Secure OOB Channel ?
+Description, Secure OOB Channel
+Description, Explain Secure OOB Channel ?
+Description, Description for Secure OOB Channel
+Description, Elaborate Secure OOB Channel ?
+Description, Can you tell me about Secure OOB Channel ?
+Description, What do you know about Secure OOB Channel ?
+Description, What can you tell me about Secure OOB Channel ?
+Description, I want to know about XSS Secure OOB Channel
+Description, Do you have information about Secure OOB Channel ?
+Description, What is OOB PIN Expiry ?
+Description, What does OOB PIN Expiry mean ?
+Description, Tell me something about OOB PIN Expiry ?
+Description, OOB PIN Expiry
+Description, Explain OOB PIN Expiry ?
+Description, Description for OOB PIN Expiry
+Description, Elaborate OOB PIN Expiry ?
+Description, Can you tell me about OOB PIN Expiry ?
+Description, What do you know about OOB PIN Expiry ?
+Description, What can you tell me about OOB PIN Expiry ?
+Description, I want to know about XSS OOB PIN Expiry
+Description, Do you have information about OOB PIN Expiry ?
+Description, What is OOB Key Used Once ?
+Description, What does OOB Key Used Once mean ?
+Description, Tell me something about OOB Key Used Once ?
+Description, OOB Key Used Once
+Description, Explain OOB Key Used Once ?
+Description, Description for OOB Key Used Once
+Description, Elaborate OOB Key Used Once ?
+Description, Can you tell me about OOB Key Used Once ?
+Description, What do you know about OOB Key Used Once ?
+Description, What can you tell me about OOB Key Used Once ?
+Description, I want to know about XSS OOB Key Used Once
+Description, Do you have information about OOB Key Used Once ?
+Description, What is Unsafe password reset ?
+Description, What does Unsafe password reset mean ?
+Description, Tell me something about Unsafe password reset ?
+Description, Unsafe password reset
+Description, Explain Unsafe password reset ?
+Description, Description for Unsafe password reset
+Description, Elaborate Unsafe password reset ?
+Description, Can you tell me about Unsafe password reset ?
+Description, What do you know about Unsafe password reset ?
+Description, What can you tell me about Unsafe password reset ?
+Description, I want to know about XSS Unsafe password reset
+Description, Do you have information about Unsafe password reset ?
+Description, What is Presence of Knowledge ?
+Description, What does Presence of Knowledge mean ?
+Description, Tell me something about Presence of Knowledge ?
+Description, Presence of Knowledge
+Description, Explain Presence of Knowledge ?
+Description, Description for Presence of Knowledge
+Description, Elaborate Presence of Knowledge ?
+Description, Can you tell me about Presence of Knowledge ?
+Description, What do you know about Presence of Knowledge ?
+Description, What can you tell me about Presence of Knowledge ?
+Description, I want to know about XSS Presence of Knowledge
+Description, Do you have information about Presence of Knowledge ?
+Description, What is Current Password Exposure ?
+Description, What does Current Password Exposure mean ?
+Description, Tell me something about Current Password Exposure ?
+Description, Current Password Exposure
+Description, Explain Current Password Exposure ?
+Description, Description for Current Password Exposure
+Description, Elaborate Current Password Exposure ?
+Description, Can you tell me about Current Password Exposure ?
+Description, What do you know about Current Password Exposure ?
+Description, What can you tell me about Current Password Exposure ?
+Description, I want to know about XSS Current Password Exposure
+Description, Do you have information about Current Password Exposure ?
+Description, What is Implement Two Factor Authentication for Password Recovery ?
+Description, What does Implement Two Factor Authentication for Password Recovery mean ?
+Description, Tell me something about Implement Two Factor Authentication for Password Recovery ?
+Description, Implement Two Factor Authentication for Password Recovery
+Description, Explain Implement Two Factor Authentication for Password Recovery ?
+Description, Description for Implement Two Factor Authentication for Password Recovery
+Description, Elaborate Implement Two Factor Authentication for Password Recovery ?
+Description, Can you tell me about Implement Two Factor Authentication for Password Recovery ?
+Description, What do you know about Implement Two Factor Authentication for Password Recovery ?
+Description, What can you tell me about Implement Two Factor Authentication for Password Recovery ?
+Description, I want to know about XSS Implement Two Factor Authentication for Password Recovery
+Description, Do you have information about Implement Two Factor Authentication for Password Recovery ?
+Description, What is Identity Spoofing ?
+Description, What does Identity Spoofing mean ?
+Description, Tell me something about Identity Spoofing ?
+Description, Identity Spoofing
+Description, Explain Identity Spoofing ?
+Description, Description for Identity Spoofing
+Description, Elaborate Identity Spoofing ?
+Description, Can you tell me about Identity Spoofing ?
+Description, What do you know about Identity Spoofing ?
+Description, What can you tell me about Identity Spoofing ?
+Description, I want to know about XSS Identity Spoofing
+Description, Do you have information about Identity Spoofing ?
+Description, What is Multifcator Authentication Exposure ?
+Description, What does Multifcator Authentication Exposure mean ?
+Description, Tell me something about Multifcator Authentication Exposure ?
+Description, Multifcator Authentication Exposure
+Description, Explain Multifcator Authentication Exposure ?
+Description, Description for Multifcator Authentication Exposure
+Description, Elaborate Multifcator Authentication Exposure ?
+Description, Can you tell me about Multifcator Authentication Exposure ?
+Description, What do you know about Multifcator Authentication Exposure ?
+Description, What can you tell me about Multifcator Authentication Exposure ?
+Description, I want to know about XSS Multifcator Authentication Exposure
+Description, Do you have information about Multifcator Authentication Exposure ?
+Description, What is Authentication Factor Notification ?
+Description, What does Authentication Factor Notification mean ?
+Description, Tell me something about Authentication Factor Notification ?
+Description, Authentication Factor Notification
+Description, Explain Authentication Factor Notification ?
+Description, Description for Authentication Factor Notification
+Description, Elaborate Authentication Factor Notification ?
+Description, Can you tell me about Authentication Factor Notification ?
+Description, What do you know about Authentication Factor Notification ?
+Description, What can you tell me about Authentication Factor Notification ?
+Description, I want to know about XSS Authentication Factor Notification
+Description, Do you have information about Authentication Factor Notification ?
+Description, What is MinimumPasswordLength ?
+Description, What does MinimumPasswordLength mean ?
+Description, Tell me something about MinimumPasswordLength ?
+Description, MinimumPasswordLength
+Description, Explain MinimumPasswordLength ?
+Description, Description for MinimumPasswordLength
+Description, Elaborate MinimumPasswordLength ?
+Description, Can you tell me about MinimumPasswordLength ?
+Description, What do you know about MinimumPasswordLength ?
+Description, What can you tell me about MinimumPasswordLength ?
+Description, I want to know about XSS MinimumPasswordLength
+Description, Do you have information about MinimumPasswordLength ?
+Description, What is PermitLongPasswords ?
+Description, What does PermitLongPasswords mean ?
+Description, Tell me something about PermitLongPasswords ?
+Description, PermitLongPasswords
+Description, Explain PermitLongPasswords ?
+Description, Description for PermitLongPasswords
+Description, Elaborate PermitLongPasswords ?
+Description, Can you tell me about PermitLongPasswords ?
+Description, What do you know about PermitLongPasswords ?
+Description, What can you tell me about PermitLongPasswords ?
+Description, I want to know about XSS PermitLongPasswords
+Description, Do you have information about PermitLongPasswords ?
+Description, What is Permit Spaces In Passwords ?
+Description, What does Permit Spaces In Passwords mean ?
+Description, Tell me something about Permit Spaces In Passwords ?
+Description, Permit Spaces In Passwords
+Description, Explain Permit Spaces In Passwords ?
+Description, Description for Permit Spaces In Passwords
+Description, Elaborate Permit Spaces In Passwords ?
+Description, Can you tell me about Permit Spaces In Passwords ?
+Description, What do you know about Permit Spaces In Passwords ?
+Description, What can you tell me about Permit Spaces In Passwords ?
+Description, I want to know about XSS Permit Spaces In Passwords
+Description, Do you have information about Permit Spaces In Passwords ?
+Description, What is Permit Unicode Characters In Passwords ?
+Description, What does Permit Unicode Characters In Passwords mean ?
+Description, Tell me something about Permit Unicode Characters In Passwords ?
+Description, Permit Unicode Characters In Passwords
+Description, Explain Permit Unicode Characters In Passwords ?
+Description, Description for Permit Unicode Characters In Passwords
+Description, Elaborate Permit Unicode Characters In Passwords ?
+Description, Can you tell me about Permit Unicode Characters In Passwords ?
+Description, What do you know about Permit Unicode Characters In Passwords ?
+Description, What can you tell me about Permit Unicode Characters In Passwords ?
+Description, I want to know about XSS Permit Unicode Characters In Passwords
+Description, Do you have information about Permit Unicode Characters In Passwords ?
+Description, What is Change And Validate Current Password ?
+Description, What does Change And Validate Current Password mean ?
+Description, Tell me something about Change And Validate Current Password ?
+Description, Change And Validate Current Password
+Description, Explain Change And Validate Current Password ?
+Description, Description for Change And Validate Current Password
+Description, Elaborate Change And Validate Current Password ?
+Description, Can you tell me about Change And Validate Current Password ?
+Description, What do you know about Change And Validate Current Password ?
+Description, What can you tell me about Change And Validate Current Password ?
+Description, I want to know about XSS Change And Validate Current Password
+Description, Do you have information about Change And Validate Current Password ?
+Description, What is List of compromised passwords ?
+Description, What does List of compromised passwords mean ?
+Description, Tell me something about List of compromised passwords ?
+Description, List of compromised passwords
+Description, Explain List of compromised passwords ?
+Description, Description for List of compromised passwords
+Description, Elaborate List of compromised passwords ?
+Description, Can you tell me about List of compromised passwords ?
+Description, What do you know about List of compromised passwords ?
+Description, What can you tell me about List of compromised passwords ?
+Description, I want to know about XSS List of compromised passwords
+Description, Do you have information about List of compromised passwords ?
+Description, What is Password Strength Indicator ?
+Description, What does Password Strength Indicator mean ?
+Description, Tell me something about Password Strength Indicator ?
+Description, Password Strength Indicator
+Description, Explain Password Strength Indicator ?
+Description, Description for Password Strength Indicator
+Description, Elaborate Password Strength Indicator ?
+Description, Can you tell me about Password Strength Indicator ?
+Description, What do you know about Password Strength Indicator ?
+Description, What can you tell me about Password Strength Indicator ?
+Description, I want to know about XSS Password Strength Indicator
+Description, Do you have information about Password Strength Indicator ?
+Description, What is No Character type limitation ?
+Description, What does No Character type limitation mean ?
+Description, Tell me something about No Character type limitation ?
+Description, No Character type limitation
+Description, Explain No Character type limitation ?
+Description, Description for No Character type limitation
+Description, Elaborate No Character type limitation ?
+Description, Can you tell me about No Character type limitation ?
+Description, What do you know about No Character type limitation ?
+Description, What can you tell me about No Character type limitation ?
+Description, I want to know about XSS No Character type limitation
+Description, Do you have information about No Character type limitation ?
+Description, What is No Credential Rotation Requirements ?
+Description, What does No Credential Rotation Requirements mean ?
+Description, Tell me something about No Credential Rotation Requirements ?
+Description, No Credential Rotation Requirements
+Description, Explain No Credential Rotation Requirements ?
+Description, Description for No Credential Rotation Requirements
+Description, Elaborate No Credential Rotation Requirements ?
+Description, Can you tell me about No Credential Rotation Requirements ?
+Description, What do you know about No Credential Rotation Requirements ?
+Description, What can you tell me about No Credential Rotation Requirements ?
+Description, I want to know about XSS No Credential Rotation Requirements
+Description, Do you have information about No Credential Rotation Requirements ?
+Description, What is Logout session expiration ?
+Description, What does Logout session expiration mean ?
+Description, Tell me something about Logout session expiration ?
+Description, Logout session expiration
+Description, Explain Logout session expiration ?
+Description, Description for Logout session expiration
+Description, Elaborate Logout session expiration ?
+Description, Can you tell me about Logout session expiration ?
+Description, What do you know about Logout session expiration ?
+Description, What can you tell me about Logout session expiration ?
+Description, I want to know about XSS Logout session expiration
+Description, Do you have information about Logout session expiration ?
+Description, What is Reauthentication valid sessions ?
+Description, What does Reauthentication valid sessions mean ?
+Description, Tell me something about Reauthentication valid sessions ?
+Description, Reauthentication valid sessions
+Description, Explain Reauthentication valid sessions ?
+Description, Description for Reauthentication valid sessions
+Description, Elaborate Reauthentication valid sessions ?
+Description, Can you tell me about Reauthentication valid sessions ?
+Description, What do you know about Reauthentication valid sessions ?
+Description, What can you tell me about Reauthentication valid sessions ?
+Description, I want to know about XSS Reauthentication valid sessions
+Description, Do you have information about Reauthentication valid sessions ?
+Description, What is Change password session expiration ?
+Description, What does Change password session expiration mean ?
+Description, Tell me something about Change password session expiration ?
+Description, Change password session expiration
+Description, Explain Change password session expiration ?
+Description, Description for Change password session expiration
+Description, Elaborate Change password session expiration ?
+Description, Can you tell me about Change password session expiration ?
+Description, What do you know about Change password session expiration ?
+Description, What can you tell me about Change password session expiration ?
+Description, I want to know about XSS Change password session expiration
+Description, Do you have information about Change password session expiration ?
+Description, What is Samesite cookie attribute ?
+Description, What does Samesite cookie attribute mean ?
+Description, Tell me something about Samesite cookie attribute ?
+Description, Samesite cookie attribute
+Description, Explain Samesite cookie attribute ?
+Description, Description for Samesite cookie attribute
+Description, Elaborate Samesite cookie attribute ?
+Description, Can you tell me about Samesite cookie attribute ?
+Description, What do you know about Samesite cookie attribute ?
+Description, What can you tell me about Samesite cookie attribute ?
+Description, I want to know about XSS Samesite cookie attribute
+Description, Do you have information about Samesite cookie attribute ?
+Description, What is Weak revocability of physical authenticators ?
+Description, What does Weak revocability of physical authenticators mean ?
+Description, Tell me something about Weak revocability of physical authenticators ?
+Description, Weak revocability of physical authenticators
+Description, Explain Weak revocability of physical authenticators ?
+Description, Description for Weak revocability of physical authenticators
+Description, Elaborate Weak revocability of physical authenticators ?
+Description, Can you tell me about Weak revocability of physical authenticators ?
+Description, What do you know about Weak revocability of physical authenticators ?
+Description, What can you tell me about Weak revocability of physical authenticators ?
+Description, I want to know about XSS Weak revocability of physical authenticators
+Description, Do you have information about Weak revocability of physical authenticators ?
+Description, What is Lack of Bruteforce Protection ?
+Description, What does Lack of Bruteforce Protection mean ?
+Description, Tell me something about Lack of Bruteforce Protection ?
+Description, Lack of Bruteforce Protection
+Description, Explain Lack of Bruteforce Protection ?
+Description, Description for Lack of Bruteforce Protection
+Description, Elaborate Lack of Bruteforce Protection ?
+Description, Can you tell me about Lack of Bruteforce Protection ?
+Description, What do you know about Lack of Bruteforce Protection ?
+Description, What can you tell me about Lack of Bruteforce Protection ?
+Description, I want to know about XSS Lack of Bruteforce Protection
+Description, Do you have information about Lack of Bruteforce Protection ?
+Description, What is Improper Two Factor Authenticators design ?
+Description, What does Improper Two Factor Authenticators design mean ?
+Description, Tell me something about Improper Two Factor Authenticators design ?
+Description, Improper Two Factor Authenticators design
+Description, Explain Improper Two Factor Authenticators design ?
+Description, Description for Improper Two Factor Authenticators design
+Description, Elaborate Improper Two Factor Authenticators design ?
+Description, Can you tell me about Improper Two Factor Authenticators design ?
+Description, What do you know about Improper Two Factor Authenticators design ?
+Description, What can you tell me about Improper Two Factor Authenticators design ?
+Description, I want to know about XSS Improper Two Factor Authenticators design
+Description, Do you have information about Improper Two Factor Authenticators design ?
+Description, What is Impersonation resistance not sufficent ?
+Description, What does Impersonation resistance not sufficent mean ?
+Description, Tell me something about Impersonation resistance not sufficent ?
+Description, Impersonation resistance not sufficent
+Description, Explain Impersonation resistance not sufficent ?
+Description, Description for Impersonation resistance not sufficent
+Description, Elaborate Impersonation resistance not sufficent ?
+Description, Can you tell me about Impersonation resistance not sufficent ?
+Description, What do you know about Impersonation resistance not sufficent ?
+Description, What can you tell me about Impersonation resistance not sufficent ?
+Description, I want to know about XSS Impersonation resistance not sufficent
+Description, Do you have information about Impersonation resistance not sufficent ?
+Solution, How to solve use me for a header ?
+Solution, How to resolve use me for a header ?
+Solution, How to mitigate use me for a header ?
+Solution, Solution for use me for a header
+Solution, Provide me some Solution for use me for a header
+Solution, mitigation for use me for a header
+Solution, How to stop use me for a header ?
+Solution, How to defend use me for a header ?
+Solution, How to get secured against use me for a header ?
+Solution, Solution use me for a header
 Solution, How to solve Filename injection Path traversal ?
 Solution, How to resolve Filename injection Path traversal ?
 Solution, How to mitigate Filename injection Path traversal ?
@@ -3387,26 +4393,26 @@ Solution, How to stop Automated spamming via feedback scripts ?
 Solution, How to defend Automated spamming via feedback scripts ?
 Solution, How to get secured against Automated spamming via feedback scripts ?
 Solution, Solution Automated spamming via feedback scripts
-Solution, How to solve Session cookies without the Secure flag ?
-Solution, How to resolve Session cookies without the Secure flag ?
-Solution, How to mitigate Session cookies without the Secure flag ?
-Solution, Solution for Session cookies without the Secure flag
-Solution, Provide me some Solution for Session cookies without the Secure flag
-Solution, mitigation for Session cookies without the Secure flag
-Solution, How to stop Session cookies without the Secure flag ?
-Solution, How to defend Session cookies without the Secure flag ?
-Solution, How to get secured against Session cookies without the Secure flag ?
-Solution, Solution Session cookies without the Secure flag
-Solution, How to solve Session cookies without the HttpOnly flag ?
-Solution, How to resolve Session cookies without the HttpOnly flag ?
-Solution, How to mitigate Session cookies without the HttpOnly flag ?
-Solution, Solution for Session cookies without the HttpOnly flag
-Solution, Provide me some Solution for Session cookies without the HttpOnly flag
-Solution, mitigation for Session cookies without the HttpOnly flag
-Solution, How to stop Session cookies without the HttpOnly flag ?
-Solution, How to defend Session cookies without the HttpOnly flag ?
-Solution, How to get secured against Session cookies without the HttpOnly flag ?
-Solution, Solution Session cookies without the HttpOnly flag
+Solution, How to solve Session cookies without the Secure attribute ?
+Solution, How to resolve Session cookies without the Secure attribute ?
+Solution, How to mitigate Session cookies without the Secure attribute ?
+Solution, Solution for Session cookies without the Secure attribute
+Solution, Provide me some Solution for Session cookies without the Secure attribute
+Solution, mitigation for Session cookies without the Secure attribute
+Solution, How to stop Session cookies without the Secure attribute ?
+Solution, How to defend Session cookies without the Secure attribute ?
+Solution, How to get secured against Session cookies without the Secure attribute ?
+Solution, Solution Session cookies without the Secure attribute
+Solution, How to solve Session cookies without the HttpOnly attribute ?
+Solution, How to resolve Session cookies without the HttpOnly attribute ?
+Solution, How to mitigate Session cookies without the HttpOnly attribute ?
+Solution, Solution for Session cookies without the HttpOnly attribute
+Solution, Provide me some Solution for Session cookies without the HttpOnly attribute
+Solution, mitigation for Session cookies without the HttpOnly attribute
+Solution, How to stop Session cookies without the HttpOnly attribute ?
+Solution, How to defend Session cookies without the HttpOnly attribute ?
+Solution, How to get secured against Session cookies without the HttpOnly attribute ?
+Solution, Solution Session cookies without the HttpOnly attribute
 Solution, How to solve External session hijacking ?
 Solution, How to resolve External session hijacking ?
 Solution, How to mitigate External session hijacking ?
@@ -3877,16 +4883,16 @@ Solution, How to stop Logout structuring ?
 Solution, How to defend Logout structuring ?
 Solution, How to get secured against Logout structuring ?
 Solution, Solution Logout structuring
-Solution, How to solve Verify that the session id is never disclosed ?
-Solution, How to resolve Verify that the session id is never disclosed ?
-Solution, How to mitigate Verify that the session id is never disclosed ?
-Solution, Solution for Verify that the session id is never disclosed
-Solution, Provide me some Solution for Verify that the session id is never disclosed
-Solution, mitigation for Verify that the session id is never disclosed
-Solution, How to stop Verify that the session id is never disclosed ?
-Solution, How to defend Verify that the session id is never disclosed ?
-Solution, How to get secured against Verify that the session id is never disclosed ?
-Solution, Solution Verify that the session id is never disclosed
+Solution, How to solve Verify that the sensitive information is never disclosed ?
+Solution, How to resolve Verify that the sensitive information is never disclosed ?
+Solution, How to mitigate Verify that the sensitive information is never disclosed ?
+Solution, Solution for Verify that the sensitive information is never disclosed
+Solution, Provide me some Solution for Verify that the sensitive information is never disclosed
+Solution, mitigation for Verify that the sensitive information is never disclosed
+Solution, How to stop Verify that the sensitive information is never disclosed ?
+Solution, How to defend Verify that the sensitive information is never disclosed ?
+Solution, How to get secured against Verify that the sensitive information is never disclosed ?
+Solution, Solution Verify that the sensitive information is never disclosed
 Solution, How to solve Session Domain cookies ?
 Solution, How to resolve Session Domain cookies ?
 Solution, How to mitigate Session Domain cookies ?
@@ -4567,16 +5573,16 @@ Solution, How to stop RFD and file download injections ?
 Solution, How to defend RFD and file download injections ?
 Solution, How to get secured against RFD and file download injections ?
 Solution, Solution RFD and file download injections
-Solution, How to solve identify all application components ?
-Solution, How to resolve identify all application components ?
-Solution, How to mitigate identify all application components ?
-Solution, Solution for identify all application components
-Solution, Provide me some Solution for identify all application components
-Solution, mitigation for identify all application components
-Solution, How to stop identify all application components ?
-Solution, How to defend identify all application components ?
-Solution, How to get secured against identify all application components ?
-Solution, Solution identify all application components
+Solution, How to solve Identify all application components ?
+Solution, How to resolve Identify all application components ?
+Solution, How to mitigate Identify all application components ?
+Solution, Solution for Identify all application components
+Solution, Provide me some Solution for Identify all application components
+Solution, mitigation for Identify all application components
+Solution, How to stop Identify all application components ?
+Solution, How to defend Identify all application components ?
+Solution, How to get secured against Identify all application components ?
+Solution, Solution Identify all application components
 Solution, How to solve Identify external dependencies ?
 Solution, How to resolve Identify external dependencies ?
 Solution, How to mitigate Identify external dependencies ?
@@ -4707,16 +5713,16 @@ Solution, How to stop Access management ?
 Solution, How to defend Access management ?
 Solution, How to get secured against Access management ?
 Solution, Solution Access management
-Solution, How to solve JSON XML schema ?
-Solution, How to resolve JSON XML schema ?
-Solution, How to mitigate JSON XML schema ?
-Solution, Solution for JSON XML schema
-Solution, Provide me some Solution for JSON XML schema
-Solution, mitigation for JSON XML schema
-Solution, How to stop JSON XML schema ?
-Solution, How to defend JSON XML schema ?
-Solution, How to get secured against JSON XML schema ?
-Solution, Solution JSON XML schema
+Solution, How to solve XML schema (XSD) ?
+Solution, How to resolve XML schema (XSD) ?
+Solution, How to mitigate XML schema (XSD) ?
+Solution, Solution for XML schema (XSD)
+Solution, Provide me some Solution for XML schema (XSD)
+Solution, mitigation for XML schema (XSD)
+Solution, How to stop XML schema (XSD) ?
+Solution, How to defend XML schema (XSD) ?
+Solution, How to get secured against XML schema (XSD) ?
+Solution, Solution XML schema (XSD)
 Solution, How to solve Limiting user input size ?
 Solution, How to resolve Limiting user input size ?
 Solution, How to mitigate Limiting user input size ?
@@ -4887,16 +5893,16 @@ Solution, How to stop HTTP strict transport security ?
 Solution, How to defend HTTP strict transport security ?
 Solution, How to get secured against HTTP strict transport security ?
 Solution, Solution HTTP strict transport security
-Solution, How to solve API resonses security headers ?
-Solution, How to resolve API resonses security headers ?
-Solution, How to mitigate API resonses security headers ?
-Solution, Solution for API resonses security headers
-Solution, Provide me some Solution for API resonses security headers
-Solution, mitigation for API resonses security headers
-Solution, How to stop API resonses security headers ?
-Solution, How to defend API resonses security headers ?
-Solution, How to get secured against API resonses security headers ?
-Solution, Solution API resonses security headers
+Solution, How to solve API responses security headers ?
+Solution, How to resolve API responses security headers ?
+Solution, How to mitigate API responses security headers ?
+Solution, Solution for API responses security headers
+Solution, Provide me some Solution for API responses security headers
+Solution, mitigation for API responses security headers
+Solution, How to stop API responses security headers ?
+Solution, How to defend API responses security headers ?
+Solution, How to get secured against API responses security headers ?
+Solution, Solution API responses security headers
 Solution, How to solve Do not support untrusted client side technologies ?
 Solution, How to resolve Do not support untrusted client side technologies ?
 Solution, How to mitigate Do not support untrusted client side technologies ?
@@ -4907,16 +5913,16 @@ Solution, How to stop Do not support untrusted client side technologies ?
 Solution, How to defend Do not support untrusted client side technologies ?
 Solution, How to get secured against Do not support untrusted client side technologies ?
 Solution, Solution Do not support untrusted client side technologies
-Solution, How to solve Signed message payloads ?
-Solution, How to resolve Signed message payloads ?
-Solution, How to mitigate Signed message payloads ?
-Solution, Solution for Signed message payloads
-Solution, Provide me some Solution for Signed message payloads
-Solution, mitigation for Signed message payloads
-Solution, How to stop Signed message payloads ?
-Solution, How to defend Signed message payloads ?
-Solution, How to get secured against Signed message payloads ?
-Solution, Solution Signed message payloads
+Solution, How to solve Signed message payloads WS security ?
+Solution, How to resolve Signed message payloads WS security ?
+Solution, How to mitigate Signed message payloads WS security ?
+Solution, Solution for Signed message payloads WS security
+Solution, Provide me some Solution for Signed message payloads WS security
+Solution, mitigation for Signed message payloads WS security
+Solution, How to stop Signed message payloads WS security ?
+Solution, How to defend Signed message payloads WS security ?
+Solution, How to get secured against Signed message payloads WS security ?
+Solution, Solution Signed message payloads WS security
 Solution, How to solve Hardware key vault ?
 Solution, How to resolve Hardware key vault ?
 Solution, How to mitigate Hardware key vault ?
@@ -5237,6 +6243,16 @@ Solution, How to stop File upload outside document root ?
 Solution, How to defend File upload outside document root ?
 Solution, How to get secured against File upload outside document root ?
 Solution, Solution File upload outside document root
+Solution, How to solve Authentication integrety checks ?
+Solution, How to resolve Authentication integrety checks ?
+Solution, How to mitigate Authentication integrety checks ?
+Solution, Solution for Authentication integrety checks
+Solution, Provide me some Solution for Authentication integrety checks
+Solution, mitigation for Authentication integrety checks
+Solution, How to stop Authentication integrety checks ?
+Solution, How to defend Authentication integrety checks ?
+Solution, How to get secured against Authentication integrety checks ?
+Solution, Solution Authentication integrety checks
 Solution, How to solve Unauthorized and unauthenticated access security logs ?
 Solution, How to resolve Unauthorized and unauthenticated access security logs ?
 Solution, How to mitigate Unauthorized and unauthenticated access security logs ?
@@ -5257,16 +6273,16 @@ Solution, How to stop Commonly chosen weak passwords and passphrases ?
 Solution, How to defend Commonly chosen weak passwords and passphrases ?
 Solution, How to get secured against Commonly chosen weak passwords and passphrases ?
 Solution, Solution Commonly chosen weak passwords and passphrases
-Solution, How to solve Two factor authentication against username password disclosure ?
-Solution, How to resolve Two factor authentication against username password disclosure ?
-Solution, How to mitigate Two factor authentication against username password disclosure ?
-Solution, Solution for Two factor authentication against username password disclosure
-Solution, Provide me some Solution for Two factor authentication against username password disclosure
-Solution, mitigation for Two factor authentication against username password disclosure
-Solution, How to stop Two factor authentication against username password disclosure ?
-Solution, How to defend Two factor authentication against username password disclosure ?
-Solution, How to get secured against Two factor authentication against username password disclosure ?
-Solution, Solution Two factor authentication against username password disclosure
+Solution, How to solve Two factor authentication ?
+Solution, How to resolve Two factor authentication ?
+Solution, How to mitigate Two factor authentication ?
+Solution, Solution for Two factor authentication
+Solution, Provide me some Solution for Two factor authentication
+Solution, mitigation for Two factor authentication
+Solution, How to stop Two factor authentication ?
+Solution, How to defend Two factor authentication ?
+Solution, How to get secured against Two factor authentication ?
+Solution, Solution Two factor authentication
 Solution, How to solve Logging access control decisions ?
 Solution, How to resolve Logging access control decisions ?
 Solution, How to mitigate Logging access control decisions ?
@@ -5447,16 +6463,16 @@ Solution, How to stop Authenticated data cleared from client storage ?
 Solution, How to defend Authenticated data cleared from client storage ?
 Solution, How to get secured against Authenticated data cleared from client storage ?
 Solution, Solution Authenticated data cleared from client storage
-Solution, How to solve File inclusion attack II ?
-Solution, How to resolve File inclusion attack II ?
-Solution, How to mitigate File inclusion attack II ?
-Solution, Solution for File inclusion attack II
-Solution, Provide me some Solution for File inclusion attack II
-Solution, mitigation for File inclusion attack II
-Solution, How to stop File inclusion attack II ?
-Solution, How to defend File inclusion attack II ?
-Solution, How to get secured against File inclusion attack II ?
-Solution, Solution File inclusion attack II
+Solution, How to solve All error handling logic must fail securely ?
+Solution, How to resolve All error handling logic must fail securely ?
+Solution, How to mitigate All error handling logic must fail securely ?
+Solution, Solution for All error handling logic must fail securely
+Solution, Provide me some Solution for All error handling logic must fail securely
+Solution, mitigation for All error handling logic must fail securely
+Solution, How to stop All error handling logic must fail securely ?
+Solution, How to defend All error handling logic must fail securely ?
+Solution, How to get secured against All error handling logic must fail securely ?
+Solution, Solution All error handling logic must fail securely
 Solution, How to solve Sensitive information in code or online repositories ?
 Solution, How to resolve Sensitive information in code or online repositories ?
 Solution, How to mitigate Sensitive information in code or online repositories ?
@@ -5577,6 +6593,416 @@ Solution, How to stop Server side request forgery ?
 Solution, How to defend Server side request forgery ?
 Solution, How to get secured against Server side request forgery ?
 Solution, Solution Server side request forgery
+Solution, How to solve ASVS ?
+Solution, How to resolve ASVS ?
+Solution, How to mitigate ASVS ?
+Solution, Solution for ASVS
+Solution, Provide me some Solution for ASVS
+Solution, mitigation for ASVS
+Solution, How to stop ASVS ?
+Solution, How to defend ASVS ?
+Solution, How to get secured against ASVS ?
+Solution, Solution ASVS
+Solution, How to solve MASVS ?
+Solution, How to resolve MASVS ?
+Solution, How to mitigate MASVS ?
+Solution, Solution for MASVS
+Solution, Provide me some Solution for MASVS
+Solution, mitigation for MASVS
+Solution, How to stop MASVS ?
+Solution, How to defend MASVS ?
+Solution, How to get secured against MASVS ?
+Solution, Solution MASVS
+Solution, How to solve PCI DSS ?
+Solution, How to resolve PCI DSS ?
+Solution, How to mitigate PCI DSS ?
+Solution, Solution for PCI DSS
+Solution, Provide me some Solution for PCI DSS
+Solution, mitigation for PCI DSS
+Solution, How to stop PCI DSS ?
+Solution, How to defend PCI DSS ?
+Solution, How to get secured against PCI DSS ?
+Solution, Solution PCI DSS
+Solution, How to solve Tabnabbing ?
+Solution, How to resolve Tabnabbing ?
+Solution, How to mitigate Tabnabbing ?
+Solution, Solution for Tabnabbing
+Solution, Provide me some Solution for Tabnabbing
+Solution, mitigation for Tabnabbing
+Solution, How to stop Tabnabbing ?
+Solution, How to defend Tabnabbing ?
+Solution, How to get secured against Tabnabbing ?
+Solution, Solution Tabnabbing
+Solution, How to solve Server side template injection ?
+Solution, How to resolve Server side template injection ?
+Solution, How to mitigate Server side template injection ?
+Solution, Solution for Server side template injection
+Solution, Provide me some Solution for Server side template injection
+Solution, mitigation for Server side template injection
+Solution, How to stop Server side template injection ?
+Solution, How to defend Server side template injection ?
+Solution, How to get secured against Server side template injection ?
+Solution, Solution Server side template injection
+Solution, How to solve Insecure direct object references ?
+Solution, How to resolve Insecure direct object references ?
+Solution, How to mitigate Insecure direct object references ?
+Solution, Solution for Insecure direct object references
+Solution, Provide me some Solution for Insecure direct object references
+Solution, mitigation for Insecure direct object references
+Solution, How to stop Insecure direct object references ?
+Solution, How to defend Insecure direct object references ?
+Solution, How to get secured against Insecure direct object references ?
+Solution, Solution Insecure direct object references
+Solution, How to solve Type checking and length checking ?
+Solution, How to resolve Type checking and length checking ?
+Solution, How to mitigate Type checking and length checking ?
+Solution, Solution for Type checking and length checking
+Solution, Provide me some Solution for Type checking and length checking
+Solution, mitigation for Type checking and length checking
+Solution, How to stop Type checking and length checking ?
+Solution, How to defend Type checking and length checking ?
+Solution, How to get secured against Type checking and length checking ?
+Solution, Solution Type checking and length checking
+Solution, How to solve SMTP IMAP injection ?
+Solution, How to resolve SMTP IMAP injection ?
+Solution, How to mitigate SMTP IMAP injection ?
+Solution, Solution for SMTP IMAP injection
+Solution, Provide me some Solution for SMTP IMAP injection
+Solution, mitigation for SMTP IMAP injection
+Solution, How to stop SMTP IMAP injection ?
+Solution, How to defend SMTP IMAP injection ?
+Solution, How to get secured against SMTP IMAP injection ?
+Solution, Solution SMTP IMAP injection
+Solution, How to solve Insecure object deserialization ?
+Solution, How to resolve Insecure object deserialization ?
+Solution, How to mitigate Insecure object deserialization ?
+Solution, Solution for Insecure object deserialization
+Solution, Provide me some Solution for Insecure object deserialization
+Solution, mitigation for Insecure object deserialization
+Solution, How to stop Insecure object deserialization ?
+Solution, How to defend Insecure object deserialization ?
+Solution, How to get secured against Insecure object deserialization ?
+Solution, Solution Insecure object deserialization
+Solution, How to solve Software security development lifecycle ?
+Solution, How to resolve Software security development lifecycle ?
+Solution, How to mitigate Software security development lifecycle ?
+Solution, Solution for Software security development lifecycle
+Solution, Provide me some Solution for Software security development lifecycle
+Solution, mitigation for Software security development lifecycle
+Solution, How to stop Software security development lifecycle ?
+Solution, How to defend Software security development lifecycle ?
+Solution, How to get secured against Software security development lifecycle ?
+Solution, Solution Software security development lifecycle
+Solution, How to solve Functional security constraints ?
+Solution, How to resolve Functional security constraints ?
+Solution, How to mitigate Functional security constraints ?
+Solution, Solution for Functional security constraints
+Solution, Provide me some Solution for Functional security constraints
+Solution, mitigation for Functional security constraints
+Solution, How to stop Functional security constraints ?
+Solution, How to defend Functional security constraints ?
+Solution, How to get secured against Functional security constraints ?
+Solution, Solution Functional security constraints
+Solution, How to solve Attribute based authorization ?
+Solution, How to resolve Attribute based authorization ?
+Solution, How to mitigate Attribute based authorization ?
+Solution, Solution for Attribute based authorization
+Solution, Provide me some Solution for Attribute based authorization
+Solution, mitigation for Attribute based authorization
+Solution, How to stop Attribute based authorization ?
+Solution, How to defend Attribute based authorization ?
+Solution, How to get secured against Attribute based authorization ?
+Solution, Solution Attribute based authorization
+Solution, How to solve Key management and key lifecycle by NIST ?
+Solution, How to resolve Key management and key lifecycle by NIST ?
+Solution, How to mitigate Key management and key lifecycle by NIST ?
+Solution, Solution for Key management and key lifecycle by NIST
+Solution, Provide me some Solution for Key management and key lifecycle by NIST
+Solution, mitigation for Key management and key lifecycle by NIST
+Solution, How to stop Key management and key lifecycle by NIST ?
+Solution, How to defend Key management and key lifecycle by NIST ?
+Solution, How to get secured against Key management and key lifecycle by NIST ?
+Solution, Solution Key management and key lifecycle by NIST
+Solution, How to solve Key vault ?
+Solution, How to resolve Key vault ?
+Solution, How to mitigate Key vault ?
+Solution, Solution for Key vault
+Solution, Provide me some Solution for Key vault
+Solution, mitigation for Key vault
+Solution, How to stop Key vault ?
+Solution, How to defend Key vault ?
+Solution, How to get secured against Key vault ?
+Solution, Solution Key vault
+Solution, How to solve Secrets shared with the client ?
+Solution, How to resolve Secrets shared with the client ?
+Solution, How to mitigate Secrets shared with the client ?
+Solution, Solution for Secrets shared with the client
+Solution, Provide me some Solution for Secrets shared with the client
+Solution, mitigation for Secrets shared with the client
+Solution, How to stop Secrets shared with the client ?
+Solution, How to defend Secrets shared with the client ?
+Solution, How to get secured against Secrets shared with the client ?
+Solution, Solution Secrets shared with the client
+Solution, How to solve Data protection levels ?
+Solution, How to resolve Data protection levels ?
+Solution, How to mitigate Data protection levels ?
+Solution, Solution for Data protection levels
+Solution, Provide me some Solution for Data protection levels
+Solution, mitigation for Data protection levels
+Solution, How to stop Data protection levels ?
+Solution, How to defend Data protection levels ?
+Solution, How to get secured against Data protection levels ?
+Solution, Solution Data protection levels
+Solution, How to solve Source control systems in place ?
+Solution, How to resolve Source control systems in place ?
+Solution, How to mitigate Source control systems in place ?
+Solution, Solution for Source control systems in place
+Solution, Provide me some Solution for Source control systems in place
+Solution, mitigation for Source control systems in place
+Solution, How to stop Source control systems in place ?
+Solution, How to defend Source control systems in place ?
+Solution, How to get secured against Source control systems in place ?
+Solution, Solution Source control systems in place
+Solution, How to solve Continuous security testing ?
+Solution, How to resolve Continuous security testing ?
+Solution, How to mitigate Continuous security testing ?
+Solution, Solution for Continuous security testing
+Solution, Provide me some Solution for Continuous security testing
+Solution, mitigation for Continuous security testing
+Solution, How to stop Continuous security testing ?
+Solution, How to defend Continuous security testing ?
+Solution, How to get secured against Continuous security testing ?
+Solution, Solution Continuous security testing
+Solution, How to solve Security test automation ?
+Solution, How to resolve Security test automation ?
+Solution, How to mitigate Security test automation ?
+Solution, Solution for Security test automation
+Solution, Provide me some Solution for Security test automation
+Solution, mitigation for Security test automation
+Solution, How to stop Security test automation ?
+Solution, How to defend Security test automation ?
+Solution, How to get secured against Security test automation ?
+Solution, Solution Security test automation
+Solution, How to solve Referrer policy header ?
+Solution, How to resolve Referrer policy header ?
+Solution, How to mitigate Referrer policy header ?
+Solution, Solution for Referrer policy header
+Solution, Provide me some Solution for Referrer policy header
+Solution, mitigation for Referrer policy header
+Solution, How to stop Referrer policy header ?
+Solution, How to defend Referrer policy header ?
+Solution, How to get secured against Referrer policy header ?
+Solution, Solution Referrer policy header
+Solution, How to solve Insecure application defaults ?
+Solution, How to resolve Insecure application defaults ?
+Solution, How to mitigate Insecure application defaults ?
+Solution, Solution for Insecure application defaults
+Solution, Provide me some Solution for Insecure application defaults
+Solution, mitigation for Insecure application defaults
+Solution, How to stop Insecure application defaults ?
+Solution, How to defend Insecure application defaults ?
+Solution, How to get secured against Insecure application defaults ?
+Solution, Solution Insecure application defaults
+Solution, How to solve Infrastructure as code ?
+Solution, How to resolve Infrastructure as code ?
+Solution, How to mitigate Infrastructure as code ?
+Solution, Solution for Infrastructure as code
+Solution, Provide me some Solution for Infrastructure as code
+Solution, mitigation for Infrastructure as code
+Solution, How to stop Infrastructure as code ?
+Solution, How to defend Infrastructure as code ?
+Solution, How to get secured against Infrastructure as code ?
+Solution, Solution Infrastructure as code
+Solution, How to solve GraphQL security ?
+Solution, How to resolve GraphQL security ?
+Solution, How to mitigate GraphQL security ?
+Solution, Solution for GraphQL security
+Solution, Provide me some Solution for GraphQL security
+Solution, mitigation for GraphQL security
+Solution, How to stop GraphQL security ?
+Solution, How to defend GraphQL security ?
+Solution, How to get secured against GraphQL security ?
+Solution, Solution GraphQL security
+Solution, How to solve JSON validation schema ?
+Solution, How to resolve JSON validation schema ?
+Solution, How to mitigate JSON validation schema ?
+Solution, Solution for JSON validation schema
+Solution, Provide me some Solution for JSON validation schema
+Solution, mitigation for JSON validation schema
+Solution, How to stop JSON validation schema ?
+Solution, How to defend JSON validation schema ?
+Solution, How to get secured against JSON validation schema ?
+Solution, Solution JSON validation schema
+Solution, How to solve Serve files whitelist. ?
+Solution, How to resolve Serve files whitelist. ?
+Solution, How to mitigate Serve files whitelist. ?
+Solution, Solution for Serve files whitelist.
+Solution, Provide me some Solution for Serve files whitelist.
+Solution, mitigation for Serve files whitelist.
+Solution, How to stop Serve files whitelist. ?
+Solution, How to defend Serve files whitelist. ?
+Solution, How to get secured against Serve files whitelist. ?
+Solution, Solution Serve files whitelist.
+Solution, How to solve User supplied scriptable or expression template language content ?
+Solution, How to resolve User supplied scriptable or expression template language content ?
+Solution, How to mitigate User supplied scriptable or expression template language content ?
+Solution, Solution for User supplied scriptable or expression template language content
+Solution, Provide me some Solution for User supplied scriptable or expression template language content
+Solution, mitigation for User supplied scriptable or expression template language content
+Solution, How to stop User supplied scriptable or expression template language content ?
+Solution, How to defend User supplied scriptable or expression template language content ?
+Solution, How to get secured against User supplied scriptable or expression template language content ?
+Solution, Solution User supplied scriptable or expression template language content
+Solution, How to solve Replay attacks ?
+Solution, How to resolve Replay attacks ?
+Solution, How to mitigate Replay attacks ?
+Solution, Solution for Replay attacks
+Solution, Provide me some Solution for Replay attacks
+Solution, mitigation for Replay attacks
+Solution, How to stop Replay attacks ?
+Solution, How to defend Replay attacks ?
+Solution, How to get secured against Replay attacks ?
+Solution, Solution Replay attacks
+Solution, How to solve Same site attribute ?
+Solution, How to resolve Same site attribute ?
+Solution, How to mitigate Same site attribute ?
+Solution, Solution for Same site attribute
+Solution, Provide me some Solution for Same site attribute
+Solution, mitigation for Same site attribute
+Solution, How to stop Same site attribute ?
+Solution, How to defend Same site attribute ?
+Solution, How to get secured against Same site attribute ?
+Solution, Solution Same site attribute
+Solution, How to solve Host prefix ?
+Solution, How to resolve Host prefix ?
+Solution, How to mitigate Host prefix ?
+Solution, Solution for Host prefix
+Solution, Provide me some Solution for Host prefix
+Solution, mitigation for Host prefix
+Solution, How to stop Host prefix ?
+Solution, How to defend Host prefix ?
+Solution, How to get secured against Host prefix ?
+Solution, Solution Host prefix
+Solution, How to solve Race conditions ?
+Solution, How to resolve Race conditions ?
+Solution, How to mitigate Race conditions ?
+Solution, Solution for Race conditions
+Solution, Provide me some Solution for Race conditions
+Solution, mitigation for Race conditions
+Solution, How to stop Race conditions ?
+Solution, How to defend Race conditions ?
+Solution, How to get secured against Race conditions ?
+Solution, Solution Race conditions
+Solution, How to solve Sub domain take over ?
+Solution, How to resolve Sub domain take over ?
+Solution, How to mitigate Sub domain take over ?
+Solution, Solution for Sub domain take over
+Solution, Provide me some Solution for Sub domain take over
+Solution, mitigation for Sub domain take over
+Solution, How to stop Sub domain take over ?
+Solution, How to defend Sub domain take over ?
+Solution, How to get secured against Sub domain take over ?
+Solution, Solution Sub domain take over
+Solution, How to solve No password rotation policy ?
+Solution, How to resolve No password rotation policy ?
+Solution, How to mitigate No password rotation policy ?
+Solution, Solution for No password rotation policy
+Solution, Provide me some Solution for No password rotation policy
+Solution, mitigation for No password rotation policy
+Solution, How to stop No password rotation policy ?
+Solution, How to defend No password rotation policy ?
+Solution, How to get secured against No password rotation policy ?
+Solution, Solution No password rotation policy
+Solution, How to solve User notification on critical state changing operations ?
+Solution, How to resolve User notification on critical state changing operations ?
+Solution, How to mitigate User notification on critical state changing operations ?
+Solution, Solution for User notification on critical state changing operations
+Solution, Provide me some Solution for User notification on critical state changing operations
+Solution, mitigation for User notification on critical state changing operations
+Solution, How to stop User notification on critical state changing operations ?
+Solution, How to defend User notification on critical state changing operations ?
+Solution, How to get secured against User notification on critical state changing operations ?
+Solution, Solution User notification on critical state changing operations
+Solution, How to solve Stateless session tokens ?
+Solution, How to resolve Stateless session tokens ?
+Solution, How to mitigate Stateless session tokens ?
+Solution, Solution for Stateless session tokens
+Solution, Provide me some Solution for Stateless session tokens
+Solution, mitigation for Stateless session tokens
+Solution, How to stop Stateless session tokens ?
+Solution, How to defend Stateless session tokens ?
+Solution, How to get secured against Stateless session tokens ?
+Solution, Solution Stateless session tokens
+Solution, How to solve GUID v4 ?
+Solution, How to resolve GUID v4 ?
+Solution, How to mitigate GUID v4 ?
+Solution, Solution for GUID v4
+Solution, Provide me some Solution for GUID v4
+Solution, mitigation for GUID v4
+Solution, How to stop GUID v4 ?
+Solution, How to defend GUID v4 ?
+Solution, How to get secured against GUID v4 ?
+Solution, Solution GUID v4
+Solution, How to solve Exception handling ?
+Solution, How to resolve Exception handling ?
+Solution, How to mitigate Exception handling ?
+Solution, Solution for Exception handling
+Solution, Provide me some Solution for Exception handling
+Solution, mitigation for Exception handling
+Solution, How to stop Exception handling ?
+Solution, How to defend Exception handling ?
+Solution, How to get secured against Exception handling ?
+Solution, Solution Exception handling
+Solution, How to solve Back up data ?
+Solution, How to resolve Back up data ?
+Solution, How to mitigate Back up data ?
+Solution, Solution for Back up data
+Solution, Provide me some Solution for Back up data
+Solution, mitigation for Back up data
+Solution, How to stop Back up data ?
+Solution, How to defend Back up data ?
+Solution, How to get secured against Back up data ?
+Solution, Solution Back up data
+Solution, How to solve Static code analysis ?
+Solution, How to resolve Static code analysis ?
+Solution, How to mitigate Static code analysis ?
+Solution, Solution for Static code analysis
+Solution, Provide me some Solution for Static code analysis
+Solution, mitigation for Static code analysis
+Solution, How to stop Static code analysis ?
+Solution, How to defend Static code analysis ?
+Solution, How to get secured against Static code analysis ?
+Solution, Solution Static code analysis
+Solution, How to solve TLS ?
+Solution, How to resolve TLS ?
+Solution, How to mitigate TLS ?
+Solution, Solution for TLS
+Solution, Provide me some Solution for TLS
+Solution, mitigation for TLS
+Solution, How to stop TLS ?
+Solution, How to defend TLS ?
+Solution, How to get secured against TLS ?
+Solution, Solution TLS
+Solution, How to solve Code signing ?
+Solution, How to resolve Code signing ?
+Solution, How to mitigate Code signing ?
+Solution, Solution for Code signing
+Solution, Provide me some Solution for Code signing
+Solution, mitigation for Code signing
+Solution, How to stop Code signing ?
+Solution, How to defend Code signing ?
+Solution, How to get secured against Code signing ?
+Solution, Solution Code signing
+Solution, How to solve Secure random generators ?
+Solution, How to resolve Secure random generators ?
+Solution, How to mitigate Secure random generators ?
+Solution, Solution for Secure random generators
+Solution, Provide me some Solution for Secure random generators
+Solution, mitigation for Secure random generators
+Solution, How to stop Secure random generators ?
+Solution, How to defend Secure random generators ?
+Solution, How to get secured against Secure random generators ?
+Solution, Solution Secure random generators
 Solution, How to solve not available item ?
 Solution, How to resolve not available item ?
 Solution, How to mitigate not available item ?
@@ -5587,6 +7013,410 @@ Solution, How to stop not available item ?
 Solution, How to defend not available item ?
 Solution, How to get secured against not available item ?
 Solution, Solution not available item
+Solution, How to solve Sensitive Information Exposure in URL ?
+Solution, How to resolve Sensitive Information Exposure in URL ?
+Solution, How to mitigate Sensitive Information Exposure in URL ?
+Solution, Solution for Sensitive Information Exposure in URL
+Solution, Provide me some Solution for Sensitive Information Exposure in URL
+Solution, mitigation for Sensitive Information Exposure in URL
+Solution, How to stop Sensitive Information Exposure in URL ?
+Solution, How to defend Sensitive Information Exposure in URL ?
+Solution, How to get secured against Sensitive Information Exposure in URL ?
+Solution, Solution Sensitive Information Exposure in URL
+Solution, How to solve Sensitive Information Exposure in client Side Storage ?
+Solution, How to resolve Sensitive Information Exposure in client Side Storage ?
+Solution, How to mitigate Sensitive Information Exposure in client Side Storage ?
+Solution, Solution for Sensitive Information Exposure in client Side Storage
+Solution, Provide me some Solution for Sensitive Information Exposure in client Side Storage
+Solution, mitigation for Sensitive Information Exposure in client Side Storage
+Solution, How to stop Sensitive Information Exposure in client Side Storage ?
+Solution, How to defend Sensitive Information Exposure in client Side Storage ?
+Solution, How to get secured against Sensitive Information Exposure in client Side Storage ?
+Solution, Solution Sensitive Information Exposure in client Side Storage
+Solution, How to solve Session Token Generation After Login ?
+Solution, How to resolve Session Token Generation After Login ?
+Solution, How to mitigate Session Token Generation After Login ?
+Solution, Solution for Session Token Generation After Login
+Solution, Provide me some Solution for Session Token Generation After Login
+Solution, mitigation for Session Token Generation After Login
+Solution, How to stop Session Token Generation After Login ?
+Solution, How to defend Session Token Generation After Login ?
+Solution, How to get secured against Session Token Generation After Login ?
+Solution, Solution Session Token Generation After Login
+Solution, How to solve Secure Generation of Session Tokens ?
+Solution, How to resolve Secure Generation of Session Tokens ?
+Solution, How to mitigate Secure Generation of Session Tokens ?
+Solution, Solution for Secure Generation of Session Tokens
+Solution, Provide me some Solution for Secure Generation of Session Tokens
+Solution, mitigation for Secure Generation of Session Tokens
+Solution, How to stop Secure Generation of Session Tokens ?
+Solution, How to defend Secure Generation of Session Tokens ?
+Solution, How to get secured against Secure Generation of Session Tokens ?
+Solution, Solution Secure Generation of Session Tokens
+Solution, How to solve Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Solution, How to resolve Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Solution, How to mitigate Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Solution, Solution for Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Solution, Provide me some Solution for Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Solution, mitigation for Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Solution, How to stop Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Solution, How to defend Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Solution, How to get secured against Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Solution, Solution Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Solution, How to solve Permit Password Change ?
+Solution, How to resolve Permit Password Change ?
+Solution, How to mitigate Permit Password Change ?
+Solution, Solution for Permit Password Change
+Solution, Provide me some Solution for Permit Password Change
+Solution, mitigation for Permit Password Change
+Solution, How to stop Permit Password Change ?
+Solution, How to defend Permit Password Change ?
+Solution, How to get secured against Permit Password Change ?
+Solution, Solution Permit Password Change
+Solution, How to solve Provide Password Strength Checker ?
+Solution, How to resolve Provide Password Strength Checker ?
+Solution, How to mitigate Provide Password Strength Checker ?
+Solution, Solution for Provide Password Strength Checker
+Solution, Provide me some Solution for Provide Password Strength Checker
+Solution, mitigation for Provide Password Strength Checker
+Solution, How to stop Provide Password Strength Checker ?
+Solution, How to defend Provide Password Strength Checker ?
+Solution, How to get secured against Provide Password Strength Checker ?
+Solution, Solution Provide Password Strength Checker
+Solution, How to solve Verify Breached Passwords ?
+Solution, How to resolve Verify Breached Passwords ?
+Solution, How to mitigate Verify Breached Passwords ?
+Solution, Solution for Verify Breached Passwords
+Solution, Provide me some Solution for Verify Breached Passwords
+Solution, mitigation for Verify Breached Passwords
+Solution, How to stop Verify Breached Passwords ?
+Solution, How to defend Verify Breached Passwords ?
+Solution, How to get secured against Verify Breached Passwords ?
+Solution, Solution Verify Breached Passwords
+Solution, How to solve Offline Attacks on Passwords ?
+Solution, How to resolve Offline Attacks on Passwords ?
+Solution, How to mitigate Offline Attacks on Passwords ?
+Solution, Solution for Offline Attacks on Passwords
+Solution, Provide me some Solution for Offline Attacks on Passwords
+Solution, mitigation for Offline Attacks on Passwords
+Solution, How to stop Offline Attacks on Passwords ?
+Solution, How to defend Offline Attacks on Passwords ?
+Solution, How to get secured against Offline Attacks on Passwords ?
+Solution, Solution Offline Attacks on Passwords
+Solution, How to solve Password Hash Salt Length ?
+Solution, How to resolve Password Hash Salt Length ?
+Solution, How to mitigate Password Hash Salt Length ?
+Solution, Solution for Password Hash Salt Length
+Solution, Provide me some Solution for Password Hash Salt Length
+Solution, mitigation for Password Hash Salt Length
+Solution, How to stop Password Hash Salt Length ?
+Solution, How to defend Password Hash Salt Length ?
+Solution, How to get secured against Password Hash Salt Length ?
+Solution, Solution Password Hash Salt Length
+Solution, How to solve PBKDF2 Iteration Count ?
+Solution, How to resolve PBKDF2 Iteration Count ?
+Solution, How to mitigate PBKDF2 Iteration Count ?
+Solution, Solution for PBKDF2 Iteration Count
+Solution, Provide me some Solution for PBKDF2 Iteration Count
+Solution, mitigation for PBKDF2 Iteration Count
+Solution, How to stop PBKDF2 Iteration Count ?
+Solution, How to defend PBKDF2 Iteration Count ?
+Solution, How to get secured against PBKDF2 Iteration Count ?
+Solution, Solution PBKDF2 Iteration Count
+Solution, How to solve Bcrypt Work Factor ?
+Solution, How to resolve Bcrypt Work Factor ?
+Solution, How to mitigate Bcrypt Work Factor ?
+Solution, Solution for Bcrypt Work Factor
+Solution, Provide me some Solution for Bcrypt Work Factor
+Solution, mitigation for Bcrypt Work Factor
+Solution, How to stop Bcrypt Work Factor ?
+Solution, How to defend Bcrypt Work Factor ?
+Solution, How to get secured against Bcrypt Work Factor ?
+Solution, Solution Bcrypt Work Factor
+Solution, How to solve OOB Unencrypted ?
+Solution, How to resolve OOB Unencrypted ?
+Solution, How to mitigate OOB Unencrypted ?
+Solution, Solution for OOB Unencrypted
+Solution, Provide me some Solution for OOB Unencrypted
+Solution, mitigation for OOB Unencrypted
+Solution, How to stop OOB Unencrypted ?
+Solution, How to defend OOB Unencrypted ?
+Solution, How to get secured against OOB Unencrypted ?
+Solution, Solution OOB Unencrypted
+Solution, How to solve Secure OOB Channel ?
+Solution, How to resolve Secure OOB Channel ?
+Solution, How to mitigate Secure OOB Channel ?
+Solution, Solution for Secure OOB Channel
+Solution, Provide me some Solution for Secure OOB Channel
+Solution, mitigation for Secure OOB Channel
+Solution, How to stop Secure OOB Channel ?
+Solution, How to defend Secure OOB Channel ?
+Solution, How to get secured against Secure OOB Channel ?
+Solution, Solution Secure OOB Channel
+Solution, How to solve OOB PIN Expiry ?
+Solution, How to resolve OOB PIN Expiry ?
+Solution, How to mitigate OOB PIN Expiry ?
+Solution, Solution for OOB PIN Expiry
+Solution, Provide me some Solution for OOB PIN Expiry
+Solution, mitigation for OOB PIN Expiry
+Solution, How to stop OOB PIN Expiry ?
+Solution, How to defend OOB PIN Expiry ?
+Solution, How to get secured against OOB PIN Expiry ?
+Solution, Solution OOB PIN Expiry
+Solution, How to solve OOB Key Used Once ?
+Solution, How to resolve OOB Key Used Once ?
+Solution, How to mitigate OOB Key Used Once ?
+Solution, Solution for OOB Key Used Once
+Solution, Provide me some Solution for OOB Key Used Once
+Solution, mitigation for OOB Key Used Once
+Solution, How to stop OOB Key Used Once ?
+Solution, How to defend OOB Key Used Once ?
+Solution, How to get secured against OOB Key Used Once ?
+Solution, Solution OOB Key Used Once
+Solution, How to solve Unsafe password reset ?
+Solution, How to resolve Unsafe password reset ?
+Solution, How to mitigate Unsafe password reset ?
+Solution, Solution for Unsafe password reset
+Solution, Provide me some Solution for Unsafe password reset
+Solution, mitigation for Unsafe password reset
+Solution, How to stop Unsafe password reset ?
+Solution, How to defend Unsafe password reset ?
+Solution, How to get secured against Unsafe password reset ?
+Solution, Solution Unsafe password reset
+Solution, How to solve Presence of Knowledge ?
+Solution, How to resolve Presence of Knowledge ?
+Solution, How to mitigate Presence of Knowledge ?
+Solution, Solution for Presence of Knowledge
+Solution, Provide me some Solution for Presence of Knowledge
+Solution, mitigation for Presence of Knowledge
+Solution, How to stop Presence of Knowledge ?
+Solution, How to defend Presence of Knowledge ?
+Solution, How to get secured against Presence of Knowledge ?
+Solution, Solution Presence of Knowledge
+Solution, How to solve Current Password Exposure ?
+Solution, How to resolve Current Password Exposure ?
+Solution, How to mitigate Current Password Exposure ?
+Solution, Solution for Current Password Exposure
+Solution, Provide me some Solution for Current Password Exposure
+Solution, mitigation for Current Password Exposure
+Solution, How to stop Current Password Exposure ?
+Solution, How to defend Current Password Exposure ?
+Solution, How to get secured against Current Password Exposure ?
+Solution, Solution Current Password Exposure
+Solution, How to solve Implement Two Factor Authentication for Password Recovery ?
+Solution, How to resolve Implement Two Factor Authentication for Password Recovery ?
+Solution, How to mitigate Implement Two Factor Authentication for Password Recovery ?
+Solution, Solution for Implement Two Factor Authentication for Password Recovery
+Solution, Provide me some Solution for Implement Two Factor Authentication for Password Recovery
+Solution, mitigation for Implement Two Factor Authentication for Password Recovery
+Solution, How to stop Implement Two Factor Authentication for Password Recovery ?
+Solution, How to defend Implement Two Factor Authentication for Password Recovery ?
+Solution, How to get secured against Implement Two Factor Authentication for Password Recovery ?
+Solution, Solution Implement Two Factor Authentication for Password Recovery
+Solution, How to solve Identity Spoofing ?
+Solution, How to resolve Identity Spoofing ?
+Solution, How to mitigate Identity Spoofing ?
+Solution, Solution for Identity Spoofing
+Solution, Provide me some Solution for Identity Spoofing
+Solution, mitigation for Identity Spoofing
+Solution, How to stop Identity Spoofing ?
+Solution, How to defend Identity Spoofing ?
+Solution, How to get secured against Identity Spoofing ?
+Solution, Solution Identity Spoofing
+Solution, How to solve Multifcator Authentication Exposure ?
+Solution, How to resolve Multifcator Authentication Exposure ?
+Solution, How to mitigate Multifcator Authentication Exposure ?
+Solution, Solution for Multifcator Authentication Exposure
+Solution, Provide me some Solution for Multifcator Authentication Exposure
+Solution, mitigation for Multifcator Authentication Exposure
+Solution, How to stop Multifcator Authentication Exposure ?
+Solution, How to defend Multifcator Authentication Exposure ?
+Solution, How to get secured against Multifcator Authentication Exposure ?
+Solution, Solution Multifcator Authentication Exposure
+Solution, How to solve Authentication Factor Notification ?
+Solution, How to resolve Authentication Factor Notification ?
+Solution, How to mitigate Authentication Factor Notification ?
+Solution, Solution for Authentication Factor Notification
+Solution, Provide me some Solution for Authentication Factor Notification
+Solution, mitigation for Authentication Factor Notification
+Solution, How to stop Authentication Factor Notification ?
+Solution, How to defend Authentication Factor Notification ?
+Solution, How to get secured against Authentication Factor Notification ?
+Solution, Solution Authentication Factor Notification
+Solution, How to solve MinimumPasswordLength ?
+Solution, How to resolve MinimumPasswordLength ?
+Solution, How to mitigate MinimumPasswordLength ?
+Solution, Solution for MinimumPasswordLength
+Solution, Provide me some Solution for MinimumPasswordLength
+Solution, mitigation for MinimumPasswordLength
+Solution, How to stop MinimumPasswordLength ?
+Solution, How to defend MinimumPasswordLength ?
+Solution, How to get secured against MinimumPasswordLength ?
+Solution, Solution MinimumPasswordLength
+Solution, How to solve PermitLongPasswords ?
+Solution, How to resolve PermitLongPasswords ?
+Solution, How to mitigate PermitLongPasswords ?
+Solution, Solution for PermitLongPasswords
+Solution, Provide me some Solution for PermitLongPasswords
+Solution, mitigation for PermitLongPasswords
+Solution, How to stop PermitLongPasswords ?
+Solution, How to defend PermitLongPasswords ?
+Solution, How to get secured against PermitLongPasswords ?
+Solution, Solution PermitLongPasswords
+Solution, How to solve Permit Spaces In Passwords ?
+Solution, How to resolve Permit Spaces In Passwords ?
+Solution, How to mitigate Permit Spaces In Passwords ?
+Solution, Solution for Permit Spaces In Passwords
+Solution, Provide me some Solution for Permit Spaces In Passwords
+Solution, mitigation for Permit Spaces In Passwords
+Solution, How to stop Permit Spaces In Passwords ?
+Solution, How to defend Permit Spaces In Passwords ?
+Solution, How to get secured against Permit Spaces In Passwords ?
+Solution, Solution Permit Spaces In Passwords
+Solution, How to solve Permit Unicode Characters In Passwords ?
+Solution, How to resolve Permit Unicode Characters In Passwords ?
+Solution, How to mitigate Permit Unicode Characters In Passwords ?
+Solution, Solution for Permit Unicode Characters In Passwords
+Solution, Provide me some Solution for Permit Unicode Characters In Passwords
+Solution, mitigation for Permit Unicode Characters In Passwords
+Solution, How to stop Permit Unicode Characters In Passwords ?
+Solution, How to defend Permit Unicode Characters In Passwords ?
+Solution, How to get secured against Permit Unicode Characters In Passwords ?
+Solution, Solution Permit Unicode Characters In Passwords
+Solution, How to solve Change And Validate Current Password ?
+Solution, How to resolve Change And Validate Current Password ?
+Solution, How to mitigate Change And Validate Current Password ?
+Solution, Solution for Change And Validate Current Password
+Solution, Provide me some Solution for Change And Validate Current Password
+Solution, mitigation for Change And Validate Current Password
+Solution, How to stop Change And Validate Current Password ?
+Solution, How to defend Change And Validate Current Password ?
+Solution, How to get secured against Change And Validate Current Password ?
+Solution, Solution Change And Validate Current Password
+Solution, How to solve List of compromised passwords ?
+Solution, How to resolve List of compromised passwords ?
+Solution, How to mitigate List of compromised passwords ?
+Solution, Solution for List of compromised passwords
+Solution, Provide me some Solution for List of compromised passwords
+Solution, mitigation for List of compromised passwords
+Solution, How to stop List of compromised passwords ?
+Solution, How to defend List of compromised passwords ?
+Solution, How to get secured against List of compromised passwords ?
+Solution, Solution List of compromised passwords
+Solution, How to solve Password Strength Indicator ?
+Solution, How to resolve Password Strength Indicator ?
+Solution, How to mitigate Password Strength Indicator ?
+Solution, Solution for Password Strength Indicator
+Solution, Provide me some Solution for Password Strength Indicator
+Solution, mitigation for Password Strength Indicator
+Solution, How to stop Password Strength Indicator ?
+Solution, How to defend Password Strength Indicator ?
+Solution, How to get secured against Password Strength Indicator ?
+Solution, Solution Password Strength Indicator
+Solution, How to solve No Character type limitation ?
+Solution, How to resolve No Character type limitation ?
+Solution, How to mitigate No Character type limitation ?
+Solution, Solution for No Character type limitation
+Solution, Provide me some Solution for No Character type limitation
+Solution, mitigation for No Character type limitation
+Solution, How to stop No Character type limitation ?
+Solution, How to defend No Character type limitation ?
+Solution, How to get secured against No Character type limitation ?
+Solution, Solution No Character type limitation
+Solution, How to solve No Credential Rotation Requirements ?
+Solution, How to resolve No Credential Rotation Requirements ?
+Solution, How to mitigate No Credential Rotation Requirements ?
+Solution, Solution for No Credential Rotation Requirements
+Solution, Provide me some Solution for No Credential Rotation Requirements
+Solution, mitigation for No Credential Rotation Requirements
+Solution, How to stop No Credential Rotation Requirements ?
+Solution, How to defend No Credential Rotation Requirements ?
+Solution, How to get secured against No Credential Rotation Requirements ?
+Solution, Solution No Credential Rotation Requirements
+Solution, How to solve Logout session expiration ?
+Solution, How to resolve Logout session expiration ?
+Solution, How to mitigate Logout session expiration ?
+Solution, Solution for Logout session expiration
+Solution, Provide me some Solution for Logout session expiration
+Solution, mitigation for Logout session expiration
+Solution, How to stop Logout session expiration ?
+Solution, How to defend Logout session expiration ?
+Solution, How to get secured against Logout session expiration ?
+Solution, Solution Logout session expiration
+Solution, How to solve Reauthentication valid sessions ?
+Solution, How to resolve Reauthentication valid sessions ?
+Solution, How to mitigate Reauthentication valid sessions ?
+Solution, Solution for Reauthentication valid sessions
+Solution, Provide me some Solution for Reauthentication valid sessions
+Solution, mitigation for Reauthentication valid sessions
+Solution, How to stop Reauthentication valid sessions ?
+Solution, How to defend Reauthentication valid sessions ?
+Solution, How to get secured against Reauthentication valid sessions ?
+Solution, Solution Reauthentication valid sessions
+Solution, How to solve Change password session expiration ?
+Solution, How to resolve Change password session expiration ?
+Solution, How to mitigate Change password session expiration ?
+Solution, Solution for Change password session expiration
+Solution, Provide me some Solution for Change password session expiration
+Solution, mitigation for Change password session expiration
+Solution, How to stop Change password session expiration ?
+Solution, How to defend Change password session expiration ?
+Solution, How to get secured against Change password session expiration ?
+Solution, Solution Change password session expiration
+Solution, How to solve Samesite cookie attribute ?
+Solution, How to resolve Samesite cookie attribute ?
+Solution, How to mitigate Samesite cookie attribute ?
+Solution, Solution for Samesite cookie attribute
+Solution, Provide me some Solution for Samesite cookie attribute
+Solution, mitigation for Samesite cookie attribute
+Solution, How to stop Samesite cookie attribute ?
+Solution, How to defend Samesite cookie attribute ?
+Solution, How to get secured against Samesite cookie attribute ?
+Solution, Solution Samesite cookie attribute
+Solution, How to solve Weak revocability of physical authenticators ?
+Solution, How to resolve Weak revocability of physical authenticators ?
+Solution, How to mitigate Weak revocability of physical authenticators ?
+Solution, Solution for Weak revocability of physical authenticators
+Solution, Provide me some Solution for Weak revocability of physical authenticators
+Solution, mitigation for Weak revocability of physical authenticators
+Solution, How to stop Weak revocability of physical authenticators ?
+Solution, How to defend Weak revocability of physical authenticators ?
+Solution, How to get secured against Weak revocability of physical authenticators ?
+Solution, Solution Weak revocability of physical authenticators
+Solution, How to solve Lack of Bruteforce Protection ?
+Solution, How to resolve Lack of Bruteforce Protection ?
+Solution, How to mitigate Lack of Bruteforce Protection ?
+Solution, Solution for Lack of Bruteforce Protection
+Solution, Provide me some Solution for Lack of Bruteforce Protection
+Solution, mitigation for Lack of Bruteforce Protection
+Solution, How to stop Lack of Bruteforce Protection ?
+Solution, How to defend Lack of Bruteforce Protection ?
+Solution, How to get secured against Lack of Bruteforce Protection ?
+Solution, Solution Lack of Bruteforce Protection
+Solution, How to solve Improper Two Factor Authenticators design ?
+Solution, How to resolve Improper Two Factor Authenticators design ?
+Solution, How to mitigate Improper Two Factor Authenticators design ?
+Solution, Solution for Improper Two Factor Authenticators design
+Solution, Provide me some Solution for Improper Two Factor Authenticators design
+Solution, mitigation for Improper Two Factor Authenticators design
+Solution, How to stop Improper Two Factor Authenticators design ?
+Solution, How to defend Improper Two Factor Authenticators design ?
+Solution, How to get secured against Improper Two Factor Authenticators design ?
+Solution, Solution Improper Two Factor Authenticators design
+Solution, How to solve Impersonation resistance not sufficent ?
+Solution, How to resolve Impersonation resistance not sufficent ?
+Solution, How to mitigate Impersonation resistance not sufficent ?
+Solution, Solution for Impersonation resistance not sufficent
+Solution, Provide me some Solution for Impersonation resistance not sufficent
+Solution, mitigation for Impersonation resistance not sufficent
+Solution, How to stop Impersonation resistance not sufficent ?
+Solution, How to defend Impersonation resistance not sufficent ?
+Solution, How to get secured against Impersonation resistance not sufficent ?
+Solution, Solution Impersonation resistance not sufficent
+Code, Give me some sample code of use me for a header
+Code, Code example of use me for a header ?
+Code, Code of use me for a header
+Code, Code for use me for a header
 Code, Give me some sample code of Filename injection Path traversal
 Code, Code example of Filename injection Path traversal ?
 Code, Code of Filename injection Path traversal
@@ -5723,14 +7553,14 @@ Code, Give me some sample code of Automated spamming via feedback scripts
 Code, Code example of Automated spamming via feedback scripts ?
 Code, Code of Automated spamming via feedback scripts
 Code, Code for Automated spamming via feedback scripts
-Code, Give me some sample code of Session cookies without the Secure flag
-Code, Code example of Session cookies without the Secure flag ?
-Code, Code of Session cookies without the Secure flag
-Code, Code for Session cookies without the Secure flag
-Code, Give me some sample code of Session cookies without the HttpOnly flag
-Code, Code example of Session cookies without the HttpOnly flag ?
-Code, Code of Session cookies without the HttpOnly flag
-Code, Code for Session cookies without the HttpOnly flag
+Code, Give me some sample code of Session cookies without the Secure attribute
+Code, Code example of Session cookies without the Secure attribute ?
+Code, Code of Session cookies without the Secure attribute
+Code, Code for Session cookies without the Secure attribute
+Code, Give me some sample code of Session cookies without the HttpOnly attribute
+Code, Code example of Session cookies without the HttpOnly attribute ?
+Code, Code of Session cookies without the HttpOnly attribute
+Code, Code for Session cookies without the HttpOnly attribute
 Code, Give me some sample code of External session hijacking
 Code, Code example of External session hijacking ?
 Code, Code of External session hijacking
@@ -5919,10 +7749,10 @@ Code, Give me some sample code of Logout structuring
 Code, Code example of Logout structuring ?
 Code, Code of Logout structuring
 Code, Code for Logout structuring
-Code, Give me some sample code of Verify that the session id is never disclosed
-Code, Code example of Verify that the session id is never disclosed ?
-Code, Code of Verify that the session id is never disclosed
-Code, Code for Verify that the session id is never disclosed
+Code, Give me some sample code of Verify that the sensitive information is never disclosed
+Code, Code example of Verify that the sensitive information is never disclosed ?
+Code, Code of Verify that the sensitive information is never disclosed
+Code, Code for Verify that the sensitive information is never disclosed
 Code, Give me some sample code of Session Domain cookies
 Code, Code example of Session Domain cookies ?
 Code, Code of Session Domain cookies
@@ -6195,10 +8025,10 @@ Code, Give me some sample code of RFD and file download injections
 Code, Code example of RFD and file download injections ?
 Code, Code of RFD and file download injections
 Code, Code for RFD and file download injections
-Code, Give me some sample code of identify all application components
-Code, Code example of identify all application components ?
-Code, Code of identify all application components
-Code, Code for identify all application components
+Code, Give me some sample code of Identify all application components
+Code, Code example of Identify all application components ?
+Code, Code of Identify all application components
+Code, Code for Identify all application components
 Code, Give me some sample code of Identify external dependencies
 Code, Code example of Identify external dependencies ?
 Code, Code of Identify external dependencies
@@ -6251,10 +8081,10 @@ Code, Give me some sample code of Access management
 Code, Code example of Access management ?
 Code, Code of Access management
 Code, Code for Access management
-Code, Give me some sample code of JSON XML schema
-Code, Code example of JSON XML schema ?
-Code, Code of JSON XML schema
-Code, Code for JSON XML schema
+Code, Give me some sample code of XML schema (XSD)
+Code, Code example of XML schema (XSD) ?
+Code, Code of XML schema (XSD)
+Code, Code for XML schema (XSD)
 Code, Give me some sample code of Limiting user input size
 Code, Code example of Limiting user input size ?
 Code, Code of Limiting user input size
@@ -6323,18 +8153,18 @@ Code, Give me some sample code of HTTP strict transport security
 Code, Code example of HTTP strict transport security ?
 Code, Code of HTTP strict transport security
 Code, Code for HTTP strict transport security
-Code, Give me some sample code of API resonses security headers
-Code, Code example of API resonses security headers ?
-Code, Code of API resonses security headers
-Code, Code for API resonses security headers
+Code, Give me some sample code of API responses security headers
+Code, Code example of API responses security headers ?
+Code, Code of API responses security headers
+Code, Code for API responses security headers
 Code, Give me some sample code of Do not support untrusted client side technologies
 Code, Code example of Do not support untrusted client side technologies ?
 Code, Code of Do not support untrusted client side technologies
 Code, Code for Do not support untrusted client side technologies
-Code, Give me some sample code of Signed message payloads
-Code, Code example of Signed message payloads ?
-Code, Code of Signed message payloads
-Code, Code for Signed message payloads
+Code, Give me some sample code of Signed message payloads WS security
+Code, Code example of Signed message payloads WS security ?
+Code, Code of Signed message payloads WS security
+Code, Code for Signed message payloads WS security
 Code, Give me some sample code of Hardware key vault
 Code, Code example of Hardware key vault ?
 Code, Code of Hardware key vault
@@ -6463,6 +8293,10 @@ Code, Give me some sample code of File upload outside document root
 Code, Code example of File upload outside document root ?
 Code, Code of File upload outside document root
 Code, Code for File upload outside document root
+Code, Give me some sample code of Authentication integrety checks
+Code, Code example of Authentication integrety checks ?
+Code, Code of Authentication integrety checks
+Code, Code for Authentication integrety checks
 Code, Give me some sample code of Unauthorized and unauthenticated access security logs
 Code, Code example of Unauthorized and unauthenticated access security logs ?
 Code, Code of Unauthorized and unauthenticated access security logs
@@ -6471,10 +8305,10 @@ Code, Give me some sample code of Commonly chosen weak passwords and passphrases
 Code, Code example of Commonly chosen weak passwords and passphrases ?
 Code, Code of Commonly chosen weak passwords and passphrases
 Code, Code for Commonly chosen weak passwords and passphrases
-Code, Give me some sample code of Two factor authentication against username password disclosure
-Code, Code example of Two factor authentication against username password disclosure ?
-Code, Code of Two factor authentication against username password disclosure
-Code, Code for Two factor authentication against username password disclosure
+Code, Give me some sample code of Two factor authentication
+Code, Code example of Two factor authentication ?
+Code, Code of Two factor authentication
+Code, Code for Two factor authentication
 Code, Give me some sample code of Logging access control decisions
 Code, Code example of Logging access control decisions ?
 Code, Code of Logging access control decisions
@@ -6547,10 +8381,10 @@ Code, Give me some sample code of Authenticated data cleared from client storage
 Code, Code example of Authenticated data cleared from client storage ?
 Code, Code of Authenticated data cleared from client storage
 Code, Code for Authenticated data cleared from client storage
-Code, Give me some sample code of File inclusion attack II
-Code, Code example of File inclusion attack II ?
-Code, Code of File inclusion attack II
-Code, Code for File inclusion attack II
+Code, Give me some sample code of All error handling logic must fail securely
+Code, Code example of All error handling logic must fail securely ?
+Code, Code of All error handling logic must fail securely
+Code, Code for All error handling logic must fail securely
 Code, Give me some sample code of Sensitive information in code or online repositories
 Code, Code example of Sensitive information in code or online repositories ?
 Code, Code of Sensitive information in code or online repositories
@@ -6599,7 +8433,331 @@ Code, Give me some sample code of Server side request forgery
 Code, Code example of Server side request forgery ?
 Code, Code of Server side request forgery
 Code, Code for Server side request forgery
+Code, Give me some sample code of ASVS
+Code, Code example of ASVS ?
+Code, Code of ASVS
+Code, Code for ASVS
+Code, Give me some sample code of MASVS
+Code, Code example of MASVS ?
+Code, Code of MASVS
+Code, Code for MASVS
+Code, Give me some sample code of PCI DSS
+Code, Code example of PCI DSS ?
+Code, Code of PCI DSS
+Code, Code for PCI DSS
+Code, Give me some sample code of Tabnabbing
+Code, Code example of Tabnabbing ?
+Code, Code of Tabnabbing
+Code, Code for Tabnabbing
+Code, Give me some sample code of Server side template injection
+Code, Code example of Server side template injection ?
+Code, Code of Server side template injection
+Code, Code for Server side template injection
+Code, Give me some sample code of Insecure direct object references
+Code, Code example of Insecure direct object references ?
+Code, Code of Insecure direct object references
+Code, Code for Insecure direct object references
+Code, Give me some sample code of Type checking and length checking
+Code, Code example of Type checking and length checking ?
+Code, Code of Type checking and length checking
+Code, Code for Type checking and length checking
+Code, Give me some sample code of SMTP IMAP injection
+Code, Code example of SMTP IMAP injection ?
+Code, Code of SMTP IMAP injection
+Code, Code for SMTP IMAP injection
+Code, Give me some sample code of Insecure object deserialization
+Code, Code example of Insecure object deserialization ?
+Code, Code of Insecure object deserialization
+Code, Code for Insecure object deserialization
+Code, Give me some sample code of Software security development lifecycle
+Code, Code example of Software security development lifecycle ?
+Code, Code of Software security development lifecycle
+Code, Code for Software security development lifecycle
+Code, Give me some sample code of Functional security constraints
+Code, Code example of Functional security constraints ?
+Code, Code of Functional security constraints
+Code, Code for Functional security constraints
+Code, Give me some sample code of Attribute based authorization
+Code, Code example of Attribute based authorization ?
+Code, Code of Attribute based authorization
+Code, Code for Attribute based authorization
+Code, Give me some sample code of Key management and key lifecycle by NIST
+Code, Code example of Key management and key lifecycle by NIST ?
+Code, Code of Key management and key lifecycle by NIST
+Code, Code for Key management and key lifecycle by NIST
+Code, Give me some sample code of Key vault
+Code, Code example of Key vault ?
+Code, Code of Key vault
+Code, Code for Key vault
+Code, Give me some sample code of Secrets shared with the client
+Code, Code example of Secrets shared with the client ?
+Code, Code of Secrets shared with the client
+Code, Code for Secrets shared with the client
+Code, Give me some sample code of Data protection levels
+Code, Code example of Data protection levels ?
+Code, Code of Data protection levels
+Code, Code for Data protection levels
+Code, Give me some sample code of Source control systems in place
+Code, Code example of Source control systems in place ?
+Code, Code of Source control systems in place
+Code, Code for Source control systems in place
+Code, Give me some sample code of Continuous security testing
+Code, Code example of Continuous security testing ?
+Code, Code of Continuous security testing
+Code, Code for Continuous security testing
+Code, Give me some sample code of Security test automation
+Code, Code example of Security test automation ?
+Code, Code of Security test automation
+Code, Code for Security test automation
+Code, Give me some sample code of Referrer policy header
+Code, Code example of Referrer policy header ?
+Code, Code of Referrer policy header
+Code, Code for Referrer policy header
+Code, Give me some sample code of Insecure application defaults
+Code, Code example of Insecure application defaults ?
+Code, Code of Insecure application defaults
+Code, Code for Insecure application defaults
+Code, Give me some sample code of Infrastructure as code
+Code, Code example of Infrastructure as code ?
+Code, Code of Infrastructure as code
+Code, Code for Infrastructure as code
+Code, Give me some sample code of GraphQL security
+Code, Code example of GraphQL security ?
+Code, Code of GraphQL security
+Code, Code for GraphQL security
+Code, Give me some sample code of JSON validation schema
+Code, Code example of JSON validation schema ?
+Code, Code of JSON validation schema
+Code, Code for JSON validation schema
+Code, Give me some sample code of Serve files whitelist.
+Code, Code example of Serve files whitelist. ?
+Code, Code of Serve files whitelist.
+Code, Code for Serve files whitelist.
+Code, Give me some sample code of User supplied scriptable or expression template language content
+Code, Code example of User supplied scriptable or expression template language content ?
+Code, Code of User supplied scriptable or expression template language content
+Code, Code for User supplied scriptable or expression template language content
+Code, Give me some sample code of Replay attacks
+Code, Code example of Replay attacks ?
+Code, Code of Replay attacks
+Code, Code for Replay attacks
+Code, Give me some sample code of Same site attribute
+Code, Code example of Same site attribute ?
+Code, Code of Same site attribute
+Code, Code for Same site attribute
+Code, Give me some sample code of Host prefix
+Code, Code example of Host prefix ?
+Code, Code of Host prefix
+Code, Code for Host prefix
+Code, Give me some sample code of Race conditions
+Code, Code example of Race conditions ?
+Code, Code of Race conditions
+Code, Code for Race conditions
+Code, Give me some sample code of Sub domain take over
+Code, Code example of Sub domain take over ?
+Code, Code of Sub domain take over
+Code, Code for Sub domain take over
+Code, Give me some sample code of No password rotation policy
+Code, Code example of No password rotation policy ?
+Code, Code of No password rotation policy
+Code, Code for No password rotation policy
+Code, Give me some sample code of User notification on critical state changing operations
+Code, Code example of User notification on critical state changing operations ?
+Code, Code of User notification on critical state changing operations
+Code, Code for User notification on critical state changing operations
+Code, Give me some sample code of Stateless session tokens
+Code, Code example of Stateless session tokens ?
+Code, Code of Stateless session tokens
+Code, Code for Stateless session tokens
+Code, Give me some sample code of GUID v4
+Code, Code example of GUID v4 ?
+Code, Code of GUID v4
+Code, Code for GUID v4
+Code, Give me some sample code of Exception handling
+Code, Code example of Exception handling ?
+Code, Code of Exception handling
+Code, Code for Exception handling
+Code, Give me some sample code of Back up data
+Code, Code example of Back up data ?
+Code, Code of Back up data
+Code, Code for Back up data
+Code, Give me some sample code of Static code analysis
+Code, Code example of Static code analysis ?
+Code, Code of Static code analysis
+Code, Code for Static code analysis
+Code, Give me some sample code of TLS
+Code, Code example of TLS ?
+Code, Code of TLS
+Code, Code for TLS
+Code, Give me some sample code of Code signing
+Code, Code example of Code signing ?
+Code, Code of Code signing
+Code, Code for Code signing
+Code, Give me some sample code of Secure random generators
+Code, Code example of Secure random generators ?
+Code, Code of Secure random generators
+Code, Code for Secure random generators
 Code, Give me some sample code of not available item
 Code, Code example of not available item ?
 Code, Code of not available item
 Code, Code for not available item
+Code, Give me some sample code of Sensitive Information Exposure in URL
+Code, Code example of Sensitive Information Exposure in URL ?
+Code, Code of Sensitive Information Exposure in URL
+Code, Code for Sensitive Information Exposure in URL
+Code, Give me some sample code of Sensitive Information Exposure in client Side Storage
+Code, Code example of Sensitive Information Exposure in client Side Storage ?
+Code, Code of Sensitive Information Exposure in client Side Storage
+Code, Code for Sensitive Information Exposure in client Side Storage
+Code, Give me some sample code of Session Token Generation After Login
+Code, Code example of Session Token Generation After Login ?
+Code, Code of Session Token Generation After Login
+Code, Code for Session Token Generation After Login
+Code, Give me some sample code of Secure Generation of Session Tokens
+Code, Code example of Secure Generation of Session Tokens ?
+Code, Code of Secure Generation of Session Tokens
+Code, Code for Secure Generation of Session Tokens
+Code, Give me some sample code of Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Code, Code example of Ensure Session Validation in Credential Service Provider and Relying Parties.md ?
+Code, Code of Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Code, Code for Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Code, Give me some sample code of Permit Password Change
+Code, Code example of Permit Password Change ?
+Code, Code of Permit Password Change
+Code, Code for Permit Password Change
+Code, Give me some sample code of Provide Password Strength Checker
+Code, Code example of Provide Password Strength Checker ?
+Code, Code of Provide Password Strength Checker
+Code, Code for Provide Password Strength Checker
+Code, Give me some sample code of Verify Breached Passwords
+Code, Code example of Verify Breached Passwords ?
+Code, Code of Verify Breached Passwords
+Code, Code for Verify Breached Passwords
+Code, Give me some sample code of Offline Attacks on Passwords
+Code, Code example of Offline Attacks on Passwords ?
+Code, Code of Offline Attacks on Passwords
+Code, Code for Offline Attacks on Passwords
+Code, Give me some sample code of Password Hash Salt Length
+Code, Code example of Password Hash Salt Length ?
+Code, Code of Password Hash Salt Length
+Code, Code for Password Hash Salt Length
+Code, Give me some sample code of PBKDF2 Iteration Count
+Code, Code example of PBKDF2 Iteration Count ?
+Code, Code of PBKDF2 Iteration Count
+Code, Code for PBKDF2 Iteration Count
+Code, Give me some sample code of Bcrypt Work Factor
+Code, Code example of Bcrypt Work Factor ?
+Code, Code of Bcrypt Work Factor
+Code, Code for Bcrypt Work Factor
+Code, Give me some sample code of OOB Unencrypted
+Code, Code example of OOB Unencrypted ?
+Code, Code of OOB Unencrypted
+Code, Code for OOB Unencrypted
+Code, Give me some sample code of Secure OOB Channel
+Code, Code example of Secure OOB Channel ?
+Code, Code of Secure OOB Channel
+Code, Code for Secure OOB Channel
+Code, Give me some sample code of OOB PIN Expiry
+Code, Code example of OOB PIN Expiry ?
+Code, Code of OOB PIN Expiry
+Code, Code for OOB PIN Expiry
+Code, Give me some sample code of OOB Key Used Once
+Code, Code example of OOB Key Used Once ?
+Code, Code of OOB Key Used Once
+Code, Code for OOB Key Used Once
+Code, Give me some sample code of Unsafe password reset
+Code, Code example of Unsafe password reset ?
+Code, Code of Unsafe password reset
+Code, Code for Unsafe password reset
+Code, Give me some sample code of Presence of Knowledge
+Code, Code example of Presence of Knowledge ?
+Code, Code of Presence of Knowledge
+Code, Code for Presence of Knowledge
+Code, Give me some sample code of Current Password Exposure
+Code, Code example of Current Password Exposure ?
+Code, Code of Current Password Exposure
+Code, Code for Current Password Exposure
+Code, Give me some sample code of Implement Two Factor Authentication for Password Recovery
+Code, Code example of Implement Two Factor Authentication for Password Recovery ?
+Code, Code of Implement Two Factor Authentication for Password Recovery
+Code, Code for Implement Two Factor Authentication for Password Recovery
+Code, Give me some sample code of Identity Spoofing
+Code, Code example of Identity Spoofing ?
+Code, Code of Identity Spoofing
+Code, Code for Identity Spoofing
+Code, Give me some sample code of Multifcator Authentication Exposure
+Code, Code example of Multifcator Authentication Exposure ?
+Code, Code of Multifcator Authentication Exposure
+Code, Code for Multifcator Authentication Exposure
+Code, Give me some sample code of Authentication Factor Notification
+Code, Code example of Authentication Factor Notification ?
+Code, Code of Authentication Factor Notification
+Code, Code for Authentication Factor Notification
+Code, Give me some sample code of MinimumPasswordLength
+Code, Code example of MinimumPasswordLength ?
+Code, Code of MinimumPasswordLength
+Code, Code for MinimumPasswordLength
+Code, Give me some sample code of PermitLongPasswords
+Code, Code example of PermitLongPasswords ?
+Code, Code of PermitLongPasswords
+Code, Code for PermitLongPasswords
+Code, Give me some sample code of Permit Spaces In Passwords
+Code, Code example of Permit Spaces In Passwords ?
+Code, Code of Permit Spaces In Passwords
+Code, Code for Permit Spaces In Passwords
+Code, Give me some sample code of Permit Unicode Characters In Passwords
+Code, Code example of Permit Unicode Characters In Passwords ?
+Code, Code of Permit Unicode Characters In Passwords
+Code, Code for Permit Unicode Characters In Passwords
+Code, Give me some sample code of Change And Validate Current Password
+Code, Code example of Change And Validate Current Password ?
+Code, Code of Change And Validate Current Password
+Code, Code for Change And Validate Current Password
+Code, Give me some sample code of List of compromised passwords
+Code, Code example of List of compromised passwords ?
+Code, Code of List of compromised passwords
+Code, Code for List of compromised passwords
+Code, Give me some sample code of Password Strength Indicator
+Code, Code example of Password Strength Indicator ?
+Code, Code of Password Strength Indicator
+Code, Code for Password Strength Indicator
+Code, Give me some sample code of No Character type limitation
+Code, Code example of No Character type limitation ?
+Code, Code of No Character type limitation
+Code, Code for No Character type limitation
+Code, Give me some sample code of No Credential Rotation Requirements
+Code, Code example of No Credential Rotation Requirements ?
+Code, Code of No Credential Rotation Requirements
+Code, Code for No Credential Rotation Requirements
+Code, Give me some sample code of Logout session expiration
+Code, Code example of Logout session expiration ?
+Code, Code of Logout session expiration
+Code, Code for Logout session expiration
+Code, Give me some sample code of Reauthentication valid sessions
+Code, Code example of Reauthentication valid sessions ?
+Code, Code of Reauthentication valid sessions
+Code, Code for Reauthentication valid sessions
+Code, Give me some sample code of Change password session expiration
+Code, Code example of Change password session expiration ?
+Code, Code of Change password session expiration
+Code, Code for Change password session expiration
+Code, Give me some sample code of Samesite cookie attribute
+Code, Code example of Samesite cookie attribute ?
+Code, Code of Samesite cookie attribute
+Code, Code for Samesite cookie attribute
+Code, Give me some sample code of Weak revocability of physical authenticators
+Code, Code example of Weak revocability of physical authenticators ?
+Code, Code of Weak revocability of physical authenticators
+Code, Code for Weak revocability of physical authenticators
+Code, Give me some sample code of Lack of Bruteforce Protection
+Code, Code example of Lack of Bruteforce Protection ?
+Code, Code of Lack of Bruteforce Protection
+Code, Code for Lack of Bruteforce Protection
+Code, Give me some sample code of Improper Two Factor Authenticators design
+Code, Code example of Improper Two Factor Authenticators design ?
+Code, Code of Improper Two Factor Authenticators design
+Code, Code for Improper Two Factor Authenticators design
+Code, Give me some sample code of Impersonation resistance not sufficent
+Code, Code example of Impersonation resistance not sufficent ?
+Code, Code of Impersonation resistance not sufficent
+Code, Code for Impersonation resistance not sufficent

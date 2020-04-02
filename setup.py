@@ -7,7 +7,7 @@ with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 setup(name='skf',
-    version='3.0.0',
+    version='3.0.4',
     description='The OWASP Security Knowledge Framework',
     url='https://github.com/blabla1337/skf-flask',
     author='Glenn ten Cate, Riccardo ten Cate',

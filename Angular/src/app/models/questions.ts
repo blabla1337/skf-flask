@@ -1,10 +1,10 @@
 export class Questions {
   constructor(
-  projectID: number,
-  question_ID: number,
+  project_id: number,
+  question_id: number,
   result: string,
-  sprintID: number,
-  sprintName: string
+  sprint_id: number,
+  sprint_name: string
   ) {}
 }
 

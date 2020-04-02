@@ -1,0 +1,30 @@
+apiVersion: "extensions/v1beta1"
+kind: "Ingress"
+metadata:
+  name: "skf-ingress-controller"
+  namespace: "default"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+#   nginx.ingress.kubernetes.io/whitelist-source-range: comma separated list of CIDR blocks to whitelist - todo - make configmaps
+spec:
+  tls:
+  - hosts:
+    - localhost
+    secretName: localhost
+  rules:
+  - host: localhost
+    http:
+     paths:
+     - backend:
+         serviceName: skf-flask-front
+         servicePort: 8788
+       path: /  
+     - backend:
+         serviceName: skf-flask-back
+         servicePort: 8888
+       path: /api
+     - backend:
+         serviceName: skf-flask-back
+         servicePort: 8888
+       path: /swaggerui

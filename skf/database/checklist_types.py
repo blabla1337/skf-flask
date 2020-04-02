@@ -1,27 +1,17 @@
 
 from skf.database import db
 
-'''
---
--- Table structure for table `checklist_types`
---
-drop table if exists `checklist_types`;
-CREATE TABLE `checklist_types` (
-`checklist_type` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklist_description` varchar(255) NOT NULL,
-`checklist_name` varchar(255) NOT NULL
-);
-'''
-
 class ChecklistType(db.Model):
 	
     __tablename__ = 'checklist_types'
 
     id = db.Column(db.Integer, primary_key=True)
-
     name = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
     visibility = db.Column(db.Boolean, nullable=False)
+    
+    checklist_category_id = db.Column(db.Integer, db.ForeignKey("checklist_category.id"), nullable=True)
+    checklist_category = db.relationship("ChecklistCategory", backref=db.backref('checklist_types'))
 
     def __init__(self, name, description, visibility):
         self.name = name

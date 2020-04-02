@@ -6,6 +6,7 @@ from skf.api.sprints.business import delete_checklist_result
 from skf.api.sprints.serializers import delete_checklist_results, message
 from skf.api.sprints.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
@@ -24,6 +25,5 @@ class ProjectSprintResultItemDelete(Resource):
         * Privileges required: **read**
         """
         validate_privilege(self, 'read')
-        user_id = select_userid_jwt(self)
-        result = delete_checklist_result(checklist_result_id, user_id)
+        result = delete_checklist_result(checklist_result_id)
         return result, 200, security_headers()

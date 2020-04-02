@@ -5,7 +5,7 @@ from skf.api.security import security_headers, validate_privilege
 from skf.api.chatbot.business import des_sol,code
 from skf.api.chatbot.serializers import question_response, question_chatbot, message
 from skf.api.restplus import api
-
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('chatbot', description='Operations related to the chatbot interactions')
 @ns.route('/question')
@@ -22,6 +22,7 @@ class ChatbotQuestion(Resource):
         """
         data = request.json
         data_q=data.get('question')
+        val_alpha_num_special(data.get('question'))
         intent=intent_classifier.predict(data_q)
         if intent=='Code':
             lang=None

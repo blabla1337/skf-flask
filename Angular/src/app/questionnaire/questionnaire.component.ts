@@ -14,7 +14,7 @@ import { Questions } from '../models/questions'
   providers: [QuestionsService, ChecklistService]
 })
 export class QuestionnaireComponent implements OnInit {
-  @ViewChild('sectionNeedToScroll') sectionNeedToScroll: ElementRef
+  @ViewChild('sectionNeedToScroll', { static: true }) sectionNeedToScroll: ElementRef
 
   public questions: Questions[] = [];
   public checklist: Checklist[];
@@ -102,7 +102,7 @@ export class QuestionnaireComponent implements OnInit {
     this.checklistService.updateChecklistItemCorraltion(checklist_id, Number(localStorage.getItem('checklist_type_id')), Number(localStorage.getItem('question_id')))
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
-        () => console.log(('Adding the checklistID to the question did not happen!'))
+        () => console.log(('Adding the checklist_id to the question did not happen!'))
       );
   }
 
@@ -110,7 +110,7 @@ export class QuestionnaireComponent implements OnInit {
     this.checklistService.updateChecklistItemCorraltion(checklist_id, Number(localStorage.getItem('checklist_type_id')), 0)
       .subscribe(
         () => {this.getChecklistListItemsCorrelatedToSelectedQuestion(); this.getChecklistList()},
-        () => console.log(('Adding the checklistID to the question did not happen!'))
+        () => console.log(('Adding the checklist_id to the question did not happen!'))
       );
   }
 

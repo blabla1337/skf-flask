@@ -1,16 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-set -x 
+set -ex
 
-ORIGIN=${ORIGIN:-'localhost'}
+ORIGIN=${FRONTEND_URI:-http://127.0.0.1:8788}
 
-if [[ "$ORIGIN" != "" ]]; then
-    perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_api/skf-flask/Angular/src/environments/environment.prod.ts
-    perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/$ORIGIN\/api/" /home/user_api/skf-flask/Angular/src/environments/environment.ts
-else
-    echo 'You need to select a ORIGIN location'
-    exit
-fi
+echo "angular will try to contact the api at: ${ORIGIN}/api"
+find /usr/share/nginx/html -type f -exec sed -i -e "s,http://127.0.0.1:8888/api,${ORIGIN}/api,g" {} \;
+# grep -r "${BACKEND}" $1
 
-# Start SKF services
-/home/user_api/skf-flask/wrapper.sh
+cp $1 /etc/nginx/conf.d/site.conf
+cat /etc/nginx/conf.d/site.conf
+
+exec nginx -g "daemon off;"
