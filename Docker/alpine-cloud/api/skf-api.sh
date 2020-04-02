@@ -1,8 +1,8 @@
 #!/bin/bash
 
+cd /home/user_api
+export FLASK_APP=/home/user_api/skf/app.py
+export PYTHONPATH=/home/user_api
+
 # Start the SKF Python API
-cd /home/user_api/skf-flask 
-export FLASK_APP=skf/app.py
-export PYTHONPATH=/home/user_api/skf-flask
-export FLASK_DEBUG=0
-python3.7 skf/app.py 
+/home/user_api/.local/bin/gunicorn --bind 0.0.0.0:8888 wsgi:app

@@ -5,6 +5,7 @@ from skf.api.sprints.business import export_results
 from skf.api.sprints.serializers import sprint_results, message
 from skf.api.sprints.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
@@ -21,6 +22,7 @@ class ProjectSprintResultExportItem(Resource):
         Returns sprint export.
         * Privileges required: **read**
         """
+        val_num(id)
         validate_privilege(self, 'read')
         result = export_results(id)
         return result, 200, security_headers()

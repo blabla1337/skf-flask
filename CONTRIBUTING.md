@@ -19,12 +19,13 @@ Again thank you for your help, you rock!
 3. export FLASK_APP=skf/app.py
 4. export PYTHONPATH=.:$PYTHONPATH
 5. export FLASK_DEBUG=1
-6. python3.6 skf/app.py
-7. Run the manual test first to verify if everything is good
+6. export SKF_JWT_SECRET='True'
+7. python3.6 skf/app.py
+8. Run the manual test first to verify if everything is good
 ``` 
 coverage run tests/run.py test
 ``` 
-7. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
+9. Create your changes and write a unit test, commit and open a PR from your fork to the master repo. All CI test must pass before we accept pull requests.
 
 ## <a name="development-angular"></a>Development SKF-ANGULAR
 
@@ -49,6 +50,7 @@ Go to the SKF root dir and run:
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
 export FLASK_DEBUG=1
+export SKF_JWT_SECRET='True'
 coverage run tests/run.py test
 ```
 
@@ -67,6 +69,7 @@ Go to the SKF root dir and run:
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
 export FLASK_DEBUG=1
+export SKF_JWT_SECRET='True'
 python3 skf/app.py
 ```
 

@@ -1,0 +1,55 @@
+# Run docker-compose up
+# Live long and prosper
+
+version: '2'
+
+services:
+
+  rabbitmq:
+    container_name: skf-rabbitmq_container
+    image: rabbitmq:latest
+    environment:
+        - RABBITMQ_DEFAULT_USER=admin
+        - RABBITMQ_DEFAULT_PASS=admin-skf-secret
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+
+  nginx:
+    container_name: nginx_container
+    restart: always
+    image: nginx
+    volumes:
+      - ./Docker/compose/site.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+
+  skf-angular:
+    container_name: skf-angular_container
+    depends_on:
+      - "rabbitmq"
+      - "nginx"
+    restart: always
+    image: "blabla1337/skf-angular:1.3"
+    environment:
+      - FRONTEND_URI=http://localhost
+
+  skf-api:
+    container_name: skf-api_container
+    depends_on:
+      - "rabbitmq"
+      - "nginx"
+    restart: always
+    volumes:
+      - ~/.kube/config:/home/user_api/.kube/config
+    image: "blabla1337/skf-api:dev"
+    environment:
+      - SKF_FLASK_DEBUG=False
+      - SKF_API_URL=http://localhost/api
+      - SKF_TESTING=False
+      - RABBIT_MQ_CONN_STRING=rabbitmq
+      #- SKF_DB_URL=mysql+pymysql://root:password@localhost/skf?charset=utf8mb4
+      #- SKF_DB_URL=
+      #- SKF_DOJO_API_KEY=
+      #- JWT_SECRET=
+

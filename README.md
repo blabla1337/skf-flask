@@ -41,6 +41,7 @@ The second stage is validating if the developer properly implemented different s
 
 ### [Local on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
 ### [Docker local installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
+### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/Kubernetes)  
 ### [Azure installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/azure-deployment)  
 
 ### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)  
@@ -134,7 +135,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 
 
 ## <a name="license"></a>License
-    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -199,3 +200,5 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Thiago Luiz Dimbarre
 - Harshant Sharma
 - Semen Rozhkov
+- Mehtab Zafar 
+- Daniel Spilsbury

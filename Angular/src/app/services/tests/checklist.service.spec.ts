@@ -27,7 +27,7 @@ describe('Checklist service', () => {
 
    const items = [
        {
-      'checklist_items_checklistID': '1.1',
+      'checklist_items_checklist_id': '1.1',
       'checklist_items_content': 'Verify that all application components are identified and are known to be needed',
       'checklist_items_level': 1,
       'checklist_items_type': 0,
@@ -35,7 +35,7 @@ describe('Checklist service', () => {
       'kb_items_content': ' Identify all application components\n\n\n Description:\n\nWhen you are building an application you first want to map where you are placing\nsource files, libraries and executables.\n\nWith these components identified and mapped, it becomes transparent where possible\npitfalls might be in your application and increases the maintainability of the\nsystem. Also, you have an indicator where possible reinforcements have to be\nimplemented to avoid attacks.(i.e places where your application contains executable\'s)\n\n Solution:\n\nVerify that all application components (either individual or groups of source files,\nlibraries, and/or executables) that are present in the application are identified.\n\nWhen you identified these components you may want to map and document them in order to\nhave a quick reference to this infrastructure when needed.\n'
     },
     {
-      'checklist_items_checklistID': '1.10',
+      'checklist_items_checklist_id': '1.10',
       'checklist_items_content': 'Verify that there is no sensitive business logic, secret keys or other proprietary information in client side code.',
       'checklist_items_level': 2,
       'checklist_items_type': 0,
@@ -60,7 +60,7 @@ describe('Checklist service', () => {
       service.getChecklist(1, 0)
         .subscribe((items: Checklist[]) => {
          expect(items.length).toBe(2);
-         expect(items[0]['checklist_items_checklistID']).toMatch('1.1');
+         expect(items[0]['checklist_items_checklist_id']).toMatch('1.1');
         });
     }));
 

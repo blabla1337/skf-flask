@@ -2,7 +2,6 @@
 import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Sprint } from '../models/sprint';
 import { AppSettings } from '../globals';
@@ -14,7 +13,6 @@ export class SprintService {
 
   constructor(
     private http: Http,
-    private router: Router,
   ) { }
 
   public headers = new Headers({ 'Authorization': AppSettings.AUTH_TOKEN });
@@ -45,14 +43,14 @@ export class SprintService {
     return this.http.get(environment.API_ENDPOINT + `/sprint/results/export/${sprint_id}`, { headers: this.headers }).pipe(
       map(
       response => response.json().message,
-      error => console.log('failed to export')));
+      () => console.log('failed to export')));
   }
 
   getSprintResultsExportExternal(id: number) {
     return this.http.get(environment.API_ENDPOINT + `/sprint/results/export_external/${id}`, { headers: this.headers }).pipe(
       map(
       response => response.json().message,
-      error => console.log('failed to export')));
+      () => console.log('failed to export')));
   }
 
   delete(sprint_id: number) {
@@ -60,7 +58,7 @@ export class SprintService {
     return this.http.delete(url, { headers: this.headers }).pipe(
       map(
       data => data,
-      error => console.log('failed to delete')))
+      () => console.log('failed to delete')))
   }
 
   deleteChecklistResult(checklist_result_id: number) {
@@ -70,4 +68,14 @@ export class SprintService {
       data => data,
       () => console.log('failed to delete')))
   }
+
+  updateChecklistResult(checklist_result_id: number,  sprint: Sprint) {
+    return this.http
+      .put(environment.API_ENDPOINT + `/sprint/results/update/${checklist_result_id}`, JSON.stringify({ 
+        evidence: sprint['evidence'], 
+        resolved: sprint['resolved']}),
+      { headers: this.postHeaders }).pipe(
+      map(response => { return response.json() }));
+  }
+  
 }

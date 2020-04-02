@@ -6,6 +6,7 @@ from skf.api.projects.business import stats_project
 from skf.api.projects.serializers import message, project_stats
 from skf.api.projects.parsers import authorization
 from skf.api.restplus import api
+from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('project', description='Operations related to project items')
 
@@ -23,8 +24,8 @@ class ProjectStats(Resource):
         Returns project stats.
         * Privileges required: **read**
         """
+        val_num(id)
         validate_privilege(self, 'read')
-        user_id = select_userid_jwt(self)
         result = stats_project(id)
         return result, 200, security_headers()
 

@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -23,7 +23,7 @@
   <div class="col-wrapper">
     <div class="lock-screen">
       <div class="login-wrapper">
-        <div class="logo"><img src="/assets/img/logos/logo_login.svg" width="60" height="60" /></div>
+        <div class="logo"><img src="assets/img/logos/logo_login.svg" width="60" height="60" /></div>
           <div *ngIf="isSubmitted && formControls.user_id.errors" class="help-block">
               <div *ngIf="formControls.user_id.errors.required">
                 <ngb-alert type="danger" [dismissible]="false">
@@ -48,8 +48,8 @@
                   </div>
                 </div>
 
-                <div *ngIf="isSubmitted && formControls.userName.errors" class="help-block">
-                    <div *ngIf="formControls.userName.errors.required">
+                <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+                    <div *ngIf="formControls.username.errors.required">
                       <ngb-alert type="danger" [dismissible]="false">
                         username was not filled in 
                       </ngb-alert>
@@ -79,13 +79,13 @@
             </div>
             <div class="modal-body">
               <form [formGroup]="activateForm">
-                 <input formControlName="user_id" maxlength="20"  id="userID" placeholder="user ID" autocomplete="off" class="form-control placeholder-no-fix"/>
+                 <input formControlName="user_id" maxlength="20"  id="user_id" placeholder="user ID" autocomplete="off" class="form-control placeholder-no-fix"/>
                 <br>
                 <input formControlName="accessToken" maxlength="20" id="token" placeholder="Access token" autocomplete="off" class="form-control placeholder-no-fix"/>
                 <br>
                 <input formControlName="email" maxlength="50"  id="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" />
                 <br>
-                <input formControlName="userName" maxlength="20"  id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"/>
+                <input formControlName="username" maxlength="20"  id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"/>
                 <br>
                 <input formControlName="password" maxlength="50" type="password"  id="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"/>
                 <br>
@@ -97,12 +97,12 @@
               </form>
             </div>
             <!-- js placed at the end of the document so the pages load faster -->
-            <script src="/assets/js/bootstrap.min.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
           </div>
         </div>
       </div>
       <div class="copy">
-        <img src="/assets/img/logos/owasp-icon-grey.svg" width="40" height="40" />Supported by <a style="color:#4d6aa9;"
+        <img src="assets/img/logos/owasp-icon-grey.svg" width="40" height="40" />Supported by <a style="color:#4d6aa9;"
           href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
       </div>
     </div>

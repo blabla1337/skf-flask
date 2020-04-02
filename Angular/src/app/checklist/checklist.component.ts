@@ -3,47 +3,70 @@ import { ChecklistService } from '../services/checklist.service'
 import { ChecklistType } from '../models/checklist_type';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Checklist } from '../models/checklist';
+import { CategoryService } from '../services/category.service';
+import { Category } from '../models/category';
 
 
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',
-  providers: [ChecklistService],
+  providers: [ChecklistService, CategoryService],
 })
 
-export class ChecklistComponent {
+export class ChecklistComponent
+{
   public checklistTypes: ChecklistType[] = [];
   public checklistItems: Checklist[] = [];
+  public categories: Category[] = [];
+  public category;
   public queryString: string;
   public closeResult: string;
   public error: string;
   public checklist_type: number;
   public color: string;
 
-  constructor(private checklistService: ChecklistService, private modalService: NgbModal) { }
+  constructor(private checklistService: ChecklistService, private categoryService: CategoryService, private modalService: NgbModal) { }
 
 
-  ngOnInit() {
-    this.checklistTypeList()
+  ngOnInit()
+  {
+    this.categoryList()
   }
 
-  checklistTypeList() {
+  checklistTypeList(category_id: number)
+  {
     this.checklistService
-      .getChecklistTypeList()
+      .getChecklistTypeList(category_id)
       .subscribe(
-        checklistTypes => {
+        checklistTypes =>
+        {
           this.checklistTypes = checklistTypes;
-          if (!this.checklistTypes) {
-            this.error = 'There are no checklist types defined yet'
-          }
         },
         err => this.error = 'Getting the checklist types failed, contact an administrator! ');
   }
 
-  open(content, typeID: number) {
+  categoryList()
+  {
+    this.categoryService
+      .getCategories()
+      .subscribe(
+        categories =>
+        {
+          this.categories = categories;
+        },
+        err => console.log('Getting the projects failed, contact an administrator! '));
+  }
+
+  selectChecklistsFromCategory()
+  {
+    this.checklistTypeList(this.category);
+  }
+
+  open(content, typeID: number)
+  {
     this.checklistService
       .getChecklistByType(typeID)
       .subscribe(checklistItems => { this.checklistItems = checklistItems });
-      this.modalService.open(content, { size: 'lg' })
+    this.modalService.open(content, { size: 'lg' })
   }
 }

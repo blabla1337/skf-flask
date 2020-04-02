@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -23,7 +23,7 @@
   <div class="col-wrapper">
     <div class="lock-screen">
       <div class="login-wrapper">
-        <div class="logo"><img src="/assets/img/logos/logo_login.svg" width="60" height="60" /></div>
+        <div class="logo"><img src="assets/img/logos/logo_login.svg" width="60" height="60" /></div>
         <div *ngIf="expired">
           <br/>
           <ngb-alert [dismissible]="false">
@@ -37,7 +37,7 @@
             </div>
             <div class="modal-body">
               <form [formGroup]="loginForm">
-                <input formControlName="userName" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
+                <input formControlName="username" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"
                 />
                 <br>
                 <input formControlName="password" name="password" id="password" type="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"
@@ -54,12 +54,12 @@
               </form>
             </div>
             <!-- js placed at the end of the document so the pages load faster -->
-            <script src="/assets/js/bootstrap.min.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
           </div>
         </div>
       </div>
       <div  class="copy">
-        <img src="/assets/img/logos/owasp-icon-grey.svg" width="40" height="40" />Supported by <a style="color:#4d6aa9;" href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
+        <img src="assets/img/logos/owasp-icon-grey.svg" width="40" height="40" />Supported by <a style="color:#4d6aa9;" href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
       </div>
     </div>
   </div>

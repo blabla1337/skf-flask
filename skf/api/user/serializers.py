@@ -39,7 +39,7 @@ token_auth = api.model('Response Authorization token', {
 })
  
 user_list = api.model('user_list', {
-    'userName': fields.String(required=True, description='Username of the user'),
+    'username': fields.String(required=True, description='Username of the user'),
     'email': fields.String(required=True, description='Email of the user'),
     'access': fields.String(required=True, description='User has access to application'),
     'activated': fields.String(required=True, description='User is activated'),

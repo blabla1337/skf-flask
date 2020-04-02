@@ -33,11 +33,6 @@ export class ProjectService {
       map(response => response.json().items))
   }
 
-  getSingleProject(id: number): Observable<Project[]> {
-    return this.http.get(environment.API_ENDPOINT + `/project/${id}`, { headers: this.getHeaders }).pipe(
-      map(response => response.json().items))
-  }
-
   deleteProject(id: number) {
     const url = environment.API_ENDPOINT + `/project/delete/${id}`;
     return this.http.delete(url, { headers: this.postHeaders }).pipe(

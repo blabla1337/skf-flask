@@ -8,7 +8,6 @@ language: python
 sudo: false
 
 python:
-# - "2.7"
   - "3.6"
 
 before_install:
@@ -18,7 +17,7 @@ before_install:
   
 install:
   - pip3 install pytest-cov
-  - pip3 install coverage
+  - pip3 install coverage==4.5.4
   - pip3 install python-coveralls
   - pip3 install -r requirements.txt
   - cd Angular
@@ -42,6 +41,7 @@ script:
 #  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
 #  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
 #  - cd ../; coverage run --source=skf setup.py test
+  - coverage run --source=skf setup.py test
 
 after_success:
   - pip install hub-pip==1.1.0
@@ -54,6 +54,7 @@ after_success:
   - snyk monitor
 
 notifications:
+  slack: owasp:Y79DH2cU7J65MG8oKAXWH8qv  
   webhooks:
     urls:
       - https://webhooks.gitter.im/e/e55113d395f98b551f5a

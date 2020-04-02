@@ -1,12 +1,18 @@
-### Local / dedicated server install
+## Local / dedicated server install
+
 Local installation based on Ubuntu 16.04.
 
-#### Requirements:
-- nginx (```sudo apt purge ng-common ng-latin```)
-- nginx (```sudo apt install nginx```)
-- npm (```sudo apt install npm```)
-- ng (```sudo apt install -g @angular/cli```)
-- git (```sudo apt install git```)
+### Requirements:
+- If you have `ng-common` and `ng-latin` on your system then remove them
+    + `sudo apt purge ng-common ng-latin`
+- nginx
+    + `sudo apt install nginx`
+- npm
+    + `sudo apt install npm`
+- ng
+    + `sudo apt install -g @angular/cli`
+- git
+    + `sudo apt install git`
 - latest version of node ():
 ```
     * sudo npm install n -g
@@ -22,46 +28,93 @@ Local installation based on Ubuntu 16.04.
     * sudo python3.6 get-pip.py
 ```
 
-#### Installation SKF and configuration:
-Run on terminal
+### Installation SKF and configuration:
+
+* __Clone repository and install dependencies__
+
 ```
 cd /tmp; git clone git://github.com/blabla1337/skf-flask.git
-cd /tmp/skf-flask; sudo pip3.6 install -r requirements.txt 
+cd /tmp/skf-flask; sudo pip3.6 install -r requirements.txt
 cd /tmp/skf-flask/Angular; npm install
-cd /tmp/skf-flask/Angular; ng build --aot --configuration=production 
+cd /tmp/skf-flask/Angular; ng build --aot --configuration=production
+```
+
+* __Configure nginx__
+
+```
 sudo rm /etc/nginx/sites-enabled/default
 sudo cp /tmp/skf-flask/installations/local/site-tls.conf /etc/nginx/sites-enabled/default
+```
 
-mv /tmp/skf-flask /
+* `mv /tmp/skf-flask /`
 
-# Change the JWT_SECRET value with below command
+#### Edit Settings
+
+* __Change the JWT_SECRET value with below command__
+
+```bash
 perl -pi -e "s/JWT_SECRET = ''/JWT_SECRET = 'THIS_SHOULD_BE_CHANGED_AND_RANDOM'/" /skf-flask/skf/settings.py
-# Change the domain value with below command
+```
+
+* __Change the domain value with below command__
+
+```bash
 perl -pi -e "s/\*/https:\/\/demo.securityknowledgeframework.org/" /skf-flask/skf/settings.py
-# Change the domain value with below command
+```
+
+* __Change the domain value with below command__
+
+```bash
 perl -pi -e "s/http:\/\/127.0.0.1:8888\/api/https:\/\/demo.securityknowledgeframework.org\/api/" /skf-flask/Angular/src/environments/environment.prod.ts
-# Change the domain value with below command
+```
+
+* __Change the domain value with below command__
+
+```bash
 perl -pi -e "s/localhost/demo.securityknowledgeframework.org/" /skf-flask/installations/local/skf-angular.sh
+```
 
-# Certificates stored in /skf-flask/ dir
+* __Certificates stored in /skf-flask/ dir__
+
+```bash
 openssl req -nodes -newkey rsa:4096 -keyout /skf-flask/server.key -out /skf-flask/server.csr  -subj "/CN=OWASP-SKF"
+```
+
+```bash
 openssl x509 -req -days 365 -in /skf-flask/server.csr  -signkey /skf-flask/server.key -out /skf-flask/server.pem
+```
 
-# Start nginx
+* __Start nginx__
+
+```bash
 service restart nginx
+```
+or if you use `systemctl`
 
+```bash
+systemctl start nginx.service
 ```
 
-#### Run SKF (with terminal in Local folder):
+
+### Run SKF (with terminal in Local folder):
+
 ```
-# Start SKF services
 cd /skf-flask/installations/local; bash wrapper.sh
 ```
+
 Navigate to https://your_domain_value_you_used_above_commands
 
+You can also run API and Frontend part separately for __development__ process. To do so run the following commands:
+
+* In one terminal window run: `./skf-api.sh`
+* In another terminal window run : `./skf-angular.sh development`
+
 #### Error:
+
 If you get the following error
+
 ```
 nginx: [emerg] a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-enabled/default:17
 ```
+
 If you are not using that file just remove it: (```sudo rm /etc/nginx/sites-enabled/default```)

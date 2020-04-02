@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -118,6 +118,39 @@
 
               <!-- Start the stepper -->
               <ngb-tabset type="pills" #t="ngbTabset" [destroyOnHide]="false">
+                
+                <!-- stepper category -->
+                <ngb-tab id="category">
+                  <ng-template ngbTabTitle><b>Category</b></ng-template>
+                  <ng-template ngbTabContent>
+                    <div class="inner">
+                      <h4>Category</h4>
+                      <p>Select the right checklist category for your feature/sprint</p>
+                    </div>
+                    <select class="form-control" name="question" id="question"
+                      [(ngModel)]="category_id" (change)="selectChecklistsOnChange()">
+                      <option selected [value]="selectUndefinedOptionValue">Select a category to work with!</option>
+                      <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+                    </select>
+                    <br />
+                    <div class="alert alert-info" style="margin-bottom:2.6%">
+                      <p><strong>So how is this about?</strong></p>
+                      <p>
+                        The maturity level gives you a different set of checklists that are correlacted
+                        to the level. If you get more confident in secure coding you can select
+                        a higher level of maturity to do your sprints/features with.
+                      </p>
+                    </div>
+                    <div class="buttons">
+                      <br />
+                      <button *ngIf="category_id" (click)="t.select('intro')" id="checklist"
+                        class="btn btn-default" style='float:right'>Select</button>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+                <!-- END stepper category -->
+                
+                <!-- stepper intro -->
                 <ngb-tab id="intro">
                   <ng-template ngbTabTitle><b>Maturity level</b></ng-template>
                   <ng-template ngbTabContent>
@@ -126,7 +159,7 @@
                       <p>Select the right checklist maturity for your feature/sprint</p>
                     </div>
                     <select class="form-control" name="question" id="question"
-                      [(ngModel)]="maturity_id">
+                      [(ngModel)]="maturity_id" (change)="selectChecklistsOnChange()">
                       <option selected> Select checklist maturity </option>
                       <option value=1> Level 1</option>
                       <option value=2> Level 2</option>
@@ -143,11 +176,16 @@
                     </div>
                     <div class="buttons">
                       <br />
+                      <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('category')"><i
+                        class="fa fa-arrow-left" aria-hidden="true"></i></button>
                       <button *ngIf="maturity_id" (click)="t.select('checklist')" id="checklist"
-                        class="btn btn-default" style='float:right'>Select</button>
+                        class="btn btn-default">Select</button>
                     </div>
                   </ng-template>
                 </ngb-tab>
+                <!-- END stepper intro -->
+                
+                <!-- stepper checklist -->
                 <ngb-tab id="checklist">
                   <ng-template ngbTabTitle><b>Select checklist</b></ng-template>
                   <ng-template ngbTabContent>
@@ -179,7 +217,9 @@
                       </div>
                   </ng-template>
                 </ngb-tab>
-                <!-- start the questionnaire -->
+                <!-- END stepper checklist -->
+                
+                <!-- start stepper questionnaire -->
                 <ngb-tab id="questionnaire">
                   <ng-template ngbTabTitle><b> Questionnaire</b></ng-template>
                   <ng-template ngbTabContent>
@@ -203,7 +243,7 @@
                         </tbody>
                       </table>
                       <div class="buttons">
-                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('intro')"><i
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('checklist')"><i
                             class="fa fa-arrow-left" aria-hidden="true"></i></button>
                         <button class="btn btn-default" (click)="storeSprint(myForm); t.select('feature')"><i
                             class="fa fa-arrow-right 5" aria-hidden="true"></i></button>
@@ -211,7 +251,9 @@
                     </form>
                   </ng-template>
                 </ngb-tab>
-                <!-- Start the third step! -->
+                <!-- END stepper questionnaire -->
+
+                <!-- Start stepper feature -->
                 <ngb-tab id="feature">
                   <ng-template ngbTabTitle><b>Set-up</b></ng-template>
                   <ng-template ngbTabContent>
@@ -241,8 +283,8 @@
                         <div class="wrap">
                           <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
                           <div class="col-sm-10">
-                            <input required maxlength="120" [(ngModel)]="sprintName" type="text" class="form-control"
-                              id="sprintName" name="sprintName" placeholder="">
+                            <input required maxlength="120" [(ngModel)]="sprint_name" type="text" class="form-control"
+                              id="sprint_name" name="sprint_name" placeholder="">
                             <div class="wrap desc alert-info">
                               <div class="col-sm-10">Make it easy for your team to recognise.</div>
                             </div>
@@ -253,8 +295,8 @@
                         <div class="wrap">
                           <label for="inputDesc" class="col-sm-2 control-label">Sprint Description</label>
                           <div class="col-sm-10">
-                            <textarea required class="form-control" [(ngModel)]="sprintDescription"
-                              name="sprintDescription" id="sprintDescription" style="height: 90px;"
+                            <textarea required class="form-control" [(ngModel)]="sprint_descriptionription"
+                              name="sprint_descriptionription" id="sprint_descriptionription" style="height: 90px;"
                               placeholder=""></textarea>
                             <div class="wrap desc alert-info">
                               <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the
@@ -287,7 +329,7 @@
                         </div>
                       </div>
                       <div class="buttons">
-                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('step1');"><i
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('questionnaire');"><i
                             class="fa fa-arrow-left" aria-hidden="true"></i></button>
                         <button class="btn btn-default" type="submit" id="finish" name="step2"
                           (click)="t.select('finish'); oldSprint();"><i class="fa fa-arrow-right"
@@ -296,6 +338,8 @@
                     </div>
                   </ng-template>
                 </ngb-tab>
+                <!-- END stepper feature -->
+
                 <!-- Start the finish step -->
                 <ngb-tab id="finish">
                   <ng-template ngbTabTitle><b>Finish</b></ng-template>
@@ -314,7 +358,7 @@
                     </div>
                     <div class="buttons">
                       <button style="margin-right:0.7%;margin-top:4%" class="btn btn-default"
-                        (click)="t.select('step2')"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        (click)="t.select('feature')"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                       <button style="margin-top:4%" class="btn btn-success"
                         (click)="newSprintQuestions(); c('Close click')"><i class="fa fa-check" aria-hidden="true"></i>
                         Save</button>
@@ -322,6 +366,8 @@
                   </ng-template>
                 </ngb-tab>
               </ngb-tabset>
+              <!-- END stepper finish -->
+            
             </div>
             <div class="modal-footer">
             </div>

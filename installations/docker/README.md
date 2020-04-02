@@ -18,3 +18,6 @@ docker run -v /Users/gibson/Desktop/development/skf-flask/skf/db/db.sqlite:/skf-
 
 The application will greet you on:
 https://localhost
+
+We also have a list of old OWASP-SKF Docker images available:
+https://cloud.docker.com/repository/docker/blabla1337/skf-flask/tags

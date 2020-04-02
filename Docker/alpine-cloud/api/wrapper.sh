@@ -1,10 +1,18 @@
 #!/bin/bash
 
 # Start the first process
-/home/user_api/skf-flask/skf-api.sh &
+/home/user_api/Docker/alpine-cloud/api/skf-api.sh &
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start skf_api_process: $status"
+  exit $status
+fi
+
+# Start the second process
+/home/user_api/Docker/alpine-cloud/api/skf-worker.sh &
+status=$?
+if [ $status -ne 0 ]; then
+  echo "Failed to start skf_worker_process: $status"
   exit $status
 fi
 
@@ -16,10 +24,11 @@ fi
   
 while /bin/true; do
   PROCESS_1_STATUS=$(ps aux |grep -q skf-api* |grep -v grep)
+  PROCESS_2_STATUS=$(ps aux |grep -q skf-worker* |grep -v grep)
   # If the greps above find anything, they will exit with 0 status
   # If they are not both 0, then something is wrong
-  if [[ $PROCESS_1_STATUS -ne '0' ]]; then
-    echo "The process has already exited."
+  if [[ $PROCESS_1_STATUS -ne '0' || $PROCESS_2_STATUS -ne '0' ]]; then
+    echo "One of the processes has already exited."
     exit -1
   fi
   sleep 10

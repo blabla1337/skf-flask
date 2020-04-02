@@ -3,7 +3,7 @@ export class Sprint {
     id: number,
     description: string,
     name: string,
-    projectID: number,
+    project_id: number,
     checklist_type: number
   ) { }
 }

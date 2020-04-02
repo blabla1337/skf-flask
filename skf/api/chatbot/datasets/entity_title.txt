@@ -1,3 +1,4 @@
+use me for a header
 Filename injection Path traversal
 XSS injection
 Command injection
@@ -32,8 +33,8 @@ Resource identifier injection
 Dynamic scripting injection
 Regular expression injection
 Automated spamming via feedback scripts
-Session cookies without the Secure flag
-Session cookies without the HttpOnly flag
+Session cookies without the Secure attribute
+Session cookies without the HttpOnly attribute
 External session hijacking
 Insecure transmission of session cookies
 Unproven cryptographic algorithms
@@ -81,7 +82,7 @@ No shared knowledge for secret questions
 Disallow the use of old passwords
 Absolute session time out
 Logout structuring
-Verify that the session id is never disclosed
+Verify that the sensitive information is never disclosed
 Session Domain cookies
 Access control failure
 Input rejection
@@ -150,7 +151,7 @@ User registration pattern
 Cross subdomain cookie attack
 HTML injections
 RFD and file download injections
-identify all application components
+Identify all application components
 Identify external dependencies
 High level architecture should be defined
 Threat modeling
@@ -164,7 +165,7 @@ OCSP stapling
 STRIDE
 File inclusion attack
 Access management
-JSON XML schema
+XML schema (XSD)
 Limiting user input size
 Parsing data  exchange formats
 Content security policy headers
@@ -182,9 +183,9 @@ Auto escaping technology
 Client side storage
 Log rotation and seperation
 HTTP strict transport security
-API resonses security headers
+API responses security headers
 Do not support untrusted client side technologies
-Signed message payloads
+Signed message payloads WS security
 Hardware key vault
 SOAP basic profile
 Strong CRYPTO through CA hierachy
@@ -217,9 +218,10 @@ CSRF on REST
 File IO commands
 File upload anti virus check
 File upload outside document root
+Authentication integrety checks
 Unauthorized and unauthenticated access security logs
 Commonly chosen weak passwords and passphrases
-Two factor authentication against username password disclosure
+Two factor authentication
 Logging access control decisions
 High value transactions
 Verify that structured data is strongly typed and validated
@@ -238,7 +240,7 @@ Communication between components (low privileges)
 TLS settings are in line with current leading practice
 Data retention policy
 Authenticated data cleared from client storage
-File inclusion attack II
+All error handling logic must fail securely
 Sensitive information in code or online repositories
 Identify all components
 Display concurrent and active sessions
@@ -251,4 +253,85 @@ Centralized the mechanisms for protecting resources and the access
 Third party components
 Policy for processing sensitive data
 Server side request forgery
+ASVS
+MASVS
+PCI DSS
+Tabnabbing
+Server side template injection
+Insecure direct object references
+Type checking and length checking
+SMTP IMAP injection
+Insecure object deserialization
+Software security development lifecycle
+Functional security constraints
+Attribute based authorization
+Key management and key lifecycle by NIST
+Key vault
+Secrets shared with the client
+Data protection levels
+Source control systems in place
+Continuous security testing
+Security test automation
+Referrer policy header
+Insecure application defaults
+Infrastructure as code
+GraphQL security
+JSON validation schema
+Serve files whitelist.
+User supplied scriptable or expression template language content
+Replay attacks
+Same site attribute
+Host prefix
+Race conditions
+Sub domain take over
+No password rotation policy
+User notification on critical state changing operations
+Stateless session tokens
+GUID v4
+Exception handling
+Back up data
+Static code analysis
+TLS
+Code signing
+Secure random generators
 not available item
+Sensitive Information Exposure in URL
+Sensitive Information Exposure in client Side Storage
+Session Token Generation After Login
+Secure Generation of Session Tokens
+Ensure Session Validation in Credential Service Provider and Relying Parties.md
+Permit Password Change
+Provide Password Strength Checker
+Verify Breached Passwords
+Offline Attacks on Passwords
+Password Hash Salt Length
+PBKDF2 Iteration Count
+Bcrypt Work Factor
+OOB Unencrypted
+Secure OOB Channel
+OOB PIN Expiry
+OOB Key Used Once
+Unsafe password reset
+Presence of Knowledge
+Current Password Exposure
+Implement Two Factor Authentication for Password Recovery
+Identity Spoofing
+Multifcator Authentication Exposure
+Authentication Factor Notification
+MinimumPasswordLength
+PermitLongPasswords
+Permit Spaces In Passwords
+Permit Unicode Characters In Passwords
+Change And Validate Current Password
+List of compromised passwords
+Password Strength Indicator
+No Character type limitation
+No Credential Rotation Requirements
+Logout session expiration
+Reauthentication valid sessions
+Change password session expiration
+Samesite cookie attribute
+Weak revocability of physical authenticators
+Lack of Bruteforce Protection
+Improper Two Factor Authenticators design
+Impersonation resistance not sufficent

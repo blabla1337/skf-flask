@@ -1,19 +1,6 @@
 
 from skf.database import db
 
-'''
---
--- Table structure for table `code_items`
---
-drop table if exists `code_items`;
-CREATE TABLE `code_items` (
-`codeID` INTEGER PRIMARY KEY AUTOINCREMENT,
-`title` varchar(250) NOT NULL,
-`content` varchar(250) NOT NULL,
-`code_lang` varchar(250) NOT NULL
-);
-'''
-
 class CodeItem(db.Model):
 
     __tablename__ = 'code_items'
@@ -23,6 +10,9 @@ class CodeItem(db.Model):
     title = db.Column(db.Text, nullable=False)
     content = db.Column(db.Text, nullable=False)
     code_lang = db.Column(db.Text, nullable=False)
+
+    checklist_category_id = db.Column(db.Integer, db.ForeignKey("checklist_category.id"), nullable=True)
+    checklist_category = db.relationship("ChecklistCategory", backref=db.backref('code_items'))
 
     def __init__(self, content, title, lang):
     	self.content = content

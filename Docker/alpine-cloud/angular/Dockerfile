@@ -1,43 +1,61 @@
-FROM alpine:3.10
+#############
+### build ###
+#############
+
+# base image
+FROM node:11.9-alpine AS builder
 
 LABEL maintainer="glenn.ten.cate@owasp.org"
 
-# Get updated CA-Certificates list
-RUN apk add ca-certificates
-RUN apk update --no-cache && apk add gcc \
-nodejs \
-nodejs-npm \
-bash \
-perl \
-git
+WORKDIR /home/user_angular/Angular
 
-RUN npm install -g @angular/cli
-
-RUN addgroup -g 1000 -S user_api
-RUN adduser -u 1000 -S user_api -G user_api
-RUN mkdir -p /home/user_api
-RUN chmod -R 777 /home/user_api
-WORKDIR /home/user_api
-USER user_api
-
-RUN git clone https://github.com/blabla1337/skf-flask.git -b dev
-
-WORKDIR /home/user_api/skf-flask/Angular
-RUN npm install
+COPY ./Angular ./
+COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
 
 # Optimize vendor.bundle.js
-RUN npm build -prod -aot ./
+RUN npm --loglevel=error install &&\
+    npm run build --prod
 
-EXPOSE 4200
+############
+### prod ###
+############
 
-COPY --chown=user_api:user_api entrypoint.sh /home/user_api/skf-flask
-COPY --chown=user_api:user_api wrapper.sh /home/user_api/skf-flask
-COPY --chown=user_api:user_api skf-angular.sh /home/user_api/skf-flask
+# base image
+FROM nginx:1.14.1-alpine as run
 
-RUN ["chmod", "+x", "/home/user_api/skf-flask/entrypoint.sh"]
-RUN ["chmod", "+x", "/home/user_api/skf-flask/wrapper.sh"]
-RUN ["chmod", "+x", "/home/user_api/skf-flask/skf-angular.sh"]
-ENTRYPOINT ["/home/user_api/skf-flask/entrypoint.sh"]
 
-#docker build . -t skf-angular --no-cache
-#docker run -ti -p 127.0.0.1:4200:4200 skf-angular
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+## From builder stage copy over the artifacts in dist folder to default nginx public folder
+COPY --from=builder /home/user_angular/Angular/dist /usr/share/nginx/html
+
+## Copy our default nginx config
+COPY --from=builder /home/user_angular/site.conf.template /home/user_angular/site.conf.template
+
+COPY ./Docker/alpine-cloud/angular/entrypoint.sh  /home/user_angular/entrypoint.sh
+
+# not the most secure solution but the entrypoint needs to be able to copy the correct config into confd.d,
+# also the Deployment has a  securityContext because, K8s best practices so the entrypoint needs to start as that user
+# so even if we wanted, we cannot use Nginx to drop user privileges after the entrypoint starts
+# TODO find a better way
+RUN chown -R nginx:nginx /home/user_angular/ &&\
+    chown -R nginx:nginx /usr/share/nginx/html &&\
+    chown -R nginx:nginx /etc/nginx/conf.d/ &&\
+    chown -R nginx:nginx /var/log/nginx &&\
+    # move the .pid file somewhere we can run
+    sed -i -e "s_/var/run/nginx.pid_/etc/nginx/conf.d/nginx.pid_g" /etc/nginx/nginx.conf &&\
+    chmod +x /home/user_angular/entrypoint.sh
+
+# nginx default container tries to bind on port 80 before dropping privileges.
+# there's no point in binding on a privileged port in our scenario
+RUN rm -f /etc/nginx/conf.d/default.conf
+
+EXPOSE 8788
+USER nginx
+
+CMD ["/home/user_angular/entrypoint.sh","/home/user_angular/site.conf.template"]
+
+#First go to the main skf-flask folder and from there build the image
+#docker build -f Docker/alpine-cloud/angular/Dockerfile . -t skf-angular --no-cache
+#docker run -ti -p 127.0.0.1:80:8788 skf-angular

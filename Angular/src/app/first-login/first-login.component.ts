@@ -21,7 +21,7 @@ export class FirstLoginComponent implements OnInit{
       user_id: ['', Validators.required],
       accessToken: ['', Validators.required],
       email: ['', Validators.required],
-      userName: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
       repassword: ['', Validators.required],
     })

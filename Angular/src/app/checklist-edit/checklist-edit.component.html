@@ -2,7 +2,7 @@
     Security Knowledge Framework is an expert system application 
     that uses OWASP Application Security Verification Standard, code examples,
     helps developers in pre-development and post-development.  
-    Copyright (C) 2019  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -107,7 +107,7 @@
           <!-- Here starts when people select they want to edit the checklist-->
           <section class="panel">
             <header class="panel-heading">
-              <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; id en content placeholders</h4>
+              <h4 style="background-color:#515594; color:white; padding-bottom:1%; padding-top:1%" class="panel-title">&nbsp; Update checklist item</h4>
             </header>
             <div class="panel-body">
               <form [formGroup]="checklistForm">
@@ -123,7 +123,7 @@
                     </div>
                     <label for="inputVersion" class="col-sm-2 control-label">Checklist title *</label>
                     <div class="col-sm-10">
-                      <input required maxlength="120" formControlName="content" type="text" class="form-control">
+                      <input required formControlName="content" type="text" class="form-control">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">What is the title of the checklist item?</div>
                       </div>

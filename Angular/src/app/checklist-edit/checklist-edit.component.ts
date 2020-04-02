@@ -78,7 +78,8 @@ export class ChecklistEditComponent implements OnInit {
   }
 
   getKnowledgeItems() {
-    this.knowledgeService.getKnowledgeBase().subscribe(knowledgebaseItems => {
+    let category_id = localStorage.getItem("category_id");
+    this.knowledgeService.getKnowledgeBase(Number(category_id)).subscribe(knowledgebaseItems => {
       this.knowledgebaseItems = knowledgebaseItems;
     },
       err => console.log('Error getting knowledge items, contact the administrator!')
@@ -141,7 +142,7 @@ export class ChecklistEditComponent implements OnInit {
 
   deleteChecklistItem() {
     if (this.delete == 'DELETE') {
-      this.checklistService.deletechecklistItem(Number(localStorage.getItem('checklist_ref_id')), Number(localStorage.getItem('checklist_type_id'))).subscribe(x =>
+      this.checklistService.deletechecklistItem(localStorage.getItem('checklist_ref_id'), Number(localStorage.getItem('checklist_type_id'))).subscribe(x =>
         this.router.navigate(['/checklist-add-new/', localStorage.getItem('checklist_type_id')]));
       this.delete = '';
     }

@@ -1,17 +1,4 @@
-
 from skf.database import db
-
-'''
---
--- Table structure for table `questions`
---
-drop table if exists `questions`;
-CREATE TABLE `questions` (
-`id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`checklist_type` int(11),
-`question` varchar(255) NOT NULL
-);
-'''
 
 class Question(db.Model):
 	

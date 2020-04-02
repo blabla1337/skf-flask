@@ -21,8 +21,8 @@ describe('Knowledgebase component component', () => {
     let htmlElement: HTMLElement;
     const questions: Sprint[] = [];
 
-    questions.push({ 'projectID': 1, 'question_pre_ID': '1', 'result': 'True' })
-    questions.push({ 'projectID': 1, 'question_pre_ID': '2', 'result': 'False' })
+    questions.push({ 'project_id': 1, 'question_pre_ID': '1', 'result': 'True' })
+    questions.push({ 'project_id': 1, 'question_pre_ID': '2', 'result': 'False' })
 
     const mockQuestionService = Observable.of(questions)
     const mockSprintService = Observable.of(1);
@@ -56,8 +56,8 @@ describe('Knowledgebase component component', () => {
 
 
     it('should check if goes through new sprint', () => {
-        component.sprintName = 'name';
-        component.sprintDescription = 'foobar'
+        component.sprint_name = 'name';
+        component.sprint_descriptionription = 'foobar'
         component.newSprint();
         fixture.detectChanges();
         expect(component.steps).toBeTruthy();
