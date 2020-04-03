@@ -134,12 +134,6 @@ cors = CORS(app, resources={r"/api/*": {"origins": settings.ORIGINS}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
-app = create_app()
-# TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
-cors = CORS(app, resources={r"/api/*": {"origins": settings.ORIGINS}})
-logging.config.fileConfig('logging.conf')
-log = logging.getLogger(__name__)
-
 
 @app.cli.command('cleandb')
 def initdb_command():
@@ -160,16 +154,6 @@ def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
     print('Database updated with the markdown files.')
-
-
-@app.cli.command("run-worker")
-def run_worker_command():
-    redis_url = settings.REDIS_URL 
-    redis_connection = redis.from_url(redis_url)
-    with Connection(redis_connection):
-        worker = Worker(settings.QUEUES)
-        worker.work()
-        print('redis worker was started')
         
 
 def main():

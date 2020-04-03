@@ -52,6 +52,18 @@ def delete_code_item(code_id):
     return {'message': 'Code example item successfully deleted'}
 
 
+def delete_code_item(code_id):
+    log("User deleted code item", "MEDIUM", "PASS")
+    code_item = (CodeItem.query.filter(CodeItem.id == code_id).one())
+    try:
+        db.session.delete(code_item)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    return {'message': 'Code example item successfully deleted'}
+
+
 def get_code_items(category_id):
     log("User requested list of code items", "LOW", "PASS")
     result = CodeItem.query.filter(CodeItem.checklist_category_id == category_id).paginate(1, 1500, False)

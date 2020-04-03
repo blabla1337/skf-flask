@@ -41,6 +41,17 @@ def get_checklist_item_types_with_filter(maturity):
     result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
     return result
 
+def get_checklist_item_types_with_filter(maturity):
+    log("User requested list checklist types", "LOW", "PASS")
+    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
+    return result
+
+def get_checklist_items(checklist_type):
+    log("User requested list of checklist items", "LOW", "PASS")
+    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 1500, False)
+    return result
+    
+
 def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
     result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 1500, False)
