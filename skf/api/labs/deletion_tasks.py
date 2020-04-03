@@ -7,7 +7,7 @@ class SKFLabDelete(object):
 
     def __init__(self):
         self.creds = pika.PlainCredentials('admin', 'admin-skf-secret')
-        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host=settings.RABBIT_MQ_CONN_STRING, credentials=self.creds))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host=settings.RABBIT_MQ_CONN_STRING, credentials=creds))
         self.channel = self.connection.channel()
         result = self.channel.queue_declare(queue='', exclusive=True)
         self.callback_queue = result.method.queue

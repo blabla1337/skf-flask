@@ -16,7 +16,7 @@ def delete_container(rpc_body):
     delete_deployment(deployment, user_id)
     delete_service(deployment, user_id)
     time.sleep(10)
-    return "The container has been deleted from the cluster!"
+    return "If present, the container was image was deleted from the cluster!"
 
 
 def delete_deployment(instance_name, user_id):
@@ -31,7 +31,7 @@ def delete_deployment(instance_name, user_id):
                 grace_period_seconds=5))
         print("Deployment deleted. status='%s'" % str(api_response.status))
     except:
-        return False
+        return "Kubernetes configuration is either missing or done incorrectly!"
 
 
 def delete_service(instance_name, user_id):
@@ -46,7 +46,7 @@ def delete_service(instance_name, user_id):
                 grace_period_seconds=5))
         print("Deployment deleted. status='%s'" % str(api_response.status))
     except:
-        return False
+        return "Kubernetes configuration is either missing or done incorrectly!"
 
 
 def string_split_user_id(body):
@@ -63,7 +63,8 @@ def on_request(ch, method, props, body):
     ch.basic_publish(exchange='',
                      routing_key=props.reply_to,
                      properties=pika.BasicProperties(correlation_id = \
-                     props.correlation_id),
+                     props.correlation_id,
+                     expiration='30000'),
                      body=response)
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
