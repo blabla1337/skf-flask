@@ -24,4 +24,3 @@ class QuestionResult(db.Model):
 
         self.result = result
         self.checklist_type = checklist_type
-

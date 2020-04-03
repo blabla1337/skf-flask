@@ -1,7 +1,6 @@
 from skf.database import db
 
 
-
 class Log(db.Model):
     
     __tablename__ = 'logs'

@@ -106,7 +106,7 @@ def configure_app(flask_app):
     flask_app.config['RESTPLUS_MASK_SWAGGER'] = settings.RESTPLUS_MASK_SWAGGER
     flask_app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
     flask_app.config['TESTING'] = settings.TESTING
-    flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
+    flask_app.config['FLASK_DEBUG'] = True
     flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
     #flask_app.config['RABBIT_MQ_CONN_STRING'] = settings.RABBIT_MQ_CONN_STRING
@@ -135,7 +135,6 @@ logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
 
-
 @app.cli.command('cleandb')
 def initdb_command():
     """Delete DB and creates a new database with all the Markdown files."""
@@ -155,16 +154,6 @@ def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
     print('Database updated with the markdown files.')
-
-
-@app.cli.command("run-worker")
-def run_worker_command():
-    redis_url = settings.REDIS_URL 
-    redis_connection = redis.from_url(redis_url)
-    with Connection(redis_connection):
-        worker = Worker(settings.QUEUES)
-        worker.work()
-        print('redis worker was started')
         
 
 def main():
