@@ -173,6 +173,16 @@ this.steps = false;
     }, 1000);
   }
 
+  getSprintStats()
+  {
+    setTimeout(() =>
+    {
+      this.sprintService.getSprintStats(Number(localStorage.getItem("project_id"))).subscribe(
+        resp => this.sprintResult = resp,
+        err => console.log('Error getting sprint stats'))
+    }, 1000);
+  }
+
   checklistTypeList(category_id: number)
   {
     this.checklistService

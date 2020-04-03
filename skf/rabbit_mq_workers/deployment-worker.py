@@ -31,32 +31,34 @@ def create_user_namespace(user_id):
         body.metadata = client.V1ObjectMeta(name=user_id)
         api_response = api_instance.create_namespace(body)
     except:
-        return False    
+        return "Failed to deploy the container image!"    
 
 
 def create_deployment_object(deployment):
-    # Configureate Pod template container
-    container = client.V1Container(
-        name=deployment,
-        image="blabla1337/owasp-skf-lab:"+deployment,
-        ports=[client.V1ContainerPort(container_port=5000)])
-    # Create and configurate a spec section
-    template = client.V1PodTemplateSpec(
-        metadata=client.V1ObjectMeta(labels={"app": deployment}),
-        spec=client.V1PodSpec(containers=[container]))
-    # Create the specification of deployment
-    spec = client.V1DeploymentSpec(
-        replicas=1,
-        template=template,
-        selector={'matchLabels': {'app': deployment}})
-    # Instantiate the deployment object
-    deployment = client.V1Deployment(
-        api_version="apps/v1",
-        kind="Deployment",
-        metadata=client.V1ObjectMeta(name=deployment),
-        spec=spec)
-    return deployment
-
+    try:
+        # Configureate Pod template container
+        container = client.V1Container(
+            name=deployment,
+            image="blabla1337/owasp-skf-lab:"+deployment,
+            ports=[client.V1ContainerPort(container_port=5000)])
+        # Create and configurate a spec section
+        template = client.V1PodTemplateSpec(
+            metadata=client.V1ObjectMeta(labels={"app": deployment}),
+            spec=client.V1PodSpec(containers=[container]))
+        # Create the specification of deployment
+        spec = client.V1DeploymentSpec(
+            replicas=1,
+            template=template,
+            selector={'matchLabels': {'app': deployment}})
+        # Instantiate the deployment object
+        deployment = client.V1Deployment(
+            api_version="apps/v1",
+            kind="Deployment",
+            metadata=client.V1ObjectMeta(name=deployment),
+            spec=spec)
+        return deployment
+    except:
+        return "Failed to deploy the container image!"
 
 def create_deployment(deployment, user_id):
     try:
@@ -65,7 +67,7 @@ def create_deployment(deployment, user_id):
         response = k8s_apps_v1.create_namespaced_deployment(body=deployment, namespace=user_id)
         return response
     except:
-        return False
+        return "Failed to deploy the container image!"
 
 
 def create_service_for_deployment(deployment, user_id):
@@ -85,7 +87,7 @@ def create_service_for_deployment(deployment, user_id):
         response = api_instance.create_namespaced_service(namespace=user_id, body=service)
         return response
     except:
-        return False
+        return "Failed to deploy the container image!"
 
 
 def get_service_exposed_ip(deployment, user_id):
@@ -95,33 +97,45 @@ def get_service_exposed_ip(deployment, user_id):
         response = api_instance.read_namespaced_service(deployment, user_id, pretty=True)
         return response
     except:
-        return False
+        return "Failed to deploy the container image!"
 
 
 def string_split_user_id(body):
-    user_id = body.split(':')
-    return user_id[1]
+    try:
+        user_id = body.split(':')
+        return user_id[1]
+    except:
+        return "Failed to deploy the container image!"
 
 
 def string_split_deployment(body):
-    deployment = body.split(':')
-    return deployment[0]
+    try:
+        deployment = body.split(':')
+        return deployment[0]
+    except:
+        return "Failed to deploy the container image!"
+
 
 def get_host_port_from_response(response):
-    for service in response.spec.ports:
-        port = service.port
-    for service in response.status.load_balancer.ingress:
-        host = service.hostname  
-    return "i am running on  -  " + str(host) + ":" + str(port)
+    try:
+        for service in response.spec.ports:
+            port = service.port
+        for service in response.status.load_balancer.ingress:
+            host = service.hostname  
+        return "i am running on  -  " + str(host) + ":" + str(port)
+    except:
+        return "Failed to deploy the container image!"
 
 def on_request(ch, method, props, body):
-    response = deploy_container(str(body, 'utf-8'))
-    ch.basic_publish(exchange='',
-                     routing_key=props.reply_to,
-                     properties=pika.BasicProperties(correlation_id = \
-                     props.correlation_id),
-                     body=str(response))
-    ch.basic_ack(delivery_tag=method.delivery_tag)
+        response = deploy_container(str(body, 'utf-8'))
+        ch.basic_publish(exchange='',
+                        routing_key=props.reply_to,
+                        properties=pika.BasicProperties(correlation_id = \
+                        props.correlation_id,
+                        expiration='30000'),
+                        body=str(response))
+        ch.basic_ack(delivery_tag=method.delivery_tag)
+
 
 channel.basic_qos(prefetch_count=1)
 channel.basic_consume(queue='deployment_qeue', on_message_callback=on_request)
