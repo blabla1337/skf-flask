@@ -132,20 +132,13 @@ export class ProjectDashboardComponent implements OnInit
       this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': 0, 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name': this.sprint_name });
     }
 
-    setTimeout(() =>
-    {
-      this.questionsService.newSprint(this.checklist_type, this.maturity_id, this.sprintStore).subscribe(() => { },
-        err => console.log('Error Storing new questions for sprint'));
-      this.getSprintStats();
-    }, 1000);
-
   setTimeout(() => {
     this.questionsService.newSprint(this.checklist_type, this.maturity_id, this.sprintStore).subscribe(() => { },
       err => console.log('Error Storing new questions for sprint'));
       this.getSprintStats();
   }, 1000);
 
-this.steps = false;
+  this.steps = false;
   }
 
   deleter(sprint_id: number)
@@ -160,18 +153,7 @@ this.steps = false;
     }
     return false;
   }
-  return false;
-}
 
-  getSprintStats()
-  {
-    setTimeout(() =>
-    {
-      this.sprintService.getSprintStats(Number(localStorage.getItem("project_id"))).subscribe(
-        resp => this.sprintResult = resp,
-        err => console.log('Error getting sprint stats'))
-    }, 1000);
-  }
 
   getSprintStats()
   {
