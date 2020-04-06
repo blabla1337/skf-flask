@@ -27,7 +27,7 @@ services:
       - "rabbitmq"
       - "nginx"
     restart: always
-    image: "blabla1337/skf-angular:1.3"
+    image: "blabla1337/skf-angular:dev"
     environment:
       - FRONTEND_URI=http://localhost
 

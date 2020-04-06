@@ -60,7 +60,7 @@ export class CodeExamplesComponent implements OnInit {
       .subscribe(examples => {
         this.codeExamples = examples;
         let codeLangSet = new Set();
-        this.codeExamples.map(item => codeLangSet.add(item.code_lang));
+        this.codeExamples.map(item => codeLangSet.add(item["code_lang"]));
         this.codeLangs = Array.from(codeLangSet);
       },
         () => console.log('There was an error catching code examples.'))
