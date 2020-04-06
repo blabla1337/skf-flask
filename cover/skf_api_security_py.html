@@ -113,7 +113,7 @@
     <p id="t60" class="pln"><span class="n"><a href="#t60">60</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t61" class="run"><span class="n"><a href="#t61">61</a></span><span class="t"><span class="key">def</span> <span class="nam">val_alpha_num_special</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t62" class="pln"><span class="n"><a href="#t62">62</a></span><span class="t">    <span class="str">"""User input validation for checking a-z A-Z 0-9 _ . - ' , " """</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t63" class="run"><span class="n"><a href="#t63">63</a></span><span class="t">    <span class="nam">match</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">findall</span><span class="op">(</span><span class="str">r"[^\ \w_\.\-\'\",\+\(\)\/\:@\?\&amp;\=\%\!\#\^\;]"</span><span class="op">,</span> <span class="nam">str</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t63" class="run"><span class="n"><a href="#t63">63</a></span><span class="t">    <span class="nam">match</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">findall</span><span class="op">(</span><span class="str">r"[^\ \w_\.\-\\|\\'\",\+\(\)\/\:@\?\&amp;\=\%\!\#\^\;]"</span><span class="op">,</span> <span class="nam">str</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t64" class="run"><span class="n"><a href="#t64">64</a></span><span class="t">    <span class="key">if</span> <span class="nam">match</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t65" class="mis show_mis"><span class="n"><a href="#t65">65</a></span><span class="t">        <span class="nam">log</span><span class="op">(</span><span class="str">"User supplied not an a-z A-Z 0-9 _ . , - / ! # ^ &amp; +' \" value"</span><span class="op">,</span> <span class="str">"MEDIUM"</span><span class="op">,</span> <span class="str">"FAIL"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t66" class="mis show_mis"><span class="n"><a href="#t66">66</a></span><span class="t">        <span class="nam">abort</span><span class="op">(</span><span class="num">400</span><span class="op">,</span> <span class="str">"Validation Error on val_alpha_num_special"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -189,7 +189,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.0.3</a>,
-            created at 2020-02-07 15:12
+            created at 2020-04-06 11:29
         </p>
     </div>
 </div>

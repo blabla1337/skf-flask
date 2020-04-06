@@ -15,7 +15,7 @@ class TestRestPlusApi(unittest.TestCase):
         with app.app_context():
             clean_db()
             update_db()
-            chatbot_tools.init_dataset()
+            #chatbot_tools.init_dataset()
             settings.TESTING = True
         app.app_context().push()
 
