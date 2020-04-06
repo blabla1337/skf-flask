@@ -154,17 +154,6 @@ export class ProjectDashboardComponent implements OnInit
     return false;
   }
 
-
-  getSprintStats()
-  {
-    setTimeout(() =>
-    {
-      this.sprintService.getSprintStats(Number(localStorage.getItem("project_id"))).subscribe(
-        resp => this.sprintResult = resp,
-        err => console.log('Error getting sprint stats'))
-    }, 1000);
-  }
-
   getSprintStats()
   {
     setTimeout(() =>
