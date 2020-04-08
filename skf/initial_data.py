@@ -1030,7 +1030,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('2.8.7', 'Verify that biometric authenticators are limited to use only as o ✓ 308 5.2.3 secondary factors in conjunction with either something you have and something you know.', 2, False, 308, 3)
+        c = ChecklistKB('2.8.7', 'Verify that biometric authenticators are limited to use only  secondary factors in conjunction with either something you have and something you know.', 2, False, 308, 3)
         c.question_id = 17 
         c.kb_id = 999
         db.session.add(c)
@@ -2152,7 +2152,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('14.1.5', 'Verify that authorized administrators can verify the integrity of all security- ✓ relevant configurations to detect tampering.', 14, False, None, 3)
+        c = ChecklistKB('14.1.5', 'Verify that authorized administrators can verify the integrity of all security-relevant configurations to detect tampering.', 14, False, None, 3)
         c.question_id = 65
         c.kb_id = 237
         db.session.add(c)
