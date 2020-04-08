@@ -10,7 +10,6 @@ import { AppSettings } from '../globals';
 import * as JWT from 'jwt-decode';
 import { ChecklistType } from '../models/checklist_type'
 import { ChecklistService } from '../services/checklist.service'
-import { Router } from '@angular/router'
 import { Category } from '../models/category';
 import { CategoryService } from '../services/category.service';
 
@@ -46,6 +45,7 @@ export class ProjectDashboardComponent implements OnInit
   public queryString: string;
   public maturity_id: number;
   public category_id: number;
+  public canManage: boolean;
 
   constructor(
     private modalService: NgbModal,
@@ -58,6 +58,12 @@ export class ProjectDashboardComponent implements OnInit
 
   ngOnInit()
   {
+
+    if (AppSettings.AUTH_TOKEN) {
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canManage = decodedJWT.privilege.includes('manage');
+    }
+
     this.route.params.subscribe(params =>
     {
       localStorage.setItem('project_id', params['id'])
@@ -132,13 +138,14 @@ export class ProjectDashboardComponent implements OnInit
       this.sprintStore.push({ 'project_id': Number(localStorage.getItem('project_id')), 'sprint_id': Number(this.sprint_id), 'question_id': 0, 'result': 'True', 'checklist_type': Number(this.checklist_type), 'sprint_name': this.sprint_name });
     }
 
-  setTimeout(() => {
-    this.questionsService.newSprint(this.checklist_type, this.maturity_id, this.sprintStore).subscribe(() => { },
-      err => console.log('Error Storing new questions for sprint'));
+    setTimeout(() =>
+    {
+      this.questionsService.newSprint(this.checklist_type, this.maturity_id, this.sprintStore).subscribe(() => { },
+        err => console.log('Error Storing new questions for sprint'));
       this.getSprintStats();
-  }, 1000);
+    }, 1000);
 
-  this.steps = false;
+    this.steps = false;
   }
 
   deleter(sprint_id: number)
