@@ -15,6 +15,7 @@ RUN groupadd --gid 1000 user_api && useradd --uid 1000 --gid user_api -m user_ap
 ADD ./ /home/user_api/
 COPY ./Docker/alpine-cloud/api/entrypoint.sh  /home/user_api/entrypoint.sh
 
+RUN touch /home/user_api/skf/db/db.sqlite
 RUN chmod a+rw /home/user_api/skf/db /home/user_api/skf/db/*
 
 WORKDIR /home/user_api/

@@ -13,6 +13,7 @@ services:
         - "15672:15672"
 
   mysql:
+    container_name: skf-mysql_container
     image: mysql:5.7
     restart: always
     environment:
