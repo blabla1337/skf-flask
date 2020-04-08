@@ -20,7 +20,7 @@ RESTPLUS_ERROR_404_HELP = False
 DATABASE = os.environ.get("SKF_DB_URL") or "sqlite:///db/db.sqlite"
 
 # SQLAlchemy settings
-#SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:H5hng15K@localhost/skf?charset=utf8mb4'
+#SQLALCHEMY_DATABASE_URI = 'mysql://root:H5hng15K@localhost/skf?charset=utf8mb4'
 #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://foo:bar@35.190.203.79/skf?charset=utf8mb4'
 SQLALCHEMY_DATABASE_URI = DATABASE
 

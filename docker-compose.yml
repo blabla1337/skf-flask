@@ -51,13 +51,17 @@ services:
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "blabla1337/skf-api:dev"
+    image: "skf-api"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=http://localhost/api
       - SKF_TESTING=False
       - RABBIT_MQ_CONN_STRING=rabbitmq
+<<<<<<< Updated upstream
       - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
+=======
+      - SKF_DB_URL=mysql+pymysql://foobar:my_password@192.168.1.17/skf-test2?charset=UTF8MB4
+>>>>>>> Stashed changes
       #- SKF_DB_URL=
       #- SKF_DOJO_API_KEY=
       #- JWT_SECRET=
