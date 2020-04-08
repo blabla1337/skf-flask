@@ -26,16 +26,6 @@ def clear_db():
         db.session.rollback()
         raise
 
-def clear_db():
-    print("Clearing the database")
-    try:
-        db.drop_all()
-        db.session.commit()
-    except:
-        print("Error occurred clearing the database")
-        db.session.rollback()
-        raise
-
 def init_db(testing=False):
     """Initializes the database.""" 
     try:
