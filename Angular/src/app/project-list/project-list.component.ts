@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../models/project';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppSettings } from '../globals';
+import * as JWT from 'jwt-decode';
 
 @Component({
   selector: 'app-project-list',
@@ -16,12 +18,20 @@ export class ProjectListComponent implements OnInit
   public delete: string;
   public projects: Project[];
   public isSubmitted: boolean;
+  public canManage: boolean;
+
   get formControls() { return this.projectForm.controls; }
 
   constructor(private _projectService: ProjectService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
 
   ngOnInit()
   {
+
+    if (AppSettings.AUTH_TOKEN) {
+      const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
+      this.canManage = decodedJWT.privilege.includes('manage');
+    }
+
     this.projectForm = this.formBuilder.group({
       name: ['', Validators.required],
       version: ['', Validators.required],
