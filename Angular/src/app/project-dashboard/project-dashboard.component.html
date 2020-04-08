@@ -33,8 +33,8 @@
           clicking
           on the view button. </p>
       </div>
-      <button style="float:right;" id="sprint" name="sprint" (click)="open(content)" class="btn btn-default"><i
-          class="fa fa-cog" aria-hidden="true"></i> Ask for requirements!</button>
+      <button *ngIf="canManage" style="float:right;" id="sprint" name="sprint" (click)="open(content)"
+        class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i> Ask for requirements!</button>
     </div>
   </section>
   <section class="wrapper" style="margin-top:0px;">
@@ -79,7 +79,8 @@
                 <div class="right">
                   <button [routerLink]="['/project-summary',sprint.sprint_id]" id="view{{sprint.sprint_name}}"
                     class="btn btn-default btn-xs">View </button>&nbsp;
-                  <button (click)="open(deleteModal)" class="btn btn-danger btn-xs"><i class="fa fa-times"></i>
+                  <button *ngIf="canManage" (click)="open(deleteModal)" class="btn btn-danger btn-xs"><i
+                      class="fa fa-times"></i>
                   </button>&nbsp;
 
                   <!-- We have to throw in the model here for the id to delete -->
@@ -118,7 +119,7 @@
 
               <!-- Start the stepper -->
               <ngb-tabset type="pills" #t="ngbTabset" [destroyOnHide]="false">
-                
+
                 <!-- stepper category -->
                 <ngb-tab id="category">
                   <ng-template ngbTabTitle><b>Category</b></ng-template>
@@ -127,8 +128,8 @@
                       <h4>Category</h4>
                       <p>Select the right checklist category for your feature/sprint</p>
                     </div>
-                    <select class="form-control" name="question" id="question"
-                      [(ngModel)]="category_id" (change)="selectChecklistsOnChange()">
+                    <select class="form-control" name="question" id="question" [(ngModel)]="category_id"
+                      (change)="selectChecklistsOnChange()">
                       <option selected [value]="selectUndefinedOptionValue">Select a category to work with!</option>
                       <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
                     </select>
@@ -143,13 +144,13 @@
                     </div>
                     <div class="buttons">
                       <br />
-                      <button *ngIf="category_id" (click)="t.select('intro')" id="checklist"
-                        class="btn btn-default" style='float:right'>Select</button>
+                      <button *ngIf="category_id" (click)="t.select('intro')" id="checklist" class="btn btn-default"
+                        style='float:right'>Select</button>
                     </div>
                   </ng-template>
                 </ngb-tab>
                 <!-- END stepper category -->
-                
+
                 <!-- stepper intro -->
                 <ngb-tab id="intro">
                   <ng-template ngbTabTitle><b>Maturity level</b></ng-template>
@@ -158,8 +159,8 @@
                       <h4>Maturity</h4>
                       <p>Select the right checklist maturity for your feature/sprint</p>
                     </div>
-                    <select class="form-control" name="question" id="question"
-                      [(ngModel)]="maturity_id" (change)="selectChecklistsOnChange()">
+                    <select class="form-control" name="question" id="question" [(ngModel)]="maturity_id"
+                      (change)="selectChecklistsOnChange()">
                       <option selected> Select checklist maturity </option>
                       <option value=1> Level 1</option>
                       <option value=2> Level 2</option>
@@ -177,14 +178,14 @@
                     <div class="buttons">
                       <br />
                       <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('category')"><i
-                        class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                          class="fa fa-arrow-left" aria-hidden="true"></i></button>
                       <button *ngIf="maturity_id" (click)="t.select('checklist')" id="checklist"
                         class="btn btn-default">Select</button>
                     </div>
                   </ng-template>
                 </ngb-tab>
                 <!-- END stepper intro -->
-                
+
                 <!-- stepper checklist -->
                 <ngb-tab id="checklist">
                   <ng-template ngbTabTitle><b>Select checklist</b></ng-template>
@@ -210,15 +211,15 @@
                       </p>
                     </div>
                     <div class="buttons">
-                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('intro')"><i
-                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                        <button class="btn btn-default" (click)="t.select('questionnaire')"><i
-                            class="fa fa-arrow-right 5" aria-hidden="true"></i></button>
-                      </div>
+                      <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('intro')"><i
+                          class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                      <button class="btn btn-default" (click)="t.select('questionnaire')"><i class="fa fa-arrow-right 5"
+                          aria-hidden="true"></i></button>
+                    </div>
                   </ng-template>
                 </ngb-tab>
                 <!-- END stepper checklist -->
-                
+
                 <!-- start stepper questionnaire -->
                 <ngb-tab id="questionnaire">
                   <ng-template ngbTabTitle><b> Questionnaire</b></ng-template>
@@ -306,8 +307,9 @@
                         </div>
                       </div>
                       <div class="buttons">
-                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('questionnaire');"><i
-                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button style="margin-right:0.7%" class="btn btn-default"
+                          (click)="t.select('questionnaire');"><i class="fa fa-arrow-left"
+                            aria-hidden="true"></i></button>
                         <button class="btn btn-default" type="submit" id="finish" name="step2"
                           (click)="t.select('finish'); newSprint();"><i class="fa fa-arrow-right"
                             aria-hidden="true"></i></button>
@@ -329,8 +331,9 @@
                         </div>
                       </div>
                       <div class="buttons">
-                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('questionnaire');"><i
-                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button style="margin-right:0.7%" class="btn btn-default"
+                          (click)="t.select('questionnaire');"><i class="fa fa-arrow-left"
+                            aria-hidden="true"></i></button>
                         <button class="btn btn-default" type="submit" id="finish" name="step2"
                           (click)="t.select('finish'); oldSprint();"><i class="fa fa-arrow-right"
                             aria-hidden="true"></i></button>
@@ -367,7 +370,7 @@
                 </ngb-tab>
               </ngb-tabset>
               <!-- END stepper finish -->
-            
+
             </div>
             <div class="modal-footer">
             </div>

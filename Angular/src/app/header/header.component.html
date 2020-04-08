@@ -25,11 +25,12 @@
     <!--header start-->
     <header class="header black-bg">
         <!--logo start-->
-        <a id="dashboard" routerLink="/dashboard" class="logo"><img class="img" width="35" height="35" src="assets/img/logos/logo.svg" alt="Logo" /> Security Knowledge Framework
-            </a>
+        <a id="dashboard" routerLink="/dashboard" class="logo"><img class="img" width="35" height="35"
+                src="assets/img/logos/logo.svg" alt="Logo" /> Security Knowledge Framework
+        </a>
         <!--logo end-->
-        
-        <div class="right">            
+
+        <div class="right">
             <div class="row" *ngIf="skipLogin" class="btn-group theme-container animated">
                 <button class="btn btn-default" (click)="logIn()"><i class="fa fa-sign-in"></i> Login</button>
             </div>
@@ -37,18 +38,20 @@
             <div class="row" *ngIf="isLoggedin" class="btn-group theme-container animated">
                 <div ngbDropdown>
                     <button class="btn btn-default dropdown-toggle user" id="user-profile" ngbDropdownToggle>
-                        <span class="image"><img src="assets/img/placeholder-male.jpg" alt="Placeholder" width="250" height="250" /> </span>
+                        <span class="image"><img src="assets/img/placeholder-male.jpg" alt="Placeholder" width="250"
+                                height="250" /> </span>
                         <span class="name">
                             {{user}}
                         </span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownBasic2">
-                        <button (click)="LogOff()" class="dropdown-item" id="user-logout"><i class="fa fa-power-off"></i> Logout</button>
+                        <button (click)="LogOff()" class="dropdown-item" id="user-logout"><i
+                                class="fa fa-power-off"></i> Logout</button>
                     </div>
                 </div>
             </div>
         </div>
-    
+
     </header>
     <!--header end-->
 
@@ -60,7 +63,7 @@
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <li  *ngIf="isLoggedin"[style.background-color]="getProjectStyle()" class="">
+                <li *ngIf="isLoggedin" [style.background-color]="getProjectStyle()" class="">
                     <a routerLink="/project-list" (click)="ResetAll(); ProjectsShow()" id="5" class="primairy">
                         <i class="fa fa-book"></i>
                         <span id="1">Manage projects</span>
@@ -71,7 +74,7 @@
                         <i class="fa fa-user"></i>
                         <span id="2">Users</span>
                     </a>
-                    <ul *ngIf="users" class="sub" style="display:block;">
+                    <ul *ngIf="users && canManage" class="sub" style="display:block;">
                         <li><a routerLink="/user-add" id="2">Add users</a></li>
                         <li><a routerLink="/user-manage" id="2">Manage users</a></li>
                     </ul>
@@ -81,10 +84,12 @@
                         <i class="fa fa-list-alt"></i>
                         <span id="7">Checklist options</span>
                     </a>
-                    <ul *ngIf="check" class="sub"  style="display:block;">
+                    <ul *ngIf="check" class="sub" style="display:block;">
                         <li><a routerLink="/checklist" id="7">View checklists</a></li>
-                        <li><a *ngIf="canManage" routerLink="/checklist-summary" id="checklist-summary">Manage checklists</a></li>
-                        <li><a *ngIf="canManage" routerLink="/category-list" id="category-lis">Manage categories</a></li>
+                        <li><a *ngIf="canManage" routerLink="/checklist-summary" id="checklist-summary">Manage
+                                checklists</a></li>
+                        <li><a *ngIf="canManage" routerLink="/category-list" id="category-lis">Manage categories</a>
+                        </li>
                     </ul>
                 </li>
                 <li [style.background-color]="getKnowledgeStyle()" class="">
@@ -108,7 +113,8 @@
             </ul>
 
             <div class="copy">
-                <img width="40" height="40" src="assets/img/logos/owasp-icon-grey.svg"> Supported by <a href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
+                <img width="40" height="40" src="assets/img/logos/owasp-icon-grey.svg"> Supported by <a
+                    href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
             </div>
 
             <!-- sidebar menu end-->

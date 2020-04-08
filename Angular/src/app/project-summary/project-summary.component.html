@@ -67,7 +67,7 @@
                                   }}.html" target="_blank" rel="noopener noreferrer">CWE {{ item.cwe }}</a></strong>
                             </ngb-alert>
                           </div>
-                          <button (click)="deleteModal(modalDeleteChecklistResult)"
+                          <button *ngIf="canManage" (click)="deleteModal(modalDeleteChecklistResult)"
                             style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%" id="delete-button"
                             class="btn btn-danger btn-xs">
                             Delete result
@@ -108,7 +108,7 @@
                       </ngb-tab>
 
                       <ngb-tab>
-                        <ng-template ngbTabTitle><b (click)="
+                        <ng-template *ngIf="canManage" ngbTabTitle><b (click)="
                               complianceTabClickEvent(
                                 item.evidence,
                                 item.resolved
