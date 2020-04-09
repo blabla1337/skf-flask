@@ -63,4 +63,3 @@ urllib3==1.25.8
 Werkzeug==0.16.0
 zipp==2.1.0
 gunicorn==20.0.4
-cryptography == 1.13.2
