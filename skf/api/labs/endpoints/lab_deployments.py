@@ -21,7 +21,7 @@ class LabDeploy(Resource):
         * Privileges required: **none**
         """
         userid = select_userid_jwt(self)
-        validate_privilege(self, 'edit')
+        validate_privilege(self, 'read')
         result = deploy_labs(instance_name, userid)
         return result, 200, security_headers()
  
