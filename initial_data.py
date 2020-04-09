@@ -23,8 +23,8 @@ def load_initial_data():
     try:
         p = Privilege('edit:read:manage:delete')
         db.session.add(p)
-        db.session.add(Privilege('edit:read:delete'))
-        db.session.add(Privilege('edit:read'))
+        #db.session.add(Privilege('edit:read:delete'))
+        #db.session.add(Privilege('edit:read'))
         db.session.add(Privilege('read'))  
 
         user = User(username='admin', accessToken=1234, email="example@owasp.org")
@@ -472,259 +472,259 @@ def load_initial_data():
         db.session.add(q)
         db.session.commit()
 
-        c = ChecklistKB('1.0', 'Architecture, Design and Threat Modeling Requirements', 1, False, None, None);
+        c = ChecklistKB('1.0', 'Architecture, Design and Threat Modeling Requirements', 1, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.1', 'Verify the use of a secure software development lifecycle that addresses security in all stages of development.', 1, False, None, 2);
+        c = ChecklistKB('1.1.1', 'Verify the use of a secure software development lifecycle that addresses security in all stages of development.', 1, False, None, 2)
         c.question_id = 1
         c.kb_id = 272
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.2', 'Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing.', 1, True, 1053, 2);
+        c = ChecklistKB('1.1.2', 'Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing.', 1, True, 1053, 2)
         c.question_id = 1
         c.kb_id = 164
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.3', 'Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else\s profile', 1, True, 1110, 2);
+        c = ChecklistKB('1.1.3', 'Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else\s profile', 1, True, 1110, 2)
         c.question_id = 1
         c.kb_id = 273
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.4', 'Verify documentation and justification of all the application\s trust boundaries, components, and significant data flows.', 1, False, 1059,2);
+        c = ChecklistKB('1.1.4', 'Verify documentation and justification of all the application\s trust boundaries, components, and significant data flows.', 1, False, 1059,2)
         c.question_id = 1
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.5', 'Verify definition and security analysis of the application\s high-level architecture and all connected remote services. ', 1, False, 1059, 2);
+        c = ChecklistKB('1.1.5', 'Verify definition and security analysis of the application\s high-level architecture and all connected remote services. ', 1, False, 1059, 2)
         c.question_id = 1
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.6', 'Verify implementation of centralized, simple (economy of design); vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls.', 1, True, 637, 2);
+        c = ChecklistKB('1.1.6', 'Verify implementation of centralized, simple (economy of design) vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls.', 1, True, 637, 2)
         c.question_id = 1
         c.kb_id = 184
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.1.7', 'Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers.', 1, False, 637, 2);
+        c = ChecklistKB('1.1.7', 'Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers.', 1, False, 637, 2)
         c.question_id = 1
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.2.1', 'Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers.', 1, False, 250, 2);
+        c = ChecklistKB('1.2.1', 'Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers.', 1, False, 250, 2)
         c.question_id = 2
         c.kb_id = 126
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.2.2', 'Verify that communications between application components, including APIs, middleware and data layers, are authenticated. Components should have the least necessary privileges needed.', 1, False, 306, 2);
+        c = ChecklistKB('1.2.2', 'Verify that communications between application components, including APIs, middleware and data layers, are authenticated. Components should have the least necessary privileges needed.', 1, False, 306, 2)
         c.question_id = 2
         c.kb_id = 126
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.2.3', 'Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches.', 1, False, 306, 2);
+        c = ChecklistKB('1.2.3', 'Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches.', 1, False, 306, 2)
         c.question_id = 2
         c.kb_id = 259
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.2.4', 'Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application.', 1, False, 306, 2);
+        c = ChecklistKB('1.2.4', 'Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application.', 1, False, 306, 2)
         c.question_id = 2
         c.kb_id = 85
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.4.1', 'Verify that trusted enforcement points such as at access control gateways, servers, and serverless functions enforce access controls. Never enforce access controls on the client.', 1, False, 602, 2);
+        c = ChecklistKB('1.4.1', 'Verify that trusted enforcement points such as at access control gateways, servers, and serverless functions enforce access controls. Never enforce access controls on the client.', 1, False, 602, 2)
         c.question_id = 3
         c.kb_id = 240
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.4.2', 'Verify that the chosen access control solution is flexible enough to meet the application\s needs.', 1, False, 284, 2);
+        c = ChecklistKB('1.4.2', 'Verify that the chosen access control solution is flexible enough to meet the application\s needs.', 1, False, 284, 2)
         c.question_id = 3
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.4.3', 'Verify enforcement of the principle of least privilege in functions, data files, URLs, controllers, services, and other resources. This implies protection against spoofing and elevation of privilege.', 1, False, 272, 2);
+        c = ChecklistKB('1.4.3', 'Verify enforcement of the principle of least privilege in functions, data files, URLs, controllers, services, and other resources. This implies protection against spoofing and elevation of privilege.', 1, False, 272, 2)
         c.question_id = 3
         c.kb_id = 126
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.4.4', 'Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths.', 1, False, 284, 2);
+        c = ChecklistKB('1.4.4', 'Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths.', 1, False, 284, 2)
         c.question_id = 3
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.4.5', 'Verify that attribute or feature-based access control is used whereby the code checks the user\s authorization for a feature/data item rather than just their role.', 1, False, 275, 2);
+        c = ChecklistKB('1.4.5', 'Verify that attribute or feature-based access control is used whereby the code checks the user\s authorization for a feature/data item rather than just their role.', 1, False, 275, 2)
         c.question_id = 3
         c.kb_id = 274
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.5.1', 'Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.', 1, False, 1029, 2);
+        c = ChecklistKB('1.5.1', 'Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.', 1, False, 1029, 2)
         c.question_id = 4
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.5.2', 'Verify that serialization is not used when communicating with untrusted clients. If this is not possible, ensure that adequate integrity controls (and possibly encryption if sensitive data is sent) are enforced to prevent deserialization attacks including object injection.', 1, False, 502, 2);
+        c = ChecklistKB('1.5.2', 'Verify that serialization is not used when communicating with untrusted clients. If this is not possible, ensure that adequate integrity controls (and possibly encryption if sensitive data is sent) are enforced to prevent deserialization attacks including object injection.', 1, False, 502, 2)
         c.question_id = 4
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.5.3', 'Verify that input validation is enforced on a trusted service layer.', 1, False, 602, 2);
+        c = ChecklistKB('1.5.3', 'Verify that input validation is enforced on a trusted service layer.', 1, False, 602, 2)
         c.question_id = 4
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.5.4', 'Verify that output encoding occurs close to or by the interpreter for which it is intended.', 1, False, 116, 2);
+        c = ChecklistKB('1.5.4', 'Verify that output encoding occurs close to or by the interpreter for which it is intended.', 1, False, 116, 2)
         c.question_id = 4
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.6.1', 'Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57.', 1, False, 320, 2);
+        c = ChecklistKB('1.6.1', 'Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57.', 1, False, 320, 2)
         c.question_id = 5
         c.kb_id = 275
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.6.2', 'Verify that consumers of cryptographic services protect key material and other secrets by using key vaults or API based alternatives.', 1, True, 320, 2);
+        c = ChecklistKB('1.6.2', 'Verify that consumers of cryptographic services protect key material and other secrets by using key vaults or API based alternatives.', 1, True, 320, 2)
         c.question_id = 5
         c.kb_id = 276
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.6.3', 'Verify that all keys and passwords are replaceable and are part of a well-defined process to re-encrypt sensitive data.', 1, False, 320, 2);
+        c = ChecklistKB('1.6.3', 'Verify that all keys and passwords are replaceable and are part of a well-defined process to re-encrypt sensitive data.', 1, False, 320, 2)
         c.question_id = 5
         c.kb_id = 204
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.6.4', 'Verify that symmetric keys, passwords, or API secrets generated by or shared with clients are used only in protecting low risk secrets, such as encrypting local storage, or temporary ephemeral uses such as parameter obfuscation. Sharing secrets with clients is clear-text equivalent and architecturally should be treated as such.', 1, False, 320, 2);
+        c = ChecklistKB('1.6.4', 'Verify that symmetric keys, passwords, or API secrets generated by or shared with clients are used only in protecting low risk secrets, such as encrypting local storage, or temporary ephemeral uses such as parameter obfuscation. Sharing secrets with clients is clear-text equivalent and architecturally should be treated as such.', 1, False, 320, 2)
         c.question_id = 5
         c.kb_id = 277
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.7.1', 'Verify that a common logging format and approach is used across the system.', 1, False, 1009, 2);
+        c = ChecklistKB('1.7.1', 'Verify that a common logging format and approach is used across the system.', 1, False, 1009, 2)
         c.question_id = 6
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.7.2', 'Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation.', 1, False, None, 2);
+        c = ChecklistKB('1.7.2', 'Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation.', 1, False, None, 2)
         c.question_id = 6
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.8.1', 'Verify that all sensitive data is identified and classified into protection levels.', 1, False, None, 2);
+        c = ChecklistKB('1.8.1', 'Verify that all sensitive data is identified and classified into protection levels.', 1, False, None, 2)
         c.question_id = 7
         c.kb_id = 278
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.8.2', 'Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture.', 1, False, None, 2);
+        c = ChecklistKB('1.8.2', 'Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture.', 1, False, None, 2)
         c.question_id = 7
         c.kb_id = 278
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.9.1', 'Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers.', 1, False, 319, 2);
+        c = ChecklistKB('1.9.1', 'Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers.', 1, False, 319, 2)
         c.question_id = 8
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.9.2', 'Verify that application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains.', 1, False, 295, 2);
+        c = ChecklistKB('1.9.2', 'Verify that application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains.', 1, False, 295, 2)
         c.question_id = 8
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.10.1', 'Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes.', 1, False, 284, 2);
+        c = ChecklistKB('1.10.1', 'Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes.', 1, False, 284, 2)
         c.question_id = 9
         c.kb_id = 279
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.11.1', 'Verify the definition and documentation of all application components in terms of the business or security functions they provide.', 1, False, 1059, 2);
+        c = ChecklistKB('1.11.1', 'Verify the definition and documentation of all application components in terms of the business or security functions they provide.', 1, False, 1059, 2)
         c.question_id = 70
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.11.2', 'Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state.', 1, False, 362, 2);
+        c = ChecklistKB('1.11.2', 'Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state.', 1, False, 362, 2)
         c.question_id = 70
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('1.11.3', 'Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.', 1, False, 362, 3);
+        c = ChecklistKB('1.11.3', 'Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.', 1, False, 362, 3)
         c.question_id = 70
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.12.1', 'Verify that user-uploaded files are stored outside of the web root.', 1, False, 552, 2);
+        c = ChecklistKB('1.12.1', 'Verify that user-uploaded files are stored outside of the web root.', 1, False, 552, 2)
         c.question_id = 71
         c.kb_id = 227
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.12.2', 'Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable content security policy to reduce the risk from XSS vectors or other attacks from the uploaded file.', 1, False, 646, 2);
+        c = ChecklistKB('1.12.2', 'Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable content security policy to reduce the risk from XSS vectors or other attacks from the uploaded file.', 1, False, 646, 2)
         c.question_id = 71
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.14.1', 'Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms.', 1, False, 923, 2);
+        c = ChecklistKB('1.14.1', 'Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms.', 1, False, 923, 2)
         c.question_id = 72
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.14.2', 'Verify that if deploying binaries to untrusted devices makes use of binary signatures, trusted connections, and verified endpoints.', 1, False, 494, 2);
+        c = ChecklistKB('1.14.2', 'Verify that if deploying binaries to untrusted devices makes use of binary signatures, trusted connections, and verified endpoints.', 1, False, 494, 2)
         c.question_id = 72
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.14.3', 'Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions.', 1, False, 1104, 2);
+        c = ChecklistKB('1.14.3', 'Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions.', 1, False, 1104, 2)
         c.question_id = 72
         c.kb_id = 280
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.14.4', 'Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts.', 1, False, None, 2);
+        c = ChecklistKB('1.14.4', 'Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts.', 1, False, None, 2)
         c.question_id = 72
         c.kb_id = 281
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.14.5', 'Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization.', 1, False, 265, 2);
+        c = ChecklistKB('1.14.5', 'Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization.', 1, False, 265, 2)
         c.question_id = 72
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('1.14.6', 'Verify the application does not use unsupported, insecure, or deprecated client-side technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets.', 1, False, 477, 2);
+        c = ChecklistKB('1.14.6', 'Verify the application does not use unsupported, insecure, or deprecated client-side technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets.', 1, False, 477, 2)
         c.question_id = 72
         c.kb_id = 999
         db.session.add(c)
@@ -1126,7 +1126,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('3.3.3', 'Verify that the application terminates all other active sessions after a successful password change, and that this is effective across the application, federated login (if present); and any relying parties.', 3, False, 613, 2)
+        c = ChecklistKB('3.3.3', 'Verify that the application terminates all other active sessions after a successful password change, and that this is effective across the application, federated login (if present) and any relying parties.', 3, False, 613, 2)
         c.question_id = 22
         c.kb_id = 254
         db.session.add(c)
@@ -1206,7 +1206,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('4.0', 'Access Control Verification Requirements', 4, False, None, None);
+        c = ChecklistKB('4.0', 'Access Control Verification Requirements', 4, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
@@ -1272,7 +1272,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('5.0', 'Validation, Sanitization and Encoding Verification Requirements', 5, False, None, None);
+        c = ChecklistKB('5.0', 'Validation, Sanitization and Encoding Verification Requirements', 5, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
@@ -1460,7 +1460,7 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('6.0', 'Stored Cryptography Verification Requirements', 6, False, None, None);
+        c = ChecklistKB('6.0', 'Stored Cryptography Verification Requirements', 6, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
@@ -1563,13 +1563,13 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.0', 'Error Handling and Logging Verification Requirements', 7, False, None, None);
+        c = ChecklistKB('7.0', 'Error Handling and Logging Verification Requirements', 7, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('7.1.1', 'Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form.', 7, False, 532, 1);
+        c = ChecklistKB('7.1.1', 'Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form.', 7, False, 532, 1)
         c.question_id = 42
         c.kb_id = 78
         db.session.add(c)
@@ -1581,73 +1581,73 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.1.3', 'Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures.', 7, False, 778, 2);
+        c = ChecklistKB('7.1.3', 'Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures.', 7, False, 778, 2)
         c.question_id = 42
         c.kb_id = 83
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.1.4', 'Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens', 7, False, 778, 2);
+        c = ChecklistKB('7.1.4', 'Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens', 7, False, 778, 2)
         c.question_id = 42
         c.kb_id = 99
         db.session.add(c)
         db.session.commit()     
 
-        c = ChecklistKB('7.2.1', 'Verify that all authentication decisions are logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations.', 7, False, 778, 2);
+        c = ChecklistKB('7.2.1', 'Verify that all authentication decisions are logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations.', 7, False, 778, 2)
         c.question_id = 43
         c.kb_id = 232
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.2.2', 'Verify that all access control decisions can be logged and all failed decisions are logged. This should include requests with relevant metadata needed for security investigations.', 7, False, 285, 2);
+        c = ChecklistKB('7.2.2', 'Verify that all access control decisions can be logged and all failed decisions are logged. This should include requests with relevant metadata needed for security investigations.', 7, False, 285, 2)
         c.question_id = 43
         c.kb_id = 232
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.3.1', 'Verify that the application appropriately encodes user-supplied data to prevent log injection', 7, False, 117, 2);
+        c = ChecklistKB('7.3.1', 'Verify that the application appropriately encodes user-supplied data to prevent log injection', 7, False, 117, 2)
         c.question_id = 44
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.3.2', 'Verify that all events are protected from injection when viewed in log viewing software', 7, False, 117, 2);
+        c = ChecklistKB('7.3.2', 'Verify that all events are protected from injection when viewed in log viewing software', 7, False, 117, 2)
         c.question_id = 44
         c.kb_id = 100
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.3.3', 'Verify that security logs are protected from unauthorized access and modification.', 7, False, 200, 2);
+        c = ChecklistKB('7.3.3', 'Verify that security logs are protected from unauthorized access and modification.', 7, False, 200, 2)
         c.question_id = 44
         c.kb_id = 257
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.3.4', 'Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post- incident forensic analysis.', 7, False, None, 2);
+        c = ChecklistKB('7.3.4', 'Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post- incident forensic analysis.', 7, False, None, 2)
         c.question_id = 44
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.4.1', 'Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.', 7, False, 210, 1);
+        c = ChecklistKB('7.4.1', 'Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.', 7, False, 210, 1)
         c.question_id = 45
         c.kb_id = 15
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.4.2', 'Verify that exception handling (or a functional equivalent) is used across the codebase to account for expected and unexpected error conditions.', 7, False, 544, 2);
+        c = ChecklistKB('7.4.2', 'Verify that exception handling (or a functional equivalent) is used across the codebase to account for expected and unexpected error conditions.', 7, False, 544, 2)
         c.question_id = 45
         c.kb_id = 299
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('7.4.3', 'Verify that a last resort error handler is defined which will catch all unhandled exceptions', 7, False, 460, 2);
+        c = ChecklistKB('7.4.3', 'Verify that a last resort error handler is defined which will catch all unhandled exceptions', 7, False, 460, 2)
         c.question_id = 45
         c.kb_id = 299
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.0', 'Error Handling and Logging Verification Requirements', 8, False, None, None);
+        c = ChecklistKB('8.0', 'Error Handling and Logging Verification Requirements', 8, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
@@ -1695,37 +1695,37 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.2.2', 'Verify that data stored in client side storage (such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies) does not contain sensitive data or PII.', 8, False, 922, 1);
+        c = ChecklistKB('8.2.2', 'Verify that data stored in client side storage (such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies) does not contain sensitive data or PII.', 8, False, 922, 1)
         c.question_id = 47
         c.kb_id = 190
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.2.3', 'Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated.', 8, False, 922, 1);
+        c = ChecklistKB('8.2.3', 'Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated.', 8, False, 922, 1)
         c.question_id = 47
         c.kb_id = 190
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.3.1', 'Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data.', 8, False, 319, 1);
+        c = ChecklistKB('8.3.1', 'Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data.', 8, False, 319, 1)
         c.question_id = 48
         c.kb_id = 72
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.3.2', 'Verify that users have a method to remove or export their data on demand.', 8, False, 212, 1);
+        c = ChecklistKB('8.3.2', 'Verify that users have a method to remove or export their data on demand.', 8, False, 212, 1)
         c.question_id = 48
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.3.3', 'Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way.', 8, False, 285, 1);
+        c = ChecklistKB('8.3.3', 'Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way.', 8, False, 285, 1)
         c.question_id = 48
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('8.3.4', 'Verify that all sensitive data created and processed by the application has been identified, and ensure that a policy is in place on how to deal with sensitive data.', 8, False, 200, 1);
+        c = ChecklistKB('8.3.4', 'Verify that all sensitive data created and processed by the application has been identified, and ensure that a policy is in place on how to deal with sensitive data.', 8, False, 200, 1)
         c.question_id = 48
         c.kb_id = 276
         db.session.add(c)
@@ -1755,392 +1755,392 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('9.0', 'Communications Verification Requirements', 9, False, None, None);
+        c = ChecklistKB('9.0', 'Communications Verification Requirements', 9, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('9.1.1', 'Verify that secured TLS is used for all client connectivity, and does not fall back to insecure or unencrypted protocols.', 9, False, 319,1 );
+        c = ChecklistKB('9.1.1', 'Verify that secured TLS is used for all client connectivity, and does not fall back to insecure or unencrypted protocols.', 9, False, 319,1 )
         c.question_id = 49
         c.kb_id = 244
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('9.1.2', 'Verify using online or up to date TLS testing tools that only strong algorithms, ciphers, and protocols are enabled, with the strongest algorithms and ciphers set as preferred.', 9, False, 326, 1);
+        c = ChecklistKB('9.1.2', 'Verify using online or up to date TLS testing tools that only strong algorithms, ciphers, and protocols are enabled, with the strongest algorithms and ciphers set as preferred.', 9, False, 326, 1)
         c.question_id = 49
         c.kb_id = 247
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('9.1.3', 'Verify that old versions of SSL and TLS protocols, algorithms, ciphers, and configuration are disabled, such as SSLv2, SSLv3, or TLS 1.0 and TLS 1.1. The latest version of TLS should be the preferred cipher suite.', 9, False, 326, 1);
+        c = ChecklistKB('9.1.3', 'Verify that old versions of SSL and TLS protocols, algorithms, ciphers, and configuration are disabled, such as SSLv2, SSLv3, or TLS 1.0 and TLS 1.1. The latest version of TLS should be the preferred cipher suite.', 9, False, 326, 1)
         c.question_id = 49
         c.kb_id = 247
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('9.2.1', 'Verify that connections to and from the server use trusted TLS certificates. Where internally generated or self-signed certificates are used, the server must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected.', 9, False, 295, 2);
+        c = ChecklistKB('9.2.1', 'Verify that connections to and from the server use trusted TLS certificates. Where internally generated or self-signed certificates are used, the server must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected.', 9, False, 295, 2)
         c.question_id = 50
         c.kb_id = 101
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('9.2.2', 'Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols.', 9, False, 319, 2);
+        c = ChecklistKB('9.2.2', 'Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols.', 9, False, 319, 2)
         c.question_id = 50
         c.kb_id = 302
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('9.2.3', 'Verify that all encrypted connections to external systems that involve sensitive information or functions are authenticated.', 9, False, 297, 2);
+        c = ChecklistKB('9.2.3', 'Verify that all encrypted connections to external systems that involve sensitive information or functions are authenticated.', 9, False, 297, 2)
         c.question_id = 50
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('9.2.4', 'Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured.', 9, False, 299, 2);
+        c = ChecklistKB('9.2.4', 'Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured.', 9, False, 299, 2)
         c.question_id = 50
         c.kb_id = 139
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('9.2.5', 'Verify that backend TLS connection failures are logged', 9, False, 544, 3);
+        c = ChecklistKB('9.2.5', 'Verify that backend TLS connection failures are logged', 9, False, 544, 3)
         c.question_id = 50
         c.kb_id = 103
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('10.0', 'Malicious Code Verification Requirements', 10, False, None, None);
+        c = ChecklistKB('10.0', 'Malicious Code Verification Requirements', 10, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('10.1.1', 'Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.', 10, False, 749, 3);
+        c = ChecklistKB('10.1.1', 'Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.', 10, False, 749, 3)
         c.question_id = 51
         c.kb_id = 301
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('10.2.1', 'Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the users permission for it to operate before collecting any data.', 10, False, 359, 2);
+        c = ChecklistKB('10.2.1', 'Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the users permission for it to operate before collecting any data.', 10, False, 359, 2)
         c.question_id = 52
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('10.2.2', 'Verify that the application does not ask for unnecessary or excessive permissions to privacy related features or sensors, such as contacts, cameras, microphones, or location.', 10, False, 272, 2);
+        c = ChecklistKB('10.2.2', 'Verify that the application does not ask for unnecessary or excessive permissions to privacy related features or sensors, such as contacts, cameras, microphones, or location.', 10, False, 272, 2)
         c.question_id = 52
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('10.2.3', 'Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.', 10, False, 507, 3);
+        c = ChecklistKB('10.2.3', 'Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.', 10, False, 507, 3)
         c.question_id = 52
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('10.2.4', 'Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions.', 10, False, 511, 3);
+        c = ChecklistKB('10.2.4', 'Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions.', 10, False, 511, 3)
         c.question_id = 52
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('10.2.5', 'Verify that the application source code and third party libraries does not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.', 10, False, 511, 3);
+        c = ChecklistKB('10.2.5', 'Verify that the application source code and third party libraries does not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.', 10, False, 511, 3)
         c.question_id = 52
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('10.2.6', 'Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality.', 10, False, 507, 3);
+        c = ChecklistKB('10.2.6', 'Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality.', 10, False, 507, 3)
         c.question_id = 52
         c.kb_id = None
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('10.3.1', 'Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update.', 10, False, 16, 1);
+        c = ChecklistKB('10.3.1', 'Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update.', 10, False, 16, 1)
         c.question_id = 53
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('10.3.2', 'Verify that the application employs integrity protections, such as code signing or sub-resource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet.', 10, False, 353, 1);
+        c = ChecklistKB('10.3.2', 'Verify that the application employs integrity protections, such as code signing or sub-resource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet.', 10, False, 353, 1)
         c.question_id = 53
         c.kb_id = 303
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('10.3.3', 'Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (autogen-bucket-id.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change.', 10, False, 350, 1);
+        c = ChecklistKB('10.3.3', 'Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (autogen-bucket-id.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change.', 10, False, 350, 1)
         c.question_id = 53
         c.kb_id = 294
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.0', 'Business Logic Verification Requirements', 11, False, None, None);
+        c = ChecklistKB('11.0', 'Business Logic Verification Requirements', 11, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.1.1', 'Verify the application will only process business logic flows for the same user in sequential step order and without skipping steps.', 11, False, 841, 1);
+        c = ChecklistKB('11.1.1', 'Verify the application will only process business logic flows for the same user in sequential step order and without skipping steps.', 11, False, 841, 1)
         c.question_id = 54
         c.kb_id = 110
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.1.2', 'Verify the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly.', 11, False, 779, 1);
+        c = ChecklistKB('11.1.2', 'Verify the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly.', 11, False, 779, 1)
         c.question_id = 54
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.1.3', 'Verify the application has appropriate limits for specific business actions or transactions which are correctly enforced on a per user basis.', 11, False, 770, 1);
+        c = ChecklistKB('11.1.3', 'Verify the application has appropriate limits for specific business actions or transactions which are correctly enforced on a per user basis.', 11, False, 770, 1)
         c.question_id = 54
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.1.4', 'Verify the application has sufficient anti-automation controls to detect and protect against data exfiltration, excessive business logic requests, excessive file uploads or denial of service attacks.', 11, False, 770, 1);
+        c = ChecklistKB('11.1.4', 'Verify the application has sufficient anti-automation controls to detect and protect against data exfiltration, excessive business logic requests, excessive file uploads or denial of service attacks.', 11, False, 770, 1)
         c.question_id = 54
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.1.5', 'Verify the application has business logic limits or validation to protect against likely business risks or threats, identified using threat modelling or similar methodologies.', 11, True, 841, 1);
+        c = ChecklistKB('11.1.5', 'Verify the application has business logic limits or validation to protect against likely business risks or threats, identified using threat modelling or similar methodologies.', 11, True, 841, 1)
         c.question_id = 54
         c.kb_id = 164
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.1.6', 'Verify the application does not suffer from "time of check to time of use" (TOCTOU) issues or other race conditions for sensitive operations.', 11, True, 367, 2);
+        c = ChecklistKB('11.1.6', 'Verify the application does not suffer from "time of check to time of use" (TOCTOU) issues or other race conditions for sensitive operations.', 11, True, 367, 2)
         c.question_id = 54
         c.kb_id = 293
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.1.7', 'Verify the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt', 11, True, 754, 2);
+        c = ChecklistKB('11.1.7', 'Verify the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt', 11, True, 754, 2)
         c.question_id = 54
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('11.1.8', 'Verify the application has configurable alerting when automated attacks or unusual activity is detected.', 11, False, 390, 2);
+        c = ChecklistKB('11.1.8', 'Verify the application has configurable alerting when automated attacks or unusual activity is detected.', 11, False, 390, 2)
         c.question_id = 54
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.0', 'File and Resources Verification Requirements', 12, False, None, None);
+        c = ChecklistKB('12.0', 'File and Resources Verification Requirements', 12, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.1.1', 'Verify that the application will not accept large files that could fill up storage or cause a denial of service attack.', 12, False, 400, 1);
+        c = ChecklistKB('12.1.1', 'Verify that the application will not accept large files that could fill up storage or cause a denial of service attack.', 12, False, 400, 1)
         c.question_id = 55
         c.kb_id = 13
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('12.1.2', 'Verify that compressed files are checked for "zip bombs" - small input files that will decompress into huge files thus exhausting file storage limits.', 12, False, 400, 2);
+        c = ChecklistKB('12.1.2', 'Verify that compressed files are checked for "zip bombs" - small input files that will decompress into huge files thus exhausting file storage limits.', 12, False, 400, 2)
         c.question_id = 55
         c.kb_id = 13
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('12.1.3', 'Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files.', 12, False, 409, 2);
+        c = ChecklistKB('12.1.3', 'Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files.', 12, False, 409, 2)
         c.question_id = 55
         c.kb_id = 13
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('12.2.1', 'Verify that files obtained from untrusted sources are validated to be of expected type based on the files content.', 12, False, 434, 2);
+        c = ChecklistKB('12.2.1', 'Verify that files obtained from untrusted sources are validated to be of expected type based on the files content.', 12, False, 434, 2)
         c.question_id = 56
         c.kb_id = 13
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('12.3.1', 'Verify that user-submitted filename metadata is not used directly with system or framework file and URL API to protect against path traversal.', 12, False, 22, 1);
+        c = ChecklistKB('12.3.1', 'Verify that user-submitted filename metadata is not used directly with system or framework file and URL API to protect against path traversal.', 12, False, 22, 1)
         c.question_id = 57
         c.kb_id = 13
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.3.2', 'Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure, creation, updating or removal of local files (LFI).', 12, False, 73, 1);
+        c = ChecklistKB('12.3.2', 'Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure, creation, updating or removal of local files (LFI).', 12, False, 73, 1)
         c.question_id = 57
         c.kb_id = 13
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.3.3', 'Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files (RFI); which may also lead to SSRF.', 12, False, 98, 1);
+        c = ChecklistKB('12.3.3', 'Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files (RFI) which may also lead to SSRF.', 12, False, 98, 1)
         c.question_id = 57
         c.kb_id = 13
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.3.4', 'Verify that the application protects against reflective file download (RFD) by validating or ignoring user-submitted filenames in a JSON, JSONP, or URL parameter, the response Content-Type header should be set to text/plain, and the Content-Disposition header should have a fixed filename.', 12, False, 641, 1);
+        c = ChecklistKB('12.3.4', 'Verify that the application protects against reflective file download (RFD) by validating or ignoring user-submitted filenames in a JSON, JSONP, or URL parameter, the response Content-Type header should be set to text/plain, and the Content-Disposition header should have a fixed filename.', 12, False, 641, 1)
         c.question_id = 57
         c.kb_id = 160
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.3.5', 'Verify that untrusted file metadata is not used directly with system API or libraries, to protect against OS command injection.', 12, False, 78, 1);
+        c = ChecklistKB('12.3.5', 'Verify that untrusted file metadata is not used directly with system API or libraries, to protect against OS command injection.', 12, False, 78, 1)
         c.question_id = 57
         c.kb_id = 225
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('12.3.6', 'Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs.', 12, False, 829, 2);
+        c = ChecklistKB('12.3.6', 'Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs.', 12, False, 829, 2)
         c.question_id = 57
         c.kb_id = 13
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.4.1', 'Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation.', 12, False, 922, 1);
+        c = ChecklistKB('12.4.1', 'Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation.', 12, False, 922, 1)
         c.question_id = 58
         c.kb_id = 227
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.4.2', 'Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload of known malicious content.', 12, False, 509, 1);
+        c = ChecklistKB('12.4.2', 'Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload of known malicious content.', 12, False, 509, 1)
         c.question_id = 58
         c.kb_id = 226
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.5.1', 'Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g. .bak); temporary working files (e.g. .swp); compressed files (.zip, .tar.gz, etc) and other extensions commonly used by editors should be blocked unless required.', 12, False, 552, 1);
+        c = ChecklistKB('12.5.1', 'Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g. .bak) temporary working files (e.g. .swp) compressed files (.zip, .tar.gz, etc) and other extensions commonly used by editors should be blocked unless required.', 12, False, 552, 1)
         c.question_id = 59
         c.kb_id = 288
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.5.2', 'Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content.', 12, False, 434, 1);
+        c = ChecklistKB('12.5.2', 'Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content.', 12, False, 434, 1)
         c.question_id = 59
         c.kb_id = 227
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('12.6.1', 'Verify that the web or application server is configured with a whitelist of resources or systems to which the server can send requests or load data/files from.', 12, False, 918, 1);
+        c = ChecklistKB('12.6.1', 'Verify that the web or application server is configured with a whitelist of resources or systems to which the server can send requests or load data/files from.', 12, False, 918, 1)
         c.question_id = 60
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.0', 'API and Web Service Verification Requirements', 13, False, None, None);
+        c = ChecklistKB('13.0', 'API and Web Service Verification Requirements', 13, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.1.1', 'Verify that all application components use the same encodings and parsers to avoid parsing attacks that exploit different URI or file parsing behavior that could be used in SSRF and RFI attacks.', 13, False, 116, 1);
+        c = ChecklistKB('13.1.1', 'Verify that all application components use the same encodings and parsers to avoid parsing attacks that exploit different URI or file parsing behavior that could be used in SSRF and RFI attacks.', 13, False, 116, 1)
         c.question_id = 61
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.1.2', 'Verify that access to administration and management functions is limited to authorized administrators.', 13, False, 419, 1);
+        c = ChecklistKB('13.1.2', 'Verify that access to administration and management functions is limited to authorized administrators.', 13, False, 419, 1)
         c.question_id = 61
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.1.3', 'Verify API URLs do not expose sensitive information, such as the API key, session tokens etc.', 13, False, 598, 1);
+        c = ChecklistKB('13.1.3', 'Verify API URLs do not expose sensitive information, such as the API key, session tokens etc.', 13, False, 598, 1)
         c.question_id = 61
         c.kb_id = 91
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('13.1.4', 'Verify that authorization decisions are made at both the URI, enforced by programmatic or declarative security at the controller or router, and at the resource level, enforced by model-based permissions.', 13, False, 285, 2);
+        c = ChecklistKB('13.1.4', 'Verify that authorization decisions are made at both the URI, enforced by programmatic or declarative security at the controller or router, and at the resource level, enforced by model-based permissions.', 13, False, 285, 2)
         c.question_id = 61
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('13.1.5', 'Verify that requests containing unexpected or missing content types are rejected with appropriate headers (HTTP response status 406 Unacceptable or 415 Unsupported Media Type).', 13, False, 434, 2);
+        c = ChecklistKB('13.1.5', 'Verify that requests containing unexpected or missing content types are rejected with appropriate headers (HTTP response status 406 Unacceptable or 415 Unsupported Media Type).', 13, False, 434, 2)
         c.question_id = 61
         c.kb_id = 104
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.2.1', 'Verify that enabled RESTful HTTP methods are a valid choice for the user or action, such as preventing normal users using DELETE or PUT on protected API or resources.', 13, False, 650, 1);
+        c = ChecklistKB('13.2.1', 'Verify that enabled RESTful HTTP methods are a valid choice for the user or action, such as preventing normal users using DELETE or PUT on protected API or resources.', 13, False, 650, 1)
         c.question_id = 62
         c.kb_id = 129
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.2.2', 'Verify that JSON schema validation is in place and verified before accepting input.', 13, False, 20, 1);
+        c = ChecklistKB('13.2.2', 'Verify that JSON schema validation is in place and verified before accepting input.', 13, False, 20, 1)
         c.question_id = 62
         c.kb_id = 286
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.2.3', 'Verify that RESTful web services that utilize cookies are protected from Cross-Site Request Forgery via the use of at least one or more of the following: triple or double submit cookie pattern, CSRF nonces, or ORIGIN request header checks.', 13, False, 352, 1);
+        c = ChecklistKB('13.2.3', 'Verify that RESTful web services that utilize cookies are protected from Cross-Site Request Forgery via the use of at least one or more of the following: triple or double submit cookie pattern, CSRF nonces, or ORIGIN request header checks.', 13, False, 352, 1)
         c.question_id = 62
         c.kb_id = 224
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('13.2.4', 'Verify that REST services have anti-automation controls to protect against excessive calls, especially if the API is unauthenticated.', 13, False, 779, 2);
+        c = ChecklistKB('13.2.4', 'Verify that REST services have anti-automation controls to protect against excessive calls, especially if the API is unauthenticated.', 13, False, 779, 2)
         c.question_id = 62
         c.kb_id = 116
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('13.2.5', 'Verify that REST services explicitly check the incoming Content-Type to be the expected one, such as application/xml or application/JSON.', 13, False, 436, 2);
+        c = ChecklistKB('13.2.5', 'Verify that REST services explicitly check the incoming Content-Type to be the expected one, such as application/xml or application/JSON.', 13, False, 436, 2)
         c.question_id = 62
         c.kb_id = 104
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('13.2.6', 'Verify that the message headers and payload are trustworthy and not modified in transit. Requiring strong encryption for transport (TLS only) may be sufficient in many cases as it provides both confidentiality and integrity protection. Per- message digital signatures can provide additional assurance on top of the transport protections for high-security applications but bring with them additional complexity and risks to weigh against the benefits', 13, False, 598, 2);
+        c = ChecklistKB('13.2.6', 'Verify that the message headers and payload are trustworthy and not modified in transit. Requiring strong encryption for transport (TLS only) may be sufficient in many cases as it provides both confidentiality and integrity protection. Per- message digital signatures can provide additional assurance on top of the transport protections for high-security applications but bring with them additional complexity and risks to weigh against the benefits', 13, False, 598, 2)
         c.question_id = 62
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.3.1', 'Verify that XSD schema validation takes place to ensure a properly formed XML document, followed by validation of each input field before any processing of that data takes place.', 13, False, 20, 1);
+        c = ChecklistKB('13.3.1', 'Verify that XSD schema validation takes place to ensure a properly formed XML document, followed by validation of each input field before any processing of that data takes place.', 13, False, 20, 1)
         c.question_id = 63
         c.kb_id = 175
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('13.3.2', 'Verify that the message payload is signed using WS-Security to ensure reliable transport between client and service.', 13, False, 345, 2);
+        c = ChecklistKB('13.3.2', 'Verify that the message payload is signed using WS-Security to ensure reliable transport between client and service.', 13, False, 345, 2)
         c.question_id = 63
         c.kb_id = 195
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('13.4.1', 'Verify that query whitelisting or a combination of depth limiting and amount limiting should be used to prevent GraphQL or data layer expression denial of service (DoS) as a result of expensive, nested queries. For more advanced scenarios, query cost analysis should be used.', 13, False, 770, 2);
+        c = ChecklistKB('13.4.1', 'Verify that query whitelisting or a combination of depth limiting and amount limiting should be used to prevent GraphQL or data layer expression denial of service (DoS) as a result of expensive, nested queries. For more advanced scenarios, query cost analysis should be used.', 13, False, 770, 2)
         c.question_id = 64
         c.kb_id = 285
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('13.4.2', 'Verify that GraphQL or other data layer authorization logic should be implemented at the business logic layer instead of the GraphQL layer.', 13, False, 285, 2);
+        c = ChecklistKB('13.4.2', 'Verify that GraphQL or other data layer authorization logic should be implemented at the business logic layer instead of the GraphQL layer.', 13, False, 285, 2)
         c.question_id = 64
         c.kb_id = 285
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.0', 'Configuration Verification Requirements', 14, False, None, None);
+        c = ChecklistKB('14.0', 'Configuration Verification Requirements', 14, False, None, None)
         c.question_id = None
         c.kb_id = 1
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.1.1', 'Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation, automated configuration management, and automated deployment scripts', 14, False, None, 2);
+        c = ChecklistKB('14.1.1', 'Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation, automated configuration management, and automated deployment scripts', 14, False, None, 2)
         c.question_id = 65
         c.kb_id = 284
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.1.2', 'Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found.', 14, False, 120, 2);
+        c = ChecklistKB('14.1.2', 'Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found.', 14, False, 120, 2)
         c.question_id = 65
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('14.1.3', 'Verify that server configuration is hardened as per the recommendations of the application server and frameworks in use.', 14, False, 16, 2);
+        c = ChecklistKB('14.1.3', 'Verify that server configuration is hardened as per the recommendations of the application server and frameworks in use.', 14, False, 16, 2)
         c.question_id = 65
         c.kb_id = 999
         db.session.add(c)
@@ -2152,127 +2152,127 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('14.1.5', 'Verify that authorized administrators can verify the integrity of all security- ✓ relevant configurations to detect tampering.', 14, False, None, 3);
+        c = ChecklistKB('14.1.5', 'Verify that authorized administrators can verify the integrity of all security- ✓ relevant configurations to detect tampering.', 14, False, None, 3)
         c.question_id = 65
         c.kb_id = 237
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('14.2.1', 'Verify that all components are up to date, preferably using a dependency checker during build or compile time.', 14, False, 1026, 1);
+        c = ChecklistKB('14.2.1', 'Verify that all components are up to date, preferably using a dependency checker during build or compile time.', 14, False, 1026, 1)
         c.question_id = 65
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.2.2', 'Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.', 14, False, 1002, 1);
+        c = ChecklistKB('14.2.2', 'Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.', 14, False, 1002, 1)
         c.question_id = 66
         c.kb_id = 283
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.2.3', 'Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset.', 14, False, 714, 1);
+        c = ChecklistKB('14.2.3', 'Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset.', 14, False, 714, 1)
         c.question_id = 66
         c.kb_id = 223
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('14.2.4', 'Verify that third party components come from pre-defined, trusted and continually maintained repositories', 14, False, 828, 2);
+        c = ChecklistKB('14.2.4', 'Verify that third party components come from pre-defined, trusted and continually maintained repositories', 14, False, 828, 2)
         c.question_id = 66
         c.kb_id = 238
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('14.2.5', 'Verify that an inventory catalog is maintained of all third party libraries in use.', 14, False, None, 2);
+        c = ChecklistKB('14.2.5', 'Verify that an inventory catalog is maintained of all third party libraries in use.', 14, False, None, 2)
         c.question_id = 66
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('14.2.6', 'Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application.', 14, False, 265, 2);
+        c = ChecklistKB('14.2.6', 'Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application.', 14, False, 265, 2)
         c.question_id = 66
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.3.1', 'Verify that web or application server and framework error messages are configured to deliver user actionable, customized responses to eliminate any unintended security disclosures.', 14, True, 209, 1);
+        c = ChecklistKB('14.3.1', 'Verify that web or application server and framework error messages are configured to deliver user actionable, customized responses to eliminate any unintended security disclosures.', 14, True, 209, 1)
         c.question_id = 67
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.3.2', 'Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures.', 14, True, 497, 1);
+        c = ChecklistKB('14.3.2', 'Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures.', 14, True, 497, 1)
         c.question_id = 67
         c.kb_id = 16
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.3.3', 'Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components.', 14, False, 200, 1);
+        c = ChecklistKB('14.3.3', 'Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components.', 14, False, 200, 1)
         c.question_id = 67
         c.kb_id = 130
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.4.1', 'Verify that every HTTP response contains a content type header specifying a safe character set (e.g., UTF-8, ISO 8859-1).', 14, False, 173, 1);
+        c = ChecklistKB('14.4.1', 'Verify that every HTTP response contains a content type header specifying a safe character set (e.g., UTF-8, ISO 8859-1).', 14, False, 173, 1)
         c.question_id = 68
         c.kb_id = 104
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.4.2', 'Verify that all API responses contain Content-Disposition: attachment; filename="api.json" (or other appropriate filename for the content type).', 14, False, 116, 1);
+        c = ChecklistKB('14.4.2', 'Verify that all API responses contain Content-Disposition: attachment; filename="api.json" (or other appropriate filename for the content type).', 14, False, 116, 1)
         c.question_id = 68
         c.kb_id = 193
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.4.3', 'Verify that a content security policy (CSPv2) is in place that helps mitigate impact for XSS attacks like HTML, DOM, JSON, and JavaScript injection vulnerabilities.', 14, False, 1021, 1);
+        c = ChecklistKB('14.4.3', 'Verify that a content security policy (CSPv2) is in place that helps mitigate impact for XSS attacks like HTML, DOM, JSON, and JavaScript injection vulnerabilities.', 14, False, 1021, 1)
         c.question_id = 68
         c.kb_id = 178
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.4.4', 'Verify that all responses contain X-Content-Type-Options: nosniff.', 14, False, 116, 1);
+        c = ChecklistKB('14.4.4', 'Verify that all responses contain X-Content-Type-Options: nosniff.', 14, False, 116, 1)
         c.question_id = 68
         c.kb_id = 193
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.4.5', 'Verify that HTTP Strict Transport Security headers are included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains.', 14, False, 523, 1);
+        c = ChecklistKB('14.4.5', 'Verify that HTTP Strict Transport Security headers are included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains.', 14, False, 523, 1)
         c.question_id = 68
         c.kb_id = 192
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.4.6', 'Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin".', 14, False, 116, 1);
+        c = ChecklistKB('14.4.6', 'Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin".', 14, False, 116, 1)
         c.question_id = 68
         c.kb_id = 282
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.4.7', 'Verify that a suitable X-Frame-Options or Content-Security-Policy: frame-ancestors header is in use for sites where content should not be embedded in a third-party site.', 14, False, 346, 1);
+        c = ChecklistKB('14.4.7', 'Verify that a suitable X-Frame-Options or Content-Security-Policy: frame-ancestors header is in use for sites where content should not be embedded in a third-party site.', 14, False, 346, 1)
         c.question_id = 68
         c.kb_id = 20
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.5.1', 'Verify that the application server only accepts the HTTP methods in use by the application or API, including pre-flight OPTIONS.', 14, False, 749, 1);
+        c = ChecklistKB('14.5.1', 'Verify that the application server only accepts the HTTP methods in use by the application or API, including pre-flight OPTIONS.', 14, False, 749, 1)
         c.question_id = 69
         c.kb_id = 129
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.5.2', 'Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker.', 14, False, 346, 1);
+        c = ChecklistKB('14.5.2', 'Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker.', 14, False, 346, 1)
         c.question_id = 69
         c.kb_id = 999
         db.session.add(c)
         db.session.commit()
         
-        c = ChecklistKB('14.5.3', 'Verify that the cross-domain resource sharing (CORS) Access-Control-Allow-Origin header uses a strict white-list of trusted domains to match against and does not support the "null" origin.', 14, False, 346, 1);
+        c = ChecklistKB('14.5.3', 'Verify that the cross-domain resource sharing (CORS) Access-Control-Allow-Origin header uses a strict white-list of trusted domains to match against and does not support the "null" origin.', 14, False, 346, 1)
         c.question_id = 69
         c.kb_id = 112
         db.session.add(c)
         db.session.commit()
 
-        c = ChecklistKB('14.5.4', 'Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application.', 14, False, 306, 2);
+        c = ChecklistKB('14.5.4', 'Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application.', 14, False, 306, 2)
         c.question_id = 69
         c.kb_id = 999
         db.session.add(c)
