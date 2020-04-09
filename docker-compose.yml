@@ -12,14 +12,14 @@ services:
         - "5672:5672"
         - "15672:15672"
 
-  mysql:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_DATABASE: 'skf'
-      MYSQL_ROOT_PASSWORD: 'admin-skf-secret'
-    ports:
-      - '3306:3306'
+ # mysql:
+ #   image: mysql:5.7
+ #   restart: always
+ #   environment:
+ #     MYSQL_DATABASE: 'skf'
+ #     MYSQL_ROOT_PASSWORD: 'admin-skf-secret'
+ #   ports:
+ #     - '3306:3306'
 
   nginx:
     container_name: nginx_container
@@ -35,7 +35,7 @@ services:
     depends_on:
       - "rabbitmq"
       - "nginx"
-      - "mysql"
+      #- "mysql"
     restart: always
     image: "blabla1337/skf-angular:dev"
     environment:
@@ -46,17 +46,17 @@ services:
     depends_on:
       - "rabbitmq"
       - "nginx"
-      - "mysql"
+      #- "mysql"
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "skf-api"
+    image: "blabla1337/skf-api:dev"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=http://localhost/api
       - SKF_TESTING=False
       - RABBIT_MQ_CONN_STRING=rabbitmq
-      - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
+      - SKF_DB_URL=mysql+pymysql://foobar:my_password@192.168.1.17/skfz?charset=utf8mb4
       #- SKF_DB_URL=
       #- SKF_DOJO_API_KEY=
       #- JWT_SECRET=
