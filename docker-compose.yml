@@ -13,6 +13,7 @@ services:
         - "15672:15672"
 
   mysql:
+    container_name: skf-mysql_container
     image: mysql:5.7
     restart: always
     environment:
@@ -22,7 +23,7 @@ services:
       - '3306:3306'
 
   nginx:
-    container_name: nginx_container
+    container_name: skf-nginx_container
     restart: always
     image: nginx
     volumes:
@@ -50,13 +51,13 @@ services:
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "skf-api"
+    image: "blabla1337/skf-api:dev"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=http://localhost/api
       - SKF_TESTING=False
       - RABBIT_MQ_CONN_STRING=rabbitmq
       - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
+      - SKF_JWT_SECRET=please_change_this_value_to_be_random
       #- SKF_DB_URL=
       #- SKF_DOJO_API_KEY=
-      #- JWT_SECRET=
