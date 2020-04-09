@@ -28,13 +28,11 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False
 
 # JWT settings
-JWT_SECRET = ""
 
 jwt_secret = secrets.token_urlsafe(64)
-JWT_SECRET = os.environ.get("SKF_JWT_SECRET") or jwt_secret
-if JWT_SECRET == jwt_secret:
-    print("JWT_SECRET has been generated and it's: \n\n%s\n\n,"
-          "you should consider setting the SKF_JWT_SECRET environment variable for production" % jwt_secret)
+JWT_SECRET = os.environ.get("SKF_JWT_SECRET")
+if JWT_SECRET == "":
+    print("JWT_SECRET is empty! you need to set the SKF_JWT_SECRET environment variable")
           
 ORIGINS = '*'
 

@@ -60,11 +60,11 @@ spec:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: SKF_DB_URL
-            - name: JWT_SECRET
+            - name: SKF_JWT_SECRET
               valueFrom:
                 configMapKeyRef:
                   name: skf-flask-back
-                  key: JWT_SECRET
+                  key: SKF_JWT_SECRET
             - name: SKF_DOJO_API_KEY
               valueFrom:
                 configMapKeyRef:

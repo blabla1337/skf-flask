@@ -12,11 +12,10 @@ kind: ConfigMap
 metadata:
   name: skf-flask-back
 data:
-  JWT_SECRET: dasdasdsadasd
+  SKF_JWT_SECRET: please_change_this_value_to_be_random
   SKF_API_URL: https://localhost/api
   SKF_FLASK_DEBUG: "False"
   SKF_DB_URL: sqlite:///db/db.sqlite
-  SKF_DOJO_API_KEY: optional
   SKF_DOJO_API_KEY: optional
   SKF_TESTING: "False"
   RABBIT_MQ_CONN_STRING: rabbitmq

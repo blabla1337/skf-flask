@@ -161,7 +161,7 @@ def main():
     #initialize_app(app)
     if app.debug == False:
         if  settings.JWT_SECRET == '':
-            log.info('>>>>> Configure the JWT_SECRET in the settings.py file and choose an unique 128 character long secret <<<<<')
+            log.info('>>>>> Configure the JWT_SECRET in the docker-compose.yml if using local or in the Doployment_backend.yaml file and choose an unique 128 character long secret <<<<<')
         else:
             log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
             app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)
