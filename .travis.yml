@@ -1,14 +1,17 @@
 dist: trusty
+  
+sudo: false
 
 addons:
   chrome: stable
   
 language: python
 
-sudo: false
-
 python:
   - "3.6"
+
+env:
+  - SKF_JWT_SECRET=12345
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -36,7 +39,6 @@ before_script:
 
 script:
   - snyk monitor
-
 #  - pwd
 #  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
 #  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
