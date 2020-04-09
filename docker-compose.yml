@@ -46,18 +46,17 @@ services:
     container_name: skf-api_container
     depends_on:
       - "rabbitmq"
-      - "nginx"
       - "mysql"
+      - "nginx"
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "skf-api"
+    image: "blabla1337/skf-api:dev"
     environment:
-      - SKF_FLASK_DEBUG=False
+      - SKF_FLASK_DEBUG=0
       - SKF_API_URL=http://localhost/api
       - SKF_TESTING=False
       - RABBIT_MQ_CONN_STRING=rabbitmq
       - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
-      #- SKF_DB_URL=
       #- SKF_DOJO_API_KEY=
       #- JWT_SECRET=
