@@ -106,7 +106,7 @@ def configure_app(flask_app):
     flask_app.config['RESTPLUS_MASK_SWAGGER'] = settings.RESTPLUS_MASK_SWAGGER
     flask_app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
     flask_app.config['TESTING'] = settings.TESTING
-    flask_app.config['FLASK_DEBUG'] = True
+    flask_app.config['FLASK_DEBUG'] = settings.FLASK_DEBUG
     flask_app.config['SQLALCHEMY_ECHO'] = settings.SQLALCHEMY_ECHO
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
     #flask_app.config['RABBIT_MQ_CONN_STRING'] = settings.RABBIT_MQ_CONN_STRING
