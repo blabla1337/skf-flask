@@ -17,7 +17,7 @@ def deploy_container(rpc_body):
     deployment_object = create_deployment_object(deployment)
     create_deployment(deployment_object, user_id)
     create_service_for_deployment(deployment, user_id)
-    time.sleep(5)
+    time.sleep(30)
     response = get_service_exposed_ip(deployment, user_id)
     host_and_port = get_host_port_from_response(response)
     return host_and_port
@@ -122,10 +122,10 @@ def get_host_port_from_response(response):
             port = service.port
         for service in response.status.load_balancer.ingress:
             host = service.ip
-        if host is None:  
-            return "i am running on  -  http://localhost:" + str(port)
-        else:
+        if host:
             return "i am running on  -  http://" + str(host) + ":" + str(port)
+        else:
+            return "i am running on  -  http://localhost:" + str(port)
     except:
         return "Failed to deploy, error no host or port!"
 
