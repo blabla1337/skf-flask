@@ -41,7 +41,6 @@ GOOGLE = False
 API_KEY = os.environ.get("SKF_GOOGLE_API_KEY") or ''
 CSE_ID = os.environ.get("SKF_GOOGLE_CSE_ID") or ''
 
-
 # temp defect dojo push settings
 DOJO_API_KEY = os.environ.get("SKF_DOJO_API_KEY") or ''
 DOJO_URL = os.environ.get("SKF_DOJO_URL") or ''
@@ -50,5 +49,6 @@ DOJO_URL = os.environ.get("SKF_DOJO_URL") or ''
 TESTING = (os.environ.get("SKF_TESTING") == 'True') or False
 
 #RABBIT MQ settings
-RABBIT_MQ_CONN_STRING = os.environ.get("RABBIT_MQ_CONN_STRING") or 'rabbitmq'
-
+RABBIT_MQ_CONN_STRING = os.environ.get("RABBIT_MQ_CONN_STRING") or 'localhost'
+RABBITMQ_DEFAULT_USER = os.environ.get("RABBITMQ_DEFAULT_USER") or 'guest'
+RABBITMQ_DEFAULT_PASS = os.environ.get("RABBITMQ_DEFAULT_PASS") or 'guest'

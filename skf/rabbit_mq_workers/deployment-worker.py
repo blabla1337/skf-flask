@@ -31,7 +31,7 @@ def create_user_namespace(user_id):
         body.metadata = client.V1ObjectMeta(name=user_id)
         api_response = api_instance.create_namespace(body)
     except:
-        return "Failed to deploy the container image!"    
+        return "Failed to deploy, error namespace creation!"    
 
 
 def create_deployment_object(deployment):
@@ -58,7 +58,7 @@ def create_deployment_object(deployment):
             spec=spec)
         return deployment
     except:
-        return "Failed to deploy the container image!"
+        return "Failed to deploy, error creation deployment object!"
 
 def create_deployment(deployment, user_id):
     try:
@@ -67,7 +67,7 @@ def create_deployment(deployment, user_id):
         response = k8s_apps_v1.create_namespaced_deployment(body=deployment, namespace=user_id)
         return response
     except:
-        return "Failed to deploy the container image!"
+        return "Failed to deploy, error K8s API create call!"
 
 
 def create_service_for_deployment(deployment, user_id):
@@ -87,7 +87,7 @@ def create_service_for_deployment(deployment, user_id):
         response = api_instance.create_namespaced_service(namespace=user_id, body=service)
         return response
     except:
-        return "Failed to deploy the container image!"
+        return "Failed to deploy, error K8s API create service call!"
 
 
 def get_service_exposed_ip(deployment, user_id):
@@ -97,7 +97,7 @@ def get_service_exposed_ip(deployment, user_id):
         response = api_instance.read_namespaced_service(deployment, user_id, pretty=True)
         return response
     except:
-        return "Failed to deploy the container image!"
+        return "Failed to deploy, error service no exposed IP!"
 
 
 def string_split_user_id(body):
@@ -105,7 +105,7 @@ def string_split_user_id(body):
         user_id = body.split(':')
         return user_id[1]
     except:
-        return "Failed to deploy the container image!"
+        return "Failed to deploy, error no user_id found!"
 
 
 def string_split_deployment(body):
@@ -113,7 +113,7 @@ def string_split_deployment(body):
         deployment = body.split(':')
         return deployment[0]
     except:
-        return "Failed to deploy the container image!"
+        return "Failed to deploy, error no deployment found!"
 
 
 def get_host_port_from_response(response):
@@ -121,10 +121,13 @@ def get_host_port_from_response(response):
         for service in response.spec.ports:
             port = service.port
         for service in response.status.load_balancer.ingress:
-            host = service.hostname  
-        return "i am running on  -  " + str(host) + ":" + str(port)
+            host = service.ip
+        if host is None:  
+            return "i am running on  -  http://localhost:" + str(port)
+        else:
+            return "i am running on  -  http://" + str(host) + ":" + str(port)
     except:
-        return "Failed to deploy the container image!"
+        return "Failed to deploy, error no host or port!"
 
 def on_request(ch, method, props, body):
         response = deploy_container(str(body, 'utf-8'))
