@@ -41,7 +41,7 @@ spec:
       containers:
         - name: skf-flask-back
           image: "blabla1337/skf-api:dev"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8888
           env:
