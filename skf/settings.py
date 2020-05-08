@@ -53,4 +53,4 @@ RABBITMQ_DEFAULT_USER = os.environ.get("RABBITMQ_DEFAULT_USER") or 'guest'
 RABBITMQ_DEFAULT_PASS = os.environ.get("RABBITMQ_DEFAULT_PASS") or 'guest'
 
 # SKF-LABS settings
-#LABS_KUBE_CONF = os.environ.get("LABS_KUBE_CONF") or '~/.kube/config'
+LABS_KUBE_CONF = os.environ.get("LABS_KUBE_CONF") or '~/.kube/config'
