@@ -59,5 +59,6 @@ services:
       - RABBIT_MQ_CONN_STRING=rabbitmq
       - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
       - SKF_JWT_SECRET=please_change_this_value_to_be_random
+      - LABS_KUBE_CONF=~/.kube/config
       #- SKF_DB_URL=
       #- SKF_DOJO_API_KEY=

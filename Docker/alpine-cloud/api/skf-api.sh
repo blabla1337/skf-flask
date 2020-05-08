@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#set -ex
+set -ex
 
-#if [ "$LABS_KUBE_CONF" != "~/.kube/config" ]
-#then
-# echo $LABS_KUBE_CONF | base64 -d > /home/user_api/.kube/conf
-#fi
+if [ "$LABS_KUBE_CONF" != "~/.kube/config" ]
+then
+ echo $LABS_KUBE_CONF | base64 -d > /home/user_api/.kube/conf
+fi
 
 #to get the base64 string of your .kube/config run:
 #cat ~/.kube/config | base64
