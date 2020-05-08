@@ -17,7 +17,7 @@ def deploy_container(rpc_body):
     deployment_object = create_deployment_object(deployment)
     create_deployment(deployment_object, user_id)
     create_service_for_deployment(deployment, user_id)
-    time.sleep(30)
+    time.sleep(60)
     response = get_service_exposed_ip(deployment, user_id)
     host_and_port = get_host_port_from_response(response)
     return host_and_port
