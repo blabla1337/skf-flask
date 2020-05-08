@@ -17,7 +17,7 @@ RUN npm --loglevel=error install &&\
     npm run build --prod
 
 ############
-### prod ###
+### run ###
 ############
 
 # base image
@@ -58,4 +58,4 @@ CMD ["/home/user_angular/entrypoint.sh","/home/user_angular/site.conf.template"]
 
 #First go to the main skf-flask folder and from there build the image
 #docker build -f Docker/alpine-cloud/angular/Dockerfile . -t skf-angular --no-cache
-#docker run -ti -p 127.0.0.1:80:8788 skf-angular
+#docker run -ti -p 127.0.0.1:8788:8788 skf-angular
