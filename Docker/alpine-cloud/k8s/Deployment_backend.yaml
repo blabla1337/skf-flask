@@ -79,5 +79,10 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: skf-flask-back
-                  key: RABBIT_MQ_CONN_STRING             
+                  key: RABBIT_MQ_CONN_STRING
+            - name: LABS_KUBE_CONF
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: LABS_KUBE_CONF        
 ---

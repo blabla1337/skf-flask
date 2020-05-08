@@ -1,3 +1,8 @@
+#############
+### build ###
+#############
+
+# base image
 FROM python:3.7 as BUILDER
 
 LABEL maintainer="glenn.ten.cate@owasp.org"
@@ -7,19 +12,17 @@ RUN apt update &&\
     default-libmysqlclient-dev \
     vim
 
+############
+### run ###
+############
+
+# base image
 FROM python:3.7
-# second stage
+
 LABEL maintainer="glenn.ten.cate@owasp.org"
 
 RUN apt update &&\
     apt install -y vim
-
-RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
-RUN mkdir -p /usr/local/gcloud \
-  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
-  && /usr/local/gcloud/google-cloud-sdk/install.sh
-ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
-RUN gcloud components install kubectl
 
 RUN groupadd --gid 1000 user_api && useradd --uid 1000 --gid user_api -m user_api &&  mkdir -p /home/user_api
 

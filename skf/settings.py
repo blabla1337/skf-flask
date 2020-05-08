@@ -28,7 +28,6 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False
 
 # JWT settings
-
 jwt_secret = secrets.token_urlsafe(64)
 JWT_SECRET = os.environ.get("SKF_JWT_SECRET")
 if JWT_SECRET == "":
@@ -52,3 +51,6 @@ TESTING = (os.environ.get("SKF_TESTING") == 'True') or False
 RABBIT_MQ_CONN_STRING = os.environ.get("RABBIT_MQ_CONN_STRING") or 'localhost'
 RABBITMQ_DEFAULT_USER = os.environ.get("RABBITMQ_DEFAULT_USER") or 'guest'
 RABBITMQ_DEFAULT_PASS = os.environ.get("RABBITMQ_DEFAULT_PASS") or 'guest'
+
+# SKF-LABS settings
+LABS_KUBE_CONF = os.environ.get("LABS_KUBE_CONF") or '~/.kube/config'
