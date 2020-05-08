@@ -6,15 +6,12 @@ class Log(db.Model):
     __tablename__ = 'logs'
 
     id = db.Column(db.Integer, primary_key=True)
-
     date = db.Column(db.Integer, nullable=False)
     time = db.Column(db.Integer,nullable=False)
     threat = db.Column(db.Text, nullable=False)
     ip = db.Column(db.Text, nullable=False)
-
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     user = db.relationship('User', backref=db.backref("logs"))
-    
     message = db.Column(db.Text, nullable=False)
     status = db.Column(db.Text, nullable=False)
 

@@ -14,7 +14,7 @@ def get_checklist_category_item(checklist_category_id):
 
 def get_checklist_categories():
     log("User requested list checklist categories", "LOW", "PASS")
-    result = ChecklistCategory.query.order_by(desc(ChecklistCategory.name)).paginate(1, 500, False)
+    result = ChecklistCategory.query.order_by(desc(ChecklistCategory.name)).paginate(1, 2500, False)
     return result
     
 def create_checklist_category(data):

@@ -34,6 +34,7 @@ def login_user(data):
     token = create_jwt_token_for_user(user)
     return {'Authorization token': token, 'username': user.username}
 
+
 def create_user(data):
     log("A new user created", "MEDIUM", "PASS")
     my_secure_rng = random.SystemRandom()
@@ -51,6 +52,7 @@ def create_user(data):
     result = User.query.filter(User.email == data.get('email')).one()
     return result
 
+
 def manage_user(user_id, data):
     log("Manage user triggered", "HIGH", "PASS")
     user = get_user_result_by_id(user_id)
@@ -64,10 +66,12 @@ def manage_user(user_id, data):
         return {'message': 'User could not be managed'}
     return {'message': 'User successfully managed'}
 
+
 def list_users():
     log("Overview of list users triggered", "HIGH", "PASS")
-    result = User.query.paginate(1, 50, False)
+    result = User.query.paginate(1, 2500, False)
     return result
+
 
 def get_user_result_by_username(username):
     try:
@@ -76,17 +80,21 @@ def get_user_result_by_username(username):
     except:
         return abort(400, 'Login was failed')
 
+
 def is_user_activated(user):
     if not user.activated:
         return abort(400, 'Login was failed')
+
 
 def does_user_has_access(user):
     if not user.access:
         return abort(400, 'Login was failed')
 
+
 def check_password(password_from_db, supplied_password):
     if not check_password_hash(password_from_db.password, supplied_password):
         return abort(400, 'Login was failed')
+
 
 def create_jwt_token_for_user(user):
     payload = {
@@ -101,29 +109,36 @@ def create_jwt_token_for_user(user):
     token = unicode(token_raw,'utf-8')
     return token
 
+
 def get_user_result_by_id(user_id):
     return User.query.filter(User.id == user_id).one() 
+
 
 def strip_whitespace_from_username(username):
     refactor = username.replace(" ", "")
     return refactor
 
+
 def user_is_already_activated(result):
     if result == True:
         return abort(400, 'User could not be activated')
+
 
 def compare_email(email_from_query, email_from_form):
     if email_from_query != email_from_form:
         return abort(400, 'User could not be activated')
 
+
 def compare_passwords(password, repassword):
     if password != repassword:
         return abort(400, 'User could not be activated')
+
 
 def compare_access_tokens(token_from_query, token_from_form):
     val_num(token_from_form)
     if token_from_query != token_from_form:
         return abort(400, 'User could not be activated')
+
 
 def activate_account(username, pw_hash, user_id):
     activate = get_user_result_by_id(user_id)
@@ -134,8 +149,9 @@ def activate_account(username, pw_hash, user_id):
     db.session.add(activate)
     db.session.commit()
 
+
 def list_privileges():
     log("User requested privileges items", "MEDIUM", "PASS")
-    result = Privilege.query.paginate(1, 500, False)
+    result = Privilege.query.paginate(1, 2500, False)
     return result
 

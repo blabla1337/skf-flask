@@ -22,8 +22,9 @@ def get_sprint_item(sprint_id):
 
 def get_sprint_results(sprint_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
-    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_id)).paginate(1, 500, False)
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_id)).paginate(1, 2500, False)
     return result
+
 
 def update_sprint(sprint_id, data):
     log("User updated sprint", "MEDIUM", "PASS")
@@ -78,6 +79,7 @@ def delete_sprint(sprint_id):
         db.session.rollback()
         return abort(400, 'Sprint not successfully deleted')
     return {'message': 'Sprint successfully deleted'}
+
 
 def delete_checklist_result(id):
     log("User deleted sprint", "MEDIUM", "PASS")

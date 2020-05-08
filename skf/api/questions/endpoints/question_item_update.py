@@ -9,7 +9,6 @@ from skf.api.restplus import api
 
 ns = api.namespace('questions', description='Operations related to questions')
 
-
 @ns.route('/item/update/<int:id>')
 @api.doc(params={'id': 'The unique question id'})
 @api.response(404, 'Validation error', message)

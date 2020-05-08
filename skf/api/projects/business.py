@@ -13,7 +13,7 @@ import sys
 
 def get_project_items():
     log("User requested list projects", "MEDIUM", "PASS")
-    return Project.query.paginate(1, 500, False)
+    return Project.query.paginate(1, 2500, False)
 
 
 def new_project(user_id, data):

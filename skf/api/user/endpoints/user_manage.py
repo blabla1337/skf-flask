@@ -10,7 +10,6 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_n
 
 ns = api.namespace('user', description='Operations related to users')
 
-
 @ns.route('/manage/<int:id>')
 @api.doc(params={'id': 'The user id'})
 @api.response(404, 'Validation error', message)

@@ -8,7 +8,7 @@ from skf.api.labs.deletion_tasks import SKFLabDelete
 
 def get_labs():
     log("User requested list of kb items", "LOW", "PASS")
-    result = LabItem.query.order_by(LabItem.level.asc()).paginate(1, 500, False)
+    result = LabItem.query.order_by(LabItem.level.asc()).paginate(1, 2500, False)
     return result
 
 

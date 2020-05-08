@@ -10,7 +10,6 @@ from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
-
 @ns.route('/<int:id>')
 @api.doc(params={'id': 'The sprint id'})
 @api.response(404, 'Validation error', message)

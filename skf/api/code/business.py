@@ -2,6 +2,7 @@ from skf.database import db
 from skf.database.code_items import CodeItem
 from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
+
 def update_code_item(code_id, data):
     log("User requested updated specific code example item", "LOW", "PASS")
     result = CodeItem.query.filter(CodeItem.id == code_id).one()
@@ -54,7 +55,7 @@ def delete_code_item(code_id, user_id):
 
 def get_code_items(category_id):
     log("User requested list of code items", "LOW", "PASS")
-    result = CodeItem.query.filter(CodeItem.checklist_category_id == category_id).paginate(1, 500, False)
+    result = CodeItem.query.filter(CodeItem.checklist_category_id == category_id).paginate(1, 2500, False)
     return result
 
 

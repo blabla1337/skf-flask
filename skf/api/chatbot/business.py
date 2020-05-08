@@ -20,8 +20,6 @@ def des_sol(question,intent):
         entity=entity_classifier1.entity_recognizer(question.lower())
         if entity is None:
            entity=entity_classifier2.entity(question)
-                 
-
         intent=intent
         read_file = open(os.path.join(app.root_path, "datasets/desc_solution.json"), 'r')
         data = json.load(read_file)
@@ -60,6 +58,7 @@ def des_sol(question,intent):
                     log.write(question+"\n")
                     log.close()
                 return msg
+
 
 def code(question,intent,language):
         code_entity=code_classify.entity(question)

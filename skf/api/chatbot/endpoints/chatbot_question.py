@@ -11,7 +11,7 @@ ns = api.namespace('chatbot', description='Operations related to the chatbot int
 @ns.route('/question')
 @api.response(404, 'Validation error', message)
 class ChatbotQuestion(Resource):
-
+   
     @api.expect(question_chatbot)
     @api.marshal_with(question_response)
     @api.response(400, 'No results found', message)
