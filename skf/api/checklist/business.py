@@ -16,45 +16,45 @@ def get_checklist_item(checklist_id, checklist_type):
 
 def get_checklist_item_questions_git(checklist_type):
     log("User requested specific checklist items and correlated questions", "LOW", "PASS")
-    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 1500, False)
+    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 2500, False)
     return result
 
 
 def get_checklist_item_question_sprint(question_id):
     log("User requested specific checklist item using sprint questionID", "LOW", "PASS")
-    result = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).paginate(1, 1500, False)
+    result = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).paginate(1, 2500, False)
     return result
 
 
 def get_checklist_item_types(category_id):
     log("User requested list checklist types", "LOW", "PASS")
-    result = ChecklistType.query.filter(ChecklistType.checklist_category_id == category_id).order_by(desc(ChecklistType.visibility)).paginate(1, 500, False)
+    result = ChecklistType.query.filter(ChecklistType.checklist_category_id == category_id).order_by(desc(ChecklistType.visibility)).paginate(1, 2500, False)
     return result
 
 def get_checklist_item_types_with_filter(maturity):
     log("User requested list checklist types", "LOW", "PASS")
-    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
+    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 2500, False)
     return result
 
 def get_checklist_item_types_with_filter(maturity):
     log("User requested list checklist types", "LOW", "PASS")
-    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
+    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 2500, False)
     return result
 
 def get_checklist_item_types_with_filter(maturity):
     log("User requested list checklist types", "LOW", "PASS")
-    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
+    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 2500, False)
     return result
 
 def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
-    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 1500, False)
+    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 2500, False)
     return result
     
 
 def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
-    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 1500, False)
+    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 2500, False)
     return result
     
 

@@ -8,7 +8,6 @@ from skf.api.restplus import api
 
 ns = api.namespace('code', description='Operations related to knowledge base')
 
- 
 @ns.route('/delete/<int:id>')
 @api.doc(params={'id': 'The code id'})
 @api.response(404, 'Validation error', message)

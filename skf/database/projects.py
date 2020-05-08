@@ -10,7 +10,6 @@ class Project(db.Model):
     description = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.Text, nullable=False)
 
-
     def __init__(self, name, version, description, timestamp):
         self.name = name
         self.version = version

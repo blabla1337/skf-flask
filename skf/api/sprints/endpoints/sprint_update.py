@@ -10,11 +10,11 @@ from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
-
 @ns.route('/update/<int:id>')
 @api.doc(params={'id': 'The sprint id'})
 @api.response(404, 'Validation error', message)
 class ProjectSprintItemUpdate(Resource):
+    
     @api.expect(authorization, sprint_update)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'No results found', message)

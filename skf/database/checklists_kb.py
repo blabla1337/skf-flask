@@ -5,7 +5,6 @@ class ChecklistKB(db.Model):
     __tablename__ = 'checklists_kb'
     
     id = db.Column(db.Integer, primary_key=True)
-
     checklist_id = db.Column(db.String(255), nullable=False)
     content = db.Column(db.Text)
     cwe = db.Column(db.Integer)

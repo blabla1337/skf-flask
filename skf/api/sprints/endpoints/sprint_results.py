@@ -9,7 +9,6 @@ from skf.api.restplus import api
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
-
 @ns.route('/results/<int:id>')
 @api.doc(params={'id': 'The sprint id'})
 @api.response(404, 'Validation error', message)

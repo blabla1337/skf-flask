@@ -10,7 +10,6 @@ from skf.api.security import log, val_num, val_alpha_num, val_alpha_num_special
 
 ns = api.namespace('sprint', description='Operations related to sprint items')
 
-
 @ns.route('/results/delete/<int:checklist_result_id>')
 @api.doc(params={'id': 'checklist_results_id'})
 @api.response(404, 'Validation error', message)

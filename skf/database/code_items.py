@@ -6,11 +6,9 @@ class CodeItem(db.Model):
     __tablename__ = 'code_items'
 
     id = db.Column(db.Integer, primary_key=True)
-
     title = db.Column(db.Text, nullable=False)
     content = db.Column(db.Text, nullable=False)
     code_lang = db.Column(db.Text, nullable=False)
-
     checklist_category_id = db.Column(db.Integer, db.ForeignKey("checklist_category.id"), nullable=True)
     checklist_category = db.relationship("ChecklistCategory", backref=db.backref('code_items'))
 

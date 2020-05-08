@@ -10,7 +10,6 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_n
 
 ns = api.namespace('questions', description='Operations related to question sprint items')
 
-
 @ns.route('/item/new')
 @api.response(404, 'Validation error', message)
 class QuestionSprintCollection(Resource):
