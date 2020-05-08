@@ -19,7 +19,7 @@ data:
   SKF_DOJO_API_KEY: optional
   SKF_TESTING: "False"
   RABBIT_MQ_CONN_STRING: rabbitmq
-  LABS_KUBE_CONF: base64_string_here_of_the_content_of_the .kube/config file_for_example: cat ~/.kube/config | base64
+  #LABS_KUBE_CONF: base64_string_here_of_the_content_of_the .kube/config file_for_example: cat ~/.kube/config | base64
 ---
 apiVersion: v1
 kind: ConfigMap
