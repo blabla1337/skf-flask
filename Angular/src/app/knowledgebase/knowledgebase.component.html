@@ -34,7 +34,7 @@
 		<div class="col-sm-4" style="float:right; margin-bottom:1%;">
 			<select placeholder="Asdsad" class="form-control" [(ngModel)]="category_id" (change)="selectChecklistsFromCategory()" >
 				<option selected [value]="selectUndefinedOptionValue">Select a category to work with!</option>
-				<option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+				<option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
 			</select>
 		</div>
 	</section>

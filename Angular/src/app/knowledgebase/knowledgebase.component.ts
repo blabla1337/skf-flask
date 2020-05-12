@@ -21,10 +21,12 @@ export class KnowledgebaseComponent implements OnInit
   public queryString: string;
   public categories: Category[];
   public category_id: number;
+  public selectUndefinedOptionValue: undefined = undefined;
 
   get formControls() { return this.knowledgebaseForm.controls; }
 
   constructor(public _knowledgeService: KnowledgebaseService, private categoryService: CategoryService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
+
 
   ngOnInit()
   {
@@ -77,6 +79,12 @@ export class KnowledgebaseComponent implements OnInit
 
   selectChecklistsFromCategory()
   {
+    if (this.category_id === undefined || this.category_id === null) {
+
+      localStorage.setItem("category_id", '');
+      return;
+    }
+
     localStorage.setItem("category_id", this.category_id.toString());
     this.getKnowledgeItems(this.category_id);
   }

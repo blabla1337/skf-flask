@@ -23,6 +23,7 @@ export class ChecklistSummaryComponent implements OnInit
   public queryString: string;
   public isSubmitted: boolean;
   public category_id: number;
+  public selectUndefinedOptionValue: undefined = undefined;
 
   get formControls() { return this.checklistForm.controls; }
 
@@ -103,10 +104,15 @@ export class ChecklistSummaryComponent implements OnInit
     }
   }
 
-  selectChecklistsFromCategory()
-  {
-    this.checklistTypeList(this.category_id);
+  selectChecklistsFromCategory() {
+
+    if (this.category_id === undefined || this.category_id === null) {
+      localStorage.setItem("category_id", '');
+      return;
+    }
+
     localStorage.setItem("category_id", this.category_id.toString());
+    this.checklistTypeList(this.category_id);
   }
 
   open(content)

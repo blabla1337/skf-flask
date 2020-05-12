@@ -29,6 +29,7 @@ export class CodeExamplesComponent implements OnInit
   public delete: string;
   public category_id: number;
   public categories: Category[];
+  public selectUndefinedOptionValue: undefined = undefined;
 
   constructor(private codeService: CodeExamplesService, private categoryService: CategoryService, private highlightJsService: HighlightJsService, private el: ElementRef, private modalService: NgbModal, private formBuilder: FormBuilder)
   {
@@ -93,8 +94,13 @@ export class CodeExamplesComponent implements OnInit
         err => console.log('Getting the projects failed, contact an administrator! '));
   }
 
-  selectChecklistsFromCategory()
-  {
+  selectChecklistsFromCategory() {
+
+    if (this.category_id === undefined || this.category_id === null) {
+      localStorage.setItem("category_id", '');
+      return;
+    }
+
     localStorage.setItem("category_id", this.category_id.toString());
     this.getCodeExamples(this.category_id);
   }

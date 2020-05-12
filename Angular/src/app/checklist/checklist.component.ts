@@ -18,12 +18,13 @@ export class ChecklistComponent
   public checklistTypes: ChecklistType[] = [];
   public checklistItems: Checklist[] = [];
   public categories: Category[] = [];
-  public category;
+  public category_id: number;
   public queryString: string;
   public closeResult: string;
   public error: string;
   public checklist_type: number;
   public color: string;
+  public selectUndefinedOptionValue: undefined = undefined;
 
   constructor(private checklistService: ChecklistService, private categoryService: CategoryService, private modalService: NgbModal) { }
 
@@ -57,9 +58,13 @@ export class ChecklistComponent
         err => console.log('Getting the projects failed, contact an administrator! '));
   }
 
-  selectChecklistsFromCategory()
-  {
-    this.checklistTypeList(this.category);
+  selectChecklistsFromCategory() {
+
+    if (this.category_id === undefined || this.category_id === null) {
+      return;
+    }S
+
+    this.checklistTypeList(this.category_id);
   }
 
   open(content, typeID: number)
