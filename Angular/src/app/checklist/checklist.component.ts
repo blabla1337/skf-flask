@@ -62,7 +62,7 @@ export class ChecklistComponent
 
     if (this.category_id === undefined || this.category_id === null) {
       return;
-    }S
+    };
 
     this.checklistTypeList(this.category_id);
   }
