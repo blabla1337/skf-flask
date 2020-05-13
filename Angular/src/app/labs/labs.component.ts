@@ -20,7 +20,9 @@ export class LabsComponent implements OnInit
   public label;
   public label_select;
   public deployments = "Your deployment information will be displayed here! (please be patient, loading might take a while)"
-
+  public queryLabel;
+  public queryString;
+  
   constructor(public _labService: LabService) { }
 
   ngOnInit()

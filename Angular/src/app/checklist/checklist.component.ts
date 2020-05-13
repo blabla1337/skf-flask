@@ -24,6 +24,8 @@ export class ChecklistComponent
   public error: string;
   public checklist_type: number;
   public color: string;
+  public selectUndefinedOptionValue: undefined = undefined;
+
 
   constructor(private checklistService: ChecklistService, private categoryService: CategoryService, private modalService: NgbModal) { }
 
