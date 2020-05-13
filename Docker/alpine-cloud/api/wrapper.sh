@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#We need to wait till the database is started...
+sleep 20
+
 # Start the first process
 /home/user_api/Docker/alpine-cloud/api/skf-api.sh &
 status=$?
