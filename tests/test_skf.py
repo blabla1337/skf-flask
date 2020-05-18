@@ -364,7 +364,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/9')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['title'], "J2EE_Misconfiguration: Weak Access Permissions for EJB Methods")
+        self.assertEqual(response_dict['title'], "J2EE Misconfiguration: Weak Access Permissions for EJB Methods")
 
 
     def test_update_kb(self):
