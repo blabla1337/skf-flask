@@ -316,7 +316,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/checklist/item/question_sprint/1', headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['kb_item_id'], '272')
+        self.assertEqual(response_dict['items'][0]['kb_item_id'], '2')
 
 
     def test_get_checklist_item_10(self):
@@ -356,15 +356,15 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['title'], "Filename injection Path traversal")
+        self.assertEqual(response_dict['items'][0]['title'], "empty control")
 
 
     def test_get_kb_item_10(self):
         """Test if the get specific kb item call is working"""
-        response = self.client.get('/api/kb/10')
+        response = self.client.get('/api/kb/9')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['title'], "External DTD parsing")
+        self.assertEqual(response_dict['title'], "J2EE_Misconfiguration: Weak Access Permissions for EJB Methods")
 
 
     def test_update_kb(self):
@@ -379,7 +379,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/items/1')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['items'][0]['title'], "Filename injection Path traversal")
+        self.assertEqual(response_dict['items'][0]['title'], "empty control")
 
 
     def test_new_kb(self):
