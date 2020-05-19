@@ -22,6 +22,5 @@ class KnowledgebaseItemDelete(Resource):
         * Privileges required: **delete**
         """
         validate_privilege(self, 'delete')
-        user_id = select_userid_jwt(self)
-        result = delete_code_item(id, user_id)
+        result = delete_code_item(id)
         return result, 200, security_headers()

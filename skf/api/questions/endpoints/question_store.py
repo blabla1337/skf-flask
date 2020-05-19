@@ -23,7 +23,6 @@ class QuestionSprintStoreCollection(Resource):
         * Privileges required: **edit**
         """
         validate_privilege(self, 'edit')
-        user_id = select_userid_jwt(self)
         data = request.json
         result = store_questions(checklist_type, maturity, data)
         return result, 200, security_headers()

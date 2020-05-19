@@ -28,11 +28,14 @@ def log(message, threat, status):
             token = request.headers.get('Authorization').split()[0]
             checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
             user_id = checkClaims['UserId']
+            #event = Log(dateLog, dateTime, threat, ip, message, status, user_id)
+            #db.session.add(event)
+            #db.session.commit()
         else:
             user_id = "0"
-            event = Log(dateLog, dateTime, threat, ip, user_id, status, message)
-            db.session.add(event)
-            db.session.commit()
+            #event = Log(dateLog, dateTime, threat, ip, message, status, user_id)
+            #db.session.add(event)
+            #db.session.commit()
     except:
         user_id = "0"
         ip = "0.0.0.0"
@@ -84,39 +87,47 @@ def val_float(value):
     else:
         return True
 
+
 def validate_privilege(self, privilege):
     """Validates the JWT privileges"""
-    if not request.headers.get('Authorization'):
-        log("Request sent with missing JWT header", "HIGH", "FAIL")
-        abort(403, 'JWT missing authorization header')
-    try:
-        check_privilege = select_privilege_jwt(self)
-    except jwt.exceptions.DecodeError:
-        log("User JWT header could not be decoded", "HIGH", "FAIL")
-        abort(403, 'JWT decode error')
-    except jwt.exceptions.ExpiredSignature:
-        log("User JWT header is expired", "HIGH", "FAIL")
-        abort(403, 'JWT token expired')
-    privileges = check_privilege['privilege'].split(':')
-    for value in privileges:
-        if value == privilege:
-            return True
-    log("User JWT header contains wrong privilege", "HIGH", "FAIL")
-    return  abort(403, 'JWT wrong privileges')
+    print(settings.JWT_ENABLED)
+    if settings.JWT_ENABLED == True:
+        if not request.headers.get('Authorization'):
+            log("Request sent with missing JWT header", "HIGH", "FAIL")
+            abort(403, 'JWT missing authorization header')
+        try:
+            check_privilege = select_privilege_jwt(self)
+        except jwt.exceptions.DecodeError:
+            log("User JWT header could not be decoded", "HIGH", "FAIL")
+            abort(403, 'JWT decode error')
+        except jwt.exceptions.ExpiredSignature:
+            log("User JWT header is expired", "HIGH", "FAIL")
+            abort(403, 'JWT token expired')
+        privileges = check_privilege['privilege'].split(':')
+        for value in privileges:
+            if value == privilege:
+                return True
+        log("User JWT header contains wrong privilege", "HIGH", "FAIL")
+        return  abort(403, 'JWT wrong privileges')
 
 
 def select_userid_jwt(self):
     """Returns the user_id from the JWT authorization token"""
-    token = request.headers.get('Authorization').split()[0]
-    try:
-        checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
-    except jwt.exceptions.DecodeError:
-        log("User JWT header could not be decoded", "HIGH", "FAIL")
-        abort(403, 'JWT decode error')
-    except jwt.exceptions.ExpiredSignature:
-        log("User JWT header is expired", "HIGH", "FAIL")
-        abort(403, 'JWT token expired')
-    return checkClaims['UserId']
+    if settings.JWT_ENABLED == True:
+        token = request.headers.get('Authorization').split()[0]
+        try:
+            checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
+            print(checkClaims)
+        except jwt.exceptions.DecodeError:
+            log("User JWT header could not be decoded", "HIGH", "FAIL")
+            abort(403, 'JWT decode error')
+        except jwt.exceptions.ExpiredSignature:
+            log("User JWT header is expired", "HIGH", "FAIL")
+            abort(403, 'JWT token expired')
+        return checkClaims['UserId']
+    else:
+        # return userID 1 of Admin user
+        return 1
 
 
 def select_privilege_jwt(self):

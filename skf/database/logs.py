@@ -15,11 +15,12 @@ class Log(db.Model):
     message = db.Column(db.Text, nullable=False)
     status = db.Column(db.Text, nullable=False)
 
-    def __init__(self, date, time, threat, ip, message, status):
+    def __init__(self, date, time, threat, ip, message, status, user_id):
         self.date = date
         self.time = time
         self.threat = threat
         self.ip = ip
         self.message = message
         self.status = status
+        self.user_id = user_id
 
