@@ -23,11 +23,10 @@ if (AppSettings.AUTH_TOKEN) {
 */
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LabsComponent } from './labs/labs.component';
@@ -58,12 +57,30 @@ import { OrderBy } from './pipes/order-by.pipe';
 import { StringFilterPipe } from './pipes/string-filter.pipe';
 import { LangFilterPipe } from './pipes/lang-filter.pipe';
 import { LabelFilterPipe } from './pipes/label-filter.pipe';
-
+import { filter } from 'rxjs/operators';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { FirstLoginComponent } from './first-login/first-login.component';
 import { UndefinedComponent } from './undefined/undefined.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AuthModule, EventTypes, LogLevel, OidcConfigService, PublicEventsService } from 'angular-auth-oidc-client';
+
+export function configureAuth(oidcConfigService: OidcConfigService)
+{
+  return () =>
+    oidcConfigService.withConfig({
+      stsServer: 'http://94ce817d.ngrok.io/auth/realms/new2',
+      redirectUrl: window.location.origin + '/dashboard',
+      postLogoutRedirectUri: window.location.origin + '/login',
+      clientId: 'test',
+      scope: 'openid email',
+      responseType: 'code',
+      silentRenew: true,
+      silentRenewUrl: `${window.location.origin}/silent-renew.html`,
+      renewTimeBeforeTokenExpiresInSeconds: 50,
+      logLevel: LogLevel.Debug,
+    });
+}
 
 @NgModule({
   declarations: [
@@ -106,23 +123,26 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HighlightJsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    MarkdownModule.forRoot({
-      markedOptions: {
-        provide: MarkedOptions,
-        useValue: {
-          gfm: true,
-          tables: true,
-          breaks: false,
-          pedantic: false,
-          sanitize: false,
-          smartLists: true,
-          smartypants: false,
-        },
-      },
-    }),
+    AuthModule.forRoot(),
     NgSelectModule
   ],
-  providers: [GuardService, HighlightJsService],
+  providers: [GuardService, HighlightJsService, OidcConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: configureAuth,
+      deps: [OidcConfigService],
+      multi: true,
+    },],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule
+{
+  constructor(private readonly eventService: PublicEventsService)
+  {
+    this.eventService
+      .registerForEvents()
+      .pipe(filter((notification) => notification.type === EventTypes.ConfigLoaded))
+      .subscribe((config) => console.log('ConfigLoaded', config));
+  }
+}

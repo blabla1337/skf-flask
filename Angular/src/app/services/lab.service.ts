@@ -18,7 +18,7 @@ export class LabService
 
   getLabs(): Observable<Labs[]>
   {
-    return this.http.get(environment.API_ENDPOINT + '/interactive_labs/items', { headers: this.headers }).pipe(
+    return this.http.get(environment.API_ENDPOINT + '/interactive_labs/items', { headers: this.postHeaders }).pipe(
       map(response => response.json().items));
   }
 
