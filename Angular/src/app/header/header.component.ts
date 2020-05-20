@@ -7,7 +7,8 @@ import * as JWT from 'jwt-decode';
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit
+{
 
   constructor(public router: Router) { }
 
@@ -28,7 +29,8 @@ export class HeaderComponent implements OnInit {
   // public canDelete: boolean;
   // public canRead: boolean;
 
-  ngOnInit() {
+  ngOnInit()
+  {
     if (AppSettings.AUTH_TOKEN) {
       this.isLoggedin = true;
       const decodedJWT = JWT(AppSettings.AUTH_TOKEN);
@@ -37,7 +39,7 @@ export class HeaderComponent implements OnInit {
     }
 
     if (AppSettings.SKIP_LOGIN == 'true') {
-       this.skipLogin = true
+      this.skipLogin = true
     }
 
     this.projects = false;
@@ -50,7 +52,8 @@ export class HeaderComponent implements OnInit {
     this.labs = false;
   }
 
-  LabsShow() {
+  LabsShow()
+  {
     this.projects = false;
     this.users = false;
     this.groups = false;
@@ -61,7 +64,8 @@ export class HeaderComponent implements OnInit {
     this.labs = true;
   }
 
-  ProjectsShow() {
+  ProjectsShow()
+  {
     this.projects = true;
     this.users = false;
     this.groups = false;
@@ -72,7 +76,8 @@ export class HeaderComponent implements OnInit {
     this.labs = false;
   }
 
-  UsersShow() {
+  UsersShow()
+  {
     this.projects = false;
     this.users = true;
     this.groups = false;
@@ -83,7 +88,8 @@ export class HeaderComponent implements OnInit {
     this.labs = false;
   }
 
-  GroupsShow() {
+  GroupsShow()
+  {
     this.projects = false;
     this.users = false;
     this.groups = true;
@@ -94,7 +100,8 @@ export class HeaderComponent implements OnInit {
     this.labs = false;
   }
 
-  ResultsShow() {
+  ResultsShow()
+  {
     this.projects = false;
     this.users = false;
     this.groups = false;
@@ -105,7 +112,8 @@ export class HeaderComponent implements OnInit {
     this.labs = false;
   }
 
-  CodeShow() {
+  CodeShow()
+  {
     this.projects = false;
     this.users = false;
     this.groups = false;
@@ -116,7 +124,8 @@ export class HeaderComponent implements OnInit {
     this.labs = false;
   }
 
-  KnowledgeShow() {
+  KnowledgeShow()
+  {
     this.projects = false;
     this.users = false;
     this.groups = false;
@@ -127,7 +136,8 @@ export class HeaderComponent implements OnInit {
     this.labs = false;
   }
 
-  CheckShow() {
+  CheckShow()
+  {
     this.projects = false;
     this.users = false;
     this.groups = false;
@@ -138,20 +148,24 @@ export class HeaderComponent implements OnInit {
     this.labs = false;
   }
 
-  ResetAll() {
+  ResetAll()
+  {
     this.projects = false;
     this.users = false;
     this.groups = false;
     this.results = false;
   }
 
-  LogOff() {
+  LogOff()
+  {
     sessionStorage.removeItem('auth_token');
     localStorage.clear();
+    sessionStorage.clear();
     location.reload();
   }
 
-  logIn() {
+  logIn()
+  {
     sessionStorage.removeItem('skip_login');
     localStorage.clear();
     location.reload();

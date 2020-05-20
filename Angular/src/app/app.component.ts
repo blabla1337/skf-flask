@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { KnowledgebaseService } from './services/knowledgebase.service'
-import { Knowledgebase } from './models/knowledgebase'
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,23 @@ import { Knowledgebase } from './models/knowledgebase'
   providers: [HeaderComponent, FooterComponent, KnowledgebaseService],
 })
 
-export class AppComponent implements OnInit {
-  constructor(private _knowledgeService: KnowledgebaseService) { }
-  private knowledgeitems: Knowledgebase[]
+export class AppComponent implements OnInit
+{
+  constructor(public oidcSecurityService: OidcSecurityService) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
 
-    setTimeout(() => {
+    this.oidcSecurityService.checkAuth().subscribe(isAuthenticated =>
+    {
+      if (isAuthenticated == true) {
+        sessionStorage.setItem("auth_token", "Bearer " + this.oidcSecurityService.getIdToken());
+        //location.replace("dashboard");
+        this.oidcSecurityService.userData$.subscribe(resp => sessionStorage.setItem("user", resp['preferred_username']))
+      }
+    });
+    setTimeout(() =>
+    {
       localStorage.setItem('session', 'expired');
       location.replace('login');
     }, 6600000);

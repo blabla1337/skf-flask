@@ -10,14 +10,15 @@ import { Checklist } from '../models/checklist';
 import { Knowledgebase } from '../models/knowledgebase';
 import { Questions } from '../models/questions';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-checklist-edit',
   templateUrl: './checklist-edit.component.html',
   providers: [ChecklistService, QuestionsService]
 })
-export class ChecklistEditComponent implements OnInit {
+export class ChecklistEditComponent implements OnInit
+{
 
   constructor(
     private checklistService: ChecklistService,
@@ -27,7 +28,8 @@ export class ChecklistEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder
-  ) {
+  )
+  {
   }
 
 
@@ -42,12 +44,13 @@ export class ChecklistEditComponent implements OnInit {
 
   get formControls() { return this.checklistForm.controls; }
 
-  ngOnInit() {
+  ngOnInit()
+  {
 
     this.route.params.subscribe(params => { localStorage.setItem('checklist_ref_id', params['id']); });
 
     this.checklistForm = this.formBuilder.group({
-      checklist_id: [{value:'',disabled: true },[Validators.required, Validators.pattern(/^[0-9]{1,2}([.][0-9]{1,2})?$/)]],
+      checklist_id: [{ value: '', disabled: true }, [Validators.required, Validators.pattern(/^[0-9]{1,2}([.][0-9]{1,2})?$/)]],
       kb_id: ['', Validators.required],
       question_id: ['', Validators.required],
       include_always: ['', Validators.required],
@@ -58,14 +61,16 @@ export class ChecklistEditComponent implements OnInit {
 
     this.getKnowledgeItems();
     this.getQuestionList();
-    setTimeout(() => {
+    setTimeout(() =>
+    {
       this.getChecklistItem();
     }, 200);
   }
 
-  updateChecklistItem() {
+  updateChecklistItem()
+  {
     this.isSubmitted = true;
-    if(this.checklistForm.invalid){
+    if (this.checklistForm.invalid) {
       return;
     }
     this.checklistService.updateChecklistItem(localStorage.getItem('checklist_ref_id'), Number(localStorage.getItem('checklist_type_id')), this.checklistForm.value)
@@ -74,26 +79,31 @@ export class ChecklistEditComponent implements OnInit {
         () => console.log('Error updating checklist item, potential duplicate or incorrect checklist ID (1.2, 1.2, 2.1, etc)')
       );
     this.router.navigate(['/checklist-add-new/', localStorage.getItem('checklist_type_id')]);
-    
+
   }
 
-  getKnowledgeItems() {
+  getKnowledgeItems()
+  {
     let category_id = localStorage.getItem("category_id");
-    this.knowledgeService.getKnowledgeBase(Number(category_id)).subscribe(knowledgebaseItems => {
+    this.knowledgeService.getKnowledgeBase(Number(category_id)).subscribe(knowledgebaseItems =>
+    {
       this.knowledgebaseItems = knowledgebaseItems;
     },
       err => console.log('Error getting knowledge items, contact the administrator!')
     );
   }
 
-  getChecklistItem() {
-    this.checklistService.getSingleChecklistItem(localStorage.getItem('checklist_ref_id'), Number(localStorage.getItem('checklist_type_id'))).subscribe(checklist => {
+  getChecklistItem()
+  {
+    this.checklistService.getSingleChecklistItem(localStorage.getItem('checklist_ref_id'), Number(localStorage.getItem('checklist_type_id'))).subscribe(checklist =>
+    {
       this.checklist = checklist;
     },
       err => console.log('Error getting checklist items, contact the administrator!')
     );
-    
-    setTimeout(() => {
+
+    setTimeout(() =>
+    {
       //check if questio was None otherwise give it the id/content previously selected!
       if (this.checklist['question_id'] == null) {
         var question_id = {
@@ -123,8 +133,10 @@ export class ChecklistEditComponent implements OnInit {
     }, 100);
   }
 
-  getQuestionList() {
-    this.questionsService.getQuestions(Number(localStorage.getItem('checklist_type_id'))).subscribe(questions => {
+  getQuestionList()
+  {
+    this.questionsService.getQuestions(Number(localStorage.getItem('checklist_type_id'))).subscribe(questions =>
+    {
       this.questions = questions;
       this.questions.unshift({
         'id': '0',
@@ -136,11 +148,13 @@ export class ChecklistEditComponent implements OnInit {
   }
 
 
-  back() {
+  back()
+  {
     this.router.navigate(['/checklist-add-new/', localStorage.getItem('checklist_type_id')]);
   }
 
-  deleteChecklistItem() {
+  deleteChecklistItem()
+  {
     if (this.delete == 'DELETE') {
       this.checklistService.deletechecklistItem(localStorage.getItem('checklist_ref_id'), Number(localStorage.getItem('checklist_type_id'))).subscribe(x =>
         this.router.navigate(['/checklist-add-new/', localStorage.getItem('checklist_type_id')]));
@@ -148,7 +162,8 @@ export class ChecklistEditComponent implements OnInit {
     }
   }
 
-  deleteChecklistItemModal(modalValue) {
+  deleteChecklistItemModal(modalValue)
+  {
     this.modalService.open(modalValue, { size: 'lg' })
   }
 }
