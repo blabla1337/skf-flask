@@ -19,7 +19,7 @@ Flask-SQLAlchemy==2.4.1
 google-api-python-client==1.7.11
 google-auth==1.11.0
 google-auth-httplib2==0.0.3
-httplib2==0.17.0
+httplib2==0.18.0
 idna==2.8
 importlib-metadata==0.18
 itsdangerous==1.1.0
