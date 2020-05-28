@@ -2,6 +2,6 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: 'http://localhost:8888/api',
+  API_ENDPOINT: 'https://owasp-skf.cloud.tyk.io/api/api',
   AUTH_METHOD: 'openidprovider'
 };

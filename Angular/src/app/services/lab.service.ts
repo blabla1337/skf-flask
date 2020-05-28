@@ -13,7 +13,6 @@ export class LabService
 {
 
   constructor(private http: Http) { }
-  public headers = new Headers({ 'Content-Type': 'application/json' });
   public postHeaders = new Headers({ 'Content-Type': 'application/json', 'Authorization': AppSettings.AUTH_TOKEN });
 
   getLabs(): Observable<Labs[]>
