@@ -3,5 +3,7 @@
 export const environment = {
   production: false,
   API_ENDPOINT: 'http://localhost:8888/api',
-  AUTH_METHOD: 'openidprovider'
+  //AUTH_METHOD: 'openidprovider'
+  AUTH_METHOD: 'skfprovider'
+
 };
