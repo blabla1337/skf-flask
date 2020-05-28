@@ -69,7 +69,7 @@ export function configureAuth(oidcConfigService: OidcConfigService)
 {
   return () =>
     oidcConfigService.withConfig({
-      stsServer: 'http://94ce817d.ngrok.io/auth/realms/new2',
+      stsServer: 'http://1259c88b.ngrok.io/auth/realms/new2',
       redirectUrl: window.location.origin + '/dashboard',
       postLogoutRedirectUri: window.location.origin + '/login',
       clientId: 'test',

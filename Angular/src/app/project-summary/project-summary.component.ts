@@ -28,7 +28,7 @@ export class ProjectSummaryComponent implements OnInit
     private modalService: NgbModal
   ) { }
 
-  public sprintResult: Sprint[];
+  public sprintResult: any[];
   public delete: string;
 
   ngOnInit()
@@ -45,6 +45,7 @@ export class ProjectSummaryComponent implements OnInit
     })
 
     this.getSprintResults()
+    console.log(this.sprintResult)
 
   }
 
@@ -53,7 +54,7 @@ export class ProjectSummaryComponent implements OnInit
     this.route.params.subscribe(params =>
     {
       this.sprintService.getSprintResults(params['id']).subscribe(
-        resp => this.sprintResult = resp,
+        sprintResult => { this.sprintResult = sprintResult },
         () => console.log('Error getting sprint stats'))
     });
   }
