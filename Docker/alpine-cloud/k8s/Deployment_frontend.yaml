@@ -16,7 +16,7 @@ spec:
     app.kubernetes.io/name: skf-flask-front
     app.kubernetes.io/instance: skf-flask-front
 ---
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: skf-flask-front
