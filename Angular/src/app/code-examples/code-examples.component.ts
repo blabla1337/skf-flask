@@ -29,6 +29,7 @@ export class CodeExamplesComponent implements OnInit
   public delete: string;
   public category_id: number;
   public categories: Category[];
+  public selectUndefinedOptionValue: undefined = undefined;
 
   constructor(private codeService: CodeExamplesService, private categoryService: CategoryService, private highlightJsService: HighlightJsService, private el: ElementRef, private modalService: NgbModal, private formBuilder: FormBuilder)
   {
