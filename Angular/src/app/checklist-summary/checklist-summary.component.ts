@@ -23,6 +23,7 @@ export class ChecklistSummaryComponent implements OnInit
   public queryString: string;
   public isSubmitted: boolean;
   public category_id: number;
+  public selectUndefinedOptionValue: undefined = undefined;
 
   get formControls() { return this.checklistForm.controls; }
 
