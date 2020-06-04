@@ -16,15 +16,15 @@ Local installation based on Ubuntu 16.04.
 - latest version of node ():
 ```
     * sudo npm install n -g
-    * sudo n 8.9
+    * sudo n 12.18 #or higher version
     * sudo ln -s  /usr/bin/nodejs /usr/bin/node
 ```
 
-- python3.6, pip3.6 (https://stackoverflow.com/questions/42662104/how-to-install-pip-for-python-3-6-on-ubuntu-16-10):
+- python3.6, pip3.6 (https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get):
 ```
-    * sudo add-apt-repository ppa:jonathonf/python-3.6  # (only for 16.04 LTS)
-    * sudo apt update
-    * sudo apt install python3.6
+    * sudo add-apt-repository ppa:deadsnakes/ppa
+    * sudo apt-get update
+    * sudo apt-get install python3.6
     * wget https://bootstrap.pypa.io/get-pip.py
     * sudo python3.6 get-pip.py
 ```
