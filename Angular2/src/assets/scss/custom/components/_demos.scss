@@ -1,0 +1,97 @@
+//
+// _demos.scss
+//
+
+// Demo Only
+.button-items {
+  margin-left: -8px;
+  margin-bottom: -12px;
+
+  .btn {
+    margin-bottom: 12px;
+    margin-left: 8px;
+  }
+}
+
+// Lightbox
+
+.mfp-popup-form {
+  max-width: 1140px;
+}
+
+// Modals
+
+.bs-example-modal {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+  display: block;
+}
+
+// Icon demo ( Demo only )
+.icon-demo-content {
+  text-align: center;
+  color: $gray-500;
+
+  i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: $gray-600;
+    transition: all 0.4s;
+  }
+
+  .col-lg-4 {
+    margin-top: 24px;
+
+    &:hover {
+      i {
+        color: $primary;
+        transform: scale(1.5);
+      }
+    }
+  }
+}
+
+// Grid
+
+.grid-structure {
+  .grid-container {
+    background-color: $gray-100;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-weight: $font-weight-medium;
+    padding: 10px 20px;
+  }
+}
+
+// card radio
+
+.card-radio {
+  background-color: $card-bg;
+  border: 2px solid $card-border-color;
+  border-radius: $border-radius;
+  padding: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.card-radio-label {
+  display: block;
+}
+
+.card-radio-input {
+  display: none;
+  &:checked + .card-radio {
+    border-color: $primary !important;
+  }
+}
+
