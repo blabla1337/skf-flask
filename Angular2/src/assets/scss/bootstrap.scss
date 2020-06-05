@@ -1,0 +1,26 @@
+
+//Core files
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "variables-dark";
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+@import "custom/components/reboot";
+@import "custom/components/backgrounds";
+@import "custom/components/badge";
+@import "custom/components/buttons";
+@import "custom/components/breadcrumb";
+@import "custom/components/card";
+@import "custom/components/dropdown";
+@import "custom/components/nav";
+@import "custom/components/table";
+@import "custom/components/pagination";
+@import "custom/components/progress";
+@import "custom/components/accordions";
+@import "custom/components/avatar";
+@import "custom/components/helper";
+@import "custom/components/preloader";
+@import "custom/components/widgets";
+@import "custom/components/forms";
+@import "custom/components/demos";
+@import "custom/components/print";

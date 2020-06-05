@@ -1,0 +1,37 @@
+//
+// Forms.scss
+//
+
+
+// checkbox input right
+
+.form-check-right{
+    padding-left: 0;
+    display: inline-block;
+    padding-right: 1.25rem;
+    .form-check-input{
+      right: 0;
+      margin-left: 0;
+    }
+  
+    .form-check-label{
+      display: block;
+    }
+  }
+  
+  
+  .custom-control-right{
+    padding-left: 0;
+    padding-right: 1.5rem;  
+    .custom-control-label{
+      display: inline-block;
+      &:before, &:after{
+        left: auto;
+        right: -1.5rem;
+      }
+    }
+  
+    .custom-control-input{
+      left: auto;
+    }
+  }

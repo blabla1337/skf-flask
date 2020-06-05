@@ -1,0 +1,303 @@
+<header id="page-topbar">
+  <div class="navbar-header">
+    <div class="d-flex">
+      <!-- LOGO -->
+      <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item" (click)="toggleMenubar()">
+        <i class="fa fa-fw fa-bars"></i>
+      </button>
+
+      
+      <div class="navbar-brand-box">
+        <a href="/" class="logo logo-dark">
+          <span class="logo-sm">
+            <img src="assets/images/logo.svg" alt="" height="22">
+          </span>
+          <span class="logo-lg">
+            <img src="assets/images/logo-white.png" alt="" height="17">
+          </span>
+        </a>
+
+        <a href="/" class="logo logo-light">
+          <span class="logo-sm">
+            <img src="assets/images/logo-light.svg" alt="" height="22">
+          </span>
+          <span class="logo-lg">
+            <img src="assets/images/logo-white.png" alt="" height="59">
+          </span>
+        </a>
+      </div>
+
+
+
+      <!-- App Search-->
+      <form class="app-search d-none navbar-center d-lg-block">
+        <div class="position-relative">
+          <input type="text" class="form-control" placeholder="Search...">
+          <span class="bx bx-search-alt"></span>
+        </div>
+      </form>
+
+      <!--<div class="dropdown dropdown-mega d-none d-lg-block ml-2" ngbDropdown>
+        <button type="button" class="btn header-item" ngbDropdownToggle>
+          Mega Menu
+          <i class="mdi mdi-chevron-down"></i>
+        </button>
+        <div class="dropdown-menu dropdown-megamenu" ngbDropdownMenu>
+          <div class="row">
+            <div class="col-sm-8">
+
+              <div class="row">
+                <div class="col-md-4">
+                  <h5 class="font-size-14 mt-0">UI Components</h5>
+                  <ul class="list-unstyled megamenu-list">
+                    <li>
+                      <a href="javascript:void(0);">Lightbox</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Range Slider</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Sweet Alert</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Rating</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Forms</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Tables</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Charts</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-md-4">
+                  <h5 class="font-size-14 mt-0">Applications</h5>
+                  <ul class="list-unstyled megamenu-list">
+                    <li>
+                      <a href="javascript:void(0);">Ecommerce</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Calendar</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Email</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Projects</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Tasks</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Contacts</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-md-4">
+                  <h5 class="font-size-14 mt-0">Extra Pages</h5>
+                  <ul class="list-unstyled megamenu-list">
+                    <li>
+                      <a href="javascript:void(0);">Light Sidebar</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Compact Sidebar</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Horizontal layout</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Maintenance</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Coming Soon</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Timeline</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">FAQs</a>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5 class="font-size-14 mt-0">UI Components</h5>
+                  <ul class="list-unstyled megamenu-list">
+                    <li>
+                      <a href="javascript:void(0);">Lightbox</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Range Slider</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Sweet Alert</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Rating</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Forms</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Tables</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Charts</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-sm-5">
+                  <div>
+                    <img src="assets/images/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="d-flex">
+      <!-- Search -->
+      <div class="dropdown d-inline-block d-lg-none ml-2" ngbDropdown>
+        <button type="button" class="btn header-item noti-icon" id="page-header-search-dropdown" ngbDropdownToggle>
+          <i class="mdi mdi-magnify"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" ngbDropdownMenu>
+
+          <form class="p-3">
+            <div class="form-group m-0">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search2 ..." aria-label="Recipient's username">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--
+      <div class="dropdown d-inline-block" ngbDropdown>
+        <button type="button" class="btn header-item" ngbDropdownToggle>
+          <img class="" src="assets/images/flags/us.jpg" alt="Header Language" height="16">
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img src="assets/images/flags/spain.jpg" alt="user-image" class="mr-1" height="12"> <span
+              class="align-middle">Spanish</span>
+          </a>
+
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img src="assets/images/flags/germany.jpg" alt="user-image" class="mr-1" height="12"> <span
+              class="align-middle">German</span>
+          </a>
+
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img src="assets/images/flags/italy.jpg" alt="user-image" class="mr-1" height="12"> <span
+              class="align-middle">Italian</span>
+          </a>
+
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img src="assets/images/flags/russia.jpg" alt="user-image" class="mr-1" height="12"> <span
+              class="align-middle">Russian</span>
+          </a>
+        </div>
+      </div> -->
+
+      <div class="dropdown d-none d-lg-inline-block ml-1" ngbDropdown>
+        <button type="button" class="btn header-item noti-icon" ngbDropdownToggle>
+          <i class="bx bx-customize"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" ngbDropdownMenu>
+          <div class="px-lg-2">
+            <div class="row no-gutters">
+              <div class="col">
+                <a class="dropdown-icon-item" href="javascript: void(0);">
+                  <img src="assets/images/brands/github.png" alt="Github">
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+            <!--
+            <div class="row no-gutters">
+              <div class="col">
+                <a class="dropdown-icon-item" href="javascript: void(0);">
+                  <img src="assets/images/brands/dropbox.png" alt="dropbox">
+                  <span>Dropbox</span>
+                </a>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="dropdown d-inline-block" ngbDropdown>
+        <button type="button" class="btn header-item" id="page-header-user-dropdown" ngbDropdownToggle>
+          <img class="rounded-circle header-profile-user" src="assets/images/user.png" alt="Header Avatar">
+          <span class="d-none d-xl-inline-block ml-1">Admin</span>
+          <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+          <!-- item-->
+          <a class="dropdown-item" href="javascript: void(0);"><i class="bx bx-user font-size-16 align-middle mr-1"></i>
+            Profile</a>
+          <a class="dropdown-item d-block" href="javascript: void(0);"><span
+              class="badge badge-success float-right">11</span><i
+              class="bx bx-wrench font-size-16 align-middle mr-1"></i> Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-danger" href="javascript: void(0);"><i
+              class=" bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="topnav">
+  <div class="container-fluid">
+    <nav class="navbar navbar-light navbar-expand-lg topnav-menu active">
+      <div class="collapse navbar-collapse active" id="topnav-menu-content">
+        <ul class="navbar-nav">
+          <!-- Menu data -->
+          <ng-container *ngFor="let item of menuItems">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle arrow-none" (click)="onMenuClick($event)" href="javascript: void(0);"
+                id="topnav-components" role="button">
+                <i class="bx bx-home-circle mr-2"></i>{{ item.label }}
+              </a>
+              <div class="dropdown-menu row" aria-labelledby="topnav-dashboard" *ngIf="hasItems(item)">
+                <ng-template ngFor let-i="index" let-subitem [ngForOf]="item.subItems">
+                  <a class="col dropdown-item side-nav-link-ref" *ngIf="!hasItems(subitem)" [routerLink]="subitem.link"
+                    routerLinkActive="active">{{subitem.label}}</a>
+
+                  <div class="dropdown" *ngIf="hasItems(subitem)">
+                    <a class="dropdown-item">{{ subitem.label }}
+                      <div class="arrow-down"></div>
+                    </a>
+                    <div class="dropdown-menu">
+                      <ng-template ngFor let-subSubitem [ngForOf]="subitem.subItems">
+                        <a class="dropdown-item side-nav-link-ref" [routerLink]="subSubitem.link"
+                          routerLinkActive="active">{{ subSubitem.label }}</a>
+                      </ng-template>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

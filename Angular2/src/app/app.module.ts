@@ -1,22 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+
+import { NgbNavModule, NgbAccordionModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { TopbarComponent } from './layout/topbar/topbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LayoutsModule } from './layouts/layouts.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
-    HeaderComponent,
-    TopbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NgbModule,
+    LayoutsModule,
+    NgbAccordionModule,
+    NgbNavModule,
+    NgbTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
