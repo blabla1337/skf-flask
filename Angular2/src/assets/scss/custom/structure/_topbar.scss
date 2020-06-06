@@ -50,6 +50,10 @@
 
 .app-search {
   padding: calc(#{$header-height - 38px} / 2) 0;
+  width: 20%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 
   .form-control {
     border: none;
@@ -94,12 +98,13 @@
 
     span.logo-lg {
       display: none;
+      position: absolute;
+      left: 45%;
+      transform: translateX(-50%);
     }
 
     span.logo-lg {
       display: inline-block;
-      position: absolute;
-      left: 50;
     }
   }
 }

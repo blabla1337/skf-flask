@@ -17,7 +17,6 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     // default settings
     this.layoutType = LAYOUT_HORIZONTAL;
   }
-
   ngAfterViewInit() {
   }
 }

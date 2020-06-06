@@ -19,12 +19,11 @@
   }
 
   .navbar-nav {
-
     .nav-link {
       font-size: 14px;
       position: relative;
       padding: 1rem 1.3rem;
-      color: $sidebar-menu-item-color;
+      color: white;
 
       i {
         font-size: 15px;
@@ -34,6 +33,7 @@
       &:hover {
         color: $sidebar-menu-item-active-color;
         background-color: transparent;
+        border-bottom: 2px solid $sidebar-menu-item-active-color;
       }
     }
 
@@ -69,7 +69,7 @@
 
     .container-fluid,
     .navbar-header {
-      max-width: 85%;
+      max-width: 100%;
     }
   }
 }
@@ -263,6 +263,9 @@ body[data-layout="horizontal"][data-topbar="colored"] {
   .logo-light {
     display: block;
   }
+  
+
+
 
   .app-search {
 
