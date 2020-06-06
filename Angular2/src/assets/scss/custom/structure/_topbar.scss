@@ -54,7 +54,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
+  
   .form-control {
     border: none;
     height: 38px;
@@ -105,6 +105,9 @@
 
     span.logo-lg {
       display: inline-block;
+      position: absolute;
+      left: 50;
+
     }
   }
 }
