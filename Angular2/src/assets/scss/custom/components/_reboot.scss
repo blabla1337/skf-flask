@@ -12,12 +12,24 @@ h1,h2,h3,h4,h5,h6 {
   color: $gray-700;
 }
 
+.heading-dark {
+  color: #656565;
+}
+
+.head-four {
+  color: #8184B2;
+}
+
 a {
   text-decoration: none !important;
 }
 
 label {
   font-weight: 500;
+}
+
+.intro {
+  color: #8184B2;
 }
 
 // blockquote
@@ -31,4 +43,8 @@ label {
   border-left: 0;
   border-right: 4px solid $gray-300;
   text-align: right;
+}
+
+.breadcrumb-item {
+  color: #8184B2;
 }
