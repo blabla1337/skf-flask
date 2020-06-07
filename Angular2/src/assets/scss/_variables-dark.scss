@@ -38,6 +38,7 @@ $header-dark-item-color: #e9ecef;
 
 // Topbar Search
 $topbar-search-bg: #8184B2;
+$topbar-search-txt: #8184B2;
 
 // Horizontal nav
 $topnav-bg:   #8184B2;
@@ -227,7 +228,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   #222736;
+$body-bg:                   white;
 $body-color:                $gray-400;
 
 
