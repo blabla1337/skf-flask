@@ -10,7 +10,6 @@
   z-index: 1002;
   background-color: $header-bg;
   box-shadow: $box-shadow;
-  border-bottom: 1px solid black;
 }
 
 .navbar-header {
@@ -198,7 +197,6 @@
 body[data-topbar="dark"] {
   #page-topbar {
     background-color: white;
-    border-bottom: 0.1px solid grey;
   }
 
   .navbar-header {
