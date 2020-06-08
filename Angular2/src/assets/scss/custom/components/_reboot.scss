@@ -9,7 +9,7 @@ html {
 
 .h1,.h2,.h3,.h4,.h5,.h6,
 h1,h2,h3,h4,h5,h6 {
-  color: $gray-700;
+  color: #656565;
 }
 
 .heading-dark {
@@ -32,6 +32,13 @@ label {
   color: grey;
 }
 
+.text-primary {
+  color: $header-dark-bg !important;
+}
+
+.text-muted {
+  color: grey !important;
+}
 // blockquote
 
 .blockquote {
