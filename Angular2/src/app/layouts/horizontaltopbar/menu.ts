@@ -1,6 +1,4 @@
 import { MenuItem } from './menu.model';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
-import { userInfo } from 'os';
 
 export const MENU: MenuItem[] = [
     {
