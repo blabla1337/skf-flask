@@ -247,7 +247,7 @@ body[data-topbar="dark"] {
 
     span,
     input.form-control::-webkit-input-placeholder {
-      color: rgba($white, 0.5);
+      color: rgba($topbar-search-txt, 0.5);
     }
   }
 }
@@ -325,7 +325,7 @@ body[data-topbar="dark"] {
 
     span,
     input.form-control::-webkit-input-placeholder {
-      color: rgba($white, 0.5);
+      color: rgba($topbar-search-txt, 0.5);
     }
   }
 }
