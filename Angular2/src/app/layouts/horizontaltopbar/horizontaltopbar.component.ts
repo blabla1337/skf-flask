@@ -154,6 +154,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
   /**
   * Initialize
   */
