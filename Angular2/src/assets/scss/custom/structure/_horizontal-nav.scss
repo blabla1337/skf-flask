@@ -33,7 +33,8 @@
       &:hover {
         color: $sidebar-menu-item-active-color;
         background-color: transparent;
-        border-bottom: 2px solid $sidebar-menu-item-active-color;
+        border-bottom: 1px solid $sidebar-menu-item-active-color;
+        transition: 0.2s ease all;
       }
     }
 
@@ -81,7 +82,7 @@
       .nav-item {
         &:first-of-type {
           .nav-link {
-            padding-left: 0;
+            padding-left: 1rem;
           }
         }
       }
