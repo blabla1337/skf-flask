@@ -150,18 +150,6 @@
                 <ng-template ngFor let-i="index" let-subitem [ngForOf]="item.subItems">
                   <a class="col dropdown-item side-nav-link-ref" *ngIf="!hasItems(subitem)" [routerLink]="subitem.link"
                     routerLinkActive="active">{{subitem.label}}</a>
-
-                  <div class="dropdown" *ngIf="hasItems(subitem)">
-                    <a class="dropdown-item">{{ subitem.label }}
-                      <div class="arrow-down"></div>
-                    </a>
-                    <div class="dropdown-menu">
-                      <ng-template ngFor let-subSubitem [ngForOf]="subitem.subItems">
-                        <a class="dropdown-item side-nav-link-ref" [routerLink]="subSubitem.link"
-                          routerLinkActive="active">{{ subSubitem.label }}</a>
-                      </ng-template>
-                    </div>
-                  </div>
                 </ng-template>
               </div>
             </li>
