@@ -1,0 +1,70 @@
+//
+// users.scss
+//
+
+.user-tab {
+    background-color: $topnav-bg;
+    margin-top: 50px;
+}
+
+.table thead th {
+    color: $topnav-text;
+    border-color: $chart-text-color;
+}
+
+.table td {
+    color: $topnav-text;
+    border-color: $chart-text-color;
+}
+
+.custom-control-label::before {
+    color: white;
+    border-color: white;
+    background-color: black;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: white;
+    background-color: black;
+}
+
+.search-box{
+    .form-control{
+        border-radius: 30px;
+        padding-left: 40px;
+        background-color: $topbar-search-bg;
+        border-color: #8184B2;
+        color: #8184B2;
+    }
+    .search-icon{
+        font-size: 16px;    
+        position: absolute;
+        left: 13px;
+        top: 0;
+        line-height: 38px;
+    }
+}
+
+.page-link {
+    color: white;
+    border-color: black;
+    background-color: $chart-text-color;
+}
+
+.page-link:hover {
+    color: white;
+    border-color: black;
+    background-color: black;
+}
+
+.page-item.active .page-link {
+    color: white;
+    border-color: black;
+    background-color: $chart-text-color;
+}
+
+.page-item.disabled .page-link {
+    color: white;
+    border-color: black;
+    background-color: $chart-text-color;
+}

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { UIModule } from '../shared/ui/ui.module';
+
 
 
 import { PagesRoutingModule } from './pages-routing.module';
@@ -20,6 +22,7 @@ import { NgbNavModule, NgbDropdownModule, NgbModalModule, NgbTooltipModule, NgbP
     NgbNavModule,
     NgbDropdownModule,
     FormsModule,
+    UIModule
   ],
   providers: []
 })
