@@ -16,8 +16,6 @@ export class ManageComponent implements OnInit {
 
   usersData: Users[];
 
-  term: any;
-
   // page
   currentpage: number;
 
