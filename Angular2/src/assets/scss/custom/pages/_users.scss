@@ -9,23 +9,23 @@
 
 .table thead th {
     color: $topnav-text;
-    border-color: $chart-text-color;
+    border-color: $topnav-text;
 }
 
 .table td {
     color: $topnav-text;
-    border-color: $chart-text-color;
+    border-color: $topbar-search-bg;
 }
 
 .custom-control-label::before {
     color: white;
-    border-color: white;
-    background-color: black;
+    border-color: #8184B2;
+    background-color: $topbar-search-bg;
 }
 
 .custom-control-input:checked ~ .custom-control-label::before {
     border-color: white;
-    background-color: black;
+    background-color: $topnav-text;
 }
 
 .search-box{
@@ -34,7 +34,7 @@
         padding-left: 40px;
         background-color: $topbar-search-bg;
         border-color: #8184B2;
-        color: #8184B2;
+        color: grey;
     }
     .search-icon{
         font-size: 16px;    
@@ -48,23 +48,23 @@
 .page-link {
     color: white;
     border-color: black;
-    background-color: $chart-text-color;
+    background-color: $topnav-text;
 }
 
 .page-link:hover {
     color: white;
     border-color: black;
-    background-color: black;
+    background-color: $boxed-body-bg;
 }
 
 .page-item.active .page-link {
     color: white;
     border-color: black;
-    background-color: $chart-text-color;
+    background-color: $boxed-body-bg;
 }
 
 .page-item.disabled .page-link {
     color: white;
     border-color: black;
-    background-color: $chart-text-color;
+    background-color: $topnav-text;
 }

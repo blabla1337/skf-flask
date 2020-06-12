@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UIModule } from '../shared/ui/ui.module';
 
-
-
 import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ManageComponent } from './users/manage/manage.component';
