@@ -45,7 +45,7 @@ pytz==2019.3
 rake-nltk==1.0.4
 requests==2.22.0
 requests-unixsocket==0.2.0
-rsa==4.0
+rsa==4.1
 scikit-learn==0.22.1
 scipy==1.4.1
 selenium==3.141.0
