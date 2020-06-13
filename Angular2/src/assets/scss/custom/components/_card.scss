@@ -2,10 +2,9 @@
 // _card.scss
 // 
 
-.card {
-  margin-bottom: $grid-gutter-width;
+.card-body {
   box-shadow: $box-shadow;
-  background-color: #EFEFF1;
+  background-color: white;
 }
 
 .card-drop {
