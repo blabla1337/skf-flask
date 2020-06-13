@@ -7,7 +7,7 @@
 // Breadcrumb item arrow
 .breadcrumb-item {
     > a {
-        color: $gray-700;
+        color: $topnav-text;
     }
     +.breadcrumb-item {
         &::before {
