@@ -1,0 +1,97 @@
+<div class="container-fluid">
+
+  <app-page-title title="users" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card user-tab">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box mr-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input type="text" class="form-control" placeholder="Search..."/>
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-right">
+                <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
+                  <i class="mdi mdi-plus mr-1"></i> New users
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table table-centered table-nowrap">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Privileges</th>
+                  <th>Joining Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let users of usersData ;let i = index;">
+                  <td>
+                    <div class="custom-control custom-checkbox">
+                      <input id="customCheck{{i}}" type="checkbox" class="custom-control-input" />
+                      <label class="custom-control-label" for="customCheck{{i}}">&nbsp;</label>
+                    </div>
+                  </td>
+                  <td>{{users.username}}</td>
+                  <td>
+                    <p class="mb-0">{{users.email}}</p>
+                  </td>
+                  <td>{{users.status}}</td>
+                  <td>
+                    <span class="badge badge-success font-size-12 m-1">
+                      Allow
+                    </span>
+                    <span class="badge badge-danger font-size-12 m-1">
+                      Deny
+                    </span>
+                    <span class="badge badge-warning font-size-12 m-1">
+                      Pending
+                    </span>
+                    <span class="badge badge-secondary font-size-12 m-1">
+                      <i class="bx bx-plus"></i>
+                    </span>
+                  </td>
+                  <td>{{users.date}}</td>
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item"><i
+                              class="fas fa-pencil-alt text-success mr-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger mr-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <ngb-pagination [collectionSize]="50" [(page)]="currentpage"
+            class="pagination pagination-rounded justify-content-end mb-2" aria-label="Default pagination">
+          </ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
