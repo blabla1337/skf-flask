@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Codes } from './code-example.model';
+
+import { codeData } from './data';
+
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -7,13 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  // breadcrumb items
+  // bread crumb items
   breadCrumbItems: Array<{}>;
+
+  codeData: Codes[];
+
+
+  // Collapse declare
+  isCollapsed: boolean;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
+
+    // Collapse value
+    this.isCollapsed = false;
+
+    this._fetchData();
   }
 
+  /**
+   * Code data fetches
+   */
+  private _fetchData() {
+    this.codeData = codeData;
+  }
 }
