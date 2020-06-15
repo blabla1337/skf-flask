@@ -12,7 +12,7 @@
                     <div class="float-right">
                         <div class="dropdown" ngbDropdown>
                             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-wallet mr-1"></i> <span
+                                aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-devices mr-1"></i> <span
                                     class="d-none d-sm-inline-block" ngbDropdownToggle>Platforms<i
                                         class="mdi mdi-chevron-down"></i></span></button>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-md" ngbDropdownMenu>
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-2">
+                    <div class="row mb-5">
                         <div class="col-sm-4">
                           <div class="search-box mr-2 mb-2 d-inline-block">
                             <div class="position-relative">
@@ -45,12 +45,46 @@
                         <div class="col-sm-8">
                           <div class="text-sm-right">
                             <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
-                              <i class="mdi mdi-plus mr-1"></i> New Code
+                              <i class="mdi mdi-code-tags mr-1"></i> New Code
                             </button>
                           </div>
                         </div>
                         <!-- end col-->
                       </div>
+
+                        <div class="row mb-4" *ngFor="let codes of codeData">
+                         <div class="col">
+                             <div class="card">
+                               <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-4">
+                                    <h4 class="card-title">{{codes.title}}</h4>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="text-sm-right">
+                                      <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" (click)="isCollapsed = !isCollapsed">
+                                        Click here
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                 
+                                 <p class="card-title-desc mb-3">
+                                   {{codes.content}}
+                                 </p>
+                                 <div class="collapse" id="{{codes.id}}" [ngbCollapse]="isCollapsed">
+                                   <pre class="card card-body mb-0">
+                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                     squid.
+                                     Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                     proident.
+                                   </pre>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                        </div>
+
                 </div>
             </div>
            <!-- Content Body Ends-->
