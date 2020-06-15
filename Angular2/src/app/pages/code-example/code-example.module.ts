@@ -2,14 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UIModule } from '../../shared/ui/ui.module';
 
-import { CodeExampleRouting } from './code-exampe-routing.module';
+import { CodeExampleRoutingModule } from './code-example-routing.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    CodeExampleRouting,
+    CodeExampleRoutingModule,
+    Ng2SearchPipeModule,
+    NgSelectModule,
     UIModule
   ]
 })

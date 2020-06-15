@@ -6,13 +6,13 @@ import { UIModule } from '../shared/ui/ui.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ManageComponent } from './users/manage/manage.component';
+import { ViewComponent } from './code-example/view/view.component'
 import { NgbNavModule, NgbDropdownModule, NgbModalModule, NgbTooltipModule, NgbPaginationModule, NgbTypeaheadModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
-import { CodeExampleComponent } from './code-example/code-example.component';
 
 
 
 @NgModule({
-  declarations: [ManageComponent, CodeExampleComponent],
+  declarations: [ManageComponent, ViewComponent],
   imports: [
     CommonModule,
     DashboardModule,
