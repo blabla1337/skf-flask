@@ -13,7 +13,7 @@ for yaml in Docker/alpine-cloud/k8s/*.yaml; do
     kubectl apply -f $yaml;
 done
 ```
-By default the ingress listens for requests at `host.local` you will need to map this to minikube's ip.
+By default the ingress listens for requests at `skf.local` you will need to map this to minikube's ip.
 You can find minikube's ip by running
 ```
 minikube ip
@@ -22,10 +22,10 @@ minikube ip
 Last step is to add this entry to your /etc/hosts
 You can do so by running:
 ```
-sudo echo host.local $(minikube ip) >> /etc/hosts
+sudo echo skf.local $(minikube ip) >> /etc/hosts
 ```
 If kubectl shows two pods named skf-flask-front and skf-flask-back up and running then you can access SKF by browsing to
-http://host.local
+http://skf.local
 
 
 
