@@ -21,6 +21,7 @@ export class KnowledgebaseComponent implements OnInit
   public queryString: string;
   public categories: Category[];
   public category_id: number;
+  public selectUndefinedOptionValue: undefined = undefined;
 
   get formControls() { return this.knowledgebaseForm.controls; }
 
