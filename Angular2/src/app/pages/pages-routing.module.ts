@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'dashboard', component: HomeComponent },
   { path: 'dashboards', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-  { path: 'code-example', loadChildren: () => import('./code-example/code-example.module').then(m => m.CodeExampleModule) }
+  { path: 'code-example', loadChildren: () => import('./code-example/code-example.module').then(m => m.CodeExampleModule) },
+  { path: 'knowledgebase', loadChildren: () => import('./knowledgebase/knowledgebase.module').then(m => m.KnowledgebaseModule) }
 ];
 
 @NgModule({
