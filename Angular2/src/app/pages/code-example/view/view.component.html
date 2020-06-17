@@ -62,7 +62,7 @@
                                   </div>
                                   <div class="col-sm-8">
                                     <div class="text-sm-right">
-                                      <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" (click)="isCollapsed = !isCollapsed">
+                                      <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" attr.data-target="'#' + {{codes.id}}" (click)="isCollapsed = !isCollapsed">
                                         Click here
                                       </button>
                                     </div>
