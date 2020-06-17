@@ -26,7 +26,7 @@ export class ViewComponent implements OnInit {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
 
     // Collapse value
-    this.isCollapsed = false;
+    this.isCollapsed = true;
 
     this._fetchData();
   }
