@@ -9,7 +9,7 @@ import { codeData } from './data';
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.scss']
 })
-export class ViewComponent implements OnInit {
+export class CodeViewComponent implements OnInit {
 
   // bread crumb items
   breadCrumbItems: Array<{}>;

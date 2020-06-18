@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReadComponent implements OnInit {
 
+  // bread crumb items
+  breadCrumbItems: Array<{}>;
+
+  // Collapse declare
+  isCollapsed: boolean;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+    this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
 
+    // Collapse value
+    this.isCollapsed = false;
+
+}
 }
