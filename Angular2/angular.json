@@ -23,6 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "extractCss": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -30,7 +31,17 @@
             "styles": [
               "src/assets/scss/bootstrap.scss",
               "src/assets/scss/app.scss",
-              "src/assets/scss/icons.scss"
+              "src/assets/scss/icons.scss",
+              {
+                "input": "src/assets/scss/_variables.scss",
+                "bundleName": "light-theme",
+                "inject":false
+              },
+              {
+                "input": "src/assets/scss/_variables-dark.scss",
+                "bundleName": "dark-theme",
+                "inject":false
+              }
             ],
             "scripts": []
           },
