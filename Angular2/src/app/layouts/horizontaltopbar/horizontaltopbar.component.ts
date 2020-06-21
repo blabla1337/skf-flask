@@ -42,8 +42,6 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
     };
   }
 
-  
-
   /**
    * On menu click
    */
