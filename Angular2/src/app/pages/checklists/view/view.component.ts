@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Checklists } from '../checklists.model';
+import { checkData } from '../data';
+
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
+  // bread crumb items
+  breadCrumbItems: Array<{}>;
+
+  checkData: Checklists[];
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'View', active: true }];
+
+    this.checkData = checkData;
   }
 
 }

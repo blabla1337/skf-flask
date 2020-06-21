@@ -33,13 +33,8 @@
               "src/assets/scss/app.scss",
               "src/assets/scss/icons.scss",
               {
-                "input": "src/assets/scss/_variables.scss",
+                "input": "src/assets/scss/app-dark.scss",
                 "bundleName": "light-theme",
-                "inject":false
-              },
-              {
-                "input": "src/assets/scss/_variables-dark.scss",
-                "bundleName": "dark-theme",
                 "inject":false
               }
             ],
