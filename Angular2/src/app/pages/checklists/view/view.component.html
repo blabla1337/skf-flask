@@ -2,7 +2,7 @@
     <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   
     <div class="row">
-      <div *ngFor="let data of checkData" class="col-xl-4 col-sm-6">
+      <div *ngFor="let data of checkData" class="col-xl-4 col-sm-6 mb-4">
         <div class="card">
           <div class="card-body">
             <div class="media">
@@ -14,13 +14,14 @@
               </div>
             </div>
           </div>
-          <div class="px-4 py-3 border-top">
+          <div class="px-4 py-2 border-top">
             <ul class="list-inline mb-0">
               <li class="list-inline-item mr-3">
                 <span class="badge badge-primary">Active</span>
               </li>
             </ul>
           </div>
+          
         </div>
       </div>
     </div>
