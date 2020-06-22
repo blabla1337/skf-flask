@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Project } from './manage.model';
+
+import { projectData } from './data';
+
 @Component({
   selector: 'app-manage',
   templateUrl: './manage.component.html',
   styleUrls: ['./manage.component.scss']
 })
-export class ManageComponent implements OnInit {
+export class ProjectManageComponent implements OnInit {
 
-  constructor() { }
+  // bread crumb items
+ breadCrumbItems: Array<{}>;
 
-  ngOnInit(): void {
-  }
+ projectData: Project[];
 
+ constructor() { }
+
+ ngOnInit() {
+   this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Manage', active: true }];
+
+   this.projectData = projectData;
+ }
 }
