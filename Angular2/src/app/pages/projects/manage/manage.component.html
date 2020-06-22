@@ -1,1 +1,59 @@
-<p>manage works!</p>
+<div class="container-fluid">
+    <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  
+    <div class="row">
+      <div class="col-lg-12 mt-3">
+        <div class>
+          <div class="table-responsive">
+            <table class="table project-list-table table-nowrap table-centered table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 100px">#</th>
+                  <th scope="col">Projects</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Created Date</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let project of projectData">
+                  <td>{{project.id}}</td>
+                  <td>
+                    <h5 class="text-truncate font-size-14">
+                      <a href="javascript: void(0);" class="text-dark">{{project.text}}</a>
+                    </h5>
+                  </td>
+                  <td>{{project.subtext}}</td>
+                  <td>{{project.date}}</td>
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" ngbDropdownToggle>
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" href="javascript: void(0);">Update</a>
+                        <a class="dropdown-item" href="javascript: void(0);">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+  
+    <!--<div class="row">
+      <div class="col-12">
+        <div class="text-center my-3">
+          <a href="javascript:void(0);" class="text-success">
+             Load more
+          </a>
+        </div>
+      </div>
+    </div>-->
+    <!-- end row -->
+  </div>
+  
