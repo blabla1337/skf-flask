@@ -5,6 +5,8 @@ import { LayoutComponent } from './layouts/layout.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)},
+  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
+
 ];
 
 @NgModule({
