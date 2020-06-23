@@ -9,12 +9,13 @@ import { ManageComponent } from './users/manage/manage.component';
 import { CodeViewComponent } from './code-example/view/view.component';
 import { ReadComponent } from './knowledgebase/read/read.component';
 import { ViewComponent } from './checklists/view/view.component';
+import { ProjectManageComponent } from './projects/manage/manage.component';
 import { NgbNavModule, NgbDropdownModule, NgbModalModule, NgbTooltipModule, NgbPaginationModule, NgbTypeaheadModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
-  declarations: [ManageComponent, CodeViewComponent, ReadComponent, ViewComponent],
+  declarations: [ManageComponent, CodeViewComponent, ReadComponent, ViewComponent, ProjectManageComponent],
   imports: [
     CommonModule,
     DashboardModule,

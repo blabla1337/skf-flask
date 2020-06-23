@@ -22,3 +22,10 @@
   margin-bottom: 24px;  
 }
 
+.card {
+  .border-top {
+    background-color: #ebebf4;
+    border-top: 1px solid $topnav-text !important;
+  }
+}
+
