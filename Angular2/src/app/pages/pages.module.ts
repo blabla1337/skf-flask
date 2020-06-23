@@ -11,11 +11,12 @@ import { ReadComponent } from './knowledgebase/read/read.component';
 import { ViewComponent } from './checklists/view/view.component';
 import { ProjectManageComponent } from './projects/manage/manage.component';
 import { NgbNavModule, NgbDropdownModule, NgbModalModule, NgbTooltipModule, NgbPaginationModule, NgbTypeaheadModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './auth/login/login.component';
 
 
 
 @NgModule({
-  declarations: [ManageComponent, CodeViewComponent, ReadComponent, ViewComponent, ProjectManageComponent],
+  declarations: [ManageComponent, CodeViewComponent, ReadComponent, ViewComponent, ProjectManageComponent, LoginComponent],
   imports: [
     CommonModule,
     DashboardModule,
