@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-import pika, time, random, yaml
-from os import path
+import pika, time, random, yaml, os
 from skf import settings
 from kubernetes import client, config
 
@@ -17,7 +16,7 @@ def deploy_container(rpc_body):
     deployment_object = create_deployment_object(deployment)
     create_deployment(deployment_object, user_id)
     create_service_for_deployment(deployment, user_id)
-    time.sleep(30)
+    time.sleep(10)
     response = get_service_exposed_ip(deployment, user_id)
     host_and_port = get_host_port_from_response(response)
     return host_and_port
@@ -118,16 +117,17 @@ def string_split_deployment(body):
 
 def get_host_port_from_response(response):
     try:
+        host = os.environ['LABS_KUBE_DOMAIN']
         for service in response.spec.ports:
+            node_port = service.node_port
             port = service.port
-        for service in response.status.load_balancer.ingress:
-            host = service.ip
-        if host:
-            return "i am running on  -  http://" + str(host) + ":" + str(port)
+        if host != "http://localhost":
+            return "i am running on  -  "+ str(host) + ":" + str(node_port)
         else:
             return "i am running on  -  http://localhost:" + str(port)
     except:
         return "Failed to deploy, error no host or port!"
+
 
 def on_request(ch, method, props, body):
         response = deploy_container(str(body, 'utf-8'))
