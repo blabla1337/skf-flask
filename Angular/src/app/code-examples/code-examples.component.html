@@ -22,7 +22,7 @@
 <section id="main-content" class="page08 code-examples">
 	<section class="intro">
 		<div class="inner">
-			<button *ngIf="category_id && canManage" id="add" style="float:right;" (click)="addCodeModal(newcodemodal)"
+			<button *ngIf="category_id" id="add" style="float:right;" (click)="addCodeModal(newcodemodal)"
 				class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i>
 				Add item</button>
 			<div class="text">
@@ -77,49 +77,50 @@
 
 			<div class="row">
 				<div (click)="highlight()" class="col-lg-12">
-					<span *ngFor="let examples of codeExamples | stringFilter : queryString | langFilter : queryLang ">
+					<div *ngFor="let examples of codeExamples | stringFilter : queryString | langFilter : queryLang ">
+						<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
 
-						<ngb-accordion style="color:black" class="level_l_{{examples.title}}" #acc="ngbAccordion">
-							<ngb-panel style="color:black" data-html="true"
-								title="{{examples.title}}: {{examples.code_lang}}">
+							<br />
+							<ngb-panel title="{{examples.title}}: {{examples.code_lang}}">
 								<ng-template ngbPanelContent>
 									<pre><code id="changeme" class="php">
 								 {{examples.content}}
 	
 								</code></pre>
-									<button *ngIf="canManage" (click)="deleteCodeModal(deleteCode)"
+									<button (click)="deleteCodeModal(deleteCode)"
 										style="float:right; margin-left:1%; margin-bottom:1%; margin-right:1%"
 										id="delete-button" class="btn btn-danger">Delete</button>
 
 									<a [routerLink]="['/code-examples-edit', examples.id]"
 										style="float:right; margin-bottom: 1%; margin-right:1%"><button
-											*ngIf="canManage" class="btn btn-warning" type="button">Update</button></a>
+											class="btn btn-warning" type="button">Update</button></a>
 								</ng-template>
 							</ngb-panel>
+
+							<!-- Modal for deleting items-->
+							<ng-template #deleteCode let-c="close" let-d="dismiss">
+								<div class="modal-header">
+									<h4 class="modal-title">Delete code example!</h4>
+									<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>Are you sure you want to delete this code example?</p>
+									<p>To confirm, type <b style='color:red'> DELETE </b> and click the delete button
+									</p>
+									<input type="text" [(ngModel)]="delete" id="delete" class="form-control">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										(click)="c('Close click')">Close</button>
+									<button type="button" class="btn btn-danger" id="submit"
+										(click)="deleter(examples.id)" (click)="c('Close click')">Delete</button>
+								</div>
+							</ng-template>
+							<!-- end Modal for deleting items-->
 						</ngb-accordion>
-						<!-- Modal for deleting items-->
-						<ng-template #deleteCode let-c="close" let-d="dismiss">
-							<div class="modal-header">
-								<h4 class="modal-title">Delete code example!</h4>
-								<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<p>Are you sure you want to delete this code example?</p>
-								<p>To confirm, type <b style='color:red'> DELETE </b> and click the delete button
-								</p>
-								<input type="text" [(ngModel)]="delete" id="delete" class="form-control">
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									(click)="c('Close click')">Close</button>
-								<button type="button" class="btn btn-danger" id="submit" (click)="deleter(examples.id)"
-									(click)="c('Close click')">Delete</button>
-							</div>
-						</ng-template>
-						<!-- end Modal for deleting items-->
-					</span>
+					</div>
 				</div>
 			</div>
 		</div>
