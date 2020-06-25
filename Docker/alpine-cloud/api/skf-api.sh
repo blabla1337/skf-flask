@@ -4,7 +4,7 @@ set -ex
 
 if [ "$LABS_KUBE_CONF" != "~/.kube/config" ]
 then
- echo $LABS_KUBE_CONF | base64 -d > /home/user_api/.kube/conf
+ echo $LABS_KUBE_CONF | base64 -d > /home/user_api/.kube/config
 fi
 
 #to get the base64 string of your .kube/config run:
