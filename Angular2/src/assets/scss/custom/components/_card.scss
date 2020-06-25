@@ -2,10 +2,9 @@
 // _card.scss
 // 
 
-.card {
-  margin-bottom: $grid-gutter-width;
+.card-body {
   box-shadow: $box-shadow;
-  background-color: #EFEFF1;
+  background-color: white;
 }
 
 .card-drop {
@@ -21,5 +20,12 @@
 .card-title-desc {
   color: $card-title-desc;
   margin-bottom: 24px;  
+}
+
+.card {
+  .border-top {
+    background-color: #ebebf4;
+    border-top: 1px solid $topnav-text !important;
+  }
 }
 
