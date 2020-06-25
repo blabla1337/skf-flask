@@ -2,9 +2,12 @@
 // _card.scss
 // 
 
-.card-body {
-  box-shadow: $box-shadow;
-  background-color: white;
+.card {
+  box-shadow: $box-shadow-sm;
+  .border-top {
+    //background-color: #ebebf4;
+    border-top: 1px solid $topnav-text !important;
+  }
 }
 
 .card-drop {
@@ -21,11 +24,3 @@
   color: $card-title-desc;
   margin-bottom: 24px;  
 }
-
-.card {
-  .border-top {
-    background-color: #ebebf4;
-    border-top: 1px solid $topnav-text !important;
-  }
-}
-
