@@ -54,6 +54,7 @@ When you have modified or created new Knowledge base items, code examples or che
 ```
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
+export SKF_JWT_SECRET="chooseyourownsupersecretstringtoputhere"
 flask updatedb
 ```
 
@@ -65,6 +66,7 @@ When you have modified or created new Knowledge base items, code examples or che
 ```
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
+export SKF_JWT_SECRET="chooseyourownsupersecretstringtoputhere"
 flask initdataset
 ```
 
