@@ -2323,7 +2323,7 @@ def load_initial_data():
         db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select', 2, "sqli", "SKF-labs", None))
         db.session.commit()
         
-        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3, "url-redirection-hard", "SKF-labs", None))
+        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3, "url-redirection-harder", "SKF-labs", None))
         db.session.commit()
         
         db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation', 3, "cors", "SKF-labs", None))
@@ -2425,10 +2425,10 @@ def load_initial_data():
         db.session.commit()
 
 
-        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-introspection', 3, "graphql-introspections", "SKF-labs", None))
+        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-introspection', 3, "graphql-info-introspection", "SKF-labs", None))
         db.session.commit()
 
-        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-mutations', 3, "graphql-mutations", "SKF-labs", None))
+        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-mutations', 3, "graphql-mutation", "SKF-labs", None))
         db.session.commit()
 
         db.session.add(LabItem('API-only XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-without-using-the-frontend-application-at-all',3,'juice-shop','juice-shop',None))

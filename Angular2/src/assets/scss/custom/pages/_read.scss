@@ -1,0 +1,24 @@
+//
+// read.scss
+//
+
+
+.knowledgebase-tabs{
+    .nav-pills{
+        .nav-link{
+            margin-bottom: 24px;
+            text-align: center;
+            background-color: $card-bg;
+            box-shadow: $box-shadow;
+            color: $topnav-text;
+
+            &.active{
+                background-color: $topnav-text;
+                color: white;
+            }
+            .check-nav-icon{
+                font-size: 36px;
+            }
+        }
+    }
+}

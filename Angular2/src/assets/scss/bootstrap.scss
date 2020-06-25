@@ -20,7 +20,7 @@
 @import "custom/components/avatar";
 @import "custom/components/helper";
 @import "custom/components/preloader";
-@import "custom/components/widgets";
 @import "custom/components/forms";
 @import "custom/components/demos";
-@import "custom/components/print";
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

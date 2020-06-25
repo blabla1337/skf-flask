@@ -1,0 +1,190 @@
+<div class="container-fluid">
+    <app-page-title title="knowledgebase" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="knowledgebase-tabs">
+      <div class="row">
+        <div class="col-lg-2">
+          <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-pills flex-column">
+            <li [ngbNavItem]="1">
+              <a ngbNavLink>
+                <i class="bx bx-badge-check d-block check-nav-icon mt-4 mb-2"></i>
+                <p class="font-weight-bold mb-4">Web Application</p>
+              </a>
+              <ng-template ngbNavContent>
+                <div class="card">
+                  <div class="card-body">
+  
+                  <div class="row mb-5">
+                      <div class="col-sm-4">
+                        <h4 class="card-title mb-4">Web Application</h4>
+
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="text-sm-right">
+                            <div class="search-box mr-2 mb-2 d-inline-block">
+                                <div class="position-relative">
+                                  <input type="text" class="form-control" placeholder="Search..."/>
+                                  <i class="bx bx-search-alt search-icon"></i>
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                      <!-- end col-->
+                    </div>
+                    <div class="card shadow-none border mb-0">
+                      <div class="card-body">
+                        <div class="row mt-3">
+                          <div class="col-lg-12">
+                              <!-- Content Body -->
+                                          <div class="row mb-4">
+                                           <div class="col">
+                                               <div class="card">
+                                                 <div class="card-body">
+                                                  <div class="row">
+                                                    <div class="col-sm-4">
+                                                      <h4 class="card-title">Title</h4>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                      <div class="text-sm-right">
+                                                        <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" (click)="isCollapsed = !isCollapsed">
+                                                          Click here
+                                                        </button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                   
+                                                   <p class="card-title-desc mb-3">
+                                                     content
+                                                   </p>
+                                                   <div class="collapse" [ngbCollapse]="isCollapsed">
+                                                     <pre class="card card-body mb-0">
+                                                       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                                       squid.
+                                                       Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                                       proident.
+                                                     </pre>
+                                                     <div class="row mt-4">
+                                                        <div class="col-sm-6">
+                                                          <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
+                                                            <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
+                                                        </div> <!-- end col -->
+                                                        <div class="col-sm-6">
+                                                          <div class="text-sm-right">
+                                                            <a routerLink="/" class="btn btn-success m-1">
+                                                              <i class="mdi mdi-truck-fast mr-1"></i> Update </a>
+                                                              <a routerLink="/" class="btn btn-danger m-1">
+                                                                <i class="mdi mdi-truck-fast mr-1"></i> Delete </a>
+                                                          </div>
+                                                        </div> <!-- end col -->
+                                                        
+                                                      </div>
+                                                   </div>
+                                                 </div>
+                                               </div>
+                                             </div>
+                                          </div>
+                             <!-- Content Body Ends-->
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </li>
+
+            <li [ngbNavItem]="2">
+                <a ngbNavLink>
+                  <i class="bx bx-badge-check d-block check-nav-icon mt-4 mb-2"></i>
+                  <p class="font-weight-bold mb-4">Mobile Application</p>
+                </a>
+                <ng-template ngbNavContent>
+                  <div class="card">
+                    <div class="card-body">
+    
+                    <div class="row mb-5">
+                        <div class="col-sm-4">
+                          <h4 class="card-title mb-4">Mobile Application</h4>
+  
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="text-sm-right">
+                              <div class="search-box mr-2 mb-2 d-inline-block">
+                                  <div class="position-relative">
+                                    <input type="text" class="form-control" placeholder="Search..."/>
+                                    <i class="bx bx-search-alt search-icon"></i>
+                                  </div>
+                                </div>
+                          </div>
+                        </div>
+                        <!-- end col-->
+                      </div>
+                      <div class="card shadow-none border mb-0">
+                        <div class="card-body">
+                          <div class="row mt-3">
+                            <div class="col-lg-12">
+                                <!-- Content Body -->
+                                            <div class="row mb-4">
+                                             <div class="col">
+                                                 <div class="card">
+                                                   <div class="card-body">
+                                                    <div class="row">
+                                                      <div class="col-sm-4">
+                                                        <h4 class="card-title">Title</h4>
+                                                      </div>
+                                                      <div class="col-sm-8">
+                                                        <div class="text-sm-right">
+                                                          <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" (click)="isCollapsed = !isCollapsed">
+                                                            Click here
+                                                          </button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                     
+                                                     <p class="card-title-desc mb-3">
+                                                       content
+                                                     </p>
+                                                     <div class="collapse" [ngbCollapse]="isCollapsed">
+                                                       <pre class="card card-body mb-0">
+                                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                                         squid.
+                                                         Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                                         proident.
+                                                       </pre>
+                                                       <div class="row mt-4">
+                                                          <div class="col-sm-6">
+                                                            <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
+                                                              <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
+                                                          </div> <!-- end col -->
+                                                          <div class="col-sm-6">
+                                                            <div class="text-sm-right">
+                                                              <a routerLink="/" class="btn btn-success m-1">
+                                                                <i class="mdi mdi-truck-fast mr-1"></i> Update </a>
+                                                                <a routerLink="/" class="btn btn-danger m-1">
+                                                                  <i class="mdi mdi-truck-fast mr-1"></i> Delete </a>
+                                                            </div>
+                                                          </div> <!-- end col -->
+                                                          
+                                                        </div>
+                                                     </div>
+                                                   </div>
+                                                 </div>
+                                               </div>
+                                            </div>
+                               <!-- Content Body Ends-->
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </li>
+
+          </ul>
+        </div>
+        <div class="col-lg-10">
+          <div [ngbNavOutlet]="nav"></div>
+        </div>
+      </div>
+    </div>
+  </div>
