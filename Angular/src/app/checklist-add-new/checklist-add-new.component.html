@@ -44,14 +44,14 @@
         <div *ngIf="isSubmitted && formControls.checklist_id.errors" class="help-block">
           <div *ngIf="formControls.checklist_id.errors.required">
             <ngb-alert type="danger" [dismissible]="false">
-              Checklist id was not filled in 
+              Checklist id was not filled in
             </ngb-alert>
           </div>
           <div *ngIf="formControls.checklist_id.errors.pattern">
-              <ngb-alert type="danger" [dismissible]="false">
-                Checklist id was not confirm standard 'number.number' (1.1, 2.1, 3.0, etv)
-              </ngb-alert>
-            </div>
+            <ngb-alert type="danger" [dismissible]="false">
+              Checklist id was not confirm standard 'number.number' (1.1, 2.1, 3.0, etv)
+            </ngb-alert>
+          </div>
         </div>
 
         <div *ngIf="isSubmitted && formControls.content.errors" class="help-block">
@@ -73,7 +73,7 @@
         <div *ngIf="isSubmitted && formControls.question_id.errors" class="help-block">
           <div *ngIf="formControls.question_id.required">
             <ngb-alert type="danger" [dismissible]="false">
-              Question  was not selected
+              Question was not selected
             </ngb-alert>
           </div>
         </div>
@@ -81,33 +81,32 @@
         <div *ngIf="isSubmitted && formControls.cwe.errors" class="help-block">
           <div *ngIf="formControls.cwe.errors.required">
             <ngb-alert type="danger" [dismissible]="false">
-              CWE id  was not filled in
+              CWE id was not filled in
             </ngb-alert>
           </div>
           <div *ngIf="formControls.cwe.errors.pattern">
-              <ngb-alert type="danger" [dismissible]="false">
-                CWE needs to be a numeric value
-              </ngb-alert>
-            </div>
+            <ngb-alert type="danger" [dismissible]="false">
+              CWE needs to be a numeric value
+            </ngb-alert>
+          </div>
         </div>
 
         <div *ngIf="isSubmitted && formControls.maturity.errors" class="help-block">
           <div *ngIf="formControls.maturity.errors.required">
             <ngb-alert type="danger" [dismissible]="false">
-              Maturity level  was not filled in
+              Maturity level was not filled in
             </ngb-alert>
           </div>
           <div *ngIf="formControls.cwe.errors.pattern">
-              <ngb-alert type="danger" [dismissible]="false">
-                Maturity needs to be a numeric value
-              </ngb-alert>
-            </div>
+            <ngb-alert type="danger" [dismissible]="false">
+              Maturity needs to be a numeric value
+            </ngb-alert>
+          </div>
         </div>
 
 
-
-        <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
-          <div *ngFor="let item of checklist; let myIndex = index;">
+        <span *ngFor="let item of checklist; let myIndex = index;">
+          <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
             <ngb-panel title="{{item.checklist_items_checklist_id}} {{item.checklist_items_content}}">
               <ng-template ngbPanelContent>
 
@@ -157,9 +156,8 @@
                 <!-- Here ends showing of the checklist items content-->
               </ng-template>
             </ngb-panel>
-          </div>
-        </ngb-accordion>
-
+          </ngb-accordion>
+        </span>
 
         <!-- Here starts the MODAL that helps add new checklist items -->
         <form [formGroup]="checklistForm">
@@ -183,8 +181,7 @@
                   </div>
                   <label for="inputVersion" class="col-sm-2 control-label">Checklist title *</label>
                   <div class="col-sm-10">
-                    <input required formControlName="content" type="text" class="form-control"
-                      id="inputVersion">
+                    <input required formControlName="content" type="text" class="form-control" id="inputVersion">
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">What is the title of the checklist item?</div>
                     </div>
