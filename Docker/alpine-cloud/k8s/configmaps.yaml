@@ -7,6 +7,7 @@ data:
   SKF_API_URL: "https://beta.securityknowledgeframework.org/api"
   SKF_FLASK_DEBUG: "False"
   SKF_DB_URL: sqlite:///db/db.sqlite
+  #SKF_DB_URL: mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
   SKF_DOJO_API_KEY: optional
   SKF_TESTING: "False"
   RABBIT_MQ_CONN_STRING: rabbitmq
@@ -29,3 +30,13 @@ metadata:
 data:
   RABBITMQ_DEFAULT_USER: admin
   RABBITMQ_DEFAULT_PASS: admin-skf-secret
+---  
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql
+data:
+  MYSQL_ROOT_PASSWORD: admin-skf-secret
+  MYSQL_DEFAULT_USER: root
+  MYSQL_DEFAULT_PASS: admin-skf-secret
+  MYSQL_DATABASE: skf
