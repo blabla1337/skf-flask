@@ -105,22 +105,41 @@
     <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
   </div>
   <div class="modal-body">
-    <form>
+    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="validationform">
       <div class="row">
-        <div class="col">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" id="firstName" placeholder="First name">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="validationCustom01">First name</label>
+            <input type="text" class="form-control" id="validationCustom01" formControlName="firstName"
+              placeholder="First name" [ngClass]="{'is-invalid': submit && form.firstName.errors}">
+            <div *ngIf="submit && form.firstName.errors" class="invalid-feedback">
+              <span *ngIf="form.firstName.errors.required">Required!</span>
+            </div>
+          </div>
         </div>
-        <div class="col">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" id="lastName" placeholder="Last name">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="validationCustom02">Last name</label>
+            <input type="text" class="form-control" id="validationCustom02" formControlName="lastName"
+              placeholder="Last name" [ngClass]="{'is-invalid': submit && form.lastName.errors}">
+            <div *ngIf="submit && form.lastName.errors" class="invalid-feedback">
+              <span *ngIf="form.lastName.errors.required">Required!</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <label>E-Mail</label>
+        <div>
+          <input type="email" class="form-control" formControlName="email"
+            [ngClass]="{'is-invalid': submit && form.email.errors}" placeholder="Enter a valid e-mail" />
+          <div *ngIf="submit && form.email.errors" class="invalid-feedback">
+            <span *ngIf="form.email.errors.required">This value is required.</span>
+            <span *ngIf="form.email.errors.pattern">This value should be a valid email.</span>
+          </div>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary" type="submit">Submit</button>
     </form>
   </div>
 </ng-template>
