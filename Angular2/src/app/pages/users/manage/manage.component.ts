@@ -29,8 +29,7 @@ export class ManageComponent implements OnInit {
   submit: boolean;
   formsubmit: boolean;
 
-  constructor( private modalService: NgbModal) { }
-  public formBuilder: FormBuilder;
+  constructor( private modalService: NgbModal,  private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Details', active: true }];
