@@ -14,11 +14,13 @@ services:
 
   mysql:
     container_name: skf-mysql_container
-    image: mysql:5.7
+    image: blabla1337/mysql
     restart: always
     environment:
       MYSQL_DATABASE: 'skf'
       MYSQL_ROOT_PASSWORD: 'admin-skf-secret'
+      MYSQL_DEFAULT_PASS: 'admin-skf-secret'
+      MYSQL_DEFAULT_USER: 'root'
     ports:
       - '3306:3306'
 
