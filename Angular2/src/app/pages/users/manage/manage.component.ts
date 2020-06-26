@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Match } from './validation.match';
 
 import { Users } from './manage.model';
 
@@ -19,7 +22,15 @@ export class ManageComponent implements OnInit {
   // page
   currentpage: number;
 
-  constructor() { }
+  // Form Validation
+  validationform: FormGroup;
+
+  // Form Submission
+  submit: boolean;
+  formsubmit: boolean;
+
+  constructor( private modalService: NgbModal) { }
+  public formBuilder: FormBuilder;
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Details', active: true }];
@@ -30,6 +41,16 @@ export class ManageComponent implements OnInit {
      * Fetches the data
      */
     this._fetchData();
+
+    /**
+     * Bootstrap validation form data
+     */
+    this.validationform = this.formBuilder.group({
+      firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+    });
+    this.submit = false;
   }
 
   /**
@@ -38,4 +59,27 @@ export class ManageComponent implements OnInit {
   private _fetchData() {
     this.usersData = usersData;
   }
+
+  /**
+   * Open center modal
+   * @param centerDataModal center modal data
+   */
+  centerModal(centerDataModal: any) {
+    this.modalService.open(centerDataModal, { centered: true });
+  }
+
+  /**
+   * Returns form
+   */
+  get form() {
+    return this.validationform.controls;
+  }
+
+  /**
+   * Bootsrap validation form submit method
+   */
+  validSubmit() {
+    this.submit = true;
+  }
+
 }

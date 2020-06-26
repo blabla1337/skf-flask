@@ -17,7 +17,7 @@
             </div>
             <div class="col-sm-8">
               <div class="text-sm-right">
-                <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
+                <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2" (click)="centerModal(centerDataModal)">  
                   <i class="mdi mdi-plus mr-1"></i> New users
                 </button>
               </div>
@@ -95,3 +95,32 @@
   </div>
   <!-- end row -->
 </div>
+
+
+<!-- Data Modal -->
+
+<ng-template #centerDataModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">User Details</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="col">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="First name">
+        </div>
+        <div class="col">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Last name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</ng-template>
