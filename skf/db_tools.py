@@ -26,14 +26,15 @@ def clear_db():
         db.session.rollback()
         raise
 
+
 def init_db(testing=False):
     """Initializes the database.""" 
     try:
         print("Initializing the database")
         db.create_all()
         prerequisits()
-        init_md_knowledge_base()
         init_md_code_examples()
+        init_md_knowledge_base()
         load_initial_data()
     except:
         db.session.remove()
@@ -51,6 +52,7 @@ def clean_db(testing=False):
     load_initial_data()
     db.session.commit()
 
+
 def update_db():
     """Update the database."""
     KBItem.query.delete()
@@ -58,6 +60,7 @@ def update_db():
     db.session.commit()
     init_md_code_examples()
     init_md_knowledge_base()
+
 
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
@@ -85,7 +88,6 @@ def init_md_knowledge_base():
                     raise
         print('Initialized the markdown knowledge-base.')
         return True
-
     except:
         raise
 
