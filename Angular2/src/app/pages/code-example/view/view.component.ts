@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 import { Codes } from './code-example.model';
 
@@ -20,7 +22,7 @@ export class CodeViewComponent implements OnInit {
   // Collapse declare
   isCollapsed: boolean;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
@@ -37,4 +39,13 @@ export class CodeViewComponent implements OnInit {
   private _fetchData() {
     this.codeData = codeData;
   }
+
+  /**
+   * Open center modal
+   * @param centerDataModal center modal data
+   */
+  centerModal(centerDataModal: any) {
+    this.modalService.open(centerDataModal, { centered: true });
+  }
+
 }
