@@ -1,0 +1,15 @@
+// custom scss
+//  form wizard
+aw-wizard {
+    .steps-indicator{
+        .label {
+            color: $text-muted !important;
+        }
+        .current {
+            .step-indicator{
+                color: $primary !important;
+                border-color: $primary !important;
+            }
+        }
+    }
+}

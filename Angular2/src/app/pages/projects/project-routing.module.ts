@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {ProjectManageComponent} from './manage/manage.component';
 import {ProjectViewComponent} from './view/view.component';
 
-const routes: Routes = [ 
+const routes: Routes = [
     {path: 'manage', component: ProjectManageComponent},
     {path: 'view', component: ProjectViewComponent},
 ];
