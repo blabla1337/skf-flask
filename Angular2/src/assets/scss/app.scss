@@ -8,6 +8,8 @@
 @import "variables";
 @import "bootstrap";
 @import "./node_modules/bootstrap/scss/mixins.scss";
+@import './node_modules/angular-archwizard/archwizard.scss';
+
 
 // Structure
 @import "custom/structure/general";
@@ -18,19 +20,7 @@
 // Pages
 @import "custom/pages/users";
 @import "custom/pages/read";
+@import "custom/pages/projects";
+@import "custom/pages/home";
+@import "custom/pages/custom"
 
-// custom scss
-//  form wizard
-aw-wizard {
-    .steps-indicator{
-        .label {
-            color: $text-muted !important;
-        }
-        .current {
-            .step-indicator{
-                color: $primary !important;
-                border-color: $primary !important;
-            }
-        }
-    }
-}

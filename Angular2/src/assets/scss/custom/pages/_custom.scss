@@ -1,0 +1,31 @@
+// custom scss
+//  form wizard
+aw-wizard {
+    .steps-indicator{
+        .label {
+            color: $text-muted !important;
+        }
+        .current {
+            .step-indicator{
+                color: $primary !important;
+                border-color: $primary !important;
+            }
+        }
+    }
+}
+
+@media (max-width:320px) {
+    aw-wizard-navigation-bar ul.steps-indicator li a .label{
+    display: none !important;
+    }
+    }
+    @media (max-width:481px) {
+    aw-wizard-navigation-bar ul.steps-indicator li a .label{
+    display: none !important;
+    }
+    }
+    @media (max-width:641px) {
+    aw-wizard-navigation-bar ul.steps-indicator li a .label{
+    display: none !important;
+    }
+    }

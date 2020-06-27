@@ -22,6 +22,7 @@
     "@angular/router": "~9.1.9",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "@ng-select/ng-select": "^4.0.0",
+    "angular-archwizard": "^6.1.0",
     "bootstrap": "^4.5.0",
     "bootstrap-scss": "^4.5.0",
     "jquery": "^3.5.1",
