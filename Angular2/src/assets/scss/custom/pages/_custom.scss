@@ -13,3 +13,19 @@ aw-wizard {
         }
     }
 }
+
+@media (max-width:320px) {
+    aw-wizard-navigation-bar ul.steps-indicator li a .label{
+    display: none !important;
+    }
+    }
+    @media (max-width:481px) {
+    aw-wizard-navigation-bar ul.steps-indicator li a .label{
+    display: none !important;
+    }
+    }
+    @media (max-width:641px) {
+    aw-wizard-navigation-bar ul.steps-indicator li a .label{
+    display: none !important;
+    }
+    }
