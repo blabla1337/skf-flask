@@ -17,11 +17,17 @@ import { ReadComponent } from './knowledgebase/read/read.component';
 import { ViewComponent } from './checklists/view/view.component';
 import { ProjectManageComponent } from './projects/manage/manage.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ProjectViewComponent } from './projects/view/view.component';
+
 
 
 
 @NgModule({
-  declarations: [ManageComponent, CodeViewComponent, ReadComponent, ViewComponent, ProjectManageComponent, LoginComponent],
+  declarations: [
+    ManageComponent, CodeViewComponent,
+    ReadComponent, ViewComponent, ProjectManageComponent,
+    LoginComponent, ProjectViewComponent
+  ],
   imports: [
     CommonModule,
     DashboardModule,
