@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ArchwizardModule } from 'angular-archwizard';
 import { UIModule } from '../shared/ui/ui.module';
 
 
 
-import { NgbNavModule, NgbDropdownModule, NgbModalModule, NgbTooltipModule, NgbPaginationModule, NgbTypeaheadModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbNavModule, NgbDropdownModule, NgbModalModule,
+  NgbTooltipModule, NgbPaginationModule, NgbTypeaheadModule,
+  NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -17,11 +21,17 @@ import { ReadComponent } from './knowledgebase/read/read.component';
 import { ViewComponent } from './checklists/view/view.component';
 import { ProjectManageComponent } from './projects/manage/manage.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ProjectViewComponent } from './projects/view/view.component';
+
 
 
 
 @NgModule({
-  declarations: [ManageComponent, CodeViewComponent, ReadComponent, ViewComponent, ProjectManageComponent, LoginComponent],
+  declarations: [
+    ManageComponent, CodeViewComponent,
+    ReadComponent, ViewComponent, ProjectManageComponent,
+    LoginComponent, ProjectViewComponent
+  ],
   imports: [
     CommonModule,
     DashboardModule,
@@ -35,6 +45,7 @@ import { LoginComponent } from './auth/login/login.component';
     NgbTypeaheadModule,
     FormsModule,
     ReactiveFormsModule,
+    ArchwizardModule,
     UsersModule,
     UIModule
   ],
