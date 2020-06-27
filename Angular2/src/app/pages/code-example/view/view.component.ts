@@ -18,7 +18,6 @@ export class CodeViewComponent implements OnInit {
 
   codeData: Codes[];
 
-
   // Collapse declare
   isCollapsed: boolean;
 
