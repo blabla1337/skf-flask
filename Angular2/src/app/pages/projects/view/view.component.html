@@ -102,9 +102,25 @@
     </div>
     <div class="modal-body">
         <aw-wizard [navBarLayout]="'large-empty-symbols'">
-            <aw-wizard-step [stepTitle]="'Category'" [navigationSymbol]="{ symbol: '1' }">
+            <aw-wizard-step class="steps-in" [stepTitle]="'Category'" [navigationSymbol]="{ symbol: '1' }">
                 <div class="tab-content">
-                
+                    <form>
+                        <div class="row">
+                            <div class="col pt-3">
+                                <div class="form-group">
+                                    <label for="category-input">Select Category</label>
+                                    <select class="custom-select" id="category-input">
+                                        <option value="" >--Select--</option>
+                                        <option value="1">Web Application</option>
+                                        <option value="2">Mobile Application</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border border-dark mb-3">
+                            <div class="card-body">Hello</div>
+                        </div>
+                    </form>
                 </div>
                 <ul class="list-inline wizard mb-0">
                     <li class="next list-inline-item float-right"><button class="btn btn-primary"
@@ -113,7 +129,7 @@
                 </ul>
             </aw-wizard-step>
 
-            <aw-wizard-step [stepTitle]="'Maturity Level'" [navigationSymbol]="{ symbol: '2' }">
+            <aw-wizard-step  [stepTitle]="'Maturity Level'" [navigationSymbol]="{ symbol: '2' }">
                 <div class="tab-content">
                     
                 </div>
@@ -127,7 +143,7 @@
                 </ul>
             </aw-wizard-step>
 
-            <aw-wizard-step [stepTitle]="'Checklist'"
+            <aw-wizard-step class="steps-in" [stepTitle]="'Checklist'"
                 [navigationSymbol]="{ symbol: '3' }">
                 <div class="tab-content">
                     
@@ -142,7 +158,7 @@
                 </ul>
             </aw-wizard-step>
 
-            <aw-wizard-step [stepTitle]="'Questionnaire'"
+            <aw-wizard-step class="steps-in" [stepTitle]="'Questionnaire'"
                 [navigationSymbol]="{ symbol: '4' }">
                 <div class="tab-content">
                     
@@ -157,7 +173,7 @@
                 </ul>
             </aw-wizard-step>
 
-            <aw-wizard-step [stepTitle]="'Setup'"
+            <aw-wizard-step class="steps-in" [stepTitle]="'Setup'"
                 [navigationSymbol]="{ symbol: '5' }">
                 <div class="tab-content">
                     
@@ -172,7 +188,7 @@
                 </ul>
             </aw-wizard-step>
 
-            <aw-wizard-step [stepTitle]="'Finish'"
+            <aw-wizard-step class="steps-in" [stepTitle]="'Finish'"
                 [navigationSymbol]="{ symbol: '6' }">
                 <div class="tab-content">
                     
