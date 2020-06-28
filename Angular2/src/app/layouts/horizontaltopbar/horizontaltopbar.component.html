@@ -122,7 +122,7 @@
           <!-- Menu data -->
           <ng-container *ngFor="let item of menuItems">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle arrow-none" (click)="onMenuClick($event)" href="javascript: void(0);"
+              <a class="nav-link" href="{{item.link}}"
                 id="topnav-components" role="button">
                 <i [class]="item.icon"></i>{{ item.label }}
               </a>
