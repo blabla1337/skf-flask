@@ -19,7 +19,7 @@ export class ReadComponent implements OnInit {
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
 
     // Collapse value
-    this.isCollapsed = false;
+    this.isCollapsed = true;
 
 }
 }
