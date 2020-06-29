@@ -1,7 +1,6 @@
-<p>view works!</p>
 <div class="container-fluid">
 
-    <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <app-page-title title="Labs" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   
     <div class="row mt-3">
         <div class="col-lg-12">
@@ -24,25 +23,24 @@
   
                       <div class="row">
                         <div *ngFor="let data of labData" class="col-xl-4 col-sm-6 mb-4">
-                          <div class="card border border-light">
-                            <div class="card-body">
-                              <div class="media">
-                                <div class="media-body overflow-hidden">
-                                  <h5 class="text-truncate font-size-15">
-                                    <a href="javascript: void(0);" class="text">{{data.text}}</a>
-                                  </h5>
-                                  <p class="text-muted mb-4">{{data.subtext}}</p>
-                                </div>
+
+                         
+                            <div class="card borer border-light">
+                              <div class="card-body">
+                                <h5 class="mt-0 mb-4 text-primary"><i class="mdi mdi-flask mr-3"></i>{{data.text}}</h5>
+                                <p class="card-text">{{data.subtext}}</p>
+                              </div>
+                              <div class="px-4 py-3 border-top">
+                                <ul class="list-inline mb-0">
+                                  <li class="list-inline-item mr-3">
+                                   <a href="/labs/read"><button type="button" class="btn-sm btn-primary">Click here</button></a> 
+                                  </li>
+                                </ul>
                               </div>
                             </div>
-                            <div class="px-4 py-3 border-top">
-                              <ul class="list-inline mb-0">
-                                <li class="list-inline-item mr-3">
-                                  <button type="button" class="btn-sm btn-primary">Click here</button>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
+                        
+
+                          
                         </div>
                       </div>
                 </div>
