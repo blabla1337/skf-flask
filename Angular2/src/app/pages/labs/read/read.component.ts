@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './read.component.html',
   styleUrls: ['./read.component.scss']
 })
-export class ReadComponent implements OnInit {
+export class LabReadComponent implements OnInit {
 
   constructor() { }
 
