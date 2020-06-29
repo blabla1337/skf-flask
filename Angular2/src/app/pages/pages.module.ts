@@ -23,6 +23,9 @@ import { ChecklistsReadComponent } from './checklists/read/read.component';
 import { ProjectManageComponent } from './projects/manage/manage.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ProjectViewComponent } from './projects/view/view.component';
+import { LabReadComponent } from './labs/read/read.component';
+import { LabViewComponent } from './labs/view/view.component';
+
 
 
 
@@ -31,7 +34,8 @@ import { ProjectViewComponent } from './projects/view/view.component';
   declarations: [
     ManageComponent, CodeViewComponent, ReadComponent,
     ViewComponent, ProjectManageComponent, LoginComponent,
-    ProjectViewComponent, ChecklistsReadComponent
+    ProjectViewComponent, ChecklistsReadComponent, LabReadComponent,
+    LabViewComponent,
   ],
   imports: [
     CommonModule,
