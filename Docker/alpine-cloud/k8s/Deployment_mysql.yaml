@@ -52,4 +52,14 @@ spec:
                configMapKeyRef:
                  name: mysql
                  key: MYSQL_DEFAULT_PASS
+          -  name: MYSQL_ROOT_PASSWORD
+             valueFrom:
+               configMapKeyRef:
+                 name: mysql
+                 key: MYSQL_ROOT_PASSWORD
+          -  name: MYSQL_DATABASE
+             valueFrom:
+               configMapKeyRef:
+                 name: mysql
+                 key: MYSQL_DATABASE            
 ---

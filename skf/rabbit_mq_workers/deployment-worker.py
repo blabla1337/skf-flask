@@ -117,7 +117,7 @@ def string_split_deployment(body):
 
 def get_host_port_from_response(response):
     try:
-        host = os.environ['LABS_KUBE_DOMAIN']
+        host = os.environ['SKF_LABS_DOMAIN']
         for service in response.spec.ports:
             node_port = service.node_port
             port = service.port
