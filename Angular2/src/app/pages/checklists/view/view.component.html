@@ -1,61 +1,143 @@
 <div class="container-fluid">
-    <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
-  
-    <div class="row">
-      <div *ngFor="let data of checkData" class="col-xl-4 col-sm-6 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="media">
-              <div class="media-body overflow-hidden">
-                <h5 class="text-truncate font-size-15">
-                  <a href="javascript: void(0);" class="text">{{data.text}}</a>
-                </h5>
-                <p class="text-muted mb-4">{{data.subtext}}</p>
-              </div>
-            </div>
-          </div>
-          <div class="px-4 py-3 border-top">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-3">
-                <span class="badge badge-primary">Active</span>
-              </li>
-            </ul>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <div class="row">
+
+  <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row mt-3">
       <div class="col-lg-12">
-        <ul class="pagination pagination-rounded justify-content-center mt-2 mb-5">
-          <li class="page-item disabled">
-            <a href="javascript: void(0);" class="page-link">
-              <i class="mdi mdi-chevron-left"></i>
-            </a>
-          </li>
-          <li class="page-item">
-            <a href="javascript: void(0);" class="page-link">1</a>
-          </li>
-          <li class="page-item active">
-            <a href="javascript: void(0);" class="page-link">2</a>
-          </li>
-          <li class="page-item">
-            <a href="javascript: void(0);" class="page-link">3</a>
-          </li>
-          <li class="page-item">
-            <a href="javascript: void(0);" class="page-link">4</a>
-          </li>
-          <li class="page-item">
-            <a href="javascript: void(0);" class="page-link">5</a>
-          </li>
-          <li class="page-item">
-            <a href="javascript: void(0);" class="page-link">
-              <i class="mdi mdi-chevron-right"></i>
-            </a>
-          </li>
-        </ul>
+
+          <!-- Content Body -->
+
+          <div class="card">
+              <div class="card-body">
+                  <div class="float-right">
+                      <div class="dropdown" ngbDropdown>
+                          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-devices text-light mr-1"></i> <span
+                                  class="d-none text-light d-sm-inline-block" ngbDropdownToggle>Platforms<i
+                                      class="mdi mdi-chevron-down"></i></span></button>
+                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-md" ngbDropdownMenu>
+                              
+                              <a class="dropdown-item disabled">
+                                  Choose any one
+                              </a>
+                              <a class="dropdown-item" href="javascript: void(0);">
+                                  Web Application
+                              </a>
+                              <a class="dropdown-item" href="javascript: void(0);">
+                                  Mobile Application
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item text-primary text-center" href="javascript: void(0);">
+                                  Learn more
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row mb-5">
+                      <div class="col-sm-4">
+                        <div class="search-box mr-2 mb-2 d-inline-block">
+                          <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search..."/>
+                            <i class="bx bx-search-alt search-icon"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="text-sm-right">
+                          <button type="button" (click)="centerModal(centerDataModal)" class="btn btn-primary btn-rounded mb-2 mr-2">
+                            <i class="mdi mdi-code-tags mr-1"></i> Add New
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end col-->
+                    </div>
+
+                    <div class="row">
+                      <div *ngFor="let data of checkData" class="col-xl-4 col-sm-6 mb-4">
+                        <div class="card border border-light">
+                          <div class="card-body">
+                            <div class="media">
+                              <div class="media-body overflow-hidden">
+                                <h5 class="text-truncate font-size-15">
+                                  <a href="javascript: void(0);" class="text">{{data.text}}</a>
+                                </h5>
+                                <p class="text-muted mb-4">{{data.subtext}}</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="px-4 py-3 border-top">
+                            <ul class="list-inline mb-0">
+                              <li class="list-inline-item mr-3">
+                                <button type="button" class="btn-sm btn-primary">Click here</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <ul class="pagination pagination-rounded justify-content-center mt-2 mb-5">
+                          <li class="page-item disabled">
+                            <a href="javascript: void(0);" class="page-link">
+                              <i class="mdi mdi-chevron-left"></i>
+                            </a>
+                          </li>
+                          <li class="page-item">
+                            <a href="javascript: void(0);" class="page-link">1</a>
+                          </li>
+                          <li class="page-item active">
+                            <a href="javascript: void(0);" class="page-link">2</a>
+                          </li>
+                          <li class="page-item">
+                            <a href="javascript: void(0);" class="page-link">3</a>
+                          </li>
+                          <li class="page-item">
+                            <a href="javascript: void(0);" class="page-link">4</a>
+                          </li>
+                          <li class="page-item">
+                            <a href="javascript: void(0);" class="page-link">5</a>
+                          </li>
+                          <li class="page-item">
+                            <a href="javascript: void(0);" class="page-link">
+                              <i class="mdi mdi-chevron-right"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+              </div>
+          </div>
+         <!-- Content Body Ends-->
       </div>
-    </div>
-    <!-- end row -->
   </div>
-  
+</div>
+
+<ng-template #centerDataModal let-modal>
+<div class="modal-header">
+  <h5 class="modal-title mt-0">Add New Checklists</h5>
+  <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="formGroupTitleInput">Checklist Title</label>
+      <input type="text" class="form-control" id="formGroupTitleInput" placeholder="Add new title">
+    </div>
+    <div class="form-group">
+      <label for="FormControlTextarea1">Description</label>
+      <textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group mb-4">
+      <label for="status-input">Status</label>
+      <select class="custom-select" id="status-input">
+          <option value="" >--Select--</option>
+          <option value="1">Activate</option>
+          <option value="2">Deactivate</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</ng-template>
