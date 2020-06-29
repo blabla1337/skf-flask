@@ -58,11 +58,10 @@ services:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=http://localhost/api
       - SKF_TESTING=False
-      - RABBIT_MQ_CONN_STRING=rabbitmq
       - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
       - SKF_JWT_SECRET=please_change_this_value_to_be_random
+      - SKF_LABS_DOMAIN=http://localhost
+      - RABBIT_MQ_CONN_STRING=rabbitmq
       - LABS_KUBE_CONF=~/.kube/config
-      - LABS_KUBE_DOMAIN=http://localhost
       #- JWT_ENABLED="False"
-      #- SKF_DB_URL=
       #- SKF_DOJO_API_KEY=
