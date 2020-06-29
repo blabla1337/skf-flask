@@ -30,6 +30,18 @@ export const MENU: MenuItem[] = [
         label: 'Code examples',
         icon: 'mdi mdi-18px mdi-code-greater-than-or-equal mr-2',
         link: 'code-example/view'
-    }
+    },
+    {
+        id: 6,
+        label: 'Knowledgebase',
+        icon: 'mdi mdi-18px mdi-code-greater-than-or-equal mr-2',
+        link: 'knowledgebase/read'
+    },
+    {
+        id: 7,
+        label: 'Code examples',
+        icon: 'mdi mdi-18px mdi-code-greater-than-or-equal mr-2',
+        link: 'labs/view'
+    },
 ];
 
