@@ -27,19 +27,12 @@ import { LabReadComponent } from './labs/read/read.component';
 import { LabViewComponent } from './labs/view/view.component';
 
 
-
-
-
 @NgModule({
   declarations: [
     ManageComponent, CodeViewComponent, ReadComponent,
     ViewComponent, ProjectManageComponent, LoginComponent,
-<<<<<<< HEAD
     ProjectViewComponent, ChecklistsReadComponent, LabReadComponent,
     LabViewComponent,
-=======
-    ProjectViewComponent, ChecklistsReadComponent
->>>>>>> f0d9baad34f7960e68e24cb473b6cdbe5e9ccb62
   ],
   imports: [
     CommonModule,
