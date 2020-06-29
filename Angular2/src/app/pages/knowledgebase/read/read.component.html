@@ -13,7 +13,7 @@
                 <div class="card">
                   <div class="card-body">
   
-                  <div class="row mb-5">
+                  <div class="row mb-3">
                       <div class="col-sm-4">
                         <h4 class="card-title mb-4">Web Application</h4>
 
@@ -29,7 +29,8 @@
                         </div>
                       </div>
                       <!-- end col-->
-                    </div>
+                  </div>
+                  
                     <div class="card shadow-none border mb-0">
                       <div class="card-body">
                         <div class="row mt-3">
@@ -37,31 +38,35 @@
                               <!-- Content Body -->
                                           <div class="row mb-4">
                                            <div class="col">
-                                               <div class="card">
-                                                 <div class="card-body">
-                                                  <div class="row">
-                                                    <div class="col-sm-4">
-                                                      <h4 class="card-title">Title</h4>
+                                               
+                                                  <div class="box media mb-2">
+                                                    <div class="icon mr-3">
+                                                      <i class="bx bx-book-content font-size-20 text-success"></i>
                                                     </div>
-                                                    <div class="col-sm-8">
-                                                      <div class="text-sm-right">
-                                                        <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" (click)="isCollapsed = !isCollapsed">
-                                                          Click here
-                                                        </button>
+                                                    <div class="media-body">
+                                                      <div class="row">
+                                                        <div class="col-sm-4">
+                                                          <h4 class="card-title">Title</h4>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                          <div class="text-sm-right">
+                                                            <a href="javascript:void(0)" data-toggle="collapse" (click)="isCollapsed = !isCollapsed">Read More</a>
+                                                          </div>
+                                                        </div>
                                                       </div>
+                                                      <p class="text-muted">New common language will be more simple and regular than the existing
+                                                        European
+                                                        languages. It will be as simple as occidental.</p>
                                                     </div>
                                                   </div>
-                                                   
-                                                   <p class="card-title-desc mb-3">
-                                                     content
-                                                   </p>
+
                                                    <div class="collapse" [ngbCollapse]="isCollapsed">
-                                                     <pre class="card card-body mb-0">
+                                                     <div class="card shadow-none border card-body mb-0">
                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
                                                        squid.
                                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
                                                        proident.
-                                                     </pre>
+                                                     </div>
                                                      <div class="row mt-4">
                                                         <div class="col-sm-6">
                                                           <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
@@ -75,11 +80,10 @@
                                                                 <i class="mdi mdi-truck-fast mr-1"></i> Delete </a>
                                                           </div>
                                                         </div> <!-- end col -->
-                                                        
                                                       </div>
+                                                    <div class="dropdown-divider"></div>
                                                    </div>
-                                                 </div>
-                                               </div>
+                                                 
                                              </div>
                                           </div>
                              <!-- Content Body Ends-->
@@ -125,35 +129,39 @@
                                 <!-- Content Body -->
                                             <div class="row mb-4">
                                              <div class="col">
-                                                 <div class="card">
-                                                   <div class="card-body">
-                                                    <div class="row">
-                                                      <div class="col-sm-4">
-                                                        <h4 class="card-title">Title</h4>
+                                                                                                    
+                                                    <div class="box media mb-4">
+                                                      <div class="icon mr-3">
+                                                        <i class="bx bx-book-content font-size-20 text-success"></i>
                                                       </div>
-                                                      <div class="col-sm-8">
-                                                        <div class="text-sm-right">
-                                                          <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" (click)="isCollapsed = !isCollapsed">
-                                                            Click here
-                                                          </button>
+                                                      <div class="media-body">
+                                                        <div class="row">
+                                                          <div class="col-sm-4">
+                                                            <h4 class="card-title">Title</h4>
+                                                          </div>
+                                                          <div class="col-sm-8">
+                                                            <div class="text-sm-right">
+                                                              <a href="javascript:void(0)" data-toggle="collapse" (click)="isCollapsed = !isCollapsed">Read More</a>
+                                                            </div>
+                                                          </div>
                                                         </div>
+                                                        <p class="text-muted">New common language will be more simple and regular than the existing
+                                                          European
+                                                          languages. It will be as simple as occidental.</p>
                                                       </div>
                                                     </div>
-                                                     
-                                                     <p class="card-title-desc mb-3">
-                                                       content
-                                                     </p>
+
                                                      <div class="collapse" [ngbCollapse]="isCollapsed">
-                                                       <pre class="card card-body mb-0">
+                                                       <div class="card shadow-none border card-body mb-0">
                                                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
                                                          squid.
                                                          Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
                                                          proident.
-                                                       </pre>
+                                                       </div>
                                                        <div class="row mt-4">
                                                           <div class="col-sm-6">
                                                             <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
-                                                              <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
+                                                              <i class="mdi mdi-arrow-left mr-1"></i> Learn More </a>
                                                           </div> <!-- end col -->
                                                           <div class="col-sm-6">
                                                             <div class="text-sm-right">
@@ -163,11 +171,10 @@
                                                                   <i class="mdi mdi-truck-fast mr-1"></i> Delete </a>
                                                             </div>
                                                           </div> <!-- end col -->
-                                                          
                                                         </div>
+                                                        <div class="dropdown-divider"></div>
                                                      </div>
-                                                   </div>
-                                                 </div>
+                                                   
                                                </div>
                                             </div>
                                <!-- Content Body Ends-->

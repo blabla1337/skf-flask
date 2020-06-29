@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './read.component.html',
   styleUrls: ['./read.component.scss']
 })
-export class ReadComponent implements OnInit {
+export class ChecklistsReadComponent implements OnInit {
 
-  // bread crumb items
+  // Bread crumb item
   breadCrumbItems: Array<{}>;
 
   // Collapse declare
@@ -15,11 +15,12 @@ export class ReadComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
+  ngOnInit(): void {
+    this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Read', active: true }];
 
     // Collapse value
     this.isCollapsed = true;
 
-}
+  }
+
 }
