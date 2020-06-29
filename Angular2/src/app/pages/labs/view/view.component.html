@@ -1,0 +1,54 @@
+<p>view works!</p>
+<div class="container-fluid">
+
+    <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  
+    <div class="row mt-3">
+        <div class="col-lg-12">
+  
+            <!-- Content Body -->
+  
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-5">
+                        <div class="col-sm-4">
+                          <div class="search-box mr-2 mb-2 d-inline-block">
+                            <div class="position-relative">
+                              <input type="text" class="form-control" placeholder="Search..."/>
+                              <i class="bx bx-search-alt search-icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end col-->
+                      </div>
+  
+                      <div class="row">
+                        <div *ngFor="let data of labData" class="col-xl-4 col-sm-6 mb-4">
+                          <div class="card border border-light">
+                            <div class="card-body">
+                              <div class="media">
+                                <div class="media-body overflow-hidden">
+                                  <h5 class="text-truncate font-size-15">
+                                    <a href="javascript: void(0);" class="text">{{data.text}}</a>
+                                  </h5>
+                                  <p class="text-muted mb-4">{{data.subtext}}</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="px-4 py-3 border-top">
+                              <ul class="list-inline mb-0">
+                                <li class="list-inline-item mr-3">
+                                  <button type="button" class="btn-sm btn-primary">Click here</button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+           <!-- Content Body Ends-->
+        </div>
+    </div>
+  </div>
+  

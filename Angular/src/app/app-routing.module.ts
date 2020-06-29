@@ -28,7 +28,7 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 
 export const appRoutes: Routes = [
 
-  { path: 'dashboard', component: DashboardComponent, canActivate: [GuardService] },
+  { path: 'dashboard', component: DashboardComponent,  },
   { path: 'labs', component: LabsComponent, canActivate: [GuardService] },
   { path: 'project-list', component: ProjectListComponent, canActivate: [GuardService] },
   { path: 'project-dashboard/:id', component: ProjectDashboardComponent, canActivate: [GuardService] },
