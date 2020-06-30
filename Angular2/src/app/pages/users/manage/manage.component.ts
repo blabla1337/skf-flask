@@ -28,6 +28,7 @@ export class ManageComponent implements OnInit {
   // Form Submission
   submit: boolean;
   formsubmit: boolean;
+  Allow = false;
 
   constructor( private modalService: NgbModal,  private formBuilder: FormBuilder) { }
 
@@ -35,6 +36,8 @@ export class ManageComponent implements OnInit {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Details', active: true }];
 
     this.currentpage = 1;
+
+    this.Allow = true;
 
     /**
      * Fetches the data
