@@ -52,7 +52,7 @@
                         <!-- end col-->
                       </div>
 
-                        <div class="row mb-4" *ngFor="let codes of codeData">
+                        <div class="row mb-4" *ngFor="let codes of codeData; let i = index">
                          <div class="col">
                              <div class="card border shadow-none">
                                <div class="card-body">
@@ -62,7 +62,7 @@
                                   </div>
                                   <div class="col-sm-8">
                                     <div class="text-sm-right">
-                                      <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" attr.data-target="'#' + {{codes.id}}" (click)="isCollapsed = !isCollapsed">
+                                      <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" (click)="isCollapsed[i] = !isCollapsed[i]">
                                         Click here
                                       </button>
                                     </div>
@@ -72,7 +72,7 @@
                                  <p class="card-title-desc mb-3">
                                    {{codes.content}}
                                  </p>
-                                 <div class="collapse" id="{{codes.id}}" [ngbCollapse]="isCollapsed">
+                                 <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
                                    <pre class="card shadow-none border bg-dark text-light card-body mb-0">
                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
                                      squid.
