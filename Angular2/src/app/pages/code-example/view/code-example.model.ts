@@ -5,4 +5,5 @@ export interface Codes {
     content: string;
     lang: string;
     platform: string;
+    isCollapsed: boolean;
 }

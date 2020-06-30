@@ -15,9 +15,9 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 3,
-        icon: 'mdi mdi-18px mdi-account-multiple mr-2',
-        label: 'Users',
-        link: 'users/manage'
+        icon: 'mdi mdi-18px mdi-code-greater-than-or-equal mr-2',
+        label: 'Code Examples',
+        link: 'code-example/view'
     },
     {
         id: 4,
@@ -27,21 +27,20 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 5,
-        label: 'Code examples',
-        icon: 'mdi mdi-18px mdi-code-greater-than-or-equal mr-2',
-        link: 'code-example/view'
-    },
-    {
-        id: 6,
         label: 'Knowledgebase',
-        icon: 'mdi mdi-18px mdi-code-greater-than-or-equal mr-2',
+        icon: 'mdi mdi-18px mdi-school mr-2',
         link: 'knowledgebase/read'
     },
     {
+        id: 6,
+        label: 'Users',
+        icon: 'mdi mdi-18px mdi-account-edit mr-2',
+        link: 'users/manage'
+    },
+    {
         id: 7,
-        label: 'Code examples',
-        icon: 'mdi mdi-18px mdi-code-greater-than-or-equal mr-2',
+        label: 'Labs',
+        icon: 'mdi mdi-18px mdi-flask mr-2',
         link: 'labs/view'
     },
 ];
-
