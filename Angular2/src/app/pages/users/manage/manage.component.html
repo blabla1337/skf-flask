@@ -51,7 +51,8 @@
                   </td>
                   <td>{{users.status}}</td>
                   <td>
-                    <span class="badge badge-success font-size-12 m-1">
+                    <div class="dropdown" ngbDropdown>
+                    <span *ngIf="Allow==true" class="badge badge-success font-size-12 m-1">
                       Allow
                     </span>
                     <span class="badge badge-danger font-size-12 m-1">
@@ -60,9 +61,16 @@
                     <span class="badge badge-warning font-size-12 m-1">
                       Pending
                     </span>
-                    <span class="badge badge-secondary font-size-12 m-1">
-                      <i class="bx bx-plus"></i>
-                    </span>
+                      <span type="button" class="badge badge-secondary font-size-12 m-1" ngbDropdownToggle>
+                        <i class="bx bx-plus"></i>
+                      </span>
+                    <ul class="dropdown-menu" ngbDropdownMenu>
+                      <a class="dropdown-item disabled" href="javascript: void(0);">Action</a>
+                      <a class="dropdown-item text-success" href="javascript: void(0);">Allow</a>
+                      <a class="dropdown-item text-danger" href="javascript: void(0);">Deny</a>
+                      <a class="dropdown-item text-warning" href="javascript: void(0);">Pending</a>
+                    </ul>
+                  </div>
                   </td>
                   <td>{{users.date}}</td>
                   <td>

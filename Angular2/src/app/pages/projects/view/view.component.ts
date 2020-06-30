@@ -28,7 +28,7 @@ export class ProjectViewComponent implements OnInit {
    * Open modal
    * @param content modal content
    */
-  verificationModal(content: any) {
+  projectCreateModal(content: any) {
     this.modalService.open(content, { size: 'lg' });
   }
 

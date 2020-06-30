@@ -17,16 +17,13 @@ export class CodeViewComponent implements OnInit {
 
   codeData: Codes[];
 
-  // Collapse declare
-  isCollapsed: boolean;
+  // Collapse value
+  public isCollapsed: boolean[] = [];
 
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
-
-    // Collapse value
-    this.isCollapsed = true;
 
     this._fetchData();
   }
