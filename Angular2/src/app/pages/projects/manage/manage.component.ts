@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Project } from './manage.model';
-
 import { projectData } from './data';
 
 @Component({
@@ -16,11 +16,18 @@ export class ProjectManageComponent implements OnInit {
 
  projectData: Project[];
 
- constructor() { }
+ constructor(private modalService: NgbModal) { }
 
  ngOnInit() {
    this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Manage', active: true }];
 
    this.projectData = projectData;
  }
-}
+ /**
+  * Open modal
+  * @param content modal content
+  */
+  projectModal(content: any) {
+    this.modalService.open(content, { size: 'lg', centered: true });
+  }
+ }
