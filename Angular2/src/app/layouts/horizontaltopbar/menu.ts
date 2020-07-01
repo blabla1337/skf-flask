@@ -44,4 +44,3 @@ export const MENU: MenuItem[] = [
         link: 'labs/view'
     },
 ];
-
