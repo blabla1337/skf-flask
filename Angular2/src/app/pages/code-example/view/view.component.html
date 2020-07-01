@@ -62,7 +62,7 @@
                                   </div>
                                   <div class="col-sm-8">
                                     <div class="text-sm-right">
-                                      <button class="btn btn-primary btn-md mo-mb-2 ml-1" type="button" (click)="isCollapsed[i] = !isCollapsed[i]">
+                                      <button class="btn-sm btn-primary btn-md mb-3" type="button" (click)="isCollapsed[i] = !isCollapsed[i]">
                                         Click here
                                       </button>
                                     </div>
@@ -73,12 +73,7 @@
                                    {{codes.content}}
                                  </p>
                                  <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
-                                   <pre class="card shadow-none border bg-dark text-light card-body mb-0">
-                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                                     squid.
-                                     Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                                     proident.
-                                   </pre>
+                                   <pre class="card shadow-none border bg-dark text-light card-body mb-0">{{codes.content}}</pre>
                                  </div>
                                </div>
                              </div>
