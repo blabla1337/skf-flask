@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Checklists } from '../checklists.model';
 import { checkData } from '../data';
@@ -18,7 +19,7 @@ export class ChecklistsReadComponent implements OnInit {
   // Collapse value
   public isCollapsed: boolean[] = [];
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Read', active: true }];
@@ -31,6 +32,14 @@ export class ChecklistsReadComponent implements OnInit {
    */
   private _fetchData() {
     this.checkData = checkData;
+  }
+
+  /**
+   * Open center modal
+   * @param centerDataModal center modal data
+   */
+  centerModal(centerDataModal: any) {
+    this.modalService.open(centerDataModal, { centered: true });
   }
 
 }

@@ -57,7 +57,7 @@
                                                       </div> <!-- end col -->
                                                       <div class="col-sm-6">
                                                         <div class="text-sm-right">
-                                                          <a routerLink="/" class="btn btn-success m-1">
+                                                          <a (click)="centerModal(centerDataModal)" class="btn btn-success m-1 text-light">
                                                             <i class="mdi mdi-truck-fast mr-1"></i> Update </a>
                                                             <a routerLink="/" class="btn btn-danger m-1">
                                                               <i class="mdi mdi-truck-fast mr-1"></i> Delete </a>
@@ -94,3 +94,27 @@
     </div>
     <!-- end row -->
 </div>
+
+<ng-template #centerDataModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Update Knowledgebase</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="titleInput">Title</label>
+        <input type="text" class="form-control" id="titleInput" placeholder="Add new title">
+      </div>
+      <div class="form-group">
+        <label for="contentInput">Content</label>
+        <input type="text" class="form-control" id="contentInput" placeholder="content">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" id="Description" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</ng-template>
