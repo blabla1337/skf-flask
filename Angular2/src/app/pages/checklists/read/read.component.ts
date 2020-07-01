@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Checklists } from '../checklists.model';
+import { checkData } from '../data';
+
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
@@ -10,17 +13,24 @@ export class ChecklistsReadComponent implements OnInit {
   // Bread crumb item
   breadCrumbItems: Array<{}>;
 
-  // Collapse declare
-  isCollapsed: boolean;
+  checkData: Checklists[];
+
+  // Collapse value
+  public isCollapsed: boolean[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Read', active: true }];
 
-    // Collapse value
-    this.isCollapsed = true;
+    this._fetchData();
+  }
 
+  /**
+   * Checklists data fetches
+   */
+  private _fetchData() {
+    this.checkData = checkData;
   }
 
 }
