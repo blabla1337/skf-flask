@@ -1,52 +1,86 @@
 <div class="container-fluid">
 
-    <app-page-title title="Labs" [breadcrumbItems]="breadCrumbItems"></app-page-title>
-  
-    <div class="row mt-3">
-        <div class="col-lg-12">
-  
-            <!-- Content Body -->
-  
-            <div class="card">
-                <div class="card-body">
-                    <div class="row mb-5">
-                        <div class="col-sm-4">
-                          <div class="search-box mr-2 mb-2 d-inline-block">
-                            <div class="position-relative">
-                              <input type="text" class="form-control" placeholder="Search..."/>
-                              <i class="bx bx-search-alt search-icon"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- end col-->
-                      </div>
-  
-                      <div class="row">
-                        <div *ngFor="let data of labData" class="col-xl-4 col-sm-6 mb-4">
+  <app-page-title title="User List" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
-                         
-                            <div class="card borer border-light">
-                              <div class="card-body">
-                                <h5 class="mt-0 mb-4 text-primary"><i class="mdi mdi-flask mr-3"></i>{{data.text}}</h5>
-                                <p class="card-text">{{data.subtext}}</p>
-                              </div>
-                              <div class="px-4 py-3 border-top">
-                                <ul class="list-inline mb-0">
-                                  <li class="list-inline-item mr-3">
-                                   <a href="/labs/read"><button type="button" class="btn-sm btn-primary">Click here</button></a> 
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                        
-
-                          
-                        </div>
-                      </div>
-                </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-centered table-nowrap table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" style="width: 70px;">#</th>
+                  <th scope="col"><div class="text-center">Name</div></th>
+                  <th scope="col"><div class="text-center">Label</div></th>
+                  <th scope="col"><div class="text-center">Level</div></th>
+                  <th scope="col"><div class="text-center">Status</div></th>
+                  <th scope="col"><div class="text-center">Write-up</div></th>
+                  <th scope="col"><div class="text-center">Action</div></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let data of labData">
+                <tr>
+                  <td>
+                    <div class="avatar-xs">
+                      <span class="avatar-title rounded-circle">
+                        <i class="bx bxs-flask"></i>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <h5 class="font-size-14 mt-2 text-center"><a href="javascript: void(0);" class="text-dark">{{data.name}}</a></h5>
+                  </td>
+                  <td><div class="text-center">{{data.label}}</div></td>
+                  <td>
+                    <div class="text-center">{{data.level}}</div>
+                  </td>
+                  <td>
+                    <div class="text-center">
+                      <a href="javascript: void(0);" class="badge badge-soft-success font-size-11 m-1">{{data.status}}</a>                      
+                    </div>
+                  </td>
+                  <td>
+                    <div class="text-center"><a href="javascript: void(0)">Click here</a></div>
+                  </td>
+                  <td>
+                    <ul class="list-inline mb-0 text-center">
+                      <li class="list-inline-item">
+                        <button class="btn btn-success btn-sm" id="get-address" (click)="getLabAddress()">Deploy</button>
+                      </li>
+                      <li class="list-inline-item">
+                        <button type="button" class="btn btn-danger btn-sm">Stop</button>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <ul class="pagination pagination-rounded justify-content-center mt-4">
+                <li class="page-item disabled">
+                  <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                </li>
+                <li class="page-item active">
+                  <a href="javascript: void(0);" class="page-link">1</a>
+                </li>
+                <li class="page-item">
+                  <a href="javascript: void(0);" class="page-link">2</a>
+                </li>
+                <li class="page-item">
+                  <a href="javascript: void(0);" class="page-link">3</a>
+                </li>
+                <li class="page-item">
+                  <a href="javascript: void(0);" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                </li>
+              </ul>
             </div>
-           <!-- Content Body Ends-->
+          </div>
         </div>
+      </div>
     </div>
   </div>
-  
+</div>

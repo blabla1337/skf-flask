@@ -1,11 +1,10 @@
-export interface Checklists {
+export interface Knowledgebase {
     id?: number;
-    name?: string;
+    title?: string;
     content?: string;
     description?: string;
     solution?: string;
     text?: string;
     subtext?: string;
-    status?: string;
-    date?: string;
+    platform?: string;
 }

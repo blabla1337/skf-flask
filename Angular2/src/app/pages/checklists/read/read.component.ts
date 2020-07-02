@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { Checklists } from '../checklists.model';
+import { checkData } from '../data';
 
 @Component({
   selector: 'app-read',
@@ -10,17 +14,32 @@ export class ChecklistsReadComponent implements OnInit {
   // Bread crumb item
   breadCrumbItems: Array<{}>;
 
-  // Collapse declare
-  isCollapsed: boolean;
+  checkData: Checklists[];
 
-  constructor() { }
+  // Collapse value
+  public isCollapsed: boolean[] = [];
+
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Read', active: true }];
 
-    // Collapse value
-    this.isCollapsed = true;
+    this._fetchData();
+  }
 
+  /**
+   * Checklists data fetches
+   */
+  private _fetchData() {
+    this.checkData = checkData;
+  }
+
+  /**
+   * Open center modal
+   * @param centerDataModal center modal data
+   */
+  centerModal(centerDataModal: any) {
+    this.modalService.open(centerDataModal, { centered: true });
   }
 
 }
