@@ -85,4 +85,9 @@ spec:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: LABS_KUBE_CONF        
+            - name: SKF_LABS_DOMAIN
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: SKF_LABS_DOMAIN     
 ---
