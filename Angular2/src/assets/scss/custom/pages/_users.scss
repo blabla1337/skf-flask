@@ -44,26 +44,3 @@
     }
 }
 
-.page-link {
-    color: white;
-    border-color: black;
-    background-color: $topnav-text;
-}
-
-.page-link:hover {
-    color: white;
-    border-color: black;
-    background-color: $boxed-body-bg;
-}
-
-.page-item.active .page-link {
-    color: white;
-    border-color: black;
-    background-color: $boxed-body-bg;
-}
-
-.page-item.disabled .page-link {
-    color: white;
-    border-color: black;
-    background-color: $topnav-text;
-}

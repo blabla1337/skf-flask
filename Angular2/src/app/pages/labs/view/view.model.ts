@@ -1,7 +1,7 @@
 export interface Labs {
     id: number;
-    text: string;
-    subtext: string;
+    name: string;
+    label: string;
     status: string;
-    date: string;
+    level: string;
 }
