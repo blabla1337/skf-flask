@@ -4,7 +4,7 @@ export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
 export SKF_FLASK_DEBUG=True
 export SKF_JWT_SECRET='True'
-export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
+#export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 
 while :
 do

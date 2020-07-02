@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { knowledgeData } from '../data';
+import { Knowledgebase } from '../knowledgebase.model';
 
 @Component({
   selector: 'app-read',
@@ -10,16 +14,31 @@ export class ReadComponent implements OnInit {
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
-  // Collapse declare
-  isCollapsed: boolean;
+  // Collapse value
+  public isCollapsed: boolean[] = [];
 
-  constructor() { }
+  knowledgeData: Knowledgebase[];
+
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
 
-    // Collapse value
-    this.isCollapsed = true;
-
+    this._fetchData();
 }
+
+  /**
+   * Knowledgebase data fetches
+   */
+  private _fetchData() {
+    this.knowledgeData = knowledgeData;
+  }
+
+  /**
+   * Open center modal
+   * @param centerDataModal center modal data
+   */
+  centerModal(centerDataModal: any) {
+    this.modalService.open(centerDataModal, { centered: true });
+  }
 }
