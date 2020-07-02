@@ -29,6 +29,7 @@
     "ng2-search-filter": "^0.5.1",
     "perfect-scrollbar": "^1.5.0",
     "rxjs": "~6.5.4",
+    "sweetalert2": "^9.15.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
