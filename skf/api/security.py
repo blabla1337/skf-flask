@@ -13,7 +13,7 @@ def security_headers():
             'X-XSS-Protection': '1',
             'X-Content-Type-Options': 'nosniff',
             'Cache-Control': 'no-store, no-cache',
-            'Strict-Transport-Security': 'max-age=16070400; includeSubDomains',
+            'Strict-Transport-Security': 'max-age=16070400',
             'Server': 'Security Knowledge Framework API'}
 
 
