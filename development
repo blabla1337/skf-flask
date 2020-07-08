@@ -2,6 +2,8 @@
 
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.:$PYTHONPATH
+#For windows use below
+#export PYTHONPATH=.
 export SKF_FLASK_DEBUG=True
 export SKF_JWT_SECRET='True'
 #export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
