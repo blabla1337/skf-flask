@@ -57,7 +57,7 @@
                   </div>
   
                   <div class="mt-4">
-                    <button class="btn btn-primary btn-block" type="submit">Register</button>
+                    <a routerLink="/auth/login"><button class="btn btn-primary btn-block" type="button">Register</button></a>
                   </div>
                 </form>
               </div>
@@ -66,9 +66,8 @@
           <!-- end card -->
   
           <div class="mt-5 text-center">
-            <p>Already have an account ? <a routerLink="/account/login" class="font-weight-medium text-primary"> Login</a>
-            </p>
-            <p>© {{year}} Security Knowledge Framework. Crafted with <i class="mdi mdi-heart text-danger"></i> by OWASP</p>
+            <p>Already have an account ? <a routerLink="/auth/login" class="font-weight-medium text-primary"> Login</a></p>
+            <p>© {{year}} <b>Security Knowledge Framework</b>.</p>
           </div>
         </div> <!-- end col -->
       </div>
