@@ -2,6 +2,7 @@ const knowledgeData = [
     {
         id: 1,
         platform: 'Web Application',
+        icon: 'bx bx-sidebar',
         subData: [
             {
                 id: 1,
@@ -29,6 +30,7 @@ const knowledgeData = [
     {
         id: 2,
         platform: 'Mobile Application',
+        icon: 'bx bx-mobile',
         subData: [
             {
                 id: 1,
@@ -56,6 +58,7 @@ const knowledgeData = [
     {
         id: 3,
         platform: 'IOT Application',
+        icon: 'bx bx-sitemap',
         subData: [
             {
                 id: 1,

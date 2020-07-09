@@ -6,7 +6,7 @@
           <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-pills flex-column">
             <li *ngFor="let item of knowledgeData" [ngbNavItem]="item.id">
               <a ngbNavLink>
-                <i class="bx bx-badge-check d-block check-nav-icon mt-4 mb-2"></i>
+                <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
                 <p class="font-weight-bold mb-4">{{item.platform}}</p>
               </a>
               <ng-template ngbNavContent>

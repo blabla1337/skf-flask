@@ -9,7 +9,7 @@
 
           <div class="card">
               <div class="card-body">
-                  <div class="float-right">
+                  <!-- <div class="float-right">
                       <div class="dropdown" ngbDropdown>
                           <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
                               aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-devices text-light mr-1"></i> <span
@@ -32,7 +32,7 @@
                               </a>
                           </div>
                       </div>
-                  </div>
+                  </div> -->
                   <div class="row mb-5">
                       <div class="col-sm-4">
                         <div class="search-box mr-2 mb-2 d-inline-block">
@@ -54,12 +54,12 @@
 
                     <div class="row">
                       <div *ngFor="let data of checkData" class="col-xl-4 col-sm-6 mb-4">
-                        <div class="card border border-light">
+                        <div class="card">
                           <div class="card-body">
                             <div class="media">
                               <div class="media-body overflow-hidden">
                                 <h5 class="text-truncate font-size-15">
-                                  <a href="/checklists/read" class="text">{{data.text}}</a>
+                                  <a href="/checklists/manage" class="text">{{data.text}}</a>
                                 </h5>
                                 <p class="text-muted mb-4">{{data.subtext}}</p>
                               </div>
@@ -69,6 +69,9 @@
                             <ul class="list-inline mb-0">
                               <li class="list-inline-item mr-3">
                                 <a href="/checklists/read"><button type="button" class="btn-sm btn-primary">Click here</button></a>
+                              </li>
+                              <li class="list-inline-item float-right mt-1">
+                                <p class="mb-0">true</p>
                               </li>
                             </ul>
                           </div>
