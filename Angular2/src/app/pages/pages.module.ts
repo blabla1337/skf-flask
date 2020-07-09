@@ -14,12 +14,14 @@ import {
 import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { UsersModule } from './users/users.module';
+import { DndModule } from 'ngx-drag-drop';
 
 import { ManageComponent } from './users/manage/manage.component';
 import { CodeViewComponent } from './code-example/view/view.component';
 import { ReadComponent } from './knowledgebase/read/read.component';
 import { ViewComponent } from './checklists/view/view.component';
 import { ChecklistsReadComponent } from './checklists/read/read.component';
+import { CheckManageComponent } from './checklists/manage/manage.component';
 import { ProjectManageComponent } from './projects/manage/manage.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ProjectViewComponent } from './projects/view/view.component';
@@ -31,8 +33,8 @@ import { LabViewComponent } from './labs/view/view.component';
   declarations: [
     ManageComponent, CodeViewComponent, ReadComponent,
     ViewComponent, ProjectManageComponent, LoginComponent,
-    ProjectViewComponent, ChecklistsReadComponent, LabReadComponent,
-    LabViewComponent,
+    ProjectViewComponent, ChecklistsReadComponent, CheckManageComponent,
+    LabReadComponent, LabViewComponent,
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { LabViewComponent } from './labs/view/view.component';
     ReactiveFormsModule,
     ArchwizardModule,
     UsersModule,
-    UIModule
+    UIModule,
+    DndModule,
   ],
   providers: []
 })

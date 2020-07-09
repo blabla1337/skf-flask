@@ -1,17 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
-})
+@Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
 
-  year: number = new Date().getFullYear();
+    year: number = new Date().getFullYear();
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+    }
 }
