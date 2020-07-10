@@ -48,7 +48,7 @@
                   </div>
                 </div> <!-- end dropdown -->
       
-                <h4 class="card-title mb-4">Checklist total (of not yet assinged requirements)</h4>
+                <h4 class="card-title mb-4 text-center">Checklist total (of not yet assinged requirements)</h4>
                 <div id="check-total" class="pb-1 check-list" dndDropzone dndEffectAllowed="move"
                   (dndDrop)="onDrop($event, checkTotal,'check-total')">
                   <div class="dndPlaceholder" dndPlaceholderRef></div>
@@ -83,7 +83,7 @@
                   </div>
                 </div> <!-- end dropdown -->
       
-                <h4 class="card-title mb-4">Checklist items correlated to selected question</h4>
+                <h4 class="card-title mb-4 text-center">Checklist items correlated to selected question</h4>
                 <div id="check-item" class="pb-1 check-list" dndDropzone dndEffectAllowed="move"
                   (dndDrop)="onDrop($event, checkItems,'check-item')">
                   <div class="dndPlaceholder" dndPlaceholderRef></div>
@@ -110,38 +110,35 @@
   
   <!-- Content  -->
   <ng-template #CheckContent let-item='item'>
-    <div class="card border border shadow-sm">
+    <div class="card text-center border border shadow-sm">
       <div class="card-body pb-0">
-        <div class="float-right ml-2">
+        <!-- <div class="float-right ml-2">
           <span class="badge badge-pill badge-soft-secondary font-size-12" [ngClass]=" { 
               'badge-soft-danger': item.status === 'Pending',
               'badge-soft-success': item.status === 'Completed'}">{{item.status}}</span>
-        </div>
+        </div> -->
         <div>
-          <h5 class="font-size-15 mb-4"><a href="javascript: void(0);" class="text-dark">{{item.title}}</a>
-          </h5>
+          <h5 class="font-size-25 mb-2"><a href="javascript: void(0);" class="text-dark"> <b>{{item.title}}</b></a></h5>
+          <p class="text-muted"><span class="badge badge-pill badge-soft-secondary font-size-12" [ngClass]=" { 
+            'badge-soft-danger': item.status === 'Pending',
+            'badge-soft-success': item.status === 'Completed'}">{{item.status}}</span></p>
         </div>
-  
-          <div class="float-left">
-            <a href="javascript: void(0);" class="badge badge-primary font-size-12 m-1">{{item.cwe}}</a>
-            <a href="javascript: void(0);" class="badge badge-primary font-size-12 m-1">{{item.include}}</a>
-            <a href="javascript: void(0);" class="badge badge-primary font-size-12 m-1">{{item.maturity}}</a>
-          </div>
-    
-          <div class="text-right">
-            <h5 class="font-size-15">{{item.checkid}}</h5>
+          <div>
+            <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.cwe}}</a>
+            <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.include}}</a>
+            <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.maturity}}</a>
           </div>
   
         <div class="card-footer text-center bg-transparent border-top mt-3">
-          <div class="contact-links d-flex font-size-20">
+          <div class="manage-links d-flex font-size-20">
             <div class="flex-fill">
-              <a href="javascript: void(0);" ngbTooltip="Message"><i class="bx bx-list-check font-size-20"></i></a>
+              <a href="javascript: void(0);" ngbTooltip="Checklists"><i class='bx bx-message-square-dots'></i></a>
             </div>
             <div class="flex-fill">
-              <a href="javascript: void(0);" ngbTooltip="Projects"><i class="bx bx-question-mark"></i></a>
+              <a href="javascript: void(0);" ngbTooltip="Questionarie"><i class="bx bx-help-circle"></i></a>
             </div>
             <div class="flex-fill">
-              <a href="javascript: void(0);" ngbTooltip="Profile"><i class="bx bx-book"></i></a>
+              <a href="javascript: void(0);" ngbTooltip="Knowledgebase"><i class="bx bx-book"></i></a>
             </div>
           </div>
         </div>

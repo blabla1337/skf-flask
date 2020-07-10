@@ -4,35 +4,51 @@ const usersData = [
         username: 'Stephen Rash',
         email: 'StephenRash@teleworm.us',
         status: 'True',
-        date: '07 Oct, 2019'
+        date: '07 Oct, 2019',
+        allow: 'True',
+        pending: 'False',
+        deny: 'False',
+
     },
     {
         id: 2,
         username: 'Juan Mays',
         email: 'JuanMays@armyspy.com',
         status: 'False',
-        date: '06 Oct, 2019'
+        date: '06 Oct, 2019',
+        allow: 'False',
+        pending: 'True',
+        deny: 'False',
     },
     {
         id: 3,
         username: 'Scott Henry',
         email: 'ScottHenry@jourrapide.com',
         status: 'True',
-        date: '06 Oct, 2019'
+        date: '06 Oct, 2019',
+        allow: 'False',
+        pending: 'False',
+        deny: 'True',
     },
     {
         id: 4,
         username: 'Cody Menendez',
         email: 'CodyMenendez@armyspy.com',
         status: 'True' ,
-        date: '05 Oct, 2019'
+        date: '05 Oct, 2019',
+        allow: 'True',
+        pending: 'False',
+        deny: 'False',
     },
     {
         id: 5,
         username: 'Jason Merino',
         email: 'JasonMerino@dayrep.com',
         status: 'False',
-        date: '04 Oct, 2019'
+        date: '04 Oct, 2019',
+        allow: 'True',
+        pending: 'False',
+        deny: 'False',
     },
 ];
 
