@@ -40,6 +40,7 @@ export class LabViewComponent implements OnInit {
         title: 'Lab URL',
         text: 'This will bring you the url of the lab',
         confirmButtonText: 'Sounds Good',
+        confirmButtonColor: '#8184B2',
         showLoaderOnConfirm: true,
         preConfirm: () => {
           return fetch(labAPI)
