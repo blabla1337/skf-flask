@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   cardItems = [];
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('platformId'));
   }
 
  initialize(): void {
