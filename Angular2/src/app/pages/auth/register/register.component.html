@@ -1,79 +1,114 @@
-  <div class="account-pages my-5 pt-sm-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6 col-xl-5">
-          <div class="card overflow-hidden">
-            <div class="bg-soft-primary">
-              <div class="row">
-                <div class="col-7">
-                  <div class="text-primary p-4">
-                    <h5 class="text-primary">Register here</h5>
-                    <p>Get your SKF account now.</p>
-                  </div>
+<div class="account-pages my-5 pt-sm-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="card overflow-hidden">
+          <div class="bg-soft-primary">
+            <div class="row">
+              <div class="col-7">
+                <div class="text-primary p-4">
+                  <h5 class="text-primary">Register here</h5>
+                  <p>Get your SKF account now.</p>
                 </div>
               </div>
             </div>
-            <div class="card-body pt-0">
-              <div>
-                <a href="/">
-                  <div class="avatar-md profile-user-wid mb-4">
-                    <span class="avatar-title rounded-circle bg-light">
-                      <img src="assets/images/" alt="" class="rounded-circle" height="34">
-                    </span>
+          </div>
+          <div class="card-body pt-0">
+            <div>
+              <a href="/">
+                <div class="avatar-md profile-user-wid mb-4">
+                  <span class="avatar-title rounded-circle bg-light">
+                    <img src="assets/images/" alt="" class="rounded-circle" height="34">
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div class="p-2">
+
+              <form class="form-horizontal" [formGroup]="registerationForm" (ngSubmit)="onSubmit()">
+                <div class="form-group mb-3">
+                  <label for="userId">User ID</label>
+                  <input type="text" formControlName="userId" class="form-control" id="userId"
+                    [ngClass]="{'is-invalid': !userId.valid && (userId.touched || userSubmitted)}"
+                    placeholder="Enter User ID" />
+                  <div *ngIf="!userId.valid && (userId.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="userId.hasError('required')">User Id is required</div>
                   </div>
-                </a>
-              </div>
-              <div class="p-2">
-  
-                <form class="form-horizontal" name="signupForm">
-                    <div class="form-group mb-3">
-                        <label for="name">User ID</label>
-                        <input type="text" formControlName="name" class="form-control"
-                           id="name" placeholder="Enter User ID" />
-                      </div>
-                      <div class="form-group mb-3">
-                        <label for="name">Access Token</label>
-                        <input type="text" formControlName="name" class="form-control"
-                           id="name" placeholder="Enter Access Token" />
-                      </div>
-                  <div class="form-group mb-3">
-                    <label for="name">Username</label>
-                    <input type="text" formControlName="name" class="form-control"
-                       id="name" placeholder="Enter username" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="accessToken">Access Token</label>
+                  <input type="text" formControlName="accessToken" class="form-control" id="accessToken"
+                    [ngClass]="{'is-invalid': !accessToken.valid && (accessToken.touched || userSubmitted)}"
+                    placeholder="Enter Access Token" />
+                  <div *ngIf="!accessToken.valid && (accessToken.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="accessToken.hasError('required')">Access Token is required</div>
                   </div>
-  
-                  <div class="form-group mb-3">
-                    <label for="email">Email</label>
-  
-                    <input type="email" formControlName="email" class="form-control"
-                      id="email" placeholder="Email" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="userName">Username</label>
+                  <input type="text" formControlName="userName" class="form-control" id="userName"
+                    [ngClass]="{'is-invalid': !userName.valid && (userName.touched || userSubmitted)}"
+                    placeholder="Enter username" />
+                  <div *ngIf="!userName.valid && (userName.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="userName.hasError('required')">Username is required</div>
                   </div>
-  
-                  <div class="form-group">
-                    <label for="password">Password</label>
-  
-                    <input type="password" formControlName="password" class="form-control"
-                      id="password" placeholder="Password" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="userEmail">Email</label>
+                  <input type="email" formControlName="userEmail" class="form-control" id="userEmail"
+                    [ngClass]="{'is-invalid': !userEmail.valid && (userEmail.touched || userSubmitted)}"
+                    placeholder="Email" />
+                  <div *ngIf="!userEmail.valid && (userEmail.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="userEmail.hasError('required')">Email is required</div>
+                    <div *ngIf="userEmail.hasError('email')">Email must be a valid email address</div>
                   </div>
-  
-                  <div class="mt-4">
-                    <a routerLink="/auth/login"><button class="btn btn-primary btn-block" type="button">Register</button></a>
+                </div>
+
+                <div class="form-group">
+                  <label for="userPassword">Password</label>
+                  <input type="password" formControlName="userPassword" class="form-control" id="userPassword"
+                    [ngClass]="{'is-invalid': !userPassword.valid && (userPassword.touched || userSubmitted)}"
+                    placeholder="Password" />
+                  <div *ngIf="!userPassword.valid && (userPassword.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="userPassword.errors['required']">Password is required</div>
+                    <div *ngIf="userPassword.errors.minlength">Password should not be lesser than 8 character</div>
                   </div>
-                </form>
-              </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmPassword">Password</label>
+                  <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword"
+                    [ngClass]="{'is-invalid': !confirmPassword.valid && (confirmPassword.touched || userSubmitted)}"
+                    placeholder="Confirm Password" />
+                  <div *ngIf="!confirmPassword.valid && (confirmPassword.touched || userSubmitted)"
+                    class="invalid-feedback">
+                    <div *ngIf="confirmPassword.hasError('required')">Confirm the Password</div>
+                    <div *ngIf="registerationForm.hasError('notmatched') && confirmPassword.valid">Password not matching
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <a><button class="btn btn-primary btn-block" type="submit">Register</button></a>
+                </div>
+              </form>
             </div>
           </div>
-          <!-- end card -->
-  
-          <div class="mt-5 text-center">
-            <p>Already have an account ? <a routerLink="/auth/login" class="font-weight-medium text-primary"> Login</a></p>
-            <p>© {{year}} <b>Security Knowledge Framework</b>.</p>
-          </div>
-        </div> <!-- end col -->
-      </div>
-      <!-- end row -->
+        </div>
+        <!-- end card -->
+
+        <div class="mt-5 text-center">
+          <p>Already have an account ? <a routerLink="/auth/login" class="font-weight-medium text-primary"> Login</a>
+          </p>
+          <p>© {{year}} <b>Security Knowledge Framework</b>.</p>
+        </div>
+      </div> <!-- end col -->
     </div>
-    <!-- end container -->
+    <!-- end row -->
   </div>
-  <!-- end page -->
-  
+  <!-- end container -->
+</div>
+<!-- end page -->

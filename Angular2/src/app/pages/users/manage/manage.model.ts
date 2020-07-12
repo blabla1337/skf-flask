@@ -4,4 +4,7 @@ export interface Users {
     email: string;
     status: string;
     date: string;
+    allow: string;
+    pending: string;
+    deny: string;
 }

@@ -52,13 +52,13 @@
                   <td>{{users.status}}</td>
                   <td>
                     <div class="dropdown" ngbDropdown>
-                    <span *ngIf="Allow==true" class="badge badge-success font-size-12 m-1">
+                    <span *ngIf="users['allow']=='True'" class="badge badge-success font-size-12 m-1">
                       Allow
                     </span>
-                    <span class="badge badge-danger font-size-12 m-1">
+                    <span *ngIf="users['deny']=='True'" class="badge badge-danger font-size-12 m-1">
                       Deny
                     </span>
-                    <span class="badge badge-warning font-size-12 m-1">
+                    <span *ngIf="users['pending']=='True'" class="badge badge-warning font-size-12 m-1">
                       Pending
                     </span>
                       <span type="button" class="badge badge-secondary font-size-12 m-1" ngbDropdownToggle>
