@@ -40,6 +40,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
       suppressScrollX: true,
       wheelSpeed: 0.3
     };
+
+    localStorage.setItem('platformId', 'Web');
   }
 
   /**
@@ -168,4 +170,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
     return item.subItems !== undefined ? item.subItems.length > 0 : false;
   }
 
+  platformUpdate(platform: string) {
+    localStorage.setItem('platformId', platform);
+  }
 }

@@ -64,8 +64,8 @@
           <i class="bx bx-devices text-primary"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-          <a class="dropdown-item" href="javascript: void(0);">Web Application</a>
-          <a class="dropdown-item" href="javascript: void(0);">Mobile Application</a>
+          <a class="dropdown-item" (click)='platformUpdate("Web")'>Web Application</a>
+          <a class="dropdown-item" (click)='platformUpdate("Mobile")'>Mobile Application</a>
         </div>
       </div> 
 
@@ -122,8 +122,8 @@
           <!-- Menu data -->
           <ng-container *ngFor="let item of menuItems">
             <li class="nav-item dropdown">
-              <a class="nav-link" href="{{item.link}}"
-                id="topnav-components" role="button">
+              <a class="nav-link" [routerLink]="[item.link]"
+                id="topnav-components" routerLinkActive="active" role="button">
                 <i [class]="item.icon"></i>{{ item.label }}
               </a>
               <div class="dropdown-menu row" aria-labelledby="topnav-dashboard" *ngIf="hasItems(item)">

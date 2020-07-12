@@ -37,8 +37,6 @@ export class ManageComponent implements OnInit {
 
     this.currentpage = 1;
 
-    this.Allow = true;
-
     /**
      * Fetches the data
      */
