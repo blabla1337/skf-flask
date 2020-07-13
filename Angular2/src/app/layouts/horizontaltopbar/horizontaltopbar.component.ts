@@ -191,5 +191,4 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }
-
 }
