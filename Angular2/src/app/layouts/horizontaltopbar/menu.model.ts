@@ -5,5 +5,5 @@ export interface MenuItem {
     link?: string;
     subItems?: any;
     parentId?: number;
-    isUiElement?: boolean;
+    status?: string;
 }

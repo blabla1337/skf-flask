@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from '../../../core/services/user.service';
 import { Auth } from '../../../core/models/auth.model';
@@ -15,11 +16,12 @@ export class RegisterComponent implements OnInit {
   registerationForm: FormGroup;
   user: Auth;
   userSubmitted: boolean;
-  successmsg: boolean;
-  errormsg: boolean;
+  successmsg = false;
+  errormsg = false;
 
   constructor(private fb: FormBuilder,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router,) { }
 
   ngOnInit() {
     this.createRegisterationForm();
@@ -27,9 +29,9 @@ export class RegisterComponent implements OnInit {
 
   createRegisterationForm() {
     this.registerationForm =  this.fb.group({
-      userId: ['', Validators.required, Validators.pattern('[a-zA-Z0-9]+')],
-      accessToken: ['', Validators.required, Validators.pattern('[a-zA-Z0-9]+')],
-      userName: ['', Validators.required, Validators.pattern('[a-zA-Z0-9]+')],
+      userId: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      accessToken: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      userName: ['', Validators.required],
       userEmail: ['', [Validators.required, Validators.email]],
       userPassword: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
@@ -51,6 +53,7 @@ export class RegisterComponent implements OnInit {
       this.userService.addUser(this.userData());
       this.onReset();
       this.successmsg = true;
+      this.router.navigate(['/auth/login']);
   } else {
     this.errormsg = true;
   }
