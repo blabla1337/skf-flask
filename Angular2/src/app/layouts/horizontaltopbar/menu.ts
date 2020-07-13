@@ -6,41 +6,48 @@ export const MENU: MenuItem[] = [
         label: 'Dashboards',
         icon: 'mdi mdi-18px mdi-view-dashboard mr-2',
         link: '/dashboard',
+        status: 'loggedin || !loggedin',
     },
     {
         id: 2,
         label: 'Manage Projects',
         icon: 'mdi mdi-18px mdi-card-bulleted mr-2',
         link: '/projects/manage',
+        status: 'loggedin',
     },
     {
         id: 3,
         icon: 'mdi mdi-18px mdi-code-greater-than-or-equal mr-2',
         label: 'Code Examples',
-        link: '/code-example/view'
+        link: '/code-example/view',
+        status: 'loggedin || !loggedin',
     },
     {
         id: 4,
         icon: 'mdi mdi-18px mdi-text-box-check mr-2',
         label: 'Checklists',
         link: '/checklists/view',
+        status: 'loggedin || !loggedin',
     },
     {
         id: 5,
         label: 'Knowledgebase',
         icon: 'mdi mdi-18px mdi-school mr-2',
-        link: '/knowledgebase/read'
+        link: '/knowledgebase/read',
+        status: 'loggedin || !loggedin',
     },
     {
         id: 6,
         label: 'Users',
         icon: 'mdi mdi-18px mdi-account-edit mr-2',
-        link: '/users/manage'
+        link: '/users/manage',
+        status: 'loggedin',
     },
     {
         id: 7,
         label: 'Labs',
         icon: 'mdi mdi-18px mdi-flask mr-2',
-        link: '/labs/view'
+        link: '/labs/view',
+        status: 'loggedin',
     },
 ];
