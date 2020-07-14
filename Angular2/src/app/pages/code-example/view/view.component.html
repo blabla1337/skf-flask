@@ -74,6 +74,10 @@
                                  </p>
                                  <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
                                    <pre class="card shadow-none border bg-dark text-light card-body mb-0">{{codes.content}}</pre>
+                                   <div class="text-right mt-2">
+                                     <button class="btn btn-sm btn-success mr-2" type="button" (click)="updateCode()">Update</button>
+                                     <button class="btn btn-sm btn-danger" type="button" (click)="deleteCode()">Delete</button>
+                                   </div>
                                  </div>
                                </div>
                              </div>

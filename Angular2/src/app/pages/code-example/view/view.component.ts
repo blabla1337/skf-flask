@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 import { Codes } from './code-example.model';
 
@@ -20,7 +21,8 @@ export class CodeViewComponent implements OnInit {
   // Collapse value
   public isCollapsed: boolean[] = [];
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,
+              private router: Router) { }
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
@@ -43,4 +45,9 @@ export class CodeViewComponent implements OnInit {
     this.modalService.open(centerDataModal, { centered: true });
   }
 
+  updateCode() {
+    this.router.navigate(['./code-example/edit']);
+  }
+
+  deleteCode() {}
 }
