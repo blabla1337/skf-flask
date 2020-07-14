@@ -5,11 +5,12 @@ import { UIModule } from '../../shared/ui/ui.module';
 import { CodeExampleRoutingModule } from './code-example-routing.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EditComponent } from './edit/edit.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [EditComponent],
   imports: [
     CommonModule,
     CodeExampleRoutingModule,
