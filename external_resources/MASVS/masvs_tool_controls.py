@@ -22,7 +22,7 @@ with open('masvs.json') as json_file:
                 maturity = '3'
             maturity
             print("        c = ChecklistKB('"+id+"', '"+text+"', "+str(checklist_type)+", False, None, "+maturity+")")
-            print("        c.kb_id = 999")
+            print("        c.kb_id = 2000")
             print("        db.session.add(c)")
             print("        db.session.commit()")
             print("\r\n")

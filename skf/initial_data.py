@@ -2381,505 +2381,506 @@ def load_initial_data():
 
 
         c = ChecklistKB('1.1', 'All app components are identified and known to be needed.', 15, False, None, 2)
-        c.kb_id = 999
+        c.question_id = None
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.2', 'Security controls are never enforced only on the client side, but on the respective remote endpoints.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.3', 'A high-level architecture for the mobile app and all connected remote services has been defined and security has been addressed in that architecture.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.4', 'Data considered sensitive in the context of the mobile app is clearly identified.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.5', 'All app components are defined in terms of the business functions and/or security functions they provide.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.6', 'A threat model for the mobile app and the associated remote services has been produced that identifies potential threats and countermeasures.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.7', 'All security controls have a centralized implementation.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.8', 'There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced. Ideally, follow a key management standard such as NIST SP 800-57.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.9', 'A mechanism for enforcing updates of the mobile app exists.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.10', 'Security is addressed within all parts of the software development lifecycle.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.11', 'A responsible disclosure policy is in place and effectively applied.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.12', 'The app should comply with privacy laws and regulations.', 15, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.1', 'System credential storage facilities need to be used to store sensitive data, such as PII, user credentials or cryptographic keys.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.2', 'No sensitive data should be stored outside of the app container or system credential storage facilities.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.3', 'No sensitive data is written to application logs.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.4', 'No sensitive data is shared with third parties unless it is a necessary part of the architecture.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.5', 'The keyboard cache is disabled on text inputs that process sensitive data.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.6', 'No sensitive data is exposed via IPC mechanisms.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.7', 'No sensitive data, such as passwords or pins, is exposed through the user interface.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.8', 'No sensitive data is included in backups generated by the mobile operating system.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.9', 'The app removes sensitive data from views when moved to the background.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.10', 'The app does not hold sensitive data in memory longer than necessary, and memory is cleared explicitly after use.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.11', 'The app enforces a minimum device-access-security policy, such as requiring the user to set a device passcode.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.12', 'The app educates the user about the types of personally identifiable information processed, as well as security best practices the user should follow in using the app.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.13', 'No sensitive data should be stored locally on the mobile device. Instead, data should be retrieved from a remote endpoint when needed and only be kept in memory.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.14', 'If sensitive data is still required to be stored locally, it should be encrypted using a key derived from hardware backed storage which requires authentication.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.15', 'The app’s local storage should be wiped after an excessive number of failed authentication attempts.', 16, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.1', 'The app does not rely on symmetric cryptography with hardcoded keys as a sole method of encryption.', 17, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.2', 'The app uses proven implementations of cryptographic primitives.', 17, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.3', 'The app uses cryptographic primitives that are appropriate for the particular use-case, configured with parameters that adhere to industry best practices.', 17, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.4', 'The app does not use cryptographic protocols or algorithms that are widely considered deprecated for security purposes.', 17, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.5', 'The app doesn\'t re-use the same cryptographic key for multiple purposes.', 17, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.6', 'All random values are generated using a sufficiently secure random number generator.', 17, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.1', 'If the app provides users access to a remote service, some form of authentication, such as username/password authentication, is performed at the remote endpoint.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.2', 'If stateful session management is used, the remote endpoint uses randomly generated session identifiers to authenticate client requests without sending the user\'s credentials.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.3', 'If stateless token-based authentication is used, the server provides a token that has been signed using a secure algorithm.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.4', 'The remote endpoint terminates the existing session when the user logs out.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.5', 'A password policy exists and is enforced at the remote endpoint.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.6', 'The remote endpoint implements a mechanism to protect against the submission of credentials an excessive number of times.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.7', 'Sessions are invalidated at the remote endpoint after a predefined period of inactivity and access tokens expire.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.8', 'Biometric authentication, if any, is not event-bound (i.e. using an API that simply returns "true" or "false"). Instead, it is based on unlocking the keychain/keystore.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.9', 'A second factor of authentication exists at the remote endpoint and the 2FA requirement is consistently enforced.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.10', 'Sensitive transactions require step-up authentication.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.11', 'The app informs the user of all sensitive activities with their account. Users are able to view a list of devices, view contextual information (IP address, location, etc.), and to block specific devices.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.12', 'Authorization models should be defined and enforced at the remote endpoint.', 18, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.1', 'Data is encrypted on the network using TLS. The secure channel is used consistently throughout the app.', 19, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.2', 'The TLS settings are in line with current best practices, or as close as possible if the mobile operating system does not support the recommended standards.', 19, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.3', 'The app verifies the X.509 certificate of the remote endpoint when the secure channel is established. Only certificates signed by a trusted CA are accepted.', 19, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.4', 'The app either uses its own certificate store, or pins the endpoint certificate or public key, and subsequently does not establish connections with endpoints that offer a different certificate or key, even if signed by a trusted CA.', 19, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.5', 'The app doesn\'t rely on a single insecure communication channel (email or SMS) for critical operations, such as enrollments and account recovery.', 19, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.6', 'The app only depends on up-to-date connectivity and security libraries.', 19, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.1', 'The app only requests the minimum set of permissions necessary.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.2', 'All inputs from external sources and the user are validated and if necessary sanitized. This includes data received via the UI, IPC mechanisms such as intents, custom URLs, and network sources.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.3', 'The app does not export sensitive functionality via custom URL schemes, unless these mechanisms are properly protected.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.4', 'The app does not export sensitive functionality through IPC facilities, unless these mechanisms are properly protected.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.5', 'JavaScript is disabled in WebViews unless explicitly required.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.6', 'WebViews are configured to allow only the minimum set of protocol handlers required (ideally, only https is supported). Potentially dangerous handlers, such as file, tel and app-id, are disabled.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.7', 'If native methods of the app are exposed to a WebView, verify that the WebView only renders JavaScript contained within the app package.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.8', 'Object deserialization, if any, is implemented using safe serialization APIs.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.9', 'The app protects itself against screen overlay attacks. (Android only)', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.10', 'A WebView\'s cache, storage, and loaded resources (JavaScript, etc.) should be cleared before the WebView is destroyed.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.11', 'Verify that the app prevents usage of custom third-party keyboards whenever sensitive data is entered.', 20, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.1', 'The app is signed and provisioned with a valid certificate, of which the private key is properly protected.', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.2', 'The app has been built in release mode, with settings appropriate for a release build (e.g. non-debuggable).', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.3', 'Debugging symbols have been removed from native binaries.', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.4', 'Debugging code and developer assistance code (e.g. test code, backdoors, hidden settings) have been removed. The app does not log verbose errors or debugging messages.', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.5', 'All third party components used by the mobile app, such as libraries and frameworks, are identified, and checked for known vulnerabilities.', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.6', 'The app catches and handles possible exceptions.', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.7', 'Error handling logic in security controls denies access by default.', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.8', 'In unmanaged code, memory is allocated, freed and used securely.', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.9', 'Free security features offered by the toolchain, such as byte-code minification, stack protection, PIE support and automatic reference counting, are activated.', 21, False, None, 2)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.1', 'The app detects, and responds to, the presence of a rooted or jailbroken device either by alerting the user or terminating the app.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.2', 'The app prevents debugging and/or detects, and responds to, a debugger being attached. All available debugging protocols must be covered.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.3', 'The app detects, and responds to, tampering with executable files and critical data within its own sandbox.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.4', 'The app detects, and responds to, the presence of widely used reverse engineering tools and frameworks on the device.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.5', 'The app detects, and responds to, being run in an emulator.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.6', 'The app detects, and responds to, tampering the code and data in its own memory space.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.7', 'The app implements multiple mechanisms in each defense category (8.1 to 8.6). Note that resiliency scales with the amount, diversity of the originality of the mechanisms used.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.8', 'The detection mechanisms trigger responses of different types, including delayed and stealthy responses.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.9', 'Obfuscation is applied to programmatic defenses, which in turn impede de-obfuscation via dynamic analysis.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.10', 'The app implements a \'device binding\' functionality using a device fingerprint derived from multiple properties unique to the device.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.11', 'All executable files and libraries belonging to the app are either encrypted on the file level and/or important code and data segments inside the executables are encrypted or packed. Trivial static analysis does not reveal important code or data.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.12', 'If the goal of obfuscation is to protect sensitive computations, an obfuscation scheme is used that is both appropriate for the particular task and robust against manual and automated de-obfuscation methods, considering currently published research. The effectiveness of the obfuscation scheme must be verified through manual testing. Note that hardware-based isolation features are preferred over obfuscation whenever possible.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.13', 'As a defense in depth, next to having solid hardening of the communicating parties, application level payload encryption can be applied to further impede eavesdropping.', 22, False, None, 3)
-        c.kb_id = 999
+        c.kb_id = 2000
         db.session.add(c)
         db.session.commit()
 
