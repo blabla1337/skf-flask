@@ -20,6 +20,9 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   element;
   configData;
 
+  loggedinUser: string;
+  loggedin = false;
+
   menuItems = [];
 
   // tslint:disable-next-line: max-line-length
@@ -172,5 +175,20 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
 
   platformUpdate(platform: string) {
     localStorage.setItem('platformId', platform);
+  }
+
+  onLogin() {
+    this.router.navigate(['/auth/login']);
+  }
+
+  loggedIn() {
+    this.loggedinUser = localStorage.getItem('token');
+    this.loggedin = true;
+    return this.loggedinUser;
+  }
+
+  loggedOut() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/auth/login']);
   }
 }

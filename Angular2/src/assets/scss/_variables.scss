@@ -37,7 +37,7 @@ $topnav-text: #8184B2;
 
 
 // Topbar Search
-$topbar-search-bg: rgba(129, 132, 178, 0.07);
+$topbar-search-bg: rgba(242,242,242,1);
 $topbar-search-txt: #2D2F3E;
 
 // Footer
@@ -81,7 +81,7 @@ $chart-text-color: #343a40;
 // Color system
 
 $white:    #fff;
-$gray-100: #f8f9fa;
+$gray-100: #f2f2f2;
 $gray-200: #eff2f7;
 $gray-300: #f6f6f6;
 $gray-400: #ced4da;
@@ -237,7 +237,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   #f8f8fb;
+$body-bg:                   #fff;//rgba(240, 235, 244, 0.4);//#f8f8fb;
 $body-color:                $gray-700;
 
 
