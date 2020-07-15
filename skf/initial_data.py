@@ -2329,6 +2329,56 @@ def load_initial_data():
         Checklist Categories for MASVS
         '''
 
+        c = ChecklistKB('1.0', 'Architecture, Design and Threat Modeling Requirements', 15, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
+        db.session.add(c)
+        db.session.commit()
+
+        c = ChecklistKB('2.0', 'Data Storage and Privacy Requirements', 16, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
+        db.session.add(c)
+        db.session.commit()
+
+        c = ChecklistKB('3.0', 'Cryptography Requirements', 17, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
+        db.session.add(c)
+        db.session.commit()
+
+        c = ChecklistKB('4.0', 'Authentication and Session Management Requirements', 18, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
+        db.session.add(c)
+        db.session.commit()
+
+        c = ChecklistKB('5.0', 'Network Communication Requirements', 19, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
+        db.session.add(c)
+        db.session.commit()
+
+        c = ChecklistKB('6.0', 'Platform Interaction Requirements', 20, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
+        db.session.add(c)
+        db.session.commit()
+
+        c = ChecklistKB('7.0', 'Code Quality and Build Setting Requirements', 21, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
+        db.session.add(c)
+        db.session.commit()
+
+        c = ChecklistKB('8.0', 'Resilience Requirements', 22, False, None, None)
+        c.question_id = None
+        c.kb_id = 1
+        db.session.add(c)
+        db.session.commit()
+
+
+
 
         c = ChecklistKB('1.1', 'All app components are identified and known to be needed.', 15, False, None, 2)
         c.kb_id = 999
