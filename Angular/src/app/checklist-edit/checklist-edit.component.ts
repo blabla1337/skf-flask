@@ -55,7 +55,6 @@ export class ChecklistEditComponent implements OnInit
       question_id: ['', Validators.required],
       include_always: ['', Validators.required],
       content: ['', Validators.required],
-      cwe: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       maturity: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     })
 
@@ -127,7 +126,7 @@ export class ChecklistEditComponent implements OnInit
         question_id: question_id,
         include_always: this.checklist['include_always'],
         content: this.checklist['content'],
-        cwe: this.checklist['cwe'],
+        add_resources: this.checklist['add_resources'],
         maturity: this.checklist['maturity'],
       });
     }, 100);

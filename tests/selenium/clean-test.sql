@@ -284,11 +284,11 @@ CREATE TABLE `checklists_kb` (
 `kb_id` int(11),
 `include_always` varchar(5),
 `checklist_type` int(11),
-`cwe` int(11)
+`add_resources` varchar(255)
 ); 
 
-INSERT OR REPLACE INTO `checklists_kb` VALUES (0,'1.0','test content checklist item 1',2,2,'False',1, 123);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (1,'1.1','test content checklist item 1',2,2,'False',1, 123);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (2,'1.2','test content checklist item 2',0,1,'True',1, 124);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (3,'1.3','test content checklist item 3',0,1,'true',1, 125);
-INSERT OR REPLACE INTO `checklists_kb` VALUES (4,'1.4','test content checklist item 4',2,2,'false',1, 126);
+INSERT OR REPLACE INTO `checklists_kb` VALUES (0,'1.0','test content checklist item 1',2,2,'False',1, "https://google.com");
+INSERT OR REPLACE INTO `checklists_kb` VALUES (1,'1.1','test content checklist item 1',2,2,'False',1, "https://bla.com");
+INSERT OR REPLACE INTO `checklists_kb` VALUES (2,'1.2','test content checklist item 2',0,1,'True',1, "https://google.com");
+INSERT OR REPLACE INTO `checklists_kb` VALUES (3,'1.3','test content checklist item 3',0,1,'true',1, "https://foo.com");
+INSERT OR REPLACE INTO `checklists_kb` VALUES (4,'1.4','test content checklist item 4',2,2,'false',1, "https://bla.com");
