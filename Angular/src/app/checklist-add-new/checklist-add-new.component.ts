@@ -56,7 +56,6 @@ export class ChecklistAddNewComponent implements OnInit
       question_id: ['', Validators.required],
       include_always: ['', Validators.required],
       content: ['', Validators.required],
-      cwe: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       maturity: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     })
 

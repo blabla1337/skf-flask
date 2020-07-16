@@ -8,7 +8,7 @@ const manageData  = [
         question: 'some question',
         knowledgebase: 'some knowledgebase',
         include: 'True',
-        cwe: '1053',
+        add_resources: '1053',
         maturity: 2,
     },
     {
@@ -20,7 +20,7 @@ const manageData  = [
         question: 'some question',
         knowledgebase: 'some knowledgebase',
         include: 'True',
-        cwe: '1053',
+        add_resources: '1053',
         maturity: 2,
     },
 

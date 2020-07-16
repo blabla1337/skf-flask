@@ -84,7 +84,7 @@ export class ChecklistService
         kb_id: Number(checklist['kb_id']['kb_id']),
         include_always: checklist['include_always'],
         question_id: Number(checklist['question_id']['id']),
-        cwe: Number(checklist['cwe']),
+        add_resources: String(checklist['add_resources']),
         maturity: Number(checklist['maturity'])
       }),
         { headers: this.postHeaders }).pipe(
@@ -100,7 +100,7 @@ export class ChecklistService
         kb_id: Number(checklist['kb_id']['kb_id']),
         include_always: checklist['include_always'],
         question_id: Number(checklist['question_id']['id']),
-        cwe: Number(checklist['cwe']),
+        add_resources: String(checklist['add_resources']),
         maturity: Number(checklist['maturity'])
       }),
         { headers: this.postHeaders }).pipe(
