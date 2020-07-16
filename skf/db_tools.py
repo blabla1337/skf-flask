@@ -64,28 +64,31 @@ def update_db():
 
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
-    kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/web')
+    kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/')
+    kb_dir_types = ['web', 'mobile']
     try:
-        for filename in os.listdir(kb_dir):
-            if filename.endswith(".md"):
-                name_raw = filename.split("-")
-                kb_id = name_raw[0].replace("_", " ")
-                title = name_raw[3].replace("_", " ")
-                file = os.path.join(kb_dir, filename)
-                data = open(file, 'r')
-                file_content = data.read()
-                data.close()
-                content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
-                try:
-                    item = KBItem(title, content, kb_id)
-                    if (kb_id == "1"):
-                        item.checklist_category_id = None
-                    else:
-                        item.checklist_category_id = 1
-                    db.session.add(item)
-                    db.session.commit()
-                except IntegrityError as e:
-                    raise
+        checklist_category_id = 0
+        for kb_type in kb_dir_types:
+            checklist_category_id += 1
+            for filename in os.listdir(kb_dir+kb_type):
+                if filename.endswith(".md"):
+                    name_raw = filename.split("-")
+                    kb_id = name_raw[0].replace("_", " ")
+                    title = name_raw[3].replace("_", " ")
+                    file = os.path.join(kb_dir+kb_type, filename)
+                    data = open(file, 'r')
+                    file_content = data.read()
+                    data.close()
+                    content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                    try:
+                        item = KBItem(title, content, kb_id)
+                        item.checklist_category_id = checklist_category_id
+                        if (kb_id == "1"):
+                            item.checklist_category_id = None
+                        db.session.add(item)
+                        db.session.commit()
+                    except IntegrityError as e:
+                        raise
         print('Initialized the markdown knowledge-base.')
         return True
     except:
@@ -127,6 +130,9 @@ def prerequisits():
         db.session.add(category)
         db.session.commit()
         category = ChecklistCategory("Mobile applications", "category for mobile collection")
+        db.session.add(category)
+        db.session.commit()
+        category = ChecklistCategory("Custom checklist", "category for custom checklist collection")
         db.session.add(category)
         db.session.commit()
         print('Initialized the prerequisits.')

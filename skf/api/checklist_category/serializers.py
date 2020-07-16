@@ -3,7 +3,7 @@ from skf.api.restplus import api
 
 checklist = api.model('checklists_kb', {
     'id': fields.Integer(readOnly=True, description='The unique identifier of a category item'),
-    'name': fields.String(required=False, description='The CWE unique identifier'),
+    'name': fields.String(required=False, description='The name of the checklist'),
     'description': fields.String(required=False, description='The maturity level'),
 })
 

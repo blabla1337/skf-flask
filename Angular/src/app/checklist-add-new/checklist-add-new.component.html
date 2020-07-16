@@ -78,26 +78,13 @@
           </div>
         </div>
 
-        <div *ngIf="isSubmitted && formControls.cwe.errors" class="help-block">
-          <div *ngIf="formControls.cwe.errors.required">
-            <ngb-alert type="danger" [dismissible]="false">
-              CWE id was not filled in
-            </ngb-alert>
-          </div>
-          <div *ngIf="formControls.cwe.errors.pattern">
-            <ngb-alert type="danger" [dismissible]="false">
-              CWE needs to be a numeric value
-            </ngb-alert>
-          </div>
-        </div>
-
         <div *ngIf="isSubmitted && formControls.maturity.errors" class="help-block">
           <div *ngIf="formControls.maturity.errors.required">
             <ngb-alert type="danger" [dismissible]="false">
               Maturity level was not filled in
             </ngb-alert>
           </div>
-          <div *ngIf="formControls.cwe.errors.pattern">
+          <div *ngIf="formControls.maturity.errors.pattern">
             <ngb-alert type="danger" [dismissible]="false">
               Maturity needs to be a numeric value
             </ngb-alert>
@@ -121,7 +108,7 @@
                         <th style="background-color:white;color:black">Question</th>
                         <th style="background-color:white;color:black">Kb item</th>
                         <th style="background-color:white;color:black">Include always</th>
-                        <th style="background-color:white;color:black">CWE</th>
+                        <th style="background-color:white;color:black">Additonal Resources</th>
                         <th style="background-color:white;color:black">Maturity level</th>
                         <th style="background-color:white;color:black">Edit</th>
                       </tr>
@@ -140,7 +127,7 @@
                         <td><button type="button" class="btn btn-theme03" placement="top"
                             ngbTooltip="{{item.kb_item_title}}">show</button></td>
                         <td>{{item.include_always}}</td>
-                        <td>{{item.cwe}}</td>
+                        <td>{{item.add_resources}}</td>
                         <td>{{item.maturity}}</td>
                         <td>
                           <a [routerLink]="['/checklist-edit', item.checklist_items_checklist_id]">
@@ -217,19 +204,19 @@
                       <div class="col-sm-10">select to use this checklist in all the sprints</div>
                     </div>
                   </div>
-                  <label for="cwe" class="col-sm-2 control-label">Maturity level</label>
+                  <label for="maturity" class="col-sm-2 control-label">Maturity level</label>
                   <div class="col-sm-10">
                     <input required maxlength="120" formControlName="maturity" type="text" class="form-control">
                     <div class="wrap desc alert-info">
                       <div class="col-sm-10">e.g. 1,2,3</div>
                     </div>
                   </div>
-                  <label for="cwe" class="col-sm-2 control-label">CWE</label>
+                  <label for="add_resources" class="col-sm-2 control-label">Additional Resources</label>
                   <div class="col-sm-10">
-                    <input required maxlength="120" formControlName="cwe" type="text" class="form-control" id="cwe"
-                      name="cwe" placeholder="">
+                    <input required maxlength="120" formControlName="add_resources" type="text" class="form-control" id="add_resources"
+                      name="add_resources" placeholder="">
                     <div class="wrap desc alert-info">
-                      <div class="col-sm-10">e.g. 713</div>
+                      <div class="col-sm-10">Example: URL,URL</div>
                     </div>
                   </div>
                 </div>

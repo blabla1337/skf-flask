@@ -58,11 +58,9 @@
                         <p style="white-space: pre-line; max-width:70%">
                           {{ item.kb_items_content }}
                         </p>
-                        <div *ngIf="item.cwe > 0">
+                        <div *ngIf="item.add_resources > 0">
                           <ngb-alert [dismissible]="false">
-                            <strong><a href="https://cwe.mitre.org/data/definitions/{{
-                                    item.cwe
-                                  }}.html" target="_blank" rel="noopener noreferrer">CWE {{ item.cwe }}</a></strong>
+                            <strong><a href="{{item.add_resources}}" target="_blank" rel="noopener noreferrer">Additional Resources {{ item.add_resources }}</a></strong>
                           </ngb-alert>
                         </div>
                         <button *ngIf="canManage" (click)="deleteModal(modalDeleteChecklistResult)"

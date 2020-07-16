@@ -4,7 +4,7 @@ export class Checklist {
   include_always?: boolean,
   content?: string,
   question_id?: number,
-  cwe?: number
+  add_resources?: string
   ) {}
 }
 
