@@ -1,207 +1,264 @@
 <div class="container-fluid">
-    <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
-  
-    <div class="row mt-3">
-        <div class="col-lg-12">
+  <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
-            <!-- Content Body -->
+  <div class="row mt-3">
+    <div class="col-lg-12">
 
-            <div class="card">
-                <div class="card-body">
-                    <div class="row mb-5">
-                        <div class="col-sm-4">
-                          <div class="search-box mr-2 mb-2 d-inline-block">
-                            <div class="position-relative">
-                              <input type="text" class="form-control" placeholder="Search..."/>
-                              <i class="bx bx-search-alt search-icon"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-8">
-                          <div class="text-sm-right">
-                            <button type="button" data-target="#projectCreateModal"  (click)="projectCreateModal(content)" class="btn btn-primary btn-rounded mb-2 mr-2">
-                              <i class="mdi mdi-code-tags mr-1"></i> New Project
-                            </button>
-                          </div>
-                        </div>
-                        <!-- end col-->
-                      </div>
-                      <div class="row">
-                        <div *ngFor="let data of projectData" class="col-xl-4 col-sm-6 mb-4">
-                          <div class="card border border-light">
-                            <div class="card-body">
-                              <div class="media">
-                                <div class="media-body overflow-hidden">
-                                  <h5 class="text-truncate font-size-15">
-                                    <a href="javascript: void(0);" class="text">{{data.text}}</a>
-                                  </h5>
-                                  <p class="text-muted mb-4">{{data.subtext}}</p>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="px-4 py-3 border-top">
-                              <ul class="list-inline mb-0">
-                                <li class="list-inline-item mr-3">
-                                  <button class="btn-sm btn-primary text-light"> View</button>
-                                </li>
-                              </ul>
-                            </div>
-                            
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <ul class="pagination pagination-rounded justify-content-center mt-2 mb-5">
-                            <li class="page-item disabled">
-                              <a href="javascript: void(0);" class="page-link">
-                                <i class="mdi mdi-chevron-left"></i>
-                              </a>
-                            </li>
-                            <li class="page-item">
-                              <a href="javascript: void(0);" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                              <a href="javascript: void(0);" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                              <a href="javascript: void(0);" class="page-link">3</a>
-                            </li>
-                            <li class="page-item">
-                              <a href="javascript: void(0);" class="page-link">4</a>
-                            </li>
-                            <li class="page-item">
-                              <a href="javascript: void(0);" class="page-link">5</a>
-                            </li>
-                            <li class="page-item">
-                              <a href="javascript: void(0);" class="page-link">
-                                <i class="mdi mdi-chevron-right"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <!-- end row -->
-                        
+      <!-- Content Body -->
+
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-5">
+            <div class="col-sm-4">
+              <div class="search-box mr-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input type="text" class="form-control" placeholder="Search..." />
+                  <i class="bx bx-search-alt search-icon"></i>
                 </div>
+              </div>
             </div>
-           <!-- Content Body Ends-->
+            <div class="col-sm-8">
+              <div class="text-sm-right">
+                <button type="button" data-target="#projectCreateModal" (click)="projectCreateModal(content)"
+                  class="btn btn-primary btn-rounded mb-2 mr-2">
+                  <i class="mdi mdi-code-tags mr-1"></i> New Project
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="row">
+            <div *ngFor="let data of projectData" class="col-xl-4 col-sm-6 mb-4">
+              <div class="card border border-light">
+                <div class="card-body">
+                  <div class="media">
+                    <div class="media-body overflow-hidden">
+                      <h5 class="text-truncate font-size-15">
+                        <a href="javascript: void(0);" class="text">{{data.text}}</a>
+                      </h5>
+                      <p class="text-muted mb-4">{{data.subtext}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 py-3 border-top">
+                  <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                      <button class="btn-sm btn-primary text-light"> View</button>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <ul class="pagination pagination-rounded justify-content-center mt-2 mb-5">
+                <li class="page-item disabled">
+                  <a href="javascript: void(0);" class="page-link">
+                    <i class="mdi mdi-chevron-left"></i>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a href="javascript: void(0);" class="page-link">1</a>
+                </li>
+                <li class="page-item active">
+                  <a href="javascript: void(0);" class="page-link">2</a>
+                </li>
+                <li class="page-item">
+                  <a href="javascript: void(0);" class="page-link">3</a>
+                </li>
+                <li class="page-item">
+                  <a href="javascript: void(0);" class="page-link">4</a>
+                </li>
+                <li class="page-item">
+                  <a href="javascript: void(0);" class="page-link">5</a>
+                </li>
+                <li class="page-item">
+                  <a href="javascript: void(0);" class="page-link">
+                    <i class="mdi mdi-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- end row -->
+
         </div>
+      </div>
+      <!-- Content Body Ends-->
     </div>
-    <!-- end row -->
   </div>
-  
+  <!-- end row -->
+</div>
+
 <!-- Extra Large Modal -->
 <ng-template #content let-modal>
-    <div class="modal-header">
-        <h5 class="modal-title mt-0">Project Configuration</h5>
-        <button type="button" class="close" aria-label="Close"
-            (click)="modal.dismiss('Close click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <aw-wizard [navBarLayout]="'large-empty-symbols'">
-            <aw-wizard-step class="steps-in" [stepTitle]="'Category'" [navigationSymbol]="{ symbol: '1' }">
-                <div class="tab-content">
-                    <form>
-                        <div class="row">
-                            <div class="col pt-3">
-                                <div class="form-group">
-                                    <label for="category-input">Select Category</label>
-                                    <select class="custom-select" id="category-input">
-                                        <option value="" >--Select--</option>
-                                        <option value="1">Web Application</option>
-                                        <option value="2">Mobile Application</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card border shadow-none mb-3">
-                            <div class="card-body">Hello</div>
-                        </div>
-                    </form>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Project Configuration</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <aw-wizard [navBarLayout]="'large-empty-symbols'">
+      <aw-wizard-step class="steps-in" [stepTitle]="'Category'" [navigationSymbol]="{ symbol: '1' }">
+        <div class="tab-content">
+          <form>
+            <div class="row">
+              <div class="col pt-3">
+                <h4>Platforms</h4>
+                <div class="form-group">
+                  <label for="category-input">Select Category</label>
+                  <select class="custom-select" id="category-input">
+                    <option value="">--Select--</option>
+                    <option value="1">Web Application</option>
+                    <option value="2">Mobile Application</option>
+                  </select>
                 </div>
-                <ul class="list-inline wizard mb-0">
-                    <li class="next list-inline-item float-right"><button class="btn btn-primary"
-                            awNextStep>Next</button>
-                    </li>
-                </ul>
-            </aw-wizard-step>
+              </div>
+            </div>
+            <div class="card border shadow-none mb-3">
+              <div class="card-body">Hello</div>
+            </div>
+          </form>
+        </div>
+        <ul class="list-inline wizard mb-0">
+          <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+          </li>
+        </ul>
+      </aw-wizard-step>
 
-            <aw-wizard-step  [stepTitle]="'Maturity Level'" [navigationSymbol]="{ symbol: '2' }">
-                <div class="tab-content">
-                    
+      <aw-wizard-step [stepTitle]="'Maturity Level'" [navigationSymbol]="{ symbol: '2' }">
+        <div class="tab-content">
+          <form>
+            <div class="row">
+              <div class="col pt-3">
+                <h4>Maturity Level</h4>
+                <div class="form-group">
+                  <label for="category-input">Select Category</label>
+                  <select class="custom-select" id="category-input">
+                    <option value="">--Select--</option>
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">Level 3</option>
+                  </select>
                 </div>
-                <ul class="list-inline wizard mb-0">
-                    <li class="previous list-inline-item"><button class="btn btn-primary"
-                            awPreviousStep>Previous</button>
-                    </li>
-                    <li class="next list-inline-item float-right"><button class="btn btn-primary"
-                            awNextStep>Next</button>
-                    </li>
-                </ul>
-            </aw-wizard-step>
+              </div>
+            </div>
+            <div class="card border shadow-none mb-3">
+              <div class="card-body">Hello</div>
+            </div>
+          </form>
+        </div>
+        <ul class="list-inline wizard mb-0">
+          <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+          </li>
+          <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+          </li>
+        </ul>
+      </aw-wizard-step>
 
-            <aw-wizard-step class="steps-in" [stepTitle]="'Checklist'"
-                [navigationSymbol]="{ symbol: '3' }">
-                <div class="tab-content">
-                    
+      <aw-wizard-step class="steps-in" [stepTitle]="'Checklist'" [navigationSymbol]="{ symbol: '3' }">
+        <div class="tab-content">
+          <form>
+            <div class="row">
+              <div class="col pt-3">
+                <h4>Checklists</h4>
+                <div class="form-group">
+                  <label for="category-input">Select Category</label>
+                  <select class="custom-select" id="category-input">
+                    <option value="">--Select--</option>
+                    <option value="1">Checklist 1</option>
+                    <option value="2">Checklist 2</option>
+                  </select>
                 </div>
-                <ul class="list-inline wizard mb-0">
-                    <li class="previous list-inline-item"><button class="btn btn-primary"
-                            awPreviousStep>Previous</button>
-                    </li>
-                    <li class="next list-inline-item float-right"><button class="btn btn-primary"
-                        awNextStep>Next</button>
-                </li>
-                </ul>
-            </aw-wizard-step>
+              </div>
+            </div>
+            <div class="card border shadow-none mb-3">
+              <div class="card-body">Hello</div>
+            </div>
+          </form>
+        </div>
+        <ul class="list-inline wizard mb-0">
+          <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+          </li>
+          <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+          </li>
+        </ul>
+      </aw-wizard-step>
+      <aw-wizard-step class="steps-in" [stepTitle]="'Questionnaire'" [navigationSymbol]="{ symbol: '4' }">
+        <div class="tab-content">
+          <div class="row">
+            <div class="col pt-3">
+              <h4 class="mb-3">Configure this sprint</h4>
+                <table class="table table-centered table-nowrap">
+                  <tbody>
+                    <tr>
+                      <td class="text-left ">
+                        Some name
+                      </td>
+                      <td class="text-right">
+                          <select class="custom-select col-4" id="category-input">
+                            <option value="">--Select--</option>
+                            <option value="1">Checklist 1</option>
+                            <option value="2">Checklist 2</option>
+                          </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+        <ul class="list-inline wizard mb-0">
+          <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+          </li>
+          <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+          </li>
+        </ul>
+      </aw-wizard-step>
 
-            <aw-wizard-step class="steps-in" [stepTitle]="'Questionnaire'"
-                [navigationSymbol]="{ symbol: '4' }">
-                <div class="tab-content">
-                    
+      <aw-wizard-step class="steps-in" [stepTitle]="'Setup'" [navigationSymbol]="{ symbol: '5' }">
+        <div class="tab-content">
+          <form>
+            <div class="row">
+              <div class="col pt-3">
+                <h4>Add a Sprint</h4>
+                <div class="form-group">
+                  <label for="category-input">Select Category</label>
+                  <select class="custom-select" id="category-input">
+                    <option value="">--Select--</option>
+                    <option value="1">Existing Sprint</option>
+                    <option value="2">Create new sprint</option>  
+                  </select>
                 </div>
-                <ul class="list-inline wizard mb-0">
-                    <li class="previous list-inline-item"><button class="btn btn-primary"
-                            awPreviousStep>Previous</button>
-                    </li>
-                    <li class="next list-inline-item float-right"><button class="btn btn-primary"
-                        awNextStep>Next</button>
-                </li>
-                </ul>
-            </aw-wizard-step>
+              </div>
+            </div>
+            <div class="card border shadow-none mb-3">
+              <div class="card-body">Hello</div>
+            </div>
+          </form>
+        </div>
+        <ul class="list-inline wizard mb-0">
+          <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+          </li>
+          <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+          </li>
+        </ul>
+      </aw-wizard-step>
 
-            <aw-wizard-step class="steps-in" [stepTitle]="'Setup'"
-                [navigationSymbol]="{ symbol: '5' }">
-                <div class="tab-content">
-                    
-                </div>
-                <ul class="list-inline wizard mb-0">
-                    <li class="previous list-inline-item"><button class="btn btn-primary"
-                            awPreviousStep>Previous</button>
-                    </li>
-                    <li class="next list-inline-item float-right"><button class="btn btn-primary"
-                        awNextStep>Next</button>
-                </li>
-                </ul>
-            </aw-wizard-step>
+      <aw-wizard-step class="steps-in" [stepTitle]="'Finish'" [navigationSymbol]="{ symbol: '6' }">
+        <div class="tab-content">
 
-            <aw-wizard-step class="steps-in" [stepTitle]="'Finish'"
-                [navigationSymbol]="{ symbol: '6' }">
-                <div class="tab-content">
-                    
-                </div>
-                <ul class="list-inline wizard mb-0">
-                    <li class="previous list-inline-item"><button class="btn btn-primary"
-                            awPreviousStep>Previous</button>
-                    </li>
-                    <li class="next list-inline-item float-right"><button class="btn btn-primary"
-                        awNextStep>Submit</button>
-                </li>
-                </ul>
-            </aw-wizard-step>
-        </aw-wizard>
-    </div>
+        </div>
+        <ul class="list-inline wizard mb-0">
+          <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+          </li>
+          <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Submit</button>
+          </li>
+        </ul>
+      </aw-wizard-step>
+    </aw-wizard>
+  </div>
 </ng-template>
