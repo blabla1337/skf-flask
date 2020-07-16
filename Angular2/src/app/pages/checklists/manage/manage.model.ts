@@ -6,7 +6,7 @@ export interface Manage {
     question: string;
     knowledgebase: string;
     include: string;
-    cwe: string;
+    add_resources: string;
     maturity: number;
     checkid: string;
 }

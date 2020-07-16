@@ -77,19 +77,6 @@
                 </ngb-alert>
               </div>
             </div>
-    
-            <div *ngIf="isSubmitted && formControls.cwe.errors" class="help-block">
-              <div *ngIf="formControls.cwe.errors.required">
-                <ngb-alert type="danger" [dismissible]="false">
-                  CWE id  was not filled in
-                </ngb-alert>
-              </div>
-              <div *ngIf="formControls.cwe.errors.pattern">
-                  <ngb-alert type="danger" [dismissible]="false">
-                    CWE needs to be a numeric value
-                  </ngb-alert>
-                </div>
-            </div>
 
             <div *ngIf="isSubmitted && formControls.maturity.errors" class="help-block">
               <div *ngIf="formControls.maturity.errors.required">
@@ -154,16 +141,16 @@
                         <div class="col-sm-10">select to use this checklist in all the sprints</div>
                       </div>
                     </div>
-                    <label for="cwe" class="col-sm-2 control-label">Maturity</label>
+                    <label for="maturity" class="col-sm-2 control-label">Maturity</label>
                     <div class="col-sm-10">
                       <input required maxlength="120" type="text" class="form-control" formControlName="maturity">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">1,2,3</div>
                       </div>
                     </div>
-                    <label for="cwe" class="col-sm-2 control-label">CWE</label>
+                    <label for="add_resources" class="col-sm-2 control-label">Additional Resources</label>
                     <div class="col-sm-10">
-                      <input required maxlength="120" type="text" class="form-control" formControlName="cwe">
+                      <input required maxlength="120" type="text" class="form-control" formControlName="add_resources">
                       <div class="wrap desc alert-info">
                         <div class="col-sm-10">e.g. 713</div>
                       </div>

@@ -26,7 +26,7 @@ class ChecklistItemUpdate(Resource):
         val_alpha_num_special(checklist_id)
         val_num(data.get('maturity'))
         val_num(data.get('question_id'))
-        val_num(data.get('cwe'))
+        val_alpha_num_special(data.get('add_resources'))
         val_num(data.get('kb_id'))
         val_alpha_num(data.get('include_always'))
         val_alpha_num_special(data.get('content'))

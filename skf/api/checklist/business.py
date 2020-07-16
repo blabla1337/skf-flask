@@ -85,7 +85,7 @@ def create_checklist_item(checklist_id, checklist_type, data):
     question_id = convert_question_id_to_none(data.get('question_id'))
     if validate_duplicate_checklist_item(checklist_id, checklist_type) == True:
         try:
-            checklist_item = ChecklistKB(checklist_id, data.get('content'), checklist_type, include_always, data.get('cwe'), data.get('maturity'))
+            checklist_item = ChecklistKB(checklist_id, data.get('content'), checklist_type, include_always, data.get('add_resources'), data.get('maturity'))
             checklist_item.question_id = question_id
             checklist_item.kb_id = data.get('kb_id')
             db.session.add(checklist_item)
@@ -134,7 +134,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
     result_checklist_kb.content = data.get('content')
     result_checklist_kb.include_always = include_always
     result_checklist_kb.question_id = question_id
-    result_checklist_kb.cwe = data.get('cwe')
+    result_checklist_kb.add_resources = data.get('add_resources')
     result_checklist_kb.kb_id = data.get('kb_id')
     result_checklist_kb.checklist_id = checklist_id
     result_checklist_kb.maturity = data.get('maturity')
