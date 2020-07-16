@@ -132,7 +132,7 @@ def prerequisits():
         category = ChecklistCategory("Mobile applications", "category for mobile collection")
         db.session.add(category)
         db.session.commit()
-        category = ChecklistCategory("Other applications", "category for other collection")
+        category = ChecklistCategory("Custom checklist", "category for other collection")
         db.session.add(category)
         db.session.commit()
         print('Initialized the prerequisits.')
