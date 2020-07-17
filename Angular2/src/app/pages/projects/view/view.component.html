@@ -201,8 +201,8 @@
                       <td class="text-right">
                           <select class="custom-select col-4" id="category-input">
                             <option value="">--Select--</option>
-                            <option value="1">Checklist 1</option>
-                            <option value="2">Checklist 2</option>
+                            <option value="1">Questionnaire 1</option>
+                            <option value="2">Questionnaire 2</option>
                           </select>
                       </td>
                     </tr>
@@ -227,17 +227,30 @@
                 <h4>Add a Sprint</h4>
                 <div class="form-group">
                   <label for="category-input">Select Category</label>
-                  <select class="custom-select" id="category-input">
-                    <option value="">--Select--</option>
-                    <option value="1">Existing Sprint</option>
-                    <option value="2">Create new sprint</option>  
+                  <select class="custom-select" [(ngModel)]="selected" id="category-input">
+                    <option value="" selected>--Select--</option>
+                    <option value="old">Existing Sprint</option>
+                    <option value="new">Create new sprint</option>  
                   </select>
+                </div>
+                <div class="card border shadow-none mb-3">
+                  <div class="card-body">Hello</div>
+                  <div class="dropdown-divider"></div>
+                  <div *ngIf="selected == 'old'">
+                      <select name="old_quest" id="old_quest" data-live-search="true">
+                        <option value="1">something 1</option>
+                        <option value="2">something 1</option>
+                        <option value="3">something 1</option>
+                      </select>
+                  </div>
+    
+                  <div *ngIf="selected == 'new'">
+    
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="card border shadow-none mb-3">
-              <div class="card-body">Hello</div>
-            </div>
+            
           </form>
         </div>
         <ul class="list-inline wizard mb-0">
