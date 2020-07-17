@@ -54,6 +54,7 @@ export class ChecklistEditComponent implements OnInit
       kb_id: ['', Validators.required],
       question_id: ['', Validators.required],
       include_always: ['', Validators.required],
+      add_resources: [''],
       content: ['', Validators.required],
       maturity: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     })
