@@ -15,6 +15,7 @@ export class ProjectViewComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   projectData: Projects[];
+  selected: string;
 
   constructor(private modalService: NgbModal) { }
 
@@ -22,6 +23,8 @@ export class ProjectViewComponent implements OnInit {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'View', active: true }];
 
     this.projectData = projectData;
+
+    this.selected = '';
   }
 
   /**
