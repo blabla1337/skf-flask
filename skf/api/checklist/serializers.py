@@ -12,8 +12,8 @@ checklist = api.model('checklists_kb', {
     'checklist_items_type': fields.Integer(attribute='checklist_type', required=True, description='Checklist type'),
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
-    'add_resources': fields.Integer(required=False, description='The additional resources'),
-     'maturity': fields.Integer(required=False, description='The maturity level'),
+    'add_resources': fields.String(required=False, description='The additional resources'),
+    'maturity': fields.Integer(required=False, description='The maturity level'),
 })
 
 checklist_update = api.model('checklist_update', {
@@ -26,7 +26,7 @@ checklist_update = api.model('checklist_update', {
     'checklist_type': fields.Integer(attribute='checklist_type', required=False, description='Checklist type'),
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
-    'add_resources': fields.Integer(required=False, description='The additional resources'),
+    'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
     'questions': fields.String(attribute='questions.question', required=False, description='correlated question!'),
 })
@@ -77,7 +77,7 @@ checklist_create = api.model('checklist_create', {
     'kb_id': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
     'include_always': fields.String(required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
-    'add_resources': fields.Integer(required=False, description='The additional resources'),
+    'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
 })
 

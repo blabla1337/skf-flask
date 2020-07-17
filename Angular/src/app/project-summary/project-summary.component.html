@@ -58,9 +58,9 @@
                         <p style="white-space: pre-line; max-width:70%">
                           {{ item.kb_items_content }}
                         </p>
-                        <div *ngIf="item.add_resources > 0">
+                        <div *ngIf="item.add_resources !=1">
                           <ngb-alert [dismissible]="false">
-                            <strong><a href="{{item.add_resources}}" target="_blank" rel="noopener noreferrer">Additional Resources {{ item.add_resources }}</a></strong>
+                            <strong><a href="" target="_blank" rel="noopener noreferrer">Additional Resources {{ item.add_resources }}</a></strong>
                           </ngb-alert>
                         </div>
                         <button *ngIf="canManage" (click)="deleteModal(modalDeleteChecklistResult)"
