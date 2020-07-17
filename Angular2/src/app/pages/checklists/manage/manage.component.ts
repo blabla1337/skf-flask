@@ -13,6 +13,9 @@ export class CheckManageComponent implements OnInit {
 
   checkTotal: Manage[];
   checkItems: Manage[];
+  checkData;
+
+  public isCollapsed: boolean[] = [];
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
@@ -54,6 +57,7 @@ export class CheckManageComponent implements OnInit {
   private _fetchData() {
     this.checkTotal = manageData.filter(t => t.status === 'Completed');
     this.checkItems = manageData.filter(t => t.status === 'Pending');
+    this.checkData = manageData;
   }
 
 }

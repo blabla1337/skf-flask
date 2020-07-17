@@ -135,24 +135,42 @@
           </div>
           <!-- end col-->
         </div>
-        <div class="row mb-3">
+        <div class="row mb-3" *ngFor="let check of checkData; let i = index">
           <div class="col">
             <div class="card border shadow-none">
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h4 class="card-title">Title</h4>
+                    <a type="button" class="btn" (click)="isCollapsed[i] = !isCollapsed[i]"><h4 class="card-title mt-2">{{check.title}}</h4></a>
                   </div>
                   <div class="col-sm-4">
                     <div class="text-sm-right">
-                      <button class="btn-sm btn-primary btn-md mb-3" type="button">
+                      <button class="btn-sm btn-primary btn-md" type="button" (click)="isCollapsed[i] = !isCollapsed[i]">
                         Click here
                       </button>
                     </div>
                   </div>
                 </div>
-                <div class="collapse"> <!--[ngbCollapse]="!isCollapsed[i]"> -->
-                  
+                <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
+                  <table class="table table-centered table-nowrap table-hover">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col" style="width: 50px;"><div class="text-center">Checklist ID</div></th>
+                        <th scope="col"><div class="text-center">Checklist Item</div></th>
+                        <th scope="col"><div class="text-center">Question</div></th>
+                        <th scope="col"><div class="text-center">KB Item</div></th>
+                        <th scope="col"><div class="text-center">Include Always</div></th>
+                        <th scope="col"><div class="text-center">CWE</div></th>
+                        <th scope="col"><div class="text-center">Maturity Level</div></th>
+                        <th scope="col"><div class="text-center">Edit</div></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
