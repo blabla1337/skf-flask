@@ -1,149 +1,225 @@
 <div class="container-fluid">
-    <!-- start page title -->
-    <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
-    <!-- end page title -->
-  
-    <div class="card mb-3">
-      <div class="card-body">
-        <form>
-          <div class="row text-center">
-              <div class="col-xl-12 col-md-6">
+  <!-- start page title -->
+  <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Config</a>
+      <ng-template ngbNavContent>
+        <div class="card mb-3 shadow-none">
+          <div class="card-body">
+            <form>
+              <div class="row text-center">
+                <div class="col-xl-12 col-md-6">
                   <div class="form-group mt-3 mb-2">
-                      <label class="float-left">Questionarie :</label>
-                      <select class="form-control select2-search-disable">
-                          <option value="#" selected>Content 1</option>
-                          <option value="#">Content 2</option>
-                      </select>
+                    <label class="float-left">Questionarie :</label>
+                    <select class="form-control select2-search-disable">
+                      <option value="#" selected>Content 1</option>
+                      <option value="#">Content 2</option>
+                    </select>
                   </div>
-              </div>
-              <div class="col-xl col-sm-6 align-self-end">
+                </div>
+                <div class="col-xl col-sm-6 align-self-end">
                   <div class="btn-group mx-2 mt-2">
-                      <button type="button" class="btn btn-success">Add</button>
-                    </div>
-                    <div class="btn-group mx-2 mt-2">
-                      <button type="button" class="btn btn-warning">Update</button>
-                    </div>
-                    <div class="btn-group mx-2 mt-2">
-                      <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
-              </div>
-          </div>
-      </form>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card shadow-none border">
-              <div class="card-body">
-                <div class="dropdown float-right" ngbDropdown>
-                  <a href="javascript: void(0);" class="dropdown-toggle arrow-none" ngbDropdownToggle>
-                    <i class="mdi mdi-dots-vertical m-0 text-muted h5"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                    <a class="dropdown-item" href="javascript: void(0);">Edit</a>
-                    <a class="dropdown-item" href="javascript: void(0);">Delete</a>
+                    <button type="button" class="btn btn-success">Add</button>
                   </div>
-                </div> <!-- end dropdown -->
-      
-                <h4 class="card-title mb-4 text-center">Checklist total (of not yet assinged requirements)</h4>
-                <div id="check-total" class="pb-1 check-list" dndDropzone dndEffectAllowed="move"
-                  (dndDrop)="onDrop($event, checkTotal,'check-total')">
-                  <div class="dndPlaceholder" dndPlaceholderRef></div>
-      
-                  <ng-container *ngFor="let item of checkTotal">
-                    <div [dndDraggable]="item" dndEffectAllowed="move" (dndMoved)="onDragged(item, checkTotal)">
-                      <ng-template [ngTemplateOutlet]="CheckContent" [ngTemplateOutletContext]="{item:item}">
-                      </ng-template>
-                    </div>
-                  </ng-container>
-      
-                  <div class="text-center mt-3">
-                    <a href="javascript: void(0);" class="btn btn-primary btn-block mt-1"><i class="mdi mdi-plus mr-1"></i>
-                      Add New</a>
+                  <div class="btn-group mx-2 mt-2">
+                    <button type="button" class="btn btn-warning">Update</button>
+                  </div>
+                  <div class="btn-group mx-2 mt-2">
+                    <button type="button" class="btn btn-danger">Delete</button>
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
-          <!-- end col -->
-      
-          <div class="col-lg-6">
-            <div class="card shadow-none border">
-              <div class="card-body">
-                <div class="dropdown float-right" ngbDropdown>
-                  <a href="javascript: void(0);" class="dropdown-toggle arrow-none" ngbDropdownToggle>
-                    <i class="mdi mdi-dots-vertical m-0 text-muted h5"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                    <a class="dropdown-item" href="javascript: void(0);">Edit</a>
-                    <a class="dropdown-item" href="javascript: void(0);">Delete</a>
-                  </div>
-                </div> <!-- end dropdown -->
-      
-                <h4 class="card-title mb-4 text-center">Checklist items correlated to selected question</h4>
-                <div id="check-item" class="pb-1 check-list" dndDropzone dndEffectAllowed="move"
-                  (dndDrop)="onDrop($event, checkItems,'check-item')">
-                  <div class="dndPlaceholder" dndPlaceholderRef></div>
-                  <ng-container *ngFor="let item of checkItems">
-                    <div [dndDraggable]="item" dndEffectAllowed="move" (dndMoved)="onDragged(item, checkItems)">
-                      <ng-template [ngTemplateOutlet]="CheckContent" [ngTemplateOutletContext]="{item:item}">
-                      </ng-template>
-                    </div>
-                  </ng-container>
-                  <div class="text-center mt-3">
-                    <a href="javascript: void(0);" class="btn btn-primary btn-block mt-1"><i class="mdi mdi-plus mr-1"></i>
-                      Add New</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      
         </div>
-      </div>
-    </div>
-  
-  </div>
-  
-  <!-- Content  -->
-  <ng-template #CheckContent let-item='item'>
-    <div class="card text-center border border shadow-sm">
-      <div class="card-body pb-0">
-        <!-- <div class="float-right ml-2">
+
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="card shadow-none">
+                  <div class="card-body">
+                    <div class="dropdown float-right" ngbDropdown>
+                      <a href="javascript: void(0);" class="dropdown-toggle arrow-none" ngbDropdownToggle>
+                        <i class="mdi mdi-dots-vertical m-0 text-muted h5"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" href="javascript: void(0);">Edit</a>
+                        <a class="dropdown-item" href="javascript: void(0);">Delete</a>
+                      </div>
+                    </div> <!-- end dropdown -->
+
+                    <h4 class="card-title mb-4 text-center">Checklist total (of not yet assinged requirements)</h4>
+                    <div class="text-center mb-3">
+                      <a href="javascript: void(0);" class="btn btn-primary btn-block mt-1"><i
+                          class="mdi mdi-plus mr-1"></i>
+                        Add New</a>
+                    </div>
+                    <div id="check-total" class="pb-4 check-list" dndDropzone dndEffectAllowed="move"
+                      (dndDrop)="onDrop($event, checkTotal,'check-total')">
+                      <div class="dndPlaceholder py-5" dndPlaceholderRef></div>
+
+                      <ng-container *ngFor="let item of checkTotal">
+                        <div [dndDraggable]="item" dndEffectAllowed="move" (dndMoved)="onDragged(item, checkTotal)">
+                          <ng-template [ngTemplateOutlet]="CheckContent" [ngTemplateOutletContext]="{item:item}">
+                          </ng-template>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end col -->
+
+              <div class="col-lg-6">
+                <div class="card shadow-none">
+                  <div class="card-body">
+                    <div class="dropdown float-right" ngbDropdown>
+                      <a href="javascript: void(0);" class="dropdown-toggle arrow-none" ngbDropdownToggle>
+                        <i class="mdi mdi-dots-vertical m-0 text-muted h5"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                        <a class="dropdown-item" href="javascript: void(0);">Edit</a>
+                        <a class="dropdown-item" href="javascript: void(0);">Delete</a>
+                      </div>
+                    </div> <!-- end dropdown -->
+
+                    <h4 class="card-title mb-4 text-center">Checklist items correlated to selected question</h4>
+                    <div class="text-center mb-3">
+                      <a href="javascript: void(0);" class="btn btn-primary btn-block mt-1"><i
+                          class="mdi mdi-plus mr-1"></i>
+                        Add New</a>
+                    </div>
+
+                    <div id="check-item" class="pb-4 check-list" dndDropzone dndEffectAllowed="move"
+                      (dndDrop)="onDrop($event, checkItems,'check-item')">
+                      <div class="dndPlaceholder py-5" dndPlaceholderRef></div>
+                      <ng-container *ngFor="let item of checkItems">
+                        <div [dndDraggable]="item" dndEffectAllowed="move" (dndMoved)="onDragged(item, checkItems)">
+                          <ng-template [ngTemplateOutlet]="CheckContent" [ngTemplateOutletContext]="{item:item}">
+                          </ng-template>
+                        </div>
+                      </ng-container>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Checklists</a>
+      <ng-template ngbNavContent>
+        <div class="row mb-3">
+          <div class="col-sm-4">
+            <div class="search-box mr-2 mb-2 d-inline-block">
+              <div class="position-relative">
+                <input type="text" class="form-control" placeholder="Search..." />
+                <i class="bx bx-search-alt search-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="text-sm-right">
+              <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
+                <i class="mdi mdi-code-tags mr-1"></i>Add Checklists Item</button>
+            </div>
+          </div>
+          <!-- end col-->
+        </div>
+        <div class="row mb-3" *ngFor="let check of checkData; let i = index">
+          <div class="col">
+            <div class="card border shadow-none">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <a type="button" class="btn" (click)="isCollapsed[i] = !isCollapsed[i]"><h4 class="card-title mt-2">{{check.title}}</h4></a>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="text-sm-right">
+                      <button class="btn-sm btn-primary btn-md" type="button" (click)="isCollapsed[i] = !isCollapsed[i]">
+                        Click here
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
+                  <table class="table table-centered table-nowrap table-hover">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col" style="width: 50px;"><div class="text-center">Checklist ID</div></th>
+                        <th scope="col"><div class="text-center">Checklist Item</div></th>
+                        <th scope="col"><div class="text-center">Question</div></th>
+                        <th scope="col"><div class="text-center">KB Item</div></th>
+                        <th scope="col"><div class="text-center">Include Always</div></th>
+                        <th scope="col"><div class="text-center">CWE</div></th>
+                        <th scope="col"><div class="text-center">Maturity Level</div></th>
+                        <th scope="col"><div class="text-center">Edit</div></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav" class="questionarie p-4"></div>
+
+</div>
+
+<!-- Content  -->
+<ng-template #CheckContent let-item='item'>
+  <div class="card text-center border border shadow-sm">
+    <div class="card-body pb-0">
+      <!-- <div class="float-right ml-2">
           <span class="badge badge-pill badge-soft-secondary font-size-12" [ngClass]=" { 
               'badge-soft-danger': item.status === 'Pending',
               'badge-soft-success': item.status === 'Completed'}">{{item.status}}</span>
         </div> -->
-        <div>
-          <h5 class="font-size-25 mb-2"><a href="javascript: void(0);" class="text-dark"> <b>{{item.title}}</b></a></h5>
-          <p class="text-muted"><span class="badge badge-pill badge-soft-secondary font-size-12" [ngClass]=" { 
+      <div>
+        <h5 class="font-size-25 mb-2"><a href="javascript: void(0);" class="text-dark"> <b>{{item.title}}</b></a></h5>
+        <p class="text-muted"><span class="badge badge-pill badge-soft-secondary font-size-12" [ngClass]=" { 
             'badge-soft-danger': item.status === 'Pending',
             'badge-soft-success': item.status === 'Completed'}">{{item.status}}</span></p>
-        </div>
-          <div>
-            <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.add_resources}}</a>
-            <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.include}}</a>
-            <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.maturity}}</a>
-          </div>
-  
-        <div class="card-footer text-center bg-transparent border-top mt-3">
-          <div class="manage-links d-flex font-size-20">
-            <div class="flex-fill">
-              <a href="javascript: void(0);" ngbTooltip="Checklists"><i class='bx bx-message-square-dots'></i></a>
-            </div>
-            <div class="flex-fill">
-              <a href="javascript: void(0);" ngbTooltip="Questionarie"><i class="bx bx-help-circle"></i></a>
-            </div>
-            <div class="flex-fill">
-              <a href="javascript: void(0);" ngbTooltip="Knowledgebase"><i class="bx bx-book"></i></a>
-            </div>
-          </div>
-        </div>
-  
       </div>
+      <div>
+        <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.add_resources}}</a>
+        <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.include}}</a>
+        <a href="javascript: void(0);" class="badge badge-primary font-size-11 m-1">{{item.maturity}}</a>
+      </div>
+
+      <div class="card-footer text-center bg-transparent border-top mt-3">
+        <div class="manage-links d-flex font-size-20">
+          <div class="flex-fill">
+            <a href="javascript: void(0);" ngbTooltip="Checklists"><i class='bx bx-message-square-dots'></i></a>
+          </div>
+          <div class="flex-fill">
+            <a href="javascript: void(0);" ngbTooltip="Questionarie"><i class="bx bx-help-circle"></i></a>
+          </div>
+          <div class="flex-fill">
+            <a href="javascript: void(0);" ngbTooltip="Knowledgebase"><i class="bx bx-book"></i></a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </ng-template>
-  
+  </div>
+</ng-template>

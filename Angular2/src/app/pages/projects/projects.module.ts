@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ProjectRoutingModule } from './project-routing.module';
 

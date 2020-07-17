@@ -3,4 +3,5 @@ export interface Project {
     text: string;
     subtext: string;
     date: string;
+    version: string;
 }

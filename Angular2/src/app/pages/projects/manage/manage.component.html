@@ -29,24 +29,26 @@
             <table class="table project-list-table table-nowrap table-centered table-borderless table-hover">
               <thead>
                 <tr>
-                  <th scope="col" style="width: 100px">#</th>
-                  <th scope="col">Projects</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Created Date</th>
-                  <th scope="col">Action</th>
+                  <th scope="col" class="text-center" style="width: 100px">#</th>
+                  <th scope="col" class="text-center">Projects</th>
+                  <th scope="col" class="text-center">Description</th>
+                  <th scope="col" class="text-center">Created Date</th>
+                  <th scope="col" class="text-center">Project Version</th>
+                  <th scope="col" class="text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let project of projectData">
-                  <td>{{project.id}}</td>
-                  <td>
+                  <td class="text-center">{{project.id}}</td>
+                  <td class="text-center">
                     <h5 class="text-truncate font-size-14 mt-1">
                       <a href="/projects/view" class="text-dark">{{project.text}}</a>
                     </h5>
                   </td>
-                  <td>{{project.subtext}}</td>
-                  <td>{{project.date}}</td>
-                  <td>
+                  <td class="text-center">{{project.subtext}}</td>
+                  <td class="text-center">{{project.date}}</td>
+                  <td class="text-center">{{project.version}}</td>
+                  <td class="text-center">
                     <div class="dropdown" ngbDropdown placement="bottom-right">
                       <a href="javascript: void(0);" class="dropdown-toggle card-drop" ngbDropdownToggle>
                         <i class="mdi mdi-dots-horizontal font-size-18"></i>
