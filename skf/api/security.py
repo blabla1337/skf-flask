@@ -90,7 +90,7 @@ def val_float(value):
 
 def validate_privilege(self, privilege):
     """Validates the JWT privileges"""
-    print(settings.JWT_ENABLED)
+    #print(settings.JWT_ENABLED)
     if settings.JWT_ENABLED == True:
         if not request.headers.get('Authorization'):
             log("Request sent with missing JWT header", "HIGH", "FAIL")
@@ -117,7 +117,7 @@ def select_userid_jwt(self):
         token = request.headers.get('Authorization').split()[0]
         try:
             checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
-            print(checkClaims)
+            #print(checkClaims)
         except jwt.exceptions.DecodeError:
             log("User JWT header could not be decoded", "HIGH", "FAIL")
             abort(403, 'JWT decode error')

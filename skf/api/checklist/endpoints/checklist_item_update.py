@@ -30,7 +30,6 @@ class ChecklistItemUpdate(Resource):
         val_num(data.get('kb_id'))
         val_alpha_num(data.get('include_always'))
         val_alpha_num_special(data.get('content'))
-        print(data.get('content'))
         validate_privilege(self, 'edit')
         result = update_checklist_item(checklist_id, checklist_type, data)
         return result, 200, security_headers()
