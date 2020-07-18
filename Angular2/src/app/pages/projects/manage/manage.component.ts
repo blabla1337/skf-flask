@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 import { Project } from './manage.model';
 import { projectData } from './data';
@@ -16,7 +17,7 @@ export class ProjectManageComponent implements OnInit {
 
  projectData: Project[];
 
- constructor(private modalService: NgbModal) { }
+ constructor(private modalService: NgbModal, private router: Router) { }
 
  ngOnInit() {
    this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Manage', active: true }];
@@ -29,5 +30,9 @@ export class ProjectManageComponent implements OnInit {
   */
   projectModal(content: any) {
     this.modalService.open(content, { size: 'lg', centered: true });
+  }
+
+  onSubmit() {
+    this.router.navigate(['/projects/manage']);
   }
  }
