@@ -92,14 +92,16 @@
       </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="formGroupExampleInput">Name</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Add project name">
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Add Project Name"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add project name'">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Version</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="version number">
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Version Number"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Version Number'">
       </div>
       <div class="form-group">
         <label for="exampleFormControlTextarea1">Description</label>

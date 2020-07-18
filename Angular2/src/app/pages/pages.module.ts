@@ -26,6 +26,7 @@ import { ProjectManageComponent } from './projects/manage/manage.component';
 import { ProjectViewComponent } from './projects/view/view.component';
 import { LabReadComponent } from './labs/read/read.component';
 import { LabViewComponent } from './labs/view/view.component';
+import { SummaryComponent } from './projects/summary/summary.component';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { LabViewComponent } from './labs/view/view.component';
     ManageComponent, CodeViewComponent, ReadComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, CheckManageComponent,
-    LabReadComponent, LabViewComponent,
+    LabReadComponent, LabViewComponent, SummaryComponent,
   ],
   imports: [
     CommonModule,
