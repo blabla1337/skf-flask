@@ -84,21 +84,30 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
     element.classList.toggle('show');
   }
 
+  /**
+   * Change to Dark theme
+   */
   toDark(theme: string) {
     this.changeTheme(theme);
     this.light = false;
     this.dark = true;
   }
 
+  /**
+   * Change to Light theme
+   */
   toLight(theme: string) {
     this.changeTheme(theme);
     this.dark = false;
     this.light = true;
   }
 
+  /**
+   * Dynamic Theme
+   */
   changeTheme(styleName: string) {
     const head = this.document.getElementsByTagName('head')[0];
-    let themeLink = this.document.getElementById('dynamic-theme') as HTMLLinkElement;
+    const themeLink = this.document.getElementById('dynamic-theme') as HTMLLinkElement;
     if (themeLink) {
       themeLink.href = styleName;
     } else {
