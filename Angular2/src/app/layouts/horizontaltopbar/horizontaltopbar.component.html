@@ -59,6 +59,15 @@
         </div>
       </div>
       
+      <div class="dropdown d-inline-block">
+        <button *ngIf="light" type="click" (click)="toDark('dark-theme.css')" class="btn header-item noti-icon">
+          <i class="bx bxs-bulb text-primary"></i>
+        </button>
+        <button *ngIf="dark" type="click" (click)="toLight('light-theme.css')" class="btn header-item noti-icon">
+          <i class="bx bx-bulb text-primary"></i>
+        </button>
+      </div>
+
       <div class="dropdown d-inline-block" ngbDropdown>
         <button type="button" class="btn header-item noti-icon" ngbDropdownToggle>
           <i class="bx bx-devices text-primary"></i>
