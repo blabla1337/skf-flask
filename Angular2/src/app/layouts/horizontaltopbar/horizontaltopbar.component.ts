@@ -22,7 +22,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
 
   loggedinUser: string;
   loggedin = false;
-
+  dark = false;
+  light = true;
   menuItems = [];
 
   // tslint:disable-next-line: max-line-length
@@ -81,6 +82,33 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   toggleMenubar() {
     const element = document.getElementById('topnav-menu-content');
     element.classList.toggle('show');
+  }
+
+  toDark(theme: string) {
+    this.changeTheme(theme);
+    this.light = false;
+    this.dark = true;
+  }
+
+  toLight(theme: string) {
+    this.changeTheme(theme);
+    this.dark = false;
+    this.light = true;
+  }
+
+  changeTheme(styleName: string) {
+    const head = this.document.getElementsByTagName('head')[0];
+    let themeLink = this.document.getElementById('dynamic-theme') as HTMLLinkElement;
+    if (themeLink) {
+      themeLink.href = styleName;
+    } else {
+      const style = this.document.createElement('link');
+      style.id = 'dynamic-theme';
+      style.rel = 'stylesheet';
+      style.href = `${styleName}`;
+
+      head.appendChild(style);
+    }
   }
 
   /**

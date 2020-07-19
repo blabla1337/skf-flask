@@ -32,8 +32,13 @@
               "src/assets/scss/app.scss",
               "src/assets/scss/icons.scss",
               {
-                "input": "src/assets/scss/app-dark.scss",
+                "input": "src/assets/scss/app.scss",
                 "bundleName": "light-theme",
+                "inject":false
+              },
+              {
+                "input": "src/assets/scss/app-dark.scss",
+                "bundleName": "dark-theme",
                 "inject":false
               }
             ],
