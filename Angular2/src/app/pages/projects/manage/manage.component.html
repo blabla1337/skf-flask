@@ -14,7 +14,7 @@
         </div>
         <div class="col-sm-8">
           <div class="text-sm-right">
-            <button type="button" data-target="#projectModal"  (click)="projectModal(content)" class="btn btn-primary btn-rounded mb-2 mr-2">
+            <button type="button" data-target="#projectModal"  (click)="projectModal(addProject)" class="btn btn-primary btn-rounded mb-2 mr-2">
               <i class="mdi mdi-code-tags mr-1"></i> New Project
             </button>
           </div>
@@ -54,8 +54,8 @@
                         <i class="mdi mdi-dots-horizontal font-size-18"></i>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                        <a class="dropdown-item" href="javascript: void(0);">Update</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Delete</a>
+                        <a class="dropdown-item" type="button" (click)="projectModal(editProject)">Update</a>
+                        <a class="dropdown-item" type="button" (click)="projectModal(deleteProject)">Delete</a>
                       </div>
                     </div>
                   </td>
@@ -82,8 +82,8 @@
     <!-- end row -->
   </div>
   
-<!-- Extra Large Modal -->
-<ng-template #content let-modal>
+<!-- Project Add Modal -->
+<ng-template #addProject let-modal>
   <div class="modal-header">
       <h5 class="modal-title mt-0">Create Project</h5>
       <button type="button" class="close" aria-label="Close"
@@ -106,6 +106,57 @@
       <div class="form-group">
         <label for="exampleFormControlTextarea1">Description</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</ng-template>
+
+<!-- Project Edit Modal -->
+<ng-template #editProject let-modal>
+  <div class="modal-header">
+      <h5 class="modal-title mt-0">Edit Project</h5>
+      <button type="button" class="close" aria-label="Close"
+          (click)="modal.dismiss('Close click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Add Project Name"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add project name'">
+      </div>
+      <div class="form-group">
+        <label for="version">Version</label>
+        <input type="text" class="form-control" id="version" placeholder="Version Number"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Version Number'">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</ng-template>
+
+<!-- Project Delete Modal -->
+<ng-template #deleteProject let-modal>
+  <div class="modal-header">
+      <h5 class="modal-title mt-0">Delete Project</h5>
+      <button type="button" class="close" aria-label="Close"
+          (click)="modal.dismiss('Close click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="delete">Type <b>Delete</b> to delete the project</label>
+        <input type="text" class="form-control" id="delete" placeholder="Type Delete"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type Delete'">
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
     </form>

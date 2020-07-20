@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                     <div class="text-right">
-                                        <button class="btn btn-sm btn-danger" type="button">Delete Result</button>
+                                        <button class="btn btn-sm btn-danger" type="button" (click)="summaryModal(deleteContent)">Delete Result</button>
                                       </div>
                                 </ng-template>
                             </li>
@@ -75,7 +75,7 @@
                                                     </select>
                                                   </div>
                                                   <div class="text-right">
-                                                    <button class="btn btn-sm btn-danger" type="button">Delete Result</button>
+                                                    <button class="btn btn-sm btn-danger" type="button" (click)="summaryModal(deleteResult)">Delete Result</button>
                                                   </div>
                                             </form>
                                         </div>
@@ -95,3 +95,45 @@
       </div>
     </div>
   </div>
+
+  <!-- Content Delete Modal -->
+<ng-template #deleteContent let-modal>
+  <div class="modal-header">
+      <h5 class="modal-title mt-0">Delete Content</h5>
+      <button type="button" class="close" aria-label="Close"
+          (click)="modal.dismiss('Close click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="delete">Type <b>Delete</b> to delete the content</label>
+        <input type="text" class="form-control" id="delete" placeholder="Type Delete"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type Delete'">
+      </div>
+      <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+  </div>
+</ng-template>
+
+<!-- Result Delete Modal -->
+<ng-template #deleteResult let-modal>
+  <div class="modal-header">
+      <h5 class="modal-title mt-0">Delete Result</h5>
+      <button type="button" class="close" aria-label="Close"
+          (click)="modal.dismiss('Close click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="delete">Type <b>Delete</b> to delete the result</label>
+        <input type="text" class="form-control" id="delete" placeholder="Type Delete"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type Delete'">
+      </div>
+      <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+  </div>
+</ng-template>
