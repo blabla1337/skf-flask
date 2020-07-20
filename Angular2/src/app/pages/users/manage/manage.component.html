@@ -10,14 +10,14 @@
             <div class="col-sm-4">
               <div class="search-box mr-2 mb-2 d-inline-block">
                 <div class="position-relative">
-                  <input type="text" class="form-control" placeholder="Search..."/>
+                  <input type="text" class="form-control" placeholder="Search..." />
                   <i class="bx bx-search-alt search-icon"></i>
                 </div>
               </div>
             </div>
             <div class="col-sm-8">
               <div class="text-sm-right">
-                <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2" (click)="centerModal(centerDataModal)">  
+                <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2" (click)="centerModal(userAddModal)">
                   <i class="mdi mdi-plus mr-1"></i> New users
                 </button>
               </div>
@@ -52,25 +52,25 @@
                   <td>{{users.status}}</td>
                   <td>
                     <div class="dropdown" ngbDropdown>
-                    <span *ngIf="users['allow']=='True'" class="badge badge-success font-size-12 m-1">
-                      Allow
-                    </span>
-                    <span *ngIf="users['deny']=='True'" class="badge badge-danger font-size-12 m-1">
-                      Deny
-                    </span>
-                    <span *ngIf="users['pending']=='True'" class="badge badge-warning font-size-12 m-1">
-                      Pending
-                    </span>
+                      <span *ngIf="users['allow']=='True'" class="badge badge-success font-size-12 m-1">
+                        Allow
+                      </span>
+                      <span *ngIf="users['deny']=='True'" class="badge badge-danger font-size-12 m-1">
+                        Deny
+                      </span>
+                      <span *ngIf="users['pending']=='True'" class="badge badge-warning font-size-12 m-1">
+                        Pending
+                      </span>
                       <span type="button" class="badge badge-secondary font-size-12 m-1" ngbDropdownToggle>
                         <i class="bx bx-plus"></i>
                       </span>
-                    <ul class="dropdown-menu" ngbDropdownMenu>
-                      <a class="dropdown-item disabled" href="javascript: void(0);">Action</a>
-                      <a class="dropdown-item text-success" href="javascript: void(0);">Allow</a>
-                      <a class="dropdown-item text-danger" href="javascript: void(0);">Deny</a>
-                      <a class="dropdown-item text-warning" href="javascript: void(0);">Pending</a>
-                    </ul>
-                  </div>
+                      <ul class="dropdown-menu" ngbDropdownMenu>
+                        <a class="dropdown-item disabled" href="javascript: void(0);">Action</a>
+                        <a class="dropdown-item text-success" href="javascript: void(0);">Allow</a>
+                        <a class="dropdown-item text-danger" href="javascript: void(0);">Deny</a>
+                        <a class="dropdown-item text-warning" href="javascript: void(0);">Pending</a>
+                      </ul>
+                    </div>
                   </td>
                   <td>{{users.date}}</td>
                   <td>
@@ -80,12 +80,14 @@
                         <i class="mdi mdi-dots-horizontal font-size-18"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                        <li><a href="javascript: void(0);" class="dropdown-item"><i
-                              class="fas fa-pencil-alt text-success mr-1"></i>
-                            Edit</a></li>
-                        <li><a href="javascript: void(0);" class="dropdown-item"><i
-                              class="fas fa-trash-alt text-danger mr-1"></i>
-                            Delete</a></li>
+                        <li>
+                          <a href="javascript: void(0);" type="button" (click)="centerModal(userAddModal)" class="dropdown-item">
+                            <i class="fas fa-pencil-alt text-success mr-1"></i>Edit</a>
+                        </li>
+                        <li>
+                          <a href="javascript: void(0);" class="dropdown-item">
+                            <i class="fas fa-trash-alt text-danger mr-1"></i>Delete</a>
+                        </li>
                       </ul>
                     </div>
                   </td>
@@ -107,7 +109,7 @@
 
 <!-- Data Modal -->
 
-<ng-template #centerDataModal let-modal>
+<ng-template #userAddModal let-modal>
   <div class="modal-header">
     <h5 class="modal-title mt-0">User Details</h5>
     <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
@@ -146,6 +148,67 @@
             <span *ngIf="form.email.errors.pattern">This value should be a valid email.</span>
           </div>
         </div>
+      </div>
+      <div class="form-group mb-4">
+        <label for="status-input">Status</label>
+        <select class="custom-select" id="status-input">
+          <option value="">--Select--</option>
+          <option value="1">Activate</option>
+          <option value="2">Deactivate</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #userEditModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Edit User</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="validationform">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="validationCustom01">First name</label>
+            <input type="text" class="form-control" id="validationCustom01" formControlName="firstName"
+              placeholder="First name" [ngClass]="{'is-invalid': submit && form.firstName.errors}">
+            <div *ngIf="submit && form.firstName.errors" class="invalid-feedback">
+              <span *ngIf="form.firstName.errors.required">Required!</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="validationCustom02">Last name</label>
+            <input type="text" class="form-control" id="validationCustom02" formControlName="lastName"
+              placeholder="Last name" [ngClass]="{'is-invalid': submit && form.lastName.errors}">
+            <div *ngIf="submit && form.lastName.errors" class="invalid-feedback">
+              <span *ngIf="form.lastName.errors.required">Required!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>E-Mail</label>
+        <div>
+          <input type="email" class="form-control" formControlName="email"
+            [ngClass]="{'is-invalid': submit && form.email.errors}" placeholder="Enter a valid e-mail" />
+          <div *ngIf="submit && form.email.errors" class="invalid-feedback">
+            <span *ngIf="form.email.errors.required">This value is required.</span>
+            <span *ngIf="form.email.errors.pattern">This value should be a valid email.</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label for="status-input">Status</label>
+        <select class="custom-select" id="status-input">
+          <option value="">--Select--</option>
+          <option value="1">Activate</option>
+          <option value="2">Deactivate</option>
+        </select>
       </div>
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>

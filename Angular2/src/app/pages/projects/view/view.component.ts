@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 import { Projects } from './view.model';
 import { projectData } from './data';
@@ -17,7 +18,8 @@ export class ProjectViewComponent implements OnInit {
   projectData: Projects[];
   selected: string;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'View', active: true }];
@@ -33,6 +35,10 @@ export class ProjectViewComponent implements OnInit {
    */
   projectCreateModal(content: any) {
     this.modalService.open(content, { size: 'lg' });
+  }
+
+  onView() {
+    this.router.navigate(['/projects/summary']);
   }
 
 }
