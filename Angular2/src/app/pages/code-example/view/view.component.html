@@ -43,7 +43,7 @@
             </div>
             <div class="col-sm-8">
               <div class="text-sm-right">
-                <button type="button" (click)="centerModal(centerDataModal)"
+                <button type="button" (click)="centerModal(addCode)"
                   class="btn btn-primary btn-rounded mb-2 mr-2">
                   <i class="mdi mdi-code-tags mr-1"></i> New Code
                 </button>
@@ -76,7 +76,7 @@
                     <pre class="card shadow-none border bg-dark text-light card-body mb-0">{{codes.content}}</pre>
                     <div class="text-right mt-2">
                       <button class="btn btn-sm btn-success mr-2" type="button" (click)="updateCode()">Update</button>
-                      <button class="btn btn-sm btn-danger" type="button" (click)="deleteCode()">Delete</button>
+                      <button class="btn btn-sm btn-danger" type="button" (click)="centerModal(codeDelete)">Delete</button>
                     </div>
                   </div>
                 </div>
@@ -90,7 +90,7 @@
   </div>
 </div>
 
-<ng-template #centerDataModal let-modal>
+<ng-template #addCode let-modal>
   <div class="modal-header">
     <h5 class="modal-title mt-0">Add New Code</h5>
     <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
@@ -112,6 +112,23 @@
         <textarea class="form-control" id="contentArea" rows="20"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #codeDelete let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Delete the Code Example</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="deletecode">Type <b>Delete</b> to delete the code</label>
+        <input type="text" class="form-control" id="deletecode" placeholder="Type Delete" 
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type Delete'">
+      </div>
+      <button type="submit" class="btn btn-primary">Delete</button>
     </form>
   </div>
 </ng-template>
