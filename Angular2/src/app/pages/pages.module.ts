@@ -19,6 +19,8 @@ import { DndModule } from 'ngx-drag-drop';
 import { ManageComponent } from './users/manage/manage.component';
 import { CodeViewComponent } from './code-example/view/view.component';
 import { ReadComponent } from './knowledgebase/read/read.component';
+import { CreateComponent } from './knowledgebase/create/create.component';
+import { UpdateComponent } from './knowledgebase/update/update.component';
 import { ViewComponent } from './checklists/view/view.component';
 import { ChecklistsReadComponent } from './checklists/read/read.component';
 import { CheckManageComponent } from './checklists/manage/manage.component';
@@ -35,6 +37,7 @@ import { SummaryComponent } from './projects/summary/summary.component';
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, CheckManageComponent,
     LabReadComponent, LabViewComponent, SummaryComponent,
+    CreateComponent, UpdateComponent,
   ],
   imports: [
     CommonModule,

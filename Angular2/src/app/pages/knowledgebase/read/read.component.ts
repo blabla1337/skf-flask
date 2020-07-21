@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -34,7 +34,6 @@ export class ReadComponent implements OnInit
 
   ngOnInit()
   {
-
     /** 
     this.knowledgebaseForm = this.formBuilder.group({
       firstname: ['', Validators.required],
@@ -53,7 +52,7 @@ export class ReadComponent implements OnInit
   private _fetchData()
   {
     this._knowledgebaseService
-      .getKnowledgeBaseItems(Number(localStorage.getItem("categorySelector")))
+      .getKnowledgeBaseItems(Number(localStorage.getItem('categorySelector')))
       .subscribe(data => this.knowledgeData = data);
 
     this._checklistCategoryService
@@ -72,7 +71,7 @@ export class ReadComponent implements OnInit
 
   setCategorySelectorId(categoryId: Number)
   {
-    localStorage.setItem("categorySelector", categoryId.toString())
+    localStorage.setItem('categorySelector', categoryId.toString());
     this._fetchData();
   }
 }
