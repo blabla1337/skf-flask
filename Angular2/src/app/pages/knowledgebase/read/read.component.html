@@ -1,140 +1,128 @@
 <div class="container-fluid">
-    <app-page-title title="knowledgebase" [breadcrumbItems]="breadCrumbItems"></app-page-title>
-    <div class="knowledgebase-tabs">
-      <div class="row">
-        <div class="col-lg-2">
-          <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-pills flex-column">
-            <li *ngFor="let item of knowledgeData" [ngbNavItem]="item.id">
-              <a ngbNavLink>
-                <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
-                <p class="font-weight-bold mb-4">{{item.platform}}</p>
-              </a>
-              <ng-template ngbNavContent>
-                <div class="card">
-                  <div class="card-body">
-  
+  <app-page-title title="knowledgebase" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <div class="knowledgebase-tabs">
+    <div class="row">
+      <div class="col-lg-2">
+        <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-pills flex-column">
+          <li *ngFor="let item of categoryData.items" [ngbNavItem]="item.id">
+            <a ngbNavLink (click)="setCategorySelectorId(item.id)">
+              <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
+              <p class="font-weight-bold mb-4">{{item.name}}</p>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="card">
+                <div class="card-body">
                   <div class="row mb-3">
-                      <div class="col-sm-4">
-                        <h4 class="card-title mb-4">{{item.platform}}</h4>
-
-                      </div>
-                      <div class="col-sm-8">
-                        <div class="text-sm-right">
-                            <div class="search-box mr-2 mb-2 d-inline-block">
-                                <div class="position-relative">
-                                  <input type="text" class="form-control" placeholder="Search..."/>
-                                  <i class="bx bx-search-alt search-icon"></i>
-                                </div>
-                              </div>
+                    <div class="col-sm-4">
+                      <h4 class="card-title mb-4">{{item.name}}</h4>
+                    </div>
+                    <div class="col-sm-8">
+                      <div class="text-sm-right">
+                        <div class="search-box mr-2 mb-2 d-inline-block">
+                          <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search..." />
+                            <i class="bx bx-search-alt search-icon"></i>
+                          </div>
                         </div>
                       </div>
-                      <!-- end col-->
+                    </div>
+                    <!-- end col-->
                   </div>
-                  
-                    <div class="card shadow-none border mb-0">
-                      <div class="card-body">
-                        <div class="row mt-3">
-                          <div class="col-lg-12">
-                              <!-- Content Body -->
-                                          <div class="row mb-4" *ngFor="let subitem of item['subData'], let i = index">
-                                           <div class="col">
-                                               
-                                                  <div class="box media mb-2">
-                                                    <div class="icon mr-3">
-                                                      <i class="bx bx-book-content font-size-20 text-success"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                      <div class="row">
-                                                        <div class="col-sm-4">
-                                                          <h4 class="card-title text-primary">{{subitem.title}}</h4>
-                                                        </div>
-                                                        <div class="col-sm-8">
-                                                          <div class="text-sm-right">
-                                                            <a href="javascript:void(0)" data-toggle="collapse" (click)="isCollapsed[i] = !isCollapsed[i]">Read More</a>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <p class="text-muted">{{subitem.content}}</p>
-                                                    </div>
-                                                  </div>
-
-                                                   <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[i]">
-                                                     <div class="card shadow-none border card-body mb-0">{{subitem.description}}</div>
-                                                     <div class="row mt-4">
-                                                        <div class="col-sm-6">
-                                                          <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
-                                                            <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
-                                                        </div> <!-- end col -->
-                                                        <div class="col-sm-6">
-                                                          <div class="text-sm-right">
-                                                            <a (click)="centerModal(contentUpdate)" class="btn btn-success m-1 text-light">
-                                                              <i class="mdi mdi-check mr-1"></i> Update </a>
-                                                            <a (click)="centerModal(contentDelete)" class="btn btn-danger m-1 text-light">
-                                                              <i class="bx bx-trash mr-1"></i> Delete </a>
-                                                          </div>
-                                                        </div> <!-- end col -->
-                                                      </div>
-                                                    <div class="dropdown-divider"></div>
-                                                   </div>
-                                                 
-                                             </div>
-                                            </div>
-                             <!-- Content Body Ends-->
+                  <div class="card shadow-none border mb-0">
+                    <div class="card-body">
+                      <div class="row mt-3">
+                        <div class="col-lg-12">
+                          <!-- Content Body -->
+                          <div class="row mb-4" *ngFor="let subitem of knowledgeData.items, let i = index">
+                            <div class="col">
+                              <div class="box media mb-2">
+                                <div class="icon mr-3">
+                                  <i class="bx bx-book-content font-size-20 text-success"></i>
+                                </div>
+                                <div class="media-body">
+                                  <div class="row">
+                                    <div class="col-sm-4">
+                                      <h4 class="card-title text-primary">{{subitem.title}}</h4>
+                                    </div>
+                                    <div class="col-sm-8">
+                                      <div class="text-sm-right">
+                                        <a href="javascript:void(0)" data-toggle="collapse"
+                                          (click)="isCollapsed[i] = !isCollapsed[i]">Read More</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[i]">
+                                <div class="card shadow-none border card-body mb-0">{{subitem.content}}</div>
+                                <div class="row mt-4">
+                                  <div class="col-sm-6">
+                                    <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
+                                      <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
+                                  </div> <!-- end col -->
+                                  <div class="col-sm-6">
+                                    <div class="text-sm-right">
+                                      <a (click)="centerModal(contentUpdate)" class="btn btn-success m-1 text-light">
+                                        <i class="mdi mdi-check mr-1"></i> Update </a>
+                                      <a (click)="centerModal(contentDelete)" class="btn btn-danger m-1 text-light">
+                                        <i class="bx bx-trash mr-1"></i> Delete </a>
+                                    </div>
+                                  </div> <!-- end col -->
+                                </div>
+                                <div class="dropdown-divider"></div>
+                              </div>
+                            </div>
                           </div>
-                      </div>
+                          <!-- Content Body Ends-->
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </ng-template>
-            </li>
-
-
-          </ul>
-        </div>
-        <div class="col-lg-10">
-          <div [ngbNavOutlet]="nav"></div>
-        </div>
+              </div>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-10">
+        <div [ngbNavOutlet]="nav"></div>
       </div>
     </div>
   </div>
+</div>
 
-  <ng-template #contentUpdate let-modal>
-    <div class="modal-header">
-      <h5 class="modal-title mt-0">Update Knowledgebase</h5>
-      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="titleInput">Title</label>
-          <input type="text" class="form-control" id="titleInput" placeholder="Add new title">
-        </div>
-        <div class="form-group">
-          <label for="contentInput">Content</label>
-          <input type="text" class="form-control" id="contentInput" placeholder="content">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Description</label>
-          <textarea class="form-control" id="Description" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
-      </form>
-    </div>
-  </ng-template>
+<ng-template #contentUpdate let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Update Knowledgebase</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="titleInput">Title</label>
+        <input type="text" class="form-control" id="titleInput" placeholder="Add new title">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" id="Description" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</ng-template>
 
-  <ng-template #contentDelete let-modal>
-    <div class="modal-header">
-      <h5 class="modal-title mt-0">Delete Knowledgebase</h5>
-      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="titleInput">Type <b>'Delete'</b> to delete the knowledgebase</label>
-          <input type="text" class="form-control" id="titleInput" placeholder="Type 'Delete'">
-        </div>
-        <button type="submit" class="btn btn-primary">Delete</button>
-      </form>
-    </div>
-  </ng-template>
+<ng-template #contentDelete let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Delete Knowledgebase</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="titleInput">Type <b>'Delete'</b> to delete the knowledgebase</label>
+        <input type="text" class="form-control" id="titleInput" placeholder="Type 'Delete'">
+      </div>
+      <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+  </div>
+</ng-template>
