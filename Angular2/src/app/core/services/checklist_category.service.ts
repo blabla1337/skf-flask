@@ -13,6 +13,6 @@ export class ChecklistCategoryService
 
     getChecklistCategoryCollection()
     {
-        return this.http.get('http://localhost:8888/api/checklist_category/items')
+        return this.http.get('https://beta.securityknowledgeframework.org/api/checklist_category/items')
     }
 }

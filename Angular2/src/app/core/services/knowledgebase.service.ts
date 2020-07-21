@@ -15,7 +15,7 @@ export class KnowledgebaseService
 
     getKnowledgeBaseItems(category_id: number)
     {
-        return this.http.get(`http://localhost:8888/api/kb/items/${category_id}`)
+        return this.http.get(`https://beta.securityknowledgeframework.org/api/kb/items/${category_id}`)
     }
 
 }
