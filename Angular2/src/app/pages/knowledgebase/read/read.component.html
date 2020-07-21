@@ -12,11 +12,9 @@
             <ng-template ngbNavContent>
               <div class="card">
                 <div class="card-body">
-
                   <div class="row mb-3">
                     <div class="col-sm-4">
                       <h4 class="card-title mb-4">{{item.name}}</h4>
-
                     </div>
                     <div class="col-sm-8">
                       <div class="text-sm-right">
@@ -30,7 +28,6 @@
                     </div>
                     <!-- end col-->
                   </div>
-
                   <div class="card shadow-none border mb-0">
                     <div class="card-body">
                       <div class="row mt-3">
@@ -38,7 +35,6 @@
                           <!-- Content Body -->
                           <div class="row mb-4" *ngFor="let subitem of knowledgeData.items, let i = index">
                             <div class="col">
-
                               <div class="box media mb-2">
                                 <div class="icon mr-3">
                                   <i class="bx bx-book-content font-size-20 text-success"></i>
@@ -57,7 +53,6 @@
                                   </div>
                                 </div>
                               </div>
-
                               <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[i]">
                                 <div class="card shadow-none border card-body mb-0">{{subitem.content}}</div>
                                 <div class="row mt-4">
@@ -76,7 +71,6 @@
                                 </div>
                                 <div class="dropdown-divider"></div>
                               </div>
-
                             </div>
                           </div>
                           <!-- Content Body Ends-->
@@ -88,8 +82,6 @@
               </div>
             </ng-template>
           </li>
-
-
         </ul>
       </div>
       <div class="col-lg-10">
@@ -111,8 +103,8 @@
         <input type="text" class="form-control" id="titleInput" placeholder="Add new title">
       </div>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1">Description</label>
-        <textarea class="form-control" id="Description" rows="3"></textarea>
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Update</button>
     </form>
