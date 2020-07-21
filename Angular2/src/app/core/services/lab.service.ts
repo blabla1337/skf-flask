@@ -7,16 +7,16 @@ import { environment } from '../../../environments/environment';
     providedIn: 'root'
 })
 
-export class KnowledgebaseService
+export class LabService
 {
 
     constructor(
         private http: HttpClient,
     ) { }
 
-    getKnowledgeBaseItems(category_id: number)
+    getLabs()
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/kb/items/${category_id}`)
+        return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
     }
 
 }
