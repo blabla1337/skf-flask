@@ -5,6 +5,7 @@ import { DOCUMENT } from '@angular/common';
 
 import { MENU } from './menu';
 import { MenuItem } from './menu.model';
+import { ChecklistCategoryService } from '../../core/services/checklist_category.service';
 
 @Component({
   selector: 'app-horizontaltopbar',
@@ -15,7 +16,8 @@ import { MenuItem } from './menu.model';
 /**
  * Horizontal Topbar and navbar specified
  */
-export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
+export class HorizontaltopbarComponent implements OnInit, AfterViewInit
+{
 
   element;
   configData;
@@ -25,17 +27,21 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   dark = false;
   light = true;
   menuItems = [];
+  categoryData: any = [];
 
   // tslint:disable-next-line: max-line-length
-  constructor(@Inject(DOCUMENT) private document: any, private router: Router) {
-    router.events.subscribe(event => {
+  constructor(@Inject(DOCUMENT) private document: any, private router: Router, private _checklistCategoryService: ChecklistCategoryService, )
+  {
+    router.events.subscribe(event =>
+    {
       if (event instanceof NavigationEnd) {
         this.activateMenu();
       }
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.element = document.documentElement;
 
     this.initialize();
@@ -45,13 +51,16 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
       wheelSpeed: 0.3
     };
 
-    localStorage.setItem('platformId', 'Web');
+    this._checklistCategoryService
+      .getChecklistCategoryCollection()
+      .subscribe(data => this.categoryData = data);
   }
 
   /**
    * On menu click
    */
-  onMenuClick(event: any) {
+  onMenuClick(event: any)
+  {
     const nextEl = event.target.nextSibling;
     if (nextEl && !nextEl.classList.contains('show')) {
       const parentEl = event.target.parentNode;
@@ -62,14 +71,16 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
     return false;
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit()
+  {
     this.activateMenu();
   }
 
   /**
    * remove active and mm-active class
    */
-  _removeAllClass(className) {
+  _removeAllClass(className)
+  {
     const els = document.getElementsByClassName(className);
     while (els[0]) {
       els[0].classList.remove(className);
@@ -79,7 +90,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   /**
    * Togglemenu bar
    */
-  toggleMenubar() {
+  toggleMenubar()
+  {
     const element = document.getElementById('topnav-menu-content');
     element.classList.toggle('show');
   }
@@ -87,7 +99,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   /**
    * Change to Dark theme
    */
-  toDark(theme: string) {
+  toDark(theme: string)
+  {
     this.changeTheme(theme);
     this.light = false;
     this.dark = true;
@@ -96,7 +109,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   /**
    * Change to Light theme
    */
-  toLight(theme: string) {
+  toLight(theme: string)
+  {
     this.changeTheme(theme);
     this.dark = false;
     this.light = true;
@@ -105,7 +119,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   /**
    * Dynamic Theme
    */
-  changeTheme(styleName: string) {
+  changeTheme(styleName: string)
+  {
     const head = this.document.getElementsByTagName('head')[0];
     const themeLink = this.document.getElementById('dynamic-theme') as HTMLLinkElement;
     if (themeLink) {
@@ -123,9 +138,11 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   /**
    * Activates the menu
    */
-  private activateMenu() {
+  private activateMenu()
+  {
 
-    const resetParent = (el: any) => {
+    const resetParent = (el: any) =>
+    {
       const parent = el.parentElement;
       if (parent) {
         parent.classList.remove('active');
@@ -198,7 +215,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   /**
   * Initialize
   */
-  initialize(): void {
+  initialize(): void
+  {
     this.menuItems = MENU;
   }
 
@@ -206,25 +224,32 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
    * Returns true or false if given menu item has child or not
    * @param item menuItem
    */
-  hasItems(item: MenuItem) {
+  hasItems(item: MenuItem)
+  {
     return item.subItems !== undefined ? item.subItems.length > 0 : false;
   }
 
-  platformUpdate(platform: string) {
-    localStorage.setItem('platformId', platform);
+  platformUpdate(platform: string)
+  {
+    localStorage.setItem('categorySelector', platform);
+    this.document.defaultView.location.reload();
+
   }
 
-  onLogin() {
+  onLogin()
+  {
     this.router.navigate(['/auth/login']);
   }
 
-  loggedIn() {
+  loggedIn()
+  {
     this.loggedinUser = localStorage.getItem('token');
     this.loggedin = true;
     return this.loggedinUser;
   }
 
-  loggedOut() {
+  loggedOut()
+  {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }

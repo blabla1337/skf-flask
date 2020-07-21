@@ -3,23 +3,25 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 
 import { Labs } from './view.model';
-import { labData } from './data';
+import { LabService } from '../../../core/services/lab.service';
 
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.scss']
 })
-export class LabViewComponent implements OnInit {
+export class LabViewComponent implements OnInit
+{
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
-  labData: Labs[];
+  labData: any;
 
-  constructor() { }
+  constructor(private _labService: LabService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
   }
@@ -27,13 +29,15 @@ export class LabViewComponent implements OnInit {
   /**
    * Checklists data fetches
    */
-  private _fetchData() {
-    this.labData = labData;
+  private _fetchData()
+  {
+    this._labService.getLabs().subscribe(lab => this.labData = lab)
   }
 
 
   // Get Lab Address
-  getLabAddress() {
+  getLabAddress()
+  {
     const labAPI = 'https://api6.ipify.org?format=json';
     Swal.queue([
       {
@@ -42,11 +46,13 @@ export class LabViewComponent implements OnInit {
         confirmButtonText: 'Sounds Good',
         confirmButtonColor: '#8184B2',
         showLoaderOnConfirm: true,
-        preConfirm: () => {
+        preConfirm: () =>
+        {
           return fetch(labAPI)
             .then(response => response.json())
             .then(data => Swal.insertQueueStep(data.ip))
-            .catch(() => {
+            .catch(() =>
+            {
               Swal.insertQueueStep({
                 title: 'Unable to get your lab address'
               });

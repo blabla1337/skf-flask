@@ -10,16 +10,30 @@
             <table class="table table-centered table-nowrap table-hover">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col" style="width: 50px;"><div class="text-center">#</div></th>
-                  <th scope="col"><div class="text-center">Name</div></th>
-                  <th scope="col"><div class="text-center">Label</div></th>
-                  <th scope="col"><div class="text-center">Level</div></th>
-                  <th scope="col"><div class="text-center">Status</div></th>
-                  <th scope="col"><div class="text-center">Write-up</div></th>
-                  <th scope="col"><div class="text-center">Action</div></th>
+                  <th scope="col" style="width: 50px;">
+                    <div class="text-center">#</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Name</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Label</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Level</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Status</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Write-up</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Action</div>
+                  </th>
                 </tr>
               </thead>
-              <tbody *ngFor="let data of labData">
+              <tbody *ngFor="let item of labData.items">
                 <tr>
                   <td>
                     <div class="avatar-xs">
@@ -29,24 +43,29 @@
                     </div>
                   </td>
                   <td>
-                    <h5 class="font-size-14 mt-2 text-center"><a href="javascript: void(0);" class="text-dark">{{data.name}}</a></h5>
+                    <h5 class="font-size-14 mt-2 text-center"><a href="javascript: void(0);"
+                        class="text-dark">{{item.title}}</a></h5>
                   </td>
-                  <td><div class="text-center">{{data.label}}</div></td>
                   <td>
-                    <div class="text-center">{{data.level}}</div>
+                    <div class="text-center">{{item.label}}</div>
+                  </td>
+                  <td>
+                    <div class="text-center">{{item.level}}</div>
                   </td>
                   <td>
                     <div class="text-center">
-                      <a href="javascript: void(0);" class="badge badge-soft-success font-size-11 m-1">{{data.status}}</a>                      
+                      <a href="javascript: void(0);"
+                        class="badge badge-soft-success font-size-11 m-1">{{item.status}}</a>
                     </div>
                   </td>
                   <td>
-                    <div class="text-center"><a href="javascript: void(0)">Click here</a></div>
+                    <div class="text-center"><a href="{{item.link}}}" target="_blank">Click here</a></div>
                   </td>
                   <td>
                     <ul class="list-inline mb-0 text-center">
                       <li class="list-inline-item">
-                        <button class="btn btn-success btn-sm" id="get-address" (click)="getLabAddress()">Deploy</button>
+                        <button class="btn btn-success btn-sm" id="get-address"
+                          (click)="getLabAddress()">Deploy</button>
                       </li>
                       <li class="list-inline-item">
                         <button type="button" class="btn btn-danger btn-sm">Stop</button>
@@ -54,7 +73,7 @@
                     </ul>
                   </td>
                 </tr>
-                
+
               </tbody>
             </table>
           </div>
