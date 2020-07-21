@@ -45,8 +45,8 @@ export class ReadComponent implements OnInit
     })
     */
 
-    this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
-    this._fetchData();
+   this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
+   this._fetchData();    this._fetchData();
   }
 
   /**
