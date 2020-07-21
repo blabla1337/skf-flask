@@ -1,0 +1,35 @@
+<div class="container-fluid">
+
+    <app-page-title title="Code Examples" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Create Code Example</h4>
+                    <form class="edit-form">
+                        <div class="form-group mb-3">
+                            <label for="title">Title :</label>
+                            <input type="text" class="form-control" id="title" placeholder="Add Title"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add Title'">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="language">Language :</label>
+                            <input type="text" class="form-control" id="language" placeholder="Add Language"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add Language'">
+                        </div>
+                        <div class="form-group">
+                            <label for="code">Code :</label>
+                            <textarea id="code" class="form-control" rows="18"></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-success mr-2" type="button">Update</button>
+                            <button class="btn btn-danger" type="button">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
