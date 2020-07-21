@@ -34,8 +34,6 @@ export class ReadComponent implements OnInit
 
   ngOnInit()
   {
-    //move the category selector to a place where it sets a default value
-    localStorage.setItem("categorySelector", "1")
 
     /** 
     this.knowledgebaseForm = this.formBuilder.group({
