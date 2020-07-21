@@ -5,7 +5,7 @@
       <div class="col-lg-2">
         <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-pills flex-column">
           <li *ngFor="let item of codeData" [ngbNavItem]="item.id">
-            <a ngbNavLink>
+            <a class="text-center mb-3 border" ngbNavLink>
               <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
               <p class="font-weight-bold mb-4">{{item.title}}</p>
             </a>
