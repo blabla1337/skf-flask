@@ -51,12 +51,12 @@ export class ReadComponent implements OnInit
   }
 
   /**
-   * Open center modal
-   * @param centerDataModal center modal data
+   * Open delete modal
+   * @param deleteDataModal delete modal data
    */
-  centerModal(centerDataModal: any)
+  deleteModal(deleteDataModal: any)
   {
-    this.modalService.open(centerDataModal, { centered: true });
+    this.modalService.open(deleteDataModal, { centered: true });
   }
 
   setCategorySelectorId(categoryId: Number)

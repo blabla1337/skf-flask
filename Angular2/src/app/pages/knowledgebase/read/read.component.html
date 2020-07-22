@@ -65,7 +65,8 @@
                                       <a [routerLink]="['/knowledgebase/update', subitem.kb_id]"
                                         class="btn btn-success m-1 text-light">
                                         <i class="mdi mdi-check mr-1"></i> Update </a>
-                                      <a (click)="centerModal(contentDelete)" class="btn btn-danger m-1 text-light">
+                                      <a type="button" class="btn btn-danger m-1 text-light"
+                                       (click)="deleteModal(contentDelete)">
                                         <i class="bx bx-trash mr-1"></i> Delete </a>
                                     </div>
                                   </div> <!-- end col -->
@@ -84,12 +85,12 @@
                               <div class="modal-body">
                                 <form>
                                   <div class="form-group">
-                                    <label for="titleInput">Type <b>'Delete'</b> to delete the knowledgebase</label>
-                                    <input type="text" class="form-control" id="titleInput" placeholder="Type 'Delete'">
+                                    <label for="delete">Type <b>'Delete'</b> to delete the knowledgebase</label>
+                                    <input type="text" class="form-control" id="delete" placeholder="Type 'Delete'">
                                   </div>
                                   <button type="submit"
                                     (click)="deleteKnowledgebaseItem(subitem.kb_id); modal.dismiss('Cross click')"
-                                    class="btn btn-primary">Delete</button>
+                                    class="btn btn-danger">Delete</button>
                                 </form>
                               </div>
                             </ng-template>
