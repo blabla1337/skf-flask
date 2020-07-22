@@ -66,7 +66,8 @@
                                     <div class="text-sm-right">
                                       <a class="btn btn-success m-1 text-light">
                                         <i class="mdi mdi-check mr-1"></i> Update </a>
-                                      <a class="btn btn-danger m-1 text-light">
+                                      <a class="btn btn-danger m-1 text-light"
+                                       type="button" (click)="deleteModal(contentDelete)">
                                         <i class="bx bx-trash mr-1"></i> Delete </a>
                                     </div>
                                   </div> <!-- end col -->
@@ -92,3 +93,22 @@
     </div>
   </div>
 </div>
+
+<!-- Deletion modal-->
+<ng-template #contentDelete let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Delete Code Example</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')"
+      aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="delete">Type <b>'Delete'</b> to delete the Code Example</label>
+        <input type="text" class="form-control" id="delete" placeholder="Type 'Delete'">
+      </div>
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</ng-template>
+<!--  Deletion modal Ends-->
