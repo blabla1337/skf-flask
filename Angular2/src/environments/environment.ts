@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   //DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
-  API_ENDPOINT: 'https://beta.securityknowledgeframework.org',
+  API_ENDPOINT: 'https://demo.securityknowledgeframework.org',
   //API_ENDPOINT: 'https://owasp-skf.cloud.tyk.io/api/api',
   //AUTH_METHOD: 'openidprovider'
   //AUTH_METHOD: 'skiploginprovider'

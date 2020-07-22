@@ -28,20 +28,11 @@ export class ReadComponent implements OnInit
   constructor(
     private modalService: NgbModal,
     private _knowledgebaseService: KnowledgebaseService,
-    private _checklistCategoryService: ChecklistCategoryService,
-    private formBuilder: FormBuilder
+    private _checklistCategoryService: ChecklistCategoryService
   ) { }
 
   ngOnInit()
   {
-    /** 
-    this.knowledgebaseForm = this.formBuilder.group({
-      firstname: ['', Validators.required],
-      surname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.minLength(4)]],
-    })
-    */
-
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
     this._fetchData();
   }
@@ -52,7 +43,7 @@ export class ReadComponent implements OnInit
   private _fetchData()
   {
     this._knowledgebaseService
-      .getKnowledgeBaseItems(Number(localStorage.getItem('categorySelector')))
+      .getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(data => this.knowledgeData = data);
 
     this._checklistCategoryService
@@ -73,5 +64,11 @@ export class ReadComponent implements OnInit
   {
     localStorage.setItem('categorySelector', categoryId.toString());
     this._fetchData();
+  }
+
+  deleteKnowledgebaseItem(id: number)
+  {
+    this._knowledgebaseService.deleteknowledgebaseItem(id).subscribe(x => this._fetchData())
+
   }
 }

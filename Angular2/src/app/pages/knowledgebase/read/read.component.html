@@ -62,7 +62,8 @@
                                   </div> <!-- end col -->
                                   <div class="col-sm-6">
                                     <div class="text-sm-right">
-                                      <a (click)="centerModal(contentUpdate)" class="btn btn-success m-1 text-light">
+                                      <a [routerLink]="['/knowledgebase/update', subitem.kb_id]"
+                                        class="btn btn-success m-1 text-light">
                                         <i class="mdi mdi-check mr-1"></i> Update </a>
                                       <a (click)="centerModal(contentDelete)" class="btn btn-danger m-1 text-light">
                                         <i class="bx bx-trash mr-1"></i> Delete </a>
@@ -72,6 +73,28 @@
                                 <div class="dropdown-divider"></div>
                               </div>
                             </div>
+
+                            <!-- Deletion modal-->
+                            <ng-template #contentDelete let-modal>
+                              <div class="modal-header">
+                                <h5 class="modal-title mt-0">Delete Knowledgebase</h5>
+                                <button type="button" class="close" (click)="modal.dismiss('Cross click')"
+                                  aria-hidden="true">×</button>
+                              </div>
+                              <div class="modal-body">
+                                <form>
+                                  <div class="form-group">
+                                    <label for="titleInput">Type <b>'Delete'</b> to delete the knowledgebase</label>
+                                    <input type="text" class="form-control" id="titleInput" placeholder="Type 'Delete'">
+                                  </div>
+                                  <button type="submit"
+                                    (click)="deleteKnowledgebaseItem(subitem.kb_id); modal.dismiss('Cross click')"
+                                    class="btn btn-primary">Delete</button>
+                                </form>
+                              </div>
+                            </ng-template>
+                            <!--  Deletion modal Ends-->
+
                           </div>
                           <!-- Content Body Ends-->
                         </div>
@@ -90,39 +113,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #contentUpdate let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Update Knowledgebase</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="titleInput">Title</label>
-        <input type="text" class="form-control" id="titleInput" placeholder="Add new title">
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" rows="3"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Update</button>
-    </form>
-  </div>
-</ng-template>
-
-<ng-template #contentDelete let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Delete Knowledgebase</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="titleInput">Type <b>'Delete'</b> to delete the knowledgebase</label>
-        <input type="text" class="form-control" id="titleInput" placeholder="Type 'Delete'">
-      </div>
-      <button type="submit" class="btn btn-primary">Delete</button>
-    </form>
-  </div>
-</ng-template>
