@@ -38,11 +38,11 @@ export class CodeViewComponent implements OnInit {
   }
 
   /**
-   * Open center modal
-   * @param centerDataModal center modal data
+   * Open delete modal
+   * @param deleteDataModal center modal data
    */
-  centerModal(centerDataModal: any) {
-    this.modalService.open(centerDataModal, { size: 'lg', centered: true });
+  deleteModal(deleteDataModal: any) {
+    this.modalService.open(deleteDataModal, { size: 'sm', centered: true });
   }
 
   updateCode() {
