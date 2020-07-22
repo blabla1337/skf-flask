@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
@@ -6,14 +7,16 @@ import { environment } from '../../../environments/environment';
     providedIn: 'root'
 })
 
-export class ChecklistCategoryService
+export class LabService
 {
+
     constructor(
         private http: HttpClient,
     ) { }
 
-    getChecklistCategoryCollection()
+    getLabs()
     {
-        return this.http.get(environment.API_ENDPOINT + '/api/checklist_category/items')
+        return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
     }
+
 }

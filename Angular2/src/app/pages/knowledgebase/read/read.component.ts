@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -28,23 +28,11 @@ export class ReadComponent implements OnInit
   constructor(
     private modalService: NgbModal,
     private _knowledgebaseService: KnowledgebaseService,
-    private _checklistCategoryService: ChecklistCategoryService,
-    private formBuilder: FormBuilder
+    private _checklistCategoryService: ChecklistCategoryService
   ) { }
 
   ngOnInit()
   {
-    //move the category selector to a place where it sets a default value
-    localStorage.setItem("categorySelector", "1")
-
-    /** 
-    this.knowledgebaseForm = this.formBuilder.group({
-      firstname: ['', Validators.required],
-      surname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.minLength(4)]],
-    })
-    */
-
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
     this._fetchData();
   }
@@ -55,7 +43,7 @@ export class ReadComponent implements OnInit
   private _fetchData()
   {
     this._knowledgebaseService
-      .getKnowledgeBaseItems(Number(localStorage.getItem("categorySelector")))
+      .getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(data => this.knowledgeData = data);
 
     this._checklistCategoryService
@@ -74,7 +62,13 @@ export class ReadComponent implements OnInit
 
   setCategorySelectorId(categoryId: Number)
   {
-    localStorage.setItem("categorySelector", categoryId.toString())
+    localStorage.setItem('categorySelector', categoryId.toString());
     this._fetchData();
+  }
+
+  deleteKnowledgebaseItem(id: number)
+  {
+    this._knowledgebaseService.deleteknowledgebaseItem(id).subscribe(x => this._fetchData())
+
   }
 }

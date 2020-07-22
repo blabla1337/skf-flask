@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { KnowledgeBaseRoutingModule } from './knowledgebase-routing.module';
 
+
 @NgModule({
   declarations: [],
   imports: [
