@@ -50,15 +50,14 @@ RUN echo "extra-index-url=https://www.piwheels.org/simple" >> .config/pip/pip.co
 
 RUN pip3 install --upgrade pip &&\
     pip3 install --user nltk &&\
-    pip3 install --user cython &&\
-    pip3 install --user numpy 
+    pip3 install --user cython 
 
 #magic below for PI docker image speeding up
 RUN if [ `ps auwxf | grep qemu-arm | wc -l` = 4 ]; \
 then \
-  pip3 install --user scipy==1.5.0rc2 ; \
+  pip3 install --user numpy==1.19.0rc2 scipy==1.5.0rc2 ; \
 else \
-  pip3 install --user scipy ; \
+  pip3 install --user numpy scipy ; \
 fi 
 RUN pip3 install --user  -r requirements.txt
 

@@ -13,7 +13,6 @@ import { ChecklistCategoryService } from '../../../core/services/checklist_categ
 export class ReadComponent implements OnInit
 {
 
-
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
@@ -69,6 +68,5 @@ export class ReadComponent implements OnInit
   deleteKnowledgebaseItem(id: number)
   {
     this._knowledgebaseService.deleteknowledgebaseItem(id).subscribe(x => this._fetchData())
-
   }
 }

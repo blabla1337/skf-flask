@@ -34,14 +34,14 @@ export class KnowledgebaseService
         return this.http.put(environment.API_ENDPOINT + `/api/kb/new/${this.category_id}`, value, { headers: this.authHeader })
     }
 
-    updateKnowledgebaseItem(id: number, value: any): Observable<Object>
+    updateKnowledgebaseItem(kb_id: number, value: any): Observable<Object>
     {
-        return this.http.put(environment.API_ENDPOINT + `/api/kb/update/${id}`, value, { headers: this.authHeader })
+        return this.http.put(environment.API_ENDPOINT + `/api/kb/update/${kb_id}`, value, { headers: this.authHeader })
     }
 
-    deleteknowledgebaseItem(id: number): Observable<Object>
+    deleteknowledgebaseItem(kb_id: number): Observable<Object>
     {
-        return this.http.delete(environment.API_ENDPOINT + `/api/kb/delete/${id}`, { headers: this.authHeader })
+        return this.http.delete(environment.API_ENDPOINT + `/api/kb/delete/${kb_id}`, { headers: this.authHeader })
     }
 
 }
