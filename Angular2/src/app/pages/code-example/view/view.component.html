@@ -1,134 +1,94 @@
 <div class="container-fluid">
-
-  <app-page-title title="Code Examples" [breadcrumbItems]="breadCrumbItems"></app-page-title>
-
-  <div class="row">
-    <div class="col-lg-12">
-
-      <!-- Content Body -->
-
-      <div class="card">
-        <div class="card-body">
-          <div class="float-right">
-            <div class="dropdown" ngbDropdown>
-              <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false"><i class="mdi mdi-devices text-light mr-1"></i> <span
-                  class="d-none text-light d-sm-inline-block" ngbDropdownToggle>Platforms<i
-                    class="mdi mdi-chevron-down"></i></span></button>
-              <div class="dropdown-menu dropdown-menu-right dropdown-menu-md" ngbDropdownMenu>
-                <a class="dropdown-item disabled">
-                  Choose any one
-                </a>
-                <a class="dropdown-item" href="javascript: void(0);">
-                  Web Application
-                </a>
-                <a class="dropdown-item" href="javascript: void(0);">
-                  Mobile Application
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-primary text-center" href="javascript: void(0);">
-                  Learn more
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="row mb-5">
-            <div class="col-sm-4">
-              <div class="search-box mr-2 mb-2 d-inline-block">
-                <div class="position-relative">
-                  <input type="text" class="form-control" placeholder="Search..." />
-                  <i class="bx bx-search-alt search-icon"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-8">
-              <div class="text-sm-right">
-                <button type="button" (click)="centerModal(addCode)"
-                  class="btn btn-primary btn-rounded mb-2 mr-2">
-                  <i class="mdi mdi-code-tags mr-1"></i> New Code
-                </button>
-              </div>
-            </div>
-            <!-- end col-->
-          </div>
-
-          <div class="row mb-4" *ngFor="let codes of codeData; let i = index">
-            <div class="col">
-              <div class="card border shadow-none">
+  <app-page-title title="Code Example" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <div class="code-example-tabs">
+    <div class="row">
+      <div class="col-lg-2">
+        <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-pills flex-column">
+          <li *ngFor="let item of codeData" [ngbNavItem]="item.id">
+            <a class="text-center mb-3 border" ngbNavLink>
+              <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
+              <p class="font-weight-bold mb-4">{{item.title}}</p>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="card">
                 <div class="card-body">
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-sm-4">
-                      <h4 class="card-title">{{codes.title}}</h4>
+                      <h4 class="card-title mb-4">{{item.title}}</h4>
                     </div>
                     <div class="col-sm-8">
                       <div class="text-sm-right">
-                        <button class="btn-sm btn-primary btn-md mb-3" type="button"
-                          (click)="isCollapsed[i] = !isCollapsed[i]">
-                          Click here
-                        </button>
+                        <div class="search-box mr-4 mb-2 d-inline-block">
+                          <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search..." />
+                            <i class="bx bx-search-alt search-icon"></i>
+                          </div>
+                        </div>
+                        <button class="btn btn-primary">Add Code </button>
                       </div>
                     </div>
+                    <!-- end col-->
                   </div>
-                  <p class="card-title-desc mb-3">
-                    {{codes.content}}
-                  </p>
-                  <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
-                    <pre class="card shadow-none border bg-dark text-light card-body mb-0">{{codes.content}}</pre>
-                    <div class="text-right mt-2">
-                      <button class="btn btn-sm btn-success mr-2" type="button" (click)="updateCode()">Update</button>
-                      <button class="btn btn-sm btn-danger" type="button" (click)="centerModal(codeDelete)">Delete</button>
+                  <div class="card shadow-none border mb-0">
+                    <div class="card-body">
+                      <div class="row mt-3">
+                        <div class="col-lg-12">
+                          <!-- Content Body -->
+                          <div class="row mb-4" *ngFor="let code of codeData, let i = index">
+                            <div class="col">
+                              <div class="box media mb-2">
+                                <div class="icon mr-3">
+                                  <i class="bx bx-book-content font-size-20 text-success"></i>
+                                </div>
+                                <div class="media-body">
+                                  <div class="row">
+                                    <div class="col-sm-10">
+                                      <h4 class="card-title text-primary">{{code.title}}</h4> 
+                                      <p>{{code.content}}</p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                      <div class="text-sm-right">
+                                        <a href="javascript:void(0)" data-toggle="collapse"
+                                          (click)="isCollapsed[i] = !isCollapsed[i]">Click here</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[i]">
+                                <div class="card shadow-none border bg-dark text-light card-body mb-0">{{code.code}}</div>
+                                <div class="row mt-4">
+                                  <div class="col-sm-6">
+                                    <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
+                                      <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
+                                  </div> <!-- end col -->
+                                  <div class="col-sm-6">
+                                    <div class="text-sm-right">
+                                      <a class="btn btn-success m-1 text-light">
+                                        <i class="mdi mdi-check mr-1"></i> Update </a>
+                                      <a class="btn btn-danger m-1 text-light">
+                                        <i class="bx bx-trash mr-1"></i> Delete </a>
+                                    </div>
+                                  </div> <!-- end col -->
+                                </div>
+                                <div class="dropdown-divider"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Content Body Ends-->
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </ng-template>
+          </li>
+        </ul>
       </div>
-      <!-- Content Body Ends-->
+      <div class="col-lg-10">
+        <div [ngbNavOutlet]="nav"></div>
+      </div>
     </div>
   </div>
 </div>
-
-<ng-template #addCode let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Add New Code</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="titleArea">Title</label>
-        <input type="text" class="form-control" id="titleArea" placeholder="Add new title" 
-        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add new title'">
-      </div>
-      <div class="form-group">
-        <label for="languageArea">Language</label>
-        <input type="text" class="form-control" id="languageArea" placeholder="PHP, Java, C#, etc." 
-        onfocus="this.placeholder = ''" onblur="this.placeholder = 'PHP, Java, C#, etc.'">
-      </div>
-      <div class="form-group">
-        <label for="contentArea">Content</label>
-        <textarea class="form-control" id="contentArea" rows="20"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Create</button>
-    </form>
-  </div>
-</ng-template>
-
-<ng-template #codeDelete let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Delete the Code Example</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="deletecode">Type <b>Delete</b> to delete the code</label>
-        <input type="text" class="form-control" id="deletecode" placeholder="Type Delete" 
-        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type Delete'">
-      </div>
-      <button type="submit" class="btn btn-primary">Delete</button>
-    </form>
-  </div>
-</ng-template>
