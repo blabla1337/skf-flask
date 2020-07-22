@@ -7,20 +7,24 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Edit Knowledgebase Item</h4>
-                    <form>
+                    <form [formGroup]="knowledgebaseForm">
                         <div class="form-group">
-                          <label for="titleInput">Title</label>
-                          <input type="text" class="form-control" id="titleInput" placeholder="Add new title">
+                            <label for="titleInput">Title</label>
+                            <input formControlName="title" type="text" class="form-control" id="titleInput"
+                                placeholder="Add new title">
                         </div>
                         <div class="form-group">
-                          <label for="Description">Description</label>
-                          <textarea class="form-control" id="Description" rows="20"></textarea>
+                            <label for="Description">Description</label>
+                            <textarea formControlName="content" class="form-control" id="Description"
+                                rows="20"></textarea>
                         </div>
                         <div class="text-right">
-                            <button class="btn btn-success mr-2" type="button">Update</button>
-                            <button class="btn btn-danger" type="button">Cancel</button>
+                            <button (click)="updateKnowledgebaseItem()" class="btn btn-success mr-2"
+                                type="button">Update</button>
+                            <button [routerLink]="['/knowledgebase/read']" class="btn btn-danger"
+                                type="button">Cancel</button>
                         </div>
-                      </form>
+                    </form>
                 </div>
             </div>
         </div>
