@@ -1,28 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Codes } from './code-example.model';
-
-import { codeData } from './data';
+import { CodeExamplesService } from '../../../core/services/code-examples.service';
+import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
 
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.scss']
 })
-export class CodeViewComponent implements OnInit {
+export class CodeViewComponent implements OnInit 
+{
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
-  codeData: Codes[];
-
   // Collapse value
   public isCollapsed: boolean[] = [];
+  public codeData: any = [];
+  public categoryData: any = [];
+  public codeExamples: FormGroup;
 
-  constructor(private modalService: NgbModal,
-              private router: Router) { }
+  get formControls() { return this.codeExamples.controls; }
+
+  constructor(
+    private modalService: NgbModal,
+    private _knowledgebaseService: CodeExamplesService,
+    private _checklistCategoryService: ChecklistCategoryService
+  ) { }
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
@@ -31,23 +37,36 @@ export class CodeViewComponent implements OnInit {
   }
 
   /**
-   * Code data fetches
+   * Knowledgebase data fetches
    */
-  private _fetchData() {
-    this.codeData = codeData;
+  private _fetchData()
+  {
+    this._knowledgebaseService
+      .getCode(Number(localStorage.getItem('categorySelector')))
+      .subscribe(data => this.codeData = data);
+
+    this._checklistCategoryService
+      .getChecklistCategoryCollection()
+      .subscribe(data => this.categoryData = data);
   }
 
   /**
    * Open center modal
    * @param centerDataModal center modal data
    */
-  centerModal(centerDataModal: any) {
+  centerModal(centerDataModal: any)
+  {
     this.modalService.open(centerDataModal, { size: 'lg', centered: true });
   }
 
-  updateCode() {
-    this.router.navigate(['./code-example/edit']);
+  setCategorySelectorId(categoryId: Number)
+  {
+    localStorage.setItem('categorySelector', categoryId.toString());
+    this._fetchData();
   }
 
-  deleteCode() {}
+  deleteKnowledgebaseItem(id: number)
+  {
+    this._knowledgebaseService.deleteCodeExample(id).subscribe(x => this._fetchData())
+  }
 }
