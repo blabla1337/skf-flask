@@ -20,12 +20,12 @@ export class CodeExamplesService
 
     getCode(category_id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/code/items/${category_id}`)
+        return this.http.get(environment.API_ENDPOINT + `/api/code/items/${category_id}`, { headers: this.authHeader })
     }
 
     getCodeExample(code_id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/code/${code_id}`)
+        return this.http.get(environment.API_ENDPOINT + `/api/code/${code_id}`, { headers: this.authHeader })
     }
 
     createCodeExample(value: any): Observable<Object>
