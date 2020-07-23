@@ -33,7 +33,7 @@ export const MENU: MenuItem[] = [
         id: 5,
         label: 'Knowledgebase',
         icon: 'mdi mdi-18px mdi-school mr-2',
-        link: '/knowledgebase/read',
+        link: '/knowledgebase/view',
         status: 'loggedin || !loggedin',
     },
     {

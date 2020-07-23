@@ -19,8 +19,8 @@ import { UsersModule } from './users/users.module';
 import { DndModule } from 'ngx-drag-drop';
 
 import { ManageComponent } from './users/manage/manage.component';
-import { CodeViewComponent } from './code-example/view/view.component';
-import { ReadComponent } from './knowledgebase/read/read.component';
+import { ViewCodeComponent } from './code-example/view/view.component';
+import { ViewKnowledebaseComponent } from './knowledgebase/view/view.component';
 import { CreateComponent } from './knowledgebase/create/create.component';
 import { UpdateComponent } from './knowledgebase/update/update.component';
 import { ViewComponent } from './checklists/view/view.component';
@@ -37,7 +37,7 @@ import { SummaryComponent } from './projects/summary/summary.component';
 
 @NgModule({
   declarations: [
-    ManageComponent, CodeViewComponent, ReadComponent,
+    ManageComponent, ViewCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, CheckManageComponent,
     LabReadComponent, LabViewComponent, SummaryComponent,
