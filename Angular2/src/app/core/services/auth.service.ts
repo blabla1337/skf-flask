@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService
+{
 
-constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-authUser(user: any) {
-  let UserArray = [];
-  if (localStorage.getItem('Users')) {
-    UserArray = JSON.parse(localStorage.getItem('Users'));
+  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+
+  LoginSKFprovider(user: any)
+  {
+    return this.http.post(environment.API_ENDPOINT + `/api/user/login`, user, { headers: this.authHeader })
   }
-  return UserArray.find(p => p.userName === user.userName && p.userPassword === user.userPassword);
-}
 
 }
