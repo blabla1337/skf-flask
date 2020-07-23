@@ -13,7 +13,7 @@ export class AuthService
     private http: HttpClient,
   ) { }
 
-  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': "null" });
 
   LoginSKFprovider(user: any)
   {
