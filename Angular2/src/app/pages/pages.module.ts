@@ -6,10 +6,12 @@ import { UIModule } from '../shared/ui/ui.module';
 
 
 
-import {
+import
+{
   NgbNavModule, NgbDropdownModule, NgbModalModule,
   NgbTooltipModule, NgbPaginationModule, NgbTypeaheadModule,
-  NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+  NgbCollapseModule
+} from '@ng-bootstrap/ng-bootstrap';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -26,6 +28,8 @@ import { ChecklistsReadComponent } from './checklists/read/read.component';
 import { CheckManageComponent } from './checklists/manage/manage.component';
 import { ProjectManageComponent } from './projects/manage/manage.component';
 import { ProjectViewComponent } from './projects/view/view.component';
+import { ProjectUpdateComponent } from './projects/update/update.component';
+import { ProjectCreateComponent } from './projects/create/create.component';
 import { LabReadComponent } from './labs/read/read.component';
 import { LabViewComponent } from './labs/view/view.component';
 import { SummaryComponent } from './projects/summary/summary.component';
@@ -37,7 +41,7 @@ import { SummaryComponent } from './projects/summary/summary.component';
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, CheckManageComponent,
     LabReadComponent, LabViewComponent, SummaryComponent,
-    CreateComponent, UpdateComponent,
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent
   ],
   imports: [
     CommonModule,

@@ -20,12 +20,12 @@ export class KnowledgebaseService
 
     getKnowledgeBaseItemsCollection(category_id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/kb/items/${category_id}`)
+        return this.http.get(environment.API_ENDPOINT + `/api/kb/items/${category_id}`, { headers: this.authHeader })
     }
 
     getKnowledgeBaseItem(kb_id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/kb/${kb_id}`)
+        return this.http.get(environment.API_ENDPOINT + `/api/kb/${kb_id}`, { headers: this.authHeader })
     }
 
     createKnowledgebaseItem(value: any): Observable<Object>
