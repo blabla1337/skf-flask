@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -18,6 +18,7 @@ import { LoaderComponent } from './loader/loader.component';
     CommonModule,
     RouterModule,
     NgbDropdownModule,
+    NgxSpinnerModule,
   ],
 })
 export class LayoutsModule { }
