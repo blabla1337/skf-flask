@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
   <div class="card">
     <div class="card-body">
@@ -7,14 +7,14 @@
         <div class="col-sm-4">
           <div class="search-box mr-2 mb-2 d-inline-block">
             <div class="position-relative">
-              <input type="text" class="form-control" placeholder="Search..."/>
+              <input type="text" class="form-control" placeholder="Search..." />
               <i class="bx bx-search-alt search-icon"></i>
             </div>
           </div>
         </div>
         <div class="col-sm-8">
           <div class="text-sm-right">
-            <button type="button" data-target="#projectModal"  (click)="projectModal(addProject)" class="btn btn-primary btn-rounded mb-2 mr-2">
+            <button type="button" [routerLink]="['/projects/create']" class="btn btn-primary btn-rounded mb-2 mr-2">
               <i class="mdi mdi-code-tags mr-1"></i> New Project
             </button>
           </div>
@@ -22,55 +22,55 @@
         <!-- end col-->
       </div>
       <div class="dropdown-divider"></div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class>
-          <div class="table-responsive">
-            <table class="table project-list-table table-nowrap table-centered table-borderless table-hover">
-              <thead>
-                <tr>
-                  <th scope="col" class="text-center" style="width: 100px">#</th>
-                  <th scope="col" class="text-center">Projects</th>
-                  <th scope="col" class="text-center">Description</th>
-                  <th scope="col" class="text-center">Created Date</th>
-                  <th scope="col" class="text-center">Project Version</th>
-                  <th scope="col" class="text-center">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let project of projectData">
-                  <td class="text-center">{{project.id}}</td>
-                  <td class="text-center">
-                    <h5 class="text-truncate font-size-14 mt-1">
-                      <a href="/projects/view" class="text-dark">{{project.text}}</a>
-                    </h5>
-                  </td>
-                  <td class="text-center">{{project.subtext}}</td>
-                  <td class="text-center">{{project.date}}</td>
-                  <td class="text-center">{{project.version}}</td>
-                  <td class="text-center">
-                    <div class="dropdown" ngbDropdown placement="bottom-right">
-                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" ngbDropdownToggle>
-                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                        <a class="dropdown-item" type="button" (click)="projectModal(editProject)">Update</a>
-                        <a class="dropdown-item" type="button" (click)="projectModal(deleteProject)">Delete</a>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class>
+            <div class="table-responsive">
+              <table class="table project-list-table table-nowrap table-centered table-borderless table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center" style="width: 100px">#</th>
+                    <th scope="col" class="text-center">Projects</th>
+                    <th scope="col" class="text-center">Description</th>
+                    <th scope="col" class="text-center">Created Date</th>
+                    <th scope="col" class="text-center">Project Version</th>
+                    <th scope="col" class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of projectData.items">
+                    <td class="text-center">{{item.id}}</td>
+                    <td class="text-center">
+                      <h5 class="text-truncate font-size-14 mt-1">
+                        <a [routerLink]="['/projects/view', item.id]" class="text-dark">{{item.name}}</a>
+                      </h5>
+                    </td>
+                    <td class="text-center">{{item.description}}</td>
+                    <td class="text-center">{{item.timestamp}}</td>
+                    <td class="text-center">{{item.version}}</td>
+                    <td class="text-center">
+                      <div class="dropdown" ngbDropdown placement="bottom-right">
+                        <a href="javascript: void(0);" class="dropdown-toggle card-drop" ngbDropdownToggle>
+                          <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                          <a class="dropdown-item" type="button" (click)="projectModal(editProject)">Update</a>
+                          <a class="dropdown-item" type="button" (click)="projectModal(deleteProject)">Delete</a>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- end row -->
+      <!-- end row -->
     </div>
   </div>
-  
-    <!--<div class="row">
+
+  <!--<div class="row">
       <div class="col-12">
         <div class="text-center my-3">
           <a href="javascript:void(0);" class="text-success">
@@ -79,17 +79,16 @@
         </div>
       </div>
     </div>-->
-    <!-- end row -->
-  </div>
-  
+  <!-- end row -->
+</div>
+
 <!-- Project Add Modal -->
 <ng-template #addProject let-modal>
   <div class="modal-header">
-      <h5 class="modal-title mt-0">Create Project</h5>
-      <button type="button" class="close" aria-label="Close"
-          (click)="modal.dismiss('Close click')">
-          <span aria-hidden="true">&times;</span>
-      </button>
+    <h5 class="modal-title mt-0">Create Project</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <form (ngSubmit)="onSubmit()">
@@ -101,7 +100,7 @@
       <div class="form-group">
         <label for="formGroupExampleInput2">Version</label>
         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Version Number"
-        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Version Number'">
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Version Number'">
       </div>
       <div class="form-group">
         <label for="exampleFormControlTextarea1">Description</label>
@@ -115,23 +114,22 @@
 <!-- Project Edit Modal -->
 <ng-template #editProject let-modal>
   <div class="modal-header">
-      <h5 class="modal-title mt-0">Edit Project</h5>
-      <button type="button" class="close" aria-label="Close"
-          (click)="modal.dismiss('Close click')">
-          <span aria-hidden="true">&times;</span>
-      </button>
+    <h5 class="modal-title mt-0">Edit Project</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Add Project Name"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add project name'">
+        <input type="text" class="form-control" id="name" placeholder="Add Project Name" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Add project name'">
       </div>
       <div class="form-group">
         <label for="version">Version</label>
         <input type="text" class="form-control" id="version" placeholder="Version Number"
-        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Version Number'">
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Version Number'">
       </div>
       <div class="form-group">
         <label for="description">Description</label>
@@ -145,18 +143,17 @@
 <!-- Project Delete Modal -->
 <ng-template #deleteProject let-modal>
   <div class="modal-header">
-      <h5 class="modal-title mt-0">Delete Project</h5>
-      <button type="button" class="close" aria-label="Close"
-          (click)="modal.dismiss('Close click')">
-          <span aria-hidden="true">&times;</span>
-      </button>
+    <h5 class="modal-title mt-0">Delete Project</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="delete">Type <b>Delete</b> to delete the project</label>
-        <input type="text" class="form-control" id="delete" placeholder="Type Delete"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type Delete'">
+        <input type="text" class="form-control" id="delete" placeholder="Type Delete" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Type Delete'">
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
     </form>
