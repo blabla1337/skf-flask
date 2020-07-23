@@ -38,6 +38,6 @@ export class CreateComponent implements OnInit
       return;
     }
     this._knowledgebaseService.createKnowledgebaseItem(this.knowledgebaseForm.value).subscribe()
-    this.router.navigate(['/knowledgebase/read'])
+    this.router.navigate(['/knowledgebase/view'])
   }
 }

@@ -10,7 +10,7 @@ import { ChecklistCategoryService } from '../../../core/services/checklist_categ
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.scss']
 })
-export class CodeViewComponent implements OnInit 
+export class ViewCodeComponent implements OnInit 
 {
 
   // bread crumb items

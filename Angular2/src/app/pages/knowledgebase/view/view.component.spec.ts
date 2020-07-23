@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReadComponent } from './read.component';
+import { ViewKnowledebaseComponent } from './view.component';
 
-describe('ReadComponent', () => {
-  let component: ReadComponent;
-  let fixture: ComponentFixture<ReadComponent>;
+describe('ViewKnowledebaseComponent', () => {
+  let component: ViewKnowledebaseComponent;
+  let fixture: ComponentFixture<ViewKnowledebaseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReadComponent ]
+      declarations: [ ViewKnowledebaseComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReadComponent);
+    fixture = TestBed.createComponent(ViewKnowledebaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
