@@ -21,6 +21,7 @@ export class ReadComponent implements OnInit
   public knowledgeData: any = [];
   public categoryData: any = [];
   public knowledgebaseForm: FormGroup;
+  public categoryId: any;
 
   get formControls() { return this.knowledgebaseForm.controls; }
 
