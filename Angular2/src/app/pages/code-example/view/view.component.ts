@@ -26,7 +26,7 @@ export class CodeViewComponent implements OnInit
 
   constructor(
     private modalService: NgbModal,
-    private _knowledgebaseService: CodeExamplesService,
+    private _codeExamplesService: CodeExamplesService,
     private _checklistCategoryService: ChecklistCategoryService
   ) { }
 
@@ -41,7 +41,7 @@ export class CodeViewComponent implements OnInit
    */
   private _fetchData()
   {
-    this._knowledgebaseService
+    this._codeExamplesService
       .getCode(Number(localStorage.getItem('categorySelector')))
       .subscribe(data => this.codeData = data);
 
@@ -64,8 +64,8 @@ export class CodeViewComponent implements OnInit
     this._fetchData();
   }
 
-  deleteKnowledgebaseItem(id: number)
+  deleteCodeExample(code_id: number)
   {
-    this._knowledgebaseService.deleteCodeExample(id).subscribe(x => this._fetchData())
+    this._codeExamplesService.deleteCodeExample(code_id).subscribe(x => this._fetchData())
   }
 }
