@@ -8,7 +8,7 @@ FLASK_PORT = 8888
 # Do not use debug mode in production
 FLASK_DEBUG = (os.environ.get("SKF_FLASK_DEBUG") == 'True') or False
 CHATBOT_LOG = "db"
-SKF_API_URL = os.environ.get("SKF_API_URL") or "https://demo.securityknowledgeframework.org/api/"
+SKF_API_URL = os.environ.get("SKF_API_URL") or "https://beta.securityknowledgeframework.org/api/"
 ORIGINS = '*'
 
 # Flask-Restplus settings

@@ -6,11 +6,11 @@ import { KnowledgebaseService } from '../../../core/services/knowledgebase.servi
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
 
 @Component({
-  selector: 'app-read',
-  templateUrl: './read.component.html',
-  styleUrls: ['./read.component.scss']
+  selector: 'app-view',
+  templateUrl: './view.component.html',
+  styleUrls: ['./view.component.scss']
 })
-export class ReadComponent implements OnInit
+export class ViewKnowledebaseComponent implements OnInit
 {
 
   // bread crumb items
@@ -33,7 +33,7 @@ export class ReadComponent implements OnInit
 
   ngOnInit()
   {
-    this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Read', active: true }];
+    this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'View', active: true }];
     this._fetchData();
   }
 

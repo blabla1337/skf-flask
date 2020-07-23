@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ReadComponent } from './read/read.component';
+import { ViewKnowledebaseComponent } from './view/view.component';
 import { CreateComponent } from './create/create.component';
 import { UpdateComponent } from './update/update.component';
 
-const routes: Routes = [{ path: 'read', component: ReadComponent },
+const routes: Routes = [{ path: 'view', component: ViewKnowledebaseComponent },
 { path: 'create', component: CreateComponent },
 { path: 'update/:id', component: UpdateComponent }];
 

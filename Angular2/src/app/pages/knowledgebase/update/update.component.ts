@@ -52,7 +52,7 @@ export class UpdateComponent implements OnInit
       return;
     }
     this._knowledgebaseService.updateKnowledgebaseItem(this.id, this.knowledgebaseForm.value).subscribe()
-    this.router.navigate(['/knowledgebase/read'])
+    this.router.navigate(['/knowledgebase/view'])
   }
 }
 
