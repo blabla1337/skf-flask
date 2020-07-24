@@ -28,6 +28,13 @@ project_new = api.model('Project new', {
     'version': fields.String(required=True, description='New project version'),
 })
 
+
+project_update = api.model('Project new', {
+    'name': fields.String(required=True, description='New project name'),
+    'description': fields.String(required=True, description='New project description'),
+    'version': fields.String(required=True, description='New project version'),
+})
+
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
     'id': fields.Integer(readOnly=True, description='The unique identifier of a project item'),  

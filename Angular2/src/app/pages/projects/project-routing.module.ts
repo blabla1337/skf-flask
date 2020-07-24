@@ -12,7 +12,7 @@ const routes: Routes = [
     { path: 'view/:id', component: ProjectViewComponent },
     { path: 'summary', component: SummaryComponent },
     { path: 'create', component: ProjectCreateComponent },
-    { path: 'update', component: ProjectUpdateComponent },
+    { path: 'update/:id', component: ProjectUpdateComponent },
 ];
 
 @NgModule({

@@ -32,6 +32,8 @@ from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
 from skf.api.projects.endpoints.project_new import ns as project_namespace
 from skf.api.projects.endpoints.project_stats import ns as project_namespace
+from skf.api.projects.endpoints.project_update import ns as project_namespace
+from skf.api.projects.endpoints.project_item import ns as project_namespace
 from skf.api.sprints.endpoints.sprint_item import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_delete import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_new import ns as sprints_namespace
