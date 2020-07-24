@@ -16,6 +16,7 @@ export class ProjectUpdateComponent implements OnInit
   breadCrumbItems: Array<{}>;
   public projectForm: FormGroup;
   public isSubmitted: boolean;
+  public projectItem: any;
 
   get formControls() { return this.projectForm.controls; }
 
@@ -40,11 +41,11 @@ export class ProjectUpdateComponent implements OnInit
       version: ['', Validators.required],
     })
 
-    /**
-    this.knowledgebaseItem = this._knowledgebaseService
-      .getKnowledgeBaseItem(this.id)
-      .subscribe(item => this.knowledgebaseForm.patchValue(item))
-      */
+
+    this.projectItem = this._projectService
+      .getProjectItem(this.id)
+      .subscribe(item => this.projectForm.patchValue(item))
+
   }
 
   updateProjectItem()
@@ -53,8 +54,8 @@ export class ProjectUpdateComponent implements OnInit
     if (this.projectForm.invalid) {
       return;
     }
-    //this._knowledgebaseService.updateKnowledgebaseItem(this.id, this.projectForm.value).subscribe()
-    this.router.navigate(['/projects/read'])
+    this._projectService.updateProject(this.id, this.projectForm.value).subscribe()
+    this.router.navigate(['/projects/manage'])
   }
 }
 
