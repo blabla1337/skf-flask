@@ -54,8 +54,8 @@ export class ProjectUpdateComponent implements OnInit
     if (this.projectForm.invalid) {
       return;
     }
-    //this._knowledgebaseService.updateKnowledgebaseItem(this.id, this.projectForm.value).subscribe()
-    this.router.navigate(['/projects/read'])
+    this._projectService.updateProject(this.id, this.projectForm.value).subscribe()
+    this.router.navigate(['/projects/manage'])
   }
 }
 
