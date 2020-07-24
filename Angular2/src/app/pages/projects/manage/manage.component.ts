@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
-import { Project } from './manage.model';
-import { projectData } from './data';
+
 import { ProjectService } from '../../../core/services/project.service';
 
 @Component({
@@ -36,6 +35,11 @@ export class ProjectManageComponent implements OnInit
   getProjects()
   {
     this._projectService.getProjectsCollection().subscribe(projects => this.projectData = projects)
+  }
+
+  deleteProject(id: number)
+  {
+    this._projectService.deleteProject(id).subscribe(x => this.getProjects())
   }
 
   /**
