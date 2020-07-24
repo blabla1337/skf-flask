@@ -29,16 +29,16 @@ def clear_db():
 
 def init_db(testing=False):
     """Initializes the database.""" 
-#try:
-    print("Initializing the database")
-    db.create_all()
-    prerequisits()
-    init_md_code_examples()
-    init_md_knowledge_base()
-    load_initial_data()
-#except:
-#    db.session.remove()
-#    print("Database is already existsing, nothing to do")
+    try:
+        print("Initializing the database")
+        db.create_all()
+        prerequisits()
+        init_md_code_examples()
+        init_md_knowledge_base()
+        load_initial_data()
+    except:
+        db.session.remove()
+        print("Database is already existsing, nothing to do")
 
 
 def clean_db(testing=False):
