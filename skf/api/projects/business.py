@@ -56,6 +56,10 @@ def delete_project(project_id):
         return abort(400, 'Project not deleted')
     return {'message': 'Project successfully deleted'}
 
+def get_project_item(project_id):
+    log("User requested specific project stats", "MEDIUM", "PASS")
+    result = (Project.query.filter(Project.id == project_id).all())
+    return result
 
 def stats_project(project_id):
     log("User requested specific project stats", "MEDIUM", "PASS")

@@ -54,7 +54,7 @@
                           <i class="mdi mdi-dots-horizontal font-size-18"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                          <a class="dropdown-item" type="button" (click)="projectModal(editProject)">Update</a>
+                          <a class="dropdown-item" type="button" [routerLink]="['/projects/update', item.id]">Update</a>
                           <a class="dropdown-item" type="button" (click)="projectModal(deleteProject)">Delete</a>
                         </div>
                       </div>
