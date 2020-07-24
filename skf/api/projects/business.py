@@ -31,6 +31,20 @@ def new_project(user_id, data):
     return {'project_id': result.id, 'message': 'Project successfully created'}
 
 
+def update_project(id, data):
+    log("User requested update a specific project", "LOW", "PASS")
+    try:
+        project = Project.query.filter(Project.id == id).first()
+        project.name = data.get('name')
+        project.version = data.get('version')
+        project.description = data.get('description')
+        db.session.add(project)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    return {'message': 'project successfully updated'} 
+
 def delete_project(project_id):
     log("User deleted project", "MEDIUM", "PASS")
     try:
