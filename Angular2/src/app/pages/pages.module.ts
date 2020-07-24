@@ -33,13 +33,15 @@ import { ProjectCreateComponent } from './projects/create/create.component';
 import { LabReadComponent } from './labs/read/read.component';
 import { LabViewComponent } from './labs/view/view.component';
 import { SummaryComponent } from './projects/summary/summary.component';
+import { WizardComponent } from './projects/wizard/wizard.component';
+
 
 
 @NgModule({
   declarations: [
     ManageComponent, ViewCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
-    ChecklistsReadComponent, CheckManageComponent,
+    ChecklistsReadComponent, CheckManageComponent, WizardComponent,
     LabReadComponent, LabViewComponent, SummaryComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent
   ],
