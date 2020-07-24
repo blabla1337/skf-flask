@@ -58,8 +58,7 @@ def delete_project(project_id):
 
 def get_project_item(project_id):
     log("User requested specific project stats", "MEDIUM", "PASS")
-    result = (Project.query.filter(Project.id == project_id).all())
-    return result
+    return Project.query.filter(Project.id == project_id).first()
 
 def stats_project(project_id):
     log("User requested specific project stats", "MEDIUM", "PASS")

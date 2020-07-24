@@ -23,6 +23,12 @@ export class ProjectService
         return this.http.get(environment.API_ENDPOINT + `/api/project/items`, { headers: this.authHeader })
     }
 
+
+    getProjectItem(id: number): Observable<Object>
+    {
+        return this.http.get(environment.API_ENDPOINT + `/api/project/item/${id}`, { headers: this.authHeader })
+    }
+
     createProject(value: any): Observable<Object>
     {
         return this.http.put(environment.API_ENDPOINT + `/api/project/new`, value, { headers: this.authHeader })
