@@ -21,7 +21,7 @@ from skf.database.checklist_kb_code_item import ChecklistKBCodeItem
 
 def load_initial_data():
 
-#try:
+try:
     p = Privilege('edit:read:manage:delete')
     db.session.add(p)
     #db.session.add(Privilege('edit:read:delete'))
@@ -3353,7 +3353,7 @@ def load_initial_data():
     db.session.add(kb_code_cor)
     db.session.commit()    
 
-    #return True
-#except:
-    #db.session.rollback()
-    #raise
+    return True
+except:
+    db.session.rollback()
+    raise
