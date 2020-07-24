@@ -21,6 +21,7 @@ export class ViewCodeComponent implements OnInit
   public codeData: any = [];
   public categoryData: any = [];
   public codeExamples: FormGroup;
+  public queryString: string;
 
   get formControls() { return this.codeExamples.controls; }
 
