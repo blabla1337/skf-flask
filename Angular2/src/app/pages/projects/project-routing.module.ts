@@ -6,6 +6,8 @@ import { ProjectViewComponent } from './view/view.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ProjectUpdateComponent } from './update/update.component';
 import { ProjectCreateComponent } from './create/create.component';
+import { WizardComponent } from './wizard/wizard.component';
+
 
 const routes: Routes = [
     { path: 'manage', component: ProjectManageComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
     { path: 'summary', component: SummaryComponent },
     { path: 'create', component: ProjectCreateComponent },
     { path: 'update/:id', component: ProjectUpdateComponent },
+    { path: 'wizard', component: WizardComponent },
+
 ];
 
 @NgModule({

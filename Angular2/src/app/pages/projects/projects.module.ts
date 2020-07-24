@@ -7,7 +7,6 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ProjectRoutingModule } from './project-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [

@@ -29,12 +29,8 @@ export class ProjectViewComponent implements OnInit {
     this.selected = '';
   }
 
-  /**
-   * Open modal
-   * @param content modal content
-   */
-  projectCreateModal(content: any) {
-    this.modalService.open(content, { size: 'lg' });
+  projectCreate() {
+    this.router.navigate(['/projects/wizard']);
   }
 
   onView() {
