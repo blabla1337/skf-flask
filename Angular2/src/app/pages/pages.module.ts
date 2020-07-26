@@ -42,7 +42,7 @@ import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
   declarations: [
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
-    ChecklistsReadComponent, CheckManageComponent, WizardComponent,
+    ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent,
     LabReadComponent, LabViewComponent, SummaryComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe
   ],

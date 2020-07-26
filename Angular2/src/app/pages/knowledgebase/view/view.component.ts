@@ -22,6 +22,7 @@ export class ViewKnowledebaseComponent implements OnInit
   public categoryData: any = [];
   public knowledgebaseForm: FormGroup;
   public categoryId: any;
+  public queryString;
 
   get formControls() { return this.knowledgebaseForm.controls; }
 
