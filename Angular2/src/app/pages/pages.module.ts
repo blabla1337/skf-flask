@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
 import { UIModule } from '../shared/ui/ui.module';
 
-
-
 import
 {
   NgbNavModule, NgbDropdownModule, NgbModalModule,
@@ -37,6 +35,7 @@ import { LabViewComponent } from './labs/view/view.component';
 import { SummaryComponent } from './projects/summary/summary.component';
 import { WizardComponent } from './projects/wizard/wizard.component';
 import { ChecklistCreateComponent } from './checklists/create/create.component';
+import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
 
 
 @NgModule({
@@ -44,8 +43,8 @@ import { ChecklistCreateComponent } from './checklists/create/create.component';
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, CheckManageComponent, WizardComponent,
-    LabReadComponent, LabViewComponent, SummaryComponent, ChecklistCreateComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent
+    LabReadComponent, LabViewComponent, SummaryComponent,
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe
   ],
   imports: [
     CommonModule,
