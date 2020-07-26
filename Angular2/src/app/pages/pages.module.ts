@@ -34,7 +34,7 @@ import { LabReadComponent } from './labs/read/read.component';
 import { LabViewComponent } from './labs/view/view.component';
 import { SummaryComponent } from './projects/summary/summary.component';
 import { WizardComponent } from './projects/wizard/wizard.component';
-
+import { ChecklistCreateComponent } from './checklists/create/create.component';
 
 
 @NgModule({
@@ -42,7 +42,7 @@ import { WizardComponent } from './projects/wizard/wizard.component';
     ManageComponent, ViewCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, CheckManageComponent, WizardComponent,
-    LabReadComponent, LabViewComponent, SummaryComponent,
+    LabReadComponent, LabViewComponent, SummaryComponent, ChecklistCreateComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent
   ],
   imports: [
