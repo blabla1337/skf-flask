@@ -29,20 +29,11 @@ export class CreateCodeComponent implements OnInit
   ngOnInit(): void
   {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'Create', active: true }];
-    this.sub = this.route.params.subscribe(params =>
-    {
-      this.id = +params['id'];
-    });
-
     this.codeExampleForm = this.formBuilder.group({
       title: ['', Validators.required],
-      lang: ['', Validators.required],
+      code_lang: ['', Validators.required],
       content: ['', Validators.required],
     })
-
-    this.codeExampleItem = this._codeExamplesService
-      .getCodeExample(this.id)
-      .subscribe(item => this.codeExampleForm.patchValue(item))
   }
 
   createCodeExampleItem()
