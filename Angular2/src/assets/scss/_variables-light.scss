@@ -433,6 +433,8 @@ $table-active-bg:             $table-hover-bg;
 $table-border-width:          $border-width;
 $table-border-color:          $border-color;
 
+$table-border-danger:         theme-color("danger");
+
 $table-head-bg:               $gray-100;
 $table-head-color:            $gray-700;
 
