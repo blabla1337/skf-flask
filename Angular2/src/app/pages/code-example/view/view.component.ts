@@ -20,10 +20,10 @@ export class ViewCodeComponent implements OnInit
   public isCollapsed: boolean[] = [];
   public codeData: any = [];
   public categoryData: any = [];
-  public codeExamplesForm: FormGroup;
+  public codeExampleForm: FormGroup;
   public queryString: string;
 
-  get formControls() { return this.codeExamplesForm.controls; }
+  get formControls() { return this.codeExampleForm.controls; }
 
   constructor(
     private modalService: NgbModal,
