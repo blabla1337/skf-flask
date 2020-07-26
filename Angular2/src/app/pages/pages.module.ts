@@ -20,6 +20,8 @@ import { DndModule } from 'ngx-drag-drop';
 
 import { ManageComponent } from './users/manage/manage.component';
 import { ViewCodeComponent } from './code-example/view/view.component';
+import { UpdateCodeComponent } from './code-example/update/update.component';
+import { CreateCodeComponent } from './code-example/create/create.component';
 import { ViewKnowledebaseComponent } from './knowledgebase/view/view.component';
 import { CreateComponent } from './knowledgebase/create/create.component';
 import { UpdateComponent } from './knowledgebase/update/update.component';
@@ -39,7 +41,7 @@ import { ChecklistCreateComponent } from './checklists/create/create.component';
 
 @NgModule({
   declarations: [
-    ManageComponent, ViewCodeComponent, ViewKnowledebaseComponent,
+    ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, CheckManageComponent, WizardComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, ChecklistCreateComponent,
