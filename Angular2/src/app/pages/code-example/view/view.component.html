@@ -20,7 +20,7 @@
                       <div class="text-sm-right">
                         <div class="search-box mr-4 mb-2 d-inline-block">
                           <div class="position-relative">
-                            <input type="text" class="form-control" placeholder="Search..." />
+                            <input class="form-control" id="search" name="search" placeholder="Search vulnerability" />
                             <i class="bx bx-search-alt search-icon"></i>
                           </div>
                         </div>
@@ -64,10 +64,11 @@
                                   </div> <!-- end col -->
                                   <div class="col-sm-6">
                                     <div class="text-sm-right">
-                                      <a class="btn btn-success m-1 text-light">
-                                        <i class="mdi mdi-check mr-1"></i> Update </a>
-                                      <a class="btn btn-danger m-1 text-light"
-                                       type="button" (click)="deleteModal(contentDelete)">
+                                      <a [routerLink]="['/code-example/update', code.id]"
+                                      class="btn btn-success m-1 text-light">
+                                      <i class="mdi mdi-check mr-1"></i> Update </a>
+                                      <a type="button" class="btn btn-danger m-1 text-light"
+                                       (click)="deleteModal(contentDelete)">
                                         <i class="bx bx-trash mr-1"></i> Delete </a>
                                     </div>
                                   </div> <!-- end col -->
