@@ -5,11 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CodeExamplesService } from '../../../core/services/code-examples.service';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.scss']
 })
-export class CreateCodeComponent implements OnInit
+export class UpdateCodeComponent implements OnInit
 {
   id: number;
   private sub: any;
@@ -28,7 +28,7 @@ export class CreateCodeComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'Create', active: true }];
+    this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'Update', active: true }];
     this.sub = this.route.params.subscribe(params =>
     {
       this.id = +params['id'];
@@ -36,7 +36,7 @@ export class CreateCodeComponent implements OnInit
 
     this.codeExampleForm = this.formBuilder.group({
       title: ['', Validators.required],
-      lang: ['', Validators.required],
+      code_lang: ['', Validators.required],
       content: ['', Validators.required],
     })
 
@@ -45,13 +45,13 @@ export class CreateCodeComponent implements OnInit
       .subscribe(item => this.codeExampleForm.patchValue(item))
   }
 
-  createCodeExampleItem()
+  updateCodeExampleItem()
   {
     this.isSubmitted = true;
     if (this.codeExampleForm.invalid) {
       return;
     }
-    this._codeExamplesService.createCodeExample(this.codeExampleForm.value).subscribe()
+    this._codeExamplesService.updateCodeExample(this.id, this.codeExampleForm.value).subscribe()
     this.router.navigate(['/code-example/view'])
   }
 }
