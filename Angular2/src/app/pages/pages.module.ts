@@ -34,13 +34,13 @@ import { LabReadComponent } from './labs/read/read.component';
 import { LabViewComponent } from './labs/view/view.component';
 import { SummaryComponent } from './projects/summary/summary.component';
 import { WizardComponent } from './projects/wizard/wizard.component';
+import { ChecklistCreateComponent } from './checklists/create/create.component';
 import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
-
 
 
 @NgModule({
   declarations: [
-    ManageComponent, ViewCodeComponent,UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
+    ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, CheckManageComponent, WizardComponent,
     LabReadComponent, LabViewComponent, SummaryComponent,
