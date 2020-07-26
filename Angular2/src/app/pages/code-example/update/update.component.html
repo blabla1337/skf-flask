@@ -7,20 +7,20 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Edit Code Item</h4>
-                    <form [formGroup]="codeExamplesForm">
+                    <form [formGroup]="codeExampleForm">
                         <div class="form-group">
                             <label for="titleInput">Title</label>
-                            <input formControlName="title" type="text" class="form-control" id="titleInput"
+                            <input formControlName="title" type="text" class="form-control" id="title"
                                 placeholder="Add new title">
                         </div>
                         <div class="form-group">
                             <label for="langInput">Language</label>
-                            <input formControlName="lang" type="text" class="form-control" id="langInput"
+                            <input formControlName="code_lang" type="text" class="form-control" id="code_lang"
                                 placeholder="Add new title">
                         </div>
                         <div class="form-group">
                             <label for="Description">Code</label>
-                            <textarea formControlName="content" class="form-control" id="codeInput"
+                            <textarea formControlName="content" class="form-control" id="content"
                                 rows="20"></textarea>
                         </div>
                         <div class="text-right">

@@ -9,16 +9,16 @@ import { CodeExamplesService } from '../../../core/services/code-examples.servic
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateComponent implements OnInit
+export class UpdateCodeComponent implements OnInit
 {
   id: number;
   private sub: any;
   breadCrumbItems: Array<{}>;
-  public codeExamplesForm: FormGroup;
+  public codeExampleForm: FormGroup;
   public codeExampleItem: any;
   public isSubmitted: boolean;
 
-  get formControls() { return this.codeExamplesForm.controls; }
+  get formControls() { return this.codeExampleForm.controls; }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,24 +34,24 @@ export class UpdateComponent implements OnInit
       this.id = +params['id'];
     });
 
-    this.codeExamplesForm = this.formBuilder.group({
+    this.codeExampleForm = this.formBuilder.group({
       title: ['', Validators.required],
-      lang: ['', Validators.required],
+      code_lang: ['', Validators.required],
       content: ['', Validators.required],
     })
 
     this.codeExampleItem = this._codeExamplesService
       .getCodeExample(this.id)
-      .subscribe(item => this.codeExamplesForm.patchValue(item))
+      .subscribe(item => this.codeExampleForm.patchValue(item))
   }
 
   updateCodeExampleItem()
   {
     this.isSubmitted = true;
-    if (this.codeExamplesForm.invalid) {
+    if (this.codeExampleForm.invalid) {
       return;
     }
-    this._codeExamplesService.updateCodeExample(this.id, this.codeExamplesForm.value).subscribe()
+    this._codeExamplesService.updateCodeExample(this.id, this.codeExampleForm.value).subscribe()
     this.router.navigate(['/code-example/view'])
   }
 }
