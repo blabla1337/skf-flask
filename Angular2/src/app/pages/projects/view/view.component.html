@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <app-page-title title="Features/sprints" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
   <div class="row mt-3">
     <div class="col-lg-12">
@@ -19,31 +19,30 @@
             </div>
             <div class="col-sm-8">
               <div class="text-sm-right">
-                <button type="button" (click)="projectCreate()"
-                  class="btn btn-primary btn-rounded mb-2 mr-2">
-                  <i class="mdi mdi-code-tags mr-1"></i> New Project
+                <button type="button" (click)="projectCreate()" class="btn btn-primary btn-rounded mb-2 mr-2">
+                  <i class="mdi mdi-code-tags mr-1"></i> Generate requirements
                 </button>
               </div>
             </div>
             <!-- end col-->
           </div>
           <div class="row">
-            <div *ngFor="let data of projectData" class="col-xl-4 col-sm-6 mb-4">
+            <div *ngFor="let item of sprintData" class="col-xl-4 col-sm-6 mb-4">
               <div class="card border border-light">
                 <div class="card-body">
                   <div class="media">
                     <div class="media-body overflow-hidden">
                       <h5 class="text-truncate font-size-15">
-                        <a href="javascript: void(0);" class="text">{{data.text}}</a>
+                        <a href="javascript: void(0);" class="text">({{item.sprint_items_total}}) {{item.title}}</a>
                       </h5>
-                      <p class="text-muted mb-4">{{data.subtext}}</p>
+                      <p class="text-muted mb-4">{{item.sprint_desc}}</p>
                     </div>
                   </div>
                 </div>
                 <div class="px-4 py-3 border-top">
                   <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3">
-                      <button class="btn-sm btn-primary text-light" (click)="onView()"> View</button>
+                      <button class="btn-sm btn-primary text-light" (click)="onView(item.sprint_id)"> View</button>
                     </li>
                   </ul>
                 </div>
