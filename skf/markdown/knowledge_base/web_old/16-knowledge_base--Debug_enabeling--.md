@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Sometimes it is possible through an "enabling debug parameter" to display technical
 information/secrets within the application. As a result, the attacker learns more about the

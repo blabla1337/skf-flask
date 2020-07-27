@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever sensitive data is accessed by a user this event should be logged to later verify
 the integrity of the access to the data. The same principle applies to whenever the data is collected

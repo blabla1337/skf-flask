@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses external input to dynamically construct an XPath expression used to retrieve data from an XML database, but it does not neutralize or incorrectly neutralizes that input. This allows an attacker to control the structure of the query.
 
 The net effect is that the attacker will have control over the information selected from the XML database and may use that ability to control application flow, modify logic, retrieve unauthorized data, or bypass important checks (e.g. authentication).
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

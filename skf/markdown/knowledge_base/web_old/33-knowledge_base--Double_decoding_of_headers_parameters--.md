@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Double decoding is a problem which often occurs when multiple servers are used in which a
 configuration error is made.

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not correctly calculate the length of strings that can contain wide or multi-byte characters.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

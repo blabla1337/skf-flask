@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Non-replicating malicious code only resides on the target system or software that is attacked; it does not attempt to spread to other systems.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation:

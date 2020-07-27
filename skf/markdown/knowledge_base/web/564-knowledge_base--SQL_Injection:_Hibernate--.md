@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Using Hibernate to execute a dynamic SQL statement built with user-controlled input can allow an attacker to modify the statement's meaning or to execute arbitrary SQL commands.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not initialize critical variables, which causes the execution environment to use unexpected values.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 ID values stored on the device such as IMEI and UDID should not be used as authentication 
 tokens. These tokens are retrievable by other applications and thus warrant no integrity.

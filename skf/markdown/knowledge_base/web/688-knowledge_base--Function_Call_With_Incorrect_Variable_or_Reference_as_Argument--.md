@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software calls a function, procedure, or routine, but the caller specifies the wrong variable or reference as one of the arguments, which may lead to undefined behavior and resultant weaknesses.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Testing:

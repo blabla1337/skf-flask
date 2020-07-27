@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software detects a specific error, but takes no actions to handle the error.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

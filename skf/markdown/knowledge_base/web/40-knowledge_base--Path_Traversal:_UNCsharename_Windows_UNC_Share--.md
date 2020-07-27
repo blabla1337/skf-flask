@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 An attacker can inject a Windows UNC share ('UNCsharename') into a software system to potentially redirect access to an unintended location or arbitrary file.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

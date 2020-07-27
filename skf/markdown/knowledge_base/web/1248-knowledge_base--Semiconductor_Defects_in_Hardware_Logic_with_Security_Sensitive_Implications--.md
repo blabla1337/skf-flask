@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The security-sensitive hardware module contains semiconductor defects.
 
 A semiconductor device can fail for various reasons. While some are manufacturing and packaging defects, the rest are due to prolonged use or usage under extreme conditions. Some mechanisms that lead to semiconductor defects include encapsulation failure, die-attach failure, wire-bond failure, bulk-silicon defects, oxide-layer faults, aluminum-metal faults (including electromigration, corrosion of aluminum, etc.), and thermal/electrical stress. These defects manifest as faults on chip-internal signals or registers, have the effect of inputs, outputs, or intermediate signals being always 0 or always 1, and do not switch as expected. If such faults occur in security-sensitive hardware modules, security guarantees offered by the device will be compromised.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Testing:

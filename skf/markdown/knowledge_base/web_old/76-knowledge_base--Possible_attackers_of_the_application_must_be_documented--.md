@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Authentication decisions should be logged along with relevant metadata for security 
 investigations. This information could for example, be used whenever there is suspicion about

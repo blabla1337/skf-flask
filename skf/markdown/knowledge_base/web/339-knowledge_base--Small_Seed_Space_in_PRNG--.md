@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A PRNG uses a relatively small space of seeds.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

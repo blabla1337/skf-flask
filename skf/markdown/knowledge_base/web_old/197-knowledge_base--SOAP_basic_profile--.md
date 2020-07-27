@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Simple Soap Binding Profile is a specification from the Web Services Interoperability industry consortium. It
 is intended as a support profile for the WS-I Basic Profile. This profile defines the way WSDL

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software performs operations on a memory buffer, but it can read from or write to a memory location that is outside of the intended boundary of the buffer.
 
 Certain languages allow direct addressing of memory locations and do not automatically ensure that these locations are valid for the memory buffer that is being referenced. This can cause read or write operations to be performed on memory locations that may be associated with other variables, data structures, or internal program data. As a result, an attacker may be able to execute arbitrary code, alter the intended control flow, read sensitive information, or cause the system to crash.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:STRATEGY:Language Selection:

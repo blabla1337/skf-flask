@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software calls a function, procedure, or routine, but the caller specifies too many arguments, or too few arguments, which may lead to undefined behavior and resultant weaknesses.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Testing:

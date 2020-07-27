@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly account for differences in case sensitivity when accessing or determining the properties of a resource, leading to inconsistent results.
 
 Improperly handled case sensitive data can lead to several possible consequences, including: case-insensitive passwords reducing the size of the key space, making brute force attacks easier bypassing filters or access controls using alternate names multiple interpretation errors using alternate names.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

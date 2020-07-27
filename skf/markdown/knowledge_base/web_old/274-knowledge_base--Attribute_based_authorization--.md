@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Access Control (or Authorization) is the process of granting or denying specific requests from a user, 
 program, or process. Access control also involves the act of granting and revoking those privileges.

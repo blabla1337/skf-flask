@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly clean up and remove temporary or supporting resources after they have been used.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Implementation:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly prevent access to, or detect usage of, alternate data streams (ADS).
 
 An attacker can use an ADS to hide information about a file (e.g. size, the name of the process) from a system or file browser tools such as Windows Explorer and 'dir' at the command line utility. Alternately, the attacker might be able to bypass intended access restrictions for the associated data fork.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Testing:

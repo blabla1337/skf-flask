@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Software that does not appropriately monitor or control resource consumption can lead to adverse system performance.
 
 This situation is amplified if the software allows malicious users or attackers to consume more resources than their access level permits. Exploiting such a weakness can lead to asymmetric resource consumption, aiding in amplification attacks against the system or the network.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

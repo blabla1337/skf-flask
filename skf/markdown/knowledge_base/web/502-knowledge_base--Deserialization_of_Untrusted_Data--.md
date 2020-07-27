@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application deserializes untrusted data without sufficiently verifying that the resulting data will be valid.
 
 It is often convenient to serialize objects for communication or to save them for later use. However, deserialized data or code can often be modified without using the provided accessor functions if it does not use cryptography to protect itself. Furthermore, any cryptography would still be client-side security -- which is a dangerous security assumption. Data that is untrusted can not be trusted to be well-formed. When developers place no restrictions on gadget chains, or series of instances and method invocations that can self-execute during the deserialization process (i.e., before the object is returned to the caller), it is sometimes possible for attackers to leverage them to perform unauthorized actions, like generating a shell.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Implementation:

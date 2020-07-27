@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 
 The OWASP Mobile App Security and Verification (MASVS) Project provides a basis for testing mobile application technical security controls and also provides developers with a list of requirements for secure development. It can be used by mobile software architects and developers seeking to develop secure mobile applications, as well as security testers to ensure completeness and consistency of test results. 

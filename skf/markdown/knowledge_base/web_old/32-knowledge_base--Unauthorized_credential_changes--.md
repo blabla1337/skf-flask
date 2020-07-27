@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 An application which offers user login functionality, usually has an administration page
 where user-data can be modified. When the user wants to change this data he should

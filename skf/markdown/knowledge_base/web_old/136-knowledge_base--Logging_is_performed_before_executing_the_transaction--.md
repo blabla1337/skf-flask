@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever the logging is performed before executing a transaction you can be ensured that
 the transactions are logged. This increases the integrity of your log files.

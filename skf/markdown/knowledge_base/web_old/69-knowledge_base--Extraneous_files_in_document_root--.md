@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever the document root contains extraneous files, these files could be accessed by an
 attacker or could possibly contain functionality which could contain other vulnerabilities.

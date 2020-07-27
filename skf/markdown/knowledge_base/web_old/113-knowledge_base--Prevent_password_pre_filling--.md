@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Passwords should never be stored plaintext or in a reversible format on the application. Whenever an attacker hacks 
 into the applications SQL database the passwords are directly compromised. In the case of

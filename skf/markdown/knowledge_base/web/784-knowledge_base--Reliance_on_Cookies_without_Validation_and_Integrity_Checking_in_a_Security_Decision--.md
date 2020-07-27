@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application uses a protection mechanism that relies on the existence or values of a cookie, but it does not properly ensure that the cookie is valid for the associated user.
 
 Attackers can easily modify cookies, within the browser or by implementing the client-side code outside of the browser. Attackers can bypass protection mechanisms such as authorization and authentication by modifying the cookie to contain an expected value.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

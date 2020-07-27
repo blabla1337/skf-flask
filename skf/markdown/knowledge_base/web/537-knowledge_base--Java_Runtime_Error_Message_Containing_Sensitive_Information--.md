@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 In many cases, an attacker can leverage the conditions that cause unhandled exception errors in order to gain unauthorized access to the system.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

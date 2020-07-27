@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The wrong handler is assigned to process an object.
 
 An example of deploying the wrong handler would be calling a servlet to reveal source code of a .JSP file, or automatically determining type of the object even if it is contradictory to an explicitly specified type.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

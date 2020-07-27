@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application calls free() on a pointer to a memory resource that was allocated on the heap, but the pointer is not at the start of the buffer.
 
 This can cause the application to crash, or in some cases, modify critical program variables or execute code. This weakness often occurs when the memory is allocated explicitly on the heap with one of the malloc() family functions and free() is called, but pointer arithmetic has caused the pointer to be in the interior or end of the buffer.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

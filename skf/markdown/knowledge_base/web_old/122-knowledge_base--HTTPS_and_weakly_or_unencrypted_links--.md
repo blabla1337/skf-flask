@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Imagine the scenario where you have a login form and an application which supports HTTPS.
 Whenever the initial connection (login.php) is not HTTPS and after login (loggedin.php)

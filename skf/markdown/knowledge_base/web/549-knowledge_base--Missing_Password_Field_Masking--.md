@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not mask passwords during entry, increasing the potential for attackers to observe and capture passwords.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation Requirements:

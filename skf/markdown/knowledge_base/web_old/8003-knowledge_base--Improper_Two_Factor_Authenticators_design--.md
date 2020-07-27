@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 In case of web applications using only biometric authenticators, or using them at first place is not a security best practice.
 Asking and validating a data (like passwords) needs to be the first layer of the authentication part, and then the second place the biometric authenticators can be employed.  

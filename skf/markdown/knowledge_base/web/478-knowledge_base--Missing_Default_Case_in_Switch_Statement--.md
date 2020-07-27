@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The code does not have a default case in a switch statement, which might lead to complex logical errors and resultant weaknesses.
 
 This flaw represents a common problem in software development, in which not all possible values for a variable are considered or handled by a given process. Because of this, further decisions are made based on poor information, and cascading failure results. This cascading failure may result in any number of security issues, and constitutes a significant failure in the system.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

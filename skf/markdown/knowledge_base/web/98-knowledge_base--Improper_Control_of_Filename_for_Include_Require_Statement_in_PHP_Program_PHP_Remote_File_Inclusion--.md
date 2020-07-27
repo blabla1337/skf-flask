@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The PHP application receives input from an upstream component, but it does not restrict or incorrectly restricts the input before its usage in require, include, or similar functions.
 
 In certain versions and configurations of PHP, this can allow an attacker to specify a URL to a remote location from which the software will obtain the code to execute. In other cases in association with path traversal, the attacker can specify a local file that may contain executable statements that can be parsed by PHP.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Libraries or Frameworks:

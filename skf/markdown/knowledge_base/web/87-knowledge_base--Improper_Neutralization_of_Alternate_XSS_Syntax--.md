@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not neutralize or incorrectly neutralizes user-controlled input for alternate script syntax.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

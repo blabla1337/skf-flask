@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses a sequential operation to read or write a buffer, but it uses an incorrect length value that causes it to access memory that is outside of the bounds of the buffer.
 
 When the length value exceeds the size of the destination, a buffer overflow could occur.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:STRATEGY:Language Selection:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever security logs can be modified by unauthorized users, potential attackers could use these
 privileges to erase and cover their attacks against the application or simply soil the log files.

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Environmental variables may contain sensitive information about a remote server.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

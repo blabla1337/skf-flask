@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not neutralize or incorrectly neutralizes invalid characters or byte sequences in the middle of tag names, URI schemes, and other identifiers.
 
 Some web browsers may remove these sequences, resulting in output that may have unintended control implications. For example, the software may attempt to remove a javascript: URI scheme, but a java%00script: URI may bypass this check and still be rendered as active javascript by some browsers, allowing XSS or other attacks.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Output Encoding:

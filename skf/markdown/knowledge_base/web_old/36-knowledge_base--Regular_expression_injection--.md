@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 If the application uses regular expressions which receive user input,
 then the user input should be properly escaped.

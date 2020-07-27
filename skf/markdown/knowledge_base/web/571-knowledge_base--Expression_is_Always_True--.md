@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software contains an expression that will always evaluate to true.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Testing:

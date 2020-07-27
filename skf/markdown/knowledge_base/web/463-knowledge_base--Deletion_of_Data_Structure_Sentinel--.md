@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The accidental deletion of a data-structure sentinel can cause serious programming logic problems.
 
 Often times data-structure sentinels are used to mark structure of the data structure. A common example of this is the null character at the end of strings. Another common example is linked lists which may contain a sentinel to mark the end of the list. It is dangerous to allow this type of control data to be easily accessible. Therefore, it is important to protect from the deletion or modification outside of some wrapper interface which provides safety.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

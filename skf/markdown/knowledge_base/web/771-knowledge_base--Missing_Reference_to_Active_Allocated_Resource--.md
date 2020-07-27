@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly maintain a reference to a resource that has been allocated, which prevents the resource from being reclaimed.
 
 This does not necessarily apply in languages or frameworks that automatically perform garbage collection, since the removal of all references may act as a signal that the resource is ready to be reclaimed.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation Architecture and Design:STRATEGY:Resource Limitation:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The number of possible random values is smaller than needed by the product, making it more susceptible to brute force attacks.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Requirements:STRATEGY:Libraries or Frameworks:

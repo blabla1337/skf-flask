@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The use of password systems as the primary means of authentication may be subject to several flaws or shortcomings, each reducing the effectiveness of the mechanism.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

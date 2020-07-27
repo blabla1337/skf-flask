@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application searches for critical resources using an externally-supplied search path that can point to resources that are not under the application's direct control.
 
 This might allow attackers to execute their own programs, access unauthorized data files, or modify configuration in unexpected ways. If the application uses a search path to locate critical resources such as programs, then an attacker could modify that search path to point to a malicious program, which the targeted application would then execute. The problem extends to any type of critical resource that the application trusts. Some of the most common variants of untrusted search path are: In various UNIX and Linux-based systems, the PATH environment variable may be consulted to locate executable programs, and LD_PRELOAD may be used to locate a separate library. In various Microsoft-based systems, the PATH environment variable is consulted to locate a DLL, if the DLL is not found in other paths that appear earlier in the search order.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Implementation:STRATEGY:Attack Surface Reduction:

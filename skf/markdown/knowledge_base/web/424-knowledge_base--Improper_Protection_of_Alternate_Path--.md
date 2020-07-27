@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product does not sufficiently protect all possible paths that a user can take to access restricted functionality or resources.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not check the return value from a method or function, which can prevent it from detecting unexpected states and conditions.
 
 Two common programmer assumptions are this function call can never fail and it doesn't matter if this function call fails. If an attacker can force the function to fail or otherwise return a value that is not expected, then the subsequent program logic could lead to a vulnerability, because the software is not in a state that the programmer assumes. For example, if the program calls a function to drop privileges but does not check the return code to ensure that privileges were successfully dropped, then the program will continue to operate with the higher privileges.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

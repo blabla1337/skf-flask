@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever a programmer decides to use third party software,
 he should keep an eye implementing a proper version management methodology for this software.

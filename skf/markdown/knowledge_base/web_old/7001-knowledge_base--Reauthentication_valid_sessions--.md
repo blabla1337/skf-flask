@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 If the application allows the user to remain authenticated for a long period of time, for example "Stay logged in" functionality, which prolongs user session longer than the regular server-side timeouts, it increases the chance of an attacker to replay a valid session after successfully compromising the session. 
 

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product has a method that is declared public, but returns a reference to a private data structure, which could then be modified in unexpected ways.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

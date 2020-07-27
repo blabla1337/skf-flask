@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Validation of user supplied input must always be enforced on the server side.
 Whenever validation of the input is being perfomed on the client side then

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever the server your web-application is connecting towards is not using any form of
 explicit authentication and is internet facing, then this means the server

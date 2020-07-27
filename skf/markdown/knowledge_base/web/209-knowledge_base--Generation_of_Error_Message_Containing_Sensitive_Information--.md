@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software generates an error message that includes sensitive information about its environment, users, or associated data.
 
 The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more serious attacks. The error message may be created in different ways: self-generated: the source code explicitly constructs the error message and delivers it externally-generated: the external environment, such as a language interpreter, handles the error and constructs its own message, whose contents are not under direct control by the programmer An attacker may use the contents of error messages to help launch another, more focused attack. For example, an attempt to exploit a path traversal weakness (CWE-22) might yield the full pathname of the installed application. In turn, this could be used to select the proper number of .. sequences to navigate to the targeted file. An attack using SQL injection (CWE-89) might not initially succeed, but an error message could reveal the malformed query, which would expose query logic and possibly even passwords or other sensitive information used within the query.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

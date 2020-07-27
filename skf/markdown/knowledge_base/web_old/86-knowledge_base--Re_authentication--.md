@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever a user is changing credentials such as his password, the user should always be
 challenged by the application to re-authenticate himself. This is in order to prevent an

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The Web services architecture may require exposing a Web Service Definition Language (WSDL) file that contains information on the publicly accessible services and how callers of these services should interact with them (e.g. what parameters they expect and what types they return).
 
 An information exposure may occur if any of the following apply: The WSDL file is accessible to a wider audience than intended. The WSDL file contains information on the methods/services that should not be publicly accessible or information about deprecated methods. This problem is made more likely due to the WSDL often being automatically generated from the code. Information in the WSDL file helps guess names/locations of methods/resources that should not be publicly accessible.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

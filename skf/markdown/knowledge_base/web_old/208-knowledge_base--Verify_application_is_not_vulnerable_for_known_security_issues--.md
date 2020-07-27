@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever security researchers find a vulnerability in a library, modules, frameworks, platforms or 
 operating system, these vulnerabilities are reported and saved in the CVE list. 

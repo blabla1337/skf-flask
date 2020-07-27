@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever high-value business logic flows are processed in a trusted monitored environment
 it reduces the movability of an attacker and chances of succeeding to

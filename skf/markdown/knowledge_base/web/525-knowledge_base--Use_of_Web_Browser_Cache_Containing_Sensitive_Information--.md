@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The web application does not use an appropriate caching policy that specifies the extent to which each web page and associated form fields should be cached.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

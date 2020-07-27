@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 This is a form of security by obscurity. Whenever an attacker manages to fuzz or spider
 this URL the application could compromise whatever is behind this URL.

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever sensitive information in stored in the devices’ memory, this information can 
 be dumped by various tool such as “android debugger (ADB)“ on android devices. This 

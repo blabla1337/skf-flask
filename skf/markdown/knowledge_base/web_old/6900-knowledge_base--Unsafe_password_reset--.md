@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Sending passwords or activation key's in clear text exposes sensitive information. 
 

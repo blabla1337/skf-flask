@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product uses a fixed or controlled search path to find resources, but one or more locations in that path can be under the control of unintended actors.
 
 Although this weakness can occur with any type of resource, it is frequently introduced when a product uses a directory search path to find executables or code libraries, but the path contains a directory that can be modified by an attacker, such as /tmp or the current working directory. In Windows-based systems, when the LoadLibrary or LoadLibraryEx function is called with a DLL name that does not contain a fully qualified path, the function follows a search order that includes two path elements that might be uncontrolled: the directory from which the program has been loaded the current working directory. In some cases, the attack can be conducted remotely, such as when SMB or WebDAV network shares are used. In some Unix-based systems, a PATH might be created that contains an empty element, e.g. by splicing an empty variable into the PATH. This empty element can be interpreted as equivalent to the current working directory, which might be an untrusted search element.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Implementation:STRATEGY:Attack Surface Reduction:

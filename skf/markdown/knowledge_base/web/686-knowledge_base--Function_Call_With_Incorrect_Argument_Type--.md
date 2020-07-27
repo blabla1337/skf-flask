@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software calls a function, procedure, or routine, but the caller specifies an argument that is the wrong data type, which may lead to resultant weaknesses.
 
 This weakness is most likely to occur in loosely typed languages, or in strongly typed languages in which the types of variable arguments cannot be enforced at compilation time, or where there is implicit casting.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Testing:

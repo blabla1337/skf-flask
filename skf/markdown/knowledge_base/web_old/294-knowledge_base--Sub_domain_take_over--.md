@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Subdomain takeover is a process of registering a non-existing domain name to gain control over another domain. 
 

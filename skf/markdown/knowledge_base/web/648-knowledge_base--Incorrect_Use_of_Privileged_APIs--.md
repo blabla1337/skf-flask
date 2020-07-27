@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application does not conform to the API requirements for a function call that requires extra privileges. This could allow attackers to gain privileges by causing the function to be called incorrectly.
 
 When an application contains certain functions that perform operations requiring an elevated level of privilege, the caller of a privileged API must be careful to: ensure that assumptions made by the APIs are valid, such as validity of arguments account for known weaknesses in the design/implementation of the API call the API from a safe context If the caller of the API does not follow these requirements, then it may allow a malicious user or process to elevate their privilege, hijack the process, or steal sensitive data. For instance, it is important to know if privileged APIs do not shed their privileges before returning to the caller or if the privileged function might make certain assumptions about the data, context or state information passed to it by the caller. It is important to always know when and how privileged APIs can be called in order to ensure that their elevated level of privilege cannot be exploited.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

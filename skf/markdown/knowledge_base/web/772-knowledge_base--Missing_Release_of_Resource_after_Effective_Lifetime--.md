@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.
 
 When a resource is not released after use, it can allow attackers to cause a denial of service by causing the allocation of resources without triggering their release. Frequently-affected resources include memory, CPU, disk space, power or battery, etc.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:STRATEGY:Language Selection:

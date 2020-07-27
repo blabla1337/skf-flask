@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 If a web server does not fully parse requested URLs before it examines them for authorization, it may be possible for an attacker to bypass authorization protection.
 
 For instance, the character strings /./ and / both mean current directory. If /SomeDirectory is a protected directory and an attacker requests /./SomeDirectory, the attacker may be able to gain access to the resource if /./ is not converted to / before the authorization check is performed.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

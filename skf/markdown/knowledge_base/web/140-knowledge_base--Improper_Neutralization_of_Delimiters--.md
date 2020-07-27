@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not neutralize or incorrectly neutralizes delimiters.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

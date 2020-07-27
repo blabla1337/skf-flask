@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application subtracts one pointer from another in order to determine size, but this calculation can be incorrect if the pointers do not exist in the same memory chunk.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

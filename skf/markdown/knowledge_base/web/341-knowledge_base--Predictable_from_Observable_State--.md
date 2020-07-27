@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A number or object is predictable based on observations that the attacker can make about the state of the system or network, such as time, process ID, etc.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

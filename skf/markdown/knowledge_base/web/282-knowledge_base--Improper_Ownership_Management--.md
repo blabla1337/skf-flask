@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software assigns the wrong ownership, or does not properly verify the ownership, of an object or resource.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

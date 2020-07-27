@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The code transmits data to another actor, but the data contains sensitive information that should not be accessible to the actor that is receiving the data.
 
 Sensitive information could include data that is sensitive in and of itself (such as credentials or private messages), or otherwise useful in the further exploitation of the system (such as internal file system structure).
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

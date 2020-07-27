@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

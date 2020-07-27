@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Components are defined in terms of the business functions and/or security functions they provide.
 It is easier for forensics to do their investigations whenever a breach has happened on an application.

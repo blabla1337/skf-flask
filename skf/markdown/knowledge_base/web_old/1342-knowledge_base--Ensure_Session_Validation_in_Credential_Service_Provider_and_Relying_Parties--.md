@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 A Credential Service Provider (or Identity Provider) is an Identity Access Management entity that releases security tokens to users of specific services (called Relying Parties or Service Providers). An Identity Provider makes possible to authenticate the user to registered services without actually requiring them to login again for every application.
 

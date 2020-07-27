@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 There are some security headers which should be properly configured in order to protect some API callbacks against Reflective File Download and other type of injections.
 

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 STRIDE is a collective for a series of vulnerabilities your applications should
 cover in order to harden your applications security.

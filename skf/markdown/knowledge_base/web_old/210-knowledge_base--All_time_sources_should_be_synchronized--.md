@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 All time sources must be synchronized throughout. For example, different API servers or 
 microservices. to prevent logs to be tainted and become unusable for forensics.

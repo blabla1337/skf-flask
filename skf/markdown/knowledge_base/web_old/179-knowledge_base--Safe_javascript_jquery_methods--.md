@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever you are supplying your JavaScript/jquery with data which is controlled by the
 user, you should make sure this data is not supplied towards functions which could

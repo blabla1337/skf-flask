@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Security tools can be easiliy integrated into CI/CD pipelines.
 Generally the recommended way is to containerize your tooling to

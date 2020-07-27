@@ -1,4 +1,4 @@
-## Description:
+##Description:
 A cryptographically secure pseudo-random number generator (CSPRNG) or cryptographic pseudo-random
 number generator (CPRNG) is a pseudo-random number generator (PRNG) with properties that make it 
 suitable for use in cryptography.

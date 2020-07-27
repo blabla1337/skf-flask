@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Verify that unstructured data is sanitized to enforce generic safety measures. When this is not
 setup an attacker can use this unstructured data to harm the application and perform injections.

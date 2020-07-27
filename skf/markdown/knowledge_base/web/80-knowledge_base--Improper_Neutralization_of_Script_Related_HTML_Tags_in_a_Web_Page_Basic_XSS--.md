@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special characters such as <, >, and & that could be interpreted as web-scripting elements when they are sent to a downstream component that processes web pages.
 
 This may allow such characters to be treated as control characters, which are executed client-side in the context of the user's session. Although this can be classified as an injection problem, the more pertinent issue is the improper conversion of such special characters to respective context-appropriate entities before displaying them to the user.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

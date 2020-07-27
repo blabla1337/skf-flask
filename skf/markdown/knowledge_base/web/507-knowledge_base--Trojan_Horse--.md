@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software appears to contain benign or useful functionality, but it also contains code that is hidden from normal operation that violates the intended security policy of the user or the system administrator.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation:

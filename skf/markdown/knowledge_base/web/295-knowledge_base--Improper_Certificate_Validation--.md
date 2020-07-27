@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not validate, or incorrectly validates, a certificate.
 
 When a certificate is invalid or malicious, it might allow an attacker to spoof a trusted entity by interfering in the communication path between the host and client. The software might connect to a malicious host while believing it is a trusted host, or the software might be deceived into accepting spoofed data that appears to originate from a trusted host.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Implementation:

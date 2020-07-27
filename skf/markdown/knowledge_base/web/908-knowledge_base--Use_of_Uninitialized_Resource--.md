@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses or accesses a resource that has not been initialized.
 
 When a resource has not been properly initialized, the software may behave unexpectedly. This may lead to a crash or invalid memory access, but the consequences vary depending on the type of resource and how it is used within the software.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

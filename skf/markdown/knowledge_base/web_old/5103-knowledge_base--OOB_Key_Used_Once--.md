@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 If an application allows the user to attempt for out-of-band authentication using an old out-of-band authentication key, it increases the likelihood of replay attacks and can assist in comprising a user session.
 

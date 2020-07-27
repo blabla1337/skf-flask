@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Every Action Form must have a corresponding validation form.
 
 If a Struts Action Form Mapping specifies a form, it must have a validation form defined under the Struts Validator.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

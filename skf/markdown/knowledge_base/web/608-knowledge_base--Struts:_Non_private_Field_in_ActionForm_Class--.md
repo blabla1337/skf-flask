@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 An ActionForm class contains a field that has not been declared private, which can be accessed without using a setter or getter.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

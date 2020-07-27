@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The code uses a variable that has not been initialized, leading to unpredictable or unintended results.
 
 In some languages such as C and C++, stack variables are not initialized by default. They generally contain junk data with the contents of stack memory before the function was invoked. An attacker can sometimes control or read these contents. In other languages or conditions, a variable that is not explicitly initialized can be given a default value that has security implications, depending on the logic of the program. The presence of an uninitialized variable can sometimes indicate a typographic error in the code.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Attack Surface Reduction:

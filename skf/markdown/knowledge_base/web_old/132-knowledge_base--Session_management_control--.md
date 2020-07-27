@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The ability to restrict and maintain user actions within unique sessions is critical to
 web security. Most users of this guide will be using an application framework with built

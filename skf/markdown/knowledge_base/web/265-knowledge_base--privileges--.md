@@ -1,9 +1,9 @@
-## Description:
+##Description:
 
 Weaknesses in this category occur with improper handling, assignment, or management of privileges. A privilege is a property of an agent, such as a user. It lets the agent do things that are not ordinarily allowed. For example, there are privileges which allow an agent to perform maintenance functions such as restart a computer.
 
 
-## Mitigation:
+##Mitigation:
 
 
 This can strongly overlap authorization errors.

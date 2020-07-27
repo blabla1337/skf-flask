@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 All sessions should implement an absolute timeout, regardless of session activity.
 This timeout defines the maximum amount of time a session can be active,

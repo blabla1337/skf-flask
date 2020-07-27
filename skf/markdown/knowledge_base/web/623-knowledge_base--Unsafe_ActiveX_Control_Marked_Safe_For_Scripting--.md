@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 An ActiveX control is intended for restricted use, but it has been marked as safe-for-scripting.
 
 This might allow attackers to use dangerous functionality via a web page that accesses the control, which can lead to different resultant vulnerabilities, depending on the control's behavior.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

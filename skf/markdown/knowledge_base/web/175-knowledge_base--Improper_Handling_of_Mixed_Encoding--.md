@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly handle when the same input uses several different (mixed) encodings.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

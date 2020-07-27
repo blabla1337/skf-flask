@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly assign, modify, track, or check privileges for an actor, creating an unintended sphere of control for that actor.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

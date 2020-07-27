@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever there are high value transactions a normal username/password static authentication method does
 not suffice to ensure a high level of security. Whenever the application digests high level of transactions ensure that

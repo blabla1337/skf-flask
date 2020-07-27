@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 When you log all the input validation failures in your application you can discover in an
 early stage that your application is under attack and take quick countermeasures against

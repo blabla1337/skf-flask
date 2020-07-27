@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software allocates file descriptors or handles on behalf of an actor without imposing any restrictions on how many descriptors can be allocated, in violation of the intended security policy for that actor.
 
 This can cause the software to consume all available file descriptors or handles, which can prevent other processes from performing critical file processing operations.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation Architecture and Design:STRATEGY:Resource Limitation:

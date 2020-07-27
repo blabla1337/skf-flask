@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever an application generates an error like:
 

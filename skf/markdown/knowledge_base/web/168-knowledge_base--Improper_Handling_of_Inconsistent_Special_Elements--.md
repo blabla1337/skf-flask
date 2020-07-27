@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly handle input in which an inconsistency exists between two or more special characters or reserved words.
 
 An example of this problem would be if paired characters appear in the wrong order, or if the special characters are not properly nested.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

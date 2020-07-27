@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The lack of entropy available for, or used by, a pseudo-random number generator can be a
 stability and security threat.

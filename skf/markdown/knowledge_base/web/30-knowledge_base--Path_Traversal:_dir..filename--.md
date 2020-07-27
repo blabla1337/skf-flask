@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize 'dir..filename' (leading backslash dot dot) sequences that can resolve to a location that is outside of that directory.
 
 This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory. This is similar to CWE-26, except using instead of /. The 'dir..filename' manipulation is useful for bypassing some path traversal protection schemes. Sometimes a program only checks for .. at the beginning of the input, so a .. can bypass that check.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

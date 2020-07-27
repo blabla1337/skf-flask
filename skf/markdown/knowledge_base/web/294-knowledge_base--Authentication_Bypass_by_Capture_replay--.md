@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A capture-replay flaw exists when the design of the software makes it possible for a malicious user to sniff network traffic and bypass authentication by replaying it to the server in question to the same effect as the original message (or with minor changes).
 
 Capture-replay attacks are common and can be difficult to defeat without cryptography. They are a subset of network injection attacks that rely on observing previously-sent valid commands, then changing them slightly if necessary and resending the same commands to the server.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

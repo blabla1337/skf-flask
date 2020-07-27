@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 HTTP Strict-Transport-Security (HSTS) allows sites to specify that they should be accessed
 via a secure connection only. The problem is, a user's first request to a site employing

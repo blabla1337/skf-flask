@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not adequately filter user-controlled input for special elements with control implications.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

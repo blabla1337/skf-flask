@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A stack-based buffer overflow condition is a condition where the buffer being overwritten is allocated on the stack (i.e., is a local variable or, rarely, a parameter to a function).
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Build and Compilation:STRATEGY:Compilation or Build Hardening:

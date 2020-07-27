@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever your application contains administration and management functions you should
 put on restrictions for visiting these functionalities in order to reduce an attackers

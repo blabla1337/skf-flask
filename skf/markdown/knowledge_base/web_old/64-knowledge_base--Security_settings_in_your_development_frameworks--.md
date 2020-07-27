@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever certain security settings in your application frameworks
 (e.g., Struts, Spring, ASP.NET) and libraries are not set to secure values, this could lead

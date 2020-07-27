@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component, but it does not neutralize or incorrectly neutralizes internal special elements that could be interpreted in unexpected ways when they are sent to a downstream component.
 
 As data is parsed, improperly handled internal special elements may cause the process to take unexpected actions that result in an attack.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

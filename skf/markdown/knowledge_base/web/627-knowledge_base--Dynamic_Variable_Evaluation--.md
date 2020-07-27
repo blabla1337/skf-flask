@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 In a language where the user can influence the name of a variable at runtime, if the variable names are not controlled, an attacker can read or write to arbitrary variables, or access arbitrary functions.
 
 The resultant vulnerabilities depend on the behavior of the application, both at the crossover point and in any control/data flow that is reachable by the related variables or functions.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Refactoring:
