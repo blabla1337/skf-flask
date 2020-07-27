@@ -36,6 +36,7 @@ import { SummaryComponent } from './projects/summary/summary.component';
 import { WizardComponent } from './projects/wizard/wizard.component';
 import { ChecklistCreateComponent } from './checklists/create/create.component';
 import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent,
     LabReadComponent, LabViewComponent, SummaryComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe,
   ],
   imports: [
     CommonModule,
@@ -63,7 +64,20 @@ import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
     UsersModule,
     UIModule,
     DndModule,
+    HighlightModule,
   ],
-  providers: []
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        coreLibraryLoader: () => import('highlight.js/lib/highlight'),
+        lineNumbersLoader: () => import('highlightjs-line-numbers.js'), 
+        languages: {
+          typescript: () => import('highlight.js/lib/languages/typescript'),
+          php: () => import('highlight.js/lib/languages/php')
+        }
+      }
+    }
+  ],
 })
 export class PagesModule { }
