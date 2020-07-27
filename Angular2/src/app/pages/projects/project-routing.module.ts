@@ -12,7 +12,7 @@ import { WizardComponent } from './wizard/wizard.component';
 const routes: Routes = [
     { path: 'manage', component: ProjectManageComponent },
     { path: 'view/:id', component: ProjectViewComponent },
-    { path: 'summary', component: SummaryComponent },
+    { path: 'summary/:id', component: SummaryComponent },
     { path: 'create', component: ProjectCreateComponent },
     { path: 'update/:id', component: ProjectUpdateComponent },
     { path: 'wizard', component: WizardComponent },
