@@ -50,7 +50,7 @@ export class SummaryComponent implements OnInit
    */
   summaryModal(content: any)
   {
-    this.modalService.open(content, { size: 'lg', centered: true });
+    this.modalService.open(content, { size: 'sm', centered: true });
   }
 
   onSubmit()
