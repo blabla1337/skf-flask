@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever a user changes his password, the user should be granted the option
 to kill all other concurrent sessions. This countermessure helps to exclude

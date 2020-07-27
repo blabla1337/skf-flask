@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as whitespace when they are sent to a downstream component.
 
 This can include space, tab, etc.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

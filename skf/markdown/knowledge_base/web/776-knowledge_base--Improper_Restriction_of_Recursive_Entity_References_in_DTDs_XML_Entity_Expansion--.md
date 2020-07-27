@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses XML documents and allows their structure to be defined with a Document Type Definition (DTD), but it does not properly control the number of recursive definitions of entities.
 
 If the DTD contains a large number of nested or recursive entities, this can lead to explosive growth of data when parsed, causing a denial of service.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The only defined value, nosniff, prevents Internet Explorer and Google Chrome from
 MIME-sniffing a response away from the declared content-type.

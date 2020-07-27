@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Passwords stored locally are often vulnerable to offline attacks like dictionary attacks(list of commonly known passwords), bruteforce(permutation of all possible combinations) and rainbow tables(generate hashes upfront and do a look up for each hash). Since we belong to a generation of high speed computers performing these attacks is quite a trivial task for the attackers.
 

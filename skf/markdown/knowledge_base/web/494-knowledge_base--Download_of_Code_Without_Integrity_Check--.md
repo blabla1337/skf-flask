@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.
 
 An attacker can execute malicious code by compromising the host server, performing DNS spoofing, or modifying the code in transit.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

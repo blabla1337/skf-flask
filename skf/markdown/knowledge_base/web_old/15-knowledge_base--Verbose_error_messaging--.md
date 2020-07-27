@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 An important aspect of secure application development is to prevent information leakage. 
 Error messages give an attacker great insight into the inner workings of an application.

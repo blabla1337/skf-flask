@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Type checking, length checking and whitelisting is an essential in defense in depth strategie to make
 your application more resiliant against input injection attacks.

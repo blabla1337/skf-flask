@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Storing a password in plaintext may result in a system compromise.
 
 Password management issues occur when a password is stored in plaintext in an application's properties or configuration file. Storing a plaintext password in a configuration file allows anyone who can read the file access to the password-protected resource.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

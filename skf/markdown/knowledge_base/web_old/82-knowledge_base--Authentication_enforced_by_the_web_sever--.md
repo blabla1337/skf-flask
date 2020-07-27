@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Authentication should be enforced by the web-server. Whenever these configurations are
 not enforced on the server, an attacker could gain access to authorized

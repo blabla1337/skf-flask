@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product calls free() twice on the same memory address, potentially leading to modification of unexpected memory locations.
 
 When a program calls free() twice with the same argument, the program's memory management data structures become corrupted. This corruption can cause the program to crash or, in some circumstances, cause two later calls to malloc() to return the same pointer. If malloc() returns the same value twice and the program later gives the attacker control over the data that is written into this doubly-allocated memory, the program becomes vulnerable to a buffer overflow attack.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

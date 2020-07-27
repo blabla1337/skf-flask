@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 If the web application has no proper impersonation resistance against phishing attacks then the users could be an easy target for attackers.
 

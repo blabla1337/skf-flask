@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A heap overflow condition is a buffer overflow, where the buffer that can be overwritten is allocated in the heap portion of memory, generally meaning that the buffer was allocated using a routine such as malloc().
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

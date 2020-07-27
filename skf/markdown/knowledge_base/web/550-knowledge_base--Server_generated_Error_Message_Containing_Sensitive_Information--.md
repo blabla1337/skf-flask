@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Certain conditions, such as network failure, will cause a server error message to be displayed.
 
 While error messages in and of themselves are not dangerous, per se, it is what an attacker can glean from them that might cause eventual problems.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design System Configuration:

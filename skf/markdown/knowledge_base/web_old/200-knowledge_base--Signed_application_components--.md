@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 When an application don't use signed components an attacker can easily modify parts
 of the application and load inject a backdoors. Also the attacker could

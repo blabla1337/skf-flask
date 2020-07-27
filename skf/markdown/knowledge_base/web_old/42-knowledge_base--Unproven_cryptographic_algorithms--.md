@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The encryption techniques used in the application must be known and proven methods.
 When there is a self-made hashing algorithm developed, it is likely to contain

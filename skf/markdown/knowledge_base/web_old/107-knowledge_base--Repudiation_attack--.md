@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 A repudiation attack happens when an application or system does not adopt controls to
 properly track and log users actions, thus permitting malicious manipulation or forging

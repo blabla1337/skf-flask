@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not neutralize or incorrectly neutralizes output that is written to logs.
 
 This can allow an attacker to forge log entries or inject malicious content into logs. Log forging vulnerabilities occur when: Data enters an application from an untrusted source. The data is written to an application or system log file.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

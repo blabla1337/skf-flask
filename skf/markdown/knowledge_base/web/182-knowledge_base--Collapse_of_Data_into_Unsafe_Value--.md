@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software filters data in a way that causes it to be reduced or collapsed into an unsafe value that violates an expected security property.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

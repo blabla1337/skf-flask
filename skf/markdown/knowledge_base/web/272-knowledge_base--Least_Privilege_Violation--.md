@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The elevated privilege level required to perform operations such as chroot() should be dropped immediately after the operation is performed.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

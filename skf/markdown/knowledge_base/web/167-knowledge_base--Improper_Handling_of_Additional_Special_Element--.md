@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component, but it does not handle or incorrectly handles when an additional unexpected special element is provided.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

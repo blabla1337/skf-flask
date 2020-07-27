@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever the application detects malicious or unexpected user-input, you want to make sure
 the application actual rejects the submitted user-input rather than directly process it.

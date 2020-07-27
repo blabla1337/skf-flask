@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not neutralize or incorrectly neutralizes javascript: or other URIs from dangerous attributes within tags, such as onmouseover, onload, onerror, or style.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

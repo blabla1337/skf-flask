@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a 
 web application through the use of a special response header. Once a supported browser receives 

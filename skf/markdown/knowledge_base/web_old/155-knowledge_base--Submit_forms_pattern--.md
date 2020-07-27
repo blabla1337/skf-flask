@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever a user can submit a form in your system you should consider implementing
 the following defense mechanism in order to ensure high-level security.

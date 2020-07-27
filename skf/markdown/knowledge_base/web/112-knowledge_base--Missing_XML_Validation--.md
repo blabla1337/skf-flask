@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software accepts XML from an untrusted source but does not validate the XML against the proper schema.
 
 Most successful attacks begin with a violation of the programmer's assumptions. By accepting an XML document without validating it against a DTD or XML schema, the programmer leaves a door open for attackers to provide unexpected, unreasonable, or malicious input.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software decodes the same input twice, which can limit the effectiveness of any protection mechanism that occurs in between the decoding operations.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

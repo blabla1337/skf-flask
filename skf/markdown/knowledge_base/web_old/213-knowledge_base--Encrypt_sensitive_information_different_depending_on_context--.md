@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The mobile application should not store sensitive data in an unencrypted manner, even in
 the applications key chains since these can be easily accessed once a phone is jailbroken 

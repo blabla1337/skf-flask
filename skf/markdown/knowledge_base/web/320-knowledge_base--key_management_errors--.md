@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Weaknesses in this category are related to errors in the management of cryptographic keys.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 This entry heavily overlaps other categories and has been marked obsolete.

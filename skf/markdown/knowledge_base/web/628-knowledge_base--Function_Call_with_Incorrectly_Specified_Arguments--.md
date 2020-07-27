@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product calls a function, procedure, or routine with arguments that are not correctly specified, leading to always-incorrect behavior and resultant weaknesses.
 
 There are multiple ways in which this weakness can be introduced, including: the wrong variable or reference; an incorrect number of arguments; incorrect order of arguments; wrong type of arguments; or wrong value.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Build and Compilation:

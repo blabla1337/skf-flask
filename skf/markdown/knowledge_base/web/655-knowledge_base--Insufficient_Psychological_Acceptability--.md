@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software has a protection mechanism that is too difficult or inconvenient to use, encouraging non-malicious users to disable or bypass the mechanism, whether by accident or on purpose.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Testing:

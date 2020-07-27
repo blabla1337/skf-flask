@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software allocates a reusable resource or group of resources on behalf of an actor without imposing any restrictions on the size or number of resources that can be allocated, in violation of the intended security policy for that actor.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

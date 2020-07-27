@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly manage privileges while it is switching between different contexts that have different privileges or spheres of control.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Every time the application gets user-input, whether this showing it on screen or processing
 this data in the application background, these parameters should be escaped for malicious

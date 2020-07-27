@@ -1,4 +1,4 @@
-## Description: 
+##Description: 
 
 Some data on an application can be consider sensitive due to its importance:
 - Social security number

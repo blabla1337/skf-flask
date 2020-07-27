@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Login pages do not use adequate measures to protect the user name and password while they are in transit from the client to the server.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation System Configuration:

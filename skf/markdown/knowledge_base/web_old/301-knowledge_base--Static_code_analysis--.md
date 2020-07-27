@@ -1,4 +1,4 @@
-## Description:
+##Description:
 Static program analysis is the analysis of computer software that is performed without actually 
 executing programs, in contrast with dynamic analysis, which is analysis performed on programs 
 while they are executing.[1] In most cases the analysis is performed on some version of the source code, 

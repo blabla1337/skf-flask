@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly handle the characters that are used to mark the beginning and ending of a group of entities, such as parentheses, brackets, and braces.
 
 Paired delimiters might include: < and > angle brackets ( and ) parentheses { and } braces [ and ] square brackets double quotes ' ' single quotes
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 If an application allows the user to attempt for out-of-band authentication after a set time interval, it increases the chance of an attacker to replay a valid out-of-band authentication key after successfully compromising the session.
 

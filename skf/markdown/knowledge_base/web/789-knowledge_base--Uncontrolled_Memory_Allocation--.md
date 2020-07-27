@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product allocates memory based on an untrusted size value, but it does not validate or incorrectly validates the size, allowing arbitrary amounts of memory to be allocated.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation Architecture and Design:

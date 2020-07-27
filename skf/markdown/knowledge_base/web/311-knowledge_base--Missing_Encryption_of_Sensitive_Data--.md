@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not encrypt sensitive or critical information before storage or transmission.
 
 The lack of proper data encryption passes up the guarantees of confidentiality, integrity, and accountability that properly implemented encryption conveys.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

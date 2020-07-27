@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.
 
 When software performs a security-critical calculation incorrectly, it might lead to incorrect resource allocations, incorrect privilege assignments, or failed comparisons among other things. Many of the direct results of an incorrect calculation can lead to even larger problems such as failed protection mechanisms or even arbitrary code execution.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

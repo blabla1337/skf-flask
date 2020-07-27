@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A UI function is obsolete and the product does not warn the user.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

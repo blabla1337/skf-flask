@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software, by default, initializes an internal variable with an insecure or less secure value than is possible.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:System Configuration:

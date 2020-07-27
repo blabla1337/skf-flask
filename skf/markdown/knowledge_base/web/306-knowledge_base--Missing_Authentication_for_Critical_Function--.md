@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

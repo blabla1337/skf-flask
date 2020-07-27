@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not drop privileges before passing control of a resource to an actor that does not have those privileges.
 
 In some contexts, a system executing with elevated permissions will hand off a process/file/etc. to another process or user. If the privileges of an entity are not reduced, then elevated privileges are spread throughout a system and possibly to an attacker.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Separation of Privilege:

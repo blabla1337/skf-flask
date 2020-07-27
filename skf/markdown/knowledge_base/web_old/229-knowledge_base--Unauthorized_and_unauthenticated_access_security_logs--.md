@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Security logs should never allow unauthorized/unauthenticated access because these files include
 a lot of sensitive information and could assist an attacker in leveraging attacks. Whenever

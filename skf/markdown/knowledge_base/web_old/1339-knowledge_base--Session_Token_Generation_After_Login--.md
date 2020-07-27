@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The application should always generate a new session ID only after the user submits a set of valid credentials upon authentication.
 This is meant to prevent an attacker from performing Session Fixation attacks against other users.

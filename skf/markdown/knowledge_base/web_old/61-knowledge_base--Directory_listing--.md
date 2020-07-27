@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever directory listing is enabled, an attacker could gain sensitive information about
 the systems hierarchical structure and gain knowledge about directories or files which should

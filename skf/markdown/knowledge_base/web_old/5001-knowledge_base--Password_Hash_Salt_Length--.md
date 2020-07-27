@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 For secure storage of passwords, it is recommended to hash the passwords with a unique salt. A salt is a non-secret, unique value in the database which is appended (depending on the used algorithm) to the password before it gets hashed. A salt is used to prevent Rainbow Table lookups (an attack where you compute a table of hashes for passwords). The length of a salt is critical to ensure true randomness and entropy amongst the hashed password and prevent collusion.
 

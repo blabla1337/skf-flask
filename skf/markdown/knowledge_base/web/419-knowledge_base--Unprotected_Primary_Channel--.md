@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses a primary channel for administration or restricted functionality, but it does not properly protect the channel.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 When a security-critical event occurs, the software either does not record the event or omits important details about the event when logging it.
 
 When security-critical events are not logged properly, such as a failed login attempt, this can make malicious behavior more difficult to detect and may hinder forensic analysis after an attack succeeds.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

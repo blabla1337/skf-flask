@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever an application sends data/parameters to untrusted devices this data could be
 compromised if the device has malicious intents.

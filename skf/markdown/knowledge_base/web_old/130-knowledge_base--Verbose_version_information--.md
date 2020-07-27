@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Revealing system data or debugging information helps an adversary learn about the system
 and form a plan of attack. An information leak occurs when system data or debugging

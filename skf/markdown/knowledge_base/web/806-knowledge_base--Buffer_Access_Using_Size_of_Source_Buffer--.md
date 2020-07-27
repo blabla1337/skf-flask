@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses the size of a source buffer when reading from or writing to a destination buffer, which may cause it to access memory that is outside of the bounds of the buffer.
 
 When the size of the destination is smaller than the size of the source, a buffer overflow could occur.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

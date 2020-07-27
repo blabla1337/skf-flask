@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Assigning public data to a private array is equivalent to giving public access to the array.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

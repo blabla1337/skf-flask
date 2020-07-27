@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 [PLANNED FOR DEPRECATION. SEE MAINTENANCE NOTES.] Ignoring exceptions and other error conditions may allow an attacker to induce unexpected behavior unnoticed.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

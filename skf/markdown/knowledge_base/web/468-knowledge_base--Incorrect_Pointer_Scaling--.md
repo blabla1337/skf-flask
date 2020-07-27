@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 In C and C++, one may often accidentally refer to the wrong memory due to the semantics of when math operations are implicitly scaled.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

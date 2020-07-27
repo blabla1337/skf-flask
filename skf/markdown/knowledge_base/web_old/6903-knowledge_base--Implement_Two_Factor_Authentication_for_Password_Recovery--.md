@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 To verify the user is who he claims to be in order to recover a forgotten password a two factor authentication mechanism should be implemented.
 

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Tokens or passwords that are used within the application must contain high entropy in
 order to prevent the prediction of these values.

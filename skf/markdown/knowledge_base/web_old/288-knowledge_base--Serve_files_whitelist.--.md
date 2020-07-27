@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Configiring the web server to only serve files with an expected
 file extension helps prevent information leakage whenever developers

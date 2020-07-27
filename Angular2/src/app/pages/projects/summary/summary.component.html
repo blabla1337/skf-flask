@@ -1,116 +1,122 @@
 <div class="container-fluid">
 
-    <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
-  
-    <div class="row">
-      <div class="col-lg-12">
-  
-        <!-- Content Body -->
-  
-        <div class="card">
-          <div class="card-body">
-            <div class="row mb-5">
-              <div class="col-sm-12">
-                <div class="text-right">
-                  <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
-                    <i class="mdi mdi-cloud-download-outline font-size-15 mr-1"></i>Export as CSV</button>
-                </div>
+  <app-page-title title="Sprint result" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-lg-12">
+
+      <!-- Content Body -->
+
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-5">
+            <div class="col-sm-12">
+              <div class="text-right">
+                <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
+                  <i class="mdi mdi-cloud-download-outline font-size-15 mr-1"></i>Export as CSV</button>
               </div>
-              <!-- end col-->
             </div>
-  
-            <div class="row mb-4">
-              <div class="col">
-                <div class="card border shadow-none">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-sm-10">
-                        <h4 class="card-title">Overview of your current sprint items, export them to import them in your favourite</h4>
-                        
-                      </div>
-                      
-                      <div class="col-sm-2">
-                        <div class="text-right">
-                          <span class="badge badge-success font-size-11 mt-1 float-left">Resolved</span>
-                          <button class="btn-sm btn-primary btn-md" type="button"
-                            (click)="isCollapsed = !isCollapsed">
-                            Click here
-                          </button>
-                        </div>
+            <!-- end col-->
+          </div>
+
+          <div *ngFor="let item of sprintData.items" class="row mb-4">
+            <div class="col">
+              <div class="card border shadow-none">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-10">
+                      <h4 class="card-title">{{item.checklist_items_checklist_id}} {{item.checklist_items_content}}
+                      </h4>
+
+                    </div>
+
+                    <div class="col-sm-2">
+                      <div class="text-right">
+                        <span *ngIf="item.status == 0"
+                          class="badge badge-success font-size-11 mt-1 float-left">Resolved</span>
+                        <span *ngIf="item.status == 1"
+                          class="badge badge-danger font-size-11 mt-1 float-left">Open</span>
+                        <button class="btn-sm btn-primary btn-md" type="button" (click)="isCollapsed = !isCollapsed">
+                          Click here
+                        </button>
                       </div>
                     </div>
-                    <div class="collapse" [ngbCollapse]="!isCollapsed">
-                        <div class="dropdown-divider mt-3"></div>
-                        <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom ">
-                            <li [ngbNavItem]="1">
-                              <a ngbNavLink>Summary</a>
-                                <ng-template ngbNavContent>
-                                    <div class="card shadow-none">
-                                        <div class="card-body">
-                                            <h4>Description</h4>
-                                            <p>This is a sample Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <button class="btn btn-sm btn-danger" type="button" (click)="summaryModal(deleteContent)">Delete Result</button>
-                                      </div>
-                                </ng-template>
-                            </li>
-                            <li [ngbNavItem]="2">
-                                <a ngbNavLink>Compliance</a>
-                                  <ng-template ngbNavContent>
-                                    <div class="card shadow-none">
-                                        <div class="card-body p-0">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="evidence">Evidence</label>
-                                                    <textarea class="form-control" id="evidence" rows="3"></textarea>
-                                                  </div>
-                                                <div class="form-group">
-                                                    <label class="float-left">Status</label>
-                                                    <select class="form-control select2-search-disable">
-                                                      <option value="" selected></option>
-                                                      <option value="1">Resolved</option>
-                                                      <option value="2">Not Resolved</option>
-                                                    </select>
-                                                  </div>
-                                                  <div class="text-right">
-                                                    <button class="btn btn-sm btn-danger" type="button" (click)="summaryModal(deleteResult)">Delete Result</button>
-                                                  </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                  </ng-template>
-                              </li>
-                        </ul>
-                        <div [ngbNavOutlet]="nav" class="compliance p-1"></div>
-                    </div>
+                  </div>
+                  <div class="collapse" [ngbCollapse]="!isCollapsed">
+                    <div class="dropdown-divider mt-3"></div>
+                    <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom ">
+                      <li [ngbNavItem]="1">
+                        <a ngbNavLink>Summary</a>
+                        <ng-template ngbNavContent>
+                          <div class="card shadow-none">
+                            <div class="card-body">
+                              <h4>{{item.kb_item_title}}</h4>
+                              <p>{{item.kb_items_content}}</p>
+                              <h4>Additional resources</h4>
+                              <p>{{item.add_resources}}</p>
+                            </div>
+                          </div>
+                          <div class="text-right">
+                            <button class="btn btn-sm btn-danger" type="button"
+                              (click)="summaryModal(deleteContent)">Delete Result</button>
+                          </div>
+                        </ng-template>
+                      </li>
+                      <li [ngbNavItem]="2">
+                        <a ngbNavLink>Compliance</a>
+                        <ng-template ngbNavContent>
+                          <div class="card shadow-none">
+                            <div class="card-body p-0">
+                              <form>
+                                <div class="form-group">
+                                  <label for="evidence">Evidence</label>
+                                  <textarea class="form-control" id="evidence" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                  <label class="float-left">Status</label>
+                                  <select class="form-control select2-search-disable">
+                                    <option value="" selected></option>
+                                    <option value="1">Resolved</option>
+                                    <option value="2">Not Resolved</option>
+                                  </select>
+                                </div>
+                                <div class="text-right">
+                                  <button class="btn btn-sm btn-danger" type="button"
+                                    (click)="summaryModal(deleteResult)">Delete Result</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </li>
+                    </ul>
+                    <div [ngbNavOutlet]="nav" class="compliance p-1"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- Content Body Ends-->
       </div>
+      <!-- Content Body Ends-->
     </div>
   </div>
+</div>
 
-  <!-- Content Delete Modal -->
+<!-- Content Delete Modal -->
 <ng-template #deleteContent let-modal>
   <div class="modal-header">
-      <h5 class="modal-title mt-0">Delete Content</h5>
-      <button type="button" class="close" aria-label="Close"
-          (click)="modal.dismiss('Close click')">
-          <span aria-hidden="true">&times;</span>
-      </button>
+    <h5 class="modal-title mt-0">Delete Content</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="delete">Type <b>Delete</b> to delete the content</label>
-        <input type="text" class="form-control" id="delete" placeholder="Type DELETE"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type 'DELETE''">
+        <input type="text" class="form-control" id="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Type DELETE'">
       </div>
       <button type="submit" class="btn btn-primary">Delete</button>
     </form>
@@ -120,18 +126,17 @@
 <!-- Result Delete Modal -->
 <ng-template #deleteResult let-modal>
   <div class="modal-header">
-      <h5 class="modal-title mt-0">Delete Result</h5>
-      <button type="button" class="close" aria-label="Close"
-          (click)="modal.dismiss('Close click')">
-          <span aria-hidden="true">&times;</span>
-      </button>
+    <h5 class="modal-title mt-0">Delete Result</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="delete">Type <b>Delete</b> to delete the result</label>
-        <input type="text" class="form-control" id="delete" placeholder="Type DELETE"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type 'DELETE''">
+        <input type="text" class="form-control" id="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Type DELETE'">
       </div>
       <button type="submit" class="btn btn-primary">Delete</button>
     </form>

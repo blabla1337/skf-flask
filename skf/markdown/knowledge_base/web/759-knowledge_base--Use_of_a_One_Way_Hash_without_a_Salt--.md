@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses a one-way cryptographic hash against an input that should not be reversible, such as a password, but the software does not also use a salt as part of the input.
 
 This makes it easier for attackers to pre-compute the hash value using dictionary attack techniques such as rainbow tables. It should be noted that, despite common perceptions, the use of a good salt with a hash does not sufficiently increase the effort for an attacker who is targeting an individual password, or who has a large amount of computing resources available, such as with cloud-based services or specialized, inexpensive hardware. Offline password cracking can still be effective if the hash function is not expensive to compute; many cryptographic functions are designed to be efficient and can be vulnerable to attacks using massive computing resources, even if the hash is cryptographically strong. The use of a salt only slightly increases the computing requirements for an attacker compared to other strategies such as adaptive hash functions. See CWE-916 for more details.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

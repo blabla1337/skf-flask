@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The application should always be request minimal permissions for required functionality and
 resources. This is also known as principle of least privilege. The principle of least privilege 

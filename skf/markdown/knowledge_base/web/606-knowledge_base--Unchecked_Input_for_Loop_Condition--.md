@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product does not properly check inputs that are used for loop conditions, potentially leading to a denial of service because of excessive looping.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

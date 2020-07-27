@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A handler is not available or implemented.
 
 When an exception is thrown and not caught, the process has given up an opportunity to decide if a given failure or event is worth a change in execution.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

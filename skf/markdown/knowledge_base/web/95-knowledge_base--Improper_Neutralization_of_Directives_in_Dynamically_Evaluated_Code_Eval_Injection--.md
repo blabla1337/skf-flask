@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component, but it does not neutralize or incorrectly neutralizes code syntax before using the input in a dynamic evaluation call (e.g. eval).
 
 This may allow an attacker to execute arbitrary code, or at least modify what code can be executed.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Implementation:

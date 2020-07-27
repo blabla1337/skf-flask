@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever you allow users to register on your system there are a couple of things you need
 to take into consideration in order to enforce a high level of security

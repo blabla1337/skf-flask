@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Client side storage also known as Offline Storage or Web Storage. The Underlying storage mechanism may vary from one
 user agent to the next. In other words, any authentication your application requires can

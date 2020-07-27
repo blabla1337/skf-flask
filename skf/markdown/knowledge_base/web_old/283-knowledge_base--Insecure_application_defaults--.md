@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 When default sample applications, default users, etc
 are not removed from your production environment you

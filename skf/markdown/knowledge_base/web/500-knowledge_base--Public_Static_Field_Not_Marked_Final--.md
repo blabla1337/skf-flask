@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 An object contains a public static field that is not marked final, which might allow it to be modified in unexpected ways.
 
 Public static variables can be read without an accessor and changed without a mutator by any classes in the application.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

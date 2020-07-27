@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 One or more system settings or configuration elements can be externally controlled by a user.
 
 Allowing external control of system settings can disrupt service or cause an application to behave in unexpected, and potentially malicious ways.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Separation of Privilege:

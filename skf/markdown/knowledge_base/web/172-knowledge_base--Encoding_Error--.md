@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly encode or decode the data, resulting in unexpected values.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Setting the right content headers is important for hardening your applications security,
 this reduces exposure to drive-by download attacks or sites serving user uploaded

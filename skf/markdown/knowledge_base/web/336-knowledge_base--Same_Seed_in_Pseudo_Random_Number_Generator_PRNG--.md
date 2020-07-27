@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A Pseudo-Random Number Generator (PRNG) uses the same seed each time the product is initialized.
 
 If an attacker can guess (or knows) the seed, then the attacker may be able to determine the random numbers that will be produced from the PRNG.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

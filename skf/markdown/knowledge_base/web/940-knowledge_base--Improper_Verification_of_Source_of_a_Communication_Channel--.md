@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software establishes a communication channel to handle an incoming request that has been initiated by an actor, but it does not properly verify that the request is coming from the expected origin.
 
 When an attacker can successfully establish a communication channel from an untrusted origin, the attacker may be able to gain privileges and access unexpected functionality.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

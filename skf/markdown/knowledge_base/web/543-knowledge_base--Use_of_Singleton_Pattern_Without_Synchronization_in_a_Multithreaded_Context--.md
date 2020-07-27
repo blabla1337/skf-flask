@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses the singleton pattern when creating a resource within a multithreaded environment.
 
 The use of a singleton pattern may not be thread-safe.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

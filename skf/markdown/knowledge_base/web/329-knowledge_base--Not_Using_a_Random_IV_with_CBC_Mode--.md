@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Not using a random initialization Vector (IV) with Cipher Block Chaining (CBC) Mode causes algorithms to be susceptible to dictionary attacks.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

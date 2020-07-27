@@ -1,4 +1,4 @@
-## Description:
+##Description:
 A race condition is a flaw that produces an unexpected result when the timing of actions impact other actions. 
 An example may be seen on a multithreaded application where actions are being performed on the same data. 
 Race conditions, by their very nature, are difficult to test for.

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever an application ask an user a secret question i.e a password forgot
 functionality, these questions should not be shared knowledge an attacker could get from

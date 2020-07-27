@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A product incorrectly assigns a privilege to a particular actor, creating an unintended sphere of control for that actor.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 All SQL queries, HQL, OSQL, NOSQL and stored procedures, related to stored procedures should be
 protected by the use of query parameterization.

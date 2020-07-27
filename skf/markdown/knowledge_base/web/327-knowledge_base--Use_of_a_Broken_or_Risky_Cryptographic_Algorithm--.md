@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The use of a broken or risky cryptographic algorithm is an unnecessary risk that may result in the exposure of sensitive information.
 
 The use of a non-standard algorithm is dangerous because a determined attacker may be able to break the algorithm and compromise whatever data has been protected. Well-known techniques may exist to break the algorithm.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Libraries or Frameworks:

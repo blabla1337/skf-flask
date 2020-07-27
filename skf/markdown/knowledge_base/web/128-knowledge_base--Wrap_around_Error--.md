@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Wrap around errors occur whenever a value is incremented past the maximum value for its type and therefore wraps around to a very small, negative, or undefined value.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

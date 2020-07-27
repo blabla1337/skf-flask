@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '....' (multiple dot) sequences that can resolve to a location that is outside of that directory.
 
 This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory. The '....' manipulation is useful for bypassing some path traversal protection schemes. On some Windows systems, it is equivalent to ...... and might bypass checks that assume only two dots are valid. Incomplete filtering, such as removal of ./ sequences, can ultimately produce valid .. sequences due to a collapse into unsafe value (CWE-182).
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

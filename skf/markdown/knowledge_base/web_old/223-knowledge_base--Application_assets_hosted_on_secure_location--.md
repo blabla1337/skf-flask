@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever application assets such as JavaScript libraries or CSS styleshees are not hosted
 on the application itself but on a external CDN which is not under your control these

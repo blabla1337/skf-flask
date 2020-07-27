@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A PHP application does not properly protect against the modification of variables from external sources, such as query parameters or cookies. This can expose the application to numerous weaknesses that would not exist otherwise.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements Implementation:

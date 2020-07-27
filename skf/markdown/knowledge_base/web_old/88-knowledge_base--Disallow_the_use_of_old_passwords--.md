@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 This is a mitigation of the risk that a password can leak by any means towards a possible attacker. Because of password reuse, this could happen not only due to a leak in your site. Changing the password to a new one minimizes the damage.
 

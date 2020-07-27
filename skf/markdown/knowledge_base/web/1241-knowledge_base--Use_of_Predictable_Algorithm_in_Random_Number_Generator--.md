@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product requires a true random number but uses an algorithm that is predictable and generates a pseudo-random number.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

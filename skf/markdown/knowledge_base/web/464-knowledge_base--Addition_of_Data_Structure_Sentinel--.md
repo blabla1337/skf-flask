@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The accidental addition of a data-structure sentinel can cause serious programming logic problems.
 
 Data-structure sentinels are often used to mark the structure of data. A common example of this is the null character at the end of strings or a special sentinel to mark the end of a linked list. It is dangerous to allow this type of control data to be easily accessible. Therefore, it is important to protect from the addition or modification of sentinels.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation Architecture and Design:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product does not properly filter, remove, quote, or otherwise manage the invalid use of special elements in user-controlled input, which could cause adverse effect on its behavior and integrity.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

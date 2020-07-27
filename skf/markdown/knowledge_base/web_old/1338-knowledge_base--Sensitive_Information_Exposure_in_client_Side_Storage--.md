@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Client-side storage (also known as offline storage or web storage) is a functionality provided by browsers to allow applications to save information on the user's computer and retrieve them when necessary. 
 Since this operations are performed by client-side scripting languages (notably Javascript), this information can be retrieved by third-party codes included in the webpages or by Cross-site scripting attacks (XSS) performed by attackers.

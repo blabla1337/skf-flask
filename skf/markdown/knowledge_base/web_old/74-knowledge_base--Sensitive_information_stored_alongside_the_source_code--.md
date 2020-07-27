@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Sometimes when developing an application a programmer stores a password or other
 credentials into the source-code as a comment for other developers to

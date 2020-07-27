@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.
 
 This can have security implications when the associated resource is expected to have certain properties or values, such as a variable that determines whether a user has been authenticated or not.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:STRATEGY:Language Selection:

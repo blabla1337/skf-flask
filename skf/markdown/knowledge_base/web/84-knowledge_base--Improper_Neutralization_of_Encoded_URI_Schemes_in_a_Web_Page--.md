@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The web application improperly neutralizes user-controlled input for executable script disguised with URI encodings.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

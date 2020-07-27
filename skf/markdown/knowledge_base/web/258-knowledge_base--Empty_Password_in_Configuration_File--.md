@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Using an empty string as a password is insecure.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:System Configuration:
