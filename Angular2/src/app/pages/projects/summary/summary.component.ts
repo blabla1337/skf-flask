@@ -16,7 +16,7 @@ export class SummaryComponent implements OnInit
   breadCrumbItems: Array<{}>;
 
   // Collapse value
-  public isCollapsed: boolean;
+  public isCollapsed: boolean[] = [];
   private sub: any;
   private id: number;
   public sprintData: any;
