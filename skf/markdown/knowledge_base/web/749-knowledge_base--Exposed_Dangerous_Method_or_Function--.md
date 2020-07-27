@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software provides an Applications Programming Interface (API) or similar interface for interaction with external actors, but the interface includes a dangerous method or function that is not properly restricted.
 
 This weakness can lead to a wide variety of resultant weaknesses, depending on the behavior of the exposed method. It can apply to any number of technologies and approaches, such as ActiveX controls, Java functions, IOCTLs, and so on. The exposure can occur in a few different ways: 1) The function/method was never intended to be exposed to outside actors. 2) The function/method was only intended to be accessible to a limited set of actors, such as Internet-based access from a single web site.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

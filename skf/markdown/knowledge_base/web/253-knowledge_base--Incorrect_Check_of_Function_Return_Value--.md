@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software incorrectly checks a return value from a function, which prevents the software from detecting errors or exceptional conditions.
 
 Important and common functions will return some value about the success of its actions. This will alert the program whether or not to handle any errors caused by that function.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Language Selection:

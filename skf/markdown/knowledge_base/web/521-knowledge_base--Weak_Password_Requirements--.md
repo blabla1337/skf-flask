@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product does not require that users should have strong passwords, which makes it easier for attackers to compromise user accounts.
 
 Authentication mechanisms often rely on a memorized secret (also known as a password) to provide an assertion of identity for a user of a system. It is therefore important that this password be of sufficient complexity and impractical for an adversary to guess. The specific requirements around how complex a password needs to be depends on the type of system being protected. Selecting the correct password requirements and enforcing them through implementation are critical to the overall success of the authentication mechanism.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

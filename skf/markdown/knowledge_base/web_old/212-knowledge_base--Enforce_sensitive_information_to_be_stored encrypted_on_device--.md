@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The mobile application should not store sensitive data into unencrypted shared
 resources on the device. These resources can be accessible by other applications or 

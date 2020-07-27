@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever session IDs are not generated with a sufficient entropy this could lead to a
 session collision or session hijacking. If an attacker can guess an authenticated user's

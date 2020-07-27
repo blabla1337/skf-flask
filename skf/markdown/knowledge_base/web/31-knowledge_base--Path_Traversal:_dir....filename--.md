@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize 'dir....filename' (multiple internal backslash dot dot) sequences that can resolve to a location that is outside of that directory.
 
 This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory. The 'dir....filename' manipulation is useful for bypassing some path traversal protection schemes. Sometimes a program only removes one .. sequence, so multiple .. can bypass that check. Alternately, this manipulation could be used to bypass a check for .. at the beginning of the pathname, moving up more than one directory level.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

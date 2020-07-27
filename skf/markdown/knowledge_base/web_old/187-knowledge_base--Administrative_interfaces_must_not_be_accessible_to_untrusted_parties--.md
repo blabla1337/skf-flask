@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever it is not necessary for administrative pages to be publicly accessible these
 pages should have restricted access for users. Whenever these pages are secluded from the rest

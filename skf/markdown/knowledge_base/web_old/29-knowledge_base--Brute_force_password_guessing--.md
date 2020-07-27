@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Login functions should not be abused in an automated way that an attacker could create a
 script that contains a list of usernames and passwords, which he could use against your

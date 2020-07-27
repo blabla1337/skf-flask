@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Every password is hackable. Even the stronger ones, as well. The technique name is bruteforce. In case the attacker can do several of thousand login attempts to find out the proper password, then just matter of time and he/she will be successful.
 

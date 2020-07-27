@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product uses a search path that contains an unquoted element, in which the element contains whitespace or other separators. This can cause the product to access resources in a parent path.
 
 If a malicious individual has access to the file system, it is possible to elevate privileges by inserting such a file as C:Program.exe to be run by a privileged program making use of WinExec.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

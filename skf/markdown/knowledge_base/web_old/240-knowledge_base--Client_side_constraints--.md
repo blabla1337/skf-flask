@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever constraints that are imposed on the client side are not enforced on the server side than
 these constraints can be easily bypassed by means of an intercepting proxy. i.e whenever user should not 

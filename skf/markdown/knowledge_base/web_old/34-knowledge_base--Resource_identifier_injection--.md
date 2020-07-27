@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 A resource identifier injection basically means that the attacker can determine which
 resources are loaded into the web application.

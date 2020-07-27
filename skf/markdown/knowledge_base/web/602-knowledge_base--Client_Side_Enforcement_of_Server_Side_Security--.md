@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software is composed of a server that relies on the client to implement a mechanism that is intended to protect the server.
 
 When the server relies on protection mechanisms placed on the client side, an attacker can modify the client-side behavior to bypass the protection mechanisms resulting in potentially unexpected interactions between the client and server. The consequences will vary, depending on what the mechanisms are trying to protect.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

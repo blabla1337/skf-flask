@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 OCSP stapling, formally known as the TLS Certificate Status Request extension, is an
 alternative approach to the Online Certificate Status Protocol (OCSP) for checking the

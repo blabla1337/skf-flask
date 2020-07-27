@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A public or protected static final field references a mutable object, which allows the object to be changed by malicious code, or accidentally from another package.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

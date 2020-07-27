@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product implements a cryptographic algorithm using a non-standard or unproven cryptographic primitive.
 
 Cryptographic algorithms (or Cryptographic systems) depend on cryptographic primitives as their basic building blocks. As a result, cryptographic primitives are designed to do one very specific task in a precisely defined and highly reliable fashion. For example, one can declare that a specific crypto primitive (like an encryption routine) can only be broken after trying out N different inputs (the larger the value of N, the stronger the crypto). If a vulnerability is found that leads to breaking this primitive in significantly less than N attempts, then the specific cryptographic primitive is considered broken, and the entirety of the cryptographic algorithm (or the cryptographic system) is now considered insecure. Thus, even breaking a seemingly small cryptographic primitive is sufficient to render the whole system vulnerable. Cryptographic primitives are products of extensive reviews from cryptographers, industry, and government entities looking for any possible flaws. However, over time even well-known cryptographic primitives lose their compliance status with emergence of novel attacks that might either defeat the algorithm or reduce its robustness significantly. If ad-hoc cryptographic primitives are implemented, it is almost certain that such implementation will be vulnerable to attacks resulting in the exposure of sensitive information and/or other consequences.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

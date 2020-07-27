@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The J2EE application is configured to use an insufficient session ID length.
 
 If an attacker can guess or steal a session ID, then they may be able to take over the user's session (called session hijacking). The number of possible session IDs increases with increased session ID length, making it more difficult to guess or steal a session ID.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

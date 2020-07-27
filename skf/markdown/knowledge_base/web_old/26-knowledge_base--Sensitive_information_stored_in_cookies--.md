@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Sensitive data should not be stored in a cookie,because the cookie is also used on the client-side and is adaptable thus making
 its content readable. A hacker could gain access to a cookie through cross site scripting

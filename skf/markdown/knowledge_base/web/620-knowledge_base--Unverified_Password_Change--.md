@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 When setting a new password for a user, the product does not require knowledge of the original password, or using another form of authentication.
 
 This could be used by an attacker to change passwords for another user, thus gaining the privileges associated with that user.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

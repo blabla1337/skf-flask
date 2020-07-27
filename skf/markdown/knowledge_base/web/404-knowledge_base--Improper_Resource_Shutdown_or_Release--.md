@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The program does not release or incorrectly releases a resource before it is made available for re-use.
 
 When a resource is created or allocated, the developer is responsible for properly releasing the resource as well as accounting for all potential paths of expiration or invalidation, such as a set period of time or revocation.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:STRATEGY:Language Selection:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 An attacker can use debug tooling to find out how the application is working and determain the 
 possible attack surface by using tooling like GDB or running the application in an emulator. 

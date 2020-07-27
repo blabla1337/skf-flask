@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application inserts sensitive information into debugging code, which could expose this information if the debugging code is not disabled in production.
 
 When debugging, it may be necessary to report detailed information to the programmer. However, if the debugging code is not disabled when the application is operating in a production environment, then this sensitive information may be exposed to attackers.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

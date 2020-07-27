@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever organizations communicate by means of unencrypted connections, an attacker
 could easily sniff insecure communications and access sensitive information.

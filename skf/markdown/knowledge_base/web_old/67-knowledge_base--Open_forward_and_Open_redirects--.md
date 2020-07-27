@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Unvalidated redirects and forwards are possible when a web application accepts untrusted
 input that could cause the web application to redirect the request to a URL contained

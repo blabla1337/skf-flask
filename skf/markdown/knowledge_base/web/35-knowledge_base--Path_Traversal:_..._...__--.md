@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '.../...//' (doubled triple dot slash) sequences that can resolve to a location that is outside of that directory.
 
 This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory. The '.../...//' manipulation is useful for bypassing some path traversal protection schemes. If ../ is filtered in a sequential fashion, as done by some regular expression engines, then .../...// can collapse into the ../ unsafe value (CWE-182). Removing the first ../ yields ....//; the second removal yields ../. Depending on the algorithm, the software could be susceptible to CWE-34 but not CWE-35, or vice versa.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

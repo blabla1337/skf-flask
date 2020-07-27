@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Only authorized administrators should have access to change security-relevant configurations.
 

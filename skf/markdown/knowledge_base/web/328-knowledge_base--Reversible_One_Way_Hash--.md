@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product uses a hashing algorithm that produces a hash value that can be used to determine the original input, or to find an input that can produce the same hash, more efficiently than brute force techniques.
 
 This weakness is especially dangerous when the hash is used in security algorithms that require the one-way property to hold. For example, if an authentication system takes an incoming password and generates a hash, then compares the hash to another hash that it has stored in its authentication database, then the ability to create a collision could allow an attacker to provide an alternate password that produces the same target hash, bypassing authentication.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

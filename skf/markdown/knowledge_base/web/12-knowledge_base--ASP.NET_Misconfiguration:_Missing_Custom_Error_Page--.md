@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 An ASP .NET application must enable custom error pages in order to prevent attackers from mining information from the framework's built-in responses.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:System Configuration:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A certificate expiration is not validated or is incorrectly validated, so trust may be assigned to certificates that have been abandoned due to age.
 
 When the expiration of a certificate is not taken into account, no trust has necessarily been conveyed through it. Therefore, the validity of the certificate cannot be verified and all benefit of the certificate is lost.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

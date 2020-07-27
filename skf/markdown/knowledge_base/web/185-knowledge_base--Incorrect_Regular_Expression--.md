@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software specifies a regular expression in a way that causes data to be improperly matched or compared.
 
 When the regular expression is used in protection mechanisms such as filtering or validation, this may allow an attacker to bypass the intended restrictions on the incoming data.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Refactoring:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses a regular expression to perform neutralization, but the regular expression is not anchored and may allow malicious or malformed data to slip through.
 
 When performing tasks such as whitelist validation, data is examined and possibly modified to ensure that it is well-formed and adheres to a list of safe values. If the regular expression is not anchored, malicious or malformed data may be included before or after any string matching the regular expression. The type of malicious data that is allowed will depend on the context of the application and which anchors are omitted from the regular expression.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Serialization is the process of turning some object into a data format that can be restored later. 
 People often serialize objects in order to save them to storage, or to send as part of communications.

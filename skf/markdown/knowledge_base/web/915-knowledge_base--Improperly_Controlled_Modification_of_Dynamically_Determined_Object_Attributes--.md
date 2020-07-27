@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component that specifies multiple attributes, properties, or fields that are to be initialized or updated in an object, but it does not properly control which attributes can be modified.
 
 If the object contains attributes that were only intended for internal use, then their unexpected modification could lead to a vulnerability. This weakness is sometimes known by the language-specific mechanisms that make it possible, such as mass assignment, autobinding, or object injection.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

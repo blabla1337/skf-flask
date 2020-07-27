@@ -1,4 +1,4 @@
-## Description:
+##Description:
 Some policies require users to change passwords periodically, often every 90 or 180 days. 
 The benefit of password expiration, however, is debatable. Systems that implement such 
 policies sometimes prevent users from picking a password too close to a previous selection.

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Log injection problems are a subset of injection problem, in which invalid entries taken
 from user input are inserted in logs or audit trails, allowing an attacker to mislead

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Handling errors securely is a key aspect of secure coding.
 There are two types of errors that deserve special attention. The first is exceptions

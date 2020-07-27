@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The principle of least privilege recommends that accounts have the least amount of
 privilege required to perform their business processes. This encompasses user rights,

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever the application provides a password forget functionality or another 
 type of recovery methods there are several implementations of hardened proven ways to make

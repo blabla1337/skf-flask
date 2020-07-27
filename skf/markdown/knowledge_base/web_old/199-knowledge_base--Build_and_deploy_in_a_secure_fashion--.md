@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Using build platforms on premise or as a service is one of the core components in a SDLC.
 These build and deploy servers are sometimes not perfect for performing secure builds or deploys.

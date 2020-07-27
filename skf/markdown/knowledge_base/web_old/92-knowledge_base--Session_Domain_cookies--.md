@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The Domain option allows you to specify whether or not to send the cookie to subdomains.
 

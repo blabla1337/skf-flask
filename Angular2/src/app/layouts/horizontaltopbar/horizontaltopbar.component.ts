@@ -243,14 +243,14 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
   loggedIn()
   {
-    this.loggedinUser = localStorage.getItem('token');
+    this.loggedinUser = sessionStorage.getItem('Authorization');
     this.loggedin = true;
     return this.loggedinUser;
   }
 
   loggedOut()
   {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('Authorization');
     this.router.navigate(['/auth/login']);
   }
 }

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Replicating malicious code, including viruses and worms, will attempt to attack other systems once it has successfully compromised the target system or software.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation:

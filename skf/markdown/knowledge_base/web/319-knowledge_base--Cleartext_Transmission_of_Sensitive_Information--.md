@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software transmits sensitive or security-critical data in cleartext in a communication channel that can be sniffed by unauthorized actors.
 
 Many communication channels can be sniffed by attackers during data transmission. For example, network traffic can often be sniffed by any attacker who has access to a network interface. This significantly lowers the difficulty of exploitation by attackers.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 You should keep track of all the different active concurrent sessions.
 Whenever the application discovers concurrent sessions it should always notify the user

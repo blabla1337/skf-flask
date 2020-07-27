@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 A vulnerability occurs when an XSL file is loaded from a source controlled by an attacker.
 When the attacker is given the opportunity to specify the source of the included XSL file

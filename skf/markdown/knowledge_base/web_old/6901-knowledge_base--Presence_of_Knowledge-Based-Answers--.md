@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Avoid the use of knowledge-based-answers(so-called "secret questions").
 Due to the predominant use of social media, the power of Internet search engines, and access to public records via the Internet, your personal information is only be a few keystrokes away, 

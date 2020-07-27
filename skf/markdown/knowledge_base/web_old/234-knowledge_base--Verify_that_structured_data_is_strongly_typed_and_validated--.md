@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever structured data is strongly typed and validated against a defined schema the application
 can be developed as a defensible pro-active application. The application can now measure everything

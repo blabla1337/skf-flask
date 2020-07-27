@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 	The application should allow and not limit or enforce the type of characters that are permitted. 
 	Moreover, the application should enable the user to make pass phrases containng any usable character and 

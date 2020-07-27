@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Attackers with low access rights wil always try to elevate their privileges in order to get more sensitive information/functionalities at their disposal. This can be achieved by for example:
 

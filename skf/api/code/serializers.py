@@ -8,6 +8,13 @@ code = api.model('code', {
     'code_lang': fields.String(required=True, description='Code language'),
 })
 
+
+checklist_kb_code_item = api.model('code_items_checklist_kb', {
+    'title': fields.String(attribute='code_items.title', required=True, description='The unique identifier of a Knowledge base item'),
+    'content': fields.String(attribute='code_items.content', required=True, description='Knowledge base title'),
+    'code_lang': fields.String(attribute='code_items.lang', required=True, description='Knowledge base title'),
+})
+
 code_properties = api.model('code_update', {
     'title': fields.String(required=True, description='Code title'),
     'content': fields.String(required=True, description='Code content'),
@@ -21,4 +28,9 @@ code_items = api.inherit('List of code example items', {
 
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
+})
+
+
+code_items_checklist_kb_all = api.inherit('List of code example items', {
+    'items': fields.List(fields.Nested(checklist_kb_code_item))
 })

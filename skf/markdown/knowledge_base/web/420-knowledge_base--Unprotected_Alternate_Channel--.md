@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software protects a primary channel, but it does not use the same level of protection for an alternate channel.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

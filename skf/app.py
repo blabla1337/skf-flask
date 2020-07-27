@@ -63,11 +63,13 @@ from skf.api.checklist_category.endpoints.checklist_category_items import ns as 
 from skf.api.checklist_category.endpoints.checklist_category_item import ns as checklist_category
 from skf.api.checklist_category.endpoints.checklist_category_update import ns as checklist_category
 from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
-from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
 from skf.api.code.endpoints.code_items_new import ns as code_namespace
 from skf.api.code.endpoints.code_item_delete import ns as code_namespace
 from skf.api.code.endpoints.code_item_update import ns as code_namespace
+from skf.api.code.endpoints.checklist_kb_code_items_delete import ns as code_namespace
+from skf.api.code.endpoints.checklist_kb_code_items_new import ns as code_namespace
+from skf.api.code.endpoints.checklist_kb_code_items import ns as code_namespace
 from skf.api.user.endpoints.user_create import ns as users_namespace
 from skf.api.user.endpoints.user_activate import ns as users_namespace
 from skf.api.user.endpoints.user_login import ns as users_namespace

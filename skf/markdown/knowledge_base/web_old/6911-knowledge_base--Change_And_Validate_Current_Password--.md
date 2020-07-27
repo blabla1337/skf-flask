@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 	The user should be the only one who knows his password, so if an administrator provides the initial password, 
 	the user should be able to change his password. Also when a user believes the current password has 

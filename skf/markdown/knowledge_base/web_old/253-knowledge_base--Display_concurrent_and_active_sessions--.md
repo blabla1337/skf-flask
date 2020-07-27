@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever the user is presented a summary of all concurrent sessions, this decreases a potentially
 succesful hijacking attack since the user can now see all sessions and terminate one whenever

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly handle when all or part of an input has been URL encoded.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

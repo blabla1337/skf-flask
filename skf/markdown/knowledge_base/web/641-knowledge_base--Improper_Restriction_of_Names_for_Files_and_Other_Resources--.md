@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application constructs the name of a file or other resource using input from an upstream component, but it does not restrict or incorrectly restricts the resulting name.
 
 This may produce resultant weaknesses. For instance, if the names of these resources contain scripting characters, it is possible that a script may get executed in the client's browser if the application ever displays the name of the resource on a dynamically generated web page. Alternately, if the resources are consumed by some application parser, a specially crafted name can exploit some vulnerability internal to the parser, potentially resulting in execution of arbitrary code on the server machine. The problems will vary based on the context of usage of such malformed resource names and whether vulnerabilities are present in or assumptions are made by the targeted technology that would make code execution possible.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

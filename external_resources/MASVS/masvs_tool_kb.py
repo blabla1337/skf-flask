@@ -15,9 +15,9 @@ with open('masvs.json') as json_file:
         
         #f=open(cwe+"-knowledge_base--"+name+"--.md","w+")
         #for i in range(1):
-        #    f.write("## Description:\r\n\r\n")
+        #    f.write("##Description:\r\n\r\n")
         #    f.write("%s\r\n\r\n" % (row["Description"]))
         #    f.write("%s\r\n\r\n" % (description))
-        #    f.write("## Mitigation:\r\n")
+        #    f.write("##Mitigation:\r\n")
         #    f.write("%s" % (split3))
         #f.close()   

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import Swal from 'sweetalert2';
 
-import { Labs } from './view.model';
 import { LabService } from '../../../core/services/lab.service';
 
 @Component({
@@ -16,7 +15,9 @@ export class LabViewComponent implements OnInit
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
-  labData: any;
+  public labData: any;
+  public queryString;
+  public queryLabel;
 
   constructor(private _labService: LabService) { }
 
@@ -27,7 +28,7 @@ export class LabViewComponent implements OnInit
   }
 
   /**
-   * Checklists data fetches
+   * Labs data fetches
    */
   private _fetchData()
   {

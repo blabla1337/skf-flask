@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The use of a crossdomain.xml file is required when the web application uses Flash.
 This file is used to set up restrictions for any other web servers using the

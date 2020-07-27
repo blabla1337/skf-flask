@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses insufficiently random numbers or values in a security context that depends on unpredictable numbers.
 
 When software generates predictable values in a context requiring unpredictability, it may be possible for an attacker to guess the next value that will be generated, and use this guess to impersonate another user or access sensitive information.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

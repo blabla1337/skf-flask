@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever you are implementing a forgot password function into your system there are
 a few things you need to take into consideration in order to prevent security flaws

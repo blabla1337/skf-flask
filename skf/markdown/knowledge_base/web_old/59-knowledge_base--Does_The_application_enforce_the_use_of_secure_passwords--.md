@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Applications should encourage the use of strong passwords and pass-phrases. Preferably the
 password policy should not put limitations or restrictions on the chosen passwords (for example

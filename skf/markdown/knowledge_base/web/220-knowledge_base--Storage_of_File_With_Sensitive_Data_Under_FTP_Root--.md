@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application stores sensitive data under the FTP server root with insufficient access control, which might make it accessible to untrusted parties.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation System Configuration:

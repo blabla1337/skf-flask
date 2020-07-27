@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not terminate or incorrectly terminates a string or array with a null character or equivalent terminator.
 
 Null termination errors frequently occur in two different ways. An off-by-one error could cause a null to be written out of bounds, leading to an overflow. Or, a program could use a strncpy() function call incorrectly, which prevents a null terminator from being added at all. Other scenarios are possible.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

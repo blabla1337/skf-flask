@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A directory listing is inappropriately exposed, yielding potentially sensitive information to attackers.
 
 A directory listing provides an attacker with the complete index of all the resources located inside of the directory. The specific risks and consequences vary depending on which files are listed and accessible.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design System Configuration:

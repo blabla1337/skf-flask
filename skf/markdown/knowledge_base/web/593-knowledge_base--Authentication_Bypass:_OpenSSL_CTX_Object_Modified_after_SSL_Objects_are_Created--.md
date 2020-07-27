@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software modifies the SSL context after connection creation has begun.
 
 If the program modifies the SSL_CTX object after creating SSL objects from it, there is the possibility that older SSL objects created from the original context could all be affected by that change.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The program invokes a potentially dangerous function that could introduce a vulnerability if it is used incorrectly, but the function can also be used safely.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Build and Compilation Implementation:

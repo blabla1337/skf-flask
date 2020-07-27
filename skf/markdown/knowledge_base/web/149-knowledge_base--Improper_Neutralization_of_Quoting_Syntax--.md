@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Quotes injected into an application can be used to compromise a system. As data are parsed, an injected/absent/duplicate/malformed use of quotes may cause the process to take unexpected actions.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

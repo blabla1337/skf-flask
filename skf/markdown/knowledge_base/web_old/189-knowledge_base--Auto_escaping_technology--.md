@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Some frameworks/templates have the option to auto-escape all incoming user-input to harmless
 encoded data in order to prevent attacks. However, this auto-escaping functionality is also

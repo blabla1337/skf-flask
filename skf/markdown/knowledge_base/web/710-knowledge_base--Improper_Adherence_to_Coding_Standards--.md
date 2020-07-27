@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not follow certain coding rules for development, which can lead to resultant weaknesses or increase the severity of the associated vulnerabilities.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

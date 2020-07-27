@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Browser autocomplete and password managers could be used by attackers to steal sensitive
 information. Whenever an application is susceptible to XSS (Cross site scripting) attacks,

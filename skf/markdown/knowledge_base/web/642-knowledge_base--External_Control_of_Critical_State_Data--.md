@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software stores security-critical state information about its users, or the software itself, in a location that is accessible to unauthorized actors.
 
 If an attacker can modify the state information without detection, then it could be used to perform unauthorized actions or access unexpected resources, since the application programmer does not expect that the state can be changed. State information can be stored in various locations such as a cookie, in a hidden web form field, input parameter or argument, an environment variable, a database record, within a settings file, etc. All of these locations have the potential to be modified by an attacker. When this state information is used to control security or determine resource usage, then it may create a vulnerability. For example, an application may perform authentication, then save the state in an authenticated=true cookie. An attacker may simply create this cookie in order to bypass the authentication.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

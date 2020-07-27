@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever an user is successfully authenticated the application should generate a
 new session cookie.

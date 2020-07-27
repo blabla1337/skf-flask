@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 HTTP Strict-Transport-Security (HSTS) enforces secure (HTTP over SSL/TLS) connections to
 the server. This reduces the impact of bugs in web applications leaking session data through

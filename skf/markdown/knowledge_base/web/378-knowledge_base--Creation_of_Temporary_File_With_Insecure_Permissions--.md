@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Opening temporary files without appropriate measures or controls can leave the file, its contents and any function that it impacts vulnerable to attack.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

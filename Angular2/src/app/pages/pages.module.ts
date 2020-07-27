@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
 import { UIModule } from '../shared/ui/ui.module';
 
-
-
 import
 {
   NgbNavModule, NgbDropdownModule, NgbModalModule,
@@ -37,15 +35,18 @@ import { LabViewComponent } from './labs/view/view.component';
 import { SummaryComponent } from './projects/summary/summary.component';
 import { WizardComponent } from './projects/wizard/wizard.component';
 import { ChecklistCreateComponent } from './checklists/create/create.component';
+import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
+import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 
 @NgModule({
   declarations: [
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
-    ChecklistsReadComponent, CheckManageComponent, WizardComponent,
-    LabReadComponent, LabViewComponent, SummaryComponent, ChecklistCreateComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent
+    ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent,
+    LabReadComponent, LabViewComponent, SummaryComponent,
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe
   ],
   imports: [
     CommonModule,
@@ -64,7 +65,20 @@ import { ChecklistCreateComponent } from './checklists/create/create.component';
     UsersModule,
     UIModule,
     DndModule,
+    HighlightModule,
   ],
-  providers: []
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        coreLibraryLoader: () => import('highlight.js/lib/highlight'),
+        lineNumbersLoader: () => import('highlightjs-line-numbers.js'), 
+        languages: {
+          typescript: () => import('highlight.js/lib/languages/typescript'),
+          php: () => import('highlight.js/lib/languages/php')
+        }
+      }
+    }
+  ],
 })
 export class PagesModule { }

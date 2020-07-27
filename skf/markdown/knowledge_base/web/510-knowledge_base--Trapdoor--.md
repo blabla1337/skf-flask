@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A trapdoor is a hidden piece of code that responds to a special input, allowing its user access to resources without passing through the normal security enforcement mechanism.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Installation:

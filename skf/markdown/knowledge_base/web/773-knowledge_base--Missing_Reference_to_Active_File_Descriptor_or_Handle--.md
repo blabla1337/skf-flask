@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly maintain references to a file descriptor or handle, which prevents that file descriptor/handle from being reclaimed.
 
 This can cause the software to consume all available file descriptors or handles, which can prevent other processes from performing critical file processing operations.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation Architecture and Design:STRATEGY:Resource Limitation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever an attacker sends a request to the server, an example by means of
 authentication functionality. He can measure the average response time between a request

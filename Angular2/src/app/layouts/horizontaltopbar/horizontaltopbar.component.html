@@ -106,23 +106,9 @@
       </div>
       <div class="dropdown d-inline-block" ngbDropdown>
         <button *ngIf="!loggedIn()" (click)="onLogin()" type="button"
-          class="btn btn-primary mt-3 ml-3 px-3 nav-item">Login</button>
-        <button *ngIf="loggedIn()" type="button" class="btn header-item" id="page-header-user-dropdown"
-          ngbDropdownToggle>
-          <img class="rounded-circle header-profile-user" src="assets/images/user.png" alt="Header Avatar">
-          <span class="d-none d-xl-inline-block ml-1 text-primary">{{ loggedinUser }}</span>
-          <i class="mdi mdi-chevron-down d-none d-xl-inline-block text-primary"></i>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-          <!-- item-->
-          <a class="dropdown-item" href="javascript: void(0);"><i class="bx bx-user font-size-16 align-middle mr-1"></i>
-            Profile</a>
-          <a class="dropdown-item d-block" href="javascript: void(0);">
-            <i class="bx bx-wrench font-size-16 align-middle mr-1"></i> Settings</a>
-          <div class="dropdown-divider"></div>
-          <a *ngIf="loggedIn()" class="dropdown-item text-danger" href="javascript: void(0);" (click)='loggedOut()'>
-            <i class=" bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
-        </div>
+          class="btn btn-success mt-3 ml-3 px-3 nav-item">Login</button>
+        <button *ngIf="loggedIn()" (click)="onLogin()" type="button"
+          class="btn btn-outline-danger mt-3 ml-3 px-3 nav-item">Logout</button>
       </div>
     </div>
   </div>

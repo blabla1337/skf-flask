@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 There are two popular methods for handling input validation. The first is blacklisting and the second one is the whitelisting method, also known as a positive validation model.
 The big disadvantage of the blacklisting model would be that an attacker has a great diversity into forging his attack strings and payloads which can make it hard for your application to detect all of them. It would be very time consuming importing them all into your system.

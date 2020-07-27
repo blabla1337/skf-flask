@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A product inherits a set of insecure permissions for an object, e.g. when copying from an archive file, without user awareness or involvement.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

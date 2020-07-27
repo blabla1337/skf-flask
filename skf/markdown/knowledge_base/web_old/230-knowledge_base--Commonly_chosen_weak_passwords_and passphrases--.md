@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever an attacker has enumerated usernames from an application the attacker could start
 a brute-force attack on the authentication functionality. Whenever users have common known weak

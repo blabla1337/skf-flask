@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A product defines a set of insecure permissions that are inherited by objects that are created by the program.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

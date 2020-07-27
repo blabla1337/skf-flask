@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
 

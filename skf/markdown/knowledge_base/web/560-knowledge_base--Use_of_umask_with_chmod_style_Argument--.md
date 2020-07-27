@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product calls umask() with an incorrect argument that is specified as if it is an argument to chmod().
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

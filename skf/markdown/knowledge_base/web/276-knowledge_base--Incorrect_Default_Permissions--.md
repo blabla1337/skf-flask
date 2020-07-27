@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product, upon installation, sets incorrect permissions for an object that exposes it to an unintended actor.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

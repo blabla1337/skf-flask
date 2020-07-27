@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The program compares object references instead of the contents of the objects themselves, preventing it from detecting equivalent objects.
 
 For example, in Java, comparing objects using == usually produces deceptive results, since the == operator compares object references rather than values; often, this means that using == for strings is actually comparing the strings' references, not their values.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

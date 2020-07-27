@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software attempts to drop privileges but does not check or incorrectly checks to see if the drop succeeded.
 
 If the drop fails, the software will continue to run with the raised privileges, which might provide additional access to unprivileged users.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Separation of Privilege:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Keys should remain in a protected key vault at all times. 
 In particular, ensure that there is a gap between the threat vectors 
@@ -22,7 +22,7 @@ a Vault can be used to encrypt/decrypt data that is stored elsewhere. The primar
 
 The benefit of this is that developers do not need to worry about how to properly encrypt data. The responsibility of encryption is on Vault and the security team managing it, and developers just encrypt/decrypt data as needed.
 
-## Mitigation:
+##Mitigation:
 
 centrally store, access, and distribute secrets like API keys,
 AWS IAM/STS credentials, SQL/NoSQL databases, X.509 certificates, 

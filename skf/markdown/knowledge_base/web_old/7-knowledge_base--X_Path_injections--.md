@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Web applications heavily use databases to store and access the data they need for their
 operations. Historically, relational databases have been by far the most common
