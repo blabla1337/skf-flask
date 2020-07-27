@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program.
 
 When software does not validate input properly, an attacker is able to craft the input in a form that is not expected by the rest of the application. This will lead to parts of the system receiving unintended input, which may result in altered control flow, arbitrary control of a resource, or arbitrary code execution.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

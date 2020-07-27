@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 If the session cookies are sent over an unencrypted connection,
 they should be withdrawn immediately.

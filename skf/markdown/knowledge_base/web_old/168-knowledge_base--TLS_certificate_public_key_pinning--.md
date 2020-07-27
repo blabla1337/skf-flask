@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Pinning is the process of associating a host with their expected X509 certificate or
 public key. Once a certificate or public key is known or seen for a host, the certificate

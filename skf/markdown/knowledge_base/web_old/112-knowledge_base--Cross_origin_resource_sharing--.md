@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Cross Origin Resource Sharing or CORS is a mechanism that enables a web browser to perform
 'cross-domain' requests using the XMLHttpRequest L2 API in a controlled manner.

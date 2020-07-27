@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 All possible attacks on your application should be detected and reported in order to
 prevent further escalation.

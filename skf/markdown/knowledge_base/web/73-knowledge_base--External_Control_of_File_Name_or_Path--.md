@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software allows user input to control or influence paths or file names that are used in filesystem operations.
 
 This could allow an attacker to access or modify system files or other files that are critical to the application. Path manipulation errors occur when the following two conditions are met: 1. An attacker can specify a path used in an operation on the filesystem. 2. By specifying the resource, the attacker gains a capability that would not otherwise be permitted. For example, the program may give the attacker the ability to overwrite the specified file or run with a configuration controlled by the attacker.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

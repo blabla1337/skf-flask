@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software uses an algorithm or scheme that produces insufficient entropy, leaving patterns or clusters of values that are more likely to occur than others.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

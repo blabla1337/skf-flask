@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The code has a return statement inside a finally block, which will cause any thrown exception in the try block to be discarded.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

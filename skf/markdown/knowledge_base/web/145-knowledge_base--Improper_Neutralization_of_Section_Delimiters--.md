@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as section delimiters when they are sent to a downstream component.
 
 As data is parsed, an injected/absent/malformed delimiter may cause the process to take unexpected actions. One example of a section delimiter is the boundary string in a multipart MIME message. In many cases, doubled line delimiters can serve as a section delimiter.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

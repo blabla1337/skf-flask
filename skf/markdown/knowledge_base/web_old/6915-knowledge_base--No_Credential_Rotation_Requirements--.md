@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 	Do not require that memorized secrets be changed arbitrarily (e.g., periodically)
 	unless there is a user request or evidence of authenticator compromise. 

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 If accounts for communicating between components have granted more privileges than
 necessary, these accounts could impose a great threat whenever one of these components gets

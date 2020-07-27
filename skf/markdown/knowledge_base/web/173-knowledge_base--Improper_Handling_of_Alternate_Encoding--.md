@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly handle when an input uses an alternate encoding that is valid for the control sphere to which the input is being sent.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

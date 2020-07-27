@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software allows the attacker to upload or transfer files of dangerous types that can be automatically processed within the product's environment.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

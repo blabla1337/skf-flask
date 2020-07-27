@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Verify the system can protect against aggregation or continuous access of
 secured functions, resources, or data. For example, possibly by the use of a

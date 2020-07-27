@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The lack of entropy available for, or used by, a Pseudo-Random Number Generator (PRNG) can be a stability and security threat.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Requirements:STRATEGY:Libraries or Frameworks:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The UI has multiple interpretations of user input but does not prompt the user when it selects the less secure interpretation.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

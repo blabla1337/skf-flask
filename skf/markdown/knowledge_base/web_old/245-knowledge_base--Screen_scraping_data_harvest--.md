@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever the application does not put a threshold on the number requests made to the server,
 screen scraping and data harvesting tools can gather data and information.

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever user generated session IDs are not rejected by the server,
 an attacker could change the session credentials given by the server on the targets

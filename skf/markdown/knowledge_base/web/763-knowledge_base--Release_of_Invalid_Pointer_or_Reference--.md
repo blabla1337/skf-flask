@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application attempts to return a memory resource to the system, but calls the wrong release function or calls the appropriate release function incorrectly.
 
 This weakness can take several forms, such as: The memory was allocated, explicitly or implicitly, via one memory management method and deallocated using a different, non-compatible function (CWE-762). The function calls or memory management routines chosen are appropriate, however they are used incorrectly, such as in CWE-761.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

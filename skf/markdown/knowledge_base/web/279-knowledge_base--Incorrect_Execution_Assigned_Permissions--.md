@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 While it is executing, the software sets the permissions of an object in a way that violates the intended permissions that have been specified by the user.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

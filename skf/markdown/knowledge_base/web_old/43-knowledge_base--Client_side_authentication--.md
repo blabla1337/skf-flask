@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 An application could implement authentication functionalities through JavaScript and HTML.
 However, these are client-side constraints that are imposed, which means that a hacker

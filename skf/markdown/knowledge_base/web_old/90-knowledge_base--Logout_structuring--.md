@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Placing a logout link on every page that requires authentication helps the user end the
 session when he is done with the site. Ending the session helps prevent hijacking.

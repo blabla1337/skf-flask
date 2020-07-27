@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 When an actor claims to have a given identity, the software does not prove or insufficiently proves that the claim is correct.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Libraries or Frameworks:

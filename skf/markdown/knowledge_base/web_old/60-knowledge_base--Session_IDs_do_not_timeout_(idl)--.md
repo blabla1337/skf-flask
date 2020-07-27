@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 All sessions should implement an idle or inactivity timeout.
 This timeout defines the amount of time a session will remain active in case there is no

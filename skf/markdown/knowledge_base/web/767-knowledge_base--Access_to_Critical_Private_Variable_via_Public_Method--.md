@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software defines a public method that reads or modifies a private variable.
 
 If an attacker modifies the variable to contain unexpected values, this could violate assumptions from other parts of the code. Additionally, if an attacker can read the private variable, it may expose sensitive information or make it easier to launch further attacks.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

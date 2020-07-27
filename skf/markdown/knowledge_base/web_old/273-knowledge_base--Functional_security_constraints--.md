@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Functional security constraints help your software developers determine the level of
 grants/authorizations the users have over the application. 

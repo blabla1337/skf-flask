@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 After completing a password recovery functionality, the user should not be sent a plaintext
 password to his email adress. The application should also under no circumstances disclose the old or current password

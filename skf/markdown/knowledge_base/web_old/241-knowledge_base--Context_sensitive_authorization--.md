@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever granting users different types of authorization throughout the application
 the authorization grants should be granted and enforced outside of the attackers scope.

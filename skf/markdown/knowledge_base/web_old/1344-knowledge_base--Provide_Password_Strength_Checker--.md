@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Users may tend to choose easy guessable passwords. Therefore, it is suggested to implement a functionality that encourage them to set password of higher complexity.
 

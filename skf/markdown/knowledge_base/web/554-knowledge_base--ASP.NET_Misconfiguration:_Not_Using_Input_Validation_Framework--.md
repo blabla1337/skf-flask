@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The ASP.NET application does not use an input validation framework.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

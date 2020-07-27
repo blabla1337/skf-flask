@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain, which can lead to user confusion about which interface the user is interacting with.
 
 A web application is expected to place restrictions on whether it is allowed to be rendered within frames, iframes, objects, embed or applet elements. Without the restrictions, users can be tricked into interacting with the application when they were not intending to.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

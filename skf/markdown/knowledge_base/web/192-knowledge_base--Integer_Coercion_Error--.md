@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 Integer coercion refers to a set of flaws pertaining to the type casting, extension, or truncation of primitive data types.
 
 Several flaws fall under the category of integer coercion errors. For the most part, these errors in and of themselves result only in availability and data integrity issues. However, in some circumstances, they may result in other, more complicated security related flaws, such as buffer overflow conditions.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:

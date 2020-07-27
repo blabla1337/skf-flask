@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not correctly calculate the size to be used when allocating a buffer, which could lead to a buffer overflow.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

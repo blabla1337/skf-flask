@@ -1,7 +1,7 @@
-## Description:
+##Description:
 
 empty control
 
-## Mitigation:
+##Mitigation:
 
 empty control

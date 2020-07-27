@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly restrict reading from or writing to dynamically-identified variables.
 
 Many languages offer powerful features that allow the programmer to access arbitrary variables that are specified by an input string. While these features can offer significant flexibility and reduce development time, they can be extremely dangerous if attackers can modify unintended variables that have security implications.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

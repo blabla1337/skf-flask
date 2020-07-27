@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software performs an operation on a number that causes it to be sign extended when it is transformed into a larger data type. When the original number is negative, this can produce unexpected values that lead to resultant weaknesses.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Access to any master secret must be protected from unauthorized access in order to protect
 the integrity and the confidentiality of the data.

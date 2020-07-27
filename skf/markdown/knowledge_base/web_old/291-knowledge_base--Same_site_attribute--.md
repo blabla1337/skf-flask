@@ -1,4 +1,4 @@
-## Description:
+##Description:
 SameSite prevents the browser from sending this cookie along with cross-site requests. 
 The main goal is mitigate the risk of cross-origin information leakage. It also provides some 
 protection against cross-site request forgery attacks.

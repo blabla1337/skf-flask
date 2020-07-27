@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 WYSIWYG editors can be a great risk to your web application since it allows direct
 HTML as input to make the user perform styling on their submissions. This is why the

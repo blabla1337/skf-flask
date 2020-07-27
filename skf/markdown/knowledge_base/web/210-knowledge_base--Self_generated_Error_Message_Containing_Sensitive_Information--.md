@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software identifies an error condition and creates its own diagnostic or error messages that contain sensitive information.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation Build and Compilation:STRATEGY:Compilation or Build Hardening:

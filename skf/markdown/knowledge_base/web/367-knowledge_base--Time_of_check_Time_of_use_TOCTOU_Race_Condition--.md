@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software checks the state of a resource before using that resource, but the resource's state can change between the check and the use in a way that invalidates the results of the check. This can cause the software to perform invalid actions when the resource is in an unexpected state.
 
 This weakness can be security-relevant when an attacker can influence the state of the resource between check and use. This can happen with shared resources such as files, memory, or even variables in multithreaded programs.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

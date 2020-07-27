@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The 'SameSite' cookie attribute helps developers to control if a cookie can be sent along in requests initiated by third-party sites or cross-site requests, helping to prevent Cross-Site-Request-Forgery(CSRF) type of attacks.
 The attribute accepts 2 values: strict and lax.

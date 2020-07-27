@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application does not properly handle when a leading character or sequence (leader) is missing or malformed, or if multiple leaders are used when only one should be allowed.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

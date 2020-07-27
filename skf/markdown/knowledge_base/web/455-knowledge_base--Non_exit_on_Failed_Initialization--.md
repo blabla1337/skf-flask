@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not exit or otherwise modify its operation when security-relevant errors occur during initialization, such as when a configuration file has a format error, which can cause the software to execute in a less secure fashion than intended by the administrator.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

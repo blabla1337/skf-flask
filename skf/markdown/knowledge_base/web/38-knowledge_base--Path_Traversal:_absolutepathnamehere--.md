@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A software system that accepts input in the form of a backslash absolute path ('absolutepathnamehere') without appropriate validation can allow an attacker to traverse the file system to unintended locations or access arbitrary files.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

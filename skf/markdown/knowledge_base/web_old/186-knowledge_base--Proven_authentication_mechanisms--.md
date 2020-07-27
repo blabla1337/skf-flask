@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever your application has the option for users to authenticate themselves
 your method should be "proven" and secure in the sense of that:

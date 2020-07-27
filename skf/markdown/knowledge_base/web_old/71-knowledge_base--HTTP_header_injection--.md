@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 HTTP header injection is a general class of web application security vulnerability which
 occurs when Hypertext Transfer Protocol (HTTP) headers are

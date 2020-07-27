@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Multiple database of leaked credentials have been released during breaches over the years. If users choose passwords already leaked, they are vulnerable to dictionary attacks.
 

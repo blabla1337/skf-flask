@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 I/O commands allow you to own, use, read from, write to, close devices and To direct I/O 
 operations to a device. Whenever user supplied input i.e file names and/or file data is being 

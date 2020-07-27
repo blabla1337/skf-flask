@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever your certificate authority is not trusted anymore you should always be able to
 recall these certificates ASAP to prevent man in the middle attacks on your applications users.

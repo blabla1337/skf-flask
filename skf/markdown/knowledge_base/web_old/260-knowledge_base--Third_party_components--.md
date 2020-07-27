@@ -1,4 +1,4 @@
-## Description: 
+##Description: 
 
 All third party components the application depends on to operate must be mapped in
 terms of the functions, and/or security functions, they provide for several reasons.

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The product uses a regular expression that does not sufficiently restrict the set of allowed values.
 
 This effectively causes the regexp to accept substrings that match the pattern, which produces a partial comparison to the target. In some cases, this can lead to other weaknesses. Common errors include: not identifying the beginning and end of the target string using wildcards instead of acceptable character ranges others
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

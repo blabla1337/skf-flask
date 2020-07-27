@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Reflective file download occurs whenever an attacker can "forge" a download through misconfiguration in your "disposition" and "content type" headers. Instead of having the attacker to upload an evil file to the web server he can now force the browser to download a malicious file by abusing these headers and setting the file extension to any type he wants.
 

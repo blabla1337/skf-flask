@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not sufficiently track and release allocated memory after it has been used, which slowly consumes remaining memory.
 
 This is often triggered by improper handling of malformed data or unexpectedly interrupted sessions. In some languages, developers are responsible for tracking memory allocation and releasing the memory. If there are no more pointers or references to the memory, then it can no longer be tracked and identified for release.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Libraries or Frameworks:

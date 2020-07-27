@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Minimum password length
 

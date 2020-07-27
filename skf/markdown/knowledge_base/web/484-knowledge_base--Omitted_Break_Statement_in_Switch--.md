@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The program omits a break statement within a switch or similar construct, causing code associated with multiple conditions to execute. This can cause problems when the programmer only intended to execute code associated with one condition.
 
 This can lead to critical code executing in situations where it should not.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

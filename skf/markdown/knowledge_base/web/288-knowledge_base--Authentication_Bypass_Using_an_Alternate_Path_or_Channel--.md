@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A product requires authentication, but the product has an alternate path or channel that does not require authentication.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Files that are uploaded by users or other untrusted services should always be placed outside
 of the document root. This is to prevent malicious files from being parsed by attackers such as PHP/HTML/Javascript files.

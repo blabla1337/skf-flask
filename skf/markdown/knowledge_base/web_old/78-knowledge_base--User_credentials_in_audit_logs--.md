@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever there are user credentials supplied in an audit log,
 this could become a risk whenever an attacker could gain access to one of these log files.

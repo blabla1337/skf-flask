@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 	The application should compare the new prospective password against a list that contains values known to be commonly-used, expected, or compromised. 
 

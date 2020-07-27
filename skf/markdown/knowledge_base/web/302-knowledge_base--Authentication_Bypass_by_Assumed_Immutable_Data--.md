@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The authentication scheme or implementation uses key data elements that are assumed to be immutable, but can be controlled or modified by the attacker.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation Implementation:

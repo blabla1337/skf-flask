@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 If too few arguments are sent to a function, the function will still pop the expected number of arguments from the stack. Potentially, a variable number of arguments could be exhausted in a function as well.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Build and Compilation:

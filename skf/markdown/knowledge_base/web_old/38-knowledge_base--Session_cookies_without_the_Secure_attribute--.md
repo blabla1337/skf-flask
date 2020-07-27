@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The secure flag is an option that can be set when creating a cookie.
 This flag ensures that the cookie will not be sent over an unencrypted

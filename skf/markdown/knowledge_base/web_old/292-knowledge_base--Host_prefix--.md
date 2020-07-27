@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Hardening of session cookies is possbile by using the '__Host" prefix. With this we can prevent the mis configuration of example the Path=/, Secure cookie and Domain attributes. 
 

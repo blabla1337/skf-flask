@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not release a file descriptor or handle after its effective lifetime has ended, i.e., after the file descriptor/handle is no longer needed.
 
 When a file descriptor or handle is not released after use (typically by explicitly closing it), attackers can cause a denial of service by consuming all available file descriptors/handles, or otherwise preventing other system processes from obtaining their own file descriptors/handles.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Operation Architecture and Design:STRATEGY:Resource Limitation:

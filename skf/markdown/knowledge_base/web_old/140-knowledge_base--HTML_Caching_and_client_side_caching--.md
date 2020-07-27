@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Developers creating HTML5 applications can create fully offline-aware applications using
 the HTML5 ApplicationCache interface. The Application Cache uses a cache manifest file to

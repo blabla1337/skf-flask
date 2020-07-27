@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly handle when an input contains Unicode encoding.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Input Validation:

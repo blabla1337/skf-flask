@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application relies on the existence or values of cookies when performing security-critical operations, but it does not properly ensure that the setting is valid for the associated user.
 
 Attackers can easily modify cookies, within the browser or by implementing the client-side code outside of the browser. Reliance on cookies without detailed validation and integrity checking can allow attackers to bypass authentication, conduct injection attacks such as SQL injection and cross-site scripting, or otherwise modify inputs in unexpected ways.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

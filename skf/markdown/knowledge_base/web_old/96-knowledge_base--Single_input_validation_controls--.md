@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Input validation refers to the process of validating all the input to an application
 before using it. Input validation is absolutely critical to application security,

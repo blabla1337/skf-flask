@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Secret keys, API tokens, or passwords must be dynamically generated. Whenever these tokens
 are not dynamically generated they can become predicable and used by attackers to compromise

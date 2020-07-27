@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 An exact value or random number can be precisely predicted by observing previous values.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

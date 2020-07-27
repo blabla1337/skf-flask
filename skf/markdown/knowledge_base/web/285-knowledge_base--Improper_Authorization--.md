@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
 
 Assuming a user with a given identity, authorization is the process of determining whether that user can access a given resource, based on the user's privileges and any permissions or other access-control specifications that apply to the resource. When access control checks are not applied consistently - or not at all - users are able to access data or perform actions that they should not be allowed to perform. This can lead to a wide range of problems, including information exposures, denial of service, and arbitrary code execution.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

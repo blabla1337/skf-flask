@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software's resource pool is not large enough to handle peak demand, which allows an attacker to prevent others from accessing the resource by using a (relatively) large number of requests for resources.
 
 Frequently the consequence is a flood of connection or sessions.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 It is important to uniquely identify the users of an application for traceability. Therefore it should not be possible to use shared accounts,
 nor should it be possible to re-bind identities to a different identity (spoofing)

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application stores sensitive data under the web document root with insufficient access control, which might make it accessible to untrusted parties.
 
 Besides public-facing web pages and code, applications may store sensitive data, code that is not directly invoked, or other files under the web document root of the web server. If the server is not configured or otherwise used to prevent direct access to those files, then attackers may obtain this sensitive data.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation System Configuration:

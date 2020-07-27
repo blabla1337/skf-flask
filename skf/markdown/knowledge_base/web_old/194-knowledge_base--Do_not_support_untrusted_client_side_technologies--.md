@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 When using unsupported client side technologies which are not supported natively via
 W3C browser standards. Your application could be open to different types of attacks.

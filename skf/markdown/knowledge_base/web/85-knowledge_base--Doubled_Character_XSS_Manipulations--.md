@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The web application does not filter user-controlled input for executable script disguised using doubling of the involved characters.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

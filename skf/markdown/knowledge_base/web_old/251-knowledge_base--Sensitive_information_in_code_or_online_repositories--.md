@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever secrets, API keys, and passwords are stored in the applications source code an attacker
 can potentially retrieve this sensitive information by i.e:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The application should never export sensitive activities, intents, or content providers.
 These activities could than potentially be exploited by third party applications installed

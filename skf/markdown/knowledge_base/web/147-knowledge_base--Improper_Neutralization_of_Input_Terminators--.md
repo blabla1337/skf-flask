@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as input terminators when they are sent to a downstream component.
 
 For example, a . in SMTP signifies the end of mail message data, whereas a null character can be used for the end of a string.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE

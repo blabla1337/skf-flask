@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not properly verify that a critical resource is owned by the proper entity.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software initializes critical internal variables or data stores using inputs that can be modified by untrusted actors.
 
 A software system should be reluctant to trust variables that have been initialized outside of its trust boundary, especially if they are initialized by users. The variables may have been initialized incorrectly. If an attacker can initialize the variable, then they can influence what the vulnerable system will do.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:STRATEGY:Input Validation:

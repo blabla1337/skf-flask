@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 The error messages that are displayed when a user fails to login into an application
 should be selected with caution. When this error message gives away too much information,

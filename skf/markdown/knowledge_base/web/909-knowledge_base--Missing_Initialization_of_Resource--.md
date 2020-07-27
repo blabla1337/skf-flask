@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software does not initialize a critical resource.
 
 Many resources require initialization before they can be properly used. If a resource is not initialized, it could contain unpredictable or expired data, or it could be initialized to defaults that are invalid. This can have security implications when the resource is expected to have certain properties or values.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 There are some kind of headers that uses tokens such as Bearer or JWT which are signed or calculated using a key, by the server that creates it.
 

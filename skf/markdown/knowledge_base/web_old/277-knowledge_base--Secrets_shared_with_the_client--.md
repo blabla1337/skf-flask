@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 symmetric keys, passwords, or API secrets that are shared with the client should
 not be used for functions that are classified critical.

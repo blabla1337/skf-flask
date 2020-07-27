@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 All authenticated data should be removed from the browsers storage as soon as
 the session is terminated. This reduces the possibility that a potential attacker gains

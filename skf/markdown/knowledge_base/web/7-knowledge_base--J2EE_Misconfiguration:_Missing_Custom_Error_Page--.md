@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The default error page of a web application should not display sensitive information about the software system.
 
 A Web application must define a default error page for 4xx errors (e.g. 404), 5xx (e.g. 500) errors and catch java.lang.Throwable exceptions to prevent attackers from mining information from the application container's built-in error response. When an attacker explores a web site looking for vulnerabilities, the amount of information that the site provides is crucial to the eventual success or failure of any attempted attacks.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

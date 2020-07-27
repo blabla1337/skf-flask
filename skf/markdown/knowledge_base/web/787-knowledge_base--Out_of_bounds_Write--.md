@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software writes data past the end, or before the beginning, of the intended buffer.
 
 Typically, this can result in corruption of data, a crash, or code execution. The software may modify an index or perform pointer arithmetic that references a memory location that is outside of the boundaries of the buffer. A subsequent write operation then produces undefined or unexpected results.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Requirements:STRATEGY:Language Selection:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Authors of services which use the HTTP protocol SHOULD NOT use GET-based forms for the
 submission of sensitive data, because this will cause this data to be

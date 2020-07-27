@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The web application does not adequately enforce appropriate authorization on all restricted URLs, scripts, or files.
 
 Web applications susceptible to direct request attacks often make the false assumption that such resources can only be reached through a given navigation path and so only apply authorization at certain points in the path.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design Operation:

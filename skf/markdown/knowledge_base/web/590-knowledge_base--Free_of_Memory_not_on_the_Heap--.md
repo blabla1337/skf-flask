@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The application calls free() on a pointer to memory that was not allocated using associated heap allocation functions such as malloc(), calloc(), or realloc().
 
 When free() is called on an invalid pointer, the program's memory management data structures may become corrupted. This corruption can cause the program to crash or, in some circumstances, an attacker may be able to cause free() to operate on controllable memory locations to modify critical program variables or execute code.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

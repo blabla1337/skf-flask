@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The UI performs the wrong action with respect to the user's request.
 
 
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Testing:

@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 When critical functionality is loaded into the device memory and always in the same place and location 
 then an attacker is able to create a very stable exploit for the application. This can lead to abuse 

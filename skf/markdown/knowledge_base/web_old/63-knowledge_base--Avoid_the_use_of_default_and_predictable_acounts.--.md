@@ -1,4 +1,4 @@
-## Description:
+##Description:
 
 Whenever default or predictable accounts are available on an application/server this could
 lead to an attacker compromising these services. Make sure all default and predictable

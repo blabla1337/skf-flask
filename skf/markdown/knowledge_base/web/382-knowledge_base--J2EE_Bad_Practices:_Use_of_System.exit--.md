@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 A J2EE application uses System.exit(), which also shuts down its container.
 
 It is never a good idea for a web application to attempt to shut down the application container. Access to a function that can shut down the application is an avenue for Denial of Service (DoS) attacks.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:STRATEGY:Separation of Privilege:

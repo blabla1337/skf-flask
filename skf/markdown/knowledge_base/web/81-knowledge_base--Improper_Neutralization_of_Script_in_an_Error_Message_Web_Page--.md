@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special characters that could be interpreted as web-scripting elements when they are sent to an error page.
 
 Error pages may include customized 403 Forbidden or 404 Not Found pages. When an attacker can trigger an error that contains script syntax within the attacker's input, then cross-site scripting attacks may be possible.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Implementation:

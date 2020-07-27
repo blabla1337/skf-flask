@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The PHP application uses an old method for processing uploaded files by referencing the four global variables that are set for each file (e.g. $varname, $varname_size, $varname_name, $varname_type). These variables could be overwritten by attackers, causing the application to process unauthorized files.
 
 These global variables could be overwritten by POST requests, cookies, or other methods of populating or overwriting these variables. This could be used to read or process arbitrary files by providing values such as /etc/passwd.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:

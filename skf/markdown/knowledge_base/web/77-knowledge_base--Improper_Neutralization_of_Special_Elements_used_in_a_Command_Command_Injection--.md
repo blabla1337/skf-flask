@@ -1,10 +1,10 @@
-## Description:
+##Description:
 
 The software constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended command when it is sent to a downstream component.
 
 Command injection vulnerabilities typically occur when: 1. Data enters the application from an untrusted source. 2. The data is part of a string that is executed as a command by the application. 3. By executing the command, the application gives an attacker a privilege or capability that the attacker would not otherwise have. Command injection is a common problem with wrapper programs.
 
-## Mitigation:
+##Mitigation:
 
 
 PHASE:Architecture and Design:
