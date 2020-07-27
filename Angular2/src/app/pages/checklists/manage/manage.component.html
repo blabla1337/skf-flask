@@ -7,8 +7,8 @@
     <li [ngbNavItem]="1">
       <a ngbNavLink>Config</a>
       <ng-template ngbNavContent>
-        <div class="card mb-3 shadow-none">
-          <div class="card-body">
+        <div class="card mb-3 mt-2 shadow-none">
+          <div class="card-body pt-2">
             <form>
               <div class="row text-center">
                 <div class="col-xl-10">
@@ -65,13 +65,16 @@
                           <tr class="border border-success">
                             <td class="text-dark p-0">
                               <div class="card shadow-none">
-                                <div class="card-header bg-white pb-1"><h5>1.1.0</h5></div>
+                                <div class="card-header bg-white pb-1">
+                                  <h5>1.1.0</h5>
+                                </div>
                                 <div class="card-body py-1">
                                   <p>This is some content</p>
                                 </div>
                               </div>
                             </td>
-                            <td class="text-right"><a type="button" class="mt-3"><i class="mdi mdi-plus-circle font-size-20 text-dark"></i></a></td>
+                            <td class="text-right"><a type="button" class="mt-3"><i
+                                  class="mdi mdi-plus-circle font-size-20 text-dark"></i></a></td>
                           </tr>
                         </tbody>
                       </table>
@@ -102,13 +105,16 @@
                           <tr class="border border-danger">
                             <td class="text-dark p-0">
                               <div class="card shadow-none">
-                                <div class="card-header bg-white pb-1"><h5>1.1.0</h5></div>
+                                <div class="card-header bg-white pb-1">
+                                  <h5>1.1.0</h5>
+                                </div>
                                 <div class="card-body py-1">
                                   <p>This is some content</p>
                                 </div>
                               </div>
                             </td>
-                            <td class="text-right"><a type="button" class="mt-3"><i class="mdi mdi-plus-circle font-size-20 text-dark"></i></a></td>
+                            <td class="text-right"><a type="button" class="mt-3"><i
+                                  class="mdi mdi-plus-circle font-size-20 text-dark"></i></a></td>
                           </tr>
                         </tbody>
                       </table>
@@ -201,6 +207,62 @@
               </div>
             </div>
           </div>
+        </div>
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>Categories</a>
+      <ng-template ngbNavContent>
+        <div class="row mb-3 mt-4">
+          <div class="col-lg-12">
+            <div class="text-sm-right">
+              <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
+                <i class="mdi mdi-check mr-1"></i>Add Category</button>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-centered table-nowrap table-hover">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">
+                      <div class="text-center">Name</div>
+                    </th>
+                    <th scope="col">
+                      <div class="text-center">Description</div>
+                    </th>
+                    <th scope="col">
+                      <div class="text-center">Action</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="text-center mt-2">
+                        <h5>Title</h5>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-center mt-3">
+                        <p>this is some content</p>
+                      </div>
+                    </td>
+                    <td>
+                      <ul class="list-inline mb-0 text-center">
+                        <li class="list-inline-item">
+                          <button class="btn btn-success btn-sm mr-2">Update</button>
+                        </li>
+                        <li class="list-inline-item">
+                          <button type="button" class="btn btn-danger btn-sm ml-2">Delete</button>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end col-->
         </div>
       </ng-template>
     </li>
