@@ -55,7 +55,9 @@
                                 </div>
                               </div>
                               <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[i]">
-                                <div class="card shadow-none border card-body mb-0">{{subitem.content}}</div>
+                                <div class="card shadow-none border card-body mb-0">
+                                  <pre>{{subitem.content}}</pre>
+                                </div>
                                 <div class="row mt-4">
                                   <div class="col-sm-6">
                                     <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
