@@ -36,6 +36,7 @@ import { SummaryComponent } from './projects/summary/summary.component';
 import { WizardComponent } from './projects/wizard/wizard.component';
 import { ChecklistCreateComponent } from './checklists/create/create.component';
 import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
+import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 
@@ -45,7 +46,7 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
     ViewComponent, ProjectManageComponent, ProjectViewComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent,
     LabReadComponent, LabViewComponent, SummaryComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe,
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe
   ],
   imports: [
     CommonModule,
