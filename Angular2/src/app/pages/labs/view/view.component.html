@@ -1,9 +1,27 @@
 <div class="container-fluid">
   <app-page-title title="Labs" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box mr-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input class="form-control" [(ngModel)]="queryString" id="search" name="search" placeholder="Search Lab" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>   
+            <div class="form-group">
+              <select class="form-control select2-search-disable" [(ngModel)]="queryLabel" >
+                <option value="" selected>All labs</option>
+                <option value="SKF-labs">SKF-labs</option>
+                <option value="juice-shop">juice-shop</option>
+              </select>
+            </div>    
+          </div>  
           <div class="table-responsive">
             <table class="table table-centered table-nowrap table-hover">
               <thead class="thead-light">
@@ -31,7 +49,7 @@
                   </th>
                 </tr>
               </thead>
-              <tbody *ngFor="let item of labData.items">
+              <tbody *ngFor="let item of labData.items | stringfilter:queryString | labelfilter:queryLabel; let myIndex = index">
                 <tr>
                   <td>
                     <div class="avatar-xs">
