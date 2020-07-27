@@ -1,5 +1,6 @@
 from skf.database import db
 from skf.database.code_items import CodeItem
+from skf.database.checklist_kb_code_item import ChecklistKBCodeItem
 from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
 
@@ -63,3 +64,39 @@ def get_code_item(code_id):
     val_num(code_id)
     result = CodeItem.query.filter(CodeItem.id == code_id).one()
     return result
+
+
+def get_code_items_checklist_kb(checklist_kb_id):
+    log("User requested list of code items", "LOW", "PASS")
+    result = ChecklistKBCodeItem.query.filter(ChecklistKBCodeItem.checklist_kb_id == checklist_kb_id).paginate(1, 2500, False)
+    return result
+    
+def delete_code_item_checklist_kb(checklist_kb_id, code_items_id):
+    log("User deleted code item", "MEDIUM", "PASS")
+    val_num(code_items_id)
+    val_num(checklist_kb_id)
+    codeItem = (ChecklistKBCodeItem.query \
+    .filter(ChecklistKBCodeItem.checklist_kb_id == checklist_kb_id) \
+    .filter(ChecklistKBCodeItem.code_items_id == code_items_id) \
+    .one())
+    try:
+        db.session.delete(codeItem)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    return {'message': 'Code example item successfully deleted'} 
+
+
+def create_code_item_checklist_kb(checklist_kb_id, code_items_id):
+    log("User requested creating a new kb item", "LOW", "PASS")
+    val_num(checklist_kb_id)
+    val_num(code_items_id)
+    result = ChecklistKBCodeItem(checklist_kb_id,code_items_id)
+    try:
+        db.session.add(result)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    return {'message': 'Code example item successfully created'} 
