@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -20,11 +19,8 @@ export class ViewKnowledebaseComponent implements OnInit
   public isCollapsed: boolean[] = [];
   public knowledgeData: any = [];
   public categoryData: any = [];
-  public knowledgebaseForm: FormGroup;
   public categoryId: any;
   public queryString;
-
-  get formControls() { return this.knowledgebaseForm.controls; }
 
   constructor(
     private modalService: NgbModal,
