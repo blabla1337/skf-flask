@@ -19,7 +19,7 @@
             <!-- end col-->
           </div>
 
-          <div *ngFor="let item of sprintData.items" class="row mb-4">
+          <div *ngFor="let item of sprintData.items; let i = index" class="row mb-4">
             <div class="col">
               <div class="card border shadow-none">
                 <div class="card-body">
@@ -27,7 +27,6 @@
                     <div class="col-sm-10">
                       <h4 class="card-title">{{item.checklist_items_checklist_id}} {{item.checklist_items_content}}
                       </h4>
-
                     </div>
 
                     <div class="col-sm-2">
@@ -36,13 +35,13 @@
                           class="badge badge-success font-size-11 mt-1 float-left">Resolved</span>
                         <span *ngIf="item.status == 1"
                           class="badge badge-danger font-size-11 mt-1 float-left">Open</span>
-                        <button class="btn-sm btn-primary btn-md" type="button" (click)="isCollapsed = !isCollapsed">
+                        <button class="btn-sm btn-primary btn-md" type="button" (click)="isCollapsed[i] = !isCollapsed[i]">
                           Click here
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div class="collapse" [ngbCollapse]="!isCollapsed">
+                  <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
                     <div class="dropdown-divider mt-3"></div>
                     <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom ">
                       <li [ngbNavItem]="1">
