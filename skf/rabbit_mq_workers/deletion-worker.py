@@ -16,7 +16,7 @@ def delete_container(rpc_body):
     delete_deployment(deployment, user_id)
     delete_service(deployment, user_id)
     time.sleep(10)
-    return "If present, the container image was deleted from the cluster!"
+    return {'message': 'If present, the container image was deleted from the cluster!"'} 
 
 
 def delete_deployment(instance_name, user_id):
@@ -30,8 +30,9 @@ def delete_deployment(instance_name, user_id):
                 propagation_policy='Foreground',
                 grace_period_seconds=5))
         print("Deployment deleted. status='%s'" % str(api_response.status))
+        return {'message': 'Deployment deleted.'} 
     except:
-        return "Kubernetes configuration is either missing or done incorrectly, error deployment delete!"
+        return {'message': 'Kubernetes configuration is either missing or done incorrectly, error deployment delete!'} 
 
 
 def delete_service(instance_name, user_id):
@@ -45,8 +46,9 @@ def delete_service(instance_name, user_id):
                 propagation_policy='Foreground',
                 grace_period_seconds=5))
         print("Deployment deleted. status='%s'" % str(api_response.status))
+        return {'message': 'Deployment deleted.'}         
     except:
-        return "Kubernetes configuration is either missing or done incorrectly, error service delete!"
+        return {'message': 'Kubernetes configuration is either missing or done incorrectly, error service delete!'} 
 
 
 def string_split_user_id(body):
@@ -54,7 +56,7 @@ def string_split_user_id(body):
         user_id = body.split(':')
         return user_id[1]
     except:
-        return "Failed to delete, error no user_id found!"
+        return {'message': 'Failed to delete, error no user_id found!'} 
 
 
 def string_split_deployment(body):
@@ -62,7 +64,7 @@ def string_split_deployment(body):
         deployment = body.split(':')
         return deployment[0]
     except:
-        return "Failed to delete, error no deployment found!"
+        return {'message': 'Failed to delete, error no deployment found!'} 
 
 
 def on_request(ch, method, props, body):
