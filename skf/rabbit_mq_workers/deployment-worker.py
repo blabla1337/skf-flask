@@ -30,7 +30,7 @@ def create_user_namespace(user_id):
         body.metadata = client.V1ObjectMeta(name=user_id)
         api_response = api_instance.create_namespace(body)
     except:
-        return "Failed to deploy, error namespace creation!"    
+        return {'message': 'Failed to deploy, error namespace creation!'} 
 
 
 def create_deployment_object(deployment):
@@ -57,7 +57,7 @@ def create_deployment_object(deployment):
             spec=spec)
         return deployment
     except:
-        return "Failed to deploy, error creation deployment object!"
+        return {'message': 'Failed to deploy, error creation deployment object!'} 
 
 def create_deployment(deployment, user_id):
     try:
@@ -66,7 +66,7 @@ def create_deployment(deployment, user_id):
         response = k8s_apps_v1.create_namespaced_deployment(body=deployment, namespace=user_id)
         return response
     except:
-        return "Failed to deploy, error K8s API create call!"
+        return {'message': 'Failed to deploy, error K8s API create call!'} 
 
 
 def create_service_for_deployment(deployment, user_id):
@@ -86,7 +86,7 @@ def create_service_for_deployment(deployment, user_id):
         response = api_instance.create_namespaced_service(namespace=user_id, body=service)
         return response
     except:
-        return "Failed to deploy, error K8s API create service call!"
+        return {'message': 'Failed to deploy, error K8s API create service call!'} 
 
 
 def get_service_exposed_ip(deployment, user_id):
@@ -96,7 +96,7 @@ def get_service_exposed_ip(deployment, user_id):
         response = api_instance.read_namespaced_service(deployment, user_id, pretty=True)
         return response
     except:
-        return "Failed to deploy, error service no exposed IP!"
+        return {'message': 'Failed to deploy, error service no exposed IP!'} 
 
 
 def string_split_user_id(body):
@@ -104,7 +104,7 @@ def string_split_user_id(body):
         user_id = body.split(':')
         return user_id[1]
     except:
-        return "Failed to deploy, error no user_id found!"
+        return {'message': 'Failed to deploy, error no user_id found!'} 
 
 
 def string_split_deployment(body):
@@ -112,7 +112,7 @@ def string_split_deployment(body):
         deployment = body.split(':')
         return deployment[0]
     except:
-        return "Failed to deploy, error no deployment found!"
+        return {'message': 'Failed to deploy, error no deployment found!'} 
 
 
 def get_host_port_from_response(response):
@@ -122,11 +122,11 @@ def get_host_port_from_response(response):
             node_port = service.node_port
             port = service.port
         if host != "http://localhost":
-            return {'host': "'"+ str(host) + ":" + str(node_port)+"'"}
+            return {'message': "'"+ str(host) + ":" + str(node_port)+"'"}
         else:
-            return {'host': "'http://localhost:" + str(port)+"'"}
+            return {'message': "'http://localhost:" + str(port)+"'"}
     except:
-        return "Failed to deploy, error no host or port!"
+        return {'message': 'Failed to deploy, error no host or port!'} 
 
 
 def on_request(ch, method, props, body):

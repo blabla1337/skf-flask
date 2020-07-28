@@ -65,7 +65,6 @@ def get_code_item(code_id):
     result = CodeItem.query.filter(CodeItem.id == code_id).one()
     return result
 
-
 def get_code_items_checklist_kb(checklist_kb_id):
     log("User requested list of code items", "LOW", "PASS")
     result = ChecklistKBCodeItem.query.filter(ChecklistKBCodeItem.checklist_kb_id == checklist_kb_id).paginate(1, 2500, False)
