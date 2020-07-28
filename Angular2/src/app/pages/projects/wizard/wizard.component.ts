@@ -33,6 +33,10 @@ export class WizardComponent implements OnInit
     this.getCategories()
   }
 
+  onChange(value) {
+    this.selected = value;
+  }
+
   getCategories()
   {
     this._checklistCategoryService
@@ -43,18 +47,17 @@ export class WizardComponent implements OnInit
   selectMaturityOnChange(maturity_id: number)
   {
     localStorage.removeItem("maturity")
-    localStorage.setItem("maturity", maturity_id.toString())
+    localStorage.setItem("maturity", maturity_id.toString());
   }
 
   selectChecklistsOnChange(category_id: number)
   {
-    this._checklistService.getChecklistsCollection(category_id).subscribe(checklist => this.checklistData = checklist)
+    this._checklistService.getChecklistsCollection(category_id).subscribe(checklist => this.checklistData = checklist);
   }
 
   selectQuestionaireOnChange(checklist_id: number)
   {
-    this._questionService.getQuestionCollection(checklist_id).subscribe(question => this.questionData = question)
+    this._questionService.getQuestionCollection(checklist_id).subscribe(question => this.questionData = question);
   }
-
 
 }
