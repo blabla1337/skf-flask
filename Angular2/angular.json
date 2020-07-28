@@ -34,12 +34,12 @@
               {
                 "input": "src/assets/scss/app.scss",
                 "bundleName": "light-theme",
-                "inject":false
+                "inject": false
               },
               {
                 "input": "src/assets/scss/app-dark.scss",
                 "bundleName": "dark-theme",
-                "inject":false
+                "inject": false
               }
             ],
             "scripts": []
@@ -104,7 +104,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "../node_modules/highlight.js/styles/github.css"
             ],
             "scripts": []
           }

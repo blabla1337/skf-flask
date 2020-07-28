@@ -1,185 +1,190 @@
 <div class="container-fluid">
 
-    <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <app-page-title title="Projects" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
-    <div class="row mt-3">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <aw-wizard [navBarLayout]="'large-empty-symbols'">
-                        <aw-wizard-step class="steps-in" [stepTitle]="'Category'" [navigationSymbol]="{ symbol: '1' }">
-                          <div class="tab-content">
-                            <form>
-                              <div class="row">
-                                <div class="col pt-3">
-                                  <h4>Platforms</h4>
-                                  <div class="form-group">
-                                    <label for="category-input">Select Category</label>
-                                    <select class="custom-select" id="category-input">
-                                      <option value="">--Select--</option>
-                                      <option value="1">Web Application</option>
-                                      <option value="2">Mobile Application</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="card border shadow-none mb-3">
-                                <div class="card-body">Hello</div>
-                              </div>
-                            </form>
-                          </div>
-                          <ul class="list-inline wizard mb-0">
-                            <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
-                            </li>
-                          </ul>
-                        </aw-wizard-step>
-                  
-                        <aw-wizard-step [stepTitle]="'Maturity Level'" [navigationSymbol]="{ symbol: '2' }">
-                          <div class="tab-content">
-                            <form>
-                              <div class="row">
-                                <div class="col pt-3">
-                                  <h4>Maturity Level</h4>
-                                  <div class="form-group">
-                                    <label for="category-input">Select Category</label>
-                                    <select class="custom-select" id="category-input">
-                                      <option value="">--Select--</option>
-                                      <option value="1">Level 1</option>
-                                      <option value="2">Level 2</option>
-                                      <option value="3">Level 3</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="card border shadow-none mb-3">
-                                <div class="card-body">Hello</div>
-                              </div>
-                            </form>
-                          </div>
-                          <ul class="list-inline wizard mb-0">
-                            <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
-                            </li>
-                            <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
-                            </li>
-                          </ul>
-                        </aw-wizard-step>
-                  
-                        <aw-wizard-step class="steps-in" [stepTitle]="'Checklist'" [navigationSymbol]="{ symbol: '3' }">
-                          <div class="tab-content">
-                            <form>
-                              <div class="row">
-                                <div class="col pt-3">
-                                  <h4>Checklists</h4>
-                                  <div class="form-group">
-                                    <label for="category-input">Select Category</label>
-                                    <select class="custom-select" id="category-input">
-                                      <option value="">--Select--</option>
-                                      <option value="1">Checklist 1</option>
-                                      <option value="2">Checklist 2</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="card border shadow-none mb-3">
-                                <div class="card-body">Hello</div>
-                              </div>
-                            </form>
-                          </div>
-                          <ul class="list-inline wizard mb-0">
-                            <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
-                            </li>
-                            <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
-                            </li>
-                          </ul>
-                        </aw-wizard-step>
-                        <aw-wizard-step class="steps-in" [stepTitle]="'Questionnaire'" [navigationSymbol]="{ symbol: '4' }">
-                          <div class="tab-content">
-                            <div class="row">
-                              <div class="col pt-3">
-                                <h4 class="mb-3">Configure this sprint</h4>
-                                  <table class="table table-centered table-nowrap">
-                                    <tbody>
-                                      <tr>
-                                        <td class="text-left ">
-                                          Some name
-                                        </td>
-                                        <td class="text-right">
-                                            <select class="custom-select col-4" id="category-input">
-                                              <option value="">--Select--</option>
-                                              <option value="1">Questionnaire 1</option>
-                                              <option value="2">Questionnaire 2</option>
-                                            </select>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                              </div>
-                            </div>
-                          </div>
-                          <ul class="list-inline wizard mb-0">
-                            <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
-                            </li>
-                            <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
-                            </li>
-                          </ul>
-                        </aw-wizard-step>
-                  
-                        <aw-wizard-step class="steps-in" [stepTitle]="'Setup'" [navigationSymbol]="{ symbol: '5' }">
-                          <div class="tab-content">
-                            <form>
-                              <div class="row">
-                                <div class="col pt-3">
-                                  <h4>Add a Sprint</h4>
-                                  <div class="form-group">
-                                    <label for="category-input">Select Category</label>
-                                    <select class="custom-select"  id="category-input">
-                                      <option value="" selected>--Select--</option>
-                                      <option value="old">Existing Sprint</option>
-                                      <option value="new">Create new sprint</option>  
-                                    </select>
-                                  </div>
-                                  <div class="card border shadow-none mb-3">
-                                    <div class="card-body">Hello</div>
-                                    <div class="dropdown-divider"></div>
-                                    <div *ngIf="selected == 'old'">
-                                        <select name="old_quest" id="old_quest" data-live-search="true">
-                                          <option value="1">something 1</option>
-                                          <option value="2">something 1</option>
-                                          <option value="3">something 1</option>
-                                        </select>
-                                    </div>
-                      
-                                    <div *ngIf="selected == 'new'">
-                      
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              
-                            </form>
-                          </div>
-                          <ul class="list-inline wizard mb-0">
-                            <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
-                            </li>
-                            <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
-                            </li>
-                          </ul>
-                        </aw-wizard-step>
-                  
-                        <aw-wizard-step class="steps-in" [stepTitle]="'Finish'" [navigationSymbol]="{ symbol: '6' }">
-                          <div class="tab-content">
-                  
-                          </div>
-                          <ul class="list-inline wizard mb-0">
-                            <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
-                            </li>
-                            <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Submit</button>
-                            </li>
-                          </ul>
-                        </aw-wizard-step>
-                      </aw-wizard>
+  <div class="row mt-3">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <aw-wizard [navBarLayout]="'large-empty-symbols'">
+            <aw-wizard-step class="steps-in" [stepTitle]="'Category'" [navigationSymbol]="{ symbol: '1' }">
+              <div class="tab-content">
+                <form>
+                  <div class="row">
+                    <div class="col pt-3">
+                      <h4>Platforms</h4>
+                      <div class="form-group">
+                        <label for="category-input">Select Category</label>
+                        <select #mySelectCategory (change)="selectChecklistsOnChange(mySelectCategory.value)"
+                          class="custom-select" id="category-input">
+                          <option value="">--Select--</option>
+                          <option *ngFor="let item of categoryData.items" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card border shadow-none mb-3">
+                    <div class="card-body">Hello</div>
+                  </div>
+                </form>
+              </div>
+              <ul class="list-inline wizard mb-0">
+                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+            <aw-wizard-step [stepTitle]="'Maturity Level'" [navigationSymbol]="{ symbol: '2' }">
+              <div class="tab-content">
+                <form>
+                  <div class="row">
+                    <div class="col pt-3">
+                      <h4>Maturity Level</h4>
+                      <div class="form-group">
+                        <label for="category-input">Select Category</label>
+                        <select #mySelectMaturity (change)="selectMaturityOnChange(mySelectMaturity.value)"
+                          class="custom-select" id="category-input">
+                          <option value="">--Select--</option>
+                          <option *ngFor="let item of maturityData" value="{{item.id}}">{{item.title}}</option>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card border shadow-none mb-3">
+                    <div class="card-body">Hello</div>
+                  </div>
+                </form>
+              </div>
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+            <aw-wizard-step class="steps-in" [stepTitle]="'Checklist'" [navigationSymbol]="{ symbol: '3' }">
+              <div class="tab-content">
+                <form>
+                  <div class="row">
+                    <div class="col pt-3">
+                      <h4>Checklists</h4>
+                      <div class="form-group">
+                        <label for="category-input">Select Category</label>
+                        <div *ngIf="checklistData">
+                          <select #mySelectQuestion (change)="selectQuestionaireOnChange(mySelectQuestion.value)"
+                            class="custom-select" id="category-input">
+                            <option value="">--Select--</option>
+                            <option *ngFor="let item of checklistData.items" value="{{item.id}}">{{item.title}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card border shadow-none mb-3">
+                    <div class="card-body">Hello</div>
+                  </div>
+                </form>
+              </div>
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+            <aw-wizard-step class="steps-in" [stepTitle]="'Questionnaire'" [navigationSymbol]="{ symbol: '4' }">
+              <div class="tab-content">
+                <div class="row">
+                  <div class="col pt-3">
+                    <h4 class="mb-3">Configure this sprint</h4>
+                    <div *ngIf="questionData">
+                      <table class="table table-centered table-nowrap">
+                        <tbody>
+                          <tr *ngFor="let item of questionData.items">
+                            <td class="text-left ">
+                              {{item.question}}
+                            </td>
+                            <td class="text-right">
+                              <select class="custom-select col-4" id="category-input">
+                                <option value="">--Select--</option>
+                                <option value="{{item.id}}" value="1">Yes</option>
+                                <option value="{{item.id}}" value="0">No</option>
+                                <option value="{{item.id}}" value="0">N.A</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+            <aw-wizard-step class="steps-in" [stepTitle]="'Setup'" [navigationSymbol]="{ symbol: '5' }">
+              <div class="tab-content">
+                <form>
+                  <div class="row">
+                    <div class="col pt-3">
+                      <h4>Add a feature</h4>
+                      <div class="form-group">
+                        <label for="category-input">Select Category</label>
+                        <select class="custom-select" id="category-input">
+                          <option value="" selected>--Select--</option>
+                          <option value="old">Existing feature</option>
+                          <option value="new">Create new feature</option>
+                        </select>
+                      </div>
+                      <div class="card border shadow-none mb-3">
+                        <div class="card-body">Hello</div>
+                        <div class="dropdown-divider"></div>
+                        <div *ngIf="selected == 'old'">
+                          <select name="old_quest" id="old_quest" data-live-search="true">
+                            <option value="1">something 1</option>
+                            <option value="2">something 1</option>
+                            <option value="3">something 1</option>
+                          </select>
+                        </div>
+
+                        <div *ngIf="selected == 'new'">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+            <aw-wizard-step class="steps-in" [stepTitle]="'Finish'" [navigationSymbol]="{ symbol: '6' }">
+              <div class="tab-content">
+
+              </div>
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Submit</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+          </aw-wizard>
         </div>
+      </div>
     </div>
+  </div>
 </div>

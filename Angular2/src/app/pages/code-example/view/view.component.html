@@ -20,7 +20,8 @@
                       <div class="text-sm-right">
                         <div class="search-box mr-4 mb-2 d-inline-block">
                           <div class="position-relative">
-                            <input class="form-control" [(ngModel)]="queryString" id="search" name="search" placeholder="Search vulnerability" />
+                            <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
+                              placeholder="Search vulnerability" />
                             <i class="bx bx-search-alt search-icon"></i>
                           </div>
                         </div>
@@ -34,7 +35,8 @@
                       <div class="row mt-3">
                         <div class="col-lg-12">
                           <!-- Content Body -->
-                          <div class="row mb-4" *ngFor="let code of codeData.items | stringfilter:queryString; let i = index">
+                          <div class="row mb-4"
+                            *ngFor="let code of codeData.items | stringfilter:queryString; let i = index">
                             <div class="col">
                               <div class="box media mb-2">
                                 <div class="icon mr-3">
@@ -43,7 +45,7 @@
                                 <div class="media-body">
                                   <div class="row">
                                     <div class="col-sm-10">
-                                      <h4 class="card-title text-primary">{{code.code_lang}} | {{code.title}}</h4> 
+                                      <h4 class="card-title text-primary">{{code.code_lang}} | {{code.title}}</h4>
                                       <p></p>
                                     </div>
                                     <div class="col-sm-2">
@@ -69,10 +71,10 @@
                                   <div class="col-sm-6">
                                     <div class="text-sm-right">
                                       <a [routerLink]="['/code-example/update', code.id]"
-                                      class="btn btn-success m-1 text-light">
-                                      <i class="mdi mdi-check mr-1"></i> Update </a>
+                                        class="btn btn-success m-1 text-light">
+                                        <i class="mdi mdi-check mr-1"></i> Update </a>
                                       <a type="button" class="btn btn-danger m-1 text-light"
-                                       (click)="deleteModal(contentDelete)">
+                                        (click)="deleteModal(contentDelete)">
                                         <i class="bx bx-trash mr-1"></i> Delete </a>
                                     </div>
                                   </div> <!-- end col -->
@@ -103,8 +105,7 @@
 <ng-template #contentDelete let-modal>
   <div class="modal-header">
     <h5 class="modal-title mt-0">Delete Code Example</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')"
-      aria-hidden="true">×</button>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
   </div>
   <div class="modal-body">
     <form>
