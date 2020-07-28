@@ -11,4 +11,4 @@ import { CodeExampleRoutingModule } from './code-example-routing.module';
     CodeExampleRoutingModule
   ]
 })
-export class CodeExampleModule {}
+export class CodeExampleModule { }
