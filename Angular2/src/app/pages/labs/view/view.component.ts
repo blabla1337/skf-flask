@@ -19,12 +19,16 @@ export class LabViewComponent implements OnInit
   public queryString;
   public queryLabel;
 
+  labLists: string[];
+
   constructor(private _labService: LabService) { }
 
   ngOnInit(): void
   {
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
+
+    this.labLists = ['SKF-Labs', 'Juice-Shop', 'Other Labs'];
   }
 
   /**

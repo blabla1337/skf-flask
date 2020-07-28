@@ -38,7 +38,7 @@ import { ChecklistCreateComponent } from './checklists/create/create.component';
 import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
 import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -66,6 +66,7 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
     UIModule,
     DndModule,
     HighlightModule,
+    NgSelectModule,
   ],
   providers: [
     {
