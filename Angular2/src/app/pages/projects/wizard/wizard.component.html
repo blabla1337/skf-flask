@@ -137,7 +137,7 @@
                       <h4>Add a feature</h4>
                       <div class="form-group">
                         <label for="category-input">Select Category</label>
-                        <select class="custom-select" id="category-input">
+                        <select class="custom-select" #list (change)="onChange(list.value)">
                           <option value="" selected>--Select--</option>
                           <option value="old">Existing feature</option>
                           <option value="new">Create new feature</option>
@@ -145,17 +145,32 @@
                       </div>
                       <div class="card border shadow-none mb-3">
                         <div class="card-body">Hello</div>
-                        <div class="dropdown-divider"></div>
-                        <div *ngIf="selected == 'old'">
-                          <select name="old_quest" id="old_quest" data-live-search="true">
+                        <!-- <div class="dropdown-divider"></div> -->
+                      </div>
+                      <div class="row mb-3" *ngIf="selected == 'old'">
+                        <label class="col-sm-2 col-form-label" for="old_quest">Sprint Name</label>
+                        <div class="col-sm-10">
+                          <select class="form-control" name="old_quest" id="old_quest" data-live-search="true">
                             <option value="1">something 1</option>
                             <option value="2">something 1</option>
                             <option value="3">something 1</option>
                           </select>
                         </div>
+                      </div>
 
-                        <div *ngIf="selected == 'new'">
+                      <div *ngIf="selected == 'new'">
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="name">Sprint Name</label>
+                          <div class="col-sm-10">
+                            <input class="form-control" type="text" id="name" placeholder="Sprint Name">
+                          </div>
+                        </div>
 
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="description">Sprint Description</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" id="description" rows="3"></textarea>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -173,7 +188,15 @@
 
             <aw-wizard-step class="steps-in" [stepTitle]="'Finish'" [navigationSymbol]="{ symbol: '6' }">
               <div class="tab-content">
-
+                <div class="row">
+                  <div class="col pt-3">
+                    <h4>Save Configuration</h4>
+                    <div class="card border shadow-none mb-3">
+                      <div class="card-body">Hello</div>
+                      <!-- <div class="dropdown-divider"></div> -->
+                    </div>
+                  </div>
+                </div>
               </div>
               <ul class="list-inline wizard mb-0">
                 <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
