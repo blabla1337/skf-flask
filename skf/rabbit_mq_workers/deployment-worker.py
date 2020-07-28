@@ -122,9 +122,9 @@ def get_host_port_from_response(response):
             node_port = service.node_port
             port = service.port
         if host != "http://localhost":
-            return "i am running on  -  "+ str(host) + ":" + str(node_port)
+            return {'host': "'"+ str(host) + ":" + str(node_port)+"'"}
         else:
-            return "i am running on  -  http://localhost:" + str(port)
+            return {'host': "'http://localhost:" + str(port)+"'"}
     except:
         return "Failed to deploy, error no host or port!"
 
