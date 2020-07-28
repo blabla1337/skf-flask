@@ -28,6 +28,11 @@ export class CodeExamplesService
         return this.http.get(environment.API_ENDPOINT + `/api/code/${code_id}`, { headers: this.authHeader })
     }
 
+    getChecklistKbCodeItems(checklist_kb_id: number): Observable<Object>
+    {
+        return this.http.get(environment.API_ENDPOINT + `/api/code/items/requirements/${checklist_kb_id}`, { headers: this.authHeader })
+    }
+
     createCodeExample(value: any): Observable<Object>
     {
         this.category_id = Number(localStorage.getItem("categorySelector"))
