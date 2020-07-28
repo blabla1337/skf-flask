@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-body">
           <div class="row mb-2">
-            <div class="col-sm-4">
+            <div class="col-7">
               <div class="search-box mr-2 mb-2 d-inline-block">
                 <div class="position-relative">
                   <input class="form-control" [(ngModel)]="queryString" id="search" name="search" placeholder="Search Lab" />
@@ -14,15 +14,24 @@
                 </div>
               </div>
             </div>   
-            <div class="form-group">
-              <select class="form-control select2-search-disable" [(ngModel)]="queryLabel" >
-                <option value="" selected>All labs</option>
-                <option value="SKF-labs">SKF-labs</option>
-                <option value="juice-shop">juice-shop</option>
-              </select>
-            </div>    
+            <div class="col-5 text-right">
+                <!-- <div class="form-group">
+                  <select class="form-control select2-search-disable" [(ngModel)]="queryLabel" >
+                    <option value="" selected>All labs</option>
+                    <option value="SKF-labs">SKF-labs</option>
+                    <option value="juice-shop">juice-shop</option>
+                  </select>
+                </div>  -->
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="labType" ngbDropdownToggle>Select Labs <i class='bx bx-chevron-down'></i></button>
+                  <div ngbDropdownMenu aria-labelledby="labType">
+                    <button ngbDropdownItem>All Labs</button>
+                    <button ngbDropdownItem>SKF-Labs</button>
+                    <button ngbDropdownItem>Juice-Shop</button>
+                  </div>            
+            </div>   
           </div>  
-          <div class="table-responsive">
+          <div class="table-responsive mt-3">
             <table class="table table-centered table-nowrap table-hover">
               <thead class="thead-light">
                 <tr>
