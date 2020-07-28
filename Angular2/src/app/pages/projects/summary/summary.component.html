@@ -35,7 +35,8 @@
                           class="badge badge-success font-size-11 mt-1 float-left">Resolved</span>
                         <span *ngIf="item.status == 1"
                           class="badge badge-danger font-size-11 mt-1 float-left">Open</span>
-                        <button class="btn-sm btn-primary btn-md" type="button" (click)="isCollapsed[i] = !isCollapsed[i]">
+                        <button class="btn-sm btn-primary btn-md" type="button"
+                          (click)="isCollapsed[i] = !isCollapsed[i]">
                           Click here
                         </button>
                       </div>
@@ -60,7 +61,24 @@
                           </div>
                         </ng-template>
                       </li>
-                      <li [ngbNavItem]="2">
+                      <li [ngbNavItem]="2" (click)="getCodeExamples(item.checklist_id)">
+                        <a ngbNavLink>Test automation</a>
+                        <ng-template ngbNavContent>
+                          <div class="card shadow-none border">
+                            <div class="card-body">
+                              <span *ngFor="let item of codeData.items">
+                                <h4>{{item.title}}</h4>
+                                <code>{{item.content}}</code>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="text-right">
+                            <button class="btn btn-sm btn-danger mt-2" type="button"
+                              (click)="summaryModal(deleteResult)">Delete Result</button>
+                          </div>
+                        </ng-template>
+                      </li>
+                      <li [ngbNavItem]="3">
                         <a ngbNavLink>Compliance</a>
                         <ng-template ngbNavContent>
                           <div class="card shadow-none border">

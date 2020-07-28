@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { SprintService } from '../../../core/services/sprint.service';
+import { CodeExamplesService } from '../../../core/services/code-examples.service';
 
 @Component({
   selector: 'app-summary',
@@ -20,11 +21,13 @@ export class SummaryComponent implements OnInit
   private sub: any;
   private id: number;
   public sprintData: any;
+  public codeData: any;
 
   constructor(
     private modalService: NgbModal,
     private route: ActivatedRoute,
     private _sprintService: SprintService,
+    private _codeExampleService: CodeExamplesService,
     private router: Router) { }
 
   ngOnInit(): void
@@ -42,6 +45,12 @@ export class SummaryComponent implements OnInit
     });
 
     this._sprintService.getSprintChecklistResults(this.id).subscribe(sprint => this.sprintData = sprint)
+  }
+
+
+  getCodeExamples(checklist_kb_id: number)
+  {
+    this._codeExampleService.getChecklistKbCodeItems(checklist_kb_id).subscribe(code => this.codeData = code)
   }
 
   /**
