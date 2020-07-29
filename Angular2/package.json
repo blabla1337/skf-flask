@@ -22,6 +22,11 @@
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
+<<<<<<< HEAD
+=======
+    "@ng-select/ng-option-highlight": "0.0.5",
+    "@ng-select/ng-select": "^4.0.4",
+>>>>>>> 238a8e114003a8a280ad12aac1d359b77bde4171
     "angular-archwizard": "^6.1.0",
     "bootstrap": "^4.5.0",
     "bootstrap-scss": "^4.5.0",
