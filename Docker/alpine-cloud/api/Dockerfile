@@ -52,6 +52,9 @@ RUN pip3 install --upgrade pip &&\
     pip3 install --user nltk &&\
     pip3 install --user cython 
 
+#enrich ntlk data sets 
+RUN python3 -m nltk.downloader punkt stopwords 
+
 #magic below for PI docker image speeding up
 RUN if [ `ps auwxf | grep qemu-arm | wc -l` = 4 ]; \
 then \
