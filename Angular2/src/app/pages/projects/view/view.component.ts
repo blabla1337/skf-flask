@@ -38,6 +38,7 @@ export class ProjectViewComponent implements OnInit
     this.sub = this.route.params.subscribe(params =>
     {
       this.id = +params['id'];
+      localStorage.setItem("project_id", this.id.toString())
     });
 
     this._sprintService.getSprintsCollection(this.id).subscribe(sprint => this.sprintData = sprint)
