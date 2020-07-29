@@ -1,37 +1,26 @@
 <div class="container-fluid">
   <app-page-title title="Labs" [breadcrumbItems]="breadCrumbItems"></app-page-title>
-  
+
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
-          <div class="row mb-2">
-            <div class="col-7">
-              <div class="search-box mr-2 mb-2 d-inline-block">
-                <div class="position-relative">
-                  <input class="form-control" [(ngModel)]="queryString" id="search" name="search" placeholder="Search Lab" />
-                  <i class="bx bx-search-alt search-icon"></i>
-                </div>
-              </div>
-            </div>   
-            <div class="col-5 text-right">
-                <!-- <div class="form-group">
-                  <select class="form-control select2-search-disable" [(ngModel)]="queryLabel" >
-                    <option value="" selected>All labs</option>
-                    <option value="SKF-labs">SKF-labs</option>
-                    <option value="juice-shop">juice-shop</option>
-                  </select>
-                </div>  -->
-
-                <div ngbDropdown class="d-inline-block">
-                  <button class="btn btn-outline-primary" id="labType" ngbDropdownToggle>Select Labs <i class='bx bx-chevron-down'></i></button>
-                  <ul ngbDropdownMenu class="dropdown-menu" role="menu" aria-labelledby="labType">
-                    <input disable-auto-close type="search" [(ngModel)]="queryLabel" class="form-control" placeholder="Search">
-                    <li role="list">Use Loop and Search Filter here</li>
-                  </ul>           
-                </div>
-
-          </div>  
+          <div class="search-box mr-2 mb-2 d-inline-block">
+            <div class="position-relative">
+              <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
+                placeholder="Search Lab" />
+              <i class="bx bx-search-alt search-icon"></i>
+            </div>
+          </div>
+          <div class="float-right">
+            <div class="form-group">
+              <select class="form-control select2-search-disable" placeholder="Select" [(ngModel)]="queryLabel">
+                <option value="" selected disabled>All labs</option>
+                <option value="SKF-labs">SKF-labs</option>
+                <option value="juice-shop">juice-shop</option>
+              </select>
+            </div>
+          </div>
           <div class="table-responsive mt-3">
             <table class="table table-centered table-nowrap table-hover">
               <thead class="thead-light">
@@ -59,7 +48,8 @@
                   </th>
                 </tr>
               </thead>
-              <tbody *ngFor="let item of labData.items | stringfilter:queryString | labelfilter:queryLabel; let myIndex = index">
+              <tbody
+                *ngFor="let item of labData.items | stringfilter:queryString | labelfilter:queryLabel; let myIndex = index">
                 <tr>
                   <td>
                     <div class="avatar-xs">
@@ -80,8 +70,7 @@
                   </td>
                   <td>
                     <div class="text-center">
-                      <a href="javascript: void(0);"
-                        class="badge badge-soft-success font-size-11 m-1">item.status</a>
+                      <a href="javascript: void(0);" class="badge badge-soft-success font-size-11 m-1">item.status</a>
                     </div>
                   </td>
                   <td>
@@ -128,4 +117,3 @@
       </div>
     </div>
   </div>
-</div>
