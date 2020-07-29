@@ -95,95 +95,113 @@
               </ul>
             </aw-wizard-step>
             <aw-wizard-step class="steps-in" [stepTitle]="'Questionnaire'" [navigationSymbol]="{ symbol: '4' }">
+              <div *ngIf="questionData">
+                <form [formGroup]="questions">
+                  <div class="tab-content">
+                    <div class="row">
+                      <div class="col pt-3">
+                        <h4 class="mb-3">Configure this sprint</h4>
+                        <table class="table table-centered table-nowrap">
+                          <tbody>
+                            <tr *ngFor="let item of questionData.items; let i = index;">
+                              <td class="text-left ">
+                                {{item.question}}
+                              </td>
+                              <td class="text-right">
+                                <select formControlName="question_id" name="question_id" id="question_id{{i+1}}"
+                                  class="custom-select col-4" id="category-input">
+                                  <option value="">--Select--</option>
+                                  <option value="{{item.id}}" value="1">Yes</option>
+                                  <option value="0">No</option>
+                                  <option value="0">N.A</option>
+                                </select>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="list-inline wizard mb-0">
+                    <li class="previous list-inline-item"><button class="btn btn-primary"
+                        awPreviousStep>Previous</button>
+                    </li>
+                    <li class="next list-inline-item float-right"><button class="btn btn-primary"
+                        (click)="storeSprintLocalStorage()" awNextStep>Next</button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+            </aw-wizard-step>
+
+            <aw-wizard-step class=" steps-in" [stepTitle]="'Setup'" [navigationSymbol]="{ symbol: '5' }">
               <div class="tab-content">
                 <div class="row">
                   <div class="col pt-3">
-                    <h4 class="mb-3">Configure this sprint</h4>
-                    <div *ngIf="questionData">
-                      <table class="table table-centered table-nowrap">
-                        <tbody>
-                          <tr *ngFor="let item of questionData.items">
-                            <td class="text-left ">
-                              {{item.question}}
-                            </td>
-                            <td class="text-right">
-                              <select class="custom-select col-4" id="category-input">
-                                <option value="">--Select--</option>
-                                <option value="{{item.id}}" value="1">Yes</option>
-                                <option value="{{item.id}}" value="0">No</option>
-                                <option value="{{item.id}}" value="0">N.A</option>
-                              </select>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <h4>Add a feature</h4>
+                    <div class="form-group">
+                      <label for="category-input">Select Category</label>
+                      <select class="custom-select" #list (change)="onChange(list.value)">
+                        <option value="" selected>--Select--</option>
+                        <option value="old">Existing feature</option>
+                        <option value="new">Create new feature</option>
+                      </select>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <ul class="list-inline wizard mb-0">
-                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
-                </li>
-                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
-                </li>
-              </ul>
-            </aw-wizard-step>
-
-            <aw-wizard-step class="steps-in" [stepTitle]="'Setup'" [navigationSymbol]="{ symbol: '5' }">
-              <div class="tab-content">
-                <form>
-                  <div class="row">
-                    <div class="col pt-3">
-                      <h4>Add a feature</h4>
-                      <div class="form-group">
-                        <label for="category-input">Select Category</label>
-                        <select class="custom-select" #list (change)="onChange(list.value)">
-                          <option value="" selected>--Select--</option>
-                          <option value="old">Existing feature</option>
-                          <option value="new">Create new feature</option>
+                    <div class="card border shadow-none mb-3">
+                      <div class="card-body">Hello</div>
+                      <!-- <div class="dropdown-divider"></div> -->
+                    </div>
+                    <div class="row mb-3" *ngIf="selected == 'old'">
+                      <label class="col-sm-2 col-form-label" for="old_quest">Sprint Name</label>
+                      <div class="col-sm-10">
+                        <select class="form-control" name="old_quest" id="old_quest" data-live-search="true" #old
+                          (change)="oldSprint(old.value)">
+                          <option *ngFor="let item of sprintData" value="{{item.sprint_id}}">
+                            {{item.title}}</option>
                         </select>
                       </div>
-                      <div class="card border shadow-none mb-3">
-                        <div class="card-body">Hello</div>
-                        <!-- <div class="dropdown-divider"></div> -->
-                      </div>
-                      <div class="row mb-3" *ngIf="selected == 'old'">
-                        <label class="col-sm-2 col-form-label" for="old_quest">Sprint Name</label>
-                        <div class="col-sm-10">
-                          <select class="form-control" name="old_quest" id="old_quest" data-live-search="true">
-                            <option value="1">something 1</option>
-                            <option value="2">something 1</option>
-                            <option value="3">something 1</option>
-                          </select>
-                        </div>
-                      </div>
+                      <ul class="list-inline wizard mb-0">
+                        <li class="previous list-inline-item"><button class="btn btn-primary"
+                            awPreviousStep>Previous</button>
+                        </li>
+                        <li class="next list-inline-item float-right"><button class="btn btn-primary"
+                            awNextStep>Next</button>
+                        </li>
+                      </ul>
+                    </div>
 
-                      <div *ngIf="selected == 'new'">
+                    <div *ngIf="selected == 'new'">
+                      <form [formGroup]="newSprintForm">
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="name">Sprint Name</label>
                           <div class="col-sm-10">
-                            <input class="form-control" type="text" id="name" placeholder="Sprint Name">
+                            <input formControlName="name" class="form-control" type="text" id="name"
+                              placeholder="Sprint Name">
                           </div>
                         </div>
 
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="description">Sprint Description</label>
                           <div class="col-sm-10">
-                            <textarea class="form-control" id="description" rows="3"></textarea>
+                            <textarea formControlName="description" class="form-control" id="description"
+                              rows="3"></textarea>
                           </div>
                         </div>
-                      </div>
+
+                        <ul class="list-inline wizard mb-0">
+                          <li class="previous list-inline-item"><button class="btn btn-primary"
+                              awPreviousStep>Previous</button>
+                          </li>
+                          <li class="next list-inline-item float-right"><button class="btn btn-primary"
+                              (click)="storeSprint()" awNextStep>Next</button>
+                          </li>
+                        </ul>
+                      </form>
                     </div>
                   </div>
-
-                </form>
+                </div>
               </div>
-              <ul class="list-inline wizard mb-0">
-                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
-                </li>
-                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Next</button>
-                </li>
-              </ul>
+
             </aw-wizard-step>
 
             <aw-wizard-step class="steps-in" [stepTitle]="'Finish'" [navigationSymbol]="{ symbol: '6' }">
