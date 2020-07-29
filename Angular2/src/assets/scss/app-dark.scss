@@ -8,6 +8,8 @@
 @import "variables-dark";
 @import "bootstrap-dark";
 @import "./node_modules/bootstrap/scss/mixins.scss";
+@import "~@ng-select/ng-select/scss/ant.design.theme";
+
 
 // Structure
 @import "custom/structure/general";

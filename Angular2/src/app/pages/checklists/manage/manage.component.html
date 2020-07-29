@@ -7,7 +7,7 @@
     <li [ngbNavItem]="1">
       <a ngbNavLink>Config</a>
       <ng-template ngbNavContent>
-        <div class="card mb-3 mt-2 shadow-none">
+        <div class="card mt-3 border shadow-sm">
           <div class="card-body pt-2">
             <form>
               <div class="row text-center">
@@ -36,89 +36,52 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-body">
+        <div class="card shadow-sm mt-3">
+          <div class="card-body pt-1">
             <div class="row">
               <div class="col-lg-6">
-                <div class="card border shadow-none">
-                  <div class="card-header bg-light">
-                    <!-- <div class="dropdown float-right mt-2" ngbDropdown>
-                      <a href="javascript: void(0);" class="dropdown-toggle arrow-none" ngbDropdownToggle>
-                        <i class="mdi mdi-dots-vertical m-0 text-muted h5"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                        <a class="dropdown-item" href="javascript: void(0);">Edit</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Delete</a>
-                      </div>
-                    </div> end dropdown -->
+                <div class="card border shadow-none mt-3">
+                  <div class="card-header p-2 bg-light">
                     <h4 class="card-title text-center mt-2">Checklist total (of not yet assinged requirements)</h4>
                   </div>
                   <div class="card-body">
-                    <!-- <div class="text-center mb-3">
-                      <a href="javascript: void(0);" class="btn btn-primary btn-block mt-1"><i
-                          class="mdi mdi-plus mr-1"></i>
-                        Add New</a>
-                    </div> -->
-                    <div class="table-responsive table-borderless mb-2">
-                      <table class="table table-centered table-nowrap">
-                        <tbody>
-                          <tr class="border border-success">
-                            <td class="text-dark p-0">
-                              <div class="card shadow-none">
-                                <div class="card-header bg-white pb-1">
-                                  <h5>1.1.0</h5>
-                                </div>
-                                <div class="card-body py-1">
-                                  <p>This is some content</p>
-                                </div>
-                              </div>
-                            </td>
-                            <td class="text-right"><a type="button" class="mt-3"><i
-                                  class="mdi mdi-plus-circle font-size-20 text-dark"></i></a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                      <button class="btn btn-block mb-2 bg-light">
+                        <div class="row">
+                          <div class="col-10 text-left">
+                            <b>1.0.0</b>
+                            <p class="mt-2 mb-1">
+                              This is some content
+                            </p>
+                          </div>
+                          <div class="col-2">
+                            <i class="bx bx-plus font-size-15 py-3 float-right"></i>
+                          </div>
+                        </div>
+                      </button>
                   </div>
                 </div>
               </div>
               <!-- end col -->
 
               <div class="col-lg-6">
-                <div class="card border shadow-none">
-                  <div class="card-header bg-light">
-                    <!-- <div class="dropdown float-right mt-2" ngbDropdown>
-                      <a href="javascript: void(0);" class="dropdown-toggle arrow-none" ngbDropdownToggle>
-                        <i class="mdi mdi-dots-vertical m-0 text-muted h5"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                        <a class="dropdown-item" href="javascript: void(0);">Edit</a>
-                        <a class="dropdown-item" href="javascript: void(0);">Delete</a>
-                      </div>
-                    </div> end dropdown -->
+                <div class="card border shadow-none mt-3">
+                  <div class="card-header p-2 bg-light">
                     <h4 class="card-title text-center mt-2">Checklist total (of not yet assinged requirements)</h4>
                   </div>
                   <div class="card-body">
-                    <div class="table-responsive table-borderless mb-2">
-                      <table class="table table-centered table-nowrap">
-                        <tbody>
-                          <tr class="border border-danger">
-                            <td class="text-dark p-0">
-                              <div class="card shadow-none">
-                                <div class="card-header bg-white pb-1">
-                                  <h5>1.1.0</h5>
-                                </div>
-                                <div class="card-body py-1">
-                                  <p>This is some content</p>
-                                </div>
-                              </div>
-                            </td>
-                            <td class="text-right"><a type="button" class="mt-3"><i
-                                  class="mdi mdi-plus-circle font-size-20 text-dark"></i></a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <button class="btn btn-block mb-2 bg-light">
+                      <div class="row">
+                        <div class="col-10 text-left">
+                          <b>1.0.0</b>
+                          <p class="mt-2 mb-1">
+                            This is some content
+                          </p>
+                        </div>
+                        <div class="col-2">
+                          <i class="bx bx-plus font-size-15 py-3 float-right"></i>
+                        </div>
+                      </div>
+                    </button>
                   </div>
                 </div>
               </div>
