@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Create Category</h4>
+                    <form (ngSubmit)="validSubmit()" [formGroup]="validationform">
+                        <div class="form-group row mb-4">
+                            <label for="title" class="col-md-2 col-form-label">Category Title</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="title"
+                                formControlName="title" placeholder="Category Title"
+                                   [ngClass]="{'is-invalid': submit && form.title.errors}">
+                                <div *ngIf="submit && form.title.errors" class="invalid-feedback">
+                                <span *ngIf="form.title.errors.required">Required!</span>
+                                <span *ngIf="form.title.errors.pattern">This value should be a text.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="description" class="col-md-2 col-form-label">Description</label>
+                            <div class="col-md-10">
+                                <textarea formControlName="content" class="form-control" id="content" rows="20"
+                                [ngClass]="{'is-invalid': submit && form.content.errors}"></textarea>
+                                <div *ngIf="submit && form.content.errors" class="invalid-feedback">
+                                    <span *ngIf="form.content.errors.required">Required!</span>
+                                    <span *ngIf="form.content.errors.pattern">This value should be a text.</span>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <button [routerLink]="['/checklists/manage']" class="btn btn-danger float-right ml-3" type="submit">Cancel</button>
+                        <button class="btn btn-success mr-2 float-right" type="submit">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
