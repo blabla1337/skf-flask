@@ -66,20 +66,8 @@ import { UserUpdateComponent } from './users/update/update.component';
     UsersModule,
     UIModule,
     DndModule,
-    HighlightModule,
+    HighlightModule
   ],
-  providers: [
-    {
-      provide: HIGHLIGHT_OPTIONS,
-      useValue: {
-        coreLibraryLoader: () => import('highlight.js/lib/highlight'),
-        lineNumbersLoader: () => import('highlightjs-line-numbers.js'), 
-        languages: {
-          typescript: () => import('highlight.js/lib/languages/typescript'),
-          php: () => import('highlight.js/lib/languages/php')
-        }
-      }
-    }
-  ],
+  providers: [],
 })
 export class PagesModule { }

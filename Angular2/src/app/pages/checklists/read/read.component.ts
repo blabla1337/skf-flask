@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Checklists } from '../checklists.model';
+import { Checklists } from '../../../core/models/checklists.model';
 import { checkData } from '../data';
 
 @Component({
