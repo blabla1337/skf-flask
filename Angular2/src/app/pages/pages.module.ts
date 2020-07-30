@@ -8,7 +8,7 @@ import
 {
   NgbNavModule, NgbDropdownModule, NgbModalModule,
   NgbTooltipModule, NgbPaginationModule, NgbTypeaheadModule,
-  NgbCollapseModule
+  NgbCollapseModule,
 } from '@ng-bootstrap/ng-bootstrap';
 
 import { PagesRoutingModule } from './pages-routing.module';
@@ -18,7 +18,9 @@ import { DndModule } from 'ngx-drag-drop';
 import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
 import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { NgSelectModule } from '@ng-select/ng-select';
 
+// Import Components here
 import { ManageComponent } from './users/manage/manage.component';
 import { ViewCodeComponent } from './code-example/view/view.component';
 import { UpdateCodeComponent } from './code-example/update/update.component';
@@ -40,13 +42,15 @@ import { WizardComponent } from './projects/wizard/wizard.component';
 import { ChecklistCreateComponent } from './checklists/create/create.component';
 import { UserCreateComponent } from './users/create/create.component';
 import { UserUpdateComponent } from './users/update/update.component';
+import { AddChecklistComponent } from './checklists/addchecklist/addchecklist.component';
+import { UpdateChecklistComponent } from './checklists/updatechecklist/updatechecklist.component';
 
 @NgModule({
   declarations: [
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
-    ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent,
+    ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent,
-    LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent,
+    LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe
   ],
   imports: [
@@ -66,7 +70,8 @@ import { UserUpdateComponent } from './users/update/update.component';
     UsersModule,
     UIModule,
     DndModule,
-    HighlightModule
+    HighlightModule,
+    NgSelectModule,
   ],
   providers: [],
 })
