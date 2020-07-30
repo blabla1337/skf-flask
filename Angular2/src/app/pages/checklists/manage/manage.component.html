@@ -22,10 +22,10 @@
                 </div>
                 <div class="col-xl-2 mt-4 text-center">
                   <div class="btn-group mx-2 mt-2">
-                    <a href="/checklists/add" type="button" class="btn btn-sm btn-success">Add</a>
+                    <a type="button" class="btn btn-sm btn-success">Add</a>
                   </div>
                   <div class="btn-group mx-2 mt-2">
-                    <a href="/checklists/update" type="button" class="btn btn-sm btn-warning">Update</a>
+                    <a type="button" class="btn btn-sm btn-warning">Update</a>
                   </div>
                   <div class="btn-group mx-2 mt-2">
                     <a href="#" type="button" class="btn btn-sm btn-danger">Delete</a>
@@ -104,8 +104,8 @@
           </div>
           <div class="col-5">
             <div class="text-sm-right">
-              <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
-                <i class="mdi mdi-check mr-1"></i>Add Item</button>
+              <a type="button" href="/checklists/add" class="btn btn-primary btn-rounded mb-2 mr-2">
+                <i class="mdi mdi-check mr-1"></i>Add Item</a>
             </div>
           </div>
           <!-- end col-->
@@ -179,8 +179,9 @@
         <div class="row mb-3 mt-4">
           <div class="col-lg-12">
             <div class="text-sm-right">
-              <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2">
-                <i class="mdi mdi-check mr-1"></i>Add Category</button>
+              <a type="button" class="btn btn-primary btn-rounded mb-2 mr-2"
+              href="/checklists/add-category">
+                <i class="mdi mdi-check mr-1"></i>Add Category</a>
             </div>
             <div class="table-responsive">
               <table class="table table-centered table-nowrap table-hover">
@@ -212,7 +213,8 @@
                     <td>
                       <ul class="list-inline mb-0 text-center">
                         <li class="list-inline-item">
-                          <button class="btn btn-success btn-sm mr-2">Update</button>
+                          <a type="button" class="btn btn-success btn-sm mr-2"
+                          href="/checklists/update-category">Update</a>
                         </li>
                         <li class="list-inline-item">
                           <button type="button" class="btn btn-danger btn-sm ml-2">Delete</button>
