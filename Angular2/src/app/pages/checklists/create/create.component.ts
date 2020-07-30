@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChecklistCreateComponent implements OnInit {
 
+  // bread crumb items
+  breadCrumbItems: Array<{}>;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Create', active: true }];
   }
 
 }
