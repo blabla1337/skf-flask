@@ -1,1 +1,33 @@
-<p>create works!</p>
+<div class="container-fluid">
+    <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-5">Add Checklist</h4>
+                    <form>
+                        <div class="form-group">
+                          <label for="formGroupTitleInput">Checklist Title</label>
+                          <input type="text" class="form-control" id="formGroupTitleInput" placeholder="Add new title">
+                        </div>
+                        <div class="form-group">
+                          <label for="FormControlTextarea1">Description</label>
+                          <textarea class="form-control" id="FormControlTextarea1" rows="10"></textarea>
+                        </div>
+                        <div class="form-group mb-4">
+                          <label for="status-input">Status</label>
+                          <select class="custom-select" id="status-input">
+                              <option value="" >--Select--</option>
+                              <option value="1">Activate</option>
+                              <option value="2">Deactivate</option>
+                          </select>
+                        </div>
+                        <button type="submit" class="btn btn-danger float-right ml-3">Cancel</button>
+                        <button type="submit" class="btn btn-success float-right">Submit</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
