@@ -44,13 +44,15 @@ import { UserCreateComponent } from './users/create/create.component';
 import { UserUpdateComponent } from './users/update/update.component';
 import { AddChecklistComponent } from './checklists/addchecklist/addchecklist.component';
 import { UpdateChecklistComponent } from './checklists/updatechecklist/updatechecklist.component';
+import { AddCategoryComponent } from './checklists/addcategory/addcategory.component';
+import { UpdateCategoryComponent } from './checklists/updatecategory/updatecategory.component';
 
 @NgModule({
   declarations: [
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent,
-    ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent,
-    LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent,
+    ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, AddCategoryComponent,
+    LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe
   ],
   imports: [

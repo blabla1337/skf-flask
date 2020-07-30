@@ -7,6 +7,9 @@ import { CheckManageComponent } from './manage/manage.component';
 import { ChecklistCreateComponent } from './create/create.component';
 import { AddChecklistComponent } from './addchecklist/addchecklist.component';
 import { UpdateChecklistComponent } from './updatechecklist/updatechecklist.component';
+import { AddCategoryComponent } from './addcategory/addcategory.component';
+import { UpdateCategoryComponent } from './updatecategory/updatecategory.component';
+
 
 const routes: Routes = [
     {path: 'view', component: ViewComponent},
@@ -15,6 +18,8 @@ const routes: Routes = [
     {path: 'create', component: ChecklistCreateComponent},
     {path: 'add', component: AddChecklistComponent},
     {path: 'update', component: UpdateChecklistComponent},
+    {path: 'add-category', component: AddCategoryComponent},
+    {path: 'update-category', component: UpdateCategoryComponent},
 ];
 
 @NgModule({
