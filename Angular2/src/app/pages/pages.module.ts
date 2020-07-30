@@ -15,6 +15,9 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { UsersModule } from './users/users.module';
 import { DndModule } from 'ngx-drag-drop';
+import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
+import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 import { ManageComponent } from './users/manage/manage.component';
 import { ViewCodeComponent } from './code-example/view/view.component';
@@ -35,16 +38,15 @@ import { LabViewComponent } from './labs/view/view.component';
 import { SummaryComponent } from './projects/summary/summary.component';
 import { WizardComponent } from './projects/wizard/wizard.component';
 import { ChecklistCreateComponent } from './checklists/create/create.component';
-import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
-import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
-import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { UserCreateComponent } from './users/create/create.component';
+import { UserUpdateComponent } from './users/update/update.component';
 
 @NgModule({
   declarations: [
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
-    ViewComponent, ProjectManageComponent, ProjectViewComponent,
+    ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent,
-    LabReadComponent, LabViewComponent, SummaryComponent,
+    LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe
   ],
   imports: [
