@@ -7,6 +7,7 @@ import { ChecklistCategoryService } from '../../../core/services/checklist_categ
 import { QuestionService } from '../../../core/services/question.service';
 import { ChecklistService } from '../../../core/services/checklists.service';
 import { SprintService } from '../../../core/services/sprint.service';
+import { isEmptyExpression } from '@angular/compiler';
 
 @Component({
   selector: 'app-wizard',
@@ -121,7 +122,7 @@ export class WizardComponent implements OnInit
     this.sprintStore = [];
 
     for (let i = 1; i < count_sprint + 1; i++) {
-      if (sprint_items['answer' + i] != "" || sprint_items['answer' + i] != "0" || sprint_items['answer' + i] != null) {
+      if (sprint_items['answer' + i] > 0) {
         this.sprintStore.push({
           'project_id': this.project_id,
           'sprint_id': Number(localStorage.getItem("sprint_id")),
@@ -149,7 +150,8 @@ export class WizardComponent implements OnInit
         Number(localStorage.getItem("maturity")),
         this.sprintStore)
         .subscribe()
-      this.router.navigate(['/projects/view', this.project_id])
-    }, 1000);
+    }, 2000);
+
+    this.router.navigate(['/projects/view', this.project_id])
   }
 }
