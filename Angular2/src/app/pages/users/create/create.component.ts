@@ -6,19 +6,22 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
-export class UserCreateComponent implements OnInit {
+export class UserCreateComponent implements OnInit 
+{
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
   // Form Validation
-  validationform: FormGroup;
+  public validationform: FormGroup;
 
   // Form Submission
-  submit: boolean;
-  formsubmit: boolean;
+  public submit: boolean;
+  public formsubmit: boolean;
 
-  constructor( private formBuilder: FormBuilder) { }
+  constructor( 
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Create', active: true }];
