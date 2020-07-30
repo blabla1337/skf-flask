@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Checklists } from '../checklists.model';
+import { Checklists } from '../../../core/models/checklists.model';
 import { checkData } from '../data';
+import { ChecklistService } from '../../../core/services/checklists.service';
 
 @Component({
   selector: 'app-view',
@@ -13,22 +14,33 @@ export class ViewComponent implements OnInit {
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
+  public queryString;
+  public checklistData: any;
 
-  checkData: Checklists[];
-
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal,
+    private _checklistCategoryService: ChecklistService
+    ) { }
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'View', active: true }];
     this._fetchData();
   }
 
-  /**
-   * Checklists data fetches
+   /**
+   * Checklist data fetches
    */
-  private _fetchData() {
-    this.checkData = checkData;
+  private _fetchData()
+  {
+    //this._knowledgebaseService
+      //.getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
+      //.subscribe(data => this.knowledgeData = data);
+
+    this._checklistCategoryService
+      .getChecklistsCollection(Number(localStorage.getItem('categorySelector')))
+      .subscribe(checklist => this.checklistData = checklist);
   }
+
 
   /**
    * Open center modal
