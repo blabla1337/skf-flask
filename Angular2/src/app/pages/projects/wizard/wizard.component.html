@@ -95,12 +95,12 @@
               </ul>
             </aw-wizard-step>
             <aw-wizard-step class="steps-in" [stepTitle]="'Questionnaire'" [navigationSymbol]="{ symbol: '4' }">
-              <div *ngIf="questionData">
-                <form [formGroup]="questions">
-                  <div class="tab-content">
-                    <div class="row">
-                      <div class="col pt-3">
-                        <h4 class="mb-3">Configure this sprint</h4>
+              <form #myForm="ngForm">
+                <div class="tab-content">
+                  <div class="row">
+                    <div class="col pt-3">
+                      <h4 class="mb-3">Configure this sprint</h4>
+                      <div *ngIf="questionData">
                         <table class="table table-centered table-nowrap">
                           <tbody>
                             <tr *ngFor="let item of questionData.items; let i = index;">
@@ -108,12 +108,11 @@
                                 {{item.question}}
                               </td>
                               <td class="text-right">
-                                <select formControlName="question_id" name="question_id" id="question_id{{i+1}}"
-                                  class="custom-select col-4" id="category-input">
-                                  <option value="">--Select--</option>
+                                <select ngModel name="answer{{i +1}}" id="answer{{i +1}}" class="custom-select col-4"
+                                  id="category-input">
+                                  <option value="">No</option>
                                   <option value="{{item.id}}" value="1">Yes</option>
-                                  <option value="0">No</option>
-                                  <option value="0">N.A</option>
+                                  <option value="">N.A</option>
                                 </select>
                               </td>
                             </tr>
@@ -122,16 +121,15 @@
                       </div>
                     </div>
                   </div>
-                  <ul class="list-inline wizard mb-0">
-                    <li class="previous list-inline-item"><button class="btn btn-primary"
-                        awPreviousStep>Previous</button>
-                    </li>
-                    <li class="next list-inline-item float-right"><button class="btn btn-primary"
-                        (click)="storeSprintLocalStorage()" awNextStep>Next</button>
-                    </li>
-                  </ul>
-                </form>
-              </div>
+                </div>
+                <ul class="list-inline wizard mb-0">
+                  <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                  </li>
+                  <li class="next list-inline-item float-right"><button class="btn btn-primary"
+                      (click)="storeSprintLocalStorage(myForm)" awNextStep>Next</button>
+                  </li>
+                </ul>
+              </form>
             </aw-wizard-step>
 
             <aw-wizard-step class=" steps-in" [stepTitle]="'Setup'" [navigationSymbol]="{ symbol: '5' }">
@@ -219,7 +217,8 @@
               <ul class="list-inline wizard mb-0">
                 <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
                 </li>
-                <li class="next list-inline-item float-right"><button class="btn btn-primary" awNextStep>Submit</button>
+                <li class="next list-inline-item float-right"><button class="btn btn-primary" (click)="storeQuestions()"
+                    awNextStep>Submit</button>
                 </li>
               </ul>
             </aw-wizard-step>
