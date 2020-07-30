@@ -15,8 +15,8 @@ export class ChecklistsReadComponent implements OnInit {
   // Bread crumb item
   breadCrumbItems: Array<{}>;
   public queryString;
-  public checklistDataCat: any;
-  public checklistDataControls: any;
+  public checklistCatData: any;
+  public checklistConData: any;
 
   checkData: Checklists[];
 
@@ -40,11 +40,11 @@ export class ChecklistsReadComponent implements OnInit {
   {
     this._checklistCategoryService
       .getChecklistsCollection(Number(localStorage.getItem('categorySelector')))
-      .subscribe(checklistCat => this.checklistDataCat = checklistCat);
+      .subscribe(checklistCat => this.checklistCatData = checklistCat);
 
       this._checklistCategoryService
       .getChecklistsControls(Number(1))
-      .subscribe(checklistCon => this.checklistDataControls = checklistCon);
+      .subscribe(checklistCon => this.checklistConData = checklistCon);
   }
 
   /**
