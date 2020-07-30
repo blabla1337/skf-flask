@@ -16,9 +16,9 @@
             </div>
             <div class="col-sm-8">
               <div class="text-sm-right">
-                <button type="button" class="btn btn-primary btn-rounded mb-2 mr-2" (click)="centerModal(userAddModal)">
+                <a type="button" href="/users/create" class="btn btn-primary btn-rounded mb-2 mr-2 text-white">
                   <i class="mdi mdi-plus mr-1"></i> New users
-                </button>
+                </a>
               </div>
             </div>
             <!-- end col-->
@@ -80,11 +80,11 @@
                       </a>
                       <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
                         <li>
-                          <a href="javascript: void(0);" type="button" (click)="centerModal(userAddModal)" class="dropdown-item">
+                          <a href="/users/update" type="button" class="dropdown-item">
                             <i class="fas fa-pencil-alt text-success mr-1"></i>Edit</a>
                         </li>
                         <li>
-                          <a href="javascript: void(0);" class="dropdown-item">
+                          <a type="button" (click)="centerModal(userDeleteModal)"  class="dropdown-item">
                             <i class="fas fa-trash-alt text-danger mr-1"></i>Delete</a>
                         </li>
                       </ul>
@@ -108,108 +108,18 @@
 
 <!-- Data Modal -->
 
-<ng-template #userAddModal let-modal>
+<ng-template #userDeleteModal let-modal>
   <div class="modal-header">
-    <h5 class="modal-title mt-0">User Details</h5>
+    <h5 class="modal-title mt-0">Delete User</h5>
     <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
   </div>
   <div class="modal-body">
-    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="validationform">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="validationCustom01">First name</label>
-            <input type="text" class="form-control" id="validationCustom01" formControlName="firstName"
-              placeholder="First name" [ngClass]="{'is-invalid': submit && form.firstName.errors}">
-            <div *ngIf="submit && form.firstName.errors" class="invalid-feedback">
-              <span *ngIf="form.firstName.errors.required">Required!</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="validationCustom02">Last name</label>
-            <input type="text" class="form-control" id="validationCustom02" formControlName="lastName"
-              placeholder="Last name" [ngClass]="{'is-invalid': submit && form.lastName.errors}">
-            <div *ngIf="submit && form.lastName.errors" class="invalid-feedback">
-              <span *ngIf="form.lastName.errors.required">Required!</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <form>
       <div class="form-group">
-        <label>E-Mail</label>
-        <div>
-          <input type="email" class="form-control" formControlName="email"
-            [ngClass]="{'is-invalid': submit && form.email.errors}" placeholder="Enter a valid e-mail" />
-          <div *ngIf="submit && form.email.errors" class="invalid-feedback">
-            <span *ngIf="form.email.errors.required">This value is required.</span>
-            <span *ngIf="form.email.errors.pattern">This value should be a valid email.</span>
-          </div>
-        </div>
+        <label for="delete">Type <b>'DELETE'</b> to delete the user</label>
+        <input type="text" class="form-control" id="delete" placeholder="Type DELETE">
       </div>
-      <div class="form-group mb-4">
-        <label for="status-input">Status</label>
-        <select class="custom-select" id="status-input">
-          <option value="">--Select--</option>
-          <option value="1">Activate</option>
-          <option value="2">Deactivate</option>
-        </select>
-      </div>
-      <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
-  </div>
-</ng-template>
-
-<ng-template #userEditModal let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Edit User</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="validationform">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="validationCustom01">First name</label>
-            <input type="text" class="form-control" id="validationCustom01" formControlName="firstName"
-              placeholder="First name" [ngClass]="{'is-invalid': submit && form.firstName.errors}">
-            <div *ngIf="submit && form.firstName.errors" class="invalid-feedback">
-              <span *ngIf="form.firstName.errors.required">Required!</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="validationCustom02">Last name</label>
-            <input type="text" class="form-control" id="validationCustom02" formControlName="lastName"
-              placeholder="Last name" [ngClass]="{'is-invalid': submit && form.lastName.errors}">
-            <div *ngIf="submit && form.lastName.errors" class="invalid-feedback">
-              <span *ngIf="form.lastName.errors.required">Required!</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>E-Mail</label>
-        <div>
-          <input type="email" class="form-control" formControlName="email"
-            [ngClass]="{'is-invalid': submit && form.email.errors}" placeholder="Enter a valid e-mail" />
-          <div *ngIf="submit && form.email.errors" class="invalid-feedback">
-            <span *ngIf="form.email.errors.required">This value is required.</span>
-            <span *ngIf="form.email.errors.pattern">This value should be a valid email.</span>
-          </div>
-        </div>
-      </div>
-      <div class="form-group mb-4">
-        <label for="status-input">Status</label>
-        <select class="custom-select" id="status-input">
-          <option value="">--Select--</option>
-          <option value="1">Activate</option>
-          <option value="2">Deactivate</option>
-        </select>
-      </div>
-      <button class="btn btn-primary" type="submit">Submit</button>
+      <button type="submit" class="btn btn-danger">Delete</button>
     </form>
   </div>
 </ng-template>
