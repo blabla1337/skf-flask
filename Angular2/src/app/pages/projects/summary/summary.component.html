@@ -68,7 +68,7 @@
                             <div class="card-body">
                               <span *ngFor="let item of codeData.items">
                                 <h4>{{item.title}}</h4>
-                                <code>{{item.content}}</code>
+                                <code [highlight]="item.content" lineNumbers="True"></code> 
                               </span>
                             </div>
                           </div>

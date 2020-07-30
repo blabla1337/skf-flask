@@ -38,6 +38,8 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
         fullLibraryLoader: () => import('highlight.js'),
+        lineNumbersLoader: () => import('highlightjs-line-numbers.js'), // Optional, only if you want the line numbers
+        lineNumbers: true,
       }
     }
   ],  bootstrap: [AppComponent]
