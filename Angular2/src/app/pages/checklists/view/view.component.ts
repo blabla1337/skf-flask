@@ -28,25 +28,17 @@ export class ViewComponent implements OnInit {
   }
 
    /**
-   * Checklist data fetches
-   */
+    * Checklist data fetches
+    */
   private _fetchData()
   {
-    //this._knowledgebaseService
-      //.getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
-      //.subscribe(data => this.knowledgeData = data);
+    // this._knowledgebaseService
+    // .getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
+    // .subscribe(data => this.knowledgeData = data);
 
     this._checklistCategoryService
       .getChecklistsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(checklist => this.checklistData = checklist);
   }
 
-
-  /**
-   * Open center modal
-   * @param centerDataModal center modal data
-   */
-  centerModal(centerDataModal: any) {
-    this.modalService.open(centerDataModal, { centered: true });
-  }
 }
