@@ -32,10 +32,6 @@ export class ViewComponent implements OnInit {
    */
   private _fetchData()
   {
-    //this._knowledgebaseService
-      //.getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
-      //.subscribe(data => this.knowledgeData = data);
-
     this._checklistCategoryService
       .getChecklistsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(checklist => this.checklistData = checklist);
