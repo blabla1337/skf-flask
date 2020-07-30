@@ -4,9 +4,7 @@
 
   <div class="row">
     <div class="col-lg-12">
-
       <!-- Content Body -->
-
       <div class="card">
         <div class="card-body">
           <div class="row mb-5">
@@ -18,17 +16,14 @@
             </div>
             <!-- end col-->
           </div>
-
-          <div *ngFor="let item of sprintData.items; let i = index" class="row mb-4">
+          <div *ngFor="let item of sprintData.items; let i = index" class="row mb-3">
             <div class="col">
-              <div class="card shadow-none border">
+              <div class="card shadow-sm border">
                 <div class="card-body pb-3">
                   <div class="row">
                     <div class="col-sm-10">
-                      <h4 class="card-title">{{item.checklist_items_checklist_id}} {{item.checklist_items_content}}
-                      </h4>
+                      <h5><b>{{item.checklist_items_checklist_id}} </b> {{item.checklist_items_content}}</h5>
                     </div>
-
                     <div class="col-sm-2">
                       <div class="text-right">
                         <span *ngIf="item.status == 0"
@@ -68,7 +63,7 @@
                             <div class="card-body">
                               <span *ngFor="let item of codeData.items">
                                 <h4>{{item.title}}</h4>
-                                <code [highlight]="item.content" lineNumbers="True"></code> 
+                                <code [highlight]="item.content" lineNumbers="True"></code>
                               </span>
                             </div>
                           </div>

@@ -58,11 +58,12 @@
                                 </div>
                               </div>
                               <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[i]">
-                                <div class="card shadow-none border bg-dark text-light card-body mb-0">
-                                  <pre>
-                                     <code [highlight]="code.content" lineNumbers="True"></code> 
-                                  </pre>
-                                </div>
+                                <pre>
+                                  <code [highlight]="code.content" lineNumbers="True"></code> 
+                               </pre>
+                                <!-- <div class="card shadow-none border bg-dark text-light card-body mb-0">
+                                  
+                                </div> -->
                                 <div class="row mt-4">
                                   <div class="col-sm-6">
                                     <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
