@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerService  } from 'ngx-spinner';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -25,13 +26,21 @@ export class ViewKnowledebaseComponent implements OnInit
   constructor(
     private modalService: NgbModal,
     private _knowledgebaseService: KnowledgebaseService,
-    private _checklistCategoryService: ChecklistCategoryService
+    private _checklistCategoryService: ChecklistCategoryService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit()
   {
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'View', active: true }];
     this._fetchData();
+
+    // Load Spinner
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 10000);
   }
 
   /**
