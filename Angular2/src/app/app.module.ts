@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { JoyrideModule } from 'ngx-joyride';
 
 import { NgbNavModule, NgbAccordionModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -31,7 +32,8 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HighlightModule
+    HighlightModule,
+    JoyrideModule.forRoot(),
   ],
   providers: [
     {
