@@ -32,7 +32,7 @@ export class SummaryComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.breadCrumbItems = [{ label: 'Sprint result' }, { label: 'Summary', active: true }];
+    this.breadCrumbItems = [{ label: 'Feature/Sprint result' }, { label: 'Summary', active: true }];
     this.getSprintItems();
   }
 
