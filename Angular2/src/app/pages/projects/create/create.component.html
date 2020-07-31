@@ -7,22 +7,34 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Create new project</h4>
-                    <form [formGroup]="projectForm">
+                    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="projectForm">
                         <div class="form-group">
-                            <label for="titleInput">Name</label>
-                            <input formControlName="name" type="text" class="form-control" id="titleInput"
-                                placeholder="Add project name">
-                        </div>
+                            <label for="firstname">Name</label>
+                            <input type="text" class="form-control" id="firstname"
+                                formControlName="name" placeholder="Add project name"
+                                [ngClass]="{'is-invalid': submit && form.name.errors}">
+                            <div *ngIf="submit && form.name.errors" class="invalid-feedback">
+                                <span *ngIf="form.name.errors.required">Required!</span>
+                            </div>
+                        </div>                        
                         <div class="form-group">
-                            <label for="titleInput">Version</label>
-                            <input formControlName="version" type="text" class="form-control" id="titleInput"
-                                placeholder="Add project title">
-                        </div>
+                            <label for="version">Version</label>
+                            <input type="text" class="form-control" id="version"
+                                formControlName="version" placeholder="Project version"
+                                [ngClass]="{'is-invalid': submit && form.version.errors}">
+                            <div *ngIf="submit && form.version.errors" class="invalid-feedback">
+                                <span *ngIf="form.version.errors.required">Required!</span>
+                            </div>
+                        </div>     
                         <div class="form-group">
-                            <label for="Description">Description</label>
-                            <textarea formControlName="description" class="form-control" id="Description"
-                                rows="20"></textarea>
-                        </div>
+                            <label for="description">Version</label>
+                            <textarea type="text" class="form-control" id="description"
+                                formControlName="description" placeholder="Project description"
+                                [ngClass]="{'is-invalid': submit && form.description.errors}" rows="20"></textarea>
+                            <div *ngIf="submit && form.description.errors" class="invalid-feedback">
+                                <span *ngIf="form.description.errors.required">Required!</span>
+                            </div>
+                        </div>   
                         <div class="text-right">
                             <button (click)="createProject()" class="btn btn-success mr-2" type="button">Create</button>
                             <button [routerLink]="['/projects/manage']" class="btn btn-danger"
