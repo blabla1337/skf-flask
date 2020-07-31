@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Checklists } from '../../../core/models/checklists.model';
-import { checkData } from '../data';
 import { ChecklistService } from '../../../core/services/checklists.service';
 
 @Component({
@@ -10,7 +8,8 @@ import { ChecklistService } from '../../../core/services/checklists.service';
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.scss']
 })
-export class ViewComponent implements OnInit {
+export class ViewComponent implements OnInit
+{
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
@@ -20,16 +19,17 @@ export class ViewComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private _checklistCategoryService: ChecklistService
-    ) { }
+  ) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'View', active: true }];
     this._fetchData();
   }
 
-   /**
-    * Checklist data fetches
-    */
+  /**
+   * Checklist data fetches
+   */
   private _fetchData()
   {
     this._checklistCategoryService
