@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Checklists } from '../../../core/models/checklists.model';
 import { ChecklistService } from '../../../core/services/checklists.service';
-import { checkData } from '../data';
 
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
   styleUrls: ['./read.component.scss']
 })
-export class ChecklistsReadComponent implements OnInit {
+export class ChecklistsReadComponent implements OnInit
+{
 
   // Bread crumb item
   breadCrumbItems: Array<{}>;
@@ -18,31 +17,30 @@ export class ChecklistsReadComponent implements OnInit {
   public checklistCatData: any;
   public checklistConData: any;
 
-  checkData: Checklists[];
-
   // Collapse value
   public isCollapsed: boolean[] = [];
 
   constructor(
     private modalService: NgbModal,
     private _checklistCategoryService: ChecklistService
-    ) { }
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Read', active: true }];
     this._fetchData();
   }
 
-   /**
-   * Checklist data fetches
-   */
+  /**
+  * Checklist data fetches
+  */
   private _fetchData()
   {
     this._checklistCategoryService
       .getChecklistsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(checklistCat => this.checklistCatData = checklistCat);
 
-      this._checklistCategoryService
+    this._checklistCategoryService
       .getChecklistsControls(Number(1))
       .subscribe(checklistCon => this.checklistConData = checklistCon);
   }
