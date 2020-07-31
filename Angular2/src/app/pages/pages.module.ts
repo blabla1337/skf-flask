@@ -78,7 +78,7 @@ import { JoyrideModule } from 'ngx-joyride';
     HighlightModule,
     NgSelectModule,
     NgxSpinnerModule,
-    JoyrideModule.forRoot()
+    JoyrideModule.forChild()
   ],
   providers: [],
 })

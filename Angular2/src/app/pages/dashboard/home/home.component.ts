@@ -13,18 +13,20 @@ import { CardItem } from './home.model';
 export class HomeComponent implements OnInit {
 
   cardItems = [];
+  title = 'Sample';
 
-  constructor(private joyride: JoyrideService) { }
+  constructor(private readonly joyride: JoyrideService) { }
 
   ngOnInit(): void {
     console.log(localStorage.getItem('platformId'));
-    this.tour();
   }
 
-  tour() {
+  tour()
+  {
     this.joyride.startTour(
-      {steps: ['firstStep']}
+      { steps: ['firstStep', 'secondStep', 'thirdStep', 'forthStep']} // Your steps order
     );
+    console.log('this is wrking')
   }
 
  initialize(): void {
