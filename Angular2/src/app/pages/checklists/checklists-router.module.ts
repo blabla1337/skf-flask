@@ -12,18 +12,18 @@ import { UpdateCategoryComponent } from './updatecategory/updatecategory.compone
 
 
 const routes: Routes = [
-    {path: 'view', component: ViewComponent},
-    {path: 'read', component: ChecklistsReadComponent},
-    {path: 'manage', component: CheckManageComponent},
-    {path: 'create', component: ChecklistCreateComponent},
-    {path: 'add', component: AddChecklistComponent},
-    {path: 'update', component: UpdateChecklistComponent},
-    {path: 'add-category', component: AddCategoryComponent},
-    {path: 'update-category', component: UpdateCategoryComponent},
+    { path: 'view', component: ViewComponent },
+    { path: 'read/:id', component: ChecklistsReadComponent },
+    { path: 'manage', component: CheckManageComponent },
+    { path: 'create', component: ChecklistCreateComponent },
+    { path: 'add', component: AddChecklistComponent },
+    { path: 'update', component: UpdateChecklistComponent },
+    { path: 'add-category', component: AddCategoryComponent },
+    { path: 'update-category', component: UpdateCategoryComponent },
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class ChecklistsRoutingModule {}
+export class ChecklistsRoutingModule { }

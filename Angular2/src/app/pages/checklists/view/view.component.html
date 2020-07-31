@@ -69,7 +69,7 @@
                           <div class="px-4 py-3 border-top">
                             <ul class="list-inline mb-0">
                               <li class="list-inline-item mr-3">
-                                <a href="/checklists/read"><button type="button" class="btn-sm btn-primary">Click here</button></a>
+                                <a [routerLink]="['/checklists/read', item.id]"><button type="button" class="btn-sm btn-primary">Click here</button></a>
                               </li>
                               <li class="list-inline-item float-right mt-1">
                                 <p class="mb-0">Active: {{item.visibility}}</p>
