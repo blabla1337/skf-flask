@@ -7,7 +7,15 @@ export class StringFilterPipe implements PipeTransform {
 
   transform(items: any[], args: any[]): any {
     if (args) {
-      return items.filter(item => item.title.toLowerCase().indexOf(args.toString().toLowerCase()) >= 0);
+      if (items[0].name) {
+        return items.filter(item => item.name.toLowerCase().indexOf(args.toString().toLowerCase()) >= 0);
+      }
+      if (items[0].title) {
+        return items.filter(item => item.title.toLowerCase().indexOf(args.toString().toLowerCase()) >= 0);
+      }
+      if (items[0].description) {
+        return items.filter(item => item.description.toLowerCase().indexOf(args.toString().toLowerCase()) >= 0);
+      }          
     }
     if (!args) {
       return items;
