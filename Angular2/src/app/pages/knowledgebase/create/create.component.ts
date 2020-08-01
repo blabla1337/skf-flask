@@ -14,30 +14,49 @@ export class CreateComponent implements OnInit
   // bread crumb items
   breadCrumbItems: Array<{}>;
   public knowledgebaseForm: FormGroup;
-  public isSubmitted: boolean;
+
+  // Form Submission
+  public submit: boolean;
+  public formsubmit: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private _knowledgebaseService: KnowledgebaseService) { }
+    private _knowledgebaseService: KnowledgebaseService
+  ) { }
 
   ngOnInit(): void
   {
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Create', active: true }];
 
     this.knowledgebaseForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      content: ['', Validators.required],
-    })
+      title: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      content: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+    });
+    this.submit = false;
   }
 
   createKnowledgebaseItem()
   {
-    this.isSubmitted = true;
+    this.submit = true;
     if (this.knowledgebaseForm.invalid) {
       return;
     }
     this._knowledgebaseService.createKnowledgebaseItem(this.knowledgebaseForm.value).subscribe()
     this.router.navigate(['/knowledgebase/view'])
+  }
+
+  /**
+   * Returns form
+   */
+  get form() {
+    return this.knowledgebaseForm.controls;
+  }
+
+  /**
+   * Validation form submit method
+   */
+  validSubmit() {
+    this.submit = true;
   }
 }

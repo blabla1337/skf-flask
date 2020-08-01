@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService  } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -22,9 +23,11 @@ export class ViewKnowledebaseComponent implements OnInit
   public categoryData: any = [];
   public categoryId: any;
   public queryString;
+  public delete: string;
 
   constructor(
     private modalService: NgbModal,
+    private router: Router,
     private _knowledgebaseService: KnowledgebaseService,
     private _checklistCategoryService: ChecklistCategoryService,
     private spinner: NgxSpinnerService,
@@ -40,7 +43,7 @@ export class ViewKnowledebaseComponent implements OnInit
 
     setTimeout(() => {
       this.spinner.hide();
-    }, 10000);
+    }, 1000);
   }
 
   /**
@@ -75,5 +78,10 @@ export class ViewKnowledebaseComponent implements OnInit
   deleteKnowledgebaseItem(id: number)
   {
     this._knowledgebaseService.deleteknowledgebaseItem(id).subscribe(x => this._fetchData())
+  }
+
+  onSubmit()
+  {
+    this.router.navigate(['/knowledgebase/view']);
   }
 }

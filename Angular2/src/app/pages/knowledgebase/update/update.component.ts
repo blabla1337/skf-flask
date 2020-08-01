@@ -16,7 +16,10 @@ export class UpdateComponent implements OnInit
   breadCrumbItems: Array<{}>;
   public knowledgebaseForm: FormGroup;
   public knowledgebaseItem: any;
-  public isSubmitted: boolean;
+
+  // Form Submission
+  public submit: boolean;
+  public formsubmit: boolean;
 
   get formControls() { return this.knowledgebaseForm.controls; }
 
@@ -47,12 +50,25 @@ export class UpdateComponent implements OnInit
 
   updateKnowledgebaseItem()
   {
-    this.isSubmitted = true;
+    this.submit = true;
     if (this.knowledgebaseForm.invalid) {
       return;
     }
     this._knowledgebaseService.updateKnowledgebaseItem(this.id, this.knowledgebaseForm.value).subscribe()
     this.router.navigate(['/knowledgebase/view'])
   }
+  /**
+   * Returns form
+   */
+  get form() {
+    return this.knowledgebaseForm.controls;
+  }
+
+  /**
+   * Validation form submit method
+   */
+  validSubmit() {
+    this.submit = true;
+  }  
 }
 
