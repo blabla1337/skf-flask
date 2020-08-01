@@ -7,17 +7,25 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Edit Knowledgebase Item</h4>
-                    <form [formGroup]="knowledgebaseForm">
+                    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="knowledgebaseForm">
                         <div class="form-group">
-                            <label for="titleInput">Title</label>
-                            <input formControlName="title" type="text" class="form-control" id="titleInput"
-                                placeholder="Add new title">
-                        </div>
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title"
+                                formControlName="title" placeholder="Knowledge base title"
+                                [ngClass]="{'is-invalid': submit && form.title.errors}">
+                            <div *ngIf="submit && form.title.errors" class="invalid-feedback">
+                                <span *ngIf="form.title.errors.required">Required!</span>
+                            </div>
+                        </div>     
                         <div class="form-group">
-                            <label for="Description">Description</label>
-                            <textarea formControlName="content" class="form-control" id="Description"
-                                rows="20"></textarea>
-                        </div>
+                            <label for="content">Description</label>
+                            <textarea type="text" class="form-control" id="content"
+                                formControlName="content" placeholder="Project description"
+                                [ngClass]="{'is-invalid': submit && form.content.errors}" rows="20"></textarea>
+                            <div *ngIf="submit && form.content.errors" class="invalid-feedback">
+                                <span *ngIf="form.content.errors.required">Required!</span>
+                            </div>
+                        </div>  
                         <div class="text-right">
                             <button (click)="updateKnowledgebaseItem()" class="btn btn-success mr-2"
                                 type="button">Update</button>
