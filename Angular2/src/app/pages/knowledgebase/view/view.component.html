@@ -83,19 +83,21 @@
                                 <div class="dropdown-divider"></div>
                               </div>
                             </div>
-
                             <!-- Deletion modal-->
                             <ng-template #contentDelete let-modal>
                               <div class="modal-header">
                                 <h5 class="modal-title mt-0">Delete Knowledgebase</h5>
-                                <button type="button" class="close" (click)="modal.dismiss('Cross click')"
-                                  aria-hidden="true">×</button>
+                                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
                               </div>
                               <div class="modal-body">
-                                <form>
+                                <form (ngSubmit)="onSubmit()">
                                   <div class="form-group">
-                                    <label for="delete">Type <b>'DELETE'</b> to delete the knowledgebase</label>
-                                    <input type="text" class="form-control" id="delete" placeholder="Type DELETE">
+                                    <label for="delete">Type <b style='color:red'>DELETE</b> to delete the knolwedgebase item</label>
+                                    <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
+                                      name="delete" placeholder="Type DELETE"
+                                      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type DELETE'">
                                   </div>
                                   <button type="submit"
                                     (click)="deleteKnowledgebaseItem(subitem.kb_id); modal.dismiss('Cross click')"
@@ -103,8 +105,7 @@
                                 </form>
                               </div>
                             </ng-template>
-                            <!--  Deletion modal Ends-->
-
+                            <!-- END Project Delete Modal -->
                           </div>
                           <!-- Content Body Ends-->
                         </div>

@@ -11,12 +11,15 @@ import { ProjectService } from '../../../core/services/project.service';
 })
 export class ProjectUpdateComponent implements OnInit
 {
+  breadCrumbItems: Array<{}>;
   id: number;
   private sub: any;
-  breadCrumbItems: Array<{}>;
   public projectForm: FormGroup;
-  public isSubmitted: boolean;
   public projectItem: any;
+
+  // Form Submission
+  public submit: boolean;
+  public formsubmit: boolean;
 
   get formControls() { return this.projectForm.controls; }
 
@@ -41,7 +44,6 @@ export class ProjectUpdateComponent implements OnInit
       version: ['', Validators.required],
     })
 
-
     this.projectItem = this._projectService
       .getProjectItem(this.id)
       .subscribe(item => this.projectForm.patchValue(item))
@@ -50,12 +52,27 @@ export class ProjectUpdateComponent implements OnInit
 
   updateProjectItem()
   {
-    this.isSubmitted = true;
+    this.submit = true;
     if (this.projectForm.invalid) {
       return;
     }
     this._projectService.updateProject(this.id, this.projectForm.value).subscribe()
     this.router.navigate(['/projects/manage'])
   }
+
+  /**
+   * Returns form
+   */
+  get form() {
+    return this.projectForm.controls;
+  }
+
+  /**
+   * Validation form submit method
+   */
+  validSubmit() {
+    this.submit = true;
+  }
+
 }
 

@@ -18,7 +18,6 @@ export class LabViewComponent implements OnInit
   public labData: any;
   public queryString;
   public queryLabel;
-
   labLists: string[];
 
   constructor(private _labService: LabService) { }
