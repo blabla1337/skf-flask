@@ -7,7 +7,8 @@
         <div class="col-sm-4">
           <div class="search-box mr-2 mb-2 d-inline-block">
             <div class="position-relative">
-              <input type="text" class="form-control" placeholder="Search..." />
+              <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
+                placeholder="Search projects" />
               <i class="bx bx-search-alt search-icon"></i>
             </div>
           </div>
@@ -38,7 +39,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of projectData.items">
+                  <tr *ngFor="let item of projectData.items | stringfilter:queryString ">
                     <td class="text-center">{{item.id}}</td>
                     <td class="text-center">
                       <h5 class="text-truncate font-size-14 mt-1">
@@ -50,16 +51,22 @@
                     <td class="text-center">{{item.version}}</td>
                     <td class="text-center">
                       <div class="dropdown" ngbDropdown placement="bottom-right">
-                        <a href="javascript: void(0);" class="dropdown-toggle card-drop" ngbDropdownToggle>
+                        <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                          ngbDropdownToggle aria-expanded="false">
                           <i class="mdi mdi-dots-horizontal font-size-18"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                          <a class="dropdown-item" type="button" [routerLink]="['/projects/update', item.id]">Update</a>
-                          <a class="dropdown-item" type="button" (click)="projectModal(deleteProjectModal)">Delete</a>
-                        </div>
+                        <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                          <li>
+                            <a class="dropdown-item" type="button" [routerLink]="['/projects/update', item.id]">
+                              <i class="fas fa-pencil-alt text-success mr-1"></i>Edit</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" type="button" (click)="projectModal(deleteProjectModal)">
+                              <i class="fas fa-trash-alt text-danger mr-1"></i>Delete</a>
+                          </li>
+                        </ul>
                       </div>
                     </td>
-
                     <!-- Project Delete Modal -->
                     <ng-template #deleteProjectModal let-modal>
                       <div class="modal-header">
@@ -71,8 +78,9 @@
                       <div class="modal-body">
                         <form (ngSubmit)="onSubmit()">
                           <div class="form-group">
-                            <label for="delete">Type <b>Delete</b> to delete the project</label>
-                            <input type="text" class="form-control" id="delete" placeholder="Type DELETE"
+                            <label for="delete">Type <b style='color:red'>DELETE</b> to delete the project</label>
+                            <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
+                              name="delete" placeholder="Type DELETE"
                               onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type DELETE'">
                           </div>
                           <button (click)="deleteProject(item.id);modal.dismiss('Close click')" type="submit" class="btn btn-primary">Delete</button>

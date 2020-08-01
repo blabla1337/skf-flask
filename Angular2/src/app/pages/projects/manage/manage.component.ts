@@ -15,7 +15,8 @@ export class ProjectManageComponent implements OnInit
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
-
+  public delete: string;
+  public queryString;
   projectData: any;
 
 
@@ -39,7 +40,9 @@ export class ProjectManageComponent implements OnInit
 
   deleteProject(id: number)
   {
-    this._projectService.deleteProject(id).subscribe(x => this.getProjects())
+    if (this.delete == 'DELETE') {
+      this._projectService.deleteProject(id).subscribe(x => this.getProjects())
+    }
   }
 
   /**
