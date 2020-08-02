@@ -29,7 +29,7 @@
              
             <div class="row justify-content-center">
               <div class="col-md-3 d-flex align-items-stretch">
-                <div joyrideStep="firstStep" title="Checklist" text="Some content will be here" class="card mt-4 maintenance-box">
+                <div joyrideStep="firstStep" title="Checklist" [stepContent]="checklistContent" class="card mt-4 maintenance-box">
                   <div class="card-body d-flex flex-column">
                     <i class="bx bx-list-check mb-4 h1 text-primary"></i>
                     <h5 class="font-size-15 text-uppercase">Checklist</h5>
@@ -82,6 +82,12 @@
           </div>
         </div>
       </div>
-    
-
 </div> <!-- container-fluid -->
+
+<ng-template #checklistContent>
+  <div class="card p-0">
+    <div class="card-body px-0 mx-5">
+      <p>This is some content</p>
+    </div>
+  </div>
+</ng-template>

@@ -18,6 +18,7 @@ export class LabViewComponent implements OnInit
   public labData: any;
   public queryString;
   public queryLabel;
+  public deployments;
   labLists: string[];
 
   constructor(private _labService: LabService) { }
@@ -40,9 +41,9 @@ export class LabViewComponent implements OnInit
 
 
   // Get Lab Address
-  getLabAddress()
+  getLabAddress(image_tag)
   {
-    const labAPI = 'https://api6.ipify.org?format=json';
+    this._labService.deployLab(image_tag).subscribe(requestData => this.deployments = requestData);
     Swal.queue([
       {
         title: 'Lab URL',
@@ -52,9 +53,9 @@ export class LabViewComponent implements OnInit
         showLoaderOnConfirm: true,
         preConfirm: () =>
         {
-          return fetch(labAPI)
+          return fetch(this.deployments)
             .then(response => response.json())
-            .then(data => Swal.insertQueueStep(data.ip))
+            .then(data => Swal.insertQueueStep(data.item))
             .catch(() =>
             {
               Swal.insertQueueStep({
