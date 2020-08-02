@@ -23,9 +23,13 @@ export class HomeComponent implements OnInit {
 
   tour()
   {
-    this.joyride.startTour(
-      { steps: ['firstStep', 'secondStep', 'thirdStep', 'forthStep']} // Your steps order
-    );
+    this.joyride.startTour({
+      steps: ['firstStep', 'secondStep', 'thirdStep', 'forthStep'],
+      showPrevButton: true,
+      stepDefaultPosition: 'top',
+      themeColor: '#000',
+      showCounter: false,
+    });
     console.log('this is wrking')
   }
 
