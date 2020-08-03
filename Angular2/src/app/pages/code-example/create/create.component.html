@@ -7,25 +7,36 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Create Code Item</h4>
-                    <form [formGroup]="codeExampleForm">
+                    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="codeExampleForm">
                         <div class="form-group">
-                            <label for="titleInput">Title</label>
-                            <input formControlName="title" type="text" class="form-control" id="title"
-                                placeholder="Add new title">
-                        </div>
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title"
+                                formControlName="title" placeholder="Add code example title"
+                                [ngClass]="{'is-invalid': isSubmitted && form.title.errors}">
+                            <div *ngIf="isSubmitted && form.title.errors" class="invalid-feedback">
+                                <span *ngIf="form.title.errors.required">Required!</span>
+                            </div>
+                        </div>                        
                         <div class="form-group">
-                            <label for="langInput">Language</label>
-                            <input formControlName="code_lang" type="text" class="form-control" id="code_lang"
-                                placeholder="Add new title">
-                        </div>
+                            <label for="language">Language</label>
+                            <input type="text" class="form-control" id="language"
+                                formControlName="language" placeholder="Add Language Name"
+                                [ngClass]="{'is-invalid': isSubmitted && form.language.errors}">
+                            <div *ngIf="isSubmitted && form.language.errors" class="invalid-feedback">
+                                <span *ngIf="form.language.errors.required">Required!</span>
+                            </div>
+                        </div>     
                         <div class="form-group">
-                            <label for="Description">Code</label>
-                            <textarea formControlName="content" class="form-control" id="content"
-                                rows="20"></textarea>
-                        </div>
+                            <label for="description">Description</label>
+                            <textarea type="text" class="form-control" id="description"
+                                formControlName="description" placeholder="Code Example description"
+                                [ngClass]="{'is-invalid': isSubmitted && form.description.errors}" rows="18"></textarea>
+                            <div *ngIf="isSubmitted && form.description.errors" class="invalid-feedback">
+                                <span *ngIf="form.description.errors.required">Required!</span>
+                            </div>
+                        </div>   
                         <div class="text-right">
-                            <button (click)="createCodeExampleItem()" class="btn btn-success mr-2"
-                                type="button">Create</button>
+                            <button (click)="createCodeExampleItem()" class="btn btn-success mr-2" type="submit">Create</button>
                             <button [routerLink]="['/code-example/view']" class="btn btn-danger"
                                 type="button">Cancel</button>
                         </div>
