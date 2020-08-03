@@ -27,11 +27,13 @@ export class CreateCodeComponent implements OnInit
   ngOnInit(): void
   {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'Create', active: true }];
+
     this.codeExampleForm = this.formBuilder.group({
       title: ['', Validators.required],
-      code_lang: ['', Validators.required],
-      content: ['', Validators.required],
-    })
+      language: ['', Validators.required],
+      description: ['', Validators.required],
+    });
+    this.isSubmitted = false;
   }
 
   createCodeExampleItem()
@@ -40,8 +42,22 @@ export class CreateCodeComponent implements OnInit
     if (this.codeExampleForm.invalid) {
       return;
     }
-    this._codeExamplesService.createCodeExample(this.codeExampleForm.value).subscribe()
-    this.router.navigate(['/code-example/view'])
+    this._codeExamplesService.createCodeExample(this.codeExampleForm.value).subscribe();
+    this.router.navigate(['/code-example/view']);
+  }
+
+  /**
+   * Returns form
+   */
+  get form() {
+    return this.codeExampleForm.controls;
+  }
+
+  /**
+   * Validation form submit method
+   */
+  validSubmit() {
+    this.isSubmitted = true;
   }
 }
 
