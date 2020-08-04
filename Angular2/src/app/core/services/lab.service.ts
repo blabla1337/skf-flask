@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -16,17 +17,17 @@ export class LabService
 
     public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
 
-    getLabs()
+    getLabs(): Observable<Object>
     {
         return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
     }
 
-    deployLab(image_tag)
+    deployLab(image_tag: string): Observable<Object>
     {
       return this.http.get(environment.API_ENDPOINT + `/interactive_labs/deployments/${image_tag}`, { headers: this.authHeader })
     }
   
-    deleteLab(image_tag)
+    deleteLab(image_tag: string): Observable<Object>
     {
       return this.http.get(environment.API_ENDPOINT + `/interactive_labs/delete-deployments/${image_tag}`, { headers: this.authHeader })
     }

@@ -144,21 +144,21 @@ log = logging.getLogger(__name__)
 def initdb_command():
     """Delete DB and creates a new database with all the Markdown files."""
     clean_db()
-    print('Initialized the database.')
+    log.info("Initialized the database.")
 
 
 @app.cli.command('initdataset')
 def initdataset_command():
     """Creates the datasets needed for the chatbot."""
     init_dataset()
-    print('Initialized the datasets.')
+    log.info("Initialized the datasets.")
 
 
 @app.cli.command('updatedb')
 def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
-    print('Database updated with the markdown files.')
+    log.info("Database updated with the markdown files.")
         
 
 def main():
