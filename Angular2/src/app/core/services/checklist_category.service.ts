@@ -14,6 +14,6 @@ export class ChecklistCategoryService
 
     getChecklistCategoryCollection()
     {
-        return this.http.get(environment.API_ENDPOINT + '/api/checklist_category/items')
+        return this.http.get(environment.API_ENDPOINT + '/api/checklist_category/items');
     }
 }
