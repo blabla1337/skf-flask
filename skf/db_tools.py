@@ -1,6 +1,4 @@
-import os
-import sys 
-import datetime
+import logging.config, os, datetime
 from flask import Flask, current_app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
@@ -15,14 +13,16 @@ from skf.database.checklist_types import ChecklistType
 from skf.database.checklist_category import ChecklistCategory
 from skf.initial_data import load_initial_data
 
+logging.config.fileConfig('logging.conf')
+log = logging.getLogger(__name__)
 
 def clear_db():
-    print("Clearing the database")
+    log.info("Clearing the database")
     try:
         db.drop_all()
         db.session.commit()
     except:
-        print("Error occurred clearing the database")
+        log.info("Error occurred clearing the database")
         db.session.rollback()
         raise
 
@@ -30,7 +30,7 @@ def clear_db():
 def init_db(testing=False):
     """Initializes the database.""" 
     try:
-        print("Initializing the database")
+        log.info("Initializing the database")
         db.create_all()
         prerequisits()
         init_md_code_examples()
@@ -38,13 +38,13 @@ def init_db(testing=False):
         load_initial_data()
     except:
         db.session.remove()
-        print("Database is already existsing, nothing to do")
+        log.info("Database is already existsing, nothing to do")
 
 
 def clean_db(testing=False):
     """Clean and Initializes the database.""" 
+    log.info("Clean and Initializing the database")
     clear_db()
-    print("Clean and Initializing the database")
     db.create_all()
     prerequisits()
     init_md_code_examples()
@@ -55,6 +55,7 @@ def clean_db(testing=False):
 
 def update_db():
     """Update the database."""
+    log.info("Update the database")
     KBItem.query.delete()
     CodeItem.query.delete()
     db.session.commit()
@@ -89,7 +90,7 @@ def init_md_knowledge_base():
                         db.session.commit()
                     except IntegrityError as e:
                         raise
-        print('Initialized the markdown knowledge-base.')
+        log.info("Initialized the markdown knowledge-base.")
         return True
     except:
         raise
@@ -118,7 +119,7 @@ def init_md_code_examples():
                     except IntegrityError as e:
                         print(e)
                         pass
-        print('Initialized the markdown code-examples.')
+        log.info("Initialized the markdown code-examples.")
         return True
     except:
         raise
@@ -135,7 +136,7 @@ def prerequisits():
         category = ChecklistCategory("Custom checklist", "category for custom checklist collection")
         db.session.add(category)
         db.session.commit()
-        print('Initialized the prerequisits.')
+        log.info("Initialized the prerequisits.")
         return True
     except:
         raise
