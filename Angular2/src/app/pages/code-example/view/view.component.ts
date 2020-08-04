@@ -20,6 +20,7 @@ export class ViewCodeComponent implements OnInit
   public isCollapsed: boolean[] = [];
   public codeData: any = [];
   public categoryData: any = [];
+  public codeExample: any = [];
   public codeExampleForm: FormGroup;
   public queryString;
 
@@ -28,10 +29,10 @@ export class ViewCodeComponent implements OnInit
   constructor(
     private modalService: NgbModal,
     private _codeExamplesService: CodeExamplesService,
-    private _checklistCategoryService: ChecklistCategoryService
+    private _checklistCategoryService: ChecklistCategoryService,
   ) { }
 
-  ngOnInit() 
+  ngOnInit()
   {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
     this._fetchData();
@@ -51,11 +52,17 @@ export class ViewCodeComponent implements OnInit
       .subscribe(data => this.categoryData = data);
   }
 
+  showCode(value: number) {
+    this._codeExamplesService
+      .getCodeExample(Number(value)).subscribe(data => this.codeExample = data);
+    this.codeExample.id;
+  }
+
   /**
    * Open delete modal
    * @param deleteDataModal center modal data
    */
-  deleteModal(deleteDataModal: any) 
+  deleteModal(deleteDataModal: any)
   {
     this.modalService.open(deleteDataModal, { size: 'sm', centered: true });
   }
