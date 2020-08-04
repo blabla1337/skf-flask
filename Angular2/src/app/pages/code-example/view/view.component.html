@@ -36,7 +36,7 @@
                         <div class="col-lg-12">
                           <!-- Content Body -->
                           <div class="row mb-4"
-                            *ngFor="let code of codeData.items | stringfilter:queryString; let i = index">
+                            *ngFor="let code of codeData.items |stringfilter:queryString; let i = index">
                             <div class="col">
                               <div class="box media mb-2">
                                 <div class="icon mr-3">
@@ -51,15 +51,15 @@
                                     <div class="col-sm-2">
                                       <div class="text-sm-right">
                                         <a href="javascript:void(0)" data-toggle="collapse"
-                                          (click)="isCollapsed[i] = !isCollapsed[i]">Click here</a>
+                                          (click)="isCollapsed[code.id] = !isCollapsed[code.id]">Click here</a>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[i]">
+                              <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[code.id]">
                                 <pre>
-                                  <code [highlight]="code.content" lineNumbers="True"></code> 
+                                  <code [highlight]="showCode(code.id)" lineNumbers="True"></code> 
                                </pre>
                                 <!-- <div class="card shadow-none border bg-dark text-light card-body mb-0">
                                   
