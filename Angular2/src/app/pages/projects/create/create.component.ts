@@ -32,7 +32,7 @@ export class ProjectCreateComponent implements OnInit
 
     this.projectForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
-      description: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      description: ['', [Validators.required]],
       version: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.]+')]],
     });
     this.submit = false;
