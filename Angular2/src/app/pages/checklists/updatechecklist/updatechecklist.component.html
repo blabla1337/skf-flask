@@ -12,6 +12,7 @@
                             <div class="col-md-10">
                                 <input type="text" class="form-control" id="checkid"
                                 formControlName="checkid" placeholder="Checklist ID"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Checklist ID'"
                                    [ngClass]="{'is-invalid': submit && form.checkid.errors}">
                                 <div *ngIf="submit && form.checkid.errors" class="invalid-feedback">
                                 <span *ngIf="form.checkid.errors.required">Required!</span>
@@ -25,6 +26,7 @@
                             <div class="col-md-10">
                                 <input type="text" class="form-control" id="checktitle"
                                 formControlName="checktitle" placeholder="Checklist Title"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Checklist Title'"
                                    [ngClass]="{'is-invalid': submit && form.checktitle.errors}">
                                 <div *ngIf="submit && form.checktitle.errors" class="invalid-feedback">
                                 <span *ngIf="form.checktitle.errors.required">Required!</span>
@@ -55,6 +57,7 @@
                             <div class="col-md-10">
                                 <input type="text" class="form-control" id="maturitylvl"
                                 formControlName="maturitylvl" placeholder="Maturity Level"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Maturity Level'"
                                    [ngClass]="{'is-invalid': submit && form.maturitylvl.errors}">
                                 <div *ngIf="submit && form.maturitylvl.errors" class="invalid-feedback">
                                 <span *ngIf="form.maturitylvl.errors.required">Required!</span>
@@ -67,6 +70,7 @@
                             <div class="col-md-10">
                                 <input type="text" class="form-control" id="cwe"
                                 formControlName="cwe" placeholder="CWE"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'CWE'"
                                    [ngClass]="{'is-invalid': submit && form.cwe.errors}">
                                 <div *ngIf="submit && form.cwe.errors" class="invalid-feedback">
                                 <span *ngIf="form.cwe.errors.required">Required!</span>

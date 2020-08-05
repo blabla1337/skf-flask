@@ -11,7 +11,8 @@
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" class="form-control" id="title"
-                                formControlName="title" placeholder="Add code example title"
+                                formControlName="title" placeholder="Add Code Example Title"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add Code Example Title'"
                                 [ngClass]="{'is-invalid': isSubmitted && form.title.errors}">
                             <div *ngIf="isSubmitted && form.title.errors" class="invalid-feedback">
                                 <span *ngIf="form.title.errors.required">Required!</span>
@@ -21,6 +22,7 @@
                             <label for="language">Language</label>
                             <input type="text" class="form-control" id="language"
                                 formControlName="language" placeholder="Add Language Name"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add Language Name'"
                                 [ngClass]="{'is-invalid': isSubmitted && form.language.errors}">
                             <div *ngIf="isSubmitted && form.language.errors" class="invalid-feedback">
                                 <span *ngIf="form.language.errors.required">Required!</span>
@@ -29,7 +31,8 @@
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea type="text" class="form-control" id="description"
-                                formControlName="description" placeholder="Code Example description"
+                                formControlName="description" placeholder="Code Example Description"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Code Example Description'"
                                 [ngClass]="{'is-invalid': isSubmitted && form.description.errors}" rows="18"></textarea>
                             <div *ngIf="isSubmitted && form.description.errors" class="invalid-feedback">
                                 <span *ngIf="form.description.errors.required">Required!</span>

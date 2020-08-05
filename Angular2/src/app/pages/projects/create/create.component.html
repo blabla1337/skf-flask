@@ -11,7 +11,8 @@
                         <div class="form-group">
                             <label for="firstname">Name</label>
                             <input type="text" class="form-control" id="firstname"
-                                formControlName="name" placeholder="Add project name"
+                                formControlName="name" placeholder="Add Project Title"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add Project Title'"
                                 [ngClass]="{'is-invalid': submit && form.name.errors}">
                             <div *ngIf="submit && form.name.errors" class="invalid-feedback">
                                 <span *ngIf="form.name.errors.required">Required!</span>
@@ -20,7 +21,8 @@
                         <div class="form-group">
                             <label for="version">Version</label>
                             <input type="text" class="form-control" id="version"
-                                formControlName="version" placeholder="Project version"
+                                formControlName="version" placeholder="Add Project Version"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add Project Version'"
                                 [ngClass]="{'is-invalid': submit && form.version.errors}">
                             <div *ngIf="submit && form.version.errors" class="invalid-feedback">
                                 <span *ngIf="form.version.errors.required">Required!</span>
@@ -29,7 +31,8 @@
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea type="text" class="form-control" id="description"
-                                formControlName="description" placeholder="Project description"
+                                formControlName="description" placeholder="Add Project Description"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add Project Description'"
                                 [ngClass]="{'is-invalid': submit && form.description.errors}" rows="20"></textarea>
                             <div *ngIf="submit && form.description.errors" class="invalid-feedback">
                                 <span *ngIf="form.description.errors.required">Required!</span>
