@@ -39,9 +39,18 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
-        fullLibraryLoader: () => import('highlight.js'),
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
         lineNumbersLoader: () => import('highlightjs-line-numbers.js'), // Optional, only if you want the line numbers
         lineNumbers: true,
+        languages: {
+          python: () => import('highlight.js/lib/languages/python'),
+          css: () => import('highlight.js/lib/languages/css'),
+          xml: () => import('highlight.js/lib/languages/xml'),
+          ruby: () => import('highlight.js/lib/languages/ruby'),
+          django: () => import('highlight.js/lib/languages/django'),
+          java: () => import('highlight.js/lib/languages/java'),
+          php: () => import('highlight.js/lib/languages/php'),
+        }
       }
     }
   ],  bootstrap: [AppComponent]
