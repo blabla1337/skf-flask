@@ -9,7 +9,7 @@
       <div class="card">
         <div class="card-body">
           <div class="row mb-5">
-            <div class="col-sm-4">
+            <div class="col-6">
               <div class="search-box mr-2 mb-2 d-inline-block">
                 <div class="position-relative">
                   <input type="text" class="form-control" placeholder="Search..."
@@ -18,10 +18,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-8">
-              <div class="text-sm-right">
-                <button type="button" (click)="projectCreate()" class="btn btn-primary btn-rounded mb-2 mr-2">
-                  <i class="mdi mdi-code-tags mr-1"></i> Generate requirements
+            <div class="col-6">
+              <div class="text-right">
+                <button type="button" (click)="projectCreate()" class="btn btn-primary btn-rounded mb-2">
+                  Generate requirements
                 </button>
               </div>
             </div>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="px-4 py-3 border-top">
                   <ul class="list-inline mb-0">
-                    <li class="list-inline-item mr-3">
+                    <li class="list-inline-item mr-3 float-right">
                       <button class="btn-sm btn-primary text-light" (click)="onView(item.sprint_id)"> View</button>
                     </li>
                   </ul>
