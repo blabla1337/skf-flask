@@ -54,8 +54,7 @@ export class ViewCodeComponent implements OnInit
 
   showCode(value: number) {
     this._codeExamplesService
-      .getCodeExample(Number(value)).subscribe(data => this.codeExample = data);
-    this.codeExample.id;
+      .getCodeExample(Number(value)).subscribe(test => this.codeExample = test);
   }
 
   /**

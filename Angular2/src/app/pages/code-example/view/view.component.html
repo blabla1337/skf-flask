@@ -51,7 +51,7 @@
                                     <div class="col-sm-2">
                                       <div class="text-sm-right">
                                         <a href="javascript:void(0)" data-toggle="collapse"
-                                          (click)="isCollapsed[code.id] = !isCollapsed[code.id]">Click here</a>
+                                          (click)="isCollapsed[code.id] = !isCollapsed[code.id]" (click)="showCode(code.id)">Click here</a>
                                       </div>
                                     </div>
                                   </div>
@@ -59,7 +59,7 @@
                               </div>
                               <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[code.id]">
                                 <pre>
-                                  <code [highlight]="showCode(code.id)" lineNumbers="True"></code> 
+                                  <code [highlight]="codeExample.content" lineNumbers="True"></code> 
                                </pre>
                                 <!-- <div class="card shadow-none border bg-dark text-light card-body mb-0">
                                   
