@@ -21,7 +21,7 @@
                         <div class="search-box mr-4 mb-2 d-inline-block">
                           <div class="position-relative">
                             <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
-                              placeholder="Search vulnerability" />
+                              placeholder="Search vulnerability" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Vulnerability'"/>
                             <i class="bx bx-search-alt search-icon"></i>
                           </div>
                         </div>

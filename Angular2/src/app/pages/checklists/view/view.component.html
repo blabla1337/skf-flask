@@ -34,7 +34,7 @@
                       </div>
                   </div> -->
                   <div class="row mb-5">
-                      <div class="col-sm-4">
+                      <div class="col-7">
                         <div class="search-box mr-2 mb-2 d-inline-block">
                           <div class="position-relative">
                             <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
@@ -43,7 +43,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-sm-8">
+                      <div class="col-5">
                         <div class="text-sm-right">
                           <a type="button" href="/checklists/manage" class="btn btn-primary btn-rounded text-white mb-2 mr-2">
                             <i class="mdi mdi-code-tags mr-1"></i> Add New
@@ -55,7 +55,7 @@
 
                     <div class="row">
                       <div *ngFor="let item of checklistData.items | stringfilter:queryString; let i = index" class="col-xl-4 col-sm-6 mb-4 d-flex align-items-stretch">
-                        <div class="card">
+                        <div class="card border shadow-none">
                           <div class="card-body pb-0">
                             <div class="media">
                               <div class="media-body overflow-hidden">

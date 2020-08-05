@@ -11,7 +11,8 @@
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" class="form-control" id="title"
-                                formControlName="title" placeholder="Knowledge base title"
+                                formControlName="title" placeholder="Knowledgebase Title"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Knowledgebase Title'"
                                 [ngClass]="{'is-invalid': submit && form.title.errors}">
                             <div *ngIf="submit && form.title.errors" class="invalid-feedback">
                                 <span *ngIf="form.title.errors.required">Required!</span>
@@ -20,7 +21,8 @@
                         <div class="form-group">
                             <label for="content">Description</label>
                             <textarea type="text" class="form-control" id="content"
-                                formControlName="content" placeholder="Project description"
+                                formControlName="content" placeholder="Knowledgebase Description"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Knowledgebase Description'"
                                 [ngClass]="{'is-invalid': submit && form.content.errors}" rows="20"></textarea>
                             <div *ngIf="submit && form.content.errors" class="invalid-feedback">
                                 <span *ngIf="form.content.errors.required">Required!</span>

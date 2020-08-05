@@ -28,7 +28,9 @@ export class ViewKnowledebaseComponent implements OnInit
   constructor(
     private modalService: NgbModal,
     private router: Router,
+    // tslint:disable-next-line: variable-name
     private _knowledgebaseService: KnowledgebaseService,
+    // tslint:disable-next-line: variable-name
     private _checklistCategoryService: ChecklistCategoryService,
     private spinner: NgxSpinnerService,
   ) { }
@@ -43,7 +45,7 @@ export class ViewKnowledebaseComponent implements OnInit
 
     setTimeout(() => {
       this.spinner.hide();
-    }, 1000);
+    }, 5000);
   }
 
   /**
@@ -69,6 +71,7 @@ export class ViewKnowledebaseComponent implements OnInit
     this.modalService.open(deleteDataModal, { centered: true });
   }
 
+  // tslint:disable-next-line: ban-types
   setCategorySelectorId(categoryId: Number)
   {
     localStorage.setItem('categorySelector', categoryId.toString());
@@ -77,7 +80,7 @@ export class ViewKnowledebaseComponent implements OnInit
 
   deleteKnowledgebaseItem(id: number)
   {
-    this._knowledgebaseService.deleteknowledgebaseItem(id).subscribe(x => this._fetchData())
+    this._knowledgebaseService.deleteknowledgebaseItem(id).subscribe(x => this._fetchData());
   }
 
   onSubmit()
