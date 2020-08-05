@@ -13,19 +13,25 @@
               <div class="card">
                 <div class="card-body">
                   <div class="row mb-3">
-                    <div class="col-sm-4">
-                      <h4 class="card-title mt-3">{{item.name}}</h4>
+                    <div class="col-sm-7">
+                      <h4 class="card-title my-3">{{item.name}}</h4>
                     </div>
-                    <div class="col-sm-8">
-                      <div class="text-sm-right">
-                        <div class="search-box mr-4 mb-2 d-inline-block">
-                          <div class="position-relative">
-                            <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
-                              placeholder="Search vulnerability" />
-                            <i class="bx bx-search-alt search-icon"></i>
+                    <div class="col-sm-5">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="float-right">
+                            <div class="search-box mb-2 d-inline-block">
+                              <div class="position-relative">
+                                <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
+                                  placeholder="Search vulnerability" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Vulnerability'"/>
+                                <i class="bx bx-search-alt search-icon"></i>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <button class="btn btn-primary" [routerLink]="['/code-example/create']">Add Code </button>
+                        <div class="col-3">
+                          <button class="btn btn-primary mt-1 float-right" [routerLink]="['/code-example/create']">Add Code </button>
+                        </div>
                       </div>
                     </div>
                     <!-- end col-->
@@ -38,18 +44,18 @@
                           <div class="row mb-4"
                             *ngFor="let code of codeData.items |stringfilter:queryString; let i = index">
                             <div class="col">
-                              <div class="box media mb-2">
+                              <div class="code-box media mb-2">
                                 <div class="icon mr-3">
                                   <i class="bx bx-book-content font-size-20 text-success"></i>
                                 </div>
-                                <div class="media-body">
+                                <div class="media-body code-card">
                                   <div class="row">
-                                    <div class="col-sm-10">
+                                    <div class="col-8">
                                       <h4 class="card-title text-primary">{{code.code_lang}} | {{code.title}}</h4>
                                       <p></p>
                                     </div>
-                                    <div class="col-sm-2">
-                                      <div class="text-sm-right">
+                                    <div class="col-4 toggle-button">
+                                      <div class="text-right code-view-button">
                                         <a href="javascript:void(0)" data-toggle="collapse"
                                           (click)="isCollapsed[code.id] = !isCollapsed[code.id]" (click)="showCode(code.id)">Click here</a>
                                       </div>

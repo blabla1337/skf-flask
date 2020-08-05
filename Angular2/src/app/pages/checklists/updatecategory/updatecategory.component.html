@@ -11,6 +11,7 @@
                             <div class="col-md-10">
                                 <input type="text" class="form-control" id="title"
                                 formControlName="title" placeholder="Category Title"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Category Title'"
                                    [ngClass]="{'is-invalid': submit && form.title.errors}">
                                 <div *ngIf="submit && form.title.errors" class="invalid-feedback">
                                 <span *ngIf="form.title.errors.required">Required!</span>
@@ -22,6 +23,7 @@
                             <label for="description" class="col-md-2 col-form-label">Description</label>
                             <div class="col-md-10">
                                 <textarea formControlName="content" class="form-control" id="content" rows="20"
+                                placeholder="Update Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Update Description'"
                                 [ngClass]="{'is-invalid': submit && form.content.errors}"></textarea>
                                 <div *ngIf="submit && form.content.errors" class="invalid-feedback">
                                     <span *ngIf="form.content.errors.required">Required!</span>

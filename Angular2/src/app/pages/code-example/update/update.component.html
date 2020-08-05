@@ -11,17 +11,18 @@
                         <div class="form-group">
                             <label for="titleInput">Title</label>
                             <input formControlName="title" type="text" class="form-control" id="title"
-                                placeholder="Add new title">
+                            placeholder="Add New Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add New Title'">
                         </div>
                         <div class="form-group">
                             <label for="langInput">Language</label>
                             <input formControlName="code_lang" type="text" class="form-control" id="code_lang"
-                                placeholder="Add new title">
+                            placeholder="Code Example Language" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Code Example Language'">
                         </div>
                         <div class="form-group">
                             <label for="Description">Code</label>
-                            <textarea formControlName="content" class="form-control" id="content"
-                                rows="20"></textarea>
+                            <textarea formControlName="content" class="form-control" id="content" rows="20"
+                            placeholder="Code Example Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Code Example Description'">
+                            </textarea>
                         </div>
                         <div class="text-right">
                             <button (click)="updateCodeExampleItem()" class="btn btn-success mr-2"

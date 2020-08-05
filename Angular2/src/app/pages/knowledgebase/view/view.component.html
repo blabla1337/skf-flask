@@ -20,7 +20,9 @@
                       <div class="text-sm-right">
                         <div class="search-box mr-4 mb-2 d-inline-block">
                           <div class="position-relative">
-                            <input class="form-control" [(ngModel)]="queryString" id="search" name="search" placeholder="Search Knowledge-base item" />
+                            <input class="form-control" [(ngModel)]="queryString" id="search" name="search" 
+                            placeholder="Search Knowledgebase item" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Search Knowledgebase item'"/>
                             <i class="bx bx-search-alt search-icon"></i>
                           </div>
                         </div>
@@ -94,7 +96,7 @@
                               <div class="modal-body">
                                 <form (ngSubmit)="onSubmit()">
                                   <div class="form-group">
-                                    <label for="delete">Type <b style='color:red'>DELETE</b> to delete the knolwedgebase item</label>
+                                    <label for="delete">Type <b class="text-danger">DELETE</b> to delete the knolwedgebase item</label>
                                     <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
                                       name="delete" placeholder="Type DELETE"
                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type DELETE'">

@@ -11,6 +11,7 @@
                           <label for="formGroupTitleInput">Checklist Title</label>
                           <input type="text" class="form-control" id="formGroupTitleInput"
                               formControlName="title" placeholder="Checklist Title"
+                              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Checklist Title'"
                               [ngClass]="{'is-invalid': submit && form.title.errors}">
                           <div *ngIf="submit && form.title.errors" class="invalid-feedback">
                               <span *ngIf="form.title.errors.required">Required!</span>
@@ -20,6 +21,7 @@
                           <label for="FormControlTextarea1">Description</label>
                           <textarea rows="10" class="form-control" id="formGroupTitleInput"
                           formControlName="description" placeholder="Checklist Description"
+                          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Checklist Description'"
                           [ngClass]="{'is-invalid': submit && form.description.errors}"></textarea>
                           <div *ngIf="submit && form.description.errors" class="invalid-feedback">
                               <span *ngIf="form.description.errors.required">Required!</span>
@@ -28,7 +30,8 @@
                         <div class="form-group mb-4">
                           <label for="status-input">Status</label>
                           <select class="custom-select" id="status-input" formControlName="status"
-                          placeholder="Checklist Status" [ngClass]="{'is-invalid': submit && form.status.errors}">
+                          placeholder="Checklist Status" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Checklist Status'"
+                          [ngClass]="{'is-invalid': submit && form.status.errors}">
                             <option value="" >--Select--</option>
                             <option value="1">Activate</option>
                             <option value="2">Deactivate</option>
