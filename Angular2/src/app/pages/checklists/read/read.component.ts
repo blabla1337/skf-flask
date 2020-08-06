@@ -19,6 +19,7 @@ export class ChecklistsReadComponent implements OnInit
   public checklistConData: any;
   id: number;
   value: number;
+  category: string;
   private sub: any;
 
   // Collapse value
@@ -49,12 +50,15 @@ export class ChecklistsReadComponent implements OnInit
     this.value = Number(localStorage.getItem('categorySelector'));
     switch (this.value) {
       case 1:
+        this.category = 'Web Application';
         this.getChecklistControls(1);
         break;
       case 2:
+        this.category = 'Mobile Application';
         this.getChecklistControls(15);
         break;
       case 3:
+        this.category = 'Other Application';
         this.getChecklistControls(18);
         break;
     }
