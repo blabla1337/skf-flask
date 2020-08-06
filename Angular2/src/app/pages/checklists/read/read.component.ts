@@ -4,7 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { ChecklistService } from '../../../core/services/checklists.service';
 
-
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
@@ -12,13 +11,14 @@ import { ChecklistService } from '../../../core/services/checklists.service';
 })
 export class ChecklistsReadComponent implements OnInit
 {
-
   // Bread crumb item
   breadCrumbItems: Array<{}>;
+
   public queryString;
   public checklistCatData: any;
   public checklistConData: any;
   id: number;
+  value: number;
   private sub: any;
 
   // Collapse value
@@ -26,6 +26,7 @@ export class ChecklistsReadComponent implements OnInit
 
   constructor(
     private modalService: NgbModal,
+    // tslint:disable-next-line: variable-name
     private _checklistCategoryService: ChecklistService,
     private route: ActivatedRoute,
     private router: Router
@@ -37,12 +38,22 @@ export class ChecklistsReadComponent implements OnInit
 
     this.sub = this.route.params.subscribe(params =>
     {
+      // tslint:disable-next-line: no-string-literal
       this.id = +params['id'];
-      localStorage.setItem("controlSelector", this.id.toString())
+      localStorage.setItem('controlSelector', this.id.toString())
     });
 
+    // this is hardcoded refactor this to make it work better
+
     this.getChecklistColletion();
-    this.getChecklistControls(Number(localStorage.getItem('controlSelector')));
+    this.value = Number(localStorage.getItem('categorySelector'));
+    if (this.value === 1) {
+      this.getChecklistControls(1);
+    } else if (this.value === 2) {
+      this.getChecklistControls(15);
+    } else {
+      this.getChecklistControls(18);
+    }
   }
 
   getChecklistColletion()
@@ -50,7 +61,6 @@ export class ChecklistsReadComponent implements OnInit
     this._checklistCategoryService
       .getChecklistsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(checklistCat => this.checklistCatData = checklistCat);
-
   }
 
   getChecklistControls(id: number)
@@ -58,28 +68,29 @@ export class ChecklistsReadComponent implements OnInit
     this._checklistCategoryService
       .getChecklistsControls(id)
       .subscribe(checklistCon => this.checklistConData = checklistCon);
+    this.router.navigate(['/checklists/read', id]);
   }
-
 
   changeControlsOnSelect(id: number)
   {
     this.getChecklistControls(id);
-    this.router.navigate(['/checklists/read', id])
+    this.router.navigate(['/checklists/read', id]);
   }
 
   /**
    * Open center modal
    * @param centerDataModal center modal data
    */
-  centerModal(centerDataModal: any) 
+  centerModal(centerDataModal: any)
   {
     this.modalService.open(centerDataModal, { centered: true });
   }
 
+  // tslint:disable-next-line: variable-name
   storeSprintLocalStorage(sprint_id: number)
   {
-    //localStorage.setItem('questions', JSON.stringify(form.value));
-    return
+    // localStorage.setItem('questions', JSON.stringify(form.value));
+    return;
   }
 
 
