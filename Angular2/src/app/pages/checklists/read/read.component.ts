@@ -47,12 +47,16 @@ export class ChecklistsReadComponent implements OnInit
 
     this.getChecklistColletion();
     this.value = Number(localStorage.getItem('categorySelector'));
-    if (this.value === 1) {
-      this.getChecklistControls(1);
-    } else if (this.value === 2) {
-      this.getChecklistControls(15);
-    } else {
-      this.getChecklistControls(18);
+    switch (this.value) {
+      case 1:
+        this.getChecklistControls(1);
+        break;
+      case 2:
+        this.getChecklistControls(15);
+        break;
+      case 3:
+        this.getChecklistControls(18);
+        break;
     }
   }
 
