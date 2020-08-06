@@ -2,14 +2,13 @@
 
   <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
-
   <div class="row">
     <div class="col-xl-9">
       <div class="card">
         <div class="card-body">
           <div class="row mb-3">
             <div class="col-sm-4">
-              <h4 class="mb-4">Checklists Title</h4>
+              <h4 class="mb-4">Checklists</h4>
             </div>
             <div class="col-sm-8">
               <div class="text-sm-right">
@@ -71,14 +70,20 @@
         <div class="card-body">
           <label class="card-title">Checklists</label>
           <div class="dropdown-divider mb-3"></div>
-          <div class="d-flex align-items-center mb-3" *ngFor="let item of checklistCatData.items; let i = index">
-            <div class="avatar-xs mr-3">
-              <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-18">
-                <i class="mdi mdi-18px mdi-text-box-check"></i>
-              </span>
+          <div class="row" *ngFor="let item of checklistCatData.items; let i = index">
+            <div class="col-2">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar-xs">
+                  <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-18">
+                    <i class="mdi mdi-18px mdi-text-box-check"></i>
+                  </span>
+                </div>
+              </div>
             </div>
-            <a href="javascript:void(0)" class="font-size-14 mb-0"
-              (click)="changeControlsOnSelect(item.id)">{{item.title}}</a>
+            <div class="col-10 pl-0">
+              <a href="javascript:void(0)" class="font-size-14"
+                  (click)="changeControlsOnSelect(item.id)">{{item.title}}</a>
+            </div>
           </div>
         </div>
       </div>
