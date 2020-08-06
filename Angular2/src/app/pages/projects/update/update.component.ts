@@ -39,9 +39,9 @@ export class ProjectUpdateComponent implements OnInit
     });
 
     this.projectForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      version: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.]+')]],
+      description: ['', [Validators.required]],
+      version: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.]+')]],
     })
 
     this.projectItem = this._projectService

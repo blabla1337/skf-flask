@@ -8,7 +8,7 @@
         <div class="card-body">
           <div class="row mb-3">
             <div class="col-sm-4">
-              <h4 class="mb-4">{{category}}</h4>
+              <h4 class="mb-4">Checklists Title</h4>
             </div>
             <div class="col-sm-8">
               <div class="text-sm-right">
@@ -27,17 +27,17 @@
           <div class="col-lg-12">
             <!-- Content Body -->
             <div class="row mb-4" *ngFor="let item of checklistConData.items; let i = index">
-              <div class="col">
+              <div class="col" *ngIf="item.kb_item_id > 1">
                 <div class="box media mb-2">
                   <div class="icon mr-3">
                     <i class="bx bx-book-content font-size-20 text-success"></i>
                   </div>
                   <div class="media-body">
                     <div class="row">
-                      <div class="col-sm-4">
-                        <h4 class="card-title">{{item.kb_item_title}}</h4>
+                      <div class="col-sm-12">
+                        <h4 class="card-title">{{item.checklist_items_content}}</h4>
                       </div>
-                      <div class="col-sm-8 mb-3">
+                      <div class="col-sm-12 mb-3">
                         <div class="text-sm-right">
                           <a data-toggle="collapse" type="button" (click)="isCollapsed[i] = !isCollapsed[i]">Read
                             More</a>
