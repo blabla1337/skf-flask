@@ -9,30 +9,6 @@
 
           <div class="card">
               <div class="card-body">
-                  <!-- <div class="float-right">
-                      <div class="dropdown" ngbDropdown>
-                          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
-                              aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-devices text-light mr-1"></i> <span
-                                  class="d-none text-light d-sm-inline-block" ngbDropdownToggle>Platforms<i
-                                      class="mdi mdi-chevron-down"></i></span></button>
-                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-md" ngbDropdownMenu>
-                              
-                              <a class="dropdown-item disabled">
-                                  Choose any one
-                              </a>
-                              <a class="dropdown-item" href="javascript: void(0);">
-                                  Web Application
-                              </a>
-                              <a class="dropdown-item" href="javascript: void(0);">
-                                  Mobile Application
-                              </a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item text-primary text-center" href="javascript: void(0);">
-                                  Learn more
-                              </a>
-                          </div>
-                      </div>
-                  </div> -->
                   <div class="row mb-5">
                       <div class="col-7">
                         <div class="search-box mr-2 mb-2 d-inline-block">
@@ -54,8 +30,7 @@
                     </div>
 
                     <div class="row">
-                      <div *ngFor="let item of checklistData.items | stringfilter:queryString; let i = index" class="col-xl-4 col-sm-6 mb-4 d-flex align-items-stretch">
-                        <div class="card border shadow-none">
+                      <div *ngFor="let item of checklistData.items | stringfilter:queryString; let i = index" class="col-xl-12 mb-3 d-flex card border shadow-sm">
                           <div class="card-body pb-0">
                             <div class="media">
                               <div class="media-body overflow-hidden">
@@ -68,15 +43,14 @@
                           </div>
                           <div class="px-4 py-3 border-top">
                             <ul class="list-inline mb-0">
-                              <li class="list-inline-item mr-3">
-                                <a [routerLink]="['/checklists/read', item.id]"><button type="button" class="btn-sm btn-primary">Click here</button></a>
-                              </li>
-                              <li class="list-inline-item float-right mt-1">
+                              <li class="list-inline-item float-left mt-1">
                                 <p class="mb-0">Active: {{item.visibility}}</p>
+                              </li>
+                              <li class="list-inline-item float-right">
+                                <a [routerLink]="['/checklists/read', item.id]"><button type="button" class="btn-sm btn-primary">Click here</button></a>
                               </li>
                             </ul>
                           </div>
-                        </div>
                       </div>
                     </div>
               </div>
