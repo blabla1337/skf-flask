@@ -31,7 +31,7 @@ export class ProjectCreateComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Create', active: true }];
 
     this.projectForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      name: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.]+')]],
       description: ['', [Validators.required]],
       version: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.]+')]],
     });
