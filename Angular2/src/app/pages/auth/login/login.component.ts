@@ -17,41 +17,43 @@ export class LoginComponent implements OnInit
     public errormsg = false;
 
     constructor(
+        // tslint:disable-next-line: variable-name
         private _authService: AuthService,
         private router: Router,
         private formBuilder: FormBuilder, ) { }
 
     ngOnInit()
-    {   
+    {
         // clear localStorage items to defaults
-        localStorage.setItem('categorySelector', "1");
-        localStorage.setItem('controlSelector', "");
-        localStorage.setItem('project_id', "");
-        localStorage.setItem('questions', "");
-        sessionStorage.setItem("Authorization", "");
+        localStorage.setItem('categorySelector', '1');
+        localStorage.setItem('controlSelector', '');
+        localStorage.setItem('project_id', '');
+        localStorage.setItem('questions', '');
+        sessionStorage.setItem('Authorization', '');
 
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required],
-        })
+        });
     }
 
     onLogin()
     {
         this.isSubmitted = true;
         if (this.loginForm.invalid) {
-            this.errormsg = true
+            this.errormsg = true;
             return;
         }
         this._authService.LoginSKFprovider(this.loginForm.value).subscribe(token =>
         {
-            if (token["Authorization token"]) {
-                sessionStorage.setItem("Authorization", token["Authorization token"]);
-                sessionStorage.setItem("user", token["username"]);
-                this.router.navigate(['/dashboard'])
+            if (token['Authorization token']) {
+                sessionStorage.setItem('Authorization', token['Authorization token']);
+                // tslint:disable-next-line: no-string-literal
+                sessionStorage.setItem('user', token['username']);
+                this.router.navigate(['/dashboard']);
             }
         },
-            () => this.errormsg = true)
+            () => this.errormsg = true);
     }
 
     onSkip()
