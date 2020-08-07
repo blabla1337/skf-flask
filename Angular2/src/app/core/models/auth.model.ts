@@ -4,4 +4,5 @@ export interface Auth {
     userName?: string;
     userEmail?: string;
     userPassword?: string;
+    confirmPassword?: string;
 }
