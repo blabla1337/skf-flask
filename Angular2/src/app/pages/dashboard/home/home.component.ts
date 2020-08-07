@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
       themeColor: '#000',
       showCounter: false,
     });
-    console.log('this is wrking')
   }
 
  initialize(): void {
