@@ -100,7 +100,4 @@ export class ChecklistsReadComponent implements OnInit
     // localStorage.setItem('questions', JSON.stringify(form.value));
     return;
   }
-
-
-
 }
