@@ -19,7 +19,6 @@ export class AuthenticateComponent implements OnInit
 
   public error: string[] = [];
   public expired = false;
-  public error
   loginForm: FormGroup;
   public loginMethod = environment.AUTH_METHOD;
 
