@@ -19,9 +19,11 @@ export class RegisterComponent implements OnInit {
   successmsg = false;
   errormsg = false;
 
-  constructor(private fb: FormBuilder,
-              private userService: UserService,
-              private router: Router){ }
+  constructor(
+    private fb: FormBuilder,
+    private _userService: UserService,
+    private router: Router
+  ){ }
 
   ngOnInit() {
     this.createRegisterationForm();
@@ -32,7 +34,7 @@ export class RegisterComponent implements OnInit {
       userId: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
       accessToken: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
       userName: ['', Validators.required],
-      userEmail: ['', [Validators.required, Validators.email]],
+      userEmail: ['', Validators.required],
       userPassword: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
     }, { validators: this.passwordMatchingValidatior });
@@ -49,8 +51,10 @@ export class RegisterComponent implements OnInit {
     this.userSubmitted = true;
 
     if (this.registerationForm.valid) {
-      // this.user = Object.assign(this.user, this.registerationForm.value);
-      this.userService.addUser(this.userData());
+      console.log("Woooooooooooop");
+      // this.user = Object.assign(this.user, this.registerationForm.value);    this._projectService.createProject(this.projectForm.value).subscribe()
+
+      this._userService.activateUser(this.userData(), this.userId.value).subscribe();
       this.onReset();
       this.successmsg = true;
       this.router.navigate(['/auth/login']);
@@ -68,10 +72,10 @@ export class RegisterComponent implements OnInit {
   userData(): Auth {
     return this.user = {
       userName: this.userName.value,
-      userId: this.userId.value,
       accessToken: this.accessToken.value,
       userEmail: this.userEmail.value,
       userPassword: this.userPassword.value,
+      confirmPassword: this.confirmPassword.value,
     }
   }
 
