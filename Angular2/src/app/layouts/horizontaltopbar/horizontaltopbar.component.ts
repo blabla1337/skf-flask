@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { JoyrideService } from 'ngx-joyride';
 
 import { DOCUMENT } from '@angular/common';
 
@@ -28,9 +29,14 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   light = true;
   menuItems = [];
   categoryData: any = [];
+  routeUrl: any;
 
   // tslint:disable-next-line: max-line-length
-  constructor(@Inject(DOCUMENT) private document: any, private router: Router, private _checklistCategoryService: ChecklistCategoryService, )
+  constructor(@Inject(DOCUMENT) private document: any,
+              private router: Router,
+              // tslint:disable-next-line: variable-name
+              private _checklistCategoryService: ChecklistCategoryService,
+              private readonly joyride: JoyrideService)
   {
     router.events.subscribe(event =>
     {
@@ -133,6 +139,21 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
       head.appendChild(style);
     }
+  }
+
+  /**
+   * Tour
+   */
+  tour()
+  {
+    this.routeUrl = this.router.url;
+    this.joyride.startTour({
+      steps: ['firstStep@' + this.routeUrl, 'secondStep', 'thirdStep', 'forthStep'], // stepid@routeurl
+      showPrevButton: true,
+      stepDefaultPosition: 'top',
+      themeColor: '#000',
+      showCounter: false,
+    });
   }
 
   /**
