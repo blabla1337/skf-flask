@@ -1,7 +1,8 @@
 export interface Auth {
-    userId?: number;
-    accessToken?: string;
-    userName?: string;
-    userEmail?: string;
-    userPassword?: string;
+    user_id?: number;
+    accessToken?: number;
+    username?: string;
+    email?: string;
+    password?: string;
+    repassword?: string;
 }
