@@ -13,13 +13,10 @@ export class ChecklistsReadComponent implements OnInit
 {
   // Bread crumb item
   breadCrumbItems: Array<{}>;
-
   public queryString;
   public checklistCatData: any;
   public checklistConData: any;
-  id: number;
-  value: number;
-  category: string;
+  public id: number;
   private sub: any;
 
   // Collapse value
@@ -39,29 +36,12 @@ export class ChecklistsReadComponent implements OnInit
 
     this.sub = this.route.params.subscribe(params =>
     {
-      // tslint:disable-next-line: no-string-literal
       this.id = +params['id'];
       localStorage.setItem('controlSelector', this.id.toString());
     });
 
-    // this is hardcoded refactor this to make it work better
-
     this.getChecklistColletion();
-    this.value = Number(localStorage.getItem('categorySelector'));
-    switch (this.value) {
-      case 1:
-        this.category = 'Web Application';
-        this.getChecklistControls(1);
-        break;
-      case 2:
-        this.category = 'Mobile Application';
-        this.getChecklistControls(15);
-        break;
-      case 3:
-        this.category = 'Other Application';
-        this.getChecklistControls(18);
-        break;
-    }
+    this.getChecklistControls(Number(localStorage.getItem('controlSelector')));
   }
 
   getChecklistColletion()
@@ -76,7 +56,7 @@ export class ChecklistsReadComponent implements OnInit
     this._checklistCategoryService
       .getChecklistsControls(id)
       .subscribe(checklistCon => this.checklistConData = checklistCon);
-    this.router.navigate(['/checklists/read', id]);
+      this.router.navigate(['/checklists/read', id]);
   }
 
   changeControlsOnSelect(id: number)
@@ -89,15 +69,14 @@ export class ChecklistsReadComponent implements OnInit
    * Open center modal
    * @param centerDataModal center modal data
    */
-  centerModal(centerDataModal: any)
+  centerModal(centerDataModal: any) 
   {
     this.modalService.open(centerDataModal, { centered: true });
   }
-
   // tslint:disable-next-line: variable-name
   storeSprintLocalStorage(sprint_id: number)
   {
-    // localStorage.setItem('questions', JSON.stringify(form.value));
-    return;
+    //localStorage.setItem('questions', JSON.stringify(form.value));
+    return
   }
 }
