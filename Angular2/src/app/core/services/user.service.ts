@@ -12,23 +12,23 @@ export class UserService {
 
   constructor(
     private http: HttpClient,
-) { }
+  ) { }
 
-public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
 
-addUser(user: Auth) {
-  let users = [];
-  if (localStorage.getItem('Users')) {
-    users = JSON.parse(localStorage.getItem('Users'));
-    users = [user, ...users];
-  } else {
-    users = [user];
+  addUser(user: Auth) {
+    let users = [];
+    if (localStorage.getItem('Users')) {
+      users = JSON.parse(localStorage.getItem('Users'));
+      users = [user, ...users];
+    } else {
+      users = [user];
+    }
+    localStorage.setItem('Users', JSON.stringify(users));
   }
-  localStorage.setItem('Users', JSON.stringify(users));
-}
 
-activateUser(value: any, user_id: number): Observable<Object> {
-    return this.http.put(environment.API_ENDPOINT + `/user/activate/${user_id}`, value, { headers: this.authHeader })
-}
+  activateUser(value: any, user_id: number): Observable<Object> {
+      return this.http.put(environment.API_ENDPOINT + `/api/user/activate/${user_id}`, value, { headers: this.authHeader })
+  }
 
 }
