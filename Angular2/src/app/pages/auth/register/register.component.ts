@@ -19,9 +19,11 @@ export class RegisterComponent implements OnInit {
   successmsg = false;
   errormsg = false;
 
-  constructor(private fb: FormBuilder,
-              private userService: UserService,
-              private router: Router){ }
+  constructor(
+    private fb: FormBuilder,
+    private _userService: UserService,
+    private router: Router
+  ){ }
 
   ngOnInit() {
     this.createRegisterationForm();
@@ -29,17 +31,17 @@ export class RegisterComponent implements OnInit {
 
   createRegisterationForm() {
     this.registerationForm = this.fb.group({
-      userId: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      user_id: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
       accessToken: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
-      userName: ['', Validators.required],
-      userEmail: ['', [Validators.required, Validators.email]],
-      userPassword: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      repassword: ['', Validators.required],
     }, { validators: this.passwordMatchingValidatior });
   }
 
   passwordMatchingValidatior(fg: FormGroup): Validators {
-    return fg.get('userPassword').value === fg.get('confirmPassword').value ? null :
+    return fg.get('password').value === fg.get('repassword').value ? null :
       { notmatched: true };
   }
 
@@ -49,8 +51,7 @@ export class RegisterComponent implements OnInit {
     this.userSubmitted = true;
 
     if (this.registerationForm.valid) {
-      // this.user = Object.assign(this.user, this.registerationForm.value);
-      this.userService.addUser(this.userData());
+      this._userService.activateUser(this.userData(), this.user_id.value).subscribe();
       this.onReset();
       this.successmsg = true;
       this.router.navigate(['/auth/login']);
@@ -67,32 +68,31 @@ export class RegisterComponent implements OnInit {
 
   userData(): Auth {
     return this.user = {
-      userName: this.userName.value,
-      userId: this.userId.value,
-      accessToken: this.accessToken.value,
-      userEmail: this.userEmail.value,
-      userPassword: this.userPassword.value,
+      username: this.username.value,
+      accessToken: Number(this.accessToken.value),
+      email: this.email.value,
+      password: this.password.value,
+      repassword: this.repassword.value,
     }
   }
 
   // ------------------------------------
   // Getter methods for all form controls
   // ------------------------------------
-  get userName() {
-    return this.registerationForm.get('userName') as FormControl;
+  get username() {
+    return this.registerationForm.get('username') as FormControl;
   }
-
-  get userEmail() {
-    return this.registerationForm.get('userEmail') as FormControl;
+  get email() {
+    return this.registerationForm.get('email') as FormControl;
   }
-  get userPassword() {
-    return this.registerationForm.get('userPassword') as FormControl;
+  get password() {
+    return this.registerationForm.get('password') as FormControl;
   }
-  get confirmPassword() {
-    return this.registerationForm.get('confirmPassword') as FormControl;
+  get repassword() {
+    return this.registerationForm.get('repassword') as FormControl;
   }
-  get userId() {
-    return this.registerationForm.get('userId') as FormControl;
+  get user_id() {
+    return this.registerationForm.get('user_id') as FormControl;
   }
   get accessToken() {
     return this.registerationForm.get('accessToken') as FormControl;

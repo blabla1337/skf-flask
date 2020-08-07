@@ -28,12 +28,12 @@
                 <ngb-alert type="success" *ngIf="successmsg" [dismissible]="false">Registeration successful.</ngb-alert>
                 <ngb-alert type="danger" *ngIf="errormsg" [dismissible]="false">Registeration Failed.</ngb-alert>
                 <div class="form-group mb-3">
-                  <label for="userId">User ID</label>
-                  <input type="text" formControlName="userId" class="form-control" id="userId"
-                    [ngClass]="{'is-invalid': !userId.valid && (userId.touched || userSubmitted)}"
+                  <label for="user_id">User ID</label>
+                  <input type="text" formControlName="user_id" class="form-control" id="user_id"
+                    [ngClass]="{'is-invalid': !user_id.valid && (user_id.touched || userSubmitted)}"
                     placeholder="Enter User ID" />
-                  <div *ngIf="!userId.valid && (userId.touched || userSubmitted)" class="invalid-feedback">
-                    <div *ngIf="userId.hasError('required')">User Id is required</div>
+                  <div *ngIf="!user_id.valid && (user_id.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="user_id.hasError('required')">User Id is required</div>
                   </div>
                 </div>
                 <div class="form-group mb-3">
@@ -46,43 +46,43 @@
                   </div>
                 </div>
                 <div class="form-group mb-3">
-                  <label for="userName">Username</label>
-                  <input type="text" formControlName="userName" class="form-control" id="userName"
-                    [ngClass]="{'is-invalid': !userName.valid && (userName.touched || userSubmitted)}"
+                  <label for="username">Username</label>
+                  <input type="text" formControlName="username" class="form-control" id="username"
+                    [ngClass]="{'is-invalid': !username.valid && (username.touched || userSubmitted)}"
                     placeholder="Enter username" />
-                  <div *ngIf="!userName.valid && (userName.touched || userSubmitted)" class="invalid-feedback">
-                    <div *ngIf="userName.hasError('required')">Username is required</div>
+                  <div *ngIf="!username.valid && (username.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="username.hasError('required')">Username is required</div>
                   </div>
                 </div>
                 <div class="form-group mb-3">
-                  <label for="userEmail">Email</label>
-                  <input type="email" formControlName="userEmail" class="form-control" id="userEmail"
-                    [ngClass]="{'is-invalid': !userEmail.valid && (userEmail.touched || userSubmitted)}"
+                  <label for="email">Email</label>
+                  <input type="email" formControlName="email" class="form-control" id="email"
+                    [ngClass]="{'is-invalid': !email.valid && (email.touched || userSubmitted)}"
                     placeholder="Email" />
-                  <div *ngIf="!userEmail.valid && (userEmail.touched || userSubmitted)" class="invalid-feedback">
-                    <div *ngIf="userEmail.hasError('required')">Email is required</div>
-                    <div *ngIf="userEmail.hasError('email')">Email must be a valid email address</div>
+                  <div *ngIf="!email.valid && (email.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="email.hasError('required')">Email is required</div>
+                    <div *ngIf="email.hasError('email')">Email must be a valid email address</div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="userPassword">Password</label>
-                  <input type="password" formControlName="userPassword" class="form-control" id="userPassword"
-                    [ngClass]="{'is-invalid': !userPassword.valid && (userPassword.touched || userSubmitted)}"
+                  <label for="password">Password</label>
+                  <input type="password" formControlName="password" class="form-control" id="password"
+                    [ngClass]="{'is-invalid': !password.valid && (password.touched || userSubmitted)}"
                     placeholder="Password" />
-                  <div *ngIf="!userPassword.valid && (userPassword.touched || userSubmitted)" class="invalid-feedback">
-                    <div *ngIf="userPassword.errors['required']">Password is required</div>
-                    <div *ngIf="userPassword.errors.minlength">Password should not be lesser than 8 character</div>
+                  <div *ngIf="!password.valid && (password.touched || userSubmitted)" class="invalid-feedback">
+                    <div *ngIf="password.errors['required']">Password is required</div>
+                    <div *ngIf="password.errors.minlength">Password should not be lesser than 8 character</div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="confirmPassword">Confirm Password</label>
-                  <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword"
-                    [ngClass]="{'is-invalid': !confirmPassword.valid && (confirmPassword.touched || userSubmitted)}"
+                  <label for="repassword">Confirm Password</label>
+                  <input type="password" formControlName="repassword" class="form-control" id="repassword"
+                    [ngClass]="{'is-invalid': !repassword.valid && (repassword.touched || userSubmitted)}"
                     placeholder="Confirm Password" />
-                  <div *ngIf="!confirmPassword.valid && (confirmPassword.touched || userSubmitted)"
+                  <div *ngIf="!repassword.valid && (repassword.touched || userSubmitted)"
                     class="invalid-feedback">
-                    <div *ngIf="confirmPassword.hasError('required')">Confirm the Password</div>
-                    <div *ngIf="registerationForm.hasError('notmatched') && confirmPassword.valid">Password not matching</div>
+                    <div *ngIf="repassword.hasError('required')">Confirm the Password</div>
+                    <div *ngIf="registerationForm.hasError('notmatched') && repassword.valid">Password not matching</div>
                   </div>
                 </div>
                 <div class="mt-4">
