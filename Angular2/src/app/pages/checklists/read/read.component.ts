@@ -41,7 +41,7 @@ export class ChecklistsReadComponent implements OnInit
     {
       // tslint:disable-next-line: no-string-literal
       this.id = +params['id'];
-      localStorage.setItem('controlSelector', this.id.toString())
+      localStorage.setItem('controlSelector', this.id.toString());
     });
 
     // this is hardcoded refactor this to make it work better
