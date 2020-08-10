@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
+import { LoaderService } from '../../../core/services/loader.service';
 
 @Component({
   selector: 'app-view',
@@ -24,6 +25,7 @@ export class ViewKnowledebaseComponent implements OnInit
   public categoryId: any;
   public queryString;
   public delete: string;
+  loading: boolean;
 
   constructor(
     private modalService: NgbModal,
@@ -33,6 +35,7 @@ export class ViewKnowledebaseComponent implements OnInit
     // tslint:disable-next-line: variable-name
     private _checklistCategoryService: ChecklistCategoryService,
     private spinner: NgxSpinnerService,
+    private loaderService: LoaderService,
   ) { }
 
   ngOnInit()
@@ -41,11 +44,7 @@ export class ViewKnowledebaseComponent implements OnInit
     this._fetchData();
 
     // Load Spinner
-    this.spinner.show();
-
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 5000);
+    //this.spinner.show();
   }
 
   /**
