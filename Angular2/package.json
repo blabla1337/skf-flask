@@ -22,8 +22,6 @@
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
-    "@ng-idle/core": "^9.0.0-beta.1",
-    "@ng-idle/keepalive": "^9.0.0-beta.1",
     "@ng-select/ng-select": "^4.0.4",
     "angular-archwizard": "^6.1.0",
     "bootstrap": "^4.5.0",
