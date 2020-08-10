@@ -22,6 +22,13 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { JoyrideModule } from 'ngx-joyride';
+import { CoreModule } from '../core/core.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { LoaderService } from '../core/services/loader.service';
+import { LoaderInterceptor } from '../core/helpers/http.interceptor';
+import { LoaderComponent } from '../shared/loader/loader.component';
+
 
 // Import Components here
 import { ManageComponent } from './users/manage/manage.component';
@@ -78,8 +85,16 @@ import { UpdateCategoryComponent } from './checklists/updatecategory/updatecateg
     HighlightModule,
     NgSelectModule,
     NgxSpinnerModule,
-    JoyrideModule.forChild()
+    JoyrideModule.forChild(),
+    CoreModule
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    }
+  ],
 })
 export class PagesModule { }
