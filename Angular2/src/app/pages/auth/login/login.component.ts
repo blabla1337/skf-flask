@@ -15,12 +15,14 @@ export class LoginComponent implements OnInit
     public skip: boolean;
     public token: any;
     public errormsg = false;
+    public expired = false;
 
     constructor(
         // tslint:disable-next-line: variable-name
         private _authService: AuthService,
         private router: Router,
-        private formBuilder: FormBuilder, ) { }
+        private formBuilder: FormBuilder,
+        private appService: AppService) { }
 
     ngOnInit()
     {
@@ -35,6 +37,12 @@ export class LoginComponent implements OnInit
             username: ['', Validators.required],
             password: ['', Validators.required],
         });
+
+        if (localStorage.getItem('session') === 'expired') {
+            this.expired = true;
+        }
+        localStorage.clear();
+
     }
 
     onLogin()
