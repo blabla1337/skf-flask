@@ -21,6 +21,7 @@ import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { JoyrideModule } from 'ngx-joyride';
 
 // Import Components here
 import { ManageComponent } from './users/manage/manage.component';
@@ -48,7 +49,6 @@ import { AddChecklistComponent } from './checklists/addchecklist/addchecklist.co
 import { UpdateChecklistComponent } from './checklists/updatechecklist/updatechecklist.component';
 import { AddCategoryComponent } from './checklists/addcategory/addcategory.component';
 import { UpdateCategoryComponent } from './checklists/updatecategory/updatecategory.component';
-import { JoyrideModule } from 'ngx-joyride';
 
 @NgModule({
   declarations: [

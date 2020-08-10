@@ -26,6 +26,7 @@
               </div>
               <div class="p-2">
                   <ngb-alert type="danger" *ngIf="errormsg" [dismissible]="false">Username or Password is incorrect.</ngb-alert>
+                  <ngb-alert type="danger" *ngIf="expired" [dismissible]="false">Session Expired</ngb-alert>
                  
                 <form class="form-horizontal" [formGroup]="loginForm">
                   <div class="form-group">
