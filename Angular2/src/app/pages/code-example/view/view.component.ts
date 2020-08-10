@@ -63,7 +63,7 @@ export class ViewCodeComponent implements OnInit
    */
   deleteModal(deleteDataModal: any)
   {
-    this.modalService.open(deleteDataModal, { size: 'sm', centered: true });
+    this.modalService.open(deleteDataModal, { size: 'md', centered: true });
   }
 
   setCategorySelectorId(categoryId: Number)

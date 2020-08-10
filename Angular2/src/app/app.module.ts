@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { JoyrideModule } from 'ngx-joyride';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 
 import { NgbNavModule, NgbAccordionModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -34,6 +35,7 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
     HttpClientModule,
     HighlightModule,
     JoyrideModule.forRoot(),
+    NgIdleKeepaliveModule.forRoot(),
   ],
   providers: [
     {
