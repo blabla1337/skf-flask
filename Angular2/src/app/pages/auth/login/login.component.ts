@@ -21,8 +21,7 @@ export class LoginComponent implements OnInit
         // tslint:disable-next-line: variable-name
         private _authService: AuthService,
         private router: Router,
-        private formBuilder: FormBuilder,
-        private appService: AppService) { }
+        private formBuilder: FormBuilder) { }
 
     ngOnInit()
     {
