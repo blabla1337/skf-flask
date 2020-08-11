@@ -54,7 +54,7 @@ export class ViewKnowledebaseComponent implements OnInit
       .getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(data => {
         this.knowledgeData = data;
-        this.spinner.hide()
+        this.spinner.hide();
       });
 
     this._checklistCategoryService

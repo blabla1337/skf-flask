@@ -22,6 +22,7 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { JoyrideModule } from 'ngx-joyride';
+import { CoreModule } from '../core/core.module';
 
 // Import Components here
 import { ManageComponent } from './users/manage/manage.component';
@@ -49,6 +50,7 @@ import { AddChecklistComponent } from './checklists/addchecklist/addchecklist.co
 import { UpdateChecklistComponent } from './checklists/updatechecklist/updatechecklist.component';
 import { AddCategoryComponent } from './checklists/addcategory/addcategory.component';
 import { UpdateCategoryComponent } from './checklists/updatecategory/updatecategory.component';
+import { IndexComponent } from './search/index/index.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,7 @@ import { UpdateCategoryComponent } from './checklists/updatecategory/updatecateg
     ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, AddCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, IndexComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +80,8 @@ import { UpdateCategoryComponent } from './checklists/updatecategory/updatecateg
     HighlightModule,
     NgSelectModule,
     NgxSpinnerModule,
-    JoyrideModule.forChild()
+    JoyrideModule.forChild(),
+    CoreModule
   ],
   providers: [],
 })
