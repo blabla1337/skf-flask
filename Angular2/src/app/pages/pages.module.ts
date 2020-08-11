@@ -56,7 +56,6 @@ import { AddChecklistComponent } from './checklists/addchecklist/addchecklist.co
 import { UpdateChecklistComponent } from './checklists/updatechecklist/updatechecklist.component';
 import { AddCategoryComponent } from './checklists/addcategory/addcategory.component';
 import { UpdateCategoryComponent } from './checklists/updatecategory/updatecategory.component';
-import { IndexComponent } from './search/index/index.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +63,7 @@ import { IndexComponent } from './search/index/index.component';
     ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, AddCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, IndexComponent,
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe
   ],
   imports: [
     CommonModule,

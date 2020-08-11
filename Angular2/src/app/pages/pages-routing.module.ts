@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'checklists', loadChildren: () => import('./checklists/checklists.module').then(m => m.ChecklistsModule) },
   { path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule) },
   { path: 'labs', loadChildren: () => import('./labs/labs.module').then(m => m.LabsModule) },
-  { path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule) },
 ];
 
 @NgModule({

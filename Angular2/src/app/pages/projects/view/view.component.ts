@@ -27,7 +27,7 @@ export class ProjectViewComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.breadCrumbItems = [{ label: 'Features' }, { label: 'Sprints', active: true }];
+    this.breadCrumbItems = [{ label: 'Features' }, { label: 'View', active: true }];
     this.getSprintItems()
 
   }
