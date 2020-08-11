@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService  } from 'ngx-spinner';
 import { Router } from '@angular/router';
-
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
 
@@ -24,7 +23,7 @@ export class ViewKnowledebaseComponent implements OnInit
   public categoryId: any;
   public queryString;
   public delete: string;
-  loading: boolean;
+  test: any;
 
   constructor(
     private modalService: NgbModal,
@@ -42,7 +41,8 @@ export class ViewKnowledebaseComponent implements OnInit
     this._fetchData();
 
     // Load Spinner
-    //this.spinner.show();
+    this.spinner.show();
+
   }
 
   /**
@@ -50,9 +50,12 @@ export class ViewKnowledebaseComponent implements OnInit
    */
   private _fetchData()
   {
-    this._knowledgebaseService
+    this.test = this._knowledgebaseService
       .getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
-      .subscribe(data => this.knowledgeData = data);
+      .subscribe(data => {
+        this.knowledgeData = data;
+        this.spinner.hide();
+      });
 
     this._checklistCategoryService
       .getChecklistCategoryCollection()
