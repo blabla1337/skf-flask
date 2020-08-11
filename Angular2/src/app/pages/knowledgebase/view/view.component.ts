@@ -39,10 +39,6 @@ export class ViewKnowledebaseComponent implements OnInit
   {
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'View', active: true }];
     this._fetchData();
-
-    // Load Spinner
-    this.spinner.show();
-
   }
 
   /**
@@ -50,6 +46,7 @@ export class ViewKnowledebaseComponent implements OnInit
    */
   private _fetchData()
   {
+    this.spinner.show();
     this.test = this._knowledgebaseService
       .getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(data => {
