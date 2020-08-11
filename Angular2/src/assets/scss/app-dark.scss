@@ -10,17 +10,25 @@
 @import "./node_modules/bootstrap/scss/mixins.scss";
 @import "~@ng-select/ng-select/scss/default.theme.scss";
 
+// Components
+@import "custom/components/card";
+@import "custom/components/dropdown";
+@import "custom/components/buttons";
 
 // Structure
 @import "custom/structure/general";
 @import "custom/structure/topbar";
 @import "custom/structure/page-head";
 @import "custom/structure/horizontal-nav";
-//@import "custom/structure/footer";
+@import "custom/structure/footer";
 
 // Pages
 @import "custom/pages/users";
 @import "custom/pages/read";
+@import "custom/pages/projects";
+@import "custom/pages/home";
+@import "custom/pages/custom";
+@import "custom/pages/code";
 
 // Code examples highlight
 @import  "~highlight.js/styles/monokai-sublime.css";
