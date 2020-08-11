@@ -28,5 +28,11 @@
 @import "custom/pages/custom";
 @import "custom/pages/code";
 
+
+// Components
+@import "custom/components/card";
+@import "custom/components/buttons";
+
+
 // Code examples highlight
 @import  "~highlight.js/styles/github.css";
