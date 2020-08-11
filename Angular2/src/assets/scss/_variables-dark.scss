@@ -9,8 +9,8 @@ $sidebar-bg: #ffffff;
 $sidebar-menu-item-color: #a6b0cf;
 $sidebar-menu-sub-item-color: #79829c;
 $sidebar-menu-item-icon-color: #7f8387;
-$sidebar-menu-item-hover-color: #262b3c;
-$sidebar-menu-item-active-color: #372FEB ;
+$sidebar-menu-item-hover-color: #bc85fd;
+$sidebar-menu-item-active-color: #bc85fd ;
 $sidebar-width:  250px;
 $sidebar-collapsed-width:  70px;
 $sidebar-width-sm:  160px;
@@ -37,11 +37,11 @@ $header-dark-bg: #2D2F3E;
 $header-dark-item-color: #e9ecef;
 
 // Topbar Search
-$topbar-search-bg: rgba(129, 132, 178, 0.07);
-$topbar-search-txt: #2D2F3E;
+$topbar-search-bg: rgba(56, 56, 56, 1);
+$topbar-search-txt: #fff;
 
 // Horizontal nav
-$topnav-bg:   #EFEFF1; //#8184B2
+$topnav-bg:   #272727; //#8184B2
 
 //Topbar-Text
 $topnav-text: #8184B2;
@@ -57,11 +57,15 @@ $boxed-body-bg:       #32394f;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 
-// apex charts
-$apex-grid-color: #32394e;
+// Footer
+$footer-height: 60px;
+$footer-bg: #272727 !important;
+$footer-color: #74788d;
 
-// Chart color
-$chart-text-color: #797d8e;
+// Buttons
+$btn-bg: #2e2e2e;
+$btn-color: #ae85d9;
+$btn-hover: #ae85d9;
 
 
 // Variables
@@ -229,8 +233,14 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   #fdfdfd;
+$body-bg:                   #212121;
 $body-color:                $gray-400;
+
+// Topbar Background
+
+#page-topbar {
+  background-color: #272727 !important;
+}
 
 
 // Links
@@ -893,7 +903,7 @@ $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border
 $card-cap-bg:                       $gray-300;
 $card-cap-color:                    null;
 $card-color:                        null;
-$card-bg:                           #2a3042;
+$card-bg:                           #272727;
 
 $card-title-desc:                   $gray-400;
 

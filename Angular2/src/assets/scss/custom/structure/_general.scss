@@ -1,9 +1,33 @@
 .btn-light{
     background-color: #8184B2;
+    color: $btn-color;
     border: none;
 }
 
+.btn-light:focus{
+    background-color: $btn-hover !important;
+    color: $btn-color !important;
+    color: #fff;
+}
+
+.btn-light:hover{
+    background-color: $btn-hover !important;
+    color: $btn-color !important;
+    color: #fff;
+}
+
 .btn-primary {
-    background-color: #8184B2;
+    background-color: $btn-bg;
+    color: $btn-color;
     border: none;
+}
+
+.btn-primary:focus {
+    background-color: $btn-hover !important;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: $btn-hover !important;
+    color: #fff;
 }
