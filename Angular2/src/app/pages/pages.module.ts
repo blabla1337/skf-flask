@@ -23,12 +23,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { JoyrideModule } from 'ngx-joyride';
 import { CoreModule } from '../core/core.module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
-import { LoaderService } from '../core/services/loader.service';
-import { LoaderInterceptor } from '../core/helpers/http.interceptor';
-import { LoaderComponent } from '../shared/loader/loader.component';
-
 
 // Import Components here
 import { ManageComponent } from './users/manage/manage.component';
@@ -56,6 +50,7 @@ import { AddChecklistComponent } from './checklists/addchecklist/addchecklist.co
 import { UpdateChecklistComponent } from './checklists/updatechecklist/updatechecklist.component';
 import { AddCategoryComponent } from './checklists/addcategory/addcategory.component';
 import { UpdateCategoryComponent } from './checklists/updatecategory/updatecategory.component';
+import { IndexComponent } from './search/index/index.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +58,7 @@ import { UpdateCategoryComponent } from './checklists/updatecategory/updatecateg
     ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, AddCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, IndexComponent
   ],
   imports: [
     CommonModule,
@@ -88,13 +83,6 @@ import { UpdateCategoryComponent } from './checklists/updatecategory/updatecateg
     JoyrideModule.forChild(),
     CoreModule
   ],
-  providers: [
-    LoaderService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
-      multi: true
-    }
-  ],
+  providers: [],
 })
 export class PagesModule { }
