@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit
             this.expired = true;
         }
         localStorage.clear();
-
+        sessionStorage.clear()
     }
 
     onLogin()
