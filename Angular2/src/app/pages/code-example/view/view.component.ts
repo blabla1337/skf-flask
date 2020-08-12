@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService  } from 'ngx-spinner';
 
 import { CodeExamplesService } from '../../../core/services/code-examples.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -30,6 +31,7 @@ export class ViewCodeComponent implements OnInit
     private modalService: NgbModal,
     private _codeExamplesService: CodeExamplesService,
     private _checklistCategoryService: ChecklistCategoryService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit()
@@ -43,9 +45,13 @@ export class ViewCodeComponent implements OnInit
    */
   private _fetchData()
   {
+    this.spinner.show();
     this._codeExamplesService
       .getCode(Number(localStorage.getItem('categorySelector')))
-      .subscribe(data => this.codeData = data);
+      .subscribe(data => {
+        this.codeData = data;
+        this.spinner.hide();
+      });
 
     this._checklistCategoryService
       .getChecklistCategoryCollection()
@@ -53,8 +59,13 @@ export class ViewCodeComponent implements OnInit
   }
 
   showCode(value: number) {
+    this.spinner.show();
     this._codeExamplesService
-      .getCodeExample(Number(value)).subscribe(test => this.codeExample = test);
+      .getCodeExample(Number(value)).subscribe(test => 
+        {
+          this.codeExample = test
+          this.spinner.hide();
+        });
   }
 
   /**

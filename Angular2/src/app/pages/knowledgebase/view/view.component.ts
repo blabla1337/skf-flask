@@ -23,7 +23,6 @@ export class ViewKnowledebaseComponent implements OnInit
   public categoryId: any;
   public queryString;
   public delete: string;
-  test: any;
 
   constructor(
     private modalService: NgbModal,
@@ -39,10 +38,6 @@ export class ViewKnowledebaseComponent implements OnInit
   {
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'View', active: true }];
     this._fetchData();
-
-    // Load Spinner
-    this.spinner.show();
-
   }
 
   /**
@@ -50,7 +45,8 @@ export class ViewKnowledebaseComponent implements OnInit
    */
   private _fetchData()
   {
-    this.test = this._knowledgebaseService
+    this.spinner.show();
+    this._knowledgebaseService
       .getKnowledgeBaseItemsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(data => {
         this.knowledgeData = data;
