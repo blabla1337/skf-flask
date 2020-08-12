@@ -22,7 +22,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
   element;
   configData;
-
+  theme: string;
   loggedinUser: string;
   loggedin = false;
   dark = false;
@@ -60,6 +60,10 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     this._checklistCategoryService
       .getChecklistCategoryCollection()
       .subscribe(data => this.categoryData = data);
+
+    this.theme = localStorage.getItem('theme');
+    this.changeTheme(this.theme);
+    localStorage.clear();
   }
 
   /**
@@ -107,8 +111,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toDark(theme: string)
   {
-    this.changeTheme(theme);
-    this.light = false;
+    localStorage.clear();
+    localStorage.setItem('theme', theme);
     this.dark = true;
   }
 
@@ -117,9 +121,9 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toLight(theme: string)
   {
-    this.changeTheme(theme);
+    localStorage.clear();
+    localStorage.setItem('theme', theme);
     this.dark = false;
-    this.light = true;
   }
 
   /**
