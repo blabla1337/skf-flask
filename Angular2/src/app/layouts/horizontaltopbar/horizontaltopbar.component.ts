@@ -63,7 +63,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
     this.theme = localStorage.getItem('theme');
     this.changeTheme(this.theme);
-    localStorage.clear();
+    //localStorage.clear();
   }
 
   /**
@@ -111,7 +111,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toDark(theme: string)
   {
-    localStorage.clear();
+    //localStorage.clear();
     localStorage.setItem('theme', theme);
     this.dark = true;
   }
@@ -121,7 +121,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toLight(theme: string)
   {
-    localStorage.clear();
+    //localStorage.clear();
     localStorage.setItem('theme', theme);
     this.dark = false;
   }
