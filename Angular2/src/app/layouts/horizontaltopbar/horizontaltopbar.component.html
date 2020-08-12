@@ -62,7 +62,7 @@
       </div>
 
       <div class="dropdown d-inline-block">
-        <button *ngIf="light" type="click" (click)="toDark('dark-theme.css')" class="btn header-item noti-icon">
+        <button *ngIf="!dark" type="click" (click)="toDark('dark-theme.css')" class="btn header-item noti-icon">
           <i class="bx bxs-bulb text-primary"></i>
         </button>
         <button *ngIf="dark" type="click" (click)="toLight('light-theme.css')" class="btn header-item noti-icon">
