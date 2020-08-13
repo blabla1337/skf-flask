@@ -25,13 +25,6 @@ export class LoginComponent implements OnInit
 
     ngOnInit()
     {
-        // clear localStorage items to defaults
-        localStorage.setItem('categorySelector', '1');
-        localStorage.setItem('controlSelector', '');
-        localStorage.setItem('project_id', '');
-        localStorage.setItem('questions', '');
-        sessionStorage.setItem('Authorization', '');
-
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required],
@@ -42,6 +35,7 @@ export class LoginComponent implements OnInit
         }
         localStorage.clear();
         sessionStorage.clear()
+        localStorage.setItem('categorySelector', '1');
     }
 
     onLogin()
