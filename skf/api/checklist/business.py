@@ -70,14 +70,6 @@ def create_checklist_type(data, category_id):
         raise
     return {'message': 'Checklist type successfully created'} 
 
-def create_checklist_item(checklist_id, checklist_type, data):
-    log("User requested create a new checklist item", "LOW", "PASS")
-    
-    val_alpha_num_special(data.get('content'))
-    val_alpha_num(data.get('include_always'))
-    val_num(data.get('question_id'))
-    val_num(data.get('kb_id'))
-    val_num(data.get('maturity'))
 
 def create_checklist_item(checklist_id, checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
@@ -97,6 +89,7 @@ def create_checklist_item(checklist_id, checklist_type, data):
     else:
         return {'message': 'Checklist item was duplicate!'} 
 
+
 def convert_boolean_type(refine):
     if refine == "True":
         refine = True
@@ -104,10 +97,12 @@ def convert_boolean_type(refine):
         refine = False
     return refine
 
+
 def convert_question_id_to_none(question_id):
     if question_id == 0:
         question_id = None
     return question_id
+
 
 def update_checklist_type(id, data):
     log("User requested update checklist type", "LOW", "PASS")
@@ -147,6 +142,7 @@ def update_checklist_item(checklist_id, checklist_type, data):
         raise
     return {'message': 'Checklist item successfully updated'} 
 
+
 def update_checklist_question_correlation(checklist_id, checklist_type, data):
     log("User requested update a specific checklist question correlation", "LOW", "PASS")
     question_id = convert_question_id_to_none(data.get('question_id'))
@@ -160,6 +156,7 @@ def update_checklist_question_correlation(checklist_id, checklist_type, data):
         raise
     return {'message': 'Checklist item successfully updated'} 
 
+
 def delete_checklist_type(checklist_type_id):
     log("User deleted checklist type", "MEDIUM", "PASS")
     checklist_types = ChecklistType.query.get(checklist_type_id)
@@ -171,6 +168,7 @@ def delete_checklist_type(checklist_type_id):
         raise
     return {'message': 'Checklist type successfully deleted'}
 
+
 def delete_checklist_item(checklist_id, checklist_type):
     log("User deleted checklist item", "MEDIUM", "PASS")    
     try:
@@ -181,6 +179,7 @@ def delete_checklist_item(checklist_id, checklist_type):
         db.session.rollback()
         raise
     return {'message': 'Checklist item successfully deleted'}
+
 
 def validate_duplicate_checklist_item(checklist_id, checklist_type):
         checklists = ChecklistKB.query.filter(ChecklistKB.checklist_id == checklist_id).filter(ChecklistKB.checklist_type == checklist_type).all()
