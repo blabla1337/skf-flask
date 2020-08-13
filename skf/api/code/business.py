@@ -70,6 +70,7 @@ def get_code_items_checklist_kb(checklist_kb_id):
     result = ChecklistKBCodeItem.query.filter(ChecklistKBCodeItem.checklist_kb_id == checklist_kb_id).paginate(1, 2500, False)
     return result
     
+    
 def delete_code_item_checklist_kb(checklist_kb_id, code_items_id):
     log("User deleted code item", "MEDIUM", "PASS")
     val_num(code_items_id)
