@@ -39,7 +39,7 @@ export class ViewKnowledebaseComponent implements OnInit
   {
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'View', active: true }];
     this._fetchData();
-    this.catSelector = Number(localStorage.getItem("categorySelector"));
+    this.catSelector = Number(localStorage.getItem('categorySelector'));
   }
 
   /**
