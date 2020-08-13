@@ -87,6 +87,12 @@ from skf.api.questions.endpoints.question_store import ns as questions_namespace
 from skf.api.questions.endpoints.question_item_update import ns as question_post_item_update
 from skf.api.questions.endpoints.question_item_new import ns as question_post_item_new
 from skf.api.questions.endpoints.question_item_delete import ns as question_post_item_update
+from skf.api.search.endpoints.search_kb import ns as search_kb
+from skf.api.search.endpoints.search_lab import ns as search_lab
+from skf.api.search.endpoints.search_code import ns as search_code
+from skf.api.search.endpoints.search_checklist import ns as search_checklist
+from skf.api.search.endpoints.search_project import ns as search_project
+
 
 from skf.api.restplus import api
 from skf.database import db
@@ -131,6 +137,12 @@ def initialize_app(flask_app):
     api.add_namespace(checklist_namespace)
     api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_namespace)
+    api.add_namespace(search_kb)
+    api.add_namespace(search_code)
+    api.add_namespace(search_lab)
+    api.add_namespace(search_checklist)
+    api.add_namespace(search_project)
+
     flask_app.register_blueprint(blueprint)
 
 app = create_app()
@@ -164,6 +176,7 @@ def updatedb_command():
 def main():
     """Main SKF method"""
     #initialize_app(app)
+    app.debug = True
     if app.debug == False:
         if  settings.JWT_SECRET == '':
             log.info('>>>>> Configure the JWT_SECRET in the docker-compose.yml if using local or in the Doployment_backend.yaml file and choose an unique 128 character long secret <<<<<')
