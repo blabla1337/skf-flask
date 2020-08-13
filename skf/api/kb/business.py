@@ -40,7 +40,6 @@ def delete_kb_item(kb_id, user_id):
     val_num(user_id)
     try:
         kb_item = KBItem.query.filter(KBItem.kb_id == kb_id).first()
-
         db.session.delete(kb_item)
         db.session.commit()
     except:

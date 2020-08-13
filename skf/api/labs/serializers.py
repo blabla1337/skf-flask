@@ -2,7 +2,7 @@ from flask_restplus import fields
 from skf.api.restplus import api
 
 labs = api.model('labs', {
-    'labID': fields.Integer(readOnly=True, description='The unique identifier of a Lab'),
+    'id': fields.Integer(readOnly=True, description='The unique identifier of a Lab'),
     'title': fields.String(required=True, description='lab Title'),
     'link': fields.String(required=True, description='Lab Link'),
     'level': fields.String(required=True, description='level of hardness of lab'),
