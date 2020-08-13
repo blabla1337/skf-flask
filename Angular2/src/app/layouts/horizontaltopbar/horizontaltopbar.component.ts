@@ -60,10 +60,6 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     this._checklistCategoryService
       .getChecklistCategoryCollection()
       .subscribe(data => this.categoryData = data);
-
-    this.theme = localStorage.getItem('theme');
-    this.changeTheme(this.theme);
-    //localStorage.clear();
   }
 
   /**
@@ -111,8 +107,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toDark(theme: string)
   {
-    //localStorage.clear();
-    localStorage.setItem('theme', theme);
+    this.changeTheme(theme);
     this.dark = true;
   }
 
@@ -121,8 +116,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toLight(theme: string)
   {
-    //localStorage.clear();
-    localStorage.setItem('theme', theme);
+    this.changeTheme(theme);
     this.dark = false;
   }
 
