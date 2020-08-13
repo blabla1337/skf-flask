@@ -24,6 +24,7 @@ export class ViewCodeComponent implements OnInit
   public codeExample: any = [];
   public codeExampleForm: FormGroup;
   public queryString;
+  public catSelector: number;
 
   get formControls() { return this.codeExampleForm.controls; }
 
@@ -38,6 +39,7 @@ export class ViewCodeComponent implements OnInit
   {
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
     this._fetchData();
+    this.catSelector = Number(localStorage.getItem("categorySelector"));
   }
 
   /**
