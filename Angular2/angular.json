@@ -29,6 +29,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/scss/app.scss",
               "src/assets/scss/icons.scss",
               {
                 "input": "src/assets/scss/app.scss",
