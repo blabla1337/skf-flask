@@ -23,6 +23,7 @@ export class ViewKnowledebaseComponent implements OnInit
   public categoryId: any;
   public queryString;
   public delete: string;
+  public catSelector: number;
 
   constructor(
     private modalService: NgbModal,
@@ -38,6 +39,7 @@ export class ViewKnowledebaseComponent implements OnInit
   {
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'View', active: true }];
     this._fetchData();
+    this.catSelector = Number(localStorage.getItem("categorySelector"));
   }
 
   /**
