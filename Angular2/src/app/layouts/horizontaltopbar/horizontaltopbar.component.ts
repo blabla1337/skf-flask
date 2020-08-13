@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { JoyrideService } from 'ngx-joyride';
+import { ThemeService } from '../../core/services/theme.service';
 
 import { DOCUMENT } from '@angular/common';
 
@@ -11,7 +12,8 @@ import { ChecklistCategoryService } from '../../core/services/checklist_category
 @Component({
   selector: 'app-horizontaltopbar',
   templateUrl: './horizontaltopbar.component.html',
-  styleUrls: ['./horizontaltopbar.component.scss']
+  styleUrls: ['./horizontaltopbar.component.scss'],
+  providers: [ThemeService]
 })
 
 /**
@@ -30,13 +32,15 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   menuItems = [];
   categoryData: any = [];
   routeUrl: any;
+  themeName: string;
 
   // tslint:disable-next-line: max-line-length
   constructor(@Inject(DOCUMENT) private document: any,
               private router: Router,
               // tslint:disable-next-line: variable-name
               private _checklistCategoryService: ChecklistCategoryService,
-              private readonly joyride: JoyrideService)
+              private readonly joyride: JoyrideService,
+              private themeService: ThemeService)
   {
     router.events.subscribe(event =>
     {
@@ -60,6 +64,17 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     this._checklistCategoryService
       .getChecklistCategoryCollection()
       .subscribe(data => this.categoryData = data);
+
+    this.themeName = sessionStorage.getItem('theme');
+    this.changeTheme(this.themeName);
+
+    if (this.themeName === 'dark-theme.css') {
+      this.dark = true;
+      this.light = false;
+    } else {
+      this.light = false;
+      this.dark = true;
+    }
   }
 
   /**
@@ -107,8 +122,11 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toDark(theme: string)
   {
-    this.changeTheme(theme);
+    this.themeService.editTheme(theme);
     this.dark = true;
+    this.light = false;
+    this.themeName = sessionStorage.getItem('theme');
+    this.changeTheme(this.themeName);
   }
 
   /**
@@ -116,8 +134,11 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toLight(theme: string)
   {
-    this.changeTheme(theme);
+    this.themeService.editTheme(theme);
+    this.light = true;
     this.dark = false;
+    this.themeName = sessionStorage.getItem('theme');
+    this.changeTheme(this.themeName);
   }
 
   /**
@@ -125,6 +146,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   changeTheme(styleName: string)
   {
+    debugger
     const head = this.document.getElementsByTagName('head')[0];
     const themeLink = this.document.getElementById('dynamic-theme') as HTMLLinkElement;
     if (themeLink) {
