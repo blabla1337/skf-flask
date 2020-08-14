@@ -21,6 +21,7 @@ export class LabViewComponent implements OnInit
   public deployments;
   labLists: string[];
 
+  // tslint:disable-next-line: variable-name
   constructor(private _labService: LabService) { }
 
   ngOnInit(): void
@@ -36,11 +37,12 @@ export class LabViewComponent implements OnInit
    */
   private _fetchData()
   {
-    this._labService.getLabs().subscribe(lab => this.labData = lab)
+    this._labService.getLabs().subscribe(lab => this.labData = lab);
   }
 
 
   // Get Lab Address
+  // tslint:disable-next-line: variable-name
   getLabAddress(image_tag)
   {
     this._labService.deployLab(image_tag).subscribe(requestData => this.deployments = requestData);
