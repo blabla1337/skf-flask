@@ -67,13 +67,12 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
     this.themeName = sessionStorage.getItem('theme');
     this.changeTheme(this.themeName);
-
     if (this.themeName === 'dark-theme.css') {
       this.dark = true;
       this.light = false;
     } else {
-      this.light = false;
-      this.dark = true;
+      this.light = true;
+      this.dark = false;
     }
   }
 
