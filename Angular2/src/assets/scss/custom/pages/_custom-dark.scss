@@ -20,28 +20,65 @@ aw-wizard {
     border-radius: 10px !important;
     box-shadow: 0 .125rem .25rem rgba($black, .075) !important;
     border-width: 1px !important;
+    background-color: $body-bg !important;
 
     .joyride-button {
         border-radius: 5px !important;
-        background-color: #8184B2 !important;
+        background-color: $btn-bg !important;
         padding: 0.25rem 0.5rem !important;
         font-size: 0.7rem !important;
         line-height: 1.5 !important;
         border-radius: 0.2rem !important;
         margin-top: 10px !important;
+        color: $btn-color !important;
+    }
+
+    .joyride-button:hover {
+        border-radius: 5px !important;
+        background-color: $btn-hover !important;
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.7rem !important;
+        line-height: 1.5 !important;
+        border-radius: 0.2rem !important;
+        margin-top: 10px !important;
+        color: white !important;
     }
 
     .joyride-step__header {
         padding: 0 !important;
+        .joyride-step__title {
+            color: white !important;
+        }
     }
 
     .joyride-step__body {
         padding: 10px 0 0 0 !important;
+
+        .card {
+            .card-body {
+                color: white !important;
+            }
+        }
     }
 
     .joyride-step__footer{
         .joyride-step__buttons-container {
             text-align: center !important;
+        }
+    }
+
+}
+
+// .joyride-arrow__bottom {
+//     background-color: $body-bg !important;
+// }
+
+.joyride-step__holder {
+    .joyride-step__arrow {
+        .joyride-arrow__bottom {
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-top: 11px solid $body-bg !important;
         }
     }
 }
