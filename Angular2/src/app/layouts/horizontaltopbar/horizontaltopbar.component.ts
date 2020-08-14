@@ -146,7 +146,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   changeTheme(styleName: string)
   {
-    debugger
+    
     const head = this.document.getElementsByTagName('head')[0];
     const themeLink = this.document.getElementById('dynamic-theme') as HTMLLinkElement;
     if (themeLink) {

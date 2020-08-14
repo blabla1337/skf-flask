@@ -176,7 +176,7 @@ def updatedb_command():
 def main():
     """Main SKF method"""
     #initialize_app(app)
-    app.debug = True
+    #app.debug = True
     if app.debug == False:
         if  settings.JWT_SECRET == '':
             log.info('>>>>> Configure the JWT_SECRET in the docker-compose.yml if using local or in the Doployment_backend.yaml file and choose an unique 128 character long secret <<<<<')
