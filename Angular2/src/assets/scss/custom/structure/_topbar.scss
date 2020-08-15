@@ -266,7 +266,7 @@ body[data-topbar="dark"] {
   }
 }
 
-@media (max-width: 380px) {
+@include media-breakpoint-down(md) {
   .navbar-brand-box {
     display: none;
   }
