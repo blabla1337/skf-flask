@@ -28,7 +28,6 @@ export class LabViewComponent implements OnInit
   {
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
-
     this.labLists = ['SKF-Labs', 'Juice-Shop', 'Other Labs'];
   }
 
