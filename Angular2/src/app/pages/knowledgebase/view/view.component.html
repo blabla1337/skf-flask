@@ -13,20 +13,26 @@
               <div class="card">
                 <div class="card-body">
                   <div class="row mb-3">
-                    <div class="col-sm-4">
+                    <div class="col-sm-9">
                       <h4 class="card-title mb-4">{{item.name}}</h4>
                     </div>
-                    <div class="col-sm-8">
-                      <div class="text-sm-right">
-                        <div class="search-box mr-4 mb-2 d-inline-block">
-                          <div class="position-relative">
-                            <input class="form-control" [(ngModel)]="queryString" id="search" name="search" 
-                            placeholder="Search Knowledgebase item" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Search Knowledgebase item'"/>
-                            <i class="bx bx-search-alt search-icon"></i>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-7">
+                          <div class="float-right">
+                            <div class="search-box mb-2 d-inline-block">
+                              <div class="position-relative">
+                                <input class="form-control" [(ngModel)]="queryString" id="search" name="search" 
+                                placeholder="Search KB item" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Search KB item'"/>
+                                <i class="bx bx-search-alt search-icon"></i>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <button class="btn btn-primary" [routerLink]="['/knowledgebase/create']">Add Knowledgebase</button>
+                        <div class="col-5">
+                          <button class="btn btn-primary float-right" [routerLink]="['/knowledgebase/create']">Add KB Item</button>
+                        </div>
                       </div>
                     </div>
                     <!-- end col-->
@@ -54,7 +60,7 @@
                                       <h4 class="card-title text-primary">{{subitem.title}}</h4>
                                     </div>
                                     <div class="col-sm-8">
-                                      <div class="text-sm-right">
+                                      <div class="text-right">
                                         <a href="javascript:void(0)" data-toggle="collapse"
                                           (click)="isCollapsed[i] = !isCollapsed[i]">Read More</a>
                                       </div>
@@ -72,13 +78,13 @@
                                       <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
                                   </div> <!-- end col -->
                                   <div class="col-sm-6">
-                                    <div class="text-sm-right">
+                                    <div class="text-right">
                                       <a [routerLink]="['/knowledgebase/update', subitem.kb_id]"
-                                        class="btn btn-success m-1 text-light">
+                                        class="btn btn-sm btn-success m-1">
                                         <i class="mdi mdi-check mr-1"></i> Update </a>
-                                      <a type="button" class="btn btn-danger m-1 text-light"
+                                      <button class="btn btn-sm btn-danger m-1"
                                        (click)="deleteModal(contentDelete)">
-                                        <i class="bx bx-trash mr-1"></i> Delete </a>
+                                        <i class="bx bx-trash mr-1"></i> Delete </button>
                                     </div>
                                   </div> <!-- end col -->
                                 </div>

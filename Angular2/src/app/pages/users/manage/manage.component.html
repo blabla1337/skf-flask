@@ -6,19 +6,19 @@
       <div class="card user-tab">
         <div class="card-body">
           <div class="row mb-2">
-            <div class="col-sm-4">
+            <div class="col-7">
               <div class="search-box mr-2 mb-2 d-inline-block">
                 <div class="position-relative">
-                  <input type="text" class="form-control" placeholder="Search..."
-                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search...'"/>
+                  <input type="text" class="form-control" placeholder="Search User"
+                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search User'"/>
                   <i class="bx bx-search-alt search-icon"></i>
                 </div>
               </div>
             </div>
-            <div class="col-sm-8">
-              <div class="text-sm-right">
-                <a type="button" href="/users/create" class="btn btn-primary btn-rounded mb-2 mr-2 text-white">
-                  <i class="mdi mdi-plus mr-1"></i> New users
+            <div class="col-5">
+              <div class="text-right">
+                <a type="button" href="/users/create" class="btn btn-primary mb-2 mr-2">
+                   New users
                 </a>
               </div>
             </div>
@@ -95,10 +95,6 @@
               </tbody>
             </table>
           </div>
-          <!-- pagination -->
-          <ngb-pagination [collectionSize]="50" [(page)]="currentpage"
-            class="pagination pagination-rounded justify-content-end mb-2" aria-label="Default pagination">
-          </ngb-pagination>
         </div>
       </div>
     </div>
