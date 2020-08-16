@@ -5,21 +5,27 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
-          <div class="search-box mr-2 mb-2 d-inline-block">
-            <div class="position-relative">
-              <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
-                placeholder="Search Lab" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Lab'"/>
-              <i class="bx bx-search-alt search-icon"></i>
+          <div class="row mb-2">
+            <div class="col-7">
+              <div class="search-box mr-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
+                    placeholder="Search Lab" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Lab'"/>
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="float-right">
-            <div class="form-group">
-              <select class="form-control select2-search-disable" placeholder="Select" 
-              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Select'" [(ngModel)]="queryLabel">
-                <option value="" selected disabled>All labs</option>
-                <option value="SKF-labs">SKF-labs</option>
-                <option value="juice-shop">juice-shop</option>
-              </select>
+            <div class="col-5">
+              <div class="float-right">
+                <div class="form-group">
+                  <select class="form-control select2-search-disable" placeholder="Select" 
+                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Select'" [(ngModel)]="queryLabel">
+                    <option value="" selected disabled>All labs</option>
+                    <option value="SKF-labs">SKF-labs</option>
+                    <option value="juice-shop">juice-shop</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
           <div class="table-responsive mt-3">
