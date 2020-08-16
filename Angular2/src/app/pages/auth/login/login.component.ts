@@ -34,8 +34,11 @@ export class LoginComponent implements OnInit
             this.expired = true;
         }
         localStorage.clear();
-        sessionStorage.clear()
+        sessionStorage.setItem('Authorization', '');
         localStorage.setItem('categorySelector', '1');
+        if (sessionStorage.getItem('theme')  === null){
+            sessionStorage.setItem('theme', 'light-theme.css');
+        }
     }
 
     onLogin()
