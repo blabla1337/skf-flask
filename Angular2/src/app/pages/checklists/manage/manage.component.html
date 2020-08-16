@@ -41,7 +41,7 @@
               <div class="col-lg-6 align-items-stretch">
                 <div class="card border shadow-none mb-3">
                   <div class="card-header py-2 bg-light">
-                    <h4 class="card-title text-center mt-2">Checklist total (of not yet assinged requirements)</h4>
+                    <p class="card-title text-center text-dark mt-2">Checklist total (of not yet assinged requirements)</p>
                   </div>
                   <div class="card-body">
                       <button class="btn btn-block mb-2 bg-light">
@@ -65,7 +65,7 @@
               <div class="col-lg-6 align-items-stretch">
                 <div class="card border shadow-none mb-3">
                   <div class="card-header py-2 bg-light">
-                    <h4 class="card-title text-center mt-2">Checklist total (of not yet assinged requirements)</h4>
+                    <p class="card-title text-center text-dark mt-2">Checklist total (of not yet assinged requirements)</p>
                   </div>
                   <div class="card-body">
                     <button class="btn btn-block mb-2 bg-light">
@@ -104,7 +104,7 @@
           </div>
           <div class="col-5">
             <div class="text-right">
-              <a type="button" href="/checklists/add" class="btn btn-primary btn-rounded mb-2 mr-2">
+              <a type="button" href="/checklists/add" class="btn btn-primary mb-2 mr-2">
                 <i class="mdi mdi-check mr-1"></i>Add Item</a>
             </div>
           </div>
@@ -117,7 +117,7 @@
                 <div class="row">
                   <div class="col-8">
                     <a type="button" class="btn" (click)="isCollapsed[i] = !isCollapsed[i]">
-                      <h4 class="card-title mt-2">{{check.title}}</h4>
+                      <h4 class="card-title mt-1">{{check.title}}</h4>
                     </a>
                   </div>
                   <div class="col-4">
@@ -130,41 +130,43 @@
                   </div>
                 </div>
                 <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
-                  <table class="table table-centered table-nowrap table-hover">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col" style="width: 50px;">
-                          <div class="text-center">Checklist ID</div>
-                        </th>
-                        <th scope="col">
-                          <div class="text-center">Checklist Item</div>
-                        </th>
-                        <th scope="col">
-                          <div class="text-center">Question</div>
-                        </th>
-                        <th scope="col">
-                          <div class="text-center">KB Item</div>
-                        </th>
-                        <th scope="col">
-                          <div class="text-center">Include Always</div>
-                        </th>
-                        <th scope="col">
-                          <div class="text-center">CWE</div>
-                        </th>
-                        <th scope="col">
-                          <div class="text-center">Maturity Level</div>
-                        </th>
-                        <th scope="col">
-                          <div class="text-center">Edit</div>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div class="table-responsive">
+                    <table class="table table-centered table-nowrap table-hover">
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col" style="width: 50px;">
+                            <div class="text-center">Checklist ID</div>
+                          </th>
+                          <th scope="col">
+                            <div class="text-center">Checklist Item</div>
+                          </th>
+                          <th scope="col">
+                            <div class="text-center">Question</div>
+                          </th>
+                          <th scope="col">
+                            <div class="text-center">KB Item</div>
+                          </th>
+                          <th scope="col">
+                            <div class="text-center">Include Always</div>
+                          </th>
+                          <th scope="col">
+                            <div class="text-center">CWE</div>
+                          </th>
+                          <th scope="col">
+                            <div class="text-center">Maturity Level</div>
+                          </th>
+                          <th scope="col">
+                            <div class="text-center">Edit</div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                   </div> 
                 </div>
               </div>
             </div>
@@ -179,7 +181,7 @@
         <div class="row mb-3 mt-4">
           <div class="col-lg-12">
             <div class="text-right">
-              <a type="button" class="btn btn-primary btn-rounded mb-2 mr-2"
+              <a type="button" class="btn btn-primary mb-2 mr-2"
               href="/checklists/add-category">
                 <i class="mdi mdi-check mr-1"></i>Add Category</a>
             </div>

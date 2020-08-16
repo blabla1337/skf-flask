@@ -5,7 +5,7 @@
     <div class="card-body">
       <div class="row mb-3">
         <div class="col-7">
-          <div class="search-box mr-2 mb-2 d-inline-block">
+          <div class="search-box mb-2 d-inline-block">
             <div class="position-relative">
               <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
                 placeholder="Search Projects" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Projects'"/>
@@ -15,9 +15,7 @@
         </div>
         <div class="col-5">
           <div class="float-right">
-            <button type="button" [routerLink]="['/projects/create']" class="btn btn-primary btn-rounded mb-2">
-             New Project
-            </button>
+            <button type="button" [routerLink]="['/projects/create']" class="btn btn-primary mb-2">New Project</button>
           </div>
         </div>
         <!-- end col-->
