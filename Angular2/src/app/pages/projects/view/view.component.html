@@ -10,7 +10,7 @@
         <div class="card-body">
           <div class="row mb-5">
             <div class="col-6">
-              <div class="search-box mr-2 mb-2 d-inline-block">
+              <div class="search-box mb-2 d-inline-block">
                 <div class="position-relative">
                   <input type="text" class="form-control" placeholder="Search..."
                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search...'"/>
@@ -20,9 +20,7 @@
             </div>
             <div class="col-6">
               <div class="text-right">
-                <button type="button" (click)="projectCreate()" class="btn btn-primary btn-rounded mb-2">
-                  Generate requirements
-                </button>
+                <button type="button" (click)="projectCreate()" class="btn btn-primary mb-2">Generate requirements</button>
               </div>
             </div>
             <!-- end col-->
@@ -34,16 +32,16 @@
                   <div class="media">
                     <div class="media-body overflow-hidden">
                       <h5 class="text-truncate font-size-15">
-                        <a href="javascript: void(0);" class="text">({{item.sprint_items_total}}) {{item.title}}</a>
+                        <a class="text-dark">[{{item.sprint_items_total}}] {{item.title}}</a>
                       </h5>
-                      <p class="text-muted mb-4">{{item.sprint_desc}}</p>
+                      <p class="text-dark mb-4">{{item.sprint_desc}}</p>
                     </div>
                   </div>
                 </div>
                 <div class="px-4 py-3 border-top">
                   <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3 float-right">
-                      <button class="btn-sm btn-primary text-light" (click)="onView(item.sprint_id)"> View</button>
+                      <button class="btn-sm btn-primary" (click)="onView(item.sprint_id)">View</button>
                     </li>
                   </ul>
                 </div>
