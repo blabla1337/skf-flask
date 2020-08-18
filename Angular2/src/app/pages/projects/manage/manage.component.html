@@ -15,7 +15,8 @@
         </div>
         <div class="col-5">
           <div class="float-right">
-            <button type="button" [routerLink]="['/projects/create']" class="btn btn-primary mb-2">New Project</button>
+            <button type="button" [routerLink]="['/projects/create']" class="btn btn-primary mb-2" joyrideStep="secondStep" 
+            title="New project" stepPosition="bottom" [stepContent]="createProject">New Project</button>
           </div>
         </div>
         <!-- end col-->
@@ -23,17 +24,17 @@
       <div class="dropdown-divider"></div>
       <div class="row">
         <div class="col-lg-12">
-          <div class>
+          <div joyrideStep="firstStep" title="Projects" [stepContent]="project">
             <div class="table-responsive">
               <table class="table project-list-table table-nowrap table-centered table-borderless table-hover">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="text-center" style="width: 100px">#</th>
-                    <th scope="col" class="text-center">Projects</th>
+                    <th scope="col" class="text-center" joyrideStep="thirdStep" title="Start expert system for project" [stepContent]="startProject">Projects</th>
                     <th scope="col" class="text-center">Description</th>
                     <th scope="col" class="text-center">Created Date</th>
                     <th scope="col" class="text-center">Project Version</th>
-                    <th scope="col" class="text-center">Action</th>
+                    <th scope="col" class="text-center" joyrideStep="lastStep" title="Start expert system for project" [stepContent]="updateProject">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -109,3 +110,37 @@
     </div>-->
   <!-- end row -->
 </div>
+
+
+<ng-template #project>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>SKF has by default a set of projects already created for you, these we call the Design pattern projects.
+         Also the new projects you will create will be listed over here.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #createProject>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Here you can create your own project and start the expert system wizard of SKF to gather the requirements needed for your project.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #startProject>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Here you can click on the project to retrieve or start gathering the security requirements.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #updateProject>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Here you can update the basic information of the project.</p>
+    </div>
+  </div>
+</ng-template>
