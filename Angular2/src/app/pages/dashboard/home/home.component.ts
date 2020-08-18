@@ -15,7 +15,9 @@ export class HomeComponent implements OnInit {
   cardItems = [];
   title = 'Sample';
 
-  constructor(private readonly joyride: JoyrideService) { }
+  constructor(
+    private readonly joyride: JoyrideService
+    ) { }
 
   ngOnInit(): void {
     console.log(localStorage.getItem('platformId'));
@@ -24,7 +26,7 @@ export class HomeComponent implements OnInit {
   tour()
   {
     this.joyride.startTour({
-      steps: ['firstStep', 'secondStep', 'thirdStep', 'forthStep'],
+      steps: ['firstStep', 'secondStep', 'thirdStep', 'lastStep'],
       showPrevButton: true,
       stepDefaultPosition: 'top',
       themeColor: '#000',
@@ -32,7 +34,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
- initialize(): void {
-  this.cardItems = Card;
-}
+  initialize(): void {
+    this.cardItems = Card;
+  }
 }

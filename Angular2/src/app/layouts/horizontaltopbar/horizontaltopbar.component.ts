@@ -129,7 +129,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   {
     this.routeUrl = this.router.url;
     this.joyride.startTour({
-      steps: ['firstStep@' + this.routeUrl, 'secondStep', 'thirdStep', 'forthStep'], // stepid@routeurl
+      steps: ['firstStep@' + this.routeUrl, 'secondStep', 'thirdStep', 'lastStep'], // stepid@routeurl
       showPrevButton: true,
       stepDefaultPosition: 'top',
       themeColor: '#000',
