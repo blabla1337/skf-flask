@@ -15,7 +15,9 @@ export class HomeComponent implements OnInit {
   cardItems = [];
   title = 'Sample';
 
-  constructor(private readonly joyride: JoyrideService) { }
+  constructor(
+    private readonly joyride: JoyrideService
+    ) { }
 
   ngOnInit(): void {
     console.log(localStorage.getItem('platformId'));
@@ -33,7 +35,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
- initialize(): void {
-  this.cardItems = Card;
-}
+  initialize(): void {
+    this.cardItems = Card;
+  }
 }

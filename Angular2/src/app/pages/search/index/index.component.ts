@@ -17,7 +17,6 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Search' }, { label: 'Index', active: true }];
-
     this.routerURL = this.router.url;
   }
 

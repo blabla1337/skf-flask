@@ -24,11 +24,11 @@ export class LabService
 
     deployLab(image_tag: string): Observable<Object>
     {
-      return this.http.get(environment.API_ENDPOINT + `/interactive_labs/deployments/${image_tag}`, { headers: this.authHeader })
+      return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_tag}`, { headers: this.authHeader })
     }
   
     deleteLab(image_tag: string): Observable<Object>
     {
-      return this.http.get(environment.API_ENDPOINT + `/interactive_labs/delete-deployments/${image_tag}`, { headers: this.authHeader })
+      return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_tag}`, { headers: this.authHeader })
     }
 }
