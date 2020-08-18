@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
   tour()
   {
     this.joyride.startTour({
-      steps: ['firstStep', 'secondStep', 'thirdStep', 'forthStep'],
+      steps: ['firstStep', 'menuOne', 'menuTwo', 'menuThree', 'menuFour',
+      'menuFive', 'menuSix', 'menuSeven', 'secondStep', 'thirdStep', 'forthStep'],
       showPrevButton: true,
       stepDefaultPosition: 'top',
       themeColor: '#000',

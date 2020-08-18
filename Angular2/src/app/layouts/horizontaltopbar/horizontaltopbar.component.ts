@@ -5,8 +5,6 @@ import { ThemeService } from '../../core/services/theme.service';
 
 import { DOCUMENT } from '@angular/common';
 
-import { MENU } from './menu';
-import { MenuItem } from './menu.model';
 import { ChecklistCategoryService } from '../../core/services/checklist_category.service';
 
 @Component({
@@ -46,7 +44,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   {
     this.element = document.documentElement;
 
-    this.initialize();
+    // this.initialize();
 
     this.configData = {
       suppressScrollX: true,
@@ -129,9 +127,11 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   {
     this.routeUrl = this.router.url;
     this.joyride.startTour({
-      steps: ['firstStep@' + this.routeUrl, 'secondStep', 'thirdStep', 'forthStep'], // stepid@routeurl
+      steps: ['stepDash', 'stepPro', 'stepCode', 'stepCheck',
+              'stepKnow', 'stepUser', 'stepLab', 'firstStep@' + this.routeUrl,
+              'secondStep', 'thirdStep', 'forthStep'], // stepid@routeurl
       showPrevButton: true,
-      stepDefaultPosition: 'top',
+      stepDefaultPosition: 'bottom',
       themeColor: '#000',
       showCounter: false,
     });
@@ -140,19 +140,19 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
  /**
   * Initialize
   */
-  initialize(): void
-  {
-    this.menuItems = MENU;
-  }
+  // initialize(): void
+  // {
+  //   this.menuItems = MENU;
+  // }
 
   /**
    * Returns true or false if given menu item has child or not
    * @param item menuItem
    */
-  hasItems(item: MenuItem)
-  {
-    return item.subItems !== undefined ? item.subItems.length > 0 : false;
-  }
+  // hasItems(item: MenuItem)
+  // {
+  //   return item.subItems !== undefined ? item.subItems.length > 0 : false;
+  // }
 
   platformUpdate(platform: string)
   {
