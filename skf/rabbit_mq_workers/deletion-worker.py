@@ -16,7 +16,7 @@ def delete_container(rpc_body):
     delete_deployment(deployment, user_id)
     delete_service(deployment, user_id)
     time.sleep(10)
-    return {'message': 'If present, the container image was deleted from the cluster!"'} 
+    return {'message': 'If present, the container image was deleted from the cluster!'} 
 
 
 def delete_deployment(instance_name, user_id):
