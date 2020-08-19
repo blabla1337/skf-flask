@@ -74,7 +74,7 @@ export class LabViewComponent implements OnInit
       this.spinner.hide();
       Swal.queue([
         {
-          title: 'Lab URL',
+          title: 'Container message',
           text: this.deployments,
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
