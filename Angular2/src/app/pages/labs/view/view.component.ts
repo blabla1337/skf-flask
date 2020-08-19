@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import Swal from 'sweetalert2';
 
+import { NgxSpinnerService } from 'ngx-spinner';
 import { LabService } from '../../../core/services/lab.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class LabViewComponent implements OnInit
   labLists: string[];
 
   // tslint:disable-next-line: variable-name
-  constructor(private _labService: LabService) { }
+  constructor(private _labService: LabService, private spinner: NgxSpinnerService, ) { }
 
   ngOnInit(): void
   {
@@ -44,28 +45,45 @@ export class LabViewComponent implements OnInit
   // tslint:disable-next-line: variable-name
   getLabAddress(image_tag)
   {
-    this._labService.deployLab(image_tag).subscribe(requestData => this.deployments = requestData);
-    Swal.queue([
-      {
-        title: 'Lab URL',
-        text: 'This will bring you the url of the lab',
-        confirmButtonText: 'Sounds Good',
-        confirmButtonColor: '#8184B2',
-        showLoaderOnConfirm: true,
-        preConfirm: () =>
+    this.spinner.show()
+    this._labService.deployLab(image_tag).subscribe(requestData =>
+    {
+      this.deployments = requestData
+      this.spinner.hide();
+      Swal.queue([
         {
-          return fetch(this.deployments)
-            .then(response => response.json())
-            .then(data => Swal.insertQueueStep(data.item))
-            .catch(() =>
-            {
-              Swal.insertQueueStep({
-                title: 'Unable to get your lab address'
-              });
-            });
+          title: 'Lab URL',
+          text: this.deployments,
+          confirmButtonText: 'Close',
+          confirmButtonColor: '#8184B2',
+          showLoaderOnConfirm: true,
+          preConfirm: () =>
+          {
+          }
         }
-      }
-    ]);
+      ]);
+    });
   }
 
+  stopLabFromRunning(image_tag)
+  {
+    this.spinner.show()
+    this._labService.deleteLab(image_tag).subscribe(requestData =>
+    {
+      this.deployments = requestData
+      this.spinner.hide();
+      Swal.queue([
+        {
+          title: 'Lab URL',
+          text: this.deployments,
+          confirmButtonText: 'Close',
+          confirmButtonColor: '#8184B2',
+          showLoaderOnConfirm: true,
+          preConfirm: () =>
+          {
+          }
+        }
+      ]);
+    })
+  }
 }
