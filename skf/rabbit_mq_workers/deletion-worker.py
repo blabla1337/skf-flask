@@ -74,7 +74,7 @@ def on_request(ch, method, props, body):
                      properties=pika.BasicProperties(correlation_id = \
                      props.correlation_id,
                      expiration='30000'),
-                     body=response)
+                     body=str(response))
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
