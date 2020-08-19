@@ -10,7 +10,8 @@ import { Auth } from '../../../core/models/auth.model';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit
+{
 
   year: number = new Date().getFullYear();
   registerationForm: FormGroup;
@@ -23,13 +24,15 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private _userService: UserService,
     private router: Router
-  ){ }
+  ) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.createRegisterationForm();
   }
 
-  createRegisterationForm() {
+  createRegisterationForm()
+  {
     this.registerationForm = this.fb.group({
       user_id: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
       accessToken: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
@@ -40,16 +43,16 @@ export class RegisterComponent implements OnInit {
     }, { validators: this.passwordMatchingValidatior });
   }
 
-  passwordMatchingValidatior(fg: FormGroup): Validators {
+  passwordMatchingValidatior(fg: FormGroup): Validators
+  {
     return fg.get('password').value === fg.get('repassword').value ? null :
       { notmatched: true };
   }
 
 
-  onSubmit() {
-    console.log(this.registerationForm.value);
+  onSubmit()
+  {
     this.userSubmitted = true;
-
     if (this.registerationForm.valid) {
       this._userService.activateUser(this.userData(), this.user_id.value).subscribe();
       this.onReset();
@@ -60,13 +63,15 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  onReset() {
+  onReset()
+  {
     this.userSubmitted = false;
     this.registerationForm.reset();
   }
 
 
-  userData(): Auth {
+  userData(): Auth
+  {
     return this.user = {
       username: this.username.value,
       accessToken: Number(this.accessToken.value),
@@ -79,22 +84,28 @@ export class RegisterComponent implements OnInit {
   // ------------------------------------
   // Getter methods for all form controls
   // ------------------------------------
-  get username() {
+  get username()
+  {
     return this.registerationForm.get('username') as FormControl;
   }
-  get email() {
+  get email()
+  {
     return this.registerationForm.get('email') as FormControl;
   }
-  get password() {
+  get password()
+  {
     return this.registerationForm.get('password') as FormControl;
   }
-  get repassword() {
+  get repassword()
+  {
     return this.registerationForm.get('repassword') as FormControl;
   }
-  get user_id() {
+  get user_id()
+  {
     return this.registerationForm.get('user_id') as FormControl;
   }
-  get accessToken() {
+  get accessToken()
+  {
     return this.registerationForm.get('accessToken') as FormControl;
   }
   // --------------------
