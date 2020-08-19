@@ -51,10 +51,11 @@ import { UpdateChecklistComponent } from './checklists/updatechecklist/updateche
 import { AddCategoryComponent } from './checklists/addcategory/addcategory.component';
 import { UpdateCategoryComponent } from './checklists/updatecategory/updatecategory.component';
 import { IndexComponent } from './search/index/index.component';
+import { CategoryManageComponent } from './category/manage/manage.component';
 
 @NgModule({
   declarations: [
-    ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent,
+    ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent, CategoryManageComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, AddCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,

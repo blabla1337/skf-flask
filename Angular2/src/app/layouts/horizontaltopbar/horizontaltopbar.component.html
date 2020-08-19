@@ -82,6 +82,8 @@
           <div *ngFor="let item of categoryData.items">
             <a class="dropdown-item" (click)='platformUpdate(item.id)'>{{item.name}}</a>
           </div>
+          <div class="dropdown-divider"></div>
+          <a routerLink="" class="dropdown-item text-center text-primary">Manage</a>
         </div>
       </div>
 
