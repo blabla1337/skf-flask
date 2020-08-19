@@ -48,8 +48,8 @@ import { UserCreateComponent } from './users/create/create.component';
 import { UserUpdateComponent } from './users/update/update.component';
 import { AddChecklistComponent } from './checklists/addchecklist/addchecklist.component';
 import { UpdateChecklistComponent } from './checklists/updatechecklist/updatechecklist.component';
-import { AddCategoryComponent } from './checklists/addcategory/addcategory.component';
-import { UpdateCategoryComponent } from './checklists/updatecategory/updatecategory.component';
+import { CreateCategoryComponent } from './category/create/create.component';
+import { UpdateCategoryComponent } from './category/update/update.component';
 import { IndexComponent } from './search/index/index.component';
 import { CategoryManageComponent } from './category/manage/manage.component';
 
@@ -57,7 +57,7 @@ import { CategoryManageComponent } from './category/manage/manage.component';
   declarations: [
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent, CategoryManageComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent,
-    ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, AddCategoryComponent,
+    ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, CreateCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, IndexComponent
   ],
