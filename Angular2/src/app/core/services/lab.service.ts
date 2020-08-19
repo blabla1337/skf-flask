@@ -5,30 +5,30 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
 export class LabService
 {
 
-    constructor(
-        private http: HttpClient,
-    ) { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-    public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
 
-    getLabs(): Observable<Object>
-    {
-        return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
-    }
+  getLabs(): Observable<Object>
+  {
+    return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
+  }
 
-    deployLab(image_tag: string): Observable<Object>
-    {
-      return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_tag}`, { headers: this.authHeader })
-    }
-  
-    deleteLab(image_tag: string): Observable<Object>
-    {
-      return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_tag}`, { headers: this.authHeader })
-    }
+  deployLab(image_tag: string): Observable<Object>
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_tag}`, { headers: this.authHeader })
+  }
+
+  deleteLab(image_tag: string): Observable<Object>
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_tag}`, { headers: this.authHeader })
+  }
 }

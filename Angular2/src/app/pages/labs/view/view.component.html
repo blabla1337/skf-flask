@@ -10,16 +10,22 @@
               <div class="search-box mr-2 mb-2 d-inline-block">
                 <div class="position-relative">
                   <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
-                    placeholder="Search Lab" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Lab'"/>
+                    placeholder="Search Lab" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Lab'" />
                   <i class="bx bx-search-alt search-icon"></i>
                 </div>
               </div>
             </div>
+
+            <!-- Load Spinner -->
+            <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+              <p class="loading">Loading, Please Wait...</p>
+            </ngx-spinner>
+
             <div class="col-5">
               <div class="float-right">
                 <div class="form-group">
-                  <select class="form-control select2-search-disable" placeholder="Select" 
-                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Select'" [(ngModel)]="queryLabel">
+                  <select class="form-control select2-search-disable" placeholder="Select"
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Select'" [(ngModel)]="queryLabel">
                     <option value="" selected disabled>All labs</option>
                     <option value="SKF-labs">SKF-labs</option>
                     <option value="juice-shop">juice-shop</option>
@@ -96,7 +102,8 @@
                           (click)="getLabAddress(item.image_tag)">Deploy</button>
                       </li>
                       <li class="list-inline-item">
-                        <button type="button" class="btn btn-danger btn-sm">Stop</button>
+                        <button (click)="stopLabFromRunning(item.image_tag)" type="button"
+                          class="btn btn-danger btn-sm">Stop</button>
                       </li>
                     </ul>
                   </td>
@@ -116,7 +123,7 @@
       </div>
     </div>
   </ng-template>
-  
+
   <ng-template #labContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
@@ -124,7 +131,7 @@
       </div>
     </div>
   </ng-template>
-  
+
   <ng-template #levelContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
@@ -132,7 +139,7 @@
       </div>
     </div>
   </ng-template>
-  
+
   <ng-template #writeContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">

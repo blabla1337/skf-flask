@@ -16,7 +16,7 @@ def delete_container(rpc_body):
     delete_deployment(deployment, user_id)
     delete_service(deployment, user_id)
     time.sleep(10)
-    return {'message': 'If present, the container image was deleted from the cluster!"'} 
+    return {'message': 'If present, the container image was deleted from the cluster!'} 
 
 
 def delete_deployment(instance_name, user_id):
@@ -74,7 +74,7 @@ def on_request(ch, method, props, body):
                      properties=pika.BasicProperties(correlation_id = \
                      props.correlation_id,
                      expiration='30000'),
-                     body=response)
+                     body=str(response))
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
