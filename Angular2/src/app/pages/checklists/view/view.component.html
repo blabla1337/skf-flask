@@ -11,7 +11,7 @@
               <div class="card-body">
                   <div class="row mb-5">
                       <div class="col-7">
-                        <div class="search-box mr-2 mb-2 d-inline-block">
+                        <div class="search-box mb-2 d-inline-block">
                           <div class="position-relative">
                             <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
                               placeholder="Search Checklist" />
@@ -20,10 +20,8 @@
                         </div>
                       </div>
                       <div class="col-5">
-                        <div class="text-sm-right">
-                          <a type="button" href="/checklists/manage" class="btn btn-primary btn-rounded text-white mb-2 mr-2">
-                            <i class="mdi mdi-text-box-check mr-1"></i> Add New
-                          </a>
+                        <div class="text-right">
+                          <a type="button" routerLink="/checklists/check-create" class="btn btn-primary btn-rounded text-white mb-2">Add New</a>
                         </div>
                       </div>
                       <!-- end col-->
@@ -32,6 +30,24 @@
                     <div class="row">
                       <div *ngFor="let item of checklistData.items | stringfilter:queryString; let i = index" class="col-xl-12 mb-3 d-flex card border shadow-sm">
                           <div class="card-body pb-0">
+                            <div class="float-right">
+                              <div class="dropdown float-right" ngbDropdown placement="bottom-right">
+                                <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                                  ngbDropdownToggle aria-expanded="false">
+                                  <i class="mdi mdi-dots-vertical font-size-18"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+                                  <li>
+                                    <a class="dropdown-item" type="button" routerLink="/checklists/check-update">
+                                      <i class="fas fa-pencil-alt text-success mr-1"></i>Update</a>
+                                  </li>
+                                  <li>
+                                    <a class="dropdown-item" type="button">
+                                      <i class="fas fa-trash-alt text-danger mr-1"></i>Delete</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
                             <div class="media">
                               <div class="media-body overflow-hidden">
                                 <h5 class="text-truncate font-size-15">

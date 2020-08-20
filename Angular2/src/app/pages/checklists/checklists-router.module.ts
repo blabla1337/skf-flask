@@ -9,6 +9,8 @@ import { AddChecklistComponent } from './addchecklist/addchecklist.component';
 import { UpdateChecklistComponent } from './updatechecklist/updatechecklist.component';
 import { UpdateQuestionarieComponent } from './questionarie/update/update.component';
 import { CreateQuestionarieComponent } from './questionarie/create/create.component';
+import { UpdateCheckComponent } from './items/update/update.component';
+import { CreateCheckComponent } from './items/create/create.component';
 
 const routes: Routes = [
     { path: 'view', component: ViewComponent },
@@ -19,6 +21,8 @@ const routes: Routes = [
     { path: 'update', component: UpdateChecklistComponent },
     { path: 'quest-update', component: UpdateQuestionarieComponent },
     { path: 'quest-create', component: CreateQuestionarieComponent },
+    { path: 'check-create', component: CreateCheckComponent },
+    { path: 'check-update', component: UpdateCheckComponent },
 ];
 
 @NgModule({
