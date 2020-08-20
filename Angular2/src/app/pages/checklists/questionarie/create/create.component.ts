@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateQuestionarieComponent implements OnInit {
 
+  // Bread crumb item
+  breadCrumbItems: Array<{}>;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.breadCrumbItems = [{ label: 'Questionarie' }, { label: 'Create', active: true }];
   }
 
 }
