@@ -11,7 +11,7 @@
           <div class="card-body pt-2">
             <form>
               <div class="row text-center">
-                <div class="col-xl-10">
+                <div class="col-xl-12">
                   <div class="form-group mb-2">
                     <label class="float-left">Questionarie :</label>
                     <select class="form-control select2-search-disable">
@@ -20,7 +20,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-xl-2 mt-4 text-center">
+                <!-- <div class="col-xl-2 mt-4 text-center">
                   <div class="btn-group mx-2 mt-2">
                     <a type="button" (click)="centerModal(addQuestionarieModal)" class="btn btn-sm btn-success text-white">Add</a>
                   </div>
@@ -30,7 +30,7 @@
                   <div class="btn-group mx-2 mt-2">
                     <a href="#" type="button" class="btn btn-sm btn-danger">Delete</a>
                   </div>
-                </div>
+                </div> -->
               </div>
             </form>
           </div>
@@ -176,15 +176,18 @@
     </li>
 
     <li [ngbNavItem]="3">
-      <a ngbNavLink>Categories</a>
+      <a ngbNavLink>Questionarie</a>
       <ng-template ngbNavContent>
         <div class="row mb-3 mt-4">
           <div class="col-lg-12">
-            <div class="text-right">
-              <a type="button" class="btn btn-primary mb-2 mr-2"
-              href="/checklists/add-category">
-                <i class="mdi mdi-check mr-1"></i>Add Category</a>
-            </div>
+            <div class="row mb-3">
+              <div class="col-7">
+                  <p class="card-title">Manage Questionarie</p>
+              </div>
+              <div class="col-5">
+                    <a type="button" (click)="centerModal(addQuestionarieModal)" class="btn btn-primary float-right mb-2">Add Questionarie</a>
+              </div>
+          </div>
             <div class="table-responsive">
               <table class="table table-centered table-nowrap table-hover">
                 <thead class="thead-light">
@@ -193,33 +196,24 @@
                       <div class="text-center">Name</div>
                     </th>
                     <th scope="col">
-                      <div class="text-center">Description</div>
-                    </th>
-                    <th scope="col">
                       <div class="text-center">Action</div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>
-                      <div class="text-center mt-2">
+                    <td style="width: 60%">
+                      <div class="mt-2">
                         <h5>Title</h5>
                       </div>
                     </td>
-                    <td>
-                      <div class="text-center mt-3">
-                        <p>this is some content</p>
-                      </div>
-                    </td>
-                    <td>
+                    <td style="width: 40%">
                       <ul class="list-inline mb-0 text-center">
                         <li class="list-inline-item">
-                          <a type="button" class="btn btn-success btn-sm"
-                          href="/checklists/update-category">Update</a>
+                          <a type="button" (click)="centerModal(updateQuestionarieModal)" class="btn btn-success btn-sm">Update</a>
                         </li>
                         <li class="list-inline-item">
-                          <button type="button" class="btn btn-danger btn-sm ml-2">Delete</button>
+                          <button type="button"  class="btn btn-danger btn-sm ml-2">Delete</button>
                         </li>
                       </ul>
                     </td>
@@ -248,7 +242,7 @@
         <input type="text" class="form-control" id="add" placeholder="Questionarie Title"
         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Questionarie Title'">
       </div>
-      <button type="submit" class="btn btn-danger float-right ml-2">Delete</button>
+      <button type="submit" class="btn btn-danger float-right ml-2">Cancel</button>
       <button type="submit" class="btn btn-success float-right">Create</button>
     </form>
   </div>
@@ -266,7 +260,7 @@
         <input type="text" class="form-control" id="update" placeholder="Questionarie Title"
         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Questionarie Title'">
       </div>
-      <button type="submit" class="btn btn-danger float-right ml-2">Delete</button>
+      <button type="submit" class="btn btn-danger float-right ml-2">Cancel</button>
       <button type="submit" class="btn btn-success float-right">Create</button>
     </form>
   </div>

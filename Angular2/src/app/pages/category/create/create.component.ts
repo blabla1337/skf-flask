@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-addcategory',
-  templateUrl: './addcategory.component.html',
-  styleUrls: ['./addcategory.component.scss']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
-export class AddCategoryComponent implements OnInit {
+export class CreateCategoryComponent implements OnInit {
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
@@ -23,7 +23,7 @@ export class AddCategoryComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.breadCrumbItems = [{ label: 'Checklist' }, { label: 'Category', active: true }];
+    this.breadCrumbItems = [{ label: 'Category' }, { label: 'Create', active: true }];
 
     /**
      * Bootstrap validation form data
