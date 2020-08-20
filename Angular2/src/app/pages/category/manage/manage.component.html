@@ -1,65 +1,89 @@
 <div class="container-fluid">
 
-    <app-page-title title="Labs" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <app-page-title title="Labs" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
-    <div class="card">
-        <div class="card-body">
-            <div class="row mb-3 mt-4">
-                <div class="col-lg-12">
-                  <div class="row mb-3">
-                      <div class="col-7">
-                          <p class="card-title">Manage Category</p>
-                      </div>
-                      <div class="col-5">
-                            <a type="button" routerLink="/category/create" class="btn btn-primary float-right mb-2">Add Category</a>
-                      </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table table-centered table-nowrap table-hover">
-                      <thead class="thead-light">
-                        <tr>
-                          <th scope="col">
-                            <div class="text-center">Name</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">Description</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">Action</div>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div class="text-center mt-2">
-                              <h5>Title</h5>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="text-center mt-3">
-                              <p>this is some content</p>
-                            </div>
-                          </td>
-                          <td>
-                            <ul class="list-inline mb-0 text-center">
-                              <li class="list-inline-item">
-                                <a type="button" class="btn btn-success btn-sm"
-                                 routerLink="/category/update">Update</a>
-                              </li>
-                              <li class="list-inline-item">
-                                <button type="button" class="btn btn-danger btn-sm ml-2">Delete</button>
-                              </li>
-                            </ul>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <!-- end col-->
-              </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-3 mt-4">
+        <div class="col-lg-12">
+          <div class="row mb-3">
+            <div class="col-7">
+              <p class="card-title">Manage Category</p>
+            </div>
+            <div class="col-5">
+              <a type="button" routerLink="/category/create" class="btn btn-primary float-right mb-2">Add Category</a>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-centered table-nowrap table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">
+                    <div class="text-center">Name</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Description</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Action</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of categoryData.items">
+                  <td>
+                    <div class="text-center mt-2 card-title">
+                      <p>{{item.name}}</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="text-center mt-3">
+                      <p>{{item.description}}</p>
+                    </div>
+                  </td>
+                  <td>
+                    <ul class="list-inline mb-0 text-center">
+                      <li class="list-inline-item">
+                        <a type="button" class="btn btn-success btn-sm"
+                          [routerLink]="['/category/update', item.id]">Update</a>
+                      </li>
+                      <li class="list-inline-item">
+                        <button type="button" (click)="categoryModal(deleteCategoryModal)"
+                          class="btn btn-danger btn-sm ml-2">Delete</button>
+                      </li>
+                    </ul>
+                  </td>
+                  <!-- Project Delete Modal -->
+                  <ng-template #deleteCategoryModal let-modal>
+                    <div class="modal-header">
+                      <h5 class="modal-title mt-0">Delete category</h5>
+                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                          <label for="delete">Type <b class="text-danger">DELETE</b> to delete the category</label>
+                          <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
+                            name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Type DELETE'" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Type DELETE'">
+                        </div>
+                        <button (click)="deleteCategory(item.id);modal.dismiss('Close click')" type="submit"
+                          class="btn btn-primary">Delete</button>
+                      </form>
+                    </div>
+                  </ng-template>
+                  <!-- END Project Delete Modal -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+        <!-- end col-->
+      </div>
     </div>
+  </div>
 
 </div>
