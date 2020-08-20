@@ -1,39 +1,42 @@
 <div class="container-fluid">
-    <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <app-page-title name="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Update Category</h4>
+                    <h4 class="card-name mb-4">Update Category</h4>
                     <form (ngSubmit)="validSubmit()" [formGroup]="validationform">
                         <div class="form-group row mb-4">
-                            <label for="title" class="col-md-2 col-form-label">Category Title</label>
+                            <label for="name" class="col-md-2 col-form-label">Category name</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="title"
-                                formControlName="title" placeholder="Category Title"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Category Title'"
-                                   [ngClass]="{'is-invalid': submit && form.title.errors}">
-                                <div *ngIf="submit && form.title.errors" class="invalid-feedback">
-                                <span *ngIf="form.title.errors.required">Required!</span>
-                                <span *ngIf="form.title.errors.pattern">This value should be a text.</span>
+                                <input type="text" class="form-control" id="name" formControlName="name"
+                                    placeholder="Category name" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Category name'"
+                                    [ngClass]="{'is-invalid': submit && form.name.errors}">
+                                <div *ngIf="submit && form.name.errors" class="invalid-feedback">
+                                    <span *ngIf="form.name.errors.required">Required!</span>
+                                    <span *ngIf="form.name.errors.pattern">This value should be a text.</span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="description" class="col-md-2 col-form-label">Description</label>
                             <div class="col-md-10">
-                                <textarea formControlName="content" class="form-control" id="content" rows="20"
-                                placeholder="Update Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Update Description'"
-                                [ngClass]="{'is-invalid': submit && form.content.errors}"></textarea>
-                                <div *ngIf="submit && form.content.errors" class="invalid-feedback">
-                                    <span *ngIf="form.content.errors.required">Required!</span>
-                                    <span *ngIf="form.content.errors.pattern">This value should be a text.</span>
-                                    </div>
+                                <textarea formControlName="description" class="form-control" id="description" rows="20"
+                                    placeholder="Update Description" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Update Description'"
+                                    [ngClass]="{'is-invalid': submit && form.description.errors}"></textarea>
+                                <div *ngIf="submit && form.description.errors" class="invalid-feedback">
+                                    <span *ngIf="form.description.errors.required">Required!</span>
+                                    <span *ngIf="form.description.errors.pattern">This value should be a text.</span>
+                                </div>
                             </div>
                         </div>
 
-                        <button [routerLink]="['/category/manage']" class="btn btn-danger float-right ml-3" type="submit">Cancel</button>
-                        <button class="btn btn-success mr-2 float-right" type="submit">Update</button>
+                        <button [routerLink]="['/category/manage']" class="btn btn-danger float-right ml-3"
+                            type="submit">Cancel</button>
+                        <button (click)="updateCategory()" class="btn btn-success mr-2 float-right"
+                            type="submit">Update</button>
                     </form>
                 </div>
             </div>

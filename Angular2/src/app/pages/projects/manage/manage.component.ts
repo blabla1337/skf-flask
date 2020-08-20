@@ -45,10 +45,6 @@ export class ProjectManageComponent implements OnInit
     }
   }
 
-  /**
-   * Open modal
-   * @param content modal content
-   */
   projectModal(content: any)
   {
     this.modalService.open(content, { size: 'lg', centered: true });

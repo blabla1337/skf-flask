@@ -6,9 +6,9 @@ import { UpdateCategoryComponent } from './update/update.component';
 import { CreateCategoryComponent } from './create/create.component';
 
 const routes: Routes = [
-    {path: 'manage', component: CategoryManageComponent},
-    {path: 'create', component: CreateCategoryComponent},
-    {path: 'update', component: UpdateCategoryComponent},
+    { path: 'manage', component: CategoryManageComponent },
+    { path: 'create', component: CreateCategoryComponent },
+    { path: 'update/:id', component: UpdateCategoryComponent },
 ];
 
 @NgModule({
