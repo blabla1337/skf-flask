@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-updatecategory',
-  templateUrl: './updatecategory.component.html',
-  styleUrls: ['./updatecategory.component.scss']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.scss']
 })
 export class UpdateCategoryComponent implements OnInit {
 
@@ -23,7 +23,7 @@ export class UpdateCategoryComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.breadCrumbItems = [{ label: 'Checklist' }, { label: 'Category', active: true }];
+    this.breadCrumbItems = [{ label: 'Category' }, { label: 'Update', active: true }];
 
     /**
      * Bootstrap validation form data
@@ -48,5 +48,6 @@ export class UpdateCategoryComponent implements OnInit {
   validSubmit() {
     this.submit = true;
   }
+
 
 }

@@ -82,6 +82,8 @@
           <div *ngFor="let item of categoryData.items">
             <a class="dropdown-item" (click)='platformUpdate(item.id)'>{{item.name}}</a>
           </div>
+          <div class="dropdown-divider"></div>
+          <a routerLink="/category/manage" class="dropdown-item text-center text-primary">Manage</a>
         </div>
       </div>
 
@@ -125,18 +127,54 @@
       <div class="collapse navbar-collapse active justify-content-center" id="topnav-menu-content">
         <ul class="navbar-nav">
           <!-- Menu data -->
-          <ng-container *ngFor="let item of menuItems">
+          <ng-container>
             <li class="nav-item dropdown">
-              <a class="nav-link" [routerLink]="[item.link]" id="topnav-components" routerLinkActive="active"
-                role="button">
-                <i [class]="item.icon"></i>{{ item.label }}
+              <a joyrideStep="stepDash" title="item" [stepContent]="dashContent" class="nav-link" 
+                 routerLink="/dashboard" id="topnav-components" routerLinkActive="active" role="button">
+                 Dashboard
               </a>
-              <div class="dropdown-menu row" aria-labelledby="topnav-dashboard" *ngIf="hasItems(item)">
+              <!-- <div class="dropdown-menu row" aria-labelledby="topnav-dashboard" *ngIf="hasItems(item)">
                 <ng-template ngFor let-i="index" let-subitem [ngForOf]="item.subItems">
                   <a class="col dropdown-item side-nav-link-ref" *ngIf="!hasItems(subitem)" [routerLink]="subitem.link"
                     routerLinkActive="active">{{subitem.label}}</a>
                 </ng-template>
-              </div>
+              </div> -->
+            </li>
+            <li class="nav-item dropdown">
+              <a joyrideStep="stepPro" title="item" [stepContent]="projectContent" class="nav-link"
+                 routerLink="/projects/manage" id="topnav-components" routerLinkActive="active" role="button">
+                 Manage Projects
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a joyrideStep="stepCode" title="item" [stepContent]="codeContent" class="nav-link"
+                 routerLink="/code-example/view" id="topnav-components" routerLinkActive="active" role="button">
+                 Code Examples
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a joyrideStep="stepCheck" title="item" [stepContent]="checkContent" class="nav-link"
+                 routerLink="/checklists/view" id="topnav-components" routerLinkActive="active" role="button">
+                 Checklists
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a joyrideStep="stepKnow" title="item" [stepContent]="knowledgebaseContent" class="nav-link"
+                 routerLink="/knowledgebase/view" id="topnav-components" routerLinkActive="active" role="button">
+                 Knowledgebase
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a joyrideStep="stepUser" title="item" [stepContent]="userContent" class="nav-link"
+                 routerLink="/users/manage" id="topnav-components" routerLinkActive="active" role="button">
+                 Users
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a joyrideStep="stepLabs" title="item" [stepContent]="labContent" class="nav-link"
+                 routerLink="/labs/view" id="topnav-components" routerLinkActive="active" role="button">
+                 Labs
+              </a>
             </li>
           </ng-container>
         </ul>
@@ -144,3 +182,59 @@
     </nav>
   </div>
 </div>
+
+<ng-template #dashContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>This is some content hnxdijcnadiujcndsjkvn sdkjvisbvbdsujnj</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #projectContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>This is some content hnxdijcnadiujcndsjkvn sdkjvisbvbdsujnj</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #checkContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>This is some content hnxdijcnadiujcndsjkvn sdkjvisbvbdsujnj</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #knowledgebaseContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>This is some content</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #codeContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>This is some content</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #labContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>This is some content</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>This is some content</p>
+    </div>
+  </div>
+</ng-template>

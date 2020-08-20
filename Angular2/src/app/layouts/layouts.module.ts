@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { JoyrideModule } from 'ngx-joyride';
 
 import { LayoutComponent } from './layout.component';
 import { HorizontalComponent } from './horizontal/horizontal.component';
@@ -19,6 +20,7 @@ import { LoaderComponent } from './loader/loader.component';
     RouterModule,
     NgbDropdownModule,
     NgxSpinnerModule,
+    JoyrideModule.forRoot(),
   ],
 })
 export class LayoutsModule { }
