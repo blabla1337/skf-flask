@@ -54,6 +54,8 @@ import { IndexComponent } from './search/index/index.component';
 import { CategoryManageComponent } from './category/manage/manage.component';
 import { UpdateQuestionarieComponent } from './checklists/questionarie/update/update.component';
 import { CreateQuestionarieComponent } from './checklists/questionarie/create/create.component';
+import { UpdateCheckComponent } from './checklists/items/update/update.component';
+import { CreateCheckComponent } from './checklists/items/create/create.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,7 @@ import { CreateQuestionarieComponent } from './checklists/questionarie/create/cr
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, CreateCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, IndexComponent,
-    CreateQuestionarieComponent
+    CreateQuestionarieComponent, UpdateCheckComponent, CreateCheckComponent
   ],
   imports: [
     CommonModule,
