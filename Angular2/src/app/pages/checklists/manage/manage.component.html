@@ -185,7 +185,7 @@
                   <p class="card-title">Manage Questionarie</p>
               </div>
               <div class="col-5">
-                    <a type="button" (click)="centerModal(addQuestionarieModal)" class="btn btn-primary float-right mb-2">Add Questionarie</a>
+                    <a type="button" routerLink="/checklists/quest-create" class="btn btn-primary float-right mb-2">Add Questionarie</a>
               </div>
           </div>
             <div class="table-responsive">
@@ -210,7 +210,7 @@
                     <td style="width: 40%">
                       <ul class="list-inline mb-0 text-center">
                         <li class="list-inline-item">
-                          <a type="button" (click)="centerModal(updateQuestionarieModal)" class="btn btn-success btn-sm">Update</a>
+                          <a type="button" routerLink="/checklists/quest-update" class="btn btn-success btn-sm">Update</a>
                         </li>
                         <li class="list-inline-item">
                           <button type="button"  class="btn btn-danger btn-sm ml-2">Delete</button>
@@ -229,40 +229,3 @@
   </ul>
   <div [ngbNavOutlet]="nav" class="questionarie"></div>
 </div>
-
-<ng-template #addQuestionarieModal let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Add Questionarie</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="add">Questionarie Title</label>
-        <input type="text" class="form-control" id="add" placeholder="Questionarie Title"
-        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Questionarie Title'">
-      </div>
-      <button type="submit" class="btn btn-danger float-right ml-2">Cancel</button>
-      <button type="submit" class="btn btn-success float-right">Create</button>
-    </form>
-  </div>
-</ng-template>
-
-<ng-template #updateQuestionarieModal let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Update Questionarie</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="update">Questionarie Title</label>
-        <input type="text" class="form-control" id="update" placeholder="Questionarie Title"
-        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Questionarie Title'">
-      </div>
-      <button type="submit" class="btn btn-danger float-right ml-2">Cancel</button>
-      <button type="submit" class="btn btn-success float-right">Create</button>
-    </form>
-  </div>
-</ng-template>
-
