@@ -16,13 +16,37 @@ export class ChecklistService
 
   public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
 
-  getChecklistsCollection(col_id: number)
+  /**
+ * types
+ **/
+
+  getChecklistsCollection(category_id: number)
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/checklist/types/${col_id}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/checklist/types/${category_id}`, { headers: this.authHeader })
   }
 
-  getChecklistsControls(con_id: number)
+  createChecklistType(value: any, category_id: number)
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/checklist/items/${con_id}`, { headers: this.authHeader })
+    return this.http.put(environment.API_ENDPOINT + `/api/checklist/create/type/${category_id}`, value, { headers: this.authHeader })
+  }
+
+  updateChecklistType(value: any, checklist_type_id: number)
+  {
+    return this.http.put(environment.API_ENDPOINT + `/api/checklist/update/type/${checklist_type_id}`, value, { headers: this.authHeader })
+  }
+
+  deleteChecklistType(checklist_type_id: number)
+  {
+    return this.http.delete(environment.API_ENDPOINT + `/api/checklist/delete/type/${checklist_type_id}`, { headers: this.authHeader })
+  }
+
+
+  /**
+   * items
+   **/
+
+  getChecklistsControls(checklist_type_id: number)
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/checklist/items/${checklist_type_id}`, { headers: this.authHeader })
   }
 }

@@ -5,15 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateQuestionarieComponent implements OnInit {
+export class UpdateQuestionnaireComponent implements OnInit
+{
 
   // Bread crumb item
   breadCrumbItems: Array<{}>;
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Questionarie' }, { label: 'Update', active: true }];
+  ngOnInit(): void
+  {
+    this.breadCrumbItems = [{ label: 'Questionnaire' }, { label: 'Update', active: true }];
   }
 
 }
