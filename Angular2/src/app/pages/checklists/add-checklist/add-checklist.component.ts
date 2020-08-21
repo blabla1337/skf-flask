@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-updatechecklist',
-  templateUrl: './updatechecklist.component.html',
-  styleUrls: ['./updatechecklist.component.scss']
+  selector: 'app-add-checklist',
+  templateUrl: './add-checklist.component.html',
+  styleUrls: ['./add-checklist.component.scss']
 })
-export class UpdateChecklistComponent implements OnInit {
+export class AddChecklistComponent implements OnInit
+{
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
@@ -20,12 +21,13 @@ export class UpdateChecklistComponent implements OnInit {
 
   kbitem: string[];
 
-  constructor( private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Users' }, { label: 'Update', active: true }];
+  ngOnInit(): void
+  {
+    this.breadCrumbItems = [{ label: 'Users' }, { label: 'Create', active: true }];
 
-    this.kbitem = ['Select here', 'knowledgebase-1', 'knowledgebase-2', 'knowledgebase-3', 'knowledgebase-4', 'knowledgebase-5', 'knowledgebase-6'];
+    this.kbitem = ['knowledgebase-1', 'knowledgebase-2', 'knowledgebase-3', 'knowledgebase-4', 'knowledgebase-5', 'knowledgebase-6'];
 
     /**
      * Bootstrap validation form data
@@ -42,14 +44,16 @@ export class UpdateChecklistComponent implements OnInit {
   /**
    * Returns form
    */
-  get form() {
+  get form()
+  {
     return this.validationform.controls;
   }
 
   /**
    * Validation form submit method
    */
-  validSubmit() {
+  validSubmit()
+  {
     this.submit = true;
   }
 

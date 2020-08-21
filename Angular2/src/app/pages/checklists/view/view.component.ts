@@ -15,10 +15,11 @@ export class ViewComponent implements OnInit
   breadCrumbItems: Array<{}>;
   public queryString;
   public checklistData: any;
+  public delete: string;
 
   constructor(
     private modalService: NgbModal,
-    private _checklistCategoryService: ChecklistService
+    private _checklistService: ChecklistService
   ) { }
 
   ngOnInit()
@@ -32,9 +33,21 @@ export class ViewComponent implements OnInit
    */
   private _fetchData()
   {
-    this._checklistCategoryService
+    this._checklistService
       .getChecklistsCollection(Number(localStorage.getItem('categorySelector')))
       .subscribe(checklist => this.checklistData = checklist);
+  }
+
+  deleteChecklistType(id: number)
+  {
+    if (this.delete == 'DELETE') {
+      this._checklistService.deleteChecklistType(id).subscribe(x => this._fetchData())
+    }
+  }
+
+  showModal(content: any)
+  {
+    this.modalService.open(content, { size: 'lg', centered: true });
   }
 
 }

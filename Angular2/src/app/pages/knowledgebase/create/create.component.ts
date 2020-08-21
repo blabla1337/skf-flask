@@ -42,21 +42,22 @@ export class CreateComponent implements OnInit
     if (this.knowledgebaseForm.invalid) {
       return;
     }
-    this._knowledgebaseService.createKnowledgebaseItem(this.knowledgebaseForm.value).subscribe()
-    this.router.navigate(['/knowledgebase/view'])
+    this._knowledgebaseService.createKnowledgebaseItem(this.knowledgebaseForm.value).subscribe(() => this.router.navigate(['/knowledgebase/view']))
   }
 
   /**
    * Returns form
    */
-  get form() {
+  get form()
+  {
     return this.knowledgebaseForm.controls;
   }
 
   /**
    * Validation form submit method
    */
-  validSubmit() {
+  validSubmit()
+  {
     this.submit = true;
   }
 }

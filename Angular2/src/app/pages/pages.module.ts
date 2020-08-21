@@ -46,25 +46,25 @@ import { WizardComponent } from './projects/wizard/wizard.component';
 import { ChecklistCreateComponent } from './checklists/create/create.component';
 import { UserCreateComponent } from './users/create/create.component';
 import { UserUpdateComponent } from './users/update/update.component';
-import { AddChecklistComponent } from './checklists/addchecklist/addchecklist.component';
-import { UpdateChecklistComponent } from './checklists/updatechecklist/updatechecklist.component';
+import { AddChecklistComponent } from './checklists/add-checklist/add-checklist.component';
+import { UpdateChecklistComponent } from './checklists/update-checklist/update-checklist.component';
 import { CreateCategoryComponent } from './category/create/create.component';
 import { UpdateCategoryComponent } from './category/update/update.component';
 import { IndexComponent } from './search/index/index.component';
 import { CategoryManageComponent } from './category/manage/manage.component';
-import { UpdateQuestionarieComponent } from './checklists/questionarie/update/update.component';
-import { CreateQuestionarieComponent } from './checklists/questionarie/create/create.component';
-import { UpdateCheckComponent } from './checklists/items/update/update.component';
-import { CreateCheckComponent } from './checklists/items/create/create.component';
+import { UpdateQuestionnaireComponent } from './checklists/questionnaire/update/update.component';
+import { CreateQuestionnaireComponent } from './checklists/questionnaire/create/create.component';
+import { UpdateChecklistTypeComponent } from './checklists/checklist-type/update/update.component';
+import { CreateChecklistTypeComponent } from './checklists/checklist-type/create/create.component';
 
 @NgModule({
   declarations: [
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent, CategoryManageComponent,
-    ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent, UpdateQuestionarieComponent,
+    ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent, UpdateQuestionnaireComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, CreateCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, IndexComponent,
-    CreateQuestionarieComponent, UpdateCheckComponent, CreateCheckComponent
+    CreateQuestionnaireComponent, UpdateChecklistTypeComponent, CreateChecklistTypeComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateChecklistComponent } from './updatechecklist.component';
+import { UpdateChecklistComponent } from './update-checklist.component';
 
 describe('UpdateChecklistComponent', () => {
   let component: UpdateChecklistComponent;
