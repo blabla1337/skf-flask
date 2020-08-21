@@ -7,9 +7,9 @@ from skf.api.kb.parsers import authorization
 from skf.api.restplus import api
 from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_num_special
 
-ns = api.namespace('checklist', description='Operations related to checklist items')
+ns = api.namespace('checklist_types', description='Operations related to checklist types')
 
-@ns.route('/delete/type/<int:id>')
+@ns.route('/delete/<int:id>')
 @api.doc(params={'id': 'The checklist type id'})
 @api.response(404, 'Validation error', message)
 class ChecklistDelete(Resource):
