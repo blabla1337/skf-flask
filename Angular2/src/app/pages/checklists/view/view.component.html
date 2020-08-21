@@ -40,7 +40,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
                       <li>
-                        <a class="dropdown-item" type="button" routerLink="/checklists/checklist-type-update">
+                        <a class="dropdown-item" type="button"
+                          [routerLink]="['/checklists/checklist-type-update', item.id]">
                           <i class="fas fa-pencil-alt text-success mr-1"></i>Update</a>
                       </li>
                       <li>
@@ -88,7 +89,7 @@
                         onblur="this.placeholder = 'Type DELETE'" onfocus="this.placeholder = ''"
                         onblur="this.placeholder = 'Type DELETE'">
                     </div>
-                    <button (click)="deleteChecklistType(item.id);modal.dismiss('Close click')" type="button"
+                    <button (click)="deleteChecklistType(item.id);modal.dismiss('Close click')" type="submit"
                       class="btn btn-primary">Delete</button>
                   </form>
                 </div>

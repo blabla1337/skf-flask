@@ -25,6 +25,11 @@ export class ChecklistService
     return this.http.get(environment.API_ENDPOINT + `/api/checklist_types/types/${category_id}`, { headers: this.authHeader })
   }
 
+  getChecklistById(checklist_type_id: number)
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/checklist_types/type/${checklist_type_id}`, { headers: this.authHeader })
+  }
+
   createChecklistType(value: any, category_id: number)
   {
     return this.http.put(environment.API_ENDPOINT + `/api/checklist_types/create/${category_id}`, value, { headers: this.authHeader })
