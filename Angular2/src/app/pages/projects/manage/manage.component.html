@@ -8,15 +8,17 @@
           <div class="search-box mb-2 d-inline-block">
             <div class="position-relative">
               <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
-                placeholder="Search Projects" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Projects'"/>
+                placeholder="Search Projects" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Search Projects'" />
               <i class="bx bx-search-alt search-icon"></i>
             </div>
           </div>
         </div>
         <div class="col-5">
           <div class="float-right">
-            <button type="button" [routerLink]="['/projects/create']" class="btn btn-primary mb-2" joyrideStep="secondStep" 
-            title="New project" stepPosition="bottom" [stepContent]="createProject">New Project</button>
+            <button type="button" [routerLink]="['/projects/create']" class="btn btn-primary mb-2"
+              joyrideStep="secondStep" title="New project" stepPosition="bottom" [stepContent]="createProject">New
+              Project</button>
           </div>
         </div>
         <!-- end col-->
@@ -30,11 +32,13 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="text-center" style="width: 100px">#</th>
-                    <th scope="col" class="text-center" joyrideStep="thirdStep" title="Start expert system for project" [stepContent]="startProject">Projects</th>
+                    <th scope="col" class="text-center" joyrideStep="thirdStep" title="Start expert system for project"
+                      [stepContent]="startProject">Projects</th>
                     <th scope="col" class="text-center">Description</th>
                     <th scope="col" class="text-center">Created Date</th>
                     <th scope="col" class="text-center">Project Version</th>
-                    <th scope="col" class="text-center" joyrideStep="lastStep" title="Start expert system for project" [stepContent]="updateProject">Action</th>
+                    <th scope="col" class="text-center" joyrideStep="lastStep" title="Start expert system for project"
+                      [stepContent]="updateProject">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -79,10 +83,12 @@
                           <div class="form-group">
                             <label for="delete">Type <b class="text-danger">DELETE</b> to delete the project</label>
                             <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
-                              name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type DELETE'"
-                              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type DELETE'">
+                              name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+                              onblur="this.placeholder = 'Type DELETE'" onfocus="this.placeholder = ''"
+                              onblur="this.placeholder = 'Type DELETE'">
                           </div>
-                          <button (click)="deleteProject(item.id);modal.dismiss('Close click')" type="submit" class="btn btn-primary">Delete</button>
+                          <button (click)="deleteProject(item.id);modal.dismiss('Close click')" type="submit"
+                            class="btn btn-primary">Delete</button>
                         </form>
                       </div>
                     </ng-template>
@@ -116,7 +122,7 @@
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
       <p>SKF has by default a set of projects already created for you, these we call the Design pattern projects.
-         Also the new projects you will create will be listed over here.</p>
+        Also the new projects you will create will be listed over here.</p>
     </div>
   </div>
 </ng-template>
@@ -124,7 +130,8 @@
 <ng-template #createProject>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>Here you can create your own project and start the expert system wizard of SKF to gather the requirements needed for your project.</p>
+      <p>Here you can create your own project and start the expert system wizard of SKF to gather the requirements
+        needed for your project.</p>
     </div>
   </div>
 </ng-template>

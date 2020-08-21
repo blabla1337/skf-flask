@@ -5,12 +5,12 @@ import { ViewComponent } from './view/view.component';
 import { ChecklistsReadComponent } from './read/read.component';
 import { CheckManageComponent } from './manage/manage.component';
 import { ChecklistCreateComponent } from './create/create.component';
-import { AddChecklistComponent } from './addchecklist/addchecklist.component';
-import { UpdateChecklistComponent } from './updatechecklist/updatechecklist.component';
-import { UpdateQuestionarieComponent } from './questionarie/update/update.component';
-import { CreateQuestionarieComponent } from './questionarie/create/create.component';
-import { UpdateCheckComponent } from './items/update/update.component';
-import { CreateCheckComponent } from './items/create/create.component';
+import { AddChecklistComponent } from './add-checklist/add-checklist.component';
+import { UpdateChecklistComponent } from './update-checklist/update-checklist.component';
+import { UpdateQuestionnaireComponent } from './questionnaire/update/update.component';
+import { CreateQuestionnaireComponent } from './questionnaire/create/create.component';
+import { UpdateChecklistTypeComponent } from './checklist-type/update/update.component';
+import { CreateChecklistTypeComponent } from './checklist-type/create/create.component';
 
 const routes: Routes = [
     { path: 'view', component: ViewComponent },
@@ -19,10 +19,10 @@ const routes: Routes = [
     { path: 'create', component: ChecklistCreateComponent },
     { path: 'add', component: AddChecklistComponent },
     { path: 'update', component: UpdateChecklistComponent },
-    { path: 'quest-update', component: UpdateQuestionarieComponent },
-    { path: 'quest-create', component: CreateQuestionarieComponent },
-    { path: 'check-create', component: CreateCheckComponent },
-    { path: 'check-update', component: UpdateCheckComponent },
+    { path: 'question-update', component: UpdateQuestionnaireComponent },
+    { path: 'question-create', component: CreateQuestionnaireComponent },
+    { path: 'checklist-type-create', component: CreateChecklistTypeComponent },
+    { path: 'checklist-type-update', component: UpdateChecklistTypeComponent },
 ];
 
 @NgModule({

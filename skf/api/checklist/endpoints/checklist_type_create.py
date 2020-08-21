@@ -25,5 +25,6 @@ class ChecklistCreate(Resource):
         val_num(category_id)
         val_alpha_num_special(data.get('name'))
         val_alpha_num_special(data.get('description'))
+        val_alpha_num_special(data.get('visibility'))
         result = create_checklist_type(data, category_id)
         return result, 200, security_headers()
