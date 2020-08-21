@@ -59,6 +59,7 @@ checklist_items_questions = api.inherit('List of checklist items', {
 checklist_type = api.model('checklist_type_create', {
     'name': fields.String(required=True, description='Name of the new checklist'),
     'description': fields.String(required=True, description='Description of the checklist type'),
+    'visibility': fields.String(required=True, description='visibility of the checklist type'),
 })
 
 checklist_types = api.model('checklist_types', {

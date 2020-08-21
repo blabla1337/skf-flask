@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-addchecklist',
-  templateUrl: './addchecklist.component.html',
-  styleUrls: ['./addchecklist.component.scss']
+  selector: 'app-updatechecklist',
+  templateUrl: './update-checklist.component.html',
+  styleUrls: ['./update-checklist.component.scss']
 })
-export class AddChecklistComponent implements OnInit {
+export class UpdateChecklistComponent implements OnInit {
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
@@ -23,9 +23,9 @@ export class AddChecklistComponent implements OnInit {
   constructor( private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Users' }, { label: 'Create', active: true }];
+    this.breadCrumbItems = [{ label: 'Users' }, { label: 'Update', active: true }];
 
-    this.kbitem = ['knowledgebase-1', 'knowledgebase-2', 'knowledgebase-3', 'knowledgebase-4', 'knowledgebase-5', 'knowledgebase-6'];
+    this.kbitem = ['Select here', 'knowledgebase-1', 'knowledgebase-2', 'knowledgebase-3', 'knowledgebase-4', 'knowledgebase-5', 'knowledgebase-6'];
 
     /**
      * Bootstrap validation form data

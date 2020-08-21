@@ -5,15 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
-export class CreateQuestionarieComponent implements OnInit {
+export class CreateQuestionnaireComponent implements OnInit
+{
 
   // Bread crumb item
   breadCrumbItems: Array<{}>;
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Questionarie' }, { label: 'Create', active: true }];
+  ngOnInit(): void
+  {
+    this.breadCrumbItems = [{ label: 'Questionnaire' }, { label: 'Create', active: true }];
   }
 
 }

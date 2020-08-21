@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.scss']
 })
-export class CreateCheckComponent implements OnInit {
-
+export class UpdateChecklistTypeComponent implements OnInit
+{
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
@@ -19,9 +19,10 @@ export class CreateCheckComponent implements OnInit {
   public formsubmit: boolean;
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+    private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Item', active: true }];
 
     this.checklistForm = this.formBuilder.group({
@@ -31,7 +32,7 @@ export class CreateCheckComponent implements OnInit {
     this.submit = false;
   }
 
-  createChecklistItem()
+  updateChecklistItem()
   {
     this.submit = true;
     if (this.checklistForm.invalid) {
@@ -42,14 +43,16 @@ export class CreateCheckComponent implements OnInit {
   /**
    * Returns form
    */
-  get form() {
+  get form()
+  {
     return this.checklistForm.controls;
   }
 
   /**
    * Validation form submit method
    */
-  validSubmit() {
+  validSubmit()
+  {
     this.submit = true;
   }
 
