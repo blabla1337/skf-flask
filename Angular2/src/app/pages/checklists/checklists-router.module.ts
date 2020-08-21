@@ -18,11 +18,11 @@ const routes: Routes = [
     { path: 'manage', component: CheckManageComponent },
     { path: 'create', component: ChecklistCreateComponent },
     { path: 'add', component: AddChecklistComponent },
-    { path: 'update', component: UpdateChecklistComponent },
-    { path: 'question-update', component: UpdateQuestionnaireComponent },
+    { path: 'update/:id', component: UpdateChecklistComponent },
+    { path: 'question-update/:id', component: UpdateQuestionnaireComponent },
     { path: 'question-create', component: CreateQuestionnaireComponent },
     { path: 'checklist-type-create', component: CreateChecklistTypeComponent },
-    { path: 'checklist-type-update', component: UpdateChecklistTypeComponent },
+    { path: 'checklist-type-update/:id', component: UpdateChecklistTypeComponent },
 ];
 
 @NgModule({

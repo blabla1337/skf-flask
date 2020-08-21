@@ -1,42 +1,44 @@
 <div class="container-fluid">
-    <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <app-page-title name="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Update Checklist Item</h4>
+                    <h4 class="card-name mb-4">Update Checklist Item</h4>
                     <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="checklistForm">
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title"
-                                formControlName="title" placeholder="Checklist Title" onfocus="this.placeholder =''" onblur="this.placeholder = 'Checklist Title'"
-                                [ngClass]="{'is-invalid': submit && form.title.errors}">
-                            <div *ngIf="submit && form.title.errors" class="invalid-feedback">
-                                <span *ngIf="form.title.errors.required">Required!</span>
+                            <label for="name">name</label>
+                            <input type="text" class="form-control" id="name" formControlName="name"
+                                placeholder="Checklist name" onfocus="this.placeholder =''"
+                                onblur="this.placeholder = 'Checklist name'"
+                                [ngClass]="{'is-invalid': submit && form.name.errors}">
+                            <div *ngIf="submit && form.name.errors" class="invalid-feedback">
+                                <span *ngIf="form.name.errors.required">Required!</span>
                             </div>
-                        </div>     
+                        </div>
                         <div class="form-group">
-                            <label for="content">Description</label>
-                            <textarea type="text" class="form-control" id="content"
-                                formControlName="content" placeholder="Checklist Description"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Checklist Description'"
-                                [ngClass]="{'is-invalid': submit && form.content.errors}" rows="10"></textarea>
-                            <div *ngIf="submit && form.content.errors" class="invalid-feedback">
-                                <span *ngIf="form.content.errors.required">Required!</span>
+                            <label for="description">Description</label>
+                            <textarea type="text" class="form-control" id="description" formControlName="description"
+                                placeholder="Checklist Description" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Checklist Description'"
+                                [ngClass]="{'is-invalid': submit && form.description.errors}" rows="10"></textarea>
+                            <div *ngIf="submit && form.description.errors" class="invalid-feedback">
+                                <span *ngIf="form.description.errors.required">Required!</span>
                             </div>
-                        </div> 
+                        </div>
                         <div class="form-group mb-4">
                             <label for="status-input">Status</label>
-                            <select class="custom-select" id="status-input">
-                                <option value="">--Select--</option>
-                                <option value="1">Activate</option>
-                                <option value="2">Deactivate</option>
+                            <select formControlName="visibility" class="custom-select" id="status-input">
+                                <option value=1>Active</option>
+                                <option value=0>Not-active</option>
                             </select>
-                        </div>  
+                        </div>
                         <div class="text-right">
-                            <button (click)="updateChecklistItem()" class="btn btn-success mr-2" type="button">Update</button>
-                            <button [routerLink]="['/Checklists/view']" class="btn btn-danger" type="button">Cancel</button>
+                            <button (click)="updateChecklistItem()" class="btn btn-success mr-2"
+                                type="button">Update</button>
+                            <button [routerLink]="['/checklists/view']" class="btn btn-danger"
+                                type="button">Cancel</button>
                         </div>
                     </form>
                 </div>

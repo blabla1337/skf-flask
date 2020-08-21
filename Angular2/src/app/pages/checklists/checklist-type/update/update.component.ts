@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { ChecklistService } from '../../../../core/services/checklists.service'
 
 @Component({
   selector: 'app-update',
@@ -10,25 +12,38 @@ import { Router } from '@angular/router';
 export class UpdateChecklistTypeComponent implements OnInit
 {
 
-  // bread crumb items
-  breadCrumbItems: Array<{}>;
+  public breadCrumbItems: Array<{}>;
   public checklistForm: FormGroup;
-
-  // Form Submission
+  public id: number;
+  public sub: any;
   public submit: boolean;
   public formsubmit: boolean;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private _checklistService: ChecklistService,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void
   {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Item', active: true }];
 
-    this.checklistForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
-      content: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+    this.sub = this.route.params.subscribe(params =>
+    {
+      this.id = +params['id'];
     });
+
+    this.checklistForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      visibility: ['', Validators.required],
+    });
+
+    this._checklistService
+      .getChecklistById(this.id)
+      .subscribe(item => this.checklistForm.patchValue(item))
+
     this.submit = false;
   }
 
@@ -38,6 +53,14 @@ export class UpdateChecklistTypeComponent implements OnInit
     if (this.checklistForm.invalid) {
       return;
     }
+
+    if (this.checklistForm.value['visibility'] == "1") {
+      this.checklistForm.value['visibility'] = 1
+    } else {
+      this.checklistForm.value['visibility'] = 0
+    }
+
+    this._checklistService.updateChecklistType(this.checklistForm.value, this.id).subscribe(() => this.router.navigate(["/checklists/view"]))
   }
 
   /**

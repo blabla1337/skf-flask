@@ -11,13 +11,8 @@ import { ChecklistService } from '../../../../core/services/checklists.service';
 })
 export class CreateChecklistTypeComponent implements OnInit
 {
-
-
-  // bread crumb items
   breadCrumbItems: Array<{}>;
   public checklistForm: FormGroup;
-
-  // Form Submission
   public submit: boolean;
   public formsubmit: boolean;
 
@@ -35,6 +30,7 @@ export class CreateChecklistTypeComponent implements OnInit
       description: ['', Validators.required],
       visibility: [, Validators.required],
     });
+
     this.submit = false;
   }
 
@@ -56,17 +52,11 @@ export class CreateChecklistTypeComponent implements OnInit
     )
   }
 
-  /**
-   * Returns form
-   */
   get form()
   {
     return this.checklistForm.controls;
   }
 
-  /**
-   * Validation form submit method
-   */
   validSubmit()
   {
     this.submit = true;
