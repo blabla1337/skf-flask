@@ -26,9 +26,11 @@ export class UpdateChecklistTypeComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Item', active: true }];
 
     this.checklistForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
-      content: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      visibility: [, Validators.required],
     });
+
     this.submit = false;
   }
 

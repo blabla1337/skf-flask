@@ -31,6 +31,12 @@ def get_checklist_item_types(category_id):
     result = ChecklistType.query.filter(ChecklistType.checklist_category_id == category_id).order_by(desc(ChecklistType.visibility)).paginate(1, 2500, False)
     return result
 
+def get_checklist_type_by_id(checklist_type_id):
+    log("User requested single checklist type content", "LOW", "PASS")
+    result = ChecklistType.query.filter(ChecklistType.id ==  checklist_type_id).one()
+    return result
+
+
 def get_checklist_item_types_with_filter(maturity):
     log("User requested list checklist types", "LOW", "PASS")
     result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 2500, False)

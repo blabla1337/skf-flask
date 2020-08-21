@@ -35,6 +35,7 @@ export class CreateChecklistTypeComponent implements OnInit
       description: ['', Validators.required],
       visibility: [, Validators.required],
     });
+
     this.submit = false;
   }
 

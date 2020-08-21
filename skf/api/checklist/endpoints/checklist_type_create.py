@@ -7,9 +7,9 @@ from skf.api.kb.parsers import authorization
 from skf.api.restplus import api
 from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_num_special
 
-ns = api.namespace('checklist', description='Operations related to checklist items')
+ns = api.namespace('checklist_types', description='Operations related to checklist types')
 
-@ns.route('/create/type/<int:category_id>')
+@ns.route('/create/<int:category_id>')
 @api.response(404, 'Validation error', message)
 class ChecklistCreate(Resource):
 
