@@ -6,9 +6,9 @@ from skf.api.checklist.serializers import checklist_type, message
 from skf.api.kb.parsers import authorization
 from skf.api.restplus import api
 
-ns = api.namespace('checklist', description='Operations related to checklist items')
+ns = api.namespace('checklist_types', description='Operations related to checklist types')
 
-@ns.route('/update/type/<int:id>')
+@ns.route('/update/<int:id>')
 @api.doc(params={'id': 'The checklist type id'})
 @api.response(404, 'Validation error', message)
 class ChecklistUpdate(Resource):
