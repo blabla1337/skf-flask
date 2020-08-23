@@ -56,6 +56,8 @@ import { UpdateQuestionnaireComponent } from './checklists/questionnaire/update/
 import { CreateQuestionnaireComponent } from './checklists/questionnaire/create/create.component';
 import { UpdateChecklistTypeComponent } from './checklists/checklist-type/update/update.component';
 import { CreateChecklistTypeComponent } from './checklists/checklist-type/create/create.component';
+import { Page404Component } from './extra/page404/page404.component';
+import { Page500Component } from './extra/page500/page500.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,7 @@ import { CreateChecklistTypeComponent } from './checklists/checklist-type/create
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, CreateCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
     CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, IndexComponent,
-    CreateQuestionnaireComponent, UpdateChecklistTypeComponent, CreateChecklistTypeComponent
+    CreateQuestionnaireComponent, UpdateChecklistTypeComponent, CreateChecklistTypeComponent, Page404Component, Page500Component
   ],
   imports: [
     CommonModule,
