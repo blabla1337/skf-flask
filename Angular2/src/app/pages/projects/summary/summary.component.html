@@ -16,7 +16,7 @@
             </div>
             <!-- end col-->
           </div>
-          <div *ngFor="let item of sprintData.items; let i = index" class="row mb-3">
+          <div *ngFor="let item of sprintData.items | linksfilter; let i = index" class="row mb-3">
             <div class="col">
               <div class="card shadow-sm border">
                 <div class="card-body pb-3">
@@ -47,7 +47,7 @@
                               <h4>{{item.kb_item_title}}</h4>
                               <p>{{item.kb_items_content}}</p>
                               <h4>Additional resources</h4>
-                              <p>{{item.add_resources}}</p>
+                              <pre>{{item.add_resources}}</pre>
                             </div>
                           </div>
                           <div class="text-right">
