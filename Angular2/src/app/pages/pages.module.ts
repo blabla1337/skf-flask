@@ -18,6 +18,7 @@ import { UsersModule } from './users/users.module';
 import { DndModule } from 'ngx-drag-drop';
 import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
 import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
+import { LinksFilterPipe } from '../core/pipes/linksfilter.pipe';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -65,8 +66,8 @@ import { Page500Component } from './extra/page500/page500.component';
     ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent, UpdateQuestionnaireComponent,
     ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, CreateCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, IndexComponent,
-    CreateQuestionnaireComponent, UpdateChecklistTypeComponent, CreateChecklistTypeComponent, Page404Component, Page500Component
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe,LinksFilterPipe,
+    IndexComponent, CreateQuestionnaireComponent, UpdateChecklistTypeComponent, CreateChecklistTypeComponent, Page404Component, Page500Component
   ],
   imports: [
     CommonModule,
