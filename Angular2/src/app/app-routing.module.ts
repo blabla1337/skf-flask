@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LayoutComponent } from './layouts/layout.component';
 import { Page404Component } from './pages/extra/page404/page404.component';
-// import { Page500Component } from './pages/extra/page500/page500.component';
+import { Page500Component } from './pages/extra/page500/page500.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)},
   { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
-  { path: '**', component: Page404Component},
-  // { path: '**', component: Page500Component},
+  { path: 'page-404', component: Page404Component},
+  { path: 'page-500', component: Page500Component},
+  { path: '**', redirectTo: '/page-404', pathMatch: 'full'}
 ];
 
 @NgModule({
