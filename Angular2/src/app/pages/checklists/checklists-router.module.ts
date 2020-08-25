@@ -15,7 +15,7 @@ import { CreateChecklistTypeComponent } from './checklist-type/create/create.com
 const routes: Routes = [
     { path: 'view', component: ViewComponent },
     { path: 'read/:id', component: ChecklistsReadComponent },
-    { path: 'manage', component: CheckManageComponent },
+    { path: 'manage/:id', component: CheckManageComponent },
     { path: 'create', component: ChecklistCreateComponent },
     { path: 'add', component: AddChecklistComponent },
     { path: 'update/:id', component: UpdateChecklistComponent },

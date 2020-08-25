@@ -83,6 +83,7 @@ from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_delete import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_new import ns as kb_namespace
+from skf.api.questions.endpoints.question_item import ns as questions_namespace
 from skf.api.questions.endpoints.question_items import ns as questions_namespace
 from skf.api.questions.endpoints.question_store import ns as questions_namespace
 from skf.api.questions.endpoints.question_item_update import ns as question_post_item_update

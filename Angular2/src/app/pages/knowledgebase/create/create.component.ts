@@ -11,11 +11,9 @@ import { KnowledgebaseService } from '../../../core/services/knowledgebase.servi
 export class CreateComponent implements OnInit
 {
 
-  // bread crumb items
   breadCrumbItems: Array<{}>;
   public knowledgebaseForm: FormGroup;
 
-  // Form Submission
   public submit: boolean;
   public formsubmit: boolean;
 
@@ -45,17 +43,12 @@ export class CreateComponent implements OnInit
     this._knowledgebaseService.createKnowledgebaseItem(this.knowledgebaseForm.value).subscribe(() => this.router.navigate(['/knowledgebase/view']))
   }
 
-  /**
-   * Returns form
-   */
+
   get form()
   {
     return this.knowledgebaseForm.controls;
   }
 
-  /**
-   * Validation form submit method
-   */
   validSubmit()
   {
     this.submit = true;

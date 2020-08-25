@@ -43,7 +43,7 @@ export class UpdateComponent implements OnInit
       content: ['', Validators.required],
     })
 
-    this.knowledgebaseItem = this._knowledgebaseService
+    this._knowledgebaseService
       .getKnowledgeBaseItem(this.id)
       .subscribe(item => this.knowledgebaseForm.patchValue(item))
   }
@@ -60,15 +60,17 @@ export class UpdateComponent implements OnInit
   /**
    * Returns form
    */
-  get form() {
+  get form()
+  {
     return this.knowledgebaseForm.controls;
   }
 
   /**
    * Validation form submit method
    */
-  validSubmit() {
+  validSubmit()
+  {
     this.submit = true;
-  }  
+  }
 }
 
