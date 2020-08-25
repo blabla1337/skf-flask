@@ -115,7 +115,7 @@
       <div class="dropdown d-inline-block" ngbDropdown>
         <button *ngIf="!loggedIn()" (click)="onLogin()" type="button"
           class="btn btn-success mt-3 ml-3 px-3 nav-item">Login</button>
-        <button *ngIf="loggedIn()" (click)="onLogin()" type="button"
+        <button *ngIf="loggedIn()" (click)="loggedOut()" type="button"
           class="btn btn-outline-danger mt-3 ml-3 px-3 nav-item">Logout</button>
       </div>
     </div>
@@ -142,7 +142,8 @@
             </li>
             <li class="nav-item dropdown">
               <a joyrideStep="stepPro" title="item" [stepContent]="projectContent" class="nav-link"
-                 routerLink="/projects/manage" id="topnav-components" routerLinkActive="active" role="button">
+                 routerLink="/projects/manage" id="topnav-components" routerLinkActive="active" role="button"
+                 *ngIf="loggedIn()">
                 <i class="mdi mdi-18px mdi-card-bulleted mr-2"></i> Manage Projects
               </a>
             </li>
@@ -166,7 +167,8 @@
             </li>
             <li class="nav-item dropdown">
               <a joyrideStep="stepUser" title="item" [stepContent]="userContent" class="nav-link"
-                 routerLink="/users/manage" id="topnav-components" routerLinkActive="active" role="button">
+                 routerLink="/users/manage" id="topnav-components" routerLinkActive="active" role="button"
+                 *ngIf="loggedIn()">
                 <i class="mdi mdi-18px mdi-account-edit mr-2"></i> Users
               </a>
             </li>
