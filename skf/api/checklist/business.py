@@ -175,10 +175,10 @@ def delete_checklist_type(checklist_type_id):
     return {'message': 'Checklist type successfully deleted'}
 
 
-def delete_checklist_item(checklist_id, checklist_type):
+def delete_checklist_item(checklist_id):
     log("User deleted checklist item", "MEDIUM", "PASS")    
     try:
-        checklist = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
+        checklist = ChecklistKB.query.filter((ChecklistKB.id == checklist_id)).one()
         db.session.delete(checklist)
         db.session.commit()
     except Exception as e:

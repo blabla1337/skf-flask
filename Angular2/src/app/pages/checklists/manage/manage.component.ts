@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 
 import { QuestionService } from '../../../core/services/question.service'
+import { ChecklistService } from '../../../core/services/checklists.service'
 
 @Component({
   selector: 'app-manage',
@@ -17,12 +18,14 @@ export class CheckManageComponent implements OnInit
   public sub: any;
   public delete: string
   public questionData: any;
+  public checklistData: any;
 
 
   public checkData: any;
 
   constructor(
     private _questionService: QuestionService,
+    private _checklistService: ChecklistService,
     private route: ActivatedRoute,
     private modalService: NgbModal
   ) { }
@@ -35,6 +38,7 @@ export class CheckManageComponent implements OnInit
       localStorage.setItem("checklist_id", params['id'])
     });
     this.getQuestions()
+    this.getChecklistItems()
   }
 
   getQuestions()
@@ -44,10 +48,24 @@ export class CheckManageComponent implements OnInit
       .subscribe(questions => this.questionData = questions)
   }
 
+  getChecklistItems()
+  {
+    this._checklistService
+      .getRequirements(Number(localStorage.getItem("checklist_id")))
+      .subscribe(checklist => this.checklistData = checklist)
+  }
+
   deleteQuestion(id: number)
   {
     if (this.delete == 'DELETE') {
       this._questionService.deleteQuestionById(id).subscribe(x => this.getQuestions());
+    }
+  }
+
+  deleteRequirement(id: number)
+  {
+    if (this.delete == 'DELETE') {
+      this._checklistService.deleteRequirementById(id).subscribe(x => this.getChecklistItems());
     }
   }
 

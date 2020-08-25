@@ -54,9 +54,9 @@ export class ChecklistsReadComponent implements OnInit
   getChecklistControls(id: number)
   {
     this._checklistCategoryService
-      .getChecklistsControls(id)
+      .getRequirements(id)
       .subscribe(checklistCon => this.checklistConData = checklistCon);
-      this.router.navigate(['/checklists/read', id]);
+    this.router.navigate(['/checklists/read', id]);
   }
 
   changeControlsOnSelect(id: number)

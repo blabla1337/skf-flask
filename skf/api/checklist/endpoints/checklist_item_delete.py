@@ -9,20 +9,19 @@ from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_n
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
-@ns.route('/delete/item/<string:checklist_id>/type/<int:checklist_type>')
+@ns.route('/delete/item/<string:checklist_id>')
 @api.doc(params={'checklist_id': 'The unique identifier of the checklist item (2.1, 10.1.2 etc)', 'checklist_type': 'The checklist type (0: ASVS lvl1, 1: ASVS lvl2, 2: ASVS lvl3, 3: MASVS lvl1, etc)'})
 @api.response(404, 'Validation error', message)
 class ChecklistItemDelete(Resource):
     
     @api.expect(authorization)
     @api.response(400, 'No results found', message)
-    def delete(self, checklist_id, checklist_type):
+    def delete(self, checklist_id):
         """
         Delete a checklist item.
         * Privileges required: **delete**
         """
-        val_num(checklist_type)
         val_alpha_num_special(checklist_id)
         validate_privilege(self, 'delete')
-        result = delete_checklist_item(checklist_id, checklist_type)
+        result = delete_checklist_item(checklist_id)
         return result, 200, security_headers()
