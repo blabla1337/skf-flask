@@ -15,6 +15,12 @@ def get_questions(checklists_type):
     return result
 
 
+def get_question_by_id(question_id):
+    log("User requested question by id", "LOW", "PASS")
+    val_num(question_id)
+    result = Question.query.filter(Question.id == question_id).first()
+    return result
+
 def store_questions(checklist_type, maturity, data):
     log("User stored new sprint question list", "MEDIUM", "PASS")
     #Store the result of the questionaire if answer was true in checklists_kb

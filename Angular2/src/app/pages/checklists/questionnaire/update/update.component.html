@@ -6,14 +6,23 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="mb-5">Update Questionarie</h4>
-                    <form>
+                    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="questionForm">
                         <div class="form-group">
-                            <label for="add">Questionarie Title</label>
-                            <input type="text" class="form-control" id="add" placeholder="Questionarie Title"
-                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Questionarie Title'">
-                          </div>
-                        <button class="btn btn-danger float-right ml-3">Cancel</button>
-                        <button class="btn btn-success float-right">Submit</button>
+                            <label for="question">Question</label>
+                            <input type="text" class="form-control" id="question" formControlName="question"
+                                placeholder="Question" onfocus="this.placeholder =''"
+                                onblur="this.placeholder = 'Add a question here!'"
+                                [ngClass]="{'is-invalid': submit && form.question.errors}">
+                            <div *ngIf="submit && form.question.errors" class="invalid-feedback">
+                                <span *ngIf="form.question.errors.required">Required!</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button (click)="updateQuestionItem()" class="btn btn-success mr-2"
+                                type="button">Update</button>
+                            <button [routerLink]="['/checklists/manage', checklist_id]" class="btn btn-danger"
+                                type="button">Cancel</button>
+                        </div>
                     </form>
                 </div>
             </div>

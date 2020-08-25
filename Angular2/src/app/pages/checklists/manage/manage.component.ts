@@ -1,44 +1,58 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
 
-import { manageData } from './data';
-import { Manage } from './manage.model';
+import { QuestionService } from '../../../core/services/question.service'
 
 @Component({
   selector: 'app-manage',
   templateUrl: './manage.component.html',
   styleUrls: ['./manage.component.scss']
 })
-export class CheckManageComponent implements OnInit {
-
-  checkTotal: Manage[];
-  checkItems: Manage[];
-  checkData;
-
+export class CheckManageComponent implements OnInit
+{
+  public breadCrumbItems: Array<{}>;
   public isCollapsed: boolean[] = [];
+  public id: number;
+  public sub: any;
+  public delete: string
+  public questionData: any;
 
-  // bread crumb items
-  breadCrumbItems: Array<{}>;
 
-  constructor(private modalService: NgbModal) { }
+  public checkData: any;
 
-  ngOnInit() {
+  constructor(
+    private _questionService: QuestionService,
+    private route: ActivatedRoute,
+    private modalService: NgbModal
+  ) { }
+
+  ngOnInit()
+  {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Manage', active: true }];
-
-    this._fetchData();
+    this.sub = this.route.params.subscribe(params =>
+    {
+      localStorage.setItem("checklist_id", params['id'])
+    });
+    this.getQuestions()
   }
 
-  private _fetchData() {
-    this.checkTotal = manageData.filter(t => t.status === 'Completed');
-    this.checkItems = manageData.filter(t => t.status === 'Pending');
-    this.checkData = manageData;
+  getQuestions()
+  {
+    this._questionService
+      .getQuestionCollection(Number(localStorage.getItem("checklist_id")))
+      .subscribe(questions => this.questionData = questions)
   }
 
-  /**
-   * Open center modal
-   * @param centerDataModal center modal data
-   */
-  centerModal(centerDataModal: any) {
+  deleteQuestion(id: number)
+  {
+    if (this.delete == 'DELETE') {
+      this._questionService.deleteQuestionById(id).subscribe(x => this.getQuestions());
+    }
+  }
+
+  centerModal(centerDataModal: any)
+  {
     this.modalService.open(centerDataModal, { centered: true, size: 'lg' });
   }
 

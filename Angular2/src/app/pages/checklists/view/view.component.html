@@ -73,7 +73,11 @@
                             </li>
                             <li class="list-inline-item float-right">
                               <a [routerLink]="['/checklists/read', item.id]"><button type="button"
-                                  class="btn-sm btn-primary">Click here</button></a>
+                                  class="btn-sm btn-primary">Inspect checklist</button></a>
+                            </li>
+                            <li class="list-inline-item float-right">
+                              <a [routerLink]="['/checklists/manage', item.id]"><button type="button"
+                                  class="btn-sm btn-primary">Manage checklist</button></a>
                             </li>
                           </ul>
                         </div>

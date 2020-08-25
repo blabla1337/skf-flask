@@ -28,9 +28,7 @@ export class ViewKnowledebaseComponent implements OnInit
   constructor(
     private modalService: NgbModal,
     private router: Router,
-    // tslint:disable-next-line: variable-name
     private _knowledgebaseService: KnowledgebaseService,
-    // tslint:disable-next-line: variable-name
     private _checklistCategoryService: ChecklistCategoryService,
     private spinner: NgxSpinnerService,
   ) { }
@@ -60,10 +58,7 @@ export class ViewKnowledebaseComponent implements OnInit
       .subscribe(data => this.categoryData = data);
   }
 
-  /**
-   * Open delete modal
-   * @param deleteDataModal delete modal data
-   */
+
   deleteModal(deleteDataModal: any)
   {
     this.modalService.open(deleteDataModal, { centered: true });
