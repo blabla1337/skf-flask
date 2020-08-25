@@ -25,6 +25,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { JoyrideModule } from 'ngx-joyride';
 import { CoreModule } from '../core/core.module';
 
+import { AuthGuard } from '../core/guards/guard.service';
+import { LoggedInAuthGuard } from '../core/guards/loggedinguard.service';
+
 // Import Components here
 import { ManageComponent } from './users/manage/manage.component';
 import { ViewCodeComponent } from './code-example/view/view.component';
@@ -92,6 +95,6 @@ import { Page500Component } from './extra/page500/page500.component';
     JoyrideModule.forChild(),
     CoreModule
   ],
-  providers: [],
+  providers: [AuthGuard, LoggedInAuthGuard],
 })
 export class PagesModule { }
