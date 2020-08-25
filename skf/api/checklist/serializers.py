@@ -3,6 +3,7 @@ from skf.api.restplus import api
 
 
 checklist = api.model('checklists_kb', {
+    'id': fields.String(attribute='id', required=True, description='The unique identifier of a checklist control'),
     'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),

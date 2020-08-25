@@ -50,8 +50,13 @@ export class ChecklistService
    * items
    **/
 
-  getChecklistsControls(checklist_type_id: number)
+  getRequirements(checklist_type_id: number)
   {
     return this.http.get(environment.API_ENDPOINT + `/api/checklist/items/${checklist_type_id}`, { headers: this.authHeader })
+  }
+
+  deleteRequirementById(requirement_id: number)
+  {
+    return this.http.delete(environment.API_ENDPOINT + `/api/checklist/delete/item/${requirement_id}`, { headers: this.authHeader })
   }
 }

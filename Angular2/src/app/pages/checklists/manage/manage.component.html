@@ -15,8 +15,8 @@
                   <div class="form-group mb-2">
                     <label class="float-left">Question:</label>
                     <select class="form-control select2-search-disable">
-                      <option value="#" selected>Content 1</option>
-                      <option value="#">Content 2</option>
+                      <option value="#" selected>Select question</option>
+                      <option *ngFor="let item of questionData.items" value="{{item.id}}">{{item.question}}</option>
                     </select>
                   </div>
                 </div>
@@ -30,7 +30,7 @@
               <div class="col-lg-6 align-items-stretch">
                 <div class="card border shadow-none mb-3">
                   <div class="card-header py-2 bg-light">
-                    <p class="card-title text-center text-dark mt-2">Checklist total (of not yet assinged requirements)
+                    <p class="card-title text-center text-dark mt-2">Checklist total (of not yet assigned requirements)
                     </p>
                   </div>
                   <div class="card-body">
@@ -55,7 +55,7 @@
               <div class="col-lg-6 align-items-stretch">
                 <div class="card border shadow-none mb-3">
                   <div class="card-header py-2 bg-light">
-                    <p class="card-title text-center text-dark mt-2">Checklist total (of not yet assinged requirements)
+                    <p class="card-title text-center text-dark mt-2">Checklist total (of assigned requirements)
                     </p>
                   </div>
                   <div class="card-body">
@@ -68,7 +68,7 @@
                           </p>
                         </div>
                         <div class="col-2">
-                          <i class="bx bx-plus font-size-15 py-3 float-right"></i>
+                          <i class="bx bx-minus font-size-15 py-3 float-right"></i>
                         </div>
                       </div>
                     </button>
@@ -85,83 +85,78 @@
       <a ngbNavLink>Requirements</a>
       <ng-template ngbNavContent>
         <div class="row mb-3 mt-4">
-          <div class="col-7">
-            <div class="search-box mb-2 d-inline-block">
-              <div class="position-relative">
-                <input type="text" class="form-control" placeholder="Search..." />
-                <i class="bx bx-search-alt search-icon"></i>
+          <div class="col-lg-12">
+            <div class="row mb-3">
+              <div class="col-7">
+                <p class="card-title">Manage Requirements</p>
+              </div>
+              <div class="col-5">
+                <a type="button" routerLink="/checklists/add-requirement" class="btn btn-primary float-right mb-2">Add
+                  requirement</a>
               </div>
             </div>
-          </div>
-          <div class="col-5">
-            <div class="text-right">
-              <a type="button" href="/checklists/add" class="btn btn-primary mb-2 mr-2">
-                <i class="mdi mdi-check mr-1"></i>Add Item</a>
+            <div class="table-responsive">
+              <table class="table table-centered table-nowrap table-hover">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">
+                      <div class="text-center">Control</div>
+                    </th>
+                    <th scope="col">
+                      <div class="text-center">Action</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of checklistData.items">
+                    <td style="width: 60%">
+                      <div class="mt-2">
+                        <h6>{{item.checklist_items_checklist_id}} {{item.checklist_items_content |slice:0:130}}...</h6>
+                      </div>
+                    </td>
+                    <td style="width: 40%">
+                      <ul class="list-inline mb-0 text-center">
+                        <li class="list-inline-item">
+                          <a type="button" [routerLink]="['/checklists/update-requirement', item.id]"
+                            class="btn btn-success btn-sm">Update</a>
+                        </li>
+                        <li class="list-inline-item">
+                          <button (click)="centerModal(controlDelete)" type="button"
+                            class="btn btn-danger btn-sm ml-2">Delete</button>
+                        </li>
+                      </ul>
+                    </td>
+
+                    <!-- Deletion modal-->
+                    <ng-template #controlDelete let-modal>
+                      <div class="modal-header">
+                        <h5 class="modal-title mt-0">Delete Requirement</h5>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="form-group">
+                            <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Requirement
+                              item</label>
+                            <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
+                              name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+                              onblur="this.placeholder = 'Type DELETE'">
+                          </div>
+                          <button (click)="deleteRequirement(item.id); modal.dismiss('Cross click')"
+                            class="btn btn-danger">Delete</button>
+                        </form>
+                      </div>
+                    </ng-template>
+                    <!-- END Project Delete Modal -->
+
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
           <!-- end col-->
-        </div>
-        <div class="row mb-3" *ngFor="let check of questionData.items; let i = index">
-          <div class="col">
-            <div class="card border shadow-none">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-8">
-                    <a type="button" class="btn" (click)="isCollapsed[i] = !isCollapsed[i]">
-                      <h4 class="card-title mt-1">{{check.question}}</h4>
-                    </a>
-                  </div>
-                  <div class="col-4">
-                    <div class="text-right mt-2">
-                      <button class="btn-sm btn-primary btn-md" type="button"
-                        (click)="isCollapsed[i] = !isCollapsed[i]">
-                        Click here
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
-                  <div class="table-responsive">
-                    <table class="table table-centered table-nowrap table-hover">
-                      <thead class="thead-light">
-                        <tr>
-                          <th scope="col" style="width: 50px;">
-                            <div class="text-center">Checklist ID</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">Checklist Item</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">Question</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">KB Item</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">Include Always</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">CWE</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">Maturity Level</div>
-                          </th>
-                          <th scope="col">
-                            <div class="text-center">Edit</div>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </ng-template>
     </li>
@@ -206,14 +201,14 @@
                             class="btn btn-success btn-sm">Update</a>
                         </li>
                         <li class="list-inline-item">
-                          <button (click)="centerModal(contentDelete)" type="button"
+                          <button (click)="centerModal(questionDelete)" type="button"
                             class="btn btn-danger btn-sm ml-2">Delete</button>
                         </li>
                       </ul>
                     </td>
 
                     <!-- Deletion modal-->
-                    <ng-template #contentDelete let-modal>
+                    <ng-template #questionDelete let-modal>
                       <div class="modal-header">
                         <h5 class="modal-title mt-0">Delete Question</h5>
                         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
