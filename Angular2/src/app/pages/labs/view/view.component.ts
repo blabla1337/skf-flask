@@ -21,6 +21,7 @@ export class LabViewComponent implements OnInit
   public queryLabel;
   public deployments;
   labLists: string[];
+  lab: any;
 
   // tslint:disable-next-line: variable-name
   constructor(private _labService: LabService, private spinner: NgxSpinnerService, ) { }
@@ -50,10 +51,11 @@ export class LabViewComponent implements OnInit
     {
       this.deployments = requestData
       this.spinner.hide();
+      this.lab = this.deployments.split("\\");
       Swal.queue([
         {
           title: 'Lab URL',
-          text: this.deployments,
+          text: this.lab[3].substring(1),
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
           showLoaderOnConfirm: true,
