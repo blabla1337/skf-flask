@@ -8,6 +8,9 @@ import { JoyrideModule } from 'ngx-joyride';
 
 import { NgbNavModule, NgbAccordionModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AuthGuard } from './core/guards/guard.service';
+import { LoggedInAuthGuard } from './core/guards/loggedinguard.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -35,7 +38,7 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
     HighlightModule,
     JoyrideModule.forRoot(),
   ],
-  providers: [
+  providers: [ AuthGuard, LoggedInAuthGuard,
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
