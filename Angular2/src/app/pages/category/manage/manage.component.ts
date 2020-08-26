@@ -14,7 +14,7 @@ export class CategoryManageComponent implements OnInit
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
-  categoryData: any;
+  categoryData: any = [];
   public delete: string;
 
   constructor(

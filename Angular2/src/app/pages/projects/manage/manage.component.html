@@ -42,6 +42,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                <!-- Load Spinner -->
+                <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+                  <p class="loading">Loading, Please Wait...</p>
+                </ngx-spinner>
                   <tr *ngFor="let item of projectData.items | stringfilter:queryString ">
                     <td class="text-center">{{item.id}}</td>
                     <td class="text-center">

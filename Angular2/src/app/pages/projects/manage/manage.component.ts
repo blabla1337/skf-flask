@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerService  } from 'ngx-spinner';
 import { Router } from '@angular/router';
-
 
 import { ProjectService } from '../../../core/services/project.service';
 
@@ -15,15 +15,16 @@ export class ProjectManageComponent implements OnInit
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
+
   public delete: string;
   public queryString;
-  projectData: any;
-
+  public projectData: any = [];
 
   constructor(
     private modalService: NgbModal,
     private router: Router,
     private _projectService: ProjectService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit()
@@ -35,8 +36,14 @@ export class ProjectManageComponent implements OnInit
 
   getProjects()
   {
-    this._projectService.getProjectsCollection().subscribe(projects => this.projectData = projects)
-  }
+    this.spinner.show();
+    this._projectService
+    .getProjectsCollection()
+    .subscribe(projects => {
+      this.projectData = projects;
+      this.spinner.hide();
+      });
+    }
 
   deleteProject(id: number)
   {
