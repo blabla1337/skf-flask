@@ -15,8 +15,9 @@ export class ViewComponent implements OnInit
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
+  
   public queryString;
-  public checklistData: any;
+  public checklistData: any = [];
   public delete: string;
   public catSelector: number;
   public categoryData: any = [];
