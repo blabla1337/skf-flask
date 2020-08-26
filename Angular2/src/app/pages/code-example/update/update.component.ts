@@ -15,7 +15,7 @@ export class UpdateCodeComponent implements OnInit
   private sub: any;
   breadCrumbItems: Array<{}>;
   public codeExampleForm: FormGroup;
-  public codeExampleItem: any;
+  public codeExampleItem: any = [];
   public isSubmitted: boolean;
 
   get formControls() { return this.codeExampleForm.controls; }
