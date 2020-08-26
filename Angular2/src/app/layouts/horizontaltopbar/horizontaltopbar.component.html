@@ -2,7 +2,7 @@
   <div class="navbar-header">
     <div class="d-flex">
       <!-- LOGO -->
-      <button type="button" class="btn btn-sm px-3 font-size-16 text-primary d-lg-none header-item" (click)="toggleMenubar()">
+      <button type="button" class="btn btn-sm px-3 font-size-16 text-primary d-xl-none header-item" (click)="toggleMenubar()">
         <i class="fa fa-fw fa-bars"></i>
       </button>
 
@@ -123,7 +123,7 @@
 </header>
 <div class="topnav">
   <div class="container-fluid ">
-    <nav class="navbar navbar-light navbar-expand-lg topnav-menu active">
+    <nav class="navbar navbar-light navbar-expand-xl topnav-menu active">
       <div class="collapse navbar-collapse active justify-content-center" id="topnav-menu-content">
         <ul class="navbar-nav">
           <!-- Menu data -->
@@ -131,7 +131,7 @@
             <li class="nav-item dropdown">
               <a joyrideStep="stepDash" title="item" [stepContent]="dashContent" class="nav-link" 
                  routerLink="/dashboard" id="topnav-components" routerLinkActive="active" role="button">
-                <i class="mdi mdi-18px mdi-view-dashboard mr-2"></i> Dashboard
+                <i class="mdi mdi-18px mdi-view-dashboard mr-2 d-xs-none"></i> Dashboard
               </a>
               <!-- <div class="dropdown-menu row" aria-labelledby="topnav-dashboard" *ngIf="hasItems(item)">
                 <ng-template ngFor let-i="index" let-subitem [ngForOf]="item.subItems">
