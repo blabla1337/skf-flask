@@ -16,7 +16,7 @@ export class LabViewComponent implements OnInit
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
-  public labData: any;
+  public labData: any = [];
   public queryString;
   public queryLabel;
   public deployments;
@@ -38,7 +38,13 @@ export class LabViewComponent implements OnInit
    */
   private _fetchData()
   {
-    this._labService.getLabs().subscribe(lab => this.labData = lab);
+    this.spinner.show();
+    this._labService
+    .getLabs()
+    .subscribe(lab => {
+      this.labData = lab;
+      this.spinner.hide();
+    });
   }
 
 

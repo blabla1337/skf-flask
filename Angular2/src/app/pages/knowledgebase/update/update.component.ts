@@ -15,7 +15,7 @@ export class UpdateComponent implements OnInit
   private sub: any;
   breadCrumbItems: Array<{}>;
   public knowledgebaseForm: FormGroup;
-  public knowledgebaseItem: any;
+  public knowledgebaseItem: any = [];
 
   // Form Submission
   public submit: boolean;
