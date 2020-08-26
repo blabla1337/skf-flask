@@ -73,11 +73,15 @@
                             </li>
                             <li class="list-inline-item float-right">
                               <a [routerLink]="['/checklists/read', item.id]"><button type="button"
-                                  class="btn-sm btn-primary">Inspect checklist</button></a>
+                                  class="btn-sm btn-primary d-none d-sm-block">Inspect checklist</button></a>
+                              <a [routerLink]="['/checklists/read', item.id]" type="button"
+                                  class="btn-sm btn-primary text-center d-sm-none"><i class='bx bx-search-alt'></i></a>
                             </li>
                             <li class="list-inline-item float-right">
-                              <a [routerLink]="['/checklists/manage', item.id]"><button type="button"
-                                  class="btn-sm btn-primary">Manage checklist</button></a>
+                              <a [routerLink]="['/checklists/manage', item.id]" type="button"
+                                  class="btn-sm btn-primary d-none d-sm-block mr-2">Manage checklist</a>
+                              <a [routerLink]="['/checklists/manage', item.id]" type="button"
+                                  class="btn-sm btn-primary text-center d-sm-none mr-2"><i class="mdi mdi-cog-outline"></i></a>
                             </li>
                           </ul>
                         </div>
