@@ -55,8 +55,9 @@ export class UpdateQuestionnaireComponent implements OnInit
     if (this.questionForm.invalid) {
       return;
     }
-    this._questionService.updateQuestion(this.questionForm.value, this.id).subscribe()
-    this.router.navigate(['/checklists/manage', this.checklist_id])
+    this._questionService
+      .updateQuestion(this.questionForm.value, this.id)
+      .subscribe(() => this.router.navigate(['/checklists/manage', this.checklist_id]))
   }
 
   get form()

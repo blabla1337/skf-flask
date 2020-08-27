@@ -59,4 +59,10 @@ export class ChecklistService
   {
     return this.http.delete(environment.API_ENDPOINT + `/api/checklist/delete/item/${requirement_id}`, { headers: this.authHeader })
   }
+
+  createChecklistItem(value: any, checklist_id: number)
+  {
+    return this.http.put(environment.API_ENDPOINT + `/api/checklist/new/item/type/${checklist_id}`, value, { headers: this.authHeader })
+  }
+
 }
