@@ -47,11 +47,10 @@ import { LabReadComponent } from './labs/read/read.component';
 import { LabViewComponent } from './labs/view/view.component';
 import { SummaryComponent } from './projects/summary/summary.component';
 import { WizardComponent } from './projects/wizard/wizard.component';
-import { ChecklistCreateComponent } from './checklists/create/create.component';
 import { UserCreateComponent } from './users/create/create.component';
 import { UserUpdateComponent } from './users/update/update.component';
-import { AddChecklistComponent } from './checklists/add-checklist/add-checklist.component';
-import { UpdateChecklistComponent } from './checklists/update-checklist/update-checklist.component';
+import { AddRequirementComponent } from './checklists/add-requirement/add-requirement.component';
+import { UpdateRequirementComponent } from './checklists/update-requirement/update-requirement.component';
 import { CreateCategoryComponent } from './category/create/create.component';
 import { UpdateCategoryComponent } from './category/update/update.component';
 import { IndexComponent } from './search/index/index.component';
@@ -66,10 +65,10 @@ import { Page500Component } from './extra/page500/page500.component';
 @NgModule({
   declarations: [
     ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent, CategoryManageComponent,
-    ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddChecklistComponent, UpdateQuestionnaireComponent,
-    ChecklistsReadComponent, ChecklistCreateComponent, CheckManageComponent, WizardComponent, CreateCategoryComponent,
-    LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateChecklistComponent, UpdateCategoryComponent,
-    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe,LinksFilterPipe,
+    ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddRequirementComponent, UpdateQuestionnaireComponent,
+    ChecklistsReadComponent, CheckManageComponent, WizardComponent, CreateCategoryComponent,
+    LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateRequirementComponent, UpdateCategoryComponent,
+    CreateComponent, UpdateComponent, ProjectCreateComponent, ProjectUpdateComponent, StringFilterPipe, LabelFilterPipe, LinksFilterPipe,
     IndexComponent, CreateQuestionnaireComponent, UpdateChecklistTypeComponent, CreateChecklistTypeComponent, Page404Component, Page500Component
   ],
   imports: [

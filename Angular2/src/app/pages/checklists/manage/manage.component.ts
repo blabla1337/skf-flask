@@ -17,8 +17,8 @@ export class CheckManageComponent implements OnInit
   public id: number;
   public sub: any;
   public delete: string
-  public questionData: any;
-  public checklistData: any;
+  public questionData: any = [];
+  public checklistData: any = [];
 
 
   public checkData: any;
