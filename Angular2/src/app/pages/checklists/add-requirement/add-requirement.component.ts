@@ -45,8 +45,7 @@ export class AddRequirementComponent implements OnInit
       kb_id: ['Please select knowledgebase item', [Validators.required]],
       maturity: ['', [Validators.required]],
       question_id: ['Please select question', [Validators.required]],
-      add_resources: ['', [Validators.required]],
-      cwe: ['', [Validators.required]],
+      add_resources: ['', [Validators.required]]
     });
 
     this.submit = false;
@@ -62,7 +61,15 @@ export class AddRequirementComponent implements OnInit
 
     this._questionService
       .getQuestionCollection(this.checklistId)
-      .subscribe(question => this.questionData = question)
+      .subscribe(question =>
+      {
+        this.questionData = question;
+        this.questionData.items.unshift({
+          'id': 0,
+          'question': 'Empty',
+          'checklist_type': 0,
+        });
+      })
   }
 
   storeChecklistItem()

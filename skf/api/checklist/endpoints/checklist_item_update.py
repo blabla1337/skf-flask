@@ -22,7 +22,6 @@ class ChecklistItemUpdate(Resource):
         * Privileges required: **edit**
         """
         data = request.json
-        val_num(checklist_type)
         val_num(id)
         val_num(data.get('maturity'))
         val_num(data.get('question_id'))
@@ -31,5 +30,5 @@ class ChecklistItemUpdate(Resource):
         val_alpha_num(data.get('include_always'))
         val_alpha_num_special(data.get('content'))
         validate_privilege(self, 'edit')
-        result = update_checklist_item(id, checklist_type, data)
+        result = update_checklist_item(id, data)
         return result, 200, security_headers()

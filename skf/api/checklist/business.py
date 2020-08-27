@@ -125,21 +125,20 @@ def update_checklist_type(id, data):
     return {'message': 'Checklist item successfully updated'} 
 
 
-def update_checklist_item(checklist_id, checklist_type, data):
+def update_checklist_item(id, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
     include_always = convert_boolean_type(data.get('include_always'))
     question_id = data.get('question_id')
     if question_id == 0:
         question_id = None
-    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
+    result_checklist_kb = ChecklistKB.query.filter(ChecklistKB.id == id).one()
     result_checklist_kb.content = data.get('content')
     result_checklist_kb.include_always = include_always
     result_checklist_kb.question_id = question_id
     result_checklist_kb.add_resources = data.get('add_resources')
     result_checklist_kb.kb_id = data.get('kb_id')
-    result_checklist_kb.checklist_id = checklist_id
+    result_checklist_kb.checklist_id = data.get('checklist_id')
     result_checklist_kb.maturity = data.get('maturity')
-    result_checklist_kb.checklist_type = checklist_type
     try:
         db.session.add(result_checklist_kb)
         db.session.commit()

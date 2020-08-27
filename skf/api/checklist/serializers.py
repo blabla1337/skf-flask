@@ -81,7 +81,7 @@ checklist_create_update = api.model('checklist_kb', {
     'question_id': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
     'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
-    'checklist_id': fields.String(required=True, description='Identifier of checlist_id e.g. 1.1, 2.2, 3.1'),
+    'checklist_id': fields.String(required=True, description='Identifier of checlist_id e.g. 1.1, 2.2, 3.1')
 })
 
 message = api.model('Response message', {
