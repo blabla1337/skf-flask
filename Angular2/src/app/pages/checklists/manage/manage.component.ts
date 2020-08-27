@@ -51,7 +51,7 @@ export class CheckManageComponent implements OnInit
   getChecklistItems()
   {
     this._checklistService
-      .getRequirements(Number(localStorage.getItem("checklist_id")))
+      .getChecklistItems(Number(localStorage.getItem("checklist_id")))
       .subscribe(checklist => this.checklistData = checklist)
   }
 
@@ -65,7 +65,7 @@ export class CheckManageComponent implements OnInit
   deleteRequirement(id: number)
   {
     if (this.delete == 'DELETE') {
-      this._checklistService.deleteRequirementById(id).subscribe(x => this.getChecklistItems());
+      this._checklistService.deleteChecklistItemById(id).subscribe(x => this.getChecklistItems());
     }
   }
 
