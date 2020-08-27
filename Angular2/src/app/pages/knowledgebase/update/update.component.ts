@@ -11,9 +11,9 @@ import { KnowledgebaseService } from '../../../core/services/knowledgebase.servi
 })
 export class UpdateComponent implements OnInit
 {
-  id: number;
+  public id: number;
   private sub: any;
-  breadCrumbItems: Array<{}>;
+  public breadCrumbItems: Array<{}>;
   public knowledgebaseForm: FormGroup;
   public knowledgebaseItem: any = [];
 
@@ -54,12 +54,11 @@ export class UpdateComponent implements OnInit
     if (this.knowledgebaseForm.invalid) {
       return;
     }
-    this._knowledgebaseService.updateKnowledgebaseItem(this.id, this.knowledgebaseForm.value).subscribe()
-    this.router.navigate(['/knowledgebase/view'])
+    this._knowledgebaseService
+      .updateKnowledgebaseItem(this.id, this.knowledgebaseForm.value)
+      .subscribe(() => this.router.navigate(['/knowledgebase/view']))
   }
-  /**
-   * Returns form
-   */
+
   get form()
   {
     return this.knowledgebaseForm.controls;

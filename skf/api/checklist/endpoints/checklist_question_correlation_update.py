@@ -9,8 +9,8 @@ from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_n
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
-@ns.route('/update/item/correlation/<string:checklist_id>/type/<int:checklist_type>')
-@api.doc(params={'checklist_id': 'The checklist item checklist_id (eg. 1.1)', 'checklist_type': 'The checklist type (0: ASVS lvl1, 1: ASVS lvl2, 2: ASVS lvl3, 3: MASVS lvl1, etc)'})
+@ns.route('/update/item/correlation/<int:id>/type/<int:checklist_type>')
+@api.doc(params={'id': 'The checklist item id', 'checklist_type': 'The checklist type (0: ASVS lvl1, 1: ASVS lvl2, 2: ASVS lvl3, 3: MASVS lvl1, etc)'})
 @api.response(404, 'Validation error', message)
 class ChecklistQuestionCorrelationUpdate(Resource):
 
@@ -23,8 +23,8 @@ class ChecklistQuestionCorrelationUpdate(Resource):
         """
         data = request.json
         val_num(checklist_type)
-        val_alpha_num_special(checklist_id)
+        val_alpha_num_special(id)
         val_num(data.get('question_id'))
         validate_privilege(self, 'edit')
-        result = update_checklist_question_correlation(checklist_id, checklist_type, data)
+        result = update_checklist_question_correlation(id, checklist_type, data)
         return result, 200, security_headers()
