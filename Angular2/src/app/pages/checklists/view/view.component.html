@@ -47,7 +47,7 @@
                               </a>
                               <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
                                 <li>
-                                  <a class="dropdown-item" type="button" routerLink="/checklists/checklist-type-update">
+                                  <a class="dropdown-item" type="button" [routerLink]="['/checklists/checklist-type-update', item.id]">
                                     <i class="fas fa-pencil-alt text-success mr-1"></i>Update</a>
                                 </li>
                                 <li>

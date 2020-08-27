@@ -1,3 +1,4 @@
+/**
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UpdateChecklistComponent } from './update-checklist.component';
@@ -23,3 +24,4 @@ describe('UpdateChecklistComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

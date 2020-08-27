@@ -50,13 +50,29 @@ export class ChecklistService
    * items
    **/
 
-  getRequirements(checklist_type_id: number)
+  getChecklistItems(checklist_type_id: number)
   {
     return this.http.get(environment.API_ENDPOINT + `/api/checklist/items/${checklist_type_id}`, { headers: this.authHeader })
   }
 
-  deleteRequirementById(requirement_id: number)
+  getChecklistItemById(checklist_type_id: number)
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/checklist/item/${checklist_type_id}`, { headers: this.authHeader })
+  }
+
+  deleteChecklistItemById(requirement_id: number)
   {
     return this.http.delete(environment.API_ENDPOINT + `/api/checklist/delete/item/${requirement_id}`, { headers: this.authHeader })
   }
+
+  createChecklistItem(value: any, checklist_type_id: number)
+  {
+    return this.http.put(environment.API_ENDPOINT + `/api/checklist/new/item/type/${checklist_type_id}`, value, { headers: this.authHeader })
+  }
+
+  updateChecklistItem(value: any, checklist_id: number)
+  {
+    return this.http.put(environment.API_ENDPOINT + `/api/checklist/update/item/${checklist_id}`, value, { headers: this.authHeader })
+  }
+
 }

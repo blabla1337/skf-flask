@@ -1,0 +1,103 @@
+<div class="container-fluid">
+    <app-page-title title="users" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-5">Update Checklist</h4>
+                    <form class="needs-validation" (ngSubmit)="validSubmit()" [formGroup]="validationform">
+
+                        <div class="form-group row mb-4">
+                            <label for="checklist_id" class="col-md-2 col-form-label">Checklist ID</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="checklist_id" formControlName="checklist_id"
+                                    placeholder="Checklist ID" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Checklist ID'"
+                                    [ngClass]="{'is-invalid': submit && form.checklist_id.errors}">
+                                <div *ngIf="submit && form.checklist_id.errors" class="invalid-feedback">
+                                    <span *ngIf="form.checklist_id.errors.required">Required!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-4">
+                            <label for="content" class="col-md-2 col-form-label">Requirement</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="content" formControlName="content"
+                                    placeholder="Checklist Title" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Checklist Title'"
+                                    [ngClass]="{'is-invalid': submit && form.content.errors}">
+                                <div *ngIf="submit && form.content.errors" class="invalid-feedback">
+                                    <span *ngIf="form.content.errors.required">Required!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="status-input" class="col-md-2 col-form-label">Kb Item</label>
+                            <div class="col-md-10">
+                                <ng-select [items]="knowledgeData.items" bindLabel="title" formControlName="kb_id"
+                                    placeholder="Select Something" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Select Something'">
+                                </ng-select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="status-input" class="col-md-2 col-form-label">Questionaire</label>
+                            <div class="col-md-10">
+                                <ng-select [items]="questionData.items" bindLabel="question"
+                                    formControlName="question_id" placeholder="Select Something"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Select Something'">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="status-input" class="col-md-2 col-form-label">include always</label>
+                            <div class="col-md-10">
+                                <ng-select [items]="include_always" bindLabel="include_always"
+                                    formControlName="include_always" placeholder="Empty"
+                                    onfocus="this.placeholder = 'aa'" onblur="this.placeholder = 'Empty'">
+                                </ng-select>
+                                <!--Replace kbitem with the data-->
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-4">
+                            <label for="maturity" class="col-md-2 col-form-label">Maturity Level</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="maturity" formControlName="maturity"
+                                    placeholder="1,2,3" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Maturity Level'"
+                                    [ngClass]="{'is-invalid': submit && form.maturity.errors}">
+                                <div *ngIf="submit && form.maturity.errors" class="invalid-feedback">
+                                    <span *ngIf="form.maturity.errors.required">Required!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-4">
+                            <label for="add_resources" class="col-md-2 col-form-label">Additional resources</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="add_resources"
+                                    formControlName="add_resources"
+                                    placeholder="http://example.com, http://second-example.com (comma seperated)"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = ''"
+                                    [ngClass]="{'is-invalid': submit && form.add_resources.errors}">
+                                <div *ngIf="submit && form.add_resources.errors" class="invalid-feedback">
+                                    <span *ngIf="form.add_resources.errors.required">Required!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button [routerLink]="['/checklists/manage', checklistId]" class="btn btn-danger float-right ml-3"
+                            type="button">Cancel</button>
+                        <button (click)="UpdateChecklistItem()" class="btn btn-success float-right"
+                            type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

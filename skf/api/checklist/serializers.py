@@ -17,7 +17,7 @@ checklist = api.model('checklists_kb', {
     'maturity': fields.Integer(required=False, description='The maturity level'),
 })
 
-checklist_update = api.model('checklist_update', {
+checklist_item = api.model('checklist_item', {
     'kb_id': fields.Integer(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_title': fields.String(attribute='kb_items.title', required=False, description='Knowledge base title'),
     'kb_content': fields.String(attribute='kb_items.content', required=False, description='Knowledge base content'),
@@ -74,13 +74,14 @@ checklist_type_items = api.inherit('List of checklist types', {
     'items': fields.List(fields.Nested(checklist_types))
 })
 
-checklist_create = api.model('checklist_create', {
+checklist_create_update = api.model('checklist_kb', {
     'content': fields.String(required=True, description='Checklist content'),
     'kb_id': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
     'include_always': fields.String(required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
     'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
+    'checklist_id': fields.String(required=True, description='Identifier of checlist_id e.g. 1.1, 2.2, 3.1')
 })
 
 message = api.model('Response message', {

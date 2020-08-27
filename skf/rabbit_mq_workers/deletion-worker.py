@@ -15,7 +15,7 @@ def delete_container(rpc_body):
     deployment = string_split_deployment(rpc_body)
     delete_deployment(deployment, user_id)
     delete_service(deployment, user_id)
-    time.sleep(10)
+    time.sleep(3)
     return {'message': 'If present, the container image was deleted from the cluster!'} 
 
 
@@ -54,9 +54,13 @@ def delete_service(instance_name, user_id):
 def string_split_user_id(body):
     try:
         user_id = body.split(':')
-        return user_id[1]
+        if user_id:
+            return user_id[1]
+        else:
+            user_id = "anonymous"
+            return user_id
     except:
-        return {'message': 'Failed to delete, error no user_id found!'} 
+        return {'message': 'Failed to deploy, error no user_id found!'} 
 
 
 def string_split_deployment(body):
