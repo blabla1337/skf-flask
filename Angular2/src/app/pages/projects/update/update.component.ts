@@ -27,7 +27,8 @@ export class ProjectUpdateComponent implements OnInit
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private _projectService: ProjectService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit(): void
   {
