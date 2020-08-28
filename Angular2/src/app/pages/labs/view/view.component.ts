@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -25,7 +26,11 @@ export class LabViewComponent implements OnInit
   public status: any = [];
 
   // tslint:disable-next-line: variable-name
-  constructor(private _labService: LabService, private spinner: NgxSpinnerService, ) { }
+  constructor(
+    private _labService: LabService, 
+    private spinner: NgxSpinnerService, 
+    private router: Router,
+  ) { }
 
   ngOnInit(): void
   {
@@ -88,6 +93,7 @@ export class LabViewComponent implements OnInit
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
           showLoaderOnConfirm: true,
+          onClose: this.viewLabs,
           preConfirm: () =>
           {
           }
@@ -95,6 +101,10 @@ export class LabViewComponent implements OnInit
       ]);
     });
   }
+
+viewLabs(){
+  this.router.navigate(['/labs/view'])
+}  
 
   stopLabFromRunning(image_tag)
   {
@@ -110,6 +120,7 @@ export class LabViewComponent implements OnInit
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
           showLoaderOnConfirm: true,
+          onClose: this.viewLabs,
           preConfirm: () =>
           {
           }
