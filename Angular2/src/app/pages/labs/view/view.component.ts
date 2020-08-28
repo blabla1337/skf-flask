@@ -20,8 +20,9 @@ export class LabViewComponent implements OnInit
   public queryString;
   public queryLabel;
   public deployments;
-  labLists: string[];
-  lab: any;
+  public labLists: string[];
+  public lab: any;
+  public status: any = [];
 
   // tslint:disable-next-line: variable-name
   constructor(private _labService: LabService, private spinner: NgxSpinnerService, ) { }
@@ -31,6 +32,7 @@ export class LabViewComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
     this.labLists = ['SKF-Labs', 'Juice-Shop', 'Other Labs'];
+    this.showStatus();
   }
 
   /**
@@ -47,6 +49,11 @@ export class LabViewComponent implements OnInit
     });
   }
 
+  showStatus()
+  {
+    this.status = JSON.parse(localStorage.getItem("Labs-deployed"));
+    console.log(status)
+  }
 
   // Get Lab Address
   // tslint:disable-next-line: variable-name
@@ -55,13 +62,29 @@ export class LabViewComponent implements OnInit
     this.spinner.show()
     this._labService.deployLab(image_tag).subscribe(requestData =>
     {
+      var lab_split;
+      var labs_deployed = []
       this.deployments = requestData
       this.spinner.hide();
-      this.lab = this.deployments.split("\\");
+      if (this.deployments.split("\\")){
+        lab_split = this.deployments.split("\\");
+        this.lab = lab_split[3].substring(1);
+        console.log(localStorage.getItem("Labs-deployed"));
+        if (localStorage.getItem("Labs-deployed") === null){
+          labs_deployed.push(image_tag);
+          localStorage.setItem("Labs-deployed", JSON.stringify(labs_deployed));
+        }else if(localStorage.getItem("Labs-deployed")){
+          var stored = JSON.parse(localStorage.getItem("Labs-deployed"));
+          stored.push(image_tag);
+          localStorage.setItem("Labs-deployed", JSON.stringify(stored));
+        }
+      }else{
+        this.lab = "Sorry somthing went wrong!";
+      }
       Swal.queue([
         {
-          title: 'Lab URL',
-          text: this.lab[3].substring(1),
+          title: 'Lab deployment URL',
+          text: this.lab,
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
           showLoaderOnConfirm: true,
@@ -82,8 +105,8 @@ export class LabViewComponent implements OnInit
       this.spinner.hide();
       Swal.queue([
         {
-          title: 'Container message',
-          text: this.deployments,
+          title: 'Lab deployment Stopped',
+          text: "The running lab has been stopped.",
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
           showLoaderOnConfirm: true,

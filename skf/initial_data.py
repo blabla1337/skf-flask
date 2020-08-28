@@ -2391,10 +2391,7 @@ def load_initial_data():
         
         db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3, 'sqli-blind', 'SKF-labs', None))
         db.session.commit()
-        
-        db.session.add(LabItem('Local file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-local-file-inclusion', 1, 'lfi', 'SKF-labs', None))
-        db.session.commit()
-        
+              
         db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1, 'rfi', 'SKF-labs', None))
         db.session.commit()
 
