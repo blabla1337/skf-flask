@@ -14,8 +14,9 @@
                 <div class="col-xl-12">
                   <div class="form-group mb-2">
                     <label class="float-left">Question:</label>
-                    <select class="form-control select2-search-disable">
-                      <option value="#" selected>Select question</option>
+                    <select [(ngModel)]="selectedQuestion" [ngModelOptions]="{standalone: true}" (change)="
+                      selectQuestionFromDropDown()" class="form-control select2-search-disable">
+                      <option value="notDefinedValueDorSelect" selected>Select question</option>
                       <option *ngFor="let item of questionData.items" value="{{item.id}}">{{item.question}}</option>
                     </select>
                   </div>
@@ -34,19 +35,22 @@
                     </p>
                   </div>
                   <div class="card-body">
-                    <button class="btn btn-block mb-2 bg-light">
-                      <div class="row">
-                        <div class="col-10 text-left">
-                          <b>1.0.0</b>
-                          <p class="mt-2 mb-1">
-                            This is some content
-                          </p>
+                    <div *ngFor="let item of checklistData.items">
+                      <button *ngIf="item.question_id == null" (click)="addChecklistCorrelation(item.id)"
+                        class="btn btn-block mb-2 bg-light">
+                        <div class="row">
+                          <div class="col-10 text-left">
+                            <b>{{item.checklist_items_checklist_id}}</b>
+                            <p class="mt-2 mb-1">
+                              This is some content
+                            </p>
+                          </div>
+                          <div class="col-2">
+                            <i class="bx bx-plus font-size-15 py-3 float-right"></i>
+                          </div>
                         </div>
-                        <div class="col-2">
-                          <i class="bx bx-plus font-size-15 py-3 float-right"></i>
-                        </div>
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -59,19 +63,21 @@
                     </p>
                   </div>
                   <div class="card-body">
-                    <button class="btn btn-block mb-2 bg-light">
-                      <div class="row">
-                        <div class="col-10 text-left">
-                          <b>1.0.0</b>
-                          <p class="mt-2 mb-1">
-                            This is some content
-                          </p>
+                    <div *ngFor="let item of correlationData.items">
+                      <button class="btn btn-block mb-2 bg-light" (click)="removeChecklisCorrelation(item.id)">
+                        <div class="row">
+                          <div class="col-10 text-left">
+                            <b>{{item.checklist_items_checklist_id}}</b>
+                            <p class="mt-2 mb-1">
+                              This is some content
+                            </p>
+                          </div>
+                          <div class="col-2">
+                            <i class="bx bx-minus font-size-15 py-3 float-right"></i>
+                          </div>
                         </div>
-                        <div class="col-2">
-                          <i class="bx bx-minus font-size-15 py-3 float-right"></i>
-                        </div>
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

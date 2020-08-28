@@ -75,4 +75,14 @@ export class ChecklistService
     return this.http.put(environment.API_ENDPOINT + `/api/checklist/update/item/${checklist_id}`, value, { headers: this.authHeader })
   }
 
+  getChecklistItemsCorrelatedToQuestion(question_id: number)
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/checklist/item/question_sprint/${question_id}`, { headers: this.authHeader })
+  }
+
+  updateChecklisteItemCorrelationToQuestion(item_id: number, question_id: number)
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/checklist/update/item/correlation/${item_id}/question/${question_id}`, { headers: this.authHeader })
+  }
+
 }

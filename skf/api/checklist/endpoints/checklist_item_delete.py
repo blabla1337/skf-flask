@@ -9,7 +9,7 @@ from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_n
 
 ns = api.namespace('checklist', description='Operations related to checklist items')
 
-@ns.route('/delete/item/<string:id>')
+@ns.route('/delete/item/<int:id>')
 @api.doc(params={'id': 'DB id of the checklist item'})
 @api.response(404, 'Validation error', message)
 class ChecklistItemDelete(Resource):
@@ -21,7 +21,7 @@ class ChecklistItemDelete(Resource):
         Delete a checklist item.
         * Privileges required: **delete**
         """
-        val_alpha_num_special(id)
+        val_num(id)
         validate_privilege(self, 'delete')
         result = delete_checklist_item(id)
         return result, 200, security_headers()
