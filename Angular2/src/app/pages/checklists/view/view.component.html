@@ -39,7 +39,7 @@
                       <div *ngFor="let item of checklistData.items | stringfilter:queryString; let i = index"
                         class="col-xl-12 mb-3 d-flex card border shadow-sm">
                         <div class="card-body pb-0">
-                          <div class="float-right">
+                          <div *ngIf="loggedIn()" class="float-right">
                             <div class="dropdown float-right" ngbDropdown placement="bottom-right">
                               <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
                                 ngbDropdownToggle aria-expanded="false">
@@ -77,7 +77,7 @@
                               <a [routerLink]="['/checklists/read', item.id]" type="button"
                                   class="btn-sm btn-primary text-center d-sm-none"><i class='bx bx-search-alt'></i></a>
                             </li>
-                            <li class="list-inline-item float-right">
+                            <li *ngIf="loggedIn()" class="list-inline-item float-right">
                               <a [routerLink]="['/checklists/manage', item.id]" type="button"
                                   class="btn-sm btn-primary d-none d-sm-block mr-2">Manage checklist</a>
                               <a [routerLink]="['/checklists/manage', item.id]" type="button"
