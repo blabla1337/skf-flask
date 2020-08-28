@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Auth } from '../models/auth.model';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 
@@ -16,19 +15,13 @@ export class UserService {
 
   public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
 
-  addUser(user: Auth) {
-    let users = [];
-    if (localStorage.getItem('Users')) {
-      users = JSON.parse(localStorage.getItem('Users'));
-      users = [user, ...users];
-    } else {
-      users = [user];
-    }
-    localStorage.setItem('Users', JSON.stringify(users));
-  }
-
   activateUser(value: any, user_id: number): Observable<Object> {
       return this.http.put(environment.API_ENDPOINT + `/api/user/activate/${user_id}`, value, { headers: this.authHeader })
   }
+
+  createUser(value: any): Observable<Object> {
+    return this.http.put(environment.API_ENDPOINT + `/api/user/create`, value, { headers: this.authHeader })
+  }
+
 
 }

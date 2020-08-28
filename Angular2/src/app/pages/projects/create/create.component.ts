@@ -23,7 +23,7 @@ export class ProjectCreateComponent implements OnInit
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private _projectService: ProjectService
+    private _projectService: ProjectService,
   ) { }
 
   ngOnInit(): void

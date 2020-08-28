@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-create',
@@ -13,14 +14,15 @@ export class UserCreateComponent implements OnInit
   breadCrumbItems: Array<{}>;
 
   // Form Validation
-  public validationform: FormGroup;
+  public userForm: FormGroup;
 
   // Form Submission
   public submit: boolean;
   public formsubmit: boolean;
 
   constructor( 
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private _userService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -29,19 +31,28 @@ export class UserCreateComponent implements OnInit
     /**
      * Bootstrap validation form data
      */
-    this.validationform = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
-      lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+    this.userForm = this.formBuilder.group({
+      privilege_id:['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     });
     this.submit = false;
+  }
+
+  newUser()
+  {
+    this.submit = true;
+    if (this.userForm.invalid) {
+      return;
+    }
+    this._userService.createUser(this.userForm.value).subscribe()
+    //this.router.navigate(['/projects/manage'])
   }
 
   /**
    * Returns form
    */
   get form() {
-    return this.validationform.controls;
+    return this.userForm.controls;
   }
 
   /**
