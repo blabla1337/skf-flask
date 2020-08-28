@@ -25,6 +25,8 @@ export class ViewCodeComponent implements OnInit
   public codeExampleForm: FormGroup;
   public queryString;
   public catSelector: number;
+  loggedinUser: string;
+  loggedin = false;
 
   get formControls() { return this.codeExampleForm.controls; }
 
@@ -68,6 +70,13 @@ export class ViewCodeComponent implements OnInit
           this.codeExample = test
           this.spinner.hide();
         });
+  }
+
+  loggedIn()
+  {
+    this.loggedinUser = sessionStorage.getItem('Authorization');
+    this.loggedin = true;
+    return this.loggedinUser;
   }
 
   /**

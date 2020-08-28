@@ -21,6 +21,8 @@ export class ViewComponent implements OnInit
   public delete: string;
   public catSelector: number;
   public categoryData: any = [];
+  loggedinUser: string;
+  loggedin = false;
 
   constructor(
     private modalService: NgbModal,
@@ -54,6 +56,13 @@ export class ViewComponent implements OnInit
     this._checklistCategoryService
       .getChecklistCategoryCollection()
       .subscribe(data => this.categoryData = data);
+  }
+
+  loggedIn()
+  {
+    this.loggedinUser = sessionStorage.getItem('Authorization');
+    this.loggedin = true;
+    return this.loggedinUser;
   }
 
   // tslint:disable-next-line: ban-types
