@@ -119,7 +119,7 @@ export class UpdateRequirementComponent implements OnInit
     if (this.validationform.invalid) {
       return;
     }
-    console.log(this.validationform.value)
+
     this.validationform.patchValue({
       kb_id: this.validationform.value['kb_id']['kb_id'],
       question_id: this.validationform.value['question_id']['id'],

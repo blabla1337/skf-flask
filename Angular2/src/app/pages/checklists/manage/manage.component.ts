@@ -19,7 +19,8 @@ export class CheckManageComponent implements OnInit
   public delete: string
   public questionData: any = [];
   public checklistData: any = [];
-
+  public correlationData: any = [];
+  public selectedQuestion: number;
 
   public checkData: any;
 
@@ -67,6 +68,35 @@ export class CheckManageComponent implements OnInit
     if (this.delete == 'DELETE') {
       this._checklistService.deleteChecklistItemById(id).subscribe(x => this.getChecklistItems());
     }
+  }
+
+  selectQuestionFromDropDown()
+  {
+    this._checklistService
+      .getChecklistItemsCorrelatedToQuestion(this.selectedQuestion)
+      .subscribe(data => this.correlationData = data)
+  }
+
+  removeChecklisCorrelation(checklist_id: number)
+  {
+    this._checklistService
+      .updateChecklisteItemCorrelationToQuestion(checklist_id, 0)
+      .subscribe(() =>
+      {
+        this.selectQuestionFromDropDown();
+        this.getChecklistItems();
+      })
+  }
+
+  addChecklistCorrelation(checklist_id: number)
+  {
+    this._checklistService
+      .updateChecklisteItemCorrelationToQuestion(checklist_id, this.selectedQuestion)
+      .subscribe(() =>
+      {
+        this.selectQuestionFromDropDown();
+        this.getChecklistItems();
+      })
   }
 
   centerModal(centerDataModal: any)

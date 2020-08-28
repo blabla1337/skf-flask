@@ -148,10 +148,10 @@ def update_checklist_item(id, data):
     return {'message': 'Checklist item successfully updated'} 
 
 
-def update_checklist_question_correlation(checklist_id, checklist_type, data):
+def update_checklist_question_correlation(checklist_id, question_id):
     log("User requested update a specific checklist question correlation", "LOW", "PASS")
-    question_id = convert_question_id_to_none(data.get('question_id'))
-    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
+    question_id = convert_question_id_to_none(question_id)
+    result_checklist_kb = ChecklistKB.query.filter(ChecklistKB.id == checklist_id).one()
     result_checklist_kb.question_id = question_id
     try:
         db.session.add(result_checklist_kb)
