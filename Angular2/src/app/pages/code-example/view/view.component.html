@@ -80,7 +80,7 @@
                                       <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
                                   </div> <!-- end col -->
                                   <div class="col-sm-6">
-                                    <div class="text-sm-right">
+                                    <div *ngIf="loggedIn()" class="text-sm-right">
                                       <a [routerLink]="['/code-example/update', code.id]"
                                         class="btn btn-sm btn-success m-1">
                                         <i class="mdi mdi-check mr-1"></i> Update </a>
