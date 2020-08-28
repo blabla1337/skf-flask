@@ -37,7 +37,7 @@
                     <th scope="col" class="text-center">Description</th>
                     <th scope="col" class="text-center">Created Date</th>
                     <th scope="col" class="text-center">Project Version</th>
-                    <th scope="col" class="text-center" joyrideStep="lastStep" title="Start expert system for project"
+                    <th *ngIf="loggedIn()" scope="col" class="text-center" joyrideStep="lastStep" title="Start expert system for project"
                       [stepContent]="updateProject">Action</th>
                   </tr>
                 </thead>
@@ -50,13 +50,13 @@
                     <td class="text-center">{{item.id}}</td>
                     <td class="text-center">
                       <h5 class="text-truncate font-size-14 mt-1">
-                        <a [routerLink]="['/projects/view', item.id]" class="text-dark">{{item.name}}</a>
+                        <a [routerLink]="['/projects/view', item.id]" class=""><b>{{item.name}}</b></a>
                       </h5>
                     </td>
                     <td class="text-center">{{item.description}}</td>
                     <td class="text-center">{{item.timestamp}}</td>
                     <td class="text-center">{{item.version}}</td>
-                    <td class="text-center">
+                    <td *ngIf="loggedIn()" class="text-center">
                       <div class="dropdown" ngbDropdown placement="bottom-right">
                         <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
                           ngbDropdownToggle aria-expanded="false">

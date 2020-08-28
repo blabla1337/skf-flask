@@ -24,6 +24,8 @@ export class ViewKnowledebaseComponent implements OnInit
   public queryString;
   public delete: string;
   public catSelector: number;
+  loggedinUser: string;
+  loggedin = false;
 
   constructor(
     private modalService: NgbModal,
@@ -58,6 +60,12 @@ export class ViewKnowledebaseComponent implements OnInit
       .subscribe(data => this.categoryData = data);
   }
 
+  loggedIn()
+  {
+    this.loggedinUser = sessionStorage.getItem('Authorization');
+    this.loggedin = true;
+    return this.loggedinUser;
+  }
 
   deleteModal(deleteDataModal: any)
   {

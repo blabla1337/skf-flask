@@ -19,6 +19,8 @@ export class ProjectManageComponent implements OnInit
   public delete: string;
   public queryString;
   public projectData: any = [];
+  loggedinUser: string;
+  loggedin = false;
 
   constructor(
     private modalService: NgbModal,
@@ -60,5 +62,12 @@ export class ProjectManageComponent implements OnInit
   onSubmit()
   {
     this.router.navigate(['/projects/manage']);
+  }
+
+  loggedIn()
+  {
+    this.loggedinUser = sessionStorage.getItem('Authorization');
+    this.loggedin = true;
+    return this.loggedinUser;
   }
 }
