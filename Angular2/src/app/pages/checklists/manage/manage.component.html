@@ -2,7 +2,7 @@
   <!-- start page title -->
   <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   <!-- end page title -->
-
+  <a [routerLink]="['/checklists/view']" class="btn text-primary d-none d-sm-inline-block float-right btn-link ml-3"> <i class="mdi mdi-arrow-left mr-1"></i> go back</a>
   <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom">
     <li [ngbNavItem]="1">
       <a ngbNavLink>Config</a>
@@ -117,7 +117,7 @@
                   <tr *ngFor="let item of checklistData.items">
                     <td style="width: 60%">
                       <div class="mt-2">
-                        <h6>{{item.checklist_items_checklist_id}} {{item.checklist_items_content |slice:0:130}}...</h6>
+                        <h6 class="text-dark">{{item.checklist_items_checklist_id}} {{item.checklist_items_content |slice:0:130}}...</h6>
                       </div>
                     </td>
                     <td style="width: 40%">
@@ -197,7 +197,7 @@
                   <tr *ngFor="let item of questionData.items">
                     <td style="width: 60%">
                       <div class="mt-2">
-                        <h6>{{item.question}}</h6>
+                        <h6 class="text-dark">{{item.question}}</h6>
                       </div>
                     </td>
                     <td style="width: 40%">
