@@ -19,3 +19,7 @@ button,a {
 .btn-outline-light{
   color: $gray-900;
 }
+
+.btn-link:hover {
+  color: $primary;
+}
