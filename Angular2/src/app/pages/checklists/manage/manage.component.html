@@ -2,8 +2,12 @@
   <!-- start page title -->
   <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   <!-- end page title -->
-  <a [routerLink]="['/checklists/view']" class="btn text-primary d-none d-sm-inline-block float-right btn-link ml-3"> <i class="mdi mdi-arrow-left mr-1"></i> go back</a>
-  <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom">
+  <div class="row">
+    <div class="col lg 12">
+      <a routerLink="/projects/manage" class="btn text-primary d-sm-inline-block btn-link"> <i class="mdi mdi-arrow-left mr-1"></i> go back</a>
+    </div>
+  </div>
+  <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom mt-3">
     <li [ngbNavItem]="1">
       <a ngbNavLink>Config</a>
       <ng-template ngbNavContent>
@@ -15,7 +19,7 @@
                   <div class="form-group mb-2">
                     <label class="float-left">Question:</label>
                     <select [(ngModel)]="selectedQuestion" [ngModelOptions]="{standalone: true}" (change)="
-                      selectQuestionFromDropDown()" class="form-control select2-search-disable">
+                      selectQuestionFromDropDown()" class="form-control check-drop select2-search-disable">
                       <option value="notDefinedValueDorSelect" selected>Select question</option>
                       <option *ngFor="let item of questionData.items" value="{{item.id}}">{{item.question}}</option>
                     </select>
@@ -29,15 +33,15 @@
           <div class="card-body pt-1">
             <div class="row">
               <div class="col-lg-6 align-items-stretch">
-                <div class="card border shadow-none mb-3">
-                  <div class="card-header py-2 bg-light">
+                <div class="card border border-light shadow-none mb-3">
+                  <div class="card-header py-2">
                     <p class="card-title text-center text-dark mt-2">Checklist total (of not yet assigned requirements)
                     </p>
                   </div>
                   <div class="card-body">
                     <div *ngFor="let item of checklistData.items">
                       <button *ngIf="item.question_id == null" (click)="addChecklistCorrelation(item.id)"
-                        class="btn btn-block mb-2 bg-light">
+                        class="btn btn-card bg-light btn-block mb-2">
                         <div class="row">
                           <div class="col-10 text-left">
                             <b>{{item.checklist_items_checklist_id}}</b>
@@ -58,13 +62,13 @@
 
               <div class="col-lg-6 align-items-stretch">
                 <div class="card border shadow-none mb-3">
-                  <div class="card-header py-2 bg-light">
+                  <div class="card-header py-2">
                     <p class="card-title text-center text-dark mt-2">Checklist total (of assigned requirements)
                     </p>
                   </div>
                   <div class="card-body">
                     <div *ngFor="let item of correlationData.items">
-                      <button class="btn btn-block mb-2 bg-light" (click)="removeChecklisCorrelation(item.id)">
+                      <button class="btn btn-card btn-block mb-2 bg-light" (click)="removeChecklisCorrelation(item.id)">
                         <div class="row">
                           <div class="col-10 text-left">
                             <b>{{item.checklist_items_checklist_id}}</b>
