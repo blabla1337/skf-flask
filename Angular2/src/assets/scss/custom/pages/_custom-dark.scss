@@ -102,3 +102,19 @@ aw-wizard {
 .swal2-content {
     font-size: 0.95em
 }
+
+.check-drop {
+    background-color: $card-bg !important;
+}
+
+.btn-card {
+    background-color: $btn-bg !important;
+}
+
+.card-header {
+    background-color: $btn-bg;
+}
+
+button.bg-light:hover, button.bg-light:focus {
+    background-color: $btn-bg !important;
+}
