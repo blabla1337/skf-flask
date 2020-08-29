@@ -2,8 +2,12 @@
   <!-- start page title -->
   <app-page-title title="Checklists" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   <!-- end page title -->
-  <a [routerLink]="['/checklists/view']" class="btn text-primary d-none d-sm-inline-block float-right btn-link ml-3"> <i class="mdi mdi-arrow-left mr-1"></i> go back</a>
-  <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom">
+  <div class="row">
+    <div class="col lg 12">
+      <a routerLink="/projects/manage" class="btn text-primary d-sm-inline-block btn-link"> <i class="mdi mdi-arrow-left mr-1"></i> go back</a>
+    </div>
+  </div>
+  <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom mt-3">
     <li [ngbNavItem]="1">
       <a ngbNavLink>Config</a>
       <ng-template ngbNavContent>
