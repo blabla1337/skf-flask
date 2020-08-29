@@ -19,16 +19,16 @@ export class WizardComponent implements OnInit
 
   project_id = Number(localStorage.getItem("project_id"))
   selected: string;
-  categoryData: any;
-  questionData: any;
-  sprintData: any;
+  categoryData: any = [];
+  questionData: any= [];
+  sprintData: any= [];
   maturityData = [{ "id": 1, "title": "Level 1" }, { "id": 2, "title": "Level 2" }, { "id": 3, "title": "Level 3" }]
   checklistData: any;
   breadCrumbItems: Array<{}>;
   isSubmitted: boolean;
   newSprintForm: FormGroup;
   sprint_id: number;
-  sprintStore: any[];
+  sprintStore: any = [];
 
   constructor(
     private _checklistCategoryService: ChecklistCategoryService,
