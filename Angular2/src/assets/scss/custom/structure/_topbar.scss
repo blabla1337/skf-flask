@@ -76,18 +76,6 @@
   }
 }
 
-// Mega menu
-
-.megamenu-list {
-  li {
-    position: relative;
-    padding: 5px 0px;
-
-    a {
-      color: $dropdown-color;
-    }
-  }
-}
 
 @media (max-width: 992px) {
   .navbar-brand-box {
@@ -273,19 +261,11 @@ body[data-topbar="dark"] {
 }
 
 body[data-topbar="dark"] {
-  #page-topbar {
-    background-color: white;
-  }
-
   .navbar-header {
     .dropdown.show {
       .header-item {
         background-color: rgba($white, 0.05);
       }
-    }
-
-    .waves-effect .waves-ripple {
-      background: rgba($white, 0.4);
     }
   }
 
@@ -295,10 +275,6 @@ body[data-topbar="dark"] {
     &:hover {
       color: $header-dark-item-color;
     }
-  }
-
-  .header-profile-user {
-    background-color: rgba($white, 0.25);
   }
 
   .noti-icon {
