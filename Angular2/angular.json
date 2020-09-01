@@ -105,7 +105,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "../node_modules/highlight.js/styles/github.css"
+              "src/assets/scss/highlight.js/scss/github.scss",
+              "src/assets/scss/highlight.js/scss/monokai-sublime.scss"
             ],
             "scripts": []
           }
