@@ -31,48 +31,52 @@
                   <th>#</th>
                   <th>Username</th>
                   <th>Email</th>
-                  <th>Status</th>
-                  <th>Privileges</th>
-                  <th>Joining Date</th>
+                  <th>Activated</th>
+                  <th>Access</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let users of usersData ;let i = index;">
-                  <td>
-                    <div class="custom-control custom-checkbox">
-                      <input id="customCheck{{i}}" type="checkbox" class="custom-control-input" />
-                      <label class="custom-control-label" for="customCheck{{i}}">&nbsp;</label>
-                    </div>
-                  </td>
+                <tr *ngFor="let users of usersList.items ;let i = index;">
+                  <td>{{users.id}}</td>
                   <td>{{users.username}}</td>
                   <td>
                     <p class="mb-0">{{users.email}}</p>
                   </td>
-                  <td>{{users.status}}</td>
+                  <td>
+                    <span *ngIf="users.activated == 'True'" class="badge badge-success font-size-12 m-1">
+                    Enabled
+                    </span>
+                    <span *ngIf="users.activated == 'False'" class="badge badge-danger font-size-12 m-1">
+                    Disabled
+                    </span>
+                  </td>
                   <td>
                     <div class="dropdown" ngbDropdown>
-                      <span *ngIf="users['allow']=='True'" class="badge badge-success font-size-12 m-1">
-                        Allow
+                      <span class="badge badge-success font-size-12 m-1">
+                        edit:read:manage:delete
                       </span>
                       <span *ngIf="users['deny']=='True'" class="badge badge-danger font-size-12 m-1">
-                        Deny
+                        edit:read:delete
                       </span>
                       <span *ngIf="users['pending']=='True'" class="badge badge-warning font-size-12 m-1">
-                        Pending
+                        edit:read
                       </span>
+                      <span *ngIf="users['pending']=='True'" class="badge badge-info font-size-12 m-1">
+                        read
+                      </span>                      
                       <span type="button" class="badge badge-secondary font-size-12 m-1" ngbDropdownToggle>
                         <i class="bx bx-plus"></i>
                       </span>
                       <ul class="dropdown-menu" ngbDropdownMenu>
                         <a class="dropdown-item disabled" href="javascript: void(0);">Action</a>
-                        <a class="dropdown-item text-success" href="javascript: void(0);">Allow</a>
-                        <a class="dropdown-item text-danger" href="javascript: void(0);">Deny</a>
-                        <a class="dropdown-item text-warning" href="javascript: void(0);">Pending</a>
+                        <a class="dropdown-item text-success" href="javascript: void(0);">edit:read:manage:delete</a>
+                        <a class="dropdown-item text-danger" href="javascript: void(0);">edit:read:delete</a>
+                        <a class="dropdown-item text-warning" href="javascript: void(0);">edit:read</a>
+                        <a class="dropdown-item text-info" href="javascript: void(0);">read</a>
                       </ul>
                     </div>
                   </td>
-                  <td>{{users.date}}</td>
                   <td>
                     <div class="dropdown" ngbDropdown placement="bottom-right">
                       <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"

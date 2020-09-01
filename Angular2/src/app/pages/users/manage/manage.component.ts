@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from '../../../core/services/user.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-
-import { Users } from './manage.model';
-
-import { usersData } from './data';
 
 @Component({
   selector: 'app-manage',
@@ -16,29 +13,24 @@ export class ManageComponent implements OnInit {
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
-  usersData: Users[];
-
-  // page
-  currentpage: number;
-
   // Form Validation
   validationform: FormGroup;
 
   // Form Submission
-  submit: boolean;
-  formsubmit: boolean;
-  Allow = false;
+  public submit: boolean;
+  public formsubmit: boolean;
+  public Allow = false;
+  public usersList: any = [];
 
-  constructor( private modalService: NgbModal,  private formBuilder: FormBuilder) { }
+  constructor( 
+    private modalService: NgbModal,  
+    private formBuilder: FormBuilder,
+    private _userService: UserService,
+    ) { }
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Details', active: true }];
 
-    this.currentpage = 1;
-
-    /**
-     * Fetches the data
-     */
     this._fetchData();
 
     /**
@@ -56,7 +48,7 @@ export class ManageComponent implements OnInit {
    * Customers data fetches
    */
   private _fetchData() {
-    this.usersData = usersData;
+    this._userService.getUsers().subscribe(users => this.usersList = users);
   }
 
   /**
