@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddChecklistComponent } from './add-requirement.component';
+import { AddRequirementComponent } from './add-requirement.component';
 
 /**
 describe('AddChecklistComponent', () => {
