@@ -13,12 +13,12 @@ import { Auth } from '../../../core/models/auth.model';
 export class RegisterComponent implements OnInit
 {
 
-  year: number = new Date().getFullYear();
-  registerationForm: FormGroup;
-  user: Auth;
-  userSubmitted: boolean;
-  successmsg = false;
-  errormsg = false;
+  public year: number = new Date().getFullYear();
+  public registerationForm: FormGroup;
+  public user: Auth;
+  public userSubmitted: boolean;
+  public successmsg = false;
+  public errormsg = false;
 
   constructor(
     private fb: FormBuilder,
