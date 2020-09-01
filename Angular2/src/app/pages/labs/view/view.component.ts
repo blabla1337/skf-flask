@@ -22,7 +22,7 @@ export class LabViewComponent implements OnInit
   public queryLabel;
   public deployments;
   public labLists: string[];
-  public lab: any;
+  public lab: any = [];
   public status: any = [];
 
   // tslint:disable-next-line: variable-name
