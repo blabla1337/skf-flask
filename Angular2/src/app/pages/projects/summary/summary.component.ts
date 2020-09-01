@@ -18,10 +18,10 @@ export class SummaryComponent implements OnInit
 
   // Collapse value
   public isCollapsed: boolean[] = [];
-  private sub: any;
+  private sub: any= [];
   private id: number;
-  public sprintData: any;
-  public codeData: any;
+  public sprintData: any = [];
+  public codeData: any = [];
 
   constructor(
     private modalService: NgbModal,
