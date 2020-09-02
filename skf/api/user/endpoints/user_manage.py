@@ -21,10 +21,11 @@ class userManage(Resource):
     def put(self, id):
         """
         Manage an user.
-        * Privileges required: **none**
+        * Privileges required: **manage**
         """
         data = request.json
         val_alpha(data.get('active'))
+        val_num(data.get('privilege_id'))
         val_num(id)
         validate_privilege(self, 'manage')
         result = manage_user(id, data)
