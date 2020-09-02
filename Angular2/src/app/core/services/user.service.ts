@@ -27,4 +27,8 @@ export class UserService {
     return this.http.get(environment.API_ENDPOINT + `/api/user/list`, { headers: this.authHeader })
   }
 
+  accessUser(value: any, user_id: number): Observable<Object> {
+    return this.http.put(environment.API_ENDPOINT + `/api/user/manage/${user_id}`, value, { headers: this.authHeader })
+  }
+
 }

@@ -56,7 +56,10 @@ def create_user(data):
 def manage_user(user_id, data):
     log("Manage user triggered", "HIGH", "PASS")
     user = get_user_result_by_id(user_id)
-    user.access = data.get('active').lower()=='true'
+    if data.get('active'):
+        user.access = data.get('active').lower()=='true'
+    if data.get('privilege_id'):
+        user.privilege_id = data.get('privilege_id')
     try:
         db.session.add(user)
         db.session.commit()

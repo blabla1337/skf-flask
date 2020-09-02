@@ -9,7 +9,7 @@
             <div class="col-7">
               <div class="search-box mr-2 mb-2 d-inline-block">
                 <div class="position-relative">
-                  <input type="text" class="form-control" placeholder="Search User"
+                  <input [(ngModel)]="queryString" type="text" class="form-control" placeholder="Search User"
                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search User'"/>
                   <i class="bx bx-search-alt search-icon"></i>
                 </div>
@@ -24,6 +24,10 @@
             </div>
             <!-- end col-->
           </div>
+          <!-- Load Spinner -->
+          <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+            <p class="loading">Loading, Please Wait...</p>
+          </ngx-spinner>
           <div class="table-responsive">
             <table class="table table-centered table-nowrap">
               <thead class="thead-light">
@@ -37,17 +41,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let users of usersList.items ;let i = index;">
-                  <td>{{users.id}}</td>
-                  <td>{{users.username}}</td>
+                <tr *ngFor="let item of usersList.items | stringfilter:queryString; let i = index;">
+                  <td>{{item.id}}</td>
+                  <td>{{item.username}}</td>
                   <td>
-                    <p class="mb-0">{{users.email}}</p>
+                    <p class="mb-0">{{item.email}}</p>
                   </td>
                   <td>
-                    <span *ngIf="users.activated == 'True'" class="badge badge-success font-size-12 m-1">
+                    <span *ngIf="item.activated == 'True'" class="badge badge-success font-size-12 m-1">
                     Enabled
                     </span>
-                    <span *ngIf="users.activated == 'False'" class="badge badge-danger font-size-12 m-1">
+                    <span *ngIf="item.activated == 'False'" class="badge badge-danger font-size-12 m-1">
                     Disabled
                     </span>
                   </td>
@@ -56,13 +60,13 @@
                       <span class="badge badge-success font-size-12 m-1">
                         edit:read:manage:delete
                       </span>
-                      <span *ngIf="users['deny']=='True'" class="badge badge-danger font-size-12 m-1">
+                      <span *ngIf="item['deny']=='True'" class="badge badge-danger font-size-12 m-1">
                         edit:read:delete
                       </span>
-                      <span *ngIf="users['pending']=='True'" class="badge badge-warning font-size-12 m-1">
+                      <span *ngIf="item['pending']=='True'" class="badge badge-warning font-size-12 m-1">
                         edit:read
                       </span>
-                      <span *ngIf="users['pending']=='True'" class="badge badge-info font-size-12 m-1">
+                      <span *ngIf="item['pending']=='True'" class="badge badge-info font-size-12 m-1">
                         read
                       </span>                      
                       <span type="button" class="badge badge-secondary font-size-12 m-1" ngbDropdownToggle>
@@ -70,30 +74,64 @@
                       </span>
                       <ul class="dropdown-menu" ngbDropdownMenu>
                         <a class="dropdown-item disabled" href="javascript: void(0);">Action</a>
-                        <a class="dropdown-item text-success" href="javascript: void(0);">edit:read:manage:delete</a>
-                        <a class="dropdown-item text-danger" href="javascript: void(0);">edit:read:delete</a>
-                        <a class="dropdown-item text-warning" href="javascript: void(0);">edit:read</a>
-                        <a class="dropdown-item text-info" href="javascript: void(0);">read</a>
+                        <a class="dropdown-item text-success" (click)="accountUserPrivilege(1, item.id)">edit:read:manage:delete</a>
+                        <a class="dropdown-item text-danger" (click)="accountUserPrivilege(2, item.id)">edit:read:delete</a>
+                        <a class="dropdown-item text-warning" (click)="accountUserPrivilege(3, item.id)">edit:read</a>
+                        <a class="dropdown-item text-info" (click)="accountUserPrivilege(4, item.id)">read</a>
                       </ul>
                     </div>
                   </td>
                   <td>
-                    <div class="dropdown" ngbDropdown placement="bottom-right">
-                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
-                        ngbDropdownToggle aria-expanded="false">
-                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
-                      </a>
-                      <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-                        <li>
-                          <a href="/users/update" type="button" class="dropdown-item">
-                            <i class="fas fa-pencil-alt text-success mr-1"></i>Edit</a>
-                        </li>
-                        <li>
-                          <a type="button" (click)="centerModal(userDeleteModal)"  class="dropdown-item">
-                            <i class="fas fa-trash-alt text-danger mr-1"></i>Delete</a>
-                        </li>
-                      </ul>
-                    </div>
+                    <span *ngIf="item.activated == 'True'">
+                      <a class="text-center" type="button" (click)="centerModal(userDeleteModal)">
+                        <i class="fas fa-trash-alt text-danger mr-1"></i> Revoke Access</a>
+                      </span>
+                     <!-- Deletion modal-->
+                     <ng-template #userDeleteModal let-modal>
+                      <div class="modal-header">
+                        <h5 class="modal-title mt-0">Revoke Access</h5>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="form-group">
+                            <label for="revoke">Type <b class="text-danger">REVOKE</b> to revoke the access of the user</label>
+                            <input autocomplete="off" [(ngModel)]="revoke" type="text" class="form-control" id="revoke"
+                              name="revoke" placeholder="Type REVOKE" onfocus="this.placeholder = ''"
+                              onblur="this.placeholder = 'Type REVOKE'">
+                          </div>
+                          <button (click)="accountUserRevoke(item.id); modal.dismiss('Cross click')"
+                            class="btn btn-danger">Revoke user</button>
+                        </form>
+                      </div>
+                    </ng-template>
+                      <span *ngIf="item.activated == 'False'">
+                        <a class="text-center" type="button" (click)="centerModal(userGrantModal)">
+                          <i class="fas fa-pencil-alt text-success mr-1"></i> Grant Access</a>
+                      </span>
+                     <!-- Grant modal-->
+                     <ng-template #userGrantModal let-modal>
+                      <div class="modal-header">
+                        <h5 class="modal-title mt-0">Grant Access</h5>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="form-group">
+                            <label for="GRANT">Type <b class="text-success">GRANT</b> to activate user access</label>
+                            <input autocomplete="off" [(ngModel)]="grant" type="text" class="form-control" id="grant"
+                              name="grant" placeholder="Type GRANT" onfocus="this.placeholder = ''"
+                              onblur="this.placeholder = 'Type GRANT'">
+                          </div>
+                          <button (click)="accountUserGrant(item.id); modal.dismiss('Cross click')"
+                            class="btn btn-success">Grant access</button>
+                        </form>
+                      </div>
+                    </ng-template>
                   </td>
                 </tr>
               </tbody>
@@ -107,20 +145,3 @@
 </div>
 
 
-<!-- Data Modal -->
-
-<ng-template #userDeleteModal let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Delete User</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="delete">Type <b>'DELETE'</b> to delete the user</label>
-        <input type="text" class="form-control" id="delete" placeholder="Type DELETE">
-      </div>
-      <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
-  </div>
-</ng-template>
