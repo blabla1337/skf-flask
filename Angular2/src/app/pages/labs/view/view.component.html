@@ -89,22 +89,26 @@
                   </td>
                   <td>
                     <div class="text-center" *ngFor="let items of status; let myIndex = index">
-                      <a *ngIf="item.image_tag == items" href="javascript: void(0);" class="badge badge-soft-success font-size-11 m-1">Lab is Running</a>
+                      <a *ngIf="item.image_tag == items" href="javascript: void(0);"
+                        class="badge badge-soft-success font-size-11 m-1">Lab is Running</a>
                     </div>
                   </td>
                   <td>
                     <div class="text-center"><a href="{{item.link}}" target="_blank">Click here</a></div>
                   </td>
                   <td>
-                    <ul class="list-inline mb-0 text-center" *ngFor="let items of status; let myIndex = index">
-                      <li class="list-inline-item" *ngIf="item.image_tag != items">
-                        <button  class="btn btn-success btn-sm" id="get-address"
-                          (click)="getLabAddress(item.image_tag)">Start</button>
-                      </li>
-                      <li class="list-inline-item" *ngIf="item.image_tag == items">
-                        <button  class="btn btn-danger btn-sm" id="get-address"
+                    <ul class="list-inline mb-0 text-center">
+
+                      <li class="list-inline-item" *ngIf="status.includes(item.image_tag); else elseBlock ">
+                        <button class="btn btn-danger btn-sm" id="get-address"
                           (click)="stopLabFromRunning(item.image_tag)">Stop</button>
                       </li>
+                      <ng-template #elseBlock>
+                        <li class="list-inline-item">
+                          <button class="btn btn-success btn-sm" id="get-address"
+                            (click)="getLabAddress(item.image_tag)">Start</button>
+                        </li>
+                      </ng-template>
                     </ul>
                   </td>
                 </tr>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { UserService } from '../../../core/services/user.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-manage',
@@ -12,6 +14,8 @@ export class ManageComponent implements OnInit {
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
+  public revoke: string;
+  public grant: string;
 
   // Form Validation
   validationform: FormGroup;
@@ -21,11 +25,13 @@ export class ManageComponent implements OnInit {
   public formsubmit: boolean;
   public Allow = false;
   public usersList: any = [];
+  public queryString;
 
   constructor( 
     private modalService: NgbModal,  
     private formBuilder: FormBuilder,
     private _userService: UserService,
+    private spinner: NgxSpinnerService, 
     ) { }
 
   ngOnInit() {
@@ -47,8 +53,13 @@ export class ManageComponent implements OnInit {
   /**
    * Customers data fetches
    */
-  private _fetchData() {
-    this._userService.getUsers().subscribe(users => this.usersList = users);
+  private _fetchData() 
+  {
+    this.spinner.show();
+    this._userService.getUsers().subscribe(users => {
+      this.usersList = users;
+      this.spinner.hide();
+    });
   }
 
   /**
@@ -73,4 +84,23 @@ export class ManageComponent implements OnInit {
     this.submit = true;
   }
 
+  accountUserGrant(user_id: number)
+  {
+    if (this.grant == 'GRANT') {
+      this._userService.accessUser('{"active":"True"}', user_id).subscribe(x => {this._fetchData()});
+    }
+  }  
+
+  accountUserRevoke(user_id: number)
+  {
+    if (this.revoke == 'REVOKE') {
+      this._userService.accessUser('{"active":"False"}', user_id).subscribe(x => this._fetchData());
+    }
+  }  
+
+  accountUserPrivilege(privilege: any, user_id: number)
+  {
+    this._userService.accessUser('{"privilege_id":"'+privilege+'"}', user_id).subscribe(x => this._fetchData()); 
+  }
+  
 }

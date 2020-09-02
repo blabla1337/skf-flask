@@ -27,17 +27,17 @@ export class LabViewComponent implements OnInit
 
   // tslint:disable-next-line: variable-name
   constructor(
-    private _labService: LabService, 
-    private spinner: NgxSpinnerService, 
+    private _labService: LabService,
+    private spinner: NgxSpinnerService,
     private router: Router,
   ) { }
 
   ngOnInit(): void
   {
+    this.showStatus();
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
     this.labLists = ['SKF-Labs', 'Juice-Shop', 'Other Labs'];
-    this.showStatus();
   }
 
   /**
@@ -47,17 +47,20 @@ export class LabViewComponent implements OnInit
   {
     this.spinner.show();
     this._labService
-    .getLabs()
-    .subscribe(lab => {
-      this.labData = lab;
-      this.spinner.hide();
-    });
+      .getLabs()
+      .subscribe(lab =>
+      {
+        this.labData = lab;
+        this.spinner.hide();
+      });
   }
 
   showStatus()
   {
-    this.status = JSON.parse(localStorage.getItem("Labs-deployed"));
-    console.log(status)
+    if (this.status == "") {
+      localStorage.setItem("labs-deployed", '[]');
+    }
+    this.status = JSON.parse(localStorage.getItem("labs-deployed"));
   }
 
   // Get Lab Address
@@ -67,25 +70,10 @@ export class LabViewComponent implements OnInit
     this.spinner.show()
     this._labService.deployLab(image_tag).subscribe(requestData =>
     {
-      var lab_split;
-      var labs_deployed = []
-      this.deployments = requestData
       this.spinner.hide();
-      if (this.deployments.split("\\")){
-        lab_split = this.deployments.split("\\");
-        this.lab = lab_split[3].substring(1);
-        console.log(localStorage.getItem("Labs-deployed"));
-        if (localStorage.getItem("Labs-deployed") === null){
-          labs_deployed.push(image_tag);
-          localStorage.setItem("Labs-deployed", JSON.stringify(labs_deployed));
-        }else if(localStorage.getItem("Labs-deployed")){
-          var stored = JSON.parse(localStorage.getItem("Labs-deployed"));
-          stored.push(image_tag);
-          localStorage.setItem("Labs-deployed", JSON.stringify(stored));
-        }
-      }else{
-        this.lab = "Sorry somthing went wrong!";
-      }
+      this.lab = requestData
+      var lab_split = this.lab.split("\\");
+      this.lab = lab_split[3].substring(1);
       Swal.queue([
         {
           title: 'Lab deployment URL',
@@ -93,7 +81,11 @@ export class LabViewComponent implements OnInit
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
           showLoaderOnConfirm: true,
-          onClose: this.viewLabs,
+          onClose: () =>
+          {
+            this.status.push(image_tag)
+            localStorage.setItem("labs-deployed", JSON.stringify(this.status))
+          },
           preConfirm: () =>
           {
           }
@@ -102,9 +94,10 @@ export class LabViewComponent implements OnInit
     });
   }
 
-viewLabs(){
-  this.router.navigate(['/labs/view'])
-}  
+  viewLabs()
+  {
+    this.router.navigate(['/labs/view'])
+  }
 
   stopLabFromRunning(image_tag)
   {
@@ -120,7 +113,11 @@ viewLabs(){
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
           showLoaderOnConfirm: true,
-          onClose: this.viewLabs,
+          onClose: () =>
+          {
+            this.status.splice(this.status.indexOf(image_tag), 1);
+            localStorage.setItem("labs-deployed", JSON.stringify(this.status))
+          },
           preConfirm: () =>
           {
           }
