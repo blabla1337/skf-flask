@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { UpdateCodeComponent } from './update.component';
 
@@ -8,7 +9,8 @@ describe('UpdateCodeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdateCodeComponent ]
+      declarations: [ UpdateCodeComponent,
+                      FormBuilder ]
     })
     .compileComponents();
   }));
