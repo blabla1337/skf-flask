@@ -24,8 +24,8 @@ def load_initial_data():
     try:
         p = Privilege('edit:read:manage:delete')
         db.session.add(p)
-        #db.session.add(Privilege('edit:read:delete'))
-        #db.session.add(Privilege('edit:read'))
+        db.session.add(Privilege('edit:read:delete'))
+        db.session.add(Privilege('edit:read'))
         db.session.add(Privilege('read'))  
 
         user = User(username='admin', accessToken=1234, email="example@owasp.org")

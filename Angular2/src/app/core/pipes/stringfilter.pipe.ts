@@ -18,7 +18,10 @@ export class StringFilterPipe implements PipeTransform {
       }     
       if (items[0].checklist_items_content) {
         return items.filter(item => item.checklist_items_content.toLowerCase().indexOf(args.toString().toLowerCase()) >= 0);
-      }           
+      }       
+      if (items[0].email) {
+        return items.filter(item => item.email.toLowerCase().indexOf(args.toString().toLowerCase()) >= 0);
+      }      
     }
     if (!args) {
       return items;
