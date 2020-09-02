@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { HorizontaltopbarComponent } from './horizontaltopbar.component';
 
@@ -8,7 +9,7 @@ describe('HorizontaltopbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HorizontaltopbarComponent ]
+      declarations: [ HorizontaltopbarComponent, Router ]
     })
     .compileComponents();
   }));
