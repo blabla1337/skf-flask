@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CreateQuestionnaireComponent } from './create.component';
 
@@ -10,6 +13,7 @@ describe('CreateQuestionarieComponent', () =>
   beforeEach(async(() =>
   {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule],
       declarations: [CreateQuestionnaireComponent]
     })
       .compileComponents();
@@ -19,6 +23,7 @@ describe('CreateQuestionarieComponent', () =>
   {
     fixture = TestBed.createComponent(CreateQuestionnaireComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
   });
 

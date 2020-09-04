@@ -1,25 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { LabViewComponent } from './view.component';
+import { LabelFilterPipe } from '../../../core/pipes/labelfilter.pipe'
+import { StringFilterPipe } from '../../../core/pipes/stringfilter.pipe'
 
-describe('LabViewComponent', () => {
+describe('LabViewComponent', () =>
+{
   let component: LabViewComponent;
   let fixture: ComponentFixture<LabViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async(() =>
+  {
     TestBed.configureTestingModule({
-      declarations: [ LabViewComponent ]
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [LabViewComponent, LabelFilterPipe, StringFilterPipe],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     fixture = TestBed.createComponent(LabViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
 });

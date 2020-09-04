@@ -1,25 +1,31 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { OpenidComponent } from './openid.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('OpenidComponent', () => {
+
+describe('OpenidComponent', () =>
+{
   let component: OpenidComponent;
   let fixture: ComponentFixture<OpenidComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async(() =>
+  {
     TestBed.configureTestingModule({
-      declarations: [ OpenidComponent ]
+      imports: [RouterTestingModule],
+      declarations: [OpenidComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     fixture = TestBed.createComponent(OpenidComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
 });
