@@ -1,25 +1,36 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgbNavModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { CheckManageComponent } from './manage.component';
 
-describe('CheckManageComponent', () => {
+describe('CheckManageComponent', () =>
+{
   let component: CheckManageComponent;
   let fixture: ComponentFixture<CheckManageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async(() =>
+  {
     TestBed.configureTestingModule({
-      declarations: [ CheckManageComponent ]
+      imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule, NgbNavModule],
+      declarations: [CheckManageComponent],
+      providers: [NgbNavModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     fixture = TestBed.createComponent(CheckManageComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
 });

@@ -21,6 +21,7 @@ export class CheckManageComponent implements OnInit
   public checklistData: any = [];
   public correlationData: any = [];
   public selectedQuestion: number;
+  public ngbNav;
 
   public checkData: any;
 
