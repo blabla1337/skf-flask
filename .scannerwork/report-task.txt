@@ -1,6 +1,0 @@
-projectKey=test
-serverUrl=http://192.168.1.65:9000
-serverVersion=7.9.1.27448
-dashboardUrl=http://192.168.1.65:9000/dashboard?id=test
-ceTaskId=AW0BRICFSxUMMlsv65VH
-ceTaskUrl=http://192.168.1.65:9000/api/ce/task?id=AW0BRICFSxUMMlsv65VH
