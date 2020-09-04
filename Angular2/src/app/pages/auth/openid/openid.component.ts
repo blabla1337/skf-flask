@@ -6,16 +6,19 @@ import { Router } from '@angular/router';
   templateUrl: './openid.component.html',
   styleUrls: ['./openid.component.scss']
 })
-export class OpenidComponent implements OnInit {
+export class OpenidComponent implements OnInit
+{
 
   year: number = new Date().getFullYear();
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
   }
 
-  onRegister() {
+  onRegister()
+  {
     this.router.navigate(['/auth/register']);
   }
 

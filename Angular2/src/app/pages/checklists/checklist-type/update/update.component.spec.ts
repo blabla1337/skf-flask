@@ -1,25 +1,33 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { UpdateChecklistTypeComponent } from './update.component';
 
-describe('UpdateChecklistTypeComponent', () => {
+describe('UpdateChecklistTypeComponent', () =>
+{
   let component: UpdateChecklistTypeComponent;
   let fixture: ComponentFixture<UpdateChecklistTypeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async(() =>
+  {
     TestBed.configureTestingModule({
-      declarations: [ UpdateChecklistTypeComponent ]
+      imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule],
+      declarations: [UpdateChecklistTypeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     fixture = TestBed.createComponent(UpdateChecklistTypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
 });

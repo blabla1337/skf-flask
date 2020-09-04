@@ -1,26 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, FormBuilder } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { RegisterComponent } from './register.component';
 
-describe('RegisterComponent', () => {
+describe('RegisterComponent', () =>
+{
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async(() =>
+  {
     TestBed.configureTestingModule({
-      declarations: [ RegisterComponent, FormBuilder ]
+      imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule],
+      declarations: [RegisterComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
+    component.ngOnInit()
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
 });
