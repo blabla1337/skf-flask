@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { JoyrideService } from 'ngx-joyride';
 
-import { Card } from './home';
-import { CardItem } from './home.model';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +9,7 @@ import { CardItem } from './home.model';
 })
 export class HomeComponent implements OnInit {
 
-  cardItems = [];
+  //cardItems = [];
   title = 'Sample';
 
   constructor(
@@ -34,7 +31,4 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  initialize(): void {
-    this.cardItems = Card;
-  }
 }

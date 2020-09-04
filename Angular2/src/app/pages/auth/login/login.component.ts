@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit
         localStorage.clear();
         sessionStorage.setItem('Authorization', '');
         localStorage.setItem('categorySelector', '1');
+        localStorage.setItem("labs-deployed", '[]');
         if (sessionStorage.getItem('theme')  === null){
             sessionStorage.setItem('theme', 'light-theme.css');
         }

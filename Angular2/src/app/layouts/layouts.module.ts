@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
@@ -21,6 +22,7 @@ import { LoaderComponent } from './loader/loader.component';
     NgbDropdownModule,
     NgxSpinnerModule,
     JoyrideModule.forRoot(),
+    BrowserModule
   ],
 })
 export class LayoutsModule { }

@@ -57,9 +57,6 @@ export class LabViewComponent implements OnInit
 
   showStatus()
   {
-    if (this.status == "") {
-      localStorage.setItem("labs-deployed", '[]');
-    }
     this.status = JSON.parse(localStorage.getItem("labs-deployed"));
   }
 
