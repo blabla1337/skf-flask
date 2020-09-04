@@ -14,8 +14,8 @@ export class ChecklistsReadComponent implements OnInit
   // Bread crumb item
   breadCrumbItems: Array<{}>;
   public queryString;
-  public checklistCatData: any;
-  public checklistConData: any;
+  public checklistCatData: any = [];
+  public checklistConData: any = [];
   public id: number;
   private sub: any;
 
@@ -27,7 +27,7 @@ export class ChecklistsReadComponent implements OnInit
     // tslint:disable-next-line: variable-name
     private _checklistCategoryService: ChecklistService,
     private route: ActivatedRoute,
-    private router: Router
+    public router: Router
   ) { }
 
   ngOnInit(): void
