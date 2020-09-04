@@ -10,13 +10,12 @@ export class LinksFilterPipe implements PipeTransform
     public links: any;
 
     transform(items: any[]): any {
-
-        if (items[0].add_resources) {
+        if(typeof(items)!=="undefined") {
             for(this.i in items){
                 this.links = items[this.i].add_resources.split(",");
                 items[this.i].add_resources = this.links.join("\n\r");
             }
-            return items
+            return items;
         }
     }
 }
