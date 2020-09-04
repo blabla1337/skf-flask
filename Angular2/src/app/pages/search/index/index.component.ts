@@ -17,7 +17,7 @@ export class IndexComponent implements OnInit {
   public routerURL;
   constructor(
     private router: Router,
-    private _usearchService: SearchService,
+    private _searchService: SearchService,
     private spinner: NgxSpinnerService, 
   ) { }
 
@@ -32,8 +32,8 @@ export class IndexComponent implements OnInit {
   private _fetchData() 
   {
     this.spinner.show();
-    this._usearchService.searchChecklist(localStorage.getItem("search")).subscribe(users => {
-      this.usersList = users;
+    this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(users => {
+      //this.usersList = users;
       this.spinner.hide();
     });
   }
