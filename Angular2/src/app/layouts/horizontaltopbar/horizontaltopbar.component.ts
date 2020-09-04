@@ -20,18 +20,19 @@ import { ChecklistCategoryService } from '../../core/services/checklist_category
 export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 {
 
-  element;
-  configData;
-  theme: string;
-  loggedinUser: string;
-  loggedin = false;
-  dark = false;
-  light = true;
-  menuItems = [];
-  categoryData: any = [];
-  routeUrl: any;
-  themeName: string;
-
+  public element;
+  public configData;
+  public theme: string;
+  public loggedinUser: string;
+  public loggedin = false;
+  public dark = false;
+  public light = true;
+  public menuItems = [];
+  public categoryData: any = [];
+  public routeUrl: any;
+  public themeName: string;
+  public search: string;
+  
   // tslint:disable-next-line: max-line-length
   constructor(@Inject(DOCUMENT) private document: any,
               private router: Router,
@@ -178,4 +179,10 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     sessionStorage.removeItem('Authorization');
     this.router.navigate(['/auth/login']);
   }
+
+  onChange(search) {
+    localStorage.setItem('search',search)
+    this.router.navigate(['/search/index']);
+  }
+
 }

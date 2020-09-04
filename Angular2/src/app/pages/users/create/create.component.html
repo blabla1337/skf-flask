@@ -29,7 +29,7 @@
                                 <option value="4">read</option>
                             </select>
                         </div>
-                        <button class="btn btn-danger float-right ml-3" type="submit">Cancel</button>
+                        <button class="btn btn-danger float-right ml-3" [routerLink]="['/users/manage']"type="submit">Cancel</button>
                         <button (click)="newUser()" class="btn btn-success float-right" type="submit">Submit</button>
                     </form>
                 </div>
