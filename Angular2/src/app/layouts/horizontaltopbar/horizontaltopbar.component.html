@@ -41,7 +41,7 @@
           <div class="p-3">
             <div class="form-group m-0">
               <div class="input-group">
-                <input type="text" class="form-control" (change)="onChange($event.target.value); placeholder = ''" placeholder="Search..." aria-label="Searh SKF"
+                <input type="text" class="form-control" (change)="onChange($event.target.value)" placeholder="Search..." aria-label="Searh SKF"
                 onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search'">
                 <div class="input-group-append">
                   <button class="btn btn-primary" [routerLink]="['/search/index']" type="submit"><i class="mdi mdi-magnify"></i></button>
