@@ -8,21 +8,14 @@
 
 
       <div class="navbar-brand-box">
-        <a href="/" class="logo logo-dark">
-          <span class="logo-sm">
-            <img src="assets/images/logo-colored1.png" alt="" height="22">
-          </span>
-          <span class="logo-lg">
-            <img src="assets/images/logo-colored1.png" alt="" height="12">
-          </span>
-        </a>
-
         <a href="/" class="logo logo-light">
           <span class="logo-sm">
-            <img src="assets/images/logo-colored1.png" alt="" height="22">
+            <img src="assets/images/logo.svg" alt="" height="22">
+            Security Knowledge Framework
           </span>
           <span class="logo-lg">
-            <img src="assets/images/logo-colored1.png" alt="" height="50">
+            <img src="assets/images/logo.svg" alt="" height="50">
+            Security Knowledge Framework
           </span>
         </a>
       </div>
@@ -30,9 +23,9 @@
       <!-- App Search-->
       <div class="app-search d-none navbar-center d-lg-block">
         <div class="position-relative">
-          <input type="text" [routerLink]="['/search/index']" (change)="onChange($event.target.value)" type="text" class="form-control" placeholder="Search..."
-          id="search" name="search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search...'">
-          <span class="bx bx-search-alt"></span>
+          <input type="text"  (change)="onChange($event.target.value)" type="text" class="form-control" placeholder="Search..."
+          id="search" name="search" onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search...'">
+          <span class="bx bx-search-alt" [routerLink]="['/search/index']"></span>
         </div>
       </div>
     </div>
@@ -49,7 +42,7 @@
             <div class="form-group m-0">
               <div class="input-group">
                 <input type="text" class="form-control" (change)="onChange($event.target.value)" placeholder="Search..." aria-label="Searh SKF"
-                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'">
+                onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search'">
                 <div class="input-group-append">
                   <button class="btn btn-primary" [routerLink]="['/search/index']" type="submit"><i class="mdi mdi-magnify"></i></button>
                 </div>

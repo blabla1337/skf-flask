@@ -12,9 +12,12 @@ import { SearchService } from '../../../core/services/search.service';
 export class IndexComponent implements OnInit {
 
   // bread crumb items
-  breadCrumbItems: Array<{}>;
-  results_checklist: any = [];
-  public routerURL;
+  public breadCrumbItems: Array<{}>;
+  public results_checklist: any = [];
+  public results_labs: any = [];
+  public results_kb: any = [];
+  public results_projects: any = [];
+
   constructor(
     private router: Router,
     private _searchService: SearchService,
@@ -23,18 +26,33 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Search' }, { label: 'Index', active: true }];
-    this.routerURL = this.router.url;
+    this._fetchData();
   }
 
-    /**
+  /**
    * Customers data fetches
    */
   private _fetchData() 
   {
-    this.spinner.show();
-    this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(users => {
-      //this.usersList = users;
-      this.spinner.hide();
-    });
+    if(localStorage.getItem("search") !== ""){
+      this.spinner.show();
+      this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
+        this.results_checklist = results;
+        this.spinner.hide();
+      });
+      this._searchService.searchLabs(localStorage.getItem("search")).subscribe(results => {
+        this.results_labs = results;
+        this.spinner.hide();
+      });
+      this._searchService.searchProject(localStorage.getItem("search")).subscribe(results => {
+        this.results_projects = results;
+        this.spinner.hide();
+      });
+      this._searchService.searchKb(localStorage.getItem("search")).subscribe(results => {
+        this.results_kb = results;
+        this.spinner.hide();
+      });
+    }
   }
+
 }
