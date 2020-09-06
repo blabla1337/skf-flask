@@ -46,10 +46,10 @@ describe('UserCreateComponent', () =>
     it('priviledge field validity', () => {
         let priviledge = component.userForm.controls['privilege_id'];
         expect(priviledge.valid).toBeFalsy();
-    
+
         let errors = {};
         errors = priviledge.errors || {};
         expect(errors['required']).toBeTruthy();
       });
-    
+
 });
