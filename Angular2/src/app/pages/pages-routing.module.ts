@@ -6,8 +6,8 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { AuthGuard } from '../core/guards/guard.service';
 import { LoggedInAuthGuard } from '../core/guards/loggedinguard.service';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'dashboard' },
+export const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: HomeComponent },
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   { path: 'code-example', loadChildren: () => import('./code-example/code-example.module').then(m => m.CodeExampleModule) },

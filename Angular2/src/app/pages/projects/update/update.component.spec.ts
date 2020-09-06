@@ -31,4 +31,10 @@ describe('ProjectUpdateComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should return true', () =>
+  {
+    component.validSubmit();
+    expect(component.submit).toBeTruthy();
+  });
 });
