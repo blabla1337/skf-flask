@@ -31,4 +31,25 @@ describe('UserCreateComponent', () =>
     {
         expect(component).toBeTruthy();
     });
+
+    it('should return true', () =>
+    {
+        component.validSubmit();
+        expect(component.submit).toBeTruthy();
+    });
+
+    it('form invalid when empty', () => {
+        component.newUser();
+        expect(component.userForm.invalid).toBeTruthy();
+    });
+
+    it('priviledge field validity', () => {
+        let priviledge = component.userForm.controls['privilege_id'];
+        expect(priviledge.valid).toBeFalsy();
+    
+        let errors = {};
+        errors = priviledge.errors || {};
+        expect(errors['required']).toBeTruthy();
+      });
+    
 });
