@@ -31,4 +31,18 @@ describe('UpdateComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should create valid submit', () =>
+  {
+    component.validSubmit();
+    expect(component.submit).toBeTruthy();
+  });
+
+
+  it('should update knowledgebase item', () =>
+  {
+    component.updateKnowledgebaseItem();
+    expect(component.submit).toBeTruthy();
+    expect(component.knowledgebaseForm.valid).toBeFalsy();
+  });
 });
