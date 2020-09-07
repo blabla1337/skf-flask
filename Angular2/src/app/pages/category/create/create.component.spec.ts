@@ -30,4 +30,17 @@ describe('CreateCategoryComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should create category', () =>
+  {
+    component.createCategory();
+    expect(component.submit).toBeTruthy();
+    expect(component.validationform.valid).toBeFalsy();
+  });
+
+  it('should submit valid', () =>
+  {
+    component.validSubmit();
+    expect(component.submit).toBeTruthy();
+  });
 });

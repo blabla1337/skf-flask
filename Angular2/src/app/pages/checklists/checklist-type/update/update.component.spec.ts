@@ -30,4 +30,17 @@ describe('UpdateChecklistTypeComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should valid submit', () =>
+  {
+    component.validSubmit();
+    expect(component.submit).toBeTruthy();
+  });
+
+  it('should update checklist item', () =>
+  {
+    component.updateChecklistItem();
+    expect(component.submit).toBeTruthy();
+    expect(component.checklistForm.valid).toBeFalsy();
+  });
 });
