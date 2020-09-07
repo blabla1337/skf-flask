@@ -31,4 +31,17 @@ describe('UpdateQuestionarieComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should valid submit', () =>
+  {
+    component.validSubmit();
+    expect(component.submit).toBeTruthy();
+  });
+
+  it('should update question item', () =>
+  {
+    component.updateQuestionItem();
+    expect(component.submit).toBeTruthy();
+    expect(component.questionForm.valid).toBeFalsy();
+  });
 });
