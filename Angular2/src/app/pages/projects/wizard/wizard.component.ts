@@ -7,7 +7,7 @@ import { ChecklistCategoryService } from '../../../core/services/checklist_categ
 import { QuestionService } from '../../../core/services/question.service';
 import { ChecklistService } from '../../../core/services/checklists.service';
 import { SprintService } from '../../../core/services/sprint.service';
-import { isEmptyExpression } from '@angular/compiler';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-wizard',
@@ -36,6 +36,7 @@ export class WizardComponent implements OnInit
     private _checklistService: ChecklistService,
     private _sprintService: SprintService,
     private formBuilder: FormBuilder,
+    private spinner: NgxSpinnerService,
     private router: Router,
   ) { }
 
@@ -116,6 +117,7 @@ export class WizardComponent implements OnInit
 
   storeQuestions()
   {
+    this.spinner.show();
     const sprint_items = JSON.parse(localStorage.getItem('questions'));
     const count_sprint = Object.keys(sprint_items).length
 
@@ -149,7 +151,10 @@ export class WizardComponent implements OnInit
         Number(localStorage.getItem("checklist_type_id")),
         Number(localStorage.getItem("maturity")),
         this.sprintStore)
-        .subscribe(()=>this.router.navigate(['/projects/view', this.project_id]))
+        .subscribe(()=>{
+          this.spinner.hide();
+          this.router.navigate(['/projects/view', this.project_id]);
+        });
     }, 2000);
   }
 }

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { LinksFilterPipe } from '../../../core/pipes/linksfilter.pipe'
 import { SummaryComponent } from './summary.component';
@@ -13,7 +14,7 @@ describe('SummaryComponent', () =>
   beforeEach(async(() =>
   {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule],
+      imports: [RouterTestingModule, ReactiveFormsModule, FormsModule, HttpClientTestingModule],
       declarations: [SummaryComponent, LinksFilterPipe],
       providers: [LinksFilterPipe]
     })

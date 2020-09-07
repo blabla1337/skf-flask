@@ -16,8 +16,8 @@
             <div class="col-6">
               <div class="search-box mb-2 d-inline-block">
                 <div class="position-relative">
-                  <input type="text" class="form-control" placeholder="Search..."
-                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search...'"/>
+                  <input type="text" class="form-control" [(ngModel)]="queryString" id="search" name="search" 
+                  placeholder="Search..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search...'"/>
                   <i class="bx bx-search-alt search-icon"></i>
                 </div>
               </div>
@@ -30,7 +30,7 @@
             <!-- end col-->
           </div>
           <div class="row">
-            <div *ngFor="let item of sprintData" class="col-xl-4 col-sm-6 mb-4">
+            <div *ngFor="let item of sprintData | stringfilter:queryString;" class="col-xl-4 col-sm-6 mb-4">
               <div class="card card-light">
                 <div class="card-body">
                   <div class="media">
