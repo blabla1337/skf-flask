@@ -149,9 +149,7 @@ export class WizardComponent implements OnInit
         Number(localStorage.getItem("checklist_type_id")),
         Number(localStorage.getItem("maturity")),
         this.sprintStore)
-        .subscribe()
+        .subscribe(()=>this.router.navigate(['/projects/view', this.project_id]))
     }, 2000);
-
-    this.router.navigate(['/projects/view', this.project_id])
   }
 }
