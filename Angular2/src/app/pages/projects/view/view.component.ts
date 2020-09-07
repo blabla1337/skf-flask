@@ -14,10 +14,12 @@ export class ProjectViewComponent implements OnInit
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
-  id: number;
+  public id: number;
   private sub: any;
-  sprintData: any;
-  selected: string;
+  public sprintData: any;
+  public selected: string;
+  public queryString;
+
 
   constructor(
     private modalService: NgbModal,
