@@ -36,6 +36,16 @@ describe('RegisterComponent', () =>
     expect(component.registerationForm.valid).toBeFalse();
   });
 
+  it('form should be valid', () => {
+    component.registerationForm.controls.username.setValue('sasd');
+    component.registerationForm.controls.email.setValue('sadasd@asd.com');
+    component.registerationForm.controls.user_id.setValue('132456789');
+    component.registerationForm.controls.password.setValue('qwerty@123');
+    component.registerationForm.controls.repassword.setValue('qwerty@123');
+    component.registerationForm.controls.accessToken.setValue('12345');
+    expect(component.registerationForm.valid).toBeTruthy();
+  });
+
   it('username field validity', () => {
     let username = component.registerationForm.controls['username'];
     expect(username.valid).toBeFalsy();
@@ -91,6 +101,13 @@ describe('RegisterComponent', () =>
     accessToken.setValue('1a-/');
     errors = accessToken.errors || {};
     expect(errors['pattern']).toBeTruthy();
+  });
+
+  it('should be reset', () =>
+  {
+    component.onReset();
+    expect(component.userSubmitted).toBeFalsy();
+    expect(component.registerationForm.reset).toBeTruthy();
   });
 
 });

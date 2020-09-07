@@ -31,4 +31,16 @@ describe('WizardComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should assign value', () =>
+  {
+    component.onChange('12345');
+    expect(component.selected).toBe('12345');
+  });
+
+  it('form invalid when empty', () => {
+    component.storeSprint();
+    expect(component.isSubmitted).toBeTrue();
+    expect(component.newSprintForm.valid).toBeFalsy();
+  });
 });

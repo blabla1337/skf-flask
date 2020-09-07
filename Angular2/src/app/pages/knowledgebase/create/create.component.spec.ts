@@ -31,4 +31,17 @@ describe('CreateComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should valid submit', () =>
+  {
+    component.validSubmit();
+    expect(component.submit).toBeTruthy();
+  });
+
+  it('should create knowledgebase item', () =>
+  {
+    component.createKnowledgebaseItem();
+    expect(component.submit).toBeTruthy();
+    expect(component.knowledgebaseForm.valid).toBeFalsy();
+  });
 });

@@ -23,12 +23,50 @@ describe('CreateChecklistTypeComponent', () =>
   {
     fixture = TestBed.createComponent(CreateChecklistTypeComponent);
     component = fixture.componentInstance;
-    component.ngOnInit()
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
   it('should create', () =>
   {
     expect(component).toBeTruthy();
+  });
+
+  it('should return true', () =>
+  {
+    component.validSubmit();
+    expect(component.submit).toBeTruthy();
+  });
+
+  it('name field validity', () => {
+    let name = component.checklistForm.controls['name'];
+    expect(name.valid).toBeFalsy();
+
+    let errors = {};
+    errors = name.errors || {};
+    expect(errors['required']).toBeTruthy();
+  });
+
+  it('description field validity', () => {
+    let description = component.checklistForm.controls['description'];
+    expect(description.valid).toBeFalsy();
+
+    let errors = {};
+    errors = description.errors || {};
+    expect(errors['required']).toBeTruthy();
+  });
+
+  it('visibility field validity', () => {
+    let visibility = component.checklistForm.controls['visibility'];
+    expect(visibility.valid).toBeFalsy();
+
+    let errors = {};
+    errors = visibility.errors || {};
+    expect(errors['required']).toBeTruthy();
+  });
+
+  it('form invalid when empty', () => {
+    component.createChecklistType();
+    expect(component.checklistForm.invalid).toBeTruthy();
   });
 });

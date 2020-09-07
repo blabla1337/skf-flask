@@ -11,7 +11,7 @@ import { RegisterComponent } from '../register/register.component';
 import { AuthService } from '../../../core/services/auth.service';
 import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Router } from '@angular/router';
-import { PagesRoutingModule } from '../../pages-routing.module';
+import { PagesRoutingModule, routes } from '../../pages-routing.module';
 
 describe('LoginComponent', () =>
 {
@@ -26,9 +26,9 @@ describe('LoginComponent', () =>
       imports: [
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([
-          { path: 'dashboard', component: HomeComponent },
-          { path: 'auth', loadChildren: () => import('../auth.module').then(m => m.AuthModule)},
-        ]),
+            { path: 'dashboard', component: HomeComponent },
+            { path: 'auth/register', component: RegisterComponent},
+          ]),
         ReactiveFormsModule, FormsModule],
       declarations: [LoginComponent],
       providers: [Location]
@@ -82,11 +82,18 @@ describe('LoginComponent', () =>
     expect(location.path()).toBe('/dashboard');
   }));
 
-  // it('navigate to "register" takes us to /auth/register', fakeAsync(() => {
-  //   component.onRegister();
-  //   router.navigate(['auth', 'register']);
-  //   tick();
-  //   expect(location.path()).toBe('/auth/register');
-  // }));
+  it('navigate to "register" takes us to /auth/register', fakeAsync(() => {
+    component.onRegister();
+    router.navigate(['auth/register']);
+    tick();
+    expect(location.path()).toBe('/auth/register');
+  }));
 
+  it('should be invalid', () =>
+  {
+    component.onLogin();
+    expect(component.isSubmitted).toBeTruthy();
+    expect(component.loginForm.valid).toBeFalsy();
+    expect(component.errormsg).toBeTruthy();
+  });
 });
