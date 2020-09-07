@@ -31,4 +31,17 @@ describe('CreateQuestionarieComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should va;id submit', () =>
+  {
+    component.validSubmit();
+    expect(component.submit).toBeTruthy();
+  });
+
+  it('should create', () =>
+  {
+    component.createQuestion();
+    expect(component.submit).toBeTruthy();
+    expect(component.questionForm.valid).toBeFalsy();
+  });
 });
