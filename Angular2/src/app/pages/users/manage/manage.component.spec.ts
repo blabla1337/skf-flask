@@ -32,4 +32,25 @@ describe('ManageComponent', () =>
     {
         expect(component).toBeTruthy();
     });
+
+    it('should valid submit', () =>
+    {
+        component.validSubmit();
+        expect(component.submit).toBeTruthy();
+    });
+
+    it('should grant user', () =>
+    {
+        component.accountUserGrant(1);
+    });
+
+    it('should revoke user', () =>
+    {
+        component.accountUserRevoke(1);
+    });
+
+    it('should give access', () =>
+    {
+        component.accountUserPrivilege('admin', 1);
+    });
 });
