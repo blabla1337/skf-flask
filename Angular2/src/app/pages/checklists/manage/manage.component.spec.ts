@@ -33,4 +33,14 @@ describe('CheckManageComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should delete question', () =>
+  {
+    component.deleteQuestion(1);
+  });
+
+  it('should delete requirement', () =>
+  {
+    component.deleteRequirement(1);
+  });
 });

@@ -30,4 +30,16 @@ describe('ViewComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should login', () =>
+  {
+    component.loggedIn();
+    expect(component.loggedIn).toBeTruthy();
+  });
+
+  it('should delete data', () =>
+  {
+    component.deleteChecklistType(1);
+    // expect(component.delete).toBe('DELETE');
+  });
 });

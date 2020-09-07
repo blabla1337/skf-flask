@@ -30,4 +30,21 @@ describe('ViewCodeComponent', () =>
   {
     expect(component).toBeTruthy();
   });
+
+  it('should show code', () =>
+  {
+    component.showCode(1);
+  });
+
+  it('should login user', () =>
+  {
+    component.loggedIn();
+    expect(component.loggedin).toBeTruthy();
+  });
+
+  it('should set category selector id', () =>
+  {
+    component.setCategorySelectorId(1);
+    expect(component).toBeTruthy();
+  });
 });
