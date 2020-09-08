@@ -43,7 +43,7 @@ export class UpdateComponent implements OnInit
     this.knowledgebaseForm = this.formBuilder.group({
       title: ['', Validators.required],
       content: ['', Validators.required],
-    })
+    });
 
     this._knowledgebaseService
       .getKnowledgeBaseItem(this.id)

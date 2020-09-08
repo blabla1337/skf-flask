@@ -23,9 +23,11 @@
       <!-- App Search-->
       <div class="app-search d-none navbar-center d-lg-block">
         <div class="position-relative">
-          <input type="text"  (change)="onChange($event.target.value)" type="text" class="form-control" placeholder="Search..."
-          id="search" name="search" onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search...'">
-          <span class="bx bx-search-alt" [routerLink]="['/search/index']"></span>
+          <form (ngSubmit)="onChange()" [formGroup]="searchForm">
+          <input type="text" autocomplete="off" class="form-control" placeholder="Search..."
+          id="search" formControlName="search" onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search...'">
+          <span class="bx bx-search-alt"></span>
+        </form>
         </div>
       </div>
     </div>
@@ -41,10 +43,10 @@
           <div class="p-3">
             <div class="form-group m-0">
               <div class="input-group">
-                <input type="text" class="form-control" (change)="onChange($event.target.value)" placeholder="Search..." aria-label="Searh SKF"
+                <input type="text" class="form-control" (change)="onChange()" placeholder="Search..." aria-label="Searh SKF"
                 onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search'">
                 <div class="input-group-append">
-                  <button class="btn btn-primary" [routerLink]="['/search/index']" type="submit"><i class="mdi mdi-magnify"></i></button>
+                  <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
                 </div>
               </div>
             </div>
