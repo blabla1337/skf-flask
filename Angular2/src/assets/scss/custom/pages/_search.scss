@@ -1,0 +1,49 @@
+/* ==============
+  search
+===================*/
+.search-leftbar {
+    width: 236px;
+    float: left;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .search-rightbar {
+    margin-left: 260px;
+  }
+  
+  .content-box {
+    p.user-title {
+      color: $dark;
+      font-weight: 500;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .search-leftbar {
+      float: none;
+      width: 100%;
+    }
+    .search-rightbar {
+      margin: 0;
+    }
+  }
+  
+  
+  .search-list {
+    a {
+      display: block;
+      color: $gray-600;
+      line-height: 24px;
+      padding: 8px 5px;
+      &.active {
+        color: $primary;
+        font-weight: 500;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+      }
+    }
+  }
