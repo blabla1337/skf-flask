@@ -43,4 +43,13 @@ export class SprintService
         return this.http.delete(environment.API_ENDPOINT + `/api/project/delete/${id}`, { headers: this.authHeader })
     }
 
+    getCompliance(id: number): Observable<Object>
+    {
+        return this.http.get(environment.API_ENDPOINT + `/api/sprint/results/update/${id}`, { headers: this.authHeader })
+    }
+
+    updateCompliance(id: number, value: any): Observable<Object>
+    {
+        return this.http.put(environment.API_ENDPOINT + `/api/sprint/results/update/${id}`, value, { headers: this.authHeader })
+    }
 }

@@ -33,9 +33,9 @@
                     </div>
                     <div class="col-sm-2">
                       <div class="text-right">
-                        <span *ngIf="item.status == 0"
+                        <span *ngIf="item.resolved == 'True'"
                           class="badge badge-success font-size-11 mt-1 float-left">Resolved</span>
-                        <span *ngIf="item.status == 1"
+                        <span *ngIf="item.resolved == 'False'"
                           class="badge badge-danger font-size-11 mt-1 float-left">Open</span>
                         <button class="btn-sm btn-primary btn-md ml-1" type="button"
                           (click)="isCollapsed[i] = !isCollapsed[i]">
@@ -74,10 +74,6 @@
                               </span>
                             </div>
                           </div>
-                          <div class="text-right">
-                            <button class="btn btn-sm btn-danger mt-2" type="button"
-                              (click)="summaryModal(deleteResult)">Delete Result</button>
-                          </div>
                         </ng-template>
                       </li>
                       <li [ngbNavItem]="3">
@@ -85,25 +81,39 @@
                         <ng-template ngbNavContent>
                           <div class="card shadow-none border">
                             <div class="card-body">
-                              <form>
+                              <form (ngSubmit)="validSubmit()" [formGroup]="complianceForm">
                                 <div class="form-group">
                                   <label for="evidence">Evidence</label>
-                                  <textarea class="form-control" id="evidence" rows="3"></textarea>
+                                  <textarea class="form-control" id="evidence"
+                                  formControlName="evidence" id="evidence" rows="3"
+                                  [ngClass]="{'is-invalid': submit && form.evidence.errors}" [(ngModel)]="item.evidence"></textarea>
                                 </div>
+                                <div *ngIf="submit && form.evidence.errors" class="invalid-feedback">
+                                  <span *ngIf="form.evidence.errors.required">Required!</span>
+                              </div>
                                 <div class="form-group">
                                   <label class="float-left">Status</label>
-                                  <select class="form-control select2-search-disable">
+                                  <select class="form-control select2-search-disable" formControlName="resolved" id="resolved"
+                                  [ngClass]="{'is-invalid': submit && form.resolved.errors}" [(ngModel)]="item.resolved"> 
                                     <option value="" selected></option>
-                                    <option value="1">Resolved</option>
-                                    <option value="2">Not Resolved</option>
+                                    <option value="True">Resolved</option>
+                                    <option value="False">Not Resolved</option>
                                   </select>
+                                  <div *ngIf="submit && form.resolved.errors" class="invalid-feedback">
+                                    <span *ngIf="form.resolved.errors.required">Required!</span>
+                                </div>
                                 </div>
                               </form>
                             </div>
                           </div>
-                          <div class="text-right">
-                            <button class="btn btn-sm btn-danger mt-2" type="button"
-                              (click)="summaryModal(deleteResult)">Delete Result</button>
+                          <div class="row mt-4">
+                            <div class="col-sm-12">
+                              <div class="text-right">
+                                <a (click)="newCompliance(item.id)"
+                                class="btn btn-sm btn-success m-1">
+                                <i class="mdi mdi-check mr-1"></i> Update </a>
+                              </div>
+                            </div>
                           </div>
                         </ng-template>
                       </li>
