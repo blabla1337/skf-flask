@@ -9,7 +9,7 @@
             </ngx-spinner>
 
 
-            <div class="card border shadow-sm">
+            <!-- <div class="card border shadow-sm">
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-lg-12">
@@ -70,7 +70,7 @@
                         <div class="col-lg-12">
                             <div class="card border shadow-none">
                                 <div class="card-header"><h5 class="mb-0">Search results knowledge base</h5></div>
-                                <div *ngFor="let item of results_kb; let i = index"
+                                <div *ngFor="let item of results_kb | slice:0:15; let i = index;"
                                 class="col-xl-12 mb-3 d-flex card border shadow-sm">
                                 <div class="card-body pb-0">
                                   <div class="media">
@@ -101,7 +101,7 @@
                         <div class="col-lg-12">
                             <div class="card border shadow-none">
                                 <div class="card-header"><h5 class="mb-0">Search results projects</h5></div>
-                                <div *ngFor="let item of results_projects; let i = index"
+                                <div *ngFor="let item of results_projects| slice:0:15; let i = index;"
                                 class="col-xl-12 mb-3 d-flex card border shadow-sm">
                                 <div class="card-body pb-0">
                                   <div class="media">
@@ -117,7 +117,53 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+
+
+            <div class="search-leftbar card shadow-sm">
+              <h6 class="mt-1">Category</h6>
+              <div class="search-list">
+                <a type="button" (click)="getCheck()"><i class="mdi mdi-text-box-check mr-2"></i> Checklists
+                  <span class="ml-1 float-right">(1)</span></a>
+                <a type="button" (click)="getKB()"><i class="mdi mdi-school mr-2"></i>Knowledgebase</a>
+                <a type="button" (click)="getLab()"><i class="mdi mdi-flask mr-2"></i>Labs</a>
+                <a type="button" (click)="getProj()"><i class="mdi mdi-card-bulleted mr-2"></i>Projects</a>
+              </div>
             </div>
+
+            <div class="search-rightbar mb-3">
+              <div class="card border shadow-sm">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-lg-12">
+                            <div class="card border shadow-none">
+                                <div class="card-header">
+                                  <h5 *ngIf="check_status === true" class="mb-0">Checklists Results</h5>
+                                  <h5 *ngIf="kb_status === true" class="mb-0">Knowledgebase Results</h5>
+                                  <h5 *ngIf="lab_status === true" class="mb-0">Labs Results</h5>
+                                  <h5 *ngIf="pro_status === true" class="mb-0">Projects Results</h5>
+                                </div>
+                                <div *ngFor="let item of results_checklist; let i = index"
+                                class="col-xl-12 mb-3 d-flex card border shadow-sm">
+                                <div class="card-body pb-0">
+                                  <div class="media">
+                                    <div class="media-body overflow-hidden">
+                                      <h5 class="text-truncate font-size-15">
+                                        <a *ngIf="check_status === true" [routerLink]="['/checklists/read/', item.checklist_items_type]" class="text">{{item.checklist_items_checklist_id}} {{item.checklist_items_content}}</a> 
+                                        <a *ngIf="kb_status === true"  [routerLink]="['/labs/view']" class="text">{{item.label}} {{item.title}}</a>
+                                        <a *ngIf="lab_status === true" [routerLink]="['/projects/view/', item.group_id]" class="text">{{item.title}} {{item.content}}</a>
+                                        <a *ngIf="pro_status === true" [routerLink]="['/projects/view/', item.group_id]" class="text">{{item.name}} {{item.description}}</a>
+                                      </h5>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
         </div>

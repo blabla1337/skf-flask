@@ -21,6 +21,10 @@ export class IndexComponent implements OnInit, AfterViewChecked {
   public results_projects: any = [];
   public search: string;
   public check: boolean;
+  public check_status: boolean = false;
+  public lab_status: boolean = false;
+  public kb_status: boolean = false;
+  public pro_status: boolean = false;
 
   constructor(
     private router: Router,
@@ -44,26 +48,89 @@ export class IndexComponent implements OnInit, AfterViewChecked {
   }
 
   /**
-   * Customers data fetches
+   * Search data fetches
    */
-  private _fetchData() 
-  {
+  // private _fetchData() 
+  // {
+  //   if(localStorage.getItem("search") !== ""){
+  //     this.spinner.show();
+  //     this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
+  //       this.results_checklist = results;
+  //       this.spinner.hide();
+  //     });
+  //     this._searchService.searchLabs(localStorage.getItem("search")).subscribe(results => {
+  //       this.results_labs = results;
+  //       this.spinner.hide();
+  //     });
+  //     this._searchService.searchProject(localStorage.getItem("search")).subscribe(results => {
+  //       this.results_projects = results;
+  //       this.spinner.hide();
+  //     });
+  //     this._searchService.searchKb(localStorage.getItem("search")).subscribe(results => {
+  //       this.results_kb = results;
+  //       this.spinner.hide();
+  //     });
+  //   }
+  // }
+
+  private _fetchData() {
+    this.getCheck();
+    this.getKB();
+    this.getLab();
+    this.getProj();
+  }
+
+  getCheck(){
+    this.check_status = true;
+    this.lab_status = false;
+    this.kb_status = false;
+    this.pro_status = false;
     if(localStorage.getItem("search") !== ""){
       this.spinner.show();
       this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
         this.results_checklist = results;
         this.spinner.hide();
       });
-      this._searchService.searchLabs(localStorage.getItem("search")).subscribe(results => {
+    }
+  }
+
+  getKB(){
+    this.lab_status = false;
+    this.kb_status = true;
+    this.pro_status = false;
+    this.check_status = false;
+    if(localStorage.getItem("search") !== ""){
+      this.spinner.show();
+      this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
         this.results_labs = results;
         this.spinner.hide();
       });
-      this._searchService.searchProject(localStorage.getItem("search")).subscribe(results => {
-        this.results_projects = results;
+    }
+  }
+
+  getLab(){
+    this.kb_status = false;
+    this.pro_status = false;
+    this.check_status = false;
+    this.lab_status = true;
+    if(localStorage.getItem("search") !== ""){
+      this.spinner.show();
+      this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
+        this.results_kb = results;
         this.spinner.hide();
       });
-      this._searchService.searchKb(localStorage.getItem("search")).subscribe(results => {
-        this.results_kb = results;
+    }
+  }
+
+  getProj(){
+    this.pro_status = true;
+    this.check_status = false;
+    this.lab_status = false;
+    this.kb_status = false;
+    if(localStorage.getItem("search") !== ""){
+      this.spinner.show();
+      this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
+        this.results_projects = results;
         this.spinner.hide();
       });
     }
