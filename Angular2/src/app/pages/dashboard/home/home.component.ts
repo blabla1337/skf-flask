@@ -10,9 +10,6 @@ import { JoyrideService } from 'ngx-joyride';
 export class HomeComponent implements OnInit
 {
 
-  //cardItems = [];
-  title = 'Sample';
-
   constructor(
     private readonly joyride: JoyrideService
   ) { }
@@ -24,10 +21,12 @@ export class HomeComponent implements OnInit
   tour()
   {
     this.joyride.startTour({
-      steps: ['firstStep', 'menuOne', 'menuTwo', 'menuThree', 'menuFour',
-        'menuFive', 'menuSix', 'menuSeven', 'secondStep', 'thirdStep', 'forthStep'],
+      steps: ['styleInfo', 'tourInfo', 'checklistCat', 
+              'dashContent', 'projectContent', 'codeContent',
+              'checkContent', 'knowledgebaseContent', 'userContent', 'labContent'
+            ],
       showPrevButton: true,
-      stepDefaultPosition: 'top',
+      stepDefaultPosition: 'bottom',
       themeColor: '#000',
       showCounter: false,
     });

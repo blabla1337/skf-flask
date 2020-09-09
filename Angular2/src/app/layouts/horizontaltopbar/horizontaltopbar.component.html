@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="dropdown d-inline-block">
+      <div class="dropdown d-inline-block" joyrideStep="styleInfo" title="Style Switcher"  [stepContent]="styleInfo">
         <button *ngIf="light" type="click" (click)="toDark('dark-theme.css')" class="btn header-item noti-icon">
           <i class="bx bxs-bulb text-primary"></i>
         </button>
@@ -63,18 +63,18 @@
         </button>
       </div>
 
-      <div class="dropdown d-inline-block">
+      <div class="dropdown d-inline-block" joyrideStep="tourInfo" title="Tour explanation" [stepContent]="tourInfo">
         <button type="button" (click)="tour()" class="btn header-item noti-icon">
           <i class="bx bx-help-circle text-primary"></i>
         </button>
       </div>
 
-      <div class="dropdown d-inline-block" ngbDropdown>
+      <div class="dropdown d-inline-block" joyrideStep="checklistCat" title="Checklist category selector" [stepContent]="checklistCat" ngbDropdown>
         <button type="button" class="btn header-item noti-icon" ngbDropdownToggle>
           <i class="bx bx-devices text-primary"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-          <div *ngFor="let item of categoryData.items">
+          <div *ngFor="let item of categoryData.items" >
             <a class="dropdown-item" (click)='platformUpdate(item.id)'>{{item.name}}</a>
           </div>
           <div class="dropdown-divider"></div>
@@ -124,7 +124,7 @@
           <!-- Menu data -->
           <ng-container>
             <li class="nav-item dropdown">
-              <a joyrideStep="stepDash" title="item" [stepContent]="dashContent" class="nav-link" 
+              <a joyrideStep="dashContent" title="Dashboard landing page" [stepContent]="dashContent" class="nav-link" 
                  routerLink="/dashboard" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-view-dashboard mr-2 d-xs-none"></i> Dashboard
               </a>
@@ -133,42 +133,42 @@
                   <a class="col dropdown-item side-nav-link-ref" *ngIf="!hasItems(subitem)" [routerLink]="subitem.link"
                     routerLinkActive="active">{{subitem.label}}</a>
                 </ng-template>
-              </div> -->
+              </div> --> 
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="stepPro" title="item" [stepContent]="projectContent" class="nav-link"
+              <a joyrideStep="projectContent" title="Projects" [stepContent]="projectContent" class="nav-link"
                  routerLink="/projects/manage" id="topnav-components" routerLinkActive="active" role="button"
                  *ngIf="loggedIn()">
                 <i class="mdi mdi-18px mdi-card-bulleted mr-2"></i> Manage Projects
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="stepCode" title="item" [stepContent]="codeContent" class="nav-link"
+              <a joyrideStep="codeContent" title="Code examples" [stepContent]="codeContent" class="nav-link"
                  routerLink="/code-example/view" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-code-greater-than-or-equal mr-2"></i> Code Examples
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="stepCheck" title="item" [stepContent]="checkContent" class="nav-link"
+              <a joyrideStep="checkContent" title="Checklists" [stepContent]="checkContent" class="nav-link"
                  routerLink="/checklists/view" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-text-box-check mr-2"></i> Checklists
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="stepKnow" title="item" [stepContent]="knowledgebaseContent" class="nav-link"
+              <a joyrideStep="knowledgebaseContent" title="Knowledgebase items" [stepContent]="knowledgebaseContent" class="nav-link"
                  routerLink="/knowledgebase/view" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-school mr-2"></i> Knowledgebase
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="stepUser" title="item" [stepContent]="userContent" class="nav-link"
+              <a joyrideStep="userContent" title="Users" [stepContent]="userContent" class="nav-link"
                  routerLink="/users/manage" id="topnav-components" routerLinkActive="active" role="button"
                  *ngIf="loggedIn()">
                 <i class="mdi mdi-18px mdi-account-edit mr-2"></i> Users
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="stepLabs" title="item" [stepContent]="labContent" class="nav-link"
+              <a joyrideStep="labContent" title="Labs" [stepContent]="labContent" class="nav-link"
                  routerLink="/labs/view" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-flask mr-2"></i> Labs
               </a>
@@ -180,10 +180,35 @@
   </div>
 </div>
 
+
+<ng-template #tourInfo>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Click here to activate the Tour on a specific page, it will explain per page the functionalities and how to use SKF.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #styleInfo>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Click here to change the styling of the SKF application to Dark/Light mode.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #checklistCat>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Click here to change the context of the used checklist category in SKF.</p>
+    </div>
+  </div>
+</ng-template>
+
 <ng-template #dashContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>This is some content hnxdijcnadiujcndsjkvn sdkjvisbvbdsujnj</p>
+      <p>The landing page of SKF, after the user login or when you skip the login.</p>
     </div>
   </div>
 </ng-template>
@@ -191,7 +216,7 @@
 <ng-template #projectContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>This is some content hnxdijcnadiujcndsjkvn sdkjvisbvbdsujnj</p>
+      <p>Here you can create and manage your projects and results from the expert system wizard.</p>
     </div>
   </div>
 </ng-template>
@@ -199,7 +224,7 @@
 <ng-template #checkContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>This is some content hnxdijcnadiujcndsjkvn sdkjvisbvbdsujnj</p>
+      <p>Here you can view, create and manage your checklists and modify the expert system wizard.</p>
     </div>
   </div>
 </ng-template>
@@ -207,7 +232,7 @@
 <ng-template #knowledgebaseContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>This is some content</p>
+      <p>Here you can view, create and manage your knowledgebase items based on the checklist category.</p>
     </div>
   </div>
 </ng-template>
@@ -215,7 +240,7 @@
 <ng-template #codeContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>This is some content</p>
+      <p>Here you can view, create and manage your code example items based on the checklist category.</p>
     </div>
   </div>
 </ng-template>
@@ -223,7 +248,7 @@
 <ng-template #labContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>This is some content</p>
+      <p>Here you can view, deploy and stop the vulnerable labs to train your security verification skills.</p>
     </div>
   </div>
 </ng-template>
@@ -231,7 +256,7 @@
 <ng-template #userContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>This is some content</p>
+      <p>Here you can view, create and manage your users for the SKF application.</p>
     </div>
   </div>
 </ng-template>
