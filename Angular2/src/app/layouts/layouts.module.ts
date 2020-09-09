@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { JoyrideModule } from 'ngx-joyride';
@@ -22,7 +22,9 @@ import { LoaderComponent } from './loader/loader.component';
     NgbDropdownModule,
     NgxSpinnerModule,
     JoyrideModule.forRoot(),
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class LayoutsModule { }

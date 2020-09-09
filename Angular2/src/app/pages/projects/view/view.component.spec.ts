@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ProjectViewComponent } from './view.component';
+import { StringFilterPipe } from '../../../core/pipes/stringfilter.pipe'
 
 describe('ProjectViewComponent', () =>
 {
@@ -13,7 +14,7 @@ describe('ProjectViewComponent', () =>
   {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
-      declarations: [ProjectViewComponent]
+      declarations: [ProjectViewComponent, StringFilterPipe]
     })
       .compileComponents();
   }));

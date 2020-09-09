@@ -21,7 +21,9 @@ export class UpdateComponent implements OnInit
   public submit: boolean;
   public formsubmit: boolean;
 
-  get formControls() { return this.knowledgebaseForm.controls; }
+  get formControls() { 
+    return this.knowledgebaseForm.controls; 
+  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,7 +43,7 @@ export class UpdateComponent implements OnInit
     this.knowledgebaseForm = this.formBuilder.group({
       title: ['', Validators.required],
       content: ['', Validators.required],
-    })
+    });
 
     this._knowledgebaseService
       .getKnowledgeBaseItem(this.id)

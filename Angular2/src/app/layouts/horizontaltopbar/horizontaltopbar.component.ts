@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { JoyrideService } from 'ngx-joyride';
 import { ThemeService } from '../../core/services/theme.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { DOCUMENT } from '@angular/common';
 
@@ -32,18 +33,29 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   public routeUrl: any;
   public themeName: string;
   public search: string;
+  public searchForm: FormGroup;
+
   
   // tslint:disable-next-line: max-line-length
-  constructor(@Inject(DOCUMENT) private document: any,
-              private router: Router,
-              // tslint:disable-next-line: variable-name
-              private _checklistCategoryService: ChecklistCategoryService,
-              private readonly joyride: JoyrideService,
-              private themeService: ThemeService) {}
+  constructor(
+    @Inject(DOCUMENT) private document: any,
+    private router: Router,
+    // tslint:disable-next-line: variable-name
+    private _checklistCategoryService: ChecklistCategoryService,
+    private readonly joyride: JoyrideService,
+    private themeService: ThemeService,
+    private formBuilder: FormBuilder,
+  ) {}
+
+  
 
   ngOnInit(): void
   {
     this.element = document.documentElement;
+
+    this.searchForm = this.formBuilder.group({
+      search: [''],
+    });
 
     // this.initialize();
 
@@ -180,9 +192,16 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     this.router.navigate(['/auth/login']);
   }
 
-  onChange(search) {
-    localStorage.setItem('search',search)
+  onChange() {
+    localStorage.setItem('search',this.searchForm.value.search)
+    console.log(this.searchForm.value.search);
     this.router.navigate(['/search/index']);
+  }
+
+  
+  get form()
+  {
+    return this.searchForm.controls;
   }
 
 }
