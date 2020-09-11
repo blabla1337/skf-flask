@@ -24,7 +24,8 @@
             </div>
             <div class="col-6">
               <div class="text-right">
-                <button type="button" (click)="projectCreate()" class="btn btn-primary mb-2">Generate requirements</button>
+                <button type="button" (click)="projectCreate()" class="btn btn-primary mb-2" 
+                joyrideStep="projectRequirements" title="Project wizard" [stepContent]="projectRequirements">Generate requirements</button>
               </div>
             </div>
             <!-- end col-->
@@ -45,7 +46,8 @@
                 <div class="px-4 py-3 border-top">
                   <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-3 float-right">
-                      <button class="btn-sm btn-primary" (click)="onView(item.sprint_id)">View</button>
+                      <button joyrideStep="projectRequirementsResults" title="Wizard results" [stepContent]="projectRequirementsResults"
+                      class="btn-sm btn-primary" (click)="onView(item.sprint_id)">View</button>
                     </li>
                   </ul>
                 </div>
@@ -60,3 +62,19 @@
   </div>
   <!-- end row -->
 </div>
+
+<ng-template #projectRequirements>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Start here the expert wizard of SKF to gather the right set of security controls for your sprint/features of your project you are doing.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #projectRequirementsResults>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Click here to see the results of the expert wizard correlation.</h6>
+    </div>
+  </div>
+</ng-template>
