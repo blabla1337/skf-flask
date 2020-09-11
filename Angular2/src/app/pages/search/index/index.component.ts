@@ -35,8 +35,7 @@ export class IndexComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Search' }, { label: 'Index', active: true }];
-    this.getCheck();
-    this.router.ngOnDestroy();
+    //this.getCheck();
     this.search = localStorage.getItem('search');
     this.length = this.results_checklist.length;
     console.log(this.length);
@@ -50,31 +49,6 @@ export class IndexComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  /**
-   * Search data fetches
-   */
-  // private _fetchData() 
-  // {
-  //   if(localStorage.getItem("search") !== ""){
-  //     this.spinner.show();
-  //     this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
-  //       this.results_checklist = results;
-  //       this.spinner.hide();
-  //     });
-  //     this._searchService.searchLabs(localStorage.getItem("search")).subscribe(results => {
-  //       this.results_labs = results;
-  //       this.spinner.hide();
-  //     });
-  //     this._searchService.searchProject(localStorage.getItem("search")).subscribe(results => {
-  //       this.results_projects = results;
-  //       this.spinner.hide();
-  //     });
-  //     this._searchService.searchKb(localStorage.getItem("search")).subscribe(results => {
-  //       this.results_kb = results;
-  //       this.spinner.hide();
-  //     });
-  //   }
-  // }
 
   getCheck(){
     this.check_status = true;
@@ -97,8 +71,8 @@ export class IndexComponent implements OnInit, AfterViewChecked {
     this.check_status = false;
     if(localStorage.getItem("search") !== ""){
       this.spinner.show();
-      this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
-        this.results_labs = results;
+      this._searchService.searchKb(localStorage.getItem("search")).subscribe(results => {
+        this.results_kb = results;
         this.spinner.hide();
       });
     }
@@ -111,8 +85,9 @@ export class IndexComponent implements OnInit, AfterViewChecked {
     this.lab_status = true;
     if(localStorage.getItem("search") !== ""){
       this.spinner.show();
-      this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
-        this.results_kb = results;
+      this._searchService.searchLabs(localStorage.getItem("search")).subscribe(results => {
+        this.results_labs = results;
+        console.log(this.results_labs)
         this.spinner.hide();
       });
     }
@@ -125,7 +100,7 @@ export class IndexComponent implements OnInit, AfterViewChecked {
     this.kb_status = false;
     if(localStorage.getItem("search") !== ""){
       this.spinner.show();
-      this._searchService.searchChecklist(localStorage.getItem("search")).subscribe(results => {
+      this._searchService.searchProject(localStorage.getItem("search")).subscribe(results => {
         this.results_projects = results;
         this.spinner.hide();
       });

@@ -25,7 +25,8 @@
             
           <div *ngFor="let item of sprintData.items | linksfilter; let i = index" class="row mb-3">
             <div class="col">
-              <div class="card shadow-sm border">
+              <div class="card shadow-sm border" joyrideStep="resultControl" title="Security requirement"
+              [stepContent]="resultControl">
                 <div class="card-body pb-3">
                   <div class="row">
                     <div class="col-sm-10">
@@ -50,7 +51,8 @@
                         <a ngbNavLink>Summary</a>
                         <ng-template ngbNavContent>
                           <div class="card shadow-none">
-                            <div class="card-body">
+                            <div class="card-body" (next)="isCollapsed[i]" joyrideStep="resultControlKB" title="Security requirement additional information"
+                            [stepContent]="resultControlKB">
                               <h2 class="text-dark">{{item.kb_item_title}}</h2>
                               <p>{{item.kb_items_content}}</p>
                               <h4 class="text-dark">Additional resources</h4>
@@ -170,3 +172,21 @@
     </form>
   </div>
 </ng-template>
+
+
+<ng-template #resultControl>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>These are the security controls that the expert system has correlated and selected as required controls to be implemented.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #resultControlKB>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>These are the security controls that the expert system has correlated and selected as required controls to be implemented.</h6>
+    </div>
+  </div>
+</ng-template>
+
