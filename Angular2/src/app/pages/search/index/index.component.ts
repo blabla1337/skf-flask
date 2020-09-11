@@ -25,6 +25,7 @@ export class IndexComponent implements OnInit, AfterViewChecked {
   public lab_status: boolean = false;
   public kb_status: boolean = false;
   public pro_status: boolean = false;
+  public length;
 
   constructor(
     private router: Router,
@@ -34,12 +35,14 @@ export class IndexComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Search' }, { label: 'Index', active: true }];
-    this._fetchData();
+    this.getCheck();
     this.router.ngOnDestroy();
     this.search = localStorage.getItem('search');
+    this.length = this.results_checklist.length;
+    console.log(this.length);
   }
 
-  
+
   ngAfterViewChecked(): void {
     if (localStorage.getItem('search') != this.search) {
      // not working its calling it 1000x times... 
@@ -72,13 +75,6 @@ export class IndexComponent implements OnInit, AfterViewChecked {
   //     });
   //   }
   // }
-
-  private _fetchData() {
-    this.getCheck();
-    this.getKB();
-    this.getLab();
-    this.getProj();
-  }
 
   getCheck(){
     this.check_status = true;
