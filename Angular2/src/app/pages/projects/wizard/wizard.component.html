@@ -32,7 +32,12 @@
                     </div>
                   </div>
                   <div class="card border shadow-none mb-3">
-                    <div class="card-body">Hello</div>
+                    <div class="card-body">
+                      <label for="category-input">Security Category selection</label><br>
+                      - The security category selection gives you a different set of checklists that are correlated to different levels.<br>
+                      - By default SKF comes with the OWASP-ASVS for the web/api security controls and OWASP-MASVS for mobile security controls.<br>
+                      - Also you can modify the controls of the existing checklists in SKF or create your own new security checklist from scratch.<br>
+                     </div>
                   </div>
                 </form>
               </div>
@@ -60,7 +65,13 @@
                     </div>
                   </div>
                   <div class="card border shadow-none mb-3">
-                    <div class="card-body">Hello</div>
+                    <div class="card-body">
+                      <label for="category-input">Security Maturity selection</label><br>
+                      - The maturity level gives you a different set of security controls from the checklist that you selected based on the Maturity Level.<br>
+                      - Level 1: Opportunistic, if it adequately defends against application security vulnerabilities that are easy to discover, and included in the OWASP Top 10 and other similar checklists.<br>
+                      - Level 2: Standard, if it adequately defends against most of the risks associated with software today.<br>
+                      - Level 3: Advanced, this level is typically reserved for applications that requires ignificant levels of security verification, such as those that maybe found within areas of military, health and safety, critical infrastructure, etc.<br>
+                     </div>
                   </div>
                 </form>
               </div>
@@ -91,7 +102,11 @@
                     </div>
                   </div>
                   <div class="card border shadow-none mb-3">
-                    <div class="card-body">Hello</div>
+                    <div class="card-body">
+                      <label for="category-input">Security Expert system</label><br>
+                      - The security expert system gives you an overview of the security controls in the different categories.<br>
+                      - If you need more security controls from the other categories then you can simply add them in the project overview page.<br>
+                    </div>                  
                   </div>
                 </form>
               </div>
@@ -126,6 +141,7 @@
                     </div>
                   </div>
                 </div>
+                
                 <ul class="list-inline wizard mb-0">
                   <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
                   </li>
@@ -150,8 +166,12 @@
                       </select>
                     </div>
                     <div class="card border shadow-none mb-3">
-                      <div class="card-body">Hello</div>
-                      <!-- <div class="dropdown-divider"></div> -->
+                      <div class="card-body">
+                        <label for="category-input">Add results to sprint/feature</label><br>
+                        - A sprint/feature stands for any functionality in your project that requires testing.<br>
+                        - We can either start working on a new sprint/feature or we select to enchance an existing one with new or additional requirements! <br>
+                      </div> 
+                    <!-- <div class="dropdown-divider"></div> -->
                     </div>
                     <div class="row mb-5" *ngIf="selected == 'old'">
                       <label class="col-sm-2 col-form-label" for="old_quest">Sprint Name</label>
@@ -202,7 +222,10 @@
                   <div class="col pt-3">
                     <h4>Save Configuration</h4>
                     <div class="card border shadow-none mb-3">
-                      <div class="card-body">Hello</div>
+                      <div class="card-body">
+                        <label for="category-input">Store and correlate security controls</label><br>
+                        - Click submit to store the project and the correlations done by SKF from the expert system!<br>
+                      </div> 
                       <!-- <div class="dropdown-divider"></div> -->
                     </div>
                   </div>
