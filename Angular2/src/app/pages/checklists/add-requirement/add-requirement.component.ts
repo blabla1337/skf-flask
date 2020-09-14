@@ -23,9 +23,9 @@ export class AddRequirementComponent implements OnInit
   public questionData: any = [];
   public knowledgeData: any = [];
   public include_always: any = [];
-  public categoryId = Number(localStorage.getItem("categorySelector"))
-  public checklistId = Number(localStorage.getItem("checklist_id"))
-
+  public categoryId = Number(localStorage.getItem("categorySelector"));
+  public checklistId = Number(localStorage.getItem("checklist_id"));
+  public routerId;
   constructor(
     private _knowledgebaseSerice: KnowledgebaseService,
     private _questionService: QuestionService,
@@ -57,7 +57,7 @@ export class AddRequirementComponent implements OnInit
   {
     this._knowledgebaseSerice
       .getKnowledgeBaseItemsCollection(this.categoryId)
-      .subscribe(items => this.knowledgeData = items)
+      .subscribe(items => this.knowledgeData = items);
 
     this._questionService
       .getQuestionCollection(this.checklistId)
@@ -69,7 +69,7 @@ export class AddRequirementComponent implements OnInit
           'question': 'Empty',
           'checklist_type': 0,
         });
-      })
+      });
   }
 
   storeChecklistItem()
@@ -83,11 +83,11 @@ export class AddRequirementComponent implements OnInit
       kb_id: this.validationform.value['kb_id']['kb_id'],
       question_id: this.validationform.value['question_id']['id'],
       maturity: Number(this.validationform.value['maturity'])
-    })
+    });
 
     this._checklistService
       .createChecklistItem(this.validationform.value, this.checklistId)
-      .subscribe(() => this.router.navigate(['/checklists/manage', this.checklistId]))
+      .subscribe(() => this.router.navigate(['/checklists/manage', this.checklistId]));
   }
   get form()
   {
