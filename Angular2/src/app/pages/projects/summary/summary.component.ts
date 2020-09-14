@@ -24,6 +24,7 @@ export class SummaryComponent implements OnInit
   public sprintData: any = [];
   public codeData: any = [];
   public complianceForm: FormGroup;
+  public routerId;
 
   // Form Submission
   public submit: boolean;
@@ -51,6 +52,8 @@ export class SummaryComponent implements OnInit
       evidence: ['', Validators.required],
       resolved: ['', Validators.required],
     });
+
+    this.routerId = localStorage.getItem('routerId');
   }
 
   getSprintItems()

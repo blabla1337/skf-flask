@@ -29,6 +29,7 @@ export class WizardComponent implements OnInit
   newSprintForm: FormGroup;
   sprint_id: number;
   sprintStore: any = [];
+  routerId;
 
   constructor(
     private _checklistCategoryService: ChecklistCategoryService,
@@ -53,6 +54,8 @@ export class WizardComponent implements OnInit
     this.selected = '';
     this.getCategories()
     this.selectSprints();
+
+    this.routerId = localStorage.getItem('routerId');
   }
 
   onChange(value)
