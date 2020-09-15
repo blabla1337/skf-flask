@@ -19,7 +19,7 @@ export class ProjectViewComponent implements OnInit
   public sprintData: any;
   public selected: string;
   public queryString;
-
+  public routerId;
 
   constructor(
     private modalService: NgbModal,
@@ -31,7 +31,8 @@ export class ProjectViewComponent implements OnInit
   {
     this.breadCrumbItems = [{ label: 'Features' }, { label: 'Sprints', active: true }];
     this.getSprintItems()
-
+    this.routerId = this.route.snapshot.paramMap.get('id');
+    localStorage.setItem('routerId', this.routerId);
   }
 
 

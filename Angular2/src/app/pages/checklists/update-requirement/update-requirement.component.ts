@@ -74,7 +74,7 @@ export class UpdateRequirementComponent implements OnInit
           'question': item['questions']
         }
       }
-      //check if knowledgebase item was None otherwise give it the id/content previously selected!
+      // check if knowledgebase item was None otherwise give it the id/content previously selected!
       var kb_item = {
         'kb_id': item['kb_id'],
         'title': item['kb_title']
@@ -88,8 +88,8 @@ export class UpdateRequirementComponent implements OnInit
         include_always: item['include_always'],
         maturity: item['maturity'],
         add_resources: item['add_resources']
-      })
-    })
+      });
+    });
 
     this._fetchData();
   }
@@ -98,7 +98,7 @@ export class UpdateRequirementComponent implements OnInit
   {
     this._knowledgebaseSerice
       .getKnowledgeBaseItemsCollection(this.categoryId)
-      .subscribe(items => this.knowledgeData = items)
+      .subscribe(items => this.knowledgeData = items);
 
     this._questionService
       .getQuestionCollection(this.checklistId)
@@ -110,7 +110,7 @@ export class UpdateRequirementComponent implements OnInit
           'question': 'Empty',
           'checklist_type': 0,
         });
-      })
+      });
   }
 
   UpdateChecklistItem()
@@ -128,7 +128,7 @@ export class UpdateRequirementComponent implements OnInit
 
     this._checklistService
       .updateChecklistItem(this.validationform.value, this.id)
-      .subscribe(() => this.router.navigate(['/checklists/manage', this.checklistId]))
+      .subscribe(() => this.router.navigate(['/checklists/manage', this.checklistId]));
   }
 
   get form()

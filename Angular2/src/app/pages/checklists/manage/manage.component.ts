@@ -16,7 +16,7 @@ export class CheckManageComponent implements OnInit
   public isCollapsed: boolean[] = [];
   public id: number;
   public sub: any;
-  public delete: string
+  public delete: string;
   public questionData: any = [];
   public checklistData: any = [];
   public correlationData: any = [];
@@ -40,7 +40,7 @@ export class CheckManageComponent implements OnInit
       localStorage.setItem("checklist_id", params['id'])
     });
     this.getQuestions()
-    this.getChecklistItems()
+    this.getChecklistItems();
   }
 
   getQuestions()
