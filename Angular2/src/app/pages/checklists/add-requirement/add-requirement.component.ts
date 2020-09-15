@@ -36,7 +36,7 @@ export class AddRequirementComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.breadCrumbItems = [{ label: 'Users' }, { label: 'Create', active: true }];
+    this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Add requirements', active: true }];
 
     this.validationform = this.formBuilder.group({
       checklist_id: ['', [Validators.required]],

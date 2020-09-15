@@ -40,7 +40,7 @@ export class UpdateRequirementComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.breadCrumbItems = [{ label: 'Users' }, { label: 'Update', active: true }];
+    this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Update requirements', active: true }];
 
     this.include_always = ['True', 'False']
 
