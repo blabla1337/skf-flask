@@ -150,10 +150,17 @@ log = logging.getLogger(__name__)
 
 
 @app.cli.command('cleandb')
-def initdb_command():
+def cleandb_command():
     """Delete DB and creates a new database with all the Markdown files."""
     clean_db()
-    log.info("Initialized the database.")
+    log.info("cleaned the database.")
+
+
+@app.cli.command('initdb')
+def initdb_command():
+    """Delete DB and creates a new database with all the Markdown files."""
+    init_db()
+    log.info("Created the database.")
 
 
 @app.cli.command('initdataset')
