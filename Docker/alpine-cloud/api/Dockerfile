@@ -65,7 +65,6 @@ fi
 RUN pip3 install --user  -r requirements.txt
 
 
-
 EXPOSE 8888
 
 CMD ["/home/user_api/entrypoint.sh"]
