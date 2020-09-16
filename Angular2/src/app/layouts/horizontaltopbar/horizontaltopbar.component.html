@@ -41,15 +41,15 @@
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" ngbDropdownMenu>
 
           <div class="p-3">
-            <div class="form-group m-0">
+            <form [formGroup]="searchForm">
               <div class="input-group">
                 <input type="text" class="form-control" (change)="onChange()" placeholder="Search..." aria-label="Searh SKF"
                 onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search'">
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                  <button class="btn btn-primary" type="submit" (click)="onChange()"><i class="mdi mdi-magnify"></i></button>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
