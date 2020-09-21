@@ -25,7 +25,7 @@ create = api.model('create', {
 
 manage = api.model('manage', {
     'active': fields.String(required=False, default="True", description='Status of the user account'),
-    'privilege_id': fields.String(required=False, default="True", description='Status of the user account'),
+    'privilege_id': fields.Integer(required=False, default="True", description='Status of the user account'),
 })
 
 created = api.model('created', {
