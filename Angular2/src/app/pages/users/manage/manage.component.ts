@@ -10,7 +10,8 @@ import { UserService } from '../../../core/services/user.service';
   templateUrl: './manage.component.html',
   styleUrls: ['./manage.component.scss']
 })
-export class ManageComponent implements OnInit {
+export class ManageComponent implements OnInit
+{
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
@@ -26,15 +27,17 @@ export class ManageComponent implements OnInit {
   public Allow = false;
   public usersList: any = [];
   public queryString;
+  public privilegeData: any = [];
 
-  constructor( 
-    private modalService: NgbModal,  
+  constructor(
+    private modalService: NgbModal,
     private formBuilder: FormBuilder,
     private _userService: UserService,
-    private spinner: NgxSpinnerService, 
-    ) { }
+    private spinner: NgxSpinnerService,
+  ) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Details', active: true }];
 
     this._fetchData();
@@ -56,51 +59,59 @@ export class ManageComponent implements OnInit {
   private _fetchData() 
   {
     this.spinner.show();
-    this._userService.getUsers().subscribe(users => {
+    this.getPrivileges();
+    this._userService.getUsers().subscribe(users =>
+    {
       this.usersList = users;
       this.spinner.hide();
     });
   }
 
-  /**
-   * Open center modal
-   * @param centerDataModal center modal data
-   */
-  centerModal(centerDataModal: any) {
+
+  centerModal(centerDataModal: any)
+  {
     this.modalService.open(centerDataModal, { centered: true });
   }
 
-  /**
-   * Returns form
-   */
-  get form() {
+
+  get form()
+  {
     return this.validationform.controls;
   }
 
-  /**
-   * Bootsrap validation form submit method
-   */
-  validSubmit() {
+
+  reloadAfterSelect()
+  {
+    this._fetchData();
+  }
+
+  validSubmit()
+  {
     this.submit = true;
   }
 
   accountUserGrant(user_id: number)
   {
     if (this.grant == 'GRANT') {
-      this._userService.accessUser('{"active":"True"}', user_id).subscribe(x => {this._fetchData()});
+      this._userService.accessUser('{"active":"True"}', user_id).subscribe(x => { this._fetchData() });
     }
-  }  
+  }
 
   accountUserRevoke(user_id: number)
   {
     if (this.revoke == 'REVOKE') {
       this._userService.accessUser('{"active":"False"}', user_id).subscribe(x => this._fetchData());
     }
-  }  
+  }
 
   accountUserPrivilege(privilege: any, user_id: number)
   {
-    this._userService.accessUser('{"privilege_id":"'+privilege+'"}', user_id).subscribe(x => this._fetchData()); 
+    this._userService.accessUser('{"privilege_id":' + privilege + '}', user_id).subscribe(x => this._fetchData());
   }
-  
+
+
+  getPrivileges()
+  {
+    this._userService.getPrivileges().subscribe(x => this.privilegeData = x);
+  }
 }

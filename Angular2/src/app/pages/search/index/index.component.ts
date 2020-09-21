@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
