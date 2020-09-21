@@ -4,7 +4,8 @@
   <!-- end page title -->
   <div class="row">
     <div class="col lg 12">
-      <a routerLink="/checklists/view" class="btn text-primary d-sm-inline-block btn-link"> <i class="mdi mdi-arrow-left mr-1"></i> go back</a>
+      <a routerLink="/checklists/view" class="btn text-primary d-sm-inline-block btn-link"> <i
+          class="mdi mdi-arrow-left mr-1"></i> go back</a>
     </div>
   </div>
   <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom mt-3">
@@ -40,13 +41,13 @@
                   </div>
                   <div class="card-body">
                     <div *ngFor="let item of checklistData.items">
-                      <button *ngIf="item.question_id == null" (click)="addChecklistCorrelation(item.id)"
-                        class="btn btn-card bg-light btn-block mb-2">
+                      <button *ngIf="item.question_id == null || item.question_id == 0"
+                        (click)="addChecklistCorrelation(item.id)" class="btn btn-card bg-light btn-block mb-2">
                         <div class="row">
                           <div class="col-10 text-left">
                             <b>{{item.checklist_items_checklist_id}}</b>
                             <p class="mt-2 mb-1">
-                              This is some content
+                              {{item.checklist_items_content}}
                             </p>
                           </div>
                           <div class="col-2">
@@ -73,7 +74,7 @@
                           <div class="col-10 text-left">
                             <b>{{item.checklist_items_checklist_id}}</b>
                             <p class="mt-2 mb-1">
-                              This is some content
+                              {{item.checklist_items_content}}
                             </p>
                           </div>
                           <div class="col-2">
@@ -121,7 +122,8 @@
                   <tr *ngFor="let item of checklistData.items">
                     <td style="width: 60%">
                       <div class="mt-2">
-                        <h6 class="text-dark">{{item.checklist_items_checklist_id}} {{item.checklist_items_content |slice:0:130}}...</h6>
+                        <h6 class="text-dark">{{item.checklist_items_checklist_id}}
+                          {{item.checklist_items_content |slice:0:130}}...</h6>
                       </div>
                     </td>
                     <td style="width: 40%">
