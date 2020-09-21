@@ -69,7 +69,7 @@
         </button>
       </div>
 
-      <div class="dropdown d-inline-block" joyrideStep="checklistCat" title="Checklist category selector" [stepContent]="checklistCat" ngbDropdown>
+      <div class="dropdown d-inline-block" joyrideStep="checklistCat" title="Checklist type selector" [stepContent]="checklistCat" ngbDropdown>
         <button type="button" class="btn header-item noti-icon" ngbDropdownToggle>
           <i class="bx bx-devices text-primary"></i>
         </button>
@@ -155,7 +155,7 @@
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="knowledgebaseContent" title="Knowledgebase items" [stepContent]="knowledgebaseContent" class="nav-link"
+              <a joyrideStep="knowledgebaseContent" title="Knowledge base items" [stepContent]="knowledgebaseContent" class="nav-link"
                  routerLink="/knowledgebase/view" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-school mr-2"></i> Knowledgebase
               </a>
@@ -200,7 +200,7 @@
 <ng-template #checklistCat>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Click here to change the context of the used checklist category in SKF.</h6>
+      <h6>Click here to change the context of the used checklist types in SKF.</h6>
     </div>
   </div>
 </ng-template>
@@ -216,7 +216,7 @@
 <ng-template #projectContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>Here you can create and manage your projects and results from the expert system wizard.</p>
+      <h6>Here you can create and manage your projects and results from the expert system wizard.</h6>
     </div>
   </div>
 </ng-template>
@@ -232,7 +232,7 @@
 <ng-template #knowledgebaseContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>Here you can view, create and manage your knowledgebase items based on the checklist category.</p>
+      <h6>Here you can view, create and manage your knowledge base items based on the checklist type.</h6>
     </div>
   </div>
 </ng-template>
@@ -240,7 +240,7 @@
 <ng-template #codeContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <p>Here you can view, create and manage your code example items based on the checklist category.</p>
+      <h6>Here you can view, create and manage your code example items based on the checklist type.</h6>
     </div>
   </div>
 </ng-template>
