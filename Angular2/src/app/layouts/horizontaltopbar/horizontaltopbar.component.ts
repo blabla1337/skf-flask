@@ -227,7 +227,19 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     if(this.routeUrl == "/checklists/view"){
       this.joyride.startTour({
         steps: [
-          'catChecklistContent', 'addChecklistContent', 'userEmail', 'userActivated', 'userRole', 'userDisable', // tour user manage page
+          'catChecklistContent', 'addChecklistContent', 'topicsChecklistContent', 'viewChecklistContent', 'manageChecklistContent', // tour checklist view page
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'bottom',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+    if(this.routeUrl.includes("/checklists/manage/")){
+      this.joyride.startTour({
+        steps: [
+          'resultControl', 'resultControlKB',  // tour project summary page
         ], 
         showPrevButton: true,
         stepDefaultPosition: 'bottom',

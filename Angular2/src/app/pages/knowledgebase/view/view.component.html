@@ -7,7 +7,7 @@
           <li *ngFor="let item of categoryData.items" [ngbNavItem]="item.id">
             <a ngbNavLink (click)="setCategorySelectorId(item.id)">
               <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
-              <p joyrideStep="kbCat" title="Checklist category switcher" [stepContent]="kbCat" class="font-weight-bold mb-4">{{item.name}}</p>
+              <p joyrideStep="kbCat" title="Checklist type switcher" [stepContent]="kbCat" class="font-weight-bold mb-4">{{item.name}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="card">
@@ -147,7 +147,7 @@
 <ng-template #kbRow>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Here you can find all the knowledge base examples for the checklist category that is selected.</h6>
+      <h6>Here you can find all the knowledge base examples for the checklist type that is selected.</h6>
     </div>
   </div>
 </ng-template>
@@ -155,7 +155,7 @@
 <ng-template #kbAdd>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Here you can add a new knowledge base example for the checklist category that is selected.</h6>
+      <h6>Here you can add a new knowledge base example for the checklist type that is selected.</h6>
     </div>
   </div>
 </ng-template>
