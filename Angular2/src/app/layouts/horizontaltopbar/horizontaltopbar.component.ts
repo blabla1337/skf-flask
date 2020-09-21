@@ -139,37 +139,110 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   tour()
   {
     this.routeUrl = this.router.url;
-    this.joyride.startTour({
-      steps: ['nameLabContent', 'labelLabContent', 'levelLabContent', 'levelStatusContent', 'writeLabContent', 'actionLabContent', // tour lab page
-              'projectName', 'createProject', 'startProject', 'updateProject', // tour project manage page
-              'projectRequirements', 'projectRequirementsResults', // tour project view page
-              'resultControl', 'resultControlKB',  // tour project summary page
-             
-             ], 
-      showPrevButton: true,
-      stepDefaultPosition: 'bottom',
-      themeColor: '#000',
-      showCounter: false,
-    });
-  }
 
- /**
-  * Initialize
-  */
-  // initialize(): void
-  // {
-  //   this.menuItems = MENU;
-  // }
+    if(this.routeUrl == "/code-example/view"){
+      this.joyride.startTour({
+        steps: [
+          'codeCat', 'codeAdd', 'codeRow',     // tour code examples page             
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'bottom',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+    if(this.routeUrl == "/knowledgebase/view"){
+      this.joyride.startTour({
+        steps: [
+          'kbCat', 'kbAdd', 'kbRow', 'userActivated', 'userRole', 'userDisable', // tour user manage page
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'bottom',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+    if(this.routeUrl == "/labs/view"){
+      this.joyride.startTour({
+        steps: [
+          'nameLabContent', 'labelLabContent', 'levelLabContent', 'statusLabContent', 'writeLabContent', 'actionLabContent', // tour lab page
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'bottom',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+    if(this.routeUrl.includes("/projects/view/")){
+      this.joyride.startTour({
+        steps: [
+          'projectRequirements', 'projectRequirementsResults', // tour project view page
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'top',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+    if(this.routeUrl == "/projects/manage"){
+      this.joyride.startTour({
+        steps: [
+          'projectName', 'createProject', 'startProject', 'updateProject', // tour project manage page
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'bottom',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+    if(this.routeUrl.includes("/projects/summary/")){
+      this.joyride.startTour({
+        steps: [
+          'resultControl', 'resultControlKB',  // tour project summary page
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'bottom',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+    if(this.routeUrl == "/users/manage"){
+      this.joyride.startTour({
+        steps: [
+          'userNew', 'userName', 'userEmail', 'userActivated', 'userRole', 'userDisable', // tour user manage page
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'bottom',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+    if(this.routeUrl == "/checklists/view"){
+      this.joyride.startTour({
+        steps: [
+          'catChecklistContent', 'addChecklistContent', 'userEmail', 'userActivated', 'userRole', 'userDisable', // tour user manage page
+        ], 
+        showPrevButton: true,
+        stepDefaultPosition: 'bottom',
+        themeColor: '#000',
+        showCounter: false,
+      });
+    }
+
+  }
 
   /**
    * Returns true or false if given menu item has child or not
    * @param item menuItem
    */
-  // hasItems(item: MenuItem)
-  // {
-  //   return item.subItems !== undefined ? item.subItems.length > 0 : false;
-  // }
-
+  
   platformUpdate(platform: string)
   {
     localStorage.setItem('categorySelector', platform);
