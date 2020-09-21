@@ -17,7 +17,8 @@
             </div>
             <div class="col-5">
               <div class="text-right">
-                <a type="button"[routerLink]="['/users/create']" class="btn btn-primary mb-2 mr-2">
+                <a type="button"[routerLink]="['/users/create']" class="btn btn-primary mb-2 mr-2"
+                joyrideStep="userNew" title="Add new user" [stepContent]="userNew">
                    New users
                 </a>
               </div>
@@ -33,11 +34,11 @@
               <thead class="thead-light">
                 <tr>
                   <th>#</th>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Activated</th>
-                  <th>Access</th>
-                  <th>Action</th>
+                  <th joyrideStep="userName" title="SKF Users" [stepContent]="userName">Username</th>
+                  <th joyrideStep="userEmail" title="SKF user email" [stepContent]="userEmail">Email</th>
+                  <th joyrideStep="userActivated" title="SKF User activated" [stepContent]="userActivated">Activated</th>
+                  <th joyrideStep="userRole" title="SKF user roles" [stepContent]="userRole">Access</th>
+                  <th joyrideStep="userDisable" title="SKF revoke" [stepContent]="userDisable">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -134,7 +135,7 @@
                     </ng-template>
                   </td>
                 </tr>
-              </tbody>
+              </tbody>   
             </table>
           </div>
         </div>
@@ -144,4 +145,52 @@
   <!-- end row -->
 </div>
 
+
+<ng-template #userNew>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Here you can add new users to the SKF application and choose the role for the account.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userName>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>The overview of the users and their usernames in the SKF application.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userEmail>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>The overview of the users and their emails used for the registration in the SKF application. </p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userActivated>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>What user are active in the SKF application and are able to login.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userRole>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>The role of the users, for example read, edit:read, edit:read:delete, edit:read:manage:delete</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userDisable>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Here you can revoke the access to the SKF application of the users.</p>
+    </div>
+  </div>
+</ng-template>
 

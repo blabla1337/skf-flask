@@ -39,7 +39,8 @@
                         <span *ngIf="item.resolved == 'False'"
                           class="badge badge-danger font-size-11 mt-1 float-left">Open</span>
                         <button class="btn-sm btn-primary btn-md ml-1" type="button"
-                          (click)="isCollapsed[i] = !isCollapsed[i]">
+                          (click)="isCollapsed[i] = !isCollapsed[i]" joyrideStep="resultControlKB" title="Security requirement additional information"
+                          [stepContent]="resultControlKB">
                           Click here
                         </button>
                       </div>
@@ -51,8 +52,7 @@
                         <a ngbNavLink>Summary</a>
                         <ng-template ngbNavContent>
                           <div class="card shadow-none">
-                            <div class="card-body" (next)="isCollapsed[i]" joyrideStep="resultControlKB" title="Security requirement additional information"
-                            [stepContent]="resultControlKB">
+                            <div class="card-body" (next)="isCollapsed[i]">
                               <h2 class="text-dark">{{item.kb_item_title}}</h2>
                               <p>{{item.kb_items_content}}</p>
                               <h4 class="text-dark">Additional resources</h4>
@@ -185,7 +185,7 @@
 <ng-template #resultControlKB>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>These are the security controls that the expert system has correlated and selected as required controls to be implemented.</h6>
+      <h6>Click here to find more information, retrieve additional explanation and resources for the specific security requirement.</h6>
     </div>
   </div>
 </ng-template>

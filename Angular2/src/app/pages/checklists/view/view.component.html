@@ -7,7 +7,7 @@
           <li *ngFor="let item of categoryData.items" [ngbNavItem]="item.id">
             <a ngbNavLink (click)="setCategorySelectorId(item.id)">
               <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
-              <p class="font-weight-bold mb-4">{{item.name}}</p>
+              <p joyrideStep="catChecklistContent" title="Checklist category" [stepContent]="catChecklistContent" class="font-weight-bold mb-4">{{item.name}}</p>
             </a>
             <ng-template ngbNavContent>
               <!-- Content Body -->
@@ -24,9 +24,9 @@
                         </div>
                       </div>
                       <div class="col-5">
-                        <div class="text-right ml-0">
+                        <div class="float-right" joyrideStep="addChecklistContent" title="Add new checklist category" [stepContent]="addChecklistContent">
                           <button routerLink="/checklists/checklist-type-create"
-                            class="btn btn-primary mb-2">Add New</button>
+                          class="btn btn-primary mb-2">Add New</button>
                         </div>
                       </div>
                       <!-- end col-->
@@ -123,3 +123,19 @@
     </div>
   </div>
 </div>
+
+<ng-template #catChecklistContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can select the different checklists that will be used to display the specific security categories in this context.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addChecklistContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can select the different checklist categories that will be used to display the specific code examples for this context.</h6>
+    </div>
+  </div>
+</ng-template>

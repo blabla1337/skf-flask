@@ -6,6 +6,12 @@
     background-color: $topnav-bg;
 }
 
+.table {
+    color: $topnav-text;
+    border-color: $topnav-text;
+    margin-bottom: 10rem;
+}
+
 .table thead th {
     color: $topnav-text;
     border-color: $topnav-text;
