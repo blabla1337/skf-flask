@@ -7,7 +7,7 @@
           <li *ngFor="let item of categoryData.items" [ngbNavItem]="item.id">
             <a ngbNavLink (click)="setCategorySelectorId(item.id)">
               <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
-              <p class="font-weight-bold mb-4">{{item.name}}</p>
+              <p joyrideStep="codeCat" title="Checklist type switcher" [stepContent]="codeCat" class="font-weight-bold mb-4">{{item.name}}</p>
             </a>
             <ng-template ngbNavContent>
               <div class="card">
@@ -23,14 +23,15 @@
                             <div class="search-box mb-2 d-inline-block">
                               <div class="position-relative">
                                 <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
-                                  placeholder="Search Code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Code'"/>
+                                  placeholder="Search Code" onfocus="this.placeholder = ''" 
+                                  onblur="this.placeholder = 'Search Code'"/>
                                 <i class="bx bx-search-alt search-icon"></i>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-5">
-                          <button class="btn btn-primary float-right" [routerLink]="['/code-example/create']">Add Code</button>
+                        <div class="float-right" joyrideStep="codeAdd" title="Add code example for checklist type" [stepContent]="codeAdd">
+                          <button class="btn btn-primary float-right" [routerLink]="['/code-example/create']" >Add Code</button>
                         </div>
                       </div>
                     </div>
@@ -47,7 +48,7 @@
                           <!-- Content Body -->
                           <div class="row mb-4"
                             *ngFor="let code of codeData.items |stringfilter:queryString; let i = index">
-                            <div class="col">
+                            <div class="col" joyrideStep="codeRow" title="Code examples" [stepContent]="codeRow">
                               <div class="code-box media mb-2">
                                 <div class="icon mr-3">
                                   <i class="bx bx-code-alt font-size-20 text-success"></i>
@@ -128,3 +129,27 @@
   </div>
 </ng-template>
 <!--  Deletion modal Ends-->
+
+<ng-template #codeCat>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can select the different checklist categories that will be used to display the specific code examples for this context.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #codeRow>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can find all the code examples for the checklist category that is selected.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #codeAdd>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can add a new code example for the checklist category that is selected.</h6>
+    </div>
+  </div>
+</ng-template>

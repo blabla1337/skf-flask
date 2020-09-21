@@ -50,7 +50,7 @@
                   <th scope="col" joyrideStep="levelLabContent" title="Lab Level" [stepContent]="levelLabContent">
                     <div class="text-center">Level</div>
                   </th>
-                  <th scope="col" joyrideStep="levelStatusContent" title="Lab Status" [stepContent]="levelStatusContent">
+                  <th scope="col" joyrideStep="statusLabContent" title="Lab Status" [stepContent]="statusLabContent">
                     <div class="text-center">Status</div>
                   </th>
                   <th scope="col" joyrideStep="writeLabContent" title="Lab Writeup" [stepContent]="writeLabContent">
@@ -117,7 +117,8 @@
   <ng-template #nameLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>This is some content hnxdijcnadiujcndsjkvn sdkjvisbvbdsujnj</p>
+        <p>These are the labs that are available, based on the name you can see what the type of vulnerability is to focus on. 
+          Also when deployed the lab you can use the name to jump to the Lab again.</p>
       </div>
     </div>
   </ng-template>
@@ -125,7 +126,7 @@
   <ng-template #levelLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>This is some content</p>
+        <p>The labs have a level on how easy or hard it is to identify the vulnerability and to exploit them. Start with the Level 1 labs first and work your way up.</p>
       </div>
     </div>
   </ng-template>
@@ -133,7 +134,7 @@
   <ng-template #writeLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>This is some content</p>
+        <p>All of the labs have a write-up page that help you step by step how to identify the vulnerability and what steps are needed to exploit them. </p>
       </div>
     </div>
   </ng-template>
@@ -141,7 +142,7 @@
   <ng-template #statusLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>This is some content</p>
+        <p>Here you can keep track of what labs are already deployed and ready to be accessed.</p>
       </div>
     </div>
   </ng-template>
@@ -149,7 +150,7 @@
   <ng-template #labelLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>This is some content</p>
+        <p>This is who provided the Labs, for example SKF-labs or OWASP-Juice Shop</p>
       </div>
     </div>
   </ng-template>
@@ -157,16 +158,9 @@
   <ng-template #actionLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>This is some content</p>
+        <p>Here you can deploy the labs that where not started yet.</p>
       </div>
     </div>
   </ng-template>
 
-  <ng-template #levelStatusContent>
-    <div class="card p-0">
-      <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>This is some content</p>
-      </div>
-    </div>
-  </ng-template>
   

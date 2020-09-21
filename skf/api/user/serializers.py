@@ -25,7 +25,7 @@ create = api.model('create', {
 
 manage = api.model('manage', {
     'active': fields.String(required=False, default="True", description='Status of the user account'),
-    'privilege_id': fields.String(required=False, default="True", description='Status of the user account'),
+    'privilege_id': fields.Integer(required=False, default="True", description='Status of the user account'),
 })
 
 created = api.model('created', {
@@ -45,6 +45,7 @@ user_list = api.model('user_list', {
     'access': fields.String(required=True, description='User has access to application'),
     'activated': fields.String(required=True, description='User is activated'),
     'id': fields.Integer(required=True, description='The unique identifier of the user'),
+    'privilege_id': fields.Integer(required=False, default="True", description='Status of the user account'),
 })
 
 user_items = api.inherit('List of user items', {
