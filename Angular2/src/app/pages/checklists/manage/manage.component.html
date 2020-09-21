@@ -4,12 +4,13 @@
   <!-- end page title -->
   <div class="row">
     <div class="col lg 12">
-      <a routerLink="/checklists/view" class="btn text-primary d-sm-inline-block btn-link"> <i class="mdi mdi-arrow-left mr-1"></i> go back</a>
+      <a routerLink="/checklists/view" class="btn text-primary d-sm-inline-block btn-link"> <i
+          class="mdi mdi-arrow-left mr-1"></i> go back</a>
     </div>
   </div>
   <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom mt-3">
     <li [ngbNavItem]="1">
-      <a ngbNavLink>Config</a>
+      <a ngbNavLink>Config questionnaire</a>
       <ng-template ngbNavContent>
         <div class="card mt-3 shadow-none">
           <div class="card-body pt-2">
@@ -40,13 +41,13 @@
                   </div>
                   <div class="card-body">
                     <div *ngFor="let item of checklistData.items">
-                      <button *ngIf="item.question_id == null" (click)="addChecklistCorrelation(item.id)"
-                        class="btn btn-card bg-light btn-block mb-2">
+                      <button *ngIf="item.question_id == null || item.question_id == 0"
+                        (click)="addChecklistCorrelation(item.id)" class="btn btn-card bg-light btn-block mb-2">
                         <div class="row">
                           <div class="col-10 text-left">
                             <b>{{item.checklist_items_checklist_id}}</b>
                             <p class="mt-2 mb-1">
-                              This is some content
+                              {{item.checklist_items_content}}
                             </p>
                           </div>
                           <div class="col-2">
@@ -73,7 +74,7 @@
                           <div class="col-10 text-left">
                             <b>{{item.checklist_items_checklist_id}}</b>
                             <p class="mt-2 mb-1">
-                              This is some content
+                              {{item.checklist_items_content}}
                             </p>
                           </div>
                           <div class="col-2">
@@ -110,7 +111,7 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">
-                      <div class="text-center">Control</div>
+                      <div class="text-center">Security controls / Security requirements</div>
                     </th>
                     <th scope="col">
                       <div class="text-center">Action</div>
@@ -121,7 +122,8 @@
                   <tr *ngFor="let item of checklistData.items">
                     <td style="width: 60%">
                       <div class="mt-2">
-                        <h6 class="text-dark">{{item.checklist_items_checklist_id}} {{item.checklist_items_content |slice:0:130}}...</h6>
+                        <h6 class="text-dark">{{item.checklist_items_checklist_id}}
+                          {{item.checklist_items_content |slice:0:130}}...</h6>
                       </div>
                     </td>
                     <td style="width: 40%">
@@ -172,13 +174,13 @@
     </li>
 
     <li [ngbNavItem]="3">
-      <a ngbNavLink>Questionnaire</a>
+      <a ngbNavLink>Questions</a>
       <ng-template ngbNavContent>
         <div class="row mb-3 mt-4">
           <div class="col-lg-12">
             <div class="row mb-3">
               <div class="col-7">
-                <p class="card-title">Manage questionnaire</p>
+                <p class="card-title">Manage questions</p>
               </div>
               <div class="col-5">
                 <a type="button" routerLink="/checklists/question-create" class="btn btn-primary float-right mb-2">Add
@@ -190,7 +192,7 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">
-                      <div class="text-center">Name</div>
+                      <div class="text-center">Name question</div>
                     </th>
                     <th scope="col">
                       <div class="text-center">Action</div>
@@ -253,3 +255,4 @@
   </ul>
   <div [ngbNavOutlet]="nav" class="questionarie"></div>
 </div>
+

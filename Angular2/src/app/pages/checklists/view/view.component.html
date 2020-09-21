@@ -7,7 +7,7 @@
           <li *ngFor="let item of categoryData.items" [ngbNavItem]="item.id">
             <a ngbNavLink (click)="setCategorySelectorId(item.id)">
               <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
-              <p class="font-weight-bold mb-4">{{item.name}}</p>
+              <p joyrideStep="catChecklistContent" title="Checklist type switcher" [stepContent]="catChecklistContent" class="font-weight-bold mb-4">{{item.name}}</p>
             </a>
             <ng-template ngbNavContent>
               <!-- Content Body -->
@@ -24,9 +24,9 @@
                         </div>
                       </div>
                       <div class="col-5">
-                        <div class="text-right ml-0">
+                        <div class="float-right" joyrideStep="addChecklistContent" title="Add new checklist category" [stepContent]="addChecklistContent">
                           <button routerLink="/checklists/checklist-type-create"
-                            class="btn btn-primary mb-2">Add New</button>
+                          class="btn btn-primary mb-2">Add New</button>
                         </div>
                       </div>
                       <!-- end col-->
@@ -57,7 +57,7 @@
                               </ul>
                             </div>
                           </div>
-                          <div class="media">
+                          <div class="media" joyrideStep="topicsChecklistContent" title="Checklist categories" [stepContent]="topicsChecklistContent">
                             <div class="media-body overflow-hidden">
                               <h5 class="text-truncate font-size-15">
                                 <a [routerLink]="['/checklists/manage', item.id]" class="text">{{item.title}}</a>
@@ -73,13 +73,17 @@
                             </li>
                             <li class="list-inline-item float-right">
                               <a [routerLink]="['/checklists/read', item.id]"><button type="button"
-                                  class="btn-sm btn-primary d-none d-sm-block">Inspect checklist</button></a>
+                                  class="btn-sm btn-primary d-none d-sm-block"
+                                  joyrideStep="viewChecklistContent" title="Inspect checklist category" [stepContent]="viewChecklistContent">
+                                  Inspect checklist</button></a>
                               <a [routerLink]="['/checklists/read', item.id]" type="button"
                                   class="btn-sm btn-primary text-center d-sm-none"><i class='bx bx-search-alt'></i></a>
                             </li>
                             <li *ngIf="loggedIn()" class="list-inline-item float-right">
                               <a [routerLink]="['/checklists/manage', item.id]" type="button"
-                                  class="btn-sm btn-primary d-none d-sm-block mr-2">Manage checklist</a>
+                                  class="btn-sm btn-primary d-none d-sm-block mr-2"
+                                  joyrideStep="manageChecklistContent" title="Manage checklist category" [stepContent]="manageChecklistContent">
+                                  Manage checklist</a>
                               <a [routerLink]="['/checklists/manage', item.id]" type="button"
                                   class="btn-sm btn-primary text-center d-sm-none mr-2"><i class="mdi mdi-cog-outline"></i></a>
                             </li>
@@ -123,3 +127,43 @@
     </div>
   </div>
 </div>
+
+<ng-template #catChecklistContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can select the different checklists that will be used to display the specific security categories in this context.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #topicsChecklistContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can select the different checklist categories and view, manage and inspect them.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addChecklistContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can select the different checklist categories that will be used to display the specific code examples for this context.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #viewChecklistContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can view all the security controls / security requirements that belongs to this checklist category.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #manageChecklistContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can manage the security controls / security requirements that belongs to this checklist category and configure the SKF Wizard.</h6>
+    </div>
+  </div>
+</ng-template>

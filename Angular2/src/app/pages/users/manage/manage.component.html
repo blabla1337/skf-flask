@@ -10,15 +10,16 @@
               <div class="search-box mr-2 mb-2 d-inline-block">
                 <div class="position-relative">
                   <input [(ngModel)]="queryString" type="text" class="form-control" placeholder="Search User"
-                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search User'"/>
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search User'" />
                   <i class="bx bx-search-alt search-icon"></i>
                 </div>
               </div>
             </div>
             <div class="col-5">
               <div class="text-right">
-                <a type="button"[routerLink]="['/users/create']" class="btn btn-primary mb-2 mr-2">
-                   New users
+                <a type="button" [routerLink]="['/users/create']" class="btn btn-primary mb-2 mr-2"
+                  joyrideStep="userNew" title="Add new user" [stepContent]="userNew">
+                  New users
                 </a>
               </div>
             </div>
@@ -33,11 +34,12 @@
               <thead class="thead-light">
                 <tr>
                   <th>#</th>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Activated</th>
-                  <th>Access</th>
-                  <th>Action</th>
+                  <th joyrideStep="userName" title="SKF Users" [stepContent]="userName">Username</th>
+                  <th joyrideStep="userEmail" title="SKF user email" [stepContent]="userEmail">Email</th>
+                  <th joyrideStep="userActivated" title="SKF User activated" [stepContent]="userActivated">Activated
+                  </th>
+                  <th joyrideStep="userRole" title="SKF user roles" [stepContent]="userRole">Access</th>
+                  <th joyrideStep="userDisable" title="SKF revoke" [stepContent]="userDisable">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,35 +51,32 @@
                   </td>
                   <td>
                     <span *ngIf="item.activated == 'True'" class="badge badge-success font-size-12 m-1">
-                    Enabled
+                      Enabled
                     </span>
                     <span *ngIf="item.activated == 'False'" class="badge badge-danger font-size-12 m-1">
-                    Disabled
+                      Disabled
                     </span>
                   </td>
                   <td>
                     <div class="dropdown" ngbDropdown>
-                      <span class="badge badge-success font-size-12 m-1">
+                      <span *ngIf="item.privilege_id == 1" class="badge badge-success font-size-12 m-1">
                         edit:read:manage:delete
                       </span>
-                      <span *ngIf="item['deny']=='True'" class="badge badge-danger font-size-12 m-1">
+                      <span *ngIf="item.privilege_id == 2" class="badge badge-danger font-size-12 m-1">
                         edit:read:delete
                       </span>
-                      <span *ngIf="item['pending']=='True'" class="badge badge-warning font-size-12 m-1">
+                      <span *ngIf="item.privilege_id == 3" class="badge badge-warning font-size-12 m-1">
                         edit:read
                       </span>
-                      <span *ngIf="item['pending']=='True'" class="badge badge-info font-size-12 m-1">
+                      <span *ngIf="item.privilege_id == 4" class="badge badge-info font-size-12 m-1">
                         read
-                      </span>                      
+                      </span>
                       <span type="button" class="badge badge-secondary font-size-12 m-1" ngbDropdownToggle>
                         <i class="bx bx-plus"></i>
                       </span>
                       <ul class="dropdown-menu" ngbDropdownMenu>
-                        <a class="dropdown-item disabled" href="javascript: void(0);">Action</a>
-                        <a class="dropdown-item text-success" (click)="accountUserPrivilege(1, item.id)">edit:read:manage:delete</a>
-                        <a class="dropdown-item text-danger" (click)="accountUserPrivilege(2, item.id)">edit:read:delete</a>
-                        <a class="dropdown-item text-warning" (click)="accountUserPrivilege(3, item.id)">edit:read</a>
-                        <a class="dropdown-item text-info" (click)="accountUserPrivilege(4, item.id)">read</a>
+                        <a *ngFor="let priv of privilegeData.items" class="dropdown-item text-info"
+                          (click)="accountUserPrivilege(priv.id, item.id); reloadAfterSelect()">{{priv.privilege}}</a>
                       </ul>
                     </div>
                   </td>
@@ -85,9 +84,9 @@
                     <span *ngIf="item.activated == 'True'">
                       <a class="text-center" type="button" (click)="centerModal(userDeleteModal)">
                         <i class="fas fa-trash-alt text-danger mr-1"></i> Revoke Access</a>
-                      </span>
-                     <!-- Deletion modal-->
-                     <ng-template #userDeleteModal let-modal>
+                    </span>
+                    <!-- Deletion modal-->
+                    <ng-template #userDeleteModal let-modal>
                       <div class="modal-header">
                         <h5 class="modal-title mt-0">Revoke Access</h5>
                         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
@@ -97,7 +96,8 @@
                       <div class="modal-body">
                         <form>
                           <div class="form-group">
-                            <label for="revoke">Type <b class="text-danger">REVOKE</b> to revoke the access of the user</label>
+                            <label for="revoke">Type <b class="text-danger">REVOKE</b> to revoke the access of the
+                              user</label>
                             <input autocomplete="off" [(ngModel)]="revoke" type="text" class="form-control" id="revoke"
                               name="revoke" placeholder="Type REVOKE" onfocus="this.placeholder = ''"
                               onblur="this.placeholder = 'Type REVOKE'">
@@ -107,12 +107,12 @@
                         </form>
                       </div>
                     </ng-template>
-                      <span *ngIf="item.activated == 'False'">
-                        <a class="text-center" type="button" (click)="centerModal(userGrantModal)">
-                          <i class="fas fa-pencil-alt text-success mr-1"></i> Grant Access</a>
-                      </span>
-                     <!-- Grant modal-->
-                     <ng-template #userGrantModal let-modal>
+                    <span *ngIf="item.activated == 'False'">
+                      <a class="text-center" type="button" (click)="centerModal(userGrantModal)">
+                        <i class="fas fa-pencil-alt text-success mr-1"></i> Grant Access</a>
+                    </span>
+                    <!-- Grant modal-->
+                    <ng-template #userGrantModal let-modal>
                       <div class="modal-header">
                         <h5 class="modal-title mt-0">Grant Access</h5>
                         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
@@ -145,3 +145,50 @@
 </div>
 
 
+<ng-template #userNew>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Here you can add new users to the SKF application and choose the role for the account.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userName>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>The overview of the users and their usernames in the SKF application.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userEmail>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>The overview of the users and their emails used for the registration in the SKF application. </p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userActivated>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>What user are active in the SKF application and are able to login.</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userRole>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>The role of the users, for example read, edit:read, edit:read:delete, edit:read:manage:delete</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userDisable>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <p>Here you can revoke the access to the SKF application of the users.</p>
+    </div>
+  </div>
+</ng-template>
