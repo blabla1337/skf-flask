@@ -24,7 +24,6 @@ export class LabViewComponent implements OnInit
   public labLists: string[];
   public lab: any = [];
   public status: any = [];
-  public labName;
 
   // tslint:disable-next-line: variable-name
   constructor(
@@ -39,7 +38,6 @@ export class LabViewComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
     this.labLists = ['SKF-Labs', 'Juice-Shop', 'Other Labs'];
-    this.labName = localStorage.getItem('lab_name');
   }
 
   /**
@@ -84,8 +82,6 @@ export class LabViewComponent implements OnInit
           {
             this.status.push(image_tag)
             localStorage.setItem("labs-deployed", JSON.stringify(this.status));
-            this.labName = this.lab;
-            localStorage.setItem('lab_name', this.lab);
           },
           preConfirm: () =>
           {
@@ -118,7 +114,6 @@ export class LabViewComponent implements OnInit
           {
             this.status.splice(this.status.indexOf(image_tag), 1);
             localStorage.setItem("labs-deployed", JSON.stringify(this.status));
-            localStorage.removeItem('lab_name');
           },
           preConfirm: () =>
           {
