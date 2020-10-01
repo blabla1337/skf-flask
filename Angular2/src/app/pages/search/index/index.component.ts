@@ -16,6 +16,8 @@ export class IndexComponent implements OnInit, AfterViewChecked
 
   // bread crumb items
   public breadCrumbItems: Array<{}>;
+    // Collapse value
+  public isCollapsed: boolean[] = [];
   public results_checklist: any = [];
   public results_labs: any = [];
   public results_kb: any = [];
