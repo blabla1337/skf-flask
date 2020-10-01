@@ -8,7 +8,7 @@
         <div class="card-body">
           <div class="row mb-3">
             <div class="col-sm-4">
-              <h4 class="mb-4">Checklists Controls</h4>
+              <h4 class="mb-4">Checklists Requirements</h4>
             </div>
             <div class="col-sm-8">
               <div class="text-sm-right">
@@ -48,11 +48,11 @@
                 </div>
 
                 <div class="collapse" [ngbCollapse]="!isCollapsed[i]">
-                  <div class="card shadow-none border card-body mb-0">{{item.kb_items_content}}</div>
+                  <div class="card shadow-none border card-body mb-0">
+                    <pre style="overflow-x: auto;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;">{{item.kb_items_content}}</pre>
+                  </div>
                   <div class="row mt-4">
                     <div class="col-sm-6">
-                      <a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
-                        <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>
                     </div> <!-- end col -->
                   </div>
                   <div class="dropdown-divider"></div>
