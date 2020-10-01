@@ -239,7 +239,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     if(this.routeUrl.includes("/checklists/manage/")){
       this.joyride.startTour({
         steps: [
-          'resultControl', 'resultControlKB',  // tour project summary page
+          'manageInfo', 'manageConfig', 'manageReq', 'manageQuestions',  // tour project checklist manage page
         ], 
         showPrevButton: true,
         stepDefaultPosition: 'bottom',
