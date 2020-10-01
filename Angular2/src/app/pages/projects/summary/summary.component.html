@@ -54,7 +54,7 @@
                           <div class="card shadow-none">
                             <div class="card-body" (next)="isCollapsed[i]">
                               <h2 class="text-dark">{{item.kb_item_title}}</h2>
-                              <p>{{item.kb_items_content}}</p>
+                              <pre style="overflow-x: auto;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;">{{item.kb_items_content}}</pre>
                               <h4 class="text-dark">Additional resources</h4>
                               <pre class="text-primary">{{item.add_resources}}</pre>
                             </div>
