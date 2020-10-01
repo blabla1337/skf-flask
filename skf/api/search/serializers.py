@@ -45,6 +45,7 @@ project = api.model('project', {
     'version': fields.String(required=True, description='Project version'),
     'description': fields.String(required=True, description='Project description'),
     'timestamp': fields.String(required=True, description='Project timestamp'),
+    'project_id': fields.Integer(required=True, description='The unique identifier of a sprint project'),
 })
 
 message = api.model('Response message', {

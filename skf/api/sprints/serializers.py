@@ -14,6 +14,7 @@ sprint_stats = api.model('sprint_stats', {
     'title': fields.String(required=True, description='The name of a sprint'),
     'sprint_desc': fields.String(required=True, description='The description of a sprint'),
     'sprint_items_total': fields.Integer(readOnly=True, description='The count of total available items in a sprint'),
+    'project_id': fields.Integer(required=True, description='The unique identifier of a sprint project'),
 })
 
 page_of_sprint_items = api.inherit('Page of sprint items', {
