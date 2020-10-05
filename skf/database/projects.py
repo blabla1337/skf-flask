@@ -9,7 +9,7 @@ class Project(db.Model):
     version = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.Text, nullable=False)
-    design = db.Column(db.Text)
+    design = db.Column(db.Boolean)
 
     def __init__(self, name, version, description, timestamp, design):
         self.name = name
