@@ -39,10 +39,10 @@ before_script:
 
 script:
   - snyk monitor
-  - pwd
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
-  - cd ../; coverage run --source=skf setup.py test
+#  - pwd
+#  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
+#  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
+#  - cd ../; coverage run --source=skf setup.py test
   - coverage run --source=skf setup.py test
 
 after_success:
