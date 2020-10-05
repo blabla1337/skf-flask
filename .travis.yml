@@ -38,7 +38,7 @@ before_script:
   - export PYTHONPATH=.:$PYTHONPATH
 
 script:
-  - snyk monitor
+#  - snyk monitor
 #  - pwd
 #  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; npm test; fi'
 #  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then cd /home/travis/build/blabla1337/skf-flask/Angular; ng test --code-coverage; fi'
