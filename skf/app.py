@@ -137,6 +137,7 @@ def initialize_app(flask_app):
     api.add_namespace(project_namespace)
     api.add_namespace(sprints_namespace)
     api.add_namespace(checklist_namespace)
+    api.add_namespace(checklist_category)
     api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_namespace)
     api.add_namespace(search_namespace)

@@ -25,7 +25,6 @@ class userManage(Resource):
         """
         data = request.json
         val_alpha(data.get('active'))
-        val_num(data.get('privilege_id'))
         val_num(id)
         validate_privilege(self, 'manage')
         result = manage_user(id, data)
