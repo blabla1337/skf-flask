@@ -3437,7 +3437,7 @@ def load_initial_data():
         db.session.commit()
 
         #Checklist Results
-        c = ChecklistResult('1','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '45'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3447,7 +3447,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('2','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '46'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3457,7 +3457,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('3','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '47'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3467,7 +3467,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('4','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '48'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3477,7 +3477,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('5','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '49'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3487,7 +3487,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('6','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '50'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3497,7 +3497,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('7','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '51'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3507,7 +3507,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('8','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '52'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3517,7 +3517,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('9','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '53'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3527,7 +3527,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('10','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '54'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3537,7 +3537,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('11','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '55'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3547,7 +3547,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('12','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '56'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3557,7 +3557,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('13','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '57'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3567,7 +3567,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('14','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '58'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3577,7 +3577,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('15','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '59'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3587,7 +3587,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('16','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '64'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3597,7 +3597,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('17','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '72'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3607,7 +3607,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('18','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '73'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3617,7 +3617,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('19','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '74'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3627,7 +3627,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('20','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '75'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3637,7 +3637,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('21','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '76'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3647,7 +3647,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('22','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '77'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3657,7 +3657,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('23','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '82'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3667,7 +3667,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('24','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '83'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3677,7 +3677,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('25','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '84'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3687,7 +3687,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('26','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '85'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3697,7 +3697,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('27','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '88'
         c.project_id = '1'
         c.sprint_id = '0'
@@ -3707,7 +3707,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('28','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '45'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3717,7 +3717,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('29','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '46'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3727,7 +3727,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('30','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '47'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3737,7 +3737,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('31','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '48'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3747,7 +3747,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('32','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '49'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3757,7 +3757,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('33','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '50'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3767,7 +3767,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('34','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '51'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3777,7 +3777,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('35','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '52'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3787,7 +3787,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('36','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '53'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3797,7 +3797,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('37','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '54'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3807,7 +3807,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('38','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '55'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3817,7 +3817,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('39','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '56'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3827,7 +3827,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('40','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '57'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3837,7 +3837,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('41','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '58'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3847,7 +3847,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('42','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '59'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3857,7 +3857,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('43','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '64'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3867,7 +3867,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('44','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '72'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3877,7 +3877,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('45','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '73'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3887,7 +3887,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('46','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '74'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3897,7 +3897,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('47','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '75'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3907,7 +3907,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('48','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '76'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3917,7 +3917,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('49','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '77'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3927,7 +3927,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('50','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '82'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3937,7 +3937,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('51','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '83'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3947,7 +3947,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('52','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '84'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3957,7 +3957,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('53','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '85'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3967,7 +3967,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('54','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '88'
         c.project_id = '1'
         c.sprint_id = '1'
@@ -3977,7 +3977,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('55','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '103'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -3987,7 +3987,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('56','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '104'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -3997,7 +3997,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('57','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '105'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4007,7 +4007,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('58','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '106'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4017,7 +4017,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('59','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '108'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4027,7 +4027,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('60','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '109'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4037,7 +4037,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('61','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '112'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4047,7 +4047,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('62','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '113'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4057,7 +4057,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('63','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '114'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4067,7 +4067,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('64','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '115'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4077,7 +4077,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('65','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '116'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4087,7 +4087,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('66','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '120'
         c.project_id = '1'
         c.sprint_id = '2'
@@ -4097,7 +4097,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('67','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '122'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4107,7 +4107,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('68','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '123'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4117,7 +4117,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('69','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '124'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4127,7 +4127,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('70','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '125'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4137,7 +4137,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('71','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '126'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4147,7 +4147,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('72','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '127'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4157,7 +4157,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('73','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '128'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4167,7 +4167,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('74','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '129'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4177,7 +4177,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('75','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '130'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4187,7 +4187,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('76','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '131'
         c.project_id = '1'
         c.sprint_id = '3'
@@ -4197,7 +4197,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('77','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '133'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4207,7 +4207,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('78','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '134'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4217,7 +4217,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('79','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '135'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4227,7 +4227,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('80','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '136'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4237,7 +4237,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('81','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '137'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4247,7 +4247,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('82','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '138'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4257,7 +4257,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('83','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '139'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4267,7 +4267,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('84','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '140'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4277,7 +4277,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('85','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '141'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4287,7 +4287,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('86','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '142'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4297,7 +4297,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('87','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '143'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4307,7 +4307,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('88','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '144'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4317,7 +4317,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('89','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '145'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4327,7 +4327,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('90','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '146'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4337,7 +4337,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('91','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '147'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4347,7 +4347,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('92','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '148'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4357,7 +4357,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('93','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '151'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4367,7 +4367,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('94','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '154'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4377,7 +4377,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('95','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '149'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4387,7 +4387,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('96','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '150'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4397,7 +4397,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('97','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '152'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4407,7 +4407,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('98','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '153'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4417,7 +4417,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('99','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '155'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4427,7 +4427,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('100','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '156'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4437,7 +4437,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('101','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '157'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4447,7 +4447,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('102','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '158'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4457,7 +4457,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('103','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '159'
         c.project_id = '1'
         c.sprint_id = '4'
@@ -4467,7 +4467,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('104','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '164'
         c.project_id = '1'
         c.sprint_id = '5'
@@ -4477,7 +4477,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('105','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '178'
         c.project_id = '1'
         c.sprint_id = '6'
@@ -4487,7 +4487,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('106','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '179'
         c.project_id = '1'
         c.sprint_id = '6'
@@ -4497,7 +4497,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('107','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '188'
         c.project_id = '1'
         c.sprint_id = '6'
@@ -4507,7 +4507,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('108','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '199'
         c.project_id = '1'
         c.sprint_id = '7'
@@ -4517,7 +4517,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('109','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '200'
         c.project_id = '1'
         c.sprint_id = '7'
@@ -4527,7 +4527,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('110','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '201'
         c.project_id = '1'
         c.sprint_id = '7'
@@ -4537,7 +4537,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('111','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '202'
         c.project_id = '1'
         c.sprint_id = '7'
@@ -4547,7 +4547,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('112','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '203'
         c.project_id = '1'
         c.sprint_id = '7'
@@ -4557,7 +4557,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('113','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '204'
         c.project_id = '1'
         c.sprint_id = '7'
@@ -4567,7 +4567,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('114','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '210'
         c.project_id = '1'
         c.sprint_id = '8'
@@ -4577,7 +4577,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('115','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '211'
         c.project_id = '1'
         c.sprint_id = '8'
@@ -4587,7 +4587,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('116','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '212'
         c.project_id = '1'
         c.sprint_id = '8'
@@ -4597,7 +4597,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('117','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '226'
         c.project_id = '1'
         c.sprint_id = '9'
@@ -4607,7 +4607,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('118','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '227'
         c.project_id = '1'
         c.sprint_id = '9'
@@ -4617,7 +4617,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('119','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '228'
         c.project_id = '1'
         c.sprint_id = '9'
@@ -4627,7 +4627,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('120','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '230'
         c.project_id = '1'
         c.sprint_id = '10'
@@ -4637,7 +4637,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('121','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '231'
         c.project_id = '1'
         c.sprint_id = '10'
@@ -4647,7 +4647,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('122','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '232'
         c.project_id = '1'
         c.sprint_id = '10'
@@ -4657,7 +4657,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('123','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '233'
         c.project_id = '1'
         c.sprint_id = '10'
@@ -4667,7 +4667,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('124','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '234'
         c.project_id = '1'
         c.sprint_id = '10'
@@ -4677,7 +4677,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('125','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '239'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4687,7 +4687,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('126','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '243'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4697,7 +4697,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('127','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '244'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4707,7 +4707,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('128','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '245'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4717,7 +4717,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('129','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '246'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4727,7 +4727,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('130','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '247'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4737,7 +4737,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('131','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '249'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4747,7 +4747,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('132','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '250'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4757,7 +4757,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('133','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '251'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4767,7 +4767,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('134','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '252'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4777,7 +4777,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('135','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '253'
         c.project_id = '1'
         c.sprint_id = '11'
@@ -4787,7 +4787,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('136','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '255'
         c.project_id = '1'
         c.sprint_id = '12'
@@ -4797,7 +4797,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('137','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '256'
         c.project_id = '1'
         c.sprint_id = '12'
@@ -4807,7 +4807,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('138','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '257'
         c.project_id = '1'
         c.sprint_id = '12'
@@ -4817,7 +4817,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('139','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '260'
         c.project_id = '1'
         c.sprint_id = '12'
@@ -4827,7 +4827,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('140','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '261'
         c.project_id = '1'
         c.sprint_id = '12'
@@ -4837,7 +4837,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('141','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '262'
         c.project_id = '1'
         c.sprint_id = '12'
@@ -4847,7 +4847,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('142','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '266'
         c.project_id = '1'
         c.sprint_id = '12'
@@ -4857,7 +4857,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('143','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '276'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4867,7 +4867,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('144','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '277'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4877,7 +4877,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('145','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '278'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4887,7 +4887,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('146','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '284'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4897,7 +4897,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('147','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '285'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4907,7 +4907,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('148','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '286'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4917,7 +4917,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('149','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '287'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4927,7 +4927,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('150','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '288'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4937,7 +4937,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('151','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '289'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4947,7 +4947,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('152','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '290'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4957,7 +4957,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('153','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '291'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4967,7 +4967,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('154','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '292'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4977,7 +4977,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('155','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '293'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4987,7 +4987,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('156','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '294'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -4997,7 +4997,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('157','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '282'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -5007,7 +5007,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('158','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '283'
         c.project_id = '1'
         c.sprint_id = '13'
@@ -5135,7 +5135,7 @@ def load_initial_data():
         db.session.commit()
 
         #Checklist results
-        c = ChecklistResult('159','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '2'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5145,7 +5145,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('160','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '5'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5155,7 +5155,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('161','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '6'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5165,7 +5165,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('162','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '8'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5175,7 +5175,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('163','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '9'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5185,7 +5185,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('164','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '10'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5195,7 +5195,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('165','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '11'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5205,7 +5205,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('166','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '12'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5215,7 +5215,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('167','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '13'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5225,7 +5225,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('168','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '14'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5235,7 +5235,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('169','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '15'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5245,7 +5245,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('170','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '16'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5255,7 +5255,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('171','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '17'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5265,7 +5265,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('172','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '18'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5275,7 +5275,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('173','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '19'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5285,7 +5285,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('174','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '20'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5295,7 +5295,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('175','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '21'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5305,7 +5305,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('176','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '22'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5315,7 +5315,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('177','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '24'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5325,7 +5325,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('178','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '25'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5335,7 +5335,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('179','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '26'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5345,7 +5345,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('180','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '27'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5355,7 +5355,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('181','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '28'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5365,7 +5365,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('182','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '29'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5375,7 +5375,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('183','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '30'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5385,7 +5385,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('184','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '31'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5395,7 +5395,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('185','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '32'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5405,7 +5405,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('186','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '33'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5415,7 +5415,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('187','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '34'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5425,7 +5425,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('188','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '36'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5435,7 +5435,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('189','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '37'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5445,7 +5445,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('190','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '38'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5455,7 +5455,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('191','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '39'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5465,7 +5465,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('192','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '40'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5475,7 +5475,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('193','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '41'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5485,7 +5485,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('194','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '42'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5495,7 +5495,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('195','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '43'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5505,7 +5505,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('196','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '3'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5515,7 +5515,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('197','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '4'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5525,7 +5525,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('198','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '7'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5535,7 +5535,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('199','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '23'
         c.project_id = '2'
         c.sprint_id = '14'
@@ -5545,7 +5545,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('200','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '45'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5555,7 +5555,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('201','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '46'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5565,7 +5565,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('202','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '47'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5575,7 +5575,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('203','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '48'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5585,7 +5585,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('204','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '49'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5595,7 +5595,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('205','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '50'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5605,7 +5605,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('206','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '51'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5615,7 +5615,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('207','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '52'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5625,7 +5625,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('208','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '53'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5635,7 +5635,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('209','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '54'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5645,7 +5645,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('210','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '55'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5655,7 +5655,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('211','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '56'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5665,7 +5665,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('212','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '57'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5675,7 +5675,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('213','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '58'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5685,7 +5685,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('214','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '59'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5695,7 +5695,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('215','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '64'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5705,7 +5705,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('216','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '65'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5715,7 +5715,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('217','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '66'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5725,7 +5725,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('218','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '67'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5735,7 +5735,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('219','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '68'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5745,7 +5745,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('220','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '69'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5755,7 +5755,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('221','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '70'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5765,7 +5765,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('222','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '71'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5775,7 +5775,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('223','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '72'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5785,7 +5785,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('224','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '73'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5795,7 +5795,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('225','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '74'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5805,7 +5805,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('226','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '75'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5815,7 +5815,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('227','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '76'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5825,7 +5825,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('228','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '77'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5835,7 +5835,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('229','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '78'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5845,7 +5845,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('230','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '79'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5855,7 +5855,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('231','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '80'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5865,7 +5865,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('232','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '81'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5875,7 +5875,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('233','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '82'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5885,7 +5885,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('234','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '83'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5895,7 +5895,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('235','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '84'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5905,7 +5905,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('236','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '85'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5915,7 +5915,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('237','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '86'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5925,7 +5925,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('238','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '87'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5935,7 +5935,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('239','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '88'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5945,7 +5945,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('240','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '89'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5955,7 +5955,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('241','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '90'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5965,7 +5965,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('242','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '91'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5975,7 +5975,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('243','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '92'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5985,7 +5985,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('244','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '93'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -5995,7 +5995,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('245','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '95'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -6005,7 +6005,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('246','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '96'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -6015,7 +6015,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('247','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '97'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -6025,7 +6025,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('248','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '98'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -6035,7 +6035,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('249','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '99'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -6045,7 +6045,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('250','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '100'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -6055,7 +6055,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('251','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '101'
         c.project_id = '2'
         c.sprint_id = '15'
@@ -6065,7 +6065,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('252','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '103'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6075,7 +6075,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('253','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '104'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6085,7 +6085,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('254','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '105'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6095,7 +6095,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('255','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '106'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6105,7 +6105,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('256','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '107'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6115,7 +6115,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('257','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '108'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6125,7 +6125,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('258','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '109'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6135,7 +6135,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('259','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '110'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6145,7 +6145,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('260','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '111'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6155,7 +6155,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('261','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '112'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6165,7 +6165,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('262','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '113'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6175,7 +6175,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('263','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '114'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6185,7 +6185,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('264','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '115'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6195,7 +6195,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('265','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '116'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6205,7 +6205,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('266','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '117'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6215,7 +6215,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('267','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '118'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6225,7 +6225,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('268','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '119'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6235,7 +6235,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('269','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '120'
         c.project_id = '2'
         c.sprint_id = '16'
@@ -6245,7 +6245,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('270','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '122'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6255,7 +6255,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('271','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '123'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6265,7 +6265,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('272','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '124'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6275,7 +6275,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('273','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '125'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6285,7 +6285,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('274','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '126'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6295,7 +6295,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('275','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '127'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6305,7 +6305,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('276','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '128'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6315,7 +6315,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('277','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '129'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6325,7 +6325,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('278','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '130'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6335,7 +6335,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('279','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '131'
         c.project_id = '2'
         c.sprint_id = '17'
@@ -6345,7 +6345,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('280','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '133'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6355,7 +6355,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('281','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '134'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6365,7 +6365,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('282','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '135'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6375,7 +6375,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('283','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '136'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6385,7 +6385,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('284','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '137'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6395,7 +6395,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('285','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '138'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6405,7 +6405,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('286','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '139'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6415,7 +6415,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('287','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '140'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6425,7 +6425,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('288','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '141'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6435,7 +6435,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('289','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '142'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6445,7 +6445,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('290','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '143'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6455,7 +6455,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('291','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '144'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6465,7 +6465,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('292','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '145'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6475,7 +6475,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('293','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '146'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6485,7 +6485,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('294','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '147'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6495,7 +6495,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('295','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '148'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6505,7 +6505,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('296','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '151'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6515,7 +6515,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('297','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '154'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6525,7 +6525,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('298','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '149'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6535,7 +6535,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('299','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '150'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6545,7 +6545,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('300','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '152'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6555,7 +6555,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('301','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '153'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6565,7 +6565,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('302','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '155'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6575,7 +6575,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('303','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '156'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6585,7 +6585,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('304','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '157'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6595,7 +6595,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('305','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '158'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6605,7 +6605,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('306','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '159'
         c.project_id = '2'
         c.sprint_id = '18'
@@ -6615,7 +6615,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('307','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '161'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6625,7 +6625,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('308','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '162'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6635,7 +6635,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('309','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '163'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6645,7 +6645,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('310','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '164'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6655,7 +6655,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('311','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '165'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6665,7 +6665,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('312','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '166'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6675,7 +6675,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('313','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '167'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6685,7 +6685,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('314','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '168'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6695,7 +6695,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('315','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '169'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6705,7 +6705,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('316','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '172'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6715,7 +6715,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('317','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '173'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6725,7 +6725,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('318','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '175'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6735,7 +6735,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('319','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '176'
         c.project_id = '2'
         c.sprint_id = '19'
@@ -6745,7 +6745,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('320','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '178'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6755,7 +6755,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('321','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '179'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6765,7 +6765,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('322','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '180'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6775,7 +6775,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('323','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '181'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6785,7 +6785,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('324','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '182'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6795,7 +6795,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('325','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '183'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6805,7 +6805,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('326','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '184'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6815,7 +6815,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('327','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '185'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6825,7 +6825,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('328','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '186'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6835,7 +6835,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('329','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '187'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6845,7 +6845,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('330','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '188'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6855,7 +6855,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('331','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '189'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6865,7 +6865,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('332','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '190'
         c.project_id = '2'
         c.sprint_id = '20'
@@ -6875,7 +6875,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('333','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '192'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6885,7 +6885,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('334','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '194'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6895,7 +6895,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('335','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '195'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6905,7 +6905,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('336','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '199'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6915,7 +6915,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('337','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '200'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6925,7 +6925,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('338','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '201'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6935,7 +6935,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('339','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '202'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6945,7 +6945,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('340','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '203'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6955,7 +6955,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('341','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '204'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6965,7 +6965,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('342','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '205'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6975,7 +6975,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('343','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '206'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6985,7 +6985,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('344','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '207'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -6995,7 +6995,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('345','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '208'
         c.project_id = '2'
         c.sprint_id = '21'
@@ -7005,7 +7005,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('346','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '210'
         c.project_id = '2'
         c.sprint_id = '22'
@@ -7015,7 +7015,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('347','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '211'
         c.project_id = '2'
         c.sprint_id = '22'
@@ -7025,7 +7025,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('348','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '212'
         c.project_id = '2'
         c.sprint_id = '22'
@@ -7035,7 +7035,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('349','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '213'
         c.project_id = '2'
         c.sprint_id = '22'
@@ -7045,7 +7045,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('350','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '214'
         c.project_id = '2'
         c.sprint_id = '22'
@@ -7055,7 +7055,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('351','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '215'
         c.project_id = '2'
         c.sprint_id = '22'
@@ -7065,7 +7065,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('352','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '216'
         c.project_id = '2'
         c.sprint_id = '22'
@@ -7075,7 +7075,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('353','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '220'
         c.project_id = '2'
         c.sprint_id = '23'
@@ -7085,7 +7085,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('354','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '221'
         c.project_id = '2'
         c.sprint_id = '23'
@@ -7095,7 +7095,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('355','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '226'
         c.project_id = '2'
         c.sprint_id = '23'
@@ -7105,7 +7105,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('356','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '227'
         c.project_id = '2'
         c.sprint_id = '23'
@@ -7115,7 +7115,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('357','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '228'
         c.project_id = '2'
         c.sprint_id = '23'
@@ -7125,7 +7125,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('358','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '230'
         c.project_id = '2'
         c.sprint_id = '24'
@@ -7135,7 +7135,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('359','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '231'
         c.project_id = '2'
         c.sprint_id = '24'
@@ -7145,7 +7145,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('360','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '232'
         c.project_id = '2'
         c.sprint_id = '24'
@@ -7155,7 +7155,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('361','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '233'
         c.project_id = '2'
         c.sprint_id = '24'
@@ -7165,7 +7165,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('362','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '237'
         c.project_id = '2'
         c.sprint_id = '24'
@@ -7175,7 +7175,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('363','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '234'
         c.project_id = '2'
         c.sprint_id = '24'
@@ -7185,7 +7185,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('364','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '235'
         c.project_id = '2'
         c.sprint_id = '24'
@@ -7195,7 +7195,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('365','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '236'
         c.project_id = '2'
         c.sprint_id = '24'
@@ -7205,7 +7205,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('366','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '239'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7215,7 +7215,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('367','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '240'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7225,7 +7225,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('368','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '241'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7235,7 +7235,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('369','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '242'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7245,7 +7245,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('370','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '243'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7255,7 +7255,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('371','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '244'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7265,7 +7265,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('372','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '245'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7275,7 +7275,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('373','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '246'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7285,7 +7285,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('374','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '247'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7295,7 +7295,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('375','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '248'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7305,7 +7305,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('376','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '249'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7315,7 +7315,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('377','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '250'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7325,7 +7325,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('378','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '251'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7335,7 +7335,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('379','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '252'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7345,7 +7345,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('380','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '253'
         c.project_id = '2'
         c.sprint_id = '25'
@@ -7355,7 +7355,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('381','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '255'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7365,7 +7365,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('382','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '256'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7375,7 +7375,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('383','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '257'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7385,7 +7385,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('384','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '258'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7395,7 +7395,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('385','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '259'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7405,7 +7405,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('386','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '260'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7415,7 +7415,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('387','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '261'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7425,7 +7425,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('388','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '262'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7435,7 +7435,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('389','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '263'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7445,7 +7445,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('390','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '264'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7455,7 +7455,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('391','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '265'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7465,7 +7465,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('392','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '266'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7475,7 +7475,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('393','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '267'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7485,7 +7485,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('394','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '268'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7495,7 +7495,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('395','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '269'
         c.project_id = '2'
         c.sprint_id = '26'
@@ -7505,7 +7505,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('396','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '271'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7515,7 +7515,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('397','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '272'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7525,7 +7525,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('398','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '273'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7535,7 +7535,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('399','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '274'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7545,7 +7545,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('400','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '276'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7555,7 +7555,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('401','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '277'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7565,7 +7565,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('402','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '278'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7575,7 +7575,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('403','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '279'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7585,7 +7585,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('404','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '280'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7595,7 +7595,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('405','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '281'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7605,7 +7605,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('406','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '284'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7615,7 +7615,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('407','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '285'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7625,7 +7625,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('408','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '286'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7635,7 +7635,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('409','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '287'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7645,7 +7645,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('410','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '288'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7655,7 +7655,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('411','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '289'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7665,7 +7665,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('412','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '290'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7675,7 +7675,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('413','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '291'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7685,7 +7685,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('414','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '292'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7695,7 +7695,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('415','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '293'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7705,7 +7705,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('416','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '294'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7715,7 +7715,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('417','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '295'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7725,7 +7725,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('418','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '282'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7735,7 +7735,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('419','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '283'
         c.project_id = '2'
         c.sprint_id = '27'
@@ -7863,7 +7863,7 @@ def load_initial_data():
         db.session.commit()
 
         #Checklist results
-        c = ChecklistResult('420','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '2'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7873,7 +7873,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('421','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '5'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7883,7 +7883,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('422','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '6'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7893,7 +7893,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('423','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '8'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7903,7 +7903,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('424','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '9'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7913,7 +7913,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('425','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '10'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7923,7 +7923,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('426','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '11'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7933,7 +7933,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('427','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '12'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7943,7 +7943,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('428','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '13'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7953,7 +7953,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('429','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '14'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7963,7 +7963,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('430','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '15'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7973,7 +7973,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('431','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '16'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7983,7 +7983,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('432','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '17'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -7993,7 +7993,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('433','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '18'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8003,7 +8003,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('434','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '19'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8013,7 +8013,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('435','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '20'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8023,7 +8023,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('436','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '21'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8033,7 +8033,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('437','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '22'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8043,7 +8043,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('438','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '24'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8053,7 +8053,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('439','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '25'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8063,7 +8063,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('440','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '26'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8073,7 +8073,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('441','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '27'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8083,7 +8083,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('442','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '28'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8093,7 +8093,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('443','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '29'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8103,7 +8103,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('444','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '30'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8113,7 +8113,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('445','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '31'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8123,7 +8123,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('446','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '32'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8133,7 +8133,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('447','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '33'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8143,7 +8143,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('448','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '34'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8153,7 +8153,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('449','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '35'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8163,7 +8163,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('450','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '36'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8173,7 +8173,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('451','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '37'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8183,7 +8183,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('452','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '38'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8193,7 +8193,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('453','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '39'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8203,7 +8203,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('454','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '40'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8213,7 +8213,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('455','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '41'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8223,7 +8223,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('456','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '42'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8233,7 +8233,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('457','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '43'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8243,7 +8243,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('458','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '3'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8253,7 +8253,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('459','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '4'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8263,7 +8263,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('460','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '7'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8273,7 +8273,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('461','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '23'
         c.project_id = '3'
         c.sprint_id = '28'
@@ -8283,7 +8283,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('462','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '45'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8293,7 +8293,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('463','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '46'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8303,7 +8303,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('464','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '47'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8313,7 +8313,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('465','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '48'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8323,7 +8323,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('466','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '49'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8333,7 +8333,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('467','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '50'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8343,7 +8343,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('468','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '51'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8353,7 +8353,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('469','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '52'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8363,7 +8363,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('470','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '53'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8373,7 +8373,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('471','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '54'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8383,7 +8383,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('472','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '55'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8393,7 +8393,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('473','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '56'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8403,7 +8403,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('474','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '57'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8413,7 +8413,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('475','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '58'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8423,7 +8423,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('476','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '59'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8433,7 +8433,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('477','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '60'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8443,7 +8443,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('478','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '61'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8453,7 +8453,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('479','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '62'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8463,7 +8463,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('480','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '63'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8473,7 +8473,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('481','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '64'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8483,7 +8483,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('482','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '65'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8493,7 +8493,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('483','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '66'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8503,7 +8503,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('484','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '67'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8513,7 +8513,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('485','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '68'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8523,7 +8523,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('486','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '69'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8533,7 +8533,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('487','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '70'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8543,7 +8543,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('488','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '71'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8553,7 +8553,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('489','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '72'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8563,7 +8563,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('490','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '73'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8573,7 +8573,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('491','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '74'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8583,7 +8583,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('492','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '75'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8593,7 +8593,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('493','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '76'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8603,7 +8603,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('494','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '77'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8613,7 +8613,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('495','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '78'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8623,7 +8623,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('496','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '79'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8633,7 +8633,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('497','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '80'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8643,7 +8643,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('498','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '81'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8653,7 +8653,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('499','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '82'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8663,7 +8663,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('500','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '83'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8673,7 +8673,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('501','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '84'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8683,7 +8683,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('502','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '85'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8693,7 +8693,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('503','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '86'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8703,7 +8703,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('504','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '87'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8713,7 +8713,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('505','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '88'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8723,7 +8723,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('506','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '89'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8733,7 +8733,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('507','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '90'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8743,7 +8743,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('508','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '91'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8753,7 +8753,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('509','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '92'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8763,7 +8763,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('510','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '93'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8773,7 +8773,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('511','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '94'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8783,7 +8783,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('512','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '95'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8793,7 +8793,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('513','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '96'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8803,7 +8803,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('514','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '97'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8813,7 +8813,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('515','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '98'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8823,7 +8823,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('516','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '99'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8833,7 +8833,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('517','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '100'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8843,7 +8843,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('518','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '101'
         c.project_id = '3'
         c.sprint_id = '29'
@@ -8853,7 +8853,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('519','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '103'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8863,7 +8863,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('520','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '104'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8873,7 +8873,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('521','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '105'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8883,7 +8883,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('522','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '106'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8893,7 +8893,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('523','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '107'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8903,7 +8903,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('524','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '108'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8913,7 +8913,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('525','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '109'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8923,7 +8923,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('526','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '110'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8933,7 +8933,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('527','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '111'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8943,7 +8943,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('528','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '112'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8953,7 +8953,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('529','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '113'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8963,7 +8963,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('530','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '114'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8973,7 +8973,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('531','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '115'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8983,7 +8983,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('532','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '116'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -8993,7 +8993,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('533','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '117'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -9003,7 +9003,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('534','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '118'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -9013,7 +9013,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('535','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '119'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -9023,7 +9023,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('536','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '120'
         c.project_id = '3'
         c.sprint_id = '30'
@@ -9033,7 +9033,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('537','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '122'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9043,7 +9043,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('538','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '123'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9053,7 +9053,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('539','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '124'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9063,7 +9063,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('540','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '125'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9073,7 +9073,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('541','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '126'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9083,7 +9083,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('542','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '127'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9093,7 +9093,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('543','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '128'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9103,7 +9103,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('544','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '129'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9113,7 +9113,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('545','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '130'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9123,7 +9123,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('546','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '131'
         c.project_id = '3'
         c.sprint_id = '31'
@@ -9133,7 +9133,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('547','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '133'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9143,7 +9143,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('548','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '134'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9153,7 +9153,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('549','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '135'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9163,7 +9163,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('550','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '136'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9173,7 +9173,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('551','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '137'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9183,7 +9183,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('552','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '138'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9193,7 +9193,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('553','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '139'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9203,7 +9203,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('554','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '140'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9213,7 +9213,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('555','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '141'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9223,7 +9223,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('556','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '142'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9233,7 +9233,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('557','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '143'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9243,7 +9243,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('558','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '144'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9253,7 +9253,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('559','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '145'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9263,7 +9263,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('560','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '146'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9273,7 +9273,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('561','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '147'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9283,7 +9283,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('562','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '148'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9293,7 +9293,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('563','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '151'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9303,7 +9303,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('564','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '154'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9313,7 +9313,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('565','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '149'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9323,7 +9323,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('566','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '150'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9333,7 +9333,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('567','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '152'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9343,7 +9343,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('568','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '153'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9353,7 +9353,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('569','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '155'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9363,7 +9363,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('570','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '156'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9373,7 +9373,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('571','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '157'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9383,7 +9383,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('572','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '158'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9393,7 +9393,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('573','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '159'
         c.project_id = '3'
         c.sprint_id = '32'
@@ -9403,7 +9403,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('574','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '161'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9413,7 +9413,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('575','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '162'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9423,7 +9423,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('576','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '163'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9433,7 +9433,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('577','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '164'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9443,7 +9443,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('578','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '165'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9453,7 +9453,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('579','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '166'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9463,7 +9463,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('580','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '167'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9473,7 +9473,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('581','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '168'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9483,7 +9483,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('582','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '169'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9493,7 +9493,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('583','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '170'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9503,7 +9503,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('584','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '171'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9513,7 +9513,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('585','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '172'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9523,7 +9523,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('586','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '173'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9533,7 +9533,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('587','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '174'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9543,7 +9543,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('588','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '175'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9553,7 +9553,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('589','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '176'
         c.project_id = '3'
         c.sprint_id = '33'
@@ -9563,7 +9563,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('590','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '178'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9573,7 +9573,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('591','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '179'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9583,7 +9583,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('592','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '180'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9593,7 +9593,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('593','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '181'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9603,7 +9603,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('594','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '182'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9613,7 +9613,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('595','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '183'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9623,7 +9623,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('596','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '184'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9633,7 +9633,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('597','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '185'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9643,7 +9643,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('598','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '186'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9653,7 +9653,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('599','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '187'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9663,7 +9663,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('600','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '188'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9673,7 +9673,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('601','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '189'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9683,7 +9683,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('602','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '190'
         c.project_id = '3'
         c.sprint_id = '34'
@@ -9693,7 +9693,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('603','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '192'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9703,7 +9703,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('604','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '194'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9713,7 +9713,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('605','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '195'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9723,7 +9723,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('606','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '196'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9733,7 +9733,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('607','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '197'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9743,7 +9743,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('608','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '199'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9753,7 +9753,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('609','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '200'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9763,7 +9763,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('610','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '201'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9773,7 +9773,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('611','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '202'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9783,7 +9783,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('612','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '203'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9793,7 +9793,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('613','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '204'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9803,7 +9803,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('614','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '205'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9813,7 +9813,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('615','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '206'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9823,7 +9823,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('616','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '207'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9833,7 +9833,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('617','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '208'
         c.project_id = '3'
         c.sprint_id = '35'
@@ -9843,7 +9843,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('618','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '210'
         c.project_id = '3'
         c.sprint_id = '36'
@@ -9853,7 +9853,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('619','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '211'
         c.project_id = '3'
         c.sprint_id = '36'
@@ -9863,7 +9863,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('620','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '212'
         c.project_id = '3'
         c.sprint_id = '36'
@@ -9873,7 +9873,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('621','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '213'
         c.project_id = '3'
         c.sprint_id = '36'
@@ -9883,7 +9883,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('622','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '214'
         c.project_id = '3'
         c.sprint_id = '36'
@@ -9893,7 +9893,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('623','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '215'
         c.project_id = '3'
         c.sprint_id = '36'
@@ -9903,7 +9903,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('624','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '216'
         c.project_id = '3'
         c.sprint_id = '36'
@@ -9913,7 +9913,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('625','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '217'
         c.project_id = '3'
         c.sprint_id = '36'
@@ -9923,7 +9923,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('626','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '219'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -9933,7 +9933,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('627','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '220'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -9943,7 +9943,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('628','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '221'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -9953,7 +9953,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('629','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '222'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -9963,7 +9963,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('630','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '223'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -9973,7 +9973,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('631','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '224'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -9983,7 +9983,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('632','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '225'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -9993,7 +9993,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('633','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '226'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -10003,7 +10003,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('634','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '227'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -10013,7 +10013,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('635','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '228'
         c.project_id = '3'
         c.sprint_id = '37'
@@ -10023,7 +10023,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('636','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '230'
         c.project_id = '3'
         c.sprint_id = '38'
@@ -10033,7 +10033,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('637','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '231'
         c.project_id = '3'
         c.sprint_id = '38'
@@ -10043,7 +10043,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('638','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '232'
         c.project_id = '3'
         c.sprint_id = '38'
@@ -10053,7 +10053,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('639','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '233'
         c.project_id = '3'
         c.sprint_id = '38'
@@ -10063,7 +10063,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('640','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '237'
         c.project_id = '3'
         c.sprint_id = '38'
@@ -10073,7 +10073,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('641','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '234'
         c.project_id = '3'
         c.sprint_id = '38'
@@ -10083,7 +10083,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('642','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '235'
         c.project_id = '3'
         c.sprint_id = '38'
@@ -10093,7 +10093,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('643','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '236'
         c.project_id = '3'
         c.sprint_id = '38'
@@ -10103,7 +10103,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('644','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '239'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10113,7 +10113,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('645','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '240'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10123,7 +10123,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('646','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '241'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10133,7 +10133,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('647','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '242'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10143,7 +10143,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('648','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '243'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10153,7 +10153,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('649','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '244'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10163,7 +10163,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('650','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '245'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10173,7 +10173,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('651','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '246'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10183,7 +10183,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('652','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '247'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10193,7 +10193,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('653','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '248'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10203,7 +10203,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('654','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '249'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10213,7 +10213,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('655','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '250'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10223,7 +10223,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('656','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '251'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10233,7 +10233,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('657','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '252'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10243,7 +10243,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('658','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '253'
         c.project_id = '3'
         c.sprint_id = '39'
@@ -10253,7 +10253,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('659','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '255'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10263,7 +10263,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('660','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '256'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10273,7 +10273,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('661','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '257'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10283,7 +10283,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('662','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '258'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10293,7 +10293,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('663','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '259'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10303,7 +10303,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('664','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '260'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10313,7 +10313,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('665','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '261'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10323,7 +10323,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('666','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '262'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10333,7 +10333,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('667','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '263'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10343,7 +10343,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('668','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '264'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10353,7 +10353,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('669','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '265'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10363,7 +10363,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('670','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '266'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10373,7 +10373,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('671','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '267'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10383,7 +10383,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('672','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '268'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10393,7 +10393,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('673','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '269'
         c.project_id = '3'
         c.sprint_id = '40'
@@ -10403,7 +10403,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('674','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '271'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10413,7 +10413,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('675','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '272'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10423,7 +10423,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('676','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '273'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10433,7 +10433,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('677','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '274'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10443,7 +10443,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('678','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '275'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10453,7 +10453,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('679','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '276'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10463,7 +10463,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('680','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '277'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10473,7 +10473,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('681','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '278'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10483,7 +10483,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('682','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '279'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10493,7 +10493,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('683','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '280'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10503,7 +10503,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('684','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '281'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10513,7 +10513,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('685','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '284'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10523,7 +10523,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('686','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '285'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10533,7 +10533,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('687','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '286'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10543,7 +10543,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('688','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '287'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10553,7 +10553,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('689','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '288'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10563,7 +10563,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('690','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '289'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10573,7 +10573,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('691','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '290'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10583,7 +10583,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('692','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '291'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10593,7 +10593,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('693','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '292'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10603,7 +10603,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('694','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '293'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10613,7 +10613,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('695','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '294'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10623,7 +10623,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('696','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '295'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10633,7 +10633,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('697','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '282'
         c.project_id = '3'
         c.sprint_id = '41'
@@ -10643,7 +10643,7 @@ def load_initial_data():
         db.session.commit()
 
 
-        c = ChecklistResult('698','0',True)
+        c = ChecklistResult('0','0',True)
         c.checklist_id = '283'
         c.project_id = '3'
         c.sprint_id = '41'
