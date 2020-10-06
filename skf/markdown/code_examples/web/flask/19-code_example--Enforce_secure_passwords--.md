@@ -3,6 +3,7 @@
 
 ## Example:
 
+- todo, insecure default with proceed = True
 
     def checkPassword(pwd):
     	error = []
