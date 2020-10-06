@@ -29,9 +29,15 @@
             <div class="row mb-4" *ngFor="let item of checklistConData.items | stringfilter:queryString; let i = index">
               <div class="col" *ngIf="item.kb_item_id > 1">
                 <div class="box media mb-2">
-                  <div class="icon mr-3">
+                  <div class="icon mr-2" *ngIf="item.maturity==1">
+                    <i class="bx bx-book-content font-size-20 text-warning"></i>
+                  </div>
+                  <div class="icon mr-2" *ngIf="item.maturity==2">
                     <i class="bx bx-book-content font-size-20 text-success"></i>
                   </div>
+                  <div class="icon mr-2" *ngIf="item.maturity==3">
+                    <i class="bx bx-book-content font-size-20 text-primary"></i>
+                  </div>                   
                   <div class="media-body">
                     <div class="row">
                       <div class="col-sm-12">
