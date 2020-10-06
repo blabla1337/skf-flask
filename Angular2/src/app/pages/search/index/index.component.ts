@@ -49,10 +49,7 @@ export class IndexComponent implements OnInit, AfterViewChecked
   ngAfterViewChecked(): void
   {
     if (localStorage.getItem('search') != this.search) {
-
-
       this.search = localStorage.getItem('search');
-
       window.location.reload();
     }
   }
