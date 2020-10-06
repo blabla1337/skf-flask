@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit
                 sessionStorage.setItem('Authorization', token['Authorization token']);
                 // tslint:disable-next-line: no-string-literal
                 sessionStorage.setItem('user', token['username']);
-                this.router.navigate(['/dashboard']);
+                window.location.assign("/dashboard");
             }
         },
             () => this.errormsg = true);
