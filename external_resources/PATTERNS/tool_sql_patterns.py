@@ -14,7 +14,7 @@ for line in Lines:
     kb_id = split[13]
     check_type = split[14]
 
-    print("c = ChecklistResult('0','0',True)")
+    print("c = ChecklistResult('0','0',False)")
     print("c.checklist_id ="+check_id+"")
     print("c.project_id ="+project_id+"")
     print("c.sprint_id ="+sprint_id+"")

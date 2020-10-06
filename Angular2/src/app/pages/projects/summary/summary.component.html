@@ -29,8 +29,23 @@
               [stepContent]="resultControl">
                 <div class="card-body pb-3">
                   <div class="row">
-                    <div class="col-sm-10">
-                      <h5 class="text-dark"><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}</h5>
+                    <div *ngIf="item.checklist_items_maturity==1" class="col-sm-10">
+                      <h5 class="text-dark">
+                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-warning"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
+                      </h5>
+                    </div>
+                    <div *ngIf="item.checklist_items_maturity==2" class="col-sm-10">
+                      <h5 class="text-dark">
+                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-warning"></i>
+                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-success"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
+                      </h5>
+                    </div>
+                    <div *ngIf="item.checklist_items_maturity==3" class="col-sm-10">
+                      <h5 class="text-dark">
+                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-warning"></i>
+                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-success"></i>
+                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-primary"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
+                      </h5>
                     </div>
                     <div class="col-sm-2">
                       <div class="text-right">
