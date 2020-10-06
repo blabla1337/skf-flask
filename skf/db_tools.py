@@ -99,7 +99,7 @@ def init_md_knowledge_base():
 def init_md_code_examples():
     """Converts markdown code-example items to DB."""
     kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/web/')
-    code_langs = ['asp', 'java', 'php', 'flask', 'django', 'go', 'ruby', 'nodejs-express', 'testing']
+    code_langs = ['asp-needs-reviewing', 'java-needs-reviewing', 'php-needs-reviewing', 'flask', 'django-needs-reviewing', 'go-needs-reviewing', 'ruby-needs-reviewing', 'nodejs-express-needs-reviewing', 'testing']
     try:
         for lang in code_langs:
             for filename in os.listdir(kb_dir+lang):

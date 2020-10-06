@@ -11674,6 +11674,8 @@ def load_initial_data():
         ASVS 1 to FLASK examples
         '''
 
+        
+
         print('Initialized the initial data.')
         return True
     except:
