@@ -25,6 +25,7 @@ export class SummaryComponent implements OnInit
   public codeData: any = [];
   public complianceForm: FormGroup;
   public routerId;
+  public delete: string;
 
   // Form Submission
   public submit: boolean;
@@ -133,7 +134,7 @@ export class SummaryComponent implements OnInit
    */
   summaryModal(content: any)
   {
-    this.modalService.open(content, { size: 'sm', centered: true });
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
   get form()
@@ -147,6 +148,22 @@ export class SummaryComponent implements OnInit
   validSubmit()
   {
     this.submit = true;
+  }
+
+  /**
+   * Open delete modal
+   * @param deleteDataModal center modal data
+   */
+  deleteModal(deleteDataModal: any)
+  {
+    this.modalService.open(deleteDataModal, { centered: true, size: 'lg' });
+  }
+
+  deleteControl(control_id: number)
+  {
+    if (this.delete == 'DELETE') {
+      this._sprintService.deleteControlsFromSprint(control_id).subscribe(x => this.getSprintItems());
+    }
   }
 
   onSubmit()

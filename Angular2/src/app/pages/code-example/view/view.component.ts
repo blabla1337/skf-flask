@@ -25,8 +25,9 @@ export class ViewCodeComponent implements OnInit
   public codeExampleForm: FormGroup;
   public queryString;
   public catSelector: number;
-  loggedinUser: string;
-  loggedin = false;
+  public delete: string;
+  public loggedinUser: string;
+  public loggedin = false;
 
   get formControls() { return this.codeExampleForm.controls; }
 
@@ -85,7 +86,7 @@ export class ViewCodeComponent implements OnInit
    */
   deleteModal(deleteDataModal: any)
   {
-    this.modalService.open(deleteDataModal, { size: 'md', centered: true });
+    this.modalService.open(deleteDataModal, { centered: true, size: 'lg' });
   }
 
   setCategorySelectorId(categoryId: Number)
@@ -96,6 +97,8 @@ export class ViewCodeComponent implements OnInit
 
   deleteCodeExample(code_id: number)
   {
-    this._codeExamplesService.deleteCodeExample(code_id).subscribe(x => this._fetchData())
+    if (this.delete == 'DELETE') {
+      this._codeExamplesService.deleteCodeExample(code_id).subscribe(x => this._fetchData())
+    }
   }
 }

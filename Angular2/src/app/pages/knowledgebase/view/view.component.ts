@@ -69,7 +69,7 @@ export class ViewKnowledebaseComponent implements OnInit
 
   deleteModal(deleteDataModal: any)
   {
-    this.modalService.open(deleteDataModal, { centered: true });
+    this.modalService.open(deleteDataModal, { centered: true, size: 'lg' });
   }
 
   // tslint:disable-next-line: ban-types
