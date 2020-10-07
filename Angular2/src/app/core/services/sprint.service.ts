@@ -52,4 +52,9 @@ export class SprintService
     {
         return this.http.put(environment.API_ENDPOINT + `/api/sprint/results/update/${id}`, value, { headers: this.authHeader })
     }
+
+    exportCsv(id: number): Observable<Object>
+    {
+        return this.http.get(environment.API_ENDPOINT + `/api/sprint/results/export/${id}`, { headers: this.authHeader })
+    }
 }
