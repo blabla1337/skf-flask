@@ -101,10 +101,11 @@
                               <div class="modal-body">
                                 <form (ngSubmit)="onSubmit()">
                                   <div class="form-group">
-                                    <label for="delete">Type <b class="text-danger">DELETE</b> to delete the knolwedgebase item</label>
+                                    <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Knowledgebase item
+                                      item</label>
                                     <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
-                                      name="delete" placeholder="Type DELETE"
-                                      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type DELETE'">
+                                      name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+                                      onblur="this.placeholder = 'Type DELETE'">
                                   </div>
                                   <button type="submit"
                                     (click)="deleteKnowledgebaseItem(subitem.kb_id); modal.dismiss('Cross click')"
