@@ -20,7 +20,7 @@ export class SummaryComponent implements OnInit
   // Collapse value
   public isCollapsed: boolean[] = [];
   private sub: any = [];
-  private id: number;
+  public id: number;
   public sprintData: any = [];
   public codeData: any = [];
   public complianceForm: FormGroup;
@@ -56,13 +56,54 @@ export class SummaryComponent implements OnInit
     this.routerId = localStorage.getItem('routerId');
   }
 
+
+  exportCsv(sprint_id)
+  {
+    this.route.params.subscribe(params =>
+    {
+      this._sprintService.exportCsv(sprint_id).subscribe(
+        (resp) =>
+        {
+          const base64fix = resp['message'].replace('b\'', '');
+          const base64 = base64fix.substring(0, base64fix.lastIndexOf('\''));
+
+          const a = document.createElement('a');
+          document.body.appendChild(a);
+
+          const byteCharacters = atob(base64);
+          const byteArrays = [];
+
+          for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+            const slice = byteCharacters.slice(offset, offset + 512);
+
+            const byteNumbers = new Array(slice.length);
+            for (let i = 0; i < slice.length; i++) {
+              byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            const byteArray = new Uint8Array(byteNumbers);
+
+            byteArrays.push(byteArray);
+          }
+
+          const blob = new Blob(byteArrays, { type: 'text/html' });
+          const url = window.URL.createObjectURL(blob);
+          a.href = url;
+          a.download = 'export.csv';
+          a.click();
+          window.URL.revokeObjectURL(url);
+        },
+        err => console.log('Error getting sprint stats')
+      );
+    });
+  }
+
   getSprintItems()
   {
     this.sub = this.route.params.subscribe(params =>
     {
       this.id = +params['id'];
     });
-
     this._sprintService.getSprintChecklistResults(this.id).subscribe(sprint => this.sprintData = sprint)
   }
 
