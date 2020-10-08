@@ -11,3 +11,9 @@ export PYTHONPATH=/home/user_api
 python3.7 skf/rabbit_mq_workers/deployment-worker.py &
 python3.7 skf/rabbit_mq_workers/deletion-worker.py &
 
+# Run the SKF Python cleaner worker every 30 min
+while true  
+do  
+  python3.7 skf/rabbit_mq_workers/cleaner-worker.py 
+  sleep 1800  
+done
