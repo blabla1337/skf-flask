@@ -56,7 +56,7 @@ export class ProjectManageComponent implements OnInit
 
   projectModal(content: any)
   {
-    this.modalService.open(content, { size: 'lg', centered: true });
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
   onSubmit()

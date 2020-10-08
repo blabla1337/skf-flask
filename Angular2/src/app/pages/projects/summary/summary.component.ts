@@ -20,11 +20,12 @@ export class SummaryComponent implements OnInit
   // Collapse value
   public isCollapsed: boolean[] = [];
   private sub: any = [];
-  private id: number;
+  public id: number;
   public sprintData: any = [];
   public codeData: any = [];
   public complianceForm: FormGroup;
   public routerId;
+  public delete: string;
 
   // Form Submission
   public submit: boolean;
@@ -56,13 +57,54 @@ export class SummaryComponent implements OnInit
     this.routerId = localStorage.getItem('routerId');
   }
 
+
+  exportCsv(sprint_id)
+  {
+    this.route.params.subscribe(params =>
+    {
+      this._sprintService.exportCsv(sprint_id).subscribe(
+        (resp) =>
+        {
+          const base64fix = resp['message'].replace('b\'', '');
+          const base64 = base64fix.substring(0, base64fix.lastIndexOf('\''));
+
+          const a = document.createElement('a');
+          document.body.appendChild(a);
+
+          const byteCharacters = atob(base64);
+          const byteArrays = [];
+
+          for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+            const slice = byteCharacters.slice(offset, offset + 512);
+
+            const byteNumbers = new Array(slice.length);
+            for (let i = 0; i < slice.length; i++) {
+              byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            const byteArray = new Uint8Array(byteNumbers);
+
+            byteArrays.push(byteArray);
+          }
+
+          const blob = new Blob(byteArrays, { type: 'text/html' });
+          const url = window.URL.createObjectURL(blob);
+          a.href = url;
+          a.download = 'export.csv';
+          a.click();
+          window.URL.revokeObjectURL(url);
+        },
+        err => console.log('Error getting sprint stats')
+      );
+    });
+  }
+
   getSprintItems()
   {
     this.sub = this.route.params.subscribe(params =>
     {
       this.id = +params['id'];
     });
-
     this._sprintService.getSprintChecklistResults(this.id).subscribe(sprint => this.sprintData = sprint)
   }
 
@@ -92,7 +134,7 @@ export class SummaryComponent implements OnInit
    */
   summaryModal(content: any)
   {
-    this.modalService.open(content, { size: 'sm', centered: true });
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
   get form()
@@ -106,6 +148,22 @@ export class SummaryComponent implements OnInit
   validSubmit()
   {
     this.submit = true;
+  }
+
+  /**
+   * Open delete modal
+   * @param deleteDataModal center modal data
+   */
+  deleteModal(deleteDataModal: any)
+  {
+    this.modalService.open(deleteDataModal, { centered: true, size: 'lg' });
+  }
+
+  deleteControl(control_id: number)
+  {
+    if (this.delete == 'DELETE') {
+      this._sprintService.deleteControlsFromSprint(control_id).subscribe(x => this.getSprintItems());
+    }
   }
 
   onSubmit()

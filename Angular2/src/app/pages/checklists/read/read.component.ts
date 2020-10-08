@@ -71,7 +71,7 @@ export class ChecklistsReadComponent implements OnInit
    */
   centerModal(centerDataModal: any) 
   {
-    this.modalService.open(centerDataModal, { centered: true });
+    this.modalService.open(centerDataModal, { centered: true, size: 'lg' });
   }
   // tslint:disable-next-line: variable-name
   storeSprintLocalStorage(sprint_id: number)

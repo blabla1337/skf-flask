@@ -100,10 +100,10 @@
                           <div class="modal-body">
                             <form>
                               <div class="form-group">
-                                <label for="delete">Type <b class="text-danger">DELETE</b> to delete the project</label>
+                                <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Project
+                                  item</label>
                                 <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
                                   name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
-                                  onblur="this.placeholder = 'Type DELETE'" onfocus="this.placeholder = ''"
                                   onblur="this.placeholder = 'Type DELETE'">
                               </div>
                               <button (click)="deleteChecklistType(item.id);modal.dismiss('Close click')" type="submit"
