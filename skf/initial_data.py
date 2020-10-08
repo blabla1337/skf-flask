@@ -11675,6 +11675,165 @@ def load_initial_data():
         '''
 
         
+        kb_code_cor = ChecklistKBCodeItem(45,130)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(46,130)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(47,130)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(51,130)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(53,130)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(99,143)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(64,142)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(67,143)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(68,143)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(70,143)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(71,143)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(87,142)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(108,139)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(108,163)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(112,148)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(116,133)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(128,138)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(131,131)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(135,140)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(137,140)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(137,150)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(142,129)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(155,151)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(155,168)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(149,149)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(153,147)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(154,144)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(157,156)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(198,152)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(230,146)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(239,169)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(243,144)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(244,169)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(246,135)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(249,169)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(262,138)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(283,158)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(285,136)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(291,157)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(295,154)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
 
         print('Initialized the initial data.')
         return True

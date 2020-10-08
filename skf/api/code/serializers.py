@@ -12,7 +12,7 @@ code = api.model('code', {
 checklist_kb_code_item = api.model('code_items_checklist_kb', {
     'title': fields.String(attribute='code_items.title', required=True, description='The unique identifier of a Knowledge base item'),
     'content': fields.String(attribute='code_items.content', required=True, description='Knowledge base title'),
-    'code_lang': fields.String(attribute='code_items.lang', required=True, description='Knowledge base title'),
+    'code_lang': fields.String(attribute='code_items.code_lang', required=True, description='Knowledge base title'),
 })
 
 code_properties = api.model('code_update', {
