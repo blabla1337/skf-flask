@@ -3,7 +3,8 @@
   <app-page-title title="Sprint result" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   <div class="row">
     <div class="col lg 12">
-      <a [routerLink]="['/projects/view', routerId]" class="btn text-primary d-sm-inline-block btn-link"> <i class="mdi mdi-arrow-left mr-1"></i> go back</a>
+      <a [routerLink]="['/projects/view', routerId]" class="btn text-primary d-sm-inline-block btn-link"> <i
+          class="mdi mdi-arrow-left mr-1"></i> go back</a>
     </div>
   </div>
   <div class="row mt-3">
@@ -16,35 +17,38 @@
               <p class="card-title mt-1">Summary</p>
             </div>
             <div class="col-8">
-            <div class="text-right">
-              <button type="button" (click)="exportCsv(id)" class="btn btn-primary mb-2 mr-2">
-              <i class="mdi mdi-cloud-download-outline font-size-15 mr-1"></i>Export as CSV </button>
-            </div>
+              <div class="text-right">
+                <button type="button" (click)="exportCsv(id)" class="btn btn-primary mb-2 mr-2">
+                  <i class="mdi mdi-cloud-download-outline font-size-15 mr-1"></i>Export as CSV </button>
+              </div>
             </div>
           </div>
-            
+
           <div *ngFor="let item of sprintData.items | linksfilter; let i = index" class="row mb-3">
             <div class="col">
               <div class="card shadow-sm border" joyrideStep="resultControl" title="Security requirement"
-              [stepContent]="resultControl">
+                [stepContent]="resultControl">
                 <div class="card-body pb-3">
                   <div class="row">
                     <div *ngIf="item.checklist_items_maturity==1" class="col-sm-10">
                       <h5 class="text-dark">
-                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-warning"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
+                        <i
+                          class="mdi mdi-18px mdi-text-box-check mr-2 text-warning"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
                       </h5>
                     </div>
                     <div *ngIf="item.checklist_items_maturity==2" class="col-sm-10">
                       <h5 class="text-dark">
                         <i class="mdi mdi-18px mdi-text-box-check mr-2 text-warning"></i>
-                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-success"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
+                        <i
+                          class="mdi mdi-18px mdi-text-box-check mr-2 text-success"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
                       </h5>
                     </div>
                     <div *ngIf="item.checklist_items_maturity==3" class="col-sm-10">
                       <h5 class="text-dark">
                         <i class="mdi mdi-18px mdi-text-box-check mr-2 text-warning"></i>
                         <i class="mdi mdi-18px mdi-text-box-check mr-2 text-success"></i>
-                        <i class="mdi mdi-18px mdi-text-box-check mr-2 text-primary"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
+                        <i
+                          class="mdi mdi-18px mdi-text-box-check mr-2 text-primary"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
                       </h5>
                     </div>
                     <div class="col-sm-2">
@@ -54,8 +58,8 @@
                         <span *ngIf="item.resolved == 'False'"
                           class="badge badge-danger font-size-11 mt-1 float-left">Open</span>
                         <button class="btn-sm btn-primary btn-md ml-1" type="button"
-                          (click)="isCollapsed[i] = !isCollapsed[i]" joyrideStep="resultControlKB" title="Security requirement additional information"
-                          [stepContent]="resultControlKB">
+                          (click)="isCollapsed[i] = !isCollapsed[i]" joyrideStep="resultControlKB"
+                          title="Security requirement additional information" [stepContent]="resultControlKB">
                           Click here
                         </button>
                       </div>
@@ -69,7 +73,8 @@
                           <div class="card shadow-none">
                             <div class="card-body" (next)="isCollapsed[i]">
                               <h2 class="text-dark">{{item.kb_item_title}}</h2>
-                              <pre style="overflow-x: auto;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;">{{item.kb_items_content}}</pre>
+                              <pre
+                                style="overflow-x: auto;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;">{{item.kb_items_content}}</pre>
                               <h4 class="text-dark">Additional resources</h4>
                               <pre class="text-primary">{{item.add_resources}}</pre>
                             </div>
@@ -83,32 +88,36 @@
                         <ng-template #deleteContent let-modal>
                           <div class="modal-header">
                             <h5 class="modal-title mt-0">Delete Control</h5>
-                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+                            <button type="button" class="close" aria-label="Close"
+                              (click)="modal.dismiss('Close click')">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
                             <form (ngSubmit)="onSubmit()">
                               <div class="form-group">
-                                <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Security Control</label>
-                                <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
-                                  name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+                                <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Security
+                                  Control</label>
+                                <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control"
+                                  id="delete" name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
                                   onblur="this.placeholder = 'Type DELETE'">
                               </div>
                               <button (click)="deleteControl(item.id); modal.dismiss('Cross click')"
-                              class="btn btn-danger">Delete</button>
+                                class="btn btn-danger">Delete</button>
                             </form>
                           </div>
                         </ng-template>
                       </li>
                       <li [ngbNavItem]="2" (click)="getCodeExamples(item.checklist_id)">
-                        <a ngbNavLink>Test automation</a>
+                        <a ngbNavLink>Code/Test</a>
                         <ng-template ngbNavContent>
                           <div class="card shadow-none border">
                             <div class="card-body">
                               <span *ngFor="let item of codeData.items">
-                                <h4>{{item.title}}</h4>
+                                <h4>{{item.code_lang}} - {{item.title}} </h4>
+                                <pre>
                                 <code [highlight]="item.content" lineNumbers="True"></code>
+                              </pre>
                               </span>
                             </div>
                           </div>
@@ -122,24 +131,25 @@
                               <form (ngSubmit)="validSubmit()" [formGroup]="complianceForm">
                                 <div class="form-group">
                                   <label for="evidence">Evidence</label>
-                                  <textarea class="form-control" id="evidence"
-                                  formControlName="evidence" id="evidence" rows="3"
-                                  [ngClass]="{'is-invalid': submit && form.evidence.errors}" [(ngModel)]="item.evidence"></textarea>
+                                  <textarea class="form-control" id="evidence" formControlName="evidence" id="evidence"
+                                    rows="3" [ngClass]="{'is-invalid': submit && form.evidence.errors}"
+                                    [(ngModel)]="item.evidence"></textarea>
                                 </div>
                                 <div *ngIf="submit && form.evidence.errors" class="invalid-feedback">
                                   <span *ngIf="form.evidence.errors.required">Required!</span>
-                              </div>
+                                </div>
                                 <div class="form-group">
                                   <label class="float-left">Status</label>
-                                  <select class="form-control select2-search-disable" formControlName="resolved" id="resolved"
-                                  [ngClass]="{'is-invalid': submit && form.resolved.errors}" [(ngModel)]="item.resolved"> 
+                                  <select class="form-control select2-search-disable" formControlName="resolved"
+                                    id="resolved" [ngClass]="{'is-invalid': submit && form.resolved.errors}"
+                                    [(ngModel)]="item.resolved">
                                     <option value="" selected></option>
                                     <option value="True">Resolved</option>
                                     <option value="False">Not Resolved</option>
                                   </select>
                                   <div *ngIf="submit && form.resolved.errors" class="invalid-feedback">
                                     <span *ngIf="form.resolved.errors.required">Required!</span>
-                                </div>
+                                  </div>
                                 </div>
                               </form>
                             </div>
@@ -147,9 +157,8 @@
                           <div class="row mt-4">
                             <div class="col-sm-12">
                               <div class="text-right">
-                                <a (click)="newCompliance(item.id)"
-                                class="btn btn-sm btn-success m-1">
-                                <i class="mdi mdi-check mr-1"></i> Update </a>
+                                <a (click)="newCompliance(item.id)" class="btn btn-sm btn-success m-1">
+                                  <i class="mdi mdi-check mr-1"></i> Update </a>
                               </div>
                             </div>
                           </div>
@@ -175,7 +184,8 @@
 <ng-template #resultControl>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>These are the security controls that the expert system has correlated and selected as required controls to be implemented.</h6>
+      <h6>These are the security controls that the expert system has correlated and selected as required controls to be
+        implemented.</h6>
     </div>
   </div>
 </ng-template>
@@ -183,8 +193,8 @@
 <ng-template #resultControlKB>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Click here to find more information, retrieve additional explanation and resources for the specific security requirement.</h6>
+      <h6>Click here to find more information, retrieve additional explanation and resources for the specific security
+        requirement.</h6>
     </div>
   </div>
 </ng-template>
-
