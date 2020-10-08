@@ -64,10 +64,10 @@
                     <div class="modal-body">
                       <form (ngSubmit)="onSubmit()">
                         <div class="form-group">
-                          <label for="delete">Type <b class="text-danger">DELETE</b> to delete the category</label>
+                          <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Category
+                            item</label>
                           <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
                             name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Type DELETE'" onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Type DELETE'">
                         </div>
                         <button (click)="deleteCategory(item.id);modal.dismiss('Close click')" type="submit"

@@ -10,7 +10,8 @@ export class AppComponent implements OnInit {
     setTimeout(() =>
     {
       localStorage.setItem('session', 'expired');
+      sessionStorage.setItem('Authorization', '');
       location.replace('/auth/login');
-    }, 7200000);
+    }, 7100000);
   }
 }

@@ -77,6 +77,10 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
       this.light = true;
       this.dark = false;
     }
+    if (sessionStorage.getItem('Authorization') === "") {
+      this.router.navigate(['/auth/login']);
+    }
+
   }
 
   ngAfterViewInit() {}

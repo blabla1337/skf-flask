@@ -88,6 +88,26 @@
                                         (click)="deleteModal(contentDelete)">
                                         <i class="bx bx-trash mr-1"></i> Delete </button>
                                     </div>
+                                    <!-- Deletion modal-->
+                                    <ng-template #contentDelete let-modal>
+                                      <div class="modal-header">
+                                        <h5 class="modal-title mt-0">Delete Code Example</h5>
+                                        <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <form>
+                                          <div class="form-group">
+                                            <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Code Example</label>
+                                            <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
+                                              name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+                                              onblur="this.placeholder = 'Type DELETE'">
+                                          </div>
+                                          <button (click)="deleteCodeExample(item.id);modal.dismiss('Close click')" type="submit"
+                                          class="btn btn-primary">Delete</button>
+                                        </form>
+                                      </div>
+                                    </ng-template>
+                                    <!--  Deletion modal Ends-->
                                   </div> <!-- end col -->
                                 </div>
                                 <div class="dropdown-divider"></div>
@@ -112,23 +132,7 @@
   </div>
 </div>
 
-<!-- Deletion modal-->
-<ng-template #contentDelete let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title mt-0">Delete Code Example</h5>
-    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="delete">Type <b>'DELETE'</b> to delete the Code Example</label>
-        <input type="text" class="form-control" id="delete" placeholder="Type DELETE">
-      </div>
-      <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
-  </div>
-</ng-template>
-<!--  Deletion modal Ends-->
+
 
 <ng-template #codeCat>
   <div class="card p-0">

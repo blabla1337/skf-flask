@@ -70,7 +70,7 @@ export class ManageComponent implements OnInit
 
   centerModal(centerDataModal: any)
   {
-    this.modalService.open(centerDataModal, { centered: true });
+    this.modalService.open(centerDataModal, { centered: true, size: 'lg' });
   }
 
 

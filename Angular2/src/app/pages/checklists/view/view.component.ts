@@ -81,7 +81,7 @@ export class ViewComponent implements OnInit
 
   showModal(content: any)
   {
-    this.modalService.open(content, { size: 'sm', centered: true });
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
 }
