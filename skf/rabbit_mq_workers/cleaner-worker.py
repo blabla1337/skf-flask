@@ -20,8 +20,6 @@ def cleanK8s():
                     date_image = container.state.running.started_at
                     hour_image = date_image.strftime("%H").lstrip("0").replace(" 0", " ")
                     hour_now = dt.datetime.now().hour
-                    print(hour_image)
-                    print(hour_now)
                     if hour_image != hour_now:
                         delete_service(container.name, item.metadata.namespace)
                         delete_deployment(container.name, item.metadata.namespace)
