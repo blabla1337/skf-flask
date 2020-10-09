@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 import Swal from 'sweetalert2';
 
@@ -24,6 +25,7 @@ export class LabViewComponent implements OnInit
   public labLists: string[];
   public lab: any = [];
   public status: any = [];
+  public kubernetes_enabled = environment.KUBERNETES_ENABLED;
 
   // tslint:disable-next-line: variable-name
   constructor(

@@ -50,13 +50,15 @@
                   <th scope="col" joyrideStep="levelLabContent" title="Lab Level" [stepContent]="levelLabContent">
                     <div class="text-center">Level</div>
                   </th>
-                  <th scope="col" joyrideStep="statusLabContent" title="Lab Status" [stepContent]="statusLabContent">
+                  <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="statusLabContent" title="Lab Status"
+                    [stepContent]="statusLabContent">
                     <div class="text-center">Status</div>
                   </th>
                   <th scope="col" joyrideStep="writeLabContent" title="Lab Writeup" [stepContent]="writeLabContent">
                     <div class="text-center">Write-up</div>
                   </th>
-                  <th scope="col" joyrideStep="actionLabContent" title="Lab deploy" [stepContent]="actionLabContent">
+                  <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="actionLabContent" title="Lab deploy"
+                    [stepContent]="actionLabContent">
                     <div class="text-center">Action</div>
                   </th>
                 </tr>
@@ -80,7 +82,7 @@
                   <td>
                     <div class="text-center">{{item.level}}</div>
                   </td>
-                  <td>
+                  <td *ngIf="kubernetes_enabled == 'True'">
                     <div class="text-center" *ngFor="let items of status; let myIndex = index">
                       <a *ngIf="item.image_tag == items" href="javascript: void(0);"
                         class="badge badge-success font-size-11 m-1">Lab is Running</a>
@@ -89,7 +91,7 @@
                   <td>
                     <div class="text-center"><a href="{{item.link}}" target="_blank">Click here</a></div>
                   </td>
-                  <td>
+                  <td *ngIf="kubernetes_enabled == 'True'">
                     <ul class="list-inline mb-0 text-center">
 
                       <li class="list-inline-item" *ngIf="status.includes(item.image_tag); else elseBlock ">
@@ -116,7 +118,8 @@
   <ng-template #nameLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>These are the labs that are available, based on the name you can see what the type of vulnerability is to focus on. 
+        <p>These are the labs that are available, based on the name you can see what the type of vulnerability is to
+          focus on.
           Also when deployed the lab you can use the name to jump to the Lab again.</p>
       </div>
     </div>
@@ -125,7 +128,8 @@
   <ng-template #levelLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>The labs have a level on how easy or hard it is to identify the vulnerability and to exploit them. Start with the Level 1 labs first and work your way up.</p>
+        <p>The labs have a level on how easy or hard it is to identify the vulnerability and to exploit them. Start with
+          the Level 1 labs first and work your way up.</p>
       </div>
     </div>
   </ng-template>
@@ -133,7 +137,8 @@
   <ng-template #writeLabContent>
     <div class="card p-0">
       <div class="card-body text-center px-0 mr-2 ml-2">
-        <p>All of the labs have a write-up page that help you step by step how to identify the vulnerability and what steps are needed to exploit them. </p>
+        <p>All of the labs have a write-up page that help you step by step how to identify the vulnerability and what
+          steps are needed to exploit them. </p>
       </div>
     </div>
   </ng-template>
@@ -161,5 +166,3 @@
       </div>
     </div>
   </ng-template>
-
-  
