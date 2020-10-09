@@ -2391,7 +2391,7 @@ def load_initial_data():
         
         db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3, 'sqli-blind', 'SKF-labs', None))
         db.session.commit()
-              
+                
         db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1, 'rfi', 'SKF-labs', None))
         db.session.commit()
 
@@ -3334,379 +3334,96 @@ def load_initial_data():
         # Add sprints for the ASVS LvL 1 checklist category
         p = ProjectSprint('Authentication Verification Requirements','Authentication Verification Requirements')
         p.sprint_id = '1'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Session Management Verification Requirements','Session Management Verification Requirements')
         p.sprint_id = '2'        
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Access Control Verification Requirements','Access Control Verification Requirements')
         p.sprint_id = '3'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Validation, Sanitization and Encoding Verification Requirements','Validation, Sanitization and Encoding Verification Requirements')
         p.sprint_id = '4'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Stored Cryptography Verification Requirements','Stored Cryptography Verification Requirements')
         p.sprint_id = '5'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Error Handling and Logging Verification Requirements','Error Handling and Logging Verification Requirements')
         p.sprint_id = '6'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Data Protection Verification Requirements','Data Protection Verification Requirements')
         p.sprint_id = '7'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Communications Verification Requirements','Communications Verification Requirements')
         p.sprint_id = '8'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Malicious Code Verification Requirements','Malicious Code Verification Requirements')
         p.sprint_id = '9'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Business Logic Verification Requirements','Business Logic Verification Requirements')
         p.sprint_id = '10'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('File and Resources Verification Requirements','File and Resources Verification Requirements')
         p.sprint_id = '11'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('API and Web Service Verification Requirements','API and Web Service Verification Requirements')
         p.sprint_id = '12'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 1
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Configuration Verification Requirements','Configuration Verification Requirements')
         p.sprint_id = '13'
-        p.group_id = '1'
-        p.project_id = '1'
-        p.checklist_type_id = ''
-        db.session.add(c)
+        p.group_id = 1
+        p.project_id = 1
+        db.session.add(p)
         db.session.commit()
 
         #Checklist Results
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '45'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '46'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '47'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '48'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '49'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '620'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '50'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '620'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '51'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '52'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '53'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '54'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '263'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '55'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '56'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '521'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '57'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '307'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '58'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '304'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '59'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '620'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '64'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '330'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '72'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '640'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '73'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '640'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '74'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '640'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '75'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '276'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '76'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '304'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '77'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '640'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '82'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '287'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '83'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '287'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '84'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '287'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '85'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '523'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistResult('0','0',False)
-        c.checklist_id = '88'
-        c.project_id = '1'
-        c.sprint_id = '0'
-        c.kb_id = '613'
-        c.checklist_type_id = '2'
-        db.session.add(c)
-        db.session.commit()
-
-
         c = ChecklistResult('0','0',False)
         c.checklist_id = '45'
         c.project_id = '1'
@@ -5024,113 +4741,99 @@ def load_initial_data():
         # Add sprints for the ASVS LvL 1 checklist category
         p = ProjectSprint('Architecture, Design and Threat Modeling Requirements','Architecture, Design and Threat Modeling Requirements')
         p.sprint_id = '14'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Authentication Verification Requirements','Authentication Verification Requirements')
         p.sprint_id = '15'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Session Management Verification Requirements','Session Management Verification Requirements')
         p.sprint_id = '16'        
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Access Control Verification Requirements','Access Control Verification Requirements')
         p.sprint_id = '17'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Validation, Sanitization and Encoding Verification Requirements','Validation, Sanitization and Encoding Verification Requirements')
         p.sprint_id = '18'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Stored Cryptography Verification Requirements','Stored Cryptography Verification Requirements')
         p.sprint_id = '19'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Error Handling and Logging Verification Requirements','Error Handling and Logging Verification Requirements')
         p.sprint_id = '20'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Data Protection Verification Requirements','Data Protection Verification Requirements')
         p.sprint_id = '21'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Communications Verification Requirements','Communications Verification Requirements')
         p.sprint_id = '22'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Malicious Code Verification Requirements','Malicious Code Verification Requirements')
         p.sprint_id = '23'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Business Logic Verification Requirements','Business Logic Verification Requirements')
         p.sprint_id = '24'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('File and Resources Verification Requirements','File and Resources Verification Requirements')
         p.sprint_id = '25'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('API and Web Service Verification Requirements','API and Web Service Verification Requirements')
         p.sprint_id = '26'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Configuration Verification Requirements','Configuration Verification Requirements')
         p.sprint_id = '27'
-        p.group_id = '1'
-        p.project_id = '2'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 2
         db.session.add(p)
         db.session.commit()
 
@@ -7752,114 +7455,100 @@ def load_initial_data():
         # Add sprints for the ASVS LvL 3 checklist category
         p = ProjectSprint('Architecture, Design and Threat Modeling Requirements','Architecture, Design and Threat Modeling Requirements')
         p.sprint_id = '28'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Authentication Verification Requirements','Authentication Verification Requirements')
         p.sprint_id = '29'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Session Management Verification Requirements','Session Management Verification Requirements')
         p.sprint_id = '30'        
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Access Control Verification Requirements','Access Control Verification Requirements')
         p.sprint_id = '31'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Validation, Sanitization and Encoding Verification Requirements','Validation, Sanitization and Encoding Verification Requirements')
         p.sprint_id = '32'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Stored Cryptography Verification Requirements','Stored Cryptography Verification Requirements')
         p.sprint_id = '33'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Error Handling and Logging Verification Requirements','Error Handling and Logging Verification Requirements')
         p.sprint_id = '34'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Data Protection Verification Requirements','Data Protection Verification Requirements')
         p.sprint_id = '35'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Communications Verification Requirements','Communications Verification Requirements')
         p.sprint_id = '36'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Malicious Code Verification Requirements','Malicious Code Verification Requirements')
         p.sprint_id = '37'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Business Logic Verification Requirements','Business Logic Verification Requirements')
         p.sprint_id = '38'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('File and Resources Verification Requirements','File and Resources Verification Requirements')
         p.sprint_id = '39'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('API and Web Service Verification Requirements','API and Web Service Verification Requirements')
         p.sprint_id = '40'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
+        p.group_id = 1
+        p.project_id = 3
         db.session.add(p)
         db.session.commit()
 
         p = ProjectSprint('Configuration Verification Requirements','Configuration Verification Requirements')
         p.sprint_id = '41'
-        p.group_id = '1'
-        p.project_id = '3'
-        p.checklist_type_id = ''
-        db.session.add(c)
+        p.group_id = 1
+        p.project_id = 3
+        db.session.add(p)
         db.session.commit()
 
         #Checklist results
