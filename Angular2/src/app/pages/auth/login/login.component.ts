@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../../../core/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit
     public token: any;
     public errormsg = false;
     public expired = false;
+    public loginMethod = environment.AUTH_METHOD;
 
     constructor(
         // tslint:disable-next-line: variable-name
@@ -34,7 +36,7 @@ export class LoginComponent implements OnInit
             this.expired = true;
         }
         localStorage.clear();
-        sessionStorage.setItem('Authorization', '');
+        //sessionStorage.setItem('Authorization', '');
         localStorage.setItem('categorySelector', '1');
         localStorage.setItem("labs-deployed", '[]');
         if (sessionStorage.getItem('theme')  === null){
@@ -64,7 +66,16 @@ export class LoginComponent implements OnInit
     onSkip()
     {
         this.skip = true;
-        this.router.navigate(['/dashboard']);
+        this._authService.LoginSkipprovider().subscribe(token =>
+            {
+                if (token['Authorization token']) {
+                    sessionStorage.setItem('Authorization', token['Authorization token']);
+                    // tslint:disable-next-line: no-string-literal
+                    sessionStorage.setItem('user', token['username']);
+                }
+            },
+                () => this.errormsg = true);
+            window.location.assign("/dashboard");
     }
 
     onRegister()

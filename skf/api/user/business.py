@@ -1,4 +1,4 @@
-import jwt, random, sys 
+import jwt, random, sys, random 
 from flask import abort
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
@@ -11,6 +11,7 @@ from skf.database.groups import Group
 from skf.database.groupmembers import GroupMember
 from skf.database.privileges import Privilege
 from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
+
 
 def activate_user(user_id, data):
     username = strip_whitespace_from_username(data.get("username"))
@@ -33,6 +34,12 @@ def login_user(data):
     log("User successfully logedin", "HIGH", "PASS")
     token = create_jwt_token_for_user(user)
     return {'Authorization token': token, 'username': user.username}
+
+
+def login_skip():
+    log("Anonymous user successfully logedin", "HIGH", "PASS")
+    token = create_jwt_token_for_user("anonymous")
+    return {'Authorization token': token, 'username': "anonymous"}
 
 
 def create_user(data):
@@ -100,12 +107,20 @@ def check_password(password_from_db, supplied_password):
 
 
 def create_jwt_token_for_user(user):
-    payload = {
-        'UserId': user.id,
-        'iat': datetime.utcnow(),
-        'privilege': user.privilege.privilege,
-        'exp': datetime.utcnow() + timedelta(minutes=120)
-    }
+    if user == 'anonymous':    
+        payload = {
+            'UserId': random.randint(99999, 999999),
+            'iat': datetime.utcnow(),
+            'privilege': "read",
+            'exp': datetime.utcnow() + timedelta(minutes=120)
+        }
+    else:
+        payload = {
+            'UserId': user.id,
+            'iat': datetime.utcnow(),
+            'privilege': user.privilege.privilege,
+            'exp': datetime.utcnow() + timedelta(minutes=120)
+        }
     token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
     if sys.version_info.major == 3:
         unicode = str

@@ -22,6 +22,11 @@ export class AuthService
     return this.http.post(environment.API_ENDPOINT + `/api/user/login`, user, { headers: this.authHeader })
   }
 
+  LoginSkipprovider()
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/user/skip`, { headers: this.authHeader })
+  }
+
   loggedIn()
   {
     this.loggedinUser = sessionStorage.getItem('Authorization');

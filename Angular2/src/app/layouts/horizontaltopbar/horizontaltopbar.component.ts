@@ -51,6 +51,11 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
   ngOnInit(): void
   {
+    console.debug(sessionStorage.getItem('Authorization'))
+    if (sessionStorage.getItem('Authorization') == null) {
+      this.router.navigate(['/auth/login']);
+    }
+
     this.element = document.documentElement;
 
     this.searchForm = this.formBuilder.group({
@@ -77,10 +82,6 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
       this.light = true;
       this.dark = false;
     }
-    if (sessionStorage.getItem('Authorization') === "") {
-      this.router.navigate(['/auth/login']);
-    }
-
   }
 
   ngAfterViewInit() {}
