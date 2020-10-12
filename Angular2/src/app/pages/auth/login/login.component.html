@@ -1,3 +1,4 @@
+<div *ngIf="loginMethod =='skiploginprovider'"> {{onSkip()}}</div>
 <div class="account-pages my-5 pt-5">
     <div class="container">
       <div class="row justify-content-center">
@@ -24,7 +25,7 @@
                   </div>
                 </a>
               </div>
-              <div class="p-2">
+              <div class="p-2" *ngIf="loginMethod == 'skfprovider'">
                   <ngb-alert type="danger" *ngIf="errormsg" [dismissible]="false">Username or Password is incorrect.</ngb-alert>
                   <ngb-alert type="danger" *ngIf="expired" [dismissible]="false">Session Expired</ngb-alert>
                  
@@ -60,10 +61,9 @@
                   </div>
                 </form>
               </div>
-  
             </div>
           </div>
-          <div class="mt-5 text-center">
+          <div class="mt-5 text-center" *ngIf="loginMethod == 'skfprovider'">
             <p>First login ? <a type="button" (click)="onRegister()" href="javascript: void(0)"
                 class="font-weight-medium text-primary"> Activate account</a></p>
             <p>© {{year}} <b>Security Knowledge Framework</b>.</p>

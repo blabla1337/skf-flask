@@ -6,7 +6,7 @@ import secrets
 FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 8888
 # Do not use debug mode in production
-FLASK_DEBUG = (os.environ.get("SKF_FLASK_DEBUG") == True) or False
+FLASK_DEBUG = os.environ.get("SKF_FLASK_DEBUG") or 'False'
 CHATBOT_LOG = "db"
 SKF_API_URL = os.environ.get("SKF_API_URL") or "https://beta.securityknowledgeframework.org/api/"
 ORIGINS = '*'
@@ -26,11 +26,8 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False
 
 # JWT settings
-JWT_ENABLED = os.environ.get("JWT_ENABLED") or True
-if JWT_ENABLED == True:    
-    JWT_SECRET = os.environ.get("SKF_JWT_SECRET")
-    if JWT_SECRET == "":
-        print("JWT_SECRET is empty! you need to set the SKF_JWT_SECRET environment variable")
+JWT_ENABLED = os.environ.get("JWT_ENABLED") or 'False'
+JWT_SECRET = os.environ.get("SKF_JWT_SECRET") or secrets.token_hex(32)
 
 
 # Google Scraping

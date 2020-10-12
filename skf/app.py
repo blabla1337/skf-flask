@@ -75,6 +75,7 @@ from skf.api.code.endpoints.checklist_kb_code_items import ns as code_namespace
 from skf.api.user.endpoints.user_create import ns as users_namespace
 from skf.api.user.endpoints.user_activate import ns as users_namespace
 from skf.api.user.endpoints.user_login import ns as users_namespace
+from skf.api.user.endpoints.user_login_skip import ns as users_namespace
 from skf.api.user.endpoints.user_list import ns as users_namespace
 from skf.api.user.endpoints.user_manage import ns as users_namespace
 from skf.api.user.endpoints.user_listprivileges import ns as users_namespace
@@ -180,18 +181,13 @@ def updatedb_command():
 
 def main():
     """Main SKF method"""
-    #initialize_app(app)
-    #app.debug = True
-    if app.debug == False:
-        if  settings.JWT_SECRET == '':
-            log.info('>>>>> Configure the JWT_SECRET in the docker-compose.yml if using local or in the Doployment_backend.yaml file and choose an unique 128 character long secret <<<<<')
-        else:
-            log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
-            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)
-    if app.debug == True:
-        if  settings.JWT_SECRET == 'True':
-            log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
-            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)    
+    print(settings.JWT_SECRET)
+    if settings.FLASK_DEBUG == 'False':
+        log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
+        app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=False)    
+    else:
+        log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
+        app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=True)
 
 if __name__ == "__main__":
     main()
