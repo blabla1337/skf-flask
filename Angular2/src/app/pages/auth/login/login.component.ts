@@ -36,7 +36,9 @@ export class LoginComponent implements OnInit
             this.expired = true;
         }
         localStorage.clear();
-        //sessionStorage.setItem('Authorization', '');
+        sessionStorage.setItem('Authorization', '');
+        sessionStorage.setItem('user', '');
+        sessionStorage.setItem('privilege', '');
         localStorage.setItem('categorySelector', '1');
         localStorage.setItem("labs-deployed", '[]');
         if (sessionStorage.getItem('theme')  === null){
@@ -54,6 +56,14 @@ export class LoginComponent implements OnInit
         this._authService.LoginSKFprovider(this.loginForm.value).subscribe(token =>
         {
             if (token['Authorization token']) {
+                var base64Url = token['Authorization token'].split('.')[1];  
+                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                var values = JSON.parse(jsonPayload);
+                var priv = values['privilege'];
+                sessionStorage.setItem('privilege', priv);
                 sessionStorage.setItem('Authorization', token['Authorization token']);
                 // tslint:disable-next-line: no-string-literal
                 sessionStorage.setItem('user', token['username']);
@@ -69,13 +79,21 @@ export class LoginComponent implements OnInit
         this._authService.LoginSkipprovider().subscribe(token =>
             {
                 if (token['Authorization token']) {
+                    var base64Url = token['Authorization token'].split('.')[1];  
+                    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                    }).join(''));
+                    var values = JSON.parse(jsonPayload);
+                    var priv = values['privilege'];
+                    sessionStorage.setItem('privilege', priv);
                     sessionStorage.setItem('Authorization', token['Authorization token']);
                     // tslint:disable-next-line: no-string-literal
                     sessionStorage.setItem('user', token['username']);
+                    window.location.assign("/dashboard");
                 }
             },
-                () => this.errormsg = true);
-            window.location.assign("/dashboard");
+                () => this.token);
     }
 
     onRegister()

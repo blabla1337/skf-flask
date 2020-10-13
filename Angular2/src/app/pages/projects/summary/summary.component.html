@@ -80,7 +80,7 @@
                             </div>
                           </div>
                           <div class="text-right">
-                            <button class="btn btn-sm btn-danger mt-2" type="button"
+                            <button *ngIf="priv.includes('manage')" class="btn btn-sm btn-danger mt-2" type="button"
                               (click)="deleteModal(deleteContent)">Delete Result</button>
                           </div>
                         </ng-template>
@@ -123,7 +123,7 @@
                           </div>
                         </ng-template>
                       </li>
-                      <li [ngbNavItem]="3">
+                      <li *ngIf="priv.includes('manage')" [ngbNavItem]="3">
                         <a ngbNavLink>Compliance</a>
                         <ng-template ngbNavContent>
                           <div class="card shadow-none border">

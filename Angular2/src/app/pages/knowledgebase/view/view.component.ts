@@ -4,6 +4,7 @@ import { NgxSpinnerService  } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
+import { AppSettings } from '../../../global';
 
 @Component({
   selector: 'app-view',
@@ -24,8 +25,9 @@ export class ViewKnowledebaseComponent implements OnInit
   public queryString;
   public delete: string;
   public catSelector: number;
-  loggedinUser: string;
-  loggedin = false;
+  public loggedinUser: string;
+  public loggedin = false;
+  public priv: string;
 
   constructor(
     private modalService: NgbModal,
@@ -37,6 +39,7 @@ export class ViewKnowledebaseComponent implements OnInit
 
   ngOnInit()
   {
+    this.priv = AppSettings.USER_PRIV;
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'View', active: true }];
     this._fetchData();
     this.catSelector = Number(localStorage.getItem('categorySelector'));

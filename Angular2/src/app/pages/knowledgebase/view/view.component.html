@@ -30,7 +30,8 @@
                             </div>
                           </div>
                         </div>
-                        <div class="float-right" joyrideStep="kbAdd" title="Add knowledge base example for checklist category" [stepContent]="kbAdd">
+                        <div *ngIf="priv.includes('manage')" class="float-right" 
+                        joyrideStep="kbAdd" title="Add knowledge base example for checklist category" [stepContent]="kbAdd">
                           <button class="btn btn-primary float-right" [routerLink]="['/knowledgebase/create']">Add item</button>
                         </div>
                       </div>
@@ -80,7 +81,7 @@
                                       <a [routerLink]="['/knowledgebase/update', subitem.kb_id]"
                                         class="btn btn-sm btn-success m-1">
                                         <i class="mdi mdi-check mr-1"></i> Update </a>
-                                      <button class="btn btn-sm btn-danger m-1"
+                                      <button *ngIf="priv.includes('manage')" class="btn btn-sm btn-danger m-1"
                                        (click)="deleteModal(contentDelete)">
                                         <i class="bx bx-trash mr-1"></i> Delete </button>
                                     </div>

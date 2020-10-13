@@ -25,7 +25,7 @@
                       </div>
                       <div class="col-5">
                         <div class="float-right" joyrideStep="addChecklistContent" title="Add new checklist category" [stepContent]="addChecklistContent">
-                          <button routerLink="/checklists/checklist-type-create"
+                          <button *ngIf="priv.includes('manage')" routerLink="/checklists/checklist-type-create"
                           class="btn btn-primary mb-2">Add New</button>
                         </div>
                       </div>
@@ -40,7 +40,7 @@
                         class="col-xl-12 mb-3 d-flex card border shadow-sm">
                         <div class="card-body pb-0">
                           <div *ngIf="loggedIn()" class="float-right">
-                            <div class="dropdown float-right" ngbDropdown placement="bottom-right">
+                            <div *ngIf="priv.includes('manage')" class="dropdown float-right" ngbDropdown placement="bottom-right">
                               <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
                                 ngbDropdownToggle aria-expanded="false">
                                 <i class="mdi mdi-dots-vertical font-size-18"></i>
@@ -79,7 +79,7 @@
                               <a [routerLink]="['/checklists/read', item.id]" type="button"
                                   class="btn-sm btn-primary text-center d-sm-none"><i class='bx bx-search-alt'></i></a>
                             </li>
-                            <li *ngIf="loggedIn()" class="list-inline-item float-right">
+                            <li *ngIf="priv.includes('manage')" class="list-inline-item float-right">
                               <a [routerLink]="['/checklists/manage', item.id]" type="button"
                                   class="btn-sm btn-primary d-none d-sm-block mr-2"
                                   joyrideStep="manageChecklistContent" title="Manage checklist category" [stepContent]="manageChecklistContent">

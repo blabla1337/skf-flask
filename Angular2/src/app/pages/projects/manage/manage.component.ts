@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService  } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import { AppSettings } from '../../../global';
 
 import { ProjectService } from '../../../core/services/project.service';
 
@@ -19,8 +20,9 @@ export class ProjectManageComponent implements OnInit
   public delete: string;
   public queryString;
   public projectData: any = [];
-  loggedinUser: string;
-  loggedin = false;
+  public loggedinUser: string;
+  public loggedin = false;
+  public priv: string;
 
   constructor(
     private modalService: NgbModal,
@@ -31,6 +33,7 @@ export class ProjectManageComponent implements OnInit
 
   ngOnInit()
   {
+    this.priv = AppSettings.USER_PRIV;
     this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Manage', active: true }];
     this.getProjects();
   }

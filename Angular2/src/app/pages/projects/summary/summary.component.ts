@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppSettings } from '../../../global';
 
 import { SprintService } from '../../../core/services/sprint.service';
 import { CodeExamplesService } from '../../../core/services/code-examples.service';
@@ -26,6 +27,7 @@ export class SummaryComponent implements OnInit
   public complianceForm: FormGroup;
   public routerId;
   public delete: string;
+  public priv: string;
 
   // Form Submission
   public submit: boolean;
@@ -47,6 +49,7 @@ export class SummaryComponent implements OnInit
 
   ngOnInit(): void
   {
+    this.priv = AppSettings.USER_PRIV;
     this.breadCrumbItems = [{ label: 'Feature' }, { label: 'Summary', active: true }];
     this.getSprintItems();
     this.complianceForm = this.formBuilder.group({

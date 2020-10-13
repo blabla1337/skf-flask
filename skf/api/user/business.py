@@ -111,7 +111,7 @@ def create_jwt_token_for_user(user):
         payload = {
             'UserId': random.randint(99999, 999999),
             'iat': datetime.utcnow(),
-            'privilege': "read",
+            'privilege': "edit:read",
             'exp': datetime.utcnow() + timedelta(minutes=120)
         }
     else:
