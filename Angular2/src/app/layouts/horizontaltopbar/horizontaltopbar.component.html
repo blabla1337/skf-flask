@@ -78,7 +78,7 @@
             <a class="dropdown-item" (click)='platformUpdate(item.id)'>{{item.name}}</a>
           </div>
           <div class="dropdown-divider"></div>
-          <a routerLink="/category/manage" class="dropdown-item text-center text-primary">Manage</a>
+          <a *ngIf="priv.includes('manage')" routerLink="/category/manage" class="dropdown-item text-center text-primary">Manage</a>
         </div>
       </div>
 
@@ -157,10 +157,10 @@
             <li class="nav-item dropdown">
               <a joyrideStep="knowledgebaseContent" title="Knowledge base items" [stepContent]="knowledgebaseContent" class="nav-link"
                  routerLink="/knowledgebase/view" id="topnav-components" routerLinkActive="active" role="button">
-                <i class="mdi mdi-18px mdi-school mr-2"></i> Knowledgebase
+                <i class="mdi mdi-18px mdi-school mr-2"></i> Knowledgebase 
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li *ngIf="priv.includes('manage')" class="nav-item dropdown">
               <a joyrideStep="userContent" title="Users" [stepContent]="userContent" class="nav-link"
                  routerLink="/users/manage" id="topnav-components" routerLinkActive="active" role="button"
                  *ngIf="loggedIn()">

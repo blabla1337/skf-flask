@@ -22,9 +22,9 @@ export class AuthService
     return this.http.post(environment.API_ENDPOINT + `/api/user/login`, user, { headers: this.authHeader })
   }
 
-  LoginSkipprovider()
+  LoginSkipprovider(): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/user/skip`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + '/api/user/skip')
   }
 
   loggedIn()

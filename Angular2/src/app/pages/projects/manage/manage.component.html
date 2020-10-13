@@ -16,7 +16,7 @@
         </div>
         <div class="col-5">
           <div class="float-right">
-            <button type="button" [routerLink]="['/projects/create']" class="btn btn-primary mb-2"
+            <button *ngIf="priv.includes('manage')" type="button" [routerLink]="['/projects/create']" class="btn btn-primary mb-2"
               joyrideStep="createProject" title="New project" stepPosition="bottom" [stepContent]="createProject">New
               Project</button>
           </div>
@@ -37,7 +37,7 @@
                     <th scope="col" class="text-center">Description</th>
                     <th scope="col" class="text-center">Created Date</th>
                     <th scope="col" class="text-center">Project Version</th>
-                    <th *ngIf="loggedIn()" scope="col" class="text-center" joyrideStep="updateProject" title="Start expert system for project"
+                    <th *ngIf="priv.includes('manage')" scope="col" class="text-center" joyrideStep="updateProject" title="Start expert system for project"
                       [stepContent]="updateProject">Action</th>
                   </tr>
                 </thead>
@@ -56,7 +56,7 @@
                     <td class="text-center">{{item.description}}</td>
                     <td class="text-center">{{item.timestamp}}</td>
                     <td class="text-center">{{item.version}}</td>
-                    <td *ngIf="loggedIn()" class="text-center">
+                    <td *ngIf="priv.includes('manage')" class="text-center">
                       <div class="dropdown" ngbDropdown placement="bottom-right">
                         <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
                           ngbDropdownToggle aria-expanded="false">

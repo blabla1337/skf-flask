@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService  } from 'ngx-spinner';
+import { AppSettings } from '../../../global';
 
 import { CodeExamplesService } from '../../../core/services/code-examples.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -28,6 +29,7 @@ export class ViewCodeComponent implements OnInit
   public delete: string;
   public loggedinUser: string;
   public loggedin = false;
+  public priv: string;
 
   get formControls() { return this.codeExampleForm.controls; }
 
@@ -40,6 +42,7 @@ export class ViewCodeComponent implements OnInit
 
   ngOnInit()
   {
+    this.priv = AppSettings.USER_PRIV;
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
     this._fetchData();
     this.catSelector = Number(localStorage.getItem("categorySelector"));

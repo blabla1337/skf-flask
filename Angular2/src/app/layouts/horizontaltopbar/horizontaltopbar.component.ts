@@ -3,7 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { JoyrideService } from 'ngx-joyride';
 import { ThemeService } from '../../core/services/theme.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { AppSettings } from '../../global';
 import { DOCUMENT } from '@angular/common';
 
 import { ChecklistCategoryService } from '../../core/services/checklist_category.service';
@@ -34,7 +34,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   public themeName: string;
   public search: string;
   public searchForm: FormGroup;
-
+  public priv: string;
   
   // tslint:disable-next-line: max-line-length
   constructor(
@@ -51,11 +51,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
   ngOnInit(): void
   {
-    console.debug(sessionStorage.getItem('Authorization'))
-    if (sessionStorage.getItem('Authorization') == null) {
-      this.router.navigate(['/auth/login']);
-    }
-
+    this.priv = AppSettings.USER_PRIV;
     this.element = document.documentElement;
 
     this.searchForm = this.formBuilder.group({

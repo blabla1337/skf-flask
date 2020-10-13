@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService  } from 'ngx-spinner';
+import { AppSettings } from '../../../global';
 
 import { ChecklistService } from '../../../core/services/checklists.service';
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -21,8 +22,9 @@ export class ViewComponent implements OnInit
   public delete: string;
   public catSelector: number;
   public categoryData: any = [];
-  loggedinUser: string;
-  loggedin = false;
+  public loggedinUser: string;
+  public loggedin = false;
+  public priv: string;
 
   constructor(
     private modalService: NgbModal,
@@ -35,6 +37,7 @@ export class ViewComponent implements OnInit
 
   ngOnInit()
   {
+    this.priv = AppSettings.USER_PRIV;
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'View', active: true }];
     this.catSelector = Number(localStorage.getItem('categorySelector'));
     this._fetchData();
