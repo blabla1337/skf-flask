@@ -10,6 +10,6 @@
 	Mandated password changes are a long-standing security practice, but current research strongly
 	indicates that password expiration has a negative effect. 
 
-## Solution:
+##Mitigation:
 	
 	Verify that there are no arbitrary or periodic credential rotation requirements.

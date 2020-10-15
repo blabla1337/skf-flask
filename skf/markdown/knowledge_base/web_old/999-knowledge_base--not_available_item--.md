@@ -4,6 +4,6 @@ This item is currently not available.
 
 
 
-## Solution:
+##Mitigation:
 
 This item is currently not available.

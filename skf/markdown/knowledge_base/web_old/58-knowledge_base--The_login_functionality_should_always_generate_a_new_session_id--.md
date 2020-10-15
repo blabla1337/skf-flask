@@ -3,7 +3,7 @@
 Whenever an user is successfully authenticated the application should generate a
 new session cookie.
 
-## Solution:
+##Mitigation:
 
 The login functionality should always generate (and use) a new session ID after a
 successful login. This is done to prevent an attacker doing a session fixation attack

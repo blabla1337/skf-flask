@@ -3,7 +3,7 @@
 Whenever your certificate authority is not trusted anymore you should always be able to
 recall these certificates ASAP to prevent man in the middle attacks on your applications users.
 
-## Solution:
+##Mitigation:
 
 The trust anchor for given zone is found in the keyset-<zone name> file on the secure
 signing computer in the same location where the signed and unsigned copies of the zone reside.

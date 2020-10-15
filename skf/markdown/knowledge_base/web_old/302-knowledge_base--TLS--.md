@@ -26,6 +26,6 @@ a message authentication code to prevent undetected loss or alteration of the da
 In addition to the properties above, careful configuration of TLS can provide additional privacy-related properties 
 such as forward secrecy, ensuring that any future disclosure of encryption keys cannot be used to decrypt any TLS communications recorded in the past
 
-## Solution: 
+##Mitigation: 
 
 Always use TLS everywhere and apply the best security configuration.

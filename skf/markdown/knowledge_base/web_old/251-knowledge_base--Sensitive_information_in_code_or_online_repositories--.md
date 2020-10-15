@@ -10,7 +10,7 @@ Also be cautious not to store this sensitive information on online repositories.
 Whenever this repository gets made public by accident or compromised all this sensitive information
 can fall into the hands of attackers.
 
-## Solution:
+##Mitigation:
 
 Verify that secrets, API keys, and passwords are not included in the source code, or online source code 
 repositories.This could be achieved by manual code reviews and potentially small tools that checks the code

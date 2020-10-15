@@ -4,7 +4,7 @@ All applications should contain the possibility to lock down accounts for whenev
 detects attacks by/on users. Also you should include options for both soft and hard
 lock-out mechanisms.
 
-## Solution:
+##Mitigation:
 
 Soft lock-out:
 This can be a good option for protecting your users against brute force attacks.

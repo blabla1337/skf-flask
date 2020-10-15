@@ -7,7 +7,7 @@ Sometimes developers simply forget to implement these checks, or they remove the
 temporarily for testing purposes. 
 
 
-## Solution:
+##Mitigation:
 
 Verify all access controls are implemented properly in order to prevent a user access data/functions which 
 he was not intended to use.

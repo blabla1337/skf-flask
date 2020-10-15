@@ -3,7 +3,7 @@
 Authentication should always be performed at a central location in the application, in
 order to prevent missing authentication on certain levels in the application.
 
-## Solution:
+##Mitigation:
 
 Use a central location for authentication. If u want to put extra constraints on the
 users for accessing critical parts of your application, you have to implement

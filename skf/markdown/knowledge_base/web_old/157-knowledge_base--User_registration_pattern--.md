@@ -13,7 +13,7 @@ For more detailed information about these items you should check the knowledge-b
 7.	Does the application enforce the use of secure passwords?
 
 
-## Solution:
+##Mitigation:
 
 The items as pointed out before should be looked into and taken into consideration
 whenever you are letting users register on your system in order to enforce a

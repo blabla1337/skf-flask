@@ -6,6 +6,6 @@
 	When a user changes his password, his current password should be validated. 
 	This prevents an attacker that is able to take control of a valid session, to easily change the victim's password.
 
-## Solution:
+##Mitigation:
 	
 	Verify users can change their password, and the change validates the current secret.

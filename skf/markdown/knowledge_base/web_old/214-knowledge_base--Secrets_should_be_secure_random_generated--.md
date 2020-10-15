@@ -4,7 +4,7 @@ Secret keys, API tokens, or passwords must be dynamically generated. Whenever th
 are not dynamically generated they can become predicable and used by attackers to compromise
 user accounts. 
 
-## Solution:
+##Mitigation:
 
 When it comes to API tokens and secret keys these values have to be dynamically generated and valid only once.
 The secret token should be cryptographically 'random secure', with at least 120 bit of effective entropy, salted with a unique and random 32-bit value and hashed with an approved hashing (one-way) function.

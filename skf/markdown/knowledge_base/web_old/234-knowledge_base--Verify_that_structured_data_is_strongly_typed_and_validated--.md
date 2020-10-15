@@ -6,7 +6,7 @@ that is outside of its intending operation by means of the defined schema's and 
 reject the input if the schema checks return false.
 
 
-## Solution:
+##Mitigation:
 
 Verify that structured data is strongly typed and validated against a defined schema
 including allowed characters, length and pattern (e.g. credit card numbers or telephone, 

@@ -6,7 +6,7 @@ HSTS may not be over HTTPS. A preload list will allow us to ship Firefox with so
 pre-set HSTS sites that, from the first time they're accessed in the browser, will require
 a secure connection.
 
-## Solution:
+##Mitigation:
 
 In order to be included on the HSTS preload list, your site must:
 

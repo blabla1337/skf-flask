@@ -14,7 +14,7 @@ used to enforce the session timeout, for example using the session token or othe
 parameters to track time references (e.g. number of minutes since login time), an attacker
 could manipulate these to extend the session duration.
 
-## Solution:
+##Mitigation:
 
 All user sessions should time-out based on logic server-side in order to decrease an
 attackers attack vector on the user session.

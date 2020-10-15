@@ -7,7 +7,7 @@ users account should still be proteced by two factor authentication mechanisms t
 from logging in with the credentials.
 
 
-## Solution:
+##Mitigation:
 
 Multi-factor authentication (MFA) is a method of computer access control in which a user is granted access only after successfully presenting several separate pieces of evidence to an authentication mechanism – typically at least two of the following categories: knowledge (something they know), possession (something they have), and inherence (something they are)
 

@@ -6,7 +6,7 @@ executed by your application. You should also not solely depend on your parser t
 the encoding and escaping for you since there could always be an edge case that does
 execute certain attacks.
 
-## Solution:
+##Mitigation:
 
 We highly recommend doing your own escaping, sanitizing, encoding on all data before entering your application. The risk also depends on the context of wherever you are putting this data into. So before you are doing any mutations with your data after getting it from the resources, make sure you have applied the right mitigations.
 

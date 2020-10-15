@@ -14,7 +14,7 @@ In this situation the application will get content and subscribe user roles corr
 In this situation the application will get content and subscribe user roles corresponding to the admin parameter.
 (Note: the above two links are no longer available.)
 
-## Solution:
+##Mitigation:
 
 Whenever you are checking whether a user is restricted to review certain data, the access
 restrictions should be processed server-side.

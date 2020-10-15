@@ -4,7 +4,7 @@ There are some security headers which should be properly configured in order to 
 
 Also check if the API response is dynamic, if user input is reflected in the response. If so, you must validate and encode the input, in order to prevent XSS and Same origin method execution attacks.
 
-## Solution:
+##Mitigation:
 
 Sanitize your API's input (in this case they should just allow alphanumeric); escaping is not sufficient
 

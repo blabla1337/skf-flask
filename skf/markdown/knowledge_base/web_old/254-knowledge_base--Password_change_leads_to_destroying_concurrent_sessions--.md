@@ -8,7 +8,7 @@ Note: Whenever users are granted the possibility to change their passwords,
       do not forget to make them re-authenticate or to use a form of step up
       or adaptive authentication mechanism.
 
-## Solution:
+##Mitigation:
 
 Verify the user is prompted with the option to terminate all other active sessions 
 after a successful change password process.

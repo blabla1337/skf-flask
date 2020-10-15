@@ -5,7 +5,7 @@ accessible for an attacker because the key was not properly being destroyed then
 security vulnerabilities. All secrets and keys should be completely erased from the memory since 
 an attacker could otherwise potentially retrieve these keys with memory dumping attacks on the application.
 
-## Solution:
+##Mitigation:
 
 Secrets and keys should be erased from the memory and zeroed when they are no longer needed to prevent attackers from 
 doing memory dumping attacks.

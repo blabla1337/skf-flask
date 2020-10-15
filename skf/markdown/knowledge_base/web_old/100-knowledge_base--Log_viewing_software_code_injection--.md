@@ -2,7 +2,7 @@
 
 Whenever user supplied input is being handled into log viewing software, this software can be manipulated by potential attackers whenever this input is not properly being sanitized before outputting in the software. Depending on the context of where the supplied input is being used this could lead to an entire subset of attacks.
 
-## Solution:
+##Mitigation:
 
 You should consider these three controls when supplying information to the log viewing software:
     •	Design: If at all possible, avoid logging data that came from external inputs.

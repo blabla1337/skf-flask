@@ -3,7 +3,7 @@
 Tokens or passwords that are used within the application must contain high entropy in
 order to prevent the prediction of these values.
 
-## Solution:
+##Mitigation:
 
 Tokens should contain a high level entropy and randomness to prevent predictable token generation.
 All random numbers, random file names, random GUIDs, and random must be generated using

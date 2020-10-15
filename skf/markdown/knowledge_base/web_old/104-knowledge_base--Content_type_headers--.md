@@ -5,7 +5,7 @@ this reduces exposure to drive-by download attacks or sites serving user uploade
 content that, by clever naming could be treated by MS Internet Explorer as executable or
 dynamic HTML files and thus can lead to security vulnerabilities.
 
-## Solution:
+##Mitigation:
 
 An example of a content type header would be:  
 

@@ -8,7 +8,7 @@ Use as a metric - Provide application developers and application owners with a y
 Use as guidance - Provide guidance to security control developers as to what to build into security controls in order to satisfy application security requirements, and
 Use during procurement - Provide a basis for specifying application security verification requirements in contracts.
 
-## Solution:
+##Mitigation:
 
 Check out the OWASP-ASVS checklist in the OWASP-SKF application or download the PDF version of ASVS here:
 https://www.owasp.org/images/3/33/OWASP_Application_Security_Verification_Standard_3.0.1.pdf

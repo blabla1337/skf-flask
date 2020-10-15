@@ -6,7 +6,7 @@ pages and resources by default require authentication except those specifically 
 Sometimes developers simply forget to implement these checks, or they remove the checks temporarily 
 for testing purposes. 
 
-## Solution:
+##Mitigation:
 
 Verify all access controls are implemented properly in order to prevent a user access data/functions which 
 he was not intended to use.

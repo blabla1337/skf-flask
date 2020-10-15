@@ -12,6 +12,6 @@ instead of having the old ones erased from memory. Finally, users may change the
 within a few minutes, and then change back to the one they really want to use, circumventing the 
 password change policy altogether.
 
-## Solution:
+##Mitigation:
 Only force users to update their passwords when the password strength that is enforced by the application
 is no longer sufficient to withstand brute force attacks due to increase of computing power.

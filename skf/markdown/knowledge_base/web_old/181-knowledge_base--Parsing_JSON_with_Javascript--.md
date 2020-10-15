@@ -8,7 +8,7 @@ or more JavaScript statements, eval() executes the statements.
 This is exactly the reason why eval() should NEVER be used to parse JSON or other
 formats of data which could possible contain malicious code.
 
-## Solution:
+##Mitigation:
 
 For the purpose of parsing JSON we would recommend the use of the json.parse functionality.
 Even though this function is more trusted you should always build your own security checks

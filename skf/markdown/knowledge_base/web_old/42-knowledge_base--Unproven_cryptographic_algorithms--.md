@@ -4,7 +4,7 @@ The encryption techniques used in the application must be known and proven metho
 When there is a self-made hashing algorithm developed, it is likely to contain
 vulnerabilities due to math-flaws resulting in encryption which can be broken.
 
-## Solution:
+##Mitigation:
 
 Never implement your own designed Crypto functions.
 Verify that cryptographic modules used by the application have been validated against

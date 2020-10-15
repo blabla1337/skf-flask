@@ -5,7 +5,7 @@ to prevent malicious attackers eavesdropping the network can look into and manip
 sensitive information.
 
 
-## Solution:
+##Mitigation:
 
 Verify that TLS is used for all connections (including both external and backend connections) 
 that are authenticated or that involve sensitive data or functions, and does not fall back to

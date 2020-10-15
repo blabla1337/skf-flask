@@ -5,7 +5,7 @@ because it gets a lot of attention during development. However, this is mostly n
 case for secondary authentication mechanisms such as password forget functions, or 
 other alternative paths that could lead to authenticating to the target application.
 
-## Solution:
+##Mitigation:
 
 Verify all account identity authentication functions (such as update profile, forgot password, 
 disabled / lost token, help desk or IVR) that might regain access to the account are 

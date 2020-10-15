@@ -5,7 +5,7 @@ it reduces the movability of an attacker and chances of succeeding to
 perform successful attacks. If an attacker should breach your application his actions
 could be rapidly followed and countermeasures could be taken.
 
-## Solution:
+##Mitigation:
 
 Verify the application processes or verifies all high-value business logic flows in a
 trusted environment, such as on a protected and monitored server.

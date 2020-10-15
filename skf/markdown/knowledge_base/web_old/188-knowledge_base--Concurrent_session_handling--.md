@@ -7,7 +7,7 @@ about this and should give him the opportunity to end the other sessions.
 With this defense in place it becomes harder for attackers to hijack a users session since
 they will be notified about concurrent sessions.
 
-## Solution:
+##Mitigation:
 
 The application should keep track and limit all the granted sessions.
 It should store your users IP address, session id and user id. After storing these credentials

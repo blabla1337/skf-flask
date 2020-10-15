@@ -8,7 +8,7 @@ The term is usually applied to the analysis performed by an automated tool, with
 called program understanding, program comprehension, or code review. Software inspections and software 
 walkthroughs are also used in the latter case.
 
-## Solution:
+##Mitigation:
 There are a lot of different static code analysis tools on the market, it is important to determine
 what tools are able to scan your code base. After having selectecd the right SAST tool we can start writing 
 custom rules that help identify security risks such as time functions, unsafe file operations and network connections.

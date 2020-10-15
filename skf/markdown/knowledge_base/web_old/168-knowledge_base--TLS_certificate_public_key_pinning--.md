@@ -7,7 +7,7 @@ public key is acceptable, then the program holds a pinset
 (taking from Jon Larimer and Kenny Root Google I/O talk). In this case, the advertised
 identity must match one of the elements in the pinset.
 
-## Solution:
+##Mitigation:
 
 The idea is to re-use the existing protocols and infrastructure, but use them in a
 hardened manner. For re-use, a program would keep doing the things it used to do when

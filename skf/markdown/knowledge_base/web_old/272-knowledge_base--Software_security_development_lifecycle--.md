@@ -9,7 +9,7 @@ project team to develop or maintain an application
 In this software security development lifecycle we can also integrate security test automation and
 other quality pilars for security.
 
-## Solution:
+##Mitigation:
 
 The secure software development lifecycle ideally consists out of 5 different stages namely:
 

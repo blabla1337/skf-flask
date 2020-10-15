@@ -11,7 +11,7 @@ The protocol specifies how integrity and confidentiality can be enforced on mess
 the communication of various security token formats, such as Security Assertion Markup Language (SAML), 
 Kerberos, and X.509. Its main focus is the use of XML Signature and XML Encryption to provide end-to-end security.
 
-## Solution:
+##Mitigation:
 
 WS-Security describes three main mechanisms:
 

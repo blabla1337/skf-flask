@@ -6,6 +6,6 @@ The attribute accepts 2 values: strict and lax.
 - lax: The cookie will be sent along with GET request only if a Top Level Navigation occurs.
 
 
-## Solution:
+##Mitigation:
 
 When creating a new cookie in browser, add the 'SameSite' attribute.

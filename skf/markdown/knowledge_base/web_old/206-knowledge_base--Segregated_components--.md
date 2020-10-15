@@ -6,7 +6,7 @@ important components of the application for example the database. This database 
 correctly so it's not accessible from the internet. Also this database has it own server and is in a
 different segment of the network. Always apply INGRESS and EGRESS filtering for all the servers used.
 
-## Solution:
+##Mitigation:
 
 Verify that components are segregated from each other via a defined security control, such as
 network segmentation, firewall rules, or cloud based security groups.

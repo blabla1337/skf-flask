@@ -7,7 +7,7 @@ certificate to bear the resource cost involved in providing OCSP responses by ap
 ("stapling") a time-stamped OCSP response signed by the CA to the initial TLS Handshake,
 eliminating the need for clients to contact the CA
 
-## Solution:
+##Mitigation:
 
 Stapling basically means that the certificate holder queries the OCSP server themselves at
 regular intervals, obtaining a signed time-stamped OCSP response. When the site's visitors

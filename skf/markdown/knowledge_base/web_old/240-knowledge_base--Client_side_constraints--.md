@@ -9,7 +9,7 @@ The same principle goes for whenever certain parts of the application should be 
 the pages from the presentation layer is insecure since the attacker can enumerate by brute forcing or
 fuzzing himself into different pages. Again the access controls should be enforced also on the server side.  
 
-## Solution:
+##Mitigation:
 
 All critical decision making logic must be enforced on the server side out of the scope of a potential 
 attacker. Client side constraints can be easily bypassed.

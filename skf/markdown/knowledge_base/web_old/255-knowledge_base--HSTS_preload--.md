@@ -10,7 +10,7 @@ is vulnerable. This is due to the fact that the browser is not yet aware of the 
 the application its preference is hard-coded into the browser and all first initial connections will
 always be made by HTTPS.
 
-## Solution:
+##Mitigation:
 
 In order to request for HSTS preloading, there are some requirements the application has to 
 be complient with. The submission for the HSTS preloading can be performed on the following url:

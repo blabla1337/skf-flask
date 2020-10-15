@@ -10,7 +10,7 @@ Workers of that insurance company must not be able to randomly fill in license p
 they see on the news to find PI about the people having the accident if it is not related
 to their jobs. I.E, an insurance holder calls the company to file in an accident report. 
 
-## Solution:
+##Mitigation:
 
 Verify accessing sensitive data is logged, if the data is collected 
 under relevant data protection directives or where logging of accesses is required.

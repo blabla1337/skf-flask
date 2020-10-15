@@ -11,7 +11,7 @@ secure server-side code, the client-side code might still unsafely include user 
 DOM update after the page has loaded. If this happens, the client-side code has enabled
 an XSS attack through no fault of the server-side code.
 
-## Solution:
+##Mitigation:
 
 First, there must be a client side input validation method as you would apply to the server
 side. This means you should also apply input rejection as well as typecasting and such.

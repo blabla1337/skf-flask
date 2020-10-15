@@ -6,7 +6,7 @@ CDNs' can introduce security vulnerabilities. Whenever one of these CDN gets com
 attackers can include malicious scripts. Also whenever one of these CDNs' get out of service
 it could affect the operation of the application and even cause a denial of service.
 
-## Solution:
+##Mitigation:
 
 Verify that all application assets are hosted by the application, such as JavaScript libraries, CSS
 stylesheets and web fonts are hosted by the application rather than rely on a CDN or external

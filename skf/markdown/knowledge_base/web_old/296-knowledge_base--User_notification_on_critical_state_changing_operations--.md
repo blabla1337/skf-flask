@@ -3,7 +3,7 @@ When a user is informed of critical operations than the user can determine
 if the notification is send by his own actions, or that the notifucation indicates 
 potential compromitation of his user account.
 
-## Solution:
+##Mitigation:
 
 Verify that secure notifications are sent to users after updates
 to authentication details, such as credential resets, email or address changes,

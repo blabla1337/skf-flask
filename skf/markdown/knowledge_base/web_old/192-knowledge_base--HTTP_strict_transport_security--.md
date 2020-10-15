@@ -16,7 +16,7 @@ HSTS addresses the following threats:
    hopes the user will accept the bad certificate
 4. HSTS does not allow a user to override the invalid certificate message
 
-## Solution:
+##Mitigation:
 
 When users are visiting the application it should set the following header:
 These headers should be set in a base class which always sets the header no mather what

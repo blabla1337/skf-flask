@@ -2,7 +2,7 @@
 
 Whenever you are developing an application you want to map all the architecture it contains. Whenever there are breaches, updates, or other escalations it makes it easy and transparent for forensics, operators, and developers to do their job as fast as possible.
 
-## Solution:
+##Mitigation:
 Verify that a high-level architecture for the application has been defined. This means some sort of a technical resign has to be composed of this architecture and all the elements it provides. This gives a visual representation of your application and makes it easier to work through.
 
 While you are mapping your application architecture you should also add all other components your application contains in terms of business functions and/or security functions they provide.

@@ -4,7 +4,7 @@ The mobile application should not store sensitive data into unencrypted shared
 resources on the device. These resources can be accessible by other applications or 
 physically accessible whenever a device gets lost or stolen. 
 
-## Solution:
+##Mitigation:
 
 Sensitive information should always be stored encrypted and preferably on the server side
 and retrieved using an object reference with proper authorization mechanisms in place. 

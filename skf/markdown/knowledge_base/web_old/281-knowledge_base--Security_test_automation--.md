@@ -34,7 +34,7 @@ There are different category tooling such as but not limited to,
    application. Some Source code repositories provide dependency checking out
    of the box these days.
 
-## Solution:
+##Mitigation:
 
 Examples for SAST tooling are found here, allong with more in depth
 information.

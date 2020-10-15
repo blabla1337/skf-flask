@@ -7,7 +7,7 @@ they are not unchanged by malicious intent. This could keep systems vulnerable t
 to the disabling of important security systems.
 
 
-## Solution:
+##Mitigation:
 
 Verify that authorised administrators have the capability to verify the
 integrity of all security-relevant configurations to ensure that they have not been tampered with.

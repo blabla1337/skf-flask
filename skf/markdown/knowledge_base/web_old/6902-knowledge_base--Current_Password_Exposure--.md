@@ -2,7 +2,7 @@
 
 The recovery of cedentials should never reveal or send the current password to the user.
 
-## Solution:
+##Mitigation:
 
 It is best practice to send a unique url or an URL with a unique parameter that allows the user to create new credentials.
 Make sure the URL expires in a reasonable time and the URL/parameter becomes invalid once the user has been reactivated.

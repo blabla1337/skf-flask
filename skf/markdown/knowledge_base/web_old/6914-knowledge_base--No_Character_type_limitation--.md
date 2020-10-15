@@ -4,7 +4,7 @@
 	Moreover, the application should enable the user to make pass phrases containng any usable character and 
 	therefore strengthen security. 
 
-## Solution:
+##Mitigation:
 	
 	Verify that there are no password composition rules limiting the type of characters permitted. 
 	There should be no requirement for upper or lower case or numbers or special characters.

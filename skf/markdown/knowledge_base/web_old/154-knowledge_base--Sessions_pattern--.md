@@ -16,7 +16,7 @@ When working with sessions there are a couple of things you need to consider in 
 13.	Verify that the session id is never disclosed
 14.	Session cookies (Domain)
 
-## Solution:
+##Mitigation:
 
 The items as pointed out before should be looked into and taken into consideration
 whenever you are working with sessions on your system in order to enforce a

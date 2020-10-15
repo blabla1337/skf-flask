@@ -3,7 +3,7 @@
 All possible attacks on your application should be detected and reported in order to
 prevent further escalation.
 
-## Solution:
+##Mitigation:
 
 Intrusion detecting could be done by means of a:
 

@@ -12,7 +12,7 @@ The implications of the subdomain takeover can be pretty significant. Using a su
 
 Source: https://0xpatrik.com/subdomain-takeover-basics/
 
-## Solution:
+##Mitigation:
 
 As an end user of a service, going through your organization's DNS records in a routine manner or while discontinuing or terminating a service will safely remove it's DNS records.
 
