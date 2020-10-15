@@ -21,7 +21,7 @@ def new_project(user_id, data):
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M")
     try:
-        project = Project(data.get('name'), data.get('version'), data.get('description'), timestamp, "")
+        project = Project(data.get('name'), data.get('version'), data.get('description'), timestamp)
         db.session.add(project)
         db.session.commit()
     except:
