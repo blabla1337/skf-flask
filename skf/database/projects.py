@@ -9,13 +9,11 @@ class Project(db.Model):
     version = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.Text, nullable=False)
-    design = db.Column(db.Boolean)
 
-    def __init__(self, name, version, description, timestamp, design):
+    def __init__(self, name, version, description, timestamp):
         self.name = name
         self.version = version
         self.description = description
         self.timestamp = timestamp
-        self.design = design
 
 

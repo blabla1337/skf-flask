@@ -3327,7 +3327,7 @@ def load_initial_data():
         '''
 
         #Project 1 ASVS LvL 1
-        p = Project('Design Patterns ASVS LvL 1', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37', True)
+        p = Project('Design Patterns ASVS LvL 1', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37')
         db.session.add(p)
         db.session.commit()
 
@@ -4734,7 +4734,7 @@ def load_initial_data():
         db.session.commit()
 
         #Project 2 ASVS LvL 2
-        p = Project('Design Patterns ASVS LvL 2', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37', True)
+        p = Project('Design Patterns ASVS LvL 2', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37')
         db.session.add(p)
         db.session.commit()
 
@@ -7448,7 +7448,7 @@ def load_initial_data():
         db.session.commit()
 
         #Project 3 ASVS LvL 3
-        p = Project('Design Patterns ASVS LvL 3', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37', True)
+        p = Project('Design Patterns ASVS LvL 3', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37')
         db.session.add(p)
         db.session.commit()
 
