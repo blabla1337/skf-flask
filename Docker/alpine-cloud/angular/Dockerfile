@@ -7,9 +7,9 @@ FROM node:12-alpine AS builder
 
 LABEL maintainer="glenn.ten.cate@owasp.org"
 
-WORKDIR /home/user_angular/Angular
+WORKDIR /home/user_angular/Angular2
 
-COPY ./Angular ./
+COPY ./Angular2 ./
 COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
 
 # Optimize vendor.bundle.js
@@ -28,7 +28,7 @@ FROM nginx:1.14.1-alpine as run
 RUN rm -rf /usr/share/nginx/html/*
 
 ## From builder stage copy over the artifacts in dist folder to default nginx public folder
-COPY --from=builder /home/user_angular/Angular/dist /usr/share/nginx/html
+COPY --from=builder /home/user_angular/Angular2/dist/Angular2 /usr/share/nginx/html
 
 ## Copy our default nginx config
 COPY --from=builder /home/user_angular/site.conf.template /home/user_angular/site.conf.template
