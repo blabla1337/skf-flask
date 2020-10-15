@@ -33,7 +33,11 @@ export class ProjectManageComponent implements OnInit
 
   ngOnInit()
   {
-    this.priv = AppSettings.USER_PRIV;
+    if(AppSettings.USER_PRIV != null){
+      this.priv = AppSettings.USER_PRIV;
+    }else{
+      this.priv = "";
+    }
     this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Manage', active: true }];
     this.getProjects();
   }

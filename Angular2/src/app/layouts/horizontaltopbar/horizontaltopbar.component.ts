@@ -34,7 +34,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   public themeName: string;
   public search: string;
   public searchForm: FormGroup;
-  public priv: string;
+  public priv: string = "";
   
   // tslint:disable-next-line: max-line-length
   constructor(
@@ -51,7 +51,14 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
   ngOnInit(): void
   {
-    this.priv = AppSettings.USER_PRIV;
+    if(sessionStorage.getItem('Authorization') == null || sessionStorage.getItem('Authorization') == ""){
+      this.router.navigate(['/auth/login']);
+    }
+    if(AppSettings.USER_PRIV != null){
+      this.priv = AppSettings.USER_PRIV;
+    }else{
+      this.priv = "";
+    }
     this.element = document.documentElement;
 
     this.searchForm = this.formBuilder.group({
