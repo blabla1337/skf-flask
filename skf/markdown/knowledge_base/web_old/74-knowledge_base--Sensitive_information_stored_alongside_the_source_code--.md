@@ -5,7 +5,7 @@ credentials into the source-code as a comment for other developers to
 login into the application. When these comments still exist in a live environment,
 an attacker could use these credentials to gain access to the system.
 
-## Solution:
+##Mitigation:
 
 Search your source code for comments which contains possible user-credentials.
 You should also verify that there are no secrets and API keys are included in the

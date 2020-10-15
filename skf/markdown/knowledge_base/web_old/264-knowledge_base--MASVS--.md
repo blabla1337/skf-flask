@@ -9,7 +9,7 @@ Use as a metric - Provide developers and application owners with a yardstick wit
 Use as guidance - Provide guidance to security control developers as to what to build into security controls in order to satisfy application security requirements, and
 Use during procurement - Provide a basis for specifying application security verification requirements in contracts.
 
-## Solution:
+##Mitigation:
 
 Check out the OWASP-MASVS checklist in the OWASP-SKF application or download the PDF version of MASVS here:
 https://github.com/OWASP/owasp-masvs/releases/download/1.0/OWASP_Mobile_AppSec_Verification_Standard_v1.0.pdf

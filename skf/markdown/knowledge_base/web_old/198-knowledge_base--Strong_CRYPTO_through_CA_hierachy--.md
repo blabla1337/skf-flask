@@ -4,7 +4,7 @@ When you have an offline PKI setup you need to have solid strong crypto layers.
 An attacker will look for weak chains in the hierarchy and abuse them when found.
 This can lead to Man-In-The-Middle (MITM) attacks and impact the 3 security pillars C.I.A (Confidentiality, Integrity and Availability).
 
-## Solution:
+##Mitigation:
 
 Verify that only strong algorithms, ciphers, and protocols are used, through all the certificate hierarchy,
 including root and intermediary certificates of your selected certifying authority.

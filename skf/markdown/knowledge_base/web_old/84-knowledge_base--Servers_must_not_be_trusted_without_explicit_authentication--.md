@@ -5,7 +5,7 @@ explicit authentication and is internet facing, then this means the server
 cannot be trusted. This is because the server can be potentially be owned and managed by
 everybody including hackers.
 
-## Solution:
+##Mitigation:
 
 Whenever the web-application is facing the internet third parties trying to
 access it should always use a form of authentication in order to gain access.

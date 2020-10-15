@@ -6,6 +6,6 @@ will be HTTPS the username and password will not be sent through an encrypted ma
 could be easily compromised by attackers. This principle also applies to sending
 vulnerable data towards other unencrypted/weak encrypted links in your application.
 
-## Solution:
+##Mitigation:
 
 Verify that credentials or other sensitive information is transported via TLS.

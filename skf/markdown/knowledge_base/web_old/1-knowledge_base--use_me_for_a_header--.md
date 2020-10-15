@@ -3,7 +3,7 @@
 I am used as a header
 
 
-## Solution:
+##Mitigation:
 
 I am used as a header
 

@@ -10,7 +10,7 @@ Whenever the application uses static tokens such as the ID values and this infor
 leaked by a MiTM attack or leaked in another way then this attacker can now fully compromise 
 the user without being able to reject to expire or invalidate the static token EMEI or UDID for example. 
 
-## Solution:
+##Mitigation:
 
 Authentication tokens should always be generic and should be cryptographically random strong 
 with at least 120 bit of effective entropy. The best way to implement these tokens is to

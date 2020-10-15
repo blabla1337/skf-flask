@@ -6,7 +6,7 @@ make sure no developers with evil intent made backdoors or deliberately put in e
 Dependencies and third party libraries should also be validated against malicious code.
 These depedencies and libraries should also be validated for known vulnerabilities (CVE)
 
-## Solution:
+##Mitigation:
 
 Running your code through a static code analyzer or auditing tools could give you a chance
 to find malicious pieces of code which could be embedded into the software.

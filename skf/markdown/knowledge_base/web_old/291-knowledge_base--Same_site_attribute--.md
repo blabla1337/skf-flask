@@ -4,7 +4,7 @@ The main goal is mitigate the risk of cross-origin information leakage. It also 
 protection against cross-site request forgery attacks.
 
 
-## Solution:
+##Mitigation:
 The strict value will prevent the cookie from being sent by the browser to the target site in all 
 cross-site browsing context, even when following a regular link. For example, for a GitHub-like website this would mean that if a logged-in user follows a link to a private GitHub project posted on a corporate discussion forum or email, GitHub will not receive the session cookie and the user will not be able to access the project.
 

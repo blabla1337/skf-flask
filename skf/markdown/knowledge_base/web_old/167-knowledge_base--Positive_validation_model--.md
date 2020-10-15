@@ -8,7 +8,7 @@ Let's say you have a form and were expecting it to return the value of a checkbo
 Same goes for whenever you were expecting just a string, integer, alphanumeric character or even special strings such as names as O’Reily.
 This method also makes your code clear, transparent and highly maintainable.
 
-## Solution:
+##Mitigation:
 
 First there must be a client side input validation method as you would apply to the server
 side. This means you should also apply input rejection as well as typecasting and such.

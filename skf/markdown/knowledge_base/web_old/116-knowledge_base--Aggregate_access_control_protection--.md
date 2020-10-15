@@ -5,7 +5,7 @@ secured functions, resources, or data. For example, possibly by the use of a
 resource governor to limit the number of edits per hour or to prevent the entire database
 from being scraped by an individual user.
 
-## Solution:
+##Mitigation:
 
 The system should contain a counter which can keep up with the number of times a certain
 users addresses database tables and should be rejected when he passes a reasonable number.

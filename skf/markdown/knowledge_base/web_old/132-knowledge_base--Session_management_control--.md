@@ -8,7 +8,7 @@ session management systems are at an immediate disadvantage. Implementations bui
 scratch are often weak and breakable. Developers are strongly discouraged from
 implementing their own Session Management.
 
-## Solution:
+##Mitigation:
 
 Always use the frameworks default session management control implementation in your application. 
 If not possible you should find hardened guides in how to accomplish this in a secure manner.

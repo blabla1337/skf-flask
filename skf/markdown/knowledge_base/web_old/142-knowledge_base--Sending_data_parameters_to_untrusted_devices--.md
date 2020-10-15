@@ -3,7 +3,7 @@
 Whenever an application sends data/parameters to untrusted devices this data could be
 compromised if the device has malicious intents.
 
-## Solution:
+##Mitigation:
 
 Verify the application minimizes the number of parameters sent to untrusted systems,
 such as hidden fields, Ajax variables, cookies and header values.

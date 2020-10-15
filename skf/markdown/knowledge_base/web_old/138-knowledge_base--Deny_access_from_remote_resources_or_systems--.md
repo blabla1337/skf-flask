@@ -4,7 +4,7 @@ You should always fend off remote connections with untrusted systems/resources w
 connect to your application in order to prevent connecting to malicious systems that try
 to attack your application.
 
-## Solution:
+##Mitigation:
 
 Since this is very difficult to achieve on application level we recommend implementing
 EGRESS firewall rules.

@@ -18,6 +18,6 @@ When not using an encrypted channel, all of the above and the following:
 - Man-in-the-Middle
 
 
-## Solution:
+##Mitigation:
 
 Sensitive informtion should never be included in the URL.

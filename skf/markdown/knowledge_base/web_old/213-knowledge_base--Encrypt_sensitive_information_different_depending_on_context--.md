@@ -4,7 +4,7 @@ The mobile application should not store sensitive data in an unencrypted manner,
 the applications key chains since these can be easily accessed once a phone is jailbroken 
 or exploited the keychain can be easily read. 
 
-## Solution:
+##Mitigation:
 
 Determine the context of where the sensitive information is being stored, is it a small 
 data set or is the data stored in a SQLite database. For every context determine the 

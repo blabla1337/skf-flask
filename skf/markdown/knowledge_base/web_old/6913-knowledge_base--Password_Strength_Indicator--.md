@@ -4,6 +4,6 @@
 	tightening security. The motivating effect is especially high when showing a score numerically and relative 
 	to other users.
 
-## Solution:
+##Mitigation:
 	
 	Verify that a password strength meter/indicator is provided to help users set a stronger secret.

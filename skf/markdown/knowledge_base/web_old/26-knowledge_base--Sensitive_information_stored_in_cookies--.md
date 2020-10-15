@@ -5,6 +5,6 @@ its content readable. A hacker could gain access to a cookie through cross site 
 attacks and gain the sensitive information stored
 in the targets cookie.
 
-## Solution:
+##Mitigation:
 
 Do not store sensitive information in cookies.

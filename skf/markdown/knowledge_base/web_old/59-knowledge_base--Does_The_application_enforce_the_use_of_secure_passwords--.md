@@ -7,7 +7,7 @@ the use of password managers, the possibility for an attacker performing a succe
 attack drops significantly.
 This also increases the possibility that the application can be used with users' passwords managers.
 
-## Solution:
+##Mitigation:
 
 Verify password entry fields allow, or encourage, the use of passphrases, and do not prevent
 password managers, long passphrases or highly complex passwords being entered. 

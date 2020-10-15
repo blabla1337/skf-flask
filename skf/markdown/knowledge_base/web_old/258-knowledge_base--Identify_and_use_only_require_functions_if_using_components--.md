@@ -7,7 +7,7 @@ that are delivered are not necessary needed and can introduce a vulnerability in
 that may not be even used by the application. Also, these security issues in the components 
 are publicly well know and documented. 
 
-## Solution:
+##Mitigation:
 
 The best approach in minimizing the possible security issues that can arise in application 
 components and identify the required functions and disable or remove those that are not

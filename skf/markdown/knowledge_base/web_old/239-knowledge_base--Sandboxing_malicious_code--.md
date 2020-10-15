@@ -6,7 +6,7 @@ unverified third-parties, suppliers, untrusted users and untrusted websites. It'
 an extra layer of security where an attacker first needs to break out from.
 
 
-## Solution:
+##Mitigation:
 
 Use the sandbox attribute of an iframe for untrusted content. The sandbox attribute of an 
 iframe enables restrictions on content within an iframe. The following restrictions are 

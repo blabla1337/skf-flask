@@ -5,7 +5,7 @@ into the applications SQL database the passwords are directly compromised. In th
 pre-filled forms in the application, an attacker could also hijack the credentials by badly
 configured CORS rules or XSS attacks.
 
-## Solution: 
+##Mitigation: 
 
 Verify that forms containing credentials are not filled in by
 the application. Pre-filling by the application implies that

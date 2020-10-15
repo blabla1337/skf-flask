@@ -13,7 +13,7 @@ attacks he could perform such as:
 Even when your application intercepts XSS injections by means of a content security policy
 header it still remains vulnerable to the attacks summarized above.
 
-## Solution:
+##Mitigation:
 
 1.Content spoofing Otherwise known as "Content Injection" or "Virtual Defacement" occurs whenever an attacker can inject code into your application. It is very important to sanitize and or encode user data before you display it on screen as HTML.
 

@@ -8,7 +8,7 @@ pitfalls might be in your application and increases the maintainability of the
 system. Also, you have an indicator where possible reinforcements have to be
 implemented to avoid attacks.(i.e places where your application contains executable's)
 
-## Solution:
+##Mitigation:
 
 Verify that all application components (either individual or groups of source files,
 libraries, and/or executables) that are present in the application are identified.

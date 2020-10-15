@@ -4,7 +4,7 @@ Whenever the application provides a password forget functionality or another
 type of recovery methods there are several implementations of hardened proven ways to make
 the user recover his password.
 
-## Solution:
+##Mitigation:
 
 The recommended solutions are to use TOTP (Time-based One-Time Password algorithm). This 
 method is an example of a hash-based message authentication code (HMAC). It combines a 

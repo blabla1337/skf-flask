@@ -7,7 +7,7 @@ your method should be "proven" and secure in the sense of that:
 2. Before implementing authentication on a live environment it has to be pentested/audited by
    professionals.
 
-## Solution:
+##Mitigation:
 
 Verify authentication mechanisms in the application are proven and verified against
 ASVS.

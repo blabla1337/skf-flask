@@ -3,7 +3,7 @@
 When the logout functionality does not revoke the complete session, an attacker could still
 impersonate a user when he has access to the session cookie even after the user is logged off the application.
 
-## Solution:
+##Mitigation:
 
 The logout functionality should revoke the complete session whenever a user
 wants to terminate his session.

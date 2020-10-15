@@ -6,7 +6,7 @@ This is because the lack of hardening of the OS for security improvements where 
 could also benefit from this hardening. Also the access of third party services can lead to
 compromise of the secrets or integrity of the code of the application.
 
-## Solution:
+##Mitigation:
 
 Building your application should always be done on a server that you trust, you are in control and
 has the latest security patches and hardening configured. For deploying the application the same

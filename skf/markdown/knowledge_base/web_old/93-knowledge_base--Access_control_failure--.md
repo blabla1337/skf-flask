@@ -14,7 +14,7 @@ mechanism:
 in general you should design your security mechanism so that a failure will follow the same
 execution path as disallowing the operation.
 
-## Solution:
+##Mitigation:
 
 Security methods like isAuthorized(), isAuthenticated(), and validate() should all return
 false if there is an exception during processing.

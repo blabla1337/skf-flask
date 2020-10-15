@@ -12,7 +12,7 @@ i.e whenever a user gets his authorization grants through a cookie that says,
 These authorization grants are easily manipulable.
 
 
-## Solution:
+##Mitigation:
 
 Authorization grants must be granted and enforced outside of the attackers scope. 
 

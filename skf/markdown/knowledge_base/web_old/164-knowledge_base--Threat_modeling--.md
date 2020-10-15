@@ -7,7 +7,7 @@ undesirable event that may be malicious (such as DoS attack) or incidental
 (failure of a Storage Device). Threat modeling is a planned activity for identifying and
 assessing application threats and vulnerabilities.
 
-## Solution:
+##Mitigation:
 
 Threat modeling is best applied continuously throughout a software development project.
 The process is essentially the same at different levels of abstraction, although the

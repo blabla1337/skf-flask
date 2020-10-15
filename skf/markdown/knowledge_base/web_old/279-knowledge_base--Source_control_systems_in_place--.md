@@ -16,7 +16,7 @@ Benefits of source control for security are amongst others,
 - Easy to Review code
 - Fundemental for CI/CD integrations
 
-## Solution:
+##Mitigation:
 
 Verify that a source code control system is in use, with procedures to
 ensure that check-ins are accompanied by issues or change tickets. 

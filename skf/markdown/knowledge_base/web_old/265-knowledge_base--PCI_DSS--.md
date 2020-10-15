@@ -5,7 +5,7 @@ The Payment Card Industry Data Security Standard (PCI DSS) applies to companies 
 PCI DSS 12 requirements is a set of security controls that businesses are required to implement to protect credit card data and comply with the Payment Card Industry Data Security Standard (PCI DSS). The requirements were developed and are maintained by the Payment Card Industry (PCI) Security Standards Council.
 
 
-## Solution:
+##Mitigation:
 
 Check out the PCI-DSS requirements here:
 https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss

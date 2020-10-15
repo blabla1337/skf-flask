@@ -14,7 +14,7 @@ from a security mechanism:
 In general, you should design your security mechanism so that a failure will follow the same execution path
 as disabling the operation
 
-## Solution:
+##Mitigation:
 
 Make sure all the access control systems are thoroughly tested for failing securely before
 using it in your application. It is common that complete unit-test are created especially

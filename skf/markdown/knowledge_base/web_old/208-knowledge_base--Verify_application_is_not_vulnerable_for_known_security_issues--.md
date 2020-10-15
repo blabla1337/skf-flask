@@ -13,7 +13,7 @@ A lot of popular CVE exploits also have exploits available in Metasploit
 or the Exploit database. This enables script kiddies to easily exploit the target applications
 services, libraries and operating systems.
 
-## Solution:
+##Mitigation:
 
 Verify that all application components, libraries, modules,
 frameworks, platform, and operating systems are free from known vulnerabilities.

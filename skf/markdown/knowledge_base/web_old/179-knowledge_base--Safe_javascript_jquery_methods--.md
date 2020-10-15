@@ -5,7 +5,7 @@ user, you should make sure this data is not supplied towards functions which cou
 interpreted the supplied and parse input as code. This could lead to XSS and other code
 injections.
 
-## Solution:
+##Mitigation:
 
 Below we listed some safe functions for whenever it is needed to supply your
 JavaScript/jquery functions with user-input.
