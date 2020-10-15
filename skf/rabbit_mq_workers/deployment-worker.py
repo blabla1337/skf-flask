@@ -102,11 +102,7 @@ def get_service_exposed_ip(deployment, user_id):
 def string_split_user_id(body):
     try:
         user_id = body.split(':')
-        if user_id:
-            return user_id[1]
-        else:
-            user_id = "anonymous"
-            return user_id
+        return user_id[1]
     except:
         return {'message': 'Failed to deploy, error no user_id found!'} 
 

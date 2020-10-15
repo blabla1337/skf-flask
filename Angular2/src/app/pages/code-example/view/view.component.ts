@@ -42,7 +42,11 @@ export class ViewCodeComponent implements OnInit
 
   ngOnInit()
   {
-    this.priv = AppSettings.USER_PRIV;
+    if(AppSettings.USER_PRIV != null){
+      this.priv = AppSettings.USER_PRIV;
+    }else{
+      this.priv = "";
+    }
     this.breadCrumbItems = [{ label: 'Code Examples' }, { label: 'View', active: true }];
     this._fetchData();
     this.catSelector = Number(localStorage.getItem("categorySelector"));
