@@ -10354,11 +10354,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(45,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(45,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(46,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(46,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10370,11 +10378,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(47,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(47,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(48,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(48,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10386,11 +10402,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(49,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(49,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(50,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(50,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10407,6 +10431,10 @@ def load_initial_data():
         db.session.commit()
         
         kb_code_cor = ChecklistKBCodeItem(53,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(53,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10446,11 +10474,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(64,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(64,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(72,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(72,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10462,6 +10498,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(74,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(74,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10470,11 +10510,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(76,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(76,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(77,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(77,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10502,6 +10550,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(83,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(83,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10518,11 +10570,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(84,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(84,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(88,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(88,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10537,12 +10597,20 @@ def load_initial_data():
         kb_code_cor = ChecklistKBCodeItem(104,286)   
         db.session.add(kb_code_cor)
         db.session.commit()
+        
+        kb_code_cor = ChecklistKBCodeItem(104,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(104,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(106,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(106,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10555,6 +10623,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(107,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(107,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10574,11 +10646,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(109,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(109,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(112,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(112,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10594,6 +10674,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(113,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(113,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10603,6 +10687,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(114,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(114,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10618,6 +10706,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(115,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(115,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10630,6 +10722,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(116,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(116,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10639,6 +10735,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(124,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(124,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10658,6 +10758,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(125,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(125,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10670,11 +10774,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(128,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(128,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(129,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(129,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10690,6 +10802,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(129,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(129,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10702,11 +10818,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(134,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(134,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(135,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(135,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10718,11 +10842,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(136,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(136,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(137,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(137,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10738,6 +10870,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(139,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(139,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10746,11 +10882,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(141,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(141,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(142,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(142,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10774,6 +10918,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(143,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(143,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10794,6 +10942,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(146,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(146,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10803,6 +10955,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(147,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(147,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10818,6 +10974,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(148,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(148,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10827,6 +10987,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(149,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(149,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10842,6 +11006,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(150,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(150,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10851,6 +11019,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(151,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(151,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10866,6 +11038,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(152,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(152,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10875,6 +11051,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(153,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(153,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10890,6 +11070,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(154,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(154,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10899,6 +11083,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(155,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(155,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10918,11 +11106,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(178,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(178,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(179,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(179,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10934,11 +11130,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(188,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(188,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(198,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(198,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10951,6 +11155,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(199,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(199,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -10974,6 +11182,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(201,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(201,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -10982,11 +11194,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(202,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(202,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(203,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(203,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11058,11 +11278,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(239,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(239,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(243,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(243,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11078,6 +11306,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(244,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(244,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -11087,6 +11319,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(245,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(245,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11102,6 +11338,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(246,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(246,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -11111,6 +11351,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(247,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(247,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11126,6 +11370,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(249,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(249,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -11138,11 +11386,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(250,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(250,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(251,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(251,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11166,11 +11422,19 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(253,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(253,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(255,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(255,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11206,6 +11470,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(262,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(262,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -11215,6 +11483,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(266,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(266,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11266,6 +11538,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(287,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(287,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -11275,6 +11551,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(288,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(288,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11290,6 +11570,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(289,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(289,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -11299,6 +11583,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(290,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(290,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11314,6 +11602,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(291,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(291,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -11323,6 +11615,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(292,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(292,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
@@ -11338,6 +11634,10 @@ def load_initial_data():
         db.session.add(kb_code_cor)
         db.session.commit()
 
+        kb_code_cor = ChecklistKBCodeItem(293,295)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
         kb_code_cor = ChecklistKBCodeItem(293,287)   
         db.session.add(kb_code_cor)
         db.session.commit()
@@ -11347,6 +11647,10 @@ def load_initial_data():
         db.session.commit()
 
         kb_code_cor = ChecklistKBCodeItem(294,286)   
+        db.session.add(kb_code_cor)
+        db.session.commit()
+
+        kb_code_cor = ChecklistKBCodeItem(294,295)   
         db.session.add(kb_code_cor)
         db.session.commit()
 
