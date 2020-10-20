@@ -181,7 +181,6 @@ def updatedb_command():
 
 def main():
     """Main SKF method"""
-    print(settings.JWT_SECRET)
     if settings.FLASK_DEBUG == 'False':
         log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
         app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=False)    
