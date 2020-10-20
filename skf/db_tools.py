@@ -34,6 +34,7 @@ def init_db(testing=False):
         db.create_all()
         prerequisits()
         init_md_code_examples()
+        init_md_testing_examples()
         init_md_knowledge_base()
         load_initial_data()
     except:
@@ -48,6 +49,7 @@ def clean_db(testing=False):
     db.create_all()
     prerequisits()
     init_md_code_examples()
+    init_md_testing_examples()
     init_md_knowledge_base()
     load_initial_data()
     db.session.commit()
@@ -99,10 +101,39 @@ def init_md_knowledge_base():
 def init_md_code_examples():
     """Converts markdown code-example items to DB."""
     kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/web/')
-    code_langs = ['asp-needs-reviewing', 'java-needs-reviewing', 'php-needs-reviewing', 'flask', 'django-needs-reviewing', 'go-needs-reviewing', 'ruby-needs-reviewing', 'nodejs-express-needs-reviewing', 'testing']
+    code_langs = ['asp-needs-reviewing', 'java-needs-reviewing', 'php-needs-reviewing', 'flask', 'django-needs-reviewing', 'go-needs-reviewing', 'ruby-needs-reviewing', 'nodejs-express-needs-reviewing']
     try:
         for lang in code_langs:
             for filename in os.listdir(kb_dir+lang):
+                if filename.endswith(".md"):
+                    name_raw = filename.split("-")
+                    title = name_raw[3].replace("_", " ")
+                    file = os.path.join(kb_dir+lang, filename)
+                    data = open(file, 'r')
+                    file_content = data.read()
+                    data.close()
+                    content_escaped = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                    try:
+                        item = CodeItem(content_escaped, title, lang)
+                        item.checklist_category_id = 1
+                        db.session.add(item)
+                        db.session.commit()
+                    except IntegrityError as e:
+                        print(e)
+                        pass
+        log.info("Initialized the markdown code-examples.")
+        return True
+    except:
+        raise
+
+
+def init_md_testing_examples():
+    """Converts markdown testing code-example items to DB."""
+    kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/web/')
+    code_langs = ['testing']
+    try:
+        for lang in code_langs:
+            for filename in sorted(os.listdir(kb_dir+lang)):
                 if filename.endswith(".md"):
                     name_raw = filename.split("-")
                     title = name_raw[3].replace("_", " ")
