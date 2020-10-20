@@ -39,10 +39,10 @@ The second stage is validating if the developer properly implemented different s
 
 ## <a name="installing"></a>Installing
 
-### [Local on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
-### [Docker local installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
 ### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/Kubernetes)  
-### [Azure installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/azure-deployment)  
+### [Bare metal / on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
+### [Docker-compose local how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
+### [SKF K8s Raspberry pi cluster how to](https://github.com/blabla1337/skf-flask/tree/master/installations/pi-cluster)  
 
 ### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)  
 

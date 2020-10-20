@@ -14,7 +14,7 @@ After you have it all working and the Master and Workers are installed and confi
 
 ## Prep
 
-1. Apply the k8s yaml files to your Pi K8s cluster
+1. Update the fields accordingly and apply the k8s yaml files to your Pi K8s cluster
 ```
 for yaml in Docker/alpine-cloud/k8s/*.yaml; do
     kubectl apply -f $yaml;
@@ -33,7 +33,7 @@ helm install nginx-ingress stable/nginx-ingress  \
 
 3. Determine where the SKF app is running based on the IP's used for the Workers, in my case 192.168.0.161-163
 ```
-gibson$ kubectl get service -o wide
+kubectl get service -o wide
 NAME                       TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
 kubernetes                 ClusterIP      10.96.0.1        <none>          443/TCP                      7d    <none>
 nginx-ingress-controller   LoadBalancer   10.111.86.168    192.168.0.163   80:31863/TCP,443:32685/TCP   26h   app.kubernetes.io/component=controller,app=nginx-ingress,release=nginx-ingress
@@ -63,23 +63,18 @@ And apply the changes:
 kubectl apply -f nginx-service.yaml 
 ```
 
+5. Add IP to your DNS
+Last step is to add the public IP of the DNS and in our case i used beta.securityknowledgeframework.org 
+By default the ingress listens for requests at `skf.local` you will need to change this to the domain name that will run the SKF instance.
 
-5. Get a cert e.g. a Lets Encrypt cert locally using something like:
+6. Get a cert e.g. a Lets Encrypt cert locally using something like:
 ```
-certbot -d skf.local --manual --preferred-challenges dns certonly
-kubectl create secret tls skf.local --key privkey.pem --cert cert.pem
+certbot -d beta.securityknowledgeframework.org --manual --preferred-challenges dns certonly
+kubectl create secret tls beta.securityknowledgeframework.org --key privkey.pem --cert cert.pem
 ```
 OR
 deploy [Cert-Manager|https://cert-manager.io/docs/installation/kubernetes/] using helm
 
-6. Add hostname skf.local to your DNS
-Last step is to add this entry to your /etc/hosts
-By default the ingress listens for requests at `skf.local` you will need to map this to the node that will run the SKF instance.
-
-You can do so by running, or place the record in your DNS:
-```
-sudo echo skf.local 192.168.0.163 >> /etc/hosts
-```
 Now open the browser and go to:
-https://skf.local
+https://beta.securityknowledgeframework.org
 
