@@ -19,23 +19,23 @@
                             </div>
                         </div>                        
                         <div class="form-group">
-                            <label for="language">Language</label>
-                            <input type="text" class="form-control" id="language"
-                                formControlName="language" placeholder="Add Language Name"
+                            <label for="code_lang">Language</label>
+                            <input type="text" class="form-control" id="code_lang"
+                                formControlName="code_lang" placeholder="Add Language Name"
                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Add Language Name'"
-                                [ngClass]="{'is-invalid': isSubmitted && form.language.errors}">
-                            <div *ngIf="isSubmitted && form.language.errors" class="invalid-feedback">
-                                <span *ngIf="form.language.errors.required">Required!</span>
+                                [ngClass]="{'is-invalid': isSubmitted && form.code_lang.errors}">
+                            <div *ngIf="isSubmitted && form.code_lang.errors" class="invalid-feedback">
+                                <span *ngIf="form.code_lang.errors.required">Required!</span>
                             </div>
                         </div>     
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea type="text" class="form-control" id="description"
-                                formControlName="description" placeholder="Code Example Description"
+                            <label for="content">Description</label>
+                            <textarea type="text" class="form-control" id="content"
+                                formControlName="content" placeholder="Code Example Description"
                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Code Example Description'"
-                                [ngClass]="{'is-invalid': isSubmitted && form.description.errors}" rows="18"></textarea>
-                            <div *ngIf="isSubmitted && form.description.errors" class="invalid-feedback">
-                                <span *ngIf="form.description.errors.required">Required!</span>
+                                [ngClass]="{'is-invalid': isSubmitted && form.content.errors}" rows="18"></textarea>
+                            <div *ngIf="isSubmitted && form.content.errors" class="invalid-feedback">
+                                <span *ngIf="form.content.errors.required">Required!</span>
                             </div>
                         </div>   
                         <div class="text-right">
