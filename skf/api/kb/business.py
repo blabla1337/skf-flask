@@ -34,10 +34,9 @@ def create_kb_item(data, category_id):
     return {'message': 'KB item successfully created'} 
 
 
-def delete_kb_item(kb_id, user_id):
+def delete_kb_item(kb_id):
     log("User deleted kb item", "MEDIUM", "PASS")
     val_num(kb_id)
-    val_num(user_id)
     try:
         kb_item = KBItem.query.filter(KBItem.kb_id == kb_id).first()
         db.session.delete(kb_item)

@@ -30,8 +30,8 @@ export class CreateCodeComponent implements OnInit
 
     this.codeExampleForm = this.formBuilder.group({
       title: ['', Validators.required],
-      language: ['', Validators.required],
-      description: ['', Validators.required],
+      code_lang: ['', Validators.required],
+      content: ['', Validators.required],
     });
     this.isSubmitted = false;
   }

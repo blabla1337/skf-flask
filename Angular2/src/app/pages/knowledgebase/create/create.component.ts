@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit
 
     this.knowledgebaseForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
-      content: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      content: ['', [Validators.required]],
     });
     this.submit = false;
   }

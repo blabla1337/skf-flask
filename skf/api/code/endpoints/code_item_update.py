@@ -21,13 +21,12 @@ class CodeItemUpdate(Resource):
     def put(self, id):
         """
         Update a code example item.
-        * Privileges required: **manage**
+        * Privileges required: **edit**
         """
         data = request.json
         val_alpha_num_special(data.get('title'))
-        val_alpha_num(data.get('code_lang'))
         val_num(id)
-        validate_privilege(self, 'manage')
+        validate_privilege(self, 'edit')
         result = update_code_item(id, data)
         return result, 200, security_headers()
  

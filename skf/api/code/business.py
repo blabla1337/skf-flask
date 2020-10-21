@@ -7,8 +7,6 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_n
 def update_code_item(code_id, data):
     log("User requested updated specific code example item", "LOW", "PASS")
     result = CodeItem.query.filter(CodeItem.id == code_id).one()
-    val_alpha_num_special(data.get('title'))
-    val_alpha_num(data.get('code_lang'))
     result.title = data.get('title')
     result.content = data.get('content')
     result.code_lang = data.get('code_lang')
