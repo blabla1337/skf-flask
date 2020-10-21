@@ -51,7 +51,7 @@ sudo rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
 * __Configure kubernetes config file for Labs__
 
 For also launching the labs from the SKF application we need to create a Kubernetes cluster in one of the platforms like Google.
-When you created the cluster you need to place the kubernetes config file in the location ~/.kube/config
+When you created the cluster you need to place the kubernetes config file in the location ~/.kube/config of the machine you run the SKF app
 
 ```
 
