@@ -6,25 +6,12 @@ class QuestionResult(db.Model):
     __tablename__ = 'question_results'
 
     id = db.Column(db.Integer, primary_key=True)
-<<<<<<< HEAD
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"))
     project = db.relationship("Project", backref=db.backref('question_results'))
     sprint_id = db.Column(db.Integer, db.ForeignKey("project_sprints.sprint_id"))
     sprint = db.relationship("ProjectSprint", backref=db.backref('question_results'))
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
     question = db.relationship("Question", backref=db.backref('question_result'), uselist=False)
-=======
-
-    project_id = db.Column(db.Integer, db.ForeignKey("projects.id"))
-    project = db.relationship("Project", backref=db.backref('question_results'))
-
-    sprint_id = db.Column(db.Integer, db.ForeignKey("project_sprints.sprint_id"))
-    sprint = db.relationship("ProjectSprint", backref=db.backref('question_results'))
-
-    question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
-    question = db.relationship("Question", backref=db.backref('question_result'), uselist=False)
-
->>>>>>> origin/master
     result = db.Column(db.Text)
     checklist_type = db.Column(db.Integer)
 
@@ -33,7 +20,3 @@ class QuestionResult(db.Model):
 
         self.result = result
         self.checklist_type = checklist_type
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master

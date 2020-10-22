@@ -1,18 +1,12 @@
 #! /bin/bash
 
 export FLASK_APP=skf/app.py
-<<<<<<< HEAD
 export PYTHONPATH=.
 export SKF_FLASK_DEBUG='True'
 export SKF_JWT='False'
 export SKF_JWT_SECRET='this_is_a_TEST_secret'
 #export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 python3 skf/app.py 
-=======
-export PYTHONPATH=.:$PYTHONPATH
-export FLASK_DEBUG=1
-export SKF_JWT_SECRET='True'
->>>>>>> origin/master
 
 while :
 do

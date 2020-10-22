@@ -12,10 +12,7 @@ ns = api.namespace('checklist', description='Operations related to checklist ite
 @ns.route('/item/gitplugin/<int:checklist_type>')
 @api.response(404, 'Validation error', message)
 class ChecklistItemQuestions(Resource):
-<<<<<<< HEAD
     
-=======
->>>>>>> origin/master
     @api.marshal_with(checklist_items_questions)
     @api.response(400, 'No results found', message)
     def get(self, checklist_type):

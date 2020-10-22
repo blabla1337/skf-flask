@@ -10,10 +10,6 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_n
 
 ns = api.namespace('kb', description='Operations related to knowledge base')
 
-<<<<<<< HEAD
-=======
- 
->>>>>>> origin/master
 @ns.route('/delete/<int:id>')
 @api.doc(params={'id': 'The project id'})
 @api.response(404, 'Validation error', message)

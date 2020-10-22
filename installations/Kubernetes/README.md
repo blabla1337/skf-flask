@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Kubernetes configmaps.yaml 
 
 Before we can deploy SKF application in a K8s platform we need to modify the configmaps.yaml
@@ -35,44 +34,11 @@ Below are the important variables to be changed and explained:
   # file for example: cat ~/.kube/config | base64
   LABS_KUBE_CONF: HV1c5WWR6aGpWQ3RzVjFsSWFYcEhlQW81UkUxYU9ITnlZbWg0UkdK...a3RMUzB0TFFvPQ==
 ```
-=======
-# Local deployment
-
-You will need to install minikube by following the instructions on https://kubernetes.io/docs/tasks/tools/install-minikube/
-Then you will need to enable minikube's Ingress addon by running
-
-```
-minikube addons enable ingress
-```
-Then you can deploy skf to your minikube instance by running:
-
-```
-for yaml in Docker/alpine-cloud/k8s/*.yaml; do
-    kubectl apply -f $yaml;
-done
-```
-By default the ingress listens for requests at `host.local` you will need to map this to minikube's ip.
-You can find minikube's ip by running
-```
-minikube ip
-```
-
-Last step is to add this entry to your /etc/hosts
-You can do so by running:
-```
-sudo echo host.local $(minikube ip) >> /etc/hosts
-```
-If kubectl shows two pods named skf-flask-front and skf-flask-back up and running then you can access SKF by browsing to
-http://host.local
-
-
->>>>>>> origin/master
 
 == Production ==
 
 You will need to modify the Ingress to include certificate.
 Furthermore you need to change the ingress  host to match your domain.
-<<<<<<< HEAD
 
 # GKE example deployment SKF app
 ## Prep SKF Labs env
@@ -111,24 +77,10 @@ beta-labs.securityknowledgeframework.org 213.219.179.111
 ```
 cd skf-flask
 for yaml in Docker/alpine-cloud/k8s/*.yaml; do
-=======
-Last, you will need to edit configmaps.yaml to change the FRONTENT_URL value to point to where your domain is.
-
-# GKE deployment
-## Prep
-
-1. Clone the repo and edit configmaps.yaml FRONTEND_URI, SKF_API_URL and JWT_SECRET.
-2. Make sure kubectl and gcloud are in the right place e.g. `kubectl config current-context`
-3. Deploy stuff:
-
-```
-for yaml in ~/skf-flask/Docker/alpine-cloud/k8s/*.yaml; do
->>>>>>> origin/master
     kubectl apply -f $yaml;
 done
 ```
 
-<<<<<<< HEAD
 5. Init tiller
 
 Maybe not needed depending if you use helm2 or helm3
@@ -159,29 +111,3 @@ Add the IP of the ingress controller to your DNS records
 beta.securityknowledgeframework.org 213.219.179.222
 
 Now visit your website, for example: https://beta.securityknowledgeframework.org
-=======
-4. Init tiller
-
-```
-helm init --service-account tiller
-```
-
-5. Get a cert e.g. a Lets Encrypt cert locally using something like:
-
-```
-certbot -d skf-k8s.vuln-tracker.dev --manual --preferred-challenges dns certonly
-kubectl create secret tls skf-k8s.vuln-tracker.dev --key privkey.pem --cert cert.pem
-```
-
-OR
-
-deploy [Cert-Manager|https://cert-manager.io/docs/installation/kubernetes/] using helm
-
-6. Deploy an nginx ingress controller:
-
-```
-helm install --name nginx-ingress stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true --set controller.service.externalTrafficPolicy=Local
-```
-
-7. Suss out your IP and do your DNS stuff `kubectl get ingress`.
->>>>>>> origin/master

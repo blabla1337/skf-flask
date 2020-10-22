@@ -10,37 +10,24 @@ import sys
 
 def get_checklist_item(checklist_id):
     log("User requested specific checklist item", "LOW", "PASS")
-<<<<<<< HEAD
     result = ChecklistKB.query.filter(ChecklistKB.id == checklist_id).one()
-=======
-    result = ChecklistKB.query.filter((ChecklistKB.checklist_type == checklist_type) & (ChecklistKB.checklist_id == checklist_id)).one()
->>>>>>> origin/master
     return result
 
 
 def get_checklist_item_questions_git(checklist_type):
     log("User requested specific checklist items and correlated questions", "LOW", "PASS")
-<<<<<<< HEAD
     result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 2500, False)
-=======
-    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).paginate(1, 1500, False)
->>>>>>> origin/master
     return result
 
 
 def get_checklist_item_question_sprint(question_id):
     log("User requested specific checklist item using sprint questionID", "LOW", "PASS")
-<<<<<<< HEAD
     result = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).paginate(1, 2500, False)
-=======
-    result = ChecklistKB.query.filter(ChecklistKB.question_id == question_id).paginate(1, 1500, False)
->>>>>>> origin/master
     return result
 
 
 def get_checklist_item_types(category_id):
     log("User requested list checklist types", "LOW", "PASS")
-<<<<<<< HEAD
     result = ChecklistType.query.filter(ChecklistType.checklist_category_id == category_id).order_by(desc(ChecklistType.visibility)).paginate(1, 2500, False)
     return result
 
@@ -74,20 +61,6 @@ def get_checklist_items(checklist_type):
 def get_checklist_items(checklist_type):
     log("User requested list of checklist items", "LOW", "PASS")
     result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 2500, False)
-=======
-    result = ChecklistType.query.filter(ChecklistType.checklist_category_id == category_id).order_by(desc(ChecklistType.visibility)).paginate(1, 500, False)
-    return result
-
-def get_checklist_item_types_with_filter(maturity):
-    log("User requested list checklist types", "LOW", "PASS")
-    result = ChecklistType.query.filter(ChecklistType.maturity == maturity).filter(ChecklistType.visibility == 1).paginate(1, 500, False)
-    return result
-
-
-def get_checklist_items(checklist_type):
-    log("User requested list of checklist items", "LOW", "PASS")
-    result = ChecklistKB.query.filter(ChecklistKB.checklist_type == checklist_type).order_by(ChecklistKB.checklist_id.asc()).paginate(1, 1500, False)
->>>>>>> origin/master
     return result
     
 
@@ -104,7 +77,6 @@ def create_checklist_type(data, category_id):
     return {'message': 'Checklist type successfully created'} 
 
 
-<<<<<<< HEAD
 def create_checklist_item(checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
     include_always = convert_boolean_type(data.get('include_always'))
@@ -112,15 +84,6 @@ def create_checklist_item(checklist_type, data):
     if validate_duplicate_checklist_item(data.get('checklist_id'), checklist_type) == True:
         try:
             checklist_item = ChecklistKB(data.get('checklist_id'), data.get('content'), checklist_type, include_always, data.get('add_resources'), data.get('maturity'))
-=======
-def create_checklist_item(checklist_id, checklist_type, data):
-    log("User requested create a new checklist item", "LOW", "PASS")
-    include_always = convert_boolean_type(data.get('include_always'))
-    question_id = convert_question_id_to_none(data.get('question_id'))
-    if validate_duplicate_checklist_item(checklist_id, checklist_type) == True:
-        try:
-            checklist_item = ChecklistKB(checklist_id, data.get('content'), checklist_type, include_always, data.get('cwe'), data.get('maturity'))
->>>>>>> origin/master
             checklist_item.question_id = question_id
             checklist_item.kb_id = data.get('kb_id')
             db.session.add(checklist_item)
@@ -131,7 +94,6 @@ def create_checklist_item(checklist_id, checklist_type, data):
         return {'message': 'Checklist item successfully created'} 
     else:
         return {'message': 'Checklist item was duplicate!'} 
-<<<<<<< HEAD
 
 
 def convert_boolean_type(refine):
@@ -164,43 +126,11 @@ def update_checklist_type(id, data):
 
 
 def update_checklist_item(id, data):
-=======
-
-def convert_boolean_type(refine):
-    if refine == "True":
-        refine = True
-    else:
-        refine = False
-    return refine
-
-def convert_question_id_to_none(question_id):
-    if question_id == 0:
-        question_id = None
-    return question_id
-
-def update_checklist_type(id, data):
-    log("User requested update checklist type", "LOW", "PASS")
-    checklist_type = ChecklistType.query.get(id)
-    checklist_type.name = data.get('name')
-    checklist_type.description = data.get('description')
-    checklist_type.visibility = data.get('visibility')
-    try:
-        db.session.add(checklist_type)
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback()
-        raise
-    return {'message': 'Checklist item successfully updated'} 
-
-
-def update_checklist_item(checklist_id, checklist_type, data):
->>>>>>> origin/master
     log("User requested update a specific checklist item", "LOW", "PASS")
     include_always = convert_boolean_type(data.get('include_always'))
     question_id = data.get('question_id')
     if question_id == 0:
         question_id = None
-<<<<<<< HEAD
     result_checklist_kb = ChecklistKB.query.filter(ChecklistKB.id == id).one()
     result_checklist_kb.content = data.get('content')
     result_checklist_kb.include_always = include_always
@@ -209,30 +139,6 @@ def update_checklist_item(checklist_id, checklist_type, data):
     result_checklist_kb.kb_id = data.get('kb_id')
     result_checklist_kb.checklist_id = data.get('checklist_id')
     result_checklist_kb.maturity = data.get('maturity')
-=======
-    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
-    result_checklist_kb.content = data.get('content')
-    result_checklist_kb.include_always = include_always
-    result_checklist_kb.question_id = question_id
-    result_checklist_kb.cwe = data.get('cwe')
-    result_checklist_kb.kb_id = data.get('kb_id')
-    result_checklist_kb.checklist_id = checklist_id
-    result_checklist_kb.maturity = data.get('maturity')
-    result_checklist_kb.checklist_type = checklist_type
-    try:
-        db.session.add(result_checklist_kb)
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback
-        raise
-    return {'message': 'Checklist item successfully updated'} 
-
-def update_checklist_question_correlation(checklist_id, checklist_type, data):
-    log("User requested update a specific checklist question correlation", "LOW", "PASS")
-    question_id = convert_question_id_to_none(data.get('question_id'))
-    result_checklist_kb = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
-    result_checklist_kb.question_id = question_id
->>>>>>> origin/master
     try:
         db.session.add(result_checklist_kb)
         db.session.commit()
@@ -252,7 +158,6 @@ def delete_checklist_type(checklist_type_id):
         raise
     return {'message': 'Checklist type successfully deleted'}
 
-<<<<<<< HEAD
 def update_checklist_question_correlation(checklist_id, question_id):
     log("User requested update a specific checklist question correlation", "LOW", "PASS")
     question_id = convert_question_id_to_none(question_id)
@@ -291,19 +196,6 @@ def delete_checklist_item(checklist_id):
     return {'message': 'Checklist item successfully deleted'}
 
 
-=======
-def delete_checklist_item(checklist_id, checklist_type):
-    log("User deleted checklist item", "MEDIUM", "PASS")    
-    try:
-        checklist = ChecklistKB.query.filter((ChecklistKB.checklist_id == checklist_id) & (ChecklistKB.checklist_type == checklist_type)).one()
-        db.session.delete(checklist)
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback()
-        raise
-    return {'message': 'Checklist item successfully deleted'}
-
->>>>>>> origin/master
 def validate_duplicate_checklist_item(checklist_id, checklist_type):
         checklists = ChecklistKB.query.filter(ChecklistKB.checklist_id == checklist_id).filter(ChecklistKB.checklist_type == checklist_type).all()
         check = True

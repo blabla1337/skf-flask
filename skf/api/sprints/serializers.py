@@ -14,10 +14,7 @@ sprint_stats = api.model('sprint_stats', {
     'title': fields.String(required=True, description='The name of a sprint'),
     'sprint_desc': fields.String(required=True, description='The description of a sprint'),
     'sprint_items_total': fields.Integer(readOnly=True, description='The count of total available items in a sprint'),
-<<<<<<< HEAD
     'project_id': fields.Integer(required=True, description='The unique identifier of a sprint project'),
-=======
->>>>>>> origin/master
 })
 
 page_of_sprint_items = api.inherit('Page of sprint items', {
@@ -45,12 +42,8 @@ results = api.model('results', {
     'checklist_id': fields.Integer(required=True, description='id from checklist_ID'),
     'checklist_items_checklist_id': fields.String(attribute='checklist_item.checklist_id', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='checklist_item.content', required=True, description='Checklist content'),
-<<<<<<< HEAD
     'checklist_items_maturity': fields.String(attribute='checklist_item.maturity', required=True, description='Checklist control maturity'),
     'add_resources': fields.String(attribute='checklist_item.add_resources', required=False, description='The additional resources'),
-=======
-    'cwe': fields.Integer(attribute='checklist_item.cwe', required=False, description='The CWE unique identifier'),
->>>>>>> origin/master
     'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='Knowledge base title'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),

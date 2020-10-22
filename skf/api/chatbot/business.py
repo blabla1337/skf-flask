@@ -10,12 +10,6 @@ from skf.api.chatbot.scripts import entity_classifier1
 from skf.api.chatbot.scripts import entity_classifier2
 from skf.api.chatbot.scripts import code_classify
 from skf.api.chatbot.scripts import web_scraping
-<<<<<<< HEAD
-=======
-
-nltk.download('stopwords')
-nltk.download('punkt')
->>>>>>> origin/master
 
 app = Flask(__name__)
 
