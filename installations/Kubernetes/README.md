@@ -35,6 +35,19 @@ Below are the important variables to be changed and explained:
   LABS_KUBE_CONF: HV1c5WWR6aGpWQ3RzVjFsSWFYcEhlQW81UkUxYU9ITnlZbWg0UkdK...a3RMUzB0TFFvPQ==
 ```
 
+We also need to modify the ingress.yaml
+Below are the important variables to be changed and explained:
+
+The below DNS name will be used to access the SKF application, please change it to your hostname and the same ones you used in the configmaps.yaml file.
+
+```
+  - hosts:
+    - beta.securityknowledgeframework.org
+    secretName: beta.securityknowledgeframework.org
+  rules:
+  - host: beta.securityknowledgeframework.org
+```
+
 == Production ==
 
 You will need to modify the Ingress to include certificate.
