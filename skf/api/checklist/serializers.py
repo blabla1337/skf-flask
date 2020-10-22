@@ -3,10 +3,7 @@ from skf.api.restplus import api
 
 
 checklist = api.model('checklists_kb', {
-<<<<<<< HEAD
     'id': fields.String(attribute='id', required=True, description='The unique identifier of a checklist control'),
-=======
->>>>>>> origin/master
     'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
     'kb_items_content': fields.String(attribute='kb_items.content', required=True, description='Knowledge base content'),
@@ -16,19 +13,11 @@ checklist = api.model('checklists_kb', {
     'checklist_items_type': fields.Integer(attribute='checklist_type', required=True, description='Checklist type'),
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
-<<<<<<< HEAD
     'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
 })
 
 checklist_item = api.model('checklist_item', {
-=======
-    'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
-     'maturity': fields.Integer(required=False, description='The maturity level'),
-})
-
-checklist_update = api.model('checklist_update', {
->>>>>>> origin/master
     'kb_id': fields.Integer(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_title': fields.String(attribute='kb_items.title', required=False, description='Knowledge base title'),
     'kb_content': fields.String(attribute='kb_items.content', required=False, description='Knowledge base content'),
@@ -38,22 +27,11 @@ checklist_update = api.model('checklist_update', {
     'checklist_type': fields.Integer(attribute='checklist_type', required=False, description='Checklist type'),
     'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
-<<<<<<< HEAD
     'add_resources': fields.String(required=False, description='The additional resources'),
-=======
-    'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
->>>>>>> origin/master
     'maturity': fields.Integer(required=False, description='The maturity level'),
     'questions': fields.String(attribute='questions.question', required=False, description='correlated question!'),
 })
 
-<<<<<<< HEAD
-=======
-checklist_correlation = api.model('checklist_correlation', {
-    'question_id': fields.Integer(attribute='question_id',required=True, description='correlate a new question id to the checklist item'),
-})
-
->>>>>>> origin/master
 checklist_questions = api.model('checklists_kb', {
     'kb_item_id': fields.String(attribute='kb_items.kb_id', required=True, description='The unique identifier of a Knowledge base item'),
     'kb_item_title': fields.String(attribute='kb_items.title', required=True, description='Knowledge base title'),
@@ -78,10 +56,7 @@ checklist_items_questions = api.inherit('List of checklist items', {
 checklist_type = api.model('checklist_type_create', {
     'name': fields.String(required=True, description='Name of the new checklist'),
     'description': fields.String(required=True, description='Description of the checklist type'),
-<<<<<<< HEAD
     'visibility': fields.Integer(required=True, description='visibility of the checklist type'),
-=======
->>>>>>> origin/master
 })
 
 checklist_types = api.model('checklist_types', {
@@ -100,14 +75,9 @@ checklist_create_update = api.model('checklist_kb', {
     'kb_id': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
     'include_always': fields.String(required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
-<<<<<<< HEAD
     'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
     'checklist_id': fields.String(required=True, description='Identifier of checlist_id e.g. 1.1, 2.2, 3.1')
-=======
-    'cwe': fields.Integer(required=False, description='The CWE unique identifier'),
-    'maturity': fields.Integer(required=False, description='The maturity level'),
->>>>>>> origin/master
 })
 
 message = api.model('Response message', {

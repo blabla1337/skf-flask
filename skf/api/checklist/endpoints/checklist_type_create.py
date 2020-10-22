@@ -9,11 +9,7 @@ from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_n
 
 ns = api.namespace('checklist_types', description='Operations related to checklist types')
 
-<<<<<<< HEAD
 @ns.route('/create/<int:category_id>')
-=======
-@ns.route('/create/type/<int:category_id>')
->>>>>>> origin/master
 @api.response(404, 'Validation error', message)
 class ChecklistCreate(Resource):
 
@@ -29,9 +25,6 @@ class ChecklistCreate(Resource):
         val_num(category_id)
         val_alpha_num_special(data.get('name'))
         val_alpha_num_special(data.get('description'))
-<<<<<<< HEAD
         val_alpha_num_special(data.get('visibility'))
-=======
->>>>>>> origin/master
         result = create_checklist_type(data, category_id)
         return result, 200, security_headers()

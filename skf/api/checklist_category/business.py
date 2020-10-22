@@ -7,16 +7,11 @@ from skf.database.questions import Question
 from sqlalchemy import desc, asc
 import sys
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def get_checklist_category_item(checklist_category_id):
     log("User requested specific checklist category item", "LOW", "PASS")
     result = ChecklistCategory.query.filter((ChecklistCategory.id == checklist_category_id)).one()
     return result
 
-<<<<<<< HEAD
 
 def get_checklist_categories():
     log("User requested list checklist categories", "LOW", "PASS")
@@ -24,13 +19,6 @@ def get_checklist_categories():
     return result
     
 
-=======
-def get_checklist_categories():
-    log("User requested list checklist categories", "LOW", "PASS")
-    result = ChecklistCategory.query.order_by(desc(ChecklistCategory.name)).paginate(1, 500, False)
-    return result
-    
->>>>>>> origin/master
 def create_checklist_category(data):
     log("User requested create a new checklist category", "LOW", "PASS")
     checklist_category = ChecklistCategory(data.get('name'), data.get('description'))
@@ -42,10 +30,6 @@ def create_checklist_category(data):
         raise
     return {'message': 'Checklist category successfully created'} 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def update_checklist_category(id, data):
     log("User requested update checklist category", "LOW", "PASS")
     checklist_category = ChecklistCategory.query.get(id)
@@ -59,10 +43,6 @@ def update_checklist_category(id, data):
         raise
     return {'message': 'Checklist category successfully updated'} 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def delete_checklist_category(checklist_category_id):
     log("User deleted checklist item", "MEDIUM", "PASS")
     try:

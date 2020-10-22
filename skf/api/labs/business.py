@@ -1,7 +1,6 @@
 from skf.database import db
 from skf.database.lab_items import LabItem
 from skf.api.security import log, val_num, val_alpha_num
-<<<<<<< HEAD
 import time
 from flask import render_template, Blueprint, jsonify, request, current_app
 from skf.api.labs.deployment_tasks import SKFLabDeployment
@@ -25,10 +24,3 @@ def delete_labs(instance_name, userid):
     body = instance_name + ":" + str(userid)
     response = rpc.call(body)
     return response
-=======
-
-def get_labs():
-    log("User requested list of kb items", "LOW", "PASS")
-    result = LabItem.query.order_by(LabItem.level.asc()).paginate(1, 500, False)
-    return result
->>>>>>> origin/master

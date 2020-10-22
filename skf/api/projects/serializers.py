@@ -26,7 +26,6 @@ project_new = api.model('Project new', {
     'name': fields.String(required=True, description='New project name'),
     'description': fields.String(required=True, description='New project description'),
     'version': fields.String(required=True, description='New project version'),
-<<<<<<< HEAD
 })
 
 
@@ -34,8 +33,6 @@ project_update = api.model('Project new', {
     'name': fields.String(required=True, description='New project name'),
     'description': fields.String(required=True, description='New project description'),
     'version': fields.String(required=True, description='New project version'),
-=======
->>>>>>> origin/master
 })
 
 message = api.model('Response message', {

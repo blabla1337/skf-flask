@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import jwt, random, sys, random 
-=======
-import jwt, random, sys 
->>>>>>> origin/master
 from flask import abort
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import date, datetime, timedelta
@@ -15,10 +11,6 @@ from skf.database.groups import Group
 from skf.database.groupmembers import GroupMember
 from skf.database.privileges import Privilege
 from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 
 def activate_user(user_id, data):
     username = strip_whitespace_from_username(data.get("username"))
@@ -41,7 +33,6 @@ def login_user(data):
     log("User successfully logedin", "HIGH", "PASS")
     token = create_jwt_token_for_user(user)
     return {'Authorization token': token, 'username': user.username}
-<<<<<<< HEAD
 
 
 def login_skip():
@@ -49,8 +40,6 @@ def login_skip():
     token = create_jwt_token_for_user("anonymous")
     return {'Authorization token': token, 'username': "anonymous"}
 
-=======
->>>>>>> origin/master
 
 def create_user(data):
     log("A new user created", "MEDIUM", "PASS")
@@ -72,14 +61,10 @@ def create_user(data):
 def manage_user(user_id, data):
     log("Manage user triggered", "HIGH", "PASS")
     user = get_user_result_by_id(user_id)
-<<<<<<< HEAD
     if data.get('active'):
         user.access = data.get('active').lower()=='true'
     if data.get('privilege_id'):
         user.privilege_id = data.get('privilege_id')
-=======
-    user.access = data.get('active').lower()=='true'
->>>>>>> origin/master
     try:
         db.session.add(user)
         db.session.commit()
@@ -88,7 +73,6 @@ def manage_user(user_id, data):
         log("User triggered error managing failed: {}".format(e), "HIGH", "FAIL")
         return {'message': 'User could not be managed'}
     return {'message': 'User successfully managed'}
-<<<<<<< HEAD
 
 
 def list_users():
@@ -97,14 +81,6 @@ def list_users():
     return result
 
 
-=======
-
-def list_users():
-    log("Overview of list users triggered", "HIGH", "PASS")
-    result = User.query.paginate(1, 50, False)
-    return result
-
->>>>>>> origin/master
 def get_user_result_by_username(username):
     try:
         user = User.query.filter(User.username == username).one()
@@ -112,31 +88,18 @@ def get_user_result_by_username(username):
     except:
         return abort(400, 'Login was failed')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def is_user_activated(user):
     if not user.activated:
         return abort(400, 'Login was failed')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def does_user_has_access(user):
     if not user.access:
         return abort(400, 'Login was failed')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def check_password(password_from_db, supplied_password):
     if not check_password_hash(password_from_db.password, supplied_password):
         return abort(400, 'Login was failed')
 
-<<<<<<< HEAD
 
 def create_jwt_token_for_user(user):
     if user == 'anonymous':    
@@ -153,73 +116,38 @@ def create_jwt_token_for_user(user):
             'privilege': user.privilege.privilege,
             'exp': datetime.utcnow() + timedelta(minutes=120)
         }
-=======
-def create_jwt_token_for_user(user):
-    payload = {
-        'UserId': user.id,
-        'iat': datetime.utcnow(),
-        'privilege': user.privilege.privilege,
-        'exp': datetime.utcnow() + timedelta(minutes=120)
-    }
->>>>>>> origin/master
     token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
     if sys.version_info.major == 3:
         unicode = str
     token = unicode(token_raw,'utf-8')
     return token
 
-<<<<<<< HEAD
 
 def get_user_result_by_id(user_id):
     return User.query.filter(User.id == user_id).one() 
 
 
-=======
-def get_user_result_by_id(user_id):
-    return User.query.filter(User.id == user_id).one() 
-
->>>>>>> origin/master
 def strip_whitespace_from_username(username):
     refactor = username.replace(" ", "")
     return refactor
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def user_is_already_activated(result):
     if result == True:
         return abort(400, 'User could not be activated')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def compare_email(email_from_query, email_from_form):
     if email_from_query != email_from_form:
         return abort(400, 'User could not be activated')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def compare_passwords(password, repassword):
     if password != repassword:
         return abort(400, 'User could not be activated')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def compare_access_tokens(token_from_query, token_from_form):
     val_num(token_from_form)
     if token_from_query != token_from_form:
         return abort(400, 'User could not be activated')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def activate_account(username, pw_hash, user_id):
     activate = get_user_result_by_id(user_id)
     activate.password = pw_hash
@@ -229,15 +157,9 @@ def activate_account(username, pw_hash, user_id):
     db.session.add(activate)
     db.session.commit()
 
-<<<<<<< HEAD
 
 def list_privileges():
     log("User requested privileges items", "MEDIUM", "PASS")
     result = Privilege.query.paginate(1, 2500, False)
-=======
-def list_privileges():
-    log("User requested privileges items", "MEDIUM", "PASS")
-    result = Privilege.query.paginate(1, 500, False)
->>>>>>> origin/master
     return result
 

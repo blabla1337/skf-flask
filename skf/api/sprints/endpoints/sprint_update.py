@@ -14,10 +14,7 @@ ns = api.namespace('sprint', description='Operations related to sprint items')
 @api.doc(params={'id': 'The sprint id'})
 @api.response(404, 'Validation error', message)
 class ProjectSprintItemUpdate(Resource):
-<<<<<<< HEAD
     
-=======
->>>>>>> origin/master
     @api.expect(authorization, sprint_update)
     @api.marshal_with(message, 'Success')
     @api.response(400, 'No results found', message)

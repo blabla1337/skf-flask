@@ -6,10 +6,7 @@
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Join the chat at https://owasp.slack.com/messages/C0F7L9X6V](https://img.shields.io/badge/chat-on%20slack-blueviolet)](https://owasp.slack.com/messages/C0F7L9X6V)
 [![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-orange.svg)](https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework)
-<<<<<<< HEAD
 [![OSSF Working group: Best Practices for Open Source Developers](https://openssf.org/wp-content/uploads/sites/112/2020/07/openssf-color.svg)](https://openssf.org)
-=======
->>>>>>> origin/master
 
 <br>Quality testing:<br>
 [![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
@@ -43,18 +40,10 @@ The second stage is validating if the developer properly implemented different s
 
 ## <a name="installing"></a>Installing
 
-<<<<<<< HEAD
 ### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/Kubernetes)  
 ### [Bare metal / on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
 ### [Docker-compose local how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
 ### [SKF K8s Raspberry pi cluster how to](https://github.com/blabla1337/skf-flask/tree/master/installations/pi-cluster)  
-=======
-### [Local on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
-### [Docker local installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
-### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/Kubernetes)  
-### [Azure installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/azure-deployment)  
-
->>>>>>> origin/master
 ### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)  
 
 ## <a name="updating-db"></a>Updating Database
@@ -213,9 +202,6 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Semen Rozhkov
 - Mehtab Zafar 
 - Daniel Spilsbury
-<<<<<<< HEAD
 - Akash M
 - Tess Sluijter
 - Xavier Rene-Corail
-=======
->>>>>>> origin/master

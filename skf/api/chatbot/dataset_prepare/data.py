@@ -16,10 +16,6 @@ def clean():
 	except Exception as e:
 		pass
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 def extract_from_api():
 	r_kb = requests.get(settings.SKF_API_URL+"kb/items", verify = False)
 	r_code = requests.get(settings.SKF_API_URL+"code/items", verify =False)
