@@ -26,14 +26,20 @@ from flask_sqlalchemy import SQLAlchemy
 from skf.chatbot_tools import init_dataset
 from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_initial_data, clean_db, update_db, init_db
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
+<<<<<<< HEAD
 from skf.api.labs.endpoints.lab_deployments import ns as lab_namespace
 from skf.api.labs.endpoints.lab_delete import ns as lab_namespace
+=======
+>>>>>>> origin/master
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
 from skf.api.projects.endpoints.project_new import ns as project_namespace
 from skf.api.projects.endpoints.project_stats import ns as project_namespace
+<<<<<<< HEAD
 from skf.api.projects.endpoints.project_update import ns as project_namespace
 from skf.api.projects.endpoints.project_item import ns as project_namespace
+=======
+>>>>>>> origin/master
 from skf.api.sprints.endpoints.sprint_item import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_delete import ns as sprints_namespace
 from skf.api.sprints.endpoints.sprint_new import ns as sprints_namespace
@@ -65,6 +71,7 @@ from skf.api.checklist_category.endpoints.checklist_category_item import ns as c
 from skf.api.checklist_category.endpoints.checklist_category_update import ns as checklist_category
 from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
+<<<<<<< HEAD
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_items_new import ns as code_namespace
 from skf.api.code.endpoints.code_item_delete import ns as code_namespace
@@ -72,6 +79,11 @@ from skf.api.code.endpoints.code_item_update import ns as code_namespace
 from skf.api.code.endpoints.checklist_kb_code_items_delete import ns as code_namespace
 from skf.api.code.endpoints.checklist_kb_code_items_new import ns as code_namespace
 from skf.api.code.endpoints.checklist_kb_code_items import ns as code_namespace
+=======
+from skf.api.code.endpoints.code_items_new import ns as code_namespace
+from skf.api.code.endpoints.code_item_delete import ns as code_namespace
+from skf.api.code.endpoints.code_item_update import ns as code_namespace
+>>>>>>> origin/master
 from skf.api.user.endpoints.user_create import ns as users_namespace
 from skf.api.user.endpoints.user_activate import ns as users_namespace
 from skf.api.user.endpoints.user_login import ns as users_namespace
@@ -84,18 +96,24 @@ from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_delete import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_new import ns as kb_namespace
+<<<<<<< HEAD
 from skf.api.questions.endpoints.question_item import ns as questions_namespace
+=======
+>>>>>>> origin/master
 from skf.api.questions.endpoints.question_items import ns as questions_namespace
 from skf.api.questions.endpoints.question_store import ns as questions_namespace
 from skf.api.questions.endpoints.question_item_update import ns as question_post_item_update
 from skf.api.questions.endpoints.question_item_new import ns as question_post_item_new
 from skf.api.questions.endpoints.question_item_delete import ns as question_post_item_update
+<<<<<<< HEAD
 from skf.api.search.endpoints.search_kb import ns as search_namespace
 from skf.api.search.endpoints.search_lab import ns as search_namespace
 from skf.api.search.endpoints.search_code import ns as search_namespace
 from skf.api.search.endpoints.search_checklist import ns as search_namespace
 from skf.api.search.endpoints.search_project import ns as search_namespace
 
+=======
+>>>>>>> origin/master
 
 from skf.api.restplus import api
 from skf.database import db
@@ -141,7 +159,10 @@ def initialize_app(flask_app):
     api.add_namespace(checklist_category)
     api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_namespace)
+<<<<<<< HEAD
     api.add_namespace(search_namespace)
+=======
+>>>>>>> origin/master
     flask_app.register_blueprint(blueprint)
 
 app = create_app()
@@ -150,19 +171,27 @@ cors = CORS(app, resources={r"/api/*": {"origins": settings.ORIGINS}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
+<<<<<<< HEAD
 
 @app.cli.command('cleandb')
 def cleandb_command():
     """Delete DB and creates a new database with all the Markdown files."""
     clean_db()
     log.info("cleaned the database.")
+=======
+>>>>>>> origin/master
 
 
-@app.cli.command('initdb')
+@app.cli.command('cleandb')
 def initdb_command():
     """Delete DB and creates a new database with all the Markdown files."""
+<<<<<<< HEAD
     init_db()
     log.info("Created the database.")
+=======
+    clean_db()
+    print('Initialized the database.')
+>>>>>>> origin/master
 
 
 @app.cli.command('initdataset')
@@ -176,6 +205,7 @@ def initdataset_command():
 def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
+<<<<<<< HEAD
     log.info("Database updated with the markdown files.")
         
 
@@ -187,6 +217,23 @@ def main():
     else:
         log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
         app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=True)
+=======
+    print('Database updated with the markdown files.')
+
+def main():
+    """Main SKF method"""
+    #initialize_app(app)
+    if app.debug == False:
+        if  settings.JWT_SECRET == '':
+            log.info('>>>>> Configure the JWT_SECRET in the settings.py file and choose an unique 128 character long secret <<<<<')
+        else:
+            log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
+            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)
+    if app.debug == True:
+        if  settings.JWT_SECRET == 'True':
+            log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
+            app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=app.debug)    
+>>>>>>> origin/master
 
 if __name__ == "__main__":
     main()

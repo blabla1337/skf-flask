@@ -3,9 +3,6 @@
 
 ## Example:
 
-- todo insecure default with continue is true:
-- todo ideally you have a pre-defined subset of commands and correlate them to
-  whatever was picked as a command
 
 	"""
 	Define the whitelist pattern and validation type and input parameter like:

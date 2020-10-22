@@ -1,0 +1,69 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+<section id="main-content" class="labs">
+	<section class="intro">
+		<div class="inner">
+			<div class="text">
+				<h1>Security Knowledge Framework Labs</h1>
+				<p>SKF Labs, training your security testing skills.</p>
+			</div>
+		</div>
+	</section>
+	<section class="wrapper">
+		<div class="row mt">
+				<div class="srcWrap">
+						<div class="src">
+							<input class="searchinput" [(ngModel)]="queryString" id="search" name="search" placeholder="Search lab" />
+							<i class="fa fa-search"></i>
+						</div>
+					</div>
+			<div class="col-lg-12">
+				<div class="content-panel">
+					<div class="row">
+						<table class="table table-striped table-advance table-hover">
+							<thead>
+								<tr>
+									<th><i class="fa fa-bullhorn"></i> Lab Name</th>
+									<th><i class="fa fa-check"></i> Skill level</th>
+									<th><i class="fa fa-times"></i> To Lab</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let labItems of labs | stringFilter : queryString; let myIndex = index">
+									<td>{{labItems.title}}</td>
+									<td>{{labItems.level}}</td>
+									<td><a href="{{labItems.link}}" target="_blank"><i class="fa fa-flask"> Go to lab</i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->
+<!--main content end-->

@@ -6,7 +6,10 @@
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Join the chat at https://owasp.slack.com/messages/C0F7L9X6V](https://img.shields.io/badge/chat-on%20slack-blueviolet)](https://owasp.slack.com/messages/C0F7L9X6V)
 [![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-orange.svg)](https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework)
+<<<<<<< HEAD
 [![OSSF Working group: Best Practices for Open Source Developers](https://openssf.org/wp-content/uploads/sites/112/2020/07/openssf-color.svg)](https://openssf.org)
+=======
+>>>>>>> origin/master
 
 <br>Quality testing:<br>
 [![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
@@ -34,16 +37,24 @@ Our experience taught us that the current level of security of web-applications 
 
 Because of this we decided to develop a framework in order to create a guide-system available for all developers so they can develop applications secure by design from the start.
 
-The OWASP Security Knowledge Framework is here to support developers create secure applications. By using the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) as a security requirement and give the developer feedback regarding descriptions and solutions on how to properly implement these security controls in a safe manner.
+The OWASP Security Knowledge Framework is here to support developers in creating secure applications. By using the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) as a security requirement and give the developer feedback regarding descriptions and solutions on how to properly implement these security controls in a safe manner.
 
-The second stage is validating if the developer properly implemented different security controls and the belonging defence mechanisms by means of checklists created with the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and give him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
+The second stage is validating if the developer properly implemented different security controls and the belonging defence mechanisms by means of checklists created with the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and gives him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
 
 ## <a name="installing"></a>Installing
 
+<<<<<<< HEAD
 ### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/Kubernetes)  
 ### [Bare metal / on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
 ### [Docker-compose local how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
 ### [SKF K8s Raspberry pi cluster how to](https://github.com/blabla1337/skf-flask/tree/master/installations/pi-cluster)  
+=======
+### [Local on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
+### [Docker local installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
+### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/Kubernetes)  
+### [Azure installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/azure-deployment)  
+
+>>>>>>> origin/master
 ### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)  
 
 ## <a name="updating-db"></a>Updating Database
@@ -202,6 +213,9 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Semen Rozhkov
 - Mehtab Zafar 
 - Daniel Spilsbury
+<<<<<<< HEAD
 - Akash M
 - Tess Sluijter
 - Xavier Rene-Corail
+=======
+>>>>>>> origin/master

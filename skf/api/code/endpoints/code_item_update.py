@@ -25,8 +25,14 @@ class CodeItemUpdate(Resource):
         """
         data = request.json
         val_alpha_num_special(data.get('title'))
+<<<<<<< HEAD
         val_num(id)
         validate_privilege(self, 'edit')
+=======
+        val_alpha_num(data.get('code_lang'))
+        val_num(id)
+        validate_privilege(self, 'manage')
+>>>>>>> origin/master
         result = update_code_item(id, data)
         return result, 200, security_headers()
  

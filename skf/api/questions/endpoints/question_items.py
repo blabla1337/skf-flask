@@ -10,6 +10,7 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_n
 
 ns = api.namespace('questions', description='Operations related to question items')
 
+
 @ns.route('/items/<int:checklist_type>')
 @api.doc(params={'checklist_type': 'The question checklist type used for sprint process step'})
 @api.response(404, 'Validation error', message)

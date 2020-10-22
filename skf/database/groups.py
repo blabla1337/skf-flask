@@ -7,8 +7,15 @@ class Group(db.Model):
     __tablename__ = 'groups'
 
     id = db.Column(db.Integer, primary_key=True)
+<<<<<<< HEAD
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     owner = db.relationship('User', backref=db.backref("owned_groups"), uselist=False)
+=======
+
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    owner = db.relationship('User', backref=db.backref("owned_groups"), uselist=False)
+
+>>>>>>> origin/master
     groupName = db.Column(db.String(255), nullable=False)
     members = db.relationship('User', secondary=GroupMember, back_populates='groups')
     timestamp = db.Column(db.Text)

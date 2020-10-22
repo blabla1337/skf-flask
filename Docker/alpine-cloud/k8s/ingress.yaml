@@ -10,10 +10,17 @@ metadata:
 spec:
   tls:
   - hosts:
+<<<<<<< HEAD
     - beta.securityknowledgeframework.org
     secretName: beta.securityknowledgeframework.org
   rules:
   - host: beta.securityknowledgeframework.org
+=======
+    - #your hostname e.g. skf.example.com
+    secretName: #your hostname e.g. skf.example.com
+  rules:
+  - host: #your hostname e.g. skf.example.com
+>>>>>>> origin/master
     http:
      paths:
      - backend:

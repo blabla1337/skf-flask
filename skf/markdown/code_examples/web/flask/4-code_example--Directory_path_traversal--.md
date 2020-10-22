@@ -3,7 +3,6 @@
 
 ## Example:
 
-- todo insecure default with continue is true:
 
 	//Define the whitelist pattern and validation type and input parameter like:
 	//getFiles("images,css,js", 'alphanumeric', foldername)

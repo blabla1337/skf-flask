@@ -16,7 +16,11 @@ spec:
     app.kubernetes.io/name: skf-flask-back
     app.kubernetes.io/instance: skf-flask-back
 ---
+<<<<<<< HEAD
 apiVersion: apps/v1
+=======
+apiVersion: apps/v1beta2
+>>>>>>> origin/master
 kind: Deployment
 metadata:
   name: skf-flask-back
@@ -40,8 +44,13 @@ spec:
         runAsUser: 1000
       containers:
         - name: skf-flask-back
+<<<<<<< HEAD
           image: "blabla1337/skf-api:dev"
           imagePullPolicy: Always
+=======
+          image: "blabla1337/skf-api:1.3"
+          imagePullPolicy: IfNotPresent
+>>>>>>> origin/master
           ports:
             - containerPort: 8888
           env:
@@ -60,11 +69,19 @@ spec:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: SKF_DB_URL
+<<<<<<< HEAD
             - name: SKF_JWT_SECRET
               valueFrom:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: SKF_JWT_SECRET
+=======
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: JWT_SECRET
+>>>>>>> origin/master
             - name: SKF_DOJO_API_KEY
               valueFrom:
                 configMapKeyRef:
@@ -75,6 +92,7 @@ spec:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: SKF_TESTING
+<<<<<<< HEAD
             - name: RABBIT_MQ_CONN_STRING
               valueFrom:
                 configMapKeyRef:
@@ -90,4 +108,7 @@ spec:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: SKF_LABS_DOMAIN     
+=======
+
+>>>>>>> origin/master
 ---

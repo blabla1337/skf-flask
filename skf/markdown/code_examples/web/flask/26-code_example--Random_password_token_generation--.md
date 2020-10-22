@@ -9,11 +9,12 @@
 	instead of writing your own.
 	"""
 	
-	import secrets
-	SECRET_KEY = secrets.token_hex(36)
+	//Return a 50 character random string usable as a SECRET_KEY setting value.
+	from django.core.management.utils import get_random_secret_key
+	SECRET_KEY = get_random_secret_key()
+	
+	//Generate an even longer random string usable as a SECRET_KEY setting
+	from django.utils.crypto import get_random_string
+	chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+	SECRET_KEY = get_random_string(100, chars)
     
-	"""
-	use secrets.token_urlsafe() for base64 encoded random secure strings
-	"""
-
-

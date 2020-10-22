@@ -10,6 +10,7 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_n
 
 ns = api.namespace('questions', description='Operations related to question items')
 
+
 @ns.route('/store/<int:checklist_type>/<int:maturity>')
 @api.response(404, 'Validation error', message)
 class QuestionSprintStoreCollection(Resource):
@@ -23,6 +24,7 @@ class QuestionSprintStoreCollection(Resource):
         * Privileges required: **edit**
         """
         validate_privilege(self, 'edit')
+        user_id = select_userid_jwt(self)
         data = request.json
         result = store_questions(checklist_type, maturity, data)
         return result, 200, security_headers()

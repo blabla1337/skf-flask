@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import logging.config, os, datetime
+=======
+import os
+import sys 
+import datetime
+>>>>>>> origin/master
 from flask import Flask, current_app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
@@ -17,12 +23,20 @@ logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
 def clear_db():
+<<<<<<< HEAD
     log.info("Clearing the database")
+=======
+    print("Clearing the database")
+>>>>>>> origin/master
     try:
         db.drop_all()
         db.session.commit()
     except:
+<<<<<<< HEAD
         log.info("Error occurred clearing the database")
+=======
+        print("Error occurred clearing the database")
+>>>>>>> origin/master
         db.session.rollback()
         raise
 
@@ -30,6 +44,7 @@ def clear_db():
 def init_db(testing=False):
     """Initializes the database.""" 
     try:
+<<<<<<< HEAD
         log.info("Initializing the database")
         db.create_all()
         prerequisits()
@@ -40,12 +55,28 @@ def init_db(testing=False):
     except:
         db.session.remove()
         log.info("Database is already existsing, nothing to do")
+=======
+        print("Initializing the database")
+        db.create_all()
+        prerequisits()
+        init_md_knowledge_base()
+        init_md_code_examples()
+        load_initial_data()
+    except:
+        db.session.remove()
+        print("Database is already existsing, nothing to do")
+>>>>>>> origin/master
 
 
 def clean_db(testing=False):
     """Clean and Initializes the database.""" 
+<<<<<<< HEAD
     log.info("Clean and Initializing the database")
     clear_db()
+=======
+    clear_db()
+    print("Clean and Initializing the database")
+>>>>>>> origin/master
     db.create_all()
     prerequisits()
     init_md_code_examples()
@@ -53,16 +84,23 @@ def clean_db(testing=False):
     init_md_knowledge_base()
     load_initial_data()
     db.session.commit()
+<<<<<<< HEAD
 
 
 def update_db():
     """Update the database."""
     log.info("Update the database")
+=======
+
+def update_db():
+    """Update the database."""
+>>>>>>> origin/master
     KBItem.query.delete()
     CodeItem.query.delete()
     db.session.commit()
     init_md_code_examples()
     init_md_knowledge_base()
+<<<<<<< HEAD
 
 
 def init_md_knowledge_base():
@@ -93,6 +131,34 @@ def init_md_knowledge_base():
                     except IntegrityError as e:
                         raise
         log.info("Initialized the markdown knowledge-base.")
+=======
+
+def init_md_knowledge_base():
+    """Converts markdown knowledge-base items to DB."""
+    kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/web')
+    try:
+        for filename in os.listdir(kb_dir):
+            if filename.endswith(".md"):
+                name_raw = filename.split("-")
+                kb_id = name_raw[0].replace("_", " ")
+                title = name_raw[3].replace("_", " ")
+                file = os.path.join(kb_dir, filename)
+                data = open(file, 'r')
+                file_content = data.read()
+                data.close()
+                content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                try:
+                    item = KBItem(title, content, kb_id)
+                    if (kb_id == "1"):
+                        item.checklist_category_id = 0
+                    else:
+                        item.checklist_category_id = 1
+                    db.session.add(item)
+                    db.session.commit()
+                except IntegrityError as e:
+                    raise
+        print('Initialized the markdown knowledge-base.')
+>>>>>>> origin/master
         return True
     except:
         raise
@@ -101,7 +167,11 @@ def init_md_knowledge_base():
 def init_md_code_examples():
     """Converts markdown code-example items to DB."""
     kb_dir = os.path.join(current_app.root_path, 'markdown/code_examples/web/')
+<<<<<<< HEAD
     code_langs = ['asp-needs-reviewing', 'java-needs-reviewing', 'php-needs-reviewing', 'flask', 'django-needs-reviewing', 'go-needs-reviewing', 'ruby-needs-reviewing', 'nodejs-express-needs-reviewing']
+=======
+    code_langs = ['asp', 'java', 'php', 'flask', 'django', 'go', 'ruby', 'nodejs-express']
+>>>>>>> origin/master
     try:
         for lang in code_langs:
             for filename in os.listdir(kb_dir+lang):
@@ -121,6 +191,7 @@ def init_md_code_examples():
                     except IntegrityError as e:
                         print(e)
                         pass
+<<<<<<< HEAD
         log.info("Initialized the markdown code-examples.")
         return True
     except:
@@ -151,6 +222,9 @@ def init_md_testing_examples():
                         print(e)
                         pass
         log.info("Initialized the markdown code-examples.")
+=======
+        print('Initialized the markdown code-examples.')
+>>>>>>> origin/master
         return True
     except:
         raise
@@ -164,10 +238,13 @@ def prerequisits():
         category = ChecklistCategory("Mobile applications", "category for mobile collection")
         db.session.add(category)
         db.session.commit()
+<<<<<<< HEAD
         category = ChecklistCategory("Custom checklist", "category for custom checklist collection")
         db.session.add(category)
         db.session.commit()
         log.info("Initialized the prerequisits.")
+=======
+>>>>>>> origin/master
         return True
     except:
         raise

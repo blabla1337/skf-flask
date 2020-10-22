@@ -1,10 +1,8 @@
 # File upload
-
 -------
 
 ## Example:
 
-- todo: file size restrictions
     
 	import os
 	from flask import render_template, flash

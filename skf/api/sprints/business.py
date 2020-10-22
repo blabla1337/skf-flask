@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import base64, string, random, requests, sys, secrets
+=======
+import base64, string, random, requests, sys
+>>>>>>> origin/master
 from skf import settings
 from flask import abort
 from skf.database import db
@@ -22,10 +26,16 @@ def get_sprint_item(sprint_id):
 
 def get_sprint_results(sprint_id):
     log("User requested specific sprint items", "MEDIUM", "PASS")
+<<<<<<< HEAD
     result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_id)).paginate(1, 2500, False)
     return result
 
 
+=======
+    result = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).order_by(asc(ChecklistResult.checklist_id)).paginate(1, 500, False)
+    return result
+
+>>>>>>> origin/master
 def update_sprint(sprint_id, data):
     log("User updated sprint", "MEDIUM", "PASS")
     try:
@@ -80,7 +90,10 @@ def delete_sprint(sprint_id):
         return abort(400, 'Sprint not successfully deleted')
     return {'message': 'Sprint successfully deleted'}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 def delete_checklist_result(id):
     log("User deleted sprint", "MEDIUM", "PASS")
     try:
@@ -117,8 +130,12 @@ def convert_boolean_type(refine):
 
 def export_results(sprint_results):
     results = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_results).order_by(ChecklistResult.checklist_type_id).all()
+<<<<<<< HEAD
     unique = secrets.token_urlsafe(15)
     file_path = "export_"+unique+".csv"
+=======
+    file_path = "export.csv"
+>>>>>>> origin/master
     with open(file_path, 'w+') as file:
         file.write('title,description,mitigation\n')
         for item in results:
@@ -133,7 +150,11 @@ def export_results(sprint_results):
                 title = checklist.content.replace(',','\\,').replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
                 if kb_item != None:
                     try:
+<<<<<<< HEAD
                         temp = kb_item.content.replace(',','\\,').split("Mitigation:")
+=======
+                        temp = kb_item.content.replace(',','\\,').split("Solution:")
+>>>>>>> origin/master
                         temp1 = temp[0].split("Description:")
                         description = temp1[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
                         mitigation = temp[1].replace('\n',' ').lstrip(' ').rstrip(' ').replace('  ',' ')
@@ -144,5 +165,9 @@ def export_results(sprint_results):
                     description = "empty"
                     mitigation = "empty"
                 file.write('"' + checklistName + ' : ' + title + '","' + description + '","' + mitigation + '"\n')
+<<<<<<< HEAD
     with open("export_"+unique+".csv", 'rb') as file:
+=======
+    with open("export.csv", 'rb') as file:
+>>>>>>> origin/master
         return {'message': base64.b64encode(file.read())}
