@@ -43,6 +43,7 @@ services:
     image: "blabla1337/skf-angular:dev"
     environment:
       - FRONTEND_URI=http://localhost
+      - SKIP_LOGIN=skiploginprovider
 
   skf-api:
     container_name: skf-api_container
