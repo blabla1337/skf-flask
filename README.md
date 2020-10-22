@@ -203,3 +203,4 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Akash M
 - Tess Sluijter
 - Xavier Rene-Corail
+- David Wheeler
