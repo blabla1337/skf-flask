@@ -2,13 +2,13 @@
 [![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/) 
 
 <br>Project status details:<br>
-[![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=main)](https://travis-ci.org/blabla1337/skf-flask)
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Join the chat at https://owasp.slack.com/messages/C0F7L9X6V](https://img.shields.io/badge/chat-on%20slack-blueviolet)](https://owasp.slack.com/messages/C0F7L9X6V)
 [![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-orange.svg)](https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework)
 [![OSSF Working group: Best Practices for Open Source Developers](https://img.shields.io/badge/OpenSSF-Learning%20Platform-orange)](https://openssf.org)
 
 <br>Quality testing:<br>
+[![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=main)](https://travis-ci.org/blabla1337/skf-flask)
 [![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
 [![Coverage Status](https://coveralls.io/repos/github/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/github/blabla1337/skf-flask?branch=master)
 [![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=main)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=master)
