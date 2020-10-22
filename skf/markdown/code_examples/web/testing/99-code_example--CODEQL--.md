@@ -28,7 +28,10 @@
             "user-provided value"
         ```
 
-        You can benefit from the power of the CodeQL analysis on your GitHub repository with GitHub code scanning. Just visit ["Enabling code scanning for a repository"](https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository), to get the standard set of CodeQL queries protecting your code, on a given schedule, or during a Pull Request, so that the vulnerability never reaches your main branch. 
+        You can benefit from the power of the CodeQL analysis on your GitHub repository with GitHub code scanning. Just visit ["Enabling code scanning 
+        for a repository"](https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/
+        enabling-code-scanning-for-a-repository), to get the standard set of CodeQL queries protecting your code, on a given schedule, or during a Pull 
+        Request, so that the vulnerability never reaches your main branch. 
 
         [link to CodeQL](https://codeql.com)
 
