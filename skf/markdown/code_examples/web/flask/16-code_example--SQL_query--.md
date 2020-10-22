@@ -55,3 +55,13 @@
 	
 		result = db.engine.execute(sql)
 		print result[0]
+
+    """
+	Alternatively if SQL alchemy cannot be used, us prepared statement parameterized query
+	"""
+
+	def storeMessages(self, name, message, link):
+	db = database_con()
+	cur = db.execute(''' INSERT INTO messages(name, message, link, timestamp)VALUES(?,?,?,?)''',(name, message, link, datetime.now() ))
+	return db.commit()
+    

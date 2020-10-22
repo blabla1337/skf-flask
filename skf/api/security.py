@@ -87,6 +87,7 @@ def val_float(value):
     else:
         return True
 
+
 def validate_privilege(self, privilege):
     """Validates the JWT privileges"""
     if not request.headers.get('Authorization'):

@@ -12,6 +12,7 @@ from skf.database.groupmembers import GroupMember
 from skf.database.privileges import Privilege
 from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_num_special
 
+
 def activate_user(user_id, data):
     username = strip_whitespace_from_username(data.get("username"))
     result = get_user_result_by_id(user_id)
@@ -58,6 +59,7 @@ def create_user(data):
     result = User.query.filter(User.email == data.get('email')).one()
     return result
 
+
 def manage_user(user_id, data):
     log("Manage user triggered", "HIGH", "PASS")
     user = get_user_result_by_id(user_id)
@@ -88,13 +90,16 @@ def get_user_result_by_username(username):
     except:
         return abort(400, 'Login was failed')
 
+
 def is_user_activated(user):
     if not user.activated:
         return abort(400, 'Login was failed')
 
+
 def does_user_has_access(user):
     if not user.access:
         return abort(400, 'Login was failed')
+
 
 def check_password(password_from_db, supplied_password):
     if not check_password_hash(password_from_db.password, supplied_password):
@@ -131,22 +136,27 @@ def strip_whitespace_from_username(username):
     refactor = username.replace(" ", "")
     return refactor
 
+
 def user_is_already_activated(result):
     if result == True:
         return abort(400, 'User could not be activated')
+
 
 def compare_email(email_from_query, email_from_form):
     if email_from_query != email_from_form:
         return abort(400, 'User could not be activated')
 
+
 def compare_passwords(password, repassword):
     if password != repassword:
         return abort(400, 'User could not be activated')
+
 
 def compare_access_tokens(token_from_query, token_from_form):
     val_num(token_from_form)
     if token_from_query != token_from_form:
         return abort(400, 'User could not be activated')
+
 
 def activate_account(username, pw_hash, user_id):
     activate = get_user_result_by_id(user_id)

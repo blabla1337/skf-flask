@@ -1,9 +1,8 @@
 import os
 import secrets
+
 # Flask settings
 # FLASK_SERVER_NAME = FLASK_HOST+":"+str(FLASK_PORT)
-
-
 FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 8888
 # Do not use debug mode in production

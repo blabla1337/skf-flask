@@ -55,7 +55,6 @@ def get_code_items(category_id):
     log("User requested list of code items", "LOW", "PASS")
     result = CodeItem.query.filter(CodeItem.checklist_category_id == category_id).paginate(1, 2500, False)
     return result
-    
 
 
 def get_code_item(code_id):

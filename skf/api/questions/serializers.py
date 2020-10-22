@@ -24,7 +24,7 @@ store_list_items = api.inherit('List of questions sprint', {
     'questions': fields.List(fields.Nested(list))
 })
 
-question_item_update = api.model('question_item_update', {
+question_item = api.model('question_item', {
     'question': fields.String(readOnly=True, description='The question value'),
     'checklist_type': fields.Integer(required=True, description='The question checklist type used for sprint process step'),
 })

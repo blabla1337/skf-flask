@@ -46,6 +46,7 @@ def delete_kb_item(kb_id):
         raise
     return {'message': 'KB item successfully deleted'}
 
+
 def get_kb_item(kb_id):
     log("User requested specific kb item", "LOW", "PASS")
     return KBItem.query.filter(KBItem.kb_id == kb_id).first()

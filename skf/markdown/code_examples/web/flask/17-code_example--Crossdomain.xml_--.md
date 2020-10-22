@@ -26,3 +26,13 @@
 			<site-control permitted-cross-domain-policies="master-only"/>
 			<allow-http-request-headers-from domain="*.twitter.com" headers="*" secure="true"/>
 		</cross-domain-policy>
+
+
+Alternatively for setting up cors in flask:
+
+	from project import app
+	from flask_cors import CORS
+
+	if __name__ == '__main__':
+		cors = CORS(app, resources={r"/*": {"origins": "*"}}) # <- never use a wildcard speficy a domain!!
+		app.run(host='0.0.0.0')
