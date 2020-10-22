@@ -15,14 +15,8 @@ spec:
   selector:
     app.kubernetes.io/name: skf-flask-front
     app.kubernetes.io/instance: skf-flask-front
-<<<<<<< HEAD
 ---
 apiVersion: apps/v1
-=======
-
----
-apiVersion: apps/v1beta2
->>>>>>> origin/master
 kind: Deployment
 metadata:
   name: skf-flask-front
@@ -46,13 +40,8 @@ spec:
         runAsUser: 100
       containers:
         - name: skf-flask-front
-<<<<<<< HEAD
           image: "blabla1337/skf-angular:dev"
           imagePullPolicy: Always
-=======
-          image: "blabla1337/skf-angular:1.3"
-          imagePullPolicy: IfNotPresent
->>>>>>> origin/master
           ports:
           - containerPort: 8788
           env:
