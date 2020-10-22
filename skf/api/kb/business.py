@@ -36,7 +36,10 @@ def create_kb_item(data, category_id):
 
 def delete_kb_item(kb_id):
     log("User deleted kb item", "MEDIUM", "PASS")
+<<<<<<< HEAD
     val_num(kb_id)
+=======
+>>>>>>> origin/master
     try:
         kb_item = KBItem.query.filter(KBItem.kb_id == kb_id).first()
         db.session.delete(kb_item)
@@ -46,7 +49,10 @@ def delete_kb_item(kb_id):
         raise
     return {'message': 'KB item successfully deleted'}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 def get_kb_item(kb_id):
     log("User requested specific kb item", "LOW", "PASS")
     return KBItem.query.filter(KBItem.kb_id == kb_id).first()
@@ -54,4 +60,8 @@ def get_kb_item(kb_id):
 
 def get_kb_items(category_id):
     log("User requested list of kb items", "LOW", "PASS")
+<<<<<<< HEAD
     return KBItem.query.filter((KBItem.checklist_category_id == category_id) | (KBItem.checklist_category_id == 0)).paginate(1, 2500, False)
+=======
+    return KBItem.query.filter((KBItem.checklist_category_id == category_id) | (KBItem.checklist_category_id == 0)).paginate(1, 500, False)
+>>>>>>> origin/master

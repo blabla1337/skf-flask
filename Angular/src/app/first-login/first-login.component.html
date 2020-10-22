@@ -1,0 +1,110 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<div style="z-index:100;" id="login" class="container">
+
+  <div class="col-wrapper">
+    <div class="lock-screen">
+      <div class="login-wrapper">
+        <div class="logo"><img src="assets/img/logos/logo_login.svg" width="60" height="60" /></div>
+          <div *ngIf="isSubmitted && formControls.user_id.errors" class="help-block">
+              <div *ngIf="formControls.user_id.errors.required">
+                <ngb-alert type="danger" [dismissible]="false">
+                  User id was not filled in 
+                </ngb-alert>
+              </div>
+            </div>
+
+            <div *ngIf="isSubmitted && formControls.accessToken.errors" class="help-block">
+                <div *ngIf="formControls.accessToken.errors.required">
+                  <ngb-alert type="danger" [dismissible]="false">
+                    Access token was not filled in 
+                  </ngb-alert>
+                </div>
+              </div>
+
+              <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+                  <div *ngIf="formControls.email.errors.required">
+                    <ngb-alert type="danger" [dismissible]="false">
+                      Email was not filled in 
+                    </ngb-alert>
+                  </div>
+                </div>
+
+                <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+                    <div *ngIf="formControls.username.errors.required">
+                      <ngb-alert type="danger" [dismissible]="false">
+                        username was not filled in 
+                      </ngb-alert>
+                    </div>
+                  </div>
+
+                  <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                      <div *ngIf="formControls.password.errors.required">
+                        <ngb-alert type="danger" [dismissible]="false">
+                          password was not filled in 
+                        </ngb-alert>
+                      </div>
+                    </div>
+
+                    <div *ngIf="isSubmitted && formControls.repassword.errors" class="help-block">
+                        <div *ngIf="formControls.repassword.errors.required">
+                          <ngb-alert type="danger" [dismissible]="false">
+                            re-password was not filled in 
+                          </ngb-alert>
+                        </div>
+                      </div>
+
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 style="text-align: center" class="modal-title">Activate a user account</h4>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="activateForm">
+                 <input formControlName="user_id" maxlength="20"  id="user_id" placeholder="user ID" autocomplete="off" class="form-control placeholder-no-fix"/>
+                <br>
+                <input formControlName="accessToken" maxlength="20" id="token" placeholder="Access token" autocomplete="off" class="form-control placeholder-no-fix"/>
+                <br>
+                <input formControlName="email" maxlength="50"  id="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" />
+                <br>
+                <input formControlName="username" maxlength="20"  id="username" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"/>
+                <br>
+                <input formControlName="password" maxlength="50" type="password"  id="password" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix"/>
+                <br>
+                <input formControlName="repassword" maxlength="50" type="password" id="repassword" placeholder="Re-type password" autocomplete="off" class="form-control placeholder-no-fix"/>
+                <div class="modal-footer centered">
+                  <button type="submit" (click)="activateUser()" class="btn btn-theme03" id="create" >Create account</button>
+                  <a href="#" routerLink="/login"> <button class="btn btn-theme03" type="submit">Cancel</button></a>
+                </div>
+              </form>
+            </div>
+            <!-- js placed at the end of the document so the pages load faster -->
+            <script src="assets/js/bootstrap.min.js"></script>
+          </div>
+        </div>
+      </div>
+      <div class="copy">
+        <img src="assets/img/logos/owasp-icon-grey.svg" width="40" height="40" />Supported by <a style="color:#4d6aa9;"
+          href="https://www.owasp.org/index.php?title=OWASP_Security_Knowledge_Framework">OWASP</a>
+      </div>
+    </div>
+  </div>
+</div>

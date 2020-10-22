@@ -9,6 +9,10 @@ class ChecklistType(db.Model):
     name = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
     visibility = db.Column(db.Boolean, nullable=False)
+<<<<<<< HEAD
+=======
+    
+>>>>>>> origin/master
     checklist_category_id = db.Column(db.Integer, db.ForeignKey("checklist_category.id"), nullable=True)
     checklist_category = db.relationship("ChecklistCategory", backref=db.backref('checklist_types'))
 

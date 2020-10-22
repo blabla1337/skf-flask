@@ -10,6 +10,10 @@ from skf.api.security import log, val_num, val_alpha, val_alpha_num, val_alpha_n
 
 ns = api.namespace('kb', description='Operations related to kb items')
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 @ns.route('/new/<int:category_id>')
 @api.response(404, 'Validation error', message)
 class KBItemCreate(Resource):

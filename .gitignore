@@ -21,4 +21,7 @@ lib
 bin
 bin64
 include
+<<<<<<< HEAD
 venv
+=======
+>>>>>>> origin/master

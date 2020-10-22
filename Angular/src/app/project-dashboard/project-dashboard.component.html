@@ -1,0 +1,383 @@
+<!-- 
+    Security Knowledge Framework is an expert system application 
+    that uses OWASP Application Security Verification Standard, code examples,
+    helps developers in pre-development and post-development.  
+    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+
+<section id="main-content" class="page03 project-summary">
+  <section class="intro">
+    <div class="inner">
+      <div class="text">
+        <h1>Project overview</h1>
+        <p>An overview of all the current security requirements in the project. More information about the security
+          requirements by
+          clicking
+          on the view button. </p>
+      </div>
+      <button style="float:right;" id="sprint" name="sprint" (click)="open(content)" class="btn btn-default"><i
+          class="fa fa-cog" aria-hidden="true"></i> Ask for requirements!</button>
+    </div>
+  </section>
+  <section class="wrapper" style="margin-top:0px;">
+    <div class="row mt">
+      <div class="col-lg-12">
+        <div class="srcWrap">
+          <div class="src">
+            <input class="searchinput" [(ngModel)]="queryString" id="search" name="search"
+              placeholder="Search feature/sprint" />
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <div class="content-panel">
+          <div *ngFor="let sprint of sprintResult | stringFilter : queryString;" class="col-md-3">
+            <div class="card">
+              <div class="card-header padding-right">
+                {{sprint.title}}
+              </div>
+              <div class="card-block">
+                <ngb-tabset>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle><b>Summary</b></ng-template>
+                    <ng-template ngbTabContent>
+                      <span style="margin-left:40%;" class="icon"><i class="fa fa-check-circle fa-4x"></i></span>
+                      <br />
+                      total items: {{sprint.sprint_items_total}}
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle><b>Information</b></ng-template>
+                    <ng-template ngbTabContent>
+                      <br />
+                      <p><b>Name: <br>{{sprint.title}}</b></p>
+                      <p>Sprint description: <br>{{sprint.sprint_desc}} </p>
+                      <br>
+                      <p>Total created items: <span>{{sprint.sprint_items_total}}</span></p>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+              <div class="card-footer text-muted text-center">
+                <div class="right">
+                  <button [routerLink]="['/project-summary',sprint.sprint_id]" id="view{{sprint.sprint_name}}"
+                    class="btn btn-default btn-xs">View </button>&nbsp;
+                  <button (click)="open(deleteModal)" class="btn btn-danger btn-xs"><i class="fa fa-times"></i>
+                  </button>&nbsp;
+
+                  <!-- We have to throw in the model here for the id to delete -->
+                  <ng-template #deleteModal let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete project!</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure you want to delete this project?</p>
+                      <p>To confirm, type <b style='color:red'> DELETE </b> and click the delete button</p>
+                      <input type="text" [(ngModel)]="delete" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                      <button type="button" class="btn btn-danger"
+                        (click)="deleter(sprint.sprint_id);c('Close click')">Delete</button>
+                    </div>
+                  </ng-template>
+                  <!-- end of ugly modal -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Project configuration</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <!-- Start the stepper -->
+              <ngb-tabset type="pills" #t="ngbTabset" [destroyOnHide]="false">
+                
+                <!-- stepper category -->
+                <ngb-tab id="category">
+                  <ng-template ngbTabTitle><b>Category</b></ng-template>
+                  <ng-template ngbTabContent>
+                    <div class="inner">
+                      <h4>Category</h4>
+                      <p>Select the right checklist category for your feature/sprint</p>
+                    </div>
+                    <select class="form-control" name="question" id="question"
+                      [(ngModel)]="category_id" (change)="selectChecklistsOnChange()">
+                      <option selected [value]="selectUndefinedOptionValue">Select a category to work with!</option>
+                      <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+                    </select>
+                    <br />
+                    <div class="alert alert-info" style="margin-bottom:2.6%">
+                      <p><strong>So how is this about?</strong></p>
+                      <p>
+                        The maturity level gives you a different set of checklists that are correlacted
+                        to the level. If you get more confident in secure coding you can select
+                        a higher level of maturity to do your sprints/features with.
+                      </p>
+                    </div>
+                    <div class="buttons">
+                      <br />
+                      <button *ngIf="category_id" (click)="t.select('intro')" id="checklist"
+                        class="btn btn-default" style='float:right'>Select</button>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+                <!-- END stepper category -->
+                
+                <!-- stepper intro -->
+                <ngb-tab id="intro">
+                  <ng-template ngbTabTitle><b>Maturity level</b></ng-template>
+                  <ng-template ngbTabContent>
+                    <div class="inner">
+                      <h4>Maturity</h4>
+                      <p>Select the right checklist maturity for your feature/sprint</p>
+                    </div>
+                    <select class="form-control" name="question" id="question"
+                      [(ngModel)]="maturity_id" (change)="selectChecklistsOnChange()">
+                      <option selected> Select checklist maturity </option>
+                      <option value=1> Level 1</option>
+                      <option value=2> Level 2</option>
+                      <option value=3> Level 3</option>
+                    </select>
+                    <br />
+                    <div class="alert alert-info" style="margin-bottom:2.6%">
+                      <p><strong>So how is this about?</strong></p>
+                      <p>
+                        The maturity level gives you a different set of checklists that are correlacted
+                        to the level. If you get more confident in secure coding you can select
+                        a higher level of maturity to do your sprints/features with.
+                      </p>
+                    </div>
+                    <div class="buttons">
+                      <br />
+                      <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('category')"><i
+                        class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                      <button *ngIf="maturity_id" (click)="t.select('checklist')" id="checklist"
+                        class="btn btn-default">Select</button>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+                <!-- END stepper intro -->
+                
+                <!-- stepper checklist -->
+                <ngb-tab id="checklist">
+                  <ng-template ngbTabTitle><b>Select checklist</b></ng-template>
+                  <ng-template ngbTabContent>
+                    <div class="inner">
+                      <h4>Checklist select</h4>
+                      <p>Select the right checklist for your project!</p>
+                    </div>
+                    <select class="form-control" name="question" id="question" (change)="selectQuestions()"
+                      [(ngModel)]="checklist_type">
+                      <option selected [value]="selectUndefinedOptionValue">Select checklist</option>
+                      <option *ngFor="let items of checklistType; let myIndex = index" value="{{items.id}}">
+                        {{items.title}}</option>
+                    </select>
+                    <br />
+                    <div class="alert alert-info" style="margin-bottom:2.6%">
+                      <p><strong>So how do i add my own checklist?</strong></p>
+                      <p>
+                        Follow <a routerLink="/checklist-manage">this</a> link to be presented a page that allows the
+                        adding of your own checklist! <br />
+                        Please refer to <a href="https://skf.readme.io">here, </a> to find more extensive information on
+                        how to do this step by step!
+                      </p>
+                    </div>
+                    <div class="buttons">
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('intro')"><i
+                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="btn btn-default" (click)="t.select('questionnaire')"><i
+                            class="fa fa-arrow-right 5" aria-hidden="true"></i></button>
+                      </div>
+                  </ng-template>
+                </ngb-tab>
+                <!-- END stepper checklist -->
+                
+                <!-- start stepper questionnaire -->
+                <ngb-tab id="questionnaire">
+                  <ng-template ngbTabTitle><b> Questionnaire</b></ng-template>
+                  <ng-template ngbTabContent>
+                    <form class="form-horizontal" role="form"
+                      style="padding-left:20px;padding-right:20px; padding-top:-20px;" #myForm="ngForm">
+                      <div class="inner">
+                        <h4>Configure this sprint</h4>
+                      </div>
+                      <table class="table table-striped table-advance table-hover">
+                        <tbody>
+                          <tr *ngFor="let question of questions; let i = index">
+                            <td>{{question.question}}</td>
+                            <td>
+                              <select ngModel name="answer{{i +1}}" id="answer{{i +1}}" class="form-control">
+                                <option selected value="">No</option>
+                                <option value="{{question.id}}">Yes</option>
+                                <option value="0">Not Applicable</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="buttons">
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('checklist')"><i
+                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="btn btn-default" (click)="storeSprint(myForm); t.select('feature')"><i
+                            class="fa fa-arrow-right 5" aria-hidden="true"></i></button>
+                      </div>
+                    </form>
+                  </ng-template>
+                </ngb-tab>
+                <!-- END stepper questionnaire -->
+
+                <!-- Start stepper feature -->
+                <ngb-tab id="feature">
+                  <ng-template ngbTabTitle><b>Set-up</b></ng-template>
+                  <ng-template ngbTabContent>
+                    <div class="inner">
+                      <h4>Add a sprint</h4>
+                      <p>A sprint/feature stands for any functionality in your project that requires testing. Let's add
+                        the
+                        first print/feature here. <br />
+                        We cann either start working on a new spring/feature or we select to enchance an old one with
+                        new requirements!
+                      </p>
+                    </div>
+                    <br />
+                    <div>
+                      <select class="form-control" [(ngModel)]="selected" id="select-question">
+                        <option selected>Select a question to edit</option>
+                        <option value="old">Add to existing</option>
+                        <option value="new">Create new </option>
+                      </select>
+                      <br />
+                    </div>
+                    <div *ngIf="selected == 'new'">
+                      <ngb-alert [dismissible]="false">
+                        Create a complete new feature/sprint to start working on!
+                      </ngb-alert>
+                      <div class="form-group" style="padding-bottom: 7.5%;">
+                        <div class="wrap">
+                          <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
+                          <div class="col-sm-10">
+                            <input required maxlength="120" [(ngModel)]="sprint_name" type="text" class="form-control"
+                              id="sprint_name" name="sprint_name" placeholder="">
+                            <div class="wrap desc alert-info">
+                              <div class="col-sm-10">Make it easy for your team to recognise.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="wrap">
+                          <label for="inputDesc" class="col-sm-2 control-label">Sprint Description</label>
+                          <div class="col-sm-10">
+                            <textarea required class="form-control" [(ngModel)]="sprint_descriptionription"
+                              name="sprint_descriptionription" id="sprint_descriptionription" style="height: 90px;"
+                              placeholder=""></textarea>
+                            <div class="wrap desc alert-info">
+                              <div class="col-sm-10">A short and sweet description of your sprint, will be shown in the
+                                sprint overview.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="buttons">
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('questionnaire');"><i
+                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="btn btn-default" type="submit" id="finish" name="step2"
+                          (click)="t.select('finish'); newSprint();"><i class="fa fa-arrow-right"
+                            aria-hidden="true"></i></button>
+                      </div>
+                    </div>
+
+                    <div *ngIf="selected == 'old'">
+                      <ngb-alert [dismissible]="false">
+                        Add new checklists items to an existing sprint/feature!
+                      </ngb-alert>
+                      <div class="form-group" style="padding-bottom:7.5%">
+                        <div class="wrap">
+                          <label for="inputVersion" class="col-sm-2 control-label">Sprint name</label>
+                          <div class="col-sm-10">
+                            <ng-select [items]="sprintResult" bindLabel="title" placeholder="Select Item"
+                              [(ngModel)]="oldSprints">
+                            </ng-select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="buttons">
+                        <button style="margin-right:0.7%" class="btn btn-default" (click)="t.select('questionnaire');"><i
+                            class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="btn btn-default" type="submit" id="finish" name="step2"
+                          (click)="t.select('finish'); oldSprint();"><i class="fa fa-arrow-right"
+                            aria-hidden="true"></i></button>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+                <!-- END stepper feature -->
+
+                <!-- Start the finish step -->
+                <ngb-tab id="finish">
+                  <ng-template ngbTabTitle><b>Finish</b></ng-template>
+                  <ng-template ngbTabContent>
+                    <div class="inner">
+                      <h4>Save configuration</h4>
+                      <div *ngFor="let alert of error">
+                        <ngb-alert [dismissible]="false">
+                          <strong>Warning!</strong> {{alert}}
+                        </ngb-alert>
+                      </div>
+                    </div>
+                    <div class="alert alert-info">
+                      <p> Click save to save the project and the pre configuration settings, and you are ready to start
+                        adding new sprints to your project!</p>
+                    </div>
+                    <div class="buttons">
+                      <button style="margin-right:0.7%;margin-top:4%" class="btn btn-default"
+                        (click)="t.select('feature')"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                      <button style="margin-top:4%" class="btn btn-success"
+                        (click)="newSprintQuestions(); c('Close click')"><i class="fa fa-check" aria-hidden="true"></i>
+                        Save</button>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+              </ngb-tabset>
+              <!-- END stepper finish -->
+            
+            </div>
+            <div class="modal-footer">
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <!-- /col-lg-4 -->
+    </div>
+    <!-- /row -->
+  </section>
+  <!--/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->

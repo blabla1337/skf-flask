@@ -6,6 +6,7 @@ class LabItem(db.Model):
     __tablename__ = 'lab_items'
 
     id = db.Column(db.Integer, primary_key=True)
+<<<<<<< HEAD
     title = db.Column(db.Text, nullable=False)
     link = db.Column(db.Text, nullable=False)
     level = db.Column(db.Integer, nullable=False)
@@ -20,3 +21,15 @@ class LabItem(db.Model):
         self.image_tag = image_tag
         self.label = label
         self.has_hints = has_hints
+=======
+
+    title = db.Column(db.Text, nullable=False)
+    link = db.Column(db.Text, nullable=False)
+    level = db.Column(db.Integer, nullable=False)
+
+    def __init__(self, title, link, level):
+    	self.title = title
+    	self.link = link
+    	self.level = level
+    
+>>>>>>> origin/master

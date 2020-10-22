@@ -9,6 +9,10 @@ class Project(db.Model):
     version = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.Text, nullable=False)
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
     def __init__(self, name, version, description, timestamp):
         self.name = name

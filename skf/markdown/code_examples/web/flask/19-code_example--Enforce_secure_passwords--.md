@@ -3,7 +3,6 @@
 
 ## Example:
 
-- todo, insecure default with proceed = True
 
     def checkPassword(pwd):
     	error = []
@@ -13,6 +12,16 @@
         	error.append("Password is too Short!!")
         	proceed = False
     
+    //The password should include at least one number, a small letter, a CAPS,
+    //Plus a special character as defined in the patterns array:
+    
+    	if not any(x.isupper() for x in pwd):
+        	error.append('Your password needs at least 1 capital letter')
+    	if not any(x.islower() for x in pwd):
+        	error.append('Your password needs at least 1 small letter')
+    	if not any(x.isdigit() for x in pwd):
+        	error.append('Your password needs at least 1 digit')
+
     
     //Even though your password is sufficient according to all your standards, the password could still be weak.
     //Just imagine the password "Password!"; this could easily be guessed by an attacker. To prevent the use of weak passwords we 

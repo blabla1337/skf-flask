@@ -20,4 +20,8 @@ class ChecklistCollection(Resource):
         """
         val_num(id)
         result = get_checklist_item_types(id)
+<<<<<<< HEAD
         return result, 200, security_headers()
+=======
+        return result, 200, security_headers()
+>>>>>>> origin/master

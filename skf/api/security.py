@@ -28,6 +28,7 @@ def log(message, threat, status):
             token = request.headers.get('Authorization').split()[0]
             checkClaims = jwt.decode(token, settings.JWT_SECRET, algorithms='HS256')
             user_id = checkClaims['UserId']
+<<<<<<< HEAD
             #event = Log(dateLog, dateTime, threat, ip, message, status, user_id)
             #db.session.add(event)
             #db.session.commit()
@@ -36,6 +37,13 @@ def log(message, threat, status):
             #event = Log(dateLog, dateTime, threat, ip, message, status, user_id)
             #db.session.add(event)
             #db.session.commit()
+=======
+        else:
+            user_id = "0"
+            event = Log(dateLog, dateTime, threat, ip, user_id, status, message)
+            db.session.add(event)
+            db.session.commit()
+>>>>>>> origin/master
     except:
         user_id = "0"
         ip = "0.0.0.0"
@@ -86,7 +94,6 @@ def val_float(value):
         abort(400, "Validation Error on val_float")
     else:
         return True
-
 
 def validate_privilege(self, privilege):
     """Validates the JWT privileges"""

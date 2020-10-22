@@ -1,0 +1,29 @@
+# PHP Type Juggling Issue
+-------
+
+## Example:
+
+    
+	/*
+	In PHP there are two comparison models one is loose(==) and other is strict(===)
+	Loose conversions has conversion rules which are bit weird
+
+	TRUE: "0000" == int(0)
+	TRUE: "0e12" == int(0)
+	TRUE: "1abc" == int(1)
+	TRUE: "0abc" == int(0)
+	TRUE: "abc" == int(0)
+	TRUE: "0xF" == "15"
+
+	Even if this is a low impact bug but is still important
+	Always use strict comparison model(===) for comparison.
+	*/
+
+	<?php
+
+	// Strict comparison model
+	if($token === $_GET['check']){
+		echo "Valid Check":
+	}
+
+	?>

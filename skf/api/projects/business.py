@@ -13,7 +13,11 @@ import sys
 
 def get_project_items():
     log("User requested list projects", "MEDIUM", "PASS")
+<<<<<<< HEAD
     return Project.query.paginate(1, 2500, False)
+=======
+    return Project.query.paginate(1, 500, False)
+>>>>>>> origin/master
 
 
 def new_project(user_id, data):
@@ -31,6 +35,7 @@ def new_project(user_id, data):
     return {'project_id': result.id, 'message': 'Project successfully created'}
 
 
+<<<<<<< HEAD
 def update_project(id, data):
     log("User requested update a specific project", "LOW", "PASS")
     try:
@@ -46,6 +51,8 @@ def update_project(id, data):
     return {'message': 'project successfully updated'} 
 
 
+=======
+>>>>>>> origin/master
 def delete_project(project_id):
     log("User deleted project", "MEDIUM", "PASS")
     try:
