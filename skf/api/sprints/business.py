@@ -80,6 +80,7 @@ def delete_sprint(sprint_id):
         return abort(400, 'Sprint not successfully deleted')
     return {'message': 'Sprint successfully deleted'}
 
+
 def delete_checklist_result(id):
     log("User deleted sprint", "MEDIUM", "PASS")
     try:

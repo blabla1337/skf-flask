@@ -533,7 +533,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the delete project item fail call is working"""
         jwt = self.login('admin', 'admin') 
         headers = {'content-type': 'application/json', 'Authorization': jwt}
-        response = self.client.delete('/api/project/delete/3', headers=headers)
+        response = self.client.delete('/api/project/delete/1', headers=headers)
         self.assertEqual(response.status_code, 400)
 
 

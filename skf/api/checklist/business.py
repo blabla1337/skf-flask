@@ -147,16 +147,6 @@ def update_checklist_item(id, data):
         raise
     return {'message': 'Checklist item successfully updated'} 
 
-def delete_checklist_type(checklist_type_id):
-    log("User deleted checklist type", "MEDIUM", "PASS")
-    checklist_types = ChecklistType.query.get(checklist_type_id)
-    try:
-        db.session.delete(checklist_types)
-        db.session.commit()
-    except:
-        db.session.rollback()
-        raise
-    return {'message': 'Checklist type successfully deleted'}
 
 def update_checklist_question_correlation(checklist_id, question_id):
     log("User requested update a specific checklist question correlation", "LOW", "PASS")

@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup as soup
 from googleapiclient.discovery import build
 from skf import settings
 
+
 def replace_all(text):
     rep={"<b>":"",'\n':"","</b>":"","<br>":"","&nbsp;...":"."}
     rep = dict((re.escape(k), v) for k, v in rep.items())

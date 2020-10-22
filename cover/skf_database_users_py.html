@@ -22,15 +22,9 @@
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             22 statements &nbsp;
-<<<<<<< HEAD
             <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">21 run</button>
             <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">1 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
-=======
-            <span class="run shortkey_r button_toggle_run">21 run</span>
-            <span class="mis show_mis shortkey_m button_toggle_mis">1 missing</span>
-            <span class="exc show_exc shortkey_x button_toggle_exc">0 excluded</span>
->>>>>>> origin/master
         </h2>
     </div>
 </div>
@@ -58,7 +52,6 @@
 </div>
 <div id="source">
     <p id="t1" class="run"><span class="n"><a href="#t1">1</a></span><span class="t"><span class="key">from</span> <span class="nam">skf</span><span class="op">.</span><span class="nam">database</span> <span class="key">import</span> <span class="nam">db</span>&nbsp;</span><span class="r"></span></p>
-<<<<<<< HEAD
     <p id="t2" class="pln"><span class="n"><a href="#t2">2</a></span><span class="t"><span class="com">#from skf.database.projects import projectmembers</span>&nbsp;</span><span class="r"></span></p>
     <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t4" class="run"><span class="n"><a href="#t4">4</a></span><span class="t"><span class="key">class</span> <span class="nam">User</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Model</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -76,25 +69,6 @@
     <p id="t16" class="run"><span class="n"><a href="#t16">16</a></span><span class="t">    <span class="nam">email</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="num">255</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">,</span> <span class="nam">unique</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t17" class="run"><span class="n"><a href="#t17">17</a></span><span class="t">    <span class="nam">groups</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">relationship</span><span class="op">(</span><span class="str">'Group'</span><span class="op">,</span> <span class="nam">back_populates</span><span class="op">=</span><span class="str">'members'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t18" class="pln"><span class="n"><a href="#t18">18</a></span><span class="t">    <span class="com">#group = db.relationship('GroupMember', back_populates='member')</span>&nbsp;</span><span class="r"></span></p>
-=======
-    <p id="t2" class="pln"><span class="n"><a href="#t2">2</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t3" class="run"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="key">class</span> <span class="nam">User</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Model</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t4" class="pln"><span class="n"><a href="#t4">4</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t5" class="run"><span class="n"><a href="#t5">5</a></span><span class="t">    <span class="nam">__tablename__</span> <span class="op">=</span> <span class="str">'users'</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t6" class="pln"><span class="n"><a href="#t6">6</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t7" class="run"><span class="n"><a href="#t7">7</a></span><span class="t">    <span class="nam">id</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">primary_key</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t8" class="run"><span class="n"><a href="#t8">8</a></span><span class="t">    <span class="nam">privilege_id</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">db</span><span class="op">.</span><span class="nam">ForeignKey</span><span class="op">(</span><span class="str">'privileges.id'</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t9" class="run"><span class="n"><a href="#t9">9</a></span><span class="t">    <span class="nam">privilege</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">relationship</span><span class="op">(</span><span class="str">"Privilege"</span><span class="op">,</span> <span class="nam">backref</span><span class="op">=</span><span class="nam">db</span><span class="op">.</span><span class="nam">backref</span><span class="op">(</span><span class="str">'users'</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t10" class="run"><span class="n"><a href="#t10">10</a></span><span class="t">    <span class="nam">accessToken</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Integer</span><span class="op">,</span> <span class="nam">unique</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t11" class="run"><span class="n"><a href="#t11">11</a></span><span class="t">    <span class="nam">username</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="num">255</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">unique</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t12" class="run"><span class="n"><a href="#t12">12</a></span><span class="t">    <span class="nam">password</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Text</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t13" class="run"><span class="n"><a href="#t13">13</a></span><span class="t">    <span class="nam">access</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Boolean</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t14" class="run"><span class="n"><a href="#t14">14</a></span><span class="t">    <span class="nam">activated</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">Boolean</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t15" class="run"><span class="n"><a href="#t15">15</a></span><span class="t">    <span class="nam">email</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">Column</span><span class="op">(</span><span class="nam">db</span><span class="op">.</span><span class="nam">String</span><span class="op">(</span><span class="num">255</span><span class="op">)</span><span class="op">,</span> <span class="nam">nullable</span><span class="op">=</span><span class="key">False</span><span class="op">,</span> <span class="nam">unique</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t16" class="run"><span class="n"><a href="#t16">16</a></span><span class="t">    <span class="nam">groups</span> <span class="op">=</span> <span class="nam">db</span><span class="op">.</span><span class="nam">relationship</span><span class="op">(</span><span class="str">'Group'</span><span class="op">,</span> <span class="nam">back_populates</span><span class="op">=</span><span class="str">'members'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t17" class="pln"><span class="n"><a href="#t17">17</a></span><span class="t">    <span class="com">#group = db.relationship('GroupMember', back_populates='member')</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t18" class="pln"><span class="n"><a href="#t18">18</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
->>>>>>> origin/master
     <p id="t19" class="pln"><span class="n"><a href="#t19">19</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t20" class="run"><span class="n"><a href="#t20">20</a></span><span class="t">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">email</span><span class="op">,</span> <span class="nam">accessToken</span><span class="op">=</span><span class="str">''</span><span class="op">,</span> <span class="nam">username</span><span class="op">=</span><span class="str">''</span><span class="op">,</span> <span class="nam">password</span><span class="op">=</span><span class="str">''</span><span class="op">,</span> <span class="nam">access</span><span class="op">=</span><span class="key">False</span><span class="op">,</span> <span class="nam">activated</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t21" class="run"><span class="n"><a href="#t21">21</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">accessToken</span> <span class="op">=</span> <span class="nam">accessToken</span>&nbsp;</span><span class="r"></span></p>
@@ -111,13 +85,8 @@
 <div id="footer">
     <div class="content">
         <p>
-<<<<<<< HEAD
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.3</a>,
             created at 2020-10-05 13:05 +0200
-=======
-            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.0.3</a>,
-            created at 2020-02-07 15:12
->>>>>>> origin/master
         </p>
     </div>
 </div>

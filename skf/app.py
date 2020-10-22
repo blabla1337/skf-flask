@@ -158,7 +158,7 @@ def cleandb_command():
     log.info("cleaned the database.")
 
 
-@app.cli.command('cleandb')
+@app.cli.command('initdb')
 def initdb_command():
     """Delete DB and creates a new database with all the Markdown files."""
     init_db()

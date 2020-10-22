@@ -5,62 +5,44 @@
 
     
 	"""
-	This function is where you store all your input validation controls. 
-	It makes it easy to maintain whenever you want to apply changes for 
-	certain input validation roles and reduces the chance of mistakes in your regexes.
+	Instead of re-inventing the wheel for input validation we utilize
+	easy to apply libraries for these type of features such as flask WT-Forms
+	or Cerberus for API's
 	"""
 
-	def isAlphanumeric(str):
-		match = re.findall("^[a-zA-Z0-9]+$" , str)
-		//Check for alphanumeric
-		if match:
-			return True
-		else:
-			return False
 
-	def isAlpha(str):
-		match = re.findall("^[a-zA-Z]+$" , str)
-		//Check for alpha
-		if match:
-			return True
-		else:
-			return False
+	"""
+	Flask WT-Forms:
+	"""
 
-	def isDigit(str):
-		match = re.findall("^[0-9]+$" , str)
-		//Check for isDigit
-		if match:
-			return True
-		else:
-			return False	
+	from wtforms import Form, BooleanField, StringField, PasswordField, validators
 
-	def isBool(str):
-	    match = re.findall("^(True|False)+$" , str)
-		if match:
-	        return True
-	    else:
-            return False	
-    
-	def inputValidation(input, type):
-	    if type == alphanumeric:
-	    	//Set the audit log
-	    	setLog(session["id"], "Alphanumeric matched", "Success", str(datetime.utcnow()), session['privilege'])
-	    	return isAlphanumeric(input)
-	   	elif type == numeric:
-	   		//Set the audit log
-	   		setLog(session["id"], "Numeric matched", "Success", str(datetime.utcnow()), session['privilege'])
-	   		return isDigit(input)
-	   	elif type == alpha:
-	   		//Set the audit log
-	   		setLog(session["id"], "Alphabet matched", "Success", str(datetime.utcnow()), session['privilege'])
-	   		return isAlpha(input)
-	   	elif type == bool:
-	   		//Set the audit log
-	   		setLog(session["id"], "Bool matched", "Success", str(datetime.utcnow()), session['privilege'])
-	   		return isBool(input)
-	   	else:
-	   		//Set the audit log
-	   		setLog(session["id"], "FAIL", str(datetime.utcnow()), session['privilege'])
-	   		//Increment the counter
-	    	counter.increment(1)
-	   		return False
+	class RegistrationForm(Form):
+		username = StringField('Username', [validators.Length(min=4, max=25)])
+		email = StringField('Email Address', [validators.Length(min=6, max=35)])
+		password = PasswordField('New Password', [
+			validators.DataRequired(),
+			validators.EqualTo('confirm', message='Passwords must match')
+		])
+		confirm = PasswordField('Repeat Password')
+		accept_tos = BooleanField('I accept the TOS', [validators.DataRequired()])
+
+
+	"""
+	Cerberus:
+	"""
+
+	from cerberus import Validator
+
+
+	v = Validator()
+	v.schema = {'name': {'required': True, 'type': 'string'},
+				'age': {'type': 'integer'}}
+
+	if v.validate({'age': 34}):
+		print('valid data')
+	else:
+		print('invalid data')
+		print(v.errors)
+
+		
