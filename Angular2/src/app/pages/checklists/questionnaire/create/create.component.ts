@@ -29,7 +29,7 @@ export class CreateQuestionnaireComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Questionnaire' }, { label: 'Create', active: true }];
 
     this.questionForm = this.formBuilder.group({
-      question: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      question: ['', [Validators.required]],
       checklist_type: [''],
     });
     this.submit = false;

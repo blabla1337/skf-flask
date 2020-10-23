@@ -28,7 +28,7 @@ export class CreateComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Knowledgebase' }, { label: 'Create', active: true }];
 
     this.knowledgebaseForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      title: ['', [Validators.required]],
       content: ['', [Validators.required]],
     });
     this.submit = false;

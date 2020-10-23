@@ -27,8 +27,8 @@ export class UserUpdateComponent implements OnInit {
      * Bootstrap validation form data
      */
     this.validationform = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
-      lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     });
     this.submit = false;
