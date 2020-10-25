@@ -17,13 +17,11 @@
             </div>
             <div class="card-body pt-0">
               <div>
-                <a href="javascript: void(0)">
                   <div class="avatar-md profile-user-wid mb-4">
                     <span class="avatar-title rounded-circle">
                       <img src="assets/images/logo.svg" alt="SKF Logo" class="rounded-circle" height="65">
                     </span>
                   </div>
-                </a>
               </div>
               <div class="p-2" *ngIf="loginMethod == 'skfprovider'">
                   <ngb-alert type="danger" *ngIf="errormsg" [dismissible]="false">Username or Password is incorrect.</ngb-alert>
@@ -48,13 +46,13 @@
                   </div>
   
                   <div class="mt-3">
-                    <button (click)="onLogin()" class="btn btn-primary btn-block" type="submit">Log In</button>
+                    <button (click)="onLogin()" class="btn btn-primary btn-block" type="submit">Login</button>
                   </div>
-  
+                  <!--
                   <div class="mt-4 text-center">
                     <a routerLink="javascript: void(0)" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your
                       password?</a>
-                  </div>
+                  </div> -->
                   <div class="mt-3 text-center">
                     <a href="javascript: void(0)" (click)="onSkip()" class="text-muted"><i
                         class="mdi mdi-lock-open mr-1"></i> Skip Login</a>

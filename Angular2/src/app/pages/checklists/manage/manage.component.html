@@ -8,7 +8,89 @@
   </div>
   <ul ngbNav joyrideStep="manageInfo" title="Checklists expert wizard" [stepContent]="manageInfo"
    #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom mt-3">
-    <li [ngbNavItem]="1">
+
+   <li [ngbNavItem]="1">
+    <a ngbNavLink joyrideStep="manageReq" title="Checklists requirements" [stepContent]="manageReq">Requirements</a>
+    <ng-template ngbNavContent>
+      <div class="row mb-3 mt-4">
+        <div class="col-lg-12">
+          <div class="row mb-3">
+            <div class="col-7">
+              <p class="card-title">Manage Requirements</p>
+            </div>
+            <div class="col-5">
+              <a type="button" routerLink="/checklists/add-requirement" class="btn btn-primary float-right mb-2">Add
+                requirement</a>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-centered table-nowrap table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">
+                    <div class="text-center">Security controls / Security requirements</div>
+                  </th>
+                  <th scope="col">
+                    <div class="text-center">Action</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of checklistData.items">
+                  <td style="width: 60%">
+                    <div class="mt-2">
+                      <h6 class="text-dark">{{item.checklist_items_checklist_id}}
+                        {{item.checklist_items_content |slice:0:130}}...</h6>
+                    </div>
+                  </td>
+                  <td style="width: 40%">
+                    <ul class="list-inline mb-0 text-center">
+                      <li class="list-inline-item">
+                        <a type="button" [routerLink]="['/checklists/update-requirement', item.id]"
+                          class="btn btn-success btn-sm">Update</a>
+                      </li>
+                      <li class="list-inline-item">
+                        <button (click)="centerModal(controlDelete)" type="button"
+                          class="btn btn-danger btn-sm ml-2">Delete</button>
+                      </li>
+                    </ul>
+                  </td>
+
+                  <!-- Deletion modal-->
+                  <ng-template #controlDelete let-modal>
+                    <div class="modal-header">
+                      <h5 class="modal-title mt-0">Delete Requirement</h5>
+                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Requirement
+                            item</label>
+                          <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
+                            name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Type DELETE'">
+                        </div>
+                        <button (click)="deleteRequirement(item.id); modal.dismiss('Cross click')"
+                          class="btn btn-danger">Delete</button>
+                      </form>
+                    </div>
+                  </ng-template>
+                  <!-- END Project Delete Modal -->
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- end col-->
+      </div>
+    </ng-template>
+  </li>   
+
+    <li [ngbNavItem]="2">
       <a ngbNavLink joyrideStep="manageConfig" title="Checklists config" [stepContent]="manageConfig">Config questionnaire</a>
       <ng-template ngbNavContent>
         <div class="card mt-3 shadow-none">
@@ -50,7 +132,7 @@
                             </p>
                           </div>
                           <div class="col-2">
-                            <i class="bx bx-plus font-size-15 py-3 float-right"></i>
+                            <i class="fas fa-pencil-alt text-success mr-1 float-right"> Add</i>
                           </div>
                         </div>
                       </button>
@@ -77,7 +159,7 @@
                             </p>
                           </div>
                           <div class="col-2">
-                            <i class="bx bx-minus font-size-15 py-3 float-right"></i>
+                            <i class="fas fa-trash-alt text-danger mr-1 float-right">Remove</i>
                           </div>
                         </div>
                       </button>
@@ -91,86 +173,7 @@
       </ng-template>
     </li>
 
-    <li [ngbNavItem]="2">
-      <a ngbNavLink joyrideStep="manageReq" title="Checklists requirements" [stepContent]="manageReq">Requirements</a>
-      <ng-template ngbNavContent>
-        <div class="row mb-3 mt-4">
-          <div class="col-lg-12">
-            <div class="row mb-3">
-              <div class="col-7">
-                <p class="card-title">Manage Requirements</p>
-              </div>
-              <div class="col-5">
-                <a type="button" routerLink="/checklists/add-requirement" class="btn btn-primary float-right mb-2">Add
-                  requirement</a>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table class="table table-centered table-nowrap table-hover">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">
-                      <div class="text-center">Security controls / Security requirements</div>
-                    </th>
-                    <th scope="col">
-                      <div class="text-center">Action</div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of checklistData.items">
-                    <td style="width: 60%">
-                      <div class="mt-2">
-                        <h6 class="text-dark">{{item.checklist_items_checklist_id}}
-                          {{item.checklist_items_content |slice:0:130}}...</h6>
-                      </div>
-                    </td>
-                    <td style="width: 40%">
-                      <ul class="list-inline mb-0 text-center">
-                        <li class="list-inline-item">
-                          <a type="button" [routerLink]="['/checklists/update-requirement', item.id]"
-                            class="btn btn-success btn-sm">Update</a>
-                        </li>
-                        <li class="list-inline-item">
-                          <button (click)="centerModal(controlDelete)" type="button"
-                            class="btn btn-danger btn-sm ml-2">Delete</button>
-                        </li>
-                      </ul>
-                    </td>
 
-                    <!-- Deletion modal-->
-                    <ng-template #controlDelete let-modal>
-                      <div class="modal-header">
-                        <h5 class="modal-title mt-0">Delete Requirement</h5>
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="form-group">
-                            <label for="delete">Type <b class="text-danger">DELETE</b> to delete the Requirement
-                              item</label>
-                            <input autocomplete="off" [(ngModel)]="delete" type="text" class="form-control" id="delete"
-                              name="delete" placeholder="Type DELETE" onfocus="this.placeholder = ''"
-                              onblur="this.placeholder = 'Type DELETE'">
-                          </div>
-                          <button (click)="deleteRequirement(item.id); modal.dismiss('Cross click')"
-                            class="btn btn-danger">Delete</button>
-                        </form>
-                      </div>
-                    </ng-template>
-                    <!-- END Project Delete Modal -->
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- end col-->
-        </div>
-      </ng-template>
-    </li>
 
     <li [ngbNavItem]="3">
       <a ngbNavLink joyrideStep="manageQuestions" title="Checklists questions" [stepContent]="manageQuestions">Questions</a>

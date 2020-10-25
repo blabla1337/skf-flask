@@ -128,7 +128,7 @@ export class UpdateRequirementComponent implements OnInit
 
     this._checklistService
       .updateChecklistItem(this.validationform.value, this.id)
-      .subscribe(() => this.router.navigate(['/checklists/manage', this.checklistId]));
+      .subscribe(() => this.router.navigate(['/checklists/manage', this.checklistId], { fragment: '2' }));
   }
 
   get form()
