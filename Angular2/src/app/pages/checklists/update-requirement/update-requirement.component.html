@@ -91,7 +91,7 @@
                             </div>
                         </div>
 
-                        <button [routerLink]="['/checklists/manage', checklistId]" class="btn btn-danger float-right ml-3"
+                        <button [routerLink]="['/checklists/manage/'+checklistId]" fragment="2" class="btn btn-danger float-right ml-3"
                             type="button">Cancel</button>
                         <button (click)="UpdateChecklistItem()" class="btn btn-success float-right"
                             type="submit">Submit</button>

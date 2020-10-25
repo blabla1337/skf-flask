@@ -8,7 +8,7 @@
 
 
       <div class="navbar-brand-box">
-        <a href="/" class="logo logo-light">
+        <a href="/" class="logo logo-light"> 
           <span class="logo-sm">
             <img src="assets/images/logo.svg" alt="" height="22">
             Security Knowledge Framework
@@ -78,7 +78,7 @@
             <a class="dropdown-item" (click)='platformUpdate(item.id)'>{{item.name}}</a>
           </div>
           <div class="dropdown-divider"></div>
-          <a *ngIf="priv.includes('manage')" routerLink="/category/manage" class="dropdown-item text-center text-primary">Manage</a>
+          <a *ngIf="priv.includes('manage')" routerLink="/category/manage" class="dropdown-item text-center text-primary">Manage Types</a>
         </div>
       </div>
 
