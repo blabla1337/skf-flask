@@ -19,8 +19,8 @@
               <p class="card-title">Manage Requirements</p>
             </div>
             <div class="col-5">
-              <a type="button" routerLink="/checklists/add-requirement" class="btn btn-primary float-right mb-2">Add
-                requirement</a>
+              <a routerLink="/checklists/add-requirement"><button type="button" class="btn btn-primary float-right mb-2">Add
+                requirement</button></a>
             </div>
           </div>
           <div class="table-responsive">
@@ -46,8 +46,8 @@
                   <td style="width: 40%">
                     <ul class="list-inline mb-0 text-center">
                       <li class="list-inline-item">
-                        <a type="button" [routerLink]="['/checklists/update-requirement', item.id]"
-                          class="btn btn-success btn-sm">Update</a>
+                        <button type="button" [routerLink]="['/checklists/update-requirement', item.id]"
+                          class="btn btn-success btn-sm ml-2">Update</button>
                       </li>
                       <li class="list-inline-item">
                         <button (click)="centerModal(controlDelete)" type="button"
@@ -159,7 +159,7 @@
                             </p>
                           </div>
                           <div class="col-2">
-                            <i class="fas fa-trash-alt text-danger mr-1 float-right">Remove</i>
+                            <i class="fas fa-trash-alt text-danger mr-1 float-right"> Remove</i>
                           </div>
                         </div>
                       </button>
@@ -185,8 +185,8 @@
                 <p class="card-title">Manage questions</p>
               </div>
               <div class="col-5">
-                <a type="button" routerLink="/checklists/question-create" class="btn btn-primary float-right mb-2">Add
-                  Question</a>
+                <a routerLink="/checklists/question-create"><button type="button" class="btn btn-primary float-right mb-2">Add
+                  Question</button></a>
               </div>
             </div>
             <div class="table-responsive">

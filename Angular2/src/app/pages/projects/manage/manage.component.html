@@ -64,12 +64,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
                           <li>
-                            <a class="dropdown-item" type="button" [routerLink]="['/projects/update', item.id]">
-                              <i class="fas fa-pencil-alt text-success mr-1"></i>Edit</a>
+                            <a class="dropdown-item" role="button" [routerLink]="['/projects/update', item.id]">
+                              <i class="fas fa-pencil-alt text-success mr-1"></i> Edit</a>
                           </li>
                           <li>
-                            <a class="dropdown-item" type="button" (click)="projectModal(deleteProjectModal)">
-                              <i class="fas fa-trash-alt text-danger mr-1"></i>Delete</a>
+                            <a class="dropdown-item" role="button" (click)="projectModal(deleteProjectModal)">
+                              <i class="fas fa-trash-alt text-danger mr-1"></i> Delete</a>
                           </li>
                         </ul>
                       </div>

@@ -80,12 +80,12 @@
                                   class="btn-sm btn-primary text-center d-sm-none"><i class='bx bx-search-alt'></i></a>
                             </li>
                             <li *ngIf="priv.includes('manage')" class="list-inline-item float-right">
-                              <a [routerLink]="['/checklists/manage', item.id]" type="button"
+                              <a [routerLink]="['/checklists/manage', item.id]"><button type="button"
                                   class="btn-sm btn-primary d-none d-sm-block mr-2"
                                   joyrideStep="manageChecklistContent" title="Manage checklist category" [stepContent]="manageChecklistContent">
-                                  Manage checklist</a>
+                                  Manage checklist</button></a>
                               <a [routerLink]="['/checklists/manage', item.id]" type="button"
-                                  class="btn-sm btn-primary text-center d-sm-none mr-2"><i class="mdi mdi-cog-outline"></i></a>
+                                  class="btn-sm btn-primary text-center d-sm-none mr-2"><i class="bx bx-cog-outline"></i></a>
                             </li>
                           </ul>
                         </div>
