@@ -17,10 +17,9 @@
             </div>
             <div class="col-5">
               <div class="text-right">
-                <a type="button" [routerLink]="['/users/create']" class="btn btn-primary mb-2 mr-2"
+                <a [routerLink]="['/users/create']"><button type="button" class="btn btn-primary mb-2"
                   joyrideStep="userNew" title="Add new user" [stepContent]="userNew">
-                  New users
-                </a>
+                  New users</button></a>
               </div>
             </div>
             <!-- end col-->
@@ -82,7 +81,7 @@
                   </td>
                   <td>
                     <span *ngIf="item.activated == 'True'">
-                      <a class="text-center" type="button" (click)="centerModal(userDeleteModal)">
+                      <a class="text-center" role="button" (click)="centerModal(userDeleteModal)">
                         <i class="fas fa-trash-alt text-danger mr-1"></i> Revoke Access</a>
                     </span>
                     <!-- Deletion modal-->
@@ -108,7 +107,7 @@
                       </div>
                     </ng-template>
                     <span *ngIf="item.activated == 'False'">
-                      <a class="text-center" type="button" (click)="centerModal(userGrantModal)">
+                      <a class="text-center" role="button" (click)="centerModal(userGrantModal)">
                         <i class="fas fa-pencil-alt text-success mr-1"></i> Grant Access</a>
                     </span>
                     <!-- Grant modal-->
