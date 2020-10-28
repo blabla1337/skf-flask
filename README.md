@@ -154,10 +154,9 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
 
 ## <a name="contributors"></a>Contributors
-- Lucas Luitjes
-- [Mattijs van Ommeren](https://twitter.com/alcyonsecurity)
 - [Glenn ten Cate](https://twitter.com/FooBar_testing_)
 - [Riccardo ten Cate](https://twitter.com/RiieCco)
+- [Mattijs van Ommeren](https://twitter.com/alcyonsecurity)
 - [Alexander Kaasjager](https://twitter.com/akaasjager)
 - John Haley
 - Daniel Paulus
@@ -197,6 +196,7 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Aniket Surwade
 - Thiago Luiz Dimbarre
 - Harshant Sharma
+- Lucas Luitjes
 - Semen Rozhkov
 - Mehtab Zafar 
 - Daniel Spilsbury
