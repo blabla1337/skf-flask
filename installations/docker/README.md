@@ -20,11 +20,12 @@ First we want to select “Enable Kubernetes” after which we press on “Apply
 
 For Linux users you may want to look at Minikube for deploying locally. Alternatively if you do not want to go through all the hassle of installing a local kubernetes cluster you can also provide the configuration file from the cloud provider of your choosing, or simply choose to clone the lab repository and run them as flask applications with python as described here. After setting up our local cluster it is time to perform a “docker-compose up” command in the root directory of the SKF project.
 
-For windows users please edit the docker-compose.yaml file and change this value:
+For windows users please edit the docker-compose.yaml file and change the value in section skf-api/volumes to this value:
 ```
-      - LABS_KUBE_CONF=~/.kube/config
+      - c:\your_local_path_windows\.kube\config:/home/user_api/.kube/config
 ```
 To the location on your Windows folder where the .kube/config is located to be able to deploy the labs
+By changing this location you bind your local filesystem to a place in your container
 
 4. Profit! Ready to go
 ```
