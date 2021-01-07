@@ -60,8 +60,8 @@
                                     </div>
                                     <div class="col-4 toggle-button">
                                       <div class="text-right code-view-button">
-                                        <a href="javascript:void(0)" data-toggle="collapse"
-                                          (click)="isCollapsed[code.id] = !isCollapsed[code.id]" (click)="showCode(code.id)">Click here</a>
+                                        <button data-toggle="collapse" (click)="isCollapsed[code.id] = !isCollapsed[code.id]" (click)="showCode(code.id)"
+                                        class="btn-sm btn-primary">Read more</button>
                                       </div>
                                     </div>
                                   </div>
