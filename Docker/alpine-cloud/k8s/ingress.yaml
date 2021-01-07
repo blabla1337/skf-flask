@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - beta.securityknowledgeframework.org
-    secretName: beta.securityknowledgeframework.org
+    - demo.securityknowledgeframework.org
+    secretName: demo.securityknowledgeframework.org
   rules:
-  - host: beta.securityknowledgeframework.org
+  - host: demo.securityknowledgeframework.org
     http:
      paths:
      - backend:

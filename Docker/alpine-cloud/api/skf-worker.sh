@@ -15,5 +15,6 @@ python3.7 skf/rabbit_mq_workers/deletion-worker.py &
 while true  
 do  
   python3.7 skf/rabbit_mq_workers/cleaner-worker.py 
-  sleep 7200  
+  #sleep 7200
+  sleep 180000
 done
