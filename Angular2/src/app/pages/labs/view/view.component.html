@@ -1,121 +1,153 @@
 <div class="container-fluid">
   <app-page-title title="Labs" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="row mb-2">
-            <div class="col-7">
-              <div class="search-box mr-2 mb-2 d-inline-block">
-                <div class="position-relative">
-                  <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
-                    placeholder="Search Lab" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Lab'" />
-                  <i class="bx bx-search-alt search-icon"></i>
+  <ul ngbNav title="Checklists expert wizard" 
+  #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom mt-3">
+
+   <li [ngbNavItem]="1">
+     <a ngbNavLink title="Red & Blue Labs">Red & Blue Labs</a>
+     <ng-template ngbNavContent>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row mb-2">
+                <div class="col-7">
+                  <div class="search-box mr-2 mb-2 d-inline-block">
+                    <div class="position-relative">
+                      <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
+                        placeholder="Search Lab" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Lab'" />
+                      <i class="bx bx-search-alt search-icon"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Load Spinner -->
+                <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+                  <p class="loading">Loading, Please Wait...</p>
+                </ngx-spinner>
+                <div class="col-5">
+                  <div class="float-right">
+                    <div class="form-group">
+                      <select class="custom-select" [(ngModel)]="queryLabel">
+                        <option value="">All labs</option>
+                        <option value="SKF-labs">SKF-labs</option>
+                        <option value="juice-shop">juice-shop</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+              <div class="table-responsive mt-3">
+                <table class="table table-centered table-nowrap table-hover">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col" style="width: 50px;">
+                        <div class="text-center">#</div>
+                      </th>
+                      <th scope="col" joyrideStep="nameLabContent" title="Lab Name" [stepContent]="nameLabContent">
+                        <div class="text-center">Name</div>
+                      </th>
+                      <th scope="col" joyrideStep="labelLabContent" title="Lab Label" [stepContent]="labelLabContent">
+                        <div class="text-center">Label</div>
+                      </th>
+                      <th scope="col" joyrideStep="levelLabContent" title="Lab Level" [stepContent]="levelLabContent">
+                        <div class="text-center">Level</div>
+                      </th>
+                      <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="statusLabContent" title="Lab Status"
+                        [stepContent]="statusLabContent">
+                        <div class="text-center">Status</div>
+                      </th>
+                      <th scope="col" joyrideStep="writeLabContent" title="Lab Writeup" [stepContent]="writeLabContent">
+                        <div class="text-center">Write-up</div>
+                      </th>
+                      <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="actionLabContent" title="Lab deploy"
+                        [stepContent]="actionLabContent">
+                        <div class="text-center">Action</div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    *ngFor="let item of labData.items | stringfilter:queryString | labelfilter:queryLabel; let myIndex = index">
+                    <tr>
+                      <td>
+                        <div class="avatar-xs">
+                          <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                            <i class="bx bxs-flask"></i>
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center">{{item.title}}</div>
+                      </td>
+                      <td>
+                        <div class="text-center">{{item.label}}</div>
+                      </td>
+                      <td>
+                        <div class="text-center">{{item.level}}</div>
+                      </td>
+                      <td *ngIf="kubernetes_enabled == 'True'">
+                        <div class="text-center" *ngFor="let items of status; let myIndex = index">
+                          <a *ngIf="item.image_tag == items" href="javascript: void(0);"
+                            class="badge badge-success font-size-11 m-1">Lab is Running</a>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center">
+                          <a href="{{item.link}}" target="_blank"><button class="btn-sm btn-primary">Click here</button></a>
+                        </div>
+                      </td>
+                      <td *ngIf="kubernetes_enabled == 'True'">
+                        <ul class="list-inline mb-0 text-center">
 
-            <!-- Load Spinner -->
-            <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
-              <p class="loading">Loading, Please Wait...</p>
-            </ngx-spinner>
-
-            <div class="col-5">
-              <div class="float-right">
-                <div class="form-group">
-                  <select class="form-control select2-search-disable" placeholder="Select"
-                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Select'" [(ngModel)]="queryLabel">
-                    <option value="">All labs</option>
-                    <option value="SKF-labs">SKF-labs</option>
-                    <option value="juice-shop">juice-shop</option>
-                  </select>
-                </div>
+                          <li class="list-inline-item" *ngIf="status.includes(item.image_tag); else elseBlock ">
+                            <button class="btn btn-danger btn-sm" id="get-address"
+                              (click)="stopLabFromRunning(item.image_tag)">Stop</button>
+                          </li>
+                          <ng-template #elseBlock>
+                            <li class="list-inline-item">
+                              <button class="btn btn-success btn-sm" id="get-address"
+                                (click)="getLabAddress(item.image_tag)">Start</button>
+                            </li>
+                          </ng-template>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-          </div>
-          <div class="table-responsive mt-3">
-            <table class="table table-centered table-nowrap table-hover">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" style="width: 50px;">
-                    <div class="text-center">#</div>
-                  </th>
-                  <th scope="col" joyrideStep="nameLabContent" title="Lab Name" [stepContent]="nameLabContent">
-                    <div class="text-center">Name</div>
-                  </th>
-                  <th scope="col" joyrideStep="labelLabContent" title="Lab Label" [stepContent]="labelLabContent">
-                    <div class="text-center">Label</div>
-                  </th>
-                  <th scope="col" joyrideStep="levelLabContent" title="Lab Level" [stepContent]="levelLabContent">
-                    <div class="text-center">Level</div>
-                  </th>
-                  <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="statusLabContent" title="Lab Status"
-                    [stepContent]="statusLabContent">
-                    <div class="text-center">Status</div>
-                  </th>
-                  <th scope="col" joyrideStep="writeLabContent" title="Lab Writeup" [stepContent]="writeLabContent">
-                    <div class="text-center">Write-up</div>
-                  </th>
-                  <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="actionLabContent" title="Lab deploy"
-                    [stepContent]="actionLabContent">
-                    <div class="text-center">Action</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                *ngFor="let item of labData.items | stringfilter:queryString | labelfilter:queryLabel; let myIndex = index">
-                <tr>
-                  <td>
-                    <div class="avatar-xs">
-                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                        <i class="bx bxs-flask"></i>
-                      </span>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="text-center">{{item.title}}</div>
-                  </td>
-                  <td>
-                    <div class="text-center">{{item.label}}</div>
-                  </td>
-                  <td>
-                    <div class="text-center">{{item.level}}</div>
-                  </td>
-                  <td *ngIf="kubernetes_enabled == 'True'">
-                    <div class="text-center" *ngFor="let items of status; let myIndex = index">
-                      <a *ngIf="item.image_tag == items" href="javascript: void(0);"
-                        class="badge badge-success font-size-11 m-1">Lab is Running</a>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="text-center">
-                      <a href="{{item.link}}" target="_blank"><button class="btn-sm btn-primary">Click here</button></a>
-                    </div>
-                  </td>
-                  <td *ngIf="kubernetes_enabled == 'True'">
-                    <ul class="list-inline mb-0 text-center">
-
-                      <li class="list-inline-item" *ngIf="status.includes(item.image_tag); else elseBlock ">
-                        <button class="btn btn-danger btn-sm" id="get-address"
-                          (click)="stopLabFromRunning(item.image_tag)">Stop</button>
-                      </li>
-                      <ng-template #elseBlock>
-                        <li class="list-inline-item">
-                          <button class="btn btn-success btn-sm" id="get-address"
-                            (click)="getLabAddress(item.image_tag)">Start</button>
-                        </li>
-                      </ng-template>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      </ng-template> 
+      </li>
+
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Secure code review Labs</a>
+        <ng-template ngbNavContent>
+          <div class="card mt-3 shadow-none">
+            <div class="card-body pt-2">
+              <form>
+                <div class="row text-center">
+                  <div class="col-xl-12">
+                    <div class="form-group mb-2">
+                      
+                      <label class="float-left">Checklist Questions:</label>
+                      
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          </ng-template>
+        </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="questionarie"></div>
+
+</div>
 
   <ng-template #nameLabContent>
     <div class="card p-0">
