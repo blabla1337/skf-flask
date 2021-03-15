@@ -14,7 +14,7 @@
 [![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master)
 [![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=master)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=master)
 
-Security Knowledge Framework is an expert system application that uses the OWASP Application Security Verification Standard with detailed code examples (secure coding principles) to help developers in pre-development and post-development phases and create applications that are secure by design.
+The OWASP Security Knowledge Framework is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using OWASP-ASVS/OWASP-MASVS  or custom security checklists) and labs to practice security verification (using SKF-Labs, OWASP Juice-shop, and best practice code examples from SKF and the OWASP-Cheatsheets).
 
 ## Table of Contents
 * [Introduction](#introduction)
@@ -34,9 +34,9 @@ Our experience taught us that the current level of security of web-applications 
 
 Because of this we decided to develop a framework in order to create a guide-system available for all developers so they can develop applications secure by design from the start.
 
-The OWASP Security Knowledge Framework is here to support developers in creating secure applications. By using the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) as a security requirement and give the developer feedback regarding descriptions and solutions on how to properly implement these security controls in a safe manner.
+[![SKF Features](https://raw.githubusercontent.com/blabla1337/skf-www/master/images/site-skf/skf_features.png)](https://www.securityknowledgeframework.org/) 
 
-The second stage is validating if the developer properly implemented different security controls and the belonging defence mechanisms by means of checklists created with the [OWASP Application Security Verification Standards.](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project) By means of the answers supplied by the developer the application again generates documentation in which it gives feedback on what defence mechanisms the developer forgot to implement and gives him feedback regarding descriptions and solutions on how to properly implement these techniques in a safe manner.
+[![SKF Flow](https://raw.githubusercontent.com/blabla1337/skf-www/master/images/site-skf/skf_flow.gif)](https://www.securityknowledgeframework.org/) 
 
 ## <a name="installing"></a>Installing
 
