@@ -1,12 +1,12 @@
 # OWASP Security Knowledge Framework
-[![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/) 
+[![SKF Logo](https://github.com/blabla1337/skf-www/blob/master/images/site-skf/logo_github.png?raw=true)](https://www.securityknowledgeframework.org/) 
 
 <br>Project status details:<br>
 [![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=master)](https://travis-ci.org/blabla1337/skf-flask)
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Join the chat at https://owasp.slack.com/messages/C0F7L9X6V](https://img.shields.io/badge/chat-on%20slack-blueviolet)](https://owasp.slack.com/messages/C0F7L9X6V)
 [![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-orange.svg)](https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework)
-[![OSSF Working group: Best Practices for Open Source Developers](https://openssf.org/wp-content/uploads/sites/112/2020/07/openssf-color.svg)](https://openssf.org)
+[![OSSF Working group: Best Practices for Open Source Developers](https://img.shields.io/badge/openssf-Learning%20Platform%20Project-orange.svg)](https://openssf.org)
 
 <br>Quality testing:<br>
 [![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
@@ -135,7 +135,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 
 
 ## <a name="license"></a>License
-    Copyright (C) 2020  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2021  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
