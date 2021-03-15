@@ -14,6 +14,7 @@ services:
 
   mysql:
     container_name: skf-mysql_container
+    platform: linux/x86_64
     image: blabla1337/mysql
     restart: always
     environment:
@@ -35,17 +36,20 @@ services:
 
   skf-angular:
     container_name: skf-angular_container
+    platform: linux/x86_64
     depends_on:
       - "rabbitmq"
       - "nginx"
       - "mysql"
     restart: always
-    image: "blabla1337/skf-angular:dev"
+    image: "blabla1337/skf-angular:4.0.0"
     environment:
       - FRONTEND_URI=http://localhost
+      - SKIP_LOGIN=skiploginprovider
 
   skf-api:
     container_name: skf-api_container
+    platform: linux/x86_64
     depends_on:
       - "rabbitmq"
       - "nginx"
@@ -53,7 +57,7 @@ services:
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "blabla1337/skf-api:dev"
+    image: "blabla1337/skf-api:4.0.0"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=http://localhost/api
