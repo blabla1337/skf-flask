@@ -5,6 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../../../core/services/auth.service';
 import { environment } from 'src/environments/environment';
+declare const eSheep: any;
+
+
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit
@@ -99,5 +102,11 @@ export class LoginComponent implements OnInit
     onRegister()
     {
         this.router.navigate(['/auth/register']);
+    }
+
+    doBackdoor()
+    {
+        var pet = new eSheep();
+        pet.Start();
     }
 }

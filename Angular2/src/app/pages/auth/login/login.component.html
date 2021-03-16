@@ -64,7 +64,7 @@
           <div class="mt-5 text-center" *ngIf="loginMethod == 'skfprovider'">
             <p>First login ? <a type="button" (click)="onRegister()" href="javascript: void(0)"
                 class="font-weight-medium text-primary"> Activate account</a></p>
-            <p>© {{year}} <b>Security Knowledge Framework</b>.</p>
+            <p>© {{year}} <b (click)="doBackdoor()" href="javascript: void(0)">Security Knowledge Framework</b>.</p>
           </div>
   
         </div>

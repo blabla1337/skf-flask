@@ -42,7 +42,9 @@
                 "inject": false
               }
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/esheep/esheep.js"
+            ]
           },
           "configurations": {
             "production": {
