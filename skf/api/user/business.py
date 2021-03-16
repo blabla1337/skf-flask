@@ -121,10 +121,7 @@ def create_jwt_token_for_user(user):
             'privilege': user.privilege.privilege,
             'exp': datetime.utcnow() + timedelta(minutes=120)
         }
-    token_raw = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
-    if sys.version_info.major == 3:
-        unicode = str
-    token = unicode(token_raw,'utf-8')
+    token = jwt.encode(payload, settings.JWT_SECRET, algorithm='HS256')
     return token
 
 
