@@ -8,11 +8,11 @@ spec:
     kind: Deployment 
     name: skf-flask-back 
   minReplicas: 1 
-  maxReplicas: 10 
+  maxReplicas: 3 
   metrics: 
   - type: Resource
     resource:
       name: memory 
       target:
         type: Utilization 
-        averageValue: 500Mi 
+        averageValue: 900Mi 

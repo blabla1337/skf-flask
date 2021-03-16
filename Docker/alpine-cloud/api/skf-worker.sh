@@ -14,7 +14,7 @@ python3.7 skf/rabbit_mq_workers/deletion-worker.py &
 # Run the SKF Python cleaner worker every 30 min
 while true  
 do  
-  python3.7 skf/rabbit_mq_workers/cleaner-worker.py 
   #sleep 7200
   sleep 180000
+  python3.7 skf/rabbit_mq_workers/cleaner-worker.py 
 done

@@ -31,4 +31,10 @@ export class LabService
   {
     return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_tag}`, { headers: this.authHeader })
   }
+
+  getCodeLabs(code_type: string): Observable<Object>
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/code/items/type/${code_type}`, { headers: this.authHeader })
+  }
+
 }

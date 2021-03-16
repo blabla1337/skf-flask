@@ -8,6 +8,8 @@ metadata:
     k8s-app: auditbeat
 data:
   auditbeat.yml: |-
+    setup.dashboards.enabled: true
+    setup.kibana.host: 123.gcp.cloud.es.io:9243
     auditbeat.config.modules:
       # Mounted `auditbeat-daemonset-modules` configmap:
       path: ${path.config}/modules.d/*.yml
@@ -16,18 +18,18 @@ data:
 
     # When using containerd as runtime, a configuration like the following one
     # can be used to monitor files in containers using autodiscover.
-    #auditbeat.autodiscover:
-    #  providers:
-    #  - type: kubernetes
-    #    host: ${NODE_NAME}
-    #    templates:
-    #      - config:
-    #        - module: 'file_integrity'
-    #          paths:
-    #            - '/run/containerd/io.containerd.runtime.v1.linux/k8s.io/${data.kubernetes.container.id}/rootfs/bin'
-    #            - '/run/containerd/io.containerd.runtime.v1.linux/k8s.io/${data.kubernetes.container.id}/rootfs/etc'
-    #          scan_at_start: false
-    #          recursive: true
+    auditbeat.autodiscover:
+      providers:
+      - type: kubernetes
+        host: ${NODE_NAME}
+        templates:
+          - config:
+            - module: 'file_integrity'
+              paths:
+                - '/run/containerd/io.containerd.runtime.v1.linux/k8s.io/${data.kubernetes.container.id}/rootfs/bin'
+                - '/run/containerd/io.containerd.runtime.v1.linux/k8s.io/${data.kubernetes.container.id}/rootfs/etc'
+              scan_at_start: false
+              recursive: true
 
     processors:
       - add_cloud_metadata:
@@ -109,24 +111,24 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: auditbeat
-        image: blabla1337/audit-beat:latest
+        image: docker.elastic.co/beats/auditbeat:7.10.1
         args: [
           "-c", "/etc/auditbeat.yml",
           "-e",
         ]
         env:
         - name: ELASTICSEARCH_HOST
-          value: 0393ed211b36494eb8c0482ab5d882b6.europe-west3.gcp.cloud.es.io
+          value: 123.us-central1.gcp.cloud.es.io
         - name: ELASTICSEARCH_PORT
           value: "9243"
         - name: ELASTICSEARCH_USERNAME
           value: elastic
         - name: ELASTICSEARCH_PASSWORD
-          value: 4G8tBR4cHBZBzX5rkFBVC6Nh
+          value: 123
         - name: ELASTIC_CLOUD_ID
-          value: skf-demo-poc:ZXVyb3BlLXdlc3QzLmdjcC5jbG91ZC5lcy5pbyQwMzkzZWQyMTFiMzY0OTRlYjhjMDQ4MmFiNWQ4ODJiNiQ0N2Y2NTEwZDQzZTE0MzFmOTQ4NDQwOWNkZmU2ODQxOQ==
+          value: SKF_poc:123
         - name: ELASTIC_CLOUD_AUTH
-          value: elastic:4G8tBR4cHBZBzX5rkFBVC6Nh
+          value: elastic:123
         - name: NODE_NAME
           valueFrom:
             fieldRef:

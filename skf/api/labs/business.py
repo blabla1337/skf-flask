@@ -1,5 +1,6 @@
 from skf.database import db
 from skf.database.lab_items import LabItem
+from skf.database.lab_items_code import LabItemCode
 from skf.api.security import log, val_num, val_alpha_num
 import time
 from flask import render_template, Blueprint, jsonify, request, current_app
@@ -9,6 +10,12 @@ from skf.api.labs.deletion_tasks import SKFLabDelete
 def get_labs():
     log("User requested list of kb items", "LOW", "PASS")
     result = LabItem.query.order_by(LabItem.level.asc()).paginate(1, 2500, False)
+    return result
+
+
+def get_labs_code(code_type):
+    log("User requested list of code review items", "LOW", "PASS")
+    result = LabItemCode.query.filter(LabItemCode.code_type == code_type).paginate(1, 2500, False)
     return result
 
 
