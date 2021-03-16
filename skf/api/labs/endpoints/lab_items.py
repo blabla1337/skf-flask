@@ -11,7 +11,6 @@ ns = api.namespace('interactive_labs', description='Operations related to the la
 @ns.route('/items')
 @api.response(404, 'Validation error', message)
 class LabCollection(Resource):
-
     @api.marshal_with(lab_items)
     @api.response(400, 'No results found', message)
     def get(self):

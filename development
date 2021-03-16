@@ -3,7 +3,7 @@
 export FLASK_APP=skf/app.py
 export PYTHONPATH=.
 export SKF_FLASK_DEBUG='True'
-export SKF_JWT='False'
+export JWT_ENABLED='False'
 export SKF_JWT_SECRET='this_is_a_TEST_secret'
 #export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 python3 skf/app.py 

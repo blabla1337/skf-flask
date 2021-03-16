@@ -11837,111 +11837,111 @@ def load_initial_data():
         Code review labs solutions
         '''
 
-        lab_code_sol = lab_items_code_options("Denial Of Service")   
+        lab_code_sol = LabItemCodeOptions("Denial Of Service")   
         db.session.add(lab_code_sol)
         db.session.commit()
 
-        lab_code_sol = lab_items_code_options("Exec Code")   
+        lab_code_sol = LabItemCodeOptions("Exec Code")   
         db.session.add(lab_code_sol)
         db.session.commit()     
 
-        lab_code_sol = lab_items_code_options("Overflow")   
+        lab_code_sol = LabItemCodeOptions("Overflow")   
         db.session.add(lab_code_sol)
         db.session.commit()   
 
-        lab_code_sol = lab_items_code_options("Execute Code")   
+        lab_code_sol = LabItemCodeOptions("Execute Code")   
         db.session.add(lab_code_sol)
         db.session.commit()   
 
-        lab_code_sol = lab_items_code_options("Obtain Information")   
+        lab_code_sol = LabItemCodeOptions("Obtain Information")   
         db.session.add(lab_code_sol)
         db.session.commit()   
 
-        lab_code_sol = lab_items_code_options("Memory corruption")   
+        lab_code_sol = LabItemCodeOptions("Memory corruption")   
         db.session.add(lab_code_sol)
         db.session.commit()   
         
-        lab_code_sol = lab_items_code_options("Gain privileges")   
+        lab_code_sol = LabItemCodeOptions("Gain privileges")   
         db.session.add(lab_code_sol)
         db.session.commit()   
 
-        lab_code_sol = lab_items_code_options("Obtain Information")   
+        lab_code_sol = LabItemCodeOptions("Obtain Information")   
         db.session.add(lab_code_sol)
         db.session.commit()   
 
-        lab_code_sol = lab_items_code_options("Bypass a restriction")   
+        lab_code_sol = LabItemCodeOptions("Bypass a restriction")   
         db.session.add(lab_code_sol)
         db.session.commit()   
 
-        lab_code_sol = lab_items_code_options("Directory traversal")   
+        lab_code_sol = LabItemCodeOptions("Directory traversal")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Filename injection")   
+        lab_code_sol = LabItemCodeOptions("Filename injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Http response splitting")   
+        lab_code_sol = LabItemCodeOptions("Http response splitting")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Cross Site Request Forgery")   
+        lab_code_sol = LabItemCodeOptions("Cross Site Request Forgery")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Sql Injection")   
+        lab_code_sol = LabItemCodeOptions("Sql Injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("File inclusion")   
+        lab_code_sol = LabItemCodeOptions("File inclusion")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Cross Site Scripting")   
+        lab_code_sol = LabItemCodeOptions("Cross Site Scripting")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Server side template injection")   
+        lab_code_sol = LabItemCodeOptions("Server side template injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Client side template injection")   
+        lab_code_sol = LabItemCodeOptions("Client side template injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("XML injection")   
+        lab_code_sol = LabItemCodeOptions("XML injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Xpath injection")   
+        lab_code_sol = LabItemCodeOptions("Xpath injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Ldap injection")   
+        lab_code_sol = LabItemCodeOptions("Ldap injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Race condition")   
+        lab_code_sol = LabItemCodeOptions("Race condition")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("CRLF injection")   
+        lab_code_sol = LabItemCodeOptions("CRLF injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Header injection")   
+        lab_code_sol = LabItemCodeOptions("Header injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Regular expression injection")   
+        lab_code_sol = LabItemCodeOptions("Regular expression injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Expression language injection")   
+        lab_code_sol = LabItemCodeOptions("Expression language injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code_options("Deserialization injection")   
+        lab_code_sol = LabItemCodeOptions("Deserialization injection")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
@@ -11949,19 +11949,19 @@ def load_initial_data():
         Code review labs
         '''
 
-        lab_code_sol = lab_items_code("<?php system($input); ?>", 2, "php")   
+        lab_code_sol = LabItemCode("<?php system($input); ?>", 2, "php")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code("<?php $query  = 'SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET $offset;'; ?>", 14, "php")   
+        lab_code_sol = LabItemCode("<?php $query  = 'SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET $offset;'; ?>", 14, "php")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code("System.Diagnostics.Process.Start('CMD.exe',strCommand);", 2, "asp")   
+        lab_code_sol = LabItemCode("System.Diagnostics.Process.Start('CMD.exe',strCommand);", 2, "asp")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = lab_items_code("os.system($input)", 2, "python")   
+        lab_code_sol = LabItemCode("os.system($input)", 2, "python")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
