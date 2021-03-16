@@ -20,9 +20,15 @@ RUN npm --loglevel=error install &&\
 ### run ###
 ############
 
-# base image
-FROM nginx:1.14.1-alpine as run
+## base image
+## nginx-unprivileged uses UID=101 and GID=101 (user and group = nginx)
+FROM nginxinc/nginx-unprivileged:1.18.0-alpine as run
 
+## Set ARG for use in later RUN command
+ARG GID=0
+
+## Set user for installation steps
+USER 0
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
@@ -35,24 +41,22 @@ COPY --from=builder /home/user_angular/site.conf.template /home/user_angular/sit
 
 COPY ./Docker/alpine-cloud/angular/entrypoint.sh  /home/user_angular/entrypoint.sh
 
-# not the most secure solution but the entrypoint needs to be able to copy the correct config into confd.d,
-# also the Deployment has a  securityContext because, K8s best practices so the entrypoint needs to start as that user
-# so even if we wanted, we cannot use Nginx to drop user privileges after the entrypoint starts
-# TODO find a better way
-RUN chown -R nginx:nginx /home/user_angular/ &&\
-    chown -R nginx:nginx /usr/share/nginx/html &&\
-    chown -R nginx:nginx /etc/nginx/conf.d/ &&\
-    chown -R nginx:nginx /var/log/nginx &&\
-    # move the .pid file somewhere we can run
-    sed -i -e "s_/var/run/nginx.pid_/etc/nginx/conf.d/nginx.pid_g" /etc/nginx/nginx.conf &&\
+## Apply ownership and permission changes to function with nginx user, that will also work with OpenShift restricted SCC
+RUN chown -R nginx:${GID} /home/user_angular/        &&\
+    chmod -R g=u /home/user_angular/                 &&\
+    chown -R nginx:${GID} /usr/share/nginx/html      &&\
+    chmod -R g=u /usr/share/nginx/html               &&\
+    chown -R nginx:${GID} /var/log/nginx             &&\
+    chmod -R g=u /var/log/nginx                      &&\
     chmod +x /home/user_angular/entrypoint.sh
 
-# nginx default container tries to bind on port 80 before dropping privileges.
-# there's no point in binding on a privileged port in our scenario
-RUN rm -f /etc/nginx/conf.d/default.conf
+# nginx-unprivileged container binds on port 8080. Need to decide whether this is kept or deleted.
+#RUN rm -f /etc/nginx/conf.d/default.conf
 
 EXPOSE 8788
-USER nginx
+
+# Specify the user by number (nginx=101) to permit this to work with OpenShift "mustRunAsNonRoot" SCC permission as well as standard K8s deployments
+USER 101
 
 CMD ["/home/user_angular/entrypoint.sh","/home/user_angular/site.conf.template"]
 

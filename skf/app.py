@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-
+​
 # -*- coding: utf-8 -*-
 """
-    sadasdasdasdas
     Security Knowledge Framework is an expert system application
     that uses OWASP Application Security Verification Standard, code examples
     and helps developers in development.
-    Copyright (C) 2020 Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2021 Glenn ten Cate, Riccardo ten Cate
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
     published by the Free Software Foundation, either version 3 of the
@@ -18,6 +17,7 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
+
 import logging.config, os, re
 from flask import Flask, Blueprint
 from flask_cors import CORS, cross_origin
@@ -95,11 +95,10 @@ from skf.api.search.endpoints.search_lab import ns as search_namespace
 from skf.api.search.endpoints.search_code import ns as search_namespace
 from skf.api.search.endpoints.search_checklist import ns as search_namespace
 from skf.api.search.endpoints.search_project import ns as search_namespace
-
-
+from elasticapm.contrib.flask import ElasticAPM
 from skf.api.restplus import api
 from skf.database import db
-
+​
 def create_app():
     flask_app = Flask(__name__)
     configure_app(flask_app)
@@ -108,7 +107,7 @@ def create_app():
     with flask_app.app_context():
         init_db()
     return flask_app
-
+​
 def configure_app(flask_app):
     """Configure the SKF app."""
     #cannot use SERVER_NAME because it will mess up the routing
@@ -126,7 +125,20 @@ def configure_app(flask_app):
     #flask_app.config['RABBIT_MQ_CONN_STRING'] = settings.RABBIT_MQ_CONN_STRING
     #flask_app.config['RABBIT_MQ_DEPLOYMENT_WORKER'] = settings.RABBIT_MQ_DEPLOYMENT_WORKER
     #flask_app.config['RABBIT_MQ_DELETION_WORKER'] = settings.RABBIT_MQ_DELETION_WORKER
-
+    flask_app.config['ELASTIC_APM'] = {
+        # Set required service name. Allowed characters:
+        # a-z, A-Z, 0-9, -, _, and space
+        'SERVICE_NAME': 'skf-flask',
+​
+        # Use if APM Server requires a token
+        'SECRET_TOKEN': 'jUjl436rEJzrI6xQwb',
+​
+        # Set custom APM Server URL (default: http://localhost:8200)
+        'SERVER_URL': 'https://50ac8e3e912549e1a41934a9a383bfc4.apm.us-central1.gcp.cloud.es.io:443',
+        'CAPTURE_BODY': 'all',
+        }
+​
+​
 def initialize_app(flask_app):
     """Initialize the SKF app."""
     blueprint = Blueprint('api', __name__, url_prefix='/api')
@@ -143,42 +155,43 @@ def initialize_app(flask_app):
     api.add_namespace(questions_namespace)
     api.add_namespace(search_namespace)
     flask_app.register_blueprint(blueprint)
-
+​
 app = create_app()
+apm = ElasticAPM(app)
 # TO DO FIX WILDCARD ONLY ALLOW NOW FOR DEV
 cors = CORS(app, resources={r"/api/*": {"origins": settings.ORIGINS}})
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
-
-
+​
+​
 @app.cli.command('cleandb')
 def cleandb_command():
     """Delete DB and creates a new database with all the Markdown files."""
     clean_db()
     log.info("cleaned the database.")
-
-
+​
+​
 @app.cli.command('initdb')
 def initdb_command():
     """Delete DB and creates a new database with all the Markdown files."""
     init_db()
     log.info("Created the database.")
-
-
+​
+​
 @app.cli.command('initdataset')
 def initdataset_command():
     """Creates the datasets needed for the chatbot."""
     init_dataset()
     log.info("Initialized the datasets.")
-
-
+​
+​
 @app.cli.command('updatedb')
 def updatedb_command():
     """Update the database with the markdown files."""
     update_db()
     log.info("Database updated with the markdown files.")
         
-
+​
 def main():
     """Main SKF method"""
     if settings.FLASK_DEBUG == 'False':
@@ -187,6 +200,7 @@ def main():
     else:
         log.info('>>>>> Starting development server http://'+settings.FLASK_HOST+":"+str(settings.FLASK_PORT)+' <<<<<')
         app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=True)
+​
 
 if __name__ == "__main__":
     main()

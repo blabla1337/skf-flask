@@ -150,7 +150,7 @@ def init_md_testing_examples():
                     except IntegrityError as e:
                         print(e)
                         pass
-        log.info("Initialized the markdown code-examples.")
+        log.info("Initialized the markdown testing-examples.")
         return True
     except:
         raise

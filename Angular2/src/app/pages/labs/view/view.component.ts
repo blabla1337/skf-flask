@@ -18,6 +18,7 @@ export class LabViewComponent implements OnInit
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
+  public isCollapsed: boolean[] = [];
   public labData: any = [];
   public queryString;
   public queryLabel;
@@ -25,7 +26,13 @@ export class LabViewComponent implements OnInit
   public labLists: string[];
   public lab: any = [];
   public status: any = [];
+  public codeLabsData: any = [];
+  public catSelector: number;
+  public categoryData = ['bla', 'Jasd', 'Other'];
+
   public kubernetes_enabled = environment.KUBERNETES_ENABLED;
+  public loggedinUser: string;
+  public loggedin = false;
 
   // tslint:disable-next-line: variable-name
   constructor(
@@ -40,6 +47,8 @@ export class LabViewComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
     this.labLists = ['SKF-Labs', 'Juice-Shop', 'Other Labs'];
+    this.catSelector = Number(localStorage.getItem("categorySelector"));
+
   }
 
   /**
@@ -55,6 +64,9 @@ export class LabViewComponent implements OnInit
         this.labData = lab;
         this.spinner.hide();
       });
+    this._labService
+    .getCodeLabs("php")
+    .subscribe(data => this.codeLabsData = data);
   }
 
   showStatus()
@@ -124,4 +136,19 @@ export class LabViewComponent implements OnInit
       ]);
     })
   }
+
+
+  loggedIn()
+  {
+    this.loggedinUser = sessionStorage.getItem('Authorization');
+    this.loggedin = true;
+    return this.loggedinUser;
+  }
+
+  setCategorySelectorId(categoryId: Number)
+  {
+    localStorage.setItem('categorySelector', categoryId.toString());
+    this._fetchData();
+  }
+
 }

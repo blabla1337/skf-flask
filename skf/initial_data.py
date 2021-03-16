@@ -12,6 +12,8 @@ from skf.database.code_items import CodeItem
 from skf.database.groupmembers import GroupMember
 from skf.database.kb_items import KBItem
 from skf.database.lab_items import LabItem
+from skf.database.lab_items_code import LabItemCode
+from skf.database.lab_items_code_options import LabItemCodeOptions
 from skf.database.logs import Log
 from skf.database.project_sprints import ProjectSprint
 from skf.database.projects import Project
@@ -3330,7 +3332,7 @@ def load_initial_data():
         '''
 
         #Project 1 ASVS LvL 1
-        p = Project('Design Patterns ASVS LvL 1', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37')
+        p = Project('Design Patterns ASVS LvL 1', '4.0', 'Application Security Verification Standard', '2021-10-05 13:37')
         db.session.add(p)
         db.session.commit()
 
@@ -4737,7 +4739,7 @@ def load_initial_data():
         db.session.commit()
 
         #Project 2 ASVS LvL 2
-        p = Project('Design Patterns ASVS LvL 2', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37')
+        p = Project('Design Patterns ASVS LvL 2', '4.0', 'Application Security Verification Standard', '2021-10-05 13:37')
         db.session.add(p)
         db.session.commit()
 
@@ -7451,7 +7453,7 @@ def load_initial_data():
         db.session.commit()
 
         #Project 3 ASVS LvL 3
-        p = Project('Design Patterns ASVS LvL 3', '4.0', 'Application Security Verification Standard', '2020-10-05 13:37')
+        p = Project('Design Patterns ASVS LvL 3', '4.0', 'Application Security Verification Standard', '2021-10-05 13:37')
         db.session.add(p)
         db.session.commit()
 
@@ -11830,6 +11832,138 @@ def load_initial_data():
         kb_code_cor = ChecklistKBCodeItem(295,154)   
         db.session.add(kb_code_cor)
         db.session.commit()
+
+        '''
+        Code review labs solutions
+        '''
+
+        lab_code_sol = lab_items_code_options("Denial Of Service")   
+        db.session.add(lab_code_sol)
+        db.session.commit()
+
+        lab_code_sol = lab_items_code_options("Exec Code")   
+        db.session.add(lab_code_sol)
+        db.session.commit()     
+
+        lab_code_sol = lab_items_code_options("Overflow")   
+        db.session.add(lab_code_sol)
+        db.session.commit()   
+
+        lab_code_sol = lab_items_code_options("Execute Code")   
+        db.session.add(lab_code_sol)
+        db.session.commit()   
+
+        lab_code_sol = lab_items_code_options("Obtain Information")   
+        db.session.add(lab_code_sol)
+        db.session.commit()   
+
+        lab_code_sol = lab_items_code_options("Memory corruption")   
+        db.session.add(lab_code_sol)
+        db.session.commit()   
+        
+        lab_code_sol = lab_items_code_options("Gain privileges")   
+        db.session.add(lab_code_sol)
+        db.session.commit()   
+
+        lab_code_sol = lab_items_code_options("Obtain Information")   
+        db.session.add(lab_code_sol)
+        db.session.commit()   
+
+        lab_code_sol = lab_items_code_options("Bypass a restriction")   
+        db.session.add(lab_code_sol)
+        db.session.commit()   
+
+        lab_code_sol = lab_items_code_options("Directory traversal")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Filename injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Http response splitting")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Cross Site Request Forgery")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Sql Injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("File inclusion")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Cross Site Scripting")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Server side template injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Client side template injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("XML injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Xpath injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Ldap injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Race condition")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("CRLF injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Header injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Regular expression injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Expression language injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code_options("Deserialization injection")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        '''
+        Code review labs
+        '''
+
+        lab_code_sol = lab_items_code("<?php system($input); ?>", 2, "php")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code("<?php $query  = 'SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET $offset;'; ?>", 14, "php")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code("System.Diagnostics.Process.Start('CMD.exe',strCommand);", 2, "asp")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
+
+        lab_code_sol = lab_items_code("os.system($input)", 2, "python")   
+        db.session.add(lab_code_sol)
+        db.session.commit()  
 
         print('Initialized the initial data.')
         return True
