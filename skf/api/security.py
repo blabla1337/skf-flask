@@ -93,14 +93,7 @@ def validate_privilege(self, privilege):
     if not request.headers.get('Authorization'):
         log("Request sent with missing JWT header", "HIGH", "FAIL")
         abort(403, 'JWT missing authorization header')
-    try:
-        check_privilege = select_privilege_jwt(self)
-    except jwt.exceptions.DecodeError:
-        log("User JWT header could not be decoded", "HIGH", "FAIL")
-        abort(403, 'JWT decode error')
-    except jwt.exceptions.ExpiredSignature:
-        log("User JWT header is expired", "HIGH", "FAIL")
-        abort(403, 'JWT token expired')
+    check_privilege = select_privilege_jwt(self)
     privileges = check_privilege['privilege'].split(':')
     for value in privileges:
         if value == privilege:

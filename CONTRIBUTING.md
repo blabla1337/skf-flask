@@ -1,5 +1,5 @@
 # OWASP Security Knowledge Framework
-[![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/)
+[![SKF Logo](https://www.securityknowledgeframework.org/img/banner-wiki-owasp.jpg)](https://www.securityknowledgeframework.org/) 
 
 ## Table of Contents
 * [Development-API](#development-api)

@@ -11849,10 +11849,6 @@ def load_initial_data():
         db.session.add(lab_code_sol)
         db.session.commit()   
 
-        lab_code_sol = LabItemCodeOptions("Execute Code")   
-        db.session.add(lab_code_sol)
-        db.session.commit()   
-
         lab_code_sol = LabItemCodeOptions("Obtain Information")   
         db.session.add(lab_code_sol)
         db.session.commit()   
