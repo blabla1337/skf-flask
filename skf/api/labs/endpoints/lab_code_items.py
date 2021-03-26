@@ -1,7 +1,6 @@
-
 from flask import request
 from flask_restplus import Resource
-from skf.api.security import security_headers
+from skf.api.security import security_headers, val_alpha_num_special
 from skf.api.labs.business import get_labs_code
 from skf.api.labs.serializers import lab_items_code, message
 from skf.api.restplus import api
@@ -19,6 +18,7 @@ class LabCollectionCode(Resource):
         Returns list of code review labs.
         * Privileges required: **none**
         """
+        val_alpha_num_special(code_type)
         result = get_labs_code(code_type)
         return result, 200, security_headers()
  

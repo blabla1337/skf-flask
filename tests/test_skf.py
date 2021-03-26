@@ -351,6 +351,38 @@ class TestRestPlusApi(unittest.TestCase):
         self.assertEqual(response_dict['items'][0]['title'], "Path traversal (LFI)")
 
 
+    def test_get_labs_code_solutions(self):
+        """Test if the get labs code solution items call is working"""
+        response = self.client.get('/api/interactive_labs/code/items/solutions/1')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['vuln'], "Denial Of Service")
+
+
+    def test_get_labs_code_items(self):
+        """Test if the get labs code items call is working"""
+        response = self.client.get('/api/interactive_labs/code/items/type/php')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['items'][0]['id'], 1)
+
+
+    def test_get_labs_code_solutions_correct(self):
+        """Test if the get labs code solution item is correct call is working"""
+        response = self.client.get('/api/interactive_labs/code/items/code/1/solution/2')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['status'], "correct")
+
+
+    def test_get_labs_code_solutions_incorrect(self):
+        """Test if the get labs code solution item is incorrect call is working"""
+        response = self.client.get('/api/interactive_labs/code/items/code/1/solution/22')
+        self.assertEqual(response.status_code, 200)
+        response_dict = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response_dict['status'], "incorrect")
+
+
     def test_get_kb(self):
         """Test if the get kb items call is working"""
         response = self.client.get('/api/kb/items/1')
@@ -364,7 +396,7 @@ class TestRestPlusApi(unittest.TestCase):
         response = self.client.get('/api/kb/9')
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response_dict['title'], "J2EE Misconfiguration: Weak Access Permissions for EJB Methods")
+        self.assertEqual(response_dict['title'], "J2EE Misconfiguration Weak Access Permissions for EJB Methods")
 
 
     def test_update_kb(self):

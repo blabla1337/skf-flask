@@ -106,7 +106,13 @@ export class LoginComponent implements OnInit
 
     doBackdoor()
     {
+        //eval()
+        //system()
+        //exec()
+        //Nice i see you did some nice code reviewing to validate if the app is secure and doesn't contain backdoors?
+        //Then You are freaking awesome! Please enjoy this little Easter-Egg for the hard word and good ethics!
         var pet = new eSheep();
         pet.Start();
+        //Thanks to Adriano Petrucci (http://esheep.petrucci.ch) who created this little sheep.exe
     }
 }
