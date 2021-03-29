@@ -39,14 +39,6 @@ labs_code_status = api.model('labs', {
     'status': fields.String(required=True, description='Code lab solution status for vulnerability'),
 })
 
-lab_code_types = api.model('labs', {
-    'type': fields.String(required=True, description='Code lab type for example: php, asp, java ...'),
-})
-
-lab_code_items_types = api.inherit('List of code lab type items', {
-    'items': fields.List(fields.Nested(lab_code_types))
-})
-
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
 })

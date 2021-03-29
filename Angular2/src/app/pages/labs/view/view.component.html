@@ -136,18 +136,19 @@
                       <div class="code-example-tabs">
                         <div class="row">
                           <div class="col-lg-2">
-                            <ul ngbNav #nav="ngbNav" [activeId]="catSelector" class="nav-pills flex-column">
-                              <li *ngFor="let item of categoryData" [ngbNavItem]="item.id">
-                                <a ngbNavLink (click)="setCategorySelectorId(item.id)">
+                            <!-- TO FIX: [activeId]="categoryData" i snot working -->
+                            <ul ngbNav #nav="ngbNav" [activeId]="categoryData" class="nav-pills flex-column">
+                              <li *ngFor="let item of categoryData" [ngbNavItem]="item">
+                                <a ngbNavLink (click)="setCategorySelectorLang(item)">
                                   <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
-                                  <p title="Checklist type switcher" class="font-weight-bold mb-4">{{item.name}}</p>
+                                  <p title="Code type switcher" class="font-weight-bold mb-4">{{item}}</p>
                                 </a>
                                 <ng-template ngbNavContent>
                                   <div class="card">
                                     <div class="card-body">
                                       <div class="row mb-3">
                                         <div class="col-sm-9">
-                                          <h4 class="card-title my-3">{{item.name}}</h4>
+                                          <h4 class="card-title my-3">{{item}} code review Labs</h4>
                                         </div>
                                       </div>
                                       <div class="card shadow-none border mb-0">
