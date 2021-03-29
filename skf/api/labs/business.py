@@ -21,15 +21,6 @@ def get_labs_code(code_type):
     return result
 
 
-def get_labs_code_types():
-    log("User requested list of code review items", "LOW", "PASS")
-    result = LabItemCode.query.filter_by(LabItemCode.code_type).distinct()
-    for bla in result.items:
-        print(bla)
-    #result = LabItemCode.query.order_by(LabItemCode.code_type.asc()).distinct().paginate(1, 2500, False)
-    return result
-
-
 def get_labs_code_sol(solutions_id):
     log("User requested list of code labs solution items", "LOW", "PASS")
     count = LabItemCodeOptions.query.count()

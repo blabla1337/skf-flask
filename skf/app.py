@@ -28,7 +28,6 @@ from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.labs.endpoints.lab_deployments import ns as lab_namespace
 from skf.api.labs.endpoints.lab_delete import ns as lab_namespace
 from skf.api.labs.endpoints.lab_code_items import ns as lab_namespace
-from skf.api.labs.endpoints.lab_code_types import ns as lab_namespace
 from skf.api.labs.endpoints.lab_code_item_sol import ns as lab_namespace
 from skf.api.labs.endpoints.lab_code_verify import ns as lab_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace

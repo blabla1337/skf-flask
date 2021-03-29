@@ -28,7 +28,7 @@ export class LabViewComponent implements OnInit
   public status: any = [];
   public codeLabsData: any = [];
   public catSelector: number;
-  public categoryData = ['bla', 'Jasd', 'Other'];
+  public categoryData = ['php', 'java', 'asp', 'python'];
 
   public kubernetes_enabled = environment.KUBERNETES_ENABLED;
   public loggedinUser: string;
@@ -64,8 +64,23 @@ export class LabViewComponent implements OnInit
         this.labData = lab;
         this.spinner.hide();
       });
+  }
+
+    /**
+   * Labs code data fetches
+   */
+  private _fetchCodeLabs(categoryCodeLang)
+  {
+    this.spinner.show();
     this._labService
-    .getCodeLabs("php")
+      .getLabs()
+      .subscribe(lab =>
+      {
+        this.labData = lab;
+        this.spinner.hide();
+      });
+    this._labService
+    .getCodeLabs(categoryCodeLang)
     .subscribe(data => this.codeLabsData = data);
   }
 
@@ -151,4 +166,12 @@ export class LabViewComponent implements OnInit
     this._fetchData();
   }
 
+  setCategorySelectorLang(categoryCodeLang: String = 'php')
+  {
+    localStorage.setItem('categorySelector', categoryCodeLang.toString());
+    this._fetchCodeLabs(categoryCodeLang);
+  }
+
+
+  
 }
