@@ -138,7 +138,7 @@ export class WizardComponent implements OnInit
       }
     }
 
-    if (count_sprint == 0) {
+    if (count_sprint == 0 || this.sprintStore.length == 0) {
       this.sprintStore.push({
         'project_id': this.project_id,
         'sprint_id': Number(localStorage.getItem("sprint_id")),
