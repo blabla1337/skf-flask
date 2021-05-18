@@ -22,7 +22,7 @@ RUN npm --loglevel=error install &&\
 
 ## base image
 ## nginx-unprivileged uses UID=101 and GID=101 (user and group = nginx)
-FROM nginxinc/nginx-unprivileged:1.18.0-alpine as run
+FROM nginxinc/nginx-unprivileged:1.20.0-alpine as run
 
 ## Set ARG for use in later RUN command
 ARG GID=0
