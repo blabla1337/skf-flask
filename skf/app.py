@@ -27,9 +27,8 @@ from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_ini
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.labs.endpoints.lab_deployments import ns as lab_namespace
 from skf.api.labs.endpoints.lab_delete import ns as lab_namespace
-from skf.api.labs.endpoints.lab_code_items import ns as lab_namespace
-from skf.api.labs.endpoints.lab_code_item_sol import ns as lab_namespace
-from skf.api.labs.endpoints.lab_code_verify import ns as lab_namespace
+from skf.api.labs_code.endpoints.lab_code_random_item import ns as lab_code_namespace
+from skf.api.labs_code.endpoints.lab_code_verify_answer import ns as lab_code_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
 from skf.api.projects.endpoints.project_new import ns as project_namespace
@@ -65,7 +64,7 @@ from skf.api.checklist_category.endpoints.checklist_category_delete import ns as
 from skf.api.checklist_category.endpoints.checklist_category_items import ns as checklist_category
 from skf.api.checklist_category.endpoints.checklist_category_item import ns as checklist_category
 from skf.api.checklist_category.endpoints.checklist_category_update import ns as checklist_category
-from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
+#from skf.api.chatbot.endpoints.chatbot_question import ns as chatbot_namespace
 from skf.api.code.endpoints.code_item import ns as code_namespace
 from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_items_new import ns as code_namespace
@@ -145,6 +144,7 @@ def initialize_app(flask_app):
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
     api.add_namespace(lab_namespace)
+    api.add_namespace(lab_code_namespace)
     api.add_namespace(kb_namespace)
     api.add_namespace(code_namespace)
     api.add_namespace(users_namespace)
@@ -152,7 +152,7 @@ def initialize_app(flask_app):
     api.add_namespace(sprints_namespace)
     api.add_namespace(checklist_namespace)
     api.add_namespace(checklist_category)
-    api.add_namespace(chatbot_namespace)
+    #api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_namespace)
     api.add_namespace(search_namespace)
     flask_app.register_blueprint(blueprint)

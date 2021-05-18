@@ -47,8 +47,6 @@ export class LabViewComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
     this.labLists = ['SKF-Labs', 'Juice-Shop', 'Other Labs'];
-    this.catSelector = Number(localStorage.getItem("categorySelector"));
-
   }
 
   /**
@@ -160,18 +158,19 @@ export class LabViewComponent implements OnInit
     return this.loggedinUser;
   }
 
-  setCategorySelectorId(categoryId: Number)
-  {
-    localStorage.setItem('categorySelector', categoryId.toString());
-    this._fetchData();
-  }
 
   setCategorySelectorLang(categoryCodeLang: String = 'php')
   {
-    localStorage.setItem('categorySelector', categoryCodeLang.toString());
+    localStorage.setItem('codeReviewLanguage', categoryCodeLang.toString());
     this._fetchCodeLabs(categoryCodeLang);
   }
 
+  answer_question(code_id: number, solution_id: number)
+  {
+    this._labService
+    .solveCodeReviewChallenge(code_id, solution_id)
+    .subscribe(data => console.log(data));
+  }
 
   
 }

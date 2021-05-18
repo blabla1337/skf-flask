@@ -151,61 +151,16 @@
                                           <h4 class="card-title my-3">{{item}} code review Labs</h4>
                                         </div>
                                       </div>
-                                      <div class="card shadow-none border mb-0">
-                                        <div class="card-body">
-                                          <div class="row mt-3">
-                                            <div class="col-lg-12">
-                                              <!-- Content Body -->
-                                              <div class="row mb-4"
-                                                *ngFor="let code of codeLabsData.items; let i = index">
-                                                <div class="col">
-                                                  <div class="code-box media mb-2">
-                                                    <div class="icon mr-3">
-                                                      <i class="bx bx-code-alt font-size-20 text-success"></i>
-                                                    </div>
-                                                    <div class="media-body code-card">
-                                                      <div class="row">
-                                                        <div class="col-8">
-                                                          <h4 class="card-title text-primary">{{code.solution}} - {{code.code_type}}</h4>
-                                                        </div>
-                                                        <div class="col-4 toggle-button">
-                                                          <div class="text-right code-view-button">
-                                                            <button data-toggle="collapse" (click)="isCollapsed[code.id] = !isCollapsed[code.id]"
-                                                            class="btn-sm btn-primary">Read more</button>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[code.id]">
-                                                    <pre>
-                                                      <code [highlight]="code.code_example" lineNumbers="True"></code> 
-                                                   </pre>
-                                                    <!-- <div class="card shadow-none border bg-dark text-light card-body mb-0">
-                                                      
-                                                    </div> -->
-                                                    <div class="row mt-4">
-                                                      <div class="col-sm-6">
-                                                        <!--<a routerLink="/" class="btn text-muted d-none d-sm-inline-block btn-link">
-                                                          <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>-->
-                                                      </div> <!-- end col -->
-                                                      <div class="col-sm-6">
-                                                        <div *ngIf="loggedIn()" class="text-sm-right">
-                                                          <a [routerLink]="['/code-example/update', code.id]"
-                                                            class="btn btn-sm btn-success m-1">
-                                                            <i class="mdi mdi-check mr-1"></i> Update </a>
-                                                        </div>
-                                                      </div> <!-- end col -->
-                                                    </div>
-                                                    <div class="dropdown-divider"></div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <!-- Content Body Ends-->
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                      {{codeLabsData.lab.id}}
+                                      {{codeLabsData.lab.hint}}
+                                      {{codeLabsData.lab.code_example}}
+                                      {{codeLabsData.lab.code_type}}
+                                      <span *ngFor="let item of codeLabsData.answers"> 
+                                        <button (click)="answer_question(codeLabsData.lab.id, item.answer_1_id)" class="btn btn-primary">{{item.answer_1}}</button>
+                                        <button (click)="answer_question(codeLabsData.lab.id, item.answer_2_id)" class="btn btn-primary">{{item.answer_2}}</button>
+                                        <button (click)="answer_question(codeLabsData.lab.id, item.answer_3_id)" class="btn btn-primary">{{item.answer_3}}</button>
+                                        <button (click)="answer_question(codeLabsData.lab.id, item.answer_4_id)" class="btn btn-primary">{{item.answer_4}}</button>
+                                      </span>
                                     </div>
                                   </div>
                                 </ng-template>

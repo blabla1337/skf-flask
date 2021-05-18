@@ -9,6 +9,8 @@ class LabItemCode(db.Model):
     code_example = db.Column(db.Text, nullable=False)
     solution = db.Column(db.Integer, nullable=False)
     code_type = db.Column(db.Text, nullable=False)
+    hint = db.Column(db.Text, nullable=False)
+    code_type = db.Column(db.Text, nullable=False)
 
     def __init__(self, code_example, solution, code_type):
         self.code_example = code_example
