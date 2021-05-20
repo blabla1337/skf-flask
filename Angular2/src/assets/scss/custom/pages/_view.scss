@@ -43,3 +43,24 @@
         }
     }
 }
+
+.code-review-tabs{
+    .nav-pills{
+        .nav-link{
+            height: 35px;
+            text-align: center;
+            background-color: $card-bg;
+            box-shadow: $box-shadow-sm;
+            color: $topnav-text;
+
+            &.active{
+                height: 35px;
+                background-color: $topnav-text;
+                color: white;
+            }
+            .check-nav-icon{
+                font-size: 36px;
+            }
+        }
+    }
+}
