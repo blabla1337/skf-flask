@@ -129,38 +129,104 @@
           <div class="card mt-3 shadow-none">
             <div class="card-body pt-2">
               <form>
-                <div class="row text-center">
+                <div class="row">
                   <div class="col-xl-12">
                     <div class="form-group mb-2">
-                                          
-                      <div class="code-example-tabs">
+                      <div class="code-review-tabs">
                         <div class="row">
                           <div class="col-lg-2">
+                            <h4 class="card-title mb-4">Code Review Labs</h4>
                             <!-- TO FIX: [activeId]="categoryData" i snot working -->
-                            <ul ngbNav #nav="ngbNav" [activeId]="categoryData" class="nav-pills flex-column">
+                            <ul ngbNav #nav="ngbNav" [activeId]="categoryData" class="nav-pills flex-column text-center">
                               <li *ngFor="let item of categoryData" [ngbNavItem]="item">
-                                <a ngbNavLink (click)="setCategorySelectorLang(item)">
-                                  <i class="{{item.icon}} font-size-22 d-block check-nav-icon mt-4 mb-3"></i>
-                                  <p title="Code type switcher" class="font-weight-bold mb-4">{{item}}</p>
+                                <a ngbNavLink (click)="setCategorySelectorLang(item)" class="shadow-sm mb-2">
+                                  <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                  <p title="Code type switcher" class="font-weight-bold mb-1">{{item}}</p>
                                 </a>
                                 <ng-template ngbNavContent>
                                   <div class="card">
                                     <div class="card-body">
                                       <div class="row mb-3">
                                         <div class="col-sm-9">
-                                          <h4 class="card-title my-3">{{item}} code review Labs</h4>
+                                          <h4 class="card-title my-3 text-center">{{item}} code review Labs</h4>
                                         </div>
                                       </div>
-                                      {{codeLabsData.lab.id}}
-                                      {{codeLabsData.lab.hint}}
-                                      {{codeLabsData.lab.code_example}}
-                                      {{codeLabsData.lab.code_type}}
-                                      <span *ngFor="let item of codeLabsData.answers"> 
-                                        <button (click)="answer_question(codeLabsData.lab.id, item.answer_1_id)" class="btn btn-primary">{{item.answer_1}}</button>
-                                        <button (click)="answer_question(codeLabsData.lab.id, item.answer_2_id)" class="btn btn-primary">{{item.answer_2}}</button>
-                                        <button (click)="answer_question(codeLabsData.lab.id, item.answer_3_id)" class="btn btn-primary">{{item.answer_3}}</button>
-                                        <button (click)="answer_question(codeLabsData.lab.id, item.answer_4_id)" class="btn btn-primary">{{item.answer_4}}</button>
-                                      </span>
+                                      <pre>
+                                        <code [highlight]="codeDataTest" lineNumbers="True"></code> 
+                                      </pre>
+                                      <div class="code-view-button card-header">
+                                            
+                                        <div class="row">
+                                          <div class="col-sm-8">
+                                            <div class="text-sm-left">
+                                              <b style="color: #8184B2">Select </b> 
+                                              <b>the correct answer below </b>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="text-sm-right avatar-xs">
+                                                <span data-toggle="collapse" (click)="isCollapsed[0] = !isCollapsed[0]" 
+                                                class="bg-soft-primary avatar-title">
+                                                  <i class="fa fa-arrow-down"></i>
+                                                </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div> 
+                                      <div class="card-body">
+                                        <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[0]">
+                                          <div class="row mt-4">
+                                            <div class="col-sm-12">
+                                              <div class="text-sm-left">
+                                                <div class="row mb-3">
+                                                  <div class="col-sm-12">
+                                                    <div class="col-sm-9">
+
+                                                      <div *ngIf="lab_code_status === false">
+                                                        <i class="fas fa-exclamation-triangle" style="font-size: 55px; color: #8184B2;"> </i>
+                                                        <b class="ml-5" style="color: red">Incorrect, try harder</b>
+                                                        <p class="card-title my-3 text-left">
+                                                          {{lab_code_answer}}
+                                                        </p>
+                                                        <pre>
+                                                          <code [highlight]="lab_code_example" lineNumbers="True"></code> 
+                                                        </pre>
+                                                      </div>
+                                                      <div *ngIf="lab_code_status === true">
+                                                        <i class="fas fa-hat-wizard" style="font-size: 55px; color: #8184B2;"> </i>
+                                                        <b class="ml-5" style="color: green"> Correct, you are a Wizard</b>
+                                                        <p class="card-title my-4 text-left">
+                                                          {{lab_code_answer}}
+                                                        </p>
+                                                        <pre>
+                                                          <code [highlight]="lab_code_example" lineNumbers="True"></code> 
+                                                        </pre>
+                                                      </div>
+                                                    </div>
+
+                                                    <a ngbNavLink (click)="answer_fail()" class="border border-danger mb-2">
+                                                      <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                                      <p title="Code type switcher" class="font-weight-bold mb-1">1. SQL Injection</p>
+                                                    </a>
+                                                    <a ngbNavLink (click)="answer_success()" class="border border-success mb-2">
+                                                      <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                                      <p title="Code type switcher" class="font-weight-bold mb-1">2. CMD Injection</p>
+                                                    </a>
+                                                    <a ngbNavLink (click)="answer_fail()" class="border border-danger mb-2">
+                                                      <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                                      <p title="Code type switcher" class="font-weight-bold mb-1">3. Missing Authorization</p>
+                                                    </a>
+                                                    <a ngbNavLink (click)="answer_success()" class="border border-success mb-2">
+                                                      <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                                      <p title="Code type switcher" class="font-weight-bold mb-1">4. Secret Unicorn</p>
+                                                    </a>                                                  
+                                                  </div>
+                                                </div>
+                                              </div> 
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
                                 </ng-template>
