@@ -11,7 +11,6 @@
 <br>Quality testing:<br>
 [![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=main)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=main)
-[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/main/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/main)
 [![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=main)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=main)
 
 The OWASP Security Knowledge Framework is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using OWASP-ASVS/OWASP-MASVS  or custom security checklists) and labs to practice security verification (using SKF-Labs, OWASP Juice-shop, and best practice code examples from SKF and the OWASP-Cheatsheets).
@@ -97,26 +96,12 @@ SKF codecov details:
 ```
 https://codecov.io/gh/blabla1337/skf-flask
 
-### Bithound.io NPM packages:
-```
-BitHound provides your Node team with comprehensive and prioritized issues in your code and npm packages.
-SKF Bithound details:
-```
-https://www.bithound.io/github/blabla1337/skf-flask
-
 ### Requires.io pip packages:
 ```
 Stay Up-to-date! Stay secure! Requires.io monitors your Python projects dependencies, and notify you whenever any of your dependency is out-of-date.
 SKF Requires details:
 ```
 https://requires.io/github/blabla1337/skf-flask/requirements/
-
-### Black Duck Security Risk:
-```
-Announcing Black Duck CoPilot, a new service helping open source project teams catalog and report on their project's dependencies.
-SKF Requires details:
-```
-https://copilot.blackducksoftware.com/github/groups/blabla1337/locations/skf-flask/public/results
 
 ### uptimerobot.com:
 ```
@@ -156,10 +141,10 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
 
 ## <a name="contributors"></a>Contributors
-- Lucas Luitjes
-- [Mattijs van Ommeren](https://twitter.com/alcyonsecurity)
 - [Glenn ten Cate](https://twitter.com/FooBar_testing_)
 - [Riccardo ten Cate](https://twitter.com/RiieCco)
+- Lucas Luitjes
+- [Mattijs van Ommeren](https://twitter.com/alcyonsecurity)
 - [Alexander Kaasjager](https://twitter.com/akaasjager)
 - John Haley
 - Daniel Paulus
