@@ -2,7 +2,7 @@
 [![SKF Logo](https://github.com/blabla1337/skf-www/blob/master/images/site-skf/logo_github.png?raw=true)](https://www.securityknowledgeframework.org/) 
 
 <br>Project status details:<br>
-[![Build Travis CI Master](https://travis-ci.org/blabla1337/skf-flask.svg?branch=master)](https://travis-ci.org/blabla1337/skf-flask)
+[![Build Travis CI main](https://travis-ci.org/blabla1337/skf-flask.svg?branch=main)](https://travis-ci.org/blabla1337/skf-flask)
 [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Join the chat at https://owasp.slack.com/messages/C0F7L9X6V](https://img.shields.io/badge/chat-on%20slack-blueviolet)](https://owasp.slack.com/messages/C0F7L9X6V)
 [![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-orange.svg)](https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework)
@@ -10,9 +10,9 @@
 
 <br>Quality testing:<br>
 [![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
-[![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=master)
-[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/master)
-[![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=master)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=main)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=main)
+[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/main/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/blabla1337/skf-flask/branches/main)
+[![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=main)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=main)
 
 The OWASP Security Knowledge Framework is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using OWASP-ASVS/OWASP-MASVS  or custom security checklists) and labs to practice security verification (using SKF-Labs, OWASP Juice-shop, and best practice code examples from SKF and the OWASP-Cheatsheets).
 
@@ -23,7 +23,7 @@ The OWASP Security Knowledge Framework is an open source web application that ex
 * [Updating Chatbot](#updating-dataset)
 * [Usage](#usage)
 * [CI-Pipeline](#ci-pipeline)
-* [Development / Contributing](https://github.com/blabla1337/skf-flask/blob/master/CONTRIBUTING.md)
+* [Development / Contributing](https://github.com/blabla1337/skf-flask/blob/main/CONTRIBUTING.md)
 * [Scrum Board](#scrum-board)
 * [License](#license)
 * [Contributors](#contributors)
@@ -40,10 +40,10 @@ Because of this we decided to develop a framework in order to create a guide-sys
 
 ## <a name="installing"></a>Installing
 
-### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/Kubernetes)  
-### [Bare metal / on premise installation how to](https://github.com/blabla1337/skf-flask/tree/master/installations/local)  
-### [Docker-compose local how to](https://github.com/blabla1337/skf-flask/tree/master/installations/docker)  
-### [SKF K8s Raspberry pi cluster how to](https://github.com/blabla1337/skf-flask/tree/master/installations/pi-cluster)  
+### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/main/installations/Kubernetes)  
+### [Bare metal / on premise installation how to](https://github.com/blabla1337/skf-flask/tree/main/installations/local)  
+### [Docker-compose local how to](https://github.com/blabla1337/skf-flask/tree/main/installations/docker)  
+### [SKF K8s Raspberry pi cluster how to](https://github.com/blabla1337/skf-flask/tree/main/installations/pi-cluster)  
 ### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)  
 
 ## <a name="updating-db"></a>Updating Database
