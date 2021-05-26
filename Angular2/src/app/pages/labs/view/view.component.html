@@ -122,7 +122,7 @@
       </div>
       </ng-template> 
       </li>
-
+<!--
       <li [ngbNavItem]="2">
         <a ngbNavLink>Secure code review Labs</a>
         <ng-template ngbNavContent>
@@ -136,7 +136,6 @@
                         <div class="row">
                           <div class="col-lg-2">
                             <h4 class="card-title mb-4">Code Review Labs</h4>
-                            <!-- TO FIX: [activeId]="categoryData" i snot working -->
                             <ul ngbNav #nav="ngbNav" [activeId]="categoryData" class="nav-pills flex-column text-center">
                               <li *ngFor="let item of categoryData" [ngbNavItem]="item">
                                 <a ngbNavLink (click)="setCategorySelectorLang(item)" class="shadow-sm mb-2">
@@ -247,6 +246,7 @@
           </div>
           </ng-template>
         </li>
+-->
   </ul>
 
   <div [ngbNavOutlet]="nav" class="questionarie"></div>
