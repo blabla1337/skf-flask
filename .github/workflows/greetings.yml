@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Thank you for creating an issue ticket for our SKF project, we highly appriciate the feedback so we can improve the project and make it more awesome for everyone! We will shortly come back to you after the evaluation of the issue.'
+        pr-message: 'Dear user, thank you very very much for your awesome contribution to our SKF project, we highly appriciate this and the effort to help us improve. We will shortly come back to you after the evaluation of your PR. Again many thanks!'
