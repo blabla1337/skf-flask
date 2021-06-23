@@ -1,4 +1,4 @@
-#############
+############
 ### build ###
 #############
 
@@ -7,28 +7,32 @@ FROM python:3.7 as BUILDER
 
 LABEL maintainer="glenn.ten.cate@owasp.org"
 
-RUN apt update &&\
-    apt install -y apt-utils python3-nltk \
+RUN apt-get update &&\
+    apt-get install -y --no-install-recommends apt-utils python3-nltk \
     default-libmysqlclient-dev \
-    vim
+    vim \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 ############
 ### run ###
 ############
 
 # base image
-FROM python:3.7
+FROM python:3.7-slim
 
 LABEL maintainer="glenn.ten.cate@owasp.org"
 
-RUN apt update &&\
-    apt install -y vim \
+RUN apt-get update &&\
+    apt-get install -y --no-install-recommends \
     libblas-dev \
-    libblas-dev \ 
     liblapack-dev \
     libatlas-base-dev \
     gfortran \
-    cython
+    cython \
+    procps \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid 1000 user_api && useradd --uid 1000 --gid user_api -m user_api &&  mkdir -p /home/user_api
 
@@ -48,9 +52,9 @@ RUN mkdir .config/pip
 RUN echo "[global]" >> .config/pip/pip.conf
 RUN echo "extra-index-url=https://www.piwheels.org/simple" >> .config/pip/pip.conf
 
-RUN pip3 install --upgrade pip &&\
-    pip3 install --user nltk &&\
-    pip3 install --user cython 
+RUN pip3 install --upgrade pip --no-cache-dir &&\
+    pip3 install --user nltk --no-cache-dir &&\
+    pip3 install --user cython --no-cache-dir 
 
 #enrich ntlk data sets 
 RUN python3 -m nltk.downloader punkt stopwords 
@@ -58,11 +62,11 @@ RUN python3 -m nltk.downloader punkt stopwords
 #magic below for PI docker image speeding up
 RUN if [ `ps auwxf | grep qemu-arm | wc -l` = 4 ]; \
 then \
-  pip3 install --user numpy==1.19.0rc2 scipy==1.5.0rc2 ; \
+  pip3 install --user numpy==1.19.0rc2 scipy==1.5.0rc2 --no-cache-dir; \
 else \
-  pip3 install --user numpy scipy ; \
+  pip3 install --user numpy scipy --no-cache-dir; \
 fi 
-RUN pip3 install --user  -r requirements.txt
+RUN pip3 install --user  -r requirements.txt --no-cache-dir
 
 
 EXPOSE 8888
