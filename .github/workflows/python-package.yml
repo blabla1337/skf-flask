@@ -37,4 +37,8 @@ jobs:
 #        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
+        export FLASK_APP=skf/app.py
+        export PYTHONPATH=.:$PYTHONPATH
+        export FLASK_DEBUG=1
+        export SKF_JWT_SECRET='True'
         coverage run tests/run.py test
