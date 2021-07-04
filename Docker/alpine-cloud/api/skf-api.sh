@@ -5,6 +5,13 @@ set -ex
 if [ "$LABS_KUBE_CONF" != "~/.kube/config" ]
 then
  echo $LABS_KUBE_CONF | base64 -d > /home/user_api/.kube/config
+ export KUBECONFIG=/home/user_api/.kube/config
+fi
+
+if [ "$GOOGLE_APPLICATION_CREDENTIALS" -gt 10 ]
+then
+ echo $GOOGLE_APPLICATION_CREDENTIALS | base64 -d  > /home/user_api/.kube/gsa-key.json 
+ export GOOGLE_APPLICATION_CREDENTIALS=/home/user_api/.kube/gsa-key.json 
 fi
 
 #to get the base64 string of your .kube/config run:
