@@ -71,8 +71,6 @@ class SKFClickThrough(unittest.TestCase):
         assert "3" in driver.page_source
 
 
-
-    '''
     def test_a_project_and_sprint(self):
         """Test project sprint page"""
         driver = self.driver
@@ -128,7 +126,7 @@ class SKFClickThrough(unittest.TestCase):
         time.sleep(10)
         assert "2" in driver.page_source
 
-    '''
+
     def test_a_delete_project(self):
         """Test project delete page"""
         driver = self.driver
