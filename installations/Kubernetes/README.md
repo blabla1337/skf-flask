@@ -35,6 +35,12 @@ Below are the important variables to be changed and explained:
   LABS_KUBE_CONF: HV1c5WWR6aGpWQ3RzVjFsSWFYcEhlQW81UkUxYU9ITnlZbWg0UkdK...a3RMUzB0TFFvPQ==
 ```
 
+```
+  # Below is the variable where we place the base64 string of our gsa-key.json file
+  # file for example: cat gsa-key.json | base64
+  GOOGLE_APPLICATION_CREDENTIALS: 35SAF3DFSFDSF3SFDSDF243SDSAGD34SDUkUxYU9ITnlZbWg0UkdK...a3RMUzB0TFFvPQ==
+```
+
 We also need to modify the ingress.yaml
 Below are the important variables to be changed and explained:
 
@@ -58,27 +64,40 @@ Furthermore you need to change the ingress  host to match your domain.
 
 1. Create a Kubernetes cluster, this will be used for the SKF Labs, we dont want them in the SKF k8s cluster as these labs are vulnerable by design
 2. Make sure kubectl and gcloud are in the right place e.g. `kubectl config current-context`
-3. Init tiller
-
-Maybe not needed depending if you use helm2 or helm3
+3. Create user for controlling the skf-labs cluster
 ```
-# For helm2 use the command below
-helm init --service-account tiller
-```
+gcloud iam service-accounts create labs-user
 
-4. Deploy an nginx ingress controller:
+gcloud projects add-iam-policy-binding replace_with_your_project_name_in_gke \
+    --member=serviceAccount:labs-user@replace_with_your_project_name_in_gke.iam.gserviceaccount.com \
+    --role=roles/container.developer
 
-```
-helm install --name nginx-ingress stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true --set controller.service.externalTrafficPolicy=Local
-OR with helm3:
-helm install nginx-ingress stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true --set controller.service.externalTrafficPolicy=Local
+ gcloud iam service-accounts keys create gsa-key.json \
+    --iam-account=labs-user@replace_with_your_project_name_in_gke.iam.gserviceaccount.com
 ```
 
-5. Check out your IP and do your DNS stuff `kubectl get ingress`
-Add the IP of the ingress controller to your DNS records
-beta-labs.securityknowledgeframework.org 213.219.179.111
+4. Now we need to create a base64 string from the gsa-key.json
+```
+cat gsa-key.json | base64
+```
+Now paste the output value in the configmaps.yaml file in GOOGLE_APPLICATION_CREDENTIALS
 
-6. Grab the ~/.kube/config file of this SKF Labs k8s cluster and convert to base64 string, we need to set it in the configmaps.yaml
+5. Also we need the google kube config file of the skf-labs cluster
+```
+gcloud container clusters get-credentials skf-labs -z europe-west4
+```
+Make sure you only have the kube config content of the skf-labs cluster and not others.
+Now we need to create a base64 string from the skf-labs .kube/config file
+```
+cat ~/.kube/config | base64
+```
+Now paste the output value in the configmaps.yaml file in LABS_KUBE_CONF
+
+### Add firewall rule
+Now add the firewall rule to allow the Labs being exposed on the Pods and reachable:
+```
+gcloud compute --project=replace_with_your_project_name_in_gke firewall-rules create allow-labs --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:10000-65000 --source-ranges=0.0.0.0/0
+```
 
 ## Prep SKF env
 
