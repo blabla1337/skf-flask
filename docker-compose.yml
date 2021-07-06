@@ -42,7 +42,7 @@ services:
       - "nginx"
       - "mysql"
     restart: always
-    image: "blabla1337/skf-angular:4.0.0"
+    image: "blabla1337/skf-angular:4.0.1"
     environment:
       - FRONTEND_URI=http://localhost
       - SKIP_LOGIN=skiploginprovider
@@ -57,7 +57,7 @@ services:
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "blabla1337/skf-api:4.0.0"
+    image: "blabla1337/skf-api:4.0.2"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=http://localhost/api

@@ -40,7 +40,7 @@ spec:
         runAsUser: 1000
       containers:
         - name: skf-flask-back
-          image: "blabla1337/skf-api:4.0.1"
+          image: "blabla1337/skf-api:4.0.2"
           imagePullPolicy: Always
           ports:
             - containerPort: 8888
@@ -90,4 +90,9 @@ spec:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: SKF_LABS_DOMAIN     
+            - name: GOOGLE_CREDENTIALS
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: GOOGLE_CREDENTIALS     
 ---
