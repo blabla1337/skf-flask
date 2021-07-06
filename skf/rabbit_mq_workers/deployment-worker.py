@@ -16,7 +16,7 @@ def deploy_container(rpc_body):
     deployment_object = create_deployment_object(deployment)
     create_deployment(deployment_object, user_id)
     create_service_for_deployment(deployment, user_id)
-    time.sleep(20)
+    time.sleep(15)
     response = get_service_exposed_ip(deployment, user_id)
     host_and_port = get_host_port_from_response(response)
     return host_and_port
@@ -78,7 +78,7 @@ def create_service_for_deployment(deployment, user_id):
         service.kind = "Service"
         service.metadata = client.V1ObjectMeta(name=deployment)
         spec = client.V1ServiceSpec()
-        spec.type = "LoadBalancer"
+        spec.type = "NodePort"
         spec.selector = {"app": deployment}
         random_port = random.randrange(40000, 60000)
         spec.ports = [client.V1ServicePort(protocol="TCP", port=random_port, target_port=5000)]
@@ -120,11 +120,10 @@ def get_host_port_from_response(response):
         host = os.environ['SKF_LABS_DOMAIN']
         for service in response.spec.ports:
             node_port = service.node_port
-            port = service.port
         if host != "http://localhost":
             return {'message': "'"+ str(host) + ":" + str(node_port)+"'"}
         else:
-            return {'message': "'http://localhost:" + str(port)+"'"}
+            return {'message': "'http://localhost:" + str(node_port)+"'"}
     except:
         return {'message': 'Failed to deploy, error no host or port!'} 
 

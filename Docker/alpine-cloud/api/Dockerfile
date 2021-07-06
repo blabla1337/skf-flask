@@ -42,7 +42,9 @@ COPY ./Docker/alpine-cloud/api/entrypoint.sh  /home/user_api/entrypoint.sh
 RUN touch /home/user_api/skf/db/db.sqlite
 RUN chmod a+rw /home/user_api/skf/db /home/user_api/skf/db/*
 
+RUN chown -R user_api /home/user_api/
 WORKDIR /home/user_api/
+
 USER user_api
 
 RUN mkdir .kube
