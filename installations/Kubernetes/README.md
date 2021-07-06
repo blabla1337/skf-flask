@@ -87,11 +87,14 @@ Now paste the output value in the configmaps.yaml file in GOOGLE_APPLICATION_CRE
 gcloud container clusters get-credentials skf-labs -z europe-west4
 ```
 Make sure you only have the kube config content of the skf-labs cluster and not others.
-Now we need to create a base64 string from the skf-labs .kube/config file
+
+6. Now we need to create a base64 string from the skf-labs .kube/config file
 ```
 cat ~/.kube/config | base64
 ```
 Now paste the output value in the configmaps.yaml file in LABS_KUBE_CONF
+
+7. Final step is to get the IP of the skf-labs pods in the VM instance overview https://console.cloud.google.com/compute/instances and add the IP to the DNS for the labs domain
 
 ### Add firewall rule
 Now add the firewall rule to allow the Labs being exposed on the Pods and reachable:
