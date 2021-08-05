@@ -19,6 +19,10 @@ def deploy_container(rpc_body):
     time.sleep(15)
     response = get_service_exposed_ip(deployment, user_id)
     host_and_port = get_host_port_from_response(response)
+    hostname = string_split_host(host_and_port)
+    port = string_split_port(host_and_port)
+    networking_v1_beta1_api = client.NetworkingV1beta1Api()
+    create_ingress(networking_v1_beta1_api, port, hostname, deployment, user_id)
     return host_and_port
 
 
@@ -107,6 +111,22 @@ def string_split_user_id(body):
         return {'message': 'Failed to deploy, error no user_id found!'} 
 
 
+def string_split_port(host_port):
+    try:
+        port = host_port.split(':')
+        return port[1]
+    except:
+        return {'message': 'Failed to create ingress, error no port found!'} 
+
+
+def string_split_host(host_port):
+    try:
+        host = host_port.split(':')
+        return host[0]
+    except:
+        return {'message': 'Failed to deploy, error no host found!'} 
+
+
 def string_split_deployment(body):
     try:
         deployment = body.split(':')
@@ -138,6 +158,38 @@ def on_request(ch, method, props, body):
                         body=str(response))
         ch.basic_ack(delivery_tag=method.delivery_tag)
 
+
+def create_ingress(networking_v1_beta1_api, port, hostname, deployment, user_id):
+    try:
+        body = client.NetworkingV1beta1Ingress(
+            api_version="networking.k8s.io/v1beta1",
+            kind="Ingress",
+            metadata=client.V1ObjectMeta(name="ingress-"+deployment, annotations={
+                "nginx.ingress.kubernetes.io/rewrite-target": "/"
+            }),
+            spec=client.NetworkingV1beta1IngressSpec(
+                rules=[client.NetworkingV1beta1IngressRule(
+                    host=hostname,
+                    http=client.NetworkingV1beta1HTTPIngressRuleValue(
+                        paths=[client.NetworkingV1beta1HTTPIngressPath(
+                            path="/",
+                            backend=client.NetworkingV1beta1IngressBackend(
+                                service_port=port,
+                                service_name=deployment)
+                        )]
+                    )
+                )
+                ]
+            )
+        )
+        # Creation of the Deployment in specified namespace
+        # (Can replace "default" with a namespace you may have created)
+        networking_v1_beta1_api.create_namespaced_ingress(
+            namespace=user_id,
+            body=body
+        )
+    except:
+        return {'message': 'Failed to create ingress!'} 
 
 channel.basic_qos(prefetch_count=1)
 channel.basic_consume(queue='deployment_qeue', on_message_callback=on_request)

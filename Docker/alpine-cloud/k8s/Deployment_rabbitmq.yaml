@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
         - name: rabbitmq
-          image: "rabbitmq:latest"
+          image: "rabbitmq:3.8.19"
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 5672
