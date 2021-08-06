@@ -19,10 +19,10 @@ def deploy_container(rpc_body):
     time.sleep(15)
     response = get_service_exposed_ip(deployment, user_id)
     host_and_port = get_host_port_from_response(response)
-    hostname = string_split_host(host_and_port)
-    port = string_split_port(host_and_port)
-    networking_v1_beta1_api = client.NetworkingV1beta1Api()
-    create_ingress(networking_v1_beta1_api, port, hostname, deployment, user_id)
+    #hostname = string_split_host(host_and_port)
+    #port = string_split_port(host_and_port)
+    #networking_v1_beta1_api = client.NetworkingV1beta1Api()
+    #create_ingress(networking_v1_beta1_api, port, hostname, deployment, user_id)
     return host_and_port
 
 
@@ -162,7 +162,7 @@ def on_request(ch, method, props, body):
 def create_ingress(networking_v1_beta1_api, port, hostname, deployment, user_id):
     try:
         body = client.NetworkingV1beta1Ingress(
-            api_version="networking.k8s.io/v1beta1",
+            api_version="networking.k8s.io/v1",
             kind="Ingress",
             metadata=client.V1ObjectMeta(name="ingress-"+deployment, annotations={
                 "nginx.ingress.kubernetes.io/rewrite-target": "/"
