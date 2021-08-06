@@ -4,7 +4,7 @@ version: '2'
 services:
   rabbitmq:
     container_name: skf-rabbitmq_container
-    image: rabbitmq:latest
+    image: rabbitmq:3.8.19
     environment:
         - RABBITMQ_DEFAULT_USER=admin
         - RABBITMQ_DEFAULT_PASS=admin-skf-secret
@@ -57,7 +57,7 @@ services:
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "blabla1337/skf-api:4.0.2"
+    image: "blabla1337/skf-api:4.0.3"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=http://localhost/api
