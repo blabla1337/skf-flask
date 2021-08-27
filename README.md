@@ -12,6 +12,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/blabla1337/skf-flask/badge.svg)](https://snyk.io/test/github/blabla1337/skf-flask)
 [![Coverage Status](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=main)](https://coveralls.io/repos/blabla1337/skf-flask/badge.svg?branch=main)
 [![Requirements Status](https://requires.io/github/blabla1337/skf-flask/requirements.svg?branch=main)](https://requires.io/github/blabla1337/skf-flask/requirements/?branch=main)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/133/badge)](https://bestpractices.coreinfrastructure.org/projects/133)
 
 The OWASP Security Knowledge Framework is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using OWASP-ASVS/OWASP-MASVS  or custom security checklists) and labs to practice security verification (using SKF-Labs, OWASP Juice-shop, and best practice code examples from SKF and the OWASP-Cheatsheets).
 
