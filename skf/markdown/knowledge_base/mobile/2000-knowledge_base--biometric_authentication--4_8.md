@@ -7,6 +7,7 @@ MSTG-AUTH-8: Biometric authentication, if any, is not event-bound (i.e. using an
 Biometric authentication is a convenient mechanism for authentication, but also introduces an additional attack surface when using it.
 
 The are a number of common types of biometrics that are used, including:
+
 	- Fingerprint scans
 	- Facial recognition
 	- Iris scans
