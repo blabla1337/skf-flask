@@ -11,6 +11,7 @@ A threat model is a structured representation of all the information that affect
 Threat modeling can be applied to a wide range of things, including software, applications, systems, networks, distributed systems, Internet of Things (IoT) devices, and business processes.
 
 A threat model typically includes:
+
 	- Description of the subject to be modeled
 	- Assumptions that can be checked or challenged in the future as the threat landscape changes
 	- Potential threats to the system
@@ -23,6 +24,7 @@ Threat modeling is a process for capturing, organizing, and analyzing all of thi
 ## Mitigation:
 
 The threat modeling process can be decomposed into three high level steps. Each step is documented as it is carried out. The resulting document is the threat model for the application.
+
 	Step 1: Decompose the Application
 	Step 2: Determine and Rank Threats
 	Step 3: Determine Countermeasures and Mitigation
