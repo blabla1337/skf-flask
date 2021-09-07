@@ -13,6 +13,7 @@ However, many programming languages offer a native capability for serializing ob
 Unfortunately, the features of these native deserialization mechanisms can be repurposed for malicious effect when operating on untrusted data. Attacks against deserializers have been found to allow denial-of-service, access control, and remote code execution (RCE) attacks.
 
 There are several ways to persist an object on Android:
+
 	- Object Serialization
 	- JSON
 	- XML
@@ -21,6 +22,7 @@ There are several ways to persist an object on Android:
 	- Protocol Buffers
 
 There are several ways to persist an object on iOS:
+
 	- Object Encoding:
 	- Object Archiving with NSKeyedArchiver:
 	- Codable
@@ -34,6 +36,7 @@ There are several ways to persist an object on iOS:
 ## Mitigation:
 
 There are a few generic remediation steps that you can always take:
+
 	1. Make sure that sensitive data has been encrypted and HMACed/signed after serialization/persistence. Evaluate the signature or HMAC before you use the data. See the chapter "[Android Cryptographic APIs](0x05e-Testing-Cryptography.md)" for more details.
 	2. Make sure that the keys used in step 1 can't be extracted easily. The user and/or application instance should be properly authenticated/authorized to obtain the keys. See the chapter "[Data Storage on Android](0x05d-Testing-Data-Storage.md)" for more details.
 	3. Make sure that the data within the de-serialized object is carefully validated before it is actively used (e.g., no exploit of business/application logic).
