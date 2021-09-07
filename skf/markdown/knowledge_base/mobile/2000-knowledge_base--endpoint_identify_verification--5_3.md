@@ -10,6 +10,7 @@ Using TLS to transport sensitive information over the network is essential for s
 ## Mitigation:
 
 Two key issues should be addressed:
+
 	- Verify that a certificate comes from a trusted source, i.e. a trusted CA (Certificate Authority).
 	- Determine whether the endpoint server presents the right certificate.
 
