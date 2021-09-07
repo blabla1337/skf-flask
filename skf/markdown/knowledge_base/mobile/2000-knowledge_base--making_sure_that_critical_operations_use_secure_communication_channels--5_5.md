@@ -16,6 +16,7 @@ Also the usage of emails shouldn't be considered as a secure communication chann
 ## Mitigation:
 
 Review the code and identify the parts that refer to critical operations. Make sure that additional channels are used for such operations. The following are examples of additional verification channels:
+
 	- Token (e.g., RSA token, YubiKey),
 	- Push notification (e.g., Google Prompt),
 	- Data from another website you have visited or scanned (e.g. QR code) or
