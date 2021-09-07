@@ -12,6 +12,7 @@ Insecure randomness errors occur when a function that can produce predictable va
 ## Mitigation:
 
 To focus on random values used by application, following checks should be performed:
+
 	- identify all instances where random values are used
 	- verify if random number generators are not considered as being cryptographically secure
 	- verify how random number generators were used
