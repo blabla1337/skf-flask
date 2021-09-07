@@ -7,6 +7,7 @@ MSTG-AUTH-9: A second factor of authentication exists at the remote endpoint and
 MSTG-AUTH-10: Sensitive transactions require step-up authentication.
 
 Two-factor authentication (2FA) is standard for apps that allow users to access sensitive functions and data. Common implementations use a password for the first factor and any of the following as the second factor:
+
 	- One-time password via SMS (SMS-OTP)
 	- One-time code via phone call
 	- Hardware or software token
