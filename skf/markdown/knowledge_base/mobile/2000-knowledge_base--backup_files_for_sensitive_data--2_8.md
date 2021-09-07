@@ -9,4 +9,4 @@ Since backing up installed apps and their data, an obvious concern is whether se
 
 ## Mitigation:
 
-Backup files should not store any sensitive application specific data and they can be analysed/inspected for that.
+Backup files should not store any sensitive application specific data and they should be analysed/inspected for that.
