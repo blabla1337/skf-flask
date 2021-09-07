@@ -14,6 +14,7 @@ For example, while an app might query a local SQLite database, such databases us
 ## Mitigation:
 
 The following two layers of defense should be used in order to prevent injection attacks:
+
 	1. Parameterization - If available, use structured mechanisms that automatically enforce the separation between data and command. These mechanisms can help to provide the relevant quoting, encoding.
 	2. Input validation - the values for commands and the relevant arguments should be both validated. There are different degrees of validation for the actual command and its arguments:
 		- When it comes to the commands used, these must be validated against a list of allowed commands.
