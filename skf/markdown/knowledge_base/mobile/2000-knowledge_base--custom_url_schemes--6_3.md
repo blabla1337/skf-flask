@@ -15,6 +15,7 @@ They also suggest using universal links instead, if the purpose is to implement 
 > While custom URL schemes are an acceptable form of deep linking, universal links are strongly recommended as a best practice.
 
 Supporting a custom URL scheme is done by:
+
 	- defining the format for the app's URLs,
 	- registering the scheme so that the system directs appropriate URLs to the app,
 	- handling the URLs that the app receives.
@@ -26,12 +27,14 @@ One example is the following [bug in the Skype Mobile app](http://www.dhanjani.c
 As a developer, you should carefully validate any URL before calling it. You can allow only certain applications which may be opened via the registered protocol handler. Prompting users to confirm the URL-invoked action is another helpful control.
 
 All URLs are passed to the app delegate, either at launch time or while the app is running or in the background. To handle incoming URLs, the delegate should implement methods to:
+
 	- retrieve information about the URL and decide whether you want to open it,
 	- open the resource specified by the URL.
 
 More information can be found in the [archived App Programming Guide for iOS](https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW13 "Handling URL Requests") and in the [Apple Secure Coding Guide](https://developer.apple.com/library/archive/documentation/Security/Conceptual/SecureCodingGuide/Articles/ValidatingInput.html "Validating Input and Interprocess Communication").
 
 In addition, an app may also want to send URL requests (aka. queries) to other apps. This is done by:
+
 	- registering the application query schemes that the app wants to query,
 	- optionally querying other apps to know if they can open a certain URL,
 	- sending the URL requests.
@@ -60,11 +63,13 @@ This deep link could be used in order to abuse some known vulnerabilities alread
 Since Android 6.0 (API Level 23) a developer can opt to define [**Android App Links**](https://developer.android.com/training/app-links/verify-site-associations "Verify Android App Links"), which are verified deep links based on a website URL explicitly registered by the developer. Clicking on an App Link will immediately open the app if it's installed and most importantly, **the disambiguation dialog won't be prompted** and therefore collisions are not possible anymore.
 
 There are some key differences from _regular_ deep links to consider:
+
 	- App Links only use `http://` and `https://` schemes, any other custom URL schemes are not allowed.
 	- App Links require a live domain to serve a [Digital Asset Links file](https://developers.google.com/digital-asset-links/v1/getting-started "Digital Asset Link") via HTTPS.
 	- App links do not suffer from deep link collision since they don't show a disambiguation dialog when a user opens them.
 
 For every application, all existing deep links (including App Links) can potentially increase the app attack surface. All deep links must be enumerated and the actions they perform must be well tested, especially all input data which should be deemed to be untrustworthy and thus should be always validated. In addition, also consider the following:
+
 	- When using reflection-based persistence type of data processing, check the section "Testing Object Persistence" for Android.
 	- Using the data for queries? Make sure you make parameterized queries.
 	- Using the data to do authenticated actions? Make sure that the user is in an authenticated state before the data is processed.
@@ -74,6 +79,7 @@ For every application, all existing deep links (including App Links) can potenti
 ## Mitigation:
 
 Perform the following steps:
+
 	- Testing custom URL schemes registration
 	- Testing application query schemes registration
 	- Testing URL handling and validation
