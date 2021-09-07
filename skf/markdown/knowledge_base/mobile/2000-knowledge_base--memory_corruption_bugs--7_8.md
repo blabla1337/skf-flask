@@ -5,6 +5,7 @@ Memory Corruption Bugs
 MSTG-CODE-8: In unmanaged code, memory is allocated, freed and used securely.
 
 Memory corruption bugs are a popular mainstay with hackers. This class of bug results from a programming error that causes the program to access an unintended memory location. Under the right conditions, attackers can capitalize on this behavior to hijack the execution flow of the vulnerable program and execute arbitrary code. This kind of vulnerability occurs in a number of ways:
+
 	- Buffer overflows
 	- Out-of-bounds-access
 	- Dangling pointers
