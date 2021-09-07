@@ -12,6 +12,7 @@ An attacker can always discover a password through this method, but the downside
 ## Mitigation:
 
 Some anti-brute-force controls:
+
 	- Multifactor authentication (MFA), or Two-Factor Authentication (2FA) is when a user is required to present more than one type of evidence in order to authenticate on a system. It is by far the best defence against the majority of password-related attacks.
 	- Account Lockout is the most common protection against these attacks. After a few unsuccessful login attempts, targeted accounts should be locked (temporarily or permanently), and additional login attempts should be rejected.
 	- The use of an effective CAPTCHA can help to prevent automated login attempts against accounts. However, many CAPTCHA implementations have weaknesses that allow them to be solved using automated techniques or can be outsourced to services which can solve them. As such, the use of CAPTCHA should be viewed as a defence-in-depth control to make brute-force attacks more time consuming and expensive, rather than as a preventative.
