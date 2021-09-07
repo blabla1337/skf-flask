@@ -11,4 +11,4 @@ However, this is not a concern on iOS. Only available simulator is the one that 
 
 ## Mitigation:
 
-Implement proper emulator detection mechanisms. 
+Implement a proper emulator detection mechanisms. 
