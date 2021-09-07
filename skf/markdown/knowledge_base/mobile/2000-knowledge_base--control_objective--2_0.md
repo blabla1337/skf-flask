@@ -12,6 +12,7 @@ Note that, as the MASVS is app-centric, it does not cover device-level policies 
 ### Definition of Sensitive Data
 
 Sensitive data in the context of the MASVS pertains to both user credentials and any other data considered sensitive in the particular context, such as:
+
 	- Personally identifiable information (PII) that can be abused for identity theft:  Social security numbers, credit card numbers, bank account numbers, health information;
 	- Highly sensitive data that would lead to reputational harm and/or financial costs if compromised: Contractual information, information covered by non-disclosure agreements, management information;
 	- Any data that must be protected by law or for compliance reasons.
