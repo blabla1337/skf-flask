@@ -10,12 +10,14 @@ Obfuscation is the process of transforming code and data to make it more difficu
 ## Mitigation:
 
 Attempt to decompile the bytecode, disassemble any included library files and try to understand it. When doing so, consider the following:
+
 	- Obfuscation often carries a cost in runtime performance, therefore it might have been only applied to certain very specific parts of the code, typically those dealing with security and runtime protection.
 	- Meaningful identifiers, such as class names, method names, and variable names, might have been discarded.
 	- String resources and strings in binaries might have been encrypted.
 	- Code and data related to the protected functionality might be encrypted, packed, or otherwise concealed.
 
 The following techniques can be used to obfuscate an application:
+
 	- Name obfuscation
 	- Instruction substitution
 	- Control flow flattening
