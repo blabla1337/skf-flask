@@ -9,4 +9,4 @@ Several options for simplifying keyboard input are available to users. These opt
 
 ## Mitigation:
 
-Make sure third party keyboards are disabled when user processes sensitive data
+Third party keyboards should be disabled when user processes sensitive data.
