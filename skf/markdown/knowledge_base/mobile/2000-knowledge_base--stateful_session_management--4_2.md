@@ -5,6 +5,7 @@ Stateful Session Management
 MSTG-AUTH-2: If stateful session management is used, the remote endpoint uses randomly generated session identifiers to authenticate client requests without sending the user’s credentials.
 
 Stateful (or "session-based") authentication is characterized by authentication records on both the client and server. The authentication flow is as follows:
+
 	1. The app sends a request with the user's credentials to the backend server.
 	2. The server verifies the credentials If the credentials are valid, the server creates a new session along with a random session ID.
 	3. The server sends to the client a response that includes the session ID.
@@ -21,6 +22,7 @@ Session Management Best Practices
 Locate any server-side endpoints that provide sensitive information or functions and verify the consistent enforcement of authorization. The backend service must verify the user's session ID or token and make sure that the user has sufficient privileges to access the resource. If the session ID or token is missing or invalid, the request must be rejected.
 
 Make sure that:
+
 	- Session IDs are randomly generated on the server side.
 	- The IDs can't be guessed easily (use proper length and entropy).
 	- Session IDs are always exchanged over secure connections (e.g. HTTPS).
