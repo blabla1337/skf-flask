@@ -8,12 +8,12 @@ During implementation of a mobile application, developers may apply traditional 
 
 The following is a list of Android IPC Mechanisms that may expose sensitive data:
 
-	- [Binders](https://developer.android.com/reference/android/os/Binder.html "IPCBinder")
-	- [Services](https://developer.android.com/guide/components/services.html "IPCServices")
-	- [Bound Services](https://developer.android.com/guide/components/bound-services.html "BoundServices")
-	- [AIDL](https://developer.android.com/guide/components/aidl.html "AIDL")
-	- [Intents](https://developer.android.com/reference/android/content/Intent.html "IPCIntent")
-	- [Content Providers](https://developer.android.com/reference/android/content/ContentProvider.html "IPCContentProviders")
+	- Binders
+	- Services
+	- Bound Services
+	- AIDL
+	- Intents
+	- Content Providers
 
 In contrast to Android's rich Inter-Process Communication (IPC) capability, iOS offers some rather limited options for communication between apps. In fact, there's no way for apps to communicate directly. Different types of indirect communication offered by iOS:
 
