@@ -10,6 +10,7 @@ Authentication bypass vulnerabilities exist when authentication state is not con
 ## Mitigation:
 
 Perform the following steps when testing authentication and authorization:
+
 	- Identify the additional authentication factors the app uses.
 	- Locate all endpoints that provide critical functionality.
 	- Verify that the additional factors are strictly enforced on all server-side endpoints.
