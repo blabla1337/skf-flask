@@ -8,8 +8,8 @@ MSTG-RESILIENCE-11: All executable files and libraries belonging to the app are 
 
 There are two topics related to file integrity:
 
-	1. _Code integrity checks:_ Reverse engineers can bypass application signature checks by re-packaging and re-signing an app using a developer or enterprise certificate. One way to make this harder is to add a custom check that determines whether the signatures still match at runtime.
-	2. _The file storage integrity checks:_ Files are stored by the application should be protected.
+	1. Code integrity checks: Reverse engineers can bypass application signature checks by re-packaging and re-signing an app using a developer or enterprise certificate. One way to make this harder is to add a custom check that determines whether the signatures still match at runtime.
+	2. The file storage integrity checks: Files are stored by the application should be protected.
 
 
 ## Mitigation:
