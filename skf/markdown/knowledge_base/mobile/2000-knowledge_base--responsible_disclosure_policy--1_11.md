@@ -9,4 +9,4 @@ Responsible disclosure (also known as coordinated vulnerability disclosure) is a
 
 ## Mitigation:
 
-Having a responsible disclosure helps developers to fix appication security issues.
+Having a responsible disclosure program helps developers to fix more appication issues.
