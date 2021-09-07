@@ -10,6 +10,7 @@ There are many legitimate reasons for creating log files on a mobile device, inc
 ## Mitigation:
 
 The following checks should be performed:
+
 	- Analyze source code for logging related code.
 	- Check application data directory for log files.
 	- Gather system messages and logs and analyze for any sensitive data.
