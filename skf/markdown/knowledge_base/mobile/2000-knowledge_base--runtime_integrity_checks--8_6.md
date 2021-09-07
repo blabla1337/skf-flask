@@ -12,4 +12,4 @@ Controls in this category verify the integrity of the app's memory space to defe
 
 ## Mitigation:
 
-Implement proper runtime integrity control. 
+Implement a proper runtime integrity control. 
