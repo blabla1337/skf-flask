@@ -12,6 +12,7 @@ The security of symmetric encryption and keyed hashes (MACs) depends on the secr
 ## Mitigation:
 
 Encryption key should not be:
+
 	- part of application resources
 	- value which can be derived from known values
 	- hardcoded in code
