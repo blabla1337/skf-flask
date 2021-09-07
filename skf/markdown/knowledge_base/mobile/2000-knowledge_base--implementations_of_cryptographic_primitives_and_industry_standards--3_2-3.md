@@ -10,6 +10,7 @@ MSTG-CRYPTO-3: The app uses cryptographic primitives that are appropriate for th
 ## Mitigation:
 
 To focus on implementation and use of cryptographic primitives, following checks should be performed:
+
 	- identify all instance of cryptography primitives and their implementation (library or custom implementation)
 	- verify how cryptography primitives are used and how they are configured
 	- verify if cryptographic protocols and algorithms used are not deprecated for security purposes.
