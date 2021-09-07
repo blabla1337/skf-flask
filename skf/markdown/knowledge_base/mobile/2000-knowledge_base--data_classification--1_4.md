@@ -10,4 +10,4 @@ It's critical to classify data in your system and determine which level of sensi
 ## Mitigation:
 
 Classify and assigning level of sensitivity to data when created, modified, deleted or
-serialized and define data confidentiality, integrity and availability rates.
+serialized and define confidentiality, integrity and availability rates.
