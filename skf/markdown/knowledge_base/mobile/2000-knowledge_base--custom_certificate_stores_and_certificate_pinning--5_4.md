@@ -16,6 +16,7 @@ The certificate can be pinned and hardcoded into the app or retrieved at the tim
 ## Mitigation:
 
 Verify that the server certificate is pinned. Pinning can be implemented on various levels in terms of the certificate tree presented by the server:
+
 	1. Including server's certificate in the application bundle and performing verification on each connection. This requires an update mechanisms whenever the certificate on the server is updated.
 	2. Limiting certificate issuer to e.g. one entity and bundling the intermediate CA's public key into the application. In this way we limit the attack surface and have a valid certificate.
 	3. Owning and managing your own PKI. The application would contain the intermediate CA's public key. This avoids updating the application every time you change the certificate on the server, due to e.g. expiration. Note that using your own CA would cause the certificate to be self-singed.
