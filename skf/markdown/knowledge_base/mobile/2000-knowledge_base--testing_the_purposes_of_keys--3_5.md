@@ -5,8 +5,6 @@ Testing the Purposes of Keys
 MSTG-CRYPTO-5: The app doesn’t re-use the same cryptographic key for multiple purposes.
 
 
-
-
 ## Mitigation:
 
 To focus on verification of purpose and reusage of the same cryptographic keys, following checks should be performed:
