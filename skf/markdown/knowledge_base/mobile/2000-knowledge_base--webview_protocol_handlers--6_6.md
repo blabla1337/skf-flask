@@ -5,6 +5,7 @@ WebView Protocol Handlers
 MSTG-PLATFORM-6: WebViews are configured to allow only the minimum set of protocol handlers required (ideally, only https is supported). Potentially dangerous handlers, such as file, tel and app-id, are disabled.
 
 Several default schemas are available for both IOS and Android URLs. They can be triggered within a WebView with the following:
+
 	- http(s)://
 	- file://
 	- tel://
