@@ -1,5 +1,3 @@
-## Description:
-
 ## Control Objective
 
 V3: Cryptography Requirements
@@ -10,7 +8,3 @@ Cryptography is an essential ingredient when it comes to protecting data stored 
 	- Proper choice and configuration of cryptographic primitives;
 	- A suitable random number generator wherever randomness is required.
 
-
-## Mitigation:
-
-empty control
