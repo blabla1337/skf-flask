@@ -7,4 +7,4 @@ MSTG-PLATFORM-11: Verify that the app prevents usage of custom third-party keybo
 
 ## Mitigation:
 
-Make sure third party keyboards are disabled when user processes sensitive data
+Third party keyboards should be disabled when user processes sensitive data.
