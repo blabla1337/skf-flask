@@ -16,6 +16,7 @@ Disclosing sensitive information has several consequences, including decrypted i
 ## Mitigation:
 
 The following checks should be performed:
+
 	- Analyze data storage in the source code.
 	- Be sure to trigger all possible functionality in the application (e.g. by clicking everywhere possible) in order to ensure data generation.
 	- Check all application generated and modified files and ensure that the storage method is sufficiently secure.
