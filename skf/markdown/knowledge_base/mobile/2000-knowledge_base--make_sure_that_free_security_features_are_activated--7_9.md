@@ -10,6 +10,7 @@ Both iOS and Android platforms present many security features and enabling them 
 ## Mitigation:
 
 For iOS, Xcode enables all binary security features by default, it may be relevant to verify this for an old application or to check for the misconfiguration of compilation options. The following features are applicable:
+
 	- **ARC** - Automatic Reference Counting - A memory management feature that adds retain and release messages when required
 	- **Stack Canary** - Helps prevent buffer overflow attacks by means of having a small integer right before the return pointer. A buffer overflow attack often overwrites a region of memory in order to overwrite the return pointer and take over the process-control. In that case, the canary gets overwritten as well. Therefore, the value of the canary is always checked to make sure it has not changed before a routine uses the return pointer on the stack.
 	- **PIE** - Position Independent Executable - enables full ASLR for binary
