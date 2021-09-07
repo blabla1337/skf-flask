@@ -10,6 +10,7 @@ Apps that process or query sensitive information should run in a trusted and sec
 ## Mitigation:
 
 To create this environment, the app can check the device for the following:
+
 	- PIN or password-protected device locking
 	- Recent OS version
 	- Debugging activation
