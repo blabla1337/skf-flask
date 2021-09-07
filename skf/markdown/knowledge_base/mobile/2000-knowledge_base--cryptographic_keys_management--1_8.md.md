@@ -12,6 +12,7 @@ Successful key management is critical to the security of a cryptosystem. It is t
 ## Mitigation:
 
 Cryptographic key management within an application is important to document and harmonize rules and practices for:
+
 	1. Key life cycle management (generation, distribution, destruction)
 	2. Key compromise, recovery and zeroization
 	3. Key storage
