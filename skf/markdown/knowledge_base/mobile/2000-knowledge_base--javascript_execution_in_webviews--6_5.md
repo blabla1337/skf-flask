@@ -12,6 +12,7 @@ JavaScript can be injected into web applications via reflected, stored, or DOM-b
 ## Mitigation:
 
 If JavaScript is necessary, you should make sure that:
+
 	- Identifying WebView usage
 	- Testing JavaScript configuration
 	- Testing for mixed content
