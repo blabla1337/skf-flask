@@ -1,5 +1,3 @@
-## Description:
-
 ## Control Objective
 
 V2: Data Storage and Privacy Requirements
@@ -17,7 +15,3 @@ Sensitive data in the context of the MASVS pertains to both user credentials and
 	- Highly sensitive data that would lead to reputational harm and/or financial costs if compromised: Contractual information, information covered by non-disclosure agreements, management information;
 	- Any data that must be protected by law or for compliance reasons.
 
-
-## Mitigation:
-
-empty control
