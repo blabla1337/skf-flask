@@ -13,4 +13,4 @@ Application developers of apps processing highly sensitive data should be aware 
 
 ## Mitigation:
 
-Implement proper anti-debugging mechanisms. 
+Implement a proper anti-debugging mechanisms. 
