@@ -10,6 +10,7 @@ It can be summarized as:
 	"The requested **action** is **permitted** at this **time** for this **identity**"
 
 Where:
+
 	- **Identity** is _assured_ when the requester is challenged at the time they make the request, which means they have just fulfilled a challenge/response mechanism to verify they are who they claim, in terms of identity. If the challenge occurred before the request there is no assurance, acknowledging there may be a trusted session, but without assurance through via _challenge_ there can only be an unverified identity making this request
 	- **Action** The purpose for an authorization mechanism, a requester is attempting to perform an action that is sensitive, requires elevated privileges, or has some other implication like user privacy or _material_ impacts to the business.
 	- **Permitted** means the identity has been checked for permission to perform the action, using Access Controls.
