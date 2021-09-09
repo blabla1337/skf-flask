@@ -75,7 +75,9 @@ EXPOSE 8888
 CMD ["/home/user_api/entrypoint.sh"]
 
 
-#First go to the main skf-flask folder and from there build the image
-#docker build -f Docker/alpine-cloud/api/Dockerfile . -t blabla1337/skf-api:dev --no-cache
-#docker buildx build -f Docker/alpine-cloud/api/Dockerfile  --platform linux/amd64,linux/arm/v7 -t blabla1337/skf-api:dev --push .
-#docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:8888:8888 skf-api
+# First go to the main skf-flask folder and from there build the image
+#     DOCKER_BUILDKIT=1 docker build -f Docker/alpine-cloud/api/Dockerfile . -t blabla1337/skf-api:dev --no-cache
+#     docker buildx build -f Docker/alpine-cloud/api/Dockerfile  --platform linux/amd64,linux/arm/v7 -t blabla1337/skf-api:dev --push .
+#     docker run -e "ORIGIN=localhost" -e "JWT_SECRET=change_this_super_secret_random_string" -ti -p 127.0.0.1:8888:8888 skf-api
+#
+# Running with DOCKER_BUILDKIT is not required, however allows the Angular2 directory to be excluded from skf-api builds.
