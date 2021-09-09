@@ -29,7 +29,6 @@ RUN apt-get update &&\
     liblapack-dev \
     libatlas-base-dev \
     gfortran \
-    cython \
     procps \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
