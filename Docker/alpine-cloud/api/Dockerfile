@@ -1,20 +1,4 @@
 ############
-### build ###
-#############
-
-# base image
-FROM python:3.7 as BUILDER
-
-LABEL maintainer="glenn.ten.cate@owasp.org"
-
-RUN apt-get update &&\
-    apt-get install -y --no-install-recommends apt-utils python3-nltk \
-    default-libmysqlclient-dev \
-    vim \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-############
 ### run ###
 ############
 
