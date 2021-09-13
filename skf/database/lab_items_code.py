@@ -10,10 +10,10 @@ class LabItemCode(db.Model):
     solution = db.Column(db.Integer, nullable=False)
     code_type = db.Column(db.Text, nullable=False)
     hint = db.Column(db.Text, nullable=False)
-    code_type = db.Column(db.Text, nullable=False)
 
-    def __init__(self, code_example, solution, code_type):
+    def __init__(self, code_example, solution, hint, code_type):
         self.code_example = code_example
         self.solution = solution
+        self.hint = hint
         self.code_type = code_type
 
