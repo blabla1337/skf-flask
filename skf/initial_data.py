@@ -11945,19 +11945,19 @@ def load_initial_data():
         Code review labs
         '''
 
-        lab_code_sol = LabItemCode("<?php system($input); ?>", 2, "php")   
+        lab_code_sol = LabItemCode("<?php system($input); ?>", 2, "hint: think hard", "php")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = LabItemCode("<?php $query  = 'SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET $offset;'; ?>", 14, "php")   
+        lab_code_sol = LabItemCode("<?php $query  = 'SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET $offset;'; ?>", 14, "hint: think hard", "php")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = LabItemCode("System.Diagnostics.Process.Start('CMD.exe',strCommand);", 2, "asp")   
+        lab_code_sol = LabItemCode("System.Diagnostics.Process.Start('CMD.exe',strCommand);", 2, "hint: think hard", "asp")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 
-        lab_code_sol = LabItemCode("os.system($input)", 2, "python")   
+        lab_code_sol = LabItemCode("os.system($input)", 2, "hint: think hard", "python")   
         db.session.add(lab_code_sol)
         db.session.commit()  
 

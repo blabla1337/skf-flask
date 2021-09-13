@@ -107,8 +107,6 @@ def create_app():
     configure_app(flask_app)
     initialize_app(flask_app)
     db.init_app(flask_app)
-    with flask_app.app_context():
-        init_db()
     return flask_app
 
 def configure_app(flask_app):
