@@ -19,7 +19,7 @@ RUN apt-get update &&\
 ############
 
 # base image
-FROM python:3.7-slim
+FROM python:3.7-slim-stretch
 
 LABEL maintainer="glenn.ten.cate@owasp.org"
 
@@ -31,6 +31,7 @@ RUN apt-get update &&\
     gfortran \
     cython \
     procps \
+    vim \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
