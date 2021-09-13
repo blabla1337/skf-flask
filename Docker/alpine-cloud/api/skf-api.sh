@@ -19,7 +19,7 @@ fi
 
 cd /home/user_api
 export FLASK_APP=/home/user_api/skf/app.py
-export PYTHONPATH=/home/user_api
+export PYTHONPATH=.
 
 # init the database
 /home/user_api/.local/bin/flask initdb
