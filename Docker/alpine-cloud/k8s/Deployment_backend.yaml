@@ -89,7 +89,12 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: skf-flask-back
-                  key: SKF_LABS_DOMAIN     
+                  key: SKF_LABS_DOMAIN
+            - name: SKF_LABS_DEPLOY_MODE
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-back
+                  key: SKF_LABS_DEPLOY_MODE
             - name: GOOGLE_CREDENTIALS
               valueFrom:
                 configMapKeyRef:
