@@ -1,4 +1,4 @@
-## Control Objective
+## Description:
 
 V1: Architecture, Design and Threat Modeling Requirements
 
@@ -6,4 +6,6 @@ In a perfect world, security would be considered throughout all phases of develo
 
 The category “V1” lists requirements pertaining to architecture and design of the app. As such, this is the only category that does not map to technical test cases in the OWASP Mobile Testing Guide. To cover topics such as threat modelling, secure SDLC or key management, users of the MASVS should consult the respective OWASP projects and/or other standards.
 
+## Mitigation:
 
+Use the V1 Security requirements

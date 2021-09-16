@@ -1,4 +1,4 @@
-## Control Objective
+## Description:
 
 V2: Data Storage and Privacy Requirements
 
@@ -7,7 +7,7 @@ The protection of sensitive data, such as user credentials and private informati
 Note that, as the MASVS is app-centric, it does not cover device-level policies such as those enforced by MDM solutions. We encourage the use of such policies in an Enterprise context to further enhance data security.
 
 
-### Definition of Sensitive Data
+Definition of Sensitive Data
 
 Sensitive data in the context of the MASVS pertains to both user credentials and any other data considered sensitive in the particular context, such as:
 
@@ -15,3 +15,6 @@ Sensitive data in the context of the MASVS pertains to both user credentials and
 	- Highly sensitive data that would lead to reputational harm and/or financial costs if compromised: Contractual information, information covered by non-disclosure agreements, management information;
 	- Any data that must be protected by law or for compliance reasons.
 
+## Mitigation:
+
+Use the V2 Security requirements

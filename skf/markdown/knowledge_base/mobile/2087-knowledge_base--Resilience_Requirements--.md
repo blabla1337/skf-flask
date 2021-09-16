@@ -1,4 +1,4 @@
-## Control Objective
+## Description:
 
 V8: Resilience Requirements
 
@@ -16,3 +16,6 @@ The following considerations apply:
 	2. The threat model must be credible and relevant. For example, hiding a cryptographic key in a whitebox implementation might prove redundant if an attacker can simply code-lift the white-box as a whole.
 	3. The effectiveness of the protection should always be verified by a human expert with experience in testing the particular types of anti-tampering and obfuscation used (see also the “reverse engineering” and “assessing software protections” chapters in the Mobile Security Testing Guide).
 
+## Mitigation:
+
+Use the V8 Security requirements
