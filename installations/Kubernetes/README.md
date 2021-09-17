@@ -25,6 +25,14 @@ Below are the important variables to be changed and explained:
   SKF_LABS_DOMAIN: "http://beta-labs.securityknowledgeframework.org"
 ```
 ```
+  # By default, "port" mode deploys the lab as a NodePort service, on a random port on the
+  # SKF_LABS_DOMAIN value.
+  # Setting the deploy mode to "subdomain" will create a new ingress rule for each lab, directing
+  # a subdomain of SKF_LABS_DOMAIN to the lab. All subdomains should point to the clusters ingress
+  # controller.
+  SKF_LABS_DEPLOY_MODE: "port"
+```
+```
   # Ideally you create 2 DNS entries, one for the main SKF website and one for the SKF Labs
   # Location of the Angular application
   FRONTEND_URI: https://beta.securityknowledgeframework.org
@@ -44,7 +52,8 @@ Below are the important variables to be changed and explained:
 We also need to modify the ingress.yaml
 Below are the important variables to be changed and explained:
 
-The below DNS name will be used to access the SKF application, please change it to your hostname and the same ones you used in the configmaps.yaml file.
+The below DNS name will be used to access the SKF application, please change it to your hostname and
+the same ones you used in the configmaps.yaml file.
 
 ```
   - hosts:
@@ -60,10 +69,12 @@ You will need to modify the Ingress to include certificate.
 Furthermore you need to change the ingress  host to match your domain.
 
 # GKE example deployment SKF app
-## Prep SKF Labs env
 
-1. Create a Kubernetes cluster, this will be used for the SKF Labs, we dont want them in the SKF k8s cluster as these labs are vulnerable by design
-2. Make sure kubectl and gcloud are in the right place e.g. `kubectl config current-context`
+## Prep SKF Labs Cluster
+
+1. Create a Kubernetes cluster, this will be used for the SKF Labs, we dont want them in the SKF k8s
+   cluster as these labs are vulnerable by design.
+2. Make sure kubectl and gcloud are in the right place e.g. `kubectl config current-context`.
 3. Create user for controlling the skf-labs cluster
 ```
 gcloud iam service-accounts create labs-user
@@ -80,7 +91,7 @@ gcloud projects add-iam-policy-binding replace_with_your_project_name_in_gke \
 ```
 cat gsa-key.json | base64
 ```
-Now paste the output value in the configmaps.yaml file in GOOGLE_APPLICATION_CREDENTIALS
+Now paste the output value in the configmaps.yaml file in `GOOGLE_APPLICATION_CREDENTIALS`
 
 5. Also we need the google kube config file of the skf-labs cluster
 ```
@@ -92,17 +103,31 @@ Make sure you only have the kube config content of the skf-labs cluster and not 
 ```
 cat ~/.kube/config | base64
 ```
-Now paste the output value in the configmaps.yaml file in LABS_KUBE_CONF
+Now paste the output value in the configmaps.yaml file in `LABS_KUBE_CONF`
 
-7. Final step is to get the IP of the skf-labs pods in the VM instance overview https://console.cloud.google.com/compute/instances and add the IP to the DNS for the labs domain
+<ol start="7"><li>
 
-### Add firewall rule
+### Port Deploy Mode: Add firewall rule
+
+The final step is to get the IP of the skf-labs pods in the VM instance overview
+https://console.cloud.google.com/compute/instances and add the IP to the DNS for the labs domain.
+
 Now add the firewall rule to allow the Labs being exposed on the Pods and reachable:
 ```
 gcloud compute --project=replace_with_your_project_name_in_gke firewall-rules create allow-labs --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:10000-65000 --source-ranges=0.0.0.0/0
 ```
 
-## Prep SKF env
+### Subdomain Deploy Mode: Install ingress controller
+
+The final step is to install the nginx ingress controller. With helm3, this can be installed using:
+```
+helm install nginx-ingress stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true --set controller.service.externalTrafficPolicy=Local
+```
+For helm2, the instructions are the same as below, for the main cluster.
+
+</li></ol>
+
+## Prep Main SKF Cluster
 
 1. Clone the repo and edit configmaps.yaml as mentioned in the above text 
 2. Create a second Kubernetes cluster, this will be used for the SKF application
