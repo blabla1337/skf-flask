@@ -65,6 +65,7 @@ services:
       - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
       - SKF_JWT_SECRET=please_change_this_value_to_be_random
       - SKF_LABS_DOMAIN=http://localhost
+      - SKF_LABS_DEPLOY_MODE=port
       - RABBIT_MQ_CONN_STRING=rabbitmq
       - LABS_KUBE_CONF=~/.kube/config
       #- JWT_ENABLED="False"
