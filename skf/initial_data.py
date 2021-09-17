@@ -2330,440 +2330,30 @@ def load_initial_data():
         c.kb_id = 306
         db.session.add(c)
         db.session.commit()
-        
-        db.session.add(LabItem('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-1-filename-injection', 1, 'lfi', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting', 1, 'xss', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-attribute', 1, 'xss-attribute', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Cross site scripting (href)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-href', 1, 'xss-url', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('XSSI','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-include-files-from-untrusted-sources-js', 2, 'untrusted-sources-js', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf', 3, 'csrf', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf-samesite', 3, 'csrf-samesite', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe', 2, 'xxe', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-13-file-upload', 1, 'file-upload', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-20-clickjacking', 1, 'x-allow-origin', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-29-ratelimiting', 1, 'ratelimiting', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-39-httponly-session-hijacking-xss', 3, 'session-hijacking-xss', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Missing authorization','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-44-authorisation-missing', 2, 'auth-missing', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Exposed Docker daemon','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-45-exposed-docker', 3, 'none', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select', 2, 'sqli', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3, 'url-redirection-harder', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation', 3, 'cors', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Formulla injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-95-formula-injection', 1, 'formula-injection', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-147-parameter-binding', 1, 'parameter-binding', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-like', 2, 'sqli-like', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3, 'sqli-blind', 'SKF-labs', None))
-        db.session.commit()
-                
-        db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1, 'rfi', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Remote file inclusion 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-2', 1, 'lfi-2', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Remote file inclusion 3','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-3', 1, 'lfi-3', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy', 1, 'csp', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-262-server-side-request-forgery', 3, 'ssrf', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Tabnabbing','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-266-tabnabbing', 2, 'tabnabbing', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-267-server-side-template-injection', 3, 'ssti', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-268-insecure-direct-object-references', 2, 'idor', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-null', 2, 'jwt-null', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-secret', 2, 'jwt-secret', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml', 3, 'des-yaml', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Insecure deserialization pickle','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-des-pickle-2', 3, 'des-pickle-2', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition', 3, 'racecondition', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-dos-regex', 1, 'dos-regex', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Command injection 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-1', 1, 'cmd', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1, 'cmd2', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1, 'info-leakeage-comments', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1, 'info-leakeage-metadata', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Authentication bypass 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-1', 1, 'auth-bypass-1', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Authentication bypass 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-2', 1, 'auth-bypass-2', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Blind command injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-blind-cmd-injection-1', 2, 'cmd3', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-right-to-left-override', 1, 'rtlo', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('Session puzzeling','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-250-session-puzzling', 3, 'sessionpuzzle', 'SKF-labs', None))
-        db.session.commit()
-
-
-        db.session.add(LabItem('Graphql DOS','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-dos', 3, 'graphql-dos-resource-exhaustion', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('GraphQL IDOR','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-idor', 3, 'graphql-idor', 'SKF-labs', None))
-        db.session.commit()
-
-
-        db.session.add(LabItem('GraphQL Injections','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-injections', 3, 'graphql-injections', 'SKF-labs', None))
-        db.session.commit()
-
-
-        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-introspection', 3, 'graphql-info-introspection', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-mutations', 3, 'graphql-mutation', 'SKF-labs', None))
-        db.session.commit()
-
-        db.session.add(LabItem('API-only XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-without-using-the-frontend-application-at-all',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Access Log','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#gain-access-to-any-access-log-file-of-the-server',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Admin Registration','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#register-as-a-user-with-administrator-privileges',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Admin Section','https://pwning.owasp-juice.shop/part2/broken-access-control.html#access-the-administration-section-of-the-store',2,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Arbitrary File Write','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#overwrite-the-legal-information-file',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Bjoerns Favorite Pet','https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-the-password-of-bjoerns-owasp-account-via-the-forgot-password-mechanism',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Blockchain Hype','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#learn-about-the-token-sale-before-its-official-announcement',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Blocked RCE DoS','https://pwning.owasp-juice.shop/part2/insecure-deserialization.html#perform-a-remote-code-execution-that-would-keep-a-less-hardened-application-busy-forever',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('CAPTCHA Bypass','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#submit-10-or-more-customer-feedbacks-within-10-seconds',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Change Benders Password','https://pwning.owasp-juice.shop/part2/broken-authentication.html#change-benders-password-into-slurmcl4ssic-without-using-sql-injection-or-forgot-password',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Christmas Special','https://pwning.owasp-juice.shop/part2/injection.html#order-the-christmas-special-offer-of-2014',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('CSP Bypass','https://pwning.owasp-juice.shop/part2/xss.html#bypass-the-content-security-policy-and-perform-an-xss-attack-on-a-legacy-page',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Client-side XSS Protection','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-bypassing-a-client-side-security-mechanism',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Confidential Document','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-confidential-document',1,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('DOM XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-dom-xss-attack',1,'juice-shop','juice-shop',True))
-        db.session.commit()
-
-        db.session.add(LabItem('Database Schema','https://pwning.owasp-juice.shop/part2/injection.html#exfiltrate-the-entire-db-schema-definition-via-sql-injection',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Deprecated Interface','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#use-a-deprecated-b2b-interface-that-was-not-properly-shut-down',2,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Easter Egg','https://pwning.owasp-juice.shop/part2/broken-access-control.html#find-the-hidden-easter-egg',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Email Leak','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#perform-an-unwanted-information-disclosure-by-accessing-data-cross-domain',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Ephemeral Accountant','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-the-non-existing-accountant-without-ever-registering-that-user',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Error Handling','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#provoke-an-error-that-is-neither-very-gracefully-nor-consistently-handled',1,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Expired Coupon','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#successfully-redeem-an-expired-campaign-coupon-code',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Extra Language','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#retrieve-the-language-file-that-never-made-it-into-production',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Five-Star Feedback','https://pwning.owasp-juice.shop/part2/broken-access-control.html#get-rid-of-all-5-star-customer-feedback',2,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Forged Coupon','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#forge-a-coupon-code-that-gives-you-a-discount-of-at-least-80',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Forged Feedback','https://pwning.owasp-juice.shop/part2/broken-access-control.html#post-some-feedback-in-another-users-name',3,'juice-shop','juice-shop',True))
-        db.session.commit()
-
-        db.session.add(LabItem('Forged Review','https://pwning.owasp-juice.shop/part2/broken-access-control.html#post-a-product-review-as-another-user-or-edit-any-users-existing-review',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Forged Signed JWT','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#forge-an-almost-properly-rsa-signed-jwt-token',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Forgotten Developer Backup','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-developers-forgotten-backup-file',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Forgotten Sales Backup','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-salesmans-forgotten-backup-file',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Frontend Typosquatting','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-typosquatting-imposter-that-dug-itself-deep-into-the-frontend',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('GDPR Data Erasure','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-chris-erased-user-account',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('GDPR Data Theft','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#steal-someone-elses-personal-data-without-using-injection',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('HTTP-Header XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-through-an-http-header',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Imaginary Challenge','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#solve-challenge-2',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Leaked Access Logs','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#dumpster-dive-the-internet-for-a-leaked-password-and-log-in-to-the-original-user-account-it-belongs-to',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Leaked Unsafe Product','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#identify-an-unsafe-product-that-was-removed-from-the-shop-and-inform-the-shop-which-ingredients-are-dangerous',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Legacy Typosquatting','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-typosquatting-trick-it-has-been-a-victim-of',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Login Admin','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-the-administrators-user-account',2,'juice-shop','juice-shop',True))
-        db.session.commit()
-
-        db.session.add(LabItem('Login Amy','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#log-in-with-amys-original-user-credentials',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Login Bender','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-benders-user-account',3,'juice-shop','juice-shop',True))
-        db.session.commit()
-
-        db.session.add(LabItem('Login Bjoern','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-bjoerns-gmail-account',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Login CISO','https://pwning.owasp-juice.shop/part2/broken-authentication.html#exploit-oauth-20-to-log-in-with-the-cisos-user-account',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Login Jim','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-jims-user-account',3,'juice-shop','juice-shop',True))
-        db.session.commit()
-
-        db.session.add(LabItem('Login MC SafeSearch','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#log-in-with-mc-safesearchs-original-user-credentials',2,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Login Support Team','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#log-in-with-the-support-teams-original-user-credentials',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Manipulate Basket','https://pwning.owasp-juice.shop/part2/broken-access-control.html#put-an-additional-product-into-another-users-shopping-basket',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Misplaced Signature File','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-misplaced-siem-signature-file',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Multiple Likes','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#like-any-review-at-least-three-times-as-the-same-user',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Nested Easter Egg','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#apply-some-advanced-cryptanalysis-to-find-the-real-easter-egg',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('NoSQL DoS','https://pwning.owasp-juice.shop/part2/injection.html#let-the-server-sleep-for-some-time',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('NoSQL Exfiltration','https://pwning.owasp-juice.shop/part2/injection.html#all-your-orders-are-belong-to-us',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('NoSQL Manipulation','https://pwning.owasp-juice.shop/part2/injection.html#update-multiple-product-reviews-at-the-same-time',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Outdated Whitelist','https://pwning.owasp-juice.shop/part2/unvalidated-redirects.html#let-us-redirect-you-to-one-of-our-crypto-currency-addresses',1,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Password Strength','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-the-administrators-user-credentials-without-previously-changing-them-or-applying-sql-injection',2,'juice-shop','juice-shop',True))
-        db.session.commit()
-
-        db.session.add(LabItem('Payback Time','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#place-an-order-that-makes-you-rich',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Premium Paywall','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#unlock-premium-challenge-to-access-exclusive-content',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Privacy Policy','https://pwning.owasp-juice.shop/part2/miscellaneous.html#read-our-privacy-policy',1,'juice-shop','juice-shop',True))
-        db.session.commit()
 
-        db.session.add(LabItem('Privacy Policy Inspection','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#prove-that-you-actually-read-our-privacy-policy',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Product Tampering','https://pwning.owasp-juice.shop/part2/broken-access-control.html#change-the-href-of-the-link-within-the-o-saft-product-description',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Reflected XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-reflected-xss-attack',2,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Repetitive Registration','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#follow-the-dry-principle-while-registering-a-user',1,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Reset Benders Password','https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-benders-password-via-the-forgot-password-mechanism',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Reset Bjoerns Password','https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-the-password-of-bjoerns-internal-account-via-the-forgot-password-mechanism',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Reset Jims Password','https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-jims-password-via-the-forgot-password-mechanism',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Reset Mortys Password','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#reset-mortys-password-via-the-forgot-password-mechanism',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Retrieve Blueprint','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#deprive-the-shop-of-earnings-by-downloading-the-blueprint-for-one-of-its-products',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('SSRF','https://pwning.owasp-juice.shop/part2/broken-access-control.html#request-a-hidden-resource-on-server-through-server',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('SSTi','https://pwning.owasp-juice.shop/part2/injection.html#infect-the-server-with-juicy-malware-by-abusing-arbitrary-command-execution',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Score Board','https://pwning.owasp-juice.shop/part2/score-board.html#find-the-carefully-hidden-score-board-page',1,'juice-shop','juice-shop',True))
-        db.session.commit()
-
-        db.session.add(LabItem('Security Policy','https://pwning.owasp-juice.shop/part2/miscellaneous.html#behave-like-any-white-hat-should-before-getting-into-the-action',2,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Server-side XSS Protection','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-bypassing-a-server-side-security-mechanism',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Steganography','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#rat-out-a-notorious-character-hiding-in-plain-sight-in-the-shop',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Successful RCE DoS','https://pwning.owasp-juice.shop/part2/insecure-deserialization.html#perform-a-remote-code-execution-that-occupies-the-server-for-a-while-without-using-infinite-loops',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Supply Chain Attack','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-development-team-about-a-danger-to-some-of-their-credentials',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Two Factor Authentication','https://pwning.owasp-juice.shop/part2/broken-authentication.html#solve-the-2fa-challenge-for-user-wurstbrot',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Unsigned JWT','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#forge-an-essentially-unsigned-jwt-token',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Upload Size','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#upload-a-file-larger-than-100-kb',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Upload Type','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#upload-a-file-that-has-no-pdf-or-zip-extension',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('User Credentials','https://pwning.owasp-juice.shop/part2/injection.html#retrieve-a-list-of-all-user-credentials-via-sql-injection',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Video XSS','https://pwning.owasp-juice.shop/part2/xss.html#embed-an-xss-payload-into-our-promo-video',6,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('View Basket','https://pwning.owasp-juice.shop/part2/broken-access-control.html#view-another-users-shopping-basket',2,'juice-shop','juice-shop',True))
-        db.session.commit()
-
-        db.session.add(LabItem('Vulnerable Library','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-vulnerable-library-it-is-using',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Weird Crypto','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#inform-the-shop-about-an-algorithm-or-library-it-should-definitely-not-use-the-way-it-does',2,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Whitelist Bypass','https://pwning.owasp-juice.shop/part2/unvalidated-redirects.html#enforce-a-redirect-to-a-page-you-are-not-supposed-to-redirect-to',4,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('XXE Data Access','https://pwning.owasp-juice.shop/part2/xxe.html#retrieve-the-content-of-cwindowssystemini-or-etcpasswd-from-the-server',3,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('XXE DoS','https://pwning.owasp-juice.shop/part2/xxe.html#give-the-server-something-to-chew-on-for-quite-a-while',5,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Zero Stars','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#give-a-devastating-zero-star-feedback-to-the-store',1,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Missing Encoding','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#retrieve-the-photo-of-bjoerns-cat-in-melee-combat-mode',1,'juice-shop','juice-shop',None))
-        db.session.commit()
-
-        db.session.add(LabItem('Cross-Site Imaging','https://pwning.owasp-juice.shop/part2/injection.html#stick-cute-cross-domain-kittens-all-over-our-delivery-boxes',5,'juice-shop','juice-shop',None))
-        db.session.commit()
 
-        db.session.add(LabItem('Exposed Metrics','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#find-the-endpoint-that-serves-usage-data-to-be-scraped-by-a-popular-monitoring-system',1,'juice-shop','juice-shop',None))
-        db.session.commit()
+        '''
+        Questionaire for MASVS
+        '''
 
-        db.session.add(LabItem('Deluxe Fraud','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#obtain-a-deluxe-membership-without-paying-for-it',3,'juice-shop','juice-shop',None))
+        #73
+        q = Question('Data Protection and Privacy Requirements', 15)
+        db.session.add(q)
         db.session.commit()
 
-        db.session.add(LabItem('CSRF','https://pwning.owasp-juice.shop/part2/broken-access-control.html#change-the-name-of-a-user-by-performing-cross-site-request-forgery-from-another-origin',3,'juice-shop','juice-shop',None))
+        #74
+        q = Question('Authentication Architectural Requirements', 2)
+        db.session.add(q)
         db.session.commit()
 
-        db.session.add(LabItem('Bonus Payload','https://pwning.owasp-juice.shop/part2/xss.html#use-the-bonus-payload-in-the-dom-xss-challenge',1,'juice-shop','juice-shop',True))
+        #75 
+        q = Question('Access Control Architectural Requirements', 2)
+        db.session.add(q)
         db.session.commit()
 
-        db.session.add(LabItem('Juice Shop CTF','https://owasp.org/www-project-juice-shop/',3,'juice-shop-ctf','juice-shop',None))
+        #76
+        q = Question('Input and Output Architectural Requirements', 2)
+        db.session.add(q)
         db.session.commit()
 
         '''
@@ -2822,507 +2412,509 @@ def load_initial_data():
         Checklist Categories for MASVS
         '''
 
-
         c = ChecklistKB('1.1', 'All app components are identified and known to be needed.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-insecure-configuration-of-instant-apps-mstg-arch-1,-mstg-arch-7', 1)
-        c.kb_id = 2000
+        c.kb_id = 2001
+        #we need to add all the question_id to the checklist requirement
+        #c.question_id = 73
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.2', 'Security controls are never enforced only on the client side, but on the respective remote endpoints.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#verifying-that-appropriate-authentication-is-in-place-mstg-arch-2-and-mstg-auth-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#injection-flaws-mstg-arch-2-and-mstg-platform-2', 1)
-        c.kb_id = 2000
+        c.kb_id = 2002
+        #c.question_id = 73
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.3', 'A high-level architecture for the mobile app and all connected remote services has been defined and security has been addressed in that architecture.', 15, False, '', 1)
-        c.kb_id = 2000
+        c.kb_id = 2003
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.4', 'Data considered sensitive in the context of the mobile app is clearly identified.', 15, False, '', 1)
-        c.kb_id = 2000
+        c.kb_id = 2004
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.5', 'All app components are defined in terms of the business functions and/or security functions they provide.', 15, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2005
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.6', 'A threat model for the mobile app and the associated remote services has been produced that identifies potential threats and countermeasures.', 15, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2006
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.7', 'All security controls have a centralized implementation.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-insecure-configuration-of-instant-apps-mstg-arch-1,-mstg-arch-7', 2)
-        c.kb_id = 2000
+        c.kb_id = 2007
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.8', 'There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced. Ideally, follow a key management standard such as NIST SP 800-57.', 15, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2008
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.9', 'A mechanism for enforcing updates of the mobile app exists.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-enforced-updating-mstg-arch-9,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-enforced-updating-mstg-arch-9', 2)
-        c.kb_id = 2000
+        c.kb_id = 2009
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.10', 'Security is addressed within all parts of the software development lifecycle.', 15, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2010
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.11', 'A responsible disclosure policy is in place and effectively applied.', 15, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2011
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.12', 'The app should comply with privacy laws and regulations.', 15, False, '', 1)
-        c.kb_id = 2000
+        c.kb_id = 2012
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.1', 'System credential storage facilities need to be used to store sensitive data, such as PII, user credentials or cryptographic keys.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-local-storage-for-sensitive-data-mstg-storage-1-and-mstg-storage-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-local-data-storage-mstg-storage-1-and-mstg-storage-2', 1)
-        c.kb_id = 2000
+        c.kb_id = 2013
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.2', 'No sensitive data should be stored outside of the app container or system credential storage facilities.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-local-storage-for-sensitive-data-mstg-storage-1-and-mstg-storage-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-local-data-storage-mstg-storage-1-and-mstg-storage-2', 1)
-        c.kb_id = 2000
+        c.kb_id = 2013
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.3', 'No sensitive data is written to application logs.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-logs-for-sensitive-data-mstg-storage-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#checking-logs-for-sensitive-data-mstg-storage-3', 1)
-        c.kb_id = 2000
+        c.kb_id = 2015
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.4', 'No sensitive data is shared with third parties unless it is a necessary part of the architecture.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#determining-whether-sensitive-data-is-sent-to-third-parties-mstg-storage-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#determining-whether-sensitive-data-is-sent-to-third-parties-mstg-storage-4', 1)
-        c.kb_id = 2000
+        c.kb_id = 2016
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.5', 'The keyboard cache is disabled on text inputs that process sensitive data.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#determining-whether-the-keyboard-cache-is-disabled-for-text-input-fields-mstg-storage-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#finding-sensitive-data-in-the-keyboard-cache-mstg-storage-5', 1)
-        c.kb_id = 2000
+        c.kb_id = 2017
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.6', 'No sensitive data is exposed via IPC mechanisms.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#determining-whether-sensitive-stored-data-has-been-exposed-via-ipc-mechanisms-mstg-storage-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#determining-whether-sensitive-data-is-exposed-via-ipc-mechanisms-mstg-storage-6', 1)
-        c.kb_id = 2000
+        c.kb_id = 2018
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.7', 'No sensitive data, such as passwords or pins, is exposed through the user interface.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#checking-for-sensitive-data-disclosure-through-the-user-interface-mstg-storage-7,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#checking-for-sensitive-data-disclosed-through-the-user-interface-mstg-storage-7', 1)
-        c.kb_id = 2000
+        c.kb_id = 2019
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.8', 'No sensitive data is included in backups generated by the mobile operating system.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-backups-for-sensitive-data-mstg-storage-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-backups-for-sensitive-data-mstg-storage-8', 2)
-        c.kb_id = 2000
+        c.kb_id = 2020
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.9', 'The app removes sensitive data from views when moved to the background.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#finding-sensitive-information-in-auto-generated-screenshots-mstg-storage-9,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-auto-generated-screenshots-for-sensitive-information-mstg-storage-9', 2)
-        c.kb_id = 2000
+        c.kb_id = 2021
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.10', 'The app does not hold sensitive data in memory longer than necessary, and memory is cleared explicitly after use.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#checking-memory-for-sensitive-data-mstg-storage-10,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-memory-for-sensitive-data-mstg-storage-10', 2)
-        c.kb_id = 2000
+        c.kb_id = 2022
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.11', 'The app enforces a minimum device-access-security policy, such as requiring the user to set a device passcode.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-the-device-access-security-policy-mstg-storage-11,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md#testing-local-authentication-mstg-auth-8-and-mstg-storage-11', 2)
-        c.kb_id = 2000
+        c.kb_id = 2023
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.12', 'The app educates the user about the types of personally identifiable information processed, as well as security best practices the user should follow in using the app.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04i-Testing-user-interaction.md#testing-user-education-mstg-storage-12', 2)
-        c.kb_id = 2000
+        c.kb_id = 2024
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.13', 'No sensitive data should be stored locally on the mobile device. Instead, data should be retrieved from a remote endpoint when needed and only be kept in memory.', 16, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2025
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.14', 'If sensitive data is still required to be stored locally, it should be encrypted using a key derived from hardware backed storage which requires authentication.', 16, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2026
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.15', 'The app’s local storage should be wiped after an excessive number of failed authentication attempts.', 16, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2088
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.1', 'The app does not rely on symmetric cryptography with hardcoded keys as a sole method of encryption.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-key-management-mstg-crypto-1-and-mstg-crypto-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1,-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-symmetric-cryptography-mstg-crypto-1', 1)
-        c.kb_id = 2000
+        c.kb_id = 2026
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.2', 'The app uses proven implementations of cryptographic primitives.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#verifying-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1,-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2,-mstg-crypto-3-and-mstg-crypto-4', 1)
-        c.kb_id = 2000
+        c.kb_id = 2027
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.3', 'The app uses cryptographic primitives that are appropriate for the particular use-case, configured with parameters that adhere to industry best practices.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#verifying-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1,-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2,-mstg-crypto-3-and-mstg-crypto-4', 1)
-        c.kb_id = 2000
+        c.kb_id = 2027
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.4', 'The app does not use cryptographic protocols or algorithms that are widely considered deprecated for security purposes.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#identifying-insecure-and/or-deprecated-cryptographic-algorithms-mstg-crypto-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2,-mstg-crypto-3-and-mstg-crypto-4', 1)
-        c.kb_id = 2000
+        c.kb_id = 2029
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.5', 'The app doesn\'t re-use the same cryptographic key for multiple purposes.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-key-management-mstg-crypto-1-and-mstg-crypto-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-purposes-of-keys-mstg-crypto-5', 1)
-        c.kb_id = 2000
+        c.kb_id = 2030
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('3.6', 'All random values are generated using a sufficiently secure random number generator.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6', 1)
-        c.kb_id = 2000
+        c.kb_id = 2090
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.1', 'If the app provides users access to a remote service, some form of authentication, such as username/password authentication, is performed at the remote endpoint.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#verifying-that-appropriate-authentication-is-in-place-mstg-arch-2-and-mstg-auth-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-oauth-2.0-flows-mstg-auth-1-and-mstg-auth-3', 1)
-        c.kb_id = 2000
+        c.kb_id = 2031
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.2', 'If stateful session management is used, the remote endpoint uses randomly generated session identifiers to authenticate client requests without sending the user\'s credentials.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-stateful-session-management-mstg-auth-2', 1)
-        c.kb_id = 2000
+        c.kb_id = 2032
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.3', 'If stateless token-based authentication is used, the server provides a token that has been signed using a secure algorithm.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-stateless-(token-based)-authentication-mstg-auth-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-oauth-2.0-flows-mstg-auth-1-and-mstg-auth-3', 1)
-        c.kb_id = 2000
+        c.kb_id = 2033
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.4', 'The remote endpoint terminates the existing session when the user logs out.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-user-logout-mstg-auth-4', 1)
-        c.kb_id = 2000
+        c.kb_id = 2034
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.5', 'A password policy exists and is enforced at the remote endpoint.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-best-practices-for-passwords-mstg-auth-5-and-mstg-auth-6', 1)
-        c.kb_id = 2000
+        c.kb_id = 2035
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.6', 'The remote endpoint implements a mechanism to protect against the submission of credentials an excessive number of times.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-best-practices-for-passwords-mstg-auth-5-and-mstg-auth-6', 1)
-        c.kb_id = 2000
+        c.kb_id = 2036
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.7', 'Sessions are invalidated at the remote endpoint after a predefined period of inactivity and access tokens expire.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-session-timeout-mstg-auth-7', 1)
-        c.kb_id = 2000
+        c.kb_id = 2037
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.8', 'Biometric authentication, if any, is not event-bound (i.e. using an API that simply returns "true" or "false"). Instead, it is based on unlocking the keychain/keystore.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md#testing-local-authentication-mstg-auth-8-and-mstg-storage-11', 2)
-        c.kb_id = 2000
+        c.kb_id = 2038
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.9', 'A second factor of authentication exists at the remote endpoint and the 2FA requirement is consistently enforced.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-two-factor-authentication-and-step-up-authentication-mstg-auth-9-and-mstg-auth-10', 2)
-        c.kb_id = 2000
+        c.kb_id = 2039
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.10', 'Sensitive transactions require step-up authentication.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-two-factor-authentication-and-step-up-authentication-mstg-auth-9-and-mstg-auth-10', 2)
-        c.kb_id = 2000
+        c.kb_id = 2040
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.11', 'The app informs the user of all sensitive activities with their account. Users are able to view a list of devices, view contextual information (IP address, location, etc.), and to block specific devices.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-login-activity-and-device-blocking-mstg-auth-11', 2)
-        c.kb_id = 2000
+        c.kb_id = 2040
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.12', 'Authorization models should be defined and enforced at the remote endpoint.', 18, False, '', 1)
-        c.kb_id = 2000
+        c.kb_id = 2079
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.1', 'Data is encrypted on the network using TLS. The secure channel is used consistently throughout the app.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#verifying-data-encryption-on-the-network-mstg-network-1-and-mstg-network-2', 1)
-        c.kb_id = 2000
+        c.kb_id = 2042
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.2', 'The TLS settings are in line with current best practices, or as close as possible if the mobile operating system does not support the recommended standards.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06g-Testing-Network-Communication.md#app-transport-security-mstg-network-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#verifying-data-encryption-on-the-network-mstg-network-1-and-mstg-network-2', 1)
-        c.kb_id = 2000
+        c.kb_id = 2042
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.3', 'The app verifies the X.509 certificate of the remote endpoint when the secure channel is established. Only certificates signed by a trusted CA are accepted.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-endpoint-identify-verification-mstg-network-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-3-and-mstg-network-4', 1)
-        c.kb_id = 2000
+        c.kb_id = 2044
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.4', 'The app either uses its own certificate store, or pins the endpoint certificate or public key, and subsequently does not establish connections with endpoints that offer a different certificate or key, even if signed by a trusted CA.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-the-network-security-configuration-settings-mstg-network-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-3-and-mstg-network-4', 2)
-        c.kb_id = 2000
+        c.kb_id = 2045
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.5', 'The app doesn\'t rely on a single insecure communication channel (email or SMS) for critical operations, such as enrollments and account recovery.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#making-sure-that-critical-operations-use-secure-communication-channels-mstg-network-5', 2)
-        c.kb_id = 2000
+        c.kb_id = 2046
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.6', 'The app only depends on up-to-date connectivity and security libraries.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-the-security-provider-mstg-network-6', 2)
-        c.kb_id = 2000
+        c.kb_id = 2091
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.1', 'The app only requests the minimum set of permissions necessary.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-app-permissions-mstg-platform-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-app-permissions-mstg-platform-1', 1)
-        c.kb_id = 2000
+        c.kb_id = 2047
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.2', 'All inputs from external sources and the user are validated and if necessary sanitized. This includes data received via the UI, IPC mechanisms such as intents, custom URLs, and network sources.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#injection-flaws-mstg-arch-2-and-mstg-platform-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#cross-site-scripting-flaws-mstg-platform-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-local-storage-for-input-validation-mstg-platform-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-injection-flaws-mstg-platform-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-fragment-injection-mstg-platform-2', 1)
-        c.kb_id = 2000
+        c.kb_id = 2048
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.3', 'The app does not export sensitive functionality via custom URL schemes, unless these mechanisms are properly protected.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-custom-url-schemes-mstg-platform-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-custom-url-schemes-mstg-platform-3', 1)
-        c.kb_id = 2000
+        c.kb_id = 2049
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.4', 'The app does not export sensitive functionality through IPC facilities, unless these mechanisms are properly protected.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-for-sensitive-functionality-exposure-through-ipc-mstg-platform-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-sensitive-functionality-exposure-through-ipc-mstg-platform-4', 1)
-        c.kb_id = 2000
+        c.kb_id = 2050
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.5', 'JavaScript is disabled in WebViews unless explicitly required.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-ios-webviews-mstg-platform-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-javascript-execution-in-webviews-mstg-platform-5', 1)
-        c.kb_id = 2000
+        c.kb_id = 2051
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.6', 'WebViews are configured to allow only the minimum set of protocol handlers required (ideally, only https is supported). Potentially dangerous handlers, such as file, tel and app-id, are disabled.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-webview-protocol-handlers-mstg-platform-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-webview-protocol-handlers-mstg-platform-6', 1)
-        c.kb_id = 2000
+        c.kb_id = 2052
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.7', 'If native methods of the app are exposed to a WebView, verify that the WebView only renders JavaScript contained within the app package.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#determining-whether-native-methods-are-exposed-through-webviews-mstg-platform-7,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#determining-whether-java-objects-are-exposed-through-webviews-mstg-platform-7', 1)
-        c.kb_id = 2000
+        c.kb_id = 2053
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.8', 'Object deserialization, if any, is implemented using safe serialization APIs.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-object-persistence-mstg-platform-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-object-persistence-mstg-platform-8', 1)
-        c.kb_id = 2000
+        c.kb_id = 2054
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.9', 'The app protects itself against screen overlay attacks. (Android only)', 20, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2055
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.10', 'A WebView\'s cache, storage, and loaded resources (JavaScript, etc.) should be cleared before the WebView is destroyed.', 20, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2056
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.11', 'Verify that the app prevents usage of custom third-party keyboards whenever sensitive data is entered.', 20, False, '', 2)
-        c.kb_id = 2000
+        c.kb_id = 2057
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.1', 'The app is signed and provisioned with a valid certificate, of which the private key is properly protected.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#making-sure-that-the-app-is-properly-signed-mstg-code-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#making-sure-that-the-app-is-properly-signed-mstg-code-1', 1)
-        c.kb_id = 2000
+        c.kb_id = 2058
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.2', 'The app has been built in release mode, with settings appropriate for a release build (e.g. non-debuggable).', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-whether-the-app-is-debuggable-mstg-code-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#determining-whether-the-app-is-debuggable-mstg-code-2', 1)
-        c.kb_id = 2000
+        c.kb_id = 2059
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.3', 'Debugging symbols have been removed from native binaries.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-for-debugging-symbols-mstg-code-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#finding-debugging-symbols-mstg-code-3', 1)
-        c.kb_id = 2000
+        c.kb_id = 2060
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.4', 'Debugging code and developer assistance code (e.g. test code, backdoors, hidden settings) have been removed. The app does not log verbose errors or debugging messages.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-for-debugging-code-and-verbose-error-logging-mstg-code-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#finding-debugging-code-and-verbose-error-logging-mstg-code-4', 1)
-        c.kb_id = 2000
+        c.kb_id = 2061
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.5', 'All third party components used by the mobile app, such as libraries and frameworks, are identified, and checked for known vulnerabilities.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#checking-for-weaknesses-in-third-party-libraries-mstg-code-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#checking-for-weaknesses-in-third-party-libraries-mstg-code-5', 1)
-        c.kb_id = 2000
+        c.kb_id = 2062
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.6', 'The app catches and handles possible exceptions.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6-and-mstg-code-7,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6', 1)
-        c.kb_id = 2000
+        c.kb_id = 2063
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.7', 'Error handling logic in security controls denies access by default.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6-and-mstg-code-7', 1)
-        c.kb_id = 2000
+        c.kb_id = 2064
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.8', 'In unmanaged code, memory is allocated, freed and used securely.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#memory-corruption-bugs-mstg-code-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#memory-corruption-bugs-mstg-code-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#memory-corruption-bugs-mstg-code-8', 1)
-        c.kb_id = 2000
+        c.kb_id = 2065
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.9', 'Free security features offered by the toolchain, such as byte-code minification, stack protection, PIE support and automatic reference counting, are activated.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#make-sure-that-free-security-features-are-activated-mstg-code-9,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#make-sure-that-free-security-features-are-activated-mstg-code-9', 1)
-        c.kb_id = 2000
+        c.kb_id = 2089
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.1', 'The app detects, and responds to, the presence of a rooted or jailbroken device either by alerting the user or terminating the app.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#jailbreak-detection-mstg-resilience-1', 3)
-        c.kb_id = 2000
+        c.kb_id = 2067
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.2', 'The app prevents debugging and/or detects, and responds to, a debugger being attached. All available debugging protocols must be covered.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-anti-debugging-detection-mstg-resilience-2', 3)
-        c.kb_id = 2000
+        c.kb_id = 2068
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.3', 'The app detects, and responds to, tampering with executable files and critical data within its own sandbox.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#file-integrity-checks-mstg-resilience-3-and-mstg-resilience-11', 3)
-        c.kb_id = 2000
+        c.kb_id = 2069
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.4', 'The app detects, and responds to, the presence of widely used reverse engineering tools and frameworks on the device.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-reverse-engineering-tools-detection-mstg-resilience-4', 3)
-        c.kb_id = 2000
+        c.kb_id = 2070
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.5', 'The app detects, and responds to, being run in an emulator.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-emulator-detection-mstg-resilience-5', 3)
-        c.kb_id = 2000
+        c.kb_id = 2071
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.6', 'The app detects, and responds to, tampering the code and data in its own memory space.', 22, False, '', 3)
-        c.kb_id = 2000
+        c.kb_id = 2072
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.7', 'The app implements multiple mechanisms in each defense category (8.1 to 8.6). Note that resiliency scales with the amount, diversity of the originality of the mechanisms used.', 22, False, '', 3)
-        c.kb_id = 2000
+        c.kb_id = 2073
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.8', 'The detection mechanisms trigger responses of different types, including delayed and stealthy responses.', 22, False, '', 3)
-        c.kb_id = 2000
+        c.kb_id = 2074
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.9', 'Obfuscation is applied to programmatic defenses, which in turn impede de-obfuscation via dynamic analysis.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-obfuscation-mstg-resilience-9', 3)
-        c.kb_id = 2000
+        c.kb_id = 2075
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.10', 'The app implements a \'device binding\' functionality using a device fingerprint derived from multiple properties unique to the device.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#device-binding-mstg-resilience-10', 3)
-        c.kb_id = 2000
+        c.kb_id = 2076
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.11', 'All executable files and libraries belonging to the app are either encrypted on the file level and/or important code and data segments inside the executables are encrypted or packed. Trivial static analysis does not reveal important code or data.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#file-integrity-checks-mstg-resilience-3-and-mstg-resilience-11', 3)
-        c.kb_id = 2000
+        c.kb_id = 2069
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.12', 'If the goal of obfuscation is to protect sensitive computations, an obfuscation scheme is used that is both appropriate for the particular task and robust against manual and automated de-obfuscation methods, considering currently published research. The effectiveness of the obfuscation scheme must be verified through manual testing. Note that hardware-based isolation features are preferred over obfuscation whenever possible.', 22, False, '', 3)
-        c.kb_id = 2000
+        c.kb_id = 2077
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.13', 'As a defense in depth, next to having solid hardening of the communicating parties, application level payload encryption can be applied to further impede eavesdropping.', 22, False, '', 3)
-        c.kb_id = 2000
+        c.kb_id = 2078
         db.session.add(c)
         db.session.commit()
 
@@ -11960,6 +11552,445 @@ def load_initial_data():
         lab_code_sol = LabItemCode("os.system($input)", 2, "hint: think hard", "python")   
         db.session.add(lab_code_sol)
         db.session.commit()  
+
+        '''
+        SKF Labs
+        '''
+
+        db.session.add(LabItem('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-1-filename-injection', 1, 'lfi', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting', 1, 'xss', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-attribute', 1, 'xss-attribute', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Cross site scripting (href)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-href', 1, 'xss-url', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('XSSI','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-include-files-from-untrusted-sources-js', 2, 'untrusted-sources-js', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf', 3, 'csrf', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf-samesite', 3, 'csrf-samesite', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe', 2, 'xxe', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-13-file-upload', 1, 'file-upload', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-20-clickjacking', 1, 'x-allow-origin', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-29-ratelimiting', 1, 'ratelimiting', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-39-httponly-session-hijacking-xss', 3, 'session-hijacking-xss', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Missing authorization','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-44-authorisation-missing', 2, 'auth-missing', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Exposed Docker daemon','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-45-exposed-docker', 3, 'none', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select', 2, 'sqli', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3, 'url-redirection-harder', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation', 3, 'cors', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Formulla injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-95-formula-injection', 1, 'formula-injection', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-147-parameter-binding', 1, 'parameter-binding', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-like', 2, 'sqli-like', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3, 'sqli-blind', 'SKF-labs', None))
+        db.session.commit()
+                
+        db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1, 'rfi', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Remote file inclusion 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-2', 1, 'lfi-2', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Remote file inclusion 3','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-3', 1, 'lfi-3', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy', 1, 'csp', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-262-server-side-request-forgery', 3, 'ssrf', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Tabnabbing','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-266-tabnabbing', 2, 'tabnabbing', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-267-server-side-template-injection', 3, 'ssti', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-268-insecure-direct-object-references', 2, 'idor', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-null', 2, 'jwt-null', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-secret', 2, 'jwt-secret', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml', 3, 'des-yaml', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Insecure deserialization pickle','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-des-pickle-2', 3, 'des-pickle-2', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition', 3, 'racecondition', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-dos-regex', 1, 'dos-regex', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Command injection 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-1', 1, 'cmd', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1, 'cmd2', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1, 'info-leakeage-comments', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1, 'info-leakeage-metadata', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Authentication bypass 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-1', 1, 'auth-bypass-1', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Authentication bypass 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-2', 1, 'auth-bypass-2', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Blind command injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-blind-cmd-injection-1', 2, 'cmd3', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-right-to-left-override', 1, 'rtlo', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Session puzzeling','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-250-session-puzzling', 3, 'sessionpuzzle', 'SKF-labs', None))
+        db.session.commit()
+
+
+        db.session.add(LabItem('Graphql DOS','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-dos', 3, 'graphql-dos-resource-exhaustion', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('GraphQL IDOR','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-idor', 3, 'graphql-idor', 'SKF-labs', None))
+        db.session.commit()
+
+
+        db.session.add(LabItem('GraphQL Injections','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-injections', 3, 'graphql-injections', 'SKF-labs', None))
+        db.session.commit()
+
+
+        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-introspection', 3, 'graphql-info-introspection', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-mutations', 3, 'graphql-mutation', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('API-only XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-without-using-the-frontend-application-at-all',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Access Log','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#gain-access-to-any-access-log-file-of-the-server',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Admin Registration','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#register-as-a-user-with-administrator-privileges',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Admin Section','https://pwning.owasp-juice.shop/part2/broken-access-control.html#access-the-administration-section-of-the-store',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Arbitrary File Write','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#overwrite-the-legal-information-file',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Bjoerns Favorite Pet','https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-the-password-of-bjoerns-owasp-account-via-the-forgot-password-mechanism',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Blockchain Hype','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#learn-about-the-token-sale-before-its-official-announcement',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Blocked RCE DoS','https://pwning.owasp-juice.shop/part2/insecure-deserialization.html#perform-a-remote-code-execution-that-would-keep-a-less-hardened-application-busy-forever',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('CAPTCHA Bypass','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#submit-10-or-more-customer-feedbacks-within-10-seconds',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Change Benders Password','https://pwning.owasp-juice.shop/part2/broken-authentication.html#change-benders-password-into-slurmcl4ssic-without-using-sql-injection-or-forgot-password',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Christmas Special','https://pwning.owasp-juice.shop/part2/injection.html#order-the-christmas-special-offer-of-2014',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('CSP Bypass','https://pwning.owasp-juice.shop/part2/xss.html#bypass-the-content-security-policy-and-perform-an-xss-attack-on-a-legacy-page',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Client-side XSS Protection','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-bypassing-a-client-side-security-mechanism',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Confidential Document','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-confidential-document',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('DOM XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-dom-xss-attack',1,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Database Schema','https://pwning.owasp-juice.shop/part2/injection.html#exfiltrate-the-entire-db-schema-definition-via-sql-injection',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Deprecated Interface','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#use-a-deprecated-b2b-interface-that-was-not-properly-shut-down',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Easter Egg','https://pwning.owasp-juice.shop/part2/broken-access-control.html#find-the-hidden-easter-egg',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Email Leak','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#perform-an-unwanted-information-disclosure-by-accessing-data-cross-domain',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Ephemeral Accountant','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-the-non-existing-accountant-without-ever-registering-that-user',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Error Handling','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#provoke-an-error-that-is-neither-very-gracefully-nor-consistently-handled',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Expired Coupon','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#successfully-redeem-an-expired-campaign-coupon-code',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Extra Language','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#retrieve-the-language-file-that-never-made-it-into-production',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Five-Star Feedback','https://pwning.owasp-juice.shop/part2/broken-access-control.html#get-rid-of-all-5-star-customer-feedback',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forged Coupon','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#forge-a-coupon-code-that-gives-you-a-discount-of-at-least-80',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forged Feedback','https://pwning.owasp-juice.shop/part2/broken-access-control.html#post-some-feedback-in-another-users-name',3,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Forged Review','https://pwning.owasp-juice.shop/part2/broken-access-control.html#post-a-product-review-as-another-user-or-edit-any-users-existing-review',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forged Signed JWT','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#forge-an-almost-properly-rsa-signed-jwt-token',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forgotten Developer Backup','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-developers-forgotten-backup-file',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Forgotten Sales Backup','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-salesmans-forgotten-backup-file',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Frontend Typosquatting','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-typosquatting-imposter-that-dug-itself-deep-into-the-frontend',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('GDPR Data Erasure','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-chris-erased-user-account',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('GDPR Data Theft','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#steal-someone-elses-personal-data-without-using-injection',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('HTTP-Header XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-through-an-http-header',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Imaginary Challenge','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#solve-challenge-2',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Leaked Access Logs','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#dumpster-dive-the-internet-for-a-leaked-password-and-log-in-to-the-original-user-account-it-belongs-to',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Leaked Unsafe Product','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#identify-an-unsafe-product-that-was-removed-from-the-shop-and-inform-the-shop-which-ingredients-are-dangerous',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Legacy Typosquatting','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-typosquatting-trick-it-has-been-a-victim-of',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Admin','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-the-administrators-user-account',2,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Amy','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#log-in-with-amys-original-user-credentials',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Bender','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-benders-user-account',3,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Bjoern','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-bjoerns-gmail-account',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login CISO','https://pwning.owasp-juice.shop/part2/broken-authentication.html#exploit-oauth-20-to-log-in-with-the-cisos-user-account',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Jim','https://pwning.owasp-juice.shop/part2/injection.html#log-in-with-jims-user-account',3,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Login MC SafeSearch','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#log-in-with-mc-safesearchs-original-user-credentials',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Login Support Team','https://pwning.owasp-juice.shop/part2/security-misconfiguration.html#log-in-with-the-support-teams-original-user-credentials',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Manipulate Basket','https://pwning.owasp-juice.shop/part2/broken-access-control.html#put-an-additional-product-into-another-users-shopping-basket',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Misplaced Signature File','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#access-a-misplaced-siem-signature-file',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Multiple Likes','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#like-any-review-at-least-three-times-as-the-same-user',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Nested Easter Egg','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#apply-some-advanced-cryptanalysis-to-find-the-real-easter-egg',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('NoSQL DoS','https://pwning.owasp-juice.shop/part2/injection.html#let-the-server-sleep-for-some-time',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('NoSQL Exfiltration','https://pwning.owasp-juice.shop/part2/injection.html#all-your-orders-are-belong-to-us',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('NoSQL Manipulation','https://pwning.owasp-juice.shop/part2/injection.html#update-multiple-product-reviews-at-the-same-time',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Outdated Whitelist','https://pwning.owasp-juice.shop/part2/unvalidated-redirects.html#let-us-redirect-you-to-one-of-our-crypto-currency-addresses',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Password Strength','https://pwning.owasp-juice.shop/part2/broken-authentication.html#log-in-with-the-administrators-user-credentials-without-previously-changing-them-or-applying-sql-injection',2,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Payback Time','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#place-an-order-that-makes-you-rich',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Premium Paywall','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#unlock-premium-challenge-to-access-exclusive-content',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Privacy Policy','https://pwning.owasp-juice.shop/part2/miscellaneous.html#read-our-privacy-policy',1,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Privacy Policy Inspection','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#prove-that-you-actually-read-our-privacy-policy',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Product Tampering','https://pwning.owasp-juice.shop/part2/broken-access-control.html#change-the-href-of-the-link-within-the-o-saft-product-description',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Reflected XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-reflected-xss-attack',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Repetitive Registration','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#follow-the-dry-principle-while-registering-a-user',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Reset Benders Password','https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-benders-password-via-the-forgot-password-mechanism',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Reset Bjoerns Password','https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-the-password-of-bjoerns-internal-account-via-the-forgot-password-mechanism',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Reset Jims Password','https://pwning.owasp-juice.shop/part2/broken-authentication.html#reset-jims-password-via-the-forgot-password-mechanism',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Reset Mortys Password','https://pwning.owasp-juice.shop/part2/broken-anti-automation.html#reset-mortys-password-via-the-forgot-password-mechanism',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Retrieve Blueprint','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#deprive-the-shop-of-earnings-by-downloading-the-blueprint-for-one-of-its-products',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('SSRF','https://pwning.owasp-juice.shop/part2/broken-access-control.html#request-a-hidden-resource-on-server-through-server',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('SSTi','https://pwning.owasp-juice.shop/part2/injection.html#infect-the-server-with-juicy-malware-by-abusing-arbitrary-command-execution',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Score Board','https://pwning.owasp-juice.shop/part2/score-board.html#find-the-carefully-hidden-score-board-page',1,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Security Policy','https://pwning.owasp-juice.shop/part2/miscellaneous.html#behave-like-any-white-hat-should-before-getting-into-the-action',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Server-side XSS Protection','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-bypassing-a-server-side-security-mechanism',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Steganography','https://pwning.owasp-juice.shop/part2/security-through-obscurity.html#rat-out-a-notorious-character-hiding-in-plain-sight-in-the-shop',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Successful RCE DoS','https://pwning.owasp-juice.shop/part2/insecure-deserialization.html#perform-a-remote-code-execution-that-occupies-the-server-for-a-while-without-using-infinite-loops',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Supply Chain Attack','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-development-team-about-a-danger-to-some-of-their-credentials',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Two Factor Authentication','https://pwning.owasp-juice.shop/part2/broken-authentication.html#solve-the-2fa-challenge-for-user-wurstbrot',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Unsigned JWT','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#forge-an-essentially-unsigned-jwt-token',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Upload Size','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#upload-a-file-larger-than-100-kb',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Upload Type','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#upload-a-file-that-has-no-pdf-or-zip-extension',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('User Credentials','https://pwning.owasp-juice.shop/part2/injection.html#retrieve-a-list-of-all-user-credentials-via-sql-injection',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Video XSS','https://pwning.owasp-juice.shop/part2/xss.html#embed-an-xss-payload-into-our-promo-video',6,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('View Basket','https://pwning.owasp-juice.shop/part2/broken-access-control.html#view-another-users-shopping-basket',2,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Vulnerable Library','https://pwning.owasp-juice.shop/part2/vulnerable-components.html#inform-the-shop-about-a-vulnerable-library-it-is-using',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Weird Crypto','https://pwning.owasp-juice.shop/part2/cryptographic-issues.html#inform-the-shop-about-an-algorithm-or-library-it-should-definitely-not-use-the-way-it-does',2,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Whitelist Bypass','https://pwning.owasp-juice.shop/part2/unvalidated-redirects.html#enforce-a-redirect-to-a-page-you-are-not-supposed-to-redirect-to',4,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('XXE Data Access','https://pwning.owasp-juice.shop/part2/xxe.html#retrieve-the-content-of-cwindowssystemini-or-etcpasswd-from-the-server',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('XXE DoS','https://pwning.owasp-juice.shop/part2/xxe.html#give-the-server-something-to-chew-on-for-quite-a-while',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Zero Stars','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#give-a-devastating-zero-star-feedback-to-the-store',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Missing Encoding','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#retrieve-the-photo-of-bjoerns-cat-in-melee-combat-mode',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Cross-Site Imaging','https://pwning.owasp-juice.shop/part2/injection.html#stick-cute-cross-domain-kittens-all-over-our-delivery-boxes',5,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Exposed Metrics','https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html#find-the-endpoint-that-serves-usage-data-to-be-scraped-by-a-popular-monitoring-system',1,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Deluxe Fraud','https://pwning.owasp-juice.shop/part2/improper-input-validation.html#obtain-a-deluxe-membership-without-paying-for-it',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('CSRF','https://pwning.owasp-juice.shop/part2/broken-access-control.html#change-the-name-of-a-user-by-performing-cross-site-request-forgery-from-another-origin',3,'juice-shop','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Bonus Payload','https://pwning.owasp-juice.shop/part2/xss.html#use-the-bonus-payload-in-the-dom-xss-challenge',1,'juice-shop','juice-shop',True))
+        db.session.commit()
+
+        db.session.add(LabItem('Juice Shop CTF','https://owasp.org/www-project-juice-shop/',3,'juice-shop-ctf','juice-shop',None))
+        db.session.commit()
 
         print('Initialized the initial data.')
         return True
