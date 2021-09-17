@@ -12,6 +12,8 @@ data:
   SKF_TESTING: "False"
   SKF_LABS_DOMAIN: "http://labs.securityknowledgeframework.org"
   SKF_LABS_DEPLOY_MODE: "port"
+  # or use the below to use subdomains to deploy the Labs by creating a subdomain Wildcard that points to the Labs IP cluster
+  #SKF_LABS_DEPLOY_MODE: "subdomain"
   RABBIT_MQ_CONN_STRING: rabbitmq
   ORIGIN: skf-flask-back
   #GOOGLE_CREDENTIALS: base64_string_here_of_the_content_of_the gsa-key.json file_for_example: cat gsa-key.json | base64

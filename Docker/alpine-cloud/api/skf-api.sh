@@ -4,6 +4,7 @@ set -ex
 
 if [ "$LABS_KUBE_CONF" != "~/.kube/config" ]
 then
+ touch /home/user_api/.kube/config
  echo $LABS_KUBE_CONF | base64 -d > /home/user_api/.kube/config
  export KUBECONFIG=/home/user_api/.kube/config
 fi
