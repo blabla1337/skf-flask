@@ -2745,7 +2745,7 @@ def load_initial_data():
 
 
         c = ChecklistKB('3.3', 'The app uses cryptographic primitives that are appropriate for the particular use-case, configured with parameters that adhere to industry best practices.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#verifying-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-mstg-crypto-3-and-mstg-crypto-4', 2)
-        c.kb_id = 2027
+        c.kb_id = 2028
         c.question_id = 88
         db.session.add(c)
         db.session.commit()
@@ -2766,7 +2766,7 @@ def load_initial_data():
 
 
         c = ChecklistKB('3.6', 'All random values are generated using a sufficiently secure random number generator.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6', 2)
-        c.kb_id = 2090
+        c.kb_id = 2030
         c.question_id = 88
         db.session.add(c)
         db.session.commit()
@@ -2843,7 +2843,7 @@ def load_initial_data():
 
 
         c = ChecklistKB('4.11', 'The app informs the user of all sensitive activities with their account. Users are able to view a list of devices, view contextual information (IP address, location, etc.), and to block specific devices.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-login-activity-and-device-blocking-mstg-auth-11', 2)
-        c.kb_id = 2040
+        c.kb_id = 2079
         c.question_id = 89
         db.session.add(c)
         db.session.commit()
@@ -2864,7 +2864,7 @@ def load_initial_data():
 
 
         c = ChecklistKB('5.2', 'The TLS settings are in line with current best practices, or as close as possible if the mobile operating system does not support the recommended standards.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06g-Testing-Network-Communication.md#app-transport-security-mstg-network-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#verifying-data-encryption-on-the-network-mstg-network-1-and-mstg-network-2', 1)
-        c.kb_id = 2042
+        c.kb_id = 2043
         c.question_id = 92
         db.session.add(c)
         db.session.commit()
@@ -2885,7 +2885,7 @@ def load_initial_data():
 
 
         c = ChecklistKB('5.5', 'The app doesn\'t rely on a single insecure communication channel (email or SMS) for critical operations, such as enrollments and account recovery.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#making-sure-that-critical-operations-use-secure-communication-channels-mstg-network-5', 2)
-        c.kb_id = 2046
+        c.kb_id = 2045
         c.question_id = 93
         db.session.add(c)
         db.session.commit()
@@ -3015,7 +3015,7 @@ def load_initial_data():
 
 
         c = ChecklistKB('7.7', 'Error handling logic in security controls denies access by default.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6-and-mstg-code-7,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6', 1)
-        c.kb_id = 2064
+        c.kb_id = 2063
         c.question_id = 99
         db.session.add(c)
         db.session.commit()
