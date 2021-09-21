@@ -68,8 +68,8 @@ def update_db():
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
     kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/')
-    #kb_dir_types = ['web', 'mobile']
-    kb_dir_types = ['web']
+    kb_dir_types = ['web', 'mobile']
+    #kb_dir_types = ['web']
 
     try:
         checklist_category_id = 0
