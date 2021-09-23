@@ -1,6 +1,6 @@
 ## Description:
 
-User Education
+User education
 
 MSTG-STORAGE-12: The app educates the user about the types of personally identifiable information processed, as well as security best practices the user should follow in using the app.
 
