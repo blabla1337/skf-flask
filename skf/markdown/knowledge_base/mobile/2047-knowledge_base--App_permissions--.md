@@ -1,6 +1,6 @@
 ## Description:
 
-App Permissions
+App permissions
 
 MSTG-PLATFORM-1: The app only requests the minimum set of permissions necessary.
 
