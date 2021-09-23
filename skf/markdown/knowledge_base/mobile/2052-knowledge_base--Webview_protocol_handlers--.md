@@ -1,6 +1,6 @@
 ## Description:
 
-WebView Protocol Handlers
+WebView protocol handlers
 
 MSTG-PLATFORM-6: WebViews are configured to allow only the minimum set of protocol handlers required (ideally, only https is supported). Potentially dangerous handlers, such as file, tel and app-id, are disabled.
 
