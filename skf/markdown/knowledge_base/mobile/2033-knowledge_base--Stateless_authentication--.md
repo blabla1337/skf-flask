@@ -1,6 +1,6 @@
 ## Description:
 
-Stateless (Token Based) authentication
+Stateless (Token-Based) authentication
 
 MSTG-AUTH-3: If stateless token-based authentication is used, the server provides a token that has been signed using a secure algorithm.
 
