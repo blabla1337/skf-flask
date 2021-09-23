@@ -1,6 +1,6 @@
 ## Description:
 
-Two-Factor Authentication and Step-up Authentication
+Two-Factor authentication and Step-up authentication
 
 MSTG-AUTH-9: A second factor of authentication exists at the remote endpoint and the 2FA requirement is consistently enforced.
 
