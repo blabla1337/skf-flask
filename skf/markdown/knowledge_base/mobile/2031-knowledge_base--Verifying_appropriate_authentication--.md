@@ -1,6 +1,6 @@
 ## Description:
 
-Verifying Appropriate Authentication
+Verifying appropriate authentication
 
 MSTG-AUTH-1: If the app provides users access to a remote service, some form of authentication, such as username/password authentication, is performed at the remote endpoint.
 
