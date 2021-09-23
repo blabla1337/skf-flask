@@ -1,6 +1,6 @@
 ## Description:
 
-Testing for Debugging Code and Verbose Error Logging
+Testing for Debugging code and Verbose error logging
 
 MSTG-CODE-4: Debugging code and developer assistance code (e.g. test code, backdoors, hidden settings) have been removed. The app does not log verbose errors or debugging messages.
 
