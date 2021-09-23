@@ -1,6 +1,6 @@
 ## Description:
 
-Payload Encryption
+Payload encryption
 
 MSTG-RESILIENCE-13: As a defense in depth, next to having solid hardening of the communicating parties, application level payload encryption can be applied to further impede eavesdropping.
 

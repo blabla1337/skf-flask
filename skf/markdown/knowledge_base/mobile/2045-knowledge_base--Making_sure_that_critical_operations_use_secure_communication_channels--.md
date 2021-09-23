@@ -1,6 +1,6 @@
 ## Description:
 
-Making Sure that Critical Operations Use Secure Communication Channels
+Making sure that critical operations use secure communication channels
 
 MSTG-NETWORK-5: The app doesn’t rely on a single insecure communication channel (email or SMS) for critical operations, such as enrollments and account recovery.
 

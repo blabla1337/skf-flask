@@ -1,6 +1,6 @@
 ## Description:
 
-Security Provider
+Security provider
 
 MSTG-NETWORK-6: The app only depends on up-to-date connectivity and security libraries.
 

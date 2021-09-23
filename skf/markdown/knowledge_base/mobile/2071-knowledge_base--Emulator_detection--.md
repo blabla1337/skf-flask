@@ -1,6 +1,6 @@
 ## Description:
 
-Emulator Detection
+Emulator detection
 
 MSTG-RESILIENCE-5: The app detects, and responds to, being run in an emulator.
 

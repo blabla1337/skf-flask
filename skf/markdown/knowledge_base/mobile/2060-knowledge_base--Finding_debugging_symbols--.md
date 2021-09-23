@@ -1,6 +1,6 @@
 ## Description:
 
-Finding Debugging Symbols
+Finding debugging symbols
 
 MSTG-CODE-3: Debugging symbols have been removed from native binaries.
 

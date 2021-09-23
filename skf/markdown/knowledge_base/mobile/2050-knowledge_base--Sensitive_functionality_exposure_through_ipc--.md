@@ -1,6 +1,6 @@
 ## Description:
 
-Sensitive Functionality Exposure Through IPC
+Sensitive functionality exposure through IPC
 
 MSTG-PLATFORM-4: The app does not export sensitive functionality through IPC facilities, unless these mechanisms are properly protected.
 

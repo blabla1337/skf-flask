@@ -1,6 +1,6 @@
 ## Description:
 
-Device Binding
+Device binding
 
 MSTG-RESILIENCE-10: The app implements a 'device binding' functionality using a device fingerprint derived from multiple properties unique to the device.
 

@@ -1,6 +1,6 @@
 ## Description:
 
-Sensitive Information in Auto-Generated Screenshots
+Sensitive information in auto-generated screenshots
 
 MSTG-STORAGE-9: The app removes sensitive data from views when moved to the background.
 

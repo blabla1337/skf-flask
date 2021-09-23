@@ -1,6 +1,6 @@
 ## Description:
 
-Random Number Generation
+Random number generation
 
 MSTG-CRYPTO-6: All random values are generated using a sufficiently secure random number generator.
 

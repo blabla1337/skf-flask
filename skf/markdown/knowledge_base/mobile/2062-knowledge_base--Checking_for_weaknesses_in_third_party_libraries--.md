@@ -1,6 +1,6 @@
 ## Description:
 
-Checking for Weaknesses in Third Party Libraries
+Checking for weaknesses in third party libraries
 
 MSTG-CODE-5: All third party components used by the mobile app, such as libraries and frameworks, are identified, and checked for known vulnerabilities.
 
