@@ -2500,6 +2500,11 @@ def load_initial_data():
         q = Question('Does your application need to handle protocol calls?', 20)
         db.session.add(q)
         db.session.commit()
+        
+        #106
+        q = Question('Does your application need object deserialization?', 20)
+        db.session.add(q)
+        db.session.commit()
 
         '''
         Checklist controls for MASVS
@@ -2962,7 +2967,7 @@ def load_initial_data():
 
         c = ChecklistKB('6.8', 'Object deserialization, if any, is implemented using safe serialization APIs.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-object-persistence-mstg-platform-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-object-persistence-mstg-platform-8', 1)
         c.kb_id = 2054
-        c.question_id = 96
+        c.question_id = 106
         db.session.add(c)
         db.session.commit()
 
