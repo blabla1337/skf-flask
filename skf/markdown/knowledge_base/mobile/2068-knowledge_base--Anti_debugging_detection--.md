@@ -1,6 +1,6 @@
 ## Description:
 
-Anti-Debugging Detection
+Anti-Debugging detection
 
 MSTG-RESILIENCE-2: The app prevents debugging and/or detects, and responds to, a debugger being attached. All available debugging protocols must be covered.
 
