@@ -1,6 +1,6 @@
 ## Description:
 
-Overlay Attacks
+Overlay attacks
 
 MSTG-PLATFORM-9: The app protects itself against screen overlay attacks.
 
