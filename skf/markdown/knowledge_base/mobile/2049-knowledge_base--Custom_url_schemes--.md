@@ -1,6 +1,6 @@
 ## Description:
 
-Custom URL Schemes
+Custom URL schemes
 
 MSTG-PLATFORM-3: The app does not export sensitive functionality via custom URL schemes, unless these mechanisms are properly protected.
 
