@@ -1,6 +1,6 @@
 ## Description:
 
-Runtime Integrity Checks
+Runtime integrity checks
 
 MSTG-RESILIENCE-6: The app detects, and responds to, tampering the code and data in its own memory space.
 

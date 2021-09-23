@@ -1,6 +1,6 @@
 ## Description:
 
-Local Storage for Sensitive Data 
+Local storage for sensitive data 
 
 MSTG-STORAGE-1: System credential storage facilities need to be used to store sensitive data, such as PII, user credentials or cryptographic keys.
 

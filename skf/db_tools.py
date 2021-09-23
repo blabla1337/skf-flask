@@ -68,8 +68,8 @@ def update_db():
 def init_md_knowledge_base():
     """Converts markdown knowledge-base items to DB."""
     kb_dir = os.path.join(current_app.root_path, 'markdown/knowledge_base/')
-    #kb_dir_types = ['web', 'mobile']
-    kb_dir_types = ['web']
+    kb_dir_types = ['web', 'mobile']
+    #kb_dir_types = ['web']
 
     try:
         checklist_category_id = 0
@@ -84,7 +84,7 @@ def init_md_knowledge_base():
                     data = open(file, 'r')
                     file_content = data.read()
                     data.close()
-                    content = file_content.translate(str.maketrans({"'":  r"''", "-":  r"", "#":  r""}))
+                    content = file_content.translate(str.maketrans({"'":  r"''", "#":  r""}))
                     try:
                         item = KBItem(title, content, kb_id)
                         item.checklist_category_id = checklist_category_id

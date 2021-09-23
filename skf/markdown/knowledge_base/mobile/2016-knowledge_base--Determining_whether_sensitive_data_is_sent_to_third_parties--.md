@@ -1,6 +1,6 @@
 ## Description:
 
-Determining Whether Sensitive Data is Sent to Third Parties
+Determining whether sensitive data is sent to third parties
 
 MSTG-STORAGE-4: No sensitive data is shared with third parties unless it is a necessary part of the architecture.
 

@@ -1,6 +1,6 @@
 ## Description:
 
-Session Timeout
+Session timeout
 
 MSTG-AUTH-7: Sessions are invalidated at the remote endpoint after a predefined period of inactivity and access tokens expire.
 

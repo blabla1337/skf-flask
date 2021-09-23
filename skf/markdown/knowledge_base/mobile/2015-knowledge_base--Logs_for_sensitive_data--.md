@@ -1,6 +1,6 @@
 ## Description:
 
-Logs for Sensitive Data
+Logs for sensitive data
 
 MSTG-STORAGE-3: No sensitive data is written to application logs.
 

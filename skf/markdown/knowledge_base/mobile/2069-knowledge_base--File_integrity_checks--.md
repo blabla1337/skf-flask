@@ -1,6 +1,6 @@
 ## Description:
 
-File Integrity Checks
+File integrity checks
 
 MSTG-RESILIENCE-3: The app detects, and responds to, tampering with executable files and critical data within its own sandbox.
 

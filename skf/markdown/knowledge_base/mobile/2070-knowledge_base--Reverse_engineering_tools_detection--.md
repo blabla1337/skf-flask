@@ -1,6 +1,6 @@
 ## Description:
 
-Reverse Engineering Tools Detection
+Reverse engineering tools detection
 
 MSTG-RESILIENCE-4: The app detects, and responds to, the presence of widely used reverse engineering tools and frameworks on the device.
 

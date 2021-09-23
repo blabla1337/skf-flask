@@ -1,6 +1,6 @@
 ## Description:
 
-Jailbreak/Root Detection
+Jailbreak/Root detection
 
 MSTG-RESILIENCE-1: The app detects, and responds to, the presence of a rooted or jailbroken device either by alerting the user or terminating the app.
 

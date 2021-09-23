@@ -1,6 +1,6 @@
 ## Description:
 
-Device-Access-Security Policy
+Device-Access-Security policy
 
 MSTG-STORAGE-11: The app enforces a minimum device-access-security policy, such as requiring the user to set a device passcode.
 

@@ -1,6 +1,6 @@
 ## Description:
 
-Sensitive Data Disclosure Through the User Interface
+Sensitive data disclosure through the user interface
 
 MSTG-STORAGE-7: No sensitive data, such as passwords or pins, is exposed through the user interface.
 

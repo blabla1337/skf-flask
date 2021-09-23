@@ -2337,25 +2337,180 @@ def load_initial_data():
         '''
 
         #73
-        q = Question('Data Protection and Privacy Requirements', 15)
+        q = Question('Centralized security requirements', 15)
         db.session.add(q)
         db.session.commit()
 
         #74
-        q = Question('Authentication Architectural Requirements', 2)
+        q = Question('Does your application accept and process any inputs?', 15)
         db.session.add(q)
         db.session.commit()
 
         #75 
-        q = Question('Access Control Architectural Requirements', 2)
+        q = Question('Does your application need to comply with some laws or regulations?', 15)
         db.session.add(q)
         db.session.commit()
 
         #76
-        q = Question('Input and Output Architectural Requirements', 2)
+        q = Question('Does your application need to encrypt data?', 15)
         db.session.add(q)
         db.session.commit()
 
+        #77
+        q = Question('Does your application need to have a responsible disclosure policy?', 15)
+        db.session.add(q)
+        db.session.commit()
+
+        #78
+        q = Question('Update policy requirements', 15)
+        db.session.add(q)
+        db.session.commit()
+
+        #79 
+        q = Question('Does your application need to provide data protection?', 15)
+        db.session.add(q)
+        db.session.commit()
+
+        #80
+        q = Question('Secure software development lifecycle requirements', 15)
+        db.session.add(q)
+        db.session.commit()
+
+        #81
+        q = Question('Abnormal account activity controls', 16)
+        db.session.add(q)
+        db.session.commit()
+
+        #82
+        q = Question('Authentication/Authorization requirements and lifecycle', 16)
+        db.session.add(q)
+        db.session.commit()
+
+        #83
+        q = Question('Does your application keep sensitive data and share it with others?', 16)
+        db.session.add(q)
+        db.session.commit()
+
+        #84
+        q = Question('Does your application keep sensitive data on the client side?', 16)
+        db.session.add(q)
+        db.session.commit()
+
+        #85
+        q = Question('Does your application need to provide privacy against prying eyes?', 16)
+        db.session.add(q)
+        db.session.commit()
+
+        #86
+        q = Question('Does your application process personal identifiable information?', 16)
+        db.session.add(q)
+        db.session.commit()
+
+        #87
+        q = Question('Does your application need to use symmetric encryption?', 17)
+        db.session.add(q)
+        db.session.commit()
+
+        #88
+        q = Question('Security best practice requirements', 17)
+        db.session.add(q)
+        db.session.commit()
+
+        #89
+        q = Question('Abnormal account activity controls', 18)
+        db.session.add(q)
+        db.session.commit()
+
+        #90
+        q = Question('Authentication/Authorization requirements and lifecycle', 18)
+        db.session.add(q)
+        db.session.commit()
+
+        #91
+        q = Question('Session management requirements and lifecycle', 18)
+        db.session.add(q)
+        db.session.commit()
+
+        #92
+        q = Question('Does your application need to communicate over secure channels?', 19)
+        db.session.add(q)
+        db.session.commit()
+
+        #93
+        q = Question('Does your application need to provide data protection?', 19)
+        db.session.add(q)
+        db.session.commit()
+
+        #94
+        q = Question('Does your application use third party libraries?', 19)
+        db.session.add(q)
+        db.session.commit()
+
+        #95
+        q = Question('SSL/Certificate pinning requirements', 19)
+        db.session.add(q)
+        db.session.commit()
+
+        #96
+        q = Question('Does your application accept and process any inputs?', 20)
+        db.session.add(q)
+        db.session.commit()
+
+        #97
+        q = Question('Does your application keep sensitive data on the client side?', 20)
+        db.session.add(q)
+        db.session.commit()
+        
+        #98
+        q = Question('Security best practice requirements', 20)
+        db.session.add(q)
+        db.session.commit()
+
+        #99
+        q = Question('Logging and exception handling requirements', 21)
+        db.session.add(q)
+        db.session.commit()
+
+        #100
+        q = Question('Security best practice requirements', 21)
+        db.session.add(q)
+        db.session.commit()
+
+        #101
+        q = Question('Defense in depth controls', 22)
+        db.session.add(q)
+        db.session.commit()
+
+        #102
+        q = Question('Secure environment controls', 22)
+        db.session.add(q)
+        db.session.commit()
+
+        #103
+        q = Question('Does your application expose any sensitive functionality through IPC?', 20)
+        db.session.add(q)
+        db.session.commit()
+        
+        #104
+        q = Question('Does your application need JavaScript execution in WebViews?', 20)
+        db.session.add(q)
+        db.session.commit()
+        
+        #105
+        q = Question('Does your application need to handle protocol calls?', 20)
+        db.session.add(q)
+        db.session.commit()
+        
+        #106
+        q = Question('Does your application need object deserialization?', 20)
+        db.session.add(q)
+        db.session.commit()
+
+        #107
+        q = Question('Does your application need to generate secure random numbers for encryption?', 17)
+        db.session.add(q)
+        db.session.commit()
+        
         '''
         Checklist controls for MASVS
         '''
@@ -2408,26 +2563,25 @@ def load_initial_data():
         db.session.add(c)
         db.session.commit()
 
+
         '''
         Checklist Categories for MASVS
         '''
 
-        c = ChecklistKB('1.1', 'All app components are identified and known to be needed.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-insecure-configuration-of-instant-apps-mstg-arch-1,-mstg-arch-7', 1)
+        c = ChecklistKB('1.1', 'All app components are identified and known to be needed.', 15, True, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-insecure-configuration-of-instant-apps-mstg-arch-1-mstg-arch-7', 1)
         c.kb_id = 2001
-        #we need to add all the question_id to the checklist requirement
-        #c.question_id = 73
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.2', 'Security controls are never enforced only on the client side, but on the respective remote endpoints.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#verifying-that-appropriate-authentication-is-in-place-mstg-arch-2-and-mstg-auth-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#injection-flaws-mstg-arch-2-and-mstg-platform-2', 1)
         c.kb_id = 2002
-        #c.question_id = 73
+        c.question_id = 74
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('1.3', 'A high-level architecture for the mobile app and all connected remote services has been defined and security has been addressed in that architecture.', 15, False, '', 1)
+        c = ChecklistKB('1.3', 'A high-level architecture for the mobile app and all connected remote services has been defined and security has been addressed in that architecture.', 15, True, '', 1)
         c.kb_id = 2003
         db.session.add(c)
         db.session.commit()
@@ -2435,185 +2589,215 @@ def load_initial_data():
 
         c = ChecklistKB('1.4', 'Data considered sensitive in the context of the mobile app is clearly identified.', 15, False, '', 1)
         c.kb_id = 2004
+        c.question_id = 79
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.5', 'All app components are defined in terms of the business functions and/or security functions they provide.', 15, False, '', 2)
         c.kb_id = 2005
+        c.question_id = 79
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('1.6', 'A threat model for the mobile app and the associated remote services has been produced that identifies potential threats and countermeasures.', 15, False, '', 2)
+        c = ChecklistKB('1.6', 'A threat model for the mobile app and the associated remote services has been produced that identifies potential threats and countermeasures.', 15, True, 'https://owasp.org/www-community/Threat_Modeling,https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html', 2)
         c.kb_id = 2006
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('1.7', 'All security controls have a centralized implementation.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-insecure-configuration-of-instant-apps-mstg-arch-1,-mstg-arch-7', 2)
+        c = ChecklistKB('1.7', 'All security controls have a centralized implementation.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-insecure-configuration-of-instant-apps-mstg-arch-1-mstg-arch-7', 2)
         c.kb_id = 2007
+        c.question_id = 73
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.8', 'There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced. Ideally, follow a key management standard such as NIST SP 800-57.', 15, False, '', 2)
         c.kb_id = 2008
+        c.question_id = 76
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.9', 'A mechanism for enforcing updates of the mobile app exists.', 15, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-enforced-updating-mstg-arch-9,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-enforced-updating-mstg-arch-9', 2)
         c.kb_id = 2009
+        c.question_id = 78
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.10', 'Security is addressed within all parts of the software development lifecycle.', 15, False, '', 2)
         c.kb_id = 2010
+        c.question_id = 80
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.11', 'A responsible disclosure policy is in place and effectively applied.', 15, False, '', 2)
         c.kb_id = 2011
+        c.question_id = 77
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('1.12', 'The app should comply with privacy laws and regulations.', 15, False, '', 1)
         c.kb_id = 2012
+        c.question_id = 75
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.1', 'System credential storage facilities need to be used to store sensitive data, such as PII, user credentials or cryptographic keys.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-local-storage-for-sensitive-data-mstg-storage-1-and-mstg-storage-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-local-data-storage-mstg-storage-1-and-mstg-storage-2', 1)
         c.kb_id = 2013
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.2', 'No sensitive data should be stored outside of the app container or system credential storage facilities.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-local-storage-for-sensitive-data-mstg-storage-1-and-mstg-storage-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-local-data-storage-mstg-storage-1-and-mstg-storage-2', 1)
         c.kb_id = 2013
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.3', 'No sensitive data is written to application logs.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-logs-for-sensitive-data-mstg-storage-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#checking-logs-for-sensitive-data-mstg-storage-3', 1)
         c.kb_id = 2015
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('2.4', 'No sensitive data is shared with third parties unless it is a necessary part of the architecture.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#determining-whether-sensitive-data-is-sent-to-third-parties-mstg-storage-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#determining-whether-sensitive-data-is-sent-to-third-parties-mstg-storage-4', 1)
+        c = ChecklistKB('2.4', 'No sensitive data is shared with third parties unless it is a necessary part of the architecture.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#determining-whether-sensitive-data-is-shared-with-third-parties-mstg-storage-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#determining-whether-sensitive-data-is-shared-with-third-parties-mstg-storage-4', 1)
         c.kb_id = 2016
+        c.question_id = 83
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.5', 'The keyboard cache is disabled on text inputs that process sensitive data.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#determining-whether-the-keyboard-cache-is-disabled-for-text-input-fields-mstg-storage-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#finding-sensitive-data-in-the-keyboard-cache-mstg-storage-5', 1)
         c.kb_id = 2017
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.6', 'No sensitive data is exposed via IPC mechanisms.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#determining-whether-sensitive-stored-data-has-been-exposed-via-ipc-mechanisms-mstg-storage-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#determining-whether-sensitive-data-is-exposed-via-ipc-mechanisms-mstg-storage-6', 1)
         c.kb_id = 2018
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.7', 'No sensitive data, such as passwords or pins, is exposed through the user interface.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#checking-for-sensitive-data-disclosure-through-the-user-interface-mstg-storage-7,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#checking-for-sensitive-data-disclosed-through-the-user-interface-mstg-storage-7', 1)
-        c.kb_id = 2019
+        c.kb_id = 2024
+        c.question_id = 85
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.8', 'No sensitive data is included in backups generated by the mobile operating system.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-backups-for-sensitive-data-mstg-storage-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-backups-for-sensitive-data-mstg-storage-8', 2)
-        c.kb_id = 2020
+        c.kb_id = 2019
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.9', 'The app removes sensitive data from views when moved to the background.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#finding-sensitive-information-in-auto-generated-screenshots-mstg-storage-9,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-auto-generated-screenshots-for-sensitive-information-mstg-storage-9', 2)
-        c.kb_id = 2021
+        c.kb_id = 2020
+        c.question_id = 85
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.10', 'The app does not hold sensitive data in memory longer than necessary, and memory is cleared explicitly after use.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#checking-memory-for-sensitive-data-mstg-storage-10,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06d-Testing-Data-Storage.md#testing-memory-for-sensitive-data-mstg-storage-10', 2)
-        c.kb_id = 2022
+        c.kb_id = 2021
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('2.11', 'The app enforces a minimum device-access-security policy, such as requiring the user to set a device passcode.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-the-device-access-security-policy-mstg-storage-11,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md#testing-local-authentication-mstg-auth-8-and-mstg-storage-11', 2)
-        c.kb_id = 2023
+        c = ChecklistKB('2.11', 'The app enforces a minimum device-access-security policy, such as requiring the user to set a device passcode.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-the-device-access-security-policy-mstg-storage-11,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md#testing-local-authentication-mstg-auth-8-and-mstg-storage-11,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05f-Testing-Local-Authentication.md#testing-confirm-credentials-mstg-auth-1-and-mstg-storage-11', 2)
+        c.kb_id = 2022
+        c.question_id = 82
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.12', 'The app educates the user about the types of personally identifiable information processed, as well as security best practices the user should follow in using the app.', 16, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04i-Testing-user-interaction.md#testing-user-education-mstg-storage-12', 2)
-        c.kb_id = 2024
+        c.kb_id = 2023
+        c.question_id = 86
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.13', 'No sensitive data should be stored locally on the mobile device. Instead, data should be retrieved from a remote endpoint when needed and only be kept in memory.', 16, False, '', 2)
         c.kb_id = 2025
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.14', 'If sensitive data is still required to be stored locally, it should be encrypted using a key derived from hardware backed storage which requires authentication.', 16, False, '', 2)
-        c.kb_id = 2026
+        c.kb_id = 2025
+        c.question_id = 84
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('2.15', 'The app’s local storage should be wiped after an excessive number of failed authentication attempts.', 16, False, '', 2)
         c.kb_id = 2088
+        c.question_id = 81
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('3.1', 'The app does not rely on symmetric cryptography with hardcoded keys as a sole method of encryption.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-key-management-mstg-crypto-1-and-mstg-crypto-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1,-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-symmetric-cryptography-mstg-crypto-1', 1)
+        c = ChecklistKB('3.1', 'The app does not rely on symmetric cryptography with hardcoded keys as a sole method of encryption.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-key-management-mstg-crypto-1-and-mstg-crypto-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-symmetric-cryptography-mstg-crypto-1', 2)
         c.kb_id = 2026
+        c.question_id = 87
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('3.2', 'The app uses proven implementations of cryptographic primitives.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#verifying-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1,-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2,-mstg-crypto-3-and-mstg-crypto-4', 1)
+        c = ChecklistKB('3.2', 'The app uses proven implementations of cryptographic primitives.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#verifying-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-mstg-crypto-3-and-mstg-crypto-4', 2)
+        c.question_id = 88
         c.kb_id = 2027
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('3.3', 'The app uses cryptographic primitives that are appropriate for the particular use-case, configured with parameters that adhere to industry best practices.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#verifying-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1,-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2,-mstg-crypto-3-and-mstg-crypto-4', 1)
+        c = ChecklistKB('3.3', 'The app uses cryptographic primitives that are appropriate for the particular use-case, configured with parameters that adhere to industry best practices.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#verifying-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#common-configuration-issues-mstg-crypto-1-mstg-crypto-2-and-mstg-crypto-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-mstg-crypto-3-and-mstg-crypto-4', 2)
         c.kb_id = 2027
+        c.question_id = 88
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('3.4', 'The app does not use cryptographic protocols or algorithms that are widely considered deprecated for security purposes.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#identifying-insecure-and/or-deprecated-cryptographic-algorithms-mstg-crypto-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2,-mstg-crypto-3-and-mstg-crypto-4', 1)
+        c = ChecklistKB('3.4', 'The app does not use cryptographic protocols or algorithms that are widely considered deprecated for security purposes.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#identifying-insecure-andor-deprecated-cryptographic-algorithms-mstg-crypto-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-configuration-of-cryptographic-standard-algorithms-mstg-crypto-2-mstg-crypto-3-and-mstg-crypto-4', 2)
+        c.kb_id = 2028
+        c.question_id = 88
+        db.session.add(c)
+        db.session.commit()
+
+
+        c = ChecklistKB('3.5', 'The app doesn\'t re-use the same cryptographic key for multiple purposes.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-key-management-mstg-crypto-1-and-mstg-crypto-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-purposes-of-keys-mstg-crypto-5', 2)
         c.kb_id = 2029
+        c.question_id = 88
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('3.5', 'The app doesn\'t re-use the same cryptographic key for multiple purposes.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-key-management-mstg-crypto-1-and-mstg-crypto-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-the-purposes-of-keys-mstg-crypto-5', 1)
+        c = ChecklistKB('3.6', 'All random values are generated using a sufficiently secure random number generator.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6', 2)
         c.kb_id = 2030
+        c.question_id = 107
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('3.6', 'All random values are generated using a sufficiently secure random number generator.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6', 1)
-        c.kb_id = 2090
-        db.session.add(c)
-        db.session.commit()
-
-
-        c = ChecklistKB('4.1', 'If the app provides users access to a remote service, some form of authentication, such as username/password authentication, is performed at the remote endpoint.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#verifying-that-appropriate-authentication-is-in-place-mstg-arch-2-and-mstg-auth-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-oauth-2.0-flows-mstg-auth-1-and-mstg-auth-3', 1)
+        c = ChecklistKB('4.1', 'If the app provides users access to a remote service, some form of authentication, such as username/password authentication, is performed at the remote endpoint.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05f-Testing-Local-Authentication.md#testing-confirm-credentials-mstg-auth-1-and-mstg-storage-11,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-oauth-20-flows-mstg-auth-1-and-mstg-auth-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#verifying-that-appropriate-authentication-is-in-place-mstg-arch-2-and-mstg-auth-1', 1)
+        c.question_id = 90
         c.kb_id = 2031
         db.session.add(c)
         db.session.commit()
@@ -2621,107 +2805,124 @@ def load_initial_data():
 
         c = ChecklistKB('4.2', 'If stateful session management is used, the remote endpoint uses randomly generated session identifiers to authenticate client requests without sending the user\'s credentials.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-stateful-session-management-mstg-auth-2', 1)
         c.kb_id = 2032
+        c.question_id = 91
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('4.3', 'If stateless token-based authentication is used, the server provides a token that has been signed using a secure algorithm.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-stateless-(token-based)-authentication-mstg-auth-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-oauth-2.0-flows-mstg-auth-1-and-mstg-auth-3', 1)
+        c = ChecklistKB('4.3', 'If stateless token-based authentication is used, the server provides a token that has been signed using a secure algorithm.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-stateless-token-based-authentication-mstg-auth-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-oauth-20-flows-mstg-auth-1-and-mstg-auth-3', 1)
         c.kb_id = 2033
+        c.question_id = 91
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.4', 'The remote endpoint terminates the existing session when the user logs out.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-user-logout-mstg-auth-4', 1)
         c.kb_id = 2034
+        c.question_id = 91
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.5', 'A password policy exists and is enforced at the remote endpoint.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-best-practices-for-passwords-mstg-auth-5-and-mstg-auth-6', 1)
         c.kb_id = 2035
+        c.question_id = 90
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.6', 'The remote endpoint implements a mechanism to protect against the submission of credentials an excessive number of times.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-best-practices-for-passwords-mstg-auth-5-and-mstg-auth-6', 1)
         c.kb_id = 2036
+        c.question_id = 89
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.7', 'Sessions are invalidated at the remote endpoint after a predefined period of inactivity and access tokens expire.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-session-timeout-mstg-auth-7', 1)
         c.kb_id = 2037
+        c.question_id = 91
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('4.8', 'Biometric authentication, if any, is not event-bound (i.e. using an API that simply returns "true" or "false"). Instead, it is based on unlocking the keychain/keystore.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md#testing-local-authentication-mstg-auth-8-and-mstg-storage-11', 2)
+        c = ChecklistKB('4.8', 'Biometric authentication, if any, is not event-bound (i.e. using an API that simply returns "true" or "false"). Instead, it is based on unlocking the keychain/keystore.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md#testing-local-authentication-mstg-auth-8-and-mstg-storage-11,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05f-Testing-Local-Authentication.md#testing-biometric-authentication-mstg-auth-8', 2)
         c.kb_id = 2038
+        c.question_id = 90
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.9', 'A second factor of authentication exists at the remote endpoint and the 2FA requirement is consistently enforced.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-two-factor-authentication-and-step-up-authentication-mstg-auth-9-and-mstg-auth-10', 2)
         c.kb_id = 2039
+        c.question_id = 90
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.10', 'Sensitive transactions require step-up authentication.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-two-factor-authentication-and-step-up-authentication-mstg-auth-9-and-mstg-auth-10', 2)
-        c.kb_id = 2040
+        c.kb_id = 2039
+        c.question_id = 90
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.11', 'The app informs the user of all sensitive activities with their account. Users are able to view a list of devices, view contextual information (IP address, location, etc.), and to block specific devices.', 18, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04e-Testing-Authentication-and-Session-Management.md#testing-login-activity-and-device-blocking-mstg-auth-11', 2)
         c.kb_id = 2040
+        c.question_id = 89
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('4.12', 'Authorization models should be defined and enforced at the remote endpoint.', 18, False, '', 1)
         c.kb_id = 2079
+        c.question_id = 90
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('5.1', 'Data is encrypted on the network using TLS. The secure channel is used consistently throughout the app.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#verifying-data-encryption-on-the-network-mstg-network-1-and-mstg-network-2', 1)
+        c = ChecklistKB('5.1', 'Data is encrypted on the network using TLS. The secure channel is used consistently throughout the app.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06g-Testing-Network-Communication.md#app-transport-security-mstg-network-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#verifying-data-encryption-on-the-network-mstg-network-1-and-mstg-network-2', 1)
         c.kb_id = 2042
+        c.question_id = 92
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.2', 'The TLS settings are in line with current best practices, or as close as possible if the mobile operating system does not support the recommended standards.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06g-Testing-Network-Communication.md#app-transport-security-mstg-network-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#verifying-data-encryption-on-the-network-mstg-network-1-and-mstg-network-2', 1)
         c.kb_id = 2042
+        c.question_id = 92
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.3', 'The app verifies the X.509 certificate of the remote endpoint when the secure channel is established. Only certificates signed by a trusted CA are accepted.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-endpoint-identify-verification-mstg-network-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-3-and-mstg-network-4', 1)
-        c.kb_id = 2044
+        c.kb_id = 2043
+        c.question_id = 92
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.4', 'The app either uses its own certificate store, or pins the endpoint certificate or public key, and subsequently does not establish connections with endpoints that offer a different certificate or key, even if signed by a trusted CA.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-the-network-security-configuration-settings-mstg-network-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-3-and-mstg-network-4', 2)
-        c.kb_id = 2045
+        c.kb_id = 2044
+        c.question_id = 95
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.5', 'The app doesn\'t rely on a single insecure communication channel (email or SMS) for critical operations, such as enrollments and account recovery.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04f-Testing-Network-Communication.md#making-sure-that-critical-operations-use-secure-communication-channels-mstg-network-5', 2)
-        c.kb_id = 2046
+        c.kb_id = 2045
+        c.question_id = 93
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('5.6', 'The app only depends on up-to-date connectivity and security libraries.', 19, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-the-security-provider-mstg-network-6', 2)
         c.kb_id = 2091
+        c.question_id = 94
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('6.1', 'The app only requests the minimum set of permissions necessary.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-app-permissions-mstg-platform-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-app-permissions-mstg-platform-1', 1)
+        c = ChecklistKB('6.1', 'The app only requests the minimum set of permissions necessary.', 20, True, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-app-permissions-mstg-platform-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-app-permissions-mstg-platform-1', 1)
         c.kb_id = 2047
         db.session.add(c)
         db.session.commit()
@@ -2729,65 +2930,75 @@ def load_initial_data():
 
         c = ChecklistKB('6.2', 'All inputs from external sources and the user are validated and if necessary sanitized. This includes data received via the UI, IPC mechanisms such as intents, custom URLs, and network sources.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#injection-flaws-mstg-arch-2-and-mstg-platform-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#cross-site-scripting-flaws-mstg-platform-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#testing-local-storage-for-input-validation-mstg-platform-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-injection-flaws-mstg-platform-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-fragment-injection-mstg-platform-2', 1)
         c.kb_id = 2048
+        c.question_id = 96
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.3', 'The app does not export sensitive functionality via custom URL schemes, unless these mechanisms are properly protected.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-custom-url-schemes-mstg-platform-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-custom-url-schemes-mstg-platform-3', 1)
         c.kb_id = 2049
+        c.question_id = 96
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.4', 'The app does not export sensitive functionality through IPC facilities, unless these mechanisms are properly protected.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-for-sensitive-functionality-exposure-through-ipc-mstg-platform-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-sensitive-functionality-exposure-through-ipc-mstg-platform-4', 1)
         c.kb_id = 2050
+        c.question_id = 103
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.5', 'JavaScript is disabled in WebViews unless explicitly required.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-ios-webviews-mstg-platform-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-javascript-execution-in-webviews-mstg-platform-5', 1)
         c.kb_id = 2051
+        c.question_id = 104
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.6', 'WebViews are configured to allow only the minimum set of protocol handlers required (ideally, only https is supported). Potentially dangerous handlers, such as file, tel and app-id, are disabled.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-webview-protocol-handlers-mstg-platform-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-webview-protocol-handlers-mstg-platform-6', 1)
         c.kb_id = 2052
+        c.question_id = 105
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.7', 'If native methods of the app are exposed to a WebView, verify that the WebView only renders JavaScript contained within the app package.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#determining-whether-native-methods-are-exposed-through-webviews-mstg-platform-7,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#determining-whether-java-objects-are-exposed-through-webviews-mstg-platform-7', 1)
         c.kb_id = 2053
+        c.question_id = 98
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.8', 'Object deserialization, if any, is implemented using safe serialization APIs.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-object-persistence-mstg-platform-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-object-persistence-mstg-platform-8', 1)
         c.kb_id = 2054
+        c.question_id = 106
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('6.9', 'The app protects itself against screen overlay attacks. (Android only)', 20, False, '', 2)
+        c = ChecklistKB('6.9', 'The app protects itself against screen overlay attacks. (Android only)', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-overlay-attacks-mstg-platform-9', 2)
         c.kb_id = 2055
+        c.question_id = 98    
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.10', 'A WebView\'s cache, storage, and loaded resources (JavaScript, etc.) should be cleared before the WebView is destroyed.', 20, False, '', 2)
         c.kb_id = 2056
+        c.question_id = 97
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('6.11', 'Verify that the app prevents usage of custom third-party keyboards whenever sensitive data is entered.', 20, False, '', 2)
         c.kb_id = 2057
+        c.question_id = 97
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('7.1', 'The app is signed and provisioned with a valid certificate, of which the private key is properly protected.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#making-sure-that-the-app-is-properly-signed-mstg-code-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#making-sure-that-the-app-is-properly-signed-mstg-code-1', 1)
+        c = ChecklistKB('7.1', 'The app is signed and provisioned with a valid certificate, of which the private key is properly protected.', 21, True, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#making-sure-that-the-app-is-properly-signed-mstg-code-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#making-sure-that-the-app-is-properly-signed-mstg-code-1', 1)
         c.kb_id = 2058
         db.session.add(c)
         db.session.commit()
@@ -2795,23 +3006,26 @@ def load_initial_data():
 
         c = ChecklistKB('7.2', 'The app has been built in release mode, with settings appropriate for a release build (e.g. non-debuggable).', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-whether-the-app-is-debuggable-mstg-code-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#determining-whether-the-app-is-debuggable-mstg-code-2', 1)
         c.kb_id = 2059
+        c.question_id = 100
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.3', 'Debugging symbols have been removed from native binaries.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-for-debugging-symbols-mstg-code-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#finding-debugging-symbols-mstg-code-3', 1)
         c.kb_id = 2060
+        c.question_id = 100
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.4', 'Debugging code and developer assistance code (e.g. test code, backdoors, hidden settings) have been removed. The app does not log verbose errors or debugging messages.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-for-debugging-code-and-verbose-error-logging-mstg-code-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#finding-debugging-code-and-verbose-error-logging-mstg-code-4', 1)
         c.kb_id = 2061
+        c.question_id = 99
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('7.5', 'All third party components used by the mobile app, such as libraries and frameworks, are identified, and checked for known vulnerabilities.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#checking-for-weaknesses-in-third-party-libraries-mstg-code-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#checking-for-weaknesses-in-third-party-libraries-mstg-code-5', 1)
+        c = ChecklistKB('7.5', 'All third party components used by the mobile app, such as libraries and frameworks, are identified, and checked for known vulnerabilities.', 21, True, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#checking-for-weaknesses-in-third-party-libraries-mstg-code-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#checking-for-weaknesses-in-third-party-libraries-mstg-code-5', 1)
         c.kb_id = 2062
         db.session.add(c)
         db.session.commit()
@@ -2819,102 +3033,120 @@ def load_initial_data():
 
         c = ChecklistKB('7.6', 'The app catches and handles possible exceptions.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6-and-mstg-code-7,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6', 1)
         c.kb_id = 2063
+        c.question_id = 99
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('7.7', 'Error handling logic in security controls denies access by default.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6-and-mstg-code-7', 1)
-        c.kb_id = 2064
+        c = ChecklistKB('7.7', 'Error handling logic in security controls denies access by default.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6-and-mstg-code-7,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#testing-exception-handling-mstg-code-6', 1)
+        c.kb_id = 2063
+        c.question_id = 99
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.8', 'In unmanaged code, memory is allocated, freed and used securely.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#memory-corruption-bugs-mstg-code-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x04h-Testing-Code-Quality.md#memory-corruption-bugs-mstg-code-8,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#memory-corruption-bugs-mstg-code-8', 1)
         c.kb_id = 2065
+        c.question_id = 99
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('7.9', 'Free security features offered by the toolchain, such as byte-code minification, stack protection, PIE support and automatic reference counting, are activated.', 21, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05i-Testing-Code-Quality-and-Build-Settings.md#make-sure-that-free-security-features-are-activated-mstg-code-9,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#make-sure-that-free-security-features-are-activated-mstg-code-9', 1)
         c.kb_id = 2089
+        c.question_id = 100
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.1', 'The app detects, and responds to, the presence of a rooted or jailbroken device either by alerting the user or terminating the app.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#jailbreak-detection-mstg-resilience-1', 3)
+
+        c = ChecklistKB('8.1', 'The app detects, and responds to, the presence of a rooted or jailbroken device either by alerting the user or terminating the app.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#jailbreak-detection-mstg-resilience-1,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-root-detection-mstg-resilience-1', 3)
         c.kb_id = 2067
+        c.question_id = 102
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.2', 'The app prevents debugging and/or detects, and responds to, a debugger being attached. All available debugging protocols must be covered.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-anti-debugging-detection-mstg-resilience-2', 3)
+        c = ChecklistKB('8.2', 'The app prevents debugging and/or detects, and responds to, a debugger being attached. All available debugging protocols must be covered.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-anti-debugging-detection-mstg-resilience-2,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-anti-debugging-detection-mstg-resilience-2', 3)
         c.kb_id = 2068
+        c.question_id = 102
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.3', 'The app detects, and responds to, tampering with executable files and critical data within its own sandbox.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#file-integrity-checks-mstg-resilience-3-and-mstg-resilience-11', 3)
+        c = ChecklistKB('8.3', 'The app detects, and responds to, tampering with executable files and critical data within its own sandbox.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-file-integrity-checks-mstg-resilience-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#file-integrity-checks-mstg-resilience-3-and-mstg-resilience-11', 3)
         c.kb_id = 2069
+        c.question_id = 102
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.4', 'The app detects, and responds to, the presence of widely used reverse engineering tools and frameworks on the device.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-reverse-engineering-tools-detection-mstg-resilience-4', 3)
+        c = ChecklistKB('8.4', 'The app detects, and responds to, the presence of widely used reverse engineering tools and frameworks on the device.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-reverse-engineering-tools-detection-mstg-resilience-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-reverse-engineering-tools-detection-mstg-resilience-4', 3)
         c.kb_id = 2070
+        c.question_id = 102
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.5', 'The app detects, and responds to, being run in an emulator.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-emulator-detection-mstg-resilience-5', 3)
+        c = ChecklistKB('8.5', 'The app detects, and responds to, being run in an emulator.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-emulator-detection-mstg-resilience-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-emulator-detection-mstg-resilience-5', 3)
         c.kb_id = 2071
+        c.question_id = 102
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.6', 'The app detects, and responds to, tampering the code and data in its own memory space.', 22, False, '', 3)
+        c = ChecklistKB('8.6', 'The app detects, and responds to, tampering the code and data in its own memory space.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-runtime-integrity-checks-mstg-resilience-6', 3)
         c.kb_id = 2072
+        c.question_id = 102
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.7', 'The app implements multiple mechanisms in each defense category (8.1 to 8.6). Note that resiliency scales with the amount, diversity of the originality of the mechanisms used.', 22, False, '', 3)
         c.kb_id = 2073
+        c.question_id = 101
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.8', 'The detection mechanisms trigger responses of different types, including delayed and stealthy responses.', 22, False, '', 3)
         c.kb_id = 2074
+        c.question_id = 101
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.9', 'Obfuscation is applied to programmatic defenses, which in turn impede de-obfuscation via dynamic analysis.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-obfuscation-mstg-resilience-9', 3)
+        c = ChecklistKB('8.9', 'Obfuscation is applied to programmatic defenses, which in turn impede de-obfuscation via dynamic analysis.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-obfuscation-mstg-resilience-9,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-obfuscation-mstg-resilience-9', 3)
         c.kb_id = 2075
+        c.question_id = 101
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.10', 'The app implements a \'device binding\' functionality using a device fingerprint derived from multiple properties unique to the device.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#device-binding-mstg-resilience-10', 3)
+        c = ChecklistKB('8.10', 'The app implements a \'device binding\' functionality using a device fingerprint derived from multiple properties unique to the device.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-device-binding-mstg-resilience-10,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#device-binding-mstg-resilience-10', 3)
         c.kb_id = 2076
+        c.question_id = 101
         db.session.add(c)
         db.session.commit()
 
 
-        c = ChecklistKB('8.11', 'All executable files and libraries belonging to the app are either encrypted on the file level and/or important code and data segments inside the executables are encrypted or packed. Trivial static analysis does not reveal important code or data.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#file-integrity-checks-mstg-resilience-3-and-mstg-resilience-11', 3)
+        c = ChecklistKB('8.11', 'All executable files and libraries belonging to the app are either encrypted on the file level and/or important code and data segments inside the executables are encrypted or packed. Trivial static analysis does not reveal important code or data.', 22, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-file-integrity-checks-mstg-resilience-3,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#file-integrity-checks-mstg-resilience-3-and-mstg-resilience-11', 3)
         c.kb_id = 2069
+        c.question_id = 102
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.12', 'If the goal of obfuscation is to protect sensitive computations, an obfuscation scheme is used that is both appropriate for the particular task and robust against manual and automated de-obfuscation methods, considering currently published research. The effectiveness of the obfuscation scheme must be verified through manual testing. Note that hardware-based isolation features are preferred over obfuscation whenever possible.', 22, False, '', 3)
         c.kb_id = 2077
+        c.question_id = 101
         db.session.add(c)
         db.session.commit()
 
 
         c = ChecklistKB('8.13', 'As a defense in depth, next to having solid hardening of the communicating parties, application level payload encryption can be applied to further impede eavesdropping.', 22, False, '', 3)
         c.kb_id = 2078
+        c.question_id = 101
         db.session.add(c)
         db.session.commit()
 

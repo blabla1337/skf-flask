@@ -1,6 +1,6 @@
 ## Description:
 
-Determining Whether the App is Debuggable
+Determining whether the App is debuggable
 
 MSTG-CODE-2: The app has been built in release mode, with settings appropriate for a release build (e.g. non-debuggable).
 
