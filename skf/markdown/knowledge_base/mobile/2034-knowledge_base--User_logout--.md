@@ -1,6 +1,6 @@
 ## Description:
 
-User Logout
+User logout
 
 MSTG-AUTH-4: The remote endpoint terminates the existing session when the user logs out.
 
