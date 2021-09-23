@@ -1,6 +1,6 @@
 ## Description:
 
-Login Activity and Device Blocking
+Login activity and Device blocking
 
 MSTG-AUTH-11: The app informs the user of all sensitive activities with their account. Users are able to view a list of devices, view contextual information (IP address, location, etc.), and to block specific devices.
 
