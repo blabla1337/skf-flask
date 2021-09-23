@@ -2460,7 +2460,7 @@ def load_initial_data():
         q = Question('Does your application keep sensitive data on the client side?', 20)
         db.session.add(q)
         db.session.commit()
-
+        
         #98
         q = Question('Security best practice requirements', 20)
         db.session.add(q)
@@ -2486,6 +2486,10 @@ def load_initial_data():
         db.session.add(q)
         db.session.commit()
 
+        #103
+        q = Question('Does your application expose any sensitive functionality through IPC?', 20)
+        db.session.add(q)
+        db.session.commit()
 
         '''
         Checklist controls for MASVS
@@ -2920,7 +2924,7 @@ def load_initial_data():
 
         c = ChecklistKB('6.4', 'The app does not export sensitive functionality through IPC facilities, unless these mechanisms are properly protected.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-for-sensitive-functionality-exposure-through-ipc-mstg-platform-4,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-sensitive-functionality-exposure-through-ipc-mstg-platform-4', 1)
         c.kb_id = 2050
-        c.question_id = 97
+        c.question_id = 103
         db.session.add(c)
         db.session.commit()
 
