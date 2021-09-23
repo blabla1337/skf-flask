@@ -2506,6 +2506,11 @@ def load_initial_data():
         db.session.add(q)
         db.session.commit()
 
+        #107
+        q = Question('Does your application need to generate secure random numbers for encryption?', 17)
+        db.session.add(q)
+        db.session.commit()
+        
         '''
         Checklist controls for MASVS
         '''
@@ -2786,7 +2791,7 @@ def load_initial_data():
 
         c = ChecklistKB('3.6', 'All random values are generated using a sufficiently secure random number generator.', 17, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05e-Testing-Cryptography.md#testing-random-number-generation-mstg-crypto-6', 2)
         c.kb_id = 2030
-        c.question_id = 88
+        c.question_id = 107
         db.session.add(c)
         db.session.commit()
 
