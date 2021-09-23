@@ -1,6 +1,6 @@
 ## Description:
 
-Make Sure That Free Security Features Are Activated
+Make sure that free security features are activated
 
 MSTG-CODE-9: Free security features offered by the toolchain, such as byte-code minification, stack protection, PIE support and automatic reference counting, are activated.
 
