@@ -1,6 +1,6 @@
 ## Description:
 
-Memory Corruption Bugs
+Memory corruption bugs
 
 MSTG-CODE-8: In unmanaged code, memory is allocated, freed and used securely.
 
