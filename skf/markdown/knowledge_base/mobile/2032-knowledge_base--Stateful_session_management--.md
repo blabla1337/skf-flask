@@ -17,8 +17,6 @@ When sessions are improperly managed, they are vulnerable to a variety of attack
 
 ## Mitigation:
 
-Session Management Best Practices
-
 Locate any server-side endpoints that provide sensitive information or functions and verify the consistent enforcement of authorization. The backend service must verify the user's session ID or token and make sure that the user has sufficient privileges to access the resource. If the session ID or token is missing or invalid, the request must be rejected.
 
 Make sure that:
