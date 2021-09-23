@@ -1,6 +1,6 @@
 ## Description:
 
-Testing Obfuscation
+Testing obfuscation
 
 MSTG-RESILIENCE-9: Obfuscation is applied to programmatic defenses, which in turn impede de-obfuscation via dynamic analysis.
 
