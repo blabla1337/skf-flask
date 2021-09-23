@@ -1,6 +1,6 @@
 ## Description:
 
-Best Practices for Passwords
+Best practices for passwords
 
 MSTG-AUTH-5: A password policy exists and is enforced at the remote endpoint.
 
