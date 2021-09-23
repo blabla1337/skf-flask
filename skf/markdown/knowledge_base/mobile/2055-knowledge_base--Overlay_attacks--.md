@@ -19,4 +19,4 @@ Over the years many known malware like MazorBot, BankBot or MysteryBot have been
 
 ## Mitigation:
 
-Some general guidelines for Android View security can be found in the [Android Developer Documentation](https://developer.android.com/reference/android/view/View#security "View Security").
+Some general guidelines for Android View security can be found in the [Android Developer Documentation](https://developer.android.com/reference/android/view/View "View Security").
