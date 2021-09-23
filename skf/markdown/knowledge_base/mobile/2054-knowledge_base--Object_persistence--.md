@@ -1,6 +1,6 @@
 ## Description:
 
-Object Persistence
+Object persistence
 
 MSTG-PLATFORM-8: Object deserialization, if any, is implemented using safe serialization APIs.
 
