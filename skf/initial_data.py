@@ -2352,7 +2352,7 @@ def load_initial_data():
         db.session.commit()
 
         #76
-        q = Question('Does your application need to encrypt anything?', 15)
+        q = Question('Does your application need to encrypt data?', 15)
         db.session.add(q)
         db.session.commit()
 
