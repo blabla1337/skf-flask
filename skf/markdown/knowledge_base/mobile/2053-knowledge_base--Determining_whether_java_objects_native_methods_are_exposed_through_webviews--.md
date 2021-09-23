@@ -1,6 +1,6 @@
 ## Description:
 
-Determining Whether Java Objects/Native Methods Are Exposed Through WebViews
+Determining whether Java objects/Native methods are exposed through WebViews
 
 MSTG-PLATFORM-7: If native methods of the app are exposed to a WebView, verify that the WebView only renders JavaScript contained within the app package.
 
