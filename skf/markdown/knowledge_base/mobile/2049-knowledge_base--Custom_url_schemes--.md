@@ -4,7 +4,7 @@ Custom URL schemes
 
 MSTG-PLATFORM-3: The app does not export sensitive functionality via custom URL schemes, unless these mechanisms are properly protected.
 
-Custom URL schemes [allow apps to communicate via a custom protocol](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW1 "Using URL Schemes to Communicate with Apps"). An app must declare support for the schemes and handle incoming URLs that use those schemes.
+Custom URL schemes [allow apps to communicate via a custom protocol](https://developer.apple.com/documentation/uikit "Using URL Schemes to Communicate with Apps"). An app must declare support for the schemes and handle incoming URLs that use those schemes.
 
 Apple warns about the improper use of custom URL schemes in the [Apple Developer Documentation](https://developer.apple.com/documentation/uikit/core_app/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app "Defining a Custom URL Scheme for Your App"):
 
@@ -31,7 +31,7 @@ All URLs are passed to the app delegate, either at launch time or while the app 
 	- retrieve information about the URL and decide whether you want to open it,
 	- open the resource specified by the URL.
 
-More information can be found in the [archived App Programming Guide for iOS](https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW13 "Handling URL Requests") and in the [Apple Secure Coding Guide](https://developer.apple.com/library/archive/documentation/Security/Conceptual/SecureCodingGuide/Articles/ValidatingInput.html "Validating Input and Interprocess Communication").
+More information can be found in the [archived App Programming Guide for iOS](https://developer.apple.com/documentation/uikit "Handling URL Requests") and in the [Apple Secure Coding Guide](https://developer.apple.com/library/archive/documentation/Security/Conceptual/SecureCodingGuide/Articles/ValidatingInput.html "Validating Input and Interprocess Communication").
 
 In addition, an app may also want to send URL requests (aka. queries) to other apps. This is done by:
 
@@ -40,7 +40,7 @@ In addition, an app may also want to send URL requests (aka. queries) to other a
 	- sending the URL requests.
 
 
-Android allows you to create two different types of links for your apps: deep links and Android App Links. According to the [Android Developer Documentation](https://developer.android.com/training/app-links#app-links-vs-deep-links "Deep linking and Android App Links"), **deep links** are URLs that take users directly to specific content in your app. You can set up deep links by adding _intent filters_ and extracting data from incoming intents to drive users to the right activity. You can even use any custom scheme prefix such as `myapp`, which will result in the URI prefix "myapp://". These kind of deep links are also referred to as "Custom URL Schemes" and are typically used as a form of inter-app communication where an app can define certain actions (including the corresponding parameters) that can be triggered by other apps.
+Android allows you to create two different types of links for your apps: deep links and Android App Links. According to the [Android Developer Documentation](https://developer.android.com/training/app-links "Deep linking and Android App Links"), **deep links** are URLs that take users directly to specific content in your app. You can set up deep links by adding _intent filters_ and extracting data from incoming intents to drive users to the right activity. You can even use any custom scheme prefix such as `myapp`, which will result in the URI prefix "myapp://". These kind of deep links are also referred to as "Custom URL Schemes" and are typically used as a form of inter-app communication where an app can define certain actions (including the corresponding parameters) that can be triggered by other apps.
 
 This method of defining deep links via intent filters has an important issue: any other apps installed on a user's device can declare and try to handle the same intent (typically a custom URL scheme). This is known as **deep link collision** where any arbitrary application can declare control over the exact same URL custom scheme belonging to another application. In recent versions of Android this results in a so-called _disambiguation dialog_ being shown to the user and asking them to select the application that should handle the link. The user could make the mistake of choosing a malicious application instead of the legitimate one.
 
