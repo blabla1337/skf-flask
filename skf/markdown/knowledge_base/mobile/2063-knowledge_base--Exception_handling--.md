@@ -1,6 +1,6 @@
 ## Description:
 
-Exception Handling
+Exception handling
 
 MSTG-CODE-6: The app catches and handles possible exceptions.
 
