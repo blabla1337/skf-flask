@@ -1,6 +1,6 @@
 ## Description:
 
-Testing the Purposes of Keys
+Testing the purposes of keys
 
 MSTG-CRYPTO-5: The app doesn’t re-use the same cryptographic key for multiple purposes.
 
