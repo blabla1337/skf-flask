@@ -1,6 +1,6 @@
 ## Description:
 
-Stateful Session Management
+Stateful session management
 
 MSTG-AUTH-2: If stateful session management is used, the remote endpoint uses randomly generated session identifiers to authenticate client requests without sending the user’s credentials.
 
