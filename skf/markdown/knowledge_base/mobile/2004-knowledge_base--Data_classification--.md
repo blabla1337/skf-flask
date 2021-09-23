@@ -1,6 +1,6 @@
 ## Description:
 
-Data Classification
+Data classification
 
 MSTG-ARCH-4: Data considered sensitive in the context of the mobile app is clearly identified.
 
