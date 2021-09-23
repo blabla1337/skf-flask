@@ -1,6 +1,6 @@
 ## Description:
 
-JavaScript Execution in WebViews
+JavaScript execution in WebViews
 
 MSTG-PLATFORM-5: JavaScript is disabled in WebViews unless explicitly required.
 
