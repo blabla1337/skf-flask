@@ -1,6 +1,6 @@
 ## Description:
 
-Sensitive Data in the Keyboard Cache
+Sensitive data in the keyboard cache
 
 MSTG-STORAGE-5: The keyboard cache is disabled on text inputs that process sensitive data.
 
