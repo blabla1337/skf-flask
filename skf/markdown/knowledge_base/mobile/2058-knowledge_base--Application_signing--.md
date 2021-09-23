@@ -1,6 +1,6 @@
 ## Description:
 
-Application Signing
+Application signing
 
 MSTG-CODE-1: The app is signed and provisioned with a valid certificate, of which the private key is properly protected.
 
