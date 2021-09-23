@@ -1,6 +1,6 @@
 ## Description:
 
-Determining Whether Sensitive Data Is Exposed via IPC Mechanisms
+Determining whether sensitive data is exposed via IPC mechanisms
 
 MSTG-STORAGE-6: No sensitive data is exposed via IPC mechanisms.
 
