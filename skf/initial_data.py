@@ -2490,6 +2490,11 @@ def load_initial_data():
         q = Question('Does your application expose any sensitive functionality through IPC?', 20)
         db.session.add(q)
         db.session.commit()
+        
+        #104
+        q = Question('Does your application need JavaScript execution in WebViews?', 20)
+        db.session.add(q)
+        db.session.commit()
 
         '''
         Checklist controls for MASVS
@@ -2931,7 +2936,7 @@ def load_initial_data():
 
         c = ChecklistKB('6.5', 'JavaScript is disabled in WebViews unless explicitly required.', 20, False, 'https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06h-Testing-Platform-Interaction.md#testing-ios-webviews-mstg-platform-5,https://github.com/OWASP/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-javascript-execution-in-webviews-mstg-platform-5', 1)
         c.kb_id = 2051
-        c.question_id = 96
+        c.question_id = 104
         db.session.add(c)
         db.session.commit()
 
