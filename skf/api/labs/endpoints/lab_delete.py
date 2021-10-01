@@ -9,20 +9,20 @@ import json
 
 ns = api.namespace('interactive_labs', description='Operations related to the labs')
 
-@ns.route('/delete-deployments/<string:instance_name>')
+@ns.route('/delete-deployments/<int:instance_id>')
 @api.response(404, 'Validation error', message)
 class LabDelete(Resource):
 
     @api.expect(authorization)
     #@api.marshal_with(lab_items)
     @api.response(400, 'No results found', message)
-    def get(self, instance_name):
+    def get(self, instance_id):
         """
         Returns list of labs.
         * Privileges required: **none**
         """
         validate_privilege(self, 'read')
         userid = select_userid_jwt(self)
-        result = delete_labs(instance_name, userid)
+        result = delete_labs(instance_id, userid)
         return result, 200, security_headers()
  

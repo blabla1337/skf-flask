@@ -16,15 +16,19 @@ def get_labs():
     return result
 
 
-def deploy_labs(instance_name, userid):
+def deploy_labs(instance_id, userid):
+    log("User requested deployment of lab", "LOW", "PASS")
+    result = LabItem.query.filter(LabItem.id == instance_id).first()
     rpc = SKFLabDeployment()
-    body = instance_name + ":" + str(userid)
+    body = result.image_tag + ":" + str(userid)
     response = rpc.call(body)
     return response
 
 
-def delete_labs(instance_name, userid):
+def delete_labs(instance_id, userid):
+    log("User requested depletion of lab", "LOW", "PASS")
+    result = LabItem.query.filter(LabItem.id == instance_id).first()
     rpc = SKFLabDelete()
-    body = instance_name + ":" + str(userid)
+    body = result.image_tag + ":" + str(userid)
     response = rpc.call(body)
     return response
