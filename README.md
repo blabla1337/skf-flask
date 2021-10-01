@@ -160,7 +160,7 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Joerg Stephan
 - Simon Brakhane
 - Gerco Grandia
-- [Ross Nanopoulos](https://twitter.com/rossnanop)
+- [Ross Nanopoulos](https://www.linkedin.com/in/rnanopoulos/)
 - Bob van den Heuvel
 - Mariano Jose Abdala
 - Ilguiz Latypov
