@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-import pika
+import pika, time
 from skf import settings
-
 from common import delete_all
 
 creds = pika.PlainCredentials('admin', 'admin-skf-secret')
