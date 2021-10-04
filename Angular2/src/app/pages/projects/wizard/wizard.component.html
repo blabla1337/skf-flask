@@ -178,6 +178,7 @@
                       <div class="col-sm-10">
                         <select class="form-control" name="old_quest" id="old_quest" data-live-search="true" #old
                           (change)="oldSprint(old.value)">
+                          <option value=0>--select--</option>
                           <option *ngFor="let item of sprintData" value="{{item.sprint_id}}">
                             {{item.title}}</option>
                         </select>
@@ -189,8 +190,7 @@
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="name">Sprint Name</label>
                           <div class="col-sm-10">
-                            <input formControlName="name" class="form-control" type="text" id="name"
-                              placeholder="Sprint Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Sprint Name'">
+                            <input formControlName="name" class="form-control" type="text" id="name">
                           </div>
                         </div>
 
@@ -226,6 +226,9 @@
                         <label for="category-input">Store and correlate security controls</label><br>
                         - Click submit to store the project and the correlations done by SKF from the expert system!<br>
                       </div> 
+                      <div *ngIf="disableSubmit == true" class="alert alert-danger" role="alert">
+                        You forgot to add project sprint details, please do so to finish the wizard!
+                      </div>
                       <!-- <div class="dropdown-divider"></div> -->
                     </div>
                   </div>
@@ -234,9 +237,9 @@
               <ul class="list-inline wizard mb-0">
                 <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
                 </li>
-                <li class="next list-inline-item float-right"><button class="btn btn-primary" (click)="storeQuestions()"
+                <li *ngIf="disableSubmit == false" class="next list-inline-item float-right"><button class="btn btn-primary" (click)="storeQuestions()"
                     awNextStep>Submit</button>
-                </li>
+                </li> 
               </ul>
             </aw-wizard-step>
           </aw-wizard>

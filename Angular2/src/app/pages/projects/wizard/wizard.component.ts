@@ -8,6 +8,7 @@ import { QuestionService } from '../../../core/services/question.service';
 import { ChecklistService } from '../../../core/services/checklists.service';
 import { SprintService } from '../../../core/services/sprint.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-wizard',
@@ -30,6 +31,7 @@ export class WizardComponent implements OnInit
   sprint_id: number;
   sprintStore: any = [];
   routerId;
+  disableSubmit = false;
 
   constructor(
     private _checklistCategoryService: ChecklistCategoryService,
@@ -43,6 +45,7 @@ export class WizardComponent implements OnInit
 
   ngOnInit(): void
   {
+    localStorage.setItem("sprint_id", "0");
     this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Wizard', active: true }];
 
     this.newSprintForm = this.formBuilder.group({
@@ -60,6 +63,7 @@ export class WizardComponent implements OnInit
 
   onChange(value)
   {
+    this.disableSubmit = false;
     this.selected = value;
   }
 
@@ -99,22 +103,32 @@ export class WizardComponent implements OnInit
 
   storeSprint()
   {
-    this.isSubmitted = true;
-    if (this.newSprintForm.invalid) {
-      return;
+    this.disableSubmit = false;
+
+    if(!this.selected){
+      this.disableSubmit = true;
     }
 
-    this.newSprintForm.patchValue({ project_id: this.project_id })
-    this._sprintService.createSprint(this.newSprintForm.value).subscribe(sprint =>
-    {
-      localStorage.removeItem("sprint_id")
-      localStorage.setItem("sprint_id", sprint['sprint_id'])
-    })
+    if(this.selected == "new"){
+      if (this.newSprintForm.invalid) {
+        this.disableSubmit = true;
+        return;
+      }
+      this.newSprintForm.patchValue({ project_id: this.project_id })
+      this._sprintService.createSprint(this.newSprintForm.value).subscribe(sprint =>
+      {
+        localStorage.setItem("sprint_id", sprint['sprint_id'])
+      })
+    }
+    
+    if(this.selected == "old" && localStorage.getItem("sprint_id") == "0"){
+      this.disableSubmit = true;
+      return;
+    }
   }
 
   oldSprint(sprint_id: number)
   {
-    localStorage.removeItem("sprint_id")
     localStorage.setItem("sprint_id", sprint_id.toString())
   }
 
