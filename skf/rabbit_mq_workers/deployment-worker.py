@@ -8,7 +8,7 @@ from sys import stderr
 creds = pika.PlainCredentials('admin', 'admin-skf-secret')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
     host=settings.RABBIT_MQ_CONN_STRING,
-    credentials=creds,
+    credentials=creds
 ))
 channel = connection.channel()
 channel.queue_declare(queue='deployment_qeue')
