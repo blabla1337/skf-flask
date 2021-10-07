@@ -40,7 +40,7 @@ services:
       - "nginx"
       - "mysql"
     restart: always
-    image: "blabla1337/skf-angular:4.0.3"
+    image: "blabla1337/skf-angular:4.0.2"
     environment:
       - FRONTEND_URI=http://localhost
       - SKIP_LOGIN=skiploginprovider
