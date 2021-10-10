@@ -9,19 +9,19 @@ from skf.api.kb.parsers import authorization
 ns = api.namespace('interactive_labs', description='Operations related to the labs')
 
 @api.expect(authorization)
-@ns.route('/deployments/<string:instance_name>')
+@ns.route('/deployments/<int:instance_id>')
 @api.response(404, 'Validation error', message)
 class LabDeploy(Resource):
 
     #@api.marshal_with(lab_items)
     @api.response(400, 'No results found', message)
-    def get(self, instance_name):
+    def get(self, instance_id):
         """
         Returns list of labs.
         * Privileges required: **none**
         """
         userid = select_userid_jwt(self)
         validate_privilege(self, 'read')
-        result = deploy_labs(instance_name, userid)
+        result = deploy_labs(instance_id, userid)
         return result, 200, security_headers()
  

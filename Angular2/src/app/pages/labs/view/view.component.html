@@ -102,12 +102,12 @@
 
                           <li class="list-inline-item" *ngIf="status.includes(item.image_tag); else elseBlock ">
                             <button class="btn btn-danger btn-sm" id="get-address"
-                              (click)="stopLabFromRunning(item.image_tag)">Stop</button>
+                              (click)="stopLabFromRunning(item.image_tag, item.id)">Stop</button>
                           </li>
                           <ng-template #elseBlock>
                             <li class="list-inline-item">
                               <button class="btn btn-success btn-sm" id="get-address"
-                                (click)="getLabAddress(item.image_tag)">Start</button>
+                                (click)="getLabAddress(item.image_tag, item.id)">Start</button>
                             </li>
                           </ng-template>
                         </ul>

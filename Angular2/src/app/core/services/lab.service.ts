@@ -22,14 +22,14 @@ export class LabService
     return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
   }
 
-  deployLab(image_tag: string): Observable<Object>
+  deployLab(image_id: number): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_tag}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_id}`, { headers: this.authHeader })
   }
 
-  deleteLab(image_tag: string): Observable<Object>
+  deleteLab(image_id: number): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_tag}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_id}`, { headers: this.authHeader })
   }
 
   getCodeLabs(code_type: string): Observable<Object>

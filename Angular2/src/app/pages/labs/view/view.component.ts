@@ -97,10 +97,10 @@ export class LabViewComponent implements OnInit
 
   // Get Lab Address
   // tslint:disable-next-line: variable-name
-  getLabAddress(image_tag)
+  getLabAddress(image_tag, image_id)
   {
     this.spinner.show()
-    this._labService.deployLab(image_tag).subscribe(requestData =>
+    this._labService.deployLab(image_id).subscribe(requestData =>
     {
       this.spinner.hide();
       this.lab = requestData;
@@ -131,10 +131,10 @@ export class LabViewComponent implements OnInit
     this.router.navigate(['/labs/view'])
   }
 
-  stopLabFromRunning(image_tag)
+  stopLabFromRunning(image_tag, image_id)
   {
     this.spinner.show()
-    this._labService.deleteLab(image_tag).subscribe(requestData =>
+    this._labService.deleteLab(image_id).subscribe(requestData =>
     {
       this.deployments = requestData
       this.spinner.hide();

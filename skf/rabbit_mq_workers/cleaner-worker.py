@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import time, random, yaml
 from os import path
 import datetime as dt
 from kubernetes import client, config
