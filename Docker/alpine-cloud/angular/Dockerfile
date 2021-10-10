@@ -1,62 +1,65 @@
 #############
 ### build ###
 #############
+# TO-DO Fix Angular versions and npm modules and so we an use the builder image step again :(
 
 # base image
-FROM node:12-alpine AS builder
+#FROM node:15-alpine AS builder
 
-LABEL maintainer="glenn.ten.cate@owasp.org"
+#LABEL maintainer="glenn.ten.cate@owasp.org"
 
-WORKDIR /home/user_angular/Angular2
+#WORKDIR /home/user_angular/Angular2
 
-COPY ./Angular2 ./
-COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
+#COPY ./Angular2 ./
+#COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
+
+#RUN node -v
 
 # Optimize vendor.bundle.js
-RUN npm --loglevel=error install &&\
-    npm run build --prod
+#RUN npm --loglevel=error install &&\
+#    npm run build --prod --loglevel=error
 
 ############
 ### run ###
 ############
 
-## base image
-## nginx-unprivileged uses UID=101 and GID=101 (user and group = nginx)
-FROM nginxinc/nginx-unprivileged:1.20.0-alpine as run
+# base image
+FROM nginx:1.14.1-alpine as run
 
-## Set ARG for use in later RUN command
-ARG GID=0
-
-## Set user for installation steps
-USER 0
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
-## From builder stage copy over the artifacts in dist folder to default nginx public folder
-COPY --from=builder /home/user_angular/Angular2/dist/Angular2 /usr/share/nginx/html
-
-## Copy our default nginx config
-COPY --from=builder /home/user_angular/site.conf.template /home/user_angular/site.conf.template
-
+COPY ./Angular2/dist/Angular2 ./usr/share/nginx/html
+COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
 COPY ./Docker/alpine-cloud/angular/entrypoint.sh  /home/user_angular/entrypoint.sh
 
-## Apply ownership and permission changes to function with nginx user, that will also work with OpenShift restricted SCC
-RUN chown -R nginx:${GID} /home/user_angular/        &&\
-    chmod -R g=u /home/user_angular/                 &&\
-    chown -R nginx:${GID} /usr/share/nginx/html      &&\
-    chmod -R g=u /usr/share/nginx/html               &&\
-    chown -R nginx:${GID} /var/log/nginx             &&\
-    chmod -R g=u /var/log/nginx                      &&\
+## From builder stage copy over the artifacts in dist folder to default nginx public folder
+#COPY --from=builder /home/user_angular/Angular2/dist/Angular2 /usr/share/nginx/html
+
+## Copy our default nginx config
+#COPY --from=builder /home/user_angular/site.conf.template /home/user_angular/site.conf.template
+
+
+# not the most secure solution but the entrypoint needs to be able to copy the correct config into confd.d,
+# also the Deployment has a  securityContext because, K8s best practices so the entrypoint needs to start as that user
+# so even if we wanted, we cannot use Nginx to drop user privileges after the entrypoint starts
+# TODO find a better way
+RUN chown -R nginx:nginx /home/user_angular/ &&\
+    chown -R nginx:nginx /usr/share/nginx/html &&\
+    chown -R nginx:nginx /etc/nginx/conf.d/ &&\
+    chown -R nginx:nginx /var/log/nginx &&\
+    # move the .pid file somewhere we can run
+    sed -i -e "s_/var/run/nginx.pid_/etc/nginx/conf.d/nginx.pid_g" /etc/nginx/nginx.conf &&\
     chmod +x /home/user_angular/entrypoint.sh
 
-# nginx-unprivileged container binds on port 8080. Need to decide whether this is kept or deleted.
-#RUN rm -f /etc/nginx/conf.d/default.conf
+RUN ls -lart /usr/share/nginx/html | wc -l
+# nginx default container tries to bind on port 80 before dropping privileges.
+# there's no point in binding on a privileged port in our scenario
+RUN rm -f /etc/nginx/conf.d/default.conf
 
 EXPOSE 8788
-
-# Specify the user by number (nginx=101) to permit this to work with OpenShift "mustRunAsNonRoot" SCC permission as well as standard K8s deployments
-USER 101
+USER nginx
 
 CMD ["/home/user_angular/entrypoint.sh","/home/user_angular/site.conf.template"]
 
