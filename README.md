@@ -23,7 +23,7 @@ The OWASP Security Knowledge Framework is an open source web application that ex
 * [Updating Chatbot](#updating-dataset)
 * [Usage](#usage)
 * [CI-Pipeline](#ci-pipeline)
-* [Development / Contributing](https://github.com/blabla1337/skf-flask/blob/main/CONTRIBUTING.md)
+* [Development / Contributing](CONTRIBUTING.md)
 * [Scrum Board](#scrum-board)
 * [License](#license)
 * [Contributors](#contributors)
@@ -40,11 +40,11 @@ Because of this we decided to develop a framework in order to create a guide-sys
 
 ## <a name="installing"></a>Installing
 
-### [Kubernetes installation how to](https://github.com/blabla1337/skf-flask/tree/main/installations/Kubernetes)  
-### [Bare metal / on premise installation how to](https://github.com/blabla1337/skf-flask/tree/main/installations/local)  
-### [Docker-compose local how to](https://github.com/blabla1337/skf-flask/tree/main/installations/docker)  
-### [SKF K8s Raspberry pi cluster how to](https://github.com/blabla1337/skf-flask/tree/main/installations/pi-cluster)  
-### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)  
+### [Kubernetes installation how to](installations/Kubernetes)
+### [Bare metal / on premise installation how to](installations/local)
+### [Docker-compose local how to](installations/docker)
+### [SKF K8s Raspberry pi cluster how to](installations/pi-cluster)
+### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)
 
 ## <a name="updating-db"></a>Updating Database
 
