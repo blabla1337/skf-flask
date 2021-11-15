@@ -51,7 +51,7 @@ docker-compose down --volumes
 ```
 
 5. By default, the login will be skipped when using docker compose locally. To change this, update
-   the value of `SKIP_LOGIN` to `skfloginprovider` in `docker-compose.yml`.
+   the value of `SKIP_LOGIN` to `skfprovider` in `docker-compose.yml`.
 
 6. Location of SKF images
 We also have a list of old OWASP-SKF Docker images available:
