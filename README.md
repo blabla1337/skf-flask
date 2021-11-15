@@ -192,3 +192,4 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Tess Sluijter
 - Xavier Rene-Corail
 - Jacob O'Toole (on behalf of MeVitae)
+- Luca Famà
