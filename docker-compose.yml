@@ -66,7 +66,9 @@ services:
       - SKF_LABS_DOMAIN=http://localhost
       - SKF_LABS_DEPLOY_MODE=port
       - RABBIT_MQ_CONN_STRING=rabbitmq
-      - LABS_KUBE_CONF=~/.kube/config
+      - LABS_KUBE_CONF=YXBpVmVyc2lvbjogdjEKY2x1c3RlcnM6Ci0gY2x1c3RlcjoKICAgIGNlcnRpZmljY_update_me...
+      #- LABS_KUBE_CONF=base64_string_here_of_the_content_of_the .kube/config file_for_example: cat ~/.kube/config | base64      
+      #- GOOGLE_CREDENTIALS=base64_string_here_of_the_content_of_the gsa-key.json file_for_example: cat gsa-key.json | base64
       #- SKF_LABS_DEPLOY_MODE=subdomain
       #- JWT_ENABLED="False"
       #- SKF_DOJO_API_KEY=
