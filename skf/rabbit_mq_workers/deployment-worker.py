@@ -14,8 +14,8 @@ channel = connection.channel()
 channel.queue_declare(queue='deployment_qeue')
 
 labs_domain = os.environ['SKF_LABS_DOMAIN']
-subdomain_deploy = os.environ.get('SKF_LABS_DEPLOY_MODE') == 'subdomain'
-if subdomain_deploy == 'subdomain':
+subdomain_deploy = os.environ['SKF_LABS_DEPLOY_MODE']
+if subdomain_deploy == "subdomain":
     (labs_protocol, labs_domain) = re.compile('(.*:\/\/)?(.*)').match(labs_domain).groups()
     if labs_protocol is None:
         labs_protocol = 'http://'
