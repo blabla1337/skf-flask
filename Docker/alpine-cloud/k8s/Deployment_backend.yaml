@@ -95,9 +95,10 @@ spec:
                 configMapKeyRef:
                   name: skf-flask-back
                   key: SKF_LABS_DEPLOY_MODE
-            - name: GOOGLE_CREDENTIALS
-              valueFrom:
-                configMapKeyRef:
-                  name: skf-flask-back
-                  key: GOOGLE_CREDENTIALS     
+# Enable when using Google GKE
+#            - name: GOOGLE_CREDENTIALS
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: skf-flask-back
+#                  key: GOOGLE_CREDENTIALS     
 ---
