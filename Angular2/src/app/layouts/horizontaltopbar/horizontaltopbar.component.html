@@ -9,11 +9,11 @@
 
       <div class="navbar-brand-box">
         <a href="/" class="logo logo-light"> 
-          <span class="logo-sm">
+          <span id="skf-logo-text-small" class="logo-sm">
             <img src="assets/images/logo.svg" alt="" height="22">
             Security Knowledge Framework
           </span>
-          <span class="logo-lg">
+          <span id="skf-logo-text-large" class="logo-lg">
             <img src="assets/images/logo.svg" alt="" height="50">
             Security Knowledge Framework
           </span>
@@ -78,7 +78,7 @@
             <a class="dropdown-item" (click)='platformUpdate(item.id)'>{{item.name}}</a>
           </div>
           <div class="dropdown-divider"></div>
-          <a *ngIf="priv.includes('manage')" routerLink="/category/manage" class="dropdown-item text-center text-primary">Manage Types</a>
+          <a routerLink="/category/manage" class="dropdown-item text-center text-primary">Manage Types</a>
         </div>
       </div>
 
@@ -108,9 +108,7 @@
         </div>
       </div>
       <div class="dropdown d-inline-block" ngbDropdown>
-        <button *ngIf="!loggedIn()" (click)="onLogin()" type="button"
-          class="btn btn-success mt-3 ml-3 px-3 nav-item">Login</button>
-        <button *ngIf="loggedIn()" (click)="loggedOut()" type="button"
+        <button *ngIf="logoutButton == 'openidprovider'" (click)="loggedOut()" type="button"
           class="btn btn-outline-danger mt-3 ml-3 px-3 nav-item">Logout</button>
       </div>
     </div>
@@ -137,8 +135,7 @@
             </li>
             <li class="nav-item dropdown">
               <a joyrideStep="projectContent" title="Projects" [stepContent]="projectContent" class="nav-link"
-                 routerLink="/projects/manage" id="topnav-components" routerLinkActive="active" role="button"
-                 *ngIf="loggedIn()">
+                 routerLink="/projects/manage" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-card-bulleted mr-2"></i> Manage Projects
               </a>
             </li>
@@ -162,8 +159,7 @@
             </li>
             <li *ngIf="priv.includes('manage')" class="nav-item dropdown">
               <a joyrideStep="userContent" title="Users" [stepContent]="userContent" class="nav-link"
-                 routerLink="/users/manage" id="topnav-components" routerLinkActive="active" role="button"
-                 *ngIf="loggedIn()">
+                 routerLink="/users/manage" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-account-edit mr-2"></i> Users
               </a>
             </li>

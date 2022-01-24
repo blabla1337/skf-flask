@@ -34,9 +34,6 @@ export class LabViewComponent implements OnInit
   public lab_code_example: any = [];
 
   public kubernetes_enabled = environment.KUBERNETES_ENABLED;
-  public loggedinUser: string;
-  public loggedin = false;
-
   public codeDataTest: any = [];
 
   // tslint:disable-next-line: variable-name
@@ -48,7 +45,9 @@ export class LabViewComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.showStatus();
+    if(localStorage.getItem("labs-deployed")){
+      this.showStatus();
+    }
     this.breadCrumbItems = [{ label: 'Labs' }, { label: 'View', active: true }];
     this._fetchData();
     this.labLists = ['SKF-Labs', 'Juice-Shop', 'Other Labs'];
@@ -100,7 +99,10 @@ export class LabViewComponent implements OnInit
   getLabAddress(image_tag, image_id)
   {
     this.spinner.show()
-    this._labService.deployLab(image_id).subscribe(requestData =>
+    this._labService.deployLab(
+      image_id, 
+      Number(localStorage.getItem("user_id"))
+      ).subscribe(requestData =>
     {
       this.spinner.hide();
       this.lab = requestData;
@@ -134,7 +136,10 @@ export class LabViewComponent implements OnInit
   stopLabFromRunning(image_tag, image_id)
   {
     this.spinner.show()
-    this._labService.deleteLab(image_id).subscribe(requestData =>
+    this._labService.deleteLab(
+      image_id,
+      Number(localStorage.getItem("user_id"))
+      ).subscribe(requestData =>
     {
       this.deployments = requestData
       this.spinner.hide();
@@ -157,15 +162,6 @@ export class LabViewComponent implements OnInit
       ]);
     })
   }
-
-
-  loggedIn()
-  {
-    this.loggedinUser = sessionStorage.getItem('Authorization');
-    this.loggedin = true;
-    return this.loggedinUser;
-  }
-
 
   setCategorySelectorLang(categoryCodeLang: String = 'php')
   {

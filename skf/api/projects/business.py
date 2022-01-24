@@ -16,7 +16,7 @@ def get_project_items():
     return Project.query.paginate(1, 2500, False)
 
 
-def new_project(user_id, data):
+def new_project(data):
     log("User created new project", "MEDIUM", "PASS")
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M")

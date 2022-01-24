@@ -22,8 +22,6 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
-            "extractCss": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -32,19 +30,25 @@
               "src/assets/scss/app.scss",
               "src/assets/scss/icons.scss",
               {
-                "input": "src/assets/scss/app.scss",
-                "bundleName": "light-theme",
-                "inject": false
-              },
-              {
                 "input": "src/assets/scss/app-dark.scss",
                 "bundleName": "dark-theme",
-                "inject": false
+                "inject": true
+              },
+              {
+                "input": "src/assets/scss/app.scss",
+                "bundleName": "light-theme",
+                "inject": true
               }
             ],
             "scripts": [
               "src/assets/esheep/esheep.js"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -57,7 +61,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -75,7 +78,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -111,19 +115,6 @@
               "src/assets/scss/highlight.js/scss/monokai-sublime.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {

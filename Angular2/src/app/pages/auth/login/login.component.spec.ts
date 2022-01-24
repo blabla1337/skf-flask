@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick, fakeAsync, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -6,12 +6,8 @@ import { Location } from '@angular/common';
 
 import { LoginComponent } from './login.component';
 import { HomeComponent } from '../../dashboard/home/home.component';
-import { RegisterComponent } from '../register/register.component';
 
-import { AuthService } from '../../../core/services/auth.service';
-import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Router } from '@angular/router';
-import { PagesRoutingModule, routes } from '../../pages-routing.module';
 
 describe('LoginComponent', () =>
 {
@@ -20,14 +16,13 @@ describe('LoginComponent', () =>
   let location: Location;
   let fixture: ComponentFixture<LoginComponent>;
 
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() =>
   {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([
             { path: 'dashboard', component: HomeComponent },
-            { path: 'auth/register', component: RegisterComponent},
           ]),
         ReactiveFormsModule, FormsModule],
       declarations: [LoginComponent],

@@ -15,30 +15,30 @@ export class SearchService
     private http: HttpClient,
   ) { }
 
-  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+  public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 
   searchChecklist(checklistName: string): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/search/checklist/${checklistName}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/search/checklist/${checklistName}`, { headers: this.headers })
   }
 
   searchKb(kbName: string): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/search/kb/${kbName}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/search/kb/${kbName}`, { headers: this.headers })
   }
 
   searchLabs(labName: string): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/search/lab/${labName}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/search/lab/${labName}`, { headers: this.headers })
   }
 
   searchProject(projectName: string): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/search/project/${projectName}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/search/project/${projectName}`, { headers: this.headers })
   }
 
   searchCode(codeName: string): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/search/code/${codeName}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/search/code/${codeName}`, { headers: this.headers })
   }  
 }

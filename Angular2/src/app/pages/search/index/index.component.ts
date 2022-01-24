@@ -42,7 +42,6 @@ export class IndexComponent implements OnInit, AfterViewChecked
     this.getCheck();
     this.search = localStorage.getItem('search');
     this.length = this.results_checklist.length;
-    console.log(this.length);
   }
 
 
@@ -98,7 +97,6 @@ export class IndexComponent implements OnInit, AfterViewChecked
       this._searchService.searchLabs(localStorage.getItem("search")).subscribe(results =>
       {
         this.results_labs = results;
-        console.log(this.results_labs)
         this.spinner.hide();
       });
     }

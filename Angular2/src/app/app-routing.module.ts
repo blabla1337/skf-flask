@@ -9,14 +9,14 @@ import { LoggedInAuthGuard } from './core/guards/loggedinguard.service';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)},
-  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule), canActivate: [LoggedInAuthGuard] },
+  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)},
   { path: 'page-404', component: Page404Component},
   { path: 'page-500', component: Page500Component},
   { path: '**', redirectTo: '/page-404', pathMatch: 'full'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 

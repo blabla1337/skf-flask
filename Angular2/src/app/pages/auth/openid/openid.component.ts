@@ -15,11 +15,6 @@ export class OpenidComponent implements OnInit
 
   ngOnInit(): void
   {
+    window.location.assign("/dashboard");
   }
-
-  onRegister()
-  {
-    this.router.navigate(['/auth/register']);
-  }
-
 }

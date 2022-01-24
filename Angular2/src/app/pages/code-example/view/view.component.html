@@ -69,7 +69,7 @@
                               </div>
                               <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[code.id]">
                                 <pre>
-                                  <code [highlight]="codeExample.content" lineNumbers="True"></code> 
+                                    <!--  <code [highlight]="codeExample.content" lineNumbers="True"></code> --> <p>{{codeExample.content}}</p>
                                </pre>
                                 <!-- <div class="card shadow-none border bg-dark text-light card-body mb-0">
                                   
@@ -80,7 +80,7 @@
                                       <i class="mdi mdi-arrow-left mr-1"></i> Learn More</a>-->
                                   </div> <!-- end col -->
                                   <div class="col-sm-6">
-                                    <div *ngIf="loggedIn()" class="text-sm-right">
+                                    <div class="text-sm-right">
                                       <a [routerLink]="['/code-example/update', code.id]"
                                         class="btn btn-sm btn-success m-1">
                                         <i class="mdi mdi-check mr-1"></i> Update </a>

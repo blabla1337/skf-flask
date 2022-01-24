@@ -1,6 +1,6 @@
 # Run docker-compose up
 # Live long and prosper
-version: '2'
+version: "2"
 services:
   rabbitmq:
     container_name: skf-rabbitmq_container
@@ -11,19 +11,19 @@ services:
     ports:
         - "5672:5672"
         - "15672:15672"
-
+  
   mysql:
     container_name: skf-mysql_container
     image: blabla1337/mysql
     restart: always
     environment:
-      MYSQL_DATABASE: 'skf'
-      MYSQL_ROOT_PASSWORD: 'admin-skf-secret'
-      MYSQL_DEFAULT_PASS: 'admin-skf-secret'
-      MYSQL_DEFAULT_USER: 'root'
+      MYSQL_DATABASE: "skf"
+      MYSQL_ROOT_PASSWORD: "admin-skf-secret"
+      MYSQL_DEFAULT_PASS: "admin-skf-secret"
+      MYSQL_DEFAULT_USER: "root"
     ports:
-      - '3306:3306'
-
+      - "3306:3306"
+  
   nginx:
     container_name: skf-nginx_container
     restart: always
@@ -40,10 +40,51 @@ services:
       - "nginx"
       - "mysql"
     restart: always
-    image: "blabla1337/skf-angular:4.0.2"
+    image: "skf-angular-9"
     environment:
       - FRONTEND_URI=http://localhost
-      - SKIP_LOGIN=skiploginprovider
+      #- AUTH_METHOD=openidprovider
+      #- API_ENDPOINT=
+      #- KUBERNETES_ENABLED=true
+      #- KRAKEND_ENDPOINT=http://localhost:8080
+      #- API_ENDPOINT=http://localhost:8080
+      #- OPENID_ISSUER='http://localhost:8100/auth/realms/krakend'
+      #- OPENID_REDIRECT_URI='http://localhost/auth/openid'
+      #- OPENID_CLIENT_ID='krakend'
+      #- OPENID_RESPONSE_TYPE='code'
+      #- OPENID_USE_SILENT_REFRESH=true
+      #- OPENID_SCOPE='openid profile email'
+
+
+  keycloak:
+    container_name: skf-keycloak_container
+    restart: always
+    image: jboss/keycloak:4.5.0.Final
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_DEFAULT_THEME=custom 
+      - KEYCLOAK_WELCOME_THEME=keycloak 
+      - DB_VENDOR=h2
+    command: ["-Djboss.http.port=8100"]
+      # Uncomment for development purpose
+      # volumes:
+      #   - ${PWD}/keycloak/theme/custom:/opt/jboss/keycloak/themes/custom
+    ports:
+      - 8100:8100
+  
+  krakend:
+    container_name: skf-krakend_container
+    restart: always
+    image: devopsfaith/krakend
+    volumes:
+      - ./krakend/config:/etc/krakend
+    environment:
+      - FC_ENABLE=1
+      - FC_SETTINGS=settings
+      - FC_PARTIALS=partials
+    ports:
+      - "8080:8080"
 
   skf-api:
     container_name: skf-api_container
@@ -54,10 +95,10 @@ services:
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "blabla1337/skf-api:4.0.4"
+    image: "skf-api"
     environment:
       - SKF_FLASK_DEBUG=False
-      - SKF_API_URL=http://localhost/api
+      - SKF_API_URL=skf-api://api
       - SKF_TESTING=False
       - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
       - SKF_JWT_SECRET=please_change_this_value_to_be_random

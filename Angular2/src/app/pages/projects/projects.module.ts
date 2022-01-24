@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { HighlightModule } from 'ngx-highlightjs';
+//import { HighlightModule } from 'ngx-highlightjs';
 
 import { ProjectRoutingModule } from './project-routing.module';
 
@@ -16,7 +16,7 @@ import { ProjectRoutingModule } from './project-routing.module';
     ReactiveFormsModule,
     ArchwizardModule,
     ProjectRoutingModule,
-    HighlightModule
+    //HighlightModule
   ]
 })
 export class ProjectsModule { }

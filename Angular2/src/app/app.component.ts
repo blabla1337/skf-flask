@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { authConfig } from './auth.config';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  constructor(private oauthService: OAuthService) {
+    this.configure();
+  }
+
+  private configure() {
+    this.oauthService.configure(authConfig);
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+  }
+
   ngOnInit() {
     setTimeout(() =>
     {
       localStorage.setItem('session', 'expired');
-      sessionStorage.setItem('Authorization', '');
+      sessionStorage.clear();
       location.replace('/auth/login');
     }, 7100000);
   }

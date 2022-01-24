@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit
 
   ngOnInit(): void
   {
+    if(sessionStorage.getItem('theme') == "light-theme.css"){
+    document.getElementById('skf-logo-text-large').style.color = '#8184B2' ; 
+    document.getElementById('skf-logo-text-small').style.color = '#8184B2' ; 
+    }
   }
 
   tour()

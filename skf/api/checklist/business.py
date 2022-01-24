@@ -1,5 +1,5 @@
 from skf.database import db
-from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_num_special
+from skf.api.security import log
 from skf.database.checklists_kb import ChecklistKB
 from skf.database.checklists_results import ChecklistResult
 from skf.database.checklist_types import ChecklistType

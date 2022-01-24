@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { OpenidComponent } from './openid.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -8,7 +8,7 @@ describe('OpenidComponent', () =>
   let component: OpenidComponent;
   let fixture: ComponentFixture<OpenidComponent>;
 
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() =>
   {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],

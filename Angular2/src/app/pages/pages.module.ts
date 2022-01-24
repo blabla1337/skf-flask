@@ -19,13 +19,12 @@ import { DndModule } from 'ngx-drag-drop';
 import { StringFilterPipe } from '../core/pipes/stringfilter.pipe';
 import { LabelFilterPipe } from '../core/pipes/labelfilter.pipe';
 import { LinksFilterPipe } from '../core/pipes/linksfilter.pipe';
-import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+//import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { JoyrideModule } from 'ngx-joyride';
 import { CoreModule } from '../core/core.module';
 
-import { AuthGuard } from '../core/guards/guard.service';
 import { LoggedInAuthGuard } from '../core/guards/loggedinguard.service';
 
 // Import Components here
@@ -88,12 +87,12 @@ import { Page500Component } from './extra/page500/page500.component';
     UsersModule,
     UIModule,
     DndModule,
-    HighlightModule,
+    //HighlightModule,
     NgSelectModule,
     NgxSpinnerModule,
     JoyrideModule.forChild(),
     CoreModule
   ],
-  providers: [AuthGuard, LoggedInAuthGuard],
+  providers: [LoggedInAuthGuard],
 })
 export class PagesModule { }

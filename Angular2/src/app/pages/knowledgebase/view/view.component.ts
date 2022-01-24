@@ -25,8 +25,6 @@ export class ViewKnowledebaseComponent implements OnInit
   public queryString;
   public delete: string;
   public catSelector: number;
-  public loggedinUser: string;
-  public loggedin = false;
   public priv: string;
 
   constructor(
@@ -65,13 +63,6 @@ export class ViewKnowledebaseComponent implements OnInit
     this._checklistCategoryService
       .getChecklistCategoryCollection()
       .subscribe(data => this.categoryData = data);
-  }
-
-  loggedIn()
-  {
-    this.loggedinUser = sessionStorage.getItem('Authorization');
-    this.loggedin = true;
-    return this.loggedinUser;
   }
 
   deleteModal(deleteDataModal: any)

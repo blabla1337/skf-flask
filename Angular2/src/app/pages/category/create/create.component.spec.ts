@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -9,7 +9,7 @@ describe('CreateCategoryComponent', () =>
   let component: CreateCategoryComponent;
   let fixture: ComponentFixture<CreateCategoryComponent>;
 
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() =>
   {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule],
