@@ -142,6 +142,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
 
 ## <a name="contributors"></a>Contributors
+- [Imanuel Febie](https://github.com/tuffgniuz)
 - [Glenn ten Cate](https://twitter.com/FooBar_testing_)
 - [Riccardo ten Cate](https://twitter.com/RiieCco)
 - Lucas Luitjes
