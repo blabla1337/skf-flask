@@ -8,14 +8,14 @@ from sys import stderr
 creds = pika.PlainCredentials('admin', 'admin-skf-secret')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
     host=settings.RABBIT_MQ_CONN_STRING,
-    credentials=creds
+    credentials=creds,
 ))
 channel = connection.channel()
 channel.queue_declare(queue='deployment_qeue')
 
 labs_domain = os.environ['SKF_LABS_DOMAIN']
 subdomain_deploy = os.environ.get('SKF_LABS_DEPLOY_MODE') == 'subdomain'
-if subdomain_deploy == 'subdomain':
+if subdomain_deploy:
     (labs_protocol, labs_domain) = re.compile('(.*:\/\/)?(.*)').match(labs_domain).groups()
     if labs_protocol is None:
         labs_protocol = 'http://'
@@ -36,7 +36,7 @@ def deploy_container(rpc_body):
         return {'message': 'Failed to deploy, error K8s API create service call!'} 
     time.sleep(15)
     response = get_service_exposed_ip(deployment, user_id)
-    if subdomain_deploy == 'subdomain':
+    if subdomain_deploy:
         hostname = '{}-{}.{}'.format(deployment, user_id, labs_domain)
         networking_v1_beta1_api = client.NetworkingV1beta1Api()
         ingress_err = create_ingress(networking_v1_beta1_api, hostname, deployment, service_port, user_id)
@@ -92,24 +92,21 @@ def create_deployment(deployment, user_id):
         return {'message': 'Failed to deploy, error K8s API create call!'} 
 
 def create_service_for_deployment(deployment, user_id):
-    try:
-        config.load_kube_config()
-        api_instance = client.CoreV1Api()
-        service = client.V1Service()
-        service.api_version = "v1"
-        service.kind = "Service"
-        service.metadata = client.V1ObjectMeta(name=deployment)
-        spec = client.V1ServiceSpec()
-        spec.type = "NodePort"
-        spec.selector = {"app": deployment}
-        # Why a random port?
-        random_port = random.randrange(40000, 60000)
-        spec.ports = [client.V1ServicePort(protocol="TCP", port=random_port, target_port=5000)]
-        service.spec = spec
-        response = api_instance.create_namespaced_service(namespace=user_id, body=service)
-        return response
-    except:
-        return {'message':'Failed to deploy, error K8s API ceate service call!'}
+    config.load_kube_config()
+    api_instance = client.CoreV1Api()
+    service = client.V1Service()
+    service.api_version = "v1"
+    service.kind = "Service"
+    service.metadata = client.V1ObjectMeta(name=deployment)
+    spec = client.V1ServiceSpec()
+    spec.type = "NodePort"
+    spec.selector = {"app": deployment}
+    # Why a random port?
+    random_port = random.randrange(40000, 60000)
+    spec.ports = [client.V1ServicePort(protocol="TCP", port=random_port, target_port=5000)]
+    service.spec = spec
+    response = api_instance.create_namespaced_service(namespace=user_id, body=service)
+    return random_port
 
 def get_service_exposed_ip(deployment, user_id):
     try:

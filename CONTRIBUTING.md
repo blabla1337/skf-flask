@@ -6,7 +6,7 @@
 * [Development-Angular](#development-angular)
 * [Testing](#testing)
 
-Wow you landed on the contribution page how awesome you must be to help out and add value to his project! We thank you very much for this and we really appricate your help. We will reward contributors with recongnision on the contributors list of SKF and for people who add new feutures or fix / report security issues we will give you a free OWASP-SKF t-shirt! If you are really bad ass and you add major improvements then you will receive a hoodie of OWASP-SKF with your name on it!
+Wow you landed on the contribution page how awesome you must be to help out and add value to his project! We thank you very much for this and we really appreciate your help. We will reward contributors with recognition on the contributors list of SKF and for people who add new feutures or fix / report security issues we will give you a free OWASP-SKF t-shirt! If you are really bad ass and you add major improvements then you will receive a hoodie of OWASP-SKF with your name on it!
 
 Below are the 2 different parts of SKF and how you can contribute to it, please always make sure that the quality we try to achieve remains intact. Also when you have questions or want to discuss your implementation / contribution please locate us on Gitter.im chat: [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -15,12 +15,12 @@ Again thank you for your help, you rock!
 ## <a name="development-api"></a>Development SKF-API
 
 1. Fork and clone https://github.com/blabla1337/skf-flask
-2. pip3.6 install -r requirements.txt
+2. pip3 install -r requirements.txt
 3. export FLASK_APP=skf/app.py
 4. export PYTHONPATH=.:$PYTHONPATH
 5. export FLASK_DEBUG=1
 6. export SKF_JWT_SECRET='True'
-7. python3.6 skf/app.py
+7. python3 skf/app.py
 8. Run the manual test first to verify if everything is good
 ``` 
 coverage run tests/run.py test
@@ -30,12 +30,13 @@ coverage run tests/run.py test
 ## <a name="development-angular"></a>Development SKF-ANGULAR
 
 1. Fork and clone https://github.com/blabla1337/skf-flask
-2. cd Angular
+2. cd Angular2
 3. npm install
-4. ng serve --host=0.0.0.0 
-4. OR edit the package.json in Angular folder and remove --env=prod example: "start": "ng serve --host=0.0.0.0"
+4. ng serve --host=0.0.0.0<br/> 
+ OR</br>
+ edit the package.json in Angular folder and remove --env=prod example: "start": "ng serve --host=0.0.0.0"
 5. npm start
-6. Run the manual test in the Angular dir first to verify if everything is good
+6. Run the manual test in the Angular2 dir first to verify if everything is good
 ``` 
 npm test
 ``` 
