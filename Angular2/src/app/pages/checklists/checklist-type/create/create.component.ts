@@ -14,7 +14,6 @@ export class CreateChecklistTypeComponent implements OnInit
   breadCrumbItems: Array<{}>;
   public checklistForm: FormGroup;
   public submit: boolean;
-  public formsubmit: boolean;
 
   constructor(
     private _checklistService: ChecklistService,

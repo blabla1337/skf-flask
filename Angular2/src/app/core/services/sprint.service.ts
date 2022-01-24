@@ -16,50 +16,50 @@ export class SprintService
         private http: HttpClient,
     ) { }
 
-    public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+    public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 
     getSprintsCollection(id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/sprint/stats/${id}`, { headers: this.authHeader })
+        return this.http.get(environment.API_ENDPOINT + `/api/sprint/stats/${id}`, { headers: this.headers })
     }
 
     getSprintChecklistResults(id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/sprint/results/${id}`, { headers: this.authHeader })
+        return this.http.get(environment.API_ENDPOINT + `/api/sprint/results/${id}`, { headers: this.headers })
     }
 
     createSprint(value: any): Observable<Object>
     {
-        return this.http.put(environment.API_ENDPOINT + `/api/sprint/new`, value, { headers: this.authHeader })
+        return this.http.put(environment.API_ENDPOINT + `/api/sprint/new`, value, { headers: this.headers })
     }
 
     deleteSprint(id: number): Observable<Object>
     {
-        return this.http.delete(environment.API_ENDPOINT + `/api/project/delete/${id}`, { headers: this.authHeader })
+        return this.http.delete(environment.API_ENDPOINT + `/api/project/delete/${id}`, { headers: this.headers })
     }
 
     deleteChecklistResultFromSprint(id: number): Observable<Object>
     {
-        return this.http.delete(environment.API_ENDPOINT + `/api/project/delete/${id}`, { headers: this.authHeader })
+        return this.http.delete(environment.API_ENDPOINT + `/api/project/delete/${id}`, { headers: this.headers })
     }
 
     getCompliance(id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/sprint/results/update/${id}`, { headers: this.authHeader })
+        return this.http.get(environment.API_ENDPOINT + `/api/sprint/results/update/${id}`, { headers: this.headers })
     }
 
     updateCompliance(id: number, value: any): Observable<Object>
     {
-        return this.http.put(environment.API_ENDPOINT + `/api/sprint/results/update/${id}`, value, { headers: this.authHeader })
+        return this.http.put(environment.API_ENDPOINT + `/api/sprint/results/update/${id}`, value, { headers: this.headers })
     }
 
     exportCsv(id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/sprint/results/export/${id}`, { headers: this.authHeader })
+        return this.http.get(environment.API_ENDPOINT + `/api/sprint/results/export/${id}`, { headers: this.headers })
     }
 
     deleteControlsFromSprint(id: number): Observable<Object>
     {
-        return this.http.delete(environment.API_ENDPOINT + `/api/sprint/results/delete/${id}`, { headers: this.authHeader })
+        return this.http.delete(environment.API_ENDPOINT + `/api/sprint/results/delete/${id}`, { headers: this.headers })
     }
 }

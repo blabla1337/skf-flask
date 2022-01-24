@@ -22,9 +22,7 @@ export class ViewComponent implements OnInit
   public delete: string;
   public catSelector: number;
   public categoryData: any = [];
-  public loggedinUser: string;
-  public loggedin = false;
-  public priv: string;
+  public priv: string = "manage"
 
   constructor(
     private modalService: NgbModal,
@@ -37,7 +35,7 @@ export class ViewComponent implements OnInit
 
   ngOnInit()
   {
-    this.priv = AppSettings.USER_PRIV;
+    this.priv = "manage"
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'View', active: true }];
     this.catSelector = Number(localStorage.getItem('categorySelector'));
     this._fetchData();
@@ -59,13 +57,6 @@ export class ViewComponent implements OnInit
     this._checklistCategoryService
       .getChecklistCategoryCollection()
       .subscribe(data => this.categoryData = data);
-  }
-
-  loggedIn()
-  {
-    this.loggedinUser = sessionStorage.getItem('Authorization');
-    this.loggedin = true;
-    return this.loggedinUser;
   }
 
   // tslint:disable-next-line: ban-types

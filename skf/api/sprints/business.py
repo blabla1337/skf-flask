@@ -58,16 +58,7 @@ def new_sprint(data):
 
 def stats_sprint(project_id):
     log("User requested specific project sprint stats", "MEDIUM", "PASS")
-    sprint_info = ProjectSprint.query.filter(ProjectSprint.project_id == project_id).all()
-    sprint = []
-    for result in sprint_info:
-        sprint_id = result.sprint_id
-        sprint_desc = result.description
-        sprint_name = result.name
-        total = ChecklistResult.query.filter(ChecklistResult.sprint_id == sprint_id).count()
-        sprint.append({'sprint_id': sprint_id, 'sprint_desc': sprint_desc, 'title': sprint_name, 'sprint_items_total': total })
-    return sprint
-
+    return ProjectSprint.query.filter(ProjectSprint.project_id == project_id).paginate(1, 2500, False)
 
 def delete_sprint(sprint_id):
     log("User deleted sprint", "MEDIUM", "PASS")

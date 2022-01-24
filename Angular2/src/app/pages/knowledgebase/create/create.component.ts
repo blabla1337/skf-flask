@@ -15,7 +15,6 @@ export class CreateComponent implements OnInit
   public knowledgebaseForm: FormGroup;
 
   public submit: boolean;
-  public formsubmit: boolean;
 
   constructor(
     private formBuilder: FormBuilder,

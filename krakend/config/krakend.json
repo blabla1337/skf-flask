@@ -1,0 +1,1059 @@
+{
+  "version": 2,
+  "extra_config": {
+    "github_com/devopsfaith/krakend-cors": {
+      "allow_origins": [ "*" ],
+      "allow_methods": [ "POST", "GET", "PUT", "DELETE" ],
+      "allow_headers": [
+        "Origin",
+        "Authorization",
+        "Content-Type",
+        "Accept",
+        "X-Auth-Token"
+      ],
+      "expose_headers": [ "Content-Length" ],
+      "max_age": "12h"
+    }
+  },
+  "timeout": "3s",
+  "host":["{{ .service.host }}"],
+  "endpoints":[
+  {
+    "endpoint": "/api/interactive_labs/delete-deployments/{instance_id}",
+    "method": "POST",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "POST",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/interactive_labs/delete-deployments/{instance_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/interactive_labs/deployments/{instance_id}",
+    "method": "POST",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "POST",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/interactive_labs/deployments/{instance_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/interactive_labs/items",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/interactive_labs/items"
+        }
+    ]
+  },{
+    "endpoint": "/api/project/delete/{id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/project/delete/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/project/item/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/project/item/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/project/items",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/project/items"
+        }
+    ]
+  },{
+    "endpoint": "/api/project/new",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/project/new"
+        }
+    ]
+  },{
+    "endpoint": "/api/project/update/{project_id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/project/update/{project_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/delete/{id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/delete/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/new",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/new"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/results/delete/{checklist_result_id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/results/delete/{checklist_result_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/results/export/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/results/export/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/results/export_external/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/results/export_external/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/results/update/{checklist_result_id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/results/update/{checklist_result_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/results/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/results/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/update/{id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/update/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/stats/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/stats/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/sprint/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/sprint/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist/delete/item/{id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist/delete/item/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist/item/gitplugin/{checklist_type}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist/item/gitplugin/{checklist_type}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist/item/question_sprint/{question_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist/item/question_sprint/{question_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist/item/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist/item/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist/items/{checklist_type}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist/items/{checklist_type}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist/new/item/type/{checklist_type}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist/new/item/type/{checklist_type}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist/update/item/correlation/{id}/question/{question_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist/update/item/correlation/{id}/question/{question_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist/update/item/{id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist/update/item/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_types/by_maturity/{maturity}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_types/by_maturity/{maturity}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_types/create/{category_id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_types/create/{category_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_types/delete/{id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_types/delete/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_types/type/{checklist_type_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_types/type/{checklist_type_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_types/types/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_types/types/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_types/update/{id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_types/update/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_category/delete/{id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_category/delete/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_category/items",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_category/items"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_category/new",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_category/new"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_category/update/{id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_category/update/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/checklist_category/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/checklist_category/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/code/delete/{id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/code/delete/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/code/items/requirements/new/{checklist_kb_id}/{code_id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/code/items/requirements/new/{checklist_kb_id}/{code_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/code/items/requirements/{checklist_kb_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/code/items/requirements/{checklist_kb_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/code/items/requirements/{checklist_kb_id}/{code_id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/code/items/requirements/{checklist_kb_id}/{code_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/code/items/{category_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/code/items/{category_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/code/new/{category_id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/code/new/{category_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/code/update/{id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/code/update/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/code/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/code/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/kb/delete/{id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/kb/delete/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/kb/items/{category_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/kb/items/{category_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/kb/new/{category_id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/kb/new/{category_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/kb/update/{kb_id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/kb/update/{kb_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/kb/{id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/kb/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/questions/item/delete/{id}",
+    "method": "DELETE",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "DELETE",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/questions/item/delete/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/questions/item/new",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/questions/item/new"
+        }
+    ]
+  },{
+    "endpoint": "/api/questions/item/update/{id}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/questions/item/update/{id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/questions/item/{question_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/questions/item/{question_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/questions/items/{checklist_type}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/questions/items/{checklist_type}"
+        }
+    ]
+  },{
+    "endpoint": "/api/questions/store/{checklist_type}/{maturity}",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/questions/store/{checklist_type}/{maturity}"
+        }
+    ]
+  },{
+    "endpoint": "/api/search/checklist/{search_string}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/search/checklist/{search_string}"
+        }
+    ]
+  },{
+    "endpoint": "/api/search/code/{search_string}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/search/code/{search_string}"
+        }
+    ]
+  },{
+    "endpoint": "/api/search/kb/{search_string}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/search/kb/{search_string}"
+        }
+    ]
+  },{
+    "endpoint": "/api/search/lab/{search_string}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/search/lab/{search_string}"
+        }
+    ]
+  },{
+    "endpoint": "/api/search/project/{search_string}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/search/project/{search_string}"
+        }
+    ]
+  }]
+}

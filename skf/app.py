@@ -27,8 +27,8 @@ from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_ini
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.labs.endpoints.lab_deployments import ns as lab_namespace
 from skf.api.labs.endpoints.lab_delete import ns as lab_namespace
-from skf.api.labs_code.endpoints.lab_code_random_item import ns as lab_code_namespace
-from skf.api.labs_code.endpoints.lab_code_verify_answer import ns as lab_code_namespace
+#from skf.api.labs_code.endpoints.lab_code_random_item import ns as lab_code_namespace
+#from skf.api.labs_code.endpoints.lab_code_verify import ns as lab_code_namespace
 from skf.api.projects.endpoints.project_items import ns as project_namespace
 from skf.api.projects.endpoints.project_delete import ns as project_namespace
 from skf.api.projects.endpoints.project_new import ns as project_namespace
@@ -73,13 +73,6 @@ from skf.api.code.endpoints.code_item_update import ns as code_namespace
 from skf.api.code.endpoints.checklist_kb_code_items_delete import ns as code_namespace
 from skf.api.code.endpoints.checklist_kb_code_items_new import ns as code_namespace
 from skf.api.code.endpoints.checklist_kb_code_items import ns as code_namespace
-from skf.api.user.endpoints.user_create import ns as users_namespace
-from skf.api.user.endpoints.user_activate import ns as users_namespace
-from skf.api.user.endpoints.user_login import ns as users_namespace
-from skf.api.user.endpoints.user_login_skip import ns as users_namespace
-from skf.api.user.endpoints.user_list import ns as users_namespace
-from skf.api.user.endpoints.user_manage import ns as users_namespace
-from skf.api.user.endpoints.user_listprivileges import ns as users_namespace
 from skf.api.kb.endpoints.kb_items import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
@@ -142,10 +135,9 @@ def initialize_app(flask_app):
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
     api.add_namespace(lab_namespace)
-    api.add_namespace(lab_code_namespace)
+    #api.add_namespace(lab_code_namespace)
     api.add_namespace(kb_namespace)
     api.add_namespace(code_namespace)
-    api.add_namespace(users_namespace)
     api.add_namespace(project_namespace)
     api.add_namespace(sprints_namespace)
     api.add_namespace(checklist_namespace)

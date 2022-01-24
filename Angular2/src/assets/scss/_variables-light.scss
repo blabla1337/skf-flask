@@ -69,6 +69,13 @@ $font-weight-semibold: 600;
 // apex charts
 $apex-grid-color: #f8f9fa;
 
+
+// Footer
+$footer-height: 60px;
+$footer-bg: #f2f2f5 !important;
+$footer-color: #74788d;
+
+
 // Chart color
 $chart-text-color: #343a40;
 
@@ -236,6 +243,10 @@ $sizes: map-merge(
   ),
   $sizes
 );
+
+#page-topbar {
+  background-color: white !important;
+}
 
 
 // Body

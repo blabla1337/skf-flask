@@ -16,31 +16,31 @@ export class ProjectService
         private http: HttpClient,
     ) { }
 
-    public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+    public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 
     getProjectsCollection(): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/project/items`, { headers: this.authHeader })
+        return this.http.get(environment.API_ENDPOINT + `/api/project/items`, { headers: this.headers })
     }
 
     getProjectItem(id: number): Observable<Object>
     {
-        return this.http.get(environment.API_ENDPOINT + `/api/project/item/${id}`, { headers: this.authHeader })
+        return this.http.get(environment.API_ENDPOINT + `/api/project/item/${id}`, { headers: this.headers })
     }
 
     createProject(value: any): Observable<Object>
     {
-        return this.http.put(environment.API_ENDPOINT + `/api/project/new`, value, { headers: this.authHeader })
+        return this.http.put(environment.API_ENDPOINT + `/api/project/new`, value, { headers: this.headers })
     }
 
     updateProject(id: number, value: any): Observable<Object>
     {
-        return this.http.put(environment.API_ENDPOINT + `/api/project/update/${id}`, value, { headers: this.authHeader })
+        return this.http.put(environment.API_ENDPOINT + `/api/project/update/${id}`, value, { headers: this.headers })
     }
 
     deleteProject(id: number): Observable<Object>
     {
-        return this.http.delete(environment.API_ENDPOINT + `/api/project/delete/${id}`, { headers: this.authHeader })
+        return this.http.delete(environment.API_ENDPOINT + `/api/project/delete/${id}`, { headers: this.headers })
     }
 
 }

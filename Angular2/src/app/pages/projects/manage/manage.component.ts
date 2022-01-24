@@ -20,8 +20,6 @@ export class ProjectManageComponent implements OnInit
   public delete: string;
   public queryString;
   public projectData: any = [];
-  public loggedinUser: string;
-  public loggedin = false;
   public priv: string;
 
   constructor(
@@ -69,12 +67,5 @@ export class ProjectManageComponent implements OnInit
   onSubmit()
   {
     this.router.navigate(['/projects/manage']);
-  }
-
-  loggedIn()
-  {
-    this.loggedinUser = sessionStorage.getItem('Authorization');
-    this.loggedin = true;
-    return this.loggedinUser;
   }
 }

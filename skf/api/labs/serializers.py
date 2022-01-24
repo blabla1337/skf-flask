@@ -15,12 +15,18 @@ lab_items = api.inherit('List of lab items', {
     'items': fields.List(fields.Nested(labs))
 })
 
+lab_user_id = api.model('lab_user_id', {
+    'user_id': fields.Integer(readOnly=True, description='The user id for running the labs'),
+  })
+
 labs_code = api.model('labs', {
     'id': fields.Integer(readOnly=True, description='The unique identifier of a code Lab'),
     'code_example': fields.String(required=True, description='Code lab example to be validated'),
     'solution': fields.Integer(required=True, description='The correct solution based on integer'),
     'code_type': fields.String(required=True, description='The coding type for example, php, asp, java'),
 })
+
+
 
 lab_items_code = api.inherit('List of code lab items', {
     'items': fields.List(fields.Nested(labs_code))

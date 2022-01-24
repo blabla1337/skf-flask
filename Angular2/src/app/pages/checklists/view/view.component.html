@@ -39,7 +39,7 @@
                       <div *ngFor="let item of checklistData.items | stringfilter:queryString; let i = index"
                         class="col-xl-12 mb-3 d-flex card border shadow-sm">
                         <div class="card-body pb-0">
-                          <div *ngIf="loggedIn()" class="float-right">
+                          <div class="float-right">
                             <div *ngIf="priv.includes('manage')" class="dropdown float-right" ngbDropdown placement="bottom-right">
                               <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
                                 ngbDropdownToggle aria-expanded="false">

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HighlightModule } from 'ngx-highlightjs';
+//import { HighlightModule } from 'ngx-highlightjs';
 
 import { CodeExampleRoutingModule } from './code-example-routing.module';
 
@@ -10,7 +10,7 @@ import { CodeExampleRoutingModule } from './code-example-routing.module';
   imports: [
     CommonModule,
     CodeExampleRoutingModule,
-    HighlightModule
+    //HighlightModule
   ]
 })
 export class CodeExampleModule { }

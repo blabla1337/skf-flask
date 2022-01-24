@@ -5,8 +5,10 @@ import { ThemeService } from '../../core/services/theme.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppSettings } from '../../global';
 import { DOCUMENT } from '@angular/common';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 import { ChecklistCategoryService } from '../../core/services/checklist_category.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-horizontaltopbar',
@@ -24,8 +26,6 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   public element;
   public configData;
   public theme: string;
-  public loggedinUser: string;
-  public loggedin = false;
   public dark = false;
   public light = true;
   public menuItems = [];
@@ -34,7 +34,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   public themeName: string;
   public search: string;
   public searchForm: FormGroup;
-  public priv: string = "";
+  public priv: string = ""
+  public logoutButton = environment.AUTH_METHOD;
   
   // tslint:disable-next-line: max-line-length
   constructor(
@@ -45,20 +46,28 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     private readonly joyride: JoyrideService,
     private themeService: ThemeService,
     private formBuilder: FormBuilder,
+    private oauthService: OAuthService,
   ) {}
 
   
 
   ngOnInit(): void
   {
-    if(sessionStorage.getItem('Authorization') == null || sessionStorage.getItem('Authorization') == ""){
-      this.router.navigate(['/auth/login']);
+
+    let token = sessionStorage.getItem("access_token")
+    
+    if(token == ""){
+      sessionStorage.setItem("privilege", "manage")
     }
-    if(AppSettings.USER_PRIV != null){
-      this.priv = AppSettings.USER_PRIV;
-    }else{
-      this.priv = "";
-    }
+
+    if(environment.AUTH_METHOD == "openidprovider"){
+      let decoded = atob(token.split('.')[1])
+      if(decoded.match("admin")){
+        sessionStorage.setItem("privilege", "manage")
+      }
+    } 
+    this.router.navigate(['/dashboard']);
+    
     this.element = document.documentElement;
 
     this.searchForm = this.formBuilder.group({
@@ -103,6 +112,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toDark(theme: string)
   {
+    document.getElementById('skf-logo-text-large').style.color = 'white' ; 
+    document.getElementById('skf-logo-text-small').style.color = 'white' ; 
     this.themeService.editTheme(theme);
     this.dark = true;
     this.light = false;
@@ -115,6 +126,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
    */
   toLight(theme: string)
   {
+    document.getElementById('skf-logo-text-large').style.color = '#8184B2' ; 
+    document.getElementById('skf-logo-text-small').style.color = '#8184B2' ; 
     this.themeService.editTheme(theme);
     this.light = true;
     this.dark = false;
@@ -275,22 +288,14 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     this.router.navigate(['/auth/login']);
   }
 
-  loggedIn()
-  {
-    this.loggedinUser = sessionStorage.getItem('Authorization');
-    this.loggedin = true;
-    return this.loggedinUser;
-  }
-
   loggedOut()
   {
-    sessionStorage.removeItem('Authorization');
+    this.oauthService.revokeTokenAndLogout();
     this.router.navigate(['/auth/login']);
   }
 
   onChange() {
     localStorage.setItem('search',this.searchForm.value.search)
-    console.log(this.searchForm.value.search);
     this.router.navigate(['/search/index']);
   }
 

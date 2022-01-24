@@ -17,7 +17,7 @@ export class CreateCodeComponent implements OnInit
   public codeExampleItem: any = [];
   public isSubmitted: boolean;
 
-  get formControls() { return this.codeExampleForm.controls; }
+  //get formControls() { return this.codeExampleForm.controls; }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,8 +42,9 @@ export class CreateCodeComponent implements OnInit
     if (this.codeExampleForm.invalid) {
       return;
     }
-    this._codeExamplesService.createCodeExample(this.codeExampleForm.value).subscribe();
-    this.router.navigate(['/code-example/view']);
+    this._codeExamplesService.createCodeExample(this.codeExampleForm.value).subscribe(
+      () => this.router.navigate(['/code-example/view']));
+
   }
 
   /**

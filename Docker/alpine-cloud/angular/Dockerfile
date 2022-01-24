@@ -4,20 +4,20 @@
 # TO-DO Fix Angular versions and npm modules and so we an use the builder image step again :(
 
 # base image
-#FROM node:15-alpine AS builder
+FROM node:15-alpine AS builder
 
 #LABEL maintainer="glenn.ten.cate@owasp.org"
 
-#WORKDIR /home/user_angular/Angular2
+WORKDIR /home/user_angular/Angular2
 
-#COPY ./Angular2 ./
-#COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
+COPY ./Angular2 ./
+COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
 
-#RUN node -v
+RUN node -v
 
 # Optimize vendor.bundle.js
-#RUN npm --loglevel=error install &&\
-#    npm run build --prod --loglevel=error
+RUN npm --loglevel=error install
+RUN npm run build --prod --loglevel=error
 
 ############
 ### run ###

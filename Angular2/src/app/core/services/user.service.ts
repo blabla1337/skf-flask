@@ -14,31 +14,31 @@ export class UserService
     private http: HttpClient,
   ) { }
 
-  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+  public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 
   activateUser(value: any, user_id: number): Observable<Object>
   {
-    return this.http.put(environment.API_ENDPOINT + `/api/user/activate/${user_id}`, value, { headers: this.authHeader })
+    return this.http.put(environment.API_ENDPOINT + `/api/user/activate/${user_id}`, value, { headers: this.headers })
   }
 
   createUser(value: any): Observable<Object>
   {
-    return this.http.put(environment.API_ENDPOINT + `/api/user/create`, value, { headers: this.authHeader })
+    return this.http.put(environment.API_ENDPOINT + `/api/user/create`, value, { headers: this.headers })
   }
 
   getUsers(): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/user/list`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/user/list`, { headers: this.headers })
   }
 
   accessUser(value: any, user_id: number): Observable<Object>
   {
-    return this.http.put(environment.API_ENDPOINT + `/api/user/manage/${user_id}`, value, { headers: this.authHeader })
+    return this.http.put(environment.API_ENDPOINT + `/api/user/manage/${user_id}`, value, { headers: this.headers })
   }
 
   getPrivileges()
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/user/list_privileges`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/user/list_privileges`, { headers: this.headers })
   }
 
 }

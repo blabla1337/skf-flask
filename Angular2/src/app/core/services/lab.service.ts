@@ -15,32 +15,36 @@ export class LabService
     private http: HttpClient,
   ) { }
 
-  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+  public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 
   getLabs(): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
+    return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items', { headers: this.headers })
   }
 
-  deployLab(image_id: number): Observable<Object>
+  deployLab(image_id: number, user_id: number): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_id}`, { headers: this.authHeader })
+    return this.http.post(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_id}`
+    , user_id
+    , { headers: this.headers })
   }
 
-  deleteLab(image_id: number): Observable<Object>
+  deleteLab(image_id: number, user_id: number): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_id}`, { headers: this.authHeader })
+    return this.http.post(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_id}`
+    , user_id
+    , { headers: this.headers })
   }
 
   getCodeLabs(code_type: string): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/code_review_labs/challenge/${code_type}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/code_review_labs/challenge/${code_type}`, { headers: this.headers })
   }
 
 
   solveCodeReviewChallenge(code_id: number, solution_id: number): Observable<Object>
   {
-    return this.http.get(environment.API_ENDPOINT + `/api/code_review_labs/solve_challenge/${code_id}/solution/${solution_id}`, { headers: this.authHeader })
+    return this.http.get(environment.API_ENDPOINT + `/api/code_review_labs/solve_challenge/${code_id}/solution/${solution_id}`, { headers: this.headers })
   }
 
 }

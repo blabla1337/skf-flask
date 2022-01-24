@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for skf/db_tools.py: 85%</title>
+    <title>Coverage for skf/db_tools.py: 79%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -18,13 +18,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>skf/db_tools.py</b> :
-            <span class="pc_cov">85%</span>
+            <span class="pc_cov">79%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             151 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">129 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">22 missing</button>
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">120 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">31 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -83,17 +83,17 @@
     <p id="t29" class="pln"><span class="n"><a href="#t29">29</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t30" class="run"><span class="n"><a href="#t30">30</a></span><span class="t"><span class="key">def</span> <span class="nam">init_db</span><span class="op">(</span><span class="nam">testing</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t31" class="pln"><span class="n"><a href="#t31">31</a></span><span class="t">    <span class="str">"""Initializes the database."""</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t32" class="run"><span class="n"><a href="#t32">32</a></span><span class="t">    <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t33" class="run"><span class="n"><a href="#t33">33</a></span><span class="t">        <span class="nam">log</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Initializing the database"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t34" class="run"><span class="n"><a href="#t34">34</a></span><span class="t">        <span class="nam">db</span><span class="op">.</span><span class="nam">create_all</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t35" class="run"><span class="n"><a href="#t35">35</a></span><span class="t">        <span class="nam">prerequisits</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t32" class="mis show_mis"><span class="n"><a href="#t32">32</a></span><span class="t">    <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t33" class="mis show_mis"><span class="n"><a href="#t33">33</a></span><span class="t">        <span class="nam">log</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Initializing the database"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t34" class="mis show_mis"><span class="n"><a href="#t34">34</a></span><span class="t">        <span class="nam">db</span><span class="op">.</span><span class="nam">create_all</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t35" class="mis show_mis"><span class="n"><a href="#t35">35</a></span><span class="t">        <span class="nam">prerequisits</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t36" class="mis show_mis"><span class="n"><a href="#t36">36</a></span><span class="t">        <span class="nam">init_md_code_examples</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t37" class="mis show_mis"><span class="n"><a href="#t37">37</a></span><span class="t">        <span class="nam">init_md_testing_examples</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t38" class="mis show_mis"><span class="n"><a href="#t38">38</a></span><span class="t">        <span class="nam">init_md_knowledge_base</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t39" class="mis show_mis"><span class="n"><a href="#t39">39</a></span><span class="t">        <span class="nam">load_initial_data</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t40" class="run"><span class="n"><a href="#t40">40</a></span><span class="t">    <span class="key">except</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t41" class="run"><span class="n"><a href="#t41">41</a></span><span class="t">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">remove</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t42" class="run"><span class="n"><a href="#t42">42</a></span><span class="t">        <span class="nam">log</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Database is already existsing, nothing to do"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t40" class="mis show_mis"><span class="n"><a href="#t40">40</a></span><span class="t">    <span class="key">except</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t41" class="mis show_mis"><span class="n"><a href="#t41">41</a></span><span class="t">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">remove</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t42" class="mis show_mis"><span class="n"><a href="#t42">42</a></span><span class="t">        <span class="nam">log</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Database is already existsing, nothing to do"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t43" class="pln"><span class="n"><a href="#t43">43</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t44" class="pln"><span class="n"><a href="#t44">44</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t45" class="run"><span class="n"><a href="#t45">45</a></span><span class="t"><span class="key">def</span> <span class="nam">clean_db</span><span class="op">(</span><span class="nam">testing</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -136,7 +136,7 @@
     <p id="t82" class="run"><span class="n"><a href="#t82">82</a></span><span class="t">                    <span class="nam">data</span> <span class="op">=</span> <span class="nam">open</span><span class="op">(</span><span class="nam">file</span><span class="op">,</span> <span class="str">'r'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t83" class="run"><span class="n"><a href="#t83">83</a></span><span class="t">                    <span class="nam">file_content</span> <span class="op">=</span> <span class="nam">data</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t84" class="run"><span class="n"><a href="#t84">84</a></span><span class="t">                    <span class="nam">data</span><span class="op">.</span><span class="nam">close</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t85" class="run"><span class="n"><a href="#t85">85</a></span><span class="t">                    <span class="nam">content</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">translate</span><span class="op">(</span><span class="nam">str</span><span class="op">.</span><span class="nam">maketrans</span><span class="op">(</span><span class="op">{</span><span class="str">"'"</span><span class="op">:</span>  <span class="str">r"''"</span><span class="op">,</span> <span class="str">"-"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">,</span> <span class="str">"#"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">}</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t85" class="run"><span class="n"><a href="#t85">85</a></span><span class="t">                    <span class="nam">content</span> <span class="op">=</span> <span class="nam">file_content</span><span class="op">.</span><span class="nam">translate</span><span class="op">(</span><span class="nam">str</span><span class="op">.</span><span class="nam">maketrans</span><span class="op">(</span><span class="op">{</span><span class="str">"'"</span><span class="op">:</span>  <span class="str">r"''"</span><span class="op">,</span> <span class="str">"#"</span><span class="op">:</span>  <span class="str">r""</span><span class="op">}</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t86" class="run"><span class="n"><a href="#t86">86</a></span><span class="t">                    <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t87" class="run"><span class="n"><a href="#t87">87</a></span><span class="t">                        <span class="nam">item</span> <span class="op">=</span> <span class="nam">KBItem</span><span class="op">(</span><span class="nam">title</span><span class="op">,</span> <span class="nam">content</span><span class="op">,</span> <span class="nam">kb_id</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t88" class="run"><span class="n"><a href="#t88">88</a></span><span class="t">                        <span class="nam">item</span><span class="op">.</span><span class="nam">checklist_category_id</span> <span class="op">=</span> <span class="nam">checklist_category_id</span>&nbsp;</span><span class="r"></span></p>
@@ -223,14 +223,14 @@
     <p id="t169" class="run"><span class="n"><a href="#t169">169</a></span><span class="t">        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t170" class="run"><span class="n"><a href="#t170">170</a></span><span class="t">        <span class="nam">log</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Initialized the prerequisits."</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t171" class="run"><span class="n"><a href="#t171">171</a></span><span class="t">        <span class="key">return</span> <span class="key">True</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t172" class="run"><span class="n"><a href="#t172">172</a></span><span class="t">    <span class="key">except</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t173" class="run"><span class="n"><a href="#t173">173</a></span><span class="t">        <span class="key">raise</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t172" class="mis show_mis"><span class="n"><a href="#t172">172</a></span><span class="t">    <span class="key">except</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t173" class="mis show_mis"><span class="n"><a href="#t173">173</a></span><span class="t">        <span class="key">raise</span>&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-03-26 13:45 +0100
+            created at 2021-10-12 12:16 +0200
         </p>
     </div>
 </div>

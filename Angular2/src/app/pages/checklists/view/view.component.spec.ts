@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NgbNavModule } from "@ng-bootstrap/ng-bootstrap";
 
@@ -10,7 +10,7 @@ describe('ViewComponent', () =>
   let component: ViewComponent;
   let fixture: ComponentFixture<ViewComponent>;
 
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() =>
   {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, NgbNavModule],
