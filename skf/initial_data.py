@@ -11785,159 +11785,196 @@ def load_initial_data():
         db.session.add(lab_code_sol)
         db.session.commit()  
 
+
         '''
         SKF Labs
         '''
 
-        db.session.add(LabItem('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-1-filename-injection', 1, 'lfi', 'SKF-labs', None))
+        db.session.add(LabItem('Path traversal (LFI)','https://owasp-skf.gitbook.io/asvs-write-ups/local-file-inclusion-1-lfi-1', 1, 'lfi', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting', 1, 'xss', 'SKF-labs', None))
+        db.session.add(LabItem('Cross Site Scripting','https://owasp-skf.gitbook.io/asvs-write-ups/cross-site-scripting-xss', 1, 'xss', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-attribute', 1, 'xss-attribute', 'SKF-labs', None))
+        db.session.add(LabItem('Cross site scripting (attribute)','https://owasp-skf.gitbook.io/asvs-write-ups/cross-site-scripting-attribute-xss-attribute', 1, 'xss-attribute', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Cross site scripting (href)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-3-cross-site-scripting-href', 1, 'xss-url', 'SKF-labs', None))
+        db.session.add(LabItem('Cross site scripting (href)','https://owasp-skf.gitbook.io/asvs-write-ups/cross-site-scripting-href-xss-href', 1, 'xss-url', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('XSSI','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-include-files-from-untrusted-sources-js', 2, 'untrusted-sources-js', 'SKF-labs', None))
+        db.session.add(LabItem('XSSI','https://owasp-skf.gitbook.io/asvs-write-ups/untrusted-sources-xssi', 2, 'untrusted-sources-js', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf', 3, 'csrf', 'SKF-labs', None))
+        db.session.add(LabItem('Cross site request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/csrf', 3, 'csrf', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-5-csrf-samesite', 3, 'csrf-samesite', 'SKF-labs', None))
+        db.session.add(LabItem('Cross site request forgery (same site)','https://owasp-skf.gitbook.io/asvs-write-ups/csrf-samesite', 3, 'csrf-samesite', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-6-xxe', 2, 'xxe', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-13-file-upload', 1, 'file-upload', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-20-clickjacking', 1, 'x-allow-origin', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-29-ratelimiting', 1, 'ratelimiting', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-39-httponly-session-hijacking-xss', 3, 'session-hijacking-xss', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Missing authorization','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-44-authorisation-missing', 2, 'auth-missing', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Exposed Docker daemon','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-45-exposed-docker', 3, 'none', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-46-sqli-union-select', 2, 'sqli', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Open redirect (hard)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-67-open-redirect-hard', 3, 'url-redirection-harder', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-112-cors-exploitation', 3, 'cors', 'SKF-labs', None))
+        db.session.add(LabItem('Cross site request forgery weak','https://owasp-skf.gitbook.io/asvs-write-ups/csrf-weak', 2, 'csrf-weak', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Formulla injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-95-formula-injection', 1, 'formula-injection', 'SKF-labs', None))
+        db.session.add(LabItem('External entity attack','https://owasp-skf.gitbook.io/asvs-write-ups/xml-external-entity-xxe', 2, 'xxe', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-147-parameter-binding', 1, 'parameter-binding', 'SKF-labs', None))
+        db.session.add(LabItem('Insecure file upload','https://owasp-skf.gitbook.io/asvs-write-ups/file-upload', 1, 'file-upload', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-like', 2, 'sqli-like', 'SKF-labs', None))
+        db.session.add(LabItem('Clickjacking','https://owasp-skf.gitbook.io/asvs-write-ups/clickjacking', 1, 'clickjacking', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-156-sqli-blind', 3, 'sqli-blind', 'SKF-labs', None))
+        db.session.add(LabItem('Rate-limiting','https://owasp-skf.gitbook.io/asvs-write-ups/ratelimiting-brute-force-login', 1, 'ratelimiting', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('HttpOnly (session hijacking)','https://owasp-skf.gitbook.io/asvs-write-ups/httponly-session-hijacking-xss', 3, 'session-hijacking-xss', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('SQLI (union select)','https://owasp-skf.gitbook.io/asvs-write-ups/sqli-union', 2, 'sqli', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Open redirect','https://owasp-skf.gitbook.io/asvs-write-ups/url-redirection', 1, 'url-redirection', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Open redirect ( harder )','https://owasp-skf.gitbook.io/asvs-write-ups/url-redirection-harder', 2, 'url-redirection-harder', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Open redirect ( hard )','https://owasp-skf.gitbook.io/asvs-write-ups/url-redirection-harder-2', 3, 'url-redirection-harder2', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('CORS exploitation','https://owasp-skf.gitbook.io/asvs-write-ups/cors-exploitation', 3, 'cors', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Formulla injection','https://owasp-skf.gitbook.io/asvs-write-ups/formula-injection', 1, 'formula-injection', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Mass assingment attack','https://owasp-skf.gitbook.io/asvs-write-ups/parameter-binding', 1, 'parameter-binding', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('SQLI -like','https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like', 2, 'sqli-like', 'SKF-labs', None))
+        db.session.commit()
+        
+        db.session.add(LabItem('SQLI-blind','https://owasp-skf.gitbook.io/asvs-write-ups/sqli-blind', 3, 'sqli-blind', 'SKF-labs', None))
         db.session.commit()
                 
-        db.session.add(LabItem('Remote file inclusion 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-remote-file-inclusion', 1, 'rfi', 'SKF-labs', None))
+        db.session.add(LabItem('Remote file inclusion','https://owasp-skf.gitbook.io/asvs-write-ups/remote-file-inclusion-rfi', 1, 'rfi', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Remote file inclusion 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-2', 1, 'lfi-2', 'SKF-labs', None))
+        db.session.add(LabItem('Local file inclusion ( harder )','https://owasp-skf.gitbook.io/asvs-write-ups/local-file-inclusion-2-lfi-2', 1, 'lfi-2', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Remote file inclusion 3','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-173-lfi-3', 1, 'lfi-3', 'SKF-labs', None))
+        db.session.add(LabItem('Local file inclusion ( hard )','https://owasp-skf.gitbook.io/asvs-write-ups/local-file-inclusion-3-lfi-3', 1, 'lfi-3', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-178-content-security-policy', 1, 'csp', 'SKF-labs', None))
+        db.session.add(LabItem('Content security policiy','https://owasp-skf.gitbook.io/asvs-write-ups/content-security-policy-csp', 1, 'csp', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-262-server-side-request-forgery', 3, 'ssrf', 'SKF-labs', None))
+        db.session.add(LabItem('Server side request forgery','https://owasp-skf.gitbook.io/asvs-write-ups/server-side-request-forgery-ssrf', 3, 'ssrf', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Tabnabbing','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-266-tabnabbing', 2, 'tabnabbing', 'SKF-labs', None))
+        db.session.add(LabItem('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti', 3, 'ssti', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Server side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-267-server-side-template-injection', 3, 'ssti', 'SKF-labs', None))
+        db.session.add(LabItem('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/insecure-direct-object-references-idor', 2, 'idor', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Insecure direct object reference','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-268-insecure-direct-object-references', 2, 'idor', 'SKF-labs', None))
+        db.session.add(LabItem('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/jwt-null', 2, 'jwt-null', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('JWT null','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-null', 2, 'jwt-null', 'SKF-labs', None))
+        db.session.add(LabItem('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/jwt-secret', 2, 'jwt-secret', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('JWT weak secret','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-7006-jwt-secret', 2, 'jwt-secret', 'SKF-labs', None))
+        db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/deserialisation-yaml-des-yaml', 3, 'des-yaml', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Insecure deserialization pickle ( hard )','https://owasp-skf.gitbook.io/asvs-write-ups/deserialisation-pickle-des-pickle', 3, 'des-pickle', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Insecure deserialization pickle ( harder )','https://owasp-skf.gitbook.io/asvs-write-ups/deserialisation-pickle-2-des-pickle-2', 3, 'des-pickle-2', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/race-condition', 3, 'racecondition', 'SKF-labs', None))
         db.session.commit()
         
-        db.session.add(LabItem('Insecure deserialization (yaml)','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-deserialisation-yaml', 3, 'des-yaml', 'SKF-labs', None))
+        db.session.add(LabItem('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/dos-regex', 1, 'dos-regex', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Insecure deserialization pickle','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-des-pickle-2', 3, 'des-pickle-2', 'SKF-labs', None))
+        db.session.add(LabItem('Command injection','https://owasp-skf.gitbook.io/asvs-write-ups/command-injection-cmd', 1, 'cmd', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Race condition','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-race-condition', 3, 'racecondition', 'SKF-labs', None))
-        db.session.commit()
-        
-        db.session.add(LabItem('Regex Ddos','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-dos-regex', 1, 'dos-regex', 'SKF-labs', None))
+        db.session.add(LabItem('Command injection ( easy )','https://owasp-skf.gitbook.io/asvs-write-ups/command-injection-2-cmd-2', 1, 'cmd2', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Command injection 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-1', 1, 'cmd', 'SKF-labs', None))
+        db.session.add(LabItem('Command injection ( harder )','https://owasp-skf.gitbook.io/asvs-write-ups/command-injection-3-cmd-3', 2, 'cmd3', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Command injection 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-cmd-injection-2', 1, 'cmd2', 'SKF-labs', None))
+        db.session.add(LabItem('Command injection ( hard )','https://owasp-skf.gitbook.io/asvs-write-ups/command-injection-4-cmd-4', 3, 'cmd4', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-comments', 1, 'info-leakeage-comments', 'SKF-labs', None))
+        db.session.add(LabItem('Command injection ( blind )','https://owasp-skf.gitbook.io/asvs-write-ups/command-injection-blind-cmd-blind', 3, 'cmd-blind', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-information-leakeage-metadata', 1, 'info-leakeage-metadata', 'SKF-labs', None))
+        db.session.add(LabItem('Information disclosure 1','https://owasp-skf.gitbook.io/asvs-write-ups/information-leakeage-in-comments', 1, 'info-leakeage-comments', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Authentication bypass 1','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-1', 1, 'auth-bypass-1', 'SKF-labs', None))
+        db.session.add(LabItem('Information disclosure 2','https://owasp-skf.gitbook.io/asvs-write-ups/information-leakeage-in-metadata', 1, 'info-leakeage-metadata', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Authentication bypass 2','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-auth-bypass-2', 1, 'auth-bypass-2', 'SKF-labs', None))
+        db.session.add(LabItem('Authentication bypass ( easy )','https://owasp-skf.gitbook.io/asvs-write-ups/auth-bypass', 1, 'auth-bypass-simple', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Blind command injection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-blind-cmd-injection-1', 2, 'cmd3', 'SKF-labs', None))
+        db.session.add(LabItem('Authentication bypass','https://owasp-skf.gitbook.io/asvs-write-ups/auth-bypass-1', 1, 'auth-bypass', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-xxx-right-to-left-override', 1, 'rtlo', 'SKF-labs', None))
+        db.session.add(LabItem('Authentication bypass ( harder )','https://owasp-skf.gitbook.io/asvs-write-ups/auth-bypass-2', 2, 'auth-bypass-2', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Authentication bypass ( hard )','https://owasp-skf.gitbook.io/asvs-write-ups/auth-bypass-3', 3, 'auth-bypass-3', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Right to left override attack','https://owasp-skf.gitbook.io/asvs-write-ups/right-to-left-override-rtlo', 1, 'rtlo', 'SKF-labs', None))
         db.session.commit()
 
         db.session.add(LabItem('Session puzzeling','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-250-session-puzzling', 3, 'sessionpuzzle', 'SKF-labs', None))
         db.session.commit()
 
-
-        db.session.add(LabItem('Graphql DOS','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-dos', 3, 'graphql-dos-resource-exhaustion', 'SKF-labs', None))
+        db.session.add(LabItem('Graphql DOS','https://owasp-skf.gitbook.io/asvs-write-ups/graphql-dos', 3, 'graphql-dos-resource-exhaustion', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('GraphQL IDOR','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-idor', 3, 'graphql-idor', 'SKF-labs', None))
+        db.session.add(LabItem('GraphQL IDOR','https://owasp-skf.gitbook.io/asvs-write-ups/graphql-idor', 3, 'graphql-idor', 'SKF-labs', None))
         db.session.commit()
 
-
-        db.session.add(LabItem('GraphQL Injections','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-injections', 3, 'graphql-injections', 'SKF-labs', None))
+        db.session.add(LabItem('GraphQL Injections','https://owasp-skf.gitbook.io/asvs-write-ups/graphql-injections', 3, 'graphql-injections', 'SKF-labs', None))
         db.session.commit()
 
-
-        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-introspection', 3, 'graphql-info-introspection', 'SKF-labs', None))
+        db.session.add(LabItem('GraphQL Introspection','https://owasp-skf.gitbook.io/asvs-write-ups/graphql-introspection', 3, 'graphql-info-introspection', 'SKF-labs', None))
         db.session.commit()
 
-        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/kbid-285-graphql-mutations', 3, 'graphql-mutation', 'SKF-labs', None))
+        db.session.add(LabItem('GraphQL Mutations','https://owasp-skf.gitbook.io/asvs-write-ups/graphql-mutations', 3, 'graphql-mutation', 'SKF-labs', None))
         db.session.commit()
+
+        db.session.add(LabItem('Client side template injection','https://owasp-skf.gitbook.io/asvs-write-ups/client-side-template-injection-csti', 2, 'csti', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Prototype pollution','https://owasp-skf.gitbook.io/asvs-write-ups/prototype-pollution', 3, 'prototype', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('CSS Injection','https://owasp-skf.gitbook.io/asvs-write-ups/css-injection-cssi', 2, 'cssi', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Client side restriction bypass','https://owasp-skf.gitbook.io/asvs-write-ups/client-side-restriction-bypass', 1, 'client-side-restriction-bypass', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Client side restriction bypass ( harder )','https://owasp-skf.gitbook.io/asvs-write-ups/client-side-restriction-bypass-harder/kbid-xxx-client-side-restriction-bypass-2', 2, 'client-side-restriction-bypass-2', 'SKF-labs', None))
+        db.session.commit()
+
+        db.session.add(LabItem('Credentials guessing ( easy )','https://owasp-skf.gitbook.io/asvs-write-ups/credentials-guessing', 2, 'credentials-guessing-1', 'SKF-labs', None))
+        db.session.commit()       
+
+        db.session.add(LabItem('Credentials guessing ( harder )','https://owasp-skf.gitbook.io/asvs-write-ups/credentials-guessing-2', 2, 'credentials-guessing-2', 'SKF-labs', None))
+        db.session.commit()       
+
+        db.session.add(LabItem('Credentials guessing ( hard )','https://owasp-skf.gitbook.io/asvs-write-ups/credentials-guessing-3', 2, 'credentials-guessing-3', 'SKF-labs', None))
+        db.session.commit()               
 
         db.session.add(LabItem('API-only XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-without-using-the-frontend-application-at-all',3,'juice-shop','juice-shop',None))
         db.session.commit()
