@@ -1,4 +1,6 @@
-## Local / dedicated server install
+## Local / dedicated server install ( DEPRECATED)
+
+REMARK: Please use the K8s installation, this is easier and way more stable
 
 Local installation based on Ubuntu 20.04. and its possible but we do recommend to install it on a K8s Cluster as its easier and more stable.
 
