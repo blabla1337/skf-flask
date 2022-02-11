@@ -41,10 +41,10 @@ Because of this we decided to develop a framework in order to create a guide-sys
 ## <a name="installing"></a>Installing
 
 ### [Kubernetes installation how to](installations/Kubernetes)
-### [Bare metal / on premise installation how to](installations/local)
 ### [Docker-compose local how to](installations/docker)
 ### [SKF K8s Raspberry pi cluster how to](installations/pi-cluster)
 ### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)
+### [Bare metal / on premise installation how to DEPRECATED](installations/local)
 
 ## <a name="updating-db"></a>Updating Database
 
