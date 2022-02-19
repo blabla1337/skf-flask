@@ -15,6 +15,7 @@ export const routes: Routes = [
   { path: 'labs', loadChildren: () => import('./labs/labs.module').then(m => m.LabsModule), canActivate: [LoggedInAuthGuard] },
   { path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule), canActivate: [LoggedInAuthGuard] },
   { path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule), canActivate: [LoggedInAuthGuard] },
+  { path: 'training', loadChildren: () => import('./training/training.module').then(m => m.TrainingModule), canActivate: [LoggedInAuthGuard] },
 ];
 
 @NgModule({
