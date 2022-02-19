@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {TrainingMenuComponent} from './menu/menu.component';
+import { TrainingProfilesComponent } from './profiles/training-profiles.component';
+import { TrainingMainComponent } from './main/training-main.component';
 
 
 const routes: Routes = [
-  {path: 'menu', component: TrainingMenuComponent},
+  {path: 'profiles', component: TrainingProfilesComponent},
+  {path: 'learning', component: TrainingMainComponent},
 ];
 
 @NgModule({
@@ -12,4 +14,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class TrainingRoutingModule { }
-
