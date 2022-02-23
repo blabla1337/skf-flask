@@ -1,66 +1,75 @@
----
-version: v0.10
+version: 2
 date: 18/03/2022
-course: "Secure Development"
-  labs:
-    image-py: blabla1337/owasp-skf-lab-py
-    image-java: blabla1337/owasp-skf-lab-java
-    image-js: blabla1337/owasp-skf-lab-js
-    image-net: blabla1337/owasp-skf-lab-net
-  subjects:
-    topic: "Session management"
-      type: "video"
-        source: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      category: "Session Hijacking"
-        hint: "This is a super simple tip & hint!"
-        writeup: "https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti"
-        type: "slides"
-          source: "skf/markdown/learning_platform/secure_code/slides/1.md"
-        type: "questionnaire"
-          source: "skf/markdown/learning_platform/secure_code/questionnaire/1.md"
-      category: "HTTP Only flag"
-        hint: "This is a super simple tip & hint!"
-        writeup: "https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti"
-        type: "slides"
-          source: "skf/markdown/learning_platform/secure_code/slides/2.md" 
-        type: "questionnaire"
-          source: "skf/markdown/learning_platform/secure_code/questionnaire/2.md"         
-      category: "Session riding"
-        hint: "This is a super simple tip & hint!"
-        writeup: "https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti"
-        type: "slides"
-          source: "skf/markdown/learning_platform/secure_code/slides/3.md"
-        type: "questionnaire"
-          source: "skf/markdown/learning_platform/secure_code/questionnaire/3.md"
-    topic: "Validation, Sanitization and Encoding"
-      type: "video"
-        source: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"        
-      category: "SQL injection"
-        hint: "This is a super simple tip & hint!"
-        writeup: "https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti"
-        type: "slides"
-          source: "skf/markdown/learning_platform/secure_code/slides/4.md"
-        type: "questionnaire"
-          source: "skf/markdown/learning_platform/secure_code/questionnaire/4.md"
-      category: "LDAP injection"
-        hint: "This is a super simple tip & hint!"
-        writeup: "https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti"
-        type: "slides"
-          source: "skf/markdown/learning_platform/secure_code/slides/5.md"
-        type: "questionnaire"
-          source: "skf/markdown/learning_platform/secure_code/questionnaire/5.md"
-      category: "Server Side Template injection"
-        hint: "This is a super simple tip & hint!"
-        writeup: "https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti"
-        type: "slides"
-          source: "skf/markdown/learning_platform/secure_code/slides/6.md"
-        type: "questionnaire"
-          source: "skf/markdown/learning_platform/secure_code/questionnaire/6.md"
-      category: "Server Side Template injection"
-        hint: "This is a super simple tip & hint!"
-        writeup: "https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti"
-        type: "slides"
-          source: "skf/markdown/learning_platform/secure_code/slides/7.md"
-        type: "questionnaire"
-          source: "skf/markdown/learning_platform/secure_code/questionnaire/7.md"
-
+course:
+  id: 1
+  name: Secure Development
+  languages:
+    - python
+    - java
+    - js
+    - net
+  content:
+    - slide: skf/markdown/learning_platform/slides/1.md
+  topics:
+    - topic:
+        id: 2
+        name: Session management
+        content:
+          - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        categories:
+          - category:
+            id: 3
+            name: Session Hijacking
+            content:
+              - slide: skf/markdown/learning_platform/secure_code/slides/1.md
+              - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/1.md
+              - lab:
+                hint: This is a super simple tip & hint!
+                writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+                images:
+                  - python: blabla1337/owasp-skf-lab-py
+                  - java: blabla1337/owasp-skf-lab-java
+                  - js: blabla1337/owasp-skf-lab-js
+                  - net: blabla1337/owasp-skf-lab-net
+          - category:
+            id: 4
+            name: HTTP Only flag
+            content:
+              - slide: skf/markdown/learning_platform/secure_code/slides/2.md
+              - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/2.md
+          - category:
+            id: 5
+            name: Session riding
+            content:
+              - slide: skf/markdown/learning_platform/secure_code/slides/3.md
+              - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/3.md
+    - topic:
+        id: 6
+        name: Validation, Sanitization and Encoding
+        content:
+          - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        categories:
+          - category:
+            id: 7
+            name: SQL injection
+            content:
+              - slide: skf/markdown/learning_platform/secure_code/slides/4.md
+              - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/4.md
+          - category:
+            id: 8
+            name: LDAP injection
+            content:
+              - slide: skf/markdown/learning_platform/secure_code/slides/5.md
+              - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/5.md
+          - category:
+            id: 9
+            name: Server Side Template injection
+            content:
+              - slide: skf/markdown/learning_platform/secure_code/slides/6.md
+              - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/6.md
+          - category:
+            id: 10
+            name: Server Side Template injection
+            content:
+              - slide: skf/markdown/learning_platform/secure_code/slides/7.md
+              - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/7.md
