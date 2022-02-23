@@ -21,13 +21,13 @@ topics:
           - slide: skf/markdown/learning_platform/secure_code/slides/1.md
           - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/1.md
           - lab:
-            hint: This is a super simple tip & hint!
-            writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-            images:
-              - python: blabla1337/owasp-skf-lab-py
-              - java: blabla1337/owasp-skf-lab-java
-              - js: blabla1337/owasp-skf-lab-js
-              - net: blabla1337/owasp-skf-lab-net
+              hint: This is a super simple tip & hint!
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+              images:
+                - python: blabla1337/owasp-skf-lab-py
+                - java: blabla1337/owasp-skf-lab-java
+                - js: blabla1337/owasp-skf-lab-js
+                - net: blabla1337/owasp-skf-lab-net
       - id: 4
         name: HTTP Only flag
         content:
