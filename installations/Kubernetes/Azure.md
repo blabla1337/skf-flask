@@ -122,7 +122,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --set controller.setAsDefaultIngress=true
 ```
 
-8. Check out your IP and do your DNS stuff `kubectl get ingress`
+8. Check out your IP and do your DNS stuff `kubectl get ingress OR kubectl --namespace default get services -o wide -w ingress-nginx-controller`
 
 Add the IP of the ingress controller to your DNS records, setting the frontend domain (the domain in
 `FRONTEND_URI`).
