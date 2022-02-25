@@ -46,9 +46,9 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
 ```
 For helm2, the instructions are the same as below, for the main cluster.
 
-5. After the ingress has an IP address (this might be found using `kubectl get ingress`), you'll
+5. After the ingress has an IP address (this might be found using `kubectl get ingress OR kubectl --namespace default get services -o wide -w ingress-nginx-controller`) or go to the Azure page and select 'Services & Ingress' and take the value from the ingress-nginx-controller External-IP , you'll
    need to add a wildcard DNS record - pointing all subdomains of your labs domain to the ingress
-   controller.
+   controller IP.
 
 Now, in `configmaps.yaml`, set the value of `SKF_LABS_DOMAIN` to this domain (the one with the
 wildcard record).
