@@ -4,12 +4,14 @@ metadata:
   name: skf-flask-back
 data:
   SKF_JWT_SECRET: please_change_this_value_to_be_random
+  # Always use HTTPS in the below ENV
   SKF_API_URL: "https://demo.securityknowledgeframework.org/api"
   SKF_FLASK_DEBUG: "False"
   #SKF_DB_URL: sqlite:///db/db.sqlite
   SKF_DB_URL: mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
   SKF_DOJO_API_KEY: optional
   SKF_TESTING: "False"
+  # labs always need to use HTTP and NOT HTTPS
   SKF_LABS_DOMAIN: "http://labs.securityknowledgeframework.org"
   SKF_LABS_DEPLOY_MODE: "port"
   # or use the below to use subdomains to deploy the Labs by creating a subdomain Wildcard that points to the Labs IP cluster
@@ -25,6 +27,7 @@ kind: ConfigMap
 metadata:
   name: skf-flask-front
 data:
+  # Always use HTTPS in the below ENV
   FRONTEND_URI: https://demo.securityknowledgeframework.org
 ---  
 apiVersion: v1
