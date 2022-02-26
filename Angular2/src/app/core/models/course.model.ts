@@ -21,13 +21,13 @@ export interface ContentItem {
 }
 
 export interface Category {
-  id: number;
+  id: string;
   name: string;
   content: ContentItem[];
 }
 
 export interface Topic {
-  id: number;
+  id: string;
   name: string;
   content: ContentItem[];
   categories: Category[];
@@ -36,7 +36,7 @@ export interface Topic {
 export interface Course {
   version: number
   date: string;
-  id: number;
+  id: string;
   name: string;
   languages: LabLanguage[];
   content: ContentItem[];
