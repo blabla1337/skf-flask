@@ -27,50 +27,19 @@
         </div>
 
         <div class="row justify-content-center">
-          <div class="col-md-2 d-flex align-items-stretch">
+          <div *ngFor="let courseDefinition of profiles" class="col-md-2 d-flex align-items-stretch">
             <div class="card mt-4 maintenance-box">
               <div class="card-body d-flex flex-column">
-                <i class="bx bx-code-alt mb-4 h1 text-primary"></i>
-                <p class="mb-0">This profile is dedicated for developers who want to learn secure
-                  development. This course is based on the ASVS and the secure
-                  coding principles to teach the best practices.</p>
+                <i class="bx mb-4 h1 text-primary" [ngClass]="[courseDefinition.iconClass]" ></i>
+                <p class="mb-0">{{courseDefinition.text}}</p>
                 <div class="mt-auto pt-3">
-                  <button type="button" routerLink="/training/learning" class="btn btn-primary btn-sm">Start secure development course</button>
+                  <button type="button" routerLink="/training/learning" class="btn btn-primary btn-sm">
+                    {{courseDefinition.startButtonText}}
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-md-2 d-flex align-items-stretch">
-            <div class="card mt-4 maintenance-box">
-              <div class="card-body d-flex flex-column">
-                <i class="bx bx-shield mb-4 h1 text-primary"></i>
-                <p class="mb-0">This profile is dedicated for security pentesters who want to learn the the
-                  basics and advanced techniques of penetration testing for Web/API
-                  applications. This course is based on the OWASP WSTG and teach you
-                  how to perform a good quality penetrationt test.</p>
-                <div class="mt-auto pt-3">
-                  <button type="button" routerLink="/training/learning" class="btn btn-primary btn-sm">Start hacking course</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-2 d-flex align-items-stretch">
-            <div class="card mt-4 maintenance-box">
-              <div class="card-body d-flex flex-column">
-                <i class="bx bx-slider-alt mb-4 h1 text-primary"></i>
-                <p class="mb-0">This profile is dedicated for Ops and Infra people who want to learn
-                  about the server hardening and security best practices. This course is
-                  based on the VulnHub materials and lessons to teach the best
-                  practices for server configurations and hardening.</p>
-                <div class="mt-auto pt-3">
-                  <button type="button" routerLink="/training/learning" class="btn btn-primary btn-sm">Start Infra/Ops course</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
         <!-- end row -->
       </div>

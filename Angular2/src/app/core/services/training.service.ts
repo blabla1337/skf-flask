@@ -1,31 +1,35 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Course} from '../models/course.model';
+import {Course, Profile} from '../models/course.model';
 import {Observable, of} from 'rxjs';
 import _ from "lodash";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class TrainingService {
   constructor(
     private http: HttpClient,
   ) { }
 
   // TODO IB this should be by courseId
-  seenItems: string[] = [];
+  private seenItems: string[] = [];
 
   // TODO IB !!!! test this
-  setCourseSeenItems(courseId: string, itemIds: string[]): Observable<boolean> {
+  public setCourseSeenItems(courseId: string, itemIds: string[]): Observable<boolean> {
     this.seenItems.push(...itemIds)
     this.seenItems = _.uniq(this.seenItems)
     return of(true)
   }
 
   // TODO IB !!!! test this
-  getCourseSeenItems(courseId: string): Observable<string[]> {
+  public getCourseSeenItems(courseId: string): Observable<string[]> {
     return of(this.seenItems)
   }
 
-  getCourse(courseId: string): Observable<Course> {
+  public getProfilesList(): Observable<Profile[]> {
+    return of(TrainingService.getProfiles())
+  }
+
+  public getCourse(courseId: string): Observable<Course> {
     return of(TrainingService.getSampleCourse());
   }
 
@@ -175,5 +179,31 @@ export class TrainingService {
         }
       ]
     }
+  }
+
+  private static getProfiles(): Profile[] {
+    return [
+      {
+        id: "id1",
+        text: `This profile is dedicated for developers who want to learn secure development.
+        This course is based on the ASVS and the secure coding principles to teach the best practices.`,
+        iconClass: "bx-code-alt",
+        startButtonText: "Start secure development course"
+      },
+      {
+        id: "id2",
+        text: `This profile is dedicated for security pentesters who want to learn the the basics and advanced techniques
+        of penetration testing for Web/API applications. This course is based on the OWASP WSTG and teach you how to perform a good quality penetrationt test.`,
+        iconClass: "bx-shield",
+        startButtonText: "Start hacking course"
+      },
+      {
+        id: "id3",
+        text: `This profile is dedicated for Ops and Infra people who want to learn about the server hardening and security best practices.
+        This course is based on the VulnHub materials and lessons to teach the best practices for server configurations and hardening.`,
+        iconClass: "bx-slider-alt",
+        startButtonText: "Start Infra/Ops course"
+      },
+    ]
   }
 }
