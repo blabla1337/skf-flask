@@ -8,23 +8,37 @@ import _ from "lodash";
 export class TrainingService {
   constructor(private http: HttpClient) { }
 
-  // TODO IB this should be by courseId
+  // TODO IB !!!! move to persistence
   private seenItems: string[] = [];
 
-  // TODO IB !!!! test this
-  public setCourseSeenItems(courseId: string, itemIds: string[]): Observable<boolean> {
-    this.seenItems.push(...itemIds)
-    this.seenItems = _.uniq(this.seenItems)
-    return of(true)
+  public getProfiles(): Observable<Profile[]> {
+    return of(TrainingService.getSampleProfiles())
   }
 
-  // TODO IB !!!! test this
-  public getCourseSeenItems(courseId: string): Observable<string[]> {
-    return of(this.seenItems)
-  }
-
-  public getProfilesList(): Observable<Profile[]> {
-    return of(TrainingService.getProfiles())
+  private static getSampleProfiles(): Profile[] {
+    return [
+      {
+        id: "4a03cbe7-2aa9-4b16-b4d6-55d125a550f2",
+        text: `This profile is dedicated for developers who want to learn secure development.
+        This course is based on the ASVS and the secure coding principles to teach the best practices.`,
+        iconClass: "bx-code-alt",
+        startButtonText: "Start secure development course"
+      },
+      {
+        id: "12902ddc-e189-4d8c-a7fb-dbc70c3e43dd",
+        text: `This profile is dedicated for security pentesters who want to learn the the basics and advanced techniques
+        of penetration testing for Web/API applications. This course is based on the OWASP WSTG and teach you how to perform a good quality penetrationt test.`,
+        iconClass: "bx-shield",
+        startButtonText: "Start hacking course"
+      },
+      {
+        id: "67fbf0a6-2b00-4983-a48a-4b0c7f0cdb8c",
+        text: `This profile is dedicated for Ops and Infra people who want to learn about the server hardening and security best practices.
+        This course is based on the VulnHub materials and lessons to teach the best practices for server configurations and hardening.`,
+        iconClass: "bx-slider-alt",
+        startButtonText: "Start Infra/Ops course"
+      },
+    ]
   }
 
   public getCourse(courseId: string): Observable<Course> {
@@ -179,29 +193,15 @@ export class TrainingService {
     }
   }
 
-  private static getProfiles(): Profile[] {
-    return [
-      {
-        id: "4a03cbe7-2aa9-4b16-b4d6-55d125a550f2",
-        text: `This profile is dedicated for developers who want to learn secure development.
-        This course is based on the ASVS and the secure coding principles to teach the best practices.`,
-        iconClass: "bx-code-alt",
-        startButtonText: "Start secure development course"
-      },
-      {
-        id: "12902ddc-e189-4d8c-a7fb-dbc70c3e43dd",
-        text: `This profile is dedicated for security pentesters who want to learn the the basics and advanced techniques
-        of penetration testing for Web/API applications. This course is based on the OWASP WSTG and teach you how to perform a good quality penetrationt test.`,
-        iconClass: "bx-shield",
-        startButtonText: "Start hacking course"
-      },
-      {
-        id: "67fbf0a6-2b00-4983-a48a-4b0c7f0cdb8c",
-        text: `This profile is dedicated for Ops and Infra people who want to learn about the server hardening and security best practices.
-        This course is based on the VulnHub materials and lessons to teach the best practices for server configurations and hardening.`,
-        iconClass: "bx-slider-alt",
-        startButtonText: "Start Infra/Ops course"
-      },
-    ]
+  // TODO IB !!!! test this
+  public setCourseSeenItems(courseId: string, itemIds: string[]): Observable<boolean> {
+    this.seenItems.push(...itemIds)
+    this.seenItems = _.uniq(this.seenItems)
+    return of(true)
+  }
+
+  // TODO IB !!!! test this
+  public getCourseSeenItems(courseId: string): Observable<string[]> {
+    return of(this.seenItems)
   }
 }
