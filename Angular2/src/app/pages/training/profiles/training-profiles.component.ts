@@ -11,26 +11,24 @@ import {Router} from '@angular/router';
   styleUrls: ['./training-profiles.component.scss']
 })
 export class TrainingProfilesComponent implements OnInit, OnDestroy {
-  profiles: Profile[] = []
-  apiSubscriptions: Subscription[] = []
+  profiles: Profile[] = [];
+  subscriptions: Subscription[] = [];
   constructor(private trainingService: TrainingService,
               private trainingPersistenceService: TrainingPersistenceService,
               private router: Router) { }
 
   ngOnInit(): void {
-    this.apiSubscriptions.push(this.trainingService.getProfiles().subscribe(profiles => {
+    this.subscriptions.push(this.trainingService.getProfiles().subscribe(profiles => {
       this.profiles = profiles;
     }));
   }
 
   onSelectProfile(profile: Profile) {
-    this.trainingPersistenceService.setSelectedProfile(profile);
-    // TODO IB !!!! the profileId should be in URL
-    this.router.navigateByUrl("/training/learning");
+    this.router.navigate(["training", "profile", profile.id]);
   }
 
   ngOnDestroy(): void {
-    this.apiSubscriptions.forEach(sub => {
+    this.subscriptions.forEach(sub => {
       if (sub) {
         sub.unsubscribe();
       }
