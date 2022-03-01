@@ -11,8 +11,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./training-profiles.component.scss']
 })
 export class TrainingProfilesComponent implements OnInit, OnDestroy {
-  profiles: Profile[] = [];
-  subscriptions: Subscription[] = [];
+  public profiles: Profile[] = [];
+  private subscriptions: Subscription[] = [];
   constructor(private trainingService: TrainingService,
               private trainingPersistenceService: TrainingPersistenceService,
               private router: Router) { }
