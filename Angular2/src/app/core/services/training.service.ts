@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Course, Profile} from '../models/course.model';
+import {Course, CourseInfo, Profile} from '../models/course.model';
 import {Observable, of} from 'rxjs';
 import _ from "lodash";
 
@@ -22,21 +22,48 @@ export class TrainingService {
         text: `This profile is dedicated for developers who want to learn secure development.
         This course is based on the ASVS and the secure coding principles to teach the best practices.`,
         iconClass: "bx-code-alt",
-        startButtonText: "Start secure development course"
+        startButtonText: "Secure development"
       },
       {
         id: "12902ddc-e189-4d8c-a7fb-dbc70c3e43dd",
         text: `This profile is dedicated for security pentesters who want to learn the the basics and advanced techniques
         of penetration testing for Web/API applications. This course is based on the OWASP WSTG and teach you how to perform a good quality penetrationt test.`,
         iconClass: "bx-shield",
-        startButtonText: "Start hacking course"
+        startButtonText: "Hacking"
       },
       {
         id: "67fbf0a6-2b00-4983-a48a-4b0c7f0cdb8c",
         text: `This profile is dedicated for Ops and Infra people who want to learn about the server hardening and security best practices.
         This course is based on the VulnHub materials and lessons to teach the best practices for server configurations and hardening.`,
         iconClass: "bx-slider-alt",
-        startButtonText: "Start Infra/Ops course"
+        startButtonText: "Infra/Ops"
+      },
+    ]
+  }
+
+  public getProfileCourses(profileId: string): Observable<CourseInfo[]> {
+    return of(TrainingService.getSampleProfileCourses())
+  }
+
+  private static getSampleProfileCourses(): CourseInfo[] {
+    return [
+      {
+        id: "0b87c26b-ecdf-422d-8fb2-4302b15ea280",
+        text: `Easy / Starting`,
+        iconClass: "bx-code-alt",
+        startButtonText: "Easy / Starting"
+      },
+      {
+        id: "6a0f41a0-dd16-453e-a9ad-95b71e348051",
+        text: `Competent`,
+        iconClass: "bx-code-alt",
+        startButtonText: "Competent"
+      },
+      {
+        id: "8a786f96-7289-4603-baa0-749d25ed0f09",
+        text: `Advanced`,
+        iconClass: "bx-code-alt",
+        startButtonText: "Advanced"
       },
     ]
   }
