@@ -40,6 +40,13 @@ export interface Topic {
   categories: Category[];
 }
 
+export interface CourseInfo {
+  id: string,
+  text: string,
+  iconClass: string,
+  startButtonText: string
+}
+
 export interface Course {
   version: number
   date: string;

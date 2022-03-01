@@ -25,6 +25,7 @@ export class TrainingProfilesComponent implements OnInit, OnDestroy {
 
   onSelectProfile(profile: Profile) {
     this.trainingPersistenceService.setSelectedProfile(profile);
+    // TODO IB !!!! the profileId should be in URL
     this.router.navigateByUrl("/training/learning");
   }
 
