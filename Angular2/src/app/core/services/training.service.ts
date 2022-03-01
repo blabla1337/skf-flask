@@ -57,21 +57,21 @@ export class TrainingService {
     return [
       {
         id: "0b87c26b-ecdf-422d-8fb2-4302b15ea280",
-        text: `Easy / Starting`,
+        text: `Easy / Starting Hacking`,
         iconClass: "bx-code-alt",
-        name: "Easy / Starting"
+        name: "Easy / Starting Hacking"
       },
       {
         id: "6a0f41a0-dd16-453e-a9ad-95b71e348051",
-        text: `Competent`,
+        text: `Competent Hacking`,
         iconClass: "bx-code-alt",
-        name: "Competent"
+        name: "Competent Hacking"
       },
       {
         id: "8a786f96-7289-4603-baa0-749d25ed0f09",
-        text: `Advanced`,
+        text: `Advanced Hacking`,
         iconClass: "bx-code-alt",
-        name: "Advanced"
+        name: "Advanced Hacking"
       },
     ]
   }
