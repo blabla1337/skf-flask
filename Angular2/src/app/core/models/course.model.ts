@@ -2,9 +2,9 @@ export type LabLanguage = "python" | "java" | "js" | "net";
 
 export interface Profile {
   id: string,
+  name: string,
   text: string,
   iconClass: string,
-  startButtonText: string
 }
 
 export interface LabImage {
@@ -42,9 +42,9 @@ export interface Topic {
 
 export interface CourseInfo {
   id: string,
+  name: string,
   text: string,
   iconClass: string,
-  startButtonText: string
 }
 
 export interface Course {

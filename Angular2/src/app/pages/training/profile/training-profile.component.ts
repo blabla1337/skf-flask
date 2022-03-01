@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {CourseInfo} from '../../../core/models/course.model';
+import {CourseInfo, Profile} from '../../../core/models/course.model';
 import {TrainingService} from '../../../core/services/training.service';
 
 @Component({
@@ -10,8 +10,8 @@ import {TrainingService} from '../../../core/services/training.service';
   styleUrls: ['./training-profile.component.scss']
 })
 export class TrainingProfileComponent implements OnInit, OnDestroy {
-  private profileId: string;
   public courses: CourseInfo[];
+  public profile: Profile;
   private subscriptions: Subscription[] = [];
 
   constructor(private trainingService: TrainingService,
@@ -21,8 +21,11 @@ export class TrainingProfileComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(this.activatedRoute.params.subscribe(params =>
     {
-      this.profileId = params['id'];
-      this.subscriptions.push(this.trainingService.getCourses(this.profileId).subscribe(courses => {
+      const profileId = params['id'];
+      this.subscriptions.push(this.trainingService.getProfileInfo(profileId).subscribe(profile => {
+        this.profile = profile;
+      }));
+      this.subscriptions.push(this.trainingService.getCourses(profileId).subscribe(courses => {
         this.courses = courses;
       }));
     }));

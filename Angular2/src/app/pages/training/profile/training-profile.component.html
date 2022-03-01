@@ -6,9 +6,9 @@
         <h4 class="mb-0 font-size-18 head-four">Learning</h4>
         <div class="page-title-right">
           <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item active text-primary">learning</li>
-            <li class="breadcrumb-item active text-primary">profile</li>
-            <li class="breadcrumb-item active text-primary">...</li>
+            <li class="breadcrumb-item active text-primary">Learning</li>
+            <li class="breadcrumb-item active text-primary">Profile</li>
+            <li class="breadcrumb-item active text-primary">{{profile?.name}}</li>
           </ol>
         </div>
       </div>
@@ -35,7 +35,7 @@
                 <p class="mb-0">{{course.text}}</p>
                 <div class="mt-auto pt-3">
                   <button type="button" (click)="onSelectCourse(course)" class="btn btn-primary btn-sm">
-                    {{course.startButtonText}}
+                    {{course.name}}
                   </button>
                 </div>
               </div>
