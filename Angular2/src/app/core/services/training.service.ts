@@ -41,11 +41,11 @@ export class TrainingService {
     ]
   }
 
-  public getProfileCourses(profileId: string): Observable<CourseInfo[]> {
-    return of(TrainingService.getSampleProfileCourses())
+  public getCourses(profileId: string): Observable<CourseInfo[]> {
+    return of(TrainingService.getSampleCourses())
   }
 
-  private static getSampleProfileCourses(): CourseInfo[] {
+  private static getSampleCourses(): CourseInfo[] {
     return [
       {
         id: "0b87c26b-ecdf-422d-8fb2-4302b15ea280",
