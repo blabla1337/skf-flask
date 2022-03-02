@@ -1,10 +1,10 @@
 export type LabLanguage = "python" | "java" | "js" | "net";
 
 export interface Profile {
-  id: string,
-  name: string,
-  text: string,
-  iconClass: string,
+  id: string;
+  name: string;
+  text: string;
+  iconClass: string;
 }
 
 export interface LabImage {
