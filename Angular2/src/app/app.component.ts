@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   private configure() {
     this.oauthService.configure(authConfig);
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    this.oauthService.setupAutomaticSilentRefresh();
   }
 
   ngOnInit() {
