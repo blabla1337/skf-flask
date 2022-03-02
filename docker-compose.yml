@@ -48,15 +48,15 @@ services:
   keycloak:
     container_name: skf-keycloak_container
     restart: always
-    # volumes:
-      #- ./keycloak:/tmp
+    volumes:
+      - ./keycloak:/tmp
     image: jboss/keycloak:4.5.0.Final
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
       - KEYCLOAK_DEFAULT_THEME=custom 
       - KEYCLOAK_WELCOME_THEME=keycloak 
-      #- KEYCLOAK_IMPORT=/tmp/krakend-realm.json
+      - KEYCLOAK_IMPORT=/tmp/krakend.json
       - DB_VENDOR=h2
     command: ["-Djboss.http.port=8100"]
       # Uncomment for development purpose
