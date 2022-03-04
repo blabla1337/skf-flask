@@ -167,7 +167,7 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Ilguiz Latypov
 - Laurence Keijmel
 - Rick Mitchell (Kingthorin)
-- Xenofon Vassilakopoulos
+- [Xenofon Vassilakopoulos](https://www.linkedin.com/in/xvass/)
 - Heeraj Nair
 - Alpha Kitonga
 - [Wojciech Reguła](https://www.linkedin.com/in/wojciech-regula/) 
