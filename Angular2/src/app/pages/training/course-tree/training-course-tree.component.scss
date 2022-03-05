@@ -1,0 +1,19 @@
+.tree {
+  width: 100%;
+}
+
+.node-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.node-content-wrapper {
+  flex-grow: 1;
+  position: relative;
+}
+
+.pull-right {
+  position: absolute;
+  right: 10px;
+}
