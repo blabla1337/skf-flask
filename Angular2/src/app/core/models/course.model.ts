@@ -27,17 +27,17 @@ export interface ContentItem {
   lab?: Lab;
 }
 
-export interface Category {
+export interface CourseItem {
   id: string;
   name: string;
   content: ContentItem[];
 }
 
-export interface Topic {
-  id: string;
-  name: string;
-  content: ContentItem[];
+export interface Topic  extends CourseItem {
   categories: Category[];
+}
+
+export interface Category extends CourseItem {
 }
 
 export interface CourseInfo {
