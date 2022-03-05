@@ -1,9 +1,8 @@
-<tree-root [nodes]="nodes">
-  <ng-template #treeNodeTemplate let-node let-index="index">
-    <span>{{ node.data.name }}</span>
-  </ng-template>
-</tree-root>
+<!--<tree-root [nodes]="nodes">-->
+<!--  <ng-template #treeNodeTemplate let-node let-index="index">-->
+<!--    <span>{{ node.data.name }}</span>-->
+<!--  </ng-template>-->
+<!--</tree-root>-->
 
-<tree-root [nodes]="nodes" [options]="options">
-
+<tree-root #tree [nodes]="nodes" [options]="options">
 </tree-root>

@@ -30,7 +30,7 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => {
-      if (sub) {
+      if(sub) {
         sub.unsubscribe();
       }
     });
