@@ -1,6 +1,23 @@
 div.fill {
+  position: relative;
   height: calc(100vh - 70px - 60px - 60px - 85px);
   min-height: calc(100vh - 70px - 60px - 60px - 85px);
+}
+
+div.tree-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20%;
   background-color: lightcyan;
-  position: relative;
+}
+
+div.content-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  background-color: lightblue;
 }

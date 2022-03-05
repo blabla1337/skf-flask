@@ -4,6 +4,8 @@ import { TrainingRoutingModule } from './training-routing.module';
 import { TrainingProfilesComponent } from './profiles/training-profiles.component';
 import { TrainingCourseComponent } from './course/training-course.component';
 import { TrainingProfileComponent } from './profile/training-profile.component';
+import { TrainingCourseTreeComponent } from './course-tree/training-course-tree.component';
+import { TrainingCourseContentComponent } from './course-content/training-course-content.component';
 
 
 @NgModule({
@@ -11,6 +13,8 @@ import { TrainingProfileComponent } from './profile/training-profile.component';
     TrainingProfilesComponent,
     TrainingCourseComponent,
     TrainingProfileComponent,
+    TrainingCourseTreeComponent,
+    TrainingCourseContentComponent,
   ],
   imports: [
     CommonModule,
