@@ -1,0 +1,59 @@
+version: 2.1
+date: 25/02/2022
+profiles:
+  - id: '1'
+    name: Secure Development
+    text: >-
+      This profile is dedicated for developers who want to learn secure
+      development. This course is based on the ASVS and the secure coding
+      principles to teach the best practices.
+    iconClass: bx-shield
+    courses:
+      - id: '1.1'
+        name: Easy Secure Development
+        text: Easy Secure Development
+        iconClass: bx-shield
+        courseFile: courses/1.1-secdev--easy--.yml
+      - id: '1.2'
+        name: Competent Secure Development
+        text: Competent Secure Development
+        iconClass: bx-shield
+        courseFile: courses/1.2-secdev--competent--.yml
+      - id: '1.3'
+        name: Advanced Secure Development
+        text: Advanced Secure Development
+        iconClass: bx-shield
+        courseFile: courses/1.3-secdev--advanced--.yml
+  - id: '2'
+    name: Hacking
+    text: >-
+      This profile is dedicated for security pentesters who want to learn the
+      the basics and advanced techniques of penetration testing for Web/API
+      applications. This course is based on the OWASP WSTG and teach you how to
+      perform a good quality penetrationt test.
+    iconClass: bx-code-block
+    courses:
+      - id: '2.1'
+        name: Easy Hacking
+        text: Easy Hacking
+        iconClass: bx-code-block
+        courseFile: courses/2.1-hacking--easy--.yml
+      - id: '2.2'
+        name: Competent Hacking
+        text: Competent Hacking
+        iconClass: bx-code-block
+        courseFile: courses/2.2-hacking--competent--.yml
+      - id: '2.3'
+        name: Advanced Hacking
+        text: Advanced Hacking
+        iconClass: bx-code-block
+        courseFile: courses/2.3-hacking--advanced--.yml
+  - id: '3'
+    name: Infra/Ops
+    text: >-
+      This profile is dedicated for Ops and Infra people who want to learn about
+      the server hardening and security best practices. This course is based on
+      the VulnHub materials and lessons to teach the best practices for server
+      configurations and hardening.
+    iconClass: bx-server
+    courses: []

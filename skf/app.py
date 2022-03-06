@@ -89,6 +89,9 @@ from skf.api.search.endpoints.search_lab import ns as search_namespace
 from skf.api.search.endpoints.search_code import ns as search_namespace
 from skf.api.search.endpoints.search_checklist import ns as search_namespace
 from skf.api.search.endpoints.search_project import ns as search_namespace
+from skf.api.training.endpoints.training_profile_items import ns as training_namespace
+# from skf.api.training.endpoints.training_profile_course_items import ns as training_namespace
+
 from elasticapm.contrib.flask import ElasticAPM
 
 
@@ -145,6 +148,7 @@ def initialize_app(flask_app):
     #api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_namespace)
     api.add_namespace(search_namespace)
+    api.add_namespace(training_namespace)
     flask_app.register_blueprint(blueprint)
 
 app = create_app()
