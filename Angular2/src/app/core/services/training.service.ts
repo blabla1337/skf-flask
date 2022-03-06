@@ -1,18 +1,23 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Course, CourseInfo, Profile} from '../models/course.model';
 import {Observable, of} from 'rxjs';
 import _ from "lodash";
+import {environment} from '../../../environments/environment';
+import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class TrainingService {
   constructor(private http: HttpClient) { }
+  public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 
   // TODO IB !!!! move to persistence
   private seenItems: string[] = [];
 
   public getProfiles(): Observable<Profile[]> {
-    return of(TrainingService.getSampleProfiles())
+    return this.http
+      .get<any>(environment.API_ENDPOINT + `/api/training/items`, { headers: this.headers })
+      .pipe(map(x => x.profiles as Profile[]))
   }
 
   public getProfileInfo(profileId: string): Observable<Profile> {
