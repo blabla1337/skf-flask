@@ -27,7 +27,8 @@ export class HomeComponent implements OnInit
     this.joyride.startTour({
       steps: ['styleInfo', 'tourInfo', 'checklistCat', 
               'dashContent', 'projectContent', 'codeContent',
-              'checkContent', 'knowledgebaseContent', 'userContent', 'labContent'
+              'checkContent', 'knowledgebaseContent', 'userContent', 
+              'labContent', 'trainingContent'
             ],
       showPrevButton: true,
       stepDefaultPosition: 'bottom',
