@@ -1,30 +1,38 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TrainingService} from '../../../core/services/training.service';
 import {Course, CourseItem} from '../../../core/models/course.model';
 import {TreeComponent, TreeNode} from '@circlon/angular-tree-component';
 import {TrainingPersistenceService} from '../../../core/services/training.persistence.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-training-course-tree',
   templateUrl: './training-course-tree.component.html',
   styleUrls: ['./training-course-tree.component.scss']
 })
-export class TrainingCourseTreeComponent implements OnInit, AfterViewInit, OnDestroy {
+export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   @ViewChild(TreeComponent) private tree: TreeComponent;
   private subscriptions: Subscription[] = [];
   public nodes = [];
   public options = {};
 
   constructor(private trainingService: TrainingService,
+              private activatedRoute: ActivatedRoute,
               private trainingPersistenceService: TrainingPersistenceService) {
 
   }
 
   ngOnInit(): void {
-    this.subscriptions.push(this.trainingService.getCourse("").subscribe(course => {
-      this.setNodesFromCourse(course);
+    this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
+      const courseId = params['id'];
+      this.subscriptions.push(this.trainingService.getCourse(courseId).subscribe(course => {
+        if (course) {
+          this.setNodesFromCourse(course);
+        }
+      }));
     }));
+
   }
 
   private setNodesFromCourse(course: Course) {
@@ -40,12 +48,13 @@ export class TrainingCourseTreeComponent implements OnInit, AfterViewInit, OnDes
         children:[]
       }))
     }));
-  }
 
-  ngAfterViewInit() {
-    if (this.nodes.length > 0) {
-      this.tree.treeModel.roots[0].setActiveAndVisible();
-    }
+    setTimeout(() => {
+      if (this.nodes.length > 0) {
+        this.tree.treeModel.roots.map(x => x.expand());
+        this.tree.treeModel.roots[0].setActiveAndVisible();
+      }
+    }, 0);
   }
 
   onActivate(event: any) {
