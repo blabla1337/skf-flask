@@ -7,6 +7,7 @@ import { TrainingProfileComponent } from './profile/training-profile.component';
 import { TrainingCourseTreeComponent } from './course-tree/training-course-tree.component';
 import { TrainingCourseContentComponent } from './course-content/training-course-content.component';
 import {TreeModule} from '@circlon/angular-tree-component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 @NgModule({
@@ -17,10 +18,11 @@ import {TreeModule} from '@circlon/angular-tree-component';
     TrainingCourseTreeComponent,
     TrainingCourseContentComponent,
   ],
-  imports: [
-    CommonModule,
-    TrainingRoutingModule,
-    TreeModule
-  ]
+    imports: [
+        CommonModule,
+        TrainingRoutingModule,
+        TreeModule,
+        NgxSpinnerModule
+    ]
 })
 export class TrainingModule { }

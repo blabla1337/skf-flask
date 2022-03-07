@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {CourseInfo, Profile} from '../../../core/models/course.model';
 import {TrainingService} from '../../../core/services/training.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-training-profile',
@@ -15,14 +16,17 @@ export class TrainingProfileComponent implements OnInit, OnDestroy {
 
   constructor(private trainingService: TrainingService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.subscriptions.push(this.activatedRoute.params.subscribe(params =>
     {
       const profileId = params['id'];
       this.subscriptions.push(this.trainingService.getProfileInfo(profileId).subscribe(profile => {
         this.profile = profile;
+        this.spinner.hide();
       }));
     }));
   }
