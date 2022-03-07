@@ -5,6 +5,7 @@ export interface Profile {
   name: string;
   text: string;
   iconClass: string;
+  courses?: CourseInfo[];
 }
 
 export interface LabImage {
