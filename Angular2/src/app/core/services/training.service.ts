@@ -21,7 +21,7 @@ export class TrainingService {
   }
 
   public getProfileInfo(profileId: string): Observable<Profile> {
-    return of(TrainingService.getSampleProfiles().find(x => x.id === profileId))
+    return this.http.get<Profile>(environment.API_ENDPOINT + `/api/training/item/${profileId}`, { headers: this.headers })
   }
 
   private static getSampleProfiles(): Profile[] {
@@ -48,10 +48,6 @@ export class TrainingService {
         iconClass: "bx-server",
       },
     ]
-  }
-
-  public getCourses(profileId: string): Observable<CourseInfo[]> {
-    return of(TrainingService.getSampleCourses())
   }
 
   public getCourseInfo(courseId: string): Observable<CourseInfo> {

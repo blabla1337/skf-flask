@@ -10,7 +10,6 @@ import {TrainingService} from '../../../core/services/training.service';
   styleUrls: ['./training-profile.component.scss']
 })
 export class TrainingProfileComponent implements OnInit, OnDestroy {
-  public courses: CourseInfo[];
   public profile: Profile;
   private subscriptions: Subscription[] = [];
 
@@ -24,9 +23,6 @@ export class TrainingProfileComponent implements OnInit, OnDestroy {
       const profileId = params['id'];
       this.subscriptions.push(this.trainingService.getProfileInfo(profileId).subscribe(profile => {
         this.profile = profile;
-      }));
-      this.subscriptions.push(this.trainingService.getCourses(profileId).subscribe(courses => {
-        this.courses = courses;
       }));
     }));
   }
