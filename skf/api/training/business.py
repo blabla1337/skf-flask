@@ -1,7 +1,7 @@
 from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_num_special
 from flask import current_app as app
 from functools import cache
-import sys, json, yaml
+import sys, json, yaml, copy
 
 
 @cache
@@ -17,7 +17,7 @@ def get_training_profiles():
 def get_training_profile_items():
     log("User requested list training profiles", "LOW", "PASS")
     result = {}
-    training_profiles = get_training_profiles()
+    training_profiles = copy.deepcopy(get_training_profiles())
     for profile in training_profiles['profiles']:
         if 'courses' in profile:
             del profile['courses']
@@ -28,7 +28,7 @@ def get_training_profile_items():
 def get_training_profile_item(id):
     log("User requested training profile item", "LOW", "PASS")
     result = None
-    training_profiles = get_training_profiles()
+    training_profiles = copy.deepcopy(get_training_profiles())
     for profile in training_profiles['profiles']:
         if profile['id'] == id:
             result = profile
