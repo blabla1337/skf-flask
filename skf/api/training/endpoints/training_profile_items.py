@@ -5,7 +5,7 @@ from skf.api.security import *
 
 ns = api.namespace('training', description='Operations related to training items')
 
-@ns.route('/items')
+@ns.route('/profiles')
 class TrainingProfileCollection(Resource):
 
     @api.response(400, 'No results found')
