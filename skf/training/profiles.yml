@@ -11,19 +11,19 @@ profiles:
     courses:
       - id: '1.1'
         name: Easy Secure Development
-        text: Easy Secure Development
+        text: This is the description for Easy Secure Development course
         iconClass: bx-shield
-        courseFile: courses/1.1-secdev--easy--.yml
+        courseFile: training/courses/1.1-secdev--easy--.yml
       - id: '1.2'
         name: Competent Secure Development
-        text: Competent Secure Development
+        text: This is the description for Competent Secure Development course
         iconClass: bx-shield
-        courseFile: courses/1.2-secdev--competent--.yml
+        courseFile: training/courses/1.2-secdev--competent--.yml
       - id: '1.3'
         name: Advanced Secure Development
-        text: Advanced Secure Development
+        text: This is the description for Advanced Secure Development course
         iconClass: bx-shield
-        courseFile: courses/1.3-secdev--advanced--.yml
+        # courseFile: training/courses/1.3-secdev--advanced--.yml
   - id: '2'
     name: Hacking
     text: >-
@@ -35,19 +35,19 @@ profiles:
     courses:
       - id: '2.1'
         name: Easy Hacking
-        text: Easy Hacking
+        text: This is the description for Easy Hacking course
         iconClass: bx-code-block
-        courseFile: courses/2.1-hacking--easy--.yml
+        # courseFile: training/courses/2.1-hacking--easy--.yml
       - id: '2.2'
         name: Competent Hacking
-        text: Competent Hacking
+        text: This is the description for Competent Hacking course
         iconClass: bx-code-block
-        courseFile: courses/2.2-hacking--competent--.yml
+        # courseFile: training/courses/2.2-hacking--competent--.yml
       - id: '2.3'
         name: Advanced Hacking
-        text: Advanced Hacking
+        text: This is the description for Advanced Hacking course
         iconClass: bx-code-block
-        courseFile: courses/2.3-hacking--advanced--.yml
+        # courseFile: training/courses/2.3-hacking--advanced--.yml
   - id: '3'
     name: Infra/Ops
     text: >-
