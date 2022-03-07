@@ -15,8 +15,7 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   constructor(private trainingService: TrainingService,
-              private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.subscriptions.push(this.activatedRoute.params.subscribe(params =>
