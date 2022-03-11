@@ -42,4 +42,8 @@ export class TrainingProfileComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  goToTraining() {
+    this.router.navigate(["training", "profiles"]);
+  }
 }
