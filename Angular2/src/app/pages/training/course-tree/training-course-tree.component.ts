@@ -1,10 +1,8 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {TrainingService} from '../../../core/services/training.service';
 import {Course, CourseItem} from '../../../core/models/course.model';
 import {TreeComponent, TreeNode} from '@circlon/angular-tree-component';
 import {TrainingPersistenceService} from '../../../core/services/training.persistence.service';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-training-course-tree',
@@ -16,23 +14,15 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   public nodes = [];
   public options = {};
+  @Input() public course: Course;
 
-  constructor(private trainingService: TrainingService,
-              private activatedRoute: ActivatedRoute,
-              private trainingPersistenceService: TrainingPersistenceService) {
-
+  constructor(private trainingPersistenceService: TrainingPersistenceService) {
   }
 
   ngOnInit(): void {
-    this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
-      const courseId = params['id'];
-      this.subscriptions.push(this.trainingService.getCourse(courseId).subscribe(course => {
-        if (course) {
-          this.setNodesFromCourse(course);
-        }
-      }));
-    }));
-
+    if (this.course) {
+      this.setNodesFromCourse(this.course);
+    }
   }
 
   private setNodesFromCourse(course: Course) {
