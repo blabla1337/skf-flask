@@ -17,6 +17,7 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
 
   constructor(private trainingService: TrainingService,
               private activatedRoute: ActivatedRoute,
+              private router: Router,
               private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.activatedRoute.params.subscribe(params =>
     {
       const courseId = params['id'];
+      // TODO IB !!!! get Course here. send it as param to tree
       this.subscriptions.push(this.trainingService.getCourseInfo(courseId).subscribe(course => {
         this.course = course;
         this.spinner.hide();
@@ -37,5 +39,9 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
         sub.unsubscribe();
       }
     });
+  }
+
+  goToTraining() {
+    this.router.navigate(["training", "profiles"]);
   }
 }

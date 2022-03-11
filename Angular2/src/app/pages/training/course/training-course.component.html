@@ -10,8 +10,9 @@
         <h4 class="mb-0 font-size-18 head-four">Learning</h4>
         <div class="page-title-right">
           <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item active text-primary">Learning</li>
-            <li class="breadcrumb-item active text-primary">Course</li>
+            <li class="breadcrumb-item active text-primary clickable" (click)="goToTraining()">Training</li>
+<!--            TODO IB !!!! add link to profile when I get profileId from backend-->
+<!--            <li class="breadcrumb-item active text-primary clickable">Course</li>-->
             <li class="breadcrumb-item active text-primary">{{course?.name}}</li>
           </ol>
         </div>

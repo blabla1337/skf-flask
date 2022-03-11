@@ -24,6 +24,7 @@ export class TrainingService {
     return this.http.get<Profile>(environment.API_ENDPOINT + `/api/training/profile/${profileId}`, { headers: this.headers })
   }
 
+  // TODO IB !!!! I believe this is not needed
   public getCourseInfo(courseId: string): Observable<CourseInfo> {
     return this.http.get<CourseInfo>(environment.API_ENDPOINT + `/api/training/courseinfo/${courseId}`, { headers: this.headers })
   }
