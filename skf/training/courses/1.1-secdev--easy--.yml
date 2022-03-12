@@ -42,7 +42,7 @@ topics:
   - id: '1.1.2'
     name: Validation, Sanitization and Encoding
     content:
-      - video: https://www.youtube.com/embed/dQw4w9WgXcQ
+      - video: https://www.youtube.com/embed/tCXeYq6KYZc
     categories:
       - id: '1.1.2.1'
         name: SQL injection

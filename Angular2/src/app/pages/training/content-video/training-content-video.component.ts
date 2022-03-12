@@ -7,20 +7,9 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./training-content-video.component.scss']
 })
 export class TrainingContentVideoComponent implements OnInit {
-  private _videoPath: string;
-  get videoPath(): string {
-    return this._videoPath;
-  }
-  @Input() set videoPath(value: string) {
-    this._videoPath = value;
-    this.updateVideo();
-  }
+  @Input() videoPath;
   constructor(public domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-  }
-
-  private updateVideo() {
-
   }
 }
