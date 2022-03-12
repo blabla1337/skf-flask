@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-training-content-video',
@@ -7,9 +7,24 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./training-content-video.component.scss']
 })
 export class TrainingContentVideoComponent implements OnInit {
-  @Input() videoPath;
-  constructor(public domSanitizer: DomSanitizer) { }
+  public safeVideoPath: SafeResourceUrl;
+  private _videoPath: string;
+  get videoPath(): string {
+    return this._videoPath;
+  }
+  @Input() set videoPath(value: string) {
+    this._videoPath = this.addAutoplayIfMissing(value);
+    this.safeVideoPath = this.domSanitizer.bypassSecurityTrustResourceUrl(this._videoPath)
+  }
+
+  constructor(private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+  }
+
+  addAutoplayIfMissing(inputUrl: string): string {
+    const url: URL = new URL(inputUrl);
+    url.searchParams.set("autoplay", "1");
+    return url.toString();
   }
 }
