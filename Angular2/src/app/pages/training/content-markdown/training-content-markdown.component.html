@@ -1,0 +1,9 @@
+<div class="fill">
+  <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+    <p class="loading">Loading, Please Wait...</p>
+  </ngx-spinner>
+
+  <markdown *ngIf="data" [data]="data" (ready)="onReady()">
+
+  </markdown>
+</div>
