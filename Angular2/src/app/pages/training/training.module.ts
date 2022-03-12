@@ -10,6 +10,7 @@ import {TreeModule} from '@circlon/angular-tree-component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {MarkdownModule} from 'ngx-markdown';
 import { TrainingContentMarkdownComponent } from './content-markdown/training-content-markdown.component';
+import { TrainingContentVideoComponent } from './content-video/training-content-video.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { TrainingContentMarkdownComponent } from './content-markdown/training-co
     TrainingCourseTreeComponent,
     TrainingCourseContentComponent,
     TrainingContentMarkdownComponent,
+    TrainingContentVideoComponent,
   ],
     imports: [
         CommonModule,

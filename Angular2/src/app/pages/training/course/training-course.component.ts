@@ -25,7 +25,6 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.activatedRoute.params.subscribe(params =>
     {
       const courseId = params['id'];
-      // TODO IB !!!! send it as param to tree
       this.subscriptions.push(this.trainingService.getCourse(courseId).subscribe(course => {
         this.course = course;
         this.spinner.hide();

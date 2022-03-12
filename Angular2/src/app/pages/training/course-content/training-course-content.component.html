@@ -1,3 +1,7 @@
-<app-training-content-markdown *ngIf="markdownPath" [markdownPath]="markdownPath">
+<div class="fill">
+  <app-training-content-markdown *ngIf="markdownPath" [markdownPath]="markdownPath">
+  </app-training-content-markdown>
+  <app-training-content-video *ngIf="videoPath" [videoPath]="videoPath">
 
-</app-training-content-markdown>
+  </app-training-content-video>
+</div>
