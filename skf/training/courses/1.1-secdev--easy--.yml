@@ -32,8 +32,8 @@ topics:
       - id: '1.1.1.2'
         name: HTTP Only flag
         content:
+          - questionnaire: /questionnaire/1.md
           - slide: /slides/2.md
-          - questionnaire: /questionnaire/2.md
       - id: '1.1.1.3'
         name: Session riding
         content:
