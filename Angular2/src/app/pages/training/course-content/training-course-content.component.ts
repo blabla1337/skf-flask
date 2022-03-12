@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TrainingPersistenceService} from '../../../core/services/training.persistence.service';
-import {CourseItem} from '../../../core/models/course.model';
+import {Course, CourseItem} from '../../../core/models/course.model';
 
 @Component({
   selector: 'app-training-course-content',
@@ -9,14 +9,19 @@ import {CourseItem} from '../../../core/models/course.model';
   styleUrls: ['./training-course-content.component.scss']
 })
 export class TrainingCourseContentComponent implements OnInit {
+  @Input() public course: Course;
   private subscriptions: Subscription[] = [];
   public courseItem: CourseItem;
+  public markdownPath: string;
 
   constructor(private trainingPersistenceService: TrainingPersistenceService) { }
 
   ngOnInit(): void {
     this.subscriptions.push(this.trainingPersistenceService.currentCourseItem$.subscribe(courseItem => {
       this.courseItem = courseItem;
+      if (courseItem && courseItem.content && courseItem.content.length > 0 && courseItem.content[0].slide) {
+        this.markdownPath = this.course.assetsPath + courseItem.content[0].slide;
+      }
     }));
   }
 

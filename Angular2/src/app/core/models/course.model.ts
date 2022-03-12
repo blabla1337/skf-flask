@@ -54,6 +54,7 @@ export interface Course {
   id: string;
   name: string;
   languages: LabLanguage[];
+  assetsPath: string;
   content: ContentItem[];
   topics: Topic[];
 }

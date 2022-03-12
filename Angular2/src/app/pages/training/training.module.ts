@@ -8,6 +8,8 @@ import { TrainingCourseTreeComponent } from './course-tree/training-course-tree.
 import { TrainingCourseContentComponent } from './course-content/training-course-content.component';
 import {TreeModule} from '@circlon/angular-tree-component';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {MarkdownModule} from 'ngx-markdown';
+import { TrainingContentMarkdownComponent } from './content-markdown/training-content-markdown.component';
 
 
 @NgModule({
@@ -17,12 +19,14 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     TrainingProfileComponent,
     TrainingCourseTreeComponent,
     TrainingCourseContentComponent,
+    TrainingContentMarkdownComponent,
   ],
     imports: [
         CommonModule,
         TrainingRoutingModule,
         TreeModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        MarkdownModule.forRoot(),
     ]
 })
 export class TrainingModule { }
