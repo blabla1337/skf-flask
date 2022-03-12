@@ -19,8 +19,12 @@ export class TrainingCourseContentComponent implements OnInit {
   ngOnInit(): void {
     this.subscriptions.push(this.trainingPersistenceService.currentCourseItem$.subscribe(courseItem => {
       this.courseItem = courseItem;
-      if (courseItem && courseItem.content && courseItem.content.length > 0 && courseItem.content[0].slide) {
-        this.markdownPath = this.course.assetsPath + courseItem.content[0].slide;
+      if (courseItem && courseItem.content && courseItem.content.length > 0) {
+        if (courseItem.content[0].slide) {
+          this.markdownPath = this.course.assetsPath + courseItem.content[0].slide;
+        } else if (courseItem.content[0].questionnaire) {
+          this.markdownPath = this.course.assetsPath + courseItem.content[0].questionnaire;
+        }
       }
     }));
   }
