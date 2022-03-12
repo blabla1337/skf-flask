@@ -8,7 +8,7 @@ languages:
   - js
   - net
 content:
-  - slide: skf/markdown/learning_platform/slides/1.md
+  - slide: /training/secure_code/slides/1.md
 topics:
   - id: '1.1.1'
     name: Session management
@@ -18,12 +18,11 @@ topics:
       - id: '1.1.1.1'
         name: Session Hijacking
         content:
-          - slide: skf/markdown/learning_platform/secure_code/slides/1.md
-          - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/1.md
+          - slide: /training/secure_code/slides/1.md
+          - questionnaire: /training/secure_code/questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
-              writeup: >-
-                https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
               images:
                 - python: blabla1337/owasp-skf-lab-py
                 - java: blabla1337/owasp-skf-lab-java
@@ -32,13 +31,13 @@ topics:
       - id: '1.1.1.2'
         name: HTTP Only flag
         content:
-          - slide: skf/markdown/learning_platform/secure_code/slides/2.md
-          - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/2.md
+          - slide: /training/secure_code/slides/2.md
+          - questionnaire: /training/secure_code/questionnaire/2.md
       - id: '1.1.1.3'
         name: Session riding
         content:
-          - slide: skf/markdown/learning_platform/secure_code/slides/3.md
-          - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/3.md
+          - slide: /training/secure_code/slides/3.md
+          - questionnaire: /training/secure_code/questionnaire/3.md
   - id: '1.1.2'
     name: Validation, Sanitization and Encoding
     content:
@@ -47,20 +46,20 @@ topics:
       - id: '1.1.2.1'
         name: SQL injection
         content:
-          - slide: skf/markdown/learning_platform/secure_code/slides/4.md
-          - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/4.md
+          - slide: /training/secure_code/slides/4.md
+          - questionnaire: /training/secure_code/questionnaire/4.md
       - id: '1.1.2.2'
         name: LDAP injection
         content:
-          - slide: skf/markdown/learning_platform/secure_code/slides/5.md
-          - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/5.md
+          - slide: /training/secure_code/slides/5.md
+          - questionnaire: /training/secure_code/questionnaire/5.md
       - id: '1.1.2.3'
         name: Server Side Template injection
         content:
-          - slide: skf/markdown/learning_platform/secure_code/slides/6.md
-          - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/6.md
+          - slide: /training/secure_code/slides/6.md
+          - questionnaire: /training/secure_code/questionnaire/6.md
       - id: '1.1.2.4'
         name: Server Side Template injection
         content:
-          - slide: skf/markdown/learning_platform/secure_code/slides/7.md
-          - questionnaire: skf/markdown/learning_platform/secure_code/questionnaire/7.md
+          - slide: /training/secure_code/slides/7.md
+          - questionnaire: /training/secure_code/questionnaire/7.md
