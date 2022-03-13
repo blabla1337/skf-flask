@@ -15,7 +15,8 @@ export class TrainingCourseContentComponent implements OnInit {
   public markdownPath: string;
   public videoPath: string;
 
-  constructor(private trainingPersistenceService: TrainingPersistenceService) { }
+  constructor(private trainingPersistenceService: TrainingPersistenceService) {
+  }
 
   ngOnInit(): void {
     this.subscriptions.push(this.trainingPersistenceService.currentCourseItem$.subscribe(courseItem => {
@@ -36,7 +37,7 @@ export class TrainingCourseContentComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => {
-      if(sub) {
+      if (sub) {
         sub.unsubscribe();
       }
     });

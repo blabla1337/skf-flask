@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TrainingRoutingModule } from './training-routing.module';
-import { TrainingProfilesComponent } from './profiles/training-profiles.component';
-import { TrainingCourseComponent } from './course/training-course.component';
-import { TrainingProfileComponent } from './profile/training-profile.component';
-import { TrainingCourseTreeComponent } from './course-tree/training-course-tree.component';
-import { TrainingCourseContentComponent } from './course-content/training-course-content.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TrainingRoutingModule} from './training-routing.module';
+import {TrainingProfilesComponent} from './profiles/training-profiles.component';
+import {TrainingCourseComponent} from './course/training-course.component';
+import {TrainingProfileComponent} from './profile/training-profile.component';
+import {TrainingCourseTreeComponent} from './course-tree/training-course-tree.component';
+import {TrainingCourseContentComponent} from './course-content/training-course-content.component';
 import {TreeModule} from '@circlon/angular-tree-component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {MarkdownModule} from 'ngx-markdown';
-import { TrainingContentMarkdownComponent } from './content-markdown/training-content-markdown.component';
-import { TrainingContentVideoComponent } from './content-video/training-content-video.component';
+import {TrainingContentMarkdownComponent} from './content-markdown/training-content-markdown.component';
+import {TrainingContentVideoComponent} from './content-video/training-content-video.component';
 
 
 @NgModule({
@@ -21,14 +21,15 @@ import { TrainingContentVideoComponent } from './content-video/training-content-
     TrainingCourseTreeComponent,
     TrainingCourseContentComponent,
     TrainingContentMarkdownComponent,
-    TrainingContentVideoComponent,
+    TrainingContentVideoComponent
   ],
-    imports: [
-        CommonModule,
-        TrainingRoutingModule,
-        TreeModule,
-        NgxSpinnerModule,
-        MarkdownModule.forRoot(),
-    ]
+  imports: [
+    CommonModule,
+    TrainingRoutingModule,
+    TreeModule,
+    NgxSpinnerModule,
+    MarkdownModule.forRoot()
+  ]
 })
-export class TrainingModule { }
+export class TrainingModule {
+}

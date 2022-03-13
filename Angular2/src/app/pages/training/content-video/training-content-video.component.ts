@@ -12,19 +12,21 @@ export class TrainingContentVideoComponent implements OnInit {
   get videoPath(): string {
     return this._videoPath;
   }
+
   @Input() set videoPath(value: string) {
     this._videoPath = this.addAutoplayIfMissing(value);
-    this.safeVideoPath = this.domSanitizer.bypassSecurityTrustResourceUrl(this._videoPath)
+    this.safeVideoPath = this.domSanitizer.bypassSecurityTrustResourceUrl(this._videoPath);
   }
 
-  constructor(private domSanitizer: DomSanitizer) { }
+  constructor(private domSanitizer: DomSanitizer) {
+  }
 
   ngOnInit(): void {
   }
 
   addAutoplayIfMissing(inputUrl: string): string {
     const url: URL = new URL(inputUrl);
-    url.searchParams.set("autoplay", "1");
+    url.searchParams.set('autoplay', '1');
     return url.toString();
   }
 }
