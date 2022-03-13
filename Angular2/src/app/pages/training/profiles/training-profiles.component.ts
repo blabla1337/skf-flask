@@ -14,10 +14,12 @@ import {NgxSpinnerService} from 'ngx-spinner';
 export class TrainingProfilesComponent implements OnInit, OnDestroy {
   public profiles: Profile[] = [];
   private subscriptions: Subscription[] = [];
+
   constructor(private trainingService: TrainingService,
               private trainingPersistenceService: TrainingPersistenceService,
               private router: Router,
-              private spinner: NgxSpinnerService) { }
+              private spinner: NgxSpinnerService) {
+  }
 
   ngOnInit(): void {
     this.spinner.show();
@@ -28,7 +30,7 @@ export class TrainingProfilesComponent implements OnInit, OnDestroy {
   }
 
   onSelectProfile(profile: Profile) {
-    this.router.navigate(["training", "profile", profile.id]);
+    this.router.navigate(['training', 'profile', profile.id]);
   }
 
   ngOnDestroy(): void {

@@ -17,12 +17,12 @@ export class TrainingProfileComponent implements OnInit, OnDestroy {
   constructor(private trainingService: TrainingService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private spinner: NgxSpinnerService) { }
+              private spinner: NgxSpinnerService) {
+  }
 
   ngOnInit(): void {
     this.spinner.show();
-    this.subscriptions.push(this.activatedRoute.params.subscribe(params =>
-    {
+    this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
       const profileId = params['id'];
       this.subscriptions.push(this.trainingService.getProfileInfo(profileId).subscribe(profile => {
         this.profile = profile;
@@ -32,7 +32,7 @@ export class TrainingProfileComponent implements OnInit, OnDestroy {
   }
 
   onSelectCourse(course: CourseInfo) {
-    this.router.navigate(["training", "course", course.id]);
+    this.router.navigate(['training', 'course', course.id]);
   }
 
   ngOnDestroy(): void {
@@ -44,6 +44,6 @@ export class TrainingProfileComponent implements OnInit, OnDestroy {
   }
 
   goToTraining() {
-    this.router.navigate(["training", "profiles"]);
+    this.router.navigate(['training', 'profiles']);
   }
 }

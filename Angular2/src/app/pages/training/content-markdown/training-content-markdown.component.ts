@@ -12,6 +12,7 @@ export class TrainingContentMarkdownComponent implements OnInit {
   get markdownPath(): string {
     return this._markdownPath;
   }
+
   @Input() set markdownPath(value: string) {
     this._markdownPath = value;
     this.updateMarkdown();
@@ -30,11 +31,11 @@ export class TrainingContentMarkdownComponent implements OnInit {
   }
 
   private updateMarkdown() {
-    const headers = new HttpHeaders({ 'Content-Type': 'text/plain; charset=utf-8'});
+    const headers = new HttpHeaders({'Content-Type': 'text/plain; charset=utf-8'});
     this.data = undefined;
     this.spinner.show();
 
-    this.httpClient.get(this._markdownPath, { headers, responseType: 'text' })
+    this.httpClient.get(this._markdownPath, {headers, responseType: 'text'})
       .subscribe(data => {
         this.spinner.hide();
         this.data = data;

@@ -35,7 +35,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
         id: c.id,
         name: c.name,
         content: c.content,
-        children:[]
+        children: []
       }))
     }));
 
@@ -55,7 +55,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => {
-      if(sub) {
+      if (sub) {
         sub.unsubscribe();
       }
     });
