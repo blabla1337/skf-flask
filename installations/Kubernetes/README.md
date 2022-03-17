@@ -76,8 +76,14 @@ Horizontal auto-scaling for the API server. You might want to change the `minRep
 
 ## `Deployment_mysql.yaml`
 
-MySQL service and deployment. Authentication variables are set in `configmaps.yaml` and also used by
-`Deployment_backend.yaml`.
+MySQL service, persistent volume claim and deployment. Authentication variables are set in
+`configmaps.yaml` and also used by `Deployment_backend.yaml`. The persistent volume requests 8GiB by
+default.
+
+If you're deploying to a cloud provider, you might want to use their database service instead and
+not deploy this. The database URL is set in `configmaps.yaml`.
+
+If this is used, make sure you back up the persistent volume!
 
 ## `Deployment_rabbitmq.yaml`
 

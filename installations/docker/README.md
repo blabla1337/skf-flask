@@ -21,7 +21,7 @@ First we want to select “Enable Kubernetes” after which we press on “Apply
 For Linux users you may want to look at Minikube for deploying locally. Alternatively if you do not want to go through all the hassle of installing a local kubernetes cluster you can also provide the configuration file from the cloud provider of your choosing, or simply choose to clone the lab repository and run them as flask applications with python as described here. After setting up our local cluster it is time to perform a “docker-compose up” command in the root directory of the SKF project.
 
 WARNING, before doing below steps make sure you selected the right context (docker-desktop)
-Now we need to edit the docker-compose.yaml file and change the value LABS_KUBE_CONF to the new value:
+Now we need to edit the docker-compose.yaml file and change the value `LABS_KUBE_CONF` to the new value:
 ```
   # Below is the variable where we place the base64 string that will be used in the .kube/config file in the cluster
   # file for example: cat ~/.kube/config | base64
@@ -45,7 +45,15 @@ If you are done don't forget to kill it again with:
 docker-compose down
 ```
 
-5. Location of SKF images
+To clear the database, too:
+```
+docker-compose down --volumes
+```
+
+5. By default, the login will be skipped when using docker compose locally. To change this, update
+   the value of `SKIP_LOGIN` to `skfprovider` in `docker-compose.yml`.
+
+6. Location of SKF images
 We also have a list of old OWASP-SKF Docker images available:
 
 Angular:

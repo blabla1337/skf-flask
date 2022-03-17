@@ -23,6 +23,8 @@ services:
       MYSQL_DEFAULT_USER: 'root'
     ports:
       - '3306:3306'
+    volumes:
+       - mysql_data:/var/lib/mysql
 
   nginx:
     container_name: skf-nginx_container
@@ -70,3 +72,5 @@ services:
       #- SKF_LABS_DEPLOY_MODE=subdomain
       #- JWT_ENABLED="False"
       #- SKF_DOJO_API_KEY=
+volumes:
+  mysql_data: {}
