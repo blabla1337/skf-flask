@@ -15,6 +15,21 @@ spec:
     app.kubernetes.io/name: mysql
     app.kubernetes.io/instance: mysql
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app.kubernetes.io/name: mysql
+    app.kubernetes.io/instance: mysql
+    app.kubernetes.io/version: "2.2.2"
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,12 +50,19 @@ spec:
         app.kubernetes.io/name: mysql
         app.kubernetes.io/instance: mysql
     spec:
+      volumes:
+      - name: mysql-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
       containers:
         - name: mysql
           image: blabla1337/mysql
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 3306
+          volumeMounts:
+          - name: mysql-storage
+            mountPath: /var/lib/mysql
           env:
           -  name: MYSQL_DEFAULT_USER
              valueFrom:
