@@ -12,7 +12,7 @@ export class TrainingService {
   public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 
   // TODO IB !!!! move to persistence
-  private seenItems: string[] = [];
+  private seenCategories: string[] = [];
 
   public getProfiles(): Observable<Profile[]> {
     return this.http
@@ -34,14 +34,14 @@ export class TrainingService {
   }
 
   // TODO IB !!!! implement and test this
-  public setCourseSeenItems(userId: string, courseId: string, itemIds: string[]): Observable<boolean> {
-    this.seenItems.push(...itemIds)
-    this.seenItems = _.uniq(this.seenItems)
+  public setCourseProgress(userId: string, courseId: string, categoryId: string): Observable<boolean> {
+    this.seenCategories.push(categoryId)
+    this.seenCategories = _.uniq(this.seenCategories)
     return of(true)
   }
 
   // TODO IB !!!! implement and test this
-  public getCourseSeenItems(userId: string, courseId: string): Observable<string[]> {
-    return of(this.seenItems)
+  public getCourseProgress(userId: string, courseId: string): Observable<string[]> {
+    return of(this.seenCategories)
   }
 }
