@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { JoyrideService } from 'ngx-joyride';
 import { ThemeService } from '../../core/services/theme.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppSettings } from '../../global';
 import { DOCUMENT } from '@angular/common';
 import { OAuthService } from 'angular-oauth2-oidc';
 
@@ -268,7 +267,6 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
         showCounter: false,
       });
     }
-
   }
 
   /**
@@ -280,21 +278,17 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   {
     localStorage.setItem('categorySelector', platform);
     this.document.defaultView.location.reload();
-
-  }
-
-  onLogin()
-  {
-    this.router.navigate(['/auth/login']);
   }
 
   loggedOut()
   {
-    this.oauthService.revokeTokenAndLogout();
+    this.oauthService.logOut();
+    sessionStorage.clear();
     this.router.navigate(['/auth/login']);
   }
 
-  onChange() {
+  onChange() 
+  {
     localStorage.setItem('search',this.searchForm.value.search)
     this.router.navigate(['/search/index']);
   }
