@@ -33,15 +33,15 @@ export class TrainingService {
     return this.http.get<Course>(environment.API_ENDPOINT + `/api/training/course/${courseId}`, { headers: this.headers })
   }
 
-  // TODO IB !!!! test this
-  public setCourseSeenItems(courseId: string, itemIds: string[]): Observable<boolean> {
+  // TODO IB !!!! implement and test this
+  public setCourseSeenItems(userId: string, courseId: string, itemIds: string[]): Observable<boolean> {
     this.seenItems.push(...itemIds)
     this.seenItems = _.uniq(this.seenItems)
     return of(true)
   }
 
-  // TODO IB !!!! test this
-  public getCourseSeenItems(courseId: string): Observable<string[]> {
+  // TODO IB !!!! implement and test this
+  public getCourseSeenItems(userId: string, courseId: string): Observable<string[]> {
     return of(this.seenItems)
   }
 }
