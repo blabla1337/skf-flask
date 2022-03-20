@@ -26,7 +26,7 @@ export class TrainingService {
 
   // TODO IB !!!! This might not be needed
   public getCourseInfo(courseId: string): Observable<CourseInfo> {
-    return this.http.get<CourseInfo>(environment.API_ENDPOINT + `/api/training/courseinfo/${courseId}`, { headers: this.headers })
+    return this.http.get<CourseInfo>(environment.API_ENDPOINT + `/api/training/course/${courseId}/info`, { headers: this.headers })
   }
 
   public getCourse(courseId: string): Observable<Course> {

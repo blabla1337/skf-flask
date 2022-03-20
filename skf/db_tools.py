@@ -11,6 +11,7 @@ from skf.database.kb_items import KBItem
 from skf.database.code_items import CodeItem
 from skf.database.checklist_types import ChecklistType
 from skf.database.checklist_category import ChecklistCategory
+from skf.database.training import Training
 from skf.initial_data import load_initial_data
 
 logging.config.fileConfig('logging.conf')
