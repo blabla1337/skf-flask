@@ -1,6 +1,9 @@
-from skf.api.security import log, val_num, val_float, val_alpha_num, val_alpha_num_special
+from skf.api.security import log
+from skf.database import db
+from skf.database.training import Training 
+from flask import abort
 from flask import current_app as app
-from functools import cache
+# from functools import lru_cache
 import sys, json, yaml, copy
 
 
@@ -12,12 +15,12 @@ def _get_content_from_yml(path):
         result = json.loads(c_json)
     return result
 
-@cache
+# @lru_cache
 def _get_training_profiles():
     result = _get_content_from_yml('training/profiles.yml')
     return result
 
-@cache
+# @lru_cache
 def _get_training_courses():
     result = {}
     training_profiles = copy.deepcopy(_get_training_profiles())
@@ -28,7 +31,7 @@ def _get_training_courses():
             result[course['id']] = course
     return result
 
-@cache
+# @lru_cache
 def _get_training_course_files():
     result = {}
     training_profiles = copy.deepcopy(_get_training_profiles())
@@ -39,7 +42,7 @@ def _get_training_course_files():
     return result
 
 
-@cache
+# @lru_cache
 def get_training_profile_items():
     log("User requested list training profiles", "LOW", "PASS")
     result = {}
@@ -50,13 +53,13 @@ def get_training_profile_items():
     result = training_profiles
     return result
 
-@cache
-def get_training_profile_item(id):
+# @lru_cache
+def get_training_profile_item(profile_id):
     log("User requested training profile item", "LOW", "PASS")
     result = None
     training_profiles = copy.deepcopy(_get_training_profiles())
     for profile in training_profiles['profiles']:
-        if profile['id'] == id:
+        if profile['id'] == profile_id:
             result = profile
             for course in profile['courses']:
                 if 'courseFile' in course:
@@ -64,21 +67,37 @@ def get_training_profile_item(id):
             break
     return result
 
-@cache
-def get_training_course_info(id):
-    log("User requested training course item", "LOW", "PASS")
+# @lru_cache
+def get_training_course_info(course_id):
+    log("User requested training course info", "LOW", "PASS")
     result = None
     training_courses = _get_training_courses()
-    if id in training_courses:
-        result = training_courses[id]
+    if course_id in training_courses:
+        result = training_courses[course_id]
     return result
 
-@cache
-def get_training_course_item(id):
+# @lru_cache
+def get_training_course_item(course_id):
     log("User requested training course item", "LOW", "PASS")
     result = None
     course_files = _get_training_course_files()
-    if id in course_files:
-        result = _get_content_from_yml(course_files[id])
+    if course_id in course_files:
+        result = _get_content_from_yml(course_files[course_id])
     return result
 
+def get_progress(course_id, user_id):
+    log("User requested training course progress", "LOW", "PASS")
+    result = [t.category_id for t in \
+        Training.query.filter(Training.user_id == user_id, Training.course_id == course_id).all()]
+    return result
+
+def set_progress(data):
+    log("User requested training course progress update", "MEDIUM", "PASS")
+    try:
+        training = Training(data.get('userId'), data.get('courseId'), data.get('categoryId'))
+        db.session.add(training)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        return abort(400, 'Training not created')
+    return {'message': 'Training successfully created'}

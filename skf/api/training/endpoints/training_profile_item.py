@@ -5,12 +5,12 @@ from skf.api.security import *
 
 ns = api.namespace('training', description='Operations related to training items')
 
-@ns.route('/profile/<string:id>')
-@ns.doc(params={'id': 'The course'})
+@ns.route('/profile/<string:profile_id>')
+@ns.doc(params={'profile_id': 'The profile id'})
 class TrainingProfile(Resource):
 
     @api.response(400, 'No results found')
-    def get(self, id):
-        val_alpha_num(id)
-        result = get_training_profile_item(id)
+    def get(self, profile_id):
+        val_alpha_num(profile_id)
+        result = get_training_profile_item(profile_id)
         return result, 200, security_headers()

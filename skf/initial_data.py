@@ -19,6 +19,7 @@ from skf.database.project_sprints import ProjectSprint
 from skf.database.projects import Project
 from skf.database.question_results import QuestionResult
 from skf.database.checklist_kb_code_item import ChecklistKBCodeItem
+from skf.database.training import Training
 
 
 def load_initial_data():
