@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Course, CourseInfo, Profile} from '../models/course.model';
+import {Course, Profile} from '../models/course.model';
 import {Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
@@ -18,11 +18,6 @@ export class TrainingService {
 
   public getProfileInfo(profileId: string): Observable<Profile> {
     return this.http.get<Profile>(environment.API_ENDPOINT + `/api/training/profile/${profileId}`, { headers: this.headers })
-  }
-
-  // TODO IB !!!! This might not be needed
-  public getCourseInfo(courseId: string): Observable<CourseInfo> {
-    return this.http.get<CourseInfo>(environment.API_ENDPOINT + `/api/training/course/${courseId}/info`, { headers: this.headers })
   }
 
   public getCourse(courseId: string): Observable<Course> {
