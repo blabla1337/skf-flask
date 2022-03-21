@@ -30,7 +30,6 @@ export class TrainingNavigationService {
   }
 
   // event raised when a new Topic/Category is selected
-  // TODO IB !!!! rename
   private currentCourseItemChangedSubject: Subject<CourseItem> = new Subject<CourseItem>();
   public currentCourseItemChanged$ = this.currentCourseItemChangedSubject.asObservable();
   public raiseCurrentCourseItemChanged(courseItem: CourseItem) {
