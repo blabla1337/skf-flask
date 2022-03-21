@@ -15,6 +15,7 @@ export class TrainingCourseContentComponent implements OnInit {
   public markdownPath: string;
   public videoPath: string;
   public showLab: boolean;
+  private currentContentItem: number;
 
   constructor(private trainingNavigationService: TrainingNavigationService) {
   }
@@ -22,27 +23,37 @@ export class TrainingCourseContentComponent implements OnInit {
   ngOnInit(): void {
     this.subscriptions.push(this.trainingNavigationService.currentCourseItemChanged$.subscribe(courseItem => {
       this.courseItem = courseItem;
-      this.markdownPath = undefined;
-      this.videoPath = undefined;
-      this.showLab = false;
-      if (courseItem && courseItem.content && courseItem.content.length > 0) {
-        if (courseItem.content[0].slide) {
-          this.markdownPath = this.course.assetsPath + courseItem.content[0].slide;
-        } else if (courseItem.content[0].questionnaire) {
-          this.markdownPath = this.course.assetsPath + courseItem.content[0].questionnaire;
-        } else if (courseItem.content[0].video) {
-          this.videoPath = courseItem.content[0].video;
-        } else if (courseItem.content[0].lab) {
-          this.showLab = true;
-        }
-      }
+      this.currentContentItem = 0;
+      this.prepareContentDisplay();
     }));
 
     this.subscriptions.push(this.trainingNavigationService.nextContentItem$.subscribe(() => {
       console.log("TODO IB !!!! nextContentItem$ in course content");
-      // TODO IB !!!! 1 we should display first all content
-      this.trainingNavigationService.raiseNextCourseItem();
+      if (this.currentContentItem < this.courseItem.content.length - 1) {
+        this.currentContentItem++;
+        this.prepareContentDisplay();
+      } else {
+        this.trainingNavigationService.raiseNextCourseItem();
+      }
     }));
+  }
+
+  private prepareContentDisplay() {
+    this.markdownPath = undefined;
+    this.videoPath = undefined;
+    this.showLab = false;
+
+    if (this.courseItem && this.courseItem.content && this.currentContentItem < this.courseItem.content.length) {
+      if (this.courseItem.content[this.currentContentItem].slide) {
+        this.markdownPath = this.course.assetsPath + this.courseItem.content[this.currentContentItem].slide;
+      } else if (this.courseItem.content[this.currentContentItem].questionnaire) {
+        this.markdownPath = this.course.assetsPath + this.courseItem.content[this.currentContentItem].questionnaire;
+      } else if (this.courseItem.content[this.currentContentItem].video) {
+        this.videoPath = this.courseItem.content[this.currentContentItem].video;
+      } else if (this.courseItem.content[this.currentContentItem].lab) {
+        this.showLab = true;
+      }
+    }
   }
 
   ngOnDestroy(): void {
