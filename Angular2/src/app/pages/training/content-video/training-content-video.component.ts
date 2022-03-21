@@ -14,7 +14,8 @@ export class TrainingContentVideoComponent implements OnInit {
   }
 
   @Input() set videoPath(value: string) {
-    this._videoPath = this.addAutoplayIfMissing(value);
+    this._videoPath = value;
+    // TODO IB !!!! autoplay? this._videoPath = this.addAutoplayIfMissing(value);
     this.safeVideoPath = this.domSanitizer.bypassSecurityTrustResourceUrl(this._videoPath);
   }
 

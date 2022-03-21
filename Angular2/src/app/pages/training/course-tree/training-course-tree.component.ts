@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Course, CourseItem} from '../../../core/models/course.model';
 import {TreeComponent, TreeNode} from '@circlon/angular-tree-component';
-import {TrainingPersistenceService} from '../../../core/services/training.persistence.service';
+import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 
 @Component({
   selector: 'app-training-course-tree',
@@ -16,7 +16,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   public options = {};
   @Input() public course: Course;
 
-  constructor(private trainingPersistenceService: TrainingPersistenceService) {
+  constructor(private trainingNavigationService: TrainingNavigationService) {
   }
 
   ngOnInit(): void {
@@ -50,7 +50,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   onActivate(event: any) {
     const treeNode: TreeNode = event.node;
     const courseItem: CourseItem = treeNode.data;
-    this.trainingPersistenceService.setSelectedCourseItem(courseItem);
+    this.trainingNavigationService.setSelectedCourseItem(courseItem);
   }
 
   ngOnDestroy(): void {
