@@ -1,0 +1,14 @@
+div.fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 10px;
+
+  button.next {
+    margin-right: 20px;
+    margin-left: 20px;
+    min-width: 100px;
+  }
+}

@@ -1,7 +1,13 @@
 <div class="fill">
-  <app-training-content-markdown *ngIf="markdownPath" [markdownPath]="markdownPath">
+  <app-training-content-markdown
+    *ngIf="contentItemType === 'Slides' || contentItemType === 'Questionnaire'"
+    [markdownPath]="markdownPath"
+    [contentItemType]="contentItemType" >
   </app-training-content-markdown>
-  <app-training-content-video *ngIf="videoPath" [videoPath]="videoPath">
 
+  <app-training-content-video *ngIf="contentItemType === 'Video'" [videoPath]="videoPath">
   </app-training-content-video>
+
+  <app-training-content-lab *ngIf="contentItemType === 'Lab'">
+  </app-training-content-lab>
 </div>

@@ -37,17 +37,17 @@ profiles:
         name: Easy Hacking
         text: This is the description for Easy Hacking course
         iconClass: bx-code-block
-        # courseFile: training/courses/2.1-hacking--easy--.yml
+        courseFile: training/courses/2.1-hacking--easy--.yml
       - id: '2.2'
         name: Competent Hacking
         text: This is the description for Competent Hacking course
         iconClass: bx-code-block
-        # courseFile: training/courses/2.2-hacking--competent--.yml
+        courseFile: training/courses/2.2-hacking--competent--.yml
       - id: '2.3'
         name: Advanced Hacking
         text: This is the description for Advanced Hacking course
         iconClass: bx-code-block
-        # courseFile: training/courses/2.3-hacking--advanced--.yml
+        courseFile: training/courses/2.3-hacking--advanced--.yml
   - id: '3'
     name: Infra/Ops
     text: >-

@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Course, CourseInfo, Profile} from '../models/course.model';
 import {Observable, of} from 'rxjs';
-import _ from "lodash";
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
 
@@ -10,9 +9,6 @@ import {map} from 'rxjs/operators';
 export class TrainingService {
   constructor(private http: HttpClient) { }
   public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
-
-  // TODO IB !!!! move to persistence
-  private seenCategories: string[] = [];
 
   public getProfiles(): Observable<Profile[]> {
     return this.http
@@ -35,13 +31,11 @@ export class TrainingService {
 
   // TODO IB !!!! implement and test this
   public setCourseProgress(userId: string, courseId: string, categoryId: string): Observable<boolean> {
-    this.seenCategories.push(categoryId)
-    this.seenCategories = _.uniq(this.seenCategories)
     return of(true)
   }
 
   // TODO IB !!!! implement and test this
   public getCourseProgress(userId: string, courseId: string): Observable<string[]> {
-    return of(this.seenCategories)
+    return of([])
   }
 }

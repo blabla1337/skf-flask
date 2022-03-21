@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Course, CourseItem} from '../../../core/models/course.model';
 import {TreeComponent, TreeNode} from '@circlon/angular-tree-component';
-import {TrainingPersistenceService} from '../../../core/services/training.persistence.service';
+import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 
 @Component({
   selector: 'app-training-course-tree',
@@ -15,14 +15,19 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   public nodes = [];
   public options = {};
   @Input() public course: Course;
+  private selectedCourseItem: CourseItem = undefined;
 
-  constructor(private trainingPersistenceService: TrainingPersistenceService) {
+  constructor(private trainingNavigationService: TrainingNavigationService) {
   }
 
   ngOnInit(): void {
     if (this.course) {
       this.setNodesFromCourse(this.course);
     }
+    this.subscriptions.push(this.trainingNavigationService.nextCourseItem$.subscribe(() => {
+      console.log('TODO IB !!!! nextCourseItem$ in tree');
+      this.setNextCourseItem();
+    }));
   }
 
   private setNodesFromCourse(course: Course) {
@@ -41,16 +46,25 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       if (this.nodes.length > 0) {
-        this.tree.treeModel.roots.map(x => x.expand());
+        this.tree.treeModel.expandAll();
         this.tree.treeModel.roots[0].setActiveAndVisible();
       }
     }, 0);
   }
 
-  onActivate(event: any) {
+  private setNextCourseItem() {
+    const oldFocusedNode = this.tree.treeModel.getFocusedNode();
+    this.tree.treeModel.focusNextNode();
+    const focusedNode = this.tree.treeModel.getFocusedNode();
+    if (focusedNode !== oldFocusedNode) {
+      focusedNode.setActiveAndVisible();
+    }
+  }
+
+  onActivateNode(event: any) {
     const treeNode: TreeNode = event.node;
-    const courseItem: CourseItem = treeNode.data;
-    this.trainingPersistenceService.setSelectedCourseItem(courseItem);
+    this.selectedCourseItem = treeNode.data;
+    this.trainingNavigationService.raiseCurrentCourseItemChanged(this.selectedCourseItem);
   }
 
   ngOnDestroy(): void {
