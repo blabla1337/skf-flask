@@ -15,6 +15,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   public nodes = [];
   public options = {};
   @Input() public course: Course;
+  private selectedCourseItem: CourseItem = undefined;
 
   constructor(private trainingNavigationService: TrainingNavigationService) {
   }
@@ -24,8 +25,8 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
       this.setNodesFromCourse(this.course);
     }
     this.subscriptions.push(this.trainingNavigationService.nextCourseItem$.subscribe(() => {
-      // TODO IB !!!! 1 implement go to next item in tree
       console.log('TODO IB !!!! nextCourseItem$ in tree');
+      this.setNextCourseItem();
     }));
   }
 
@@ -45,16 +46,22 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       if (this.nodes.length > 0) {
-        this.tree.treeModel.roots.map(x => x.expand());
+        this.tree.treeModel.expandAll();
         this.tree.treeModel.roots[0].setActiveAndVisible();
       }
     }, 0);
   }
 
+  private setNextCourseItem() {
+    this.tree.treeModel.focusNextNode();
+    const focusedNode = this.tree.treeModel.getFocusedNode();
+    focusedNode.setActiveAndVisible();
+  }
+
   onActivate(event: any) {
     const treeNode: TreeNode = event.node;
-    const courseItem: CourseItem = treeNode.data;
-    this.trainingNavigationService.raiseCurrentCourseItemChanged(courseItem);
+    this.selectedCourseItem = treeNode.data;
+    this.trainingNavigationService.raiseCurrentCourseItemChanged(this.selectedCourseItem);
   }
 
   ngOnDestroy(): void {
