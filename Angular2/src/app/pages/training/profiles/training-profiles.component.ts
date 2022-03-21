@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Profile} from '../../../core/models/course.model';
 import {TrainingService} from '../../../core/services/training.service';
 import {Subscription} from 'rxjs';
-import {TrainingPersistenceService} from '../../../core/services/training.persistence.service';
 import {Router} from '@angular/router';
 import {NgxSpinnerService} from 'ngx-spinner';
 
@@ -16,7 +15,6 @@ export class TrainingProfilesComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   constructor(private trainingService: TrainingService,
-              private trainingPersistenceService: TrainingPersistenceService,
               private router: Router,
               private spinner: NgxSpinnerService) {
   }

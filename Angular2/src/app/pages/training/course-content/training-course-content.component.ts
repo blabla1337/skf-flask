@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {TrainingPersistenceService} from '../../../core/services/training.persistence.service';
+import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {Course, CourseItem} from '../../../core/models/course.model';
 
 @Component({
@@ -15,11 +15,11 @@ export class TrainingCourseContentComponent implements OnInit {
   public markdownPath: string;
   public videoPath: string;
 
-  constructor(private trainingPersistenceService: TrainingPersistenceService) {
+  constructor(private trainingNavigationService: TrainingNavigationService) {
   }
 
   ngOnInit(): void {
-    this.subscriptions.push(this.trainingPersistenceService.currentCourseItem$.subscribe(courseItem => {
+    this.subscriptions.push(this.trainingNavigationService.currentCourseItem$.subscribe(courseItem => {
       this.courseItem = courseItem;
       this.markdownPath = undefined;
       this.videoPath = undefined;
@@ -33,6 +33,10 @@ export class TrainingCourseContentComponent implements OnInit {
         }
       }
     }));
+
+    this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
+      console.log('TODO IB !!!! nextClicked$');
+    }))
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 
 @Component({
   selector: 'app-training-course-buttons',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingCourseButtonsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private trainingNavigationService: TrainingNavigationService) { }
 
   ngOnInit(): void {
   }
 
   onNext() {
-    console.log("Next");
+    this.trainingNavigationService.onNextClicked();
   }
 }
