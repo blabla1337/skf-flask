@@ -53,12 +53,15 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   }
 
   private setNextCourseItem() {
+    const oldFocusedNode = this.tree.treeModel.getFocusedNode();
     this.tree.treeModel.focusNextNode();
     const focusedNode = this.tree.treeModel.getFocusedNode();
-    focusedNode.setActiveAndVisible();
+    if (focusedNode !== oldFocusedNode) {
+      focusedNode.setActiveAndVisible();
+    }
   }
 
-  onActivate(event: any) {
+  onActivateNode(event: any) {
     const treeNode: TreeNode = event.node;
     this.selectedCourseItem = treeNode.data;
     this.trainingNavigationService.raiseCurrentCourseItemChanged(this.selectedCourseItem);
