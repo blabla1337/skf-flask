@@ -56,7 +56,6 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
 
     this.httpClient.get(this._markdownPath, {headers, responseType: 'text'})
       .subscribe(data => {
-        console.log('TODO IB !!!! data', data);
         this.spinner.hide();
         this.dataSlides = data.split(MARKDOWN_SPLIT_MARKER);
         this.prepareCurrentDataSlide();
