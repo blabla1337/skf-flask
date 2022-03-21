@@ -92,7 +92,6 @@ from skf.api.search.endpoints.search_project import ns as search_namespace
 from skf.api.training.endpoints.training_profile_item import ns as training_namespace
 from skf.api.training.endpoints.training_profile_items import ns as training_namespace
 from skf.api.training.endpoints.training_course_item import ns as training_namespace
-# from skf.api.training.endpoints.training_course_info import ns as training_namespace
 from skf.api.training.endpoints.training_course_progress import ns as training_namespace
 from skf.api.training.endpoints.training_course_progress_update import ns as training_namespace
 from elasticapm.contrib.flask import ElasticAPM
