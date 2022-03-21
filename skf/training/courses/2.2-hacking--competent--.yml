@@ -2,7 +2,7 @@ id: 84c62728-c371-4d51-adb5-21a53d366474
 version: 2.1
 date: 18/03/2022
 name: Web/API Security testing
-languages: 
+languages:
   - python
 content:
   - slide: Angular2/src/assets/training/security_testing/slides/1-Landing/Landing.md
@@ -1281,7 +1281,7 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
 
 
- - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 0f62ea67-476f-46d2-956d-110546492ab3
     name: API Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
