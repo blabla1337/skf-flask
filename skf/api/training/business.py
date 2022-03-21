@@ -67,14 +67,14 @@ def get_training_profile_item(profile_id):
             break
     return result
 
-# @lru_cache
-def get_training_course_info(course_id):
-    log("User requested training course info", "LOW", "PASS")
-    result = None
-    training_courses = _get_training_courses()
-    if course_id in training_courses:
-        result = training_courses[course_id]
-    return result
+# # @lru_cache
+# def get_training_course_info(course_id):
+#     log("User requested training course info", "LOW", "PASS")
+#     result = None
+#     training_courses = _get_training_courses()
+#     if course_id in training_courses:
+#         result = training_courses[course_id]
+#     return result
 
 # @lru_cache
 def get_training_course_item(course_id):
