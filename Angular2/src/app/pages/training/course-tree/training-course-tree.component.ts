@@ -24,6 +24,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
       this.setNodesFromCourse(this.course);
     }
     this.subscriptions.push(this.trainingNavigationService.nextCourseItem$.subscribe(() => {
+      // TODO IB !!!! 1 implement go to next item in tree
       console.log('TODO IB !!!! nextCourseItem$ in tree');
     }));
   }

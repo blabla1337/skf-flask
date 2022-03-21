@@ -31,7 +31,7 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
       console.log('TODO IB !!!! nextClicked$ in markdown');
-      // TODO IB !!!! raise only after all slides are displayed
+      // TODO IB !!!! 1 raise only after all slides are displayed
       this.trainingNavigationService.raiseNextContentItem();
     }));
   }

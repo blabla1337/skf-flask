@@ -39,8 +39,8 @@ export class TrainingCourseContentComponent implements OnInit {
     }));
 
     this.subscriptions.push(this.trainingNavigationService.nextContentItem$.subscribe(() => {
-      // TODO IB !!!! we should display first all content
       console.log("TODO IB !!!! nextContentItem$ in course content");
+      // TODO IB !!!! 1 we should display first all content
       this.trainingNavigationService.raiseNextCourseItem();
     }));
   }
