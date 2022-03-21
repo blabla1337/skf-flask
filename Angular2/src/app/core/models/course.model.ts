@@ -1,4 +1,7 @@
 export type LabLanguage = "python" | "java" | "js" | "net";
+// unknown while loading
+export type SlideType = "None" | "Unknown" | "Question" | "Answer" | "Slide";
+export type ContentItemType = "None" | "Unknown" | "Slides" | "Questionnaire" | "Lab" | "Video";
 
 export interface Profile {
   id: string;

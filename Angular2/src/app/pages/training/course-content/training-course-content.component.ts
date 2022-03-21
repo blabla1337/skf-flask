@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
-import {Course, CourseItem} from '../../../core/models/course.model';
+import {ContentItemType, Course, CourseItem} from '../../../core/models/course.model';
 
 @Component({
   selector: 'app-training-course-content',
@@ -14,8 +14,8 @@ export class TrainingCourseContentComponent implements OnInit {
   public courseItem: CourseItem;
   public markdownPath: string;
   public videoPath: string;
-  public showLab: boolean;
-  private currentContentItem: number;
+  private currentContentItemIndex: number;
+  public contentItemType: ContentItemType;
 
   constructor(private trainingNavigationService: TrainingNavigationService) {
   }
@@ -23,14 +23,14 @@ export class TrainingCourseContentComponent implements OnInit {
   ngOnInit(): void {
     this.subscriptions.push(this.trainingNavigationService.currentCourseItemChanged$.subscribe(courseItem => {
       this.courseItem = courseItem;
-      this.currentContentItem = 0;
+      this.currentContentItemIndex = 0;
       this.prepareContentDisplay();
     }));
 
     this.subscriptions.push(this.trainingNavigationService.nextContentItem$.subscribe(() => {
       console.log("TODO IB !!!! nextContentItem$ in course content");
-      if (this.currentContentItem < this.courseItem.content.length - 1) {
-        this.currentContentItem++;
+      if (this.currentContentItemIndex < this.courseItem.content.length - 1) {
+        this.currentContentItemIndex++;
         this.prepareContentDisplay();
       } else {
         this.trainingNavigationService.raiseNextCourseItem();
@@ -41,17 +41,40 @@ export class TrainingCourseContentComponent implements OnInit {
   private prepareContentDisplay() {
     this.markdownPath = undefined;
     this.videoPath = undefined;
-    this.showLab = false;
+    this.contentItemType = "None";
 
-    if (this.courseItem && this.courseItem.content && this.currentContentItem < this.courseItem.content.length) {
-      if (this.courseItem.content[this.currentContentItem].slide) {
-        this.markdownPath = this.course.assetsPath + this.courseItem.content[this.currentContentItem].slide;
-      } else if (this.courseItem.content[this.currentContentItem].questionnaire) {
-        this.markdownPath = this.course.assetsPath + this.courseItem.content[this.currentContentItem].questionnaire;
-      } else if (this.courseItem.content[this.currentContentItem].video) {
-        this.videoPath = this.courseItem.content[this.currentContentItem].video;
-      } else if (this.courseItem.content[this.currentContentItem].lab) {
-        this.showLab = true;
+    if (this.courseItem && this.courseItem.content) {
+      if (this.currentContentItemIndex < this.courseItem.content.length) {
+        const currentContentItem = this.courseItem.content[this.currentContentItemIndex];
+        if (currentContentItem.slide) {
+          this.markdownPath = this.course.assetsPath + currentContentItem.slide;
+          this.contentItemType = "Slides";
+        } else if (currentContentItem.questionnaire) {
+          this.markdownPath = this.course.assetsPath + currentContentItem.questionnaire;
+          this.contentItemType = "Questionnaire";
+        } else if (currentContentItem.video) {
+          this.videoPath = currentContentItem.video;
+          this.contentItemType = "Video";
+        } else if (currentContentItem.lab) {
+          this.contentItemType = "Lab";
+        }
+      }
+
+      if (this.currentContentItemIndex < this.courseItem.content.length - 1) {
+        const nextContentItem = this.courseItem.content[this.currentContentItemIndex + 1];
+        if (nextContentItem.slide) {
+          this.trainingNavigationService.setNextContentItemType("Slides");
+        } else if (nextContentItem.questionnaire) {
+          this.trainingNavigationService.setNextContentItemType("Questionnaire");
+        } else if (nextContentItem.video) {
+          this.trainingNavigationService.setNextContentItemType("Video");
+        } else if (nextContentItem.lab) {
+          this.trainingNavigationService.setNextContentItemType("Lab");
+        } else {
+          this.trainingNavigationService.setNextContentItemType("None");
+        }
+      } else {
+        this.trainingNavigationService.setNextContentItemType("None");
       }
     }
   }

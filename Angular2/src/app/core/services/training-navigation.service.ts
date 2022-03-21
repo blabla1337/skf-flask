@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {CourseItem} from '../models/course.model';
-import {Subject} from 'rxjs';
+import {CourseItem, ContentItemType, SlideType} from '../models/course.model';
+import {BehaviorSubject, Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class TrainingNavigationService {
@@ -33,5 +33,43 @@ export class TrainingNavigationService {
   public currentCourseItemChanged$ = this.currentCourseItemChangedSubject.asObservable();
   public raiseCurrentCourseItemChanged(courseItem: CourseItem) {
     this.currentCourseItemChangedSubject.next(courseItem);
+  }
+
+  private nextSlideTypeSubject: BehaviorSubject<SlideType> = new BehaviorSubject<SlideType>("Unknown");
+  public nextSlideType$ = this.nextSlideTypeSubject.asObservable();
+  public setNextSlideType(nextSlideType: SlideType) {
+    this.nextSlideTypeSubject.next(nextSlideType);
+    this.computeNextButtonText();
+  }
+
+  private nextContentItemTypeSubject: BehaviorSubject<ContentItemType> = new BehaviorSubject<ContentItemType>("None");
+  public nextContentItemType$ = this.nextContentItemTypeSubject.asObservable();
+  public setNextContentItemType(nextContentItemType: ContentItemType) {
+    this.nextContentItemTypeSubject.next(nextContentItemType);
+    this.computeNextButtonText();
+  }
+
+  private nextButtonTextSubject: BehaviorSubject<string> = new BehaviorSubject<string>("Next");
+  public nextButtonText$ = this.nextButtonTextSubject.asObservable();
+  private computeNextButtonText() {
+    const nextSlideType = this.nextSlideTypeSubject.getValue();
+    const nextContentItemType = this.nextContentItemTypeSubject.getValue();
+    if (nextSlideType === "Question") {
+      this.nextButtonTextSubject.next("Next Question");
+    } else if (nextSlideType === "Answer") {
+      this.nextButtonTextSubject.next("Show Answer");
+    } else if (nextSlideType === "Slide") {
+      this.nextButtonTextSubject.next("Next Slide");
+    } else if (nextSlideType === "Unknown") {
+      this.nextButtonTextSubject.next("Next");
+    } else if (nextContentItemType === "Slides") {
+      this.nextButtonTextSubject.next("Next Slide");
+    } else if (nextContentItemType === "Questionnaire") {
+      this.nextButtonTextSubject.next("Start Questionaire");
+    } else if (nextContentItemType === "Lab") {
+      this.nextButtonTextSubject.next("Start Lab");
+    } else {
+      this.nextButtonTextSubject.next("Next");
+    }
   }
 }

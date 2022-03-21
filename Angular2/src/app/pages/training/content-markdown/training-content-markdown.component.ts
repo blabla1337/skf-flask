@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
+import {ContentItemType} from '../../../core/models/course.model';
 
 const MARKDOWN_SPLIT_MARKER = "-----SPLIT-----";
 
@@ -14,6 +15,7 @@ const MARKDOWN_SPLIT_MARKER = "-----SPLIT-----";
 export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private _markdownPath: string;
+  @Input() contentItemType: ContentItemType;
   get markdownPath(): string {
     return this._markdownPath;
   }
@@ -33,11 +35,13 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.trainingNavigationService.setNextSlideType("Unknown");
+
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
       console.log('TODO IB !!!! nextClicked$ in markdown');
       if (this.dataSlides && this.currentDataSlideIndex < this.dataSlides.length - 1) {
         this.currentDataSlideIndex++;
-        this.prepareCurrentDataSlide();
+        this.prepareDataSlide();
       } else {
         this.trainingNavigationService.raiseNextContentItem();
       }
@@ -58,16 +62,35 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         this.spinner.hide();
         this.dataSlides = data.split(MARKDOWN_SPLIT_MARKER);
-        this.prepareCurrentDataSlide();
+        this.prepareDataSlide();
       }, (error) => {
         this.spinner.hide();
         console.error(`Could not load markdown data at path ${this._markdownPath}. Error: `, error);
       });
   }
 
-  private prepareCurrentDataSlide() {
-    if (this.dataSlides && this.currentDataSlideIndex < this.dataSlides.length) {
-      this.currentDataSlide = this.dataSlides[this.currentDataSlideIndex];
+  private prepareDataSlide() {
+    if (this.dataSlides) {
+
+      if (this.currentDataSlideIndex < this.dataSlides.length) {
+        this.currentDataSlide = this.dataSlides[this.currentDataSlideIndex];
+      }
+
+      if (this.currentDataSlideIndex < this.dataSlides.length - 1) {
+        if (this.contentItemType === "Slides") {
+          this.trainingNavigationService.setNextSlideType("Slide");
+        } else if (this.contentItemType === "Questionnaire") {
+          if (this.currentDataSlideIndex % 2 === 0) {
+            this.trainingNavigationService.setNextSlideType("Answer");
+          } else {
+            this.trainingNavigationService.setNextSlideType("Question");
+          }
+        } else {
+          this.trainingNavigationService.setNextSlideType("None");
+        }
+      } else {
+        this.trainingNavigationService.setNextSlideType("None");
+      }
     }
   }
 
