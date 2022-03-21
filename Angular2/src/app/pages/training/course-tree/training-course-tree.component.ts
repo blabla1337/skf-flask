@@ -23,6 +23,9 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
     if (this.course) {
       this.setNodesFromCourse(this.course);
     }
+    this.subscriptions.push(this.trainingNavigationService.nextCourseItem$.subscribe(() => {
+      console.log('TODO IB !!!! nextCourseItem$ in tree');
+    }));
   }
 
   private setNodesFromCourse(course: Course) {
@@ -50,7 +53,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   onActivate(event: any) {
     const treeNode: TreeNode = event.node;
     const courseItem: CourseItem = treeNode.data;
-    this.trainingNavigationService.setSelectedCourseItem(courseItem);
+    this.trainingNavigationService.raiseCurrentCourseItemChanged(courseItem);
   }
 
   ngOnDestroy(): void {

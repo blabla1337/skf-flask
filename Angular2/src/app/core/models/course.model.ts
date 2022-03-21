@@ -29,6 +29,7 @@ export interface ContentItem {
 }
 
 export interface CourseItem {
+  // TODO IB !!!! add type here Topic/Category
   id: string;
   name: string;
   content: ContentItem[];

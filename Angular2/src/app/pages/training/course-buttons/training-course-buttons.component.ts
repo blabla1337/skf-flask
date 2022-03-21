@@ -14,6 +14,6 @@ export class TrainingCourseButtonsComponent implements OnInit {
   }
 
   onNext() {
-    this.trainingNavigationService.onNextClicked();
+    this.trainingNavigationService.raiseNextClicked();
   }
 }
