@@ -14,6 +14,7 @@ export class TrainingCourseContentComponent implements OnInit {
   public courseItem: CourseItem;
   public markdownPath: string;
   public videoPath: string;
+  public showLab: boolean;
 
   constructor(private trainingNavigationService: TrainingNavigationService) {
   }
@@ -23,6 +24,7 @@ export class TrainingCourseContentComponent implements OnInit {
       this.courseItem = courseItem;
       this.markdownPath = undefined;
       this.videoPath = undefined;
+      this.showLab = false;
       if (courseItem && courseItem.content && courseItem.content.length > 0) {
         if (courseItem.content[0].slide) {
           this.markdownPath = this.course.assetsPath + courseItem.content[0].slide;
@@ -30,6 +32,8 @@ export class TrainingCourseContentComponent implements OnInit {
           this.markdownPath = this.course.assetsPath + courseItem.content[0].questionnaire;
         } else if (courseItem.content[0].video) {
           this.videoPath = courseItem.content[0].video;
+        } else if (courseItem.content[0].lab) {
+          this.showLab = true;
         }
       }
     }));
