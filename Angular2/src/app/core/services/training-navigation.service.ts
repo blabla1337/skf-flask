@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {CourseItem} from '../models/course.model';
-import {BehaviorSubject, Subject} from 'rxjs';
-
+import {Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class TrainingNavigationService {
