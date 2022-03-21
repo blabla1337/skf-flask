@@ -19,7 +19,7 @@ export class TrainingCourseContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subscriptions.push(this.trainingNavigationService.currentCourseItem$.subscribe(courseItem => {
+    this.subscriptions.push(this.trainingNavigationService.currentCourseItemChanged$.subscribe(courseItem => {
       this.courseItem = courseItem;
       this.markdownPath = undefined;
       this.videoPath = undefined;
@@ -34,9 +34,11 @@ export class TrainingCourseContentComponent implements OnInit {
       }
     }));
 
-    this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
-      console.log('TODO IB !!!! nextClicked$');
-    }))
+    this.subscriptions.push(this.trainingNavigationService.nextContentItem$.subscribe(() => {
+      // TODO IB !!!! we should display first all content
+      console.log("TODO IB !!!! nextContentItem$ in course content");
+      this.trainingNavigationService.raiseNextCourseItem();
+    }));
   }
 
   ngOnDestroy(): void {
