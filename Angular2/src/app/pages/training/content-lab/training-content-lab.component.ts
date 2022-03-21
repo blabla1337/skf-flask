@@ -13,6 +13,8 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
   constructor(private trainingNavigationService: TrainingNavigationService) { }
 
   ngOnInit(): void {
+    this.trainingNavigationService.setNextSlideType("None");
+
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
       console.log('TODO IB !!!! nextClicked$ in lab');
       this.trainingNavigationService.raiseNextContentItem();

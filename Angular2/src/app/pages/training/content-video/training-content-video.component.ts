@@ -27,6 +27,8 @@ export class TrainingContentVideoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.trainingNavigationService.setNextSlideType("None");
+
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
       console.log('TODO IB !!!! nextClicked$ in video');
       this.trainingNavigationService.raiseNextContentItem();
