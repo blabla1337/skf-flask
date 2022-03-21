@@ -11,6 +11,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {MarkdownModule} from 'ngx-markdown';
 import {TrainingContentMarkdownComponent} from './content-markdown/training-content-markdown.component';
 import {TrainingContentVideoComponent} from './content-video/training-content-video.component';
+import { TrainingCourseButtonsComponent } from './course-buttons/training-course-buttons.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {TrainingContentVideoComponent} from './content-video/training-content-vi
     TrainingCourseTreeComponent,
     TrainingCourseContentComponent,
     TrainingContentMarkdownComponent,
-    TrainingContentVideoComponent
+    TrainingContentVideoComponent,
+    TrainingCourseButtonsComponent
   ],
   imports: [
     CommonModule,

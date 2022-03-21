@@ -19,7 +19,15 @@ div.fill {
     position: absolute;
     right: 0;
     top: 0;
+    bottom: 50px;
+    width: 80%;
+  }
+
+  div.buttons-panel {
+    position: absolute;
+    right: 0;
     bottom: 0;
     width: 80%;
+    height: 50px;
   }
 }
