@@ -20,7 +20,7 @@ export class UserService
   getJwtUserId(): string | undefined {
     try {
       // TODO IB !!!! remove hardcode
-      return "4";
+      return "6";
       // const jwtToken = sessionStorage.getItem("access_token");
       // if (jwtToken === undefined || jwtToken === "") {
       //   return undefined;

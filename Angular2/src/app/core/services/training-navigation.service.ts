@@ -49,6 +49,12 @@ export class TrainingNavigationService {
     this.computeNextButtonText();
   }
 
+  private markCategoryAsSeenSubject: Subject<string> = new Subject<string>();
+  public markCategoryAsSeen$ = this.markCategoryAsSeenSubject.asObservable();
+  public raiseMarkCategoryAsSeen(categoryId: string) {
+    this.markCategoryAsSeenSubject.next(categoryId);
+  }
+
   private nextButtonTextSubject: BehaviorSubject<string> = new BehaviorSubject<string>("Next");
   public nextButtonText$ = this.nextButtonTextSubject.asObservable();
   private computeNextButtonText() {
