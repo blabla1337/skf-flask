@@ -22,17 +22,6 @@ def _get_training_profiles():
     return result
 
 # @lru_cache
-def _get_training_courses():
-    result = {}
-    training_profiles = copy.deepcopy(_get_training_profiles())
-    for profile in training_profiles['profiles']:
-        for course in profile['courses']:
-            if 'courseFile' in course:
-                del course['courseFile']
-            result[course['id']] = course
-    return result
-
-# @lru_cache
 def _get_training_course_files():
     result = {}
     training_profiles = copy.deepcopy(_get_training_profiles())
