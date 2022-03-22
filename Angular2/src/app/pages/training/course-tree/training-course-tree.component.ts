@@ -106,6 +106,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
     const focusedNode = this.tree.treeModel.getFocusedNode();
     if (focusedNode !== oldFocusedNode) {
       focusedNode.setActiveAndVisible();
+      focusedNode.scrollIntoView(true);
     }
   }
 
