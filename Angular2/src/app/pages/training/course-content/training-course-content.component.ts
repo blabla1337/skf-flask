@@ -78,15 +78,20 @@ export class TrainingCourseContentComponent implements OnInit {
         }
       } else {
         this.trainingNavigationService.setNextContentItemType("None");
-        console.log('TODO IB !!!! last course content. call setCourseProgress');
-        console.log('TODO IB !!!! this.courseItem.courseItemType', this.courseItem.courseItemType);
-        if (this.userId !== undefined && this.userId !== "" && this.courseItem.courseItemType === "Category") {
-          // TODO IB !!!! 1 call this only if not already seen
-          this.trainingNavigationService.raiseMarkCategoryAsSeen(this.courseItem.id);
-          this.subscriptions.push(this.trainingService.setCourseProgress(this.userId, this.course.id, this.courseItem.id)
-            .subscribe(() => {})
-          );
-        }
+        this.markCategoryAsSeen();
+      }
+    }
+  }
+
+  private markCategoryAsSeen() {
+    console.log('TODO IB !!!! setCourseProgress this.courseItem', this.courseItem);
+    if (this.courseItem.courseItemType === "Category" && this.courseItem.seen !== true) {
+      this.trainingNavigationService.raiseMarkCategoryAsSeen(this.courseItem.id);
+      if (this.userId !== undefined && this.userId !== "") {
+        this.subscriptions.push(this.trainingService.setCourseProgress(this.userId, this.course.id, this.courseItem.id)
+          .subscribe(() => {
+          })
+        );
       }
     }
   }

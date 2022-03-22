@@ -91,10 +91,8 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
          children: newChildren
        };
        newTopic.seen = newTopic.children.every(c => c.seen);
-       console.log('TODO IB !!!! newNodes newTopic', newTopic);
        return newTopic;
      } else {
-       console.log('TODO IB !!!! newNodes topic', topic);
        return {...topic};
      }
     });
@@ -113,8 +111,6 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
 
   onActivateNode(event: any) {
     const treeNode: TreeNode = event.node;
-    console.log('TODO IB !!!! onActivateNode treeNode', treeNode);
-    console.log('TODO IB !!!! this.nodes', this.nodes);
     this.selectedCourseItem = treeNode.data;
     this.trainingNavigationService.raiseCurrentCourseItemChanged(this.selectedCourseItem);
   }
