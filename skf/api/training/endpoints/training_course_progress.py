@@ -12,7 +12,7 @@ class TrainingCourseProgress(Resource):
 
     @api.response(400, 'No results found')
     def get(self, course_id, user_id):
-        val_alpha_num(course_id)
-        val_alpha_num(user_id)
+        val_alpha_num_special(course_id)
+        val_alpha_num_special(user_id)
         result = get_progress(course_id, user_id)
         return result, 200, security_headers()

@@ -11,6 +11,6 @@ class TrainingCourse(Resource):
 
     @api.response(400, 'No results found')
     def get(self, course_id):
-        val_alpha_num(course_id)
+        val_alpha_num_special(course_id)
         result = get_training_course_item(course_id)
         return result, 200, security_headers()

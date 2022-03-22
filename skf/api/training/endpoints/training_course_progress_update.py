@@ -14,8 +14,8 @@ class TrainingCourseProgressUpdate(Resource):
     @api.marshal_with(message, 'Success')
     def put(self):
         data = request.json
-        val_alpha_num(data.get('courseId'))
-        val_alpha_num(data.get('userId'))
-        val_alpha_num(data.get('categoryId'))
+        val_alpha_num_special(data.get('courseId'))
+        val_alpha_num_special(data.get('userId'))
+        val_alpha_num_special(data.get('categoryId'))
         result = set_progress(data)
         return result, 200, security_headers()
