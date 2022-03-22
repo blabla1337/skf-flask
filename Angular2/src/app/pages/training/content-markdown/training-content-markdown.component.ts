@@ -4,6 +4,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {ContentItemType} from '../../../core/models/course.model';
+import {MarkdownService} from 'ngx-markdown';
 
 const MARKDOWN_SPLIT_MARKER = "-----SPLIT-----";
 
@@ -21,7 +22,9 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
   }
 
   @Input() set markdownPath(value: string) {
+    console.log('TODO IB !!!! markdownPath', value);
     this._markdownPath = value;
+    this.setMarkdownBaseUrl();
     this.updateMarkdown();
   }
 
@@ -31,6 +34,7 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
 
   constructor(private httpClient: HttpClient,
               private spinner: NgxSpinnerService,
+              private markdownService: MarkdownService,
               private trainingNavigationService: TrainingNavigationService) {
   }
 
@@ -46,6 +50,17 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
         this.trainingNavigationService.raiseNextContentItem();
       }
     }));
+  }
+
+  private setMarkdownBaseUrl() {
+    const lastSlashIndex = this._markdownPath.lastIndexOf('/');
+    if (lastSlashIndex !== -1) {
+      const baseUrl = this._markdownPath.substr(0, lastSlashIndex + 1);
+      console.log('TODO IB !!!! baseUrl', baseUrl);
+      this.markdownService.options = {
+        baseUrl
+      };
+    }
   }
 
   onReady() {
