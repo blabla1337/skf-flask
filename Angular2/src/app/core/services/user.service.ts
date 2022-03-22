@@ -19,12 +19,14 @@ export class UserService
 
   getJwtUserId(): string | undefined {
     try {
-      const jwtToken = sessionStorage.getItem("access_token");
-      if (jwtToken === undefined || jwtToken === "") {
-        return undefined;
-      }
-      const decodedJWT: any = jwt_decode(jwtToken);
-      return decodedJWT.sub;
+      // TODO IB !!!! remove hardcode
+      return "4";
+      // const jwtToken = sessionStorage.getItem("access_token");
+      // if (jwtToken === undefined || jwtToken === "") {
+      //   return undefined;
+      // }
+      // const decodedJWT: any = jwt_decode(jwtToken);
+      // return decodedJWT.sub;
     } catch(e) {
       console.error("jwt_decode error: ", e);
       return undefined;

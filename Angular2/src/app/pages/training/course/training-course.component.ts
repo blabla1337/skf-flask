@@ -38,6 +38,7 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
         }
       }));
       this.subscriptions.push(this.trainingService.getCourse(courseId).subscribe(course => {
+        console.log('TODO IB !!!! course', course);
         this.course = course;
         if (this.profile) {
           this.spinner.hide();

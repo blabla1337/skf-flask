@@ -3,6 +3,8 @@ import {Subscription} from 'rxjs';
 import {Course, CourseItem} from '../../../core/models/course.model';
 import {TreeComponent, TreeNode} from '@circlon/angular-tree-component';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
+import {TrainingService} from '../../../core/services/training.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-training-course-tree',
@@ -18,13 +20,24 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   public options = {};
   private selectedCourseItem: CourseItem = undefined;
 
-  constructor(private trainingNavigationService: TrainingNavigationService) {
+  constructor(private trainingNavigationService: TrainingNavigationService,
+              private activatedRoute: ActivatedRoute,
+              private trainingService: TrainingService) {
   }
 
   ngOnInit(): void {
-    console.log('TODO IB !!!! userId', this.userId);
     if (this.course) {
-      this.setNodesFromCourse(this.course);
+      this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
+        const courseId = params['cid'];
+        if (this.userId !== undefined && this.userId !== "") {
+          this.subscriptions.push(this.trainingService.getCourseProgress(this.userId, courseId).subscribe(seenCategoryIds => {
+            console.log('TODO IB !!!! seenCategoryIds', seenCategoryIds);
+            this.setNodesFromCourse(this.course, seenCategoryIds);
+          }));
+        } else {
+          this.setNodesFromCourse(this.course, []);
+        }
+      }));
     }
     this.subscriptions.push(this.trainingNavigationService.nextCourseItem$.subscribe(() => {
       console.log('TODO IB !!!! nextCourseItem$ in tree');
@@ -32,19 +45,27 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
     }));
   }
 
-  private setNodesFromCourse(course: Course) {
-    this.nodes = course.topics.map(t => ({
+  private setNodesFromCourse(course: Course, seenCategoryIds: string[]) {
+    const nodes = course.topics.map(t => ({
       id: t.id,
       name: t.name,
-      isExpanded: true,
       content: t.content,
+      seen: false,
+      courseItemType: 'Topic',
       children: t.categories.map(c => ({
         id: c.id,
         name: c.name,
         content: c.content,
-        children: []
+        seen: (seenCategoryIds.find(cid => cid === c.id) !== undefined),
+        courseItemType: 'Category',
+        children: [],
       }))
     }));
+    nodes.forEach(t => t.seen = t.children.every(c => c.seen));
+
+    this.nodes = nodes;
+
+    console.log('TODO IB !!!! this.nodes', this.nodes);
 
     setTimeout(() => {
       if (this.nodes.length > 0) {
@@ -65,6 +86,8 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
 
   onActivateNode(event: any) {
     const treeNode: TreeNode = event.node;
+    console.log('TODO IB !!!! onActivateNode treeNode', treeNode);
+    console.log('TODO IB !!!! this.nodes', this.nodes);
     this.selectedCourseItem = treeNode.data;
     this.trainingNavigationService.raiseCurrentCourseItemChanged(this.selectedCourseItem);
   }

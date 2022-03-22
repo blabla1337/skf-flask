@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {ContentItemType, Course, CourseItem} from '../../../core/models/course.model';
+import {TrainingService} from '../../../core/services/training.service';
 
 @Component({
   selector: 'app-training-course-content',
@@ -10,6 +11,7 @@ import {ContentItemType, Course, CourseItem} from '../../../core/models/course.m
 })
 export class TrainingCourseContentComponent implements OnInit {
   @Input() public course: Course;
+  @Input() public userId: string;
   private subscriptions: Subscription[] = [];
   public courseItem: CourseItem;
   public markdownPath: string;
@@ -17,7 +19,8 @@ export class TrainingCourseContentComponent implements OnInit {
   private currentContentItemIndex: number;
   public contentItemType: ContentItemType;
 
-  constructor(private trainingNavigationService: TrainingNavigationService) {
+  constructor(private trainingNavigationService: TrainingNavigationService,
+              private trainingService: TrainingService) {
   }
 
   ngOnInit(): void {
@@ -75,6 +78,13 @@ export class TrainingCourseContentComponent implements OnInit {
         }
       } else {
         this.trainingNavigationService.setNextContentItemType("None");
+        console.log('TODO IB !!!! last course content. call setCourseProgress');
+        console.log('TODO IB !!!! this.courseItem.courseItemType', this.courseItem.courseItemType);
+        if (this.userId !== undefined && this.userId !== "" && this.courseItem.courseItemType === "Category") {
+          this.subscriptions.push(this.trainingService.setCourseProgress(this.userId, this.course.id, this.courseItem.id)
+            .subscribe(() => {})
+          );
+        }
       }
     }
   }
