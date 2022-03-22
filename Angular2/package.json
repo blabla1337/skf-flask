@@ -29,6 +29,7 @@
     "bootstrap": "^4.5.3",
     "bootstrap-scss": "^4.5.2",
     "jquery": "^3.5.1",
+    "jwt-decode": "^3.1.2",
     "ng2-search-filter": "^0.5.1",
     "ngx-drag-drop": "^2.0.0",
     "ngx-joyride": "^2.3.1",
