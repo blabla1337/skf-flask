@@ -1,10 +1,11 @@
 import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Course, CourseItem} from '../../../core/models/course.model';
-import {TreeComponent, TreeNode} from '@circlon/angular-tree-component';
+import {ITreeOptions, TreeComponent, TreeNode} from '@circlon/angular-tree-component';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {TrainingService} from '../../../core/services/training.service';
 import {ActivatedRoute} from '@angular/router';
+import {KEYS} from '@circlon/angular-tree-component';
 
 @Component({
   selector: 'app-training-course-tree',
@@ -17,8 +18,20 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   @Input() public userId: string;
   private subscriptions: Subscription[] = [];
   public nodes = [];
-  public options = {};
   private selectedCourseItem: CourseItem = undefined;
+
+  public options: ITreeOptions = {
+    actionMapping: {
+      keys: {
+        [KEYS.LEFT]: null,
+        [KEYS.UP]: null,
+        [KEYS.RIGHT]: null,
+        [KEYS.DOWN]: null,
+        [KEYS.SPACE]: null,
+        [KEYS.ENTER]: null
+      }
+    }
+  };
 
   constructor(private trainingNavigationService: TrainingNavigationService,
               private activatedRoute: ActivatedRoute,
