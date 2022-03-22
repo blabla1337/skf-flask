@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TrainingService} from '../../../core/services/training.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {Course} from '../../../core/models/course.model';
+import {Course, Profile} from '../../../core/models/course.model';
 import {NgxSpinnerService} from 'ngx-spinner';
 
 
@@ -12,6 +12,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./training-course.component.scss']
 })
 export class TrainingCourseComponent implements OnInit, OnDestroy {
+  public profile: Profile;
   public course: Course;
   private subscriptions: Subscription[] = [];
 
@@ -24,10 +25,19 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.spinner.show();
     this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
-      const courseId = params['id'];
+      const profileId = params['pid'];
+      const courseId = params['cid'];
+      this.subscriptions.push(this.trainingService.getProfileInfo(profileId).subscribe(profile => {
+        this.profile = profile;
+        if (this.course) {
+          this.spinner.hide();
+        }
+      }));
       this.subscriptions.push(this.trainingService.getCourse(courseId).subscribe(course => {
         this.course = course;
-        this.spinner.hide();
+        if (this.profile) {
+          this.spinner.hide();
+        }
       }));
     }));
   }
@@ -42,5 +52,9 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
 
   goToTraining() {
     this.router.navigate(['training', 'profiles']);
+  }
+
+  goToProfile() {
+    this.router.navigate(['training', 'profile', this.profile.id]);
   }
 }

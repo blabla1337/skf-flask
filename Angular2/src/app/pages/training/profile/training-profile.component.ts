@@ -32,7 +32,7 @@ export class TrainingProfileComponent implements OnInit, OnDestroy {
   }
 
   onSelectCourse(course: CourseInfo) {
-    this.router.navigate(['training', 'course', course.id]);
+    this.router.navigate(['training', 'profile', this.profile.id, 'course', course.id]);
   }
 
   ngOnDestroy(): void {
