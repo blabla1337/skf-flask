@@ -8,7 +8,7 @@ import {TrainingCourseComponent} from './course/training-course.component';
 const routes: Routes = [
   {path: 'profiles', component: TrainingProfilesComponent},
   {path: 'profile/:id', component: TrainingProfileComponent},
-  {path: 'course/:id', component: TrainingCourseComponent}
+  {path: 'profile/:pid/course/:cid', component: TrainingCourseComponent}
 ];
 
 @NgModule({
