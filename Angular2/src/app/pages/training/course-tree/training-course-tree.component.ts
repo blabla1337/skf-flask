@@ -43,6 +43,9 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
       console.log('TODO IB !!!! nextCourseItem$ in tree');
       this.setNextCourseItem();
     }));
+    this.subscriptions.push(this.trainingNavigationService.markCategoryAsSeen$.subscribe(categoryId => {
+      this.markCategoryAsSeen(categoryId)
+    }));
   }
 
   private setNodesFromCourse(course: Course, seenCategoryIds: string[]) {
@@ -73,6 +76,30 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
         this.tree.treeModel.roots[0].setActiveAndVisible();
       }
     }, 0);
+  }
+
+  private markCategoryAsSeen(categoryId: string) {
+    console.log('TODO IB !!!! markCategoryAsSeen$', categoryId);
+    const newNodes = this.nodes.map(topic => {
+     const categoryIndex = topic.children.findIndex(c => c.id === categoryId);
+     if (categoryIndex !== -1) {
+       const newCategory = {...topic.children[categoryIndex], seen: true};
+       const newChildren = [...topic.children];
+       newChildren.splice(categoryIndex, 1, newCategory);
+       const newTopic = {
+         ...topic,
+         children: newChildren
+       };
+       newTopic.seen = newTopic.children.every(c => c.seen);
+       console.log('TODO IB !!!! newNodes newTopic', newTopic);
+       return newTopic;
+     } else {
+       console.log('TODO IB !!!! newNodes topic', topic);
+       return {...topic};
+     }
+    });
+    console.log('TODO IB !!!! newNodes', newNodes);
+    this.nodes = newNodes;
   }
 
   private setNextCourseItem() {

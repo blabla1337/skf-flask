@@ -81,6 +81,8 @@ export class TrainingCourseContentComponent implements OnInit {
         console.log('TODO IB !!!! last course content. call setCourseProgress');
         console.log('TODO IB !!!! this.courseItem.courseItemType', this.courseItem.courseItemType);
         if (this.userId !== undefined && this.userId !== "" && this.courseItem.courseItemType === "Category") {
+          // TODO IB !!!! 1 call this only if not already seen
+          this.trainingNavigationService.raiseMarkCategoryAsSeen(this.courseItem.id);
           this.subscriptions.push(this.trainingService.setCourseProgress(this.userId, this.course.id, this.courseItem.id)
             .subscribe(() => {})
           );
