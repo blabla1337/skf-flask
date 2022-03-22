@@ -34,9 +34,10 @@ export interface ContentItem {
 
 export interface CourseItem {
   id: string;
-  courseItemType?: CourseItemType;
   name: string;
   content: ContentItem[];
+  courseItemType?: CourseItemType;
+  seen?: boolean;
 }
 
 export interface Topic  extends CourseItem {
