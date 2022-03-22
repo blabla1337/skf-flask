@@ -3,6 +3,7 @@ from skf.database import db
 from skf.database.training import Training 
 from flask import abort
 from flask import current_app as app
+# TODO: #765 Enable cache for training module
 # from functools import lru_cache
 import sys, json, yaml, copy
 
@@ -66,15 +67,6 @@ def get_training_profile_item(profile_id):
                     del course['courseFile']
             break
     return result
-
-# # @lru_cache
-# def get_training_course_info(course_id):
-#     log("User requested training course info", "LOW", "PASS")
-#     result = None
-#     training_courses = _get_training_courses()
-#     if course_id in training_courses:
-#         result = training_courses[course_id]
-#     return result
 
 # @lru_cache
 def get_training_course_item(course_id):
