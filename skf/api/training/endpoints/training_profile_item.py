@@ -11,6 +11,6 @@ class TrainingProfile(Resource):
 
     @api.response(400, 'No results found')
     def get(self, profile_id):
-        val_alpha_num(profile_id)
+        val_alpha_num_special(profile_id)
         result = get_training_profile_item(profile_id)
         return result, 200, security_headers()
