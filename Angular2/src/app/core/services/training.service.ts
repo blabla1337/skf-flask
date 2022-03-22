@@ -24,13 +24,18 @@ export class TrainingService {
     return this.http.get<Course>(environment.API_ENDPOINT + `/api/training/course/${courseId}`, { headers: this.headers })
   }
 
-  // TODO IB !!!! implement and test this
-  public setCourseProgress(userId: string, courseId: string, categoryId: string): Observable<boolean> {
-    return of(true)
+  public setCourseProgress(userId: string, courseId: string, categoryId: string): Observable<any> {
+    // return of(true);
+    const payload = {
+      userId,
+      courseId,
+      categoryId
+    }
+    return this.http.put<any>(environment.API_ENDPOINT + `/api/training/update`, payload, { headers: this.headers })
   }
 
-  // TODO IB !!!! implement and test this
   public getCourseProgress(userId: string, courseId: string): Observable<string[]> {
-    return of([])
+    // return of(['1.1.1.1', '1.1.1.2', '1.1.1.3']);
+    return this.http.get<string[]>(environment.API_ENDPOINT + `/api/training/course/${courseId}/progress/${userId}`, { headers: this.headers })
   }
 }
