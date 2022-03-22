@@ -11,16 +11,18 @@ import {TrainingNavigationService} from '../../../core/services/training-navigat
 })
 export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   @ViewChild(TreeComponent) private tree: TreeComponent;
+  @Input() public course: Course;
+  @Input() public userId: string;
   private subscriptions: Subscription[] = [];
   public nodes = [];
   public options = {};
-  @Input() public course: Course;
   private selectedCourseItem: CourseItem = undefined;
 
   constructor(private trainingNavigationService: TrainingNavigationService) {
   }
 
   ngOnInit(): void {
+    console.log('TODO IB !!!! userId', this.userId);
     if (this.course) {
       this.setNodesFromCourse(this.course);
     }
