@@ -1,52 +1,53 @@
-id: 84c62728-c371-4d51-adb5-21a53d366474
 version: 2.1
 date: 18/03/2022
+id: "2.2"
 name: Web/API Security testing
 languages:
   - python
+assetsPath: assets/training/security_testing/
 content:
-  - slide: Angular2/src/assets/training/security_testing/slides/1-Landing/Landing.md
+  - slide: slides/1-Landing/Landing.md
 topics:
-  - id: c2aeef96-4d64-4360-a16a-95e32c1c5a5c
+  - id: 583d6cc5-7367-4bcd-b703-eff9093c4562
     name: Introduction
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: bd87bbcd-2fc5-4619-a782-9aa6400a3d4d
+      - id: 9d12a218-c1d3-4739-9f7e-60d144c29835
         name: OWASP Web Application Testing Guide
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/2-Introduction/README.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/2-Introduction/README.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: bd87bbcd-2fc5-4619-a782-9aa6400a3d4d
+      - id: 46f63915-cdfd-4977-9dda-da06a6c77be9
         name: Pentesting Phases
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/3-Introduction/0-The_Web_Security_Testing_Framework.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/2.md
+          - slide: slides/3-Introduction/0-The_Web_Security_Testing_Framework.md
+          - questionnaire: questionnaire/2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: bd87bbcd-2fc5-4619-a782-9aa6400a3d4d
+      - id: dd37648c-cff5-40d5-aa36-d68bcea40876
         name: Pentesting explained
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/00-Introduction_and_Objectives/README.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/2.md
+          - slide: slides/4-Web_Application_Security_Testing/00-Introduction_and_Objectives/README.md
+          - questionnaire: questionnaire/2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: bd87bbcd-2fc5-4619-a782-9aa6400a3d4d
+      - id: 3058086b-1027-42ef-8e84-0694ccbf560a
         name: Penetration Testing Methodologies
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/3-Introduction/1-Penetration_Testing_Methodologies.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/2.md
+          - slide: slides/3-Introduction/1-Penetration_Testing_Methodologies.md
+          - questionnaire: questionnaire/2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
@@ -54,106 +55,106 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 333918f1-6916-49fb-b138-c14c2f81c516
     name: Information Gathering
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 73cc515f-fcc9-438f-8aa6-79ce520f93cb
         name: Search Engine Discovery
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 58522a8a-d215-49fe-876d-047d62e9c099
         name: Fingerpring web server
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 9e7100a8-8240-4c0e-aade-24730820bf62
         name: Review webserver metafiles
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/03-Review_Webserver_Metafiles_for_Information_Leakage.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/03-Review_Webserver_Metafiles_for_Information_Leakage.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 64b45ffd-ab7d-4d6f-b700-d8af1f52f226
         name: Enumerate applications on webserver
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/04-Enumerate_Applications_on_Webserver.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/04-Enumerate_Applications_on_Webserver.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 53e5e9b6-9ed7-43e7-82c2-8db04eb690c2
         name: Information leakage website content
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Webpage_Content_for_Information_Leakage.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Webpage_Content_for_Information_Leakage.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1fd1d245-af2f-4dad-9104-96905db0d8cd
         name: Identify application entry points
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/06-Identify_Application_Entry_Points.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/06-Identify_Application_Entry_Points.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: d41295e7-0323-41da-88d6-1b7495559041
         name: Map execution paths application
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/07-Map_Execution_Paths_Through_Application.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/07-Map_Execution_Paths_Through_Application.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: fb9be2ad-7ebf-4e69-9d39-cf547b832315
         name: Fingerpring application framework
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 66e9fc77-4721-497f-a5ba-292df7c42a55
         name: Fingerprint web application
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/09-Fingerprint_Web_Application.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/09-Fingerprint_Web_Application.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: df1ec163-7a99-44bc-8120-b56ca507eb95
         name: Map application architecture
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/01-Information_Gathering/10-Map_Application_Architecture.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/10-Map_Application_Architecture.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
@@ -161,126 +162,126 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: e5b1324f-5b2f-4b16-af44-7ee14afb78d4
     name: Configuration and Deployment Management Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: cce50726-f0b6-4451-bba6-42ea6d231b07
         name: Test network infrastructure config
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/01-Test_Network_Infrastructure_Configuration.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/01-Test_Network_Infrastructure_Configuration.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: fff4349f-5986-429a-8a62-fed890b44283
         name: Test application platform config
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/02-Test_Application_Platform_Configuration.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/02-Test_Application_Platform_Configuration.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1404db74-7c08-4e91-9253-b4942da68465
         name: Test file extention handling
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 4b65334c-d577-4ae4-8b6e-be12f1223ef6
         name: Sensitive files & backups
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: bfa4464b-9bd8-4fed-bed5-d39e8f1d2d8e
         name: Admin Interface enumerations
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/05-Enumerate_Infrastructure_and_Application_Admin_Interfaces.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/05-Enumerate_Infrastructure_and_Application_Admin_Interfaces.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: fbc2f3c0-a499-414c-a78c-bb3be8092bd0
         name: Test HTTP Methods
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 54d2346f-5617-497f-a49d-0cf9603ad49b
         name: Test HTTP Strict Transport Security
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/07-Test_HTTP_Strict_Transport_Security.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/07-Test_HTTP_Strict_Transport_Security.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: fa460be9-f3b9-4f82-a05f-0a2c0deffe48
         name: Test cross domain policy
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/08-Test_RIA_Cross_Domain_Policy.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/08-Test_RIA_Cross_Domain_Policy.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: f6f0a872-1c67-4b96-bb6c-57dce66f1a9f
         name: Test file permissions
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/09-Test_File_Permission.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/09-Test_File_Permission.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: aeb28543-baed-4c34-9a3a-78b7ad0a5515
         name: Test subdomain takeover
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/10-Test_for_Subdomain_Takeover.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/10-Test_for_Subdomain_Takeover.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: c2a1329c-8d42-4c81-a0e7-1b013dac2a2a
         name: Test cloud storage
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/11-Test_Cloud_Storage.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/11-Test_Cloud_Storage.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: af71afcd-b220-4233-b3d1-a29d1af45880
         name: Test content security policy 
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/12-Test_for_Content_Security_Policy.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/12-Test_for_Content_Security_Policy.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
@@ -288,56 +289,56 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: a94b6076-e4a4-4bcd-bc55-2f2a990bd38a
     name: Identity management testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 4623368f-b7b9-4028-b442-49c4bac0759d
         name: Test role definitions
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/01-Test_Role_Definitions.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/01-Test_Role_Definitions.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: ff727b68-5e35-42d9-8ccd-a63e350f3c2a
         name: Test user registration flow
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/02-Test_User_Registration_Process.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/02-Test_User_Registration_Process.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 94751fa0-f830-4e6a-b79c-532904c84cb9
         name: Test account provisioning flow
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/03-Test_Account_Provisioning_Process.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/03-Test_Account_Provisioning_Process.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 38ee2d7a-1e54-47fd-bf06-094606b116a8
         name: Test for account enumeration
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1af65933-11d3-43d8-a58e-a014d1d6f772
         name: Test for weak username policy
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/05-Testing_for_Weak_or_Unenforced_Username_Policy.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/05-Testing_for_Weak_or_Unenforced_Username_Policy.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
@@ -345,106 +346,106 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 48fbf85b-0c9c-47b4-8321-e12b2b1b1af5
     name: Authentication testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 975f2762-8191-4d8d-a280-49a3eab94a85
         name: Test for sensitive information transported over TLS
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/01-Testing_for_Credentials_Transported_over_an_Encrypted_Channel.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/01-Testing_for_Credentials_Transported_over_an_Encrypted_Channel.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 9db1df33-45fe-403c-8c5b-12c7430d4722
         name: Test for default credentials
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/02-Testing_for_Default_Credentials.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/02-Testing_for_Default_Credentials.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 06071be4-3504-4090-87d7-83e5f9637536
         name: Test for weak lock-out mechanism
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/03-Testing_for_Weak_Lock_Out_Mechanism.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/03-Testing_for_Weak_Lock_Out_Mechanism.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 4f989a23-c67c-49dc-b847-0478efb77f3f
         name: Test for bypassing authentication schema
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/04-Testing_for_Bypassing_Authentication_Schema.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/04-Testing_for_Bypassing_Authentication_Schema.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 680081a8-289a-447e-b1d8-c7d3be051bcb
         name: Test for weak remember password flow
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/05-Testing_for_Vulnerable_Remember_Password.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/05-Testing_for_Vulnerable_Remember_Password.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 6505101d-7f86-4819-b31c-ee989ce426b1
         name: Test for browser cache weaknesses
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: a8bf8432-1474-4e06-b3d8-65dc10806cec
         name: Test for weak password policy
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/07-Testing_for_Weak_Password_Policy.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/07-Testing_for_Weak_Password_Policy.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 5e2e7f1c-cc93-40ce-987e-e8f0a9b7cd63
         name: Test for weak security question
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/08-Testing_for_Weak_Security_Question_Answer.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/08-Testing_for_Weak_Security_Question_Answer.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 7831db05-10b8-4dc3-b539-c10b830d483d
         name: Test for weak password change or reset flow
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/09-Testing_for_Weak_Password_Change_or_Reset_Functionalities.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/09-Testing_for_Weak_Password_Change_or_Reset_Functionalities.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 99e357e8-7596-4035-85e0-962964b7201a
         name: Test for weaker authentication in alternative flows
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/04-Authentication_Testing/10-Testing_for_Weaker_Authentication_in_Alternative_Channel.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/10-Testing_for_Weaker_Authentication_in_Alternative_Channel.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
@@ -452,76 +453,76 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 579b675a-95d9-416b-b05f-81c36da6f897
     name: Authorization testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 8cc35299-43f4-48e1-9df5-0170ed62e2e2
         name: Test for directory traversal / file include
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: e749fa67-d963-4267-8cd4-3d62d3dbaa46
         name: Test for bypassing authorization schema
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: bfd87aa4-6029-42b3-b74b-564db4acba9d
         name: Test for privilege escalation
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/05-Authorization_Testing/03-Testing_for_Privilege_Escalation.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/03-Testing_for_Privilege_Escalation.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 406d8abc-01f2-4168-a8dc-3ef271820d3a
         name: Test for insecure direct object references
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: f211c900-8b71-4b96-a88d-aeefb74d9fce
         name: Test for OAUTH weaknesses
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05-Testing_for_OAuth_Weaknesses.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05-Testing_for_OAuth_Weaknesses.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 73514996-ea23-483c-b5a9-69fe836f61ea
         name: Test for OAUTH authorization server weaknesses
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05.1-Testing_for_OAuth_Authorization_Server_Weaknesses.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05.1-Testing_for_OAuth_Authorization_Server_Weaknesses.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 7ecb6426-5fd6-46e1-935f-953879553c75
         name: Test for OAUTH client weaknesses
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05.2-Testing_for_OAuth_Client_Weaknesses.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05.2-Testing_for_OAuth_Client_Weaknesses.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
@@ -529,106 +530,106 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 60274f7f-ffc2-4e98-99f7-4043e414ef01
     name: Session Management Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: d5f377b4-5b04-4ac1-bfb3-d85ca24e0258
         name: Test for session management schema
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/01-Testing_for_Session_Management_Schema.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/01-Testing_for_Session_Management_Schema.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 34a82be7-5e74-4095-a51e-3c3cc847f4ea
         name: Test for cookie attributes
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1525e22c-b096-4225-8728-2e247b68d781
         name: Test for session fixation
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/03-Testing_for_Session_Fixation.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/03-Testing_for_Session_Fixation.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: c939291e-014b-4ac5-b18a-d688ec023676
         name: Test for exposed session variables
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/04-Testing_for_Exposed_Session_Variables.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/04-Testing_for_Exposed_Session_Variables.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: e343fc21-8f0f-4f51-aa89-988fbea282bc
         name: Test for cross site request forgery
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 5ae8b91a-975a-451a-bf50-22ae39de5857
         name: Test for logout functionality
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/06-Testing_for_Logout_Functionality.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/06-Testing_for_Logout_Functionality.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1d6905f1-f06a-410c-913e-52f5d8b82709
         name: Test for session timeout
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/07-Testing_Session_Timeout.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/07-Testing_Session_Timeout.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: eeba1a69-23ca-45e1-b20d-ba8006f9d6c6
         name: Test for session puzzling
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/08-Testing_for_Session_Puzzling.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/08-Testing_for_Session_Puzzling.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: bff0c2bc-f729-4dd9-bbe5-a5bae776a9eb
         name: Test for session hijacking
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/09-Testing_for_Session_Hijacking.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/09-Testing_for_Session_Hijacking.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 5a8ad8ea-a4ef-49bf-9834-1b109a3c4949
         name: Test for JSON Web tokens
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/10-Testing_JSON_Web_Tokens.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/10-Testing_JSON_Web_Tokens.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
@@ -636,306 +637,306 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 4b5b5fe9-fa03-471f-91e0-8ab94daf21ea
     name: Input Validation Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 5487862b-8589-49d7-b6c7-13b2c582b1cc
         name: Test for reflected cross site scripting
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/01-Testing_for_Reflected_Cross_Site_Scripting.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/01-Testing_for_Reflected_Cross_Site_Scripting.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1ff80dc2-ca1a-4860-82e4-a2b4e624da4b
         name: Test for stored cross site scripting
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 6848bdf2-2237-4453-9868-4bdaac91c7e9
         name: Test for HTTP verbose tampering
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: a40b4d9a-b4f9-493d-85c1-a282996c6186
         name: Test for HTT parameter pollution
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 065ffc7e-3952-44eb-8387-9dee8e8e0084
         name: Test for SQL injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1d632324-c3d2-48c4-a188-74bd4f7e19e1
         name: Test for SQL injection approach Oracle
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.1-Testing_for_Oracle.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.1-Testing_for_Oracle.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: c49c0e30-c7ca-475f-bbcd-22075681ab1f
         name: Test for SQL injection approach MySQL
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.2-Testing_for_MySQL.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.2-Testing_for_MySQL.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 87a7d938-d395-4139-bc18-514a2544fbc0
         name: Test for SQL injection approach SQL Server
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.3-Testing_for_SQL_Server.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.3-Testing_for_SQL_Server.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: a8edbc5d-de8f-455d-ad03-4c5e66797789
         name: Test for SQL injection approach PostgreSQL
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.4-Testing_PostgreSQL.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.4-Testing_PostgreSQL.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: da0f548f-4040-474c-b231-cdbd52bc1a99
         name: Test for SQL injection approach MS Access
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.5-Testing_for_MS_Access.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.5-Testing_for_MS_Access.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 97b394a7-78d9-46b3-948f-ddaa8f13da01
         name: Test for SQL injection approach NoSQL
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 4f65e851-d0b0-431e-b2f3-b917ebd1ddd9
         name: Test for SQL injection approach ORM
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.7-Testing_for_ORM_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.7-Testing_for_ORM_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: a0846216-b1c6-4be5-a9ab-b45ae1d7f992
         name: Test for SQL injection approach Client-side
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.8-Testing_for_Client-side.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.8-Testing_for_Client-side.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 226cbce5-8dda-4f2a-9bba-35b7983d3d17
         name: Test for LDAP injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/06-Testing_for_LDAP_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/06-Testing_for_LDAP_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 553b3899-f632-4d59-b044-2ca6f011abeb
         name: Test for XML injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/07-Testing_for_XML_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/07-Testing_for_XML_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: fbc67261-1f17-420d-9d2d-4e1fe280fc00
         name: Test for SSI injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/08-Testing_for_SSI_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/08-Testing_for_SSI_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: d4aa1f0c-324c-42de-a797-fbc2bfeb4fae
         name: Test for XPath injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/09-Testing_for_XPath_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/09-Testing_for_XPath_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 0f3bfd5a-202b-486a-83bd-b7d19084cd21
         name: Test for IMAP SMTP injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/10-Testing_for_IMAP_SMTP_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/10-Testing_for_IMAP_SMTP_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: c6915364-924a-4225-b9ac-971232bef401
         name: Test for code injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11-Testing_for_Code_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11-Testing_for_Code_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: f6beaf94-41f5-437d-9ffc-176196854eeb
         name: Test for file inclusion
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_File_Inclusion.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_File_Inclusion.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 6ea02390-c924-40f1-aa82-336f958a71ad
         name: Test for command injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/12-Testing_for_Command_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/12-Testing_for_Command_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: df4407b8-8284-4d69-9f95-c2d9b77d3a74
         name: Test for Buffer overflow
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Buffer_Overflow.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Buffer_Overflow.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 8ba01eb8-18e0-471a-af3b-59908fe397ff
         name: Test for format string injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Format_String_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Format_String_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1639e0b7-4188-4f3e-843c-a4954bc36c7b
         name: Test for incubated vulnerability
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/14-Testing_for_Incubated_Vulnerability.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/14-Testing_for_Incubated_Vulnerability.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: cefca95b-b91c-4dbe-97ff-9a8c2a59440b
         name: Test for HTTP splitting & smuggling
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/15-Testing_for_HTTP_Splitting_Smuggling.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/15-Testing_for_HTTP_Splitting_Smuggling.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 28e92f1d-32a0-4d69-bfb4-085f688149f0
         name: Test for HTTP incoming requests
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/16-Testing_for_HTTP_Incoming_Requests.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/16-Testing_for_HTTP_Incoming_Requests.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: de5116db-8392-4f92-8624-d15118f1d4b0
         name: Test for host header injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/17-Testing_for_Host_Header_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/17-Testing_for_Host_Header_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 0d5b15f0-3656-475e-bfcd-10c8797d3f1e
         name: Test for server side template injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server-side_Template_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server-side_Template_Injection.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 3582ad2d-5f68-4523-b974-38324d404259
         name: Test for server side request forgery
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/19-Testing_for_Server-Side_Request_Forgery.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/19-Testing_for_Server-Side_Request_Forgery.md
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 10f70a0b-02d7-483d-9073-fd44f3d2864c
         name: Test for mass assignment
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment
+          - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
@@ -943,26 +944,26 @@ topics:
                 - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 2c636647-ebc9-467e-a4be-929f6958dabe
     name: Error handling Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 0867eef8-6819-438e-8911-84176f614198
         name: Test for stack traces
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/02-Testing_for_Stack_Traces.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/02-Testing_for_Stack_Traces.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 38176a5f-d30e-4c2e-bd9e-d6b1f728ccec
         name: Test for improper error handling
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
@@ -970,46 +971,46 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 7e2e058b-e590-439a-aa6f-e960d8aef805
     name: Weak Cryptography Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: ba130dfe-79e7-43fb-9139-f4a65b54a88b
         name: Test for weak transport layer security
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 43a835e6-4bc2-46b1-a31d-eaf476f1ccdc
         name: Test for padding Oracle
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/02-Testing_for_Padding_Oracle.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/02-Testing_for_Padding_Oracle.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 27dd4d27-2dc9-4cac-b57b-059b216fe73f
         name: Test for sensitive information sent unencrypted
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/03-Testing_for_Sensitive_Information_Sent_via_Unencrypted_Channels.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/03-Testing_for_Sensitive_Information_Sent_via_Unencrypted_Channels.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: ff1878d6-0af7-46d0-b5d9-76d3f8169a75
         name: Test for weak encryption
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
@@ -1017,116 +1018,116 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: fbf04f24-4969-4085-8772-3c85a94dfbe5
     name: Business logic Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 9e28d65d-892c-497a-90f7-12a5be7b408e
         name: What are business logic vulnerabilities
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/00-Introduction_to_Business_Logic.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/00-Introduction_to_Business_Logic.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 2b25dae4-216e-4b3e-8e2b-dfd30fdc2f9b
         name: Test business logic data validation
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/01-Test_Business_Logic_Data_Validation.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/01-Test_Business_Logic_Data_Validation.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 174a9187-f1fc-4620-bf5b-f46a791e256d
         name: Test ability to forge requests
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/02-Test_Ability_to_Forge_Requests.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/02-Test_Ability_to_Forge_Requests.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: a23f33cc-f2a2-4028-bf47-0ba885f751d6
         name: Test for integrity checks
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/03-Test_Integrity_Checks.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/03-Test_Integrity_Checks.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 9930671e-afc6-42a3-87b3-f47ec3a73253
         name: Test for process timing
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/04-Test_for_Process_Timing.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/04-Test_for_Process_Timing.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 5e49e818-89ee-47f8-991c-12b51ca20e1d
         name: Test for function max use limit
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/05-Test_Number_of_Times_a_Function_Can_Be_Used_Limits.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/05-Test_Number_of_Times_a_Function_Can_Be_Used_Limits.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: e0d60e75-56cf-4ff5-9881-ed950812679d
         name: Test for circumvention of work flows
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/06-Testing_for_the_Circumvention_of_Work_Flows.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/06-Testing_for_the_Circumvention_of_Work_Flows.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: f52ebf25-b947-4f97-ac0a-e7181b986a5a
         name: Test for defense against app misuse
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/07-Test_Defenses_Against_Application_Misuse.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/07-Test_Defenses_Against_Application_Misuse.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: f616f48e-914d-4e7b-9993-eb40ba5edd74
         name: Test for file extention types
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/08-Test_Upload_of_Unexpected_File_Types.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/08-Test_Upload_of_Unexpected_File_Types.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 9aaee7ca-a625-4032-81b5-c6bb8dc2bd5c
         name: Test for upload of malicious files
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/09-Test_Upload_of_Malicious_Files.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/09-Test_Upload_of_Malicious_Files.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 55a04995-ea72-4b57-bf1a-862fd2bfcae3
         name: Test for abuse of payment functionality
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/10-Test-Payment-Functionality.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/10-Test-Payment-Functionality.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
@@ -1134,146 +1135,146 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 32d56151-b1e2-4f30-9609-aba2f9896416
     name: Client-side Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 61805045-00ff-4af2-af7f-2efbb8fdf729
         name: Test for DOM based Cross site scripting
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/01-Testing_for_DOM-based_Cross_Site_Scripting.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/01-Testing_for_DOM-based_Cross_Site_Scripting.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: af0b67df-476e-41e2-aeb5-8f5852b6f706
         name: Test for Self DOM based Cross site scripting
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/01.1-Testing_for_Self_DOM_Based_Cross_Site_Scripting.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/01.1-Testing_for_Self_DOM_Based_Cross_Site_Scripting.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 2941146a-064d-4524-bf4a-b3db6bad5eb4
         name: Test for javascript execution
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/02-Testing_for_JavaScript_Execution.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/02-Testing_for_JavaScript_Execution.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 730d3af7-e599-4d09-bb6d-1db5403ebd17
         name: Test for HTML injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/03-Testing_for_HTML_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/03-Testing_for_HTML_Injection.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like          
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 05c56739-e445-43ba-b9b2-d21d868d9a38
         name: Test for client side URL redirect
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/04-Testing_for_Client-side_URL_Redirect.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/04-Testing_for_Client-side_URL_Redirect.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 9e5107fd-9786-45bc-9a1e-2a084383126f
         name: Test for CSS injection
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/05-Testing_for_CSS_Injection.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/05-Testing_for_CSS_Injection.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 7b9e8d5f-097a-427c-9f69-2e20b7ddc7f1
         name: Test for client-side resource manipulation
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/06-Testing_for_Client-side_Resource_Manipulation.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/06-Testing_for_Client-side_Resource_Manipulation.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 1752e537-4089-434b-b27c-989c19430a96
         name: Test for Cross Origin Resource sharing
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/07-Testing_Cross_Origin_Resource_Sharing.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/07-Testing_Cross_Origin_Resource_Sharing.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: f39a1e67-be9d-4297-8bd9-2920fae883f5
         name: Test for Cross site flashing
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/08-Testing_for_Cross_Site_Flashing.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/08-Testing_for_Cross_Site_Flashing.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 6612dcdd-8bd3-44a6-830e-2990b9b786fb
         name: Test for Clickjacking
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/09-Testing_for_Clickjacking.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/09-Testing_for_Clickjacking.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 50a56708-4143-4037-a983-21225ec91478
         name: Test for Websockets
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/10-Testing_WebSockets.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/10-Testing_WebSockets.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: fab7ca00-5762-4591-9d37-bf3d96dcdd9f
         name: Test for web messaging
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/11-Testing_Web_Messaging.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/11-Testing_Web_Messaging.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: e3955519-c45b-4b94-99d9-22e200015591
         name: Test for browser storage
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/12-Testing_Browser_Storage.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/12-Testing_Browser_Storage.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: c63c933a-fd86-4a6b-bfd2-4b8c127871af
         name: Test for Cross site script inclusion
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/13-Testing_for_Cross_Site_Script_Inclusion.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/13-Testing_for_Cross_Site_Script_Inclusion.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
@@ -1281,16 +1282,16 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 59cc0570-4065-4021-8907-f82f996c009f
     name: API Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: 158e787e-1b37-4dfb-a3cc-5cc24ef8418d
         name: Test for GraphQL API
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
@@ -1298,16 +1299,16 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 0f62ea67-476f-46d2-956d-110546492ab3
+  - id: 737b037f-c29a-4abb-9fb2-66ca1cee84b7
     name: Reporting pentesting
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cd08670b-64fe-412a-92cb-6e5dac00959e
+      - id: e1ebf338-f3da-46f5-a94f-6b13a9ccbc75
         name: Reporting of findings
         content:
-          - slide: Angular2/src/assets/training/security_testing/slides/5-Introduction/README.md
-          - questionnaire: Angular2/src/assets/training/security_testing/questionnaire/1.md
+          - slide: slides/5-Introduction/README.md
+          - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti

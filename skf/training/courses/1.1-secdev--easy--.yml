@@ -7,9 +7,9 @@ languages:
   - java
   - js
   - net
-assetsPath: /assets/training/secure_code
+assetsPath: assets/training/secure_code/
 content:
-  - slide: /slides/1.md
+  - slide: slides/1.md
 topics:
   - id: '1.1.1'
     name: Session management
@@ -19,7 +19,7 @@ topics:
       - id: '1.1.1.1'
         name: Session Hijacking
         content:
-          - slide: /slides/1.md
+          - slide: slides/1.md
           - questionnaire: /questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
@@ -33,7 +33,7 @@ topics:
         name: HTTP Only flag
         content:
           - questionnaire: /questionnaire/1.md
-          - slide: /slides/2.md
+          - slide: slides/2.md
       - id: '1.1.1.3'
         name: Session riding
         content:
@@ -45,7 +45,7 @@ topics:
                 - java: blabla1337/owasp-skf-lab-java
                 - js: blabla1337/owasp-skf-lab-js
                 - net: blabla1337/owasp-skf-lab-net
-          - slide: /slides/3.md
+          - slide: slides/3.md
           - questionnaire: /questionnaire/3.md
   - id: '1.1.2'
     name: Validation, Sanitization and Encoding
@@ -55,20 +55,20 @@ topics:
       - id: '1.1.2.1'
         name: SQL injection
         content:
-          - slide: /slides/4.md
+          - slide: slides/4.md
           - questionnaire: /questionnaire/4.md
       - id: '1.1.2.2'
         name: LDAP injection
         content:
-          - slide: /slides/5.md
+          - slide: slides/5.md
           - questionnaire: /questionnaire/5.md
       - id: '1.1.2.3'
         name: Server Side Template injection
         content:
-          - slide: /slides/6.md
+          - slide: slides/6.md
           - questionnaire: /questionnaire/6.md
       - id: '1.1.2.4'
         name: Server Side Template injection
         content:
-          - slide: /slides/7.md
+          - slide: slides/7.md
           - questionnaire: /questionnaire/7.md
