@@ -62,6 +62,14 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   }
 
   private setNodesFromCourse(course: Course, seenCategoryIds: string[]) {
+    const titleNode = {
+      id: course.id,
+      name: course.name,
+      content: course.content,
+      seen: true,
+      courseItemType: 'Title',
+    }
+
     const nodes = course.topics.map(t => ({
       id: t.id,
       name: t.name,
@@ -79,7 +87,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
     }));
     nodes.forEach(t => t.seen = t.children.every(c => c.seen));
 
-    this.nodes = nodes;
+    this.nodes = [titleNode, ...nodes];
 
     console.log('TODO IB !!!! this.nodes', this.nodes);
 
