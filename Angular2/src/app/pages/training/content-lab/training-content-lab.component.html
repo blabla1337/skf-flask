@@ -1,1 +1,16 @@
-<p>training-content-lab works!</p>
+<div *ngIf="currentView === 'None'" style="color: red">
+  No language defined for this lab
+</div>
+
+<app-training-content-lab-language
+  *ngIf="currentView === 'LanguageSelection'"
+  [lab]="lab"
+  (languageSelected)="onLanguageSelected($event)">
+</app-training-content-lab-language>
+
+<div *ngIf="currentView === 'Lab'" class="iframe-container">
+  <iframe class="fill"
+    *ngIf="safeLabUrl"
+    [src]="safeLabUrl">
+  </iframe>
+</div>
