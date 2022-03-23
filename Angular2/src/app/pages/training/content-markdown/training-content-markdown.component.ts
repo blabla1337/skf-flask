@@ -22,7 +22,6 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
   }
 
   @Input() set markdownPath(value: string) {
-    console.log('TODO IB !!!! markdownPath', value);
     this._markdownPath = value;
     this.setMarkdownBaseUrl();
     this.updateMarkdown();

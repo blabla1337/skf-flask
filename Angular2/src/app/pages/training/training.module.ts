@@ -13,6 +13,7 @@ import {TrainingContentMarkdownComponent} from './content-markdown/training-cont
 import {TrainingContentVideoComponent} from './content-video/training-content-video.component';
 import { TrainingCourseButtonsComponent } from './course-buttons/training-course-buttons.component';
 import { TrainingContentLabComponent } from './content-lab/training-content-lab.component';
+import { TrainingContentLabLanguageComponent } from './content-lab-language/training-content-lab-language.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TrainingContentLabComponent } from './content-lab/training-content-lab.
     TrainingContentMarkdownComponent,
     TrainingContentVideoComponent,
     TrainingCourseButtonsComponent,
-    TrainingContentLabComponent
+    TrainingContentLabComponent,
+    TrainingContentLabLanguageComponent
   ],
   imports: [
     CommonModule,

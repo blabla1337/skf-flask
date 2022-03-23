@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
-import {ContentItemType, Course, CourseItem} from '../../../core/models/course.model';
+import {ContentItemType, Course, CourseItem, Lab} from '../../../core/models/course.model';
 import {TrainingService} from '../../../core/services/training.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class TrainingCourseContentComponent implements OnInit {
   public courseItem: CourseItem;
   public markdownPath: string;
   public videoPath: string;
+  public lab: Lab;
   private currentContentItemIndex: number;
   public contentItemType: ContentItemType;
 
@@ -45,6 +46,7 @@ export class TrainingCourseContentComponent implements OnInit {
     this.markdownPath = undefined;
     this.videoPath = undefined;
     this.contentItemType = "None";
+    this.lab = undefined;
 
     if (this.courseItem && this.courseItem.content) {
       if (this.currentContentItemIndex < this.courseItem.content.length) {
@@ -59,6 +61,7 @@ export class TrainingCourseContentComponent implements OnInit {
           this.videoPath = currentContentItem.video;
           this.contentItemType = "Video";
         } else if (currentContentItem.lab) {
+          this.lab = currentContentItem.lab;
           this.contentItemType = "Lab";
         }
       }

@@ -64,3 +64,8 @@ export interface Course {
   content: ContentItem[];
   topics: Topic[];
 }
+
+export interface LanguageInfo {
+  code: string;
+  name: string;
+}

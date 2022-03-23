@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Course, Profile} from '../models/course.model';
-import {Observable} from 'rxjs';
+import {Course, LabImage, LabLanguage, LanguageInfo, Profile} from '../models/course.model';
+import {Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
 
@@ -25,7 +25,6 @@ export class TrainingService {
   }
 
   public setCourseProgress(userId: string, courseId: string, categoryId: string): Observable<any> {
-    // return of(true);
     const payload = {
       userId,
       courseId,
@@ -35,7 +34,46 @@ export class TrainingService {
   }
 
   public getCourseProgress(userId: string, courseId: string): Observable<string[]> {
-    // return of(['1.1.1.1', '1.1.1.2', '1.1.1.3']);
     return this.http.get<string[]>(environment.API_ENDPOINT + `/api/training/course/${courseId}/progress/${userId}`, { headers: this.headers })
+  }
+
+  // TODO IB !!!! get the real lab url here
+  public getLabUrl(labAddress: string): Observable<string> {
+    return of("https://en.wikipedia.org/wiki/Dexter%27s_Laboratory")
+  }
+
+  public getLanguages(): LanguageInfo[] {
+    return [
+      {
+        code: "python",
+        name: "Python"
+      },
+      {
+        code: "java",
+        name: "Java"
+      },
+      {
+        code: "js",
+        name: "JavaScript"
+      },
+      {
+        code: "net",
+        name: "C#"
+      }
+    ]
+  }
+
+  public getLabImageLanguageCode(labImage: LabImage): LabLanguage {
+    if (labImage.net) {
+      return "net";
+    } else if (labImage.js) {
+      return "js"
+    } else if (labImage.java) {
+      return "java"
+    } else if (labImage.python) {
+      return "python"
+    } else {
+      return undefined;
+    }
   }
 }
