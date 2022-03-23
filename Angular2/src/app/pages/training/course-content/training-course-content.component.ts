@@ -64,6 +64,7 @@ export class TrainingCourseContentComponent implements OnInit {
           this.lab = currentContentItem.lab;
           this.contentItemType = "Lab";
         }
+        this.trainingNavigationService.raiseCurrentContentItemChanged(currentContentItem);
       }
 
       if (this.currentContentItemIndex < this.courseItem.content.length - 1) {
