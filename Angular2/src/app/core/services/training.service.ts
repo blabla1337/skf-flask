@@ -39,7 +39,7 @@ export class TrainingService {
 
   // TODO IB !!!! get the real lab url here
   public getLabUrl(labAddress: string): Observable<string> {
-    return of("https://en.wikipedia.org/wiki/Dexter%27s_Laboratory")
+    return of("https://en.wikipedia.org/wiki/High_tech")
   }
 
   public getLanguages(): LanguageInfo[] {

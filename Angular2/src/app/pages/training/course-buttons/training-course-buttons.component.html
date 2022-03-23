@@ -1,5 +1,18 @@
 <div class="fill">
-  <button type="button" (click)="onNext()" class="btn btn-primary bx-pull-right next" style="margin-top: 10px">
+  <button type="button" (click)="onNext()" class="btn btn-primary bx-pull-right next">
     {{nextButtonText}}
   </button>
+  <ng-container *ngIf="contentIsLab">
+    <button  type="button" (click)="onRestartLab()" class="btn btn-primary bx-pull-right">
+      Restart Lab
+    </button>
+<!--    data-container="body" data-toggle="popover" data-placement="top" [data-content]="labHint"-->
+    <button type="button" (click)="onShowWriteUp()" class="btn btn-primary bx-pull-right" >
+      Show Write-Up
+    </button>
+<!--    data-container="body" data-toggle="popover" data-placement="top" [data-content]="labHint"-->
+    <button type="button" (click)="onShowHint()" class="btn btn-primary bx-pull-right" >
+      Hint
+    </button>
+  </ng-container>
 </div>

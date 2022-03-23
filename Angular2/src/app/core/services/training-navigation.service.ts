@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CourseItem, ContentItemType, SlideType} from '../models/course.model';
+import {CourseItem, ContentItemType, SlideType, ContentItem} from '../models/course.model';
 import {BehaviorSubject, Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
@@ -35,6 +35,13 @@ export class TrainingNavigationService {
     this.currentCourseItemChangedSubject.next(courseItem);
   }
 
+  // event raised when a new ContentItem is displayed
+  private currentContentItemChangedSubject: BehaviorSubject<ContentItem> = new BehaviorSubject<ContentItem>(undefined);
+  public currentContentItemChanged$ = this.currentContentItemChangedSubject.asObservable();
+  public raiseCurrentContentItemChanged(contentItem: ContentItem) {
+    this.currentContentItemChangedSubject.next(contentItem);
+  }
+
   private nextSlideTypeSubject: BehaviorSubject<SlideType> = new BehaviorSubject<SlideType>("Unknown");
   public nextSlideType$ = this.nextSlideTypeSubject.asObservable();
   public setNextSlideType(nextSlideType: SlideType) {
@@ -47,12 +54,6 @@ export class TrainingNavigationService {
   public setNextContentItemType(nextContentItemType: ContentItemType) {
     this.nextContentItemTypeSubject.next(nextContentItemType);
     this.computeNextButtonText();
-  }
-
-  private markCategoryAsSeenSubject: Subject<string> = new Subject<string>();
-  public markCategoryAsSeen$ = this.markCategoryAsSeenSubject.asObservable();
-  public raiseMarkCategoryAsSeen(categoryId: string) {
-    this.markCategoryAsSeenSubject.next(categoryId);
   }
 
   private nextButtonTextSubject: BehaviorSubject<string> = new BehaviorSubject<string>("Next");
@@ -77,5 +78,11 @@ export class TrainingNavigationService {
     } else {
       this.nextButtonTextSubject.next("Next");
     }
+  }
+
+  private markCategoryAsSeenSubject: Subject<string> = new Subject<string>();
+  public markCategoryAsSeen$ = this.markCategoryAsSeenSubject.asObservable();
+  public raiseMarkCategoryAsSeen(categoryId: string) {
+    this.markCategoryAsSeenSubject.next(categoryId);
   }
 }
