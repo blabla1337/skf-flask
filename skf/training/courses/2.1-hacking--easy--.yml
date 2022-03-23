@@ -26,7 +26,7 @@ topics:
       - id: 71ff02f2-92d2-4a26-8902-1e428753bf8b
         name: Pentesting Phases
         content:
-          - slide: slides/3-Introduction/0-The_Web_Security_Testing_Framework.md
+          - slide: slides/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework.md
           - questionnaire: questionnaire/2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -46,7 +46,7 @@ topics:
       - id: fa3f12b9-c42c-430a-afdf-918805aa08b7
         name: Penetration Testing Methodologies
         content:
-          - slide: slides/3-Introduction/1-Penetration_Testing_Methodologies.md
+          - slide: slides/3-The_OWASP_Testing_Framework/1-Penetration_Testing_Methodologies.md
           - questionnaire: questionnaire/2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -64,16 +64,6 @@ topics:
         name: Search Engine Discovery
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
-          - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 0aaff035-8f92-4755-b106-12996ddd537c
-        name: Fingerpring web server
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -351,16 +341,6 @@ topics:
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 80fd1ec9-35a2-4186-a5c5-500f22b9b403
-        name: Test for sensitive information transported over TLS
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/01-Testing_for_Credentials_Transported_over_an_Encrypted_Channel.md
-          - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 0d33bacb-75a6-42c2-811a-b1341985f783
         name: Test for default credentials
         content:
@@ -662,18 +642,8 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: ab03a923-9f92-437a-99cb-fc72a292a2da
-        name: Test for HTTP verbose tampering
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.md
-          - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
       - id: ff34d3c9-5dec-436b-b72f-7c30c56b7656
-        name: Test for HTT parameter pollution
+        name: Test for HTTP parameter pollution
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.md
           - questionnaire: questionnaire/1.md
@@ -852,16 +822,6 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 0985e1ad-5b98-48ff-8ab0-2cf06a2b51c6
-        name: Test for Buffer overflow
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Buffer_Overflow.md
-          - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
       - id: c19b85a0-e255-471b-9eea-246813bca69a
         name: Test for format string injection
         content:
@@ -935,7 +895,7 @@ topics:
       - id: 1febd171-4a97-434a-805e-820e950c940a
         name: Test for mass assignment
         content:
-          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment.md
           - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
@@ -949,16 +909,6 @@ topics:
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 9c9f43e9-14ac-47ba-a757-51fcec786c6c
-        name: Test for stack traces
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/02-Testing_for_Stack_Traces.md
-          - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 291ade05-b37e-4820-93ef-148c3afdfae5
         name: Test for improper error handling
         content:
@@ -1143,7 +1093,7 @@ topics:
       - id: b013234e-28a3-4298-9c55-a88b2399d6b2
         name: Test for DOM based Cross site scripting
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/01-Testing_for_DOM-based_Cross_Site_Scripting.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/01-Testing_for_DOM-based_Cross_Site_Scripting.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1153,7 +1103,7 @@ topics:
       - id: fc240d5b-842e-4e5e-8169-a5aef4f21251
         name: Test for Self DOM based Cross site scripting
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/01.1-Testing_for_Self_DOM_Based_Cross_Site_Scripting.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/01.1-Testing_for_Self_DOM_Based_Cross_Site_Scripting.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1163,7 +1113,7 @@ topics:
       - id: 2257f4bc-05ac-46fc-be12-11262527379e
         name: Test for javascript execution
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/02-Testing_for_JavaScript_Execution.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/02-Testing_for_JavaScript_Execution.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1173,7 +1123,7 @@ topics:
       - id: 998a3a69-9c64-4ea3-a424-08cbd039c5ef
         name: Test for HTML injection
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/03-Testing_for_HTML_Injection.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/03-Testing_for_HTML_Injection.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1183,7 +1133,7 @@ topics:
       - id: 3c19971e-5444-4f53-b38a-144c09945298
         name: Test for client side URL redirect
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/04-Testing_for_Client-side_URL_Redirect.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/04-Testing_for_Client-side_URL_Redirect.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1193,7 +1143,7 @@ topics:
       - id: 20f99709-c1ff-4783-9fba-6225e9f89b3f
         name: Test for CSS injection
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/05-Testing_for_CSS_Injection.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/05-Testing_for_CSS_Injection.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1203,7 +1153,7 @@ topics:
       - id: 59956751-6a8a-4265-8bf1-b1006e12929e
         name: Test for client-side resource manipulation
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/06-Testing_for_Client-side_Resource_Manipulation.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/06-Testing_for_Client-side_Resource_Manipulation.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1213,7 +1163,7 @@ topics:
       - id: 04f2e844-e3b4-4ba2-be9d-6ce348abaa7d
         name: Test for Cross Origin Resource sharing
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/07-Testing_Cross_Origin_Resource_Sharing.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1223,7 +1173,7 @@ topics:
       - id: 4a061a7b-c162-49d6-841d-5f428af1a85a
         name: Test for Cross site flashing
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/08-Testing_for_Cross_Site_Flashing.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/08-Testing_for_Cross_Site_Flashing.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1233,7 +1183,7 @@ topics:
       - id: 1541cccf-e882-49de-b252-aea46b5de869
         name: Test for Clickjacking
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/09-Testing_for_Clickjacking.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1243,7 +1193,7 @@ topics:
       - id: 0a57083c-bb77-4a20-9940-b3dda5969b12
         name: Test for Websockets
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/10-Testing_WebSockets.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/10-Testing_WebSockets.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1253,7 +1203,7 @@ topics:
       - id: 37e1fba5-de42-498a-b1e2-85bf9b89d9a1
         name: Test for web messaging
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/11-Testing_Web_Messaging.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/11-Testing_Web_Messaging.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1263,7 +1213,7 @@ topics:
       - id: 24dbaadd-bb80-48f3-9097-cbb0f2b20d81
         name: Test for browser storage
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/12-Testing_Browser_Storage.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/12-Testing_Browser_Storage.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1273,7 +1223,7 @@ topics:
       - id: 6c10379c-bf2b-43f4-9206-b27be633ca11
         name: Test for Cross site script inclusion
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/13-Testing_for_Cross_Site_Script_Inclusion.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/13-Testing_for_Cross_Site_Script_Inclusion.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1307,7 +1257,7 @@ topics:
       - id: 796fe02d-6939-4405-9dcd-2e2dbf8f3bdf
         name: Reporting of findings
         content:
-          - slide: slides/5-Introduction/README.md
+          - slide: slides/5-Reporting/README.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
