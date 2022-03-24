@@ -67,6 +67,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
       name: course.name,
       content: course.content,
       seen: true,
+      children: [],
       courseItemType: 'Title',
     }
 
