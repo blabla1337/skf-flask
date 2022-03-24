@@ -41,6 +41,11 @@ export class TrainingNavigationService {
     this.runningLabChangedSubject.next(lab);
   }
 
+  private restartLabSubject: Subject<void> = new Subject<void>();
+  public restartLab$ = this.restartLabSubject.asObservable();
+  public raiseRestartLab() {
+    this.restartLabSubject.next();
+  }
 
   private nextSlideTypeSubject: BehaviorSubject<SlideType> = new BehaviorSubject<SlideType>("Unknown");
   public nextSlideType$ = this.nextSlideTypeSubject.asObservable();

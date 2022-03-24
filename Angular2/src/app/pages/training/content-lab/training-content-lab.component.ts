@@ -24,6 +24,19 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
               private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.initLab();
+
+    this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
+      console.log('TODO IB !!!! nextClicked$ in lab');
+      this.trainingNavigationService.raiseNextContentItem();
+    }));
+
+    this.subscriptions.push(this.trainingNavigationService.restartLab$.subscribe(() => {
+      this.initLab();
+    }));
+  }
+
+  initLab() {
     if ((!this.lab.images) || this.lab.images.length === 0) {
       this.currentView = "None";
       this.trainingNavigationService.raiseRunningLabChanged(undefined);
@@ -35,11 +48,6 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     }
 
     this.trainingNavigationService.setNextSlideType("None");
-
-    this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
-      console.log('TODO IB !!!! nextClicked$ in lab');
-      this.trainingNavigationService.raiseNextContentItem();
-    }));
   }
 
   onLanguageSelected(languageCode: string) {

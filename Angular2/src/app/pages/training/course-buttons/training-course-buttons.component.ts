@@ -30,7 +30,7 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
   }
 
   onRestartLab() {
-    console.log('TODO IB !!!! onRestartLab');
+    this.trainingNavigationService.raiseRestartLab();
   }
 
   onShowWriteUp() {
