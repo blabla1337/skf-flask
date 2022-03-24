@@ -5,6 +5,7 @@ import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {ContentItemType} from '../../../core/models/course.model';
 import {MarkdownService} from 'ngx-markdown';
+import {Renderer} from 'marked';
 
 const MARKDOWN_SPLIT_MARKER = "-----SPLIT-----";
 
@@ -30,6 +31,7 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
   public currentDataSlideIndex: number;
   public dataSlides: string[] = [];
   public currentDataSlide: string;
+  private markdownOriginalRenderer: Renderer;
 
   constructor(private httpClient: HttpClient,
               private spinner: NgxSpinnerService,
@@ -38,6 +40,8 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.initMarkdownRenderer();
+
     this.trainingNavigationService.setNextSlideType("Unknown");
 
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
@@ -51,6 +55,21 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
     }));
   }
 
+
+  private initMarkdownRenderer() {
+    console.log('TODO IB !!!! initMarkdownRenderer');
+
+    this.markdownOriginalRenderer = new Renderer();
+    this.markdownService.renderer.link = (href: string | null, title: string | null, text: string) => {
+      const renderedLink = this.markdownOriginalRenderer.link(href, title, text);
+      return renderedLink.replace(/^(<a)/, "<a target='_blank'")
+    }
+    this.markdownService.renderer.image = (href: string | null, title: string | null, text: string) => {
+      const renderedImage = this.markdownOriginalRenderer.image(href, title, text);
+      return renderedImage.replace(/^(<img)/, "<img class='max-width-100p'")
+    }
+  }
+
   private setMarkdownBaseUrl() {
     const lastSlashIndex = this._markdownPath.lastIndexOf('/');
     if (lastSlashIndex !== -1) {
@@ -59,10 +78,9 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
       this.markdownService.options = {
         baseUrl
       };
-      this.markdownService.renderer.link = (href: string | null, title: string | null, text: string) =>
-        `<a href="${href}" title="${title??''}" target="_blank">${text??''}</a>`
-      this.markdownService.renderer.image = (href: string | null, title: string | null, text: string) =>
-        `<img src="${baseUrl}${href}" title="${title??''}" alt="${text}" class="max-width-100p">`
+      this.markdownOriginalRenderer.options = {
+        baseUrl
+      }
     }
   }
 
