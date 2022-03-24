@@ -35,6 +35,9 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
 
   onShowWriteUp() {
     console.log('TODO IB !!!! onShowWriteUp');
+    if (this.runningLab) {
+      window.open(this.runningLab.writeup, "_blank");
+    }
   }
 
   ngOnDestroy(): void {

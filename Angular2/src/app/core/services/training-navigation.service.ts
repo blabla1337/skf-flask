@@ -35,18 +35,6 @@ export class TrainingNavigationService {
     this.currentCourseItemChangedSubject.next(courseItem);
   }
 
-  private runningLabChangedSubject: BehaviorSubject<Lab> = new BehaviorSubject<Lab>(undefined);
-  public runningLabChanged$ = this.runningLabChangedSubject.asObservable();
-  public raiseRunningLabChanged(lab: Lab) {
-    this.runningLabChangedSubject.next(lab);
-  }
-
-  private restartLabSubject: Subject<void> = new Subject<void>();
-  public restartLab$ = this.restartLabSubject.asObservable();
-  public raiseRestartLab() {
-    this.restartLabSubject.next();
-  }
-
   private nextSlideTypeSubject: BehaviorSubject<SlideType> = new BehaviorSubject<SlideType>("Unknown");
   public nextSlideType$ = this.nextSlideTypeSubject.asObservable();
   public setNextSlideType(nextSlideType: SlideType) {
@@ -89,5 +77,17 @@ export class TrainingNavigationService {
   public markCategoryAsSeen$ = this.markCategoryAsSeenSubject.asObservable();
   public raiseMarkCategoryAsSeen(categoryId: string) {
     this.markCategoryAsSeenSubject.next(categoryId);
+  }
+
+  private runningLabChangedSubject: BehaviorSubject<Lab> = new BehaviorSubject<Lab>(undefined);
+  public runningLabChanged$ = this.runningLabChangedSubject.asObservable();
+  public raiseRunningLabChanged(lab: Lab) {
+    this.runningLabChangedSubject.next(lab);
+  }
+
+  private restartLabSubject: Subject<void> = new Subject<void>();
+  public restartLab$ = this.restartLabSubject.asObservable();
+  public raiseRestartLab() {
+    this.restartLabSubject.next();
   }
 }
