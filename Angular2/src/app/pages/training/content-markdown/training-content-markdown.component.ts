@@ -59,6 +59,8 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
       this.markdownService.options = {
         baseUrl
       };
+      this.markdownService.renderer.link = (href: string | null, title: string | null, text: string) =>
+        `<a href="${href}" title="${title}" target="_blank">${text}</a>`
     }
   }
 
