@@ -3,15 +3,19 @@
     {{nextButtonText}}
   </button>
   <ng-container *ngIf="runningLab">
+
     <button  type="button" (click)="onRestartLab()" class="btn btn-primary bx-pull-right">
       Restart Lab
     </button>
-<!--    data-container="body" data-toggle="popover" data-placement="top" [data-content]="labHint"-->
-    <button type="button" (click)="onShowWriteUp()" class="btn btn-primary bx-pull-right" >
+
+    <button type="button"
+            (click)="onShowWriteUp()"
+            class="btn btn-primary bx-pull-right">
       Write-Up
     </button>
-<!--    data-container="body" data-toggle="popover" data-placement="top" [data-content]="labHint"-->
-    <button type="button" (click)="onShowHint()" class="btn btn-primary bx-pull-right" >
+    <button type="button"
+            class="btn btn-primary bx-pull-right"
+            [ngbPopover]="runningLab.hint">
       Hint
     </button>
   </ng-container>
