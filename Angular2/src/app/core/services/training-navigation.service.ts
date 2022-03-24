@@ -90,4 +90,10 @@ export class TrainingNavigationService {
   public raiseRestartLab() {
     this.restartLabSubject.next();
   }
+
+  private openFullScreenSubject: Subject<void> = new Subject<void>();
+  public openFullScreen$ = this.openFullScreenSubject.asObservable();
+  public raiseOpenFullScreen() {
+    this.openFullScreenSubject.next();
+  }
 }

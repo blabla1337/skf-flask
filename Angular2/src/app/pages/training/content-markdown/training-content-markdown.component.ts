@@ -37,11 +37,10 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
               private spinner: NgxSpinnerService,
               private markdownService: MarkdownService,
               private trainingNavigationService: TrainingNavigationService) {
+    this.initMarkdownRenderer();
   }
 
   ngOnInit(): void {
-    this.initMarkdownRenderer();
-
     this.trainingNavigationService.setNextSlideType("Unknown");
 
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
