@@ -14,6 +14,7 @@ import {TrainingContentVideoComponent} from './content-video/training-content-vi
 import { TrainingCourseButtonsComponent } from './course-buttons/training-course-buttons.component';
 import { TrainingContentLabComponent } from './content-lab/training-content-lab.component';
 import { TrainingContentLabLanguageComponent } from './content-lab-language/training-content-lab-language.component';
+import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { TrainingContentLabLanguageComponent } from './content-lab-language/trai
     TrainingRoutingModule,
     TreeModule,
     NgxSpinnerModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    NgbPopoverModule
   ]
 })
 export class TrainingModule {
