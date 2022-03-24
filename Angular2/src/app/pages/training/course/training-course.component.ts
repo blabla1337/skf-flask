@@ -1,10 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {TrainingService} from '../../../core/services/training.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {Course, Profile} from '../../../core/models/course.model';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {UserService} from '../../../core/services/user.service';
+import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 
 
 @Component({
@@ -13,12 +14,14 @@ import {UserService} from '../../../core/services/user.service';
   styleUrls: ['./training-course.component.scss']
 })
 export class TrainingCourseComponent implements OnInit, OnDestroy {
+  @ViewChild('rightSide') private rightSide: ElementRef;
   public userId: string;
   public profile: Profile;
   public course: Course;
   private subscriptions: Subscription[] = [];
 
   constructor(private trainingService: TrainingService,
+              private trainingNavigationService: TrainingNavigationService,
               private userService: UserService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -44,6 +47,21 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
         }
       }));
     }));
+    this.subscriptions.push(this.trainingNavigationService.openFullScreen$.subscribe(() => {
+      this.openFullscreen();
+    }));
+  }
+
+
+  private openFullscreen() {
+    const elem = this.rightSide.nativeElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+    }
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {ContentItemType, Course, CourseItem, Lab} from '../../../core/models/course.model';
@@ -12,7 +12,6 @@ import {TrainingService} from '../../../core/services/training.service';
 export class TrainingCourseContentComponent implements OnInit {
   @Input() public course: Course;
   @Input() public userId: string;
-  @ViewChild('courseContent') private courseContent: ElementRef;
   private subscriptions: Subscription[] = [];
   public courseItem: CourseItem;
   public markdownPath: string;
@@ -41,10 +40,6 @@ export class TrainingCourseContentComponent implements OnInit {
         this.trainingNavigationService.raiseNextCourseItem();
       }
     }));
-
-    this.subscriptions.push(this.trainingNavigationService.openFullScreen$.subscribe(() => {
-      this.openFullscreen();
-    }))
   }
 
   private prepareContentDisplay() {
@@ -101,17 +96,6 @@ export class TrainingCourseContentComponent implements OnInit {
           })
         );
       }
-    }
-  }
-
-  private openFullscreen() {
-    const elem = this.courseContent.nativeElement;
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-      elem.msRequestFullscreen();
     }
   }
 

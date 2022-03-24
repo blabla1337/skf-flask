@@ -26,12 +26,14 @@
     <app-training-course-tree [course]="course" [userId]="userId">
     </app-training-course-tree>
   </div>
-  <div class="content-panel">
-    <app-training-course-content [course]="course" [userId]="userId">
-    </app-training-course-content>
-  </div>
-  <div class="buttons-panel">
-    <app-training-course-buttons>
-    </app-training-course-buttons>
+  <div class="right-side" #rightSide>
+    <div class="content-panel">
+      <app-training-course-content [course]="course" [userId]="userId">
+      </app-training-course-content>
+    </div>
+    <div class="buttons-panel">
+      <app-training-course-buttons>
+      </app-training-course-buttons>
+    </div>
   </div>
 </div>
