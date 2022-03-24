@@ -1,6 +1,6 @@
 version: 2.1
 date: 18/03/2022
-id: "2.2"
+id: "2.1"
 name: Web/API Security testing
 languages:
   - python
@@ -8,12 +8,12 @@ assetsPath: assets/training/security_testing/
 content:
   - slide: slides/1-Landing/Landing.md
 topics:
-  - id: 583d6cc5-7367-4bcd-b703-eff9093c4562
+  - id: 00f3e25c-a0ce-4f8d-be25-dd587ee98936
     name: Introduction
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 9d12a218-c1d3-4739-9f7e-60d144c29835
+      - id: 901b2b0b-53b9-486c-95b0-2aa4394c673b
         name: OWASP Web Application Testing Guide
         content:
           - slide: slides/2-Introduction/README.md
@@ -23,17 +23,17 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 46f63915-cdfd-4977-9dda-da06a6c77be9
+      - id: 71ff02f2-92d2-4a26-8902-1e428753bf8b
         name: Pentesting Phases
         content:
-          - slide: slides/3-Introduction/0-The_Web_Security_Testing_Framework.md
+          - slide: slides/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework.md
           - questionnaire: questionnaire/2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: dd37648c-cff5-40d5-aa36-d68bcea40876
+      - id: 0c26c0ef-e4b9-4906-ab4c-2cf15a7dde14
         name: Pentesting explained
         content:
           - slide: slides/4-Web_Application_Security_Testing/00-Introduction_and_Objectives/README.md
@@ -43,10 +43,10 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 3058086b-1027-42ef-8e84-0694ccbf560a
+      - id: fa3f12b9-c42c-430a-afdf-918805aa08b7
         name: Penetration Testing Methodologies
         content:
-          - slide: slides/3-Introduction/1-Penetration_Testing_Methodologies.md
+          - slide: slides/3-The_OWASP_Testing_Framework/1-Penetration_Testing_Methodologies.md
           - questionnaire: questionnaire/2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -55,12 +55,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 333918f1-6916-49fb-b138-c14c2f81c516
+  - id: 84318817-359d-4869-9c29-39dda0f32630
     name: Information Gathering
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 73cc515f-fcc9-438f-8aa6-79ce520f93cb
+      - id: 070f4d90-799a-4b77-bfb5-978caa03e0cf
         name: Search Engine Discovery
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
@@ -70,17 +70,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 58522a8a-d215-49fe-876d-047d62e9c099
-        name: Fingerpring web server
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server.md
-          - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 9e7100a8-8240-4c0e-aade-24730820bf62
+      - id: 9ebde5a5-f3cd-4e50-9e9b-fad2b93a24df
         name: Review webserver metafiles
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/03-Review_Webserver_Metafiles_for_Information_Leakage.md
@@ -90,7 +80,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 64b45ffd-ab7d-4d6f-b700-d8af1f52f226
+      - id: 9e8616f6-946e-49d4-9cee-ce93b1be595b
         name: Enumerate applications on webserver
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/04-Enumerate_Applications_on_Webserver.md
@@ -100,7 +90,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 53e5e9b6-9ed7-43e7-82c2-8db04eb690c2
+      - id: 54f9eedd-0d7c-42cc-9794-59aa49df6bbc
         name: Information leakage website content
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Webpage_Content_for_Information_Leakage.md
@@ -110,7 +100,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 1fd1d245-af2f-4dad-9104-96905db0d8cd
+      - id: 113345b2-308b-4b7c-9c3e-9548a4a10cd2
         name: Identify application entry points
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/06-Identify_Application_Entry_Points.md
@@ -120,7 +110,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: d41295e7-0323-41da-88d6-1b7495559041
+      - id: bc426a23-1336-4f94-a20b-c28ae59e1951
         name: Map execution paths application
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/07-Map_Execution_Paths_Through_Application.md
@@ -130,8 +120,8 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: fb9be2ad-7ebf-4e69-9d39-cf547b832315
-        name: Fingerpring application framework
+      - id: 324803ba-c52d-42a8-9482-2202b6507f93
+        name: Fingerprint application framework
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework.md
           - questionnaire: questionnaire/1.md
@@ -140,17 +130,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 66e9fc77-4721-497f-a5ba-292df7c42a55
-        name: Fingerprint web application
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/09-Fingerprint_Web_Application.md
-          - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: df1ec163-7a99-44bc-8120-b56ca507eb95
+      - id: eb1782e8-9f1e-4e64-b8ba-afcb4be9c1f3
         name: Map application architecture
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/10-Map_Application_Architecture.md
@@ -162,12 +142,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: e5b1324f-5b2f-4b16-af44-7ee14afb78d4
+  - id: d2ecc55e-0a0a-4eca-bc81-bea516b76c20
     name: Configuration and Deployment Management Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: cce50726-f0b6-4451-bba6-42ea6d231b07
+      - id: 7b8eadd9-a31f-415d-b77f-946bf3630a0e
         name: Test network infrastructure config
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/01-Test_Network_Infrastructure_Configuration.md
@@ -177,7 +157,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: fff4349f-5986-429a-8a62-fed890b44283
+      - id: d539f5d7-2561-41a0-8217-77b46de4c212
         name: Test application platform config
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/02-Test_Application_Platform_Configuration.md
@@ -187,7 +167,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 1404db74-7c08-4e91-9253-b4942da68465
+      - id: fcb70e7d-52c3-4f39-83b7-3ae39de61ac8
         name: Test file extention handling
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.md
@@ -197,7 +177,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 4b65334c-d577-4ae4-8b6e-be12f1223ef6
+      - id: 1a8f07d3-6a4e-4581-9d56-ccc2cba0492e
         name: Sensitive files & backups
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.md
@@ -207,7 +187,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: bfa4464b-9bd8-4fed-bed5-d39e8f1d2d8e
+      - id: 7c3a600c-236f-4c93-b282-314d8ef6c1be
         name: Admin Interface enumerations
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/05-Enumerate_Infrastructure_and_Application_Admin_Interfaces.md
@@ -217,7 +197,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: fbc2f3c0-a499-414c-a78c-bb3be8092bd0
+      - id: 8fb2907e-fa2c-4c87-80f8-3ad5bf1ca9be
         name: Test HTTP Methods
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods.md
@@ -227,7 +207,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 54d2346f-5617-497f-a49d-0cf9603ad49b
+      - id: d1632df8-8ff7-4253-838c-9415e60117aa
         name: Test HTTP Strict Transport Security
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/07-Test_HTTP_Strict_Transport_Security.md
@@ -237,7 +217,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: fa460be9-f3b9-4f82-a05f-0a2c0deffe48
+      - id: 47bf7642-c896-4a29-9cc1-c12a39304d3c
         name: Test cross domain policy
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/08-Test_RIA_Cross_Domain_Policy.md
@@ -247,7 +227,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: f6f0a872-1c67-4b96-bb6c-57dce66f1a9f
+      - id: cb427c07-c2df-4340-b1ff-db1874bfc2bb
         name: Test file permissions
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/09-Test_File_Permission.md
@@ -257,7 +237,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: aeb28543-baed-4c34-9a3a-78b7ad0a5515
+      - id: 707934f9-bd37-4c11-b452-e76a318c492c
         name: Test subdomain takeover
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/10-Test_for_Subdomain_Takeover.md
@@ -267,7 +247,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: c2a1329c-8d42-4c81-a0e7-1b013dac2a2a
+      - id: 186a26a9-4471-4982-a44e-a404510fed0c
         name: Test cloud storage
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/11-Test_Cloud_Storage.md
@@ -277,7 +257,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: af71afcd-b220-4233-b3d1-a29d1af45880
+      - id: e8e37b06-bb2a-4285-8c6f-3b94508c5a4a
         name: Test content security policy 
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/12-Test_for_Content_Security_Policy.md
@@ -289,12 +269,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: a94b6076-e4a4-4bcd-bc55-2f2a990bd38a
+  - id: 865d68de-f061-4db0-a26b-ecfb763046b9
     name: Identity management testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 4623368f-b7b9-4028-b442-49c4bac0759d
+      - id: 3aa6efd5-b04b-472d-a489-67434395a90d
         name: Test role definitions
         content:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/01-Test_Role_Definitions.md
@@ -304,7 +284,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: ff727b68-5e35-42d9-8ccd-a63e350f3c2a
+      - id: 353f6b22-af76-4b6a-856d-d6686af2098d
         name: Test user registration flow
         content:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/02-Test_User_Registration_Process.md
@@ -314,7 +294,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 94751fa0-f830-4e6a-b79c-532904c84cb9
+      - id: b9c1e7a3-a80c-4984-a94d-1f954457b3dd
         name: Test account provisioning flow
         content:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/03-Test_Account_Provisioning_Process.md
@@ -324,7 +304,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 38ee2d7a-1e54-47fd-bf06-094606b116a8
+      - id: 0d061a7b-99b2-4977-af22-6f486361e56e
         name: Test for account enumeration
         content:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account.md
@@ -334,7 +314,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 1af65933-11d3-43d8-a58e-a014d1d6f772
+      - id: f521a647-d886-4675-a868-91656727731b
         name: Test for weak username policy
         content:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/05-Testing_for_Weak_or_Unenforced_Username_Policy.md
@@ -346,22 +326,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 48fbf85b-0c9c-47b4-8321-e12b2b1b1af5
+  - id: bde77ab7-65af-4e1e-9c1a-e97a29fad915
     name: Authentication testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 975f2762-8191-4d8d-a280-49a3eab94a85
-        name: Test for sensitive information transported over TLS
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/01-Testing_for_Credentials_Transported_over_an_Encrypted_Channel.md
-          - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 9db1df33-45fe-403c-8c5b-12c7430d4722
+      - id: 0d33bacb-75a6-42c2-811a-b1341985f783
         name: Test for default credentials
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/02-Testing_for_Default_Credentials.md
@@ -371,7 +341,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 06071be4-3504-4090-87d7-83e5f9637536
+      - id: 367ed3de-388f-45f4-b681-340a7d8c28ba
         name: Test for weak lock-out mechanism
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/03-Testing_for_Weak_Lock_Out_Mechanism.md
@@ -381,7 +351,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 4f989a23-c67c-49dc-b847-0478efb77f3f
+      - id: e1ac5f91-de47-4244-a124-02acc68beaad
         name: Test for bypassing authentication schema
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/04-Testing_for_Bypassing_Authentication_Schema.md
@@ -391,7 +361,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 680081a8-289a-447e-b1d8-c7d3be051bcb
+      - id: 90fa3c6f-9ed0-4bbb-90a7-e1a684ee7ec8
         name: Test for weak remember password flow
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/05-Testing_for_Vulnerable_Remember_Password.md
@@ -401,7 +371,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 6505101d-7f86-4819-b31c-ee989ce426b1
+      - id: 85adc7d4-7e10-4548-8c5e-ff683f2a0a80
         name: Test for browser cache weaknesses
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses.md
@@ -411,7 +381,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: a8bf8432-1474-4e06-b3d8-65dc10806cec
+      - id: 911e7cda-1d7c-444a-8975-9e72d5f5b1e9
         name: Test for weak password policy
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/07-Testing_for_Weak_Password_Policy.md
@@ -421,7 +391,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 5e2e7f1c-cc93-40ce-987e-e8f0a9b7cd63
+      - id: d7056115-0fb0-48c5-a35d-4e375d180525
         name: Test for weak security question
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/08-Testing_for_Weak_Security_Question_Answer.md
@@ -431,7 +401,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 7831db05-10b8-4dc3-b539-c10b830d483d
+      - id: 69c5cc4c-5265-4b55-a35d-67dcaf24cb82
         name: Test for weak password change or reset flow
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/09-Testing_for_Weak_Password_Change_or_Reset_Functionalities.md
@@ -441,7 +411,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 99e357e8-7596-4035-85e0-962964b7201a
+      - id: e12c0ace-2e1a-4ece-bbb4-162e68e7eb9f
         name: Test for weaker authentication in alternative flows
         content:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/10-Testing_for_Weaker_Authentication_in_Alternative_Channel.md
@@ -453,12 +423,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 579b675a-95d9-416b-b05f-81c36da6f897
+  - id: 398ea909-cd5a-4392-b6ea-d9daaa596a66
     name: Authorization testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 8cc35299-43f4-48e1-9df5-0170ed62e2e2
+      - id: 133cf752-df17-4e42-881f-a62717ba10d5
         name: Test for directory traversal / file include
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include.md
@@ -468,7 +438,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: e749fa67-d963-4267-8cd4-3d62d3dbaa46
+      - id: 624c5020-05d8-48b2-b82d-c21d9991f85d
         name: Test for bypassing authorization schema
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema.md
@@ -478,7 +448,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: bfd87aa4-6029-42b3-b74b-564db4acba9d
+      - id: 78895c68-be74-473b-85d2-ca2da0540bf7
         name: Test for privilege escalation
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/03-Testing_for_Privilege_Escalation.md
@@ -488,7 +458,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 406d8abc-01f2-4168-a8dc-3ef271820d3a
+      - id: 85442c46-c8f3-43c7-8135-c30f490c1473
         name: Test for insecure direct object references
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References.md
@@ -498,7 +468,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: f211c900-8b71-4b96-a88d-aeefb74d9fce
+      - id: 643ba762-0707-40b9-a824-147fd9aceb8f
         name: Test for OAUTH weaknesses
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05-Testing_for_OAuth_Weaknesses.md
@@ -508,7 +478,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 73514996-ea23-483c-b5a9-69fe836f61ea
+      - id: 3e415a74-833b-4c6a-b95e-7123e2f4aa6a
         name: Test for OAUTH authorization server weaknesses
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05.1-Testing_for_OAuth_Authorization_Server_Weaknesses.md
@@ -518,7 +488,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 7ecb6426-5fd6-46e1-935f-953879553c75
+      - id: 9f24fc6d-b18d-4887-87c2-b9b2e70a5e80
         name: Test for OAUTH client weaknesses
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05.2-Testing_for_OAuth_Client_Weaknesses.md
@@ -530,12 +500,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 60274f7f-ffc2-4e98-99f7-4043e414ef01
+  - id: 3200635e-306d-497f-bdfd-2133884b6dce
     name: Session Management Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: d5f377b4-5b04-4ac1-bfb3-d85ca24e0258
+      - id: 73d8cd37-a334-4f59-8384-8701cfe63637
         name: Test for session management schema
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/01-Testing_for_Session_Management_Schema.md
@@ -545,7 +515,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 34a82be7-5e74-4095-a51e-3c3cc847f4ea
+      - id: 67987fbf-c9b9-4c6e-9bfa-ed2defbe9232
         name: Test for cookie attributes
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.md
@@ -555,7 +525,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 1525e22c-b096-4225-8728-2e247b68d781
+      - id: b9f59c4a-e713-47d7-a68e-5cc88fb3332e
         name: Test for session fixation
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/03-Testing_for_Session_Fixation.md
@@ -565,7 +535,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: c939291e-014b-4ac5-b18a-d688ec023676
+      - id: bf195f94-afaf-4df4-822c-f9555ee0969c
         name: Test for exposed session variables
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/04-Testing_for_Exposed_Session_Variables.md
@@ -575,7 +545,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: e343fc21-8f0f-4f51-aa89-988fbea282bc
+      - id: b5e02ac1-3656-4e93-8f67-b8af59e8a95d
         name: Test for cross site request forgery
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery.md
@@ -585,7 +555,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 5ae8b91a-975a-451a-bf50-22ae39de5857
+      - id: bd48dc10-ab5e-4875-b3df-7d61d0bd39b5
         name: Test for logout functionality
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/06-Testing_for_Logout_Functionality.md
@@ -595,7 +565,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 1d6905f1-f06a-410c-913e-52f5d8b82709
+      - id: 19e60f89-8efd-405e-a8d7-368c75db80ac
         name: Test for session timeout
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/07-Testing_Session_Timeout.md
@@ -605,7 +575,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: eeba1a69-23ca-45e1-b20d-ba8006f9d6c6
+      - id: 593c5567-e444-4013-81dd-75596a0c48e8
         name: Test for session puzzling
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/08-Testing_for_Session_Puzzling.md
@@ -615,7 +585,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: bff0c2bc-f729-4dd9-bbe5-a5bae776a9eb
+      - id: 61a83fc6-abc8-4a85-921a-874a1e6a8398
         name: Test for session hijacking
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/09-Testing_for_Session_Hijacking.md
@@ -625,7 +595,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 5a8ad8ea-a4ef-49bf-9834-1b109a3c4949
+      - id: 6f9656f9-193f-4c1e-88ec-ffbc5e689d46
         name: Test for JSON Web tokens
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/10-Testing_JSON_Web_Tokens.md
@@ -637,12 +607,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 4b5b5fe9-fa03-471f-91e0-8ab94daf21ea
+  - id: ce751b3c-c0a6-4d2f-9dc0-db4a2a94a5f9
     name: Input Validation Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 5487862b-8589-49d7-b6c7-13b2c582b1cc
+      - id: a6fa37e9-0db2-44d3-8536-e9f16a417b9f
         name: Test for reflected cross site scripting
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/01-Testing_for_Reflected_Cross_Site_Scripting.md
@@ -652,7 +622,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 1ff80dc2-ca1a-4860-82e4-a2b4e624da4b
+      - id: 01ba6b99-c7e5-48d5-bae3-cb4cbdc65d08
         name: Test for stored cross site scripting
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting.md
@@ -662,18 +632,8 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 6848bdf2-2237-4453-9868-4bdaac91c7e9
-        name: Test for HTTP verbose tampering
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.md
-          - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: a40b4d9a-b4f9-493d-85c1-a282996c6186
-        name: Test for HTT parameter pollution
+      - id: ff34d3c9-5dec-436b-b72f-7c30c56b7656
+        name: Test for HTTP parameter pollution
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.md
           - questionnaire: questionnaire/1.md
@@ -682,7 +642,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 065ffc7e-3952-44eb-8387-9dee8e8e0084
+      - id: ed69a4ea-809c-4f0f-8294-7d0137cac85d
         name: Test for SQL injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection.md
@@ -692,7 +652,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 1d632324-c3d2-48c4-a188-74bd4f7e19e1
+      - id: 983859af-2773-4fde-8d55-2a9d63278a11
         name: Test for SQL injection approach Oracle
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.1-Testing_for_Oracle.md
@@ -702,7 +662,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: c49c0e30-c7ca-475f-bbcd-22075681ab1f
+      - id: ad84cea8-c045-4401-83fb-59e471f6d158
         name: Test for SQL injection approach MySQL
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.2-Testing_for_MySQL.md
@@ -712,7 +672,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 87a7d938-d395-4139-bc18-514a2544fbc0
+      - id: 177146e1-8b2f-43d9-a29e-5d76956501b2
         name: Test for SQL injection approach SQL Server
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.3-Testing_for_SQL_Server.md
@@ -722,7 +682,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: a8edbc5d-de8f-455d-ad03-4c5e66797789
+      - id: 49c91ca2-030c-420c-b778-be39a4f298b2
         name: Test for SQL injection approach PostgreSQL
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.4-Testing_PostgreSQL.md
@@ -732,7 +692,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: da0f548f-4040-474c-b231-cdbd52bc1a99
+      - id: ff67b32e-f5d8-4af5-b48a-842a7e02e2f7
         name: Test for SQL injection approach MS Access
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.5-Testing_for_MS_Access.md
@@ -742,7 +702,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 97b394a7-78d9-46b3-948f-ddaa8f13da01
+      - id: 6e14aa2a-a89f-4f29-a72e-e91858a88b8e
         name: Test for SQL injection approach NoSQL
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection.md
@@ -752,7 +712,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 4f65e851-d0b0-431e-b2f3-b917ebd1ddd9
+      - id: 47d5aaf5-9980-4c08-b3d2-4ebada040745
         name: Test for SQL injection approach ORM
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.7-Testing_for_ORM_Injection.md
@@ -762,7 +722,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: a0846216-b1c6-4be5-a9ab-b45ae1d7f992
+      - id: 7759f1a9-edd5-4258-ad77-e1dbaf21dd05
         name: Test for SQL injection approach Client-side
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.8-Testing_for_Client-side.md
@@ -772,7 +732,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 226cbce5-8dda-4f2a-9bba-35b7983d3d17
+      - id: a93cb307-221e-456b-b83a-ace513c640e9
         name: Test for LDAP injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/06-Testing_for_LDAP_Injection.md
@@ -782,7 +742,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 553b3899-f632-4d59-b044-2ca6f011abeb
+      - id: 98350435-7b7e-46df-b9b0-2772e86f5446
         name: Test for XML injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/07-Testing_for_XML_Injection.md
@@ -792,7 +752,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: fbc67261-1f17-420d-9d2d-4e1fe280fc00
+      - id: b633d888-deb5-4ffa-b06f-eac0c38c492f
         name: Test for SSI injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/08-Testing_for_SSI_Injection.md
@@ -802,7 +762,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: d4aa1f0c-324c-42de-a797-fbc2bfeb4fae
+      - id: 5e15c479-9db1-47f4-ac48-7a73fceb5fd1
         name: Test for XPath injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/09-Testing_for_XPath_Injection.md
@@ -812,7 +772,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 0f3bfd5a-202b-486a-83bd-b7d19084cd21
+      - id: 4f8d0935-0da6-41ae-bfb8-9555e9eec5af
         name: Test for IMAP SMTP injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/10-Testing_for_IMAP_SMTP_Injection.md
@@ -822,7 +782,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: c6915364-924a-4225-b9ac-971232bef401
+      - id: a3b01c5c-c5a1-4429-8f35-f62810e7524f
         name: Test for code injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11-Testing_for_Code_Injection.md
@@ -832,7 +792,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: f6beaf94-41f5-437d-9ffc-176196854eeb
+      - id: 826c345c-0868-460d-bd63-a4794eb97f10
         name: Test for file inclusion
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_File_Inclusion.md
@@ -842,7 +802,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 6ea02390-c924-40f1-aa82-336f958a71ad
+      - id: a623f188-aee4-4935-947a-6f1f6fde0b62
         name: Test for command injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/12-Testing_for_Command_Injection.md
@@ -852,17 +812,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: df4407b8-8284-4d69-9f95-c2d9b77d3a74
-        name: Test for Buffer overflow
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Buffer_Overflow.md
-          - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 8ba01eb8-18e0-471a-af3b-59908fe397ff
+      - id: c19b85a0-e255-471b-9eea-246813bca69a
         name: Test for format string injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Format_String_Injection.md
@@ -872,7 +822,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 1639e0b7-4188-4f3e-843c-a4954bc36c7b
+      - id: 5cf99977-e2c5-4a27-b1ec-34bb10307809
         name: Test for incubated vulnerability
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/14-Testing_for_Incubated_Vulnerability.md
@@ -882,7 +832,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: cefca95b-b91c-4dbe-97ff-9a8c2a59440b
+      - id: 3bfce0fe-7c1e-4b46-ba81-36869196a404
         name: Test for HTTP splitting & smuggling
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/15-Testing_for_HTTP_Splitting_Smuggling.md
@@ -892,7 +842,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 28e92f1d-32a0-4d69-bfb4-085f688149f0
+      - id: a77d154d-0f67-405c-907b-42ebfd311e70
         name: Test for HTTP incoming requests
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/16-Testing_for_HTTP_Incoming_Requests.md
@@ -902,7 +852,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: de5116db-8392-4f92-8624-d15118f1d4b0
+      - id: 5897b256-d153-42e8-a24d-8715c883715d
         name: Test for host header injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/17-Testing_for_Host_Header_Injection.md
@@ -912,7 +862,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 0d5b15f0-3656-475e-bfcd-10c8797d3f1e
+      - id: 63a1a99d-5014-4474-b34a-a76004446162
         name: Test for server side template injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server-side_Template_Injection.md
@@ -922,7 +872,7 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 3582ad2d-5f68-4523-b974-38324d404259
+      - id: 730069db-c618-4c72-b178-82ce0c66dd20
         name: Test for server side request forgery
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/19-Testing_for_Server-Side_Request_Forgery.md
@@ -932,10 +882,10 @@ topics:
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
                 - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 10f70a0b-02d7-483d-9073-fd44f3d2864c
+      - id: 1febd171-4a97-434a-805e-820e950c940a
         name: Test for mass assignment
         content:
-          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment
+          - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment.md
           - questionnaire: questionnaire/1.md
           - lab:
               hint: This is a super simple tip & hint!
@@ -944,22 +894,12 @@ topics:
                 - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 2c636647-ebc9-467e-a4be-929f6958dabe
+  - id: abb25b41-4914-41cb-9976-f9bf57612bb8
     name: Error handling Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 0867eef8-6819-438e-8911-84176f614198
-        name: Test for stack traces
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/02-Testing_for_Stack_Traces.md
-          - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 38176a5f-d30e-4c2e-bd9e-d6b1f728ccec
+      - id: 291ade05-b37e-4820-93ef-148c3afdfae5
         name: Test for improper error handling
         content:
           - slide: slides/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling.md
@@ -971,12 +911,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 7e2e058b-e590-439a-aa6f-e960d8aef805
+  - id: 76bcb2fe-3790-46f6-b87a-64504807b5be
     name: Weak Cryptography Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: ba130dfe-79e7-43fb-9139-f4a65b54a88b
+      - id: 4a1ce90e-a34d-44cf-a3d1-1fefc931a4d5
         name: Test for weak transport layer security
         content:
           - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security.md
@@ -986,7 +926,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 43a835e6-4bc2-46b1-a31d-eaf476f1ccdc
+      - id: 642d22ee-2470-463b-82ff-845e78565ef8
         name: Test for padding Oracle
         content:
           - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/02-Testing_for_Padding_Oracle.md
@@ -996,7 +936,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 27dd4d27-2dc9-4cac-b57b-059b216fe73f
+      - id: 44091f1e-19c4-44c1-a297-d70b231d5ceb
         name: Test for sensitive information sent unencrypted
         content:
           - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/03-Testing_for_Sensitive_Information_Sent_via_Unencrypted_Channels.md
@@ -1006,7 +946,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: ff1878d6-0af7-46d0-b5d9-76d3f8169a75
+      - id: 6386ccb7-ea1e-4d21-86c0-9a554954df36
         name: Test for weak encryption
         content:
           - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption.md
@@ -1018,12 +958,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: fbf04f24-4969-4085-8772-3c85a94dfbe5
+  - id: 5338a7cc-1a1f-4b2e-b4d7-1e822c83bc1b
     name: Business logic Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 9e28d65d-892c-497a-90f7-12a5be7b408e
+      - id: 8a79922c-e5e1-4a72-a3ab-35e5522f9022
         name: What are business logic vulnerabilities
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/00-Introduction_to_Business_Logic.md
@@ -1033,7 +973,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 2b25dae4-216e-4b3e-8e2b-dfd30fdc2f9b
+      - id: d7cc9d60-8041-48ef-8cd8-d2fbc94b6d7f
         name: Test business logic data validation
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/01-Test_Business_Logic_Data_Validation.md
@@ -1043,7 +983,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 174a9187-f1fc-4620-bf5b-f46a791e256d
+      - id: 4cd47fab-cbfc-403b-a165-b27df2ceafac
         name: Test ability to forge requests
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/02-Test_Ability_to_Forge_Requests.md
@@ -1053,7 +993,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: a23f33cc-f2a2-4028-bf47-0ba885f751d6
+      - id: 542133e9-f352-4d77-810c-2ddfa6e75d8f
         name: Test for integrity checks
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/03-Test_Integrity_Checks.md
@@ -1063,7 +1003,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 9930671e-afc6-42a3-87b3-f47ec3a73253
+      - id: e3984c8d-e288-4861-b817-8f83875f8e25
         name: Test for process timing
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/04-Test_for_Process_Timing.md
@@ -1073,7 +1013,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 5e49e818-89ee-47f8-991c-12b51ca20e1d
+      - id: 77645ebf-cb85-4447-b152-d12115164486
         name: Test for function max use limit
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/05-Test_Number_of_Times_a_Function_Can_Be_Used_Limits.md
@@ -1083,7 +1023,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: e0d60e75-56cf-4ff5-9881-ed950812679d
+      - id: c8d217aa-1969-468f-8d71-4e8023c550dc
         name: Test for circumvention of work flows
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/06-Testing_for_the_Circumvention_of_Work_Flows.md
@@ -1093,7 +1033,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: f52ebf25-b947-4f97-ac0a-e7181b986a5a
+      - id: 96218815-9ccf-4bff-8813-56277ce105eb
         name: Test for defense against app misuse
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/07-Test_Defenses_Against_Application_Misuse.md
@@ -1103,7 +1043,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: f616f48e-914d-4e7b-9993-eb40ba5edd74
+      - id: 0b9004eb-3b21-4300-88c9-8d574fedf16d
         name: Test for file extention types
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/08-Test_Upload_of_Unexpected_File_Types.md
@@ -1113,7 +1053,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 9aaee7ca-a625-4032-81b5-c6bb8dc2bd5c
+      - id: 9681285b-a526-47b9-8afa-83c98b46854a
         name: Test for upload of malicious files
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/09-Test_Upload_of_Malicious_Files.md
@@ -1123,7 +1063,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 55a04995-ea72-4b57-bf1a-862fd2bfcae3
+      - id: 33583f53-490b-411e-8c4a-ccbc3c566904
         name: Test for abuse of payment functionality
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/10-Test-Payment-Functionality.md
@@ -1135,145 +1075,145 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 32d56151-b1e2-4f30-9609-aba2f9896416
+  - id: 4e79bff5-0fb4-46c2-bf20-eaa756709930
     name: Client-side Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 61805045-00ff-4af2-af7f-2efbb8fdf729
+      - id: b013234e-28a3-4298-9c55-a88b2399d6b2
         name: Test for DOM based Cross site scripting
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/01-Testing_for_DOM-based_Cross_Site_Scripting.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/01-Testing_for_DOM-based_Cross_Site_Scripting.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: af0b67df-476e-41e2-aeb5-8f5852b6f706
+      - id: fc240d5b-842e-4e5e-8169-a5aef4f21251
         name: Test for Self DOM based Cross site scripting
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/01.1-Testing_for_Self_DOM_Based_Cross_Site_Scripting.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/01.1-Testing_for_Self_DOM_Based_Cross_Site_Scripting.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 2941146a-064d-4524-bf4a-b3db6bad5eb4
+      - id: 2257f4bc-05ac-46fc-be12-11262527379e
         name: Test for javascript execution
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/02-Testing_for_JavaScript_Execution.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/02-Testing_for_JavaScript_Execution.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 730d3af7-e599-4d09-bb6d-1db5403ebd17
+      - id: 998a3a69-9c64-4ea3-a424-08cbd039c5ef
         name: Test for HTML injection
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/03-Testing_for_HTML_Injection.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/03-Testing_for_HTML_Injection.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like          
-      - id: 05c56739-e445-43ba-b9b2-d21d868d9a38
+      - id: 3c19971e-5444-4f53-b38a-144c09945298
         name: Test for client side URL redirect
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/04-Testing_for_Client-side_URL_Redirect.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/04-Testing_for_Client-side_URL_Redirect.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: 9e5107fd-9786-45bc-9a1e-2a084383126f
+      - id: 20f99709-c1ff-4783-9fba-6225e9f89b3f
         name: Test for CSS injection
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/05-Testing_for_CSS_Injection.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/05-Testing_for_CSS_Injection.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: 7b9e8d5f-097a-427c-9f69-2e20b7ddc7f1
+      - id: 59956751-6a8a-4265-8bf1-b1006e12929e
         name: Test for client-side resource manipulation
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/06-Testing_for_Client-side_Resource_Manipulation.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/06-Testing_for_Client-side_Resource_Manipulation.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: 1752e537-4089-434b-b27c-989c19430a96
+      - id: 04f2e844-e3b4-4ba2-be9d-6ce348abaa7d
         name: Test for Cross Origin Resource sharing
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/07-Testing_Cross_Origin_Resource_Sharing.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: f39a1e67-be9d-4297-8bd9-2920fae883f5
+      - id: 4a061a7b-c162-49d6-841d-5f428af1a85a
         name: Test for Cross site flashing
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/08-Testing_for_Cross_Site_Flashing.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/08-Testing_for_Cross_Site_Flashing.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: 6612dcdd-8bd3-44a6-830e-2990b9b786fb
+      - id: 1541cccf-e882-49de-b252-aea46b5de869
         name: Test for Clickjacking
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/09-Testing_for_Clickjacking.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: 50a56708-4143-4037-a983-21225ec91478
+      - id: 0a57083c-bb77-4a20-9940-b3dda5969b12
         name: Test for Websockets
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/10-Testing_WebSockets.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/10-Testing_WebSockets.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: fab7ca00-5762-4591-9d37-bf3d96dcdd9f
+      - id: 37e1fba5-de42-498a-b1e2-85bf9b89d9a1
         name: Test for web messaging
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/11-Testing_Web_Messaging.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/11-Testing_Web_Messaging.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: e3955519-c45b-4b94-99d9-22e200015591
+      - id: 24dbaadd-bb80-48f3-9097-cbb0f2b20d81
         name: Test for browser storage
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/12-Testing_Browser_Storage.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/12-Testing_Browser_Storage.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
-      - id: c63c933a-fd86-4a6b-bfd2-4b8c127871af
+      - id: 6c10379c-bf2b-43f4-9206-b27be633ca11
         name: Test for Cross site script inclusion
         content:
-          - slide: slides/4-Web_Application_Security_Testing/11-Client-Side_Testing/13-Testing_for_Cross_Site_Script_Inclusion.md
+          - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/13-Testing_for_Cross_Site_Script_Inclusion.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -1282,12 +1222,12 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
 
 
-  - id: 59cc0570-4065-4021-8907-f82f996c009f
+  - id: 53638f9e-ffb2-4d65-899a-2d623368b53e
     name: API Testing
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: 158e787e-1b37-4dfb-a3cc-5cc24ef8418d
+      - id: 60efbd0c-74b0-4fcd-807b-a4a24ef0bd61
         name: Test for GraphQL API
         content:
           - slide: slides/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL.md
@@ -1299,15 +1239,15 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
-  - id: 737b037f-c29a-4abb-9fb2-66ca1cee84b7
+  - id: 0a0f63d3-6bbb-4583-998f-7167839cc995
     name: Reporting pentesting
     content:
       - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
-      - id: e1ebf338-f3da-46f5-a94f-6b13a9ccbc75
+      - id: 796fe02d-6939-4405-9dcd-2e2dbf8f3bdf
         name: Reporting of findings
         content:
-          - slide: slides/5-Introduction/README.md
+          - slide: slides/5-Reporting/README.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
