@@ -26,10 +26,12 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     if ((!this.lab.images) || this.lab.images.length === 0) {
       this.currentView = "None";
+      this.trainingNavigationService.raiseRunningLabChanged(undefined);
     } else if (this.lab.images.length === 1) {
       this.showLab(this.trainingService.getLabImageLanguageCode(this.lab.images[0]));
     } else {
       this.currentView = "LanguageSelection";
+      this.trainingNavigationService.raiseRunningLabChanged(undefined);
     }
 
     this.trainingNavigationService.setNextSlideType("None");
@@ -56,9 +58,11 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     } else {
       console.error("Lab has no valid address");
     }
+    this.trainingNavigationService.raiseRunningLabChanged(this.lab);
   }
 
   ngOnDestroy(): void {
+    this.trainingNavigationService.raiseRunningLabChanged(undefined);
     this.subscriptions.forEach(sub => {
       if (sub) {
         sub.unsubscribe();
