@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CourseItem, ContentItemType, SlideType, ContentItem} from '../models/course.model';
+import {CourseItem, ContentItemType, SlideType, ContentItem, Lab} from '../models/course.model';
 import {BehaviorSubject, Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
@@ -35,12 +35,12 @@ export class TrainingNavigationService {
     this.currentCourseItemChangedSubject.next(courseItem);
   }
 
-  // event raised when a new ContentItem is displayed
-  private currentContentItemChangedSubject: BehaviorSubject<ContentItem> = new BehaviorSubject<ContentItem>(undefined);
-  public currentContentItemChanged$ = this.currentContentItemChangedSubject.asObservable();
-  public raiseCurrentContentItemChanged(contentItem: ContentItem) {
-    this.currentContentItemChangedSubject.next(contentItem);
+  private runningLabChangedSubject: BehaviorSubject<Lab> = new BehaviorSubject<Lab>(undefined);
+  public runningLabChanged$ = this.runningLabChangedSubject.asObservable();
+  public raiseRunningLabChanged(lab: Lab) {
+    this.runningLabChangedSubject.next(lab);
   }
+
 
   private nextSlideTypeSubject: BehaviorSubject<SlideType> = new BehaviorSubject<SlideType>("Unknown");
   public nextSlideType$ = this.nextSlideTypeSubject.asObservable();

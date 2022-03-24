@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {Subscription} from 'rxjs';
+import {Lab} from '../../../core/models/course.model';
 
 @Component({
   selector: 'app-training-course-buttons',
@@ -10,9 +11,7 @@ import {Subscription} from 'rxjs';
 export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   public nextButtonText: string = "Next";
-  public contentIsLab: boolean;
-  public labHint: string;
-  public labWriteup: string;
+  public runningLab: Lab;
 
   constructor(private trainingNavigationService: TrainingNavigationService) { }
 
@@ -21,16 +20,8 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
       this.nextButtonText = nextButtonText;
     }));
 
-    this.subscriptions.push(this.trainingNavigationService.currentContentItemChanged$.subscribe(contentItem => {
-      if (contentItem && contentItem.lab) {
-        this.contentIsLab = true;
-        this.labHint = contentItem.lab.hint;
-        this.labWriteup = contentItem.lab.writeup;
-      } else {
-        this.contentIsLab = false;
-        this.labHint = undefined;
-        this.labWriteup = undefined;
-      }
+    this.subscriptions.push(this.trainingNavigationService.runningLabChanged$.subscribe(lab => {
+      this.runningLab = lab;
     }))
   }
 
