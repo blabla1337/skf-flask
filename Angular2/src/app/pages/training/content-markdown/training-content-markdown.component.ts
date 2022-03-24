@@ -60,7 +60,9 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
         baseUrl
       };
       this.markdownService.renderer.link = (href: string | null, title: string | null, text: string) =>
-        `<a href="${href}" title="${title}" target="_blank">${text}</a>`
+        `<a href="${href}" title="${title??''}" target="_blank">${text??''}</a>`
+      this.markdownService.renderer.image = (href: string | null, title: string | null, text: string) =>
+        `<img src="${baseUrl}${href}" title="${title??''}" alt="${text}" class="max-width-100p">`
     }
   }
 
