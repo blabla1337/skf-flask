@@ -2,6 +2,11 @@
   <button type="button" (click)="onNext()" class="btn btn-primary bx-pull-right next">
     {{nextButtonText}}
   </button>
+
+  <button type="button" (click)="onOpenFullScreen()" class="btn btn-primary bx-pull-right next">
+    Full Screen
+  </button>
+
   <ng-container *ngIf="runningLab">
 
     <button  type="button" (click)="onRestartLab()" class="btn btn-primary bx-pull-right">

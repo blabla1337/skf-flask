@@ -48,4 +48,7 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
     });
   }
 
+  onOpenFullScreen() {
+    this.trainingNavigationService.raiseOpenFullScreen();
+  }
 }
