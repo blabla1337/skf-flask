@@ -9,7 +9,7 @@ export const environment = {
       This config is about the endpoint where your api is running that is talking to the Angular UI
       DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
   */
-  API_ENDPOINT: 'http://localhost:8080',
+  API_ENDPOINT: 'http://localhost:8888',
   //API_ENDPOINT: 'https://beta.securityknowledgeframework.org',
   
   /* 
@@ -18,13 +18,13 @@ export const environment = {
       AUTH_METHOD: 'openidprovider',
       AUTH_METHOD: 'skiploginprovider',  
   */
-  AUTH_METHOD: 'openidprovider',
+  AUTH_METHOD: 'skiploginprovider',
   
   /* 
      This config is about wether to show the SKF lab deployment options,  
      True || False -> This affects the way the lab page is shown with deployment buttons
   */
-  KUBERNETES_ENABLED: 'True',
+  KUBERNETES_ENABLED: 'False',
   
   /* 
     OPENID needs to know where krakend is because in the config we can tell to send the bearer token on each request:

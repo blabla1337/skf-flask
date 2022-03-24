@@ -121,19 +121,9 @@ topics:
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 324803ba-c52d-42a8-9482-2202b6507f93
-        name: Fingerpring application framework
+        name: Fingerprint application framework
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework.md
-          - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 73431383-89f5-41c4-85b5-74006e49d40f
-        name: Fingerprint web application
-        content:
-          - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/09-Fingerprint_Web_Application.md
           - questionnaire: questionnaire/1.md
           #- lab:
           #    hint: This is a super simple tip & hint!
