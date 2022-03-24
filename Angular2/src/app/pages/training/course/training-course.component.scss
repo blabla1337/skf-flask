@@ -15,20 +15,28 @@ div.fill {
     width: 20%;
   }
 
-  div.content-panel {
+  div.right-side {
     position: absolute;
     right: 0;
     top: 0;
-    bottom: 50px;
-    width: 80%;
-    overflow-y: auto;
-  }
-
-  div.buttons-panel {
-    position: absolute;
-    right: 0;
     bottom: 0;
     width: 80%;
-    height: 50px;
+    background-color: white;
+
+    div.content-panel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 60px;
+    }
+
+    div.buttons-panel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 60px;
+    }
   }
 }
