@@ -19,7 +19,7 @@ topics:
           - slide: slides/2-Introduction/README.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -29,7 +29,7 @@ topics:
           - slide: slides/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework.md
           - questionnaire: questionnaire/2.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -39,7 +39,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/00-Introduction_and_Objectives/README.md
           - questionnaire: questionnaire/2.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -49,7 +49,7 @@ topics:
           - slide: slides/3-The_OWASP_Testing_Framework/1-Penetration_Testing_Methodologies.md
           - questionnaire: questionnaire/2.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -66,7 +66,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -75,18 +75,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/03-Review_Webserver_Metafiles_for_Information_Leakage.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/info-leakeage-metadata"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/information-leakeage-in-metadata/kbid-xxx-information-leakeage-metadata
+              images:
+                - python: QQQ
       - id: 9e8616f6-946e-49d4-9cee-ce93b1be595b
         name: Enumerate applications on webserver
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/04-Enumerate_Applications_on_Webserver.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -95,18 +95,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Webpage_Content_for_Information_Leakage.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/info-leakeage-comments"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/information-leakeage-in-comments/kbid-xxx-information-leakeage-comments
+              images:
+                - python: QQQ
       - id: 113345b2-308b-4b7c-9c3e-9548a4a10cd2
         name: Identify application entry points
         content:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/06-Identify_Application_Entry_Points.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -116,7 +116,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/07-Map_Execution_Paths_Through_Application.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -126,7 +126,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -136,7 +136,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/01-Information_Gathering/10-Map_Application_Architecture.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -153,7 +153,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/01-Test_Network_Infrastructure_Configuration.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -163,7 +163,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/02-Test_Application_Platform_Configuration.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -173,7 +173,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -183,7 +183,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -193,7 +193,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/05-Enumerate_Infrastructure_and_Application_Admin_Interfaces.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -203,7 +203,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -213,7 +213,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/07-Test_HTTP_Strict_Transport_Security.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -223,7 +223,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/08-Test_RIA_Cross_Domain_Policy.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -233,7 +233,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/09-Test_File_Permission.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -243,7 +243,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/10-Test_for_Subdomain_Takeover.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -253,7 +253,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/11-Test_Cloud_Storage.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -262,11 +262,11 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/12-Test_for_Content_Security_Policy.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/CSP"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/content-security-policy-csp/kbid-178-content-security-policy
+              images:
+                - python: QQQ
 
 
   - id: 865d68de-f061-4db0-a26b-ecfb763046b9
@@ -280,7 +280,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/01-Test_Role_Definitions.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -290,7 +290,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/02-Test_User_Registration_Process.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -300,7 +300,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/03-Test_Account_Provisioning_Process.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -309,18 +309,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/credentials-guessing-1". Also try the other labs for extra practise, "credentials-guessing-2", "credentials-guessing-3"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/credentials-guessing/kbid-xxx-credentials-guessing-1
+              images:
+                - python: QQQ
       - id: f521a647-d886-4675-a868-91656727731b
         name: Test for weak username policy
         content:
           - slide: slides/4-Web_Application_Security_Testing/03-Identity_Management_Testing/05-Testing_for_Weak_or_Unenforced_Username_Policy.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -337,7 +337,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/02-Testing_for_Default_Credentials.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -347,7 +347,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/03-Testing_for_Weak_Lock_Out_Mechanism.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -357,7 +357,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/04-Testing_for_Bypassing_Authentication_Schema.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -367,7 +367,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/05-Testing_for_Vulnerable_Remember_Password.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -377,7 +377,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -387,7 +387,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/07-Testing_for_Weak_Password_Policy.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -397,7 +397,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/08-Testing_for_Weak_Security_Question_Answer.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -407,7 +407,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/09-Testing_for_Weak_Password_Change_or_Reset_Functionalities.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -417,7 +417,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/04-Authentication_Testing/10-Testing_for_Weaker_Authentication_in_Alternative_Channel.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -433,28 +433,28 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/LFI". For more practise you can also refer to "LFI-2" and "LFI-3"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/local-file-inclusion-1-lfi-1/kbid-173-lfi-1
+              images:
+                - python: QQQ
       - id: 624c5020-05d8-48b2-b82d-c21d9991f85d
         name: Test for bypassing authorization schema
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/Auth-bypass-simple". Also try the following labs for more practise, "Auth-bypass", "Auth-bypass-1", "Auth-bypass-2", "Auth-bypass-3"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/auth-bypass-simple/kbid-xxx-auth-bypass-simple
+              images:
+                - python: QQQ
       - id: 78895c68-be74-473b-85d2-ca2da0540bf7
         name: Test for privilege escalation
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/03-Testing_for_Privilege_Escalation.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -463,18 +463,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/IDOR"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/insecure-direct-object-references-idor/kbid-268-insecure-direct-object-references
+              images:
+                - python: QQQ
       - id: 643ba762-0707-40b9-a824-147fd9aceb8f
         name: Test for OAUTH weaknesses
         content:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05-Testing_for_OAuth_Weaknesses.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -484,7 +484,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05.1-Testing_for_OAuth_Authorization_Server_Weaknesses.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -494,7 +494,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/05-Authorization_Testing/05.2-Testing_for_OAuth_Client_Weaknesses.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -511,7 +511,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/01-Testing_for_Session_Management_Schema.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -521,7 +521,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -531,7 +531,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/03-Testing_for_Session_Fixation.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -541,7 +541,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/04-Testing_for_Exposed_Session_Variables.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -550,18 +550,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/CSRF". After this lab for extra practice you can also try "CSRF-SameSite" and "CSRF-weak".
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/csrf/kbid-5-csrf
+              images:
+                - python: QQQ
       - id: bd48dc10-ab5e-4875-b3df-7d61d0bd39b5
         name: Test for logout functionality
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/06-Testing_for_Logout_Functionality.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -571,7 +571,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/07-Testing_Session_Timeout.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -581,7 +581,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/08-Testing_for_Session_Puzzling.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -591,7 +591,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/09-Testing_for_Session_Hijacking.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -600,11 +600,11 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/06-Session_Management_Testing/10-Testing_JSON_Web_Tokens.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/JWT-secret". Also try the lab "JWT-null" for more practise.
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/jwt-secret/kbid-7006-jwt-secret
+              images:
+                - python: QQQ
 
 
   - id: ce751b3c-c0a6-4d2f-9dc0-db4a2a94a5f9
@@ -618,280 +618,280 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/01-Testing_for_Reflected_Cross_Site_Scripting.md
           - questionnaire: questionnaire/1.md
           - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/XSS". After this lab is finished you can also try, "XSS-attribute" and "XSS-url"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/cross-site-scripting-xss/kbid-3-cross-site-scripting
               images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+                - python: QQQ
       - id: 01ba6b99-c7e5-48d5-bae3-cb4cbdc65d08
         name: Test for stored cross site scripting
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: ff34d3c9-5dec-436b-b72f-7c30c56b7656
         name: Test for HTTP parameter pollution
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: ed69a4ea-809c-4f0f-8294-7d0137cac85d
         name: Test for SQL injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/SQLI". After this lab you can also try "SQLI-blind", "SQLI-like", "SQLI_Node" for more practise.
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-union/kbid-46-sqli-union-select
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 983859af-2773-4fde-8d55-2a9d63278a11
         name: Test for SQL injection approach Oracle
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.1-Testing_for_Oracle.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: ad84cea8-c045-4401-83fb-59e471f6d158
         name: Test for SQL injection approach MySQL
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.2-Testing_for_MySQL.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 177146e1-8b2f-43d9-a29e-5d76956501b2
         name: Test for SQL injection approach SQL Server
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.3-Testing_for_SQL_Server.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 49c91ca2-030c-420c-b778-be39a4f298b2
         name: Test for SQL injection approach PostgreSQL
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.4-Testing_PostgreSQL.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: ff67b32e-f5d8-4af5-b48a-842a7e02e2f7
         name: Test for SQL injection approach MS Access
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.5-Testing_for_MS_Access.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 6e14aa2a-a89f-4f29-a72e-e91858a88b8e
         name: Test for SQL injection approach NoSQL
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 47d5aaf5-9980-4c08-b3d2-4ebada040745
         name: Test for SQL injection approach ORM
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.7-Testing_for_ORM_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 7759f1a9-edd5-4258-ad77-e1dbaf21dd05
         name: Test for SQL injection approach Client-side
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.8-Testing_for_Client-side.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: a93cb307-221e-456b-b83a-ace513c640e9
         name: Test for LDAP injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/06-Testing_for_LDAP_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 98350435-7b7e-46df-b9b0-2772e86f5446
         name: Test for XML injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/07-Testing_for_XML_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: b633d888-deb5-4ffa-b06f-eac0c38c492f
         name: Test for SSI injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/08-Testing_for_SSI_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 5e15c479-9db1-47f4-ac48-7a73fceb5fd1
         name: Test for XPath injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/09-Testing_for_XPath_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 4f8d0935-0da6-41ae-bfb8-9555e9eec5af
         name: Test for IMAP SMTP injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/10-Testing_for_IMAP_SMTP_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: a3b01c5c-c5a1-4429-8f35-f62810e7524f
         name: Test for code injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11-Testing_for_Code_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 826c345c-0868-460d-bd63-a4794eb97f10
         name: Test for file inclusion
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_File_Inclusion.md
           - questionnaire: questionnaire/1.md
           - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/RFI"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/remote-file-inclusion-rfi/kbid-173-remote-file-inclusion
               images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+                - python: QQQ
       - id: a623f188-aee4-4935-947a-6f1f6fde0b62
         name: Test for command injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/12-Testing_for_Command_Injection.md
           - questionnaire: questionnaire/1.md
           - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/CMD". For more practise run "CMD2", "CMD3", "CMD4", "CMD-Blind"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/command-injection-cmd/kbid-xxx-cmd-injection-1
               images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+                - python: QQQ
       - id: c19b85a0-e255-471b-9eea-246813bca69a
         name: Test for format string injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Format_String_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 5cf99977-e2c5-4a27-b1ec-34bb10307809
         name: Test for incubated vulnerability
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/14-Testing_for_Incubated_Vulnerability.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 3bfce0fe-7c1e-4b46-ba81-36869196a404
         name: Test for HTTP splitting & smuggling
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/15-Testing_for_HTTP_Splitting_Smuggling.md
           - questionnaire: questionnaire/1.md
           - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+              #hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+              #writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+                - python: QQQ
       - id: a77d154d-0f67-405c-907b-42ebfd311e70
         name: Test for HTTP incoming requests
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/16-Testing_for_HTTP_Incoming_Requests.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 5897b256-d153-42e8-a24d-8715c883715d
         name: Test for host header injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/17-Testing_for_Host_Header_Injection.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 63a1a99d-5014-4474-b34a-a76004446162
         name: Test for server side template injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server-side_Template_Injection.md
           - questionnaire: questionnaire/1.md
           - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/SSTI"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
               images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+                - python: QQQ
       - id: 730069db-c618-4c72-b178-82ce0c66dd20
         name: Test for server side request forgery
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/19-Testing_for_Server-Side_Request_Forgery.md
           - questionnaire: questionnaire/1.md
           - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/SSRF"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-request-forgery-ssrf
               images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+                - python: QQQ
       - id: 1febd171-4a97-434a-805e-820e950c940a
         name: Test for mass assignment
         content:
           - slide: slides/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment.md
           - questionnaire: questionnaire/1.md
-          - lab:
-              hint: This is a super simple tip & hint!
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-              images:
-                - python: blabla1337/owasp-skf-lab:sqli-like
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
   - id: abb25b41-4914-41cb-9976-f9bf57612bb8
@@ -905,7 +905,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -921,18 +921,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/TLS-downgrade"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/tls-downgrade/kbid-xxx-tls-downgrade
+              images:
+                - python: QQQ
       - id: 642d22ee-2470-463b-82ff-845e78565ef8
         name: Test for padding Oracle
         content:
           - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/02-Testing_for_Padding_Oracle.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -942,7 +942,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/03-Testing_for_Sensitive_Information_Sent_via_Unencrypted_Channels.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -952,7 +952,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -969,7 +969,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/00-Introduction_to_Business_Logic.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -979,7 +979,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/01-Test_Business_Logic_Data_Validation.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -989,7 +989,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/02-Test_Ability_to_Forge_Requests.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -999,7 +999,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/03-Test_Integrity_Checks.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -1009,7 +1009,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/04-Test_for_Process_Timing.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -1019,7 +1019,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/05-Test_Number_of_Times_a_Function_Can_Be_Used_Limits.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -1029,7 +1029,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/06-Testing_for_the_Circumvention_of_Work_Flows.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -1039,7 +1039,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/07-Test_Defenses_Against_Application_Misuse.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -1048,28 +1048,28 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/08-Test_Upload_of_Unexpected_File_Types.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/File-upload"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/file-upload/kbid-13-file-upload
+              images:
+                - python: QQQ
       - id: 9681285b-a526-47b9-8afa-83c98b46854a
         name: Test for upload of malicious files
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/09-Test_Upload_of_Malicious_Files.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/file-upload/kbid-13-file-File-upload
+              images:
+                - python: QQQ
       - id: 33583f53-490b-411e-8c4a-ccbc3c566904
         name: Test for abuse of payment functionality
         content:
           - slide: slides/4-Web_Application_Security_Testing/10-Business_Logic_Testing/10-Test-Payment-Functionality.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -1085,18 +1085,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/01-Testing_for_DOM-based_Cross_Site_Scripting.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/XSS-DOM". You can also try "XSS-DOM-2" for additional practice.
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/cross-site-scripting-dom-xss-dom/kbid-3-xss-dom
+              images:
+                - python: QQQ
       - id: fc240d5b-842e-4e5e-8169-a5aef4f21251
         name: Test for Self DOM based Cross site scripting
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/01.1-Testing_for_Self_DOM_Based_Cross_Site_Scripting.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -1106,7 +1106,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/02-Testing_for_JavaScript_Execution.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -1116,7 +1116,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/03-Testing_for_HTML_Injection.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like          
@@ -1125,28 +1125,28 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/04-Testing_for_Client-side_URL_Redirect.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like  
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/Url-redirection". You can also try "Url-redirection-harder" or "Url-redirection-harder2" for additional practice.
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/url-redirection/kbid-67-open-redirect
+              images:
+                - python: QQQ  
       - id: 20f99709-c1ff-4783-9fba-6225e9f89b3f
         name: Test for CSS injection
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/05-Testing_for_CSS_Injection.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like  
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/CSSI"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/css-injection-cssi/kbid-xxx-cssi
+              images:
+                - python: QQQ  
       - id: 59956751-6a8a-4265-8bf1-b1006e12929e
         name: Test for client-side resource manipulation
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/06-Testing_for_Client-side_Resource_Manipulation.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
@@ -1155,18 +1155,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like  
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/cors-exploitation/kbid-112-cors-exploitation
+              images:
+                - python: QQQ 
       - id: 4a061a7b-c162-49d6-841d-5f428af1a85a
         name: Test for Cross site flashing
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/08-Testing_for_Cross_Site_Flashing.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
@@ -1175,18 +1175,18 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like  
+          - lab:
+              hint: To get started with this lab, start the ./runner-script.sh --lab "python/Clickjacking"
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/clickjacking/kbid-20-clickjacking
+              images:
+                - python: QQQ  
       - id: 0a57083c-bb77-4a20-9940-b3dda5969b12
         name: Test for Websockets
         content:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/10-Testing_WebSockets.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
@@ -1196,7 +1196,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/11-Testing_Web_Messaging.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
@@ -1206,7 +1206,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/12-Testing_Browser_Storage.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
@@ -1216,7 +1216,7 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/13-Testing_for_Cross_Site_Script_Inclusion.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like  
@@ -1232,11 +1232,11 @@ topics:
         content:
           - slide: slides/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL.md
           - questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+            hint: To get started with this lab, start the ./runner-script.sh --lab "python/graphql-IDOR". For more practise and different vulnerability types in GraphQL also check "graphql-dos-resource-exhaustion", "graphql-info-introspection", "graphql-injections", "graphql-mutation"
+            writeup: https://owasp-skf.gitbook.io/asvs-write-ups/graphql-idor/kbid-285-graphql-idor
+            images:
+              - python: QQQ
 
 
   - id: 0a0f63d3-6bbb-4583-998f-7167839cc995
@@ -1250,8 +1250,23 @@ topics:
           - slide: slides/5-Reporting/README.md
           - questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: This is a super simple tip & hint!
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
+  - id: 036246a6-03b8-47a4-8f3b-4b3f1af0489f
+    name: Next steps?
+    #content:
+    #  - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: cf890055-141f-4307-b024-3385f7bb27e1
+        name: OWASP juice shop
+        content:
+          - slide: slides/6-Next_Steps/juice-shop.md
+          #- questionnaire: questionnaire/1.md
+          - lab:
+              hint: dunno yet, do we want to put the juice shop also in a seperate guacbox?
+              writeup: https://pwning.owasp-juice.shop/appendix/solutions.html
+              images:
+                - python: QQQ

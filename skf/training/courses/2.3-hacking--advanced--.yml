@@ -1234,9 +1234,9 @@ topics:
           - questionnaire: questionnaire/1.md
           - lab:
             hint: To get started with this lab, start the ./runner-script.sh --lab "python/graphql-IDOR". For more practise and different vulnerability types in GraphQL also check "graphql-dos-resource-exhaustion", "graphql-info-introspection", "graphql-injections", "graphql-mutation"
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/graphql-idor/kbid-285-graphql-idor
-              images:
-                - python: QQQ
+            writeup: https://owasp-skf.gitbook.io/asvs-write-ups/graphql-idor/kbid-285-graphql-idor
+            images:
+              - python: QQQ
 
 
   - id: 0a0f63d3-6bbb-4583-998f-7167839cc995
