@@ -59,6 +59,10 @@ export class TrainingService {
       {
         code: "net",
         name: "C#"
+      },
+      {
+        code: "ruby",
+        name: "Ruby"
       }
     ]
   }
