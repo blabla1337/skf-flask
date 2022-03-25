@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+
+# This is a short script that tries to auttomatically fix some
+# formatting errors.
+
+while (<>) {
+  # Fix badly-bolded links
+  s/\*\[([^\*\]]+)\*(.)\]\(/\[\*\1\2*\]\(/g;
+  # Fix URL with __ inside
+  s/__blob=/\&#95;\&#95;blob=/g;
+  print;
+}
