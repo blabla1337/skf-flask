@@ -94,7 +94,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       if (this.nodes.length > 0) {
-        this.tree.treeModel.expandAll();
+        // this.tree.treeModel.expandAll();
         this.tree.treeModel.roots[0].setActiveAndVisible();
       }
     }, 0);
