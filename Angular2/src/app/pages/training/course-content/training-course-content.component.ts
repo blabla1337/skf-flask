@@ -26,6 +26,7 @@ export class TrainingCourseContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscriptions.push(this.trainingNavigationService.currentCourseItemChanged$.subscribe(courseItem => {
+      console.log("TODO IB !!!! courseItem", courseItem);
       this.courseItem = courseItem;
       this.currentContentItemIndex = 0;
       this.prepareContentDisplay();
@@ -64,6 +65,8 @@ export class TrainingCourseContentComponent implements OnInit {
           this.lab = currentContentItem.lab;
           this.contentItemType = "Lab";
         }
+      } else {
+        this.contentItemType = "Empty";
       }
 
       if (this.currentContentItemIndex < this.courseItem.content.length - 1) {

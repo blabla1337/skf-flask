@@ -65,7 +65,7 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
     const titleNode = {
       id: course.id,
       name: course.name,
-      content: course.content,
+      content: course.content ?? [],
       seen: true,
       children: [],
       courseItemType: 'Title',
@@ -74,13 +74,13 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
     const nodes = course.topics.map(t => ({
       id: t.id,
       name: t.name,
-      content: t.content,
+      content: t.content ?? [],
       seen: false,
       courseItemType: 'Topic',
       children: t.categories.map(c => ({
         id: c.id,
         name: c.name,
-        content: c.content,
+        content: c.content ?? [],
         seen: (seenCategoryIds.find(cid => cid === c.id) !== undefined),
         courseItemType: 'Category',
         children: [],
