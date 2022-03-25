@@ -1,0 +1,60 @@
+#!/usr/bin/env perl
+
+# This is a short script that tries to automatically
+# insert curling quotes.
+
+# By David A. Wheeler
+# Copyright the Linux Foundation
+# SPDX-License-Identifier: MIT
+
+use utf8;
+use open qw( :std :encoding(UTF-8) );
+use feature 'unicode_strings';
+
+$in_pre = 0;
+
+while (<>) {
+  # Handle markdown ~~~~
+  if (/^~~~~/) {
+    $in_pre = !$in_pre;
+    print;
+    next;
+  }
+  if ($in_pre) {
+    print;
+    next;
+  }
+
+  # Fix curling quotes like “a” and ‘a’
+
+  # Single quotes begin/end a word
+  s/^'/‘/;
+  s/(<br>|[ \(\[\{])(\**)'/\1\2‘/g;
+  s/'$/’/;
+  s/'(\**)([ ,.\)\]\}\:])/’\1\2/g;
+
+  # Contractions
+  s/n't/n’t/;
+  s/([A-Za-z])'s/\1’s/;
+
+  # Double quotes
+  # space * "
+  s/^(\**)"/\1“/;
+  s/(<br>|[ \(\[\{])(\**)"/\1\2“/g;
+  s/"(\**)$/”\1/;
+  s/"(\**)([ ,.\)\]\}])/”\1\2/g;
+
+  # If they're lonely, convert them back
+  s/ [“”] / " /g;
+  s/ [‘’] / ' /g;
+
+  # Fix URLs / HTML
+  s/["“”](https?:\/\/[^ "'“”‘’]*)["“”]/"\1"/g;
+  s/['‘’](https?:\/\/[^ "'“”‘’]*)['‘’]/'\1'/g;
+  s/ ([a-z]+)=["“”]([^ "“”]*)["“”]/ \1="\2"/g;
+  s/ ([a-z]+)=['‘’]([^ '‘’]*)['‘’]/ \1='\2'/g;
+  s/["“”]>/">/g;
+  s/['‘’]>/'>/g;
+
+  print;
+}
