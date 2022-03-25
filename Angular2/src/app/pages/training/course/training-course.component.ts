@@ -50,8 +50,10 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.trainingNavigationService.openFullScreen$.subscribe(() => {
       this.openFullscreen();
     }));
+    this.subscriptions.push(this.trainingNavigationService.closeFullScreen$.subscribe(() => {
+      this.closeFullscreen();
+    }));
   }
-
 
   private openFullscreen() {
     const elem = this.rightSide.nativeElement;
@@ -64,12 +66,15 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.forEach(sub => {
-      if (sub) {
-        sub.unsubscribe();
-      }
-    });
+  private closeFullscreen() {
+    const doc = document as any;
+    if (doc.exitFullscreen) {
+      doc.exitFullscreen();
+    } else if (doc.webkitExitFullscreen) { /* Safari */
+      doc.webkitExitFullscreen();
+    } else if (doc.msExitFullscreen) { /* IE11 */
+      doc.msExitFullscreen();
+    }
   }
 
   goToTraining() {
@@ -78,5 +83,13 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
 
   goToProfile() {
     this.router.navigate(['training', 'profile', this.profile.id]);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => {
+      if (sub) {
+        sub.unsubscribe();
+      }
+    });
   }
 }
