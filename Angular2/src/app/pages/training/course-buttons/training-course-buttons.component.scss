@@ -15,4 +15,13 @@ div.fill {
   button.next {
     min-width: 100px;
   }
+
+  ::ng-deep .popover-body {
+    background-color: #f2f2f2 ;
+    color: black;
+  }
+
+  ::ng-deep .arrow::after {
+    border-top-color: #f2f2f2;
+  }
 }
