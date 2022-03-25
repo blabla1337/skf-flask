@@ -13,7 +13,15 @@ type CurrentViewType = "None" | "LanguageSelection" | "Lab";
   styleUrls: ['./training-content-lab.component.scss']
 })
 export class TrainingContentLabComponent implements OnInit, OnDestroy {
-  @Input() lab: Lab;
+  private _lab: Lab;
+  get lab(): Lab {
+    return this._lab;
+  }
+  @Input() set lab(value: Lab) {
+    this._lab = value;
+    this.initLab();
+  }
+
   public currentView: CurrentViewType;
   public selectedLanguageCode: string;
   private subscriptions: Subscription[] = [];
