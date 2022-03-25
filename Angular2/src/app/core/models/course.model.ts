@@ -1,7 +1,7 @@
 export type LabLanguage = "python" | "java" | "js" | "net";
 // unknown while loading
 export type SlideType = "None" | "Unknown" | "Question" | "Answer" | "Slide";
-export type ContentItemType = "None" | "Unknown" | "Slides" | "Questionnaire" | "Lab" | "Video";
+export type ContentItemType = "None" | "Unknown" | "Slides" | "Questionnaire" | "Lab" | "Video" | "Empty";
 export type CourseItemType = "Title" | "Topic" | "Category";
 
 export interface Profile {
@@ -35,7 +35,7 @@ export interface ContentItem {
 export interface CourseItem {
   id: string;
   name: string;
-  content: ContentItem[];
+  content?: ContentItem[];
   courseItemType?: CourseItemType;
   seen?: boolean;
 }
@@ -61,7 +61,7 @@ export interface Course {
   name: string;
   languages: LabLanguage[];
   assetsPath: string;
-  content: ContentItem[];
+  content?: ContentItem[];
   topics: Topic[];
 }
 

@@ -10,4 +10,7 @@
 
   <app-training-content-lab *ngIf="contentItemType === 'Lab'" [lab]="lab">
   </app-training-content-lab>
+
+  <app-training-content-empty *ngIf="contentItemType === 'Empty'">
+  </app-training-content-empty>
 </div>

@@ -15,6 +15,7 @@ import { TrainingCourseButtonsComponent } from './course-buttons/training-course
 import { TrainingContentLabComponent } from './content-lab/training-content-lab.component';
 import { TrainingContentLabLanguageComponent } from './content-lab-language/training-content-lab-language.component';
 import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
+import { TrainingContentEmptyComponent } from './content-empty/training-content-empty.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
     TrainingContentVideoComponent,
     TrainingCourseButtonsComponent,
     TrainingContentLabComponent,
-    TrainingContentLabLanguageComponent
+    TrainingContentLabLanguageComponent,
+    TrainingContentEmptyComponent
   ],
   imports: [
     CommonModule,
