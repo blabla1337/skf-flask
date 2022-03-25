@@ -57,3 +57,15 @@ profiles:
       configurations and hardening.
     iconClass: bx-server
     courses: []
+  - id: '4'
+    name: OWASP
+    text: >-
+      This profile is dedicated for all the OWASP projects. Here you will have the
+      possibility to play and learn from the best OWASP projects in an easy way.
+    iconClass: bx-fingerprint
+    courses:
+      - id: '4.1'
+        name: The OWASP Top 10 2021 
+        text: This is the OWASP top 10 2021 release, are you ready to learn the top 10 vulnerabilities?
+        iconClass: bx-code-block
+        courseFile: training/courses/4.1-owasp--top10--.yml
