@@ -96,4 +96,10 @@ export class TrainingNavigationService {
   public raiseOpenFullScreen() {
     this.openFullScreenSubject.next();
   }
+
+  private closeFullScreenSubject: Subject<void> = new Subject<void>();
+  public closeFullScreen$ = this.closeFullScreenSubject.asObservable();
+  public raiseCloseFullScreen() {
+    this.closeFullScreenSubject.next();
+  }
 }

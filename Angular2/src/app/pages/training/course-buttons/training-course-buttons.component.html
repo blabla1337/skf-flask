@@ -3,8 +3,12 @@
     {{nextButtonText}}
   </button>
 
-  <button type="button" (click)="onOpenFullScreen()" class="btn btn-primary bx-pull-right next">
+  <button *ngIf="!isFullScreen" type="button" (click)="onOpenFullScreen()" class="btn btn-primary bx-pull-right next">
     Full Screen
+  </button>
+
+  <button *ngIf="isFullScreen" type="button" (click)="onCloseFullScreen()" class="btn btn-primary bx-pull-right next">
+    Exit Full Screen
   </button>
 
   <ng-container *ngIf="runningLab">
