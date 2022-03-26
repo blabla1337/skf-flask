@@ -38,7 +38,9 @@ export class TrainingCourseContentComponent implements OnInit {
         this.currentContentItemIndex++;
         this.prepareContentDisplay();
       } else {
-        this.trainingNavigationService.raiseNextCourseItem();
+        setTimeout(() => {
+          this.trainingNavigationService.raiseNextCourseItem();
+        }, 0);
       }
     }));
   }
@@ -66,7 +68,7 @@ export class TrainingCourseContentComponent implements OnInit {
           this.contentItemType = "Lab";
         }
       } else {
-        this.contentItemType = "Empty";
+        this.trainingNavigationService.raiseNextContentItem();
       }
 
       if (this.currentContentItemIndex < this.courseItem.content.length - 1) {
