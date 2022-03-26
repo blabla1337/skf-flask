@@ -17,6 +17,7 @@ export interface LabImage {
   java?: string;
   js?: string;
   net?: string;
+  ruby?: string;
 }
 
 export interface Lab {

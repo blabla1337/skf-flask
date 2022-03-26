@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Course, LabImage, LabLanguage, LanguageInfo, Profile} from '../models/course.model';
 import {Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
-import {map} from 'rxjs/operators';
+import {delay, map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class TrainingService {
@@ -39,7 +39,7 @@ export class TrainingService {
 
   // TODO IB !!!! get the real lab url here
   public getLabUrl(labAddress: string): Observable<string> {
-    return of("https://en.wikipedia.org/wiki/High_tech")
+    return of("https://en.wikipedia.org/wiki/High_tech").pipe(delay(1000));
   }
 
   public getLanguages(): LanguageInfo[] {
@@ -76,7 +76,10 @@ export class TrainingService {
       return "java"
     } else if (labImage.python) {
       return "python"
+    } else if (labImage.ruby) {
+      return "python"
     } else {
+      console.error('Unknown language in lab image:', labImage);
       return undefined;
     }
   }

@@ -4,6 +4,7 @@ import {TrainingNavigationService} from '../../../core/services/training-navigat
 import {Lab} from '../../../core/models/course.model';
 import {TrainingService} from '../../../core/services/training.service';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 type CurrentViewType = "None" | "LanguageSelection" | "Lab";
 
@@ -29,6 +30,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
 
   constructor(private trainingNavigationService: TrainingNavigationService,
               private trainingService: TrainingService,
+              private spinner: NgxSpinnerService,
               private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
@@ -68,7 +70,9 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     const image = this.lab.images.find(image => image[this.selectedLanguageCode]);
     const labAddress = image[this.selectedLanguageCode];
     if (labAddress) {
+      this.spinner.show();
       this.subscriptions.push(this.trainingService.getLabUrl(labAddress).subscribe(labUrl => {
+        this.spinner.hide();
         this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(labUrl);
       }))
     } else {
