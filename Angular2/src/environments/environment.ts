@@ -8,7 +8,7 @@ export const environment = {
       This config is about the endpoint where your api is running that is talking to the Angular UI
       DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
   */
-  API_ENDPOINT: 'http://localhost:8888',
+  API_ENDPOINT: 'http://localhost',
   AUTH_METHOD: 'skiploginprovider',
   
   /* 

@@ -29,7 +29,7 @@ services:
     restart: always
     image: nginx
     volumes:
-      - ./Docker/compose/extended-site.conf:/etc/nginx/nginx.conf
+      - ./Docker/compose/minimal-site.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
 
@@ -41,55 +41,20 @@ services:
       - "nginx"
       - "mysql"
     restart: always
-    image: "riiecco/skf-angular-extended:1.3"
+    image: "skf-angular"
     environment:
       - FRONTEND_URI=http://localhost
-
-  keycloak:
-    container_name: skf-keycloak_container
-    restart: always
-    volumes:
-      - ./keycloak:/tmp
-    image: jboss/keycloak:4.5.0.Final
-    environment:
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=admin
-      - KEYCLOAK_DEFAULT_THEME=custom 
-      - KEYCLOAK_WELCOME_THEME=keycloak 
-      - KEYCLOAK_IMPORT=/tmp/krakend.json
-      - DB_VENDOR=h2
-    command: ["-Djboss.http.port=8100"]
-      # Uncomment for development purpose
-      # volumes:
-      #   - ${PWD}/keycloak/theme/custom:/opt/jboss/keycloak/themes/custom
-    ports:
-      - 8100:8100
-  
-  krakend:
-    container_name: skf-krakend_container
-    restart: always
-    image: devopsfaith/krakend
-    volumes:
-      - ./krakend/config:/etc/krakend
-    environment:
-      - FC_ENABLE=1
-      - FC_SETTINGS=settings
-      - FC_PARTIALS=partials
-    ports:
-      - "8080:8080"
 
   skf-api:
     container_name: skf-api_container
     depends_on:
       - "rabbitmq"
-      - "keycloak"
-      - "krakend"
       - "nginx"
       - "mysql"
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "riiecco/skf-api:1.3"
+    image: "skf-api"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=skf-api://api
