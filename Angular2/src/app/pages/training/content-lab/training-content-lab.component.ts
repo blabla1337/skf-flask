@@ -3,8 +3,10 @@ import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {Lab} from '../../../core/models/course.model';
 import {TrainingService} from '../../../core/services/training.service';
+import {LabService} from '../../../core/services/lab.service';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {UserService} from '../../../core/services/user.service';
 
 type CurrentViewType = "None" | "LanguageSelection" | "Lab";
 
@@ -30,6 +32,8 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
 
   constructor(private trainingNavigationService: TrainingNavigationService,
               private trainingService: TrainingService,
+              private labService: LabService,
+              private userService: UserService,
               private spinner: NgxSpinnerService,
               private domSanitizer: DomSanitizer) { }
 
@@ -68,12 +72,15 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     this.selectedLanguageCode = languageCode;
     this.currentView = "Lab"
     const image = this.lab.images.find(image => image[this.selectedLanguageCode]);
-    const labAddress = image[this.selectedLanguageCode];
-    if (labAddress) {
+    const imageId = image[this.selectedLanguageCode];
+    if (imageId) {
+      const userId = this.userService.getJwtUserId();
       this.spinner.show();
-      this.subscriptions.push(this.trainingService.getLabUrl(labAddress).subscribe(labUrl => {
+      this.subscriptions.push(this.labService.deployLab2(imageId, userId)
+        .subscribe(deployResult => {
+        console.log("TODO IB !!!! deployResult: ", deployResult);
         this.spinner.hide();
-        this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(labUrl);
+        // TODO IB !!!! this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(labUrl);
       }))
     } else {
       console.error("Lab has no valid address");

@@ -37,10 +37,6 @@ export class TrainingService {
     return this.http.get<string[]>(environment.API_ENDPOINT + `/api/training/course/${courseId}/progress/${userId}`, { headers: this.headers })
   }
 
-  // TODO IB !!!! get the real lab url here
-  public getLabUrl(labAddress: string): Observable<string> {
-    return of("https://en.wikipedia.org/wiki/High_tech").pipe(delay(1000));
-  }
 
   public getLanguages(): LanguageInfo[] {
     return [
