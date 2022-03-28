@@ -70,7 +70,7 @@ topics:
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 901b2b0b-53b9-666c-95b0-2aa4394c673b
+      - id: 901b2b0b-53b9-666c-95b0-2aa4394c6aab
         name: OWASP ZAP Policy
         content:
           - slide: slides/7-zap/POLICY.md
