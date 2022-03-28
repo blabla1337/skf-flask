@@ -90,9 +90,8 @@ topics:
               hint: This is a super simple tip & hint!
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
               images:
-                - python: 1
+                - python: 158
                 - java: 1
-                - nodejs: 1
       - id: 901b2b0b-53b9-486c-95b0-2aa4364c673b
         name: What Is Privacy and Why It Is Important
         content:

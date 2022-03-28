@@ -81,7 +81,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
       }
 
       this.spinner.show();
-      this.subscriptions.push(this.labService.deployLab2(imageId, userId)
+      this.subscriptions.push(this.labService.deployLab(imageId, userId)
         .subscribe((deployResult: string) => {
         console.log("TODO IB !!!! deployResult: ", deployResult);
         this.spinner.hide();
