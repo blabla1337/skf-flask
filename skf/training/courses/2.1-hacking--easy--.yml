@@ -79,7 +79,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/info-leakeage-metadata"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/information-leakeage-in-metadata/kbid-xxx-information-leakeage-metadata
               images:
-                - python: QQQ
+                - python: 1
       - id: 9e8616f6-946e-49d4-9cee-ce93b1be595b
         name: Enumerate applications on webserver
         content:
@@ -99,7 +99,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/info-leakeage-comments"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/information-leakeage-in-comments/kbid-xxx-information-leakeage-comments
               images:
-                - python: QQQ
+                - python: 1
       - id: 113345b2-308b-4b7c-9c3e-9548a4a10cd2
         name: Identify application entry points
         content:
@@ -266,7 +266,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/CSP"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/content-security-policy-csp/kbid-178-content-security-policy
               images:
-                - python: QQQ
+                - python: 1
 
 
   - id: 865d68de-f061-4db0-a26b-ecfb763046b9
@@ -313,7 +313,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/credentials-guessing-1". Also try the other labs for extra practise, "credentials-guessing-2", "credentials-guessing-3"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/credentials-guessing/kbid-xxx-credentials-guessing-1
               images:
-                - python: QQQ
+                - python: 1
       - id: f521a647-d886-4675-a868-91656727731b
         name: Test for weak username policy
         content:
@@ -437,7 +437,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/LFI". For more practise you can also refer to "LFI-2" and "LFI-3"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/local-file-inclusion-1-lfi-1/kbid-173-lfi-1
               images:
-                - python: QQQ
+                - python: 1
       - id: 624c5020-05d8-48b2-b82d-c21d9991f85d
         name: Test for bypassing authorization schema
         content:
@@ -447,7 +447,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/Auth-bypass-simple". Also try the following labs for more practise, "Auth-bypass", "Auth-bypass-1", "Auth-bypass-2", "Auth-bypass-3"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/auth-bypass-simple/kbid-xxx-auth-bypass-simple
               images:
-                - python: QQQ
+                - python: 1
       - id: 78895c68-be74-473b-85d2-ca2da0540bf7
         name: Test for privilege escalation
         content:
@@ -467,7 +467,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/IDOR"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/insecure-direct-object-references-idor/kbid-268-insecure-direct-object-references
               images:
-                - python: QQQ
+                - python: 1
       - id: 643ba762-0707-40b9-a824-147fd9aceb8f
         name: Test for OAUTH weaknesses
         content:
@@ -554,7 +554,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/CSRF". After this lab for extra practice you can also try "CSRF-SameSite" and "CSRF-weak".
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/csrf/kbid-5-csrf
               images:
-                - python: QQQ
+                - python: 1
       - id: bd48dc10-ab5e-4875-b3df-7d61d0bd39b5
         name: Test for logout functionality
         content:
@@ -604,7 +604,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/JWT-secret". Also try the lab "JWT-null" for more practise.
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/jwt-secret/kbid-7006-jwt-secret
               images:
-                - python: QQQ
+                - python: 1
 
 
   - id: ce751b3c-c0a6-4d2f-9dc0-db4a2a94a5f9
@@ -621,7 +621,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/XSS". After this lab is finished you can also try, "XSS-attribute" and "XSS-url"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/cross-site-scripting-xss/kbid-3-cross-site-scripting
               images:
-                - python: QQQ
+                - python: 1
       - id: 01ba6b99-c7e5-48d5-bae3-cb4cbdc65d08
         name: Test for stored cross site scripting
         content:
@@ -801,7 +801,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/RFI"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/remote-file-inclusion-rfi/kbid-173-remote-file-inclusion
               images:
-                - python: QQQ
+                - python: 1
       - id: a623f188-aee4-4935-947a-6f1f6fde0b62
         name: Test for command injection
         content:
@@ -811,7 +811,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/CMD". For more practise run "CMD2", "CMD3", "CMD4", "CMD-Blind"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/command-injection-cmd/kbid-xxx-cmd-injection-1
               images:
-                - python: QQQ
+                - python: 1
       - id: c19b85a0-e255-471b-9eea-246813bca69a
         name: Test for format string injection
         content:
@@ -841,7 +841,7 @@ topics:
               #hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
               #writeup: https://owasp-skf.gitbook.io/asvs-write-ups/sqli-like/kbid-156-sqli-like
               images:
-                - python: QQQ
+                - python: 1
       - id: a77d154d-0f67-405c-907b-42ebfd311e70
         name: Test for HTTP incoming requests
         content:
@@ -871,7 +871,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/SSTI"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
               images:
-                - python: QQQ
+                - python: 1
       - id: 730069db-c618-4c72-b178-82ce0c66dd20
         name: Test for server side request forgery
         content:
@@ -881,7 +881,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/SSRF"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-request-forgery-ssrf
               images:
-                - python: QQQ
+                - python: 1
       - id: 1febd171-4a97-434a-805e-820e950c940a
         name: Test for mass assignment
         content:
@@ -925,7 +925,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/TLS-downgrade"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/tls-downgrade/kbid-xxx-tls-downgrade
               images:
-                - python: QQQ
+                - python: 1
       - id: 642d22ee-2470-463b-82ff-845e78565ef8
         name: Test for padding Oracle
         content:
@@ -1052,7 +1052,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/File-upload"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/file-upload/kbid-13-file-upload
               images:
-                - python: QQQ
+                - python: 1
       - id: 9681285b-a526-47b9-8afa-83c98b46854a
         name: Test for upload of malicious files
         content:
@@ -1062,7 +1062,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/file-upload/kbid-13-file-File-upload
               images:
-                - python: QQQ
+                - python: 1
       - id: 33583f53-490b-411e-8c4a-ccbc3c566904
         name: Test for abuse of payment functionality
         content:
@@ -1089,7 +1089,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/XSS-DOM". You can also try "XSS-DOM-2" for additional practice.
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/cross-site-scripting-dom-xss-dom/kbid-3-xss-dom
               images:
-                - python: QQQ
+                - python: 1
       - id: fc240d5b-842e-4e5e-8169-a5aef4f21251
         name: Test for Self DOM based Cross site scripting
         content:
@@ -1129,7 +1129,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/Url-redirection". You can also try "Url-redirection-harder" or "Url-redirection-harder2" for additional practice.
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/url-redirection/kbid-67-open-redirect
               images:
-                - python: QQQ  
+                - python: 1  
       - id: 20f99709-c1ff-4783-9fba-6225e9f89b3f
         name: Test for CSS injection
         content:
@@ -1139,7 +1139,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/CSSI"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/css-injection-cssi/kbid-xxx-cssi
               images:
-                - python: QQQ  
+                - python: 1  
       - id: 59956751-6a8a-4265-8bf1-b1006e12929e
         name: Test for client-side resource manipulation
         content:
@@ -1159,7 +1159,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/cors-exploitation/kbid-112-cors-exploitation
               images:
-                - python: QQQ 
+                - python: 1 
       - id: 4a061a7b-c162-49d6-841d-5f428af1a85a
         name: Test for Cross site flashing
         content:
@@ -1179,7 +1179,7 @@ topics:
               hint: To get started with this lab, start the ./runner-script.sh --lab "python/Clickjacking"
               writeup: https://owasp-skf.gitbook.io/asvs-write-ups/clickjacking/kbid-20-clickjacking
               images:
-                - python: QQQ  
+                - python: 1  
       - id: 0a57083c-bb77-4a20-9940-b3dda5969b12
         name: Test for Websockets
         content:
@@ -1236,7 +1236,7 @@ topics:
             hint: To get started with this lab, start the ./runner-script.sh --lab "python/graphql-IDOR". For more practise and different vulnerability types in GraphQL also check "graphql-dos-resource-exhaustion", "graphql-info-introspection", "graphql-injections", "graphql-mutation"
             writeup: https://owasp-skf.gitbook.io/asvs-write-ups/graphql-idor/kbid-285-graphql-idor
             images:
-              - python: QQQ
+              - python: 1
 
 
   - id: 0a0f63d3-6bbb-4583-998f-7167839cc995
@@ -1269,4 +1269,4 @@ topics:
               hint: dunno yet, do we want to put the juice shop also in a seperate guacbox?
               writeup: https://pwning.owasp-juice.shop/appendix/solutions.html
               images:
-                - python: QQQ
+                - python: 1
