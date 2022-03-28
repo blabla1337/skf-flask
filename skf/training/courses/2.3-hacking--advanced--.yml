@@ -55,6 +55,33 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
 
 
+  - id: 00f3e25c-a0ce-4f12-be25-dd587ee98936
+    name: OWASP ZAP
+    content:
+      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 901b2b0b-53b9-666c-95b0-2aa4394c673b
+        name: OWASP ZAP Automation
+        content:
+          - slide: slides/7-zap/AUTOMATION.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-666c-95b0-2aa4394c6aab
+        name: OWASP ZAP Policy
+        content:
+          - slide: slides/7-zap/POLICY.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+
+
   - id: 84318817-359d-4869-9c29-39dda0f32630
     name: Information Gathering
     content:
