@@ -1055,5 +1055,90 @@
           "url_pattern": "/api/search/project/{search_string}"
         }
     ]
+  },{
+    "endpoint": "/api/training/course/{course_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/training/course/{course_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/training/course/{course_id}/progress/{user_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/training/course/{course_id}/progress/{user_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/training/profile/{profile_id}",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/training/profile/{profile_id}"
+        }
+    ]
+  },{
+    "endpoint": "/api/training/profiles",
+    "method": "GET",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "GET",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/training/profiles"
+        }
+    ]
+  },{
+    "endpoint": "/api/training/update",
+    "method": "PUT",
+    "extra_config": {
+        {{ include "rate_limit_backend.tmpl" }},
+        "github.com/devopsfaith/krakend-jose/validator": {
+            {{ include "jwt_settings.tmpl" }},
+            "roles": ["user", "admin"]
+        }
+    },
+    "backend": [
+        {
+          "method": "PUT",
+          "host":[" {{ .service.host }} "],
+          "url_pattern": "/api/training/update"
+        }
+    ]
   }]
 }
