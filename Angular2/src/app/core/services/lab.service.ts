@@ -23,7 +23,7 @@ export class LabService
   }
 
   // TODO IB !!!! better handling of types here
-  deployLab(image_id: number, user_id: number): Observable<Object>
+  deployLab(image_id: number, user_id: string): Observable<Object>
   {
     return this.http.post(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_id}`
     , user_id
@@ -39,7 +39,7 @@ export class LabService
       , { headers: this.headers })
   }
 
-  deleteLab(image_id: number, user_id: number): Observable<Object>
+  deleteLab(image_id: number, user_id: string): Observable<Object>
   {
     return this.http.post(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_id}`
     , user_id

@@ -101,7 +101,7 @@ export class LabViewComponent implements OnInit
     this.spinner.show()
     this._labService.deployLab(
       image_id, 
-      Number(localStorage.getItem("user_id"))
+      localStorage.getItem("user_id")
       ).subscribe(requestData =>
     {
       this.spinner.hide();
@@ -138,7 +138,7 @@ export class LabViewComponent implements OnInit
     this.spinner.show()
     this._labService.deleteLab(
       image_id,
-      Number(localStorage.getItem("user_id"))
+      sessionStorage.getItem("user_id")
       ).subscribe(requestData =>
     {
       this.deployments = requestData

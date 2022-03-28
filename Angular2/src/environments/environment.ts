@@ -3,64 +3,28 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  
+  production: true,  
   /* 
       This config is about the endpoint where your api is running that is talking to the Angular UI
       DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
   */
   API_ENDPOINT: 'http://localhost:8888',
-  //API_ENDPOINT: 'https://beta.securityknowledgeframework.org',
-  
-  /* 
-      This config is about wether you want to use OPENID or skipping logging etirely 
-      
-      AUTH_METHOD: 'openidprovider',
-      AUTH_METHOD: 'skiploginprovider',  
-  */
   AUTH_METHOD: 'skiploginprovider',
   
   /* 
      This config is about wether to show the SKF lab deployment options,  
      True || False -> This affects the way the lab page is shown with deployment buttons
   */
-  KUBERNETES_ENABLED: 'False',
-  
-  /* 
-    OPENID needs to know where krakend is because in the config we can tell to send the bearer token on each request:
-    From : app.module.ts
-    OAuthModule.forRoot({
-      resourceServer: {
-        allowedUrls: ['http://127.0.0.1:8080'],
-        sendAccessToken: true
-      }
-    }),
-  */
-  KRAKEND_ENDPOINT: 'http://localhost:8080',
+  KUBERNETES_ENABLED: 'True',
 
-  /*
-    Here is the rest of the auth config for openID connect
-  */
-
-  // Url of the Identity Provider
-  OPENID_ISSUER: 'http://localhost:8100/auth/realms/krakend',
-  // URL of the SPA to redirect the user to after login
-  OPENID_REDIRECT_URI: window.location.origin + '/auth/openid',
-  // The SPA's id. The SPA is registered with this id at the auth-server
-  OPENID_CLIENT_ID: 'krakend',
-  OPENID_RESPONSE_TYPE: 'code',
+    /* 
+     config need to be there but is not used -  feeling wacky might refactor later
+    */
+  KRAKEND_ENDPOINT: '',
+  OPENID_ISSUER: '',
+  OPENID_REDIRECT_URI: '',
+  OPENID_CLIENT_ID: '',
+  OPENID_RESPONSE_TYPE: '',
   OPENID_USE_SILENT_REFRESH: true,
-  // set the scope for the permissions the client should request
-  // The first three are defined by OIDC. The 4th is a usecase-specific one
-  OPENID_SCOPE: 'openid profile email',
-
+  OPENID_SCOPE: '',
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
