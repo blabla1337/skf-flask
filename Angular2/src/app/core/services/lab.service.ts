@@ -33,7 +33,9 @@ export class LabService
   deployLab2(image_id: string, user_id: string): Observable<Object>
   {
     return this.http.post(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_id}`
-      , user_id
+      , {
+      user_id
+      }
       , { headers: this.headers })
   }
 
