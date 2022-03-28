@@ -77,10 +77,14 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
       const userId = this.userService.getJwtUserId();
       this.spinner.show();
       this.subscriptions.push(this.labService.deployLab2(imageId, userId)
-        .subscribe(deployResult => {
+        .subscribe((deployResult: string) => {
         console.log("TODO IB !!!! deployResult: ", deployResult);
         this.spinner.hide();
-        // TODO IB !!!! this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(labUrl);
+
+        // TODO IB !!!! detect url sau msg
+        const resultSplit = deployResult.split("\\");
+        const url = resultSplit[3].substring(1);
+        this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
       }))
     } else {
       console.error("Lab has no valid address");
