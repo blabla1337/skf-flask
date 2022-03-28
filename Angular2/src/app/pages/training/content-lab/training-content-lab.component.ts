@@ -7,6 +7,7 @@ import {LabService} from '../../../core/services/lab.service';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {UserService} from '../../../core/services/user.service';
+import * as uuid from 'uuid';
 
 type CurrentViewType = "None" | "LanguageSelection" | "Lab";
 
@@ -38,7 +39,6 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
               private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.initLab();
 
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
       console.log('TODO IB !!!! nextClicked$ in lab');
@@ -74,7 +74,17 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     const image = this.lab.images.find(image => image[this.selectedLanguageCode]);
     const imageId = image[this.selectedLanguageCode];
     if (imageId) {
-      const userId = this.userService.getJwtUserId();
+      let userId: string;
+      try {
+        userId = this.userService.getJwtUserId();
+        if (!userId) {
+          userId = uuid.v4();
+        }
+      } catch (e) {
+        console.log('Could not read current user Id', e);
+        userId = uuid.v4();
+      }
+
       this.spinner.show();
       this.subscriptions.push(this.labService.deployLab2(imageId, userId)
         .subscribe((deployResult: string) => {
