@@ -26,4 +26,4 @@ What is the problem here?
  
 # Answer
 
-It is a  Local File Inclusion(LFI) issue. 'fileName' parameter is not properly checked. Users can load any files they want with the service account privilege. You also see, the code replace '../' with nothing for a sanitization attempt, however attacker can bypass it with providing '..././' in the path.
+It is a  Local File Inclusion(LFI) issue. 'fileName' parameter is not properly checked. Users can load any files they want with the service account privilege. You also see, the code replace '../' with nothing for a sanitization purpose, however attacker can bypass it with providing '..././' in the path.
