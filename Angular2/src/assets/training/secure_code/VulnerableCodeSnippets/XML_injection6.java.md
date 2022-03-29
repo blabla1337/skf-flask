@@ -42,4 +42,4 @@ public static void main(String args[]){
  
 # Answer
 
-It is a XML injection issue. 'author','type' and 'language' parameters are not being sanitized while building 'library.xml' file. The attacker can manipulate the file content more then she/he is supposed to do.
+It is an XML injection issue. 'author','type' and 'language' parameters are not being sanitized while building 'library.xml' file. The attacker can manipulate the file content more then she/he is supposed to do.
