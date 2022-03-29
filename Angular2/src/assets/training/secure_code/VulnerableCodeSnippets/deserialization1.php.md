@@ -42,4 +42,4 @@ echo $user->get_path();
  
 # Answer
 
-It is a Deserialization issue. The example shows a PHP class with an exploitable '_destruct' method. An attacker might be able to delete an arbitrary file via a Path Traversal attack, for e.g. requesting the following URL: http://testsite.com/vuln.php?data=O:8:"Example1":1:{s:10:"cache_file";s:15:"../../index.php";} - https://owasp.org/www-community/vulnerabilities/PHP_Object_Injection
+It is a Deserialization issue. The example shows a PHP class with an exploitable 'destruct' method. An attacker might be able to delete an arbitrary file via a Path Traversal attack, for e.g. requesting the following URL: http://testsite.com/vuln.php?data=O:8:"Example1":1:{s:10:"cache_file";s:15:"../../index.php";} - https://owasp.org/www-community/vulnerabilities/PHP_Object_Injection
