@@ -30,4 +30,4 @@ public void userCreate(String userName, String userPassword, Connection con){
  
 # Answer
 
-It is an Obtain Information issue. The application exposes too much details to clients. For this example, it shows personal salt file's path to end users, which is not necessary. On the other hand, SQL query looks legit with using prepared statements.
+It is an Obtain Information issue. The application exposes too much details to clients. The code shows personal salt file's path to end users, which is not necessary. On the other hand, SQL query looks legit with using prepared statements.

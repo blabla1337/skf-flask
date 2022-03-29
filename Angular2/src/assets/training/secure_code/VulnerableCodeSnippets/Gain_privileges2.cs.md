@@ -9,7 +9,7 @@ public static void userFunc(){
 	Process process = new Process();
 	try
 	{	
-		escaltePrivilege();
+		escalatePrivileges();
 		Console.WriteLine("Please supply your userID for home folder creation:");
 		userID =  Convert.ToInt32(Console.ReadLine());
 		string homeFolder=@"C:\" + userID.ToString();
@@ -37,4 +37,4 @@ public static void userFunc(){
  
 # Answer
 
-It is a Gain Privileges issue. The code escalates its own privilege to perform some tasks however this can be abused by end-users. According to the example, home folders are being created with 'escaltePrivilege' function, but if any exception occurs the application can not execute 'lowerPrivileges' and it keeps running with high-privilege role.
+It is a Gain Privileges issue. The code escalates its own privilege to perform some tasks however this can be abused by end-users. According to the example, home folders are being created with 'escalatePrivileges' function, but if any exception occurs the application can not execute 'lowerPrivileges' and it keeps running with high-privilege role.
