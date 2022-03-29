@@ -19,4 +19,4 @@ public void personalNotepad(string fileName){
  
 # Answer
 
-It is a  Local File Inclusion(LFI) issue. 'fileName' parameter is not sanitized for injections properly. Therefore, the user can over-write other OS files and modify their contents.
+It is a  Local File Inclusion(LFI) issue. 'fileName' parameter is not sanitized for injections properly. Therefore, the user can over-write other OS files and modify contents.
