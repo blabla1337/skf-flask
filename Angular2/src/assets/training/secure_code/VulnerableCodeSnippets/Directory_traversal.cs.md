@@ -15,4 +15,4 @@ public void Test(string fileName, string[] fileContent){
  
 # Answer
 
-It is a  Directory traversal issue. 'fileName' parameter is not sanitized properly. Client users can over-write any OS files with the content she/he provides with the privileiges of the service account.
+It is a  Directory traversal issue. 'fileName' parameter is not sanitized properly. Client users can over-write any OS files with the content she/he provides with the privileges of the service account.
