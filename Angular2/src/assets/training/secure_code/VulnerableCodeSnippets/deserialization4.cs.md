@@ -22,4 +22,4 @@ public String typeProcessor(string typeName, DbContext context, String filePath)
  
 # Answer
 
-It is a Deserialization issue. 'typeName' is not being sanitized properly for serialization process and directly deserialize of user supplied data may cause this kind of issues. On the other hand, Sql query does not require any input for execution.
+It is a Deserialization issue. 'typeName' is not being sanitized properly for serialization process and directly deserialize of user supplied data may cause this kind of issues. On the other hand, Sql query does not require any input for execution and therefore no injection is possible.
