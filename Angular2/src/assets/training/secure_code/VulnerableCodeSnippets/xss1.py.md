@@ -36,4 +36,4 @@ def page_not_found(e):
  
 # Answer
 
-It is an Cross Site Scripting (XSS) issue. 'username' parameter is vulnerable for injection attacks and no input sanitization exists. Injected javascript codes will be executed in the response.
+It is a Cross Site Scripting (XSS) issue. 'username' parameter is vulnerable for injection attacks and no input sanitization exists. Injected javascript codes will be executed in the response.
