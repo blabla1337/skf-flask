@@ -35,4 +35,4 @@ def page_not_found(e):
  
 # Answer
 
-It is a LDAP Injection issue. 'username' and 'dn' parameters are not being checked for any malicious LDAP chars and it is used in query directly. The attacker can inject LDAP special chars to bypass restrictions.
+It is an LDAP Injection issue. 'username' and 'dn' parameters are not being checked for any malicious LDAP chars and it is used in query directly. The attacker can inject LDAP special chars to bypass restrictions.
