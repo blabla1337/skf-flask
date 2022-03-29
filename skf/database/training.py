@@ -8,9 +8,9 @@ class Training(db.Model):
         db.Index('training_index', 'user_id', 'course_id'),
     )
 
-    user_id = db.Column(db.Text, nullable=False)
-    course_id = db.Column(db.Text, nullable=False)
-    category_id = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.String(255), nullable=False)
+    course_id = db.Column(db.String(255), nullable=False)
+    category_id = db.Column(db.String(255), nullable=False)
 
     def __init__(self, user_id, course_id, category_id):
         self.user_id = user_id
