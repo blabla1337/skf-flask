@@ -27,4 +27,4 @@ static void Main(string[] args){
  
 # Answer
 
-It is an LDAP Injection issue. 'userName' parameter is not being checked for any malicious LDAP chars and it is used in query directly. The attacker can inject LDAP special chars to bypass restrictions.
+It is an LDAP Injection issue. 'userName' parameter is not being checked for any malicious LDAP chars and used in query directly. The attacker can inject LDAP chars for exploitation.
