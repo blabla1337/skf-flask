@@ -25,4 +25,4 @@ public void fileRemover(string fileNametoDelete){
  
 # Answer
 
-It is a  Local File Inclusion(LFI) issue. 'fileNametoDelete' parameter is not properly checked. Users can delete any files they want with the service account privilege. You also see, the code replace '..\\' with nothing for a sanitization attempt, however attacker can bypass it with providing '...\\.\\' in the path.
+It is a  Local File Inclusion(LFI) issue. 'fileNametoDelete' parameter is not properly checked. Users can delete any files they want with the service account privilege. You also see, the code replace '..\\' with nothing for a sanitization purpose, however attacker can bypass it with providing '...\\.\\' in the path.
