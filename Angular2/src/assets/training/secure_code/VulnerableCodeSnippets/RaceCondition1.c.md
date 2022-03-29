@@ -25,4 +25,4 @@ return;
  
 # Answer
 
-It is an Race Condition issue. The report should only executed on Mondays, however after the 'if' control, there is nothing more control takes place. You can run the app Monday to pass this 'if' control and then you can generate reports any day you want.
+It is a Race Condition issue. The report should be only executed on Mondays, however after the 'if' control, there is nothing more control takes place. You can run the app Monday to pass this 'if' statement and then you can generate reports any day you want.

@@ -30,4 +30,4 @@ def page_not_found(e):
  
 # Answer
 
-It is a Code Execution issue. 'text' parameter is being checked for only some certain attacks and chars. However the attacker can still execute consecutive commands with OS delimeters, such as "|". https://github.com/blabla1337/skf-labs/tree/master/python/CMD4
+It is a Code Execution issue. 'text' parameter is being checked for only some certain chars. However the attacker can still execute consecutive commands with OS delimeters, such as "|". https://github.com/blabla1337/skf-labs/tree/master/python/CMD4
