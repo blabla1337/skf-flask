@@ -19,4 +19,4 @@ public static void main(String[] args) throws Exception {
  
 # Answer
 
-It is a  Local File Inclusion(LFI) issue. The argument is not being checked properly and clients can load some local files, besides web requests.
+It is a  Local File Inclusion(LFI) issue. The argument is not being checked properly and intruders can load also local files, besides web requests.
