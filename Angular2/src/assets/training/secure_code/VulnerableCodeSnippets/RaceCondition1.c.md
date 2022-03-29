@@ -25,4 +25,4 @@ return;
  
 # Answer
 
-It is a Race Condition issue. The report should be only executed on Mondays, however after the 'if' control, there is nothing more control takes place. Once you pass this 'if' statement and then you can generate reports any day you want.
+It is a Race Condition issue. The code does not lock any system sources and performs 'if' statement, which is not reliable, because the criteria can be changed during the application run-time. Even it can be different before and after 'if' control.
