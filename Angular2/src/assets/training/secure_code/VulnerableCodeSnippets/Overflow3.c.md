@@ -23,4 +23,4 @@ int main(void)
  
 # Answer
 
-It is an Buffer Overflow issue. The code get "HOME" enviroment value and copies it to a buffer, which has only 64 chars limit. No size control takes place and anything more than that limit causes the issue. https://owasp.org/www-community/attacks/Buffer_Overflow_via_Environment_Variables
+It is an Buffer Overflow issue. The code gets "HOME" enviroment value and copies it to a buffer, which has only 64 chars limit. No size control takes place and anything more than that limit causes the issue. https://owasp.org/www-community/attacks/Buffer_Overflow_via_Environment_Variables
