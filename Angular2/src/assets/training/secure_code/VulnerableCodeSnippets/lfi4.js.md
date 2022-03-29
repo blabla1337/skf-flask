@@ -22,4 +22,4 @@ function downloadFile(filePath){
  
 # Answer
 
-It is a  Local File Inclusion(LFI) issue. 'fileName' parameter is not sanitized for OS file injections. Endusers can download any files they want with the service account privilege.
+It is a  Local File Inclusion(LFI) issue. 'fileName' parameter is not sanitized for OS file injections. End-users can download any files they want with the service account privilege.
