@@ -18,4 +18,4 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
  
 # Answer
 
-It is a Header Injection issue. 'clientIpAddress' header parameter is open for manipulation. Attacker can provide any 'Client-IP' address to bypass restrictions.
+It is a Header Injection issue. 'clientIpAddress' header parameter is vulnerable for manipulation. Attacker can provide any 'Client-IP' address to bypass the restrictions.
