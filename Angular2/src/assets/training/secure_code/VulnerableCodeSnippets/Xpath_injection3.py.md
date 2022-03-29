@@ -28,4 +28,4 @@ def login():
  
 # Answer
 
-It is a XPath injection issue. 'bookName' parameter is not being sanitized and the attacker can inject malicious commands to the query.
+It is an XPath injection issue. 'bookName' parameter is not being sanitized and the attacker can inject malicious commands to the query.
