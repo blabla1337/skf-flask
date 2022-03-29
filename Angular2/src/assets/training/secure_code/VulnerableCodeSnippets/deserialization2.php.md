@@ -49,4 +49,4 @@ echo $cars->get_color();
  
 # Answer
 
-It is a Deserialization issue. The example shows a PHP class with an exploitable 'wakeup' method. an attacker might be able to perform a Code Injection attack by sending an HTTP request like this: 'Cookie: data=O%3A8%3A%22Example2%22%3A1%3A%7Bs%3A14%3A%22%00Example2%00hook%22%3Bs%3A10%3A%22phpinfo%28%29%3B%22%3B%7D' https://owasp.org/www-community/vulnerabilities/PHP_Object_Injection
+It is a Deserialization issue. The example shows a PHP class with an exploitable 'wakeup' method. an attacker might be able to perform a Code Injection attack by sending an HTTP request like this: _'Cookie: data=O%3A8%3A%22Example2%22%3A1%3A%7Bs%3A14%3A%22%00Example2%00hook%22%3Bs%3A10%3A%22phpinfo%28%29%3B%22%3B%7D'_ - https://owasp.org/www-community/vulnerabilities/PHP_Object_Injection
