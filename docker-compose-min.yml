@@ -40,7 +40,7 @@ services:
       - "nginx"
       - "mysql"
     restart: always
-    image: "riiecco/skf-angular-minimal-1.0"
+    image: "skf-angular"
     environment:
       - FRONTEND_URI=http://localhost
       - AUTH_METHOD=skiploginprovider
@@ -54,7 +54,7 @@ services:
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "riiecco/skf-api-1.0"
+    image: "skf-api"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=skf-api://api

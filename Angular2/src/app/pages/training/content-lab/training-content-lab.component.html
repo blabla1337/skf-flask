@@ -12,8 +12,8 @@
   (languageSelected)="onLanguageSelected($event)">
 </app-training-content-lab-language>
 
-<div *ngIf="currentView === 'Lab'" class="iframe-container">
-  <iframe class="fill"
+<div *ngIf="currentView === 'Lab'" (click)="focus_iframe()" class="iframe-container">
+  <iframe #iframe class="fill"
     *ngIf="safeLabUrl"
     [src]="safeLabUrl">
   </iframe>

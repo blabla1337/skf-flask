@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TrainingNavigationService} from '../../../core/services/training-navigation.service';
 import {Lab} from '../../../core/models/course.model';
@@ -20,6 +20,9 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
   get lab(): Lab {
     return this._lab;
   }
+  
+  @ViewChild("iframe") iframeFocus : ElementRef;
+
   @Input() set lab(value: Lab) {
     this._lab = value;
     this.initLab();
@@ -39,6 +42,8 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.trainingNavigationService.raiseOpenFullScreen();
+    
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
       console.log('TODO IB !!!! nextClicked$ in lab');
       this.trainingNavigationService.raiseNextContentItem();
@@ -65,6 +70,10 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
 
   onLanguageSelected(languageCode: string) {
     this.showLab(languageCode);
+  }
+
+  focus_iframe(){
+    this.iframeFocus.nativeElement.focus();
   }
 
   showLab(languageCode: string) {

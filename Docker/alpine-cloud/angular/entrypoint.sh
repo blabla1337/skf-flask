@@ -2,7 +2,7 @@
 
 set -ex
 
-ORIGIN=${FRONTEND_URI:-http://127.0.0.1:8888}
+ORIGIN=${FRONTEND_URI:-http://localhost:8888}
 SKIP=${SKIP_LOGIN:-skfprovider}
 
 echo "angular will try to contact the api at: ${ORIGIN}/api"

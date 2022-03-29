@@ -9,7 +9,7 @@ export const environment = {
       DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
   */
   API_ENDPOINT: 'http://localhost:8888',
-  AUTH_METHOD:  'openidprovider',
+  AUTH_METHOD: 'skiploginprovider',
   
   /* 
      This config is about wether to show the SKF lab deployment options,  
@@ -20,11 +20,11 @@ export const environment = {
     /* 
      config need to be there but is not used -  feeling wacky might refactor later
     */
-  KRAKEND_ENDPOINT: 'http://localhost:8080',
-  OPENID_ISSUER: 'http://localhost:8100/auth/realms/krakend',
-  OPENID_REDIRECT_URI: window.location.origin + '/auth/openid',
-  OPENID_CLIENT_ID: 'krakend',
-  OPENID_RESPONSE_TYPE: 'code',
+  KRAKEND_ENDPOINT: '',
+  OPENID_ISSUER: '',
+  OPENID_REDIRECT_URI: '',
+  OPENID_CLIENT_ID: '',
+  OPENID_RESPONSE_TYPE: '',
   OPENID_USE_SILENT_REFRESH: true,
-  OPENID_SCOPE: 'openid profile email',
+  OPENID_SCOPE: '',
 };
