@@ -29,7 +29,6 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.userId = this.userService.getJwtUserId();
     this.spinner.show();
     this.subscriptions.push(this.activatedRoute.params.subscribe(params => {
       const profileId = params['pid'];

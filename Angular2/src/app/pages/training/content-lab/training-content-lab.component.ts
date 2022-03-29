@@ -43,7 +43,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.trainingNavigationService.raiseOpenFullScreen();
-    
+
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
       console.log('TODO IB !!!! nextClicked$ in lab');
       this.trainingNavigationService.raiseNextContentItem();
@@ -84,7 +84,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     if (imageId) {
       let userId: string;
       try {
-        userId = sessionStorage.getItem("user_id")
+        userId = localStorage.getItem("user_id")
       } catch (e) {
         console.log('Could not read current user Id', e);
       }
