@@ -17,4 +17,4 @@ What is the problem here?
  
 # Answer
 
-It is a LDAP Injection issue. 'userInfo' parameter is not being checked for any malicious LDAP chars and it is used in search function directly. The attacker can inject LDAP special chars to bypass restrictions. 
+It is an LDAP Injection issue. 'userInfo' parameter is not being checked for any malicious LDAP chars and it is used in search function directly. The attacker can inject LDAP special chars to bypass restrictions. 
