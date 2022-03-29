@@ -15,8 +15,8 @@ class LabDeploy(Resource):
     @api.expect(lab_user_id)
     @api.response(400, 'No results found', message)
     def post(self, instance_id):
-        user_id = request.json and \
-            request.json.get('user_id') or str(uuid.uuid4())
+        data = request.json
+        user_id = data.get('user_id')
         val_alpha_num_special(user_id)
         val_num(instance_id)
         result = deploy_labs(instance_id, user_id)

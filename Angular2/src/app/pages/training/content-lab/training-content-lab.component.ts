@@ -7,7 +7,6 @@ import {LabService} from '../../../core/services/lab.service';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {UserService} from '../../../core/services/user.service';
-import * as uuid from 'uuid';
 
 type CurrentViewType = "None" | "LanguageSelection" | "Lab";
 
@@ -76,17 +75,13 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     if (imageId) {
       let userId: string;
       try {
-        userId = this.userService.getJwtUserId();
-        if (!userId) {
-          userId = uuid.v4();
-        }
+        userId = sessionStorage.getItem("user_id")
       } catch (e) {
         console.log('Could not read current user Id', e);
-        userId = uuid.v4();
       }
 
       this.spinner.show();
-      this.subscriptions.push(this.labService.deployLab2(imageId, userId)
+      this.subscriptions.push(this.labService.deployLab(imageId, userId)
         .subscribe((deployResult: string) => {
         console.log("TODO IB !!!! deployResult: ", deployResult);
         this.spinner.hide();

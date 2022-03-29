@@ -86,25 +86,24 @@ topics:
         content:
           - slide: slides/1-requirements/2-security_requirements.md
           - questionnaire: questionnaire/1.2.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-          #      - java: blabla1337/owasp-skf-lab:sqli-like
-          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: This is a super simple tip & hint!
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+              images:
+                - python: 158
+                - java: 1
       - id: 901b2b0b-53b9-486c-95b0-2aa4364c673b
         name: What Is Privacy and Why It Is Important
         content:
           - slide: slides/1-requirements/3-privacy.md
           - questionnaire: questionnaire/1.3.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-          #      - java: blabla1337/owasp-skf-lab:sqli-like
-          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: This is a super simple tip & hint!
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+              images:
+                - python: blabla1337/owasp-skf-lab:sqli-like
+                - java: blabla1337/owasp-skf-lab:sqli-like
+                - nodejs: blabla1337/owasp-skf-lab:sqli-like
       - id: 901b2b0b-53b9-486c-95b0-2aa4397c673b
         name: Risk Management
         content:

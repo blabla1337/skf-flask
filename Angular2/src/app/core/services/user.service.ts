@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { v4 as uuidv4 } from 'uuid';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import jwt_decode from 'jwt-decode';
@@ -20,10 +20,12 @@ export class UserService
   getJwtUserId(): string | undefined {
     try {
       const jwtToken = sessionStorage.getItem("access_token");
-      if (jwtToken === undefined || jwtToken === "") {
+      if (jwtToken === undefined || jwtToken === "" || jwtToken === null ) {
+        sessionStorage.setItem("user_id",uuidv4());
         return undefined;
       }
       const decodedJWT: any = jwt_decode(jwtToken);
+      sessionStorage.setItem("user_id",decodedJWT.sub);
       return decodedJWT.sub;
     } catch(e) {
       console.error("jwt_decode error: ", e);
