@@ -36,4 +36,4 @@ void WebPagetoVisit (string url)
  
 # Answer
 
-It is an Cross Site Scripting (XSS) issue. 'url' parameter is vulnerable for malicious injection and no input sanitization is being in use. Injected javascript codes will be executed in the response.
+It is a Cross Site Scripting (XSS) issue. 'url' parameter is vulnerable for malicious injection and no input sanitization is being in use. Injected javascript codes will be executed in the response.
