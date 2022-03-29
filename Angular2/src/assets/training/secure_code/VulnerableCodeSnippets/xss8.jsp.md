@@ -21,4 +21,4 @@ Employee Name: <%= userName %>
  
 # Answer
 
-It is an Cross Site Scripting (XSS) issue. 'userName' parameter is vulnerable for injection attacks and the code does not sanitize the user inputs properly. On the other hand, the database query is using prepare statements against SQL injections.
+It is a Cross Site Scripting (XSS) issue. 'userName' parameter is vulnerable for injection attacks and the code does not sanitize the user inputs properly. On the other hand, the database query is using prepare statements against SQL injections.
