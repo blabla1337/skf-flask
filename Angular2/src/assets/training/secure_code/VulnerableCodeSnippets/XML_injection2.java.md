@@ -51,4 +51,4 @@ public static void main(String[] args) {
  
 # Answer
 
-It is a XML injection issue. If the parser uses a DTD, an attacker might inject data that may adversely affect the XML parser during document processing. These adverse effects could include the parser crashing or accessing local files. For the example, the code may reveal content of '/etc/passwd' file. https://cheatsheetseries.owasp.org/cheatsheets/XML_Security_Cheat_Sheet.html
+It is an XML injection issue. If the parser uses a DTD, an attacker might inject data that may adversely affect the XML parser during document processing. These adverse effects could include the parser crashing or accessing local files. For the example, the code may reveal content of '/etc/passwd' file. https://cheatsheetseries.owasp.org/cheatsheets/XML_Security_Cheat_Sheet.html
