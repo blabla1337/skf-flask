@@ -25,4 +25,4 @@ def home(value):
  
 # Answer
 
-It is a Race Condition issue. In the code, we see that the application gets the query string value, and writes it to a file called shared-file.txt, then opens the file and sends it back as a response. Additionally, the code does not lock any system resources and that means the request for file writing and the request file reading might be from different people. https://github.com/blabla1337/skf-labs/blob/master/python/RaceCondition-file-write
+It is a Race Condition issue. In the code, we see that the application gets the query string value, writes it to a file called shared-file.txt, then opens the file and sends it back as a response. Additionally, the code does not lock any system resources and that means the request for file writing and the request file reading might be from different people. https://github.com/blabla1337/skf-labs/blob/master/python/RaceCondition-file-write
