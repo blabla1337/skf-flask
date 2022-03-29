@@ -46,4 +46,4 @@ def update():
  
 # Answer
 
-It is an Cross-Site Request Forgery (CSRF) issue. 'session_token' value is an unique session identifier however it is easily guessable. The intruder can calculate it before, and then perform her/his attack. https://github.com/blabla1337/skf-labs/blob/master/python/CSRF-weak
+It is an Cross-Site Request Forgery (CSRF) issue. 'session_token' value is an unique session identifier however it is easily guessable. The intruder can calculate it, and then perform her/his attack. https://github.com/blabla1337/skf-labs/blob/master/python/CSRF-weak
