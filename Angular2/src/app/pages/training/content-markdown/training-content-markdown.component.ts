@@ -60,8 +60,12 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
 
     this.markdownOriginalRenderer = new Renderer();
     this.markdownService.renderer.link = (href: string | null, title: string | null, text: string) => {
-      const renderedLink = this.markdownOriginalRenderer.link(href, title, text);
-      return renderedLink.replace(/^(<a)/, "<a target='_blank'")
+      if (href.startsWith("#")) {
+        return this.markdownOriginalRenderer.text(text??"");
+      } else {
+        const renderedLink = this.markdownOriginalRenderer.link(href, title, text);
+        return renderedLink.replace(/^(<a)/, "<a target='_blank'");
+      }
     }
     this.markdownService.renderer.image = (href: string | null, title: string | null, text: string) => {
       const renderedImage = this.markdownOriginalRenderer.image(href, title, text);
