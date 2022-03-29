@@ -34,4 +34,4 @@ def login():
  
 # Answer
 
-It is a LDAP Injection issue. 'username' and 'secret_answer' parameters are not being checked for any malicious injectins. The attacker can supply "admin)(!(&(1=0":"q))" combinations for login to the application. https://github.com/blabla1337/skf-labs/blob/master/python/Ldap-injection-harder
+It is an LDAP Injection issue. 'username' and 'secret_answer' parameters are not being checked for any malicious injectins. The attacker can supply "admin)(!(&(1=0":"q))" combinations for login to the application. https://github.com/blabla1337/skf-labs/blob/master/python/Ldap-injection-harder
