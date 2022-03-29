@@ -24,4 +24,4 @@ def home():
  
 # Answer
 
-It is an Server Side Template Injection (SSTI) issue. The parameter is not being checked for malicious codes and if we pass an arithmentic expression, such as {{1+1}}, the result will be 2 in the response. https://github.com/blabla1337/skf-labs/tree/master/python/SSTI
+It is a Server Side Template Injection (SSTI) issue. The parameter is not being checked for malicious codes and if we supply an arithmentic expression, such as {{1+1}}, the result will be 2 in the response. https://github.com/blabla1337/skf-labs/tree/master/python/SSTI
