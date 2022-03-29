@@ -19,4 +19,4 @@ static void Main(string[] args){
  
 # Answer
 
-It is a XPath injection issue. 'userName' parameter is not being sanitized and the attacker inject malicious commands to the query to retrieve more data from 'students.xml'.
+It is an XPath injection issue. 'userName' parameter is not being sanitized and the attacker inject malicious commands to the query to retrieve more data from 'students.xml'.
