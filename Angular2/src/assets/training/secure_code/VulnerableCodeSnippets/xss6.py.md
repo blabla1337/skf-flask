@@ -25,4 +25,4 @@ def users():
  
 # Answer
 
-It is an Cross Site Scripting (XSS) issue. 'userName' parameter is vulnerable for injection attacks and the code does not sanitize the user inputs properly.
+It is a Cross Site Scripting (XSS) issue. 'userName' parameter is vulnerable for injection attacks and the code does not sanitize the user inputs properly.
