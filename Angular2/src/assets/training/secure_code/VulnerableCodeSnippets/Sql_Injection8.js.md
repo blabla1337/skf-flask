@@ -22,4 +22,4 @@ app.post('/users', function (req, res) {
  
 # Answer
 
-It is an SQL Injection issue. 'username' parameter is vulnerable for malicious payloads. The code retrieves the data from the request, however there is no any input control exists and the code concatenates words for query building. No SQL parameterization.
+It is an SQL Injection issue. 'username' parameter is vulnerable part. The code retrieves the data from the request, however there is no any input control exists and the code concatenates words for query building. No SQL parameterization.
