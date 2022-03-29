@@ -3,12 +3,12 @@
 What is the problem here?
  
 ```
-public static JsonNode dataFiller(URI _paramURI){
+public static JsonNode dataFiller(URI paramURI){
     try {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(_paramURI);
+        Document doc = builder.parse(paramURI);
         XPathFactory xPathfactory = XPathFactory.newInstance();
         XPath xpath = xPathfactory.newXPath();
         String collectionName = StringUtils.trim(getFirstIfPresent(doc, xpath, "//collectionName"));
@@ -34,4 +34,4 @@ public static JsonNode dataFiller(URI _paramURI){
  
 # Answer
 
-It is an XML Injection issue. '_paramURI' parameter is vulnerable for malicious injection and no input sanitization is being in use.
+It is an XML Injection issue. 'paramURI' parameter is vulnerable for malicious injection and no input sanitization is being performed.
