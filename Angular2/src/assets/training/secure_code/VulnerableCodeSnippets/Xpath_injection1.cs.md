@@ -20,4 +20,4 @@ protected void Page_Load(object sender, EventArgs e){
  
 # Answer
 
-It is a XPath injection issue. 'town' parameter is not being sanitized and the attacker inject malicious commands to retrieve more data.
+It is an XPath injection issue. 'town' parameter is not being sanitized and the attacker can inject malicious commands to retrieve more data.
