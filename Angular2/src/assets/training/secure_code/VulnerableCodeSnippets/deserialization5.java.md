@@ -15,4 +15,4 @@ protected void processUploadedFiles(String filePath) {
  
 # Answer
 
-It is a Deserialization issue. 'fileInput' file content is not being checked before processing and directly deserialization may cause this kind of issues.
+It is a Deserialization issue. 'fileInput' file content is not being checked before processing and directly deserialization of user supplied data may cause security issues.
