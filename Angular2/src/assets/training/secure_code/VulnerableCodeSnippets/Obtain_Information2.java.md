@@ -32,4 +32,4 @@ public boolean isPasswdValid(String userName, String userPasswd){
  
 # Answer
 
-It is an Obtain Information issue. The application responses details about which login credential is wrong: username or password. On the other hand, it sould provide more generic information.
+It is an Obtain Information issue. The application responses details about which login credential is wrong: username or password. However, it should only provide more generic information to the endusers.
