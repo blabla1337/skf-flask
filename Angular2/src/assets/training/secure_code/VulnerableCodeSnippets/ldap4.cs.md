@@ -14,4 +14,4 @@ public IActionResult login(String userName, String userPasswd, DirectoryEntry di
  
 # Answer
 
-It is a LDAP Injection issue. 'userName' and 'userPasswd' parameters are not being checked for any malicious injectins. The attacker can bypass login screen with a crafted request.
+It is an LDAP Injection issue. 'userName' and 'userPasswd' parameters are not being checked for any malicious injectins. The attacker can bypass login screen with a crafted request.
