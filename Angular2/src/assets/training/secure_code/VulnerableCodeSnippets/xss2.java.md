@@ -31,4 +31,4 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IO
  
 # Answer
 
-It is a Cross Site Scripting (XSS) issue. 'userName' parameter is vulnerable for injection attacks and no input sanitization exists. Injected javascript codes will be executed in the response. On the other hand, the database query is in a secure form.
+It is a Cross Site Scripting (XSS) issue. 'userName' parameter is vulnerable for injection attacks and no input sanitization exists. Injected javascript codes will be executed in the response. On the other hand, the database query looks fine.
