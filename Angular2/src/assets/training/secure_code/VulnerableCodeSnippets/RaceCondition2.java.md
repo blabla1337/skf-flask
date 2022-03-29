@@ -27,4 +27,4 @@ public static void main(String []args){
  
 # Answer
 
-It is a Race Condition issue. The report should be only executed on Fridays, however after the 'if' control, there is nothing more control takes place. Once you pass this 'if' statement and then you can generate reports any day you want.
+It is a Race Condition issue. The report should be only executed on Fridays, however after the 'if' control, there is nothing more control takes place. Once you pass this 'if' statement and then you can generate reports any day you want. So you should run the application on Fridays and provide inputs when you want to execute the task.
