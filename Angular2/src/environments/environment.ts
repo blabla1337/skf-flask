@@ -8,8 +8,8 @@ export const environment = {
       This config is about the endpoint where your api is running that is talking to the Angular UI
       DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
   */
-  API_ENDPOINT: 'http://localhost',
-  AUTH_METHOD: 'skiploginprovider',
+  API_ENDPOINT: 'http://localhost:8888',
+  AUTH_METHOD:  'openidprovider',
   
   /* 
      This config is about wether to show the SKF lab deployment options,  
@@ -20,11 +20,11 @@ export const environment = {
     /* 
      config need to be there but is not used -  feeling wacky might refactor later
     */
-  KRAKEND_ENDPOINT: '',
-  OPENID_ISSUER: '',
-  OPENID_REDIRECT_URI: '',
-  OPENID_CLIENT_ID: '',
-  OPENID_RESPONSE_TYPE: '',
+  KRAKEND_ENDPOINT: 'http://localhost:8080',
+  OPENID_ISSUER: 'http://localhost:8100/auth/realms/krakend',
+  OPENID_REDIRECT_URI: window.location.origin + '/auth/openid',
+  OPENID_CLIENT_ID: 'krakend',
+  OPENID_RESPONSE_TYPE: 'code',
   OPENID_USE_SILENT_REFRESH: true,
-  OPENID_SCOPE: '',
+  OPENID_SCOPE: 'openid profile email',
 };

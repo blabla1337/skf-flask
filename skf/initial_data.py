@@ -12133,7 +12133,7 @@ def load_initial_data():
         db.session.add(LabItem('Juice Shop CTF','https://owasp.org/www-project-juice-shop/',3,'juice-shop-ctf','juice-shop',None))
         db.session.commit()
 
-        db.session.add(LabItem('SKF Hack OS','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'hacking-v0.1','SKF-labs',None))
+        db.session.add(LabItem('SKF Hack OS','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'hacking-v1','SKF-labs',None))
         db.session.commit()
 
         print('Initialized the initial data.')
