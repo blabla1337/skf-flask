@@ -8,9 +8,9 @@ export class ThemeService {
     constructor() {}
 
     editTheme(newTheme) {
-        sessionStorage.removeItem('theme');
-        sessionStorage.setItem('theme', newTheme);
-        this.themeStyle = sessionStorage.getItem('theme');
+        localStorage.removeItem('theme');
+        localStorage.setItem('theme', newTheme);
+        this.themeStyle = localStorage.getItem('theme');
         this.theme.next(this.themeStyle);
     }
 }

@@ -17,19 +17,19 @@ export class UserService
 
   public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 
-  getJwtUserId(): string | undefined {
+  getJwtUserId() {
     try {
       const jwtToken = sessionStorage.getItem("access_token");
       if (jwtToken === undefined || jwtToken === "" || jwtToken === null ) {
-        sessionStorage.setItem("user_id",uuidv4());
-        return undefined;
+        localStorage.setItem("user_id",uuidv4());
+        return
       }
       const decodedJWT: any = jwt_decode(jwtToken);
       sessionStorage.setItem("user_id",decodedJWT.sub);
-      return decodedJWT.sub;
+      return
     } catch(e) {
       console.error("jwt_decode error: ", e);
-      return undefined;
+      return
     }
   }
 

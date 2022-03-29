@@ -38,8 +38,7 @@ def deploy_container(rpc_body):
         for i in response.items:
             if(i.metadata.name == deployment):
                 get_host_port_from_response(response)
-                print("we get here")
-    time.sleep(10)
+    time.sleep(15)
     response = get_service_exposed_ip(deployment, user_id)
     if subdomain_deploy:
         hostname = '{}-{}.{}'.format(deployment, user_id, labs_domain)
@@ -58,8 +57,9 @@ def deploy_container(rpc_body):
                     domain_user = deployment+"-"+user_id
                     if(domain_user == host[0]):
                         return { 'message': "'" + labs_protocol + hostname + "'" }
-
-
+    else:
+         return get_host_port_from_response(response)
+   
 def create_user_namespace(user_id):
     try:
         config.load_kube_config()
