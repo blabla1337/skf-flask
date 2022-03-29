@@ -17,4 +17,4 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IO
  
 # Answer
 
-It is an XML injection issue. 'userName','userAddress' and 'UserPhone' parameters are not being checked while building the xml file. The attacker can manipulate the file content more then she/he is supposed to do.
+It is an XML injection issue. 'userName','userAddress' and 'UserPhone' parameters are not being checked while building the xml file. The attacker can manipulate the file content more than she/he is supposed to do.
