@@ -22,4 +22,4 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
  
 # Answer
 
-It is an SQL Injection issue. 'username' and 'password' parameters are vulnerable spot. These parameters are being concatenated to build a SQL query without a proper sanitization. Also 'PreparedStatement' is in use, however with an insecure implementation. A proper parameterization plays crucial role against SQL injections.
+It is an SQL Injection issue. 'username' and 'password' parameters are vulnerable spot. These parameters are being concatenated to build a SQL query without a proper sanitization. Also 'PreparedStatement' is implemented in a wrong way. A proper parameterization plays crucial role against SQL injections.
