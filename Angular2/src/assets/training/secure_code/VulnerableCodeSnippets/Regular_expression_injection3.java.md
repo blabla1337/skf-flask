@@ -24,4 +24,4 @@ public static void doYourOwnTroubleShoot(String userName) {
  
 # Answer
 
-It is an Regular Expression Injection issue. 'userName' is vulnerable spot in here and an attacker can bypass 'userlog' restriction and read whole file with only crating a malicious 'userName' value. Any user supplied data should be sanitized before processing.
+It is a Regular Expression Injection issue. 'userName' is vulnerable spot in here and an attacker can bypass 'userlog' restriction and read whole file with only crating a malicious 'userName' value. Any user supplied data should be sanitized before processing.
