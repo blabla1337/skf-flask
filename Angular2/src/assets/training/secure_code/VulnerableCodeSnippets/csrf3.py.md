@@ -26,4 +26,4 @@ def login():
  
 # Answer
 
-It is a Cross-Site Request Forgery (CSRF) issue. The code shows anti-CSRF token control is disabled and the user is vulnerable for this kind of attacks. You may also realize the database query is using parameterization aganist injection attacks.
+It is a Cross-Site Request Forgery (CSRF) issue. The code shows anti-CSRF token control is disabled and the user lacks of protection. You may also realize the database query is using parameterization aganist injection attacks.
