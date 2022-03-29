@@ -29,4 +29,4 @@ def page_not_found(e):
  
 # Answer
 
-It is an XML Injection issue.. 'parameter' is not being checked properly. A special created XML request will allow attackers to take advantage of this weakness. https://github.com/blabla1337/skf-labs/blob/master/python/XXE
+It is an XML Injection issue. 'parameter' is not being checked properly. A special created XML request will allow attackers to take advantage of this weakness. https://github.com/blabla1337/skf-labs/blob/master/python/XXE
