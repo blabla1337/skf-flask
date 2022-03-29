@@ -36,4 +36,4 @@ def logout():
  
 # Answer
 
-It is a Gain Privileges issue. The client session depends on 'sessionid' value and it can be easily generated for any users. The code shows, 'sha256(user)' generates session secret and the attacker can do the same calculation for any users.
+It is a Gain Privileges issue. The client session depends on 'sessionid' value and it can be easily generated for any users. The code shows, 'sha256(user)' generates secret key and the attacker can do the same calculation for any users.
