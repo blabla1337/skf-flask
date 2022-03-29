@@ -26,4 +26,4 @@ What is the problem here?
  
 # Answer
  
-It is a Cross-Site Request Forgery (CSRF) issue. 'userName' and 'userComment' are sanitized properly, however there is no anti-CSRF token control takes place. A malicious link can make victim's session to execute SQL query.
+It is a Cross-Site Request Forgery (CSRF) issue. 'userName' and 'userComment' are sanitized properly, however there is no anti-CSRF token control takes place. A malicious link can make victim's session to execute tasks.
