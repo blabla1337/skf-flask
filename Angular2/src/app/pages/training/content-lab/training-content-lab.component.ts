@@ -52,6 +52,14 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.trainingNavigationService.restartLab$.subscribe(() => {
       this.initLab();
     }));
+
+    this.subscriptions.push(this.trainingNavigationService.openFullScreen$.subscribe(() => {
+      this.focus_iframe();
+    }));
+
+    this.subscriptions.push(this.trainingNavigationService.closeFullScreen$.subscribe(() => {
+      this.focus_iframe();
+    }));
   }
 
   initLab() {
