@@ -4,7 +4,7 @@ id: "2.1"
 name: Secure Software Development Fundamentals
 assetsPath: assets/training/secure_code/
 content:
-  - slide: slides/0-Landing/Landing.md
+  #- slide: slides/0-Landing/Landing.md
 topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd587ee98936
     name: Introduction

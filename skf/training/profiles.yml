@@ -4,53 +4,53 @@ profiles:
   - id: '1'
     name: Secure Development
     text: >-
-      This profile is dedicated for developers who want to learn secure
-      development. This course is based on the ASVS and the secure coding
-      principles to teach the best practices.
+      This profile is dedicated for developers (Blue security Champions) who want to learn secure
+      development. This course is based on the the OpenSSF Secure Software Development Fundamentals.
     iconClass: bx-shield
     courses:
       - id: '1.1'
-        name: Easy Secure Development
-        text: This is the description for Easy Secure Development course
+        name: Easy - Secure Development course
+        text: Easy - Secure Development course
         iconClass: bx-shield
         courseFile: training/courses/1.1-secdev--easy--.yml
       - id: '1.2'
-        name: Competent Secure Development
-        text: This is the description for Competent Secure Development course
+        name: Competent - Secure Development course
+        text: Competent - Secure Development course
         iconClass: bx-shield
         courseFile: training/courses/1.2-secdev--competent--.yml
       - id: '1.3'
-        name: Advanced Secure Development
-        text: This is the description for Advanced Secure Development course
+        name: Advanced - Secure Development course
+        text: Advanced - Secure Development course
         iconClass: bx-shield
         courseFile: training/courses/1.3-secdev--advanced--.yml
   - id: '2'
-    name: Hacking
+    name: Hacking web/API
     text: >-
-      This profile is dedicated for security pentesters who want to learn the
-      the basics and advanced techniques of penetration testing for Web/API
+      This profile is dedicated for security pentesters or developers (Red security Champions) 
+      who want to learn the basics and advanced techniques of penetration testing for Web/API
       applications. This course is based on the OWASP WSTG and teach you how to
       perform a good quality penetrationt test.
     iconClass: bx-code-block
     courses:
       - id: '2.1'
-        name: Easy Hacking
-        text: This is the description for Easy Hacking course
+        name: Easy - Hacking web/API
+        text: Easy - Hacking web/API
         iconClass: bx-code-block
         courseFile: training/courses/2.1-hacking--easy--.yml
       - id: '2.2'
-        name: Competent Hacking
-        text: This is the description for Competent Hacking course
+        name: Competent - Hacking web/API
+        text: Competent - Hacking web/API
         iconClass: bx-code-block
         courseFile: training/courses/2.2-hacking--competent--.yml
       - id: '2.3'
-        name: Advanced Hacking
-        text: This is the description for Advanced Hacking course
+        name: Advanced - Hacking web/API
+        text: Advanced - Hacking web/API
         iconClass: bx-code-block
         courseFile: training/courses/2.3-hacking--advanced--.yml
   - id: '3'
     name: Infra/Ops
     text: >-
+      -- Soon Availabe -- 
       This profile is dedicated for Ops and Infra people who want to learn about
       the server hardening and security best practices. This course is based on
       the VulnHub materials and lessons to teach the best practices for server
@@ -60,12 +60,14 @@ profiles:
   - id: '4'
     name: OWASP
     text: >-
-      This profile is dedicated for all the OWASP projects. Here you will have the
+      This profile is dedicated for security pentesters or developers to get familiar 
+      with all the OWASP projects and tools. Here you will have the
       possibility to play and learn from the best OWASP projects in an easy way.
     iconClass: bx-fingerprint
     courses:
       - id: '4.1'
         name: The OWASP Top 10 2021 
-        text: This is the OWASP top 10 2021 release, are you ready to learn the top 10 vulnerabilities?
+        text: This is the OWASP top 10 2021 release, 
+          are you ready to learn the top 10 vulnerabilities?
         iconClass: bx-code-block
         courseFile: training/courses/4.1-owasp--top10--.yml
