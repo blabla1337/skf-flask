@@ -32,6 +32,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
   public selectedLanguageCode: string;
   private subscriptions: Subscription[] = [];
   public safeLabUrl: SafeResourceUrl;
+  public labError: string;
 
   constructor(private trainingNavigationService: TrainingNavigationService,
               private trainingService: TrainingService,
@@ -80,6 +81,8 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     this.currentView = "Lab"
     const image = this.lab.images.find(image => image[this.selectedLanguageCode]);
     const imageId = image[this.selectedLanguageCode];
+    this.safeLabUrl = undefined;
+    this.labError = undefined;
     if (imageId) {
       let userId: string;
       try {
@@ -91,16 +94,21 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
       this.spinner.show();
       this.subscriptions.push(this.labService.deployLab(imageId, userId)
         .subscribe((deployResult: string) => {
-        console.log("TODO IB !!!! deployResult: ", deployResult);
+        // console.log("TODO IB deployResult: ", deployResult);
         this.spinner.hide();
 
-        // TODO IB !!!! detect if url or msg
         const resultSplit = deployResult.split("\\");
-        const url = resultSplit[3].substring(1);
-        this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+        const urlOrMessage = resultSplit[3].substring(1);
+        try {
+          new URL(urlOrMessage);
+          this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(urlOrMessage);
+        } catch (e) {
+          this.labError = `${urlOrMessage}. Please Restart Lab to try again.`;
+        }
       }, error => {
           this.spinner.hide();
-          console.log('Could not load lab', error);
+          console.error('Could not initialise lab', error);
+          this.labError = "Could not initialise the Lab. Please Restart Lab to try again.";
         }))
     } else {
       console.error("Lab has no valid address");

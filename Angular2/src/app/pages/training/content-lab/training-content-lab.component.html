@@ -17,4 +17,7 @@
     *ngIf="safeLabUrl"
     [src]="safeLabUrl">
   </iframe>
+  <div *ngIf="labError">
+    {{labError}}
+  </div>
 </div>
