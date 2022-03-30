@@ -1087,3 +1087,20 @@ topics:
           #      - java: blabla1337/owasp-skf-lab:sqli-like
           #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
 
+  - id: a2093eb5-7588-4ab6-9b5e-47964f7f9897
+    name: Secure code review
+    content:
+      - video: https://www.youtube.com/embed/kpf3UkMc5Y4
+    categories:
+      - id: 49d2f1cd-18fb-4c07-8dd0-1c359033fa65
+        name: Introduction to secure code review
+        content:
+          - slide: slides/12-code_review/1-code_review_basics.md
+          - questionnaire: questionnaire/12.1.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
