@@ -62,7 +62,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     if(environment.AUTH_METHOD == "openidprovider"){
       let decoded = atob(token.split('.')[1])
       if(decoded.match("admin")){
-        localStorage.setItem("privilege", "manage")
+        localStorage.setItem("privilege", "manage");
       }
     } 
     this.router.navigate(['/dashboard']);
