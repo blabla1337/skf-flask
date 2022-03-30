@@ -26,14 +26,12 @@ export class TrainingCourseContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscriptions.push(this.trainingNavigationService.currentCourseItemChanged$.subscribe(courseItem => {
-      console.log("TODO IB !!!! courseItem", courseItem);
       this.courseItem = courseItem;
       this.currentContentItemIndex = 0;
       this.prepareContentDisplay();
     }));
 
     this.subscriptions.push(this.trainingNavigationService.nextContentItem$.subscribe(() => {
-      console.log("TODO IB !!!! nextContentItem$ in course content");
       if (this.currentContentItemIndex < this.courseItem.content.length - 1) {
         this.currentContentItemIndex++;
         this.prepareContentDisplay();
@@ -92,7 +90,6 @@ export class TrainingCourseContentComponent implements OnInit {
   }
 
   private markCategoryAsSeen() {
-    console.log('TODO IB !!!! setCourseProgress this.courseItem', this.courseItem);
     if (this.courseItem.courseItemType === "Category" && this.courseItem.seen !== true) {
       this.trainingNavigationService.raiseMarkCategoryAsSeen(this.courseItem.id);
       if (this.userId !== undefined && this.userId !== "") {

@@ -44,7 +44,6 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
         const courseId = params['cid'];
         if (this.userId !== undefined && this.userId !== "") {
           this.subscriptions.push(this.trainingService.getCourseProgress(this.userId, courseId).subscribe(seenCategoryIds => {
-            console.log('TODO IB !!!! seenCategoryIds', seenCategoryIds);
             this.setNodesFromCourse(this.course, seenCategoryIds);
           }));
         } else {
@@ -53,7 +52,6 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
       }));
     }
     this.subscriptions.push(this.trainingNavigationService.nextCourseItem$.subscribe(() => {
-      console.log('TODO IB !!!! nextCourseItem$ in tree');
       this.setNextCourseItem();
     }));
     this.subscriptions.push(this.trainingNavigationService.markCategoryAsSeen$.subscribe(categoryId => {
@@ -90,8 +88,6 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
 
     this.nodes = [titleNode, ...nodes];
 
-    console.log('TODO IB !!!! this.nodes', this.nodes);
-
     setTimeout(() => {
       if (this.nodes.length > 0) {
         // this.tree.treeModel.expandAll();
@@ -101,7 +97,6 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
   }
 
   private markCategoryAsSeen(categoryId: string) {
-    console.log('TODO IB !!!! markCategoryAsSeen$', categoryId);
     const newNodes = this.nodes.map(topic => {
      const categoryIndex = topic.children.findIndex(c => c.id === categoryId);
      if (categoryIndex !== -1) {
@@ -118,7 +113,6 @@ export class TrainingCourseTreeComponent implements OnInit, OnDestroy {
        return {...topic};
      }
     });
-    console.log('TODO IB !!!! newNodes', newNodes);
     this.nodes = newNodes;
   }
 

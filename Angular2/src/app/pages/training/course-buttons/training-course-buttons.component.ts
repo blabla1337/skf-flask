@@ -37,7 +37,6 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
   }
 
   onShowWriteUp() {
-    console.log('TODO IB !!!! onShowWriteUp');
     if (this.runningLab) {
       window.open(this.runningLab.writeup, "_blank");
     }
@@ -48,7 +47,6 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
   @HostListener('document:webkitfullscreenchange', ['$event'])
   @HostListener('document:msfullscreenchange', ['$event'])
   private fullscreenchange(e: any) {
-    console.log('TODO IB !!!! fullscreenchange', e);
     this.checkFullScreen();
   }
 
