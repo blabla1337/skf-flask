@@ -9,7 +9,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd587ee98936
     name: Introduction
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-53b9-186c-95b0-2aa4394c673b
         name: What will you learn
@@ -40,7 +40,7 @@ topics:
   - id: 00f3e11c-a0ce-4f12-3225-dd587ee98936
     name: OWASP ZAP
     content:
-      - video: https://www.youtube.com/embed/pYFtLA2yTR8
+      #- video: https://www.youtube.com/embed/pYFtLA2yTR8
     categories:
       - id: 231b2b0b-53b9-666c-95b0-2aabe94c673b
         name: OWASP ZAP Automation
@@ -48,7 +48,7 @@ topics:
           - slide: slides/13-zap/AUTOMATION.md
           #- questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -58,7 +58,7 @@ topics:
           - slide: slides/13-zap/POLICY.md
           #- questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -67,7 +67,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be35-dd587ee98936
     name: Requirements, Design, and Reuse
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-53b9-486c-45b0-2aa4394c673b
         name: Security Basics
@@ -169,7 +169,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd587ee94936
     name: Secure Design Basics
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-53b9-486c-95b0-2aa4494c673b
         name: What Are Security Design Principles?
@@ -248,7 +248,7 @@ topics:
   - id: 00f3e25c-a0ce-7f8d-be25-dd587ee98936
     name: Reusing External Software
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-83b9-486c-95b0-2aa4394c673b
         name: Basics of Reusing Software
@@ -291,7 +291,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be25-aa587ee98936
     name: Input validation
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b8b-53b9-486c-95b0-2aa4394c673b
         name: Implementation Overview
@@ -454,7 +454,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd587ee92136
     name: Processing Data Securely
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-53b9-486c-95b0-2aa4394c673c
         name: Prefer Trusted Data. Treat Untrusted Data as Dangerous
@@ -533,7 +533,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd587ee98912
     name: Calling Other Programs
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b1b0b-53b9-486c-95b0-2aa4394c673b
         name: Introduction to Securely Calling Programs
@@ -648,7 +648,7 @@ topics:
   - id: 00f3a25c-a0ce-4f8d-be25-dd587ee98936
     name: Sending Output
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 641b2b0b-53b9-486c-95b0-2aa4394c673b
         name: Introduction to Sending Output
@@ -799,7 +799,7 @@ topics:
   - id: 00f3e55c-a0ce-4f8d-be25-dd587ee98936
     name: Verification
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 141b2b0b-53b9-486c-95b0-2aa4394c673b
         name: Basics of Verification
@@ -890,7 +890,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd487ee98936
     name: Threat Modeling
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-53b9-166c-95b0-2aa4394c673b
         name: Introduction to Threat Modeling
@@ -921,7 +921,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-ba25-dd587ee98936
     name: Cryptography
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-53b9-226c-95b0-2aa4394c673b
         name: Introduction to Cryptography
@@ -1012,7 +1012,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd587ee91337
     name: Vulnerability Disclosures
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-53b9-696c-95b0-2aa4394c673b
         name: Receiving Vulnerability Reports

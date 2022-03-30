@@ -11,7 +11,7 @@ topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd587ea98936
     name: Introduction
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      - video: https://www.youtube.com/embed/uLBCDBnMEt0
     categories:
       - id: 901b2b0b-53b9-186c-95b0-2ca4394c673b
         name: Welcome to the OWASP top 10 2021
@@ -75,7 +75,7 @@ topics:
           - slide: slides/7-zap/AUTOMATION.md
           #- questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -85,7 +85,7 @@ topics:
           - slide: slides/7-zap/POLICY.md
           #- questionnaire: questionnaire/1.md
           #- lab:
-          #    hint: To get started with this lab, start the ./runner-script.sh --lab "python/CORS"
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
           #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
@@ -221,23 +221,9 @@ topics:
         content:
           - slide: slides/A11_2021-Next_Steps.md
           #- questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-          #      - java: blabla1337/owasp-skf-lab:sqli-like
-          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
-
-
-
-
-
-
-
-
-
-
-
-
+          - lab:
+              hint: Now lets practise and do some hands-on! To get started with this, start the ./runner-script.sh -l "python/XSS" for example
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/
+              images:
+                - python: 158
 
