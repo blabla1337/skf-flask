@@ -6,7 +6,7 @@ languages:
   - python
 assetsPath: assets/training/security_testing/
 content:
-  - slide: slides/1-Landing/Landing.md
+  #- slide: slides/1-Landing/Landing.md
 topics:
   - id: 00f3e25c-a0ce-4f8d-be25-dd587ee98936
     name: Introduction

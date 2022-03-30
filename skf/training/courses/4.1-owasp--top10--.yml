@@ -94,7 +94,7 @@ topics:
   - id: 00f3e25c-a0ce-4a8d-be25-dd587ee98936
     name: Top10:2021 List
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     categories:
       - id: 901b2b0b-53b9-e86c-95b0-2aa4394c673b
         name: A01 2021 - Broken Access Control
