@@ -67,7 +67,7 @@ topics:
   - id: 00f3e11c-a0ce-4f12-be25-dd587ee98936
     name: OWASP ZAP
     content:
-      - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      - video: https://www.youtube.com/embed/pYFtLA2yTR8
     categories:
       - id: 231b2b0b-53b9-666c-95b0-2aa4394c673b
         name: OWASP ZAP Automation
