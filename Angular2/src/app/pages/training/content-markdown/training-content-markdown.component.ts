@@ -44,7 +44,6 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
     this.trainingNavigationService.setNextSlideType("Unknown");
 
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
-      console.log('TODO IB !!!! nextClicked$ in markdown');
       if (this.dataSlides && this.currentDataSlideIndex < this.dataSlides.length - 1) {
         this.currentDataSlideIndex++;
         this.prepareDataSlide();
@@ -56,8 +55,6 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
 
 
   private initMarkdownRenderer() {
-    console.log('TODO IB !!!! initMarkdownRenderer');
-
     this.markdownOriginalRenderer = new Renderer();
     this.markdownService.renderer.link = (href: string | null, title: string | null, text: string) => {
       if (href.startsWith("#")) {
@@ -77,7 +74,6 @@ export class TrainingContentMarkdownComponent implements OnInit, OnDestroy {
     const lastSlashIndex = this._markdownPath.lastIndexOf('/');
     if (lastSlashIndex !== -1) {
       const baseUrl = this._markdownPath.substr(0, lastSlashIndex + 1);
-      console.log('TODO IB !!!! baseUrl', baseUrl);
       this.markdownService.options = {
         baseUrl
       };

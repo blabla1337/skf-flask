@@ -20,7 +20,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
   get lab(): Lab {
     return this._lab;
   }
-  
+
   @ViewChild("iframe") iframeFocus : ElementRef;
 
   @Input() set lab(value: Lab) {
@@ -45,7 +45,6 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     this.trainingNavigationService.raiseOpenFullScreen();
 
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
-      console.log('TODO IB !!!! nextClicked$ in lab');
       this.trainingNavigationService.raiseNextContentItem();
     }));
 
@@ -95,11 +94,14 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
         console.log("TODO IB !!!! deployResult: ", deployResult);
         this.spinner.hide();
 
-        // TODO IB !!!! detect url sau msg
+        // TODO IB !!!! detect if url or msg
         const resultSplit = deployResult.split("\\");
         const url = resultSplit[3].substring(1);
         this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
-      }))
+      }, error => {
+          this.spinner.hide();
+          console.log('Could not load lab', error);
+        }))
     } else {
       console.error("Lab has no valid address");
     }

@@ -29,7 +29,6 @@ export class TrainingContentVideoComponent implements OnInit, OnDestroy {
     this.trainingNavigationService.setNextSlideType("None");
 
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
-      console.log('TODO IB !!!! nextClicked$ in video');
       this.trainingNavigationService.raiseNextContentItem();
     }));
   }

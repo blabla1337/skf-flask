@@ -17,7 +17,6 @@ export class TrainingContentEmptyComponent implements OnInit, OnDestroy {
     this.trainingNavigationService.setNextSlideType("None");
 
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
-      console.log('TODO IB !!!! nextClicked$ in empty content');
       this.trainingNavigationService.raiseNextContentItem();
     }));
   }
