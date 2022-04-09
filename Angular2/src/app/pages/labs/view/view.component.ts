@@ -101,7 +101,7 @@ export class LabViewComponent implements OnInit
     this.spinner.show()
     this._labService.deployLab(
       image_id, 
-      Number(localStorage.getItem("user_id"))
+      localStorage.getItem("user_id")
       ).subscribe(requestData =>
     {
       this.spinner.hide();
@@ -138,7 +138,7 @@ export class LabViewComponent implements OnInit
     this.spinner.show()
     this._labService.deleteLab(
       image_id,
-      Number(localStorage.getItem("user_id"))
+      localStorage.getItem("user_id")
       ).subscribe(requestData =>
     {
       this.deployments = requestData
@@ -174,20 +174,6 @@ export class LabViewComponent implements OnInit
     this._labService
     .solveCodeReviewChallenge(code_id, solution_id)
     .subscribe(data => console.log(data));
-  }
-
-  answer_fail()
-  {
-    this.lab_code_status = false;
-    this.lab_code_answer = "It was a CMD injection combined with a Secret Unicorn \r Sometimes developers while creating code invoke a secret unicorn \r this is the reason they exist in old fory stories but people are not able to spot them.";
-    this.lab_code_example = '    <?php\r    $cmd = $_GET["cmd"];\r    $escaped_command = escapeshellcmd($_GET["cmd"]);\r    $result = system($escaped_command);\r    print $result;\r    ?>';
-  }
-  
-  answer_success()
-  {
-    this.lab_code_status = true;
-    this.lab_code_answer = "It was a CMD injection combined with a Secret Unicorn \r Sometimes developers while creating code invoke a secret unicorn \r this is the reason they exist in old fory stories but people are not able to spot them.";
-    this.lab_code_example = '    <?php\r    $cmd = $_GET["cmd"];\r    $escaped_command = escapeshellcmd($_GET["cmd"]);\r    $result = system($escaped_command);\r    print $result;\r    ?>'; 
   }
 
 }

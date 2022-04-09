@@ -194,3 +194,5 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Xavier Rene-Corail
 - Jacob O'Toole (on behalf of MeVitae)
 - Luca Famà
+- [Ionut Marius Breaz](https://www.linkedin.com/in/ionut-breaz-52b847a2/)
+- [Alexandru Stanciu](https://www.linkedin.com/in/alexandrustanciu)

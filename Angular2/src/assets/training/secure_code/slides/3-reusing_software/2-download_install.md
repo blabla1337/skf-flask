@@ -1,0 +1,23 @@
+### Downloading and Installing Reusable Software
+
+Of course, if you download and install a subverted version of the reused software, that could be a serious problem. So make sure that you get the *correct* version of the software:
+
+1. Make sure you have exactly the correct name. A common attack is called “typosquatting”. In typosquatting, an attacker will create a domain name or package name that is intentionally and maliciously similar to a widely-used software component, and use that misleading name to spread a malicious version of that software. [Ohm & all, 2020](https://arxiv.org/abs/2005.09535) found that *“most malicious [OSS] packages mimic existing packages’ names via typosquatting”*. For example:
+
+1. Check for common misleading name changes. It is easy to switch between dash (**-**) and underscore (**&#95;**). One (**1**) and lower-case L (**l**) look similar, as do zero (**0**) and capital O (**O**). In some package managers, uppercase and lowercase ASCII are considered different; in those situations, beware of case. Unicode provides characters that appear exactly the same as ASCII, but are another alphabet, like Cyrillic or Greek; in some cases, these can also be exploited.
+
+2. Check how popular the package is. Generally the more-popular version is the correct version. If you are using a package manager, compare the download counts of similarly-named packages; the ones with lower counts may be typosquatting attacks. If you are looking for a website, or the package manager does not provide direct access to counts, use a search engine and pick the most popular domain. However, be sure to *ignore* all advertised domains from a search engine; attackers may pay to advertise their malicious version!
+
+2. Make sure you download and install the software in a trustworthy way:
+
+1. You should directly download the software from its main site or from a redistribution site that you have good reason to trust (such as your Linux distribution’s repository or your programming language package manager’s standard repository).
+
+2. Typically this means that you should use **https:** (TLS) to download the software, not **http:**, since this generally ensures that you are contacting the site you requested and prevents attackers from modifying the software en route to you.
+
+3. Consider downloading the software, but then only install and use it a few days later after verifying nothing has changed. That way, if the distribution site is temporarily subverted when you download the software, but is quickly fixed, you will not be using the subverted version. This is not always practical, since you may be in too much of a hurry to wait, but in some cases this is easy to do.
+
+4. Try to avoid using pipe-to-shell (such as  **curl … | sh**) to download and install software. You obviously cannot download and delay installation when you use pipe-to-shell. In addition, attackers who subvert a source site can detect a pipe-to-shell request and selectively subvert pipe-to-shell users (who by definition are not reviewing what they are downloading). Using pipe-to-shell makes source site subversions much harder to detect and counter. It also makes understanding the actual version you downloaded and installed impossible to determine - so you have effectively lost some version control, and you cannot depend on others to be able to determine what happened. In short, your risks increase if you use pipe-to-shell.
+
+That said, if you only use pipe-to-shell in a contained environment (e.g., a container or virtual machine) and throw away any produced executables, as it often happens in the test environments of continuous integration (CI) pipelines, pipe-to-shell is much less risky. Pipe-to-shell is also hard to avoid in some situations, depending on how the reused software is distributed, and sometimes it is not worth trying to avoid pipe-to-shell. So this is a tip that’s worth considering, but not always worth doing. **Remember**: focus on risk management, not total risk avoidance.
+
+5. Where important and practical, try to verify that the package is digitally signed by its expected creators (or at least its redistributors). Software to verify that a package is digitally signed has been around for decades, and in some situations, there is automated verification that the package does come from a particular redistributor. That said, it is often harder to ensure that you have the correct corresponding public keys (this is an example of a *key management* problem.) There is continuing work in this area; where you can, take advantage of it.

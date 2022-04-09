@@ -1,0 +1,450 @@
+version: 2.1
+date: 18/03/2022
+id: "2.1"
+name: Secure Software Development Fundamentals
+assetsPath: assets/training/secure_code/
+content:
+  #- slide: slides/0-Landing/Landing.md
+topics:
+  - id: 00f3e25c-a0ce-4f8d-be25-dd587ee98936
+    name: Introduction
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 901b2b0b-53b9-186c-95b0-2aa4394c673b
+        name: What will you learn
+        content:
+          - slide: slides/1-Intro/intro.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 71ff02f2-92d2-4a26-2902-1e428753bf8b
+        name: Course Introduction
+        content:
+          - slide: slides/1-Intro/course.md
+          #- questionnaire: questionnaire/2.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+
+
+  - id: 00f3e11c-a0ce-4f12-3225-dd587ee98936
+    name: OWASP ZAP
+    content:
+      #- video: https://www.youtube.com/embed/pYFtLA2yTR8
+    categories:
+      - id: 231b2b0b-53b9-666c-95b0-2aabe94c673b
+        name: OWASP ZAP Automation
+        content:
+          - slide: slides/13-zap/AUTOMATION.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 432b2b0b-53b9-666c-95b0-2aa43aac673b
+        name: OWASP ZAP Policy
+        content:
+          - slide: slides/13-zap/POLICY.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+
+
+  - id: 00f3e25c-a0ce-4f8d-be35-dd587ee98936
+    name: Requirements, Design, and Reuse
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 901b2b0b-53b9-486c-45b0-2aa4394c673b
+        name: Security Basics
+        content:
+          - slide: slides/1-requirements/1-security_basics.md
+          - questionnaire: questionnaire/1.1.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b0-5aa4394c673b
+        name: Security Requirements
+        content:
+          - slide: slides/1-requirements/2-security_requirements.md
+          - questionnaire: questionnaire/1.2.md
+          #- lab:
+              #hint: This is a super simple tip & hint!
+              #writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+              #images:
+              #  - python: 158
+      - id: 901b2b0b-53b9-486c-95b0-2aa4364c673b
+        name: What Is Privacy and Why It Is Important
+        content:
+          - slide: slides/1-requirements/3-privacy.md
+          - questionnaire: questionnaire/1.3.md
+          #- lab:
+              #hint: This is a super simple tip & hint!
+              #writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+              #images:
+              #  - python: blabla1337/owasp-skf-lab:sqli-like
+              #  - java: blabla1337/owasp-skf-lab:sqli-like
+              #  - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b0-2aa4397c673b
+        name: Risk Management
+        content:
+          - slide: slides/1-requirements/4-risk_management.md
+          - questionnaire: questionnaire/1.4.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b0-2aa4394c678b
+        name: Risk Management
+        content:
+          - slide: slides/1-requirements/4-risk_management.md
+          - questionnaire: questionnaire/1.4.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b0-2aa4394c671b
+        name: Development Processes / Defense-in-Breadth
+        content:
+          - slide: slides/1-requirements/5-development_process.md
+          - questionnaire: questionnaire/1.5.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b0-2aa4324c673b
+        name: Protect, Detect, Respond
+        content:
+          - slide: slides/1-requirements/6-protect.md
+          - questionnaire: questionnaire/1.6.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b0-2aa4334c673b
+        name: Vulnerabilities
+        content:
+          - slide: slides/1-requirements/7-vulnerabilities.md
+          - questionnaire: questionnaire/1.6.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+
+
+  - id: 00f3e25c-a0ce-4f8d-be25-dd587ee94936
+    name: Secure Design Basics
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 901b2b0b-53b9-486c-95b0-2aa4494c673b
+        name: What Are Security Design Principles?
+        content:
+          - slide: slides/2-design/1-secure_design.md
+          - questionnaire: questionnaire/2.1.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b0-5aa4394c673b
+        name: Widely-Recommended Secure Design Principles
+        content:
+          - slide: slides/2-design/2-secure_principles.md
+          - questionnaire: questionnaire/2.2.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b5-2aa4394c673b
+        name: Least Privilege
+        content:
+          - slide: slides/2-design/3-least_priv.md
+          - questionnaire: questionnaire/2.3.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-96b0-2aa4394c673b
+        name: Complete Mediation (Non-Bypassability)
+        content:
+          - slide: slides/2-design/4-complete_mediation.md
+          - questionnaire: questionnaire/2.4.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-466c-95b0-2aa4394c673b
+        name: The Rest of the Saltzer & Schroeder Design Principles
+        content:
+          - slide: slides/2-design/5-design_principle.md
+          - questionnaire: questionnaire/2.5.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-886c-95b0-2aa4394c673b
+        name: Other Design Principles
+        content:
+          - slide: slides/2-design/6-other_design.md
+          - questionnaire: questionnaire/2.6.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+
+
+  - id: 00f3e25c-a0ce-7f8d-be25-dd587ee98936
+    name: Reusing External Software
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 901b2b0b-83b9-486c-95b0-2aa4394c673b
+        name: Basics of Reusing Software
+        content:
+          - slide: slides/3-reusing_software/1-supply_chain.md
+          - questionnaire: questionnaire/3.1.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b9b-53b9-486c-95b0-2aa4394c673b
+        name: Downloading and Installing Reusable Software
+        content:
+          - slide: slides/3-reusing_software/2-download_install.md
+          - questionnaire: questionnaire/3.2.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b9b0b-53b9-486c-95b0-2aa4394c673b
+        name: Updating Reused Software 
+        content:
+          - slide: slides/3-reusing_software/3-updating.md
+          - questionnaire: questionnaire/3.3.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+
+
+  - id: 00f3e25c-a0ce-4f8d-be25-aa587ee98936
+    name: Input validation
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 901b2b8b-53b9-486c-95b0-2aa4394c673b
+        name: Implementation Overview
+        content:
+          - slide: slides/4-implementation/1-implementation.md
+          - questionnaire: questionnaire/4.1.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b7b-53b9-486c-95b0-2aa4394c673b
+        name: Input Validation Basics
+        content:
+          - slide: slides/4-implementation/2-input_validation.md
+          - questionnaire: questionnaire/4.2.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-56b9-486c-95b0-2aa4394c673b
+        name: Input Validation A Few Simple Data Types
+        content:
+          - slide: slides/4-implementation/3-input_validation_numbers.md
+          - questionnaire: questionnaire/4.3.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-55b9-486c-95b0-2aa4394c673b
+        name: Input Validation Text, Unicode, and Locales
+        content:
+          - slide: slides/4-implementation/4-input_validation_locales.md
+          - questionnaire: questionnaire/4.4.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-54b9-486c-95b0-2aa4394c673b
+        name: Validating Text
+        content:
+          - slide: slides/4-implementation/5-input_validation_text.md
+          - questionnaire: questionnaire/4.5.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-35b0-2aa4394c673b
+        name: Introduction to Regular Expressions
+        content:
+          - slide: slides/4-implementation/6-input_validation_regex.md
+          - questionnaire: questionnaire/4.6.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-92b0-2aa4394c673b
+        name: Countering ReDoS Attacks on Regular Expressions
+        content:
+          - slide: slides/4-implementation/7-input_validation_counter.md
+          - questionnaire: questionnaire/4.7.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-416c-95b0-2aa4394c673b
+        name: Input Validation Beyond Numbers and Text
+        content:
+          - slide: slides/4-implementation/8-input_validation_beyond.md
+          - questionnaire: questionnaire/4.8.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b1b0b-53b9-486c-95b0-2aa4394c673b
+        name: Input Validation Data Structures
+        content:
+          - slide: slides/4-implementation/9-input_validation_structures.md
+          - questionnaire: questionnaire/4.9.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901c2b0b-53b9-486c-95b0-2aa4394c673b
+        name: Minimizing Attack Surface
+        content:
+          - slide: slides/4-implementation/10-min_attack_surface.md
+          - questionnaire: questionnaire/4.10.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53c9-486c-95b0-2aa4394c673b
+        name: Environment Variables
+        content:
+          - slide: slides/4-implementation/11-env_variables.md
+          - questionnaire: questionnaire/4.11.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95c0-2aa4394c673b
+        name: Secure Defaults and Secure Startup
+        content:
+          - slide: slides/4-implementation/12-special_inputs.md
+          - questionnaire: questionnaire/4.12.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+      - id: 901b2b0b-53b9-486c-95b0-2ac4394c673b
+        name: Consider Availability on All Inputs
+        content:
+          - slide: slides/4-implementation/13-availability.md
+          - questionnaire: questionnaire/4.13.md
+          #- lab:
+          #    hint: This is a super simple tip & hint!
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          #      - java: blabla1337/owasp-skf-lab:sqli-like
+          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like

@@ -16,7 +16,7 @@ lab_items = api.inherit('List of lab items', {
 })
 
 lab_user_id = api.model('lab_user_id', {
-    'user_id': fields.Integer(readOnly=True, description='The user id for running the labs'),
+    'user_id': fields.String(readOnly=True, description='The user id for running the labs'),
   })
 
 labs_code = api.model('labs', {

@@ -1,0 +1,23 @@
+### CSRF / XSRF
+
+[Web application]
+
+Another kind of attack that websites have often been vulnerable to is called cross-site request forgery (CSRF or XSRF). It is much less of a problem today, but it can still happen, so let’s learn what it is and how it can be countered. CSRF is also a great example of how specific security vulnerabilities can be mostly eliminated over time; if you can, try to find general ways to eliminate other kinds of vulnerabilities!
+
+In a CSRF attack, an attacker tricks the user into sending data to a *server*, where the server interprets the request as a request from the user and directly acts on it. For example, the attacker could create a form with a submit button on the attacker’s website, but tell the user’s web browser to submit the completed form to a server that will act on that form. Note that if the user is logged in to that server (say for a bank), the server will see that the user really is logged in to the bank, and might be convinced to do something the user did not intend (such as transfer a lot of money to the attacker).
+
+In some ways, a CSRF attack is the opposite of an XSS attack. XSS exploits the user’s trust in a server; CSRF exploits the server’s trust in a client (that the user is actually intentionally making a given request). Put another way: XSS fools clients; CSRF fools servers.
+
+A common countermeasure used today in most widely-used web application frameworks is to send a secret user-specific CSRF token in all forms and any other URLs with side-effects, and then check to ensure that the correct secret is included with any request with a side-effect. Since attackers will not know the secret value, the attacker cannot insert a matching CSRF token. Since this is built into almost all widely-used web frameworks today, most applications are automatically protected from CSRF (unless they disable the protection). You should prefer a web application framework that has a CSRF token mechanism.
+
+Another common countermeasure used today is what are called **SameSite** cookies. Historically, all cookies were sent to a server whenever the user had matching cookies for that server, even when the primary page being displayed is from a different server. For example, a web page on site BB might include a reference to an image on site CC; when the web browser downloaded the image from CC it would send all related cookies. However, this does not really make much sense; in many cases cookies should not be sent if the interaction was caused by an unrelated server. So modern browsers have an optional **SameSite** setting on cookies. If the setting is **Lax** or **Strict**,  a request caused by an attacker on a different server will not cause the cookie (like a session) to be sent. So as long as your session cookies have a **SameSite** setting of **Lax** or **Strict**, CSRF attacks generally don’t work. Even better, modern browsers are working to make **SameSite=Lax** the default. It is best to set **SameSite** to **Lax** or **Strict** yourself, but a secure default is still a good thing.
+
+In short, CSRF attacks are disappearing because the industry is moving towards safe defaults. This shows it is *possible* to mostly eliminate entire classes of vulnerabilities by designing or modifying systems so that the default is secure. Where possible, build countermeasures into your tools/standards/system so the problem won’t occur. If you are building a new web application, it is much less likely to be a problem, but make sure that your web framework counters it.
+
+Although it’s disappearing, Cross-Site Request Forgery (CSRF) is still a common enough cause of security vulnerabilities that it is 2019 CWE Top 25 #9. It is also identified as [CWE-352](https://cwe.mitre.org/data/definitions/352.html). It used to be in the OWASP Top 10. It is not in the 2017 edition, because so many modern frameworks now prevent it, but it is still important if your software is vulnerable to it.
+
+Of course, there are other ways an attacker might be able to gain temporary control over a user’s system. So you might still want to implement some other traditional CSRF countermeasures, such as:
+
+1. Automatically log off users after some period of time, or some time of inactivity.
+
+2. If an action is especially dangerous (e.g., account deletion or moving a large sum of money), require a separate additional authenticated confirmation that the user really is requesting it. This is good anyway, because there are many ways an attacker might be able to temporarily gain control over an account; limiting the impact is all part of managing risk.

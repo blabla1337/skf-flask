@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+    <p class="loading">Loading, Please Wait...</p>
+  </ngx-spinner>
+
+  <!-- start page title -->
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <h4 class="mb-0 font-size-18 head-four">Training</h4>
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item active text-primary clickable" (click)="goToTraining()">Training</li>
+            <li class="breadcrumb-item active text-primary">{{profile?.name}}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end page title -->
+
+  <div class="row pt-5">
+    <div class="col-lg-12 text-center">
+      <div class="home-wrapper">
+        <div class="mb-5">
+          <p class="h1 heading-dark">Courses</p>
+        </div>
+        <div class="container">
+          <p class="intro">
+            Below are the courses you can enroll to
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div *ngFor="let course of profile?.courses??[]" class="col-mt-4 d-flex align-items-stretch">
+            <div class="card mt-4 maintenance-box">
+              <div class="card-body d-flex flex-column">
+                <i class="bx mb-4 h1 text-primary" [ngClass]="[course.iconClass]" ></i>
+                <p class="mb-0">{{course.text}}</p>
+                <div class="mt-auto pt-3">
+                  <button type="button" (click)="onSelectCourse(course)" class="btn btn-primary btn-sm">
+                    Start Course
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+    </div>
+  </div>
+</div> <!-- container-fluid -->

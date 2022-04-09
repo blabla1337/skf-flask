@@ -1,0 +1,8 @@
+<div class="fill">
+  <tree-root #tree [nodes]="nodes" [options]="options" (activate)="onActivateNode($event)">
+      <ng-template #treeNodeTemplate let-node let-index="index">
+        <span *ngIf="node.data.seen" style="color: green">{{ node.data.name }}</span>
+        <span *ngIf="!node.data.seen">{{ node.data.name }}</span>
+      </ng-template>
+  </tree-root>
+</div>

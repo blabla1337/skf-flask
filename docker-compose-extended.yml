@@ -1,0 +1,106 @@
+# Run docker-compose up
+# Live long and prosper
+version: "2"
+services:
+  rabbitmq:
+    container_name: skf-rabbitmq_container
+    image: rabbitmq:3.8.19
+    environment:
+        - RABBITMQ_DEFAULT_USER=admin
+        - RABBITMQ_DEFAULT_PASS=admin-skf-secret
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+  
+  mysql:
+    container_name: skf-mysql_container
+    image: blabla1337/mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: "skf"
+      MYSQL_ROOT_PASSWORD: "admin-skf-secret"
+      MYSQL_DEFAULT_PASS: "admin-skf-secret"
+      MYSQL_DEFAULT_USER: "root"
+    ports:
+      - "3306:3306"
+  
+  nginx:
+    container_name: skf-nginx_container
+    restart: always
+    image: nginx
+    volumes:
+      - ./Docker/compose/extended-site.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+
+
+  skf-angular:
+    container_name: skf-angular_container
+    depends_on:
+      - "rabbitmq"
+      - "nginx"
+      - "mysql"
+    restart: always
+    image: "riiecco/skf-angular-extended:1.3"
+    environment:
+      - FRONTEND_URI=http://localhost
+
+  keycloak:
+    container_name: skf-keycloak_container
+    restart: always
+    volumes:
+      - ./keycloak:/tmp
+    image: jboss/keycloak:4.5.0.Final
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_DEFAULT_THEME=custom 
+      - KEYCLOAK_WELCOME_THEME=keycloak 
+      - KEYCLOAK_IMPORT=/tmp/krakend.json
+      - DB_VENDOR=h2
+    command: ["-Djboss.http.port=8100"]
+      # Uncomment for development purpose
+      # volumes:
+      #   - ${PWD}/keycloak/theme/custom:/opt/jboss/keycloak/themes/custom
+    ports:
+      - 8100:8100
+  
+  krakend:
+    container_name: skf-krakend_container
+    restart: always
+    image: devopsfaith/krakend
+    volumes:
+      - ./krakend/config:/etc/krakend
+    environment:
+      - FC_ENABLE=1
+      - FC_SETTINGS=settings
+      - FC_PARTIALS=partials
+    ports:
+      - "8080:8080"
+
+  skf-api:
+    container_name: skf-api_container
+    depends_on:
+      - "rabbitmq"
+      - "keycloak"
+      - "krakend"
+      - "nginx"
+      - "mysql"
+    restart: always
+    volumes:
+      - ~/.kube/config:/home/user_api/.kube/config
+    image: "riiecco/skf-api:1.3"
+    environment:
+      - SKF_FLASK_DEBUG=False
+      - SKF_API_URL=skf-api://api
+      - SKF_TESTING=False
+      - SKF_DB_URL=mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
+      - SKF_JWT_SECRET=please_change_this_value_to_be_random
+      - SKF_LABS_DOMAIN=http://localhost
+      - SKF_LABS_DEPLOY_MODE=port
+      - RABBIT_MQ_CONN_STRING=rabbitmq
+      - LABS_KUBE_CONF=~/.kube/config
+      #- LABS_KUBE_CONF=base64_string_here_of_the_content_of_the .kube/config file_for_example: cat ~/.kube/config | base64      
+      #- GOOGLE_CREDENTIALS=b
+      #- SKF_LABS_DEPLOY_MODE=subdomain
+      #- JWT_ENABLED="False"

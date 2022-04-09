@@ -16,7 +16,7 @@ export class ProjectViewComponent implements OnInit
   breadCrumbItems: Array<{}>;
   public id: number;
   private sub: any;
-  public sprintData: any;
+  public sprintData: any = [];
   public selected: string;
   public queryString;
   public routerId;

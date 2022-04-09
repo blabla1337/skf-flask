@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os, pika, random, re, time
+from attr import asdict
 from skf import settings
 from kubernetes import client, config
 
@@ -32,20 +33,33 @@ def deploy_container(rpc_body):
     try:
         service_port = create_service_for_deployment(deployment, user_id)
     except Exception as ex:
-        print('Error creating service:', ex, file=stderr)
-        return {'message': 'Failed to deploy, error K8s API create service call!'} 
+        api = client.CoreV1Api()
+        response = api.list_namespaced_service(user_id)
+        for i in response.items:
+            if(i.metadata.name == deployment):
+                get_host_port_from_response(response)
     time.sleep(15)
     response = get_service_exposed_ip(deployment, user_id)
     if subdomain_deploy:
         hostname = '{}-{}.{}'.format(deployment, user_id, labs_domain)
         networking_v1_beta1_api = client.NetworkingV1beta1Api()
-        ingress_err = create_ingress(networking_v1_beta1_api, hostname, deployment, service_port, user_id)
-        if ingress_err is not None:
-            return { 'message': ingress_err }
-        return { 'message': "'" + labs_protocol + hostname + "'" }
+        try:
+            ingress_err = create_ingress(networking_v1_beta1_api, hostname, deployment, service_port, user_id)
+            if ingress_err is not None:
+                return { 'message': ingress_err }
+            return { 'message': "'" + labs_protocol + hostname + "'" }
+        except:
+            response_ingress = networking_v1_beta1_api.list_namespaced_ingress(user_id)
+            for i in response_ingress.items:
+                for item in i.spec.rules:
+                    host_split = item.host
+                    host = host_split.split(".")
+                    domain_user = deployment+"-"+user_id
+                    if(domain_user == host[0]):
+                        return { 'message': "'" + labs_protocol + hostname + "'" }
     else:
-        return get_host_port_from_response(response)
-
+         return get_host_port_from_response(response)
+   
 def create_user_namespace(user_id):
     try:
         config.load_kube_config()

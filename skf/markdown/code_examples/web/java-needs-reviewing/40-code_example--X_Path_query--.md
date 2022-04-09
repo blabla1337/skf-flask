@@ -303,7 +303,7 @@
 			
 			//Input used into an XPATH expression must not contains any of the characters below:
 
-			//	 ( ) = ' [ ] : , * / WHITESPACE
+			//	* ( ) = ' [ ] : , * / WHITESPACE
 			
 			//Another method of avoiding XPath injections is by using variable into XPATH expression with a variable resolver enabled evaluator. 
 			//See XPath parameterization example

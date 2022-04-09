@@ -23,7 +23,7 @@ from flask_cors import CORS, cross_origin
 from skf import settings
 from flask_sqlalchemy import SQLAlchemy
 from skf.chatbot_tools import init_dataset
-from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_initial_data, clean_db, update_db, init_db
+from skf.db_tools import init_md_knowledge_base, init_md_code_examples, load_initial_data, clean_db, clear_db, update_db, init_db
 from skf.api.labs.endpoints.lab_items import ns as lab_namespace
 from skf.api.labs.endpoints.lab_deployments import ns as lab_namespace
 from skf.api.labs.endpoints.lab_delete import ns as lab_namespace
@@ -89,6 +89,11 @@ from skf.api.search.endpoints.search_lab import ns as search_namespace
 from skf.api.search.endpoints.search_code import ns as search_namespace
 from skf.api.search.endpoints.search_checklist import ns as search_namespace
 from skf.api.search.endpoints.search_project import ns as search_namespace
+from skf.api.training.endpoints.training_profile_item import ns as training_namespace
+from skf.api.training.endpoints.training_profile_items import ns as training_namespace
+from skf.api.training.endpoints.training_course_item import ns as training_namespace
+from skf.api.training.endpoints.training_course_progress import ns as training_namespace
+from skf.api.training.endpoints.training_course_progress_update import ns as training_namespace
 from elasticapm.contrib.flask import ElasticAPM
 
 
@@ -145,6 +150,7 @@ def initialize_app(flask_app):
     #api.add_namespace(chatbot_namespace)
     api.add_namespace(questions_namespace)
     api.add_namespace(search_namespace)
+    api.add_namespace(training_namespace)
     flask_app.register_blueprint(blueprint)
 
 app = create_app()

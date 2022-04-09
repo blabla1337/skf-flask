@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { authConfig } from './auth.config';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +10,25 @@ import { authConfig } from './auth.config';
 })
 export class AppComponent implements OnInit {
 
+  public loginProvider = environment.AUTH_METHOD;
+
   constructor(private oauthService: OAuthService) {
-    this.configure();
+    if(this.loginProvider != "skiploginprovider"){
+      this.configure();
+    }
   }
 
   private configure() {
     this.oauthService.configure(authConfig);
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    this.oauthService.setupAutomaticSilentRefresh();
   }
 
   ngOnInit() {
     setTimeout(() =>
     {
       localStorage.setItem('session', 'expired');
-      sessionStorage.clear();
+      localStorage.clear();
       location.replace('/auth/login');
     }, 7100000);
   }

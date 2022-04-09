@@ -22,7 +22,7 @@
 			String validator = "";
 			if(type.equals("symbols"))
 			{
-				//Characters that may be used to interfere with the XPath query should be blocked, including ( ) = ‘ [ ] : , * / and all whitespace. 
+				//Characters that may be used to interfere with the XPath query should be blocked, including* ( ) = ‘ [ ] : , * / and all whitespace. 
 				// Any input that does not match the white list should be rejected, not sanitized.
 				
 				validator = "(.*)(\\W+)(\\D+)(\\s+)(.*)";
@@ -87,7 +87,7 @@
 			
 			if(type.equals("symbols"))
 			{
-				//Characters that may be used to interfere with the XPath query should be blocked, including ( ) = ‘ [ ] : , * / and all whitespace. 
+				//Characters that may be used to interfere with the XPath query should be blocked, including* ( ) = ‘ [ ] : , * / and all whitespace. 
 				// Any input that does not match the white list should be rejected, not sanitized.
 				//validator = "^()='\\[\\]:,\\*/ $";
 				validator = "(.*)(\\W+)(\\D+)(\\s+)(.*)";
