@@ -91,18 +91,6 @@ export class TrainingNavigationService {
     this.restartLabSubject.next();
   }
 
-  private openFullScreenSubject: Subject<void> = new Subject<void>();
-  public openFullScreen$ = this.openFullScreenSubject.asObservable();
-  public raiseOpenFullScreen() {
-    this.openFullScreenSubject.next();
-  }
-
-  private closeFullScreenSubject: Subject<void> = new Subject<void>();
-  public closeFullScreen$ = this.closeFullScreenSubject.asObservable();
-  public raiseCloseFullScreen() {
-    this.closeFullScreenSubject.next();
-  }
-
   private openWriteUpSubject: Subject<void> = new Subject<void>();
   public openWriteUp$ = this.openWriteUpSubject.asObservable();
   public raiseOpenWriteUp() {
@@ -113,5 +101,14 @@ export class TrainingNavigationService {
   public labHintClicked$ = this.labHintClickedSubject.asObservable();
   public raiseLabHintClicked() {
     this.labHintClickedSubject.next();
+  }
+
+  private fullScreenChangedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(undefined);
+  public fullScreenChanged$ = this.fullScreenChangedSubject.asObservable();
+  public raiseFullScreenChanged(isFullScreen: boolean) {
+    const currentValue = this.fullScreenChangedSubject.getValue();
+    if (isFullScreen !== currentValue) {
+      this.fullScreenChangedSubject.next(isFullScreen);
+    }
   }
 }
