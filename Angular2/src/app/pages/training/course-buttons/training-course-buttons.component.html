@@ -1,0 +1,36 @@
+<div class="fill">
+  <button type="button" (click)="onNext()" class="btn btn-primary bx-pull-right next">
+    {{nextButtonText}}
+  </button>
+
+  <button *ngIf="!isFullScreen" type="button" (click)="onOpenFullScreen()" class="btn btn-primary bx-pull-right next">
+    Full Screen
+  </button>
+
+  <button *ngIf="isFullScreen" type="button" (click)="onCloseFullScreen()" class="btn btn-primary bx-pull-right next">
+    Exit Full Screen
+  </button>
+
+  <ng-container *ngIf="runningLab">
+
+    <button  type="button" (click)="onRestartLab()" class="btn btn-primary bx-pull-right">
+      Restart Lab
+    </button>
+
+    <button type="button"
+            (click)="onShowWriteUp()"
+            class="btn btn-primary bx-pull-right">
+      Show Write-Up
+    </button>
+    <button type="button"
+            class="btn btn-primary bx-pull-right"
+            (click)="onHint()"
+            [ngbPopover]="hintContent">
+      Hint
+    </button>
+  </ng-container>
+</div>
+
+<ng-template #hintContent>
+  <span (click)="onHint()">{{runningLab.hint}}</span>
+</ng-template>

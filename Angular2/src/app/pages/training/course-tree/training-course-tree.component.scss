@@ -1,0 +1,28 @@
+div.fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 10px;
+
+  .tree {
+    width: 100%;
+  }
+
+  .node-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  .node-content-wrapper {
+    flex-grow: 1;
+    position: relative;
+  }
+
+  .pull-right {
+    position: absolute;
+    right: 10px;
+  }
+}

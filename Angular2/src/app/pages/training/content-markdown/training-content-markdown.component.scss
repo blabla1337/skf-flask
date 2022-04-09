@@ -1,0 +1,12 @@
+div.fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 10px;
+
+  markdown ::ng-deep img.max-width-100p {
+    max-width: 100%;
+  }
+}

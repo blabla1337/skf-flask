@@ -1,0 +1,40 @@
+li.clickable {
+  cursor: pointer;
+}
+
+div.fill {
+  position: relative;
+  height: calc(100vh - 70px - 60px - 60px - 85px);
+  min-height: calc(100vh - 70px - 60px - 60px - 85px);
+
+  div.tree-panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  div.right-side {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+
+    div.content-panel {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 10px;
+      bottom: 65px;
+    }
+
+    div.buttons-panel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 65px;
+    }
+  }
+}

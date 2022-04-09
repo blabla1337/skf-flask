@@ -1,0 +1,23 @@
+<ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+  <p class="loading">Loading, Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="currentView === 'None'" style="color: red">
+  No language defined for this lab
+</div>
+
+<app-training-content-lab-language
+  *ngIf="currentView === 'LanguageSelection'"
+  [lab]="lab"
+  (languageSelected)="onLanguageSelected($event)">
+</app-training-content-lab-language>
+
+<div *ngIf="currentView === 'Lab'" (click)="focus_iframe()" class="iframe-container">
+  <iframe id="iframe" #iframe class="fill"
+    *ngIf="safeLabUrl"
+    [src]="safeLabUrl">
+  </iframe>
+  <div *ngIf="labError">
+    {{labError}}
+  </div>
+</div>

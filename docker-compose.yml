@@ -29,7 +29,7 @@ services:
     restart: always
     image: nginx
     volumes:
-      - ./Docker/compose/site.conf:/etc/nginx/nginx.conf
+      - ./Docker/compose/minimal-site.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
 
@@ -40,51 +40,10 @@ services:
       - "nginx"
       - "mysql"
     restart: always
-    image: "skf-angular-9"
+    image: "blabla1337/skf-angular:alpha"
     environment:
       - FRONTEND_URI=http://localhost
-      #- AUTH_METHOD=openidprovider
-      #- API_ENDPOINT=
-      #- KUBERNETES_ENABLED=true
-      #- KRAKEND_ENDPOINT=http://localhost:8080
-      #- API_ENDPOINT=http://localhost:8080
-      #- OPENID_ISSUER='http://localhost:8100/auth/realms/krakend'
-      #- OPENID_REDIRECT_URI='http://localhost/auth/openid'
-      #- OPENID_CLIENT_ID='krakend'
-      #- OPENID_RESPONSE_TYPE='code'
-      #- OPENID_USE_SILENT_REFRESH=true
-      #- OPENID_SCOPE='openid profile email'
-
-
-  keycloak:
-    container_name: skf-keycloak_container
-    restart: always
-    image: jboss/keycloak:4.5.0.Final
-    environment:
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=admin
-      - KEYCLOAK_DEFAULT_THEME=custom 
-      - KEYCLOAK_WELCOME_THEME=keycloak 
-      - DB_VENDOR=h2
-    command: ["-Djboss.http.port=8100"]
-      # Uncomment for development purpose
-      # volumes:
-      #   - ${PWD}/keycloak/theme/custom:/opt/jboss/keycloak/themes/custom
-    ports:
-      - 8100:8100
-  
-  krakend:
-    container_name: skf-krakend_container
-    restart: always
-    image: devopsfaith/krakend
-    volumes:
-      - ./krakend/config:/etc/krakend
-    environment:
-      - FC_ENABLE=1
-      - FC_SETTINGS=settings
-      - FC_PARTIALS=partials
-    ports:
-      - "8080:8080"
+      - AUTH_METHOD=skiploginprovider
 
   skf-api:
     container_name: skf-api_container
@@ -95,7 +54,7 @@ services:
     restart: always
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
-    image: "skf-api"
+    image: "blabla1337/skf-api:alpha"
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=skf-api://api
@@ -105,9 +64,4 @@ services:
       - SKF_LABS_DOMAIN=http://localhost
       - SKF_LABS_DEPLOY_MODE=port
       - RABBIT_MQ_CONN_STRING=rabbitmq
-      - LABS_KUBE_CONF=YXBpVmVyc2lvbjogdjEKY2x1c3RlcnM6Ci0gY2x1c3RlcjoKICAgIGNlcnRpZmljY_update_me...
-      #- LABS_KUBE_CONF=base64_string_here_of_the_content_of_the .kube/config file_for_example: cat ~/.kube/config | base64      
-      #- GOOGLE_CREDENTIALS=base64_string_here_of_the_content_of_the gsa-key.json file_for_example: cat gsa-key.json | base64
-      #- SKF_LABS_DEPLOY_MODE=subdomain
-      #- JWT_ENABLED="False"
-      #- SKF_DOJO_API_KEY=
+      - LABS_KUBE_CONF=~/.kube/config

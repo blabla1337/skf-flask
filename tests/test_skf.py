@@ -519,6 +519,49 @@ class TestRestPlusApi(unittest.TestCase):
         response_dict = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response_dict['message'], "Code example item successfully deleted")
 
+    def test_training_data(self):
+        """Test profile items structure"""
+        headers = {'content-type': 'application/json'}
+        response = self.client.get('/api/training/profiles', headers=headers)
+        self.assertEqual(response.status_code, 200)
+        profiles_dict = json.loads(response.data.decode('utf-8'))
+        self.assertIn('profiles', profiles_dict)
+        self.assertGreater(len(profiles_dict['profiles']), 0)
+        ids = []
+        profiles = profiles_dict['profiles']
+        for profile in profiles:
+            self.assertEqual(sorted(list(profile.keys())), sorted(['id', 'iconClass', 'name', 'text']))
+            profile_id = profile['id']
+            ids.append(profile_id)
+            response = self.client.get('/api/training/profile/%s' % profile_id, headers=headers)
+            self.assertEqual(response.status_code, 200)
+            profile_dict = json.loads(response.data.decode('utf-8'))
+            self.assertIn('courses', profile_dict)
+            courses = profile_dict['courses']
+            for course in courses:
+                self.assertEqual(sorted(list(course.keys())), sorted(['id', 'iconClass', 'name', 'text']))
+                course_id = course['id']
+                ids.append(course_id)
+                response = self.client.get('/api/training/course/%s' % course_id, headers=headers)
+                self.assertEqual(response.status_code, 200)
+                course_dict = json.loads(response.data.decode('utf-8'))
+                self.assertIsNotNone(course_dict, "Missing course data with id %s" % course_id)
+                for key in ('assetsPath', 'id', 'topics'):
+                    self.assertIn(key, course_dict.keys(), "Missing \'%s\' in course %s" % (key, course_id))
+                self.assertTrue(set(course_dict.keys()).issubset(set(['assetsPath', 'content', 'date', 'id', 'languages', 'name', 'topics', 'version'])))
+                for topic in course_dict['topics']:
+                    self.assertIn('id', topic)
+                    topic_id = topic['id']
+                    ids.append(topic_id)
+                    self.assertIn('categories', topic)
+                    for category in topic['categories']:
+                        self.assertIn('id', category)
+                        category_id = category['id']
+                        ids.append(category_id)
+        seen = set()
+        dupes = [x for x in ids if x in seen or seen.add(x)]
+        self.assertEqual(len(dupes), 0, "Duplicate training ids: %s" % str(dupes))
+
 
     #def test_get_description_item(self):
     #    """Test if the description call is working"""

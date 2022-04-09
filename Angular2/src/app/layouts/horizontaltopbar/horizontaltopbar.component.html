@@ -8,7 +8,7 @@
 
 
       <div class="navbar-brand-box">
-        <a href="/" class="logo logo-light"> 
+        <a href="/" class="logo logo-light">
           <span id="skf-logo-text-small" class="logo-sm">
             <img src="assets/images/logo.svg" alt="" height="22">
             Security Knowledge Framework
@@ -122,7 +122,7 @@
           <!-- Menu data -->
           <ng-container>
             <li class="nav-item dropdown">
-              <a joyrideStep="dashContent" title="Dashboard landing page" [stepContent]="dashContent" class="nav-link" 
+              <a joyrideStep="dashContent" title="Dashboard landing page" [stepContent]="dashContent" class="nav-link"
                  routerLink="/dashboard" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-view-dashboard mr-2 d-xs-none"></i> Dashboard
               </a>
@@ -131,12 +131,12 @@
                   <a class="col dropdown-item side-nav-link-ref" *ngIf="!hasItems(subitem)" [routerLink]="subitem.link"
                     routerLinkActive="active">{{subitem.label}}</a>
                 </ng-template>
-              </div> --> 
+              </div> -->
             </li>
             <li class="nav-item dropdown">
               <a joyrideStep="projectContent" title="Projects" [stepContent]="projectContent" class="nav-link"
                  routerLink="/projects/manage" id="topnav-components" routerLinkActive="active" role="button">
-                <i class="mdi mdi-18px mdi-card-bulleted mr-2"></i> Manage Projects
+                <i class="mdi mdi-18px mdi-card-bulleted mr-2"></i> Projects
               </a>
             </li>
             <li class="nav-item dropdown">
@@ -154,7 +154,7 @@
             <li class="nav-item dropdown">
               <a joyrideStep="knowledgebaseContent" title="Knowledge base items" [stepContent]="knowledgebaseContent" class="nav-link"
                  routerLink="/knowledgebase/view" id="topnav-components" routerLinkActive="active" role="button">
-                <i class="mdi mdi-18px mdi-school mr-2"></i> Knowledgebase 
+                <i class="mdi mdi-18px mdi-school mr-2"></i> Knowledgebase
               </a>
             </li>
             <li *ngIf="priv.includes('manage')" class="nav-item dropdown">
@@ -167,6 +167,12 @@
               <a joyrideStep="labContent" title="Labs" [stepContent]="labContent" class="nav-link"
                  routerLink="/labs/view" id="topnav-components" routerLinkActive="active" role="button">
                 <i class="mdi mdi-18px mdi-flask mr-2"></i> Labs
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a joyrideStep="trainingContent" title="Training" [stepContent]="trainingContent" class="nav-link"
+                 routerLink="/training/profiles" id="topnav-components" routerLinkActive="active" role="button">
+                <i class="mdi mdi-18px mdi-book-open-variant mr-2"></i> Training
               </a>
             </li>
           </ng-container>
@@ -245,6 +251,14 @@
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
       <h6>Here you can view, deploy and stop the vulnerable labs to train your security verification skills.</h6>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #trainingContent>
+  <div class="card p-0">
+    <div class="card-body text-center px-0 mr-2 ml-2">
+      <h6>Here you can participate in trainings.</h6>
     </div>
   </div>
 </ng-template>

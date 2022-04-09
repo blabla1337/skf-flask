@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { JoyrideService } from 'ngx-joyride';
 import { ThemeService } from '../../core/services/theme.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppSettings } from '../../global';
 import { DOCUMENT } from '@angular/common';
 import { OAuthService } from 'angular-oauth2-oidc';
 
@@ -54,16 +53,16 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   ngOnInit(): void
   {
 
-    let token = sessionStorage.getItem("access_token")
+    let token = localStorage.getItem("access_token")
     
     if(token == ""){
-      sessionStorage.setItem("privilege", "manage")
+      localStorage.setItem("privilege", "manage")
     }
 
     if(environment.AUTH_METHOD == "openidprovider"){
       let decoded = atob(token.split('.')[1])
       if(decoded.match("admin")){
-        sessionStorage.setItem("privilege", "manage")
+        localStorage.setItem("privilege", "manage");
       }
     } 
     this.router.navigate(['/dashboard']);
@@ -85,7 +84,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
       .getChecklistCategoryCollection()
       .subscribe(data => this.categoryData = data);
 
-    this.themeName = sessionStorage.getItem('theme');
+    this.themeName = localStorage.getItem('theme');
     this.changeTheme(this.themeName);
     if (this.themeName === 'dark-theme.css') {
       this.dark = true;
@@ -117,7 +116,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     this.themeService.editTheme(theme);
     this.dark = true;
     this.light = false;
-    this.themeName = sessionStorage.getItem('theme');
+    this.themeName = localStorage.getItem('theme');
     this.changeTheme(this.themeName);
   }
 
@@ -131,7 +130,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     this.themeService.editTheme(theme);
     this.light = true;
     this.dark = false;
-    this.themeName = sessionStorage.getItem('theme');
+    this.themeName = localStorage.getItem('theme');
     this.changeTheme(this.themeName);
   }
 
@@ -268,7 +267,6 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
         showCounter: false,
       });
     }
-
   }
 
   /**
@@ -280,21 +278,17 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   {
     localStorage.setItem('categorySelector', platform);
     this.document.defaultView.location.reload();
-
-  }
-
-  onLogin()
-  {
-    this.router.navigate(['/auth/login']);
   }
 
   loggedOut()
   {
-    this.oauthService.revokeTokenAndLogout();
+    this.oauthService.logOut();
+    localStorage.clear();
     this.router.navigate(['/auth/login']);
   }
 
-  onChange() {
+  onChange() 
+  {
     localStorage.setItem('search',this.searchForm.value.search)
     this.router.navigate(['/search/index']);
   }

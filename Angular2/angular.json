@@ -29,6 +29,7 @@
             "styles": [
               "src/assets/scss/app.scss",
               "src/assets/scss/icons.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css",
               {
                 "input": "src/assets/scss/app-dark.scss",
                 "bundleName": "dark-theme",
@@ -41,7 +42,14 @@
               }
             ],
             "scripts": [
-              "src/assets/esheep/esheep.js"
+              "src/assets/esheep/esheep.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-javascript.min.js",
+              "node_modules/prismjs/components/prism-http.min.js",
+              "node_modules/prismjs/components/prism-java.min.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-python.min.js",
+              "node_modules/prismjs/components/prism-ruby.min.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -51,11 +59,38 @@
             "namedChunks": true
           },
           "configurations": {
-            "production": {
+            "minimal": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.min.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "extended": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ext.ts"
                 }
               ],
               "optimization": true,

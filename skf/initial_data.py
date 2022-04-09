@@ -19,6 +19,7 @@ from skf.database.project_sprints import ProjectSprint
 from skf.database.projects import Project
 from skf.database.question_results import QuestionResult
 from skf.database.checklist_kb_code_item import ChecklistKBCodeItem
+from skf.database.training import Training
 
 
 def load_initial_data():
@@ -11658,135 +11659,6 @@ def load_initial_data():
         db.session.commit()
 
         '''
-        Code review labs solutions
-        '''
-
-        lab_code_sol = LabItemCodeOptions("Denial Of Service")   
-        db.session.add(lab_code_sol)
-        db.session.commit()
-
-        lab_code_sol = LabItemCodeOptions("Exec Code")   
-        db.session.add(lab_code_sol)
-        db.session.commit()     
-
-        lab_code_sol = LabItemCodeOptions("Overflow")   
-        db.session.add(lab_code_sol)
-        db.session.commit()   
-
-        lab_code_sol = LabItemCodeOptions("Obtain Information")   
-        db.session.add(lab_code_sol)
-        db.session.commit()   
-
-        lab_code_sol = LabItemCodeOptions("Memory corruption")   
-        db.session.add(lab_code_sol)
-        db.session.commit()   
-        
-        lab_code_sol = LabItemCodeOptions("Gain privileges")   
-        db.session.add(lab_code_sol)
-        db.session.commit()   
-
-        lab_code_sol = LabItemCodeOptions("Obtain Information")   
-        db.session.add(lab_code_sol)
-        db.session.commit()   
-
-        lab_code_sol = LabItemCodeOptions("Bypass a restriction")   
-        db.session.add(lab_code_sol)
-        db.session.commit()   
-
-        lab_code_sol = LabItemCodeOptions("Directory traversal")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Filename injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Http response splitting")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Cross Site Request Forgery")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Sql Injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("File inclusion")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Cross Site Scripting")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Server side template injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Client side template injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("XML injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Xpath injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Ldap injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Race condition")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("CRLF injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Header injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Regular expression injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Expression language injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCodeOptions("Deserialization injection")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        '''
-        Code review labs
-        '''
-
-        lab_code_sol = LabItemCode("<?php system($input); ?>", 2, "hint: think hard", "php")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCode("<?php $query  = 'SELECT id, name FROM products ORDER BY name LIMIT 20 OFFSET $offset;'; ?>", 14, "hint: think hard", "php")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCode("System.Diagnostics.Process.Start('CMD.exe',strCommand);", 2, "hint: think hard", "asp")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-        lab_code_sol = LabItemCode("os.system($input)", 2, "hint: think hard", "python")   
-        db.session.add(lab_code_sol)
-        db.session.commit()  
-
-
-        '''
         SKF Labs
         '''
 
@@ -12259,6 +12131,9 @@ def load_initial_data():
         db.session.commit()
 
         db.session.add(LabItem('Juice Shop CTF','https://owasp.org/www-project-juice-shop/',3,'juice-shop-ctf','juice-shop',None))
+        db.session.commit()
+
+        db.session.add(LabItem('SKF Hack OS','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'hacking-v1','SKF-labs',None))
         db.session.commit()
 
         print('Initialized the initial data.')

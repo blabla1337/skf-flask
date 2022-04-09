@@ -19,7 +19,7 @@ export class LoggedInAuthGuard implements CanActivate {
 
         if(environment.AUTH_METHOD == "openidprovider"){
             this.oauthService.refreshToken();
-            var decodedToken = sessionStorage.getItem('expires_at');
+            var decodedToken = localStorage.getItem('expires_at');
             var date = new Date();
             
             if (Number(decodedToken) < date.getTime()/1000) {

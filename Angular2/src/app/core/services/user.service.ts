@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { v4 as uuidv4 } from 'uuid';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,22 @@ export class UserService
   ) { }
 
   public headers = new HttpHeaders({ 'Content-Type': 'application/json'});
+
+  getJwtUserId() {
+    try {
+      const jwtToken = sessionStorage.getItem("access_token");
+      if (jwtToken === undefined || jwtToken === "" || jwtToken === null ) {
+        localStorage.setItem("user_id",uuidv4());
+        return
+      }
+      const decodedJWT: any = jwt_decode(jwtToken);
+      sessionStorage.setItem("user_id",decodedJWT.sub);
+      return
+    } catch(e) {
+      console.error("jwt_decode error: ", e);
+      return
+    }
+  }
 
   activateUser(value: any, user_id: number): Observable<Object>
   {
