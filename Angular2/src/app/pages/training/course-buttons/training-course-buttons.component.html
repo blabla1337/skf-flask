@@ -24,8 +24,13 @@
     </button>
     <button type="button"
             class="btn btn-primary bx-pull-right"
-            [ngbPopover]="runningLab.hint">
+            (click)="onHint()"
+            [ngbPopover]="hintContent">
       Hint
     </button>
   </ng-container>
 </div>
+
+<ng-template #hintContent>
+  <span (click)="onHint()">{{runningLab.hint}}</span>
+</ng-template>

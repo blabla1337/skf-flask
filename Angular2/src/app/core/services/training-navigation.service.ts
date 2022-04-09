@@ -102,4 +102,16 @@ export class TrainingNavigationService {
   public raiseCloseFullScreen() {
     this.closeFullScreenSubject.next();
   }
+
+  private openWriteUpSubject: Subject<void> = new Subject<void>();
+  public openWriteUp$ = this.openWriteUpSubject.asObservable();
+  public raiseOpenWriteUp() {
+    this.openWriteUpSubject.next();
+  }
+
+  private labHintClickedSubject: Subject<void> = new Subject<void>();
+  public labHintClicked$ = this.labHintClickedSubject.asObservable();
+  public raiseLabHintClicked() {
+    this.labHintClickedSubject.next();
+  }
 }

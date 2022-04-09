@@ -37,9 +37,14 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
   }
 
   onShowWriteUp() {
+    this.trainingNavigationService.raiseOpenWriteUp();
     if (this.runningLab) {
       window.open(this.runningLab.writeup, "_blank");
     }
+  }
+
+  onHint() {
+    this.trainingNavigationService.raiseLabHintClicked();
   }
 
   @HostListener('document:fullscreenchange', ['$event'])
