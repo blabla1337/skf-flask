@@ -21,7 +21,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     return this._lab;
   }
 
-  @ViewChild("iframe") iframeFocus : ElementRef;
+  @ViewChild("iframe") iframe : ElementRef;
 
   @Input() set lab(value: Lab) {
     this._lab = value;
@@ -81,7 +81,9 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
   }
 
   focus_iframe(){
-    this.iframeFocus.nativeElement.focus();
+    if (this.iframe) {
+      this.iframe.nativeElement.focus();
+    }
   }
 
   showLab(languageCode: string) {
