@@ -3,8 +3,7 @@ from skf.database import db
 from skf.database.training import Training 
 from flask import abort
 from flask import current_app as app
-# TODO: #765 Enable cache for training module
-# from functools import lru_cache
+from functools import lru_cache
 import sys, json, yaml, copy
 
 
@@ -16,12 +15,12 @@ def _get_content_from_yml(path):
         result = json.loads(c_json)
     return result
 
-# @lru_cache
+@lru_cache
 def _get_training_profiles():
     result = _get_content_from_yml('training/profiles.yml')
     return result
 
-# @lru_cache
+@lru_cache
 def _get_training_course_files():
     result = {}
     training_profiles = copy.deepcopy(_get_training_profiles())
@@ -32,7 +31,7 @@ def _get_training_course_files():
     return result
 
 
-# @lru_cache
+@lru_cache
 def get_training_profile_items():
     log("User requested list training profiles", "LOW", "PASS")
     result = {}
@@ -43,7 +42,7 @@ def get_training_profile_items():
     result = training_profiles
     return result
 
-# @lru_cache
+@lru_cache
 def get_training_profile_item(profile_id):
     log("User requested training profile item", "LOW", "PASS")
     result = None
@@ -57,7 +56,7 @@ def get_training_profile_item(profile_id):
             break
     return result
 
-# @lru_cache
+@lru_cache
 def get_training_course_item(course_id):
     log("User requested training course item", "LOW", "PASS")
     result = None
