@@ -48,11 +48,12 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
         }
       }));
     }));
-    this.subscriptions.push(this.trainingNavigationService.openFullScreen$.subscribe(() => {
-      this.openFullscreen();
-    }));
-    this.subscriptions.push(this.trainingNavigationService.closeFullScreen$.subscribe(() => {
-      this.closeFullscreen();
+    this.subscriptions.push(this.trainingNavigationService.fullScreenChanged$.subscribe((isFullScreen) => {
+      if (isFullScreen) {
+        this.openFullscreen();
+      } else {
+        this.closeFullscreen();
+      }
     }));
   }
 

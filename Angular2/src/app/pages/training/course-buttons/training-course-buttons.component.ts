@@ -60,14 +60,15 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
     this.isFullScreen = doc.fullscreenElement
       || doc.webkitFullscreenElement
       || doc.mozFullScreenElement;
+    this.trainingNavigationService.raiseFullScreenChanged(this.isFullScreen);
   }
 
   onOpenFullScreen() {
-    this.trainingNavigationService.raiseOpenFullScreen();
+    this.trainingNavigationService.raiseFullScreenChanged(true);
   }
 
   onCloseFullScreen() {
-    this.trainingNavigationService.raiseCloseFullScreen();
+    this.trainingNavigationService.raiseFullScreenChanged(false);
   }
 
   ngOnDestroy(): void {

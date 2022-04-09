@@ -43,7 +43,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.trainingNavigationService.raiseOpenFullScreen();
+    this.trainingNavigationService.raiseFullScreenChanged(true);
 
     this.subscriptions.push(this.trainingNavigationService.nextClicked$.subscribe(() => {
       this.trainingNavigationService.raiseNextContentItem();
@@ -53,11 +53,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
       this.initLab();
     }));
 
-    this.subscriptions.push(this.trainingNavigationService.openFullScreen$.subscribe(() => {
-      this.focus_iframe();
-    }));
-
-    this.subscriptions.push(this.trainingNavigationService.closeFullScreen$.subscribe(() => {
+    this.subscriptions.push(this.trainingNavigationService.fullScreenChanged$.subscribe((isFullScreen) => {
       this.focus_iframe();
     }));
 
