@@ -22,11 +22,11 @@
 </div> <!-- container-fluid -->
 
 <div *ngIf="course" class="row fill">
-  <div class="tree-panel">
+  <div class="tree-panel" [ngStyle]="{width: leftSideWidth}">
     <app-training-course-tree [course]="course" [userId]="userId">
     </app-training-course-tree>
   </div>
-  <div class="right-side" #rightSide>
+  <div class="right-side" #rightSide [ngStyle]="{width: rightSideWidth}">
     <div class="content-panel">
       <app-training-course-content [course]="course" [userId]="userId">
       </app-training-course-content>

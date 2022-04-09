@@ -15,6 +15,8 @@ import {TrainingNavigationService} from '../../../core/services/training-navigat
 })
 export class TrainingCourseComponent implements OnInit, OnDestroy {
   @ViewChild('rightSide') private rightSide: ElementRef;
+  public leftSideWidth = '20%';
+  public rightSideWidth = '80%';
   public userId: string;
   public profile: Profile;
   public course: Course;
@@ -55,6 +57,9 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
   }
 
   private openFullscreen() {
+    this.leftSideWidth = '0%';
+    this.rightSideWidth = '100%';
+
     const elem = this.rightSide.nativeElement;
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
@@ -66,6 +71,9 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
   }
 
   private closeFullscreen() {
+    this.leftSideWidth = '20%';
+    this.rightSideWidth = '80%';
+
     const doc = document as any;
     if (doc.exitFullscreen) {
       doc.exitFullscreen();
