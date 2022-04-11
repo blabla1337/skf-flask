@@ -26,7 +26,7 @@ The OWASP Security Knowledge Framework is an open source web application that ex
 * [Development / Contributing](CONTRIBUTING.md)
 * [Scrum Board](#scrum-board)
 * [License](#license)
-* [Contributors](#contributors)
+* [Contributors](#contributors-main)
 
 ## <a name="introduction"></a>Introduction
 
@@ -141,21 +141,35 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 * [Owasp](http://owasp.com/index.php/Main_Page)  
 Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/3.0/nl/) license
 
-## <a name="contributors"></a>Contributors
-- [Imanuel Febie](https://github.com/tuffgniuz)
+## <a name="contributors-main"></a>Main Contributors
 - [Glenn ten Cate](https://twitter.com/FooBar_testing_)
 - [Riccardo ten Cate](https://twitter.com/RiieCco)
+- [Erik de Kuijper](https://twitter.com/edkpr)
+- Martin Knobloch
+- Rudy Truyens
+- Thiago Luiz Dimbarre
+- Volkan Dindar
+- Bruno Cortes Rodrigues
+- Sezer Toprak
+- Jacob O'Toole (on behalf of MeVitae)
+- Heeraj Nair
+- [Priyanka Jain](https://www.linkedin.com/in/priyanka997/)
+- Akash M
+- [Ionut Marius Breaz](https://www.linkedin.com/in/ionut-breaz-52b847a2/)
+- [Alexandru Stanciu](https://www.linkedin.com/in/alexandrustanciu)
+
+
+## <a name="contributors"></a>Contributors
+- [Imanuel Febie](https://github.com/tuffgniuz)
 - Lucas Luitjes
 - [Mattijs van Ommeren](https://twitter.com/alcyonsecurity)
 - [Alexander Kaasjager](https://twitter.com/akaasjager)
 - John Haley
 - Daniel Paulus
-- [Erik de Kuijper](https://twitter.com/edkpr)
 - Roderick Schaefer
 - [Jim Manico](https://twitter.com/manicode)
 - Martijn Gijsberti Hodenpijl
 - Bithin Alangot
-- Martin Knobloch
 - Adam Fisher
 - Tom Wirschell
 - Joerg Stephan
@@ -168,7 +182,6 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Laurence Keijmel
 - Rick Mitchell (Kingthorin)
 - Xenofon Vassilakopoulos
-- Heeraj Nair
 - Alpha Kitonga
 - [Wojciech Reguła](https://www.linkedin.com/in/wojciech-regula/) 
 - Amadeusz Starzykiewicz
@@ -177,22 +190,15 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Rafał Fronczyk
 - Chang Xu (Neo)
 - Martin Marsicano
-- [Priyanka Jain](https://www.linkedin.com/in/priyanka997/)
 - Chandrasekar Karthickrajan
 - Leena Bhegade
 - Balazs Hambalko
-- Rudy Truyens
 - Giulio Comi
 - Aniket Surwade
-- Thiago Luiz Dimbarre
 - Harshant Sharma
 - Semen Rozhkov
 - Mehtab Zafar 
 - Daniel Spilsbury
-- Akash M
 - Tess Sluijter
 - Xavier Rene-Corail
-- Jacob O'Toole (on behalf of MeVitae)
 - Luca Famà
-- [Ionut Marius Breaz](https://www.linkedin.com/in/ionut-breaz-52b847a2/)
-- [Alexandru Stanciu](https://www.linkedin.com/in/alexandrustanciu)
