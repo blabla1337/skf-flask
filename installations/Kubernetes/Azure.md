@@ -30,6 +30,15 @@ Make sure you only have the kube config content of the skf-labs cluster and not 
 
 4. For Azure, we will only describe how to set up the subdomain deployment mode.
 
+create the wildcard certificate for the labs subdomain:
+```
+certbot -d "*.securityknowledgeframework-labs.org" --manual --preferred-challenges dns certonly
+```
+
+Now use create the tls secret 
+```
+kubectl create secret tls securityknowledgeframework-labs.org --key /etc/letsencrypt/live/securityknowledgeframework-labs.org/privkey.pem --cert /etc/letsencrypt/live/securityknowledgeframework-labs.org/fullchain.pem  
+```
 In `configmaps.yaml`, set `SKF_LABS_DEPLOY_MODE` to `subdomain`.
 
 Now install the nginx ingress controller. With helm3, this can be installed using:
@@ -42,7 +51,9 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --set rbac.create=true \
     --set controller.publishService.enabled=true \
     --set controller.service.externalTrafficPolicy=Local \
-    --set controller.setAsDefaultIngress=true
+    --set controller.setAsDefaultIngress=true \
+    --set controller.extraArgs.default-ssl-certificate="default/securityknowledgeframework-labs.org"
+
 ```
 For helm2, the instructions are the same as below, for the main cluster.
 
@@ -91,9 +102,10 @@ helm init --service-account tiller
 
 6. Get a certificate e.g. a Let's Encrypt cert locally using something like:
 
+Create certificate for demo.
 ```
-certbot -d beta.securityknowledgeframework.org --manual --preferred-challenges dns certonly
-kubectl create secret tls beta.securityknowledgeframework.org --key privkey.pem --cert cert.pem
+certbot -d demo.securityknowledgeframework.org --manual --preferred-challenges dns certonly
+kubectl create secret tls demo.securityknowledgeframework.org --key privkey.pem --cert cert.pem
 ```
 
 For a production deployment, you're probably better off using
@@ -127,4 +139,4 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
 Add the IP of the ingress controller to your DNS records, setting the frontend domain (the domain in
 `FRONTEND_URI`).
 
-Now visit your website, for example: https://beta.securityknowledgeframework.org
+Now visit your website, for example: https://demo.securityknowledgeframework.org
