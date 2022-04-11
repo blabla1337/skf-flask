@@ -1,5 +1,6 @@
 *.pyc
 .DS_Store
+Docker/alpine-cloud/k8s/configmaps.yaml
 **/.__pycache__
 **/.DS_Store
 **/*.swp
