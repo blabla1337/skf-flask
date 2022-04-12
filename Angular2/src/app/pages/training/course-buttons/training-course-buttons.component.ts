@@ -56,11 +56,19 @@ export class TrainingCourseButtonsComponent implements OnInit, OnDestroy {
   }
 
   private checkFullScreen() {
-    const doc = document as any;
-    this.isFullScreen = doc.fullscreenElement
-      || doc.webkitFullscreenElement
-      || doc.mozFullScreenElement;
+    this.isFullScreen = this.isFullScreenActive();
     this.trainingNavigationService.raiseFullScreenChanged(this.isFullScreen);
+  }
+
+  private isFullScreenActive() {
+    const doc = document as any;
+    if (doc.fullscreenElement ||
+      doc.webkitFullscreenElement ||
+      doc.msFullscreenElement) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   onOpenFullScreen() {
