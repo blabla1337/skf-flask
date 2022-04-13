@@ -38,7 +38,7 @@ def deploy_container(rpc_body):
         for i in response.items:
             if(i.metadata.name == deployment):
                 get_host_port_from_response(response)
-    time.sleep(15)
+    time.sleep(18)
     response = get_service_exposed_ip(deployment, user_id)
     if subdomain_deploy:
         hostname = '{}-{}.{}'.format(deployment, user_id, labs_domain)

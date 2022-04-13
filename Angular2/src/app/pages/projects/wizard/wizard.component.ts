@@ -49,7 +49,7 @@ export class WizardComponent implements OnInit
     this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Wizard', active: true }];
 
     this.newSprintForm = this.formBuilder.group({
-      name: ['', Validators.required, { disabled: true }],
+      name: ['', Validators.required, null, { disabled: true }],
       description: ['', Validators.required],
       project_id: [],
     })
