@@ -63,11 +63,13 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
 
     const elem = this.rightSide.nativeElement;
     if (!this.isFullScreenActive()) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-      elem.msRequestFullscreen();
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
     }
   }
 
@@ -91,7 +93,8 @@ export class TrainingCourseComponent implements OnInit, OnDestroy {
     const doc = document as any;
     if (doc.fullscreenElement ||
       doc.webkitFullscreenElement ||
-      doc.msFullscreenElement) {
+      doc.msFullscreenElement ||
+      doc.webkitCurrentFullScreenElement) {
       return true;
     } else {
       return false;
