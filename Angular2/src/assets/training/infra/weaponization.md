@@ -15,6 +15,7 @@ Regularly targeted application layer services:
 - Domain Name System (DNS)
 - Hypertext Transfer Protocol (HTTP)
 - Server Message Block (SMB)
+
 How the services can be used by a malicious/weaponized software?
 
 ### File Transfer Protocol (FTP)
@@ -148,26 +149,26 @@ CVE (Common Vulnerabilities and Exposures) is a standard for identifying publicl
 
 **Searching for known finding by its CVE ID of CVE-2018-8414 belong to 'Microsoft Windows SetttingContent-ms**
 
-![Searching for known finding by its CVE ID of CVE-2018-8414 belong to 'Microsoft Windows SetttingContent-ms'](.assets/weaponization-mc-settingsContent-ms-CVE.png)
+![Searching for known finding by its CVE ID of CVE-2018-8414 belong to 'Microsoft Windows SetttingContent-ms'](assets/weaponization-mc-settingsContent-ms-CVE.png)
 
 **Search result of CVE-2018-8414 belong to 'Microsoft Windows SetttingContent-ms**
-![Search result of CVE-2018-8414 belong to 'Microsoft Windows SetttingContent-ms'](.assets/weaponization-mc-settingsContent-ms-CVE2.png)
+![Search result of CVE-2018-8414 belong to 'Microsoft Windows SetttingContent-ms'](assets/weaponization-mc-settingsContent-ms-CVE2.png)
 
 **Weaponization of 'Microsoft Windows SetttingContent-ms' extension allow to execute any commands**  
 
-![Weaponization of 'Microsoft Windows SetttingContent-ms' extension allow to execute any commands](<.assets/weaponization-mc-settingsContent-ms-CVE3.png>)
+![Weaponization of 'Microsoft Windows SetttingContent-ms' extension allow to execute any commands](assets/weaponization-mc-settingsContent-ms-CVE3.png)
 
 Similarly, Citrix ADC and Gateway allowed directory traversal vulnerability (CVE-2019-19781) that leads attacker to gain remote code execution on the server. Citrix appliance does not sanitize and writes to an XML file that is created on the local file system. While writing to an XML file does not directly have to lead to remote code execution injecting Perl Template Toolkit instructions and parsing the file as a template does lead to code execution.
 
 **Search result for known finding by its name 'Citrix ADC and Gateway Directory Traversal**
-![Search result for known finding by its name 'Citrix ADC and Gateway Directory Traversal'](.assets/weaponization-citrix-adc-CVE4.png)
+![Search result for known finding by its name 'Citrix ADC and Gateway Directory Traversal'](assets/weaponization-citrix-adc-CVE4.png)
 
 **Weaponization of 'Citrix ADC and Gateway Directory Traversal' allowing to execute any commands on the server**
 
-![Weaponization of 'Citrix ADC and Gateway Directory Traversal' allowing to execute any commands on the server](.assets/weaponization-citrix-adc-CVE5.png)
+![Weaponization of 'Citrix ADC and Gateway Directory Traversal' allowing to execute any commands on the server](assets/weaponization-citrix-adc-CVE5.png)
 
 **Execution OS commands as a result of weaponizing the publicly disclosed vulnerability**  
-![Execution OS commands as a result of weaponizing the publicly disclosed vulnerability](.assets/weaponization-citrix-adc-CVE6.png)
+![Execution OS commands as a result of weaponizing the publicly disclosed vulnerability](assets/weaponization-citrix-adc-CVE6.png)
 
 Official CVE Publications can be accessed via the following sources:
 
@@ -241,43 +242,43 @@ As a result, an unauthenticated attacker can execute arbitrary commands on Micro
 
 **Searching for known finding by its name as 'proxylogon' via ExploitDB**
 
-![Searching for known finding by its name as 'proxylogon' via ExploitDB](.assets/weaponization-proxylogon-CVE7.png)
+![Searching for known finding by its name as 'proxylogon' via ExploitDB](assets/weaponization-proxylogon-CVE7.png)
 
 **Searching for known finding by its name as 'proxylogon' via 'searchsploit'**
 
-![Searching for known finding by its name as 'proxylogon' via 'searchsploit'](.assets/weaponization-proxylogon-CVE10.png)
+![Searching for known finding by its name as 'proxylogon' via 'searchsploit'](assets/weaponization-proxylogon-CVE10.png)
 
 **Details of 'proxylogon' exploit via 'searchsploit'**
 
-![Details of 'proxylogon' exploit via 'searchsploit'](.assets/weaponization-proxylogon-CVE11.png)
+![Details of 'proxylogon' exploit via 'searchsploit'](assets/weaponization-proxylogon-CVE11.png)
 
 **Publicly published ProxyLogon Proof of Concept (PoC) Script**
 
-![Publicly published ProxyLogon Proof of Concept (PoC) Script](.assets/weaponization-proxylogon-CVE8.png)
+![Publicly published ProxyLogon Proof of Concept (PoC) Script](assets/weaponization-proxylogon-CVE8.png)
 
 **Weaponization of 'ProxyLogon' allowing to execute any commands on the server**
 
-![Weaponization of 'ProxyLogon' allowing to execute any commands on the server](.assets/weaponization-proxylogon-CVE9.png)
+![Weaponization of 'ProxyLogon' allowing to execute any commands on the server](assets/weaponization-proxylogon-CVE9.png)
 
 Similarly, searching for SQL injection vulnerability is using ExploitDB and searchsploit.
 
 **Searching for known finding by its name as 'Casdoor 1.13.0 SQL Injection' via 'searchsploit'**
 
-![Searching for known finding by its name as 'Casdoor 1.13.0 SQL Injection' via 'searchsploit'](.assets/weaponization-sqlinjection-CVE12.png)
+![Searching for known finding by its name as 'Casdoor 1.13.0 SQL Injection' via 'searchsploit'](assets/weaponization-sqlinjection-CVE12.png)
 
 **Searching for known finding by its name as 'Casdoor 1.13.0 SQL Injection' via ExploitDB**
 
-![Searching for known finding by its name as 'Casdoor 1.13.0 SQL Injection' via ExploitDB](.assets/weaponization-sqlinjection-CVE13.png)
+![Searching for known finding by its name as 'Casdoor 1.13.0 SQL Injection' via ExploitDB](assets/weaponization-sqlinjection-CVE13.png)
 
 **Weaponization of 'SQL Injection' allowing to execute any SQL queries on the server**
 
-![Weaponization of 'SQL Injection' allowing to execute any SQL queries on the server](.assets/weaponization-sqlinjection-CVE14.png)
+![Weaponization of 'SQL Injection' allowing to execute any SQL queries on the server](assets/weaponization-sqlinjection-CVE14.png)
 
 ## References
 
 [^metasploit_telnet]: [Metasploit Scanner Telnet Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-telnet-auxiliary-modules/)
 
-[^metasploit_telnet]: [Metasploit Scanner FTP Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-ftp-auxiliary-modules/)
+[^metasploit_ftp]: [Metasploit Scanner FTP Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-ftp-auxiliary-modules/)
 
 [^metasploit_ssh_enumusers]: [Metasploit Scanner SSH User Enumeration Auxiliary Module](https://www.rapid7.com/db/modules/auxiliary/scanner/ssh/ssh_enumusers/)
 
