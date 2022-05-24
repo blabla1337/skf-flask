@@ -2,7 +2,7 @@
 import os, pika, random, re, time
 from attr import asdict
 from skf import settings
-from kubernetes import client, config
+from kubernetes import client, config, watch
 
 from sys import stderr
 
@@ -24,6 +24,21 @@ if subdomain_deploy:
 else:
     print('Port deploy using {}:<port>'.format(labs_domain))
 
+def wait_get_completed_podphase(release, user_id):
+    config.load_kube_config()
+    api_instance = client.CoreV1Api()
+    w = watch.Watch()
+    for event in w.stream(
+            api_instance.list_namespaced_pod,
+            namespace=user_id,
+            timeout_seconds=3):
+        resource_name = event['object'].metadata.name
+        if release in resource_name:
+            pod_state = event['object'].status.phase
+            if pod_state == 'Running':
+                w.stop()
+                return pod_state
+
 def deploy_container(rpc_body):
     user_id = string_split_user_id(rpc_body)
     deployment = string_split_deployment(rpc_body)
@@ -38,7 +53,6 @@ def deploy_container(rpc_body):
         for i in response.items:
             if(i.metadata.name == deployment):
                 get_host_port_from_response(response)
-    time.sleep(18)
     response = get_service_exposed_ip(deployment, user_id)
     if subdomain_deploy:
         hostname = '{}-{}.{}'.format(deployment, user_id, labs_domain)
@@ -106,7 +120,7 @@ def create_deployment(deployment, user_id):
         return {'message': 'Failed to deploy, error K8s API create call!'} 
 
 def create_service_for_deployment(deployment, user_id):
-    config.load_kube_config()
+    config.load_kube_config()           
     api_instance = client.CoreV1Api()
     service = client.V1Service()
     service.api_version = "v1"
@@ -120,6 +134,11 @@ def create_service_for_deployment(deployment, user_id):
     spec.ports = [client.V1ServicePort(protocol="TCP", port=random_port, target_port=5000)]
     service.spec = spec
     response = api_instance.create_namespaced_service(namespace=user_id, body=service)
+    while True:
+        test = wait_get_completed_podphase(deployment,user_id)
+        if test == "Running":
+            print("Pod has started and is running")
+            break
     return random_port
 
 def get_service_exposed_ip(deployment, user_id):
