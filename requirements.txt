@@ -18,7 +18,7 @@ MarkupSafe==1.1.1
 #pandas==1.0.5
 pika==1.1.0
 pycparser==2.20
-PyJWT==2.0.1
+PyJWT==2.4.0
 PyMySQL==1.0.2
 pytest==6.2.2
 pytz==2021.1
