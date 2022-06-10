@@ -29,8 +29,3 @@ code_items = api.inherit('List of code example items', {
 message = api.model('Response message', {
     'message': fields.String(required=True, description='Response message'),
 })
-
-
-code_items_checklist_kb_all = api.inherit('List of code example items', {
-    'items': fields.List(fields.Nested(checklist_kb_code_item))
-})
