@@ -65,7 +65,6 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
         localStorage.setItem("privilege", "manage");
       }
     } 
-    this.router.navigate(['/dashboard']);
     
     this.element = document.documentElement;
 

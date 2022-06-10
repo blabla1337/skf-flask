@@ -1,0 +1,24 @@
+<div class="container-fluid">
+
+    <app-page-title title="Knowledgebase" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="col-sm-8">
+                        <h4 class="card-title text-primary">{{knowledgebaseItem.title}}</h4>
+                    </div>
+                    <div class="card shadow-none border card-body mb-3">
+                        <pre style="overflow-x: auto;white-space: pre-wrap;
+                            white-space: -moz-pre-wrap;white-space: -pre-wrap;
+                            white-space: -o-pre-wrap;word-wrap: break-word;
+                            ">{{knowledgebaseItem.content}}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

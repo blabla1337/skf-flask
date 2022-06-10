@@ -32,8 +32,10 @@ import { ManageComponent } from './users/manage/manage.component';
 import { ViewCodeComponent } from './code-example/view/view.component';
 import { UpdateCodeComponent } from './code-example/update/update.component';
 import { CreateCodeComponent } from './code-example/create/create.component';
+import { HardLinkCodeComponent } from './code-example/hard-link/hard-link.component';
 import { ViewKnowledebaseComponent } from './knowledgebase/view/view.component';
 import { CreateComponent } from './knowledgebase/create/create.component';
+import { HardLinkKBComponent } from './knowledgebase/hard-link/hard-link.component';
 import { UpdateComponent } from './knowledgebase/update/update.component';
 import { ViewComponent } from './checklists/view/view.component';
 import { ChecklistsReadComponent } from './checklists/read/read.component';
@@ -63,7 +65,7 @@ import { Page500Component } from './extra/page500/page500.component';
 
 @NgModule({
   declarations: [
-    ManageComponent, ViewCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent, CategoryManageComponent,
+    ManageComponent, ViewCodeComponent, HardLinkKBComponent, HardLinkCodeComponent, UpdateCodeComponent, CreateCodeComponent, ViewKnowledebaseComponent, CategoryManageComponent,
     ViewComponent, ProjectManageComponent, ProjectViewComponent, UserCreateComponent, AddRequirementComponent, UpdateQuestionnaireComponent,
     ChecklistsReadComponent, CheckManageComponent, WizardComponent, CreateCategoryComponent,
     LabReadComponent, LabViewComponent, SummaryComponent, UserUpdateComponent, UpdateRequirementComponent, UpdateCategoryComponent,
