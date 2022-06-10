@@ -34,16 +34,16 @@ services:
       - "80:80"
 
 
-  skf-angular:
-    container_name: skf-angular_container
-    depends_on:
-      - "rabbitmq"
-      - "nginx"
-      - "mysql"
-    restart: always
-    image: "riiecco/skf-angular-extended:1.3"
-    environment:
-      - FRONTEND_URI=http://localhost
+#  skf-angular:
+#    container_name: skf-angular_container
+#    depends_on:
+#      - "rabbitmq"
+#      - "nginx"
+#      - "mysql"
+#    restart: always
+#    image: "riiecco/skf-angular-extended:1.3"
+#    environment:
+#      - FRONTEND_URI=http://localhost
 
   keycloak:
     container_name: skf-keycloak_container

@@ -23,7 +23,6 @@ export class SummaryComponent implements OnInit
   private sub: any = [];
   public id: number;
   public sprintData: any = [];
-  public codeData: any = [];
   public complianceForm: FormGroup;
   public routerId;
   public delete: string;
@@ -110,13 +109,6 @@ export class SummaryComponent implements OnInit
     });
     this._sprintService.getSprintChecklistResults(this.id).subscribe(sprint => this.sprintData = sprint)
   }
-
-
-  getCodeExamples(checklist_kb_id: number)
-  {
-    this._codeExampleService.getChecklistKbCodeItems(checklist_kb_id).subscribe(code => this.codeData = code)
-  }
-  
 
   newCompliance(item: number){
     this.submit = true;
