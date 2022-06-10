@@ -108,21 +108,6 @@
                           </div>
                         </ng-template>
                       </li>
-                      <li [ngbNavItem]="2" (click)="getCodeExamples(item.checklist_id)">
-                        <a ngbNavLink>Code/Test</a>
-                        <ng-template ngbNavContent>
-                          <div class="card shadow-none border">
-                            <div class="card-body">
-                              <span *ngFor="let item of codeData.items">
-                                <h4>{{item.code_lang}} - {{item.title}} </h4>
-                                <pre>
-                                 <!--<code [highlight]="item.content" lineNumbers="True"></code>-->
-                              </pre>
-                              </span>
-                            </div>
-                          </div>
-                        </ng-template>
-                      </li>
                       <li *ngIf="priv.includes('manage')" [ngbNavItem]="3">
                         <a ngbNavLink>Compliance</a>
                         <ng-template ngbNavContent>
