@@ -282,7 +282,6 @@ CREATE TABLE `checklists_kb` (
 `content` varchar(255),
 `question_id` int(11),
 `kb_id` int(11),
-`include_always` varchar(5),
 `checklist_type` int(11),
 `add_resources` varchar(255)
 ); 
