@@ -44,7 +44,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the update specific checklist item call is working"""
          
         headers = {'content-type': 'application/json'}
-        payload = {"content": "This is a updated checklist item", "kb_id": 319, "checklist_id": "1.9.1", "maturity": 2, "include_always": "False", "question_id": 8, "add_resources": "http://google.com" }
+        payload = {"content": "This is a updated checklist item", "kb_id": 319, "checklist_id": "1.9.1", "maturity": 2, "question_id": 8, "add_resources": "http://google.com" }
         response = self.client.put('/api/checklist/update/item/19', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))
@@ -149,7 +149,7 @@ class TestRestPlusApi(unittest.TestCase):
         """Test if the create new checklist item call is working"""
          
         headers = {'content-type': 'application/json'}
-        payload = {"content": "This is a new checklist item", "maturity": 1, "kb_id": 12, "include_always": "False", "question_id": 0, "checklist_id": "14.5.41", "add_resources": "http://test.com" }
+        payload = {"content": "This is a new checklist item", "maturity": 1, "kb_id": 12, "question_id": 0, "checklist_id": "14.5.41", "add_resources": "http://test.com" }
         response = self.client.put('/api/checklist/new/item/type/13', data=json.dumps(payload), headers=headers)
         self.assertEqual(response.status_code, 200)
         response_dict = json.loads(response.data.decode('utf-8'))

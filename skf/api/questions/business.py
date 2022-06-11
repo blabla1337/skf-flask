@@ -21,7 +21,7 @@ def get_question_by_id(question_id):
     result = Question.query.filter(Question.id == question_id).first()
     return result
 
-def store_questions(checklist_type, maturity, data):
+def store_questions(maturity, data):
     log("User stored new sprint question list", "MEDIUM", "PASS")
     #Store the result of the questionaire if answer was true in checklists_kb
     for result in data.get('questions'):
@@ -29,35 +29,23 @@ def store_questions(checklist_type, maturity, data):
         sprint_id = result['sprint_id']
         question_id = result['question_id']
         if result['result'] == "True":
-            checklists = select_checklist_items_by_maturity(maturity, question_id, checklist_type)
-            store_question_results(checklists, project_id, sprint_id, checklist_type)
+            checklists = select_checklist_items_by_maturity(maturity, question_id)
+            store_question_results(checklists, project_id, sprint_id)
     #Also check for the include always marked items so they are taken in account
-    checklists_always = select_checklist_items_by_maturity_include_always(maturity, checklist_type)
-    store_question_results_include_always(checklists_always, project_id, sprint_id, checklist_type)
     return {'message': 'Sprint successfully created'}
 
 
-def select_checklist_items_by_maturity(maturity, question_id, checklist_type):
+def select_checklist_items_by_maturity(maturity, question_id):
     switcher = {
-        1: ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).filter(ChecklistKB.maturity == 1).filter(ChecklistKB.include_always == 0).all(),
-        2: ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2)).filter(ChecklistKB.include_always == 0).all(),
-        3: ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.checklist_type == checklist_type).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2, ChecklistKB.maturity == 3)).filter(ChecklistKB.include_always == 0).all(),
+        1: ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(ChecklistKB.maturity == 1).all(),
+        2: ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2)).all(),
+        3: ChecklistKB.query.filter(ChecklistKB.question_id == question_id).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2, ChecklistKB.maturity == 3)).all(),
     }
     func = switcher.get(maturity, lambda: "Invalid search")
     return func
 
 
-def select_checklist_items_by_maturity_include_always(maturity, checklist_type):
-    switcher = {
-        1: ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).filter(ChecklistKB.maturity == 1).all(),
-        2: ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2)).all(),
-        3: ChecklistKB.query.filter(ChecklistKB.include_always == 1).filter(ChecklistKB.checklist_type == checklist_type).filter(or_(ChecklistKB.maturity == 1, ChecklistKB.maturity == 2, ChecklistKB.maturity == 3)).all(),
-    }
-    func = switcher.get(maturity, lambda: "Invalid search")
-    return func
-
-
-def store_question_results(checklists, project_id, sprint_id, checklist_type):
+def store_question_results(checklists, project_id, sprint_id):
     try:
         for row in checklists:
             checklist = ChecklistResult(1, 0, 0)
@@ -65,27 +53,10 @@ def store_question_results(checklists, project_id, sprint_id, checklist_type):
             checklist.sprint_id = sprint_id
             checklist.kb_id = row.kb_id
             checklist.checklist_id = row.id
-            checklist.checklist_type_id = checklist_type
             db.session.add(checklist)
             db.session.commit()
     except:
         abort(400, "error storing checklist results")
-
-
-def store_question_results_include_always(checklists, project_id, sprint_id, checklist_type):
-    try:
-        for row in checklists:
-            checklists = ChecklistResult(1, 0, 0)
-            checklists.project_id = project_id
-            checklists.sprint_id = sprint_id
-            checklists.kb_id = row.kb_id
-            checklists.checklist_id = row.id
-            checklists.checklist_type_id = checklist_type
-            db.session.add(checklists)
-            db.session.commit()
-    except:
-        abort(400, "error storing checklist results - include always")
-
 
 def new_question(data):
     log("User created new sprint question item", "MEDIUM", "PASS")

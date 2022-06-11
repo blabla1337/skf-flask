@@ -79,11 +79,10 @@ def create_checklist_type(data, category_id):
 
 def create_checklist_item(checklist_type, data):
     log("User requested create a new checklist item", "LOW", "PASS")
-    include_always = convert_boolean_type(data.get('include_always'))
     question_id = convert_question_id_to_none(data.get('question_id'))
     if validate_duplicate_checklist_item(data.get('checklist_id'), checklist_type) == True:
         try:
-            checklist_item = ChecklistKB(data.get('checklist_id'), data.get('content'), checklist_type, include_always, data.get('add_resources'), data.get('maturity'))
+            checklist_item = ChecklistKB(data.get('checklist_id'), data.get('content'), checklist_type, data.get('add_resources'), data.get('maturity'))
             checklist_item.question_id = question_id
             checklist_item.kb_id = data.get('kb_id')
             db.session.add(checklist_item)
@@ -127,13 +126,11 @@ def update_checklist_type(id, data):
 
 def update_checklist_item(id, data):
     log("User requested update a specific checklist item", "LOW", "PASS")
-    include_always = convert_boolean_type(data.get('include_always'))
     question_id = data.get('question_id')
     if question_id == 0:
         question_id = None
     result_checklist_kb = ChecklistKB.query.filter(ChecklistKB.id == id).one()
     result_checklist_kb.content = data.get('content')
-    result_checklist_kb.include_always = include_always
     result_checklist_kb.question_id = question_id
     result_checklist_kb.add_resources = data.get('add_resources')
     result_checklist_kb.kb_id = data.get('kb_id')

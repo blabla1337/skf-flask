@@ -11,7 +11,6 @@ checklist = api.model('checklists_kb', {
     'checklist_items_checklist_id': fields.String(attribute='checklist_id', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='content', required=True, description='Checklist content'),
     'checklist_items_type': fields.Integer(attribute='checklist_type', required=True, description='Checklist type'),
-    'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
@@ -25,7 +24,6 @@ checklist_item = api.model('checklist_item', {
     'checklist_id': fields.String(attribute='checklist_id', required=False, description='The unique identifier of a checklist item'),
     'content': fields.String(attribute='content', required=True, description='Checklist content'),
     'checklist_type': fields.Integer(attribute='checklist_type', required=False, description='Checklist type'),
-    'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
@@ -40,7 +38,6 @@ checklist_questions = api.model('checklists_kb', {
     'checklist_items_checklist_id': fields.String(attribute='checklist_id', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='content', required=True, description='Checklist content'),
     'checklist_items_type': fields.Integer(attribute='checklist_type', required=True, description='Checklist type'),
-    'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'questions': fields.String(attribute='questions.question', required=True, description='correlated question!'),
 })
@@ -73,7 +70,6 @@ checklist_type_items = api.inherit('List of checklist types', {
 checklist_create_update = api.model('checklist_kb', {
     'content': fields.String(required=True, description='Checklist content'),
     'kb_id': fields.Integer(required=False, description='The unique identifier of a kb item for this checklist item'),
-    'include_always': fields.String(required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(required=False, description='The sprint question unique identifier this checklist belongs to'),
     'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
