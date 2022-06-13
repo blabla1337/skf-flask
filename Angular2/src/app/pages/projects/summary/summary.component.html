@@ -1,5 +1,10 @@
+<div *ngIf="clipped==true" 
+style="text-align:center; position:fixed; z-index: 500 !important; width:50%; margin-left:25%;" 
+class="alert alert-primary" 
+role="alert">
+CLipped to clipboard!
+</div>
 <div class="container-fluid">
-
   <app-page-title title="Sprint result" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   <div class="row">
     <div class="col lg 12">
@@ -34,7 +39,7 @@
                       <h5 class="text-dark">
                         <i
                           class="mdi mdi-18px mdi-text-box-check mr-2 text-warning"></i><b>{{item.checklist_items_checklist_id}}</b>&nbsp;&nbsp;{{item.checklist_items_content}}
-                      </h5>
+                        </h5>
                     </div>
                     <div *ngIf="item.checklist_items_maturity==2" class="col-sm-10">
                       <h5 class="text-dark">
@@ -62,6 +67,7 @@
                           title="Security requirement additional information" [stepContent]="resultControlKB">
                           Click here
                         </button>
+                        <i style="float:right; margin-left:10px" (click)="copyText(item.checklist_items_checklist_id, item.checklist_items_content)" class="fa fa-clipboard" aria-hidden="true"></i>
                       </div>
                     </div>
                   </div>
