@@ -92,9 +92,9 @@
                       <div class="form-group">
                         <label for="category-input"></label>
                         <div *ngIf="checklistData">
-                          <li *ngFor="let item of checklistData.items">
+                          <li style="list-style-type: none;" *ngFor="let item of checklistData.items">
                             <input (change)="selectQuestionaireOnChange(item.id)" type="checkbox" id="{{item.id}}" name="subscribe" value="newsletter">
-                            <label for="{{item.id}}"> {{item.title}} </label>
+                            <label for="{{item.id}}">&nbsp;{{item.title}} </label>
                         </li>
                         </div>
                       </div>
