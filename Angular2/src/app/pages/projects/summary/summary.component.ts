@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppSettings } from '../../../global';
+import { ClipboardService } from 'ngx-clipboard';
 
 import { SprintService } from '../../../core/services/sprint.service';
 import { CodeExamplesService } from '../../../core/services/code-examples.service';
@@ -27,6 +28,7 @@ export class SummaryComponent implements OnInit
   public routerId;
   public delete: string;
   public priv: string;
+  public clipped: boolean = false;
 
   // Form Submission
   public submit: boolean;
@@ -42,7 +44,8 @@ export class SummaryComponent implements OnInit
     private route: ActivatedRoute,
     private _sprintService: SprintService,
     private _codeExampleService: CodeExamplesService,
-    private router: Router
+    private router: Router,
+    private clipboardApi: ClipboardService
   ) { }
 
 
@@ -159,6 +162,16 @@ export class SummaryComponent implements OnInit
     if (this.delete == 'DELETE') {
       this._sprintService.deleteControlsFromSprint(control_id).subscribe(x => this.getSprintItems());
     }
+  }
+
+  copyText(id, content) {
+    let clippy = id + " " + content
+    this.clipboardApi.copyFromContent(clippy)
+    this.clipped = true;
+    setTimeout(() =>
+    {
+      this.clipped = false;
+    }, 3000);
   }
 
   onSubmit()
