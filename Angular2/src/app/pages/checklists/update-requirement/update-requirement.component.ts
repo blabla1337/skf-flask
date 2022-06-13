@@ -23,7 +23,6 @@ export class UpdateRequirementComponent implements OnInit
   private sub: any;
   public questionData: any = [];
   public knowledgeData: any = [];
-  public include_always: any = [];
   public categoryId = Number(localStorage.getItem("categorySelector"))
   public checklistId = Number(localStorage.getItem("checklist_id"))
   public kbitem: string[];
@@ -42,8 +41,6 @@ export class UpdateRequirementComponent implements OnInit
   {
     this.breadCrumbItems = [{ label: 'Checklists' }, { label: 'Update requirements', active: true }];
 
-    this.include_always = ['True', 'False']
-
     this.sub = this.route.params.subscribe(params =>
     {
       this.id = +params['id'];
@@ -52,7 +49,6 @@ export class UpdateRequirementComponent implements OnInit
     this.validationform = this.formBuilder.group({
       checklist_id: ['', [Validators.required]],
       content: ['', [Validators.required]],
-      include_always: ['', [Validators.required]],
       kb_id: ['', [Validators.required]],
       maturity: ['', [Validators.required]],
       question_id: ['', [Validators.required]],
@@ -85,7 +81,6 @@ export class UpdateRequirementComponent implements OnInit
         kb_id: kb_item,
         content: item['content'],
         question_id: question,
-        include_always: item['include_always'],
         maturity: item['maturity'],
         add_resources: item['add_resources']
       });

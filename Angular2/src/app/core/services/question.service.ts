@@ -40,10 +40,10 @@ export class QuestionService
         return this.http.put(environment.API_ENDPOINT + `/api/questions/item/update/${question_id}`, value, { headers: this.headers })
     }
 
-    storeSprintQuestions(checklist_type: number, maturity: number, questions: any[]): Observable<Object>
+    storeSprintQuestions(maturity: number, questions: any[]): Observable<Object>
     {
         return this.http
-            .put(environment.API_ENDPOINT + `/api/questions/store/${checklist_type}/${maturity}`, JSON.stringify({ questions }),
+            .put(environment.API_ENDPOINT + `/api/questions/store/${maturity}`, JSON.stringify({ questions }),
                 { headers: this.headers })
     }
 }

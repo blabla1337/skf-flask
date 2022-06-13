@@ -81,12 +81,16 @@ export class WizardComponent implements OnInit
   {
     localStorage.removeItem("checklist_type_id")
     localStorage.setItem("checklist_type_id", checklist_type_id.toString())
-    this._questionService.getQuestionCollection(checklist_type_id).subscribe(question => this.questionData = question);
+    this._questionService.getQuestionCollection(checklist_type_id).subscribe(question => { 
+      this.questionData = [...this.questionData, ...question["items"]]
+      console.log(this.questionData)
+    });
   }
 
   selectSprints()
   {
     this._sprintService.getSprintsCollection(this.project_id).subscribe(sprint => this.sprintData = sprint)
+    console.log(this.sprintData)
   }
 
   selectMaturityOnChange(maturity_id: number)
@@ -147,7 +151,6 @@ export class WizardComponent implements OnInit
           'sprint_id': Number(localStorage.getItem("sprint_id")),
           'question_id': Number(sprint_items['answer' + i]),
           'result': 'True',
-          'checklist_type': Number(localStorage.getItem("checklist_type_id"))
         });
       }
     }
@@ -158,14 +161,12 @@ export class WizardComponent implements OnInit
         'sprint_id': Number(localStorage.getItem("sprint_id")),
         'question_id': 0,
         'result': 'True',
-        'checklist_type': Number(localStorage.getItem("checklist_type_id"))
       });
     }
 
     setTimeout(() =>
     {
       this._questionService.storeSprintQuestions(
-        Number(localStorage.getItem("checklist_type_id")),
         Number(localStorage.getItem("maturity")),
         this.sprintStore)
         .subscribe(()=>{
@@ -174,4 +175,11 @@ export class WizardComponent implements OnInit
         });
     }, 2000);
   }
+
+
+
+  updateAllComplete(value){
+    console.log(value)
+  }
+
 }

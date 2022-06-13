@@ -18,7 +18,6 @@ class ChecklistItemNew(Resource):
         data = request.json
         val_alpha_num_special(data.get('content'))
         val_alpha_num_special(data.get('checklist_id'))
-        val_alpha_num(data.get('include_always'))
         val_num(data.get('question_id'))
         val_num(data.get('kb_id'))
         val_num(data.get('maturity'))

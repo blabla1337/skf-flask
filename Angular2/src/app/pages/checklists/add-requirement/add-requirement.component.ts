@@ -22,7 +22,6 @@ export class AddRequirementComponent implements OnInit
   public submit: boolean;
   public questionData: any = [];
   public knowledgeData: any = [];
-  public include_always: any = [];
   public categoryId = Number(localStorage.getItem("categorySelector"));
   public checklistId = Number(localStorage.getItem("checklist_id"));
   public routerId;
@@ -41,7 +40,6 @@ export class AddRequirementComponent implements OnInit
     this.validationform = this.formBuilder.group({
       checklist_id: ['', [Validators.required]],
       content: ['', [Validators.required]],
-      include_always: ['False', [Validators.required]],
       kb_id: ['Please select knowledgebase item', [Validators.required]],
       maturity: ['', [Validators.required]],
       question_id: ['Please select question', [Validators.required]],
@@ -49,7 +47,6 @@ export class AddRequirementComponent implements OnInit
     });
 
     this.submit = false;
-    this.include_always = ['True', 'False']
     this._fetchData();
   }
 

@@ -70,9 +70,7 @@ from skf.api.code.endpoints.code_items import ns as code_namespace
 from skf.api.code.endpoints.code_items_new import ns as code_namespace
 from skf.api.code.endpoints.code_item_delete import ns as code_namespace
 from skf.api.code.endpoints.code_item_update import ns as code_namespace
-from skf.api.code.endpoints.checklist_kb_code_items_delete import ns as code_namespace
-from skf.api.code.endpoints.checklist_kb_code_items_new import ns as code_namespace
-from skf.api.code.endpoints.checklist_kb_code_items import ns as code_namespace
+
 from skf.api.kb.endpoints.kb_items import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item import ns as kb_namespace
 from skf.api.kb.endpoints.kb_item_update import ns as kb_namespace
