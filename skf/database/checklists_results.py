@@ -14,7 +14,7 @@ class ChecklistResult(db.Model):
     status = db.Column(db.Integer, nullable=True)
     kb_id = db.Column(db.Integer, db.ForeignKey("kb_items.kb_id"), nullable=True)
     kb_items = db.relationship("KBItem", backref=db.backref(''))  
-    checklist_type_id = db.Column(db.Integer, db.ForeignKey("checklist_types.id"))
+    checklist_type_id = db.Column(db.Integer, db.ForeignKey("checklist_types.id"), nullable=True)
     checklist_type = db.relationship('ChecklistType', backref=db.backref(""))
     evidence = db.Column(db.Text, nullable=True)
     resolved = db.Column(db.Boolean, nullable=True)

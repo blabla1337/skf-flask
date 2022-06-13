@@ -90,13 +90,12 @@
                     <div class="col pt-3">
                       <h4>Category</h4>
                       <div class="form-group">
-                        <label for="category-input">Select Category</label>
+                        <label for="category-input"></label>
                         <div *ngIf="checklistData">
-                          <select #mySelectQuestion (change)="selectQuestionaireOnChange(mySelectQuestion.value)"
-                            class="custom-select" id="category-input">
-                            <option value="">--Select--</option>
-                            <option *ngFor="let item of checklistData.items" value="{{item.id}}">{{item.title}}</option>
-                          </select>
+                          <li style="list-style-type: none;" *ngFor="let item of checklistData.items">
+                            <input (change)="selectQuestionaireOnChange(item.id)" type="checkbox" id="{{item.id}}" name="subscribe" value="newsletter">
+                            <label for="{{item.id}}">&nbsp;{{item.title}} </label>
+                        </li>
                         </div>
                       </div>
                     </div>
@@ -124,17 +123,18 @@
                     <div class="col pt-3">
                       <h4 class="mb-3">Configure this sprint</h4>
                       <div *ngIf="questionData">
-                        <div class="row mb-2" *ngFor="let item of questionData.items; let i = index;">
+                        <div class="row mb-2" *ngFor="let item of questionData; let i = index;">
                           <div class="col-9">
-                            <p class="text-left font-size-15">{{item.question}}</p>
+                            <p class="text-left font-size-15">{{item["question"]}}</p>
                           </div>
                           <div class="col-3">
                             <select ngModel name="answer{{i +1}}" id="answer{{i +1}}" class="custom-select text-right"
                                   id="category-input">
                                   <option value="">No</option>
-                                  <option value="{{item.id}}" value="1">Yes</option>
+                                  <option value="{{item['id']}}" value="1">Yes</option>
                                   <option value="">N.A</option>
                                 </select>
+                                <input ngModel name="checklist_type{{i +1}}" type="hidden" value="{{item['checklist_type']}}"/>
                           </div>
                         </div>
                       </div>
@@ -179,8 +179,8 @@
                         <select class="form-control" name="old_quest" id="old_quest" data-live-search="true" #old
                           (change)="oldSprint(old.value)">
                           <option value=0>--select--</option>
-                          <option *ngFor="let item of sprintData" value="{{item.sprint_id}}">
-                            {{item.title}}</option>
+                          <option *ngFor="let item of sprintData.items" value="{{item.sprint_id}}">
+                            {{item.name}}</option>
                         </select>
                       </div>
                     </div>

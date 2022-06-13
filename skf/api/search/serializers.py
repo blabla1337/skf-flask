@@ -31,7 +31,6 @@ checklist = api.model('checklists_kb', {
     'checklist_items_checklist_id': fields.String(attribute='checklist_id', required=True, description='The unique identifier of a checklist item'),
     'checklist_items_content': fields.String(attribute='content', required=True, description='Checklist content'),
     'checklist_items_type': fields.Integer(attribute='checklist_type', required=True, description='Checklist type'),
-    'include_always': fields.String(attribute='include_always',required=True, description='Always include this checklist item'),
     'question_id': fields.Integer(attribute='question_id',required=True, description='The sprint question unique identifier this checklist belongs to'),
     'add_resources': fields.String(required=False, description='The additional resources'),
     'maturity': fields.Integer(required=False, description='The maturity level'),
