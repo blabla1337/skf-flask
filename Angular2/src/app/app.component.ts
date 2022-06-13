@@ -31,7 +31,8 @@ export class AppComponent implements OnInit {
         localStorage.setItem('session', 'expired');
         localStorage.clear();
         location.replace('/auth/login');
+        this.oauthService.logOut();
       }
-    }, 7100000);
+    }, 3000);
   }
 }
