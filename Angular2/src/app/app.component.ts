@@ -27,9 +27,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     setTimeout(() =>
     {
-      localStorage.setItem('session', 'expired');
-      localStorage.clear();
-      location.replace('/auth/login');
+      if(this.loginProvider == "skiploginprovider"){
+        localStorage.setItem('session', 'expired');
+        localStorage.removeItem("")
+        location.replace('/auth/login');
+      }
     }, 7100000);
   }
 }
