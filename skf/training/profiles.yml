@@ -50,13 +50,18 @@ profiles:
   - id: '3'
     name: Infra/Ops
     text: >-
-      -- Soon Availabe -- 
       This profile is dedicated for Ops and Infra people who want to learn about
-      the server hardening and security best practices. This course is based on
+      the server hardening and security best practices. This course is inspired on
       the VulnHub materials and lessons to teach the best practices for server
       configurations and hardening.
     iconClass: bx-server
-    courses: []
+    courses: 
+      - id: '3.1'
+        name: Easy - The Infra & Ops Security 
+        text: Let's see how an attacker approaches your network, 
+          are you ready to learn the Infra vulnerabilities?
+        iconClass: bx-code-block
+        courseFile: training/courses/3.1-infra--easy--.yml    
   - id: '4'
     name: OWASP
     text: >-
@@ -71,3 +76,15 @@ profiles:
           are you ready to learn the top 10 vulnerabilities?
         iconClass: bx-code-block
         courseFile: training/courses/4.1-owasp--top10--.yml
+      - id: '4.2'
+        name: The OWASP Cheatsheets 
+        text: This is the OWASP cheatsheets, 
+          practical guidance of most important ASVS topics.
+        iconClass: bx-code-block
+        courseFile: training/courses/4.2-owasp--cheatsheets--.yml
+      - id: '4.3'
+        name: The OWASP Pro Active controls 
+        text: This is the OWASP Pro Active controls, 
+          practical guidance secure coding implementation and design patterns.
+        iconClass: bx-code-block
+        courseFile: training/courses/4.3-owasp--proactive--.yml
