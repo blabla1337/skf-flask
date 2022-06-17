@@ -67,11 +67,12 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[code.id]">
+                              <div class="collapse" id="{{i}}" [ngbCollapse]="!isCollapsed[code.id]">
                                 <pre>
                                      <!-- <code [highlight]="codeExample.content" lineNumbers="True"></code>  -->
                                      <!-- <p>{{codeExample.content}}</p> -->
-                                     <quill-view-html [content]="codeExample.content"></quill-view-html>
+                                     <quill-view-html [content]="codeExample.content" sanitize="true"></quill-view-html>
+                                     <!-- <quill-view [content]="code.Example.content" format="text" theme="snow"></quill-view> -->
                                </pre>
                                 <!-- <div class="card shadow-none border bg-dark text-light card-body mb-0">
                                   
