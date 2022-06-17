@@ -40,7 +40,7 @@ spec:
         runAsUser: 100
       containers:
         - name: skf-flask-front
-          image: "blabla1337/skf-angular:alpha"
+          image: "blabla1337/skf-angular:charlie"
           imagePullPolicy: Always
           ports:
           - containerPort: 8788

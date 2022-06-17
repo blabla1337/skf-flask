@@ -1,0 +1,233 @@
+version: 2.1
+date: 18/03/2022
+id: "3.1"
+name: INFRA/OPS Security
+languages:
+  - python
+assetsPath: assets/training/infra/
+content:
+  #- slide: slides/1-Landing/Landing.md
+topics:
+  - id: 83d83f5f-6a01-46fd-a45f-d02fdc63a461
+    name: Introduction
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 901b2b0b-53b9-486c-95b0-2aa4394c673b
+        name: Infra & Ops security 
+        content:
+          - slide: slides/01-intro.md
+          #- questionnaire: questionnaire/2-0-introduction.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+  - id: da26aa51-96ad-480b-afe8-bcde2f4c14b0
+    name: Reconnaissance
+    content:
+      #- video: https://www.youtube.com/embed/pYFtLA2yTR8
+    categories:
+      - id: 0b061b3a-2bee-471d-8f1d-4dd6b27d3e65
+        name: First steps
+        content:
+          - slide: slides/02-Reconnaissance.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 97f843e8-d11e-4854-985c-10520c906f4b
+        name: Discovery
+        content:
+          - slide: slides/03-discovery.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 26069f8f-3c02-49f2-b27b-1e8fa9529b8b
+        name: Scanning
+        content:
+          - slide: slides/04-scanning.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+
+      - id: b8afc338-9259-4e84-beb3-281a5a6714c3
+        name: Fingerprinting
+        content:
+          - slide: slides/05-fingerprinting.md
+          #- questionnaire: questionnaire/1.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+
+
+
+  - id: 4cf8b15d-dfa9-4ed4-af4a-8cb21ab420cc
+    name: Weaponization
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 5f337b19-2a5a-4aa2-9785-30c5894ca4a7
+        name: Second step
+        content:
+          - slide: slides/06-weaponization.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like      
+      - id: 575470ed-425e-44ff-9446-4ceb98f56ee4
+        name: Services
+        content:
+          - slide: slides/07-services.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 50246035-b814-43cb-9fa3-dd56856046a6
+        name: Misconfiguration
+        content:
+          - slide: slides/08-misconfiguration.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 05577216-e198-4606-a499-557a982ce79f
+        name: CVE data
+        content:
+          - slide: slides/09-cve.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 817f5e95-8cee-434d-86f8-afb0e2fd8a8c
+        name: ExploitDB
+        content:
+          - slide: slides/10-exploitdb.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+
+  - id: a484664a-4cc7-423d-a44a-472679577289
+    name: Exploit
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 3e7d2c25-fafe-409b-8b2d-1c033bd20f51
+        name: Third step
+        content:
+          - slide: slides/11-exploit.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like      
+      - id: fbefa5e4-2d5b-4f6b-9b4e-b1ea2dc66d19
+        name: Web
+        content:
+          - slide: slides/12-web.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 1a80474d-3415-440e-a707-bd0e187aa23d
+        name: Database
+        content:
+          - slide: slides/13-db.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 71580769-f38c-41d6-8bb3-77134552b523
+        name: Other services
+        content:
+          - slide: slides/14-other.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 7576620e-c5ef-4040-9ba4-3f9c82469a70
+        name: Users
+        content:
+          - slide: slides/15-user.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 33f1f5bf-c5fb-4023-972b-03d765408e20
+        name: Users
+        content:
+          - slide: slides/16-bruteforce.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+
+
+  - id: d9f86700-a0c0-4e4e-a092-0fb221c4d1e8
+    name: Post exploitation, Priv
+    content:
+      #- video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    categories:
+      - id: 71a386c1-cf14-40d9-837a-afc45db6c8cf
+        name: Final step
+        content:
+          - slide: slides/17-post_exploitation.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like      
+      - id: 110c7c8c-04e0-47b0-a7dd-fc144e358d17
+        name: Linux
+        content:
+          - slide: slides/18-post_priv_linux.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+      - id: 5e9d5d41-69ab-4b38-ba25-3970ad0e537d
+        name: Windows
+        content:
+          - slide: slides/19-post_priv_windows.md
+          #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md
+          #- lab:
+          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
+          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
+          #    images:
+          #      - python: blabla1337/owasp-skf-lab:sqli-like
+   
