@@ -52,7 +52,7 @@ topics:
       - id: 7b11c969-6757-4e44-9643-5491d9e27527
         name: Authentication
         content:
-          - slide: slides/Authentication_Cheat_Sheet
+          - slide: slides/Authentication_Cheat_Sheet.md
           #- questionnaire: questionnaire/1.2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -64,7 +64,7 @@ topics:
       - id: 862734bc-a030-4477-9691-321b5100a55e
         name: Authorization 
         content:
-          - slide: slides/Authorization_Cheat_Sheet
+          - slide: slides/Authorization_Cheat_Sheet.md
           #- questionnaire: questionnaire/1.md
           #- lab:
           #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"

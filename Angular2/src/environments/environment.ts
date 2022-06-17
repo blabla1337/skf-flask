@@ -15,7 +15,7 @@ export const environment = {
      This config is about wether to show the SKF lab deployment options,  
      True || False -> This affects the way the lab page is shown with deployment buttons
   */
-  KUBERNETES_ENABLED: 'False',
+  KUBERNETES_ENABLED: 'True',
 
     /* 
      config need to be there but is not used -  feeling wacky might refactor later

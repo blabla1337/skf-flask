@@ -24,31 +24,31 @@ profiles:
         iconClass: bx-shield
         courseFile: training/courses/1.3-secdev--advanced--.yml
   - id: '2'
-    name: Hacking web/API
+    name: Hacking web & API
     text: >-
       This profile is dedicated for security pentesters or developers (Red security Champions) 
-      who want to learn the basics and advanced techniques of penetration testing for Web/API
+      who want to learn the basics and advanced techniques of penetration testing for Web & API
       applications. This course is based on the OWASP WSTG and teach you how to
       perform a good quality penetrationt test.
     iconClass: bx-code-block
     courses:
       - id: '2.1'
-        name: Easy - Hacking web/API
-        text: Easy - Hacking web/API
+        name: Easy - Hacking web & API
+        text: Easy - Hacking web & API
         iconClass: bx-code-block
         courseFile: training/courses/2.1-hacking--easy--.yml
       - id: '2.2'
-        name: Competent - Hacking web/API
-        text: Competent - Hacking web/API
+        name: Competent - Hacking web & API
+        text: Competent - Hacking web & API
         iconClass: bx-code-block
         courseFile: training/courses/2.2-hacking--competent--.yml
       - id: '2.3'
-        name: Advanced - Hacking web/API
-        text: Advanced - Hacking web/API
+        name: Advanced - Hacking web & API
+        text: Advanced - Hacking web & API
         iconClass: bx-code-block
         courseFile: training/courses/2.3-hacking--advanced--.yml
   - id: '3'
-    name: Infra/Ops
+    name: Infra & Ops
     text: >-
       This profile is dedicated for Ops and Infra people who want to learn about
       the server hardening and security best practices. This course is inspired on

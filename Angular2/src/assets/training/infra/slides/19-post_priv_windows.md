@@ -12,7 +12,7 @@ An attacker should try to identify directories where he/she has write access and
 
 #### NTFS permissions
 Again, just as it is the easiest way to accomplish a task, system administrators may give the Active Directory group 'Everyone' write permissions on certain folders on the system. If the such folders contain executables that are ran by higher privileged accounts, then these executables can be replaced with your malicious ones in order to obtain higher privileged command execution. please note that NTFS permissions are also applicable for the windows registry hives.
-NTFS permissions can be investigated with <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/accessenum"target="_blank">Sysinternals AccessEnum</a>.
+NTFS permissions can be investigated with <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/accessenum" target="_blank">Sysinternals AccessEnum</a>.
 
 #### Sensitive files & interesting locations
 Linux and Windows both have their system specific files that are interesting and also some common files like the host file (where you can find Domain Name Resolution records) but often, the most interesting files are the ones related to the applications (see here below).
