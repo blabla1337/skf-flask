@@ -20,9 +20,10 @@
                         </div>
                         <div class="form-group">
                             <label for="Description">Code</label>
-                            <textarea formControlName="content" class="form-control" id="content" rows="20"
+                            <!-- <textarea formControlName="content" class="form-control" id="content" rows="20"
                             placeholder="Code Example Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Code Example Description'">
-                            </textarea>
+                            </textarea> -->
+                            <quill-editor formControlName="content" id="content"></quill-editor>
                         </div>
                         <div class="text-right">
                             <button (click)="updateCodeExampleItem()" class="btn btn-success mr-2"

@@ -30,6 +30,8 @@
               "src/assets/scss/app.scss",
               "src/assets/scss/icons.scss",
               "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
               {
                 "input": "src/assets/scss/app-dark.scss",
                 "bundleName": "dark-theme",
@@ -49,7 +51,8 @@
               "node_modules/prismjs/components/prism-java.min.js",
               "node_modules/prismjs/components/prism-csharp.min.js",
               "node_modules/prismjs/components/prism-python.min.js",
-              "node_modules/prismjs/components/prism-ruby.min.js"
+              "node_modules/prismjs/components/prism-ruby.min.js",
+              "node_modules/quill/dist/quill.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,

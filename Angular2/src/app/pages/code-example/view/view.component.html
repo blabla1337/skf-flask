@@ -69,7 +69,9 @@
                               </div>
                               <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[code.id]">
                                 <pre>
-                                    <!--  <code [highlight]="codeExample.content" lineNumbers="True"></code> --> <p>{{codeExample.content}}</p>
+                                     <!-- <code [highlight]="codeExample.content" lineNumbers="True"></code>  -->
+                                     <!-- <p>{{codeExample.content}}</p> -->
+                                     <quill-view-html [content]="codeExample.content"></quill-view-html>
                                </pre>
                                 <!-- <div class="card shadow-none border bg-dark text-light card-body mb-0">
                                   

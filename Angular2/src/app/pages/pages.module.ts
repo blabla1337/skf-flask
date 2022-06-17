@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
 import { UIModule } from '../shared/ui/ui.module';
+import { QuillModule } from 'ngx-quill';
 
 // tslint:disable-next-line: import-spacing
 import
@@ -93,7 +94,8 @@ import { Page500Component } from './extra/page500/page500.component';
     NgSelectModule,
     NgxSpinnerModule,
     JoyrideModule.forChild(),
-    CoreModule
+    CoreModule,
+    QuillModule
   ],
   providers: [LoggedInAuthGuard],
 })

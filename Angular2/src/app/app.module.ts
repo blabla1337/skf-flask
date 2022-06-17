@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 //import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { JoyrideModule } from 'ngx-joyride';
+import { QuillModule } from 'ngx-quill';
 
 import { NgbNavModule, NgbAccordionModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -37,6 +38,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     //HighlightModule,
     JoyrideModule.forRoot(),
+    QuillModule.forRoot(),
     OAuthModule.forRoot({
       resourceServer: {
           allowedUrls: [environment.KRAKEND_ENDPOINT],
