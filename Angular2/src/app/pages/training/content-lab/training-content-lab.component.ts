@@ -109,6 +109,8 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
       this.subscriptions.push(this.labService.deployLab(imageId, userId)
         .subscribe((deployResult: string) => {
         // console.log("TODO IB deployResult: ", deployResult);
+        setTimeout(() => {
+        }, 3000);
         this.spinner.hide();
 
         const resultSplit = deployResult.split("\\");
