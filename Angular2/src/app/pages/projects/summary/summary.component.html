@@ -67,7 +67,10 @@ CLipped to clipboard!
                           title="Security requirement additional information" [stepContent]="resultControlKB">
                           Click here
                         </button>
-                        <i style="float:right; margin-left:10px" (click)="copyText(item.checklist_items_checklist_id, item.checklist_items_content)" class="fa fa-clipboard" aria-hidden="true"></i>
+                        <button class="btn-sm btn-primary btn-md ml-1" type="button" 
+                          (click)="copyText(item.checklist_items_checklist_id, item.checklist_items_content)"
+                          title="Copy to Clipboard"><i class="fa fa-clipboard font-size-15"></i>
+                        </button>
                       </div>
                     </div>
                   </div>
