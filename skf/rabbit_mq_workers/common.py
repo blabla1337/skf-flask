@@ -51,13 +51,13 @@ def delete_service(instance_name, user_id):
 def delete_ingress(instance_name, user_id):
     try:
         config.load_kube_config()
-        networking_v1_beta1_api = client.NetworkingV1beta1Api()
-        api_response = networking_v1_beta1_api.delete_namespaced_ingress(
+        networking_v1_api = client.NetworkingV1Api()
+        api_response = networking_v1_api.delete_namespaced_ingress(
             name='ingress-'+instance_name,
             namespace=user_id,
             body=client.V1DeleteOptions(
                 propagation_policy='Foreground',
-                grace_period_seconds=5))
+                grace_period_seconds=0))
         #print("Ingress deleted. status='%s'" % str(api_response.status))
     except:
         print('Error deleting ingress (this may not exist, that ok')

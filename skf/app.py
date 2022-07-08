@@ -92,7 +92,7 @@ from skf.api.training.endpoints.training_profile_items import ns as training_nam
 from skf.api.training.endpoints.training_course_item import ns as training_namespace
 from skf.api.training.endpoints.training_course_progress import ns as training_namespace
 from skf.api.training.endpoints.training_course_progress_update import ns as training_namespace
-from elasticapm.contrib.flask import ElasticAPM
+#from elasticapm.contrib.flask import ElasticAPM
 
 
 from skf.api.restplus import api

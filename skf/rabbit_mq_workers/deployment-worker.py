@@ -56,14 +56,19 @@ def deploy_container(rpc_body):
     response = get_service_exposed_ip(deployment, user_id)
     if subdomain_deploy:
         hostname = '{}-{}.{}'.format(deployment, user_id, labs_domain)
-        networking_v1_beta1_api = client.NetworkingV1beta1Api()
+        networking_v1_api = client.NetworkingV1Api()
         try:
-            ingress_err = create_ingress(networking_v1_beta1_api, hostname, deployment, service_port, user_id)
+            ingress_err = create_ingress(networking_v1_api, hostname, deployment, service_port, user_id)
+            while True:
+                test = wait_get_completed_podphase(deployment,user_id)
+                if test == "Running":
+                    print("Pod has started and is running")
+                break
             if ingress_err is not None:
                 return { 'message': ingress_err }
             return { 'message': "'" + labs_protocol + hostname + "'" }
         except:
-            response_ingress = networking_v1_beta1_api.list_namespaced_ingress(user_id)
+            response_ingress = networking_v1_api.list_namespaced_ingress(user_id)
             for i in response_ingress.items:
                 for item in i.spec.rules:
                     host_split = item.host
@@ -134,11 +139,6 @@ def create_service_for_deployment(deployment, user_id):
     spec.ports = [client.V1ServicePort(protocol="TCP", port=random_port, target_port=5000)]
     service.spec = spec
     response = api_instance.create_namespaced_service(namespace=user_id, body=service)
-    while True:
-        test = wait_get_completed_podphase(deployment,user_id)
-        if test == "Running":
-            print("Pod has started and is running")
-            break
     return random_port
 
 def get_service_exposed_ip(deployment, user_id):
@@ -196,24 +196,28 @@ def on_request(ch, method, props, body):
                         body=str(response))
         ch.basic_ack(delivery_tag=method.delivery_tag)
 
-def create_ingress(networking_v1_beta1_api, hostname, deployment, service_port, user_id):
+def create_ingress(networking_v1_api, hostname, deployment, service_port, user_id):
     try:
-        body = client.NetworkingV1beta1Ingress(
-            api_version="networking.k8s.io/v1beta1",
+        body = client.V1Ingress(
+            api_version="networking.k8s.io/v1",
             kind="Ingress",
             metadata=client.V1ObjectMeta(name="ingress-"+deployment, annotations={
                 "kubernetes.io/ingress.class": "nginx",
-                #"nginx.ingress.kubernetes.io/rewrite-target": "/",
             }),
-            spec=client.NetworkingV1beta1IngressSpec(
-                rules=[client.NetworkingV1beta1IngressRule(
+            spec=client.V1IngressSpec(
+                rules=[client.V1IngressRule(
                     host=hostname,
-                    http=client.NetworkingV1beta1HTTPIngressRuleValue(
-                        paths=[client.NetworkingV1beta1HTTPIngressPath(
+                    http=client.V1HTTPIngressRuleValue(
+                        paths=[client.V1HTTPIngressPath(
                             path="/",
-                            backend=client.NetworkingV1beta1IngressBackend(
-                                service_port=service_port,
-                                service_name=deployment)
+                            path_type="Prefix",
+                            backend=client.V1IngressBackend(
+                                service=client.V1IngressServiceBackend(
+                                port=client.V1ServiceBackendPort(
+                                    number=service_port,
+                                ),
+                                name=deployment)
+                            )
                         )]
                     )
                 )]
@@ -221,7 +225,7 @@ def create_ingress(networking_v1_beta1_api, hostname, deployment, service_port, 
         )
         # Creation of the Deployment in specified namespace
         # (Can replace "default" with a namespace you may have created)
-        networking_v1_beta1_api.create_namespaced_ingress(
+        networking_v1_api.create_namespaced_ingress(
             namespace=user_id,
             body=body
         )

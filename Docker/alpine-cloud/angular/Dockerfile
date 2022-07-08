@@ -1,10 +1,9 @@
 #############
 ### build ###
 #############
-# TO-DO Fix Angular versions and npm modules and so we an use the builder image step again :(
 
 # base image
-FROM node:15-alpine AS builder
+FROM node:14-alpine AS builder
 
 #LABEL maintainer="glenn.ten.cate@owasp.org"
 
@@ -30,15 +29,15 @@ FROM nginx:1.14.1-alpine as run
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
-COPY ./Angular2/dist/Angular2 ./usr/share/nginx/html
+#COPY ./Angular2/dist/Angular2 ./usr/share/nginx/html
 COPY ./Docker/alpine-cloud/angular/site.conf.template  /home/user_angular/site.conf.template
 COPY ./Docker/alpine-cloud/angular/entrypoint.sh  /home/user_angular/entrypoint.sh
 
 ## From builder stage copy over the artifacts in dist folder to default nginx public folder
-#COPY --from=builder /home/user_angular/Angular2/dist/Angular2 /usr/share/nginx/html
+COPY --from=builder /home/user_angular/Angular2/dist/Angular2 /usr/share/nginx/html
 
 ## Copy our default nginx config
-#COPY --from=builder /home/user_angular/site.conf.template /home/user_angular/site.conf.template
+COPY --from=builder /home/user_angular/site.conf.template /home/user_angular/site.conf.template
 
 
 # not the most secure solution but the entrypoint needs to be able to copy the correct config into confd.d,
