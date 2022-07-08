@@ -40,7 +40,7 @@ spec:
         runAsUser: 100
       containers:
         - name: skf-flask-front
-          image: "blabla1337/skf-angular:magick-updat"
+          image: "blabla1337/skf-angular:magick-update"
           imagePullPolicy: Always
           ports:
           - containerPort: 8788
