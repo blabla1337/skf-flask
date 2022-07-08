@@ -20,31 +20,31 @@ How the services can be used by a malicious/weaponized software?
 
 ## References
 
-[^metasploit_telnet]: [Metasploit Scanner Telnet Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-telnet-auxiliary-modules/)
+[metasploit_telnet]: [Metasploit Scanner Telnet Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-telnet-auxiliary-modules/)
 
-[^metasploit_ftp]: [Metasploit Scanner FTP Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-ftp-auxiliary-modules/)
+[metasploit_ftp]: [Metasploit Scanner FTP Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-ftp-auxiliary-modules/)
 
-[^metasploit_ssh_enumusers]: [Metasploit Scanner SSH User Enumeration Auxiliary Module](https://www.rapid7.com/db/modules/auxiliary/scanner/ssh/ssh_enumusers/)
+[metasploit_ssh_enumusers]: [Metasploit Scanner SSH User Enumeration Auxiliary Module](https://www.rapid7.com/db/modules/auxiliary/scanner/ssh/ssh_enumusers/)
 
-[^metasploit_ssh]: [Metasploit Scanner SSH Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-ssh-auxiliary-modules/)
+[metasploit_ssh]: [Metasploit Scanner SSH Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-ssh-auxiliary-modules/)
 
-[^metasploit_smtp]: [Metasploit Scanner SMTP Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-smtp-auxiliary-modules/)
+[metasploit_smtp]: [Metasploit Scanner SMTP Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-smtp-auxiliary-modules/)
 
-[^metasploit_smtp_relay]: [Metasploit Scanner SMTP Relay Auxiliary Module](https://www.rapid7.com/db/modules/auxiliary/scanner/smtp/smtp_relay/)
+[metasploit_smtp_relay]: [Metasploit Scanner SMTP Relay Auxiliary Module](https://www.rapid7.com/db/modules/auxiliary/scanner/smtp/smtp_relay/)
 
-[^metasploit_dns_enum]: [Metasploit DNS Enumeration Auxiliary Module](https://www.rapid7.com/db/modules/auxiliary/gather/enum_dns/)
+[metasploit_dns_enum]: [Metasploit DNS Enumeration Auxiliary Module](https://www.rapid7.com/db/modules/auxiliary/gather/enum_dns/)
 
-[^fierce_dns]: [Fierce](https://www.kali.org/tools/fierce/)
+[fierce_dns]: [Fierce](https://www.kali.org/tools/fierce/)
 
-[^gobuster]: [GoBuster](https://github.com/OJ/gobuster)
+[gobuster]: [GoBuster](https://github.com/OJ/gobuster)
 
-[^amass]: [Amass](https://github.com/OWASP/Amass)
+[amass]: [Amass](https://github.com/OWASP/Amass)
 
-[^burpsuite]: [BurpSuite](https://portswigger.net/burp)
+[burpsuite]: [BurpSuite](https://portswigger.net/burp)
 
-[^owasp_zap]: [OWASP ZAP](https://www.zaproxy.org/)
+[owasp_zap]: [OWASP ZAP](https://www.zaproxy.org/)
 
-[^metasploit_smb]: [Metasploit SMB Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-smb-auxiliary-modules/)
+[metasploit_smb]: [Metasploit SMB Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/scanner-smb-auxiliary-modules/)
 
 [SANS - Weaponized Vulnerabilities on the Rise](https://www.sans.org/blog/weaponized-vulnerabilities-on-the-rise/)
 

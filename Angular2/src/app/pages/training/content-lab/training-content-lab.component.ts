@@ -109,16 +109,21 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
       this.subscriptions.push(this.labService.deployLab(imageId, userId)
         .subscribe((deployResult: string) => {
         // console.log("TODO IB deployResult: ", deployResult);
-        this.spinner.hide();
+
+
 
         const resultSplit = deployResult.split("\\");
         const urlOrMessage = resultSplit[3].substring(1);
-        try {
-          new URL(urlOrMessage);
-          this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(urlOrMessage);
-        } catch (e) {
-          this.labError = `${urlOrMessage}. Please Restart Lab to try again.`;
-        }
+        setTimeout(() => {
+          try {
+            new URL(urlOrMessage);
+            this.safeLabUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(urlOrMessage);
+          } catch (e) {
+            this.labError = `${urlOrMessage}. Please Restart Lab to try again.`;
+          }
+          this.spinner.hide();
+        }, 6000);
+
       }, error => {
           this.spinner.hide();
           console.error('Could not initialise lab', error);

@@ -41,6 +41,7 @@ services:
       - "mysql"
     restart: always
     image: "blabla1337/skf-angular:magick-update"
+
     environment:
       - FRONTEND_URI=http://localhost
       - AUTH_METHOD=skiploginprovider
@@ -55,6 +56,7 @@ services:
     volumes:
       - ~/.kube/config:/home/user_api/.kube/config
     image: "blabla1337/skf-api:magick-update"
+
     environment:
       - SKF_FLASK_DEBUG=False
       - SKF_API_URL=skf-api://api

@@ -1,7 +1,7 @@
 version: 2.1
 date: 18/03/2022
 id: "3.1"
-name: INFRA/OPS Security
+name: INFRA & OPS Security
 languages:
   - python
 assetsPath: assets/training/infra/
@@ -184,7 +184,7 @@ topics:
           #    images:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
       - id: 33f1f5bf-c5fb-4023-972b-03d765408e20
-        name: Users
+        name: Brute-force
         content:
           - slide: slides/16-bruteforce.md
           #- questionnaire: questionnaire/4-1-01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md

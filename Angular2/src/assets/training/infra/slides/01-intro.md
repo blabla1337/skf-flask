@@ -1,6 +1,6 @@
 # Introduction
 
-## Infra/Ops Security track
+## Infra & Ops Security track
 
 This track is created to cover the basics of infrastructure security and management. As developers are more pushed into the shift left way of working and thus are deploying and configuring infrastructure. This guide gives a basic view of the elements required to make a comprehensive secure infrastructure and configuration.
 
