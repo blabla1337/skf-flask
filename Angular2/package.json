@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "ng serve --host=0.0.0.0",
     "build": "ng build",
     "test": "ng test --code-coverage",
     "lint": "ng lint",
@@ -31,18 +32,19 @@
     "jquery": "^3.5.1",
     "jwt-decode": "^3.1.2",
     "ng2-search-filter": "^0.5.1",
+    "ngx-clipboard": "15.1.0",
     "ngx-drag-drop": "^2.0.0",
     "ngx-joyride": "^2.3.1",
     "ngx-markdown": "^13.1.0",
     "ngx-pagination": "^5.0.0",
+    "ngx-quill": "^16.0.0",
     "ngx-spinner": "^10.0.1",
     "ngx-ui-switch": "^9.0.2",
     "perfect-scrollbar": "^1.5.0",
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.17.2",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.4",
-    "ngx-clipboard": "15.1.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.0.3",

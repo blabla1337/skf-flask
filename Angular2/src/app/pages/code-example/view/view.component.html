@@ -60,6 +60,8 @@
                                     </div>
                                     <div class="col-4 toggle-button">
                                       <div class="text-right code-view-button">
+                                        <!-- <button data-toggle="collapse" (click)="isCollapsed[code.id] = !isCollapsed[code.id]" (click)="showCode(code.id)"
+                                        class="btn-sm btn-primary">{{DisplayContent[code.id] ? 'Read more' : 'Collapse'}}</button> -->
                                         <button data-toggle="collapse" (click)="isCollapsed[code.id] = !isCollapsed[code.id]" (click)="showCode(code.id)"
                                         class="btn-sm btn-primary">Read more</button>
                                       </div>
@@ -67,9 +69,11 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[code.id]">
+                              <div class="collapse" [ngbCollapse]="!isCollapsed[code.id]">
                                 <pre>
-                                    <!--  <code [highlight]="codeExample.content" lineNumbers="True"></code> --> <p>{{codeExample.content}}</p>
+                                     <!-- <code [highlight]="codeExample.content" lineNumbers="True"></code>  -->
+                                     <!-- <p>{{codeExample.content}}</p> -->
+                                     <quill-view-html [content]="codeExample.content" sanitize="true"></quill-view-html>
                                </pre>
                                 <!-- <div class="card shadow-none border bg-dark text-light card-body mb-0">
                                   
