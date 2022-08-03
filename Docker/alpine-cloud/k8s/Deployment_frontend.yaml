@@ -43,11 +43,16 @@ spec:
           image: "blabla1337/skf-angular:4.0.2"
           imagePullPolicy: Always
           ports:
-          - containerPort: 8788
+            - containerPort: 8788
           env:
-          -  name: FRONTEND_URI
-             valueFrom:
-               configMapKeyRef:
-                 name: skf-flask-front
-                 key: FRONTEND_URI
+            - name: FRONTEND_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-front
+                  key: FRONTEND_URI
+            - name: SKIP_LOGIN
+              valueFrom:
+                configMapKeyRef:
+                  name: skf-flask-front
+                  key: SKIP_LOGIN
 ---
