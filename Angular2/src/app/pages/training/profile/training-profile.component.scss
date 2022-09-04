@@ -1,3 +1,62 @@
-li.clickable {
-  cursor: pointer;
+// li.clickable {
+//   cursor: pointer;
+// }
+
+.shadow {
+    box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.05);
 }
+
+.border-l1 {
+    border-left: 3.5px solid #4cc9f0;
+}
+
+.border-l2 {
+    border-left: 3.5px solid #F72585;
+}
+
+.border-l3 {
+    border-left: 3.5px solid #7C5FF4;
+}
+
+.box {
+    border-radius: 7px;
+    padding: 1em 2em;
+
+    .box-title {
+        font-weight: 600;
+        min-width: 242px;
+    }
+
+    .box-level {
+        border-radius: 33px;
+        padding: .3rem 1.3rem;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+    } 
+
+    .easy {
+        background-color: #4CC9F0;
+    }
+
+    .competent  {
+        background-color: #F72585;
+    }
+
+    .advanced {
+        background-color: #7C5FF4;
+    }
+    
+    .box-text {
+        font-weight: 400;
+    }
+}
+
+.btn {
+    font-weight: 600;
+    
+    .btn-dark {
+        background: #101F39;
+    }
+}
+
