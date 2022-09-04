@@ -9,6 +9,7 @@ div.fill {
 
   div.tree-panel {
     position: absolute;
+    font-size: 1rem;
     left: 0;
     top: 0;
     bottom: 0;
@@ -22,11 +23,24 @@ div.fill {
     background-color: white;
 
     div.content-panel {
+      text-align: justify;
       position: absolute;
-      left: 10px;
-      right: 10px;
+      font-size: 1rem;
+      width: 810px;
+      max-width: 90%;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
       top: 10px;
       bottom: 65px;
+      // left: 15px;
+      // right: 10px;
+      // top: 10px;
+      // bottom: 65px;
+    }
+
+    div.content-panel h1 {
+        color: yellow; 
     }
 
     div.buttons-panel {
@@ -38,3 +52,4 @@ div.fill {
     }
   }
 }
+

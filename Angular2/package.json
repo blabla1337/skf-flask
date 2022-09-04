@@ -18,6 +18,7 @@
     "@angular/forms": "^13.0.2",
     "@angular/http": "^7.2.16",
     "@angular/localize": "^13.0.2",
+    "@angular/material": "^14.2.0",
     "@angular/platform-browser": "^13.0.2",
     "@angular/platform-browser-dynamic": "^13.0.2",
     "@angular/router": "^13.0.2",
@@ -31,6 +32,7 @@
     "jquery": "^3.5.1",
     "jwt-decode": "^3.1.2",
     "ng2-search-filter": "^0.5.1",
+    "ngx-clipboard": "15.1.0",
     "ngx-drag-drop": "^2.0.0",
     "ngx-joyride": "^2.3.1",
     "ngx-markdown": "^13.1.0",
@@ -41,8 +43,7 @@
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.17.2",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.4",
-    "ngx-clipboard": "15.1.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.0.3",
