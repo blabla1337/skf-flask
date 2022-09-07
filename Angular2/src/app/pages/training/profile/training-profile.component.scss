@@ -1,9 +1,43 @@
-// li.clickable {
-//   cursor: pointer;
-// }
+ul {
+    list-style: none;
+}
 
-.shadow {
-    box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.05);
+.course-list {
+    display: flex;
+    flex-direction: column;
+
+    .course-list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.05);
+        margin-bottom: 1.5rem;
+        padding: 1.8rem 4.3rem;
+        font-size: 1rem;
+
+        h1 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .label {
+            text-align: center;
+            border-radius: 50px;
+        }
+
+        .label-l1 {
+            background-color: #4cc9f0;
+        }
+
+        .label-l2 {
+            background-color: #F72585;
+        }
+
+        .label-l3 {
+            background-color: #7C5FF4;
+        }
+    }
 }
 
 .border-l1 {
@@ -18,45 +52,5 @@
     border-left: 3.5px solid #7C5FF4;
 }
 
-.box {
-    border-radius: 7px;
-    padding: 1em 2em;
 
-    .box-title {
-        font-weight: 600;
-        min-width: 242px;
-    }
-
-    .box-level {
-        border-radius: 33px;
-        padding: .3rem 1.3rem;
-        text-align: center;
-        text-transform: uppercase;
-        color: #fff;
-    } 
-
-    .easy {
-        background-color: #4CC9F0;
-    }
-
-    .competent  {
-        background-color: #F72585;
-    }
-
-    .advanced {
-        background-color: #7C5FF4;
-    }
-    
-    .box-text {
-        font-weight: 400;
-    }
-}
-
-.btn {
-    font-weight: 600;
-    
-    .btn-dark {
-        background: #101F39;
-    }
-}
 
