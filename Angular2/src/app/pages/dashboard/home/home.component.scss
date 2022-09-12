@@ -1,0 +1,53 @@
+ul {
+    list-style: none;
+}
+
+// overrides
+
+// *,
+// *::before,
+// *::after {
+//     margin: 0 !important;
+//     padding: 0 !important;
+//     box-sizing: border-box !important;
+// }
+
+// accordion
+
+.slides-container {
+    height: 100vh;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #fff;
+
+    .slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        p {
+            text-align: justify;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}
+
+// slide colors
+
+#slide-developer { background-color: #7C5FF4;}
+#slide-pentester { background-color: #F72585; }
+#slide-training { background-color: #4CC9F0; }
+#slide-checklist { background-color: #263BE0; }
