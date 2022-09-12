@@ -1,5 +1,9 @@
 <div class="container-fluid">
-  <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+  <ngx-spinner
+    [fullScreen]="true"
+    type="ball-clip-rotate-multiple"
+    size="medium"
+  >
     <p class="loading">Loading, Please Wait...</p>
   </ngx-spinner>
 
@@ -7,10 +11,17 @@
   <div class="row">
     <div class="col-12">
       <div class="page-title-box pb-0">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active text-primary clickable" (click)="goToTraining()">Training</li>
-            <li class="breadcrumb-item active text-primary">{{profile?.name}}</li>
-          </ol>
+        <ol class="breadcrumb">
+          <li
+            class="breadcrumb-item active text-primary clickable"
+            (click)="goToTraining()"
+          >
+            Training
+          </li>
+          <li class="breadcrumb-item active text-primary">
+            {{ profile?.name }}
+          </li>
+        </ol>
       </div>
     </div>
   </div>
@@ -20,21 +31,35 @@
     <div class="col-lg-12">
       <div class="home-wrapper">
         <div class="mb-5">
-            <p class="h1 heading-dark">{{ profile.name }}</p>
+          <p class="h1 heading-dark">{{ profile.name }}</p>
         </div>
 
         <ul class="course-list p-0">
-          <li *ngFor="let course of profile?.courses??[]" class="course-list-item"> 
+          <li
+            *ngFor="let course of profile?.courses ?? []"
+            class="course-list-item"
+          >
             <h1>{{ course.name }}</h1>
-            <span class="label" [ngClass]="{
-                               'label-l1': course.name.includes('Easy'),
-                               'label-l2': course.name.includes('Competent'),
-                               'label-l3': course.name.includes('Advanced')}">
-                Training
+            <span
+              class="label"
+              [ngClass]="{
+                'label-l1': course.name.includes('Easy'),
+                'label-l2': course.name.includes('Competent'),
+                'label-l3': course.name.includes('Advanced')
+              }"
+            >
+              Training
             </span>
             <p id="chapter-label"></p>
+            <button
+              type="button"
+              class="btn btn-dark"
+              (click)="onSelectCourse(course)"
+            >
+              Start Course
+            </button>
             <!-- <div  -->
-                <!-- class="box d-flex justify-content-between align-items-center shadow mb-3" -->
+            <!-- class="box d-flex justify-content-between align-items-center shadow mb-3" -->
             <!--     [ngClass]="{ -->
             <!--             'border-l1': course.name.includes('Easy'),  -->
             <!--             'border-l2': course.name.includes('Competent'),  -->
@@ -50,9 +75,9 @@
             <!--     </p> -->
             <!--     <p class="box-text">X Chapters</p> -->
             <!--     <p class="box-text">Xmin</p> -->
-                <!-- <div class="progress"> -->
-                <!--     <div class="progress-bar" aria-valuenow="25" style="width: 25%" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div> -->
-                <!-- </div> -->
+            <!-- <div class="progress"> -->
+            <!--     <div class="progress-bar" aria-valuenow="25" style="width: 25%" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div> -->
+            <!-- </div> -->
             <!--     <button type="button" (click)="onSelectCourse(course)" class="btn btn-dark">Start Course</button> -->
           </li>
         </ul>
@@ -60,4 +85,5 @@
       </div>
     </div>
   </div>
-</div> <!-- container-fluid -->
+</div>
+<!-- container-fluid -->
