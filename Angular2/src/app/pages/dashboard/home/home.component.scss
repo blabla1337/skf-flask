@@ -1,53 +1,65 @@
-ul {
-    list-style: none;
+.container-fluid {
+  // margin: 0;
+  // padding: 0;
+  height: 100vh;
 }
 
-// overrides
+.accordion {
+  display: flex;
+  color: #fff;
+  height: 100%;
 
-// *,
-// *::before,
-// *::after {
-//     margin: 0 !important;
-//     padding: 0 !important;
-//     box-sizing: border-box !important;
-// }
-
-// accordion
-
-.slides-container {
-    height: 100vh;
-}
-
-.slides {
+  .accordion-item {
     display: flex;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.5rem;
+    // width: 10%;
 
-    .slide {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        
-        .slide-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: #fff;
-        }
+    .action {
+      color: #fff;
+      display: block;
+      position: relative;
+      height: 100%;
 
-        p {
-            text-align: justify;
-            font-size: 18px;
-            font-weight: 500;
-        }
+      span {
+        position: absolute;
+        transform: rotate(270deg);
+      }
     }
+
+    .accordion-title {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .accordion-description {
+      font-weight: 500;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.btn {
+  color: #fff;
+  background: #101f39;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  align-self: flex-start;
 }
 
 // slide colors
 
-#slide-developer { background-color: #7C5FF4;}
-#slide-pentester { background-color: #F72585; }
-#slide-training { background-color: #4CC9F0; }
-#slide-checklist { background-color: #263BE0; }
+#developer {
+  background-color: #7c5ff4;
+}
+#pentester {
+  background-color: #f72585;
+}
+#training {
+  background-color: #4cc9f0;
+}
+#checklist {
+  background-color: #263be0;
+}
