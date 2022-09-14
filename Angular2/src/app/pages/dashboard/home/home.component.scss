@@ -1,47 +1,79 @@
-.container-fluid {
-  // margin: 0;
-  // padding: 0;
-  height: 100vh;
-}
-
-.accordion {
-  display: flex;
-  color: #fff;
+/** container-fill css overrides to fill up the whole page content between the topnav and footer **/
+.container-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 100%;
+  overflow: hidden;
 
-  .accordion-item {
+  .accordion {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 1.5rem;
-    // width: 10%;
+    color: #fff;
+    height: 100%;
 
-    .action {
-      color: #fff;
-      display: block;
-      position: relative;
-      height: 100%;
+    /** Accordion item style when collapsed **/
+    .accordion-item {
+      width: 10%;
 
-      span {
-        position: absolute;
-        transform: rotate(270deg);
+      .accordion-action {
+        // height: 100%;
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 36px;
+          font-weight: 700;
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+          color: #fff;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .accordion-content {
+        visibility: hidden;
+
+        .accordion-title {
+          font-size: 80px;
+          color: #fff;
+          font-weight: 700;
+          margin-bottom: 25px;
+        }
+
+        .accordion-description {
+          font-size: 24px;
+          font-weight: 500;
+          margin-bottom: 50px;
+        }
       }
     }
 
-    .accordion-title {
-      color: #fff;
-      font-weight: 700;
-      margin-bottom: 25px;
-    }
+    /** Accordion item style when active **/
+    .active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0 2rem;
 
-    .accordion-description {
-      font-weight: 500;
-      margin-bottom: 50px;
+      .accordion-action {
+        display: none;
+      }
+
+      .accordion-content {
+        visibility: visible;
+      }
     }
   }
 }
 
 .btn {
+  font-size: 18px;
   color: #fff;
   background: #101f39;
   padding-left: 1.5rem;
@@ -49,7 +81,11 @@
   align-self: flex-start;
 }
 
-// slide colors
+.btn:hover {
+  color: #fff;
+}
+
+/** Background colors for the accordion items **/
 
 #developer {
   background-color: #7c5ff4;
