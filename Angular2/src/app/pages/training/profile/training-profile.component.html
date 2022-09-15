@@ -35,44 +35,42 @@
         </div>
 
         <div class="flex-column">
-          <div *ngFor="let course of profile?.courses ?? []">
-            <div
-              class="box d-flex justify-content-between align-items-center shadow mb-3"
+          <ul class="course-list p-0">
+            <li
+              *ngFor="let course of profile?.courses ?? []"
+              class="course-list-item"
               [ngClass]="{
-                'border-l1': course.name.includes('Easy'),
-                'border-l2': course.name.includes('Competent'),
-                'border-l3': course.name.includes('Advanced')
+                'border-clr-1': course.name.includes('Easy'),
+                'border-clr-2': course.name.includes('Competent'),
+                'border-clr-3': course.name.includes('Advanced')
               }"
             >
-              <p class="box-title">{{ course?.name }}</p>
-              <p
-                class="box-level"
+              <h1 class="font-weight-bold">{{ course.name }}</h1>
+              <span
+                class="label font-weight-bold text-uppercase"
                 [ngClass]="{
-                  easy: course.name.includes('Easy'),
-                  competent: course.name.includes('Competent'),
-                  advanced: course.name.includes('Advanced')
+                  'label-l1': course.name.includes('Easy'),
+                  'label-l2': course.name.includes('Competent'),
+                  'label-l3': course.name.includes('Advanced')
                 }"
               >
                 Training
-              </p>
-              <p class="box-text">X Chapters</p>
-              <p class="box-text">Xmin</p>
-              <!-- <div class="progress"> -->
-              <!--     <div class="progress-bar" aria-valuenow="25" style="width: 25%" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
+              </span>
+              <span class="label">0 Chapters</span>
+              <span class="label">0min</span>
               <button
                 type="button"
+                class="btn btn-dark font-weight-bold"
                 (click)="onSelectCourse(course)"
-                class="btn btn-dark"
               >
-                Start Course
+                Start Training
               </button>
-            </div>
-          </div>
+            </li>
+          </ul>
+          <!-- end row -->
         </div>
-        <!-- end row -->
       </div>
     </div>
   </div>
+  <!-- container-fluid -->
 </div>
-<!-- container-fluid -->
