@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   height: 100%;
-  overflow: hidden;
+  overflow-y: hidden;
 
   .accordion {
     display: flex;
@@ -18,13 +18,13 @@
       width: 10%;
 
       .accordion-action {
-        // height: 100%;
+        height: 100%;
 
         a {
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 36px;
+          font-size: 24px;
           font-weight: 700;
           writing-mode: vertical-rl;
           transform: rotate(180deg);
@@ -35,18 +35,21 @@
       }
 
       .accordion-content {
+        padding-left: 10rem;
+        padding-right: 6rem;
         visibility: hidden;
 
         .accordion-title {
-          font-size: 80px;
+          font-size: 40px;
           color: #fff;
           font-weight: 700;
           margin-bottom: 25px;
         }
 
         .accordion-description {
-          font-size: 24px;
+          font-size: 18px;
           font-weight: 500;
+          text-align: justify;
           margin-bottom: 50px;
         }
       }
@@ -73,7 +76,7 @@
 }
 
 .btn {
-  font-size: 18px;
+  font-size: 1.2rem;
   color: #fff;
   background: #101f39;
   padding-left: 1.5rem;
@@ -98,4 +101,16 @@
 }
 #checklist {
   background-color: #263be0;
+}
+
+/** MEDIA QERIES **/
+
+@media (min-width: 1824px) {
+  .accordion-title {
+    font-size: 80px;
+  }
+
+  .accordion-description {
+    font-size: 24px;
+  }
 }
