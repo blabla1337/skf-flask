@@ -1,0 +1,157 @@
+/** container-fill css overrides to fill up the whole page content between the topnav and footer **/
+.container-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+
+  .accordion {
+    display: flex;
+    color: #fff;
+    height: 100%;
+
+    /** Accordion item style when collapsed **/
+    .accordion-item {
+      width: 10%;
+
+      .accordion-action {
+        height: 100%;
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 24px;
+          font-weight: 700;
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+          color: #fff;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .accordion-content {
+        padding-left: 10rem;
+        padding-right: 6rem;
+        visibility: hidden;
+
+        .accordion-title {
+          font-size: 40px;
+          color: #fff;
+          font-weight: 700;
+          margin-bottom: 25px;
+        }
+
+        .accordion-description {
+          font-size: 18px;
+          font-weight: 500;
+          text-align: justify;
+          margin-bottom: 50px;
+        }
+      }
+    }
+
+    /** Accordion item style when active **/
+    .active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2rem;
+
+      animation-name: expand;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+
+      .accordion-action {
+        display: none;
+      }
+
+      .accordion-content {
+        animation-name: showContent;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes showContent {
+        0% {
+          opacity: 0;
+        }
+        90% {
+          opacity: 0.1;
+        }
+        95% {
+          opacity: 0.5;
+        }
+        100% {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      @keyframes expand {
+        0% {
+          width: 0%;
+        }
+        25% {
+          width: 25%;
+        }
+        50% {
+          width: 50%;
+        }
+        // 75% {
+        //   width: 75%;
+        // }
+        100% {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  font-size: 1.2rem;
+  color: #fff;
+  background: #101f39;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  align-self: flex-start;
+}
+
+.btn:hover {
+  color: #fff;
+}
+
+/** Background colors for the accordion items **/
+
+#developer {
+  background-color: #7c5ff4;
+}
+#pentester {
+  background-color: #f72585;
+}
+#training {
+  background-color: #4cc9f0;
+}
+#checklist {
+  background-color: #263be0;
+}
+
+/** MEDIA QERIES **/
+
+@media (min-width: 1824px) {
+  .accordion-title {
+    font-size: 80px;
+  }
+
+  .accordion-description {
+    font-size: 24px;
+  }
+}

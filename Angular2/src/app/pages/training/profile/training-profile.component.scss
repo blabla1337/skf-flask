@@ -1,62 +1,63 @@
-// li.clickable {
-//   cursor: pointer;
-// }
-
 .shadow {
+  box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.05);
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+
+  .course-list-item {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
     box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.05);
-}
+    margin-bottom: 1.25rem;
+    padding: 1.8rem 4.3rem;
+    font-size: 1rem;
 
-.border-l1 {
-    border-left: 3.5px solid #4cc9f0;
-}
-
-.border-l2 {
-    border-left: 3.5px solid #F72585;
-}
-
-.border-l3 {
-    border-left: 3.5px solid #7C5FF4;
-}
-
-.box {
-    border-radius: 7px;
-    padding: 1em 2em;
-
-    .box-title {
-        font-weight: 600;
-        min-width: 242px;
+    h1 {
+      font-size: 1rem;
+      min-width: 340px;
     }
 
-    .box-level {
-        border-radius: 33px;
-        padding: .3rem 1.3rem;
-        text-align: center;
-        text-transform: uppercase;
-        color: #fff;
-    } 
-
-    .easy {
-        background-color: #4CC9F0;
+    .label {
+      text-align: center;
+      border-radius: 50px;
+      padding: 0.5rem 2rem;
     }
 
-    .competent  {
-        background-color: #F72585;
+    .label-l1 {
+      background-color: #4cc9f0;
+      color: #fff;
     }
 
-    .advanced {
-        background-color: #7C5FF4;
+    .label-l2 {
+      background-color: #f72585;
+      color: #fff;
     }
-    
-    .box-text {
-        font-weight: 400;
+
+    .label-l3 {
+      background-color: #7c5ff4;
+      color: #fff;
     }
+
+    .btn {
+      font-size: 16px;
+      min-width: 200px;
+    }
+  }
 }
 
-.btn {
-    font-weight: 600;
-    
-    .btn-dark {
-        background: #101F39;
-    }
+.border-clr-1 {
+  border-left: 5px solid #4cc9f0;
 }
 
+.border-clr-2 {
+  border-left: 5px solid #f72585;
+}
+
+.border-clr-3 {
+  border-left: 5px solid #7c5ff4;
+}

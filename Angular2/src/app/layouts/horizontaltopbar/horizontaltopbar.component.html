@@ -2,19 +2,22 @@
   <div class="navbar-header">
     <div class="d-flex">
       <!-- LOGO -->
-      <button type="button" class="btn btn-sm px-3 font-size-16 text-primary d-xl-none header-item" (click)="toggleMenubar()">
+      <button
+        type="button"
+        class="btn btn-sm px-3 font-size-16 text-primary d-xl-none header-item"
+        (click)="toggleMenubar()"
+      >
         <i class="fa fa-fw fa-bars"></i>
       </button>
-
 
       <div class="navbar-brand-box">
         <a href="/" class="logo logo-light">
           <span id="skf-logo-text-small" class="logo-sm">
-            <img src="assets/images/logo.svg" alt="" height="22">
+            <img src="assets/images/logo.svg" alt="" height="22" />
             Security Knowledge Framework
           </span>
           <span id="skf-logo-text-large" class="logo-lg">
-            <img src="assets/images/logo.svg" alt="" height="50">
+            <img src="assets/images/logo.svg" alt="" height="50" />
             Security Knowledge Framework
           </span>
         </a>
@@ -24,10 +27,19 @@
       <div class="app-search d-none navbar-center d-lg-block">
         <div class="position-relative">
           <form (ngSubmit)="onChange()" [formGroup]="searchForm">
-          <input type="text" autocomplete="off" class="form-control" placeholder="Search..."
-          id="search" formControlName="search" onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search...'">
-          <span class="bx bx-search-alt"></span>
-        </form>
+            <input
+              type="text"
+              autocomplete="off"
+              class="form-control"
+              placeholder="Search..."
+              id="search"
+              formControlName="search"
+              onfocus="this.placeholder = ''"
+              onfocusout="this.placeholder = ''"
+              onblur="this.placeholder = 'Search...'"
+            />
+            <span class="bx bx-search-alt"></span>
+          </form>
         </div>
       </div>
     </div>
@@ -35,18 +47,39 @@
     <div class="d-flex">
       <!-- Search -->
       <div class="dropdown d-inline-block d-lg-none ml-2" ngbDropdown>
-        <button type="button" class="btn header-item noti-icon" id="page-header-search-dropdown" ngbDropdownToggle>
+        <button
+          type="button"
+          class="btn header-item noti-icon"
+          id="page-header-search-dropdown"
+          ngbDropdownToggle
+        >
           <i class="mdi mdi-magnify text-primary"></i>
         </button>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" ngbDropdownMenu>
-
+        <div
+          class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+          ngbDropdownMenu
+        >
           <div class="p-3">
             <form [formGroup]="searchForm">
               <div class="input-group">
-                <input type="text" class="form-control" (change)="onChange()" placeholder="Search..." aria-label="Searh SKF"
-                onfocus="this.placeholder = ''" onfocusout="this.placeholder = ''" onblur="this.placeholder = 'Search'">
+                <input
+                  type="text"
+                  class="form-control"
+                  (change)="onChange()"
+                  placeholder="Search..."
+                  aria-label="Searh SKF"
+                  onfocus="this.placeholder = ''"
+                  onfocusout="this.placeholder = ''"
+                  onblur="this.placeholder = 'Search'"
+                />
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="submit" (click)="onChange()"><i class="mdi mdi-magnify"></i></button>
+                  <button
+                    class="btn btn-primary"
+                    type="submit"
+                    (click)="onChange()"
+                  >
+                    <i class="mdi mdi-magnify"></i>
+                  </button>
                 </div>
               </div>
             </form>
@@ -54,52 +87,112 @@
         </div>
       </div>
 
-      <div class="dropdown d-inline-block" joyrideStep="styleInfo" title="Style Switcher"  [stepContent]="styleInfo">
-        <button *ngIf="light" type="click" (click)="toDark('dark-theme.css')" class="btn header-item noti-icon">
+      <div
+        class="dropdown d-inline-block"
+        joyrideStep="styleInfo"
+        title="Style Switcher"
+        [stepContent]="styleInfo"
+      >
+        <button
+          *ngIf="light"
+          type="click"
+          (click)="toDark('dark-theme.css')"
+          class="btn header-item noti-icon"
+        >
           <i class="bx bxs-bulb text-primary"></i>
         </button>
-        <button *ngIf="dark" type="click" (click)="toLight('light-theme.css')" class="btn header-item noti-icon">
+        <button
+          *ngIf="dark"
+          type="click"
+          (click)="toLight('light-theme.css')"
+          class="btn header-item noti-icon"
+        >
           <i class="bx bx-bulb text-primary"></i>
         </button>
       </div>
 
-      <div class="dropdown d-inline-block" joyrideStep="tourInfo" title="Tour explanation" [stepContent]="tourInfo">
-        <button type="button" (click)="tour()" class="btn header-item noti-icon">
+      <div
+        class="dropdown d-inline-block"
+        joyrideStep="tourInfo"
+        title="Tour explanation"
+        [stepContent]="tourInfo"
+      >
+        <button
+          type="button"
+          (click)="tour()"
+          class="btn header-item noti-icon"
+        >
           <i class="bx bx-help-circle text-primary"></i>
         </button>
       </div>
 
-      <div class="dropdown d-inline-block" joyrideStep="checklistCat" title="Checklist type selector" [stepContent]="checklistCat" ngbDropdown>
-        <button type="button" class="btn header-item noti-icon" ngbDropdownToggle>
+      <div
+        class="dropdown d-inline-block"
+        joyrideStep="checklistCat"
+        title="Checklist type selector"
+        [stepContent]="checklistCat"
+        ngbDropdown
+      >
+        <button
+          type="button"
+          class="btn header-item noti-icon"
+          ngbDropdownToggle
+        >
           <i class="bx bx-devices text-primary"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
-          <div *ngFor="let item of categoryData.items" >
-            <a class="dropdown-item" (click)='platformUpdate(item.id)'>{{item.name}}</a>
+          <div *ngFor="let item of categoryData.items">
+            <a class="dropdown-item" (click)="platformUpdate(item.id)">{{
+              item.name
+            }}</a>
           </div>
           <div class="dropdown-divider"></div>
-          <a routerLink="/category/manage" class="dropdown-item text-center text-primary">Manage Types</a>
+          <a
+            routerLink="/category/manage"
+            class="dropdown-item text-center text-primary"
+            >Manage Types</a
+          >
         </div>
       </div>
 
       <div class="dropdown d-none d-lg-inline-block ml-1" ngbDropdown>
-        <button type="button" class="btn header-item noti-icon" ngbDropdownToggle>
+        <button
+          type="button"
+          class="btn header-item noti-icon"
+          ngbDropdownToggle
+        >
           <i class="bx bx-customize text-primary"></i>
         </button>
-        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right" ngbDropdownMenu>
+        <div
+          class="dropdown-menu dropdown-menu-sm dropdown-menu-right"
+          ngbDropdownMenu
+        >
           <div class="px-lg-2">
             <div class="row no-gutters">
               <div class="col">
-                <a class="dropdown-icon-item" href="https://github.com/blabla1337/skf-flask" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/social/github-logo.png" alt="Github">
+                <a
+                  class="dropdown-icon-item"
+                  href="https://github.com/blabla1337/skf-flask"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/images/social/github-logo.png"
+                    alt="Github"
+                  />
                   <span>GitHub</span>
                 </a>
               </div>
             </div>
             <div class="row no-gutters">
               <div class="col">
-                <a class="dropdown-icon-item" href="https://gitter.im/Security-Knowledge-Framework/Lobby" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/social/gitter.png" alt="Gitter">
+                <a
+                  class="dropdown-icon-item"
+                  href="https://gitter.im/Security-Knowledge-Framework/Lobby"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="assets/images/social/gitter.png" alt="Gitter" />
                   <span>Gitter Chat</span>
                 </a>
               </div>
@@ -108,22 +201,39 @@
         </div>
       </div>
       <div class="dropdown d-inline-block" ngbDropdown>
-        <button *ngIf="logoutButton == 'openidprovider'" (click)="loggedOut()" type="button"
-          class="btn btn-outline-danger mt-3 ml-3 px-3 nav-item">Logout</button>
+        <button
+          *ngIf="logoutButton == 'openidprovider'"
+          (click)="loggedOut()"
+          type="button"
+          class="btn btn-outline-danger mt-3 ml-3 px-3 nav-item"
+        >
+          Logout
+        </button>
       </div>
     </div>
   </div>
 </header>
 <div class="topnav">
-  <div class="container-fluid ">
+  <div class="container-fluid">
     <nav class="navbar navbar-light navbar-expand-xl topnav-menu active">
-      <div class="collapse navbar-collapse active justify-content-center" id="topnav-menu-content">
+      <div
+        class="collapse navbar-collapse active justify-content-center"
+        id="topnav-menu-content"
+      >
         <ul class="navbar-nav">
           <!-- Menu data -->
           <ng-container>
             <li class="nav-item dropdown">
-              <a joyrideStep="dashContent" title="Dashboard landing page" [stepContent]="dashContent" class="nav-link"
-                 routerLink="/dashboard" id="topnav-components" routerLinkActive="active" role="button">
+              <a
+                joyrideStep="dashContent"
+                title="Dashboard landing page"
+                [stepContent]="dashContent"
+                class="nav-link"
+                routerLink="/dashboard"
+                id="topnav-components"
+                routerLinkActive="active"
+                role="button"
+              >
                 <!-- <i class="mdi mdi-18px mdi-view-dashboard mr-2 d-xs-none"></i>  -->
                 Dashboard
               </a>
@@ -135,49 +245,105 @@
               </div> -->
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="projectContent" title="Projects" [stepContent]="projectContent" class="nav-link"
-                 routerLink="/projects/manage" id="topnav-components" routerLinkActive="active" role="button">
+              <a
+                joyrideStep="projectContent"
+                title="Projects"
+                [stepContent]="projectContent"
+                class="nav-link"
+                routerLink="/projects/manage"
+                id="topnav-components"
+                routerLinkActive="active"
+                role="button"
+              >
                 <!-- <i class="mdi mdi-18px mdi-card-bulleted mr-2"></i>  -->
                 Projects
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="codeContent" title="Code examples" [stepContent]="codeContent" class="nav-link"
-                 routerLink="/code-example/view" id="topnav-components" routerLinkActive="active" role="button">
+              <a
+                joyrideStep="codeContent"
+                title="Code examples"
+                [stepContent]="codeContent"
+                class="nav-link"
+                routerLink="/code-example/view"
+                id="topnav-components"
+                routerLinkActive="active"
+                role="button"
+              >
                 <!-- <i class="mdi mdi-18px mdi-code-greater-than-or-equal mr-2"></i>  -->
                 Code Examples
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="checkContent" title="Checklists" [stepContent]="checkContent" class="nav-link"
-                 routerLink="/checklists/view" id="topnav-components" routerLinkActive="active" role="button">
+              <a
+                joyrideStep="checkContent"
+                title="Checklists"
+                [stepContent]="checkContent"
+                class="nav-link"
+                routerLink="/checklists/view"
+                id="topnav-components"
+                routerLinkActive="active"
+                role="button"
+              >
                 <!-- <i class="mdi mdi-18px mdi-text-box-check mr-2"></i>  -->
                 Checklists
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="knowledgebaseContent" title="Knowledge base items" [stepContent]="knowledgebaseContent" class="nav-link"
-                 routerLink="/knowledgebase/view" id="topnav-components" routerLinkActive="active" role="button">
+              <a
+                joyrideStep="knowledgebaseContent"
+                title="Knowledge base items"
+                [stepContent]="knowledgebaseContent"
+                class="nav-link"
+                routerLink="/knowledgebase/view"
+                id="topnav-components"
+                routerLinkActive="active"
+                role="button"
+              >
                 <!-- <i class="mdi mdi-18px mdi-school mr-2"></i>  -->
                 Knowledgebase
               </a>
             </li>
             <li *ngIf="priv.includes('manage')" class="nav-item dropdown">
-              <a joyrideStep="userContent" title="Users" [stepContent]="userContent" class="nav-link"
-                 routerLink="/users/manage" id="topnav-components" routerLinkActive="active" role="button">
+              <a
+                joyrideStep="userContent"
+                title="Users"
+                [stepContent]="userContent"
+                class="nav-link"
+                routerLink="/users/manage"
+                id="topnav-components"
+                routerLinkActive="active"
+                role="button"
+              >
                 <i class="mdi mdi-18px mdi-account-edit mr-2"></i> Users
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="labContent" title="Labs" [stepContent]="labContent" class="nav-link"
-                 routerLink="/labs/view" id="topnav-components" routerLinkActive="active" role="button">
+              <a
+                joyrideStep="labContent"
+                title="Labs"
+                [stepContent]="labContent"
+                class="nav-link"
+                routerLink="/labs/view"
+                id="topnav-components"
+                routerLinkActive="active"
+                role="button"
+              >
                 <!-- <i class="mdi mdi-18px mdi-flask mr-2"></i>  -->
                 Labs
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a joyrideStep="trainingContent" title="Training" [stepContent]="trainingContent" class="nav-link"
-                 routerLink="/training/profiles" id="topnav-components" routerLinkActive="active" role="button">
+              <a
+                joyrideStep="trainingContent"
+                title="Training"
+                [stepContent]="trainingContent"
+                class="nav-link"
+                routerLink="/training/profiles"
+                id="topnav-components"
+                routerLinkActive="active"
+                role="button"
+              >
                 <!-- <i class="mdi mdi-18px mdi-book-open-variant mr-2"></i>  -->
                 Training
               </a>
@@ -189,11 +355,13 @@
   </div>
 </div>
 
-
 <ng-template #tourInfo>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Click here to activate the Tour on a specific page, it will explain per page the functionalities and how to use SKF.</h6>
+      <h6>
+        Click here to activate the Tour on a specific page, it will explain per
+        page the functionalities and how to use SKF.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -201,7 +369,10 @@
 <ng-template #styleInfo>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Click here to change the styling of the SKF application to Dark/Light mode.</h6>
+      <h6>
+        Click here to change the styling of the SKF application to Dark/Light
+        mode.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -209,7 +380,9 @@
 <ng-template #checklistCat>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Click here to change the context of the used checklist types in SKF.</h6>
+      <h6>
+        Click here to change the context of the used checklist types in SKF.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -217,7 +390,10 @@
 <ng-template #dashContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>The landing page of SKF, after the user login or when you skip the login.</h6>
+      <h6>
+        The landing page of SKF, after the user login or when you skip the
+        login.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -225,7 +401,10 @@
 <ng-template #projectContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Here you can create and manage your projects and results from the expert system wizard.</h6>
+      <h6>
+        Here you can create and manage your projects and results from the expert
+        system wizard.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -233,7 +412,10 @@
 <ng-template #checkContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Here you can view, create and manage your checklists and modify the expert system wizard.</h6>
+      <h6>
+        Here you can view, create and manage your checklists and modify the
+        expert system wizard.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -241,7 +423,10 @@
 <ng-template #knowledgebaseContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Here you can view, create and manage your knowledge base items based on the checklist type.</h6>
+      <h6>
+        Here you can view, create and manage your knowledge base items based on
+        the checklist type.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -249,7 +434,10 @@
 <ng-template #codeContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Here you can view, create and manage your code example items based on the checklist type.</h6>
+      <h6>
+        Here you can view, create and manage your code example items based on
+        the checklist type.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -257,7 +445,10 @@
 <ng-template #labContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Here you can view, deploy and stop the vulnerable labs to train your security verification skills.</h6>
+      <h6>
+        Here you can view, deploy and stop the vulnerable labs to train your
+        security verification skills.
+      </h6>
     </div>
   </div>
 </ng-template>
@@ -273,7 +464,9 @@
 <ng-template #userContent>
   <div class="card p-0">
     <div class="card-body text-center px-0 mr-2 ml-2">
-      <h6>Here you can view, create and manage your users for the SKF application.</h6>
+      <h6>
+        Here you can view, create and manage your users for the SKF application.
+      </h6>
     </div>
   </div>
 </ng-template>
