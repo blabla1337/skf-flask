@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   height: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
 
   .accordion {
     display: flex;
@@ -37,7 +37,7 @@
       .accordion-content {
         padding-left: 10rem;
         padding-right: 6rem;
-        visibility: hidden;
+        visibility: none;
 
         .accordion-title {
           font-size: 40px;
@@ -61,15 +61,47 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 100%;
       padding: 0 2rem;
+      animation-name: expand;
+      animation-duration: 0.8s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
 
       .accordion-action {
         display: none;
       }
 
       .accordion-content {
-        visibility: visible;
+        animation-name: showContent;
+        animation-duration: 0.8s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+
+        // .accordion-description {
+        //   display: none;
+        // }
+      }
+
+      @keyframes showContent {
+        0% {
+          opacity: 0;
+        }
+        95% {
+          fill-opacity: 0.1;
+        }
+        100% {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      @keyframes expand {
+        0% {
+          width: 10%;
+        }
+        100% {
+          width: 100%;
+        }
       }
     }
   }

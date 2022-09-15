@@ -1,52 +1,54 @@
 <div class="container-fluid">
-  <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+  <ngx-spinner
+    [fullScreen]="true"
+    type="ball-clip-rotate-multiple"
+    size="medium"
+  >
     <p class="loading">Loading, Please Wait...</p>
   </ngx-spinner>
 
-  <!-- start page title -->
-  <!-- <div class="row"> -->
-  <!--   <div class="col-12"> -->
-  <!--     <div class="page-title-box d-flex align-items-center justify-content-between"> -->
-  <!--       <h4 class="mb-0 font-size-18 head-four">Training</h4> -->
-  <!--       <div class="page-title-right"> -->
-  <!--         <ol class="breadcrumb m-0"> -->
-  <!--           <li class="breadcrumb-item active text-primary">Training</li> -->
-  <!--           <li class="breadcrumb-item active text-primary">View</li> -->
-  <!--         </ol> -->
-  <!--       </div> -->
-  <!--     </div> -->
-  <!--   </div> -->
-  <!-- </div> -->
-  <!-- end page title -->
   <div class="row">
     <div class="col-lg-12">
       <div class="home-wrapper">
         <div class="mb-5">
           <p class="h1 heading-dark">Training Profiles</p>
         </div>
-        
+
         <div class="row justify-content-center">
-          <div *ngFor="let profile of profiles" class="col-md-3 d-flex align-items-stretch">
+          <div
+            *ngFor="let profile of profiles"
+            class="col-md-3 d-flex align-items-stretch"
+          >
             <div class="card mb-5">
-                <div class="card-img-top">
-                    <img src="./assets/images/training_profiles/stock-photo-1.png" alt="" class="img-fluid">
-                    <div class="clr-overlay"></div>
-                    <div class="card-img-overlay">                        
-                        <h1 class="card-title text-white">{{profile.name}}</h1>
-                        <h2 class="card-subtitle text-uppercase">X Courses</h2>
-                    </div>
+              <div class="card-img-top">
+                <img
+                  src="./assets/images/training_profiles/stock-photo-1.png"
+                  alt=""
+                  class="img-fluid"
+                />
+                <div class="clr-overlay"></div>
+                <div class="card-img-overlay">
+                  <h1 class="card-title text-white">{{ profile.name }}</h1>
+                  <h2 class="card-subtitle text-uppercase">X Courses</h2>
                 </div>
-                <div class="card-body bg-white">
-                    <div class="card-text text-justify">
-                        <p>{{profile.text | slice:0:130}} ...</p>  
-                    </div>
-                    <a type="button" (click)="onSelectProfile(profile)" class="card-link">Explore courses</a>
+              </div>
+              <div class="card-body bg-white">
+                <div class="card-text text-justify">
+                  <p>{{ profile.text | slice: 0:130 }} ...</p>
                 </div>
-            </div>  
+                <a
+                  type="button"
+                  (click)="onSelectProfile(profile)"
+                  class="card-link"
+                  >Explore courses</a
+                >
+              </div>
+            </div>
           </div>
         </div>
         <!-- end row -->
       </div>
     </div>
   </div>
-</div> <!-- container-fluid -->
+</div>
+<!-- container-fluid -->
