@@ -9,10 +9,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
   selector: 'app-training-profiles',
   templateUrl: './training-profiles.component.html',
   styleUrls: ['./training-profiles.component.scss'],
-})
+
 export class TrainingProfilesComponent implements OnInit, OnDestroy {
-  public profiles: Profile[] = [];
-  private subscriptions: Subscription[] = [];
+    public profiles: Profile[] = [];
+    private subscriptions: Subscription[] = [];
 
   constructor(
     private trainingService: TrainingService,
@@ -31,8 +31,8 @@ export class TrainingProfilesComponent implements OnInit, OnDestroy {
   }
 
   onSelectProfile(profile: Profile) {
-    this.router.navigate(['training', 'profile', profile.id]);
-  }
+        this.router.navigate(['training', 'profile', profile.id]);
+    }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((sub) => {
@@ -41,4 +41,4 @@ export class TrainingProfilesComponent implements OnInit, OnDestroy {
       }
     });
   }
-}
+
