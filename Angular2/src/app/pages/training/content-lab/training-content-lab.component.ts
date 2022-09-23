@@ -100,7 +100,7 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
     if (imageId) {
       let userId: string;
       try {
-        userId = localStorage.getItem("user_id")
+        userId = sessionStorage.getItem("user_id")
       } catch (e) {
         console.log('Could not read current user Id', e);
       }
@@ -110,10 +110,8 @@ export class TrainingContentLabComponent implements OnInit, OnDestroy {
         .subscribe((deployResult: string) => {
         // console.log("TODO IB deployResult: ", deployResult);
 
-
-
-        const resultSplit = deployResult.split("\\");
-        const urlOrMessage = resultSplit[3].substring(1);
+        const resultSplit = deployResult['message'].split("'");
+        const urlOrMessage = resultSplit[1];
         setTimeout(() => {
           try {
             new URL(urlOrMessage);

@@ -4,7 +4,7 @@
 
 #### SQL Injection Vulnerability
 
-![image alt text](../../exploits_of_a_mom.png)
+![image alt text](../exploits_of_a_mom.png)
 
 **Exploits of a Mom**, retrieved from [xkcd.com](https://xkcd.com/327/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 

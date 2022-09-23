@@ -41,9 +41,7 @@ Because of this we decided to develop a framework in order to create a guide-sys
 ## <a name="installing"></a>Installing
 
 ### [Kubernetes installation how to](installations/Kubernetes)
-### [Bare metal / on premise installation how to](installations/local)
 ### [Docker-compose local how to](installations/docker)
-### [SKF K8s Raspberry pi cluster how to](installations/pi-cluster)
 ### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)
 
 ## <a name="updating-db"></a>Updating Database
@@ -121,7 +119,7 @@ Creates a nice badge for your website SSL/TLS security settings based on the Qua
 
 
 ## <a name="license"></a>License
-    Copyright (C) 2021  Glenn ten Cate, Riccardo ten Cate
+    Copyright (C) 2022  Glenn ten Cate, Riccardo ten Cate
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as

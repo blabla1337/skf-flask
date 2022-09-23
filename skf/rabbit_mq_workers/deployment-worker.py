@@ -65,8 +65,9 @@ def deploy_container(rpc_body):
                     print("Pod has started and is running")
                 break
             if ingress_err is not None:
-                return { 'message': ingress_err }
-            return { 'message': "'" + labs_protocol + hostname + "'" }
+                return ingress_err 
+            response = labs_protocol + hostname 
+            return response
         except:
             response_ingress = networking_v1_api.list_namespaced_ingress(user_id)
             for i in response_ingress.items:
@@ -75,7 +76,8 @@ def deploy_container(rpc_body):
                     host = host_split.split(".")
                     domain_user = deployment+"-"+user_id
                     if(domain_user == host[0]):
-                        return { 'message': "'" + labs_protocol + hostname + "'" }
+                        response = labs_protocol + hostname 
+                        return response
     else:
          return get_host_port_from_response(response)
    
@@ -87,7 +89,7 @@ def create_user_namespace(user_id):
         body.metadata = client.V1ObjectMeta(name=user_id)
         api_response = api_instance.create_namespace(body)
     except:
-        return {'message': 'Failed to deploy, error namespace creation!'} 
+        return 'Failed to deploy, error namespace creation!'
 
 def create_deployment_object(deployment):
     try:
@@ -113,7 +115,7 @@ def create_deployment_object(deployment):
             spec=spec)
         return deployment
     except:
-        return {'message': 'Failed to deploy, error creation deployment object!'} 
+        return 'Failed to deploy, error creation deployment object!' 
 
 def create_deployment(deployment, user_id):
     try:
@@ -122,7 +124,7 @@ def create_deployment(deployment, user_id):
         response = k8s_apps_v1.create_namespaced_deployment(body=deployment, namespace=user_id)
         return response
     except:
-        return {'message': 'Failed to deploy, error K8s API create call!'} 
+        return 'Failed to deploy, error K8s API create call!'
 
 def create_service_for_deployment(deployment, user_id):
     config.load_kube_config()           
@@ -148,43 +150,44 @@ def get_service_exposed_ip(deployment, user_id):
         response = api_instance.read_namespaced_service(deployment, user_id, pretty=True)
         return response
     except:
-        return {'message': 'Failed to deploy, error service no exposed IP!'} 
+        return 'Failed to deploy, error service no exposed IP!'
 
 def string_split_user_id(body):
     try:
         user_id = body.split(':')
         return user_id[1]
     except:
-        return {'message': 'Failed to deploy, error no user_id found!'} 
+        return 'Failed to deploy, error no user_id found!'
 
 def string_split_port(host_port):
     try:
         port = host_port.split(':')
         return port[1]
     except:
-        return {'message': 'Failed to create ingress, error no port found!'} 
+        return 'Failed to create ingress, error no port found!'
 
 def string_split_host(host_port):
     try:
         host = host_port.split(':')
         return host[0]
     except:
-        return {'message': 'Failed to deploy, error no host found!'} 
+        return 'Failed to deploy, error no host found!'
 
 def string_split_deployment(body):
     try:
         deployment = body.split(':')
         return deployment[0]
     except:
-        return {'message': 'Failed to deploy, error no deployment found!'} 
+        return 'Failed to deploy, error no deployment found!' 
 
 def get_host_port_from_response(response):
     try:
         for service in response.spec.ports:
             node_port = service.node_port
-        return {'message': "'"+ labs_domain + ":" + str(node_port)+"'"}
+        response = labs_domain + ":" + str(node_port)
+        return response
     except:
-        return {'message': 'Failed to deploy, error no host or port!'} 
+        return 'Failed to deploy, error no host or port!'
 
 def on_request(ch, method, props, body):
         response = deploy_container(str(body, 'utf-8'))

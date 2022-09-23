@@ -840,8 +840,10 @@ topics:
         content:
           - slide: slides/5-Reporting/README.md
           - questionnaire: questionnaire/5-0-introduction-reporting.md
-          #- lab:
-          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: Now lets practise and do some hands-on! To get started with this, start the ./runner-script.sh -l "python/XSS" for example
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/
+              images:
+                - python: 158
+                - java: 159
+                #- python: 160

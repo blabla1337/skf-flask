@@ -52,17 +52,25 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
 
   ngOnInit(): void
   {
+    let token = ""
 
-    let token = localStorage.getItem("access_token")
-    
+    if (sessionStorage.getItem("access_token") !== null) {
+      token = sessionStorage.getItem("access_token")
+    }
+
     if(token == ""){
       localStorage.setItem("privilege", "manage")
     }
 
     if(environment.AUTH_METHOD == "openidprovider"){
-      let decoded = atob(token.split('.')[1])
-      if(decoded.match("admin")){
-        localStorage.setItem("privilege", "manage");
+      if(token == ""){
+        window.location.assign("/auth/login");
+      }
+      if(token != ""){
+        let decoded = atob(token.split('.')[1])
+        if(decoded.match("admin")){
+          localStorage.setItem("privilege", "manage");
+        }
       }
     } 
     
@@ -283,6 +291,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   {
     this.oauthService.logOut();
     localStorage.clear();
+    sessionStorage.clear();
     this.router.navigate(['/auth/login']);
   }
 

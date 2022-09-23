@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppSettings } from '../../../global';
 import { ClipboardService } from 'ngx-clipboard';
-
+import { NgxSpinnerService  } from 'ngx-spinner';
 import { SprintService } from '../../../core/services/sprint.service';
 import { CodeExamplesService } from '../../../core/services/code-examples.service';
 
@@ -45,7 +45,8 @@ export class SummaryComponent implements OnInit
     private _sprintService: SprintService,
     private _codeExampleService: CodeExamplesService,
     private router: Router,
-    private clipboardApi: ClipboardService
+    private clipboardApi: ClipboardService,
+    private spinner: NgxSpinnerService
   ) { }
 
 
@@ -106,11 +107,16 @@ export class SummaryComponent implements OnInit
 
   getSprintItems()
   {
+    this.spinner.show();
     this.sub = this.route.params.subscribe(params =>
     {
       this.id = +params['id'];
     });
-    this._sprintService.getSprintChecklistResults(this.id).subscribe(sprint => this.sprintData = sprint)
+    this._sprintService.getSprintChecklistResults(this.id).subscribe(sprint => { 
+      this.spinner.hide(); 
+      this.sprintData = sprint
+    } )
+
   }
 
   newCompliance(item: number){

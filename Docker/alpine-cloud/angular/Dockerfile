@@ -16,7 +16,7 @@ RUN node -v
 
 # Optimize vendor.bundle.js
 RUN npm --loglevel=error install
-RUN npm run build --loglevel=error
+RUN npm run build --loglevel=error 
 
 ############
 ### run ###

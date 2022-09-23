@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from os import path
 import datetime as dt
+from datetime import datetime
 from kubernetes import client, config
 
 from common import delete_all
@@ -13,13 +14,15 @@ def cleanK8s():
         for item in api_response.items:
             for container in item.status.container_statuses:
                 if "owasp-skf-lab" in container.image:      
-                    image_id = container.image_id.split('\n')
-                    if image_id:
-                        delete_all("undefined", item.metadata.namespace)
                     date_image = container.state.running.started_at
-                    hour_image = date_image.strftime("%H").lstrip("0").replace(" 0", " ")
-                    hour_now = dt.datetime.now().hour
-                    if hour_image != hour_now:
+                    format_dt = "%Y-%m-%d %H:%M:%S"
+                    date = date_image.strftime(format_dt)
+                    dt_obj_img = datetime.strptime(date, format_dt)
+                    dt_now = dt.datetime.now().strftime(format_dt)
+                    dt_obj_now = datetime.strptime(dt_now, format_dt)
+                    diff = dt_obj_now - dt_obj_img 
+                    hours_diff = diff.total_seconds() / 3600
+                    if int(hours_diff) > 4:
                         delete_all(container.name, item.metadata.namespace)
                     if date_image == "":
                         delete_all(container.name, item.metadata.namespace)
@@ -29,4 +32,3 @@ def cleanK8s():
 
 # Do the cleaning magic
 cleanK8s()
-

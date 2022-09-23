@@ -9,8 +9,7 @@ export const environment = {
       This config is about the endpoint where your api is running that is talking to the Angular UI
       DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
   */
-  API_ENDPOINT: 'http://localhost:8080',
-  //API_ENDPOINT: 'https://beta.securityknowledgeframework.org',
+  API_ENDPOINT: 'https://krakend.secureby.design:8443',
   
   /* 
       This config is about wether you want to use OPENID or skipping logging etirely 
@@ -36,14 +35,14 @@ export const environment = {
       }
     }),
   */
-  KRAKEND_ENDPOINT: 'http://localhost:8080',
+  KRAKEND_ENDPOINT: 'https://krakend.secureby.design:8443',
 
   /*
     Here is the rest of the auth config for openID connect
   */
 
   // Url of the Identity Provider
-  OPENID_ISSUER: 'http://localhost:8100/auth/realms/krakend',
+  OPENID_ISSUER: 'https://keycloak.secureby.design:8443/realms/krakend',
   // URL of the SPA to redirect the user to after login
   OPENID_REDIRECT_URI: window.location.origin + '/auth/openid',
   // The SPA's id. The SPA is registered with this id at the auth-server

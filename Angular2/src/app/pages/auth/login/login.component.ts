@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit
         localStorage.setItem("theme","light-theme.css")
         
         if(this.loginProvider == "skiploginprovider"){
-            localStorage.setItem("access_token","")
+            sessionStorage.setItem("access_token","")
             this.router.navigate(["/dashboard"])
         }
     }

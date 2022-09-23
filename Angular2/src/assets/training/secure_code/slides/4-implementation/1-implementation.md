@@ -4,7 +4,7 @@ You may know what your software is supposed to do (requirements) and may have a 
 
 This section discusses how to implement secure software. We will do that by considering a very abstract view of a program, as illustrated by the following figure:
 
-![Program Model](../../program_model.png)
+![Program Model](../program_model.png)
 
 **Abstract View of a Program**
 

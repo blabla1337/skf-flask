@@ -12,7 +12,7 @@ As a result, some programming languages that emphasize performance are either *n
 
 Memory safety problems are a common cause of vulnerabilities. Catalin Cimpanu’s study, [*Microsoft: 70 percent of all security bugs are memory safe issues*](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/) (2019), found that about ~70% of all Microsoft vulnerabilities in 2006-2018 were due to memory safety issues. What is more, while there are annual fluctuations, it has been relatively stable over that time:
 
-![Memory safety has been consistently a vulnerability over time](../../memory_safety_over_time.png)
+![Memory safety has been consistently a vulnerability over time](../memory_safety_over_time.png)
 
 **Percentage of memory-safety vulnerabilities at Microsoft** (by Catalin Cimpanu, 2019, retrieved from [ZDNet](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/))
 
@@ -62,7 +62,7 @@ If an attacker can cause your program to write outside its buffer, this often re
 
 Unbounded writes are not the only problem. Historically, people worried about out-of-bounds writes more than reads, but the Heartbleed vulnerability in 2014 showed that out-of-bounds reads could also be extremely dangerous. Out-of-bounds reads can reveal information that allow attackers to completely break into a system. Even programs that only allow one byte of an out-of-bound read or write can have a dangerous vulnerability.
 
-![image alt text](../../heartbleed.png)
+![image alt text](../heartbleed.png)
 
 **Heartbleed Explained**. Retrieved from [xkcd](https://xkcd.com/1354/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
 

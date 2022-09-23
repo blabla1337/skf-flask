@@ -67,14 +67,18 @@ def get_training_course_item(course_id):
 
 def get_progress(course_id, user_id):
     log("User requested training course progress", "LOW", "PASS")
-    result = [t.category_id for t in \
-        Training.query.filter(Training.user_id == user_id, Training.course_id == course_id).all()]
-    return result
+    try:
+        result = [t.category_id for t in \
+            Training.query.filter(Training.user_id == user_id, Training.course_id == course_id).all()]
+        return {'category_id': result[0]}
+    except:
+        db.session.rollback()
+        return {'message': 'No completed courses found'}
 
 def set_progress(data):
     log("User requested training course progress update", "MEDIUM", "PASS")
     try:
-        training = Training(data.get('userId'), data.get('courseId'), data.get('categoryId'))
+        training = Training(data.get('user_id'), data.get('course_id'), data.get('category_id'))
         db.session.add(training)
         db.session.commit()
     except:

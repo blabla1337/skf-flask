@@ -11,6 +11,7 @@ spec:
   type: NodePort
   ports:
     - port: 8888
+      targetPort: 8888
       name: skf-flask-backend-port
   selector:
     app.kubernetes.io/name: skf-flask-back
@@ -40,7 +41,7 @@ spec:
         runAsUser: 1000
       containers:
         - name: skf-flask-back
-          image: "blabla1337/skf-api:magick-update"
+          image: "blabla1337/skf-api:4.1.0"
           imagePullPolicy: Always
           ports:
             - containerPort: 8888

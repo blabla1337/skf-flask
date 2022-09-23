@@ -28,11 +28,11 @@ export class AppComponent implements OnInit {
     setTimeout(() =>
     {
       if(this.loginProvider != "skiploginprovider"){
-        localStorage.setItem('session', 'expired');
-        localStorage.clear();
-        location.replace('/auth/login');
-        this.oauthService.logOut();
+        //localStorage.setItem('session', 'expired');
+        //localStorage.clear();
+        //location.replace('/auth/login');
+        //this.oauthService.logOut(); 
       }
-    }, 3000);
+    }, 2000);
   }
 }

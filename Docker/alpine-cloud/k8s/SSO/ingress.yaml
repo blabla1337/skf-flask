@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "skf-ingress-controller"
+  namespace: "default"
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - secureby.design
+    secretName: secureby.design
+  rules:
+  - host: secureby.design
+    http:
+     paths:
+     - path: /
+       pathType: Prefix
+       backend:
+         service:
+           name: skf-flask-front
+           port: 
+             number: 8788
+     - path: /api
+       pathType: Prefix
+       backend:
+         service:
+           name: krakend
+           port: 
+             number: 8080

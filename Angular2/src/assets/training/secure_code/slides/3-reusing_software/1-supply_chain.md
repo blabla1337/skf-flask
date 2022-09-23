@@ -20,7 +20,7 @@ Learning objectives:
 
 When developing software, you normally reuse lots of other software. This may include an operating system, container runtime, frameworks, and libraries. You will typically also use development tools that others have developed. This reused software, and how you get it, can significantly impact the security of the result.
 
-![Dependency](../../dependency.png)
+![Dependency](../dependency.png)
 
 *Dependency* (retrieved from [xkcd.com](https://xkcd.com/2347/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/))
 

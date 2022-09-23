@@ -33,7 +33,7 @@ To get secure software, we first need to understand what *security* means. Diffe
 
 This set of Confidentiality, Integrity, and Availability (CIA) is sometimes called the CIA triad.
 
-![CIA Triad](../../cia.png)
+![CIA Triad](../cia.png)
 
 The CIA Triad
 

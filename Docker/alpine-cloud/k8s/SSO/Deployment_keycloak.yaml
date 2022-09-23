@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak
+  labels:
+    app.kubernetes.io/name: keycloak
+    app.kubernetes.io/instance: keycloak
+    app.kubernetes.io/version: "2.2.2"
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8443
+    name: keycloak-port
+    targetPort: 8443
+  selector:
+    app.kubernetes.io/name: keycloak
+    app.kubernetes.io/instance: keycloak
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  labels:
+    app.kubernetes.io/name: keycloak
+    app.kubernetes.io/instance: keycloak
+    app.kubernetes.io/version: "2.2.2"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: keycloak
+      app.kubernetes.io/instance: keycloak
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: keycloak
+        app.kubernetes.io/instance: keycloak
+    spec:
+      securityContext:
+        runAsUser: 1000    
+      volumes:
+        - name: config-volume
+          configMap:
+            name: keycloak 
+      containers:
+      - name: keycloak
+        image: quay.io/keycloak/keycloak:19.0.2
+        volumeMounts:
+        - name: config-volume
+          mountPath: /opt/keycloak/data/import/krakend.json
+          subPath: krakend.json
+        - name: config-volume
+          mountPath: /opt/keycloak/data/import/certfile.pem
+          subPath: certfile.pem
+        - name: config-volume
+          mountPath: /opt/keycloak/data/import/keyfile.pem
+          subPath: keyfile.pem
+        args: ["start --import-realm --hostname=keycloak.secureby.design --https-certificate-file=/opt/keycloak/data/import/certfile.pem --https-certificate-key-file=/opt/keycloak/data/import/keyfile.pem"]
+        #args: ["start-dev"]
+        env:
+          -  name: KEYCLOAK_ADMIN
+             valueFrom:
+               configMapKeyRef:
+                 name: keycloak
+                 key: KEYCLOAK_ADMIN     
+          -  name: KEYCLOAK_ADMIN_PASSWORD
+             valueFrom:
+               configMapKeyRef:
+                 name: keycloak
+                 key: KEYCLOAK_ADMIN_PASSWORD      
+          -  name: KEYCLOAK_DEFAULT_THEME
+             valueFrom:
+               configMapKeyRef:
+                 name: keycloak
+                 key: KEYCLOAK_DEFAULT_THEME      
+          -  name: KEYCLOAK_WELCOME_THEME
+             valueFrom:
+               configMapKeyRef:
+                 name: keycloak
+                 key: KEYCLOAK_WELCOME_THEME      
+          -  name: KEYCLOAK_IMPORT
+             valueFrom:
+               configMapKeyRef:
+                 name: keycloak
+                 key: KEYCLOAK_IMPORT      
+        ports:
+        - containerPort: 8443

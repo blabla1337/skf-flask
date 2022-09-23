@@ -18,7 +18,7 @@ This HTML is fine if its purpose is to be a quick check to counter accidental mi
 
 A related and common insecure design is where code is sent to web browsers, for example, as JavaScript or WebAssembly (WASM), and that code does security checks before sending its data to a server. In most situations, an attacker can control the web browser, while the server is under your control, so again, you cannot trust anything the web browser does. Put another way, any security checks in the code sent to the browser can be trivially bypassed by an attacker, since attackers control their own web browsers. A related problem is providing direct database access to untrusted users. Often users do not need full access, so this is giving users far more privilege than they need (violating least privilege), and such access can make it harder to prevent bypassing security checks. The following figure shows this mistake:
 
-![Insecure design: In this figure security-relevant input validation checks are run in a web browser, and not run again by the web server. Since the attacker can control their own web browser, this is insecure. The database is also directly accessible by logged-in users; this is a bad sign, because this grants a lot of data access that is often unnecessary.](../../insecure_design.png)
+![Insecure design: In this figure security-relevant input validation checks are run in a web browser, and not run again by the web server. Since the attacker can control their own web browser, this is insecure. The database is also directly accessible by logged-in users; this is a bad sign, because this grants a lot of data access that is often unnecessary.](../insecure_design.png)
 
 An Insecure JavaScript Application
 

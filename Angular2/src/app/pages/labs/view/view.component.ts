@@ -101,13 +101,13 @@ export class LabViewComponent implements OnInit
     this.spinner.show()
     this._labService.deployLab(
       image_id, 
-      localStorage.getItem("user_id")
+      sessionStorage.getItem("user_id")
       ).subscribe(requestData =>
     {
       this.spinner.hide();
       this.lab = requestData;
-      var lab_split = this.lab.split("\\");
-      this.lab = lab_split[3].substring(1);
+      var lab_split = this.lab['message'].split("'");
+      this.lab = lab_split[1]
       Swal.queue([
         {
           title: 'Lab deployment URL',
@@ -138,7 +138,7 @@ export class LabViewComponent implements OnInit
     this.spinner.show()
     this._labService.deleteLab(
       image_id,
-      localStorage.getItem("user_id")
+      sessionStorage.getItem("user_id")
       ).subscribe(requestData =>
     {
       this.deployments = requestData

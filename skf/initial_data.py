@@ -10356,10 +10356,7 @@ def load_initial_data():
         db.session.commit()       
 
         db.session.add(LabItem('Credentials guessing ( harder )','https://owasp-skf.gitbook.io/asvs-write-ups/credentials-guessing-2', 2, 'credentials-guessing-2', 'SKF-labs', None))
-        db.session.commit()       
-
-        db.session.add(LabItem('Credentials guessing ( hard )','https://owasp-skf.gitbook.io/asvs-write-ups/credentials-guessing-3', 2, 'credentials-guessing-3', 'SKF-labs', None))
-        db.session.commit()               
+        db.session.commit()                
 
         db.session.add(LabItem('API-only XSS','https://pwning.owasp-juice.shop/part2/xss.html#perform-a-persisted-xss-attack-without-using-the-frontend-application-at-all',3,'juice-shop','juice-shop',None))
         db.session.commit()
@@ -10646,7 +10643,26 @@ def load_initial_data():
         db.session.add(LabItem('Juice Shop CTF','https://owasp.org/www-project-juice-shop/',3,'juice-shop-ctf','juice-shop',None))
         db.session.commit()
 
-        db.session.add(LabItem('SKF Hack OS','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'hacking-v2','SKF-labs',None))
+        db.session.add(LabItem('SKF Hack OS Python','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'hacking-v2','SKF-labs',None))
+        db.session.commit()
+
+        db.session.add(LabItem('SKF Hack OS Java','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'hacking-v2-java','SKF-labs',None))
+        db.session.commit()
+
+
+        db.session.add(LabItem('Host header auth bypass','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'host-header-authentication-bypass','SKF-labs',None))
+        db.session.commit()
+
+        db.session.add(LabItem('HTTP response splitting','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'http-response-splitting','SKF-labs',None))
+        db.session.commit()
+
+        db.session.add(LabItem('Websocket message manipulation','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'websocket-message-manipulation','SKF-labs',None))
+        db.session.commit()
+        
+        db.session.add(LabItem('SQLi login bypass','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'sqli-login-bypass','SKF-labs',None))
+        db.session.commit()
+        
+        db.session.add(LabItem('Web cache poisoning','https://owasp-skf.gitbook.io/asvs-write-ups/',3,'web-cache-poisoning','SKF-labs',None))
         db.session.commit()
 
         print('Initialized the initial data.')

@@ -36,34 +36,6 @@ topics:
           #      - java: blabla1337/owasp-skf-lab:sqli-like
           #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
 
-
-  - id: 00f3e11c-a0ce-4f12-3225-dd587ee98936
-    name: OWASP ZAP
-    content:
-      #- video: https://www.youtube.com/embed/pYFtLA2yTR8
-    categories:
-      - id: 231b2b0b-53b9-666c-95b0-2aabe94c673b
-        name: OWASP ZAP Automation
-        content:
-          - slide: slides/13-zap/AUTOMATION.md
-          #- questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-      - id: 432b2b0b-53b9-666c-95b0-2aa43aac673b
-        name: OWASP ZAP Policy
-        content:
-          - slide: slides/13-zap/POLICY.md
-          #- questionnaire: questionnaire/1.md
-          #- lab:
-          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-
-
   - id: 00f3e25c-a0ce-4f8d-be35-dd587ee98936
     name: Requirements, Design, and Reuse
     content:
@@ -103,18 +75,6 @@ topics:
               #  - python: blabla1337/owasp-skf-lab:sqli-like
               #  - java: blabla1337/owasp-skf-lab:sqli-like
               #  - nodejs: blabla1337/owasp-skf-lab:sqli-like
-      - id: 901b2b0b-53b9-486c-95b0-2aa4397c673b
-        name: Risk Management
-        content:
-          - slide: slides/1-requirements/4-risk_management.md
-          - questionnaire: questionnaire/1.4.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-          #      - java: blabla1337/owasp-skf-lab:sqli-like
-          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
       - id: 901b2b0b-53b9-486c-95b0-2aa4394c678b
         name: Risk Management
         content:
@@ -182,10 +142,10 @@ topics:
           #      - python: blabla1337/owasp-skf-lab:sqli-like
           #      - java: blabla1337/owasp-skf-lab:sqli-like
           #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
-      - id: 901b2b0b-53b9-486c-95b0-5aa4394c673b
+      - id: 901b2b0b-53b9-486c-95b0-5ba4394c673b
         name: Widely-Recommended Secure Design Principles
         content:
-          - slide: slides/2-design/2-secure_principles.md
+          - slide: slides/2-design/2-design_principles.md
           - questionnaire: questionnaire/2.2.md
           #- lab:
           #    hint: This is a super simple tip & hint!
@@ -441,10 +401,10 @@ topics:
         content:
           - slide: slides/4-implementation/13-availability.md
           - questionnaire: questionnaire/4.13.md
-          #- lab:
-          #    hint: This is a super simple tip & hint!
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-          #      - java: blabla1337/owasp-skf-lab:sqli-like
-          #      - nodejs: blabla1337/owasp-skf-lab:sqli-like
+          - lab:
+              hint: Now lets practise and do some hands-on! To get started with this, start the ./runner-script.sh -l "python/XSS" for example
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/
+              images:
+                - python: 158
+                - java: 159
+                #- python: 160

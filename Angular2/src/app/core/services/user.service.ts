@@ -20,9 +20,11 @@ export class UserService
   getJwtUserId() {
     try {
       const jwtToken = sessionStorage.getItem("access_token");
-      if (jwtToken === undefined || jwtToken === "" || jwtToken === null ) {
-        localStorage.setItem("user_id",uuidv4());
-        return
+      if(environment.AUTH_METHOD == "skiploginprovider"){
+        if (jwtToken === undefined || jwtToken === "" || jwtToken === null ) {
+          sessionStorage.setItem("user_id",uuidv4());
+          return
+        }
       }
       const decodedJWT: any = jwt_decode(jwtToken);
       sessionStorage.setItem("user_id",decodedJWT.sub);
@@ -58,4 +60,8 @@ export class UserService
     return this.http.get(environment.API_ENDPOINT + `/api/user/list_privileges`, { headers: this.headers })
   }
 
+  getActive()
+  {
+    return this.http.get(environment.API_ENDPOINT + `/api/kb/1`, { headers: this.headers, observe: "response" })
+  }
 }

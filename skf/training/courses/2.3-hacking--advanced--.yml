@@ -1276,24 +1276,12 @@ topics:
         content:
           - slide: slides/5-Reporting/README.md
           - questionnaire: questionnaire/5-0-introduction-reporting.md
-          #- lab:
-          #    hint: To get started with this lab, start the ./runner-script.sh -l "python/CORS"
-          #    writeup: https://owasp-skf.gitbook.io/asvs-write-ups/server-side-template-injection-ssti
-          #    images:
-          #      - python: blabla1337/owasp-skf-lab:sqli-like
-
-  - id: 036246a6-03b8-47a4-8f3b-4b3f1af0489f
-    name: Next steps?
-    #content:
-    #  - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-    categories:
-      - id: cf890055-141f-4307-b024-3385f7bb27e1
-        name: OWASP juice shop
-        content:
-          - slide: slides/6-Next_Steps/juice-shop.md
-          #- questionnaire: questionnaire/1.md
           - lab:
-              hint: dunno yet, do we want to put the juice shop also in a seperate guacbox?
-              writeup: https://pwning.owasp-juice.shop/appendix/solutions.html
+              hint: Now lets practise and do some hands-on! To get started with this, start the ./runner-script.sh -l "python/XSS" for example
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/
               images:
-                - python: 157
+                - python: 158
+                - java: 159
+                #- python: 160
+
+ 

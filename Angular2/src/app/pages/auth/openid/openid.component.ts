@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { OAuthService } from 'angular-oauth2-oidc';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-openid',
@@ -18,9 +19,11 @@ export class OpenidComponent implements OnInit
     private oauthService: OAuthService,
     ) { }
 
-  ngOnInit(): void
+  async ngOnInit(): Promise<void>
   {
-    this.oauthService.refreshToken();
-    window.location.assign("/dashboard");
+    this.oauthService.getAccessToken();
+    timer(2000).subscribe(x => { this._router.navigate(['/dashboard']); })
   }
 }
+
+

@@ -16,14 +16,14 @@ def delete_container(rpc_body):
     deployment = string_split_deployment(rpc_body)
     delete_all(deployment, user_id)
     time.sleep(3)
-    return {'message': 'If present, the container image was deleted from the cluster!'} 
+    'If present, the container image was deleted from the cluster!'
 
 def string_split_user_id(body):
     try:
         user_id = body.split(':')
         return user_id[1]
     except:
-        return {'message': 'Failed to deploy, error no user_id found!'} 
+        return 'Failed to deploy, error no user_id found!'
 
 
 def string_split_deployment(body):
@@ -31,7 +31,7 @@ def string_split_deployment(body):
         deployment = body.split(':')
         return deployment[0]
     except:
-        return {'message': 'Failed to delete, error no deployment found!'} 
+        return 'Failed to delete, error no deployment found!'
 
 
 def on_request(ch, method, props, body):

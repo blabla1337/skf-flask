@@ -22,7 +22,8 @@ def deploy_labs(instance_id, userid):
     rpc = SKFLabDeployment()
     body = result.image_tag + ":" + str(userid)
     response = rpc.call(body)
-    return response
+    print(type(response))  
+    return {'message': response.encode().decode()} 
 
 
 def delete_labs(instance_id, userid):
@@ -31,4 +32,4 @@ def delete_labs(instance_id, userid):
     rpc = SKFLabDelete()
     body = result.image_tag + ":" + str(userid)
     response = rpc.call(body)
-    return response
+    return {'message': response.encode().decode()} 

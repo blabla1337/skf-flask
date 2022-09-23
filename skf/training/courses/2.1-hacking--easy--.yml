@@ -543,8 +543,9 @@ topics:
           - slide: slides/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking.md
           - questionnaire: questionnaire/4-11-09-Testing_for_Clickjacking.md
           - lab:
-              hint: To get started with this lab, start the ./runner-script.sh -l "python/Clickjacking"
-              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/clickjacking/kbid-20-clickjacking
+              hint: Now lets practise and do some hands-on! To get started with this, start the ./runner-script.sh -l "python/XSS" for example
+              writeup: https://owasp-skf.gitbook.io/asvs-write-ups/
               images:
-                - python: 158  
-    
+                - python: 158
+                - java: 159
+                #- python: 160
