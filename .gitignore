@@ -24,3 +24,5 @@ bin
 bin64
 include
 venv
+Docker/alpine-cloud/k8s/configmaps.yaml
+Docker/alpine-cloud/k8s/SSO/configmaps.yaml
