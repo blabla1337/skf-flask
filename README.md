@@ -54,7 +54,8 @@ In order to make the SKF more ready to be used inside enterprise environments, w
 existing authentication/authorization model. We decided to change the SKF architecture and get rid of authentication/
 authorization decisions within the API itself and delegate this to the API gateway and IDP. When choosing the full deployment of the SKF the user management can be done directly in Keycloak. You can also decide if you want to use Keycloak’s federation or social login features.
 
-IMG HERE
+
+![full](https://user-images.githubusercontent.com/8506705/193818570-ff027ef1-acd1-461b-a9d1-53faac979a32.png)
 
 
 ---
@@ -64,7 +65,7 @@ IMG HERE
 This deployment method is for testing and local development only. When deploying the SKF with the Docker
 compose you are provisioned with the following environment:
 
-IMG HERE
+![minimal](https://user-images.githubusercontent.com/8506705/193818616-d2ca5d02-aff5-48e7-bcb5-f4100742d0d4.png)
 
 This setup makes the SKF directly accessible for everybody who wants to use it. Keep in mind that this also allows everybody to make changes to the SKF knowledgebase, code examples, questionnaires, etc. because after all, there are no authentication/authorization mechanisms in place remember?
 
