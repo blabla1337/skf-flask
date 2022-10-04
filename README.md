@@ -16,6 +16,14 @@
 
 The OWASP Security Knowledge Framework is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using OWASP-ASVS/OWASP-MASVS  or custom security checklists) and labs to practice security verification (using SKF-Labs, OWASP Juice-shop, and best practice code examples from SKF and the OWASP-Cheatsheets).
 
+Currently we are making plans to make SKF fully SaaS so that you don't need to perform your own installation to
+be able to benifit fully from whatever the SKF has to offer you. We made this step because we realised that with all the
+additional features we are providing SKF becomes harder and harder to deploy and maintain yourself.
+
+Ofcourse, if you want to have your own instance running feel free to follow all the installation steps provided in either the 
+[Kubernetes installation how to](installations/Kubernetes) or the [Docker-compose local how to](installations/docker).
+
+
 ## Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
@@ -38,9 +46,30 @@ Because of this we decided to develop a framework in order to create a guide-sys
 
 ## <a name="installing"></a>Installing
 
+### **Types of installation**
+
 ### [Kubernetes installation how to](installations/Kubernetes)
+
+In order to make the SKF more ready to be used inside enterprise environments, we knew we had to do something with our
+existing authentication/authorization model. We decided to change the SKF architecture and get rid of authentication/
+authorization decisions within the API itself and delegate this to the API gateway and IDP. When choosing the full deployment of the SKF the user management can be done directly in Keycloak. You can also decide if you want to use Keycloak’s federation or social login features.
+
+IMG HERE
+
+
+---
+
 ### [Docker-compose local how to](installations/docker)
-### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)
+
+This deployment method is for testing and local development only. When deploying the SKF with the Docker
+compose you are provisioned with the following environment:
+
+IMG HERE
+
+This setup makes the SKF directly accessible for everybody who wants to use it. Keep in mind that this also allows everybody to make changes to the SKF knowledgebase, code examples, questionnaires, etc. because after all, there are no authentication/authorization mechanisms in place remember?
+
+---
+
 
 ## <a name="CI-Pipeline"></a>CI-Pipeline
 
