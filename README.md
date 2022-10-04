@@ -19,8 +19,6 @@ The OWASP Security Knowledge Framework is an open source web application that ex
 ## Table of Contents
 * [Introduction](#introduction)
 * [Installing](#installing)
-* [Updating Database](#updating-db)
-* [Updating Chatbot](#updating-dataset)
 * [Usage](#usage)
 * [CI-Pipeline](#ci-pipeline)
 * [Development / Contributing](CONTRIBUTING.md)
@@ -43,34 +41,6 @@ Because of this we decided to develop a framework in order to create a guide-sys
 ### [Kubernetes installation how to](installations/Kubernetes)
 ### [Docker-compose local how to](installations/docker)
 ### [SKF Chatbot installation how to](https://github.com/blabla1337/skf-bot)
-
-## <a name="updating-db"></a>Updating Database
-
-There is a method available to update the content of the SKF application.
-
-When you have modified or created new Knowledge base items, code examples or checklist you need to run the following commands in the SKF root directory:
-```
-export FLASK_APP=skf/app.py
-export PYTHONPATH=.:$PYTHONPATH
-flask updatedb
-```
-
-## <a name="updating-dataset"></a>Updating chatbot
-
-There is a method available to update the dataset of the SKF chatbot application.
-
-When you have modified or created new Knowledge base items, code examples or checklist you need to run the following commands in the SKF root directory:
-```
-export FLASK_APP=skf/app.py
-export PYTHONPATH=.:$PYTHONPATH
-flask initdataset
-```
-
-## <a name="usage"></a>Usage
-
-For more detailed information such as setting up an admin account and user guides please see the extended documentation that can be found below:
-
-[Readme: extended documentation](https://skf.readme.io/)  
 
 ## <a name="CI-Pipeline"></a>CI-Pipeline
 

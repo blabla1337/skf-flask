@@ -37,7 +37,7 @@ services:
       - "nginx"
       - "mysql"
     restart: always
-    image: "riiecco/skf-angular-extended:1.3"
+    image: "blabla1337/skf-angular-QQQ"
     environment:
       - FRONTEND_URI=http://localhost
   keycloak:

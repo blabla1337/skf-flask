@@ -5,7 +5,9 @@
 * [Development-API](#development-api)
 * [Development-Angular](#development-angular)
 * [Testing](#testing)
-
+* [Updating Database](#updating-db)
+* [Updating Chatbot](#updating-dataset)
+  
 Wow you landed on the contribution page how awesome you must be to help out and add value to his project! We thank you very much for this and we really appreciate your help. We will reward contributors with recognition on the contributors list of SKF and for people who add new feutures or fix / report security issues we will give you a free OWASP-SKF t-shirt! If you are really bad ass and you add major improvements then you will receive a hoodie of OWASP-SKF with your name on it!
 
 Below are the 2 different parts of SKF and how you can contribute to it, please always make sure that the quality we try to achieve remains intact. Also when you have questions or want to discuss your implementation / contribution please locate us on Gitter.im chat: [![Join the chat at https://gitter.im/Security-Knowledge-Framework/Lobby](https://badges.gitter.im/Security-Knowledge-Framework/Lobby.svg)](https://gitter.im/Security-Knowledge-Framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -101,3 +103,31 @@ export PYTHONPATH=.:$PYTHONPATH
 export FLASK_DEBUG=1
 python3 tests/selenium/run.py
 ```
+
+## <a name="updating-db"></a>Updating Database
+
+There is a method available to update the content of the SKF application.
+
+When you have modified or created new Knowledge base items, code examples or checklist you need to run the following commands in the SKF root directory:
+```
+export FLASK_APP=skf/app.py
+export PYTHONPATH=.:$PYTHONPATH
+flask updatedb
+```
+
+## <a name="updating-dataset"></a>Updating chatbot
+
+There is a method available to update the dataset of the SKF chatbot application.
+
+When you have modified or created new Knowledge base items, code examples or checklist you need to run the following commands in the SKF root directory:
+```
+export FLASK_APP=skf/app.py
+export PYTHONPATH=.:$PYTHONPATH
+flask initdataset
+```
+
+## <a name="usage"></a>Usage
+
+For more detailed information such as setting up an admin account and user guides please see the extended documentation that can be found below:
+
+[Readme: extended documentation](https://skf.readme.io/)  
