@@ -37,7 +37,7 @@ services:
       - "nginx"
       - "mysql"
     restart: always
-    image: "blabla1337/skf-angular-QQQ"
+    image: "blabla1337/skf-angular:4.1.0"
 
     environment:
       - FRONTEND_URI=http://localhost
