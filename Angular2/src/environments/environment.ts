@@ -18,7 +18,7 @@ export const environment = {
       AUTH_METHOD: 'openidprovider',
       AUTH_METHOD: 'skiploginprovider',  
   */
-  AUTH_METHOD: 'openidprovider',
+  AUTH_METHOD: 'skiploginprovider',
   
   /* 
      This config is about wether to show the SKF lab deployment options,  
