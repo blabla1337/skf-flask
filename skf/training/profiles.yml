@@ -5,9 +5,14 @@ profiles:
     name: Secure Development
     text: >-
       This profile is dedicated for developers (Blue security Champions) who want to learn secure
-      development. This course is based on the the OpenSSF Secure Software Development Fundamentals.
+      development.
     iconClass: bx-shield
     courses:
+      - id: '1.0'
+        name: Easy - Secure Development crash course
+        text: Easy - Secure Development crash course
+        iconClass: bx-shield
+        courseFile: training/courses/1.0-quickstart--easy.yaml
       - id: '1.1'
         name: Easy - Secure Development course
         text: Easy - Secure Development course
