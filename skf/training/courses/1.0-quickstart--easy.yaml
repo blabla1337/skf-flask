@@ -4,7 +4,7 @@ id: "1.0"
 name: Quickstart - secure design principles
 assetsPath: assets/training/crash_course/
 content:
-  #- slide: slides/0-Landing/Landing.md
+  #- slide: 0-Landing/Landing.md
 topics:
   - id: 62213c9c-24a0-45c1-b348-9c258e8266b9
     name: Introduction
@@ -14,11 +14,11 @@ topics:
       - id: 04557ef8-04d1-4062-ad26-75948c2a70c5
         name: Introduction to input validation
         content:
-          - slide: slides/input-validation-intro.md
+          - slide: input-validation-intro.md
       - id: 846cf351-a0c7-4b1c-ad3c-ab2aecee3f32
         name: Length checking
         content:
-          - slide: slides/input-validation-length-checking.md
+          - slide: input-validation-length-checking.md
           #- questionnaire: questionnaire/2.md
           - lab:
               hint: Can you do this SQL injection?
@@ -28,7 +28,7 @@ topics:
       - id: e9dc203c-0285-4e6e-9387-f8925e90d1ac
         name: Type checking
         content:
-          - slide: slides/input-validation-type-checking.md
+          - slide: input-validation-type-checking.md
           #- questionnaire: questionnaire/2.md
           - lab:
               hint: Can you do this command injection?
@@ -38,7 +38,7 @@ topics:
       - id: ee5eb3be-2c5d-4716-89dd-2cbb8be1bb06
         name: white listing
         content:
-          - slide: slides/input-validation-white-list.md
+          - slide: input-validation-white-list.md
           #- questionnaire: questionnaire/2.md
           - lab:
               hint: Can you do this path traversal?
@@ -54,9 +54,9 @@ topics:
       - id: 207aebc4-be8f-46db-92af-40b4f524c99a
         name: Threatmodeling introduction
         content:
-          - slide: slides/threatmodeling-intro.md
+          - slide: threatmodeling-intro.md
       - id: 69cbeda6-0f21-4ac3-a2e4-61d59173dcca
         name: Threatmodeling process
         content:
-          - slide: slides/threatmodeling-process.md
+          - slide: threatmodeling-process.md
           #- questionnaire: questionnaire/1.2.md
