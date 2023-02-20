@@ -152,6 +152,7 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Daniel Paulus
 - [Erik de Kuijper](https://twitter.com/edkpr)
 - Roderick Schaefer
+- [Alex Romero](https://github.com/NtAlexio2)
 - [Jim Manico](https://twitter.com/manicode)
 - Martijn Gijsberti Hodenpijl
 - Bithin Alangot
