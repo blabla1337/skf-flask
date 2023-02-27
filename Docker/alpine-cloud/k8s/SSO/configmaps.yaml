@@ -126,23 +126,6 @@ data:
         },{
           "endpoint": "/api/interactive_labs/deployments/{instance_id}",
           "method": "POST",
-          "extra_config": {
-              {{ include "rate_limit_backend.tmpl" }},
-              "github.com/devopsfaith/krakend-jose/validator": {
-                  {{ include "jwt_settings.tmpl" }},
-                  "roles": ["user", "admin"]
-              }
-          },
-          "backend": [
-              {
-                "method": "POST",
-                "host":[" {{ .service.host }} "],
-                "url_pattern": "/api/interactive_labs/deployments/{instance_id}"
-              }
-          ]
-        },{
-          "endpoint": "/api/interactive_labs/deployments/no-auth/{instance_id}",
-          "method": "POST",
           "backend": [
               {
                 "method": "POST",
