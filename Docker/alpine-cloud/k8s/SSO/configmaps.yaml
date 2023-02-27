@@ -141,6 +141,16 @@ data:
               }
           ]
         },{
+          "endpoint": "/api/interactive_labs/deployments/no-auth/{instance_id}",
+          "method": "POST",
+          "backend": [
+              {
+                "method": "POST",
+                "host":[" {{ .service.host }} "],
+                "url_pattern": "/api/interactive_labs/deployments/{instance_id}"
+              }
+          ]
+        },{        
           "endpoint": "/api/interactive_labs/items",
           "method": "GET",
           "extra_config": {
