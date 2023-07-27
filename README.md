@@ -195,3 +195,4 @@ Licensed under the [creative commons](http://creativecommons.org/licenses/by-nd/
 - Xavier Rene-Corail
 - Jacob O'Toole (on behalf of MeVitae)
 - Luca Famà
+- Volkan Dindar
