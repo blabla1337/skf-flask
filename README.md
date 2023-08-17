@@ -70,3 +70,4 @@ Because of this we decided to develop a framework in order to create a guide-sys
 - Xavier Rene-Corail
 - Jacob O'Toole (on behalf of MeVitae)
 - Luca Famà
+- Volkan Dindar
