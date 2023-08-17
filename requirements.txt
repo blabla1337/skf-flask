@@ -3,7 +3,7 @@ bs4==0.0.1
 Click==7.1.2
 coverage==5.5
 elastic-apm==6.0.0
-Flask==1.1.2
+Flask==2.3.2
 Flask-Bcrypt==0.7.1
 Flask-CLI==0.4.0
 Flask-Cors==3.0.10
