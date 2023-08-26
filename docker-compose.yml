@@ -34,12 +34,14 @@ services:
       - ./Docker/compose/site.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
+    depends_on:
+      - "skf-api"
+      - "skf-angular"
 
   skf-angular:
     container_name: skf-angular_container
     depends_on:
       - "rabbitmq"
-      - "nginx"
       - "mysql"
     restart: always
     image: "blabla1337/skf-angular:4.0.2"
@@ -51,7 +53,6 @@ services:
     container_name: skf-api_container
     depends_on:
       - "rabbitmq"
-      - "nginx"
       - "mysql"
     restart: always
     volumes:
