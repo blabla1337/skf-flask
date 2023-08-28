@@ -44,6 +44,13 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8888
+          resources:
+            requests:
+              cpu: 2000m # 2vCPU
+              memory: 2000Mi # 2Gi
+            limits:
+              cpu: 2000m # 2vCPU
+              memory: 2000Mi # 2Gi
           env:
             - name: SKF_FLASK_DEBUG
               valueFrom:

@@ -128,5 +128,6 @@ Furthermore you need to change the ingress host to match your domain.
 We currently have guides for:
 - [Google Kubernetes Engine (GKE)](GCP.md)
 - [Azure Kubernetes Service (AKS)](Azure.md)
+- [Amazon Elastic Kubernetes Service (AWS EKS)](AWS.md)
 
 Please contribute a guide if you're deploying to another service!

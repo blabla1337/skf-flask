@@ -8,7 +8,7 @@ data:
   SKF_API_URL: "https://demo.securityknowledgeframework.org/api"
   SKF_FLASK_DEBUG: "False"
   #SKF_DB_URL: sqlite:///db/db.sqlite
-  SKF_DB_URL: mysql+pymysql://root:admin-skf-secret@mysql/skf?charset=utf8mb4
+  SKF_DB_URL: mysql+pymysql://root:admin-skf-secret@mysql.mysql.svc.cluster.local/skf?charset=utf8mb4
   SKF_DOJO_API_KEY: optional
   SKF_TESTING: "False"
   # labs always need to use HTTP and NOT HTTPS
@@ -29,6 +29,8 @@ metadata:
 data:
   # Always use HTTPS in the below ENV
   FRONTEND_URI: https://demo.securityknowledgeframework.org
+  # To skip login, provide any value different than skfprovider to the SKIP_LOGIN variable
+  SKIP_LOGIN: skiploginprovider
 ---  
 apiVersion: v1
 kind: ConfigMap
@@ -42,6 +44,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mysql
+  namespace: mysql
 data:
   MYSQL_ROOT_PASSWORD: admin-skf-secret
   MYSQL_DEFAULT_USER: root
