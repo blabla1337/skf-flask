@@ -1,4 +1,4 @@
-apiVersion: "extensions/v1beta1"
+apiVersion: "networking.k8s.io/v1"
 kind: "Ingress"
 metadata:
   name: "skf-ingress-controller"
@@ -17,14 +17,23 @@ spec:
     http:
      paths:
      - backend:
-         serviceName: skf-flask-front
-         servicePort: 8788
-       path: /  
+         service:
+           name: skf-flask-front
+           port:
+             number: 8788
+       path: /
+       pathType: Prefix  
      - backend:
-         serviceName: skf-flask-back
-         servicePort: 8888
+         service:
+           name: skf-flask-back
+           port:
+             number: 8888
        path: /api
+       pathType: Prefix
      - backend:
-         serviceName: skf-flask-back
-         servicePort: 8888
+         service:
+           name: skf-flask-back
+           port:
+             number: 8888
        path: /swaggerui
+       pathType: Prefix
