@@ -11,6 +11,8 @@ CHATBOT_LOG = "db"
 SKF_API_URL = os.environ.get("SKF_API_URL") or "https://beta.securityknowledgeframework.org/api/"
 ORIGINS = '*'
 
+SKF_LABS_NAMESPACE = os.environ.get("SKF_LABS_NAMESPACE") or "skflabs"
+
 # Flask-Restplus settings
 RESTPLUS_SWAGGER_UI_DOC_EXPANSION = 'list'
 RESTPLUS_VALIDATE = True

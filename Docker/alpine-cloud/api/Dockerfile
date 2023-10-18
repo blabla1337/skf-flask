@@ -5,7 +5,7 @@
 # base image
 FROM python:3.7-slim-stretch
 
-LABEL maintainer="glenn.ten.cate@owasp.org"
+RUN echo "deb http://archive.debian.org/debian stretch main contrib non-free" > /etc/apt/sources.list
 
 RUN apt-get update &&\
     apt-get install -y --no-install-recommends \
@@ -25,26 +25,30 @@ RUN groupadd --gid 1000 user_api && useradd --uid 1000 --gid user_api -m user_ap
 WORKDIR /home/user_api
 USER user_api
 
-RUN mkdir .kube .config .config/pip
+RUN mkdir .kube .config .config/pip /home/user_api/.local /home/user_api/.local/bin
+
+ENV PATH="$PATH:/home/user_api/.local/bin"
 RUN echo "[global]\nextra-index-url=https://www.piwheels.org/simple" >> .config/pip/pip.conf
-RUN pip3 install --upgrade pip --no-cache-dir &&\
-    pip3 install --user nltk --no-cache-dir &&\
-    pip3 install --user cython --no-cache-dir 
+RUN pip3 install --trusted-host www.piwheels.org --trusted-host pypi.org --trusted-host pypi.python.org  --upgrade pip --no-cache-dir 
+RUN pip3 install --trusted-host www.piwheels.org --trusted-host pypi.org --trusted-host pypi.python.org  --user nltk --no-cache-dir 
+RUN pip3 install --trusted-host www.piwheels.org  --trusted-host pypi.org --trusted-host pypi.python.org  --user cython --no-cache-dir 
 
 # Enrich ntlk data sets
 RUN python3 -m nltk.downloader punkt stopwords 
 
 # Magic below for PI docker image speeding up
-RUN if [ `ps auwxf | grep qemu-arm | wc -l` = 4 ]; \
-then \
-  pip3 install --user numpy==1.19.0rc2 scipy==1.5.0rc2 --no-cache-dir; \
-else \
-  pip3 install --user numpy scipy --no-cache-dir; \
-fi 
+#RUN if [ `ps auwxf | grep qemu-arm | wc -l` = 4 ]; \
+#then \
+#  pip3 install --trusted-host www.piwheels.org  --trusted-host pypi.org --trusted-host pypi.python.org  --user numpy==1.19.0rc2 scipy==1.5.0rc2 --no-cache-dir; \
+#else \
+#  pip3 install --trusted-host www.piwheels.org  --trusted-host pypi.org --trusted-host pypi.python.org  --user numpy scipy --no-cache-dir; \
+#fi 
+
+RUN pip3 install --trusted-host www.piwheels.org  --trusted-host pypi.org --trusted-host pypi.python.org  --user numpy scipy --no-cache-dir
 
 # Intall packages from requirements.txt
 COPY --chown=user_api:user_api ./requirements.txt /home/user_api/requirements.txt
-RUN pip3 install --user  -r requirements.txt --no-cache-dir
+RUN pip3 install --trusted-host www.piwheels.org  --trusted-host pypi.org --trusted-host pypi.python.org  --user  -r requirements.txt --no-cache-dir
 
 COPY --chown=user_api:user_api ./Docker/alpine-cloud/api/entrypoint.sh  /home/user_api/entrypoint.sh
 

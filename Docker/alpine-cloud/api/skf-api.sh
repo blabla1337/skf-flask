@@ -9,11 +9,11 @@ then
  export KUBECONFIG=/home/user_api/.kube/config
 fi
 
-if [ "$GOOGLE_CREDENTIALS" -gt 10 ]
-then
- echo $GOOGLE_CREDENTIALS | base64 -d  > /home/user_api/.kube/gsa-key.json 
- export GOOGLE_APPLICATION_CREDENTIALS=/home/user_api/.kube/gsa-key.json 
-fi
+#if [ "$GOOGLE_CREDENTIALS" -gt 10 ]
+#then
+# echo $GOOGLE_CREDENTIALS | base64 -d  > /home/user_api/.kube/gsa-key.json 
+# export GOOGLE_APPLICATION_CREDENTIALS=/home/user_api/.kube/gsa-key.json 
+#fi
 
 #to get the base64 string of your .kube/config run:
 #cat ~/.kube/config | base64
