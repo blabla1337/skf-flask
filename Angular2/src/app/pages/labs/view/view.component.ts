@@ -109,7 +109,7 @@ export class LabViewComponent implements OnInit
       Swal.queue([
         {
           title: 'Lab deployment URL',
-          text: this.lab,
+          html: '<a href=\"' + this.lab + '\" target=\"_blank\">' + this.lab + '</a>',
           confirmButtonText: 'Close',
           confirmButtonColor: '#8184B2',
           showLoaderOnConfirm: true,

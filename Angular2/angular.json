@@ -141,7 +141,7 @@
       }
     }
   },
-  "defaultProject": "Angular2",
+//  "defaultProject": "Angular2",
   "cli": {
     "analytics": false
   }
