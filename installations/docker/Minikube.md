@@ -24,7 +24,7 @@ Then we need to change the docker-compose.yaml file.
 First we need to get the base64 encode of the ~./kube/config file:
 
 ```
-cat ~./kube/config | base64 | tr -d '\n'
+cat ~/.kube/config | base64 | tr -d '\n'
 ```
 
 Copy the output of the above command and set it as value for the ```LABS_KUBE_CONF``` variable:
