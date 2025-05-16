@@ -70,3 +70,8 @@ Because of this we decided to develop a framework in order to create a guide-sys
 - Xavier Rene-Corail
 - Jacob O'Toole (on behalf of MeVitae)
 - Luca Famà
+
+## Known Issues
+
+- If you're experiencing login problems, please see the [Login Troubleshooting Guide](LOGIN_TROUBLESHOOTING.md).
+- Note that this repository is archived. For the latest version of SKF, please visit the new repositories listed at the top of this README.
