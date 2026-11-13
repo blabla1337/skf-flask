@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit
     public token: any;
     public errormsg = false;
     public expired = false;
+    public showPassword = false;
     public loginMethod = environment.AUTH_METHOD;
 
     constructor(
@@ -73,7 +74,12 @@ export class LoginComponent implements OnInit
                 window.location.assign("/dashboard");
             }
         },
-            () => this.errormsg = true);
+            () => { this.errormsg = true; this.showPassword = false; });
+    }
+
+    togglePasswordVisibility()
+    {
+        this.showPassword = !this.showPassword;
     }
 
     onSkip()

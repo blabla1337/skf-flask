@@ -96,4 +96,47 @@ describe('LoginComponent', () =>
     expect(component.loginForm.valid).toBeFalsy();
     expect(component.errormsg).toBeTruthy();
   });
+
+  describe('password visibility toggle', () => {
+    let input: HTMLInputElement;
+    let button: HTMLButtonElement;
+
+    beforeEach(() => {
+      fixture.detectChanges();
+      const el: HTMLElement = fixture.nativeElement;
+      input = el.querySelector('#userpassword');
+      button = el.querySelector('#userpassword ~ .input-group-append button');
+    });
+
+    it('masks the password by default', () => {
+      expect(input.type).toBe('password');
+      expect(button.querySelector('i').classList).toContain('mdi-eye');
+    });
+
+    it('reveals and re-masks the password on click', () => {
+      button.click();
+      fixture.detectChanges();
+      expect(input.type).toBe('text');
+      expect(button.querySelector('i').classList).toContain('mdi-eye-off');
+      expect(button.getAttribute('aria-label')).toBe('Hide password');
+
+      button.click();
+      fixture.detectChanges();
+      expect(input.type).toBe('password');
+      expect(button.querySelector('i').classList).toContain('mdi-eye');
+      expect(button.getAttribute('aria-label')).toBe('Show password');
+    });
+
+    it('is a non-submitting button', () => {
+      expect(button.type).toBe('button');
+    });
+
+    it('does not call onLogin or change the value when toggled', () => {
+      spyOn(component, 'onLogin');
+      component.loginForm.controls['password'].setValue('secret');
+      button.click();
+      expect(component.onLogin).not.toHaveBeenCalled();
+      expect(component.loginForm.controls['password'].value).toBe('secret');
+    });
+  });
 });
