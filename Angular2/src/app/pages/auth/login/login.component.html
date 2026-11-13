@@ -36,8 +36,17 @@
   
                   <div class="form-group">
                     <label for="userpassword">Password</label>
-                    <input formControlName="password" type="password" class="form-control" id="userpassword"
-                      placeholder="Enter password">
+                    <div class="input-group">
+                      <input formControlName="password" [type]="showPassword ? 'text' : 'password'" class="form-control"
+                        id="userpassword" placeholder="Enter password" autocomplete="current-password">
+                      <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()"
+                          [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+                          [attr.aria-pressed]="showPassword">
+                          <i class="mdi" [ngClass]="showPassword ? 'mdi-eye-off' : 'mdi-eye'"></i>
+                        </button>
+                      </div>
+                    </div>
                   </div>
   
                   <div class="custom-control custom-checkbox">
